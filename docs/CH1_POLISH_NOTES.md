@@ -56,6 +56,10 @@ Legend: 🟥 broken · 🟧 wrong/confusing · 🟨 minor/cosmetic · 💡 idea 
 - **"It's a Wii" replaced** with a tone-appropriate moved-in flavor line.
 - **Text-on-black cold open** — replaced the stock professor intro with Apocrypha narration: black screen "…" → "…Honey? We're here. Wake up, sleepyhead — you slept the whole way." → fade → the house fades up on "We made it. Our new home!" Implemented as new states in the oaks_speech intro overlay (hide the orange intro BG layers, run two centered white-on-black lines, skip the player-shrink, hand straight to the field). New-game verified intact. (Removed the now-duplicate field "wake up" line.)
 
+ADDENDUM:
+- **Kestra step-over** — in Scene 1 she now walks one tile to stand beside the player and they turn to face each other, instead of the move_person_facing teleport-pop. Rig-verified (Scene 1 completes, no hang; she's west of the player, facing in).
+- **Double-naming: not an issue** — the intro overlay already skips naming (oaks_speech.c line ~1971: "skip naming (deferred to the Kestra meeting)"). RAM-confirmed the player is unnamed after the cold open; named once, by Kestra in Scene 1.
+
 # PRIORITIZED SUMMARY (for a first-time player who knows the originals)
 
 ### Clear fixes I can just make
