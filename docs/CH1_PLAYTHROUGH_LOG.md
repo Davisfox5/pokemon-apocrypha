@@ -14,8 +14,8 @@ Severity: 🟥 blocker (can't continue) · 🟧 major · 🟨 minor/cosmetic · 
 | 3 | O-2 Upstairs PC | Couldn't auto-verify: rig can't fire **interior stairs** warps (doors work, stairs don't). Script *reads* correct (Potion + var=2). | 🟨 | needs human spot-check |
 | 4 | O-3 Pokégear `_007` | Fires (verified via scene-jump earlier) | ✅ | OK |
 | 5 | SCENE 1 `_012` | **Completes**: `OW`→1 after ~281 presses; naming works; player ends facing Kestra's tile (dir N) | ✅ | OK |
-| 6 | SCENE 1 camera | `scrcmd_102 556,403` **never pans to the Gold/Silver battle** — camera stays on player/house the entire pre-naming sequence. The "I can't see the battle" complaint, confirmed. | 🟧 | non-blocking; needs fix |
-| 7 | SCENE 1 crowd | Onlookers (`gsboy1`/`gsbigman`) remain standing after the scene (never hidden) | 🟨 | non-blocking |
+| 6 | SCENE 1 camera | ~~`scrcmd_102` never pans~~ **FIXED**: the camera-pan command is a no-op here, so instead the player now **walks down into the crowd (544,396→554,400)** to watch the fight (recorded path, avoids every actor). Rig-verified: the player is among the crowd with Gold/Silver + onlooker lines on-screen. | 🟧→✅ | **FIXED + verified** |
+| 7 | SCENE 1 crowd | **FIXED**: the whole battle crowd (`gsboy1/gsbigman/gsoldman1/gswoman1/gsmiddleman1`) is hidden during the naming fade (no visible pop). Only the permanent Cherrygrove guide NPC remains. | 🟨→✅ | **FIXED + verified** |
 | 8 | SCENE 1 length | ~15 message boxes before the player can move; feels long | 🟨 | content note |
 | 9 | S2-A Rescue `_013` | Kestra **visible** & searching (the invisible-Kestra fix worked); wild **RATTATA** appears; **catching demo battle runs** (Marill vs Rattata); `OW`→2 | ✅ | OK |
 | 10 | S2-A demo hero | Catching demo renders **Marill + generic hero**, not Gold (engine-demo limitation) | ⬜ | by-design caveat |
