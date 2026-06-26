@@ -19,8 +19,8 @@ Severity: 🟥 blocker (can't continue) · 🟧 major · 🟨 minor/cosmetic · 
 | 8 | SCENE 1 length | ~15 message boxes before the player can move; feels long | 🟨 | content note |
 | 9 | S2-A Rescue `_013` | Kestra **visible** & searching (the invisible-Kestra fix worked); wild **RATTATA** appears; **catching demo battle runs** (Marill vs Rattata); `OW`→2 | ✅ | OK |
 | 10 | S2-A demo hero | Catching demo renders **Marill + generic hero**, not Gold (engine-demo limitation) | ⬜ | by-design caveat |
-| 11 | **Ceremony seam** | `_013` does `fade→black` + `warp 557,404` + `end` with **no `releaseall`**; `_014` is a separate coord trigger that can't fire on warp-arrival while the player is locked → **permanent black screen, chapter cannot continue** | 🟥 | **BLOCKER — fixing** |
-| 12 | S2-B Ceremony `_014` | Never reached in normal play (blocked by #11). Code path looks complete (choose_starter, Running Shoes, Map Card) but unverified live. | — | blocked by #11 |
+| 11 | **Ceremony seam** | ~~`_013` warps + `end`s with no `releaseall` → permanent black screen~~ **FIXED**: removed the warp; Gold now walks the player + Kestra home (recorded collision-free choreography) with a Mart/Center tour stop, ducks inside (kids glance, then back to the door), returns, ceremony proceeds. Rig-verified end-to-end: rescue → walk → ceremony → `OW→3`, ends in `field` (no black screen), starter + gear granted. | 🟥→✅ | **FIXED + verified** |
+| 12 | S2-B Ceremony | Now reached via the walk; `choose_starter` + Running Shoes + Map Card run; `OW→3`. | ✅ | OK |
 
 ### Notes
 - "AAAAAAA" in the menu = the **player name the rig typed** by A-mashing the naming keyboard (7 ×'A'), *not* a bug. Useful side-effect: the rig clears `name_player` without a touch handler.

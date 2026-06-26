@@ -142,3 +142,20 @@ def nav_to(e, tx, tz, max_steps=120, avoid=None, path=None):
             if not moved:
                 return "stuck@(%d,%d)" % (x,z)
     return "maxsteps@(%d,%d)" % (R.loc(e)["x"], R.loc(e)["z"])
+
+
+def trigger_coord(e, tx, tz, settle=8):
+    """Walk onto a coord-trigger tile and make sure the scene actually fires
+    (coord scripts fire on a STEP, and nav can arrive a frame early). Oscillate
+    on/off the tile until state goes box/black, never stepping onto a warp tile.
+    Returns True if a scene fired."""
+    nav_to(e, tx, tz, avoid=CHERRYGROVE_WARPS)
+    for _ in range(settle):
+        if e.state() in ("box","black"): return True
+        e.wait(10)
+    for k in ("DOWN","UP","LEFT","RIGHT","UP","DOWN"):
+        l = R.loc(e); nxt = (l["x"]+DIRS[k][0], l["z"]+DIRS[k][1])
+        if nxt in CHERRYGROVE_WARPS: continue
+        e.press(k, hold=16, after=12)
+        if e.state() in ("box","black"): return True
+    return e.state() in ("box","black")
