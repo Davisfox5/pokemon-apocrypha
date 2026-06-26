@@ -54,6 +54,7 @@ Legend: 🟥 broken · 🟧 wrong/confusing · 🟨 minor/cosmetic · 💡 idea 
 - **Mom faces the player** during the cold-open conversation (was: back turned).
 - **Pokégear line fixed** — Mom no longer claims "your Trainer Card and the save… all in your menu now" (those are deferred to naming); now just Bag + options.
 - **"It's a Wii" replaced** with a tone-appropriate moved-in flavor line.
+- **Text-on-black cold open** — replaced the stock professor intro with Apocrypha narration: black screen "…" → "…Honey? We're here. Wake up, sleepyhead — you slept the whole way." → fade → the house fades up on "We made it. Our new home!" Implemented as new states in the oaks_speech intro overlay (hide the orange intro BG layers, run two centered white-on-black lines, skip the player-shrink, hand straight to the field). New-game verified intact. (Removed the now-duplicate field "wake up" line.)
 
 # PRIORITIZED SUMMARY (for a first-time player who knows the originals)
 
