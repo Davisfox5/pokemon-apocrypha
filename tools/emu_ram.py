@@ -62,3 +62,10 @@ def snapshot(emu, vids=(VAR_SCENE_PLAYERS_HOUSE_1F, VAR_SCENE_CHERRYGROVE_CITY_O
     s = loc(emu)
     s["vars"] = {hex(v): var(emu, v) for v in vids}
     return s
+
+
+def set_var(emu, vid, value):
+    """Write a script variable (u16). With per-frame scene re-eval, poking a scene
+    var makes its gated scene fire immediately -> instant scene-jump for testing."""
+    addr = _block(emu, VARS_BLOCK_ID) + 2 * (vid - VAR_BASE)
+    emu.emu.memory.write_short(addr, value)
