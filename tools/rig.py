@@ -68,10 +68,77 @@ if __name__ == "__main__":
         print("COLD OPEN DID NOT COMPLETE - see rig_coldopen_stuck.png")
 
 
-def go_through_warp(e, direction, steps_to_tile=1):
-    """Walk onto a warp tile then press again to walk THROUGH it (warps need the
-    second press to trigger). Caller positions the player adjacent first."""
-    for _ in range(steps_to_tile):
-        e.press(direction, hold=16, after=14)   # step onto the warp tile
-    e.press(direction, hold=20, after=40)        # walk through -> warp fires
-    e.wait(120)
+def go_through_warp(e, direction, timeout=140):
+    """Step into a warp and WAIT for the map id to actually change (warps fire with
+    a transition delay; some doors need a second walk-through press)."""
+    start = R.loc(e)["mapId"]
+    for attempt in range(2):
+        e.press(direction, hold=18, after=4)
+        for _ in range(timeout):
+            if R.loc(e)["mapId"] != start:
+                e.wait(22)
+                return True
+            e.wait(4)
+    return False
+
+
+def walk_to(e, key, n):
+    for _ in range(n):
+        e.press(key, hold=16, after=12)
+
+
+# Cherrygrove (map 67) warp tiles — stepping on these warps you off-map, so the
+# navigator must route AROUND them when heading for an overworld coord trigger.
+CHERRYGROVE_WARPS = {(564,391),(555,391),(547,399),(558,401),(567,405)}
+
+DIRS = {"UP":(0,-1),"DOWN":(0,1),"LEFT":(-1,0),"RIGHT":(1,0)}
+
+
+def nav_to(e, tx, tz, max_steps=120, avoid=None, path=None):
+    """Greedy walk toward (tx,tz): dominant axis first, perpendicular escape when
+    blocked, never stepping onto an `avoid` tile (e.g. warps). Stops early if a
+    scene fires (state box/black). Returns a reason string. If `path` is a list,
+    each newly-entered tile is appended to it (for choreography path capture)."""
+    avoid = set(avoid or ())
+    recent = []  # anti-oscillation memory of last few tiles
+    def _rec():
+        if path is not None:
+            t = (R.loc(e)["x"], R.loc(e)["z"])
+            if not path or path[-1] != t: path.append(t)
+    _rec()
+    for _ in range(max_steps):
+        _rec()
+        if e.state() in ("box","black"):
+            return "scene"
+        l = R.loc(e); x,z = l["x"], l["z"]
+        if (x,z) == (tx,tz):
+            return "arrived"
+        dx,dz = tx-x, tz-z
+        ax = ["LEFT" if dx<0 else "RIGHT"] if dx else []
+        az = ["UP" if dz<0 else "DOWN"] if dz else []
+        prefs = (ax+az) if abs(dx)>=abs(dz) else (az+ax)
+        for k in ("UP","LEFT","RIGHT","DOWN"):
+            if k not in prefs: prefs.append(k)
+        moved = False
+        for k in prefs:
+            ddx,ddz = DIRS[k]
+            nxt = (x+ddx, z+ddz)
+            if nxt in avoid: continue
+            if nxt in recent[-3:]: continue          # don't immediately backtrack
+            e.press(k, hold=16, after=10)
+            if e.state() in ("box","black"): return "scene"
+            now = (R.loc(e)["x"], R.loc(e)["z"])
+            if now != (x,z):
+                recent.append((x,z)); moved = True; break
+        if not moved:
+            # allow a backtrack step to escape a dead end
+            for k in prefs:
+                ddx,ddz = DIRS[k]
+                if (x+ddx,z+ddz) in avoid: continue
+                e.press(k, hold=16, after=10)
+                if e.state() in ("box","black"): return "scene"
+                if (R.loc(e)["x"],R.loc(e)["z"]) != (x,z):
+                    moved = True; break
+            if not moved:
+                return "stuck@(%d,%d)" % (x,z)
+    return "maxsteps@(%d,%d)" % (R.loc(e)["x"], R.loc(e)["z"])
