@@ -48,6 +48,13 @@ Legend: 🟥 broken · 🟧 wrong/confusing · 🟨 minor/cosmetic · 💡 idea 
 
 ---
 
+## ✅ FIXED THIS PASS (verified via rig)
+- **Gold catches the Rattata himself** — replaced the player/Marill catching-tutorial with a Gold-throws-the-ball cutscene (face → throw SE → it struggles → caught fanfare). No wrong-gender hero, no ~150-press tutorial (scene is ~160 presses shorter), and his lines are reworded confident ("Stand back… let me show you how this is done." / "...And - gotcha. Still got the touch.") — fixes the "no Pokémon / nervous" continuity.
+- **Door is gated** — Mom steps onto the front door at the end of the cold open and blocks BOTH the direct path and the (4,10) bypass; the player can't leave for Cherrygrove at H=1. She moves off at the Pokégear hand-off.
+- **Mom faces the player** during the cold-open conversation (was: back turned).
+- **Pokégear line fixed** — Mom no longer claims "your Trainer Card and the save… all in your menu now" (those are deferred to naming); now just Bag + options.
+- **"It's a Wii" replaced** with a tone-appropriate moved-in flavor line.
+
 # PRIORITIZED SUMMARY (for a first-time player who knows the originals)
 
 ### Clear fixes I can just make
