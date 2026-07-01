@@ -490,3 +490,61 @@ referenced by maps/`src`):
 9. **Encounter/level pass** — see [JOHTO_BATTLES.md](JOHTO_BATTLES.md): Route 34 wild
    table (with the newly-common Oddish), the six Route 34 trainer teams, the Kestra
    send-off rosters, and the Goldenrod-gym deferral note.
+
+---
+
+## Implementation status (2026-07-01)
+
+**Status: ✅ story spine implemented** (4.0 data → 4.6 arrival), builds clean
+(`MAKE EXIT=0`). Ambient-interior flavor pass still open; not yet play-tested.
+
+### What shipped
+
+- **Data pass:** the six Route 34 sight-trainers re-lined/re-teamed (Gina's
+  displaced Oddish, Keith's Growlithe ace, Brandon's Whismur/Bidoof); Kestra
+  send-off on rival slots 4-6 (LYRA class, evolved counter-starter ace 21,
+  all-Johto, Super Potion); R34 wild table with newly-common Oddish, rare
+  Ditto/Whismur.
+- **4.1/4.2:** Rocket-takeover slots permanently hidden (init +
+  deterministic `T25_018`); big-arrival silent one-shot on the R34 gate band
+  (`VAR_APOC_CH4_SCENE` 0→1); plaza Kestra pull at the Dept Store front
+  (val 1→2, reveals the tower slot); four street ambients rethemed.
+- **4.3/4.4:** Mel on the vanilla tower leader slot — on-air brush-off,
+  then the full broadcast/brag/interrogation/snap-decision chain
+  (`MEL_MET`, val 3); Kestra argument + starter-branched send-off battle +
+  goodbye on the vanilla radio-rival slot (`SENDOFF_DONE`, val 4); Mel exits
+  mid-goodbye.
+- **4.5/4.6:** boarding on Mel's pass (attendant + press routine), ride as a
+  four-box monologue over black, warp to Saffron; PA + Mel's KANTO close +
+  walk-off (`SAFFRON_ARRIVED`); platform passenger gallery; the vanilla
+  ITEM_PASS check still guards the return ride — the one-way gate holds.
+
+### Flags/vars
+
+`0x51F-0x526`: GOLDENROD_INTRO_DONE, MEL_MET, RIVAL_SENDOFF_DONE,
+SAFFRON_ARRIVED, HIDE_KESTRA_PLAZA, HIDE_MEL_TOWER, (525 reserved),
+HIDE_MEL_SAFFRON. Var `VAR_APOC_CH4_SCENE` (0x4039): 0 fresh → 1 arrived →
+2 pulled → 3 Mel met → 4 sendoff done.
+
+### Open items (flavor pass)
+
+- R34: skyline hiker, Day-Care couple re-lines, fence local's Oddish line
+  (the wild table + Gina already carry the payoff).
+- Goldenrod interiors: Dept Store clerk/shopper/rooftop, Game Corner
+  attendant, Underground merchant + passer-by, Global Terminal guide +
+  patron, Bill seed, PC international trainer (Mossdeep).
+- Saffron street tease NPCs (T11) + kid-at-window line wiring.
+- Dept Store stock / Game Corner prizes per JOHTO_ITEMS (vanilla stock in
+  place meanwhile).
+
+### Playtest checklist
+
+1. Arrival band on the R34 gate edge fires once, silently.
+2. Plaza scene at (364-366, 370): Kestra placement via move_person_facing,
+   run-off west.
+3. Tower: brush-off pre-plaza; full chain after; Kestra reveal position by
+   the desk (26,25 home → scene staging); send-off battle branches; loss
+   re-entry (argument replays — acceptable?).
+4. Boarding → ride text over black → Saffron landing on (14,7) triggers the
+   arrival scene exactly once; Mel walk-off; return ride correctly blocked
+   (no pass).
