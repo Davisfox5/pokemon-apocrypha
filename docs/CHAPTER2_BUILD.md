@@ -343,3 +343,87 @@ flags are already used by later Johto maps.
 7. Ruins of Alph optional Silph seed.
 8. Route 32/Union/Route 33 item and trainer pass.
 
+
+---
+
+## Implementation status (2026-07-01)
+
+**Status: ✅ implemented** (all eight beats), builds clean (`MAKE EXIT=0`). Not yet
+play-tested — coordinate-level staging below needs an emulator pass.
+
+### What shipped (submodule commits `e322a03..b081298`)
+
+- **Data pass:** every Ch2 trainer slot retuned (parties/levels/AI/classes) with
+  full scenes-spec battle text in `trainers.json`; wild tables for
+  R30/R31/Dark Cave (R31 side)/Sprout 2F-3F/R32/Union 1F-B2F/R33 in
+  `g_enc_data.csv`.
+- **2.1-2.2:** Kestra R30 opener text (msg 14-16); Apricorn man plants
+  Kurt/Wesley; Mr. Pokemon rewritten to the held-item lesson + Quick Claw
+  (vanilla Egg/Oak/Pokedex/Red Scale plot retired, Oak object removed); R31
+  cave-mouth Flash tease, Dark Cave sign, gate attendant; vanilla Lyra
+  Vs.-Recorder ghost scene disabled.
+- **2.3:** Earl+Kestra arrival one-shot west of the gate (`T22_015`,
+  `VAR_SCENE_VIOLET_CITY_OW` 0→1); city sign/practice-hall/school-sign
+  rethemes; school kids carry the Mel radio seed + dismissal, status lesson,
+  Roxanne rumor, inter-region gran line; library = Silph corporate-scholars
+  seed + Azalea seed; mart + PC lobby lines (vanilla Team Rocket history line
+  removed). Earl's vanilla escort replaced with a plain dean chat; his
+  blackboard quiz kept (fits the university).
+- **2.4:** commotion at the tower approach (`T22_002` rewritten, OW 1→2);
+  Ren+Kestra 2F exchange arms **three tag pickups** (one per floor,
+  monstarball affordance); Elder Li is **not battled** — tags-gated dialogue,
+  TM70 Flash, frees Ren's campus thanks (+Oran ×3). Li's "(to Ren)"
+  paralysis line is relayed by Ren on campus (staging: Ren isn't on 3F).
+  Vanilla 3F Silver cutscene removed.
+- **2.5:** practice hall: Falkner slot = TEACHER **Roxanne** (GSWOMAN2
+  overworld), gated on the tower; Geodude 11 / Nosepass 12 (Rock Tomb,
+  Oran Berry, one Potion); TM39 + endorsement + Hoenn seed; **no badge**.
+- **2.6:** Kestra waits outside the hall after the practicum (OW==3 trigger
+  on the doorstep); starter-conditional pre lines; battles rival slots
+  1/2/3 (class `PKMN_TRAINER_LYRA`, name literal "Kestra"); loss re-fires;
+  win → Azalea sendoff, she runs south.
+- **2.7:** Ruins exterior: entrance researcher, two Silph field researchers,
+  Unown-wall Ether (one-time). Nathan retuned to Natu L13.
+- **2.8:** R32 ruins-pointer NPC; PC fisherman = fishing guru (Old Rod);
+  R33 traveler line; Violet Rare Candy ball → X Defense.
+
+### Flags/vars allocated (audited zero-reference before use)
+
+`0x25E` MRPOKEMON_GIFT; block `0x407-0x416`: HIDE_KESTRA_GATE,
+HIDE_REN_TOWERDOORS, (409 reserved), TOWER_RENKESTRA_DONE, TAG1/2/3_RETURNED,
+FLASH_GIVEN, HIDE_REN_CAMPUS, REN_THANKS_DONE, PRACTICUM_DONE,
+KESTRA_BATTLE_DONE, HIDE_KESTRA_GYMFRONT, RUINS_ETHER_TAKEN,
+HIDE_KESTRA_TOWERDOORS, HIDE_EARL_TOWERDOORS. Scene var:
+`VAR_SCENE_VIOLET_CITY_OW` 0=fresh → 1=arrived → 2=commotion done →
+3=practicum done (Kestra armed) → 4=rival battle done.
+
+### Known deviations from the scenes spec
+
+- Tag quest is **retrieve** (build-doc mechanics) rather than **put-back**;
+  Ren's 2.4c line adjusted accordingly ("three more are still out there").
+- Elder Li's "(to Ren)" beat relayed via Ren's campus thanks.
+- Kestra's battle name is hard-coded "Kestra" (only TRAINERCLASS_RIVAL
+  substitutes the save's rival name, but that class forces Silver's battle
+  sprite). If the player renames the rival, the battle screen still says
+  Kestra.
+- Roxanne displays as class TEACHER; practicum students as SCHOOL KID.
+- Minimal invented connective lines (Roxanne early-gate, sage talk states,
+  tag examine text, in-battle LOSE lines for Mikey) — flagged for the
+  dialogue polish pass.
+
+### Playtest checklist (staging placed from map data, not yet verified live)
+
+1. Gate arrival: trigger (510,269) w1 h2; Earl (508,270), Kestra (508,269);
+   road-walk exits west.
+2. Commotion courtyard tiles (485-488, 230-233) walkable; NPC exits into the
+   tower door column (487,231→228); player path to the door post-scene.
+3. Tag object tiles: 1F (16,22), 2F (19,14), 3F (12,26) — guessed from
+   neighboring object coords; verify reachable/visible.
+4. Ren+Kestra 2F spot (15-16,20) walkable.
+5. Kestra gym-front: trigger (478-480,258) fires on stepping off the hall
+   doorstep; her run-off path south.
+6. Ruins: Silph pair (425-426,283-284), researcher (431,284), Ether bg wall
+   (430,286) — verify against actual wall tiles.
+7. Lyra battle sprite renders correctly for class PKMN_TRAINER_LYRA (used by
+   the Trainer House opponent in vanilla, but confirm).
+8. Earl-at-school (vanilla quiz NPC) reads fine alongside the new dean role.
