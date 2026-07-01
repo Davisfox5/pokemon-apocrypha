@@ -441,3 +441,74 @@ APOC block at `0x22E-0x233`; confirm still free at implementation time):
    table, Ilex Forest wild table, operative double-battle teams, Turk's gym team.
 </content>
 </invoke>
+
+---
+
+## Implementation status (2026-07-01)
+
+**Status: ✅ implemented** (all five beats), builds clean (`MAKE EXIT=0`). Not yet
+play-tested; staging coordinates need an emulator pass.
+
+### What shipped
+
+- **Data pass:** Well field team all TRAINERCLASS_SCIENTIST (no Rocket
+  uniforms), split into paired 1-mon entries for the `multi_battle` 2v2 grid
+  (b-sides on vacated hideout slots GRUNT_20/21/25/26); Proton slot = unnamed
+  "Lead"; Turk tag partner on `TRAINER_PARTNER_RIVAL_1` (Ethan backpic);
+  Turk badge team on the Bugsy slot (BUG_CATCHER class: Ledyba/Spinarak
+  screens+web, Shuckle wall, Heracross 17); juniors incl. Hoenn imports
+  (Nincada, Surskit twin); Well + Ilex (Seedot/Oddish drift) wild tables.
+- **3.0/3.1:** entry counting-townsman one-shot (gsman1 rehomed to the rim,
+  pre/post states); polite survey blocker on the vanilla harassment
+  machinery; bench/kiln/wrong-Slowpoke ambience; Kurt recruits (no well
+  jump), post-clear thanks = King's Rock (re-sited per JOHTO_ITEMS) then the
+  untouched vanilla Apricorn crafting loop; Bubbles girl pre/post.
+- **3.2:** Turk recruit (yes/no) warps both down; descending un-recruited
+  bounces you out; three tech fights + Lead, all 2v2 beside Turk, trainer-flag
+  gated, any order (Lead beatable on arrival — the techs are pressure, not
+  gates); ring/terminal examines on the captive-Slowpoke objects; Silph coat
+  case (CARDBOARDBOX sprite) vanishes in the wipe; Lead walk-off; clear
+  restores Slowpoke and keeps vanilla downstream (Farfetch'd/kiln beats).
+- **3.3:** Silver at the well mouth behind a surfacing fade; flicker = 45-frame
+  pause before "...You."; King's Rock exam; League promise; Kurt + Turk
+  buttons; reveals gym Turk.
+- **3.4:** Bugsy officiates (object kept, rematch logic retired); gym Turk
+  badge match -> Hive Badge + TM89 + the enduring/leaving lesson; Kestra
+  west-exit epilogue on the vanilla ambush trigger (`VAR_UNK_4075` 1→2).
+- **3.5:** gatehouse warning; headbutt tutor doubles as the ecological
+  woodsman (Seedot/Oddish, kept mundane); shrine plaque + heavier-air girl
+  (kept supernatural-separate). Vanilla Celebi/Pichu event machinery left
+  in place (inert without event items).
+
+### Flags/vars
+
+`0x417-0x41F`: HIDE_TURK_TOWN, SILVER_MET, BADGE_DONE, HIDE_SILVER_T23,
+HIDE_KURT_T23, HIDE_KESTRA_T23, HIDE_WELL_CASE, KINGSROCK_TAKEN,
+HIDE_TURK_GYM. `0x409` re-purposed as FLAG_APOC_ALWAYS_HIDDEN (retires the
+fallen-Kurt objects). Vars: `VAR_APOC_CH3_WELL_PROGRESS` (0x4034; 1=recruited,
+5=cleared), `VAR_APOC_CH3_AZALEA_SCENE` (0x4038; 0 intro→1→2 Silver
+pending→3 done). `_std_init` seeds the town-actor hides.
+
+### Known deviations / notes for polish
+
+- Turk is not visually present during the Well descent (engine: NPCs can't
+  follow across maps). He IS in every battle (backpic + party) and speaks in
+  every beat; a per-floor placed Turk could be added in a polish pass.
+- Each operative displays as two same-named SCIENTIST trainers in battle
+  (multi_battle needs two opponent entries).
+- The two-tile trigger bands at the east entry (x438/x442) and the well-mouth
+  (433-434,455), plus the Silver-scene actor spots, are map-data guesses —
+  playtest items 1-5 below.
+
+### Playtest checklist
+
+1. East-entry intro trigger fires (bands at x438/x442, z460-470).
+2. Recruit warp lands at (17,8) in the well entrance; bounce gate at (16-18,9)
+   catches an un-recruited entry.
+3. B1F battles: multi_battle partner backpic renders (Ethan), operative pairs
+   correct; loss white-out re-entry state sane.
+4. Lead post-battle staging, case/ring hides, Slowpoke restoration on T23.
+5. Silver scene at (433-434,455): fade staging, walk-offs, gym Turk reveal.
+6. Gym: web puzzle intact, Turk battle, badge/TM89, Kestra epilogue at the
+   west exit; her run-off.
+7. Kurt crafting loop still works after the King's Rock thanks.
