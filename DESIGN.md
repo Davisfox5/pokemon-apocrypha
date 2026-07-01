@@ -9,10 +9,33 @@ It is the single source of truth. Anything not written here is not decided.
 
 ## Technical Foundation
 
-- **Engine**: pokeemerald decomposition project
+- **Engine**: pokeheartgold decomposition project (HGSS / DS). All map, script, charset, and animation work targets this engine.
 - **Scope**: Solo developer. All assets (sprites, tiles, music) reuse existing community resources. Outside help is welcome but not a dependency.
 - **Mega Evolution**: Introduced late-game via community-built implementations. Narratively framed as a rediscovered technique, not a new invention.
 - **Fakemon**: None. The Pokedex is entirely canonical.
+
+---
+
+## Visual Identity & Art Direction
+
+The game looks deliberately different from GSC/HGSS even where it reuses their regions — a visual signal that this is a new story set roughly a decade later. The identity is a **cinematic color grade** applied as a palette-authoring discipline across every tileset. (The DS has no post-process shader, so the "grade" is a consistent rule for how palette entries are chosen, not a filter.)
+
+- **Shadows / dark tones** shift cool — toward teal and blue, never neutral black.
+- **Highlights / light tones** shift warm — toward amber and gold.
+- **Midtones** stay rich but slightly desaturated; avoid GSC's flat primaries.
+- Day/night uses HGSS's existing time-of-day palette tinting, authored to deepen the grade rather than fight it.
+
+**Per-region hue bias** keeps the grade unified while giving each region a distinct temperature:
+
+| Region | Bias |
+|--------|------|
+| Johto | Warm amber light, deep teal seas — golden, settled, coastal |
+| Kanto | Cooler institutional steel and glass; restrained, corporate |
+| Hoenn | Hot, saturated, high-sun; the most vivid region |
+| Sinnoh | Cold, desaturated, high-altitude; sparse and severe |
+| Unova | High-contrast urban; hard light, hard shadow |
+
+**Pilot location:** Cherrygrove City. The grade debuts here in Chapter 1 — same town, different world — and rolls out region by region. Per-town accents layer on top (Cherrygrove's is cherry-blossom pink). See *Chapter 1 — World & Map Design* and [CHAPTER1_BUILD.md](docs/CHAPTER1_BUILD.md) §8.5 for the Cherrygrove application.
 
 ---
 
@@ -71,7 +94,24 @@ Air travel is limited to League or corporate use rather than public infrastructu
 
 ### Pokedex
 
-Canonical Pokemon only. Early encounters are strongly region-specific. The available pool broadens as the player crosses into new regions. Gym leaders predominantly use Pokemon native to their own region to reinforce identity and maintain battle variety across the twenty-badge arc.
+Canonical Pokemon only. Early encounters are strongly region-specific. The available pool broadens as the player crosses into new regions. Gym leaders predominantly use Pokemon native to their own region to reinforce identity and maintain battle variety across the twenty-badge arc. **Trainer** rosters, however, are not bound to the local dex the way **wild** encounters are — see Inter-Regional Exchange.
+
+### Inter-Regional Exchange
+
+The five regions remain culturally and politically distinct, but this is the most connected the Pokemon world has ever been. Rail, the S.S. maritime loop, League data networks, and Goldenrod's region-spanning radio have collapsed the practical distance between regions even as their identities stay separate. A decade of consolidated-League infrastructure means people, goods, information — and Pokemon — move across borders constantly.
+
+This produces a deliberate split in how teams and ecosystems are built:
+
+- **Wild encounters stay *predominantly* native — but the map has shifted over ten years.** What you *catch* in a place still mostly tells you where you are, preserving each region's sense of place. But the consolidated-League decade has let a *limited* number of out-of-region species **naturalize** into areas where it makes ecological sense — and in some places an invasive arrival has **displaced** a native that resettled elsewhere (occasionally in another region entirely). Every such case carries an in-world story: an invasive that found an open niche, a native pushed to new ground. The change should read as a decade of natural drift, not a randomized dex. Keep it sparse — a handful of naturalized migrants per area at most, never a flood — and, where a native is displaced, account for where it went (a forward hook the later area can pay off).
+- **Trainer rosters travel.** What a *trainer* carries reflects their reach, not just their hometown. Rosters stay **native-based**, but carry a number of cross-region imports that scales with how connected the trainer is. This expands roster options at every stage without breaking the regional feel of the world the player explores.
+
+The gradient is the storytelling tool:
+
+- **Ordinary locals** use mostly native Pokemon, with the occasional import as a small "the world is shrinking" grace note (a kid whose cousin shipped them a Pokemon from another region).
+- **Institutional and corporate trainers** — League staff, Silph contractors, Rocket's embedded operatives — keep a native base but salt in a handful of conspicuous imports. A few far-flung Pokemon on a "local" field crew is a quiet tell of an organization with reach the player can't yet see, letting the early game *show* the scope of the conspiracy through team composition long before anyone names it. (See the Slowpoke Well field team in [CHAPTER3_BUILD.md](docs/CHAPTER3_BUILD.md) / [JOHTO_BATTLES.md](docs/JOHTO_BATTLES.md): a Johto base with instrument-like imports whose origins escalate as the player descends.)
+- **Gym leaders** still lead with their region's identity (the Gym Roster rule), but the same logic licenses their established cross-region picks — a leader's personal history, study abroad, or a partner from another region.
+
+Imports and naturalized wilds must remain **level- and stage-appropriate**: cross-region access widens the *species* pool, never the power curve. Early-game imports are low-evolution Pokemon that happen to come from elsewhere, not overleveled threats.
 
 ---
 
@@ -97,7 +137,7 @@ To the west, **Olivine City** expands into a major shipbuilding and port center.
 **Supporting Locations:**
 
 - **Violet City**: Academic capital. Trainer school expanded into university. Houses a pseudo-gym that introduces the League system in a lighthearted tone, deliberately evoking classic Pokemon adventure before the narrative darkens.
-- **New Bark Town**: Quiet starting point. Professor Elm is Johto's leading academic authority and frequent lecturer at Violet's university. Symbolizes scholarship and continuity over spectacle.
+- **New Bark Town**: Johto's Pokemon research hub. What was a sleepy border town has grown around Professor Elm's lab — now a serious research institute and the region's leading academic authority (Elm also lectures at Violet's university). The steady influx of researchers and activity is precisely why **Gold moved out** to quiet Cherrygrove in retirement. It reads as scholarship and continuity over spectacle, but it is busy, not sleepy. Deeper facility access is gated until a later return visit. Chapter 1 keeps it clean — no Silph/Apex presence here; the first conspiracy seed remains the Ruins of Alph.
 
 **Key Characters:**
 
@@ -272,7 +312,7 @@ The region's events center on infrastructure pressure and regional identity rath
 
 ### The Player
 
-An aspiring trainer from Johto who grew up during Silver's era of public leadership. Silver represents everything they want to become: strength, vision, legitimacy. Their early meeting with Silver validates their ambition and binds their sense of purpose to his approval.
+An aspiring trainer who has just moved to **Johto from Kalos** with their mother — a fresh start in a new region. Kalos lies far apart from these five regions and shares little of their history, so the player arrives a true outsider: unfamiliar with Johto's towns, its people, and its legends. They have never even heard of Silver — his fame does not reach Kalos. That changes the moment they arrive: catching the Champion in the flesh on their very first day, and feeling the awe he inspires in everyone around them, ignites an ambition the player didn't know they had. Where a local's reverence for Silver is lifelong, the player's is born on day one — strength, vision, legitimacy, suddenly everything they want to become.
 
 The player is not a chosen one or a prodigy. They are ambitious and inexperienced. They are drawn into conflicts larger than they understand because Silver quietly steers them there, and because the League increasingly relies on capable young trainers as rapid responders.
 
@@ -290,11 +330,19 @@ Silver rebuilt Rocket from the inside out. Project Apex is his attempt to centra
 
 ### The Johto Friend-Rival
 
-A trainer from the same town as the player who shares their admiration for Silver and enthusiasm for the League. Early conversations between them establish the world's values: competition, growth, regional pride.
+**Kestra** — a local of Cherrygrove, the player's new town, whom the player meets for the **first time** the day they arrive, the two of them watching Silver in the street. A kid running on pure enthusiasm who shares the player's admiration for Silver and the League. Their early exchanges establish the world's values: competition, growth, regional pride. (She does not know the player or their name at the outset — their friendship is built over the chapter, not assumed.)
 
 As inconsistencies in Silver's behavior surface, the friend-rival becomes the first voice of doubt. They process the unfolding situation alongside the player and give the narrative a natural way to question events without exposition dumps.
 
 **Arc**: Hero worship to principled dissent. By the late game, they stand with the player not just as a rival but as someone who chose truth over comfortable belief.
+
+### Mel — the Investigative Journalist
+
+**Mel** — a fast-talking broadcaster out of the Goldenrod Radio Tower who runs a program that is part investigative journalism, part talk show. She is sharp, intense, and reckless: she gets scoops nobody else gets because she chases leads off cliffs and treats the fall as research. Introduced in **Chapter 4**, where the Silph Co. detail the player carried out of the Slowpoke Well turns them, in her eyes, into the first hard witness in a Silph story she has been building for over a year. On pure instinct she sweeps the player onto the reopened Magnet Train to Saffron.
+
+**Defining trait**: a force of nature, not a mentor. Her interest in the player is instrumental — they're a source — but her personality makes it feel personal because she treats them as an equal. She is the kind of adult who forgets other people have plans, and she will abandon someone the moment a better story appears. The reader should like her and worry about her at once. **She never battles** (non-combatant by design).
+
+**Arc**: the player's reckless entry point into Kanto and the corporate conspiracy thread. She is *right* about Silph far earlier than she can prove it — and her recklessness is the engine that strands the player abroad (Chapter 5) and keeps pulling them toward what Silph is actually doing. Full Chapter 4 staging and dialogue: [CHAPTER4_BUILD.md](docs/CHAPTER4_BUILD.md) / [CHAPTER4_SCENES_SPEC.md](docs/CHAPTER4_SCENES_SPEC.md).
 
 ### The Hoenn Protagonist
 
@@ -438,7 +486,7 @@ All 18 standard types are represented exactly once. Two additional special mecha
 
 | City | Type | Leader | Notes |
 |------|------|--------|-------|
-| Azalea Town | Bug | Kurt's grandson | Bugsy is actual leader, training his successor. Player's first gym — both combatants' first real battle. Gen 2 Bug roster: Heracross, Forretress, Scizor, Ariados, Ledian, Shuckle. |
+| Azalea Town | Bug | Turk (Kurt's grandson) | Bugsy is actual leader, training his successor. Player's first gym — both combatants' first real battle. Gen 2 Bug roster: Heracross, Forretress, Scizor, Ariados, Ledian, Shuckle. |
 | Ecruteak City | Psychic | Will | Former Johto Elite Four. Stepped down to study under Morty and the Tin Tower sages. Spiritual meditation connects to Psychic discipline. Gen 2 Psychic roster: Espeon, Xatu, Slowking, Girafarig, Wobbuffet. Buck is also present in Ecruteak studying the Burned Tower — story NPC, not gym leader. |
 | Blackthorn City | Fairy | Valerie | Confirmed. Canonical Fairy gym leader from Kalos. Traveled to the Dragon Clan's ancestral home to study the relationship between Dragon and Fairy energy. Ace: Sylveon (cross-region pick from Kalos). Remaining team drawn from Fairies across all regions: Clefable, Azumarill, Granbull, Gardevoir, Mawile, Togekiss, Whimsicott, etc. |
 | Cianwood City | Rock | The Shuckle Trainer | Inspired by the Gen 2 protagonist years ago. Built his identity around Shuckle's defensive philosophy: endurance over aggression. Defensive/stall-oriented gym. Gen 2 Rock roster: Shuckle, Corsola, Magcargo, Sudowoodo. |
@@ -492,7 +540,7 @@ All 18 standard types are represented exactly once. Two additional special mecha
 
 | Type | City | Leader |
 |------|------|--------|
-| Bug | Azalea | Kurt's grandson |
+| Bug | Azalea | Turk (Kurt's grandson) |
 | Psychic | Ecruteak | Will |
 | Fairy | Blackthorn | Valerie (TBD) |
 | Rock | Cianwood | Shuckle Trainer |
@@ -673,6 +721,10 @@ Abandoned Team Plasma research facility on Route 18, repurposed by Rocket. Refer
 - Humor exists in character interactions and world flavor, but the central narrative plays straight.
 - **This is a grown-up Pokemon story, not a different game.** Harder AI, more complex themes, morally ambiguous characters — but it must preserve the tone and values that connect it to the original lore. The world still runs on partnership, discovery, and the bond between trainers and Pokemon. Levity and weight must be carefully balanced in all aspects: event design, dialogue, character arcs, and world-building. Dark themes serve the story; they never become the point.
 
+### Writing Conventions
+
+- **Dialogue over narration.** Drive scenes through characters *speaking*, the way the mainline Pokemon games do. Narration (textboxes with no speaker) is a last resort — use it only when something genuinely cannot be carried by a character's voice (a brief environmental beat or a system message). When in doubt, give the line to a character (often the friend-rival, who is expressive and present early). Keep narration minimal and rare.
+
 ---
 
 ## Chapter Sequencing
@@ -683,29 +735,33 @@ Abandoned Team Plasma research facility on Route 18, repurposed by Rocket. Refer
 **Badges**: 0.
 **Tone**: Classic Pokemon. Warm, personal, lighthearted. The world feels safe and full of possibility. This chapter deliberately evokes the opening hours of Gold/Silver — before the narrative darkens.
 
+#### Scene 0: The Cold Open
+
+There is **no Oak intro and no control-info screen**. From the title screen the game cuts to **black** — a couple of beats of "..." — then the player's **mother**: *"Honey, wake up. We're here. Our new home!"* The screen **gradually brightens** to reveal the player and their mother inside their **new house**, surrounded by moving boxes. The family has just relocated **from Kalos**. Mom conveys the excitement of a fresh start in a new region (without naming Cherrygrove specifically), then sends the player upstairs to see their room and set up their PC (a Potion inside, as tradition). When the player returns downstairs, Mom has moved to give the standard field-menu rundown and hands over the **Pokégear**, after which the player is free to explore. The only choice before the game begins is the player's appearance (boy or girl); the player's **name** is entered later, when they introduce themselves to Kestra. The house interior and full sequence are specced in [CHAPTER1_BUILD.md](docs/CHAPTER1_BUILD.md) §9.
+
 #### Scene 1: Silver in Cherrygrove
 
-The game opens in Cherrygrove City. The player lives here — a small, quiet town on the coast of Johto, notable only for the fact that Gold, the greatest trainer of his generation, retired here.
+The player steps out of their new home into Cherrygrove City — a small, quiet town on the coast of Johto, notable only for the fact that Gold, the greatest trainer of his generation, retired here. They could not have picked a more eventful first day.
 
-Champion Silver is in town visiting Gold, his old rival. The player and their friend-rival (also from Cherrygrove) spot Silver outside Gold's house. They watch from a distance as Silver and Gold have a brief, friendly exchange — two old rivals catching up, relaxed and genuine. Silver's public persona is effortlessly warm. The friend-rival is beside themselves with excitement. The player is equally starstruck but quieter about it.
+Champion Silver is in town visiting Gold, his old rival. As the player steps out, Silver and Gold are wrapping up a friendly battle outside Gold's house — the kind two old rivals have when catching up. Silver wins and ribs Gold warmly about getting rusty in retirement; Gold takes it in stride, unbothered and content in his quiet life (no ego, no unfinished business — the battle is affection, not competition). The player and their friend-rival (also from Cherrygrove) watch from a distance, starstruck — the friend-rival beside themselves with excitement, the player quieter but no less awed. Silver's public persona is effortlessly warm even in victory.
 
-Silver departs without interacting with either of them. The moment is aspirational — the Champion is real, he's right here, and he's everything they want to become.
+Silver departs without interacting with either of them — lifting off on his Pokémon and flying away over the town. The moment is aspirational: the Champion is real, he's right here, and he's everything they want to become.
 
-#### Scene 2: Gold and the Starters
+#### Scene 2: The Rescue and the Starters
 
-The player and friend-rival, buzzing from the Silver sighting, decide it's time to set off on their own journeys. The player heads toward the tall grass on the edge of town — and Gold stops them. You can't go out there without a Pokemon to protect you.
+Kestra, too excited to wait, bolts off to the route north of town to find Pokemon of her own. The player follows — and finds her cornered by a wild Pokemon with nothing to defend herself. **Gold** arrives just in time. His own Pokemon are back at the house, so he does the only thing he can: he catches the wild one outright (*"I hope this works!"*) — the player's first look at catching, framed as a rescue rather than a lesson.
 
-Gold takes both of them back to his house. Inside, he has three Pokeballs — the three original Johto starters: Cyndaquil, Totodile, and Chikorita. These are the same species Elm offered Gold the choice of years ago. Gold lets the player choose first. The friend-rival takes one of the remaining two (always choosing the type advantageous to the player's choice, establishing them as a competitive foil from the start).
+Shaken but unhurt, Gold sighs and takes charge of the two reckless kids — with the old guide gone, showing them the ropes falls to him now. He walks them around town and, after some awkward resistance and relentless pushing from Kestra ("That's what Champions doooo!"), relents and brings out three Pokemon that are *very special* to him: Cyndaquil, Totodile, and Chikorita. The player chooses first; Kestra grabs the type-advantaged counter, establishing her as a competitive foil from the start.
 
-Gold tells them both that if they're serious about becoming trainers, they should visit Professor Elm's lab in New Bark Town. Elm can set them up with a Pokedex — the essential tool for any real journey.
+Kestra races off toward New Bark with a "Smell ya later!" Gold — eager to get back to his garden and his Typhlosion — tells the player to keep an eye on her, and that a Pokedex from Professor Elm in New Bark is the first real step. Full beat-by-beat and committed dialogue: [CHAPTER1_BUILD.md](docs/CHAPTER1_BUILD.md) §10.
 
 #### Scene 3: Route 29 — New Bark Town
 
 The player and friend-rival traverse Route 29 together. This is their first experience with wild Pokemon — low-level encounters, learning the basics of battling with their new starter. The route is short and safe, matching the original GSC experience.
 
-In New Bark Town, Professor Elm greets them warmly. Gold called ahead. Elm provides each of them with a Pokedex, gives a brief orientation on how it works, and reminisces fondly about Gold and Silver — how they set off on their journeys years ago, how proud he is of what they both became. His tone is nostalgic and genuine. The conversation establishes that Silver's public story is one of redemption and growth, universally believed.
+New Bark has grown into Johto's center of Pokemon research — Elm's lab is now a full institute, busy with staff and visiting scholars. Professor Elm greets them warmly all the same. Gold called ahead. Elm provides each of them with a Pokedex, gives a brief orientation on how it works, and reminisces fondly about Gold and Silver — how they set off on their journeys years ago, how proud he is of what they both became. His tone is nostalgic and genuine. The conversation establishes that Silver's public story is one of redemption and growth, universally believed.
 
-There's nothing else to do in New Bark. It's a quiet town — the end of the road, not the beginning. The player and friend-rival head back to Cherrygrove.
+The player is only here for the Pokedex; the deeper facility isn't open to them yet. With nothing else to do this trip, the player and friend-rival head back to Cherrygrove. NPC chatter can plant a quiet detail — that the town's growth into a research hub is exactly why Gold left it for the calm of Cherrygrove.
 
 #### Scene 4: Cherrygrove — The Farewell
 
@@ -727,6 +783,18 @@ The player heads north toward Violet City. The adventure begins.
 - **Classic Pokemon feel**: The opening deliberately mirrors the tone and pacing of the original games. The shift toward darker, more complex themes happens gradually.
 - **Mechanical progression**: Starter → wild encounters → Pokedex → catching tutorial → Pokeballs.
 - **Player's starter**: One of the three original Johto starters (Cyndaquil, Totodile, Chikorita), chosen by the player from Gold's collection.
+
+#### Chapter 1 — World & Map Design (confirmed)
+
+- **Cherrygrove**: A sleepy seaside town defined by "the great Gold retired here," where the player also lives. Scenery: **cherry-blossom grove** (leaning into the name and the warm opening tone); a **visible southern beach** with **idle, non-boardable fishing boats** at the dock (a quiet future-travel hook); **understated reverence for Gold** — neighbors treat him as a beloved local, no statue or shrine, just a town that quietly looks after him.
+- **Silver's departure**: Ambient **townsfolk pause and look up** as the Champion's Murkrow lifts away — town-wide idol worship, not just Kestra's.
+- **Gold's house**: His **Typhlosion is present in the house** during the starter ceremony (the three starter balls and Gold's partner share the room).
+- **The town tour**: The Guide-Gent is **deceased**. **Gold inherits the tour**, delivered begrudgingly — a short onboarding pass (Poké Mart, Pokémon Center, map/running-shoes basics) for the neighbor kids about to leave. He didn't sign up to be a tour guide, but he does it because he cares.
+- **Route 29**: Stays iconic Johto (short, safe, lv 2–4). Scenery: a **ridge overlooking the sea** and full **day/night ambiance**. One **optional hidden item** (a Potion) off the main path — the chapter's single reward for curiosity.
+- **New Bark**: Reframed as Johto's **research hub** (Elm's lab → institute); pass-through this chapter, deeper access gated for later. **Chapter stays clean** — no Silph/Apex seed here.
+- **Encounters & items**: Full tables in [JOHTO_BATTLES.md](docs/JOHTO_BATTLES.md) and [JOHTO_ITEMS.md](docs/JOHTO_ITEMS.md). Interactions and scripted beats live in [CHAPTER1_BUILD.md](docs/CHAPTER1_BUILD.md).
+
+**Cherrygrove — 10 years on (aesthetic redesign):** Cherrygrove pilots the game's cinematic color grade (see *Visual Identity & Art Direction*). It stays small and quiet — Gold's refuge — but has aged and settled: a matured cherry-blossom grove and a small petal-strewn park, a faded fishing waterfront (a weathered pier, idle boats, drying nets), one or two new homes for transplants who came seeking the same quiet Gold did, and a coastal lookout over the sea. Change through detail and weathering, not sprawl. Route 29 and New Bark adopt the same grade with their own character — Route 29 carries a west→east handoff from Gold's blossom-lined town to ordinary woodland, and New Bark runs a cooler, cleaner "research campus" accent (the deliberate opposite of Cherrygrove's warm quiet — exactly what Gold left). Concrete tile/object placements and the asset list are in [CHAPTER1_BUILD.md](docs/CHAPTER1_BUILD.md) §8.5.
 
 ---
 
@@ -846,7 +914,7 @@ The player arrives in Azalea Town after Route 33. It's a small, quiet town built
 
 **Kurt**, the master Pokeball craftsman, is agitated. He's elderly now — too old to investigate himself — but he's hearing reports of activity inside Slowpoke Well. People going in and out at odd hours. Equipment sounds. Kurt has lived in Azalea his entire life and knows what Slowpoke Well sounds like. This isn't normal.
 
-Kurt's grandson is here, working under Bugsy at the gym. He's young, earnest, and visibly distressed about the Slowpoke. When the player talks to him, he asks if they'll go into the Well with him to find out what's happening. Kurt gives his grudging blessing — he can't go himself, but he trusts his grandson.
+Kurt's grandson — **Turk** — is here, working under Bugsy at the gym. He's young, earnest, and visibly distressed about the Slowpoke. When the player talks to him, he asks if they'll go into the Well with him to find out what's happening. Kurt gives his grudging blessing — he can't go himself, but he trusts his grandson.
 
 The friend-rival is not present. They went ahead toward the gym and haven't noticed the Well situation.
 
@@ -918,6 +986,8 @@ The forest exit leads toward Goldenrod City. The next chapter of the journey beg
 **Badges**: 1 (no new badge this chapter).
 **Tone**: Light, urban, adventurous. Goldenrod is the biggest place the player has ever been — loud, sprawling, full of distractions. The world is opening up. The dark edge from Slowpoke Well recedes into background noise. The player is a kid in a big city for the first time, and the chapter leans into that feeling. Then a stranger with too much energy and too little impulse control drags them somewhere they weren't ready to go.
 
+> Full build spec (staging, cast, flags, files): [CHAPTER4_BUILD.md](docs/CHAPTER4_BUILD.md). Complete line-by-line dialogue: [CHAPTER4_SCENES_SPEC.md](docs/CHAPTER4_SCENES_SPEC.md). Trainers/encounters: [JOHTO_BATTLES.md](docs/JOHTO_BATTLES.md) §Chapter 4. Items/economy (the Department Store step-up): [JOHTO_ITEMS.md](docs/JOHTO_ITEMS.md) §Chapter 4.
+
 #### Scene 1: Goldenrod City — The Big Arrival
 
 The player exits Ilex Forest onto Route 34 and Goldenrod opens up — the skyline visible before they even reach the city limits. This is the first major metropolitan area in the game. Department store, Game Corner, Radio Tower, underground tunnels, the train station. NPCs are diverse and talkative. The city feels alive in a way nowhere else has.
@@ -983,6 +1053,8 @@ Mel is energized. She tells the player to stick with her — she wants to check 
 **Setting**: Saffron City — Silph Co. lobby, the Dojos, city streets.
 **Badges**: 1 (no new badge).
 **Tone**: Urban, overwhelming, slightly disorienting. The player is in a foreign city with no plan and no way home. Everything is bigger and faster than Johto. The chapter starts with Mel's momentum still carrying the player forward, then she's gone and the player has to figure out what a stranded trainer does in a corporate metropolis.
+
+> Full build spec (staging, cast, flags, files): [CHAPTER5_BUILD.md](docs/CHAPTER5_BUILD.md). Complete line-by-line dialogue: [CHAPTER5_SCENES_SPEC.md](docs/CHAPTER5_SCENES_SPEC.md). Kanto begins here — battle/item tracking moves to the new region docs [KANTO_BATTLES.md](docs/KANTO_BATTLES.md) §Chapter 5 (no required battles; Sabrina/Bruno introduced, not fought) and [KANTO_ITEMS.md](docs/KANTO_ITEMS.md) §Chapter 5 (the un-buyable rail pass; Copycat reward).
 
 #### Scene 1: Silph Co. — The Lobby and the Parting
 
@@ -1077,8 +1149,10 @@ With nothing left to do in Saffron for now, the player moves on. Behind them, Si
 ### Chapter 6 — Celadon City (Optional) and Lavender Town
 
 **Setting**: Route 7/Celadon City (optional), Route 8, Lavender Town.
-**Badges**: 1 → 2 (Ghost badge from Eve in Lavender).
+**Badges**: 1 → 2 (**Requiem Badge** — Ghost — from Eve in Lavender).
 **Tone**: Celadon is a pleasant, livable city — green, walkable, full of small pleasures. Lavender is a surprise: not the haunted graveyard town of old, but a media hub humming with industry and ambition. Both cities have moved on from what they used to be. The player is starting to do the same.
+
+> Full build spec (staging, cast, flags, files): [CHAPTER6_BUILD.md](docs/CHAPTER6_BUILD.md). Complete line-by-line dialogue: [CHAPTER6_SCENES_SPEC.md](docs/CHAPTER6_SCENES_SPEC.md). Trainers/encounters + **Eve's Ghost gym roster**: [KANTO_BATTLES.md](docs/KANTO_BATTLES.md) §Chapter 6. Items/services (Celadon salon/tutor/EV, café TM88 Pluck, badge TM30 Shadow Ball): [KANTO_ITEMS.md](docs/KANTO_ITEMS.md) §Chapter 6. Badge name: **Requiem Badge**. Eve runs a **Gen-1 Kanto ghost roster, no imports** (a deliberate character statement). Lavender has no vanilla gym — the gym is hosted in a repurposed building.
 
 #### The Celadon Path (Optional)
 
@@ -1194,6 +1268,8 @@ The player heads back through Saffron (or takes Route 10/Rock Tunnel south if th
 **Badges**: 2 (no new badge this chapter).
 **Tone**: The player is finding their footing. They've earned their way out of being stranded and now they're moving with purpose, even if the destination keeps changing. Vermilion is a working port city — gritty, practical, full of people passing through. The chapter is about momentum: exploring a new city, testing yourself on new routes, and then Silver sends you somewhere you didn't plan to go. Again.
 
+> Full build spec (staging, cast, flags, files): [CHAPTER7_BUILD.md](docs/CHAPTER7_BUILD.md). Complete line-by-line dialogue: [CHAPTER7_SCENES_SPEC.md](docs/CHAPTER7_SCENES_SPEC.md). Trainers/encounters (Route 6/11, Diglett's Cave, the cosmopolitan Trainers' Lodge): [KANTO_BATTLES.md](docs/KANTO_BATTLES.md) §Chapter 7. Items (the **S.S. Ticket**, the promissory **fossil**, Vermilion Mart): [KANTO_ITEMS.md](docs/KANTO_ITEMS.md) §Chapter 7. **No new badge** — a travel/transition chapter. **Silver's second speaking appearance** (Champion; warm, deniable; probes about Mel; gives the S.S. Ticket to Slateport — no battle). Surge's gym → **Trainers' Lodge**; Fan Club → **International Pokémon Exchange**; the old man's building → **Maritime History Museum** (his Machamp finished it). Ends with **departure by sea** to Hoenn (Chapter 8).
+
 #### Route 12 Note
 
 **Route 12** (south of Lavender, connecting to Route 13 and eventually Fuchsia) is impassable. The fishing bridges that once spanned the waterway have been **washed away by rising sea levels** — a direct consequence of increased energy demand across the regions and its environmental toll. The route now requires Surf to traverse. The player doesn't have access to this move yet. A fisherman at the Route 12 gate mentions the damage ruefully: "Used to be you could walk the whole way down to Fuchsia. Water's taken the bridges. Keeps taking more every year." Climate change isn't a plot point — it's infrastructure. The world has changed.
@@ -1282,6 +1358,8 @@ The chapter ends with the ship pulling into Slateport Harbor. New region. New ru
 **Badges**: 2 (no new badge this chapter).
 **Tone**: New region, new energy. Hoenn is hotter, louder, and more alive than Kanto's institutional corridors. Slateport is a melting pot — a crossroads of cultures, trades, and activities. The player is becoming a real traveler now, three regions deep, and Slateport rewards that with a city that doesn't slow down for anyone. Light, fun, adventurous. The conspiracy threads are sleeping. This is a Pokemon adventure.
 
+> Full build spec (staging, cast, flags, files): [CHAPTER8_BUILD.md](docs/CHAPTER8_BUILD.md). Complete line-by-line dialogue: [CHAPTER8_SCENES_SPEC.md](docs/CHAPTER8_SCENES_SPEC.md). Hoenn begins here — battle/item tracking moves to the **new region docs** [HOENN_BATTLES.md](docs/HOENN_BATTLES.md) §Chapter 8 (Route 109/110, Gabby & Ty, the vendor-rescue pack; Brawly reference) and [HOENN_ITEMS.md](docs/HOENN_ITEMS.md) §Chapter 8 (the Mauville market unlock, Stern's five-region collection quest). **No new badge** (Brawly's Slateport gym is closed — he commutes from Dewford). **⚑ First non-HGSS chapter:** Hoenn maps/trainers/encounters are **referenced from the pokeemerald decomp and rebuilt as native HGSS maps**, with levels **lifted up hard** to the whole-game curve (vanilla Hoenn is early-game). Seeds planted: **Stern's artifact quest** (whole-game), **Scott** (Battle Frontier), **Lisia** (Contest/Wallace — a design add, ORAS). Team Aqua stays dormant.
+
 #### Scene 1: Arrival in Slateport
 
 The ship pulls into Slateport Harbor. The first impression is heat and noise. Slateport is a port city like Vermilion, but where Vermilion is industrial and workmanlike, Slateport is **chaotic and alive**. The docks are crowded with fishing boats, cargo ships, and passenger ferries. Vendors shout from stalls along the waterfront. Trainers, tourists, sailors, and merchants jostle through streets that were clearly not designed for this many people. The air smells like salt and grilled food.
@@ -1364,6 +1442,7 @@ An NPC at the Pokemon Center or market mentions Lavaridge — it's a popular des
 
 - **No badge**: Brawly's gym exists but he's out of town. The player notes the gym and returns later via Dewford. The queue of frustrated trainers and the aide's explanations establish the gym without the player being told they're too weak.
 - **Hoenn's environmental identity**: The region is more conservation-minded than Kanto/Johto. Pacifidlog's destruction, the RSE legendary crisis, and practical sustainability measures are woven into NPC dialogue and visual design. Not preachy — lived-in.
+- **Team Aqua & Magma are defunct/historical** (confirmed canon): they existed, the weather crisis happened, and both teams **disbanded** in its aftermath. Their legacy is Hoenn's environmental scars and a small museum case, **not an active threat**. Apocrypha's Hoenn conspiracy thread — the port **trafficking** arc (Lavaridge→Slateport→Olivine→Driftveil, the Hoenn protagonist's quest) — runs through the **Silph/Rocket-Silver network, not the weather teams.** The vanilla Slateport Aqua grunts stay hidden permanently (no reveal path).
 - **Slateport as melting pot**: Market, port, beach, museum, gym — the city has everything and everyone. It's chaotic, lively, and culturally diverse. The player should feel like they've arrived somewhere that doesn't revolve around them.
 - **Gabby and Ty**: More than just a battle. They cover a story, recruit the player for the vendor rescue, and film the whole thing. They'll reappear on Hoenn routes throughout the arc, offering rematches. Their presence makes the world feel like it has media and an audience.
 - **Vendor rescue (Quest 3)**: Player clears Route 110 for stranded Mauville merchants. Reward is permanent: the vendors' stalls open in the market with unique inventory. Gets the player onto Route 110 and orients them toward Mauville.

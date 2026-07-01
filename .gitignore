@@ -1,1 +1,5 @@
 .emu-venv/
+tools/checkpoints/
+# live map editor session artifacts (Claude reads these on "check it")
+_mapeditor.log
+_mapeditor.png
