@@ -9,7 +9,7 @@ It is the single source of truth. Anything not written here is not decided.
 
 ## Technical Foundation
 
-- **Engine**: pokeemerald decomposition project
+- **Engine**: pokeheartgold decomposition project (Gen-4 Nintendo DS). Johto and Kanto are native to this base. Sinnoh ports from the pokeplatinum decomp (same-generation DS engine). Hoenn ports from the pokeemerald decomp (Gen-3 GBA — requires map/tile format conversion to the DS engine). Unova has no decomp source available: no Black 2/White 2 decompilation exists (pret has no Gen-5 project, and the only live Gen-5 effort — pokemodding/pokeblack — targets BW1, not B2W2, and is early-stage disassembly). Unova map data will therefore be extracted directly from the B2W2 ROM using DS map-editing tools and converted to the Gen-4 (HGSS) map format.
 - **Scope**: Solo developer. All assets (sprites, tiles, music) reuse existing community resources. Outside help is welcome but not a dependency.
 - **Mega Evolution**: Introduced late-game via community-built implementations. Narratively framed as a rediscovered technique, not a new invention.
 - **Fakemon**: None. The Pokedex is entirely canonical.
