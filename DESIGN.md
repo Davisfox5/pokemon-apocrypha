@@ -12,6 +12,7 @@ It is the single source of truth. Anything not written here is not decided.
 - **Engine**: pokeheartgold decomposition project (Gen-4 Nintendo DS). Johto and Kanto are native to this base. Sinnoh ports from the pokeplatinum decomp (same-generation DS engine). Hoenn ports from the pokeemerald decomp (Gen-3 GBA — requires map/tile format conversion to the DS engine). Unova has no decomp source available: no Black 2/White 2 decompilation exists (pret has no Gen-5 project, and the only live Gen-5 effort — pokemodding/pokeblack — targets BW1, not B2W2, and is early-stage disassembly). Unova map data will therefore be extracted directly from the B2W2 ROM using DS map-editing tools and converted to the Gen-4 (HGSS) map format.
 - **Scope**: Solo developer. All assets (sprites, tiles, music) reuse existing community resources. Outside help is welcome but not a dependency.
 - **Mega Evolution**: Introduced late-game via community-built implementations. Narratively framed as a rediscovered technique, not a new invention.
+- **Special battle mechanics (Fairy, Shadow, Tera)**: Fairy type, Shadow Pokemon, and Terastallization are all required as gym mechanics. Like Mega Evolution, they adapt existing community implementations where available rather than being built from scratch.
 - **Fakemon**: None. The Pokedex is entirely canonical.
 
 ---
@@ -76,6 +77,8 @@ Air travel is limited to League or corporate use rather than public infrastructu
 ### Pokedex
 
 Canonical Pokemon only. Early encounters are strongly region-specific. The available pool broadens as the player crosses into new regions. Gym leaders predominantly use Pokemon native to their own region to reinforce identity and maintain battle variety across the twenty-badge arc.
+
+**Dex breadth**: The obtainable roster is roughly Generations 1–5 (matching the five regions' native species) plus a small set of specific cross-region picks where the design calls for them (e.g. Sylveon and Roserade for the Fairy gym). This is *not* a full National Dex, and no Generation 7–9 species are obtainable. Note that the special gym mechanics reach later generations even though the species do not — the Tera gym, for instance, uses Terastallized Gen-1 Pokemon.
 
 ---
 
