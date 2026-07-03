@@ -16,33 +16,7 @@ It is the single source of truth. Anything not written here is not decided.
 
 ---
 
-## Technical Reality
-
-This section records the engineering challenges implied by the design, assessed against the actual toolchain (pokeheartgold as the Gen-4 DS base, with pokeplatinum, pokeemerald, and pokefirered vendored as submodules). It is the counterpart to the creative design above: what it will actually take to build this on the chosen engine. Nothing here changes the design — it scopes the work.
-
-### Region Sourcing
-
-Five regions, four sources, one target engine (HGSS):
-
-| Region | Source | Nature of the work |
-|--------|--------|--------------------|
-| Johto | pokeheartgold | Native. Home turf — no porting. |
-| Kanto | pokeheartgold | Native (HGSS post-game Kanto). No porting. |
-| Sinnoh | pokeplatinum | Same-generation DS port. Platinum and HGSS share a large amount of engine code; reconcile two close forks into one ROM. |
-| Hoenn | pokeemerald | Cross-generation port. Gen-3 GBA map/block/collision/tileset formats converted to the DS engine's NARC-based formats. Full source data exists; the effort is conversion, not authoring. |
-| Unova | B2W2 ROM (direct extraction) | No decomp exists anywhere. Extract map data from the retail B2W2 ROM with DS map tools, then convert Gen-5 NitroSystem formats to the Gen-4 HGSS format. The only region with no in-repo source. |
-
-### The Five Hardest Problems
-
-1. **Merging engine forks and porting the two non-native regions.** HGSS and Platinum are separate Gen-4 decomp forks that must be reconciled into a single ROM; Hoenn is a Gen-3→Gen-4 format conversion; Unova is a Gen-5→Gen-4 extract-and-convert. Four of five regions have source in hand, so the burden concentrates in the Hoenn conversion and the Unova sourcing gap rather than spreading across all five.
-
-2. **Battle mechanics that postdate the engine.** Gen 4 already has the physical/special split, but the gym roster requires Fairy type (Gen 6), Mega Evolution (Gen 6), Terastallization (Gen 9), and Shadow Pokemon (the Gen-3 Colosseum/XD subsystem) — each built from scratch on the Gen-4 battle engine. Fairy in particular means retrofitting an 18th type into the type chart, the type enum, damage calc, and every species'/move's type data. Compounded by the "harder AI" mandate and a Pokedex that must run to Gen 9 species (with DS-format animated sprites, cries, and dex entries).
-
-3. **Raising the engine's single-region hardcoded limits.** The Gen-4 engine assumes one region. The National Dex cap (493), the fly/town-map/region-map system, the map-matrix and header tables, the Pokegear map UI, and the ARM9 overlay budget against 4 MB main RAM all encode that assumption. A five-region world breaks these limits everywhere and requires low-level engine work distinct from content authoring.
-
-4. **A nonlinear, cross-regional progression state machine.** "Gated between regions, flexible within them," routes that open and close on story events, five cross-regional threads that hint in multiple regions but climax in one, Silver appearing everywhere, and the B2W2 timeline retconned to run concurrently (the player always arrives after events resolved — "one step behind"). This demands a purpose-built quest-stage architecture over the engine's script system, kept soft-lock-proof across a partly player-chosen region order.
-
-5. **Level curve, balance, and the solo-dev content and testing pipeline.** A meaningful difficulty ramp across twenty badges and five regions, constrained by the region-native roster rule and region-locked early dex, tuned so no region trivializes a later one across a branching order (Open Question 13). Wrapped around it: heavier DS asset authoring (maps, animated sprites, NARC-packed scripts) and a combinatorial testing surface (every region-entry order x within-region gym order) that will need automated battle simulation rather than manual playtesting.
+> **Engineering scope lives in `ENGINEERING.md`.** Region sourcing (how each region is ported or extracted onto the HGSS base), the hardest technical problems, and build/tooling constraints are tracked there. Consult it for any implementation, porting, engine-modification, or feasibility work. This document stays focused on creative and narrative design; when a design decision below carries engineering cost, record that cost in ENGINEERING.md rather than here.
 
 ---
 
