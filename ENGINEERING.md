@@ -55,3 +55,49 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 4. **A nonlinear, cross-regional progression state machine.** "Gated between regions, flexible within them," routes that open and close on story events, five cross-regional threads that hint in multiple regions but climax in one, Silver appearing everywhere, and the B2W2 timeline retconned to run concurrently (the player always arrives after events resolved — "one step behind"). This demands a purpose-built quest-stage architecture over the engine's script system, kept soft-lock-proof across a partly player-chosen region order.
 
 5. **Level curve, balance, and the solo-dev content and testing pipeline.** A meaningful difficulty ramp across twenty badges and five regions, constrained by the region-native roster rule and region-locked early dex, tuned so no region trivializes a later one across a branching order (DESIGN.md Open Question 13). Wrapped around it: heavier DS asset authoring (maps, animated sprites, NARC-packed scripts) and a combinatorial testing surface (every region-entry order x within-region gym order) that will need automated battle simulation rather than manual playtesting.
+
+---
+
+## Build-Out Roadmap
+
+Ordered milestones. Sequencing is driven by cost-of-delay: foundational decisions that are cheap now and expensive to retrofit come first, content that depends on them comes after, and additive/deferrable systems slot in where convenient.
+
+**Toolchain ownership:** the design owner supplies and runs the build locally (proprietary MWCC + Nitro SDK — see build blocker). Milestones are tagged **[build]** if they require a compiled ROM to validate, or **[source]** if they can be fully designed/authored at the source level without compiling. [source] work can proceed in this environment now; [build] work is gated on the owner's local toolchain.
+
+### M0 — Buildable baseline  [build, owner]
+Goal: an unmodified, byte-matching HGSS ROM building locally, plus a place for modifications to live.
+- Install MWCC + Nitro SDK; init all four submodules; produce matching `pokeheartgold.us.nds`.
+- Stand up reproducible build (document exact steps; optional CI once the toolchain can be provisioned).
+- Establish the modification layer / branch structure so engine edits are tracked cleanly against the pinned decomp.
+- **Gate for everything [build] below.** Until M0 exists, downstream work is design-only.
+
+### M1 — Foundational architecture  [source] design, [build] to land
+The load-bearing layer. Must be settled before authoring region content, because every map/script/save bakes in these assumptions.
+- **Dex expansion**: raise `NATIONAL_DEX_COUNT` / `MAX_SPECIES` from 493 to cover the Gen 1–5 roster (national #1–649) plus the specific cross-region picks (Sylveon, etc.). Relocate the internal sentinels currently occupying 494–507 (`SPECIES_EGG`, `SPECIES_BAD_EGG`, Rotom forms). Resize the derived save/dex arrays (`caughtLanguages`, `NUM_DEX_FLAG_WORDS`). Add species data, learnsets, evolutions, sprites, and cries for the added set.
+- **State/save architecture**: expand `NUM_FLAGS` (2912) and `NUM_VARS` (368) to a five-region budget; re-lay-out the `SaveData` block (currently `0x2330C`) with CRC/sector/versioning so builds don't brick saves; design a quest-stage abstraction over raw flags for the story spine.
+
+### M2 — Multi-region infrastructure  [source] audit, [build] to land
+- Finish auditing the single-region assumptions flagged in problem #3 (map-matrix, region-map/fly, Pokegear map, ARM9 overlay budget).
+- Design and implement multi-region map headers/matrix, region-switching, and a fly/town-map that spans five regions.
+
+### M3 — Region content porting  [build to validate; [source] planning now]
+Per the confirmed sourcing table. Each region: maps, tilesets, encounter tables, scripts, gym.
+- Johto (native — re-dress existing HGSS maps to the new story).
+- Kanto (HGSS base + pokefirered assets/reference).
+- Sinnoh (pokeplatinum same-gen port).
+- Hoenn (pokeemerald Gen-3 -> Gen-4 format conversion).
+- Unova (B2W2 ROM extraction -> Gen-4 conversion).
+
+### M4 — Battle mechanics  [build] — additive, can parallelize with M3
+Adapt community implementations (confirmed approach), port each to the HGSS base, and make them coexist.
+- Fairy type (18th-type retrofit), Mega Evolution, Shadow Pokemon, Terastallization.
+- "Harder AI" pass.
+
+### M5 — Narrative & systems content  [build]
+- Chapter scripting (the DESIGN.md spine), Silver encounter points, the five cross-regional threads, route gating, and wiring it all onto the M1 quest-stage system — kept soft-lock-proof across the branching region order.
+
+### M6 — Balance & test tooling  [source] tooling, [build] to run
+- Level curve across the 20-badge arc (DESIGN.md Open Question 13); encounter tables and trainer teams.
+- Automated battle-simulation harness to cover the combinatorial region/gym-order surface rather than manual playtesting.
+
+**Critical path:** M0 → M1 → (M2, M3) → M4/M5 → M6. M1 is the highest-leverage design work available right now and needs no build, so it is the recommended immediate focus while the owner stands up M0.
