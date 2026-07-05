@@ -57,6 +57,10 @@ def main():
                 _, vid, val = k.split(":")
                 R.set_var(e, int(vid, 0), int(val, 0))
                 continue
+            if k.upper().startswith("TOUCH:"):     # TOUCH:66,101 -> tap the bottom screen
+                tx, ty = k.split(":")[1].split(",")
+                e.touch(int(tx), int(ty), hold=6, after=12)
+                continue
             if k.upper().startswith("TP:"):        # TP:550,330 -> hard-set player tile (same map)
                 tx, tz = k.split(":")[1].split(",")
                 R.teleport(e, int(tx), int(tz))

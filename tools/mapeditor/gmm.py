@@ -11,6 +11,7 @@ rest of the file (indentation, other rows, attributes) stays byte-for-byte intac
 """
 from __future__ import annotations
 
+import functools
 import re
 from pathlib import Path
 
@@ -20,6 +21,12 @@ MSG_DIR = DECOMP / "files" / "msgdata" / "msg"
 
 def gmm_path(sym: str) -> Path:
     return MSG_DIR / (sym.rsplit("_", 1)[0] + ".gmm")
+
+
+@functools.lru_cache(maxsize=600)
+def _read(path_str: str) -> str | None:
+    p = Path(path_str)
+    return p.read_text(encoding="utf-8") if p.exists() else None
 
 
 def _row_re(sym: str) -> re.Pattern:
@@ -39,21 +46,22 @@ def _escape(s: str) -> str:
 
 def get_text(sym: str) -> str | None:
     """Raw source text for a message symbol (keeps \\n soft-wrap / \\r page codes)."""
-    p = gmm_path(sym)
-    if not p.exists():
+    src = _read(str(gmm_path(sym)))
+    if src is None:
         return None
-    m = _row_re(sym).search(p.read_text(encoding="utf-8"))
+    m = _row_re(sym).search(src)
     return _unescape(m.group(2)) if m else None
 
 
 def set_text(sym: str, text: str) -> bool:
     """Overwrite a message's English text in its .gmm source. Returns True on hit."""
     p = gmm_path(sym)
-    if not p.exists():
+    src = _read(str(p))
+    if src is None:
         return False
-    src = p.read_text(encoding="utf-8")
     new, n = _row_re(sym).subn(
         lambda m: m.group(1) + _escape(text) + m.group(3), src)
     if n:
         p.write_text(new, encoding="utf-8")
+        _read.cache_clear()          # file changed on disk; drop stale copies
     return bool(n)

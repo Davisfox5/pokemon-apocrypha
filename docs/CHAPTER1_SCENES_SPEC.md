@@ -80,7 +80,7 @@ Add narration states using `OakSpeech_PrintAndFadeCenteredFullScreenText` (white
 - [ ] ❌→🔧 **Kestra is visible**, searching the grass. *(fix: `move_person` before `show_person`)*
 - [ ] 🔧 The wild Rattata appears (ideally emerging, not popping in place).
 - [ ] ❌→🔧 **Gold is visible** when he rushes in. *(fix: he's live in town; hide→set→show recreates him at the grass robustly)*
-- [ ] 🔧 A real **catching demo battle** occurs (`catching_tutorial`). *(caveat: engine demo is player-controlled and renders the other-gender hero, NOT Gold — a true "Gold throws it" cutscene needs custom C; CONFIRM which you want)*
+- [x] 🔧 A real **catching demo battle** occurs (`catching_tutorial`). *(RESOLVED 2026-07-02: scene now lives on Route 30 as `scr_seq_R30_012`; the engine demo runs rebadged as Gold — name row `msg_0375_R30_00022`, Typhlosion w/ Tackle only in `BattleSetup_New_Tutorial`, lethal damage clamped tutorial-side in `BtlCmd_UpdateHealthbarValue`. Backsprite stays the opposite-gender hero, consistent with Gold's SPRITE_HEROINE overworld placeholder.)*
 - [ ] auto: `var(CHERRYGROVE_OW)` goes 1→2; the rescue didn't freeze.
 
 ### S2-B · Outdoor starter ceremony — `scr_seq_T21_014`, coord fires `CHERRYGROVE_OW`==2 at (557,404)

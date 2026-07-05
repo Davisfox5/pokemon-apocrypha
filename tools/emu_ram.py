@@ -5,7 +5,7 @@ Reads live game state directly from memory so scene tests assert on ground truth
 (scene var, current map, position) instead of guessing from pixels. Offsets were
 derived by disassembling the save getters in build/heartgold.us/main.elf:
 
-  SaveData*           = *(0x021D2308)                       (sSaveDataPtr, .bss)
+  SaveData*           = *(sSaveDataPtr, .bss)   [auto-derived from main.elf]
   SaveArray_Get(sd,i) = sd + 0x10 + *(sd + i*16 + 0x2301C)
   VarsFlags block     = SaveArray block id 4  -> vars are u16[] at its start
   LocalFieldData block= SaveArray block id 5  -> currentPosition Location at +0
@@ -13,7 +13,33 @@ derived by disassembling the save getters in build/heartgold.us/main.elf:
   var(id)             = u16 @ varsBlock + 2*(id - 0x4000)
 """
 
-SAVEPTR        = 0x021D2308
+# .bss addresses SHIFT whenever arm9 code changes size — a rebuilt ROM under the
+# old constants reads garbage (mapId in the billions / objects()==[]). Re-derive
+# from the freshly-linked main.elf at import; the literals are only a fallback
+# for when the elf/nm is unavailable. (Last manual values: 2026-07-02 build.)
+SAVEPTR        = 0x021D2328
+FIELDSYS_PTR   = 0x021D4258
+
+def _derive_bss_ptrs():
+    global SAVEPTR, FIELDSYS_PTR
+    import os, re, subprocess
+    elf = os.path.join(os.path.dirname(__file__), "..", "disasm", "pokeheartgold",
+                       "build", "heartgold.us", "main.elf")
+    if not os.path.isfile(elf):
+        return
+    try:
+        out = subprocess.run(["nm", elf], capture_output=True, text=True,
+                             timeout=30).stdout
+        m = re.search(r"^([0-9a-f]+) . sSaveDataPtr$", out, re.M)
+        f = re.search(r"^([0-9a-f]+) . sFieldSysPtr$", out, re.M)
+        if m and f:
+            SAVEPTR = int(m.group(1), 16)
+            FIELDSYS_PTR = int(f.group(1), 16)
+    except Exception:
+        pass
+
+_derive_bss_ptrs()
+
 DESC_TABLE_OFF = 0x2301C
 VARS_BLOCK_ID  = 4
 LFD_BLOCK_ID   = 5
@@ -98,7 +124,7 @@ def flag_write(emu, fid, value):
 
 # --- Live map-object oracle (the NPCs, not just the player) -------------------
 # sFieldSysPtr(.bss) -> FieldSystem -> MapObjectManager -> objects[] (LocalMapObject)
-FIELDSYS_PTR    = 0x021D4238
+# (FIELDSYS_PTR defined/derived above next to SAVEPTR)
 FS_MAPOBJMAN    = 0x3C
 MOM_COUNT       = 0x04
 MOM_OBJECTS     = 0x124
@@ -204,3 +230,28 @@ def pin_object(emu, addr, pinned=True):
 
 def is_pinned(emu, addr):
     return bool(addr) and bool(_m(emu).read_byte(addr + LMO_FLAGS) & LMO_FLAG_PAUSED)
+
+
+# --- keep the .bss anchor pointers in sync with the CURRENT build ---
+# SAVEPTR / FIELDSYS_PTR shift whenever C code is added/removed (they're .bss
+# symbols). Stale values read garbage (map=0 / no objects) under a fresh ROM.
+# Functions read these globals at call time, so overriding here is enough.
+def _refresh_anchors():
+    global SAVEPTR, FIELDSYS_PTR
+    import subprocess, os.path
+    elf = os.path.join(os.path.dirname(__file__), "..", "disasm", "pokeheartgold",
+                       "build", "heartgold.us", "main.elf")
+    if not os.path.exists(elf):
+        return
+    try:
+        out = subprocess.run(["nm", elf], capture_output=True, text=True, timeout=60).stdout
+    except Exception:
+        return
+    for line in out.splitlines():
+        parts = line.split()
+        if len(parts) == 3 and parts[2] == "sSaveDataPtr":
+            SAVEPTR = int(parts[0], 16)
+        elif len(parts) == 3 and parts[2] == "sFieldSysPtr":
+            FIELDSYS_PTR = int(parts[0], 16)
+
+_refresh_anchors()

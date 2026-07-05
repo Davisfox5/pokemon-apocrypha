@@ -749,7 +749,7 @@ Silver departs without interacting with either of them — lifting off on his Po
 
 #### Scene 2: The Rescue and the Starters
 
-Kestra, too excited to wait, bolts off to the route north of town to find Pokemon of her own. The player follows — and finds her cornered by a wild Pokemon with nothing to defend herself. **Gold** arrives just in time. His own Pokemon are back at the house, so he does the only thing he can: he catches the wild one outright (*"I hope this works!"*) — the player's first look at catching, framed as a rescue rather than a lesson.
+Kestra, too excited to wait, bolts off to the route north of town to find Pokemon of her own. The player follows — and finds her cornered by a wild Pokemon with nothing to defend herself. **Gold** arrives just in time. He steps in front of the kids and shows them how it's done: a real, witnessed catch battle — his Typhlosion weakens the wild one, the ball flies, and it's caught (the engine catching-tutorial demo, rebadged as Gold). The player's first look at catching, framed as a rescue rather than a lesson.
 
 Shaken but unhurt, Gold sighs and takes charge of the two reckless kids — with the old guide gone, showing them the ropes falls to him now. He walks them around town and, after some awkward resistance and relentless pushing from Kestra ("That's what Champions doooo!"), relents and brings out three Pokemon that are *very special* to him: Cyndaquil, Totodile, and Chikorita. The player chooses first; Kestra grabs the type-advantaged counter, establishing her as a competitive foil from the start.
 
