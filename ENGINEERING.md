@@ -77,8 +77,8 @@ The load-bearing layer. Must be settled before authoring region content, because
 - **State/save architecture**: expand `NUM_FLAGS` (2912) and `NUM_VARS` (368) to a five-region budget; add a versioned `SAVE_STORY_STATE` block for a structured quest-stage machine; version the save so builds don't brick testers. **Designed in detail: [`engineering/m1-state-save-architecture.md`](engineering/m1-state-save-architecture.md).**
 
 ### M2 — Multi-region infrastructure  [source] audit, [build] to land
-- Finish auditing the single-region assumptions flagged in problem #3 (map-matrix, region-map/fly, Pokegear map, ARM9 overlay budget).
-- Design and implement multi-region map headers/matrix, region-switching, and a fly/town-map that spans five regions.
+- **Audit complete: [`engineering/m2-single-region-limits.md`](engineering/m2-single-region-limits.md).** Key results: region identity is a `isKanto:1` bit (generalize to `region:3`); the real blocker is the 8-bit `mapsec` namespace, already 235/256 full (Sinnoh sections present, but Hoenn+Unova won't fit — must widen); map *count* is **not** capped (`sMapHeaders[]` extends freely, `mapId` is u32); overlay/RAM residency deferred to M0 measurement.
+- Implement per findings: `MapHeader.region` field + accessor/shim, widen `mapsec` + append Hoenn/Unova sections, per-region town-map + region-scoped fly table.
 
 ### M3 — Region content porting  [build to validate; [source] planning now]
 Per the confirmed sourcing table. Each region: maps, tilesets, encounter tables, scripts, gym.
