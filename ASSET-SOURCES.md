@@ -1,172 +1,142 @@
 # Asset Sources — Overworld Sprites & Map Data
 
-> Research findings for *Pokemon Apocrypha*. Companion to `DESIGN.md`.
-> Compiled 2026-07-04. All links verified live at time of writing.
+> Research findings for *Pokemon Apocrypha*. Companion to `DESIGN.md` and `ENGINEERING.md`.
+> Compiled 2026-07-05. Links verified live at time of writing.
+>
+> **Scope.** This catalogs *where to obtain* overworld sprites and map data for the
+> five regions. The *rationale* for how each region is sourced (native / ported /
+> extracted) lives in `ENGINEERING.md` §Region Sourcing — this document does not
+> relitigate it, it lists the concrete repos, asset banks, and formats.
 
-The design mandate is: **solo dev, all assets reuse existing community resources**
-(`DESIGN.md` §Technical Foundation). The engine is **pokeemerald** (Gen 3 GBA
-decomp), and the world spans **Johto, Kanto, Hoenn, Sinnoh, Unova**. Of those,
-only Hoenn (native) and Kanto (via pokefirered) exist as clean Gen 3 decomp map
-data. Johto, Sinnoh, and Unova must be sourced from community ports or built from
-ripped assets. This document catalogs where to get both the **map data**
-(tilesets + metatiles + `.blk` layouts + map JSON) and the **overworld sprites**
-(player, NPC, and follower object events).
+## Engine premise (corrected)
 
-## Reuse strategy — two paths
+The engine is **`pret/pokeheartgold` — the Gen-4 Nintendo DS decompilation** (ARM9,
+C), **not** a Gen-3 GBA base. This changes everything about assets versus a GBA
+project:
 
-1. **Fork whole regions.** Several community projects have already ported entire
-   regions into the Gen 3 decomp format (map JSON, `.blk` layouts, tilesets, and
-   matching overworlds). These are the highest-leverage sources: the map data is
-   already in the exact format porymap and pokeemerald consume. Pull the
-   `data/maps/`, `data/layouts/`, and `data/tilesets/` trees plus the relevant
-   `graphics/object_events/` sprites.
-2. **Assemble from asset banks.** For anything not already ported (notably
-   **Unova**), pull raw sprites/tiles from the ripping communities and convert to
-   the GBA indexed-PNG format the decomp expects.
+- Maps are **NARC-packed** DS data (map matrix, headers, 3D `nsbmd` map models,
+  collision/permission `bin`), not GBA `.blk`/metatile tilesets.
+- Overworld sprites are **BTX spritesheets inside `a/0/8/1` (`mmodel.narc`)**,
+  indexed by a table in Overlay 1 — not GBA object-event PNGs.
+- RMXP/Essentials sprite packs and pokeemerald-expansion forks (what a GBA project
+  would use) **do not apply** and are excluded here.
 
----
-
-## Tier 1 — Full region ports (drop-in map data + tilesets + overworlds)
-
-These are open-source Gen 3 decomp projects whose map trees can be adapted
-directly. This is the fastest route to Johto and Sinnoh.
-
-| Project | Repo | Covers | Base | Notes |
-|---|---|---|---|---|
-| **Pokémon Heart & Soul** | [`PokemonHnS-Development/pokemonHnS`](https://github.com/PokemonHnS-Development/pokemonHnS) | **Johto** + Kanto postgame | Modern Emerald (pokeemerald fork) | Completed, playtested GSC/HGSS demake. Explicitly open-source and pitched as "a base for a new generation of Johto rom hacks." Includes full Johto map data, `johto`/`johto_modern` tilesets, and matching overworlds. **The single best Johto source.** A pokeemerald-expansion port ("HnS 2.0") is in progress. |
-| **pokeemerald-platinum** | [`sinnoh-remakes/pokeemerald-platinum`](https://github.com/sinnoh-remakes/pokeemerald-platinum) | **Sinnoh** | pokeemerald-expansion | Active Platinum demake (last updated 2026-07-04). Full Sinnoh maps + tilesets in Platinum's graphic style, already in expansion format — matches our likely base closely. **Best Sinnoh source.** |
-| **Sinnoh-pokeemerald-expansion** | [`LiderMorti00/Sinnoh-pokeemerald-expansion`](https://github.com/LiderMorti00/Sinnoh-pokeemerald-expansion) | **Sinnoh** | pokeemerald-expansion | Alternate Sinnoh map base built on expansion, intended explicitly as a reusable base for Sinnoh games. Cross-check against pokeemerald-platinum and take the cleaner tileset set. |
-| **Pokémon Crossroads** | [`eonlynx/pokecrossroads`](https://github.com/eonlynx/pokecrossroads) | Kanto, **Johto** (WIP), Hoenn, Sevii | pokeemerald-expansion | Multi-region hack demonstrating Kanto+Johto+Hoenn stitched into one expansion ROM — a working reference for exactly the multi-region seam-stitching this project needs, even if we don't lift its maps wholesale. |
-
-### Foundation decomps (already vendored as submodules)
-
-Already present under `disasm/` — these are the canonical, cleanest map/overworld
-sources for their native regions:
-
-- [`pret/pokeemerald`](https://github.com/pret/pokeemerald) — **Hoenn** maps,
-  tilesets, and the full overworld object-event system (our engine base).
-- [`pret/pokefirered`](https://github.com/pret/pokefirered) — **Kanto** + Sevii
-  map data and Gen-3 Kanto tilesets; portable into pokeemerald with tileset
-  remapping.
-- [`pret/pokeheartgold`](https://github.com/pret/pokeheartgold) — **Johto/Kanto**
-  reference (Gen 4 DS format; not drop-in, but authoritative for map layout,
-  connections, and warp data when adapting).
-- [`pret/pokeplatinum`](https://github.com/pret/pokeplatinum) — **Sinnoh**
-  reference (Gen 4 DS; layout/data reference, not drop-in).
-
-The two DS decomps are structural references (room layouts, event scripts, warp
-tables), not GBA-format assets — pair them with the Tier 1 GBA ports above when
-adapting.
+Consequently the highest-value sources are the **pret Gen-4 decomps themselves**:
+each already contains its region's maps *and* native overworld sprites in exactly
+the target format.
 
 ---
 
-## Tier 2 — Overworld sprite libraries (Gen-3 / GBA ready)
+## Map data
 
-For the large NPC cast (gym leaders, Elite Four, Rockets, Silph staff, Mel, etc.)
-plus the player, these give object-event sprites in or near the decomp's expected
-16-color indexed format.
-
-| Source | Where | What it gives |
-|---|---|---|
-| **rh-hideout/pokeemerald-expansion** | [`rh-hideout/pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion) | The overworld *system*, not just art: follower-Pokémon overworlds for all species, gender-difference OW support, substitute OW fallback, and large-OW (48×48/64×64) rendering under bridges. Strongly consider building the whole hack on this base. Credit line: "RHH (Rom Hacking Hideout)". |
-| **Dynamic Overworld Palettes (DOWP)** | [`cornixsenex/rhh-dowp`](https://github.com/cornixsenex/rhh-dowp) | Dynamic OW palette allocation merged into expansion — lets many distinctly-colored NPC overworlds coexist past the vanilla palette-slot limit. Essential for a five-region cast. |
-| **The DS Style Project** (CompuMax) | [Whack-a-Hack thread](https://whackahack.com/foro/threads/gba-the-ds-style-project-update-08-01-19-ow-pokemon-hg-ss.46299/) | HGSS/DPPt overworlds **already extracted and indexed for GBA insertion** (normal + shiny). The most decomp-ready DS-style OW set. Credit: CompuMax (requested, not required). |
-| **Playable Character Community Project** | [PokéCommunity thread](https://www.pokecommunity.com/threads/playable-character-community-project.414973/) | Native **Gen 3-style** overworlds for playable characters and NPCs across the series — no restyling needed to match Emerald. |
-| **HGSS Overworlds in FR/Emerald style** | [PokéCommunity thread](https://www.pokecommunity.com/threads/hgss-overworld-sprite-in-fr-style.408123/) | Community effort restyling HGSS OWs to GBA (FR/Emerald) palettes and proportions. |
-
----
-
-## Tier 3 — Raw sprite / tile banks (need conversion)
-
-Comprehensive but in DS-native or RMXP/Essentials format — must be re-indexed,
-re-palettized, and re-framed for the GBA object-event format. Use these to fill
-gaps the Tier 2 sets miss (specific gym leaders, Unova NPCs, region tiles).
-
-| Source | Where | Notes |
-|---|---|---|
-| **The Spriters Resource — HGSS** | [spriters-resource.com](https://www.spriters-resource.com/ds_dsi/pokemonheartgoldsoulsilver/) | Canonical rips of HGSS trainers, NPCs, and overworlds (also has DPPt and B/W sections for Sinnoh/Unova). Raw PNGs. |
-| **Project Pokémon — HGSS Overworld Sprites** | [projectpokemon.org](https://projectpokemon.org/home/docs/gen-4/hgss-overworld-sprites-r33/) | Character-code-labeled HGSS overworld dump; useful for identifying specific NPC/trainer sprites. |
-| **Eevee Expo — "ALL Official Gen 4 Overworld Sprites"** | [eeveeexpo.com/resources/404](https://eeveeexpo.com/resources/404/) | Every trainer + non-trainer NPC OW from HGSS **and DPPt** (covers Sinnoh characters). RMXP-aligned — needs GBA conversion. |
-| **Eevee Expo — "ULTIMATE Gen 4 Overworlds Pack"** | [eeveeexpo.com/resources/609](https://eeveeexpo.com/resources/609/) | 200+ DPPt/HGSS human OWs, full protagonist animations, tiles, autotiles, effects. RMXP format; do-not-redistribute (credit PurpleZaffre). |
-| **Pokencyclopedia — Overworlds** | [pokencyclopedia.info](https://www.pokencyclopedia.info/en/index.php?id=sprites/overworlds) | Cross-gen overworld reference/index for locating specific sprites. |
-
-For **B/W (Unova)** sprites and tiles specifically, the Spriters Resource B/W
-sections are the primary bank — see Gap Analysis below.
-
----
-
-## Tools (asset pipeline)
-
-- [`huderlem/porymap`](https://github.com/huderlem/porymap) — map + tileset +
-  region-map editor for pokeemerald/firered/ruby. Primary map-editing tool.
-- [`grunt-lucas/porytiles`](https://github.com/grunt-lucas/porytiles) — compiles
-  RGBA/indexed tile art into `metatiles.bin`, `metatile_attributes.bin`, indexed
-  `tiles.png`, palettes, and anim folders. Key for importing new region tilesets.
-- [`Rangi42/tilemap-studio`](https://github.com/Rangi42/tilemap-studio) — GB/GBC/
-  GBA/DS tilemap + town-map editor; good for region-map/town-map art.
-
----
-
-## Region-by-region coverage
-
-| Region | Map data source | Overworld sprites | Status |
+| Region | Repo / source | Format & nature of work | In repo? |
 |---|---|---|---|
-| **Johto** | Heart & Soul (`pokemonHnS`) — full port | Heart & Soul OWs + DS Style Project | ✅ Strong — fork Heart & Soul's map tree |
-| **Kanto** | `pret/pokefirered` (native Gen 3) + Heart & Soul postgame | FR/LG OWs (native) + DS Style Project | ✅ Strong — native decomp assets |
-| **Hoenn** | `pret/pokeemerald` (native) | Native Emerald OWs | ✅ Native to engine |
-| **Sinnoh** | `sinnoh-remakes/pokeemerald-platinum` + `LiderMorti00` port | pokeemerald-platinum OWs + Eevee Expo DPPt / DS Style | ✅ Strong — two ports to compare |
-| **Unova** | ⚠️ No known GBA/decomp port | Spriters Resource B/W + Eevee Expo (needs conversion) | ⚠️ **Gap** — see below |
+| **Johto** | [`pret/pokeheartgold`](https://github.com/pret/pokeheartgold) | Native HGSS NARC map data. No porting. | ✅ submodule |
+| **Kanto** | `pret/pokeheartgold` (native HGSS Kanto) + [`pret/pokefirered`](https://github.com/pret/pokefirered) (reference/assets) | Native DS base; FRLG as Gen-3 reference to flesh out. | ✅ both submodules |
+| **Sinnoh** | [`pret/pokeplatinum`](https://github.com/pret/pokeplatinum) | Same-gen DS. Reconcile Platinum ↔ HGSS forks into one ROM. **Note:** pokeplatinum is WIP; where extracted map/graphic data is incomplete, [`pret/pokediamond`](https://github.com/pret/pokediamond) (D/P, more mature) is a supplementary bank for the same Sinnoh assets. | ✅ pokeplatinum submodule; pokediamond not vendored |
+| **Hoenn** | [`pret/pokeemerald`](https://github.com/pret/pokeemerald) | Cross-gen. Gen-3 GBA block/collision/tileset → DS NARC/`nsbmd`. Conversion, not authoring. | ✅ submodule |
+| **Unova** | Retail **B2W2 ROM** (direct extraction) | No decomp exists (see `ENGINEERING.md`). Extract with DS map tools, convert Gen-5 NitroSystem → Gen-4 (HGSS) format. | ❌ no source repo |
 
-### Gap analysis — Unova
-
-No public project ports **Unova (Black/White)** map data into a Gen 3 decomp; the
-searches returned only tools, not a B/W map port. Unova will require the most
-original work:
-
-- **Tilesets**: rip B/W tiles from The Spriters Resource and compile with
-  porytiles, or commission/adapt community B/W GBA tilesets.
-- **Map layouts**: rebuild in porymap using `pret/pokeblack`/B2W2 decomp or in-game
-  maps as layout reference (DESIGN.md already trims Unova to a 4-recognized-gym
-  structure, reducing scope).
-- **Overworlds**: Spriters Resource B/W + Eevee Expo Gen 5 packs, converted to GBA.
-
-Recommend confirming a Unova asset plan early, since it is the only region without
-a ready-made map source. (Worth a follow-up search: a `pret/pokeblack` or
-`pokeblack2` decomp and any newer 2025–2026 Unova-in-Emerald WIP, which move fast.)
+The four native/near-native regions (Johto, Kanto, Sinnoh, Hoenn) have their map
+data available as source; the real map work concentrates in the **Hoenn Gen-3→4
+conversion** and the **Unova extract-and-convert**, per `ENGINEERING.md`.
 
 ---
 
-## Licensing & attribution reality
+## Overworld sprites
 
-None of these carry a permissive OSS license in the legal sense — every one
-reuses Nintendo/Game Freak copyrighted assets, so the entire ecosystem (including
-this romhack) is legally gray and non-commercial by necessity. In practice the
-community operates on **credit norms**, not licenses:
+### How they're stored (Gen 4)
 
-- **pokeemerald-expansion / expansion-based ports**: credit "RHH (Rom Hacking
-  Hideout)" plus the project's `CREDITS.md` contributors, ideally with a version
-  number.
-- **Heart & Soul**: open-source, fork-encouraged; credit the project and its
-  listed contributors.
-- **Sprite packs**: honor each pack's stated terms — e.g. DS Style Project (credit
-  CompuMax, optional), Eevee Expo ULTIMATE pack (credit PurpleZaffre, **do not
-  redistribute** the pack itself).
+- **NARC**: HGSS → `a/0/8/1`; DPPt → `mmodel/mmodel.narc`. Contains the overworld
+  character BTX spritesheets (`mmodel` = "map model").
+- **Format**: BTX, **≤16 colours, background indexed to palette slot 0**. NPCs are
+  typically 32×32 with 16 frames; large sprites (legendaries) 64×64/128×64 with
+  fewer frames.
+- **Property table**: HGSS → single 12-byte-entry table at **`0x21BA8` in
+  (uncompressed) Overlay 1**; Platinum → two tables at **`0x2BC34`** and
+  **`0x2CA08` in Overlay 5** (frame count + dimensions). Any sprite whose size
+  differs from the one it replaces requires editing this table.
 
-Maintain a running `CREDITS.md` from day one; every asset pulled in should add its
-source there.
+*(Source: [DS Pokémon Hacking — Overworld Sprite Replacement Guide](https://ds-pokemon-hacking.github.io/docs/generation-iv/guides/overworld_sprites/). Reference NARC maps: [NARC_List gist](https://gist.github.com/PlatinumMaster/9a12681f6c001a052444b21a27eb9f11), [HGSS NARC table](https://hirotdk.neocities.org/NARCTableHGSS.txt).)*
+
+### Where to get them
+
+| Source | What it provides | Notes |
+|---|---|---|
+| **`pret/pokeheartgold`** (`a/0/8/1`) | Every native Johto + Kanto NPC, trainer, and player overworld, already in target BTX format. | The primary, zero-conversion source. Extract with Tinke. |
+| **`pret/pokeplatinum`** / **`pret/pokediamond`** (`mmodel.narc`) | Native Sinnoh NPC/trainer overworlds (Galactic, gym leaders, civilians) in DS format. | Same generation → drop-in after per-region property-table entry. |
+| [**Spriters Resource — HGSS**](https://www.spriters-resource.com/ds_dsi/pokemonheartgoldsoulsilver/) | Ripped HGSS overworlds/trainers as PNG spritesheets. | For reference or re-import; DS-native proportions already correct. |
+| [**Spriters Resource — DPPt**](https://www.spriters-resource.com/ds_dsi/pokemondiamondpearl/) | Sinnoh overworld rips. | Same. |
+| [**Spriters Resource — B2W2**](https://www.spriters-resource.com/ds_dsi/pokemonblack2white2/) — [Overworld Entities](https://www.spriters-resource.com/ds_dsi/pokemonblack2white2/asset/48049/) | **Unova NPC/character overworlds** (and [BW](https://www.spriters-resource.com/ds_dsi/pokemonblackwhite/)). | Primary Unova overworld bank. Gen-5 style; re-index to ≤16 colours + convert to BTX for the Gen-4 engine. |
+| [**Project Pokémon — HGSS Overworld Sprites**](https://projectpokemon.org/home/docs/gen-4/hgss-overworld-sprites-r33/) & [**HGSS Event Overworlds**](https://projectpokemon.org/home/docs/gen-4/hgss-event-overworlds-r15/) | Character-code–labelled HGSS overworld dumps. | Best for identifying *which* BTX index a specific NPC/trainer is. |
+
+**Practical takeaway:** Johto/Kanto (HGSS) and Sinnoh (Plat/DP) overworlds need
+**no restyling** — pull them straight from the decomp NARCs. Only **Unova** needs
+sprite conversion (Gen-5 rip → ≤16-colour BTX), matching the map-side Unova work.
+Any *new* characters not in canon (e.g. Mel, the Apocrypha-specific NPCs) need
+original 32×32/16-frame BTX sheets authored to the same spec.
+
+---
+
+## Tools (DS / Gen-4 pipeline)
+
+| Tool | Use | Link |
+|---|---|---|
+| **DSPRE** (DS Pokémon ROM Editor) | Maps (3D view, collision, permissions, building placement, DAE/GLB import/export), events, overworld sprite rendering + property editing, scripts, encounters, trainers. Supports D/P/Pt/HG/SS. **AGPL-3.0**, open source. | [DS-Pokemon-Rom-Editor/DSPRE](https://github.com/DS-Pokemon-Rom-Editor/DSPRE) |
+| **Pokémon DS Map Studio (PDSMS)** | Author *new* DS maps from scratch (used alongside SDSME). | [ProjectPokemon file](https://projectpokemon.org/home/files/file/4237-pokemon-ds-map-studio/) |
+| **SDSME** (Spiky's DS Map Editor) | Map header/matrix/event editing for Gen 4. | [ProjectPokemon file](https://projectpokemon.org/home/files/file/4237-pokemon-ds-map-studio/) |
+| **Tinke 0.9.2** | Unpack NARCs; view/extract/replace BTX overworld sheets. | community tool |
+| **BTX Editor 2.0** | Import a custom PNG spritesheet into BTX. | community tool |
+| **HxD** | Direct hex edits to the Overlay 1 / Overlay 5 overworld property tables. | community tool |
+
+`ENGINEERING.md` also lists **Tinke / SDSME** and the [ds-pokemon-hacking B2W2
+toolchain](https://ds-pokemon-hacking.github.io/getting-started/b2w2/) for the
+Unova extraction path — same tools, applied to the retail B2W2 ROM.
+
+---
+
+## Per-region coverage summary
+
+| Region | Map data | Overworld sprites | Conversion needed? |
+|---|---|---|---|
+| **Johto** | pokeheartgold (native) | pokeheartgold `a/0/8/1` (native) | None |
+| **Kanto** | pokeheartgold + pokefirered ref | pokeheartgold `a/0/8/1` (native) | None (native HGSS Kanto) |
+| **Sinnoh** | pokeplatinum (+ pokediamond fill-in) | pokeplatinum/pokediamond `mmodel.narc` | Fork reconciliation only |
+| **Hoenn** | pokeemerald (Gen-3) | pokeemerald OWs (Gen-3) → BTX | **Gen-3 → Gen-4 format conversion** |
+| **Unova** | B2W2 ROM extraction | Spriters Resource B2W2 / ROM rip → BTX | **Gen-5 → Gen-4 extract + convert** |
+
+Effort concentrates exactly where `ENGINEERING.md` predicts: **Hoenn** (cross-gen
+conversion) and **Unova** (no source repo — extract and convert both maps and
+sprites). The other three regions are drop-in from decomp NARCs.
+
+---
+
+## Licensing & attribution
+
+Every source here reuses Nintendo/Game Freak copyrighted assets — the whole
+ecosystem (this project included) is legally gray and strictly non-commercial. The
+*tools* are the exception and carry real licenses (DSPRE is AGPL-3.0). In practice:
+
+- **pret decomps**: reuse per community norm; credit pret and the specific decomp.
+- **Ripped sprite banks** (Spriters Resource, Project Pokémon): credit the ripper
+  listed on each asset page.
+- Maintain a running `CREDITS.md`; add each source as it's pulled in.
 
 ---
 
 ## Recommended next actions
 
-1. **Decide the base**: adopt `rh-hideout/pokeemerald-expansion` (aligns with the
-   Sinnoh ports and DOWP; gets follower/gender OW systems for free).
-2. **Johto**: fork the Heart & Soul map + tileset + OW trees.
-3. **Sinnoh**: pull from `pokeemerald-platinum`; keep `LiderMorti00`'s as a
-   fallback/comparison.
-4. **Kanto**: port `pokefirered` maps/tilesets into the expansion base.
-5. **Overworld cast**: layer DS Style Project + Playable Character Community
-   Project over the expansion's OW system; use DOWP to survive the palette budget.
-6. **Unova**: scope a from-scratch tileset + porymap layout plan; search again for a
-   fresh Unova-in-Emerald WIP before committing to full manual work.
-7. Start `CREDITS.md` now.
+1. **Extract the native overworld banks now** (no build needed): pull `a/0/8/1`
+   from pokeheartgold and `mmodel.narc` from pokeplatinum/pokediamond with Tinke,
+   and inventory which BTX index maps to which named character (use the Project
+   Pokémon labelled dumps). This is [source]-tier work that can proceed before M0.
+2. **Confirm pokeplatinum's extracted-data completeness** for Sinnoh maps/OWs; if
+   thin (WIP), plan to draw the same assets from pokediamond.
+3. **Scope the Unova sprite conversion** alongside the map extraction: Spriters
+   Resource B2W2 sheets → ≤16-colour re-index → BTX, plus the Overlay property-table
+   entries.
+4. **Spec the Hoenn OW conversion** (Gen-3 object-event → BTX) as part of the
+   broader Gen-3→Gen-4 Hoenn port.
+5. **Author original BTX sheets** for Apocrypha-only NPCs (Mel et al.) to the
+   32×32 / 16-frame / ≤16-colour spec.
+6. Start `CREDITS.md`.
