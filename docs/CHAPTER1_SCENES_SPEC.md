@@ -80,7 +80,7 @@ Add narration states using `OakSpeech_PrintAndFadeCenteredFullScreenText` (white
 - [ ] ❌→🔧 **Kestra is visible**, searching the grass. *(fix: `move_person` before `show_person`)*
 - [ ] 🔧 The wild Rattata appears (ideally emerging, not popping in place).
 - [ ] ❌→🔧 **Gold is visible** when he rushes in. *(fix: he's live in town; hide→set→show recreates him at the grass robustly)*
-- [x] 🔧 A real **catching demo battle** occurs (`catching_tutorial`). *(RESOLVED 2026-07-02: scene now lives on Route 30 as `scr_seq_R30_012`; the engine demo runs rebadged as Gold — name row `msg_0375_R30_00022`, Typhlosion w/ Tackle only in `BattleSetup_New_Tutorial`, lethal damage clamped tutorial-side in `BtlCmd_UpdateHealthbarValue`. Backsprite stays the opposite-gender hero, consistent with Gold's SPRITE_HEROINE overworld placeholder.)*
+- [x] 🔧 A real **catching demo battle** occurs (`catching_tutorial`). *(RESOLVED 2026-07-05: scene lives on Route 30 as `scr_seq_R30_012`; the engine demo runs rebadged as Gold, who has NO Pokémon — TUTORIAL|SAFARI staging in `BattleSetup_New_Tutorial` gives a mon-less battle (no send-out, no enemy turn), the TUTORIAL bit forces the catch (4 shakes in `ov12_02247228`), the single Poké Ball throw is auto-injected in `BattleControllerPlayer_SelectionScreenInput` (no menu/finger), and subscript 275 + `SafariThrowBall` re-skin it as a plain Poké Ball. Name row `msg_0375_R30_00022` = "Gold"; backsprite stays the opposite-gender hero, consistent with Gold's SPRITE_HEROINE overworld placeholder.)*
 - [ ] auto: `var(CHERRYGROVE_OW)` goes 1→2; the rescue didn't freeze.
 
 ### S2-B · Outdoor starter ceremony — `scr_seq_T21_014`, coord fires `CHERRYGROVE_OW`==2 at (557,404)
