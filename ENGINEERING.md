@@ -73,7 +73,7 @@ Goal: an unmodified, byte-matching HGSS ROM building locally, plus a place for m
 
 ### M1 — Foundational architecture  [source] design, [build] to land
 The load-bearing layer. Must be settled before authoring region content, because every map/script/save bakes in these assumptions.
-- **Dex expansion**: raise `NATIONAL_DEX_COUNT` / `MAX_SPECIES` from 493 to cover the Gen 1–5 roster (national #1–649) plus the specific cross-region picks (Sylveon, etc.). Relocate the internal sentinels currently occupying 494–507 (`SPECIES_EGG`, `SPECIES_BAD_EGG`, Rotom forms). Resize the derived save/dex arrays (`caughtLanguages`, `NUM_DEX_FLAG_WORDS`). Add species data, learnsets, evolutions, sprites, and cries for the added set.
+- **Dex expansion**: raise `NATIONAL_DEX_COUNT` / `MAX_SPECIES` from 493 to cover the Gen 1–5 roster (national #1–649) plus the specific cross-region picks (Sylveon, etc.). Relocate the internal sentinels currently occupying 494–507 (`SPECIES_EGG`, `SPECIES_BAD_EGG`, Rotom forms). Resize the derived save/dex arrays (`caughtLanguages`, `NUM_DEX_FLAG_WORDS`). Add species data, learnsets, evolutions, sprites, and cries for the added set. **Designed in detail: [`engineering/m1-dex-expansion.md`](engineering/m1-dex-expansion.md)** (~157 new species; assets sourced from the same B2W2 extraction as Unova).
 - **State/save architecture**: expand `NUM_FLAGS` (2912) and `NUM_VARS` (368) to a five-region budget; add a versioned `SAVE_STORY_STATE` block for a structured quest-stage machine; version the save so builds don't brick testers. **Designed in detail: [`engineering/m1-state-save-architecture.md`](engineering/m1-state-save-architecture.md).**
 
 ### M2 — Multi-region infrastructure  [source] audit, [build] to land
