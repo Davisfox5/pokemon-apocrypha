@@ -44,6 +44,33 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
+## Region Port Status (M2/M3 — updated 2026-07-08)
+
+**Sinnoh and Hoenn overworlds are in the ROM and traversable.** Tooling lives in
+`tools/regionport/` (all generators idempotent; run `import_sinnoh.py` then
+`import_hoenn.py`, delete the stale `.narc` files they list, rebuild).
+
+- **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
+  HGSS land-data container (insert `0x1234` extra-header; props stripped in v1 so
+  buildings are invisible-but-solid), 13 Platinum tilesets imported, 30x30 matrix,
+  66 headers (`MAP_APOC_SINNOH_*`, ids 540-605). `MAP_MATRIX_MAX_SIZE` raised
+  799→900; RomSize 1G→2G. Gate/cave interiors are not ported, so a causeway
+  carver opens the narrowest seams; ~80% of the on-foot overworld is reachable
+  from the arrival pier (islands/some NE snowfields still need surf/interiors).
+- **Hoenn** (cross-gen rebuild): 190 chunks *generated* from pokeemerald data —
+  real per-tile collision, flat BDHC, and NSBMD models built from a template
+  (top-7 tiles per map as repeating textures drawn as merged rects; the rest as
+  per-tile/2x2-supertile quads into a per-map 256-color atlas NSBTX). 45 headers
+  (`MAP_APOC_HOENN_*`, ids 606-650). Emerald pixels render 1:1 under HGSS
+  lighting; buildings are flat "diorama" ground art with correct collision.
+- **Access (temporary scaffolding)**: two sailors on Cherrygrove beach warp to
+  Canalave City (38,743) and Slateport City plaza (216,272); return sailors at
+  both piers. Scripts 019-022 in `scr_seq_0850_T21.s`. All four legs
+  emulator-verified, plus on-foot treks Canalave→Jubilife and
+  Slateport→Route 119 (~700 tiles).
+- **v1 gaps**: Sinnoh building props, encounters/music/mapsec identity for new
+  maps, surf-only areas, interior maps, Hoenn east islands (Mossdeep etc.).
+
 ## The Five Hardest Problems
 
 1. **Merging engine forks and porting the two non-native regions.** HGSS and Platinum are separate Gen-4 decomp forks that must be reconciled into a single ROM; Hoenn is a Gen-3→Gen-4 format conversion; Unova is a Gen-5→Gen-4 extract-and-convert. Four of five regions have source in hand, so the burden concentrates in the Hoenn conversion and the Unova sourcing gap rather than spreading across all five.
