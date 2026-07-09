@@ -44,32 +44,48 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-08)
+## Region Port Status (M2/M3 — updated 2026-07-09, v2)
 
-**Sinnoh and Hoenn overworlds are in the ROM and traversable.** Tooling lives in
+**Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
+buildings and full-scale seamless Hoenn rendering.** Tooling lives in
 `tools/regionport/` (all generators idempotent; run `import_sinnoh.py` then
-`import_hoenn.py`, delete the stale `.narc` files they list, rebuild).
+`import_hoenn.py`, `rm files/fielddata/mapmatrix/map_matrix.narc`, rebuild).
 
 - **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
-  HGSS land-data container (insert `0x1234` extra-header; props stripped in v1 so
-  buildings are invisible-but-solid), 13 Platinum tilesets imported, 30x30 matrix,
-  66 headers (`MAP_APOC_SINNOH_*`, ids 540-605). `MAP_MATRIX_MAX_SIZE` raised
-  799→900; RomSize 1G→2G. Gate/cave interiors are not ported, so a causeway
-  carver opens the narrowest seams; ~80% of the on-foot overworld is reachable
-  from the arrival pier (islands/some NE snowfields still need surf/interiors).
+  HGSS land-data container, 13 Platinum tilesets, 30x30 matrix, 66 headers
+  (`MAP_APOC_SINNOH_*`, ids 540-605). **v2 adds building props**: the 140
+  Platinum building models the ported areas need are appended to
+  `bm_field.narc`/`a/0/4/0` (global ids 340-479; HGSS caps the model-file array
+  at 550), with matshp locator records, per-area build lists + prop texture
+  sets, and `a/1/0/7` no-anim members (HGSS reads that NARC per model id with
+  NO bounds guard — missing members hang the engine). Towns render real
+  Platinum architecture. `MAP_MATRIX_MAX_SIZE` 799→900; RomSize 1G→2G.
+  Causeway carver opens gate/cave seams; ~80% of the on-foot overworld is
+  reachable from the arrival pier.
 - **Hoenn** (cross-gen rebuild): 190 chunks *generated* from pokeemerald data —
-  real per-tile collision, flat BDHC, and NSBMD models built from a template
-  (top-7 tiles per map as repeating textures drawn as merged rects; the rest as
-  per-tile/2x2-supertile quads into a per-map 256-color atlas NSBTX). 45 headers
-  (`MAP_APOC_HOENN_*`, ids 606-650). Emerald pixels render 1:1 under HGSS
-  lighting; buildings are flat "diorama" ground art with correct collision.
+  real per-tile collision, flat BDHC, NSBMD models by template surgery on an
+  **outdoor** Platinum chunk (`map_data_147`; posScale 64 — v1 templated an
+  indoor chunk whose posScale 32 drew every chunk at HALF scale around its
+  center, the root cause of all "black chunk" sightings). **One shared
+  area/texture set for the whole region** (the engine binds chunk textures
+  against the current map's area, so per-map areas break cross-map rendering):
+  a global pool of 189 repeating tile textures + one 512x256 atlas
+  (2x2 supertiles incl. pool-pattern blocks, 2x1/1x2 pair-tiles, 8px tail with
+  nearest-content remap), per-chunk material name patching, and real NNS
+  patricia dictionary trees (dicts with 16+ entries are tree-walked by the
+  engine; builder verified against all 148 Platinum tileset dicts). Every 2x2
+  chunk window is budgeted under 5400 vertices (DS renders ~6144/frame).
+  45 headers (`MAP_APOC_HOENN_*`, ids 606-650), all `areaDataBank = 119`.
+  Emerald pixels render as flat "diorama" ground with correct collision.
 - **Access (temporary scaffolding)**: two sailors on Cherrygrove beach warp to
   Canalave City (38,743) and Slateport City plaza (216,272); return sailors at
-  both piers. Scripts 019-022 in `scr_seq_0850_T21.s`. All four legs
-  emulator-verified, plus on-foot treks Canalave→Jubilife and
-  Slateport→Route 119 (~700 tiles).
-- **v1 gaps**: Sinnoh building props, encounters/music/mapsec identity for new
-  maps, surf-only areas, interior maps, Hoenn east islands (Mossdeep etc.).
+  both piers. Scripts 019-022 in `scr_seq_0850_T21.s`. Emulator-verified:
+  ferry legs, Slateport→Route 110 seamless crossing, Canalave town walk.
+- **v2 gaps**: encounters/music/mapsec identity for new maps, interiors,
+  surf-only areas, Hoenn east islands; Hoenn 3D buildings (Gen-4 prop models
+  on Emerald footprints — the Sinnoh prop pipeline makes this feasible);
+  atlas texture VRAM ceiling is between 175KB (works) and 304KB (fails) —
+  currently 175KB total, detail-tile tail at 8px half-res.
 
 ## The Five Hardest Problems
 
