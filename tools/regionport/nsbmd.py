@@ -80,9 +80,15 @@ class Template:
                                  for i in range(sn)]
         # Normalize to the proven render config regardless of template:
         # SBC identity MAT k -> SHP k pairing (147's artist-scrambled pairs
-        # would draw shape DLs with the wrong materials), and unlit
-        # vertex-color materials (diffuse 0xE739 + vtxcolor bit, no lights,
-        # no fog, both faces) — the config map_data_191 shipped v1 with.
+        # would draw shape DLs with the wrong materials), and vanilla OUTDOOR
+        # materials — light0 enable + fog + white ambient + vertex-color
+        # diffuse (map_data_147's own values). The light-enable bit is what
+        # lets the arealight day/night system tint the map: the outdoor
+        # loader strips material colors (NNS_G3dMdlUseGlb*) and drives
+        # vertex color per-normal through the global light/ambient/emission,
+        # so unlit materials render ~half-bright at noon and never tint.
+        # Only deviation from vanilla: draw both faces (|0x40) so quad
+        # winding can't blank tiles.
         sbc = self.m + self.ofsSbc
         shell = bytes((0x26, 0, 0, 0, 0, 0x02, 0, 0x01, 0x0B))
         assert bytes(b[sbc:sbc + 9]) == shell, b[sbc:sbc + 9].hex()
@@ -90,7 +96,7 @@ class Template:
             b[sbc + 9 + k * 4:sbc + 9 + k * 4 + 4] = bytes((0x04, k, 0x05, k))
         assert b[sbc + 9 + NUM_TEX * 4] == 0x2B
         for off in self.mat_offsets:
-            struct.pack_into("<3I", b, off + 4, 0xE739, 0, 0x001F00C0)
+            struct.pack_into("<3I", b, off + 4, 0x7FFFE739, 0, 0x001F80C1)
         # prefix: everything up to end of last shape header
         self.shape_hdrs_end = shp + max(self.shp_body_offsets) + 16
         self.prefix = bytes(b[:self.shape_hdrs_end])
@@ -155,11 +161,14 @@ def quad_dl(quads):
     return pack_dl(cmds)
 
 
-def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None):
+def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None,
+                wrap_repeat_slots=7):
     """shape_dls: 8 display-list byte blobs (shape k drawn with texture k).
     tex_dims: 8 (w,h) texture dimensions for material origW/origH.
     tex_names/pal_names: optional 8 names to patch into the material dicts
     (binding iterates these linearly; the stale model-side tree is unused).
+    wrap_repeat_slots: first N materials get repeat wrap, the rest clamp
+    (chunks: 7 repeating pool tiles + clamped atlas; props: 0 = all clamp).
     Returns a complete BMD0."""
     t = template()
     b = bytearray(t.prefix)
@@ -224,7 +233,7 @@ def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None):
     for k, (w, h) in enumerate(tex_dims):
         struct.pack_into("<2H", b, t.mat_offsets[k] + 0x20, w, h)
         ti = struct.unpack_from("<I", b, t.mat_offsets[k] + 0x14)[0]
-        ti = (ti & ~0x000F0000) | (0x00030000 if k < 7 else 0)
+        ti = (ti & ~0x000F0000) | (0x00030000 if k < wrap_repeat_slots else 0)
         struct.pack_into("<I", b, t.mat_offsets[k] + 0x14, ti)
     mdl0_size = len(b) - t.mdl0
     struct.pack_into("<I", b, t.mdl0 + 4, mdl0_size)
@@ -391,18 +400,25 @@ def _mkdict(tree, entries, unit, names):
 
 
 def build_btx_named(textures, palettes, pal_of=None):
-    """Generalized NSBTX. textures: [(name, w, h, texels 8bpp)], palettes:
-    [(name, 512-byte BGR555)]. All texture dims must be 8<<k. pal_of unused —
-    palette selection happens at bind time by the model's palette names."""
+    """Generalized NSBTX. textures: [(name, w, h, texels)] for 8bpp pltt256,
+    or [(name, w, h, texels, fmt)] with fmt 3 = 4bpp pltt16 (color 0 drawn
+    transparent). palettes: [(name, 512-byte BGR555)] or 32-byte for pltt16.
+    All texture dims must be 8<<k. pal_of unused — palette selection happens
+    at bind time by the model's palette names."""
     texdata = bytearray()
     tex_entries, tex_names = [], []
-    for name, w, h, texels in textures:
-        assert len(texels) == w * h, (name, w, h, len(texels))
+    for entry in textures:
+        name, w, h, texels = entry[:4]
+        fmt = entry[4] if len(entry) > 4 else 4
+        expected = w * h if fmt == 4 else w * h // 2
+        assert len(texels) == expected, (name, w, h, fmt, len(texels))
         while len(texdata) % 8:
             texdata.append(0)
         ofs = len(texdata)
         texdata += texels
-        w0 = ((ofs >> 3) & 0xFFFF) | (_log2(w) << 20) | (_log2(h) << 23) | (4 << 26)
+        w0 = ((ofs >> 3) & 0xFFFF) | (_log2(w) << 20) | (_log2(h) << 23) | (fmt << 26)
+        if fmt == 3:
+            w0 |= 1 << 29   # color 0 transparent
         w1 = w | (h << 11) | 0x80000000
         tex_entries.append((w0, w1))
         tex_names.append(name)
@@ -411,7 +427,9 @@ def build_btx_named(textures, palettes, pal_of=None):
     paldata = bytearray()
     pal_entries, pal_names = [], []
     for name, pal in palettes:
-        assert len(pal) == 512
+        assert len(pal) in (32, 512), (name, len(pal))
+        while len(paldata) % 8:
+            paldata += b"\0"
         pal_entries.append((len(paldata) >> 3, 0))
         pal_names.append(name)
         paldata += pal

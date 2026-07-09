@@ -44,7 +44,7 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-09, v2)
+## Region Port Status (M2/M3 — updated 2026-07-09, v3)
 
 **Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
 buildings and full-scale seamless Hoenn rendering.** Tooling lives in
@@ -77,15 +77,60 @@ buildings and full-scale seamless Hoenn rendering.** Tooling lives in
   chunk window is budgeted under 5400 vertices (DS renders ~6144/frame).
   45 headers (`MAP_APOC_HOENN_*`, ids 606-650), all `areaDataBank = 119`.
   Emerald pixels render as flat "diorama" ground with correct collision.
+- **v3 — Sinnoh interactivity** (`sinnoh_life.py`, run after `import_sinnoh.py`;
+  persists per-map banks to `build/sinnoh_overrides.json` so importer re-runs
+  keep them): 384 always-visible Platinum NPCs imported with coordinates 1:1
+  (the Sinnoh matrix preserves Platinum's 30x30 layout), sprites remapped to
+  HGSS equivalents, movement remapped, generic Apocrypha dialogue from a new
+  msg bank (`msg_0830_APOCSIN`) + script bank (`scr_seq_0967_APOCSIN`; script 0
+  is the Canalave→Cherrygrove return ferry). PC/Mart doors in 15 cities warp to
+  30 cloned interiors (headers 670+ reusing Cherrygrove PC/Mart map+scripts —
+  nurse healing and the shop work verbatim; exit warps return to the right
+  city). 49 wild-encounter tables generated from Platinum's encounter JSONs
+  into `g_/s_enc_data.csv` (land levels/species incl. time-of-day slots 2/3,
+  surf/rod slots, dual-slot species → Hoenn/Sinnoh Sound radio). Verified
+  in-emu: Canalave loads with wandering NPCs, PC door → cloned interior
+  (nurse/PC/escalator alive) at the door tile.
+- **v3 — Hoenn 3D buildings** (`hoenn_buildings.py`, driven by
+  `import_hoenn.py`): enterable buildings extracted per map by rectangle
+  growth from each warp door (body = impassable at **elevation 0** — fences
+  and cliffs sit at elevation 3; up to 3 roof-art rows above), art cropped
+  from the rendered map, masked, and deduped perceptually (type+size+per-tile
+  mean color — exact bytes differ across towns via baked background corners).
+  Each distinct art becomes a fold-billboard NSBMD prop (front wall vertical,
+  roof tilted back, solid-color sides from an 8x8 patch baked into the
+  texture padding) textured with its own GBA art as pltt16 (color 0
+  transparent), registered through the Sinnoh prop pipeline (models 480+,
+  matshp, anim stubs, one build list + prop texset for shared area 119).
+  Footprints are flattened in the ground to the door-approach tile before
+  texture planning. Verified in-emu: Slateport's Pokémon Center and Mart
+  stand as real 3D buildings on clean ground.
+- **v3 — lighting fix**: generated Hoenn chunks were unlit vertex-color
+  materials (v2's template normalization used the *indoor* recipe), which the
+  arealight day/night system cannot tint — they rendered ~half-bright at noon
+  and never darkened. Chunk materials now use the vanilla outdoor recipe
+  (light0 enable + fog + white ambient + vertex-color diffuse, both faces);
+  Slateport midday brightness now matches vanilla Johto (140 vs 145 mean).
+  `files/data/area00light.txt` is parsed at runtime and is CRLF-sensitive —
+  LF-only or missing final `EOF` hangs every outdoor map load.
 - **Access (temporary scaffolding)**: two sailors on Cherrygrove beach warp to
   Canalave City (38,743) and Slateport City plaza (216,272); return sailors at
-  both piers. Scripts 019-022 in `scr_seq_0850_T21.s`. Emulator-verified:
-  ferry legs, Slateport→Route 110 seamless crossing, Canalave town walk.
-- **v2 gaps**: encounters/music/mapsec identity for new maps, interiors,
-  surf-only areas, Hoenn east islands; Hoenn 3D buildings (Gen-4 prop models
-  on Emerald footprints — the Sinnoh prop pipeline makes this feasible);
-  atlas texture VRAM ceiling is between 175KB (works) and 304KB (fails) —
-  currently 175KB total, detail-tile tail at 8px half-res.
+  both piers. Scripts 019-022 in `scr_seq_0850_T21.s` (Canalave's return
+  sailor now uses `scr_seq_0967_APOCSIN` script 0).
+- **Hard limits mapped**: HGSS renders props by the matshp locator's
+  mat/shp pairs — a locator count of 0 draws NOTHING (Platinum's C falls back
+  to a full-model draw); every generated prop carries one (mat0,shp0) pair.
+  Field **texture VRAM holds ~192KB total** (empirical: ground 175KB + props
+  16KB works; +69KB corrupts the ground; +99KB corrupts the props), so the
+  building texel budget is 16KB = the 6 most-instanced arts (PCs, marts,
+  common houses; 18 placements). Raising it requires shrinking the ground
+  atlas (512x256 fixed) — a retune of the supertile/merge/vertex system.
+- **v3 gaps**: music/mapsec identity for new maps; NPC dialogue is a generic
+  pool (16 lines); Mart clones sell Cherrygrove stock; gyms/houses have no
+  interiors; encounter tables unverified in battle; Hoenn buildings beyond
+  the 16KB budget stay 2D-baked; surf-only areas, Hoenn east islands;
+  long-range `emu_ram.teleport` corrupts the chunk-streaming state (black
+  screen on next warp) — short in-map hops are safe.
 
 ## The Five Hardest Problems
 

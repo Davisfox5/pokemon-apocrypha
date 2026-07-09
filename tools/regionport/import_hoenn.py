@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from narc import narc_read, narc_write            # noqa: E402
 import emeraldmap as em                           # noqa: E402
 import nsbmd                                      # noqa: E402
+import hoenn_buildings as hb                      # noqa: E402
 from PIL import Image                             # noqa: E402
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
@@ -160,6 +161,9 @@ def main():
     GW, GH, owner, ckey, perm, origins = stitch_world()
     CW, CH = (GW + 31) // 32, (GH + 31) // 32
     print(f"grid {GW}x{GH} tiles -> {CW}x{CH} chunks")
+    # 3D buildings: extract footprints + art, flatten footprints in ckey so
+    # the ground renders as plain terrain under the generated prop models
+    binfo = hb.prepare(origins, ckey)
     mapdatas = {mid: em.MapData(mid) for mid in origins}
 
     # ---- chunk ownership + per-map content stats -------------------------- #
@@ -645,11 +649,17 @@ def main():
     prop_tex = narc_read(os.path.join(HG, "files/a/0/7/0"))[:BASE["prop"]]
     assert len(land) == BASE["land"], "run import_sinnoh.py first"
 
-    # ONE area for the whole region (see module docstring)
+    # ONE area for the whole region (see module docstring). Its prop archive
+    # holds the generated 3D building models + their pltt16 texset.
+    build_list, prop_btx = hb.build_props(binfo)
+    area_build.append(build_list)
+    prop_tex.append(prop_btx)
+    hoenn_build_id = len(area_build) - 1
     hoenn_area_id = len(area_data)
-    area_data.append(struct.pack("<4H", SHARED_EMPTY_BUILD, len(tex_sets), 0xFFFF, 0x0101))
+    area_data.append(struct.pack("<4H", hoenn_build_id, len(tex_sets), 0xFFFF, 0x0101))
     tex_sets.append(global_btx)
-    print(f"area {hoenn_area_id} (single shared), texset {len(tex_sets)-1}")
+    print(f"area {hoenn_area_id} (single shared), texset {len(tex_sets)-1}, "
+          f"prop archive {hoenn_build_id}")
 
     # ---- generate chunks --------------------------------------------------- #
     models_grid = [[0xFFFF] * CW for _ in range(CH)]
@@ -731,6 +741,9 @@ def main():
     seed = find_arrival(GW, GH, perm, origins)
     print("arrival seed:", seed)
     carve(land, models_grid, CW, CH, GW, GH, seed)
+
+    # ---- place 3D building props into the generated chunks ----------------- #
+    hb.inject_props(land, models_grid, binfo, CW, CH)
 
     # ---- C patches ---------------------------------------------------------- #
     defines = [MARK_BEGIN]

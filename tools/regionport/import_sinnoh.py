@@ -190,8 +190,15 @@ def main():
     with open(os.path.join(HG, "files/fielddata/build_model/bm_field_matshp.dat"), "rb") as f:
         hm = f.read()
     nloc, nids = VANILLA_MATSHP
+    # Recover the pristine vanilla records. The current file may already contain
+    # imported members from a prior run, so the ids table starts after the
+    # file's ACTUAL locator count -- NOT after `nloc`. Using a fixed byte offset
+    # here corrupts the vanilla ids on every re-run (they get overwritten with
+    # the appended locator bytes). Locate the ids table from the live header.
+    cur_nloc = struct.unpack_from("<H", hm, 0)[0]
+    ids_base = 4 + cur_nloc * 4
     hloc = bytearray(hm[4:4 + nloc * 4])
-    hids = bytearray(hm[4 + nloc * 4:4 + nloc * 4 + nids * 4])
+    hids = bytearray(hm[ids_base:ids_base + nids * 4])
     for pid in plat_models:
         cnt, idx = ploc[pid]
         hloc += struct.pack("<HH", cnt, len(hids) // 4)
@@ -279,24 +286,32 @@ def main():
         os.path.join(HG, "include/constants/maps.h"),
         "\n".join(defines), anchor="#endif // POKEHEARTGOLD_CONSTANTS_MAPS_H")
 
-    # per-map overrides: the ferry arrival map borrows Cherrygrove's script bank
-    # (return-warp script lives there) and gets its own events (sailor NPC)
-    overrides = {
-        "MAP_HEADER_CANALAVE_CITY": {
-            "scriptsBank": "NARC_scr_seq_scr_seq_0850_T21_bin",
-            "eventsBank": "NARC_zone_event_491_APOCSINNOH_bin",
-        },
-    }
+    # per-map overrides: sinnoh_life.py (events/scripts/msg/encounter banks)
+    # persists its choices to build/sinnoh_overrides.json; fall back to the
+    # original ferry-arrival wiring if it hasn't been run.
+    ov_path = os.path.join(OUT, "sinnoh_overrides.json")
+    if os.path.exists(ov_path):
+        with open(ov_path) as f:
+            overrides = json.load(f)
+    else:
+        overrides = {
+            "MAP_HEADER_CANALAVE_CITY": {
+                "scriptsBank": "NARC_scr_seq_scr_seq_0850_T21_bin",
+                "eventsBank": "NARC_zone_event_491_APOCSINNOH_bin",
+            },
+        }
     entries = [MARK_BEGIN]
     for h in header_names:
         mid, cname = id_map[h]
         ov = overrides.get(h, {})
         scripts_bank = ov.get("scriptsBank", "NARC_scr_seq_scr_seq_0139_EVERYWHERE_bin")
         events_bank = ov.get("eventsBank", "NARC_zone_event_000_DUMMY_bin")
+        msg_bank = ov.get("msgBank", "NARC_msg_msg_0003_EVERYWHERE_bin")
+        enc_bank = ov.get("wildEncounterBank", "ENCDATA_NA")
         ptype = plat_headers[h]["mapType"]
         map_type = "MAP_TYPE_CITY_TOWN" if ptype == 1 else "MAP_TYPE_ROUTE"
         entries.append(f"""    [{cname}] = {{
-                        .wildEncounterBank = ENCDATA_NA,
+                        .wildEncounterBank = {enc_bank},
                         .areaDataBank = {area_map[plat_headers[h]["area"]]},
                         .moveModelBank = 15,
                         .worldMapX = 0,
@@ -304,7 +319,7 @@ def main():
                         .matrixId = NARC_map_matrix_{MATRIX_NAME.replace('.', '_')},
                         .scriptsBank = {scripts_bank},
                         .scriptHeaderBank = NARC_scr_seq_scr_seq_0399_EVERYWHERE_hdr_bin,
-                        .msgBank = NARC_msg_msg_0003_EVERYWHERE_bin,
+                        .msgBank = {msg_bank},
                         .dayMusicId = SEQ_GS_R_1_30,
                         .nightMusicId = SEQ_GS_R_1_30,
                         .eventsBank = {events_bank},
