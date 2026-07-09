@@ -220,9 +220,11 @@ def load_platinum(man):
 
 # ---- zone_event emission --------------------------------------------------- #
 
-def build_outdoor_events(man, plat, interiors):
+def build_outdoor_events(man, plat, interiors, door_map, sign_scripts,
+                         porter_script):
     """Returns {header_name: (filename, json_dict, warp_map)} where warp_map
-    maps interior key -> warp index in this file."""
+    maps interior key -> warp index in this file. sign_scripts maps header
+    name -> scriptId for the map's signpost text."""
     result = {}
     msg_of_obj = []   # (header, sprite, is_trainer) per generated script line choice
     for h, info in plat.items():
@@ -231,13 +233,20 @@ def build_outdoor_events(man, plat, interiors):
         ev = info["events"]
         objects, warps = [], []
         warp_map = {}
-        # Canalave: keep the return-ferry sailor (script 0 in the APOCSIN bank)
+        # Canalave: keep the return-ferry sailor (script 0 in the APOCSIN
+        # bank) and station the HM porter next to him on the pier
         if h == "MAP_HEADER_CANALAVE_CITY":
             objects.append(OrderedDict([
                 ("id", 200), ("spriteId", "SPRITE_SEAMAN"), ("movement", 0),
                 ("type", 0), ("eventFlag", 0), ("scriptId", 1),
                 ("facingDirection", 0), ("param0", 0), ("param1", 0), ("param2", 0),
                 ("xRange", 0), ("yRange", 0), ("x", 38), ("z", 744), ("y", 0),
+            ]))
+            objects.append(OrderedDict([
+                ("id", 201), ("spriteId", "SPRITE_DELIVERY"), ("movement", 0),
+                ("type", 0), ("eventFlag", 0), ("scriptId", porter_script),
+                ("facingDirection", 0), ("param0", 0), ("param1", 0), ("param2", 0),
+                ("xRange", 0), ("yRange", 0), ("x", 40), ("z", 744), ("y", 0),
             ]))
         for o in ev["object_events"]:
             if str(o.get("flag", "0")) != "0":
@@ -259,13 +268,8 @@ def build_outdoor_events(man, plat, interiors):
                 ("xRange", xr), ("yRange", yr),
                 ("x", o["x"]), ("z", o["z"]), ("y", 0),
             ]))
-        for w in ev["warp_events"]:
-            dest = w["dest_header_id"]
-            key = None
-            if "POKECENTER" in dest:
-                key = (h, "PC")
-            elif "MART" in dest or "SHOP" in dest:
-                key = (h, "MART")
+        for wi, w in enumerate(ev["warp_events"]):
+            key = door_map.get((h, wi))
             if key is None or key not in interiors:
                 continue
             warp_map[key] = len(warps)
@@ -275,16 +279,29 @@ def build_outdoor_events(man, plat, interiors):
             ]))
         if not objects and not warps:
             continue
+        bgs = []
+        sid = sign_scripts.get(h)
+        if sid:
+            for bg in ev.get("bg_events", []):
+                bgs.append(OrderedDict([
+                    ("scriptId", sid), ("type", 1),
+                    ("x", bg["x"]), ("z", bg["z"]), ("y", 0), ("dir", 0),
+                ]))
+        if not objects and not warps and not bgs:
+            continue
         fn = f"{OUTDOOR_ZE_BASE}_APOCSIN_{suffix}.json"
         result[h] = (fn, OrderedDict([
             ("header", "fielddata/script/scr_seq/event_EVERYWHERE.h"),
-            ("bgs", []), ("objects", objects), ("warps", warps), ("coords", []),
+            ("bgs", bgs), ("objects", objects), ("warps", warps), ("coords", []),
         ]), warp_map)
     return result
 
 
 def plan_interiors(man, plat):
-    """One PC + one MART clone per city that has such a door."""
+    """One PC + one MART clone per city with such a door, plus a generic
+    house clone for EVERY other door on town/city maps (so all buildings
+    are enterable; each door gets its own header so the exit warp returns
+    to the right spot)."""
     interiors = OrderedDict()
     nid = FIRST_INTERIOR_ID
     for h, info in plat.items():
@@ -298,19 +315,165 @@ def plan_interiors(man, plat):
             interiors[(h, "MART")] = {"id": nid, "cname": f"MAP_APOC_SIN_MART_{suffix}",
                                       "city": h, "kind": "MART"}
             nid += 1
-    return interiors
+    door_map = {}   # (city_header, warp_index) -> interior key
+    for h, info in plat.items():
+        suffix = man["maps"][h]["name"].replace("MAP_APOC_SINNOH_", "")
+        seen_pc = seen_mart = False
+        for wi, w in enumerate(info["events"]["warp_events"]):
+            d = w["dest_header_id"]
+            if "POKECENTER" in d and not seen_pc and (h, "PC") in interiors:
+                seen_pc = True
+                door_map[(h, wi)] = (h, "PC")
+                continue
+            if ("MART" in d or "SHOP" in d) and not seen_mart and (h, "MART") in interiors:
+                seen_mart = True
+                door_map[(h, wi)] = (h, "MART")
+                continue
+            if not plat[h]["is_city"]:
+                continue
+            key = (h, "HOUSE", wi)
+            interiors[key] = {
+                "id": nid, "cname": f"MAP_APOC_SIN_H{wi:02d}_{suffix}",
+                "city": h, "kind": "HOUSE", "warp_index": wi}
+            door_map[(h, wi)] = key
+            nid += 1
+    return interiors, door_map
 
 
 PC_DONOR_EVENTS = "066_T21PC0101.json"
 MART_DONOR_EVENTS = "065_T21FS0101.json"
+HOUSE_DONOR_EVENTS = "067_T21R0301.json"
 PC_DONOR_HDR = "MAP_CHERRYGROVE_POKECENTER_1F"
 MART_DONOR_HDR = "MAP_CHERRYGROVE_POKEMART"
+HOUSE_DONOR_HDR = "MAP_CHERRYGROVE_SOUTHWEST_HOUSE"
+
+# town sign slogans (route signs fall back to the plain name)
+SLOGANS = {
+    "TWINLEAF_TOWN": "Fresh and Free!",
+    "SANDGEM_TOWN": "Town of Sand!",
+    "JUBILIFE_CITY": "City of Joy!",
+    "OREBURGH_CITY": "City of Energy!",
+    "FLOAROMA_TOWN": "Vivid and Scented!",
+    "ETERNA_CITY": "History Living!",
+    "HEARTHOME_CITY": "Warm and Kind!",
+    "SOLACEON_TOWN": "Free of Worry!",
+    "VEILSTONE_CITY": "Hewn from Rock!",
+    "PASTORIA_CITY": "Marsh Country!",
+    "CELESTIC_TOWN": "Living History!",
+    "CANALAVE_CITY": "The Cargo Port!",
+    "SNOWPOINT_CITY": "City of Snow!",
+    "SUNYSHORE_CITY": "Solar Powered!",
+    "FIGHT_AREA": "The Battle Zone!",
+    "SURVIVAL_AREA": "For Tough Trainers!",
+    "RESORT_AREA": "For Relaxation!",
+}
+
+
+def display_name(suffix):
+    return " ".join(w.capitalize() for w in suffix.split("_"))
+
+
+# ---- location names (mapsec) ---------------------------------------------- #
+# mapsec is an 8-bit header field; vanilla uses 0..234, leaving ~20 free
+# values. Cities get individual names; routes/lakefronts share grouped ones.
+MAPSEC_FIRST_NEW = 235
+MAPSEC_CITIES = [
+    "TWINLEAF_TOWN", "SANDGEM_TOWN", "JUBILIFE_CITY", "OREBURGH_CITY",
+    "FLOAROMA_TOWN", "ETERNA_CITY", "HEARTHOME_CITY", "SOLACEON_TOWN",
+    "VEILSTONE_CITY", "PASTORIA_CITY", "CELESTIC_TOWN", "CANALAVE_CITY",
+    "SNOWPOINT_CITY", "SUNYSHORE_CITY", "POKEMON_LEAGUE",
+]
+MAPSEC_GROUPS = [("SINNOH_ROUTE", "Sinnoh Route"),
+                 ("SINNOH_LAKEFRONT", "Sinnoh Lakefront"),
+                 ("BATTLE_ZONE", "Battle Zone")]
+
+
+def mapsec_plan(man):
+    """suffix -> (constant name, display name); allocates the free 8-bit
+    mapsec values. Returns (per_map, ordered [(const, display)])."""
+    consts = []
+    per_map = {}
+    for c in MAPSEC_CITIES:
+        consts.append((f"MAPSEC_APOC_{c}", display_name(c)))
+    for gname, gdisp in MAPSEC_GROUPS:
+        consts.append((f"MAPSEC_APOC_{gname}", gdisp))
+    assert MAPSEC_FIRST_NEW + len(consts) <= 255
+    for h, m in man["maps"].items():
+        suffix = m["name"].replace("MAP_APOC_SINNOH_", "")
+        if suffix in MAPSEC_CITIES:
+            per_map[h] = f"MAPSEC_APOC_{suffix}"
+        elif "LAKEFRONT" in suffix or "LAKE" in suffix:
+            per_map[h] = "MAPSEC_APOC_SINNOH_LAKEFRONT"
+        elif suffix in ("FIGHT_AREA", "SURVIVAL_AREA", "RESORT_AREA"):
+            per_map[h] = "MAPSEC_APOC_BATTLE_ZONE"
+        else:
+            per_map[h] = "MAPSEC_APOC_SINNOH_ROUTE"
+    return per_map, consts
+
+
+def patch_mapsecs(consts):
+    """Add MAPSEC constants + msg_0279 rows (indices 235+, regenerated)."""
+    p = os.path.join(HG, "include/constants/map_sections.h")
+    src = open(p).read()
+    MB2 = "// APOC_SINNOH_LIFE MAPSEC BEGIN"
+    ME2 = "// APOC_SINNOH_LIFE MAPSEC END"
+    lines = [MB2]
+    for i, (cname, _) in enumerate(consts):
+        lines.append(f"#define {cname:<40} {MAPSEC_FIRST_NEW + i}")
+    lines.append(ME2)
+    block = "\n".join(lines)
+    if MB2 in src:
+        src = src[:src.find(MB2)] + block + src[src.find(ME2) + len(ME2):]
+    else:
+        anchor = re.search(r"#define MAPSEC_\w+\s+234\n", src)
+        assert anchor, "mapsec 234 not found"
+        i = anchor.end()
+        src = src[:i] + "\n" + block + "\n" + src[i:]
+    open(p, "w").write(src)
+
+    gp = os.path.join(HG, "files/msgdata/msg/msg_0279.gmm")
+    src = open(gp).read()
+    # drop any rows with index >= 235 (previous runs), then append ours
+    src = re.sub(r"\t<row [^>]*index=\"(2[4-9][0-9]|23[5-9]|[3-9][0-9][0-9])\".*?</row>\n",
+                 "", src, flags=re.S)
+    rows = []
+    for i, (_, disp) in enumerate(consts):
+        idx = MAPSEC_FIRST_NEW + i
+        rows.append(
+            f'\t<row id="msg_0279_{idx:05d}" index="{idx}">\n'
+            f'\t\t<attribute name="window_context_name">used</attribute>\n'
+            f'\t\t<language name="English">{disp}</language>\n'
+            f"\t</row>\n")
+    src = src.replace("</body>", "".join(rows) + "</body>")
+    open(gp, "w").write(src)
+
+
+# ---- music ----------------------------------------------------------------- #
+BIG_CITIES = {"JUBILIFE_CITY", "HEARTHOME_CITY", "VEILSTONE_CITY"}
+PORT_CITIES = {"CANALAVE_CITY", "SUNYSHORE_CITY", "PASTORIA_CITY"}
+
+
+def music_for(suffix, is_city):
+    if suffix == "SNOWPOINT_CITY":
+        return "SEQ_GS_C_FUSUBE"
+    if suffix in BIG_CITIES:
+        return "SEQ_GS_C_KOGANE"
+    if suffix in PORT_CITIES:
+        return "SEQ_GS_C_ASAGI"
+    if suffix.endswith("_TOWN") or suffix in ("FIGHT_AREA", "SURVIVAL_AREA",
+                                              "RESORT_AREA"):
+        return "SEQ_GS_T_WAKABA"
+    if is_city:
+        return "SEQ_GS_C_KIKYOU"
+    pool = ["SEQ_GS_R_1_29", "SEQ_GS_R_2_30", "SEQ_GS_R_4_34", "SEQ_GS_R_7_42"]
+    return pool[sum(map(ord, suffix)) % len(pool)]
 
 
 def build_interior_events(interiors, outdoor, man):
     """Clone donor events; retarget the exit warp; drop other warps."""
     donors = {"PC": json.load(open(os.path.join(ZE_DIR, PC_DONOR_EVENTS))),
-              "MART": json.load(open(os.path.join(ZE_DIR, MART_DONOR_EVENTS)))}
+              "MART": json.load(open(os.path.join(ZE_DIR, MART_DONOR_EVENTS))),
+              "HOUSE": json.load(open(os.path.join(ZE_DIR, HOUSE_DONOR_EVENTS)))}
     files = {}
     for i, (key, info) in enumerate(interiors.items()):
         d = json.loads(json.dumps(donors[info["kind"]]))  # deep copy
@@ -333,9 +496,32 @@ def build_interior_events(interiors, outdoor, man):
 
 # ---- scr_seq + msg --------------------------------------------------------- #
 
-def write_scripts():
+def write_scripts(man):
+    """msg bank + script bank. Script indices:
+       0                 = Canalave->Cherrygrove return ferry
+       1..len(LINES)     = generic townsfolk dialogue
+       next              = HM porter (gives HM01-08)
+       then one sign script per map with sign text.
+    Returns {header_name: sign scriptId (events 1-based)} and the porter
+    scriptId."""
+    msgs = [text for _, text in LINES]
+    PORTER_MSG0 = len(msgs)
+    msgs.append("Ahoy! You look like an explorer.\\nTake these--the full set of\\fHIDDEN MACHINES!\\rUse them from the bag: the field\\nmoves work as long as you carry them.")
+    msgs.append("Got your HMs already!\\nGo see the world, trainer.")
+    sign_map = {}   # header -> script index (0-based)
+    sign_texts = []
+    for h, m in man["maps"].items():
+        suffix = m["name"].replace("MAP_APOC_SINNOH_", "")
+        name = display_name(suffix)
+        slogan = SLOGANS.get(suffix)
+        text = f"{name}\\n“{slogan}”" if slogan else name
+        sign_map[h] = len(sign_texts)
+        sign_texts.append(text)
+    SIGN_MSG0 = len(msgs)
+    msgs.extend(sign_texts)
+
     lines_gmm = []
-    for i, (_, text) in enumerate(LINES):
+    for i, text in enumerate(msgs):
         lines_gmm.append(
             f'\t<row id="msg_0830_APOCSIN_{i:05d}" index="{i}">\n'
             f'\t\t<attribute name="window_context_name">used</attribute>\n'
@@ -346,15 +532,18 @@ def write_scripts():
     with open(os.path.join(HG, "files/msgdata/msg/msg_0830_APOCSIN.gmm"), "w") as f:
         f.write(gmm)
 
+    nscripts_before_signs = 1 + len(LINES) + 1   # ferry + lines + porter
+    PORTER_SCRIPT = 1 + len(LINES)
+    total = nscripts_before_signs + len(sign_texts)
     s = ['#include "constants/scrcmd.h"',
          '#include "msgdata/msg/msg_0830_APOCSIN.h"',
          '\t.include "asm/macros/script.inc"', "", "\t.rodata", "",
          "; ===== APOCRYPHA: shared script bank for the ported Sinnoh region.",
-         "; Script 0 = Canalave->Cherrygrove return ferry (moved from T21 bank);",
-         "; scripts 1..N = generic townsfolk dialogue used by imported NPCs. =====",
-         "\tscrdef scr_seq_APOCSIN_000"]
-    for i in range(len(LINES)):
-        s.append(f"\tscrdef scr_seq_APOCSIN_{i + 1:03d}")
+         "; 0 = Canalave->Cherrygrove return ferry; 1..N generic dialogue;",
+         "; then the HM porter, then one town/route sign per map. =====",
+         ]
+    for i in range(total):
+        s.append(f"\tscrdef scr_seq_APOCSIN_{i:03d}")
     s.append("\tscrdef_end")
     s.append("")
     s.append("scr_seq_APOCSIN_000:")
@@ -374,9 +563,44 @@ def write_scripts():
         s.append(f"\tsimple_npc_msg msg_0830_APOCSIN_{i:05d}")
         s.append("\tend")
         s.append("")
+    # HM porter: gives HM01..HM08 once (keyed on owning HM01)
+    s.append(f"scr_seq_APOCSIN_{PORTER_SCRIPT:03d}:")
+    s.append("\tplay_se SEQ_SE_DP_SELECT")
+    s.append("\tlockall")
+    s.append("\tfaceplayer")
+    s.append("\thasitem ITEM_HM01, 1, VAR_SPECIAL_RESULT")
+    s.append("\tcompare VAR_SPECIAL_RESULT, 1")
+    s.append(f"\tgoto_if_eq _PORTER_DONE")
+    s.append(f"\tnpc_msg msg_0830_APOCSIN_{PORTER_MSG0:05d}")
+    for hm in range(1, 9):
+        s.append(f"\tgiveitem_no_check ITEM_HM{hm:02d}, 1")
+    s.append("\twait_button_or_walk_away")
+    s.append("\tclosemsg")
+    s.append("\treleaseall")
+    s.append("\tend")
+    s.append("_PORTER_DONE:")
+    s.append(f"\tnpc_msg msg_0830_APOCSIN_{PORTER_MSG0 + 1:05d}")
+    s.append("\twait_button_or_walk_away")
+    s.append("\tclosemsg")
+    s.append("\treleaseall")
+    s.append("\tend")
+    s.append("")
+    for i in range(len(sign_texts)):
+        idx = nscripts_before_signs + i
+        s.append(f"scr_seq_APOCSIN_{idx:03d}:")
+        s.append("\tplay_se SEQ_SE_DP_SELECT")
+        s.append("\tlockall")
+        s.append(f"\tnpc_msg msg_0830_APOCSIN_{SIGN_MSG0 + i:05d}")
+        s.append("\twait_button_or_walk_away")
+        s.append("\tclosemsg")
+        s.append("\treleaseall")
+        s.append("\tend")
+        s.append("")
     s.append("\t.balign 4, 0")
     with open(os.path.join(HG, "files/fielddata/script/scr_seq/scr_seq_0967_APOCSIN.s"), "w") as f:
         f.write("\n".join(s) + "\n")
+    sign_scripts = {h: nscripts_before_signs + i + 1 for h, i in sign_map.items()}
+    return sign_scripts, PORTER_SCRIPT + 1
 
 
 # ---- encounters ------------------------------------------------------------ #
@@ -451,11 +675,12 @@ def append_encounters(man, plat):
 
 # ---- header patching ------------------------------------------------------- #
 
-def patch_sinnoh_block(man, outdoor, enc_banks):
+def patch_sinnoh_block(man, outdoor, enc_banks, mapsecs, plat):
     path = os.path.join(HG, "src/data/map_headers.h")
     src = open(path).read()
     for h, m in man["maps"].items():
         cname = m["name"]
+        suffix = cname.replace("MAP_APOC_SINNOH_", "")
         i = src.find("[" + cname + "]")
         assert i > 0, cname
         j = src.find("}", i)
@@ -464,6 +689,10 @@ def patch_sinnoh_block(man, outdoor, enc_banks):
             return re.sub(r"(\." + field + r"\s*=\s*)[^,\n]+", r"\g<1>" + val, seg)
         seg = setf(seg, "scriptsBank", "NARC_scr_seq_scr_seq_0967_APOCSIN_bin")
         seg = setf(seg, "msgBank", "NARC_msg_msg_0830_APOCSIN_bin")
+        seg = setf(seg, "mapsec", mapsecs[h])
+        music = music_for(suffix, plat[h]["is_city"])
+        seg = setf(seg, "dayMusicId", music)
+        seg = setf(seg, "nightMusicId", music)
         if h in outdoor:
             fn = outdoor[h][0].replace(".json", "")
             seg = setf(seg, "eventsBank", f"NARC_zone_event_{fn}_bin")
@@ -490,7 +719,8 @@ def patch_interior_headers(interiors, interior_files):
     hdr_path = os.path.join(HG, "src/data/map_headers.h")
     src = open(hdr_path).read()
     donors = {}
-    for kind, donor in (("PC", PC_DONOR_HDR), ("MART", MART_DONOR_HDR)):
+    for kind, donor in (("PC", PC_DONOR_HDR), ("MART", MART_DONOR_HDR),
+                        ("HOUSE", HOUSE_DONOR_HDR)):
         i = src.find("[" + donor + "]")
         j = src.find("},", i)
         donors[kind] = src[src.find("{", i):j + 1]
@@ -538,8 +768,10 @@ def main():
     print("loading platinum events/encounters...")
     plat = load_platinum(man)
 
-    interiors = plan_interiors(man, plat)
-    outdoor = build_outdoor_events(man, plat, interiors)
+    interiors, door_map = plan_interiors(man, plat)
+    sign_scripts, porter_script = write_scripts(man)
+    outdoor = build_outdoor_events(man, plat, interiors, door_map, sign_scripts,
+                                   porter_script)
     interior_files = build_interior_events(interiors, outdoor, man)
 
     # clean previous generated zone_event files
@@ -557,17 +789,22 @@ def main():
     print(f"zone events: {len(outdoor)} outdoor files ({nobj} NPCs, {nwarp} warps), "
           f"{len(interior_files)} interior clones")
 
-    write_scripts()
     enc_banks = append_encounters(man, plat)
     print(f"encounters: {len(enc_banks)} maps")
 
-    patch_sinnoh_block(man, outdoor, enc_banks)
+    mapsecs, consts = mapsec_plan(man)
+    patch_mapsecs(consts)
+    patch_sinnoh_block(man, outdoor, enc_banks, mapsecs, plat)
     patch_interior_headers(interiors, interior_files)
 
     overrides = {}
     for h, m in man["maps"].items():
+        suffix = m["name"].replace("MAP_APOC_SINNOH_", "")
+        music = music_for(suffix, plat[h]["is_city"])
         ov = {"scriptsBank": "NARC_scr_seq_scr_seq_0967_APOCSIN_bin",
-              "msgBank": "NARC_msg_msg_0830_APOCSIN_bin"}
+              "msgBank": "NARC_msg_msg_0830_APOCSIN_bin",
+              "mapsec": mapsecs[h],
+              "dayMusicId": music, "nightMusicId": music}
         if h in outdoor:
             ov["eventsBank"] = f"NARC_zone_event_{outdoor[h][0].replace('.json', '')}_bin"
         if h in enc_banks:

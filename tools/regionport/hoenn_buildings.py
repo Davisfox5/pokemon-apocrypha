@@ -27,6 +27,16 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build")
 
 LAYER_COVERED, LAYER_SPLIT = 1, 2
 
+# GBA-era art reads noticeably darker than DS-native maps under the same
+# arealight tint; lift everything baked from Emerald by a shared gain so
+# Hoenn's ground and buildings match Johto/Sinnoh brightness.
+HOENN_GAIN = 1.12
+_GAIN_LUT = [min(255, round(i * HOENN_GAIN)) for i in range(256)]
+
+
+def lift(c):
+    return (_GAIN_LUT[c[0]], _GAIN_LUT[c[1]], _GAIN_LUT[c[2]])
+
 TYPE_PATTERNS = [
     ("POKEMON_CENTER", "pokecenter"), ("MART", "mart"), ("GYM", "gym"),
     ("MUSEUM", "museum"), ("HARBOR", "harbor"), ("SHIPYARD", "shipyard"),
@@ -205,8 +215,36 @@ ROOF_TILT = 16                    # world units of roof rise front->back
 NO_ANIM_MEMBER = bytes.fromhex("ffff000000000000" + "ff" * 16)
 
 
+def _top_layer_tile(mb, mt):
+    """Render ONLY the top layer of a metatile (color 0 transparent) — the
+    exact pixels the GBA composites over the ground, i.e. clean roof art
+    without the baked background."""
+    m = mb.m
+    mdef, _ = m.metatile_def(mt)
+    out = [[None] * 16 for _ in range(16)]
+    if mdef is None:
+        return out
+    pals = m.palettes()
+    for sub in range(4):
+        v = mdef[4 + sub]
+        tid, hf, vf, pal = v & 0x3FF, v & 0x400, v & 0x800, (v >> 12) & 0xF
+        rows = m.subtile_pixels(tid)
+        colors = pals[pal] if pal < len(pals) else [(0, 0, 0)] * 16
+        ox, oy = (sub % 2) * 8, (sub // 2) * 8
+        for ry in range(8):
+            srow = rows[7 - ry] if vf else rows[ry]
+            for rx in range(8):
+                ci = srow[7 - rx] if hf else srow[rx]
+                if ci == 0:
+                    continue
+                out[oy + ry][ox + rx] = colors[ci] if ci < len(colors) else (0, 0, 0)
+    return out
+
+
 def _mask_art(mb, b):
-    """Crop art with non-building cells keyed out (alpha 0)."""
+    """Crop art with non-building cells keyed out (alpha 0). Roof-art rows
+    (above the collision body) are re-rendered from the metatiles' TOP layer
+    only, so the ground behind the roof never bakes into the texture."""
     x0, y0, x1, y1 = b["rect"]
     g0 = b["ground_rows"][0]
     cg = mb.common_ground()
@@ -216,8 +254,17 @@ def _mask_art(mb, b):
     for ty in range(y0, y1 + 1):
         for tx in range(x0, x1 + 1):
             c = mb.cell(tx, ty)
-            keep = (mb.is_body(tx, ty) or (tx, ty) in doors
-                    or (ty < g0 and c and c["mt"] not in cg and not c["coll"]))
+            if ty < g0:
+                # roof overdraw row: top-layer pixels only
+                keep_cell = c and c["mt"] not in cg and not c["coll"]
+                top = _top_layer_tile(mb, c["mt"]) if keep_cell else None
+                for dy in range(16):
+                    for dx in range(16):
+                        v = top[dy][dx] if top else None
+                        px[(tx - x0) * 16 + dx, (ty - y0) * 16 + dy] = (
+                            (v[0], v[1], v[2], 255) if v else (0, 0, 0, 0))
+                continue
+            keep = mb.is_body(tx, ty) or (tx, ty) in doors
             if not keep:
                 for dy in range(16):
                     for dx in range(16):
@@ -359,6 +406,9 @@ def _quantize16(img):
     alpha = img.split()[3]
     apx = alpha.load()
     rpx = rgb.load()
+    for y in range(h):
+        for x in range(w):
+            rpx[x, y] = lift(rpx[x, y])
     # wall color = average of bottom-row opaque pixels
     wall = [0, 0, 0]
     n = 0

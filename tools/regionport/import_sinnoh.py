@@ -58,6 +58,7 @@ VANILLA_COUNTS = {
     "files/a/0/7/0": 104,
     "files/a/0/4/0": 340,
     "files/a/1/0/7": 340,
+    "files/a/1/0/6": 273,
 }
 # a/1/0/7 "no animations for this model" member (24B, used by 194 vanilla models).
 # HGSS reads member[modelID] of this NARC UNGUARDED for every model in a build
@@ -175,10 +176,41 @@ def main():
     model_map = {pid: len(bm_field) + i for i, pid in enumerate(plat_models)}
     assert len(bm_field) + len(plat_models) <= 550, "HGSS model-file array overflow"
     bm_field.extend(plat_bm[pid] for pid in plat_models)
+    # Prop animations: Platinum window lights etc. are NSBTA/NSBTP/NSBCA files
+    # in bm_anime.narc, listed per model in bm_anime_list.narc (20B members:
+    # u8 hasAnims, u8 flags, u8 isBicycleSlope, u8 pad, s32 ids[4]). HGSS uses
+    # a widened 24B list member (a/1/0/7) and the same anim-file container
+    # format (a/1/0/6) — files copy over byte-identical. flags 0x03 + 2 ids =
+    # a deferred day/night pair (lit windows at night); byte7 kind = 2 for
+    # pairs, 1 for continuous loops.
+    anim_files = load_vanilla("files/a/1/0/6")
+    plat_anime = narc_read(os.path.join(PLAT, "res/prebuilt/arc/bm_anime.narc"))
+    plat_anime_list = narc_read(os.path.join(PLAT, "res/prebuilt/arc/bm_anime_list.narc"))
+    anim_id_map = {}
     anim_list = load_vanilla("files/a/1/0/7")
-    anim_list.extend([NO_ANIM_MEMBER] * len(plat_models))
+    n_animated = 0
+    for pid in plat_models:
+        entry = plat_anime_list[pid] if pid < len(plat_anime_list) else None
+        ids = list(struct.unpack_from("<4i", entry, 4)) if entry else [-1] * 4
+        ids = [i for i in ids if i >= 0]
+        if not entry or not ids:
+            anim_list.append(NO_ANIM_MEMBER)
+            continue
+        flags = entry[1]
+        new_ids = []
+        for aid in ids:
+            if aid not in anim_id_map:
+                anim_id_map[aid] = len(anim_files)
+                anim_files.append(plat_anime[aid])
+            new_ids.append(anim_id_map[aid])
+        kind = 2 if (flags & 3) == 3 and len(new_ids) == 2 else 1
+        hdr = bytes((0x01, flags, 0x00, entry[2], 0x00, 0x00, len(new_ids), kind))
+        padded = new_ids + [-1] * (4 - len(new_ids))
+        anim_list.append(hdr + struct.pack("<4i", *padded))
+        n_animated += 1
     print(f"building models: +{len(plat_models)} (ids "
-          f"{model_map[plat_models[0]]}..{model_map[plat_models[-1]]})")
+          f"{model_map[plat_models[0]]}..{model_map[plat_models[-1]]}); "
+          f"{n_animated} animated ({len(anim_id_map)} anim files ported)")
 
     # matshp.dat: per-model (idsCount, idsIndex) locators + id pairs, read for
     # every rendered prop — extend it in appended-id order from Platinum's.
@@ -308,6 +340,9 @@ def main():
         events_bank = ov.get("eventsBank", "NARC_zone_event_000_DUMMY_bin")
         msg_bank = ov.get("msgBank", "NARC_msg_msg_0003_EVERYWHERE_bin")
         enc_bank = ov.get("wildEncounterBank", "ENCDATA_NA")
+        mapsec = ov.get("mapsec", "MAPSEC_MYSTERY_ZONE")
+        day_music = ov.get("dayMusicId", "SEQ_GS_R_1_30")
+        night_music = ov.get("nightMusicId", "SEQ_GS_R_1_30")
         ptype = plat_headers[h]["mapType"]
         map_type = "MAP_TYPE_CITY_TOWN" if ptype == 1 else "MAP_TYPE_ROUTE"
         entries.append(f"""    [{cname}] = {{
@@ -320,10 +355,10 @@ def main():
                         .scriptsBank = {scripts_bank},
                         .scriptHeaderBank = NARC_scr_seq_scr_seq_0399_EVERYWHERE_hdr_bin,
                         .msgBank = {msg_bank},
-                        .dayMusicId = SEQ_GS_R_1_30,
-                        .nightMusicId = SEQ_GS_R_1_30,
+                        .dayMusicId = {day_music},
+                        .nightMusicId = {night_music},
                         .eventsBank = {events_bank},
-                        .mapsec = MAPSEC_MYSTERY_ZONE,
+                        .mapsec = {mapsec},
                         .areaIcon = 3,
                         .momCallIntroParam = 10,
                         .isKanto = FALSE,
@@ -353,6 +388,7 @@ def main():
     narc_write(os.path.join(HG, "files/a/0/4/0"), bm_field)
     narc_write(os.path.join(HG, "files/fielddata/build_model/bm_field.narc"), bm_field)
     narc_write(os.path.join(HG, "files/a/1/0/7"), anim_list)
+    narc_write(os.path.join(HG, "files/a/1/0/6"), anim_files)
     with open(os.path.join(HG, "files/fielddata/build_model/bm_field_matshp.dat"), "wb") as f:
         f.write(matshp)
 

@@ -123,7 +123,8 @@ def tile_image(mapdatas, mid, mt):
                         ci = srow[7 - rx] if hf else srow[rx]
                         if layer == 1 and ci == 0:
                             continue
-                        px[ox + rx, oy + ry] = colors[ci] if ci < len(colors) else (0, 0, 0)
+                        c = colors[ci] if ci < len(colors) else (0, 0, 0)
+                        px[ox + rx, oy + ry] = hb.lift(c)
     data = img.tobytes()
     _tile_img_cache[k] = data
     return data

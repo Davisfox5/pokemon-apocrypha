@@ -44,7 +44,7 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-09, v3)
+## Region Port Status (M2/M3 — updated 2026-07-09, v4)
 
 **Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
 buildings and full-scale seamless Hoenn rendering.** Tooling lives in
@@ -125,12 +125,55 @@ buildings and full-scale seamless Hoenn rendering.** Tooling lives in
   building texel budget is 16KB = the 6 most-instanced arts (PCs, marts,
   common houses; 18 placements). Raising it requires shrinking the ground
   atlas (512x256 fixed) — a retune of the supertile/merge/vertex system.
-- **v3 gaps**: music/mapsec identity for new maps; NPC dialogue is a generic
-  pool (16 lines); Mart clones sell Cherrygrove stock; gyms/houses have no
-  interiors; encounter tables unverified in battle; Hoenn buildings beyond
-  the 16KB budget stay 2D-baked; surf-only areas, Hoenn east islands;
-  long-range `emu_ram.teleport` corrupts the chunk-streaming state (black
-  screen on next warp) — short in-map hops are safe.
+- **v4 — HM field moves from bag items**: overworld Cut/Surf/Strength/Rock
+  Smash/Waterfall/Whirlpool/Rock Climb are usable whenever the matching HM
+  item (ITEM_HM01..08) is in the bag — no badge, no party mon that knows the
+  move. Most gates live in the std field-move script `scr_seq_0146.s` (each
+  handler's `get_party_slot_with_move`+`check_badge` pair → `hasitem
+  ITEM_HMxx`; the mon that plays the field animation falls back to the party
+  lead). **Surf is special**: its tile-interaction is gated in still-ASM
+  overlay code (`asm/overlay_01_021E6880.s`, `GetInteractedMetatileScript`) —
+  the badge(FOG)+`GetIdxOfFirstPartyMonWithMove(SURF)` pre-checks there bail
+  before the script runs, so those two conditionals were removed and the
+  bag-item gate added to the surf script instead. Party-menu badge gates
+  disabled in `field_move.c` (8 `PlayerProfile_TestBadgeFlag` blocks). An HM
+  porter NPC on the Canalave pier hands out HM01-08 once (keyed on owning
+  HM01). Verified in-emu: the surf prompt fires with an empty/no-Surf party
+  (mounting still needs *a* Pokémon to ride). ASM overlay `.s` files ARE
+  assembled by the build (COMPARE=0), so editing them is a supported patch
+  path — mind the assembler uses `;` for comments, not `@`.
+- **v4 — Sinnoh fully populated**: every city building is enterable (181
+  interior clones — PC/Mart + generic house rooms cloned from Cherrygrove,
+  headers 670+); town/route **signposts** carry name+slogan text; **location
+  names** show in the entry popup (new `MAPSEC_APOC_*` values 235+, appended
+  `msg_0279` rows indexed by mapsec — the popup indexes that gmm directly, so
+  gmm rows must track new mapsec constants 1:1; town-map position is
+  per-header `worldMapX/Y`, not mapsec-indexed, so it's safe); **music** set
+  per map type (SEQ_GS town/city/port/snow/route themes; day==night per
+  vanilla convention).
+- **v4 — Sinnoh building lights**: Platinum window-light animations ported
+  for the imported building models. `bm_anime` files (NSBTA/NSBTP, byte-
+  identical between games) copied into HGSS `a/1/0/6`; per-model 24-byte list
+  entries rebuilt in `a/1/0/7` from Platinum's 20-byte `bm_anime_list`
+  members (re-based file ids; day/night pairs preserved as header `flags
+  0x03 / kind 2 / 2 ids`). The lit-window textures already live in the
+  imported prop texture sets, so no extra texture import was needed.
+- **v4 — Hoenn art**: the roof-with-ground-baked-in artifact is fixed —
+  roof-overdraw rows (passable rows above a building's collision body) are
+  re-rendered from the metatiles' **top layer only** (color 0 transparent),
+  so no ground bleeds behind the roof. All Emerald-derived ground + building
+  textures get a +12% brightness lift (`HOENN_GAIN`) to match DS-native map
+  brightness (Slateport plaza mean ~150 vs vanilla Johto ~145).
+- **v4 gaps**: Sinnoh interiors are all Cherrygrove clones (no bespoke gym/
+  house layouts); Mart clones sell Cherrygrove stock; NPC dialogue is a
+  16-line generic pool; encounter tables still unverified in battle; Hoenn
+  ground is still flat (no 3D relief) and rarer buildings beyond the 16KB
+  prop-texel budget stay 2D-baked; surf-only areas + Hoenn east islands
+  unreached; long-range `emu_ram.teleport` corrupts chunk-streaming (black
+  screen on next warp) — short in-map hops are safe. Building window lights
+  are ported but only verified as **non-crashing** (Canalave loads and is
+  playable); the day/night frame-select call site is HGSS field ASM, so
+  whether windows actually toggle at night is unconfirmed.
 
 ## The Five Hardest Problems
 
