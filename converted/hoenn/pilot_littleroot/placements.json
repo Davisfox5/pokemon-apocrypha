@@ -1,0 +1,41 @@
+[
+  {
+    "building": "LITTLEROOT_TOWN/bldg_00_*.png",
+    "model": 340,
+    "chunk_cell": [
+      3,
+      9
+    ],
+    "pos_tiles_rel_center": [
+      12.5,
+      1.03,
+      -15.0
+    ]
+  },
+  {
+    "building": "LITTLEROOT_TOWN/bldg_01_*.png",
+    "model": 341,
+    "chunk_cell": [
+      3,
+      9
+    ],
+    "pos_tiles_rel_center": [
+      14.5,
+      1.0,
+      -7.0
+    ]
+  },
+  {
+    "building": "LITTLEROOT_TOWN/bldg_02_*.png",
+    "model": 340,
+    "chunk_cell": [
+      4,
+      9
+    ],
+    "pos_tiles_rel_center": [
+      -8.5,
+      1.03,
+      -15.0
+    ]
+  }
+]
