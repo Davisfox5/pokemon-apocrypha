@@ -1,15 +1,2 @@
-.emu-venv/
-tools/checkpoints/
-# live map editor session artifacts (Claude reads these on "check it")
-_mapeditor.log
-_mapeditor.png
-
-# session build/run scratch outputs (Claude reads these live)
-_omni_*.out
-_omni_*.log
-_mapeditor_*.log
-_mapeditor_*.out
-# cockpit live-play session artifacts (marks + savestates)
-cockpit_marks/
-cockpit_quick.dsv
-*.dsv
+__pycache__/
+*.pyc

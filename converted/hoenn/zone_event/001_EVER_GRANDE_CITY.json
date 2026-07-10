@@ -1,0 +1,188 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_EVER_GRANDE_CITY.h",
+  "bgs": [
+    {
+      "scriptId": "EverGrandeCity_EventScript_VictoryRoadSign",
+      "type": 1,
+      "x": 779,
+      "z": 223,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 789,
+      "z": 228,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_CitySign",
+      "type": 1,
+      "x": 778,
+      "z": 232,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_PokemonLeagueSign",
+      "type": 1,
+      "x": 783,
+      "z": 195,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 788,
+      "z": 228,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [],
+  "warps": [
+    {
+      "x": 778,
+      "z": 185,
+      "header": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 787,
+      "z": 228,
+      "header": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 778,
+      "z": 221,
+      "header": "MAP_VICTORY_ROAD_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 778,
+      "z": 207,
+      "header": "MAP_VICTORY_ROAD_1F",
+      "anchor": 1,
+      "y": 0
+    }
+  ],
+  "coords": [
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 777,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 776,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 778,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 779,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 780,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 781,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 782,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 783,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 784,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 785,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    },
+    {
+      "scriptId": "EverGrandeCity_EventScript_SetVisitedEverGrande",
+      "x": 786,
+      "z": 238,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_TEMP_1"
+    }
+  ]
+}

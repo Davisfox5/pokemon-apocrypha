@@ -1,0 +1,310 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_MAUVILLE_CITY.h",
+  "bgs": [
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 223,
+      "z": 145,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "MauvilleCity_EventScript_GymSign",
+      "type": 1,
+      "x": 211,
+      "z": 146,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 224,
+      "z": 154,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 225,
+      "z": 154,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 224,
+      "z": 145,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "MauvilleCity_EventScript_CitySign",
+      "type": 1,
+      "x": 219,
+      "z": 147,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "MauvilleCity_EventScript_BikeShopSign",
+      "type": 1,
+      "x": 233,
+      "z": 146,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "MauvilleCity_EventScript_GameCornerSign",
+      "type": 1,
+      "x": 211,
+      "z": 155,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_BOY3",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_Boy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 229,
+      "z": 156,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_RichBoy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 224,
+      "z": 150,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_Maniac",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 214,
+      "z": 151,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MIDDLEWOMAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_Woman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 218,
+      "z": 146,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_SchoolKidM",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 217,
+      "z": 154,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_mauville_wally",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MAUVILLE_CITY_WALLY",
+      "scriptId": "MauvilleCity_EventScript_Wally",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 208,
+      "z": 146,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_mauville_wallys_uncle",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MAUVILLE_CITY_WALLYS_UNCLE",
+      "scriptId": "MauvilleCity_EventScript_WallysUncle",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 209,
+      "z": 146,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MAUVILLE_CITY_WATTSON",
+      "scriptId": "MauvilleCity_EventScript_Wattson",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 229,
+      "z": 149,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_MONSTARBALL",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_ITEM_MAUVILLE_CITY_X_SPEED",
+      "scriptId": "MauvilleCity_EventScript_ItemXSpeed",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 228,
+      "z": 159,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_x",
+      "spriteId": "SPRITE_BIGMAN",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "MauvilleCity_EventScript_RolloutTutor",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 213,
+      "z": 147,
+      "y": 0
+    },
+    {
+      "id": "obj_mauvillecity_mauville_scott",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MAUVILLE_CITY_SCOTT",
+      "scriptId": "0x0",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 212,
+      "z": 154,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 208,
+      "z": 145,
+      "header": "MAP_MAUVILLE_CITY_GYM",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 222,
+      "z": 145,
+      "header": "MAP_MAUVILLE_CITY_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 235,
+      "z": 145,
+      "header": "MAP_MAUVILLE_CITY_BIKE_SHOP",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 223,
+      "z": 154,
+      "header": "MAP_MAUVILLE_CITY_MART",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 232,
+      "z": 154,
+      "header": "MAP_MAUVILLE_CITY_HOUSE1",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 208,
+      "z": 153,
+      "header": "MAP_MAUVILLE_CITY_GAME_CORNER",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 219,
+      "z": 154,
+      "header": "MAP_MAUVILLE_CITY_HOUSE2",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

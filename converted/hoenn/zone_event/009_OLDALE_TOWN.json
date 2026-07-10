@@ -1,0 +1,187 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_OLDALE_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "OldaleTown_EventScript_TownSign",
+      "type": 1,
+      "x": 131,
+      "z": 251,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 127,
+      "z": 258,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 135,
+      "z": 248,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 128,
+      "z": 258,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 136,
+      "z": 248,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_oldaletown_x",
+      "spriteId": "SPRITE_GIRL3",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "OldaleTown_EventScript_Girl",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 136,
+      "z": 253,
+      "y": 0
+    },
+    {
+      "id": "obj_oldaletown_oldale_mart_employee",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "OldaleTown_EventScript_MartEmployee",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 133,
+      "z": 249,
+      "y": 0
+    },
+    {
+      "id": "obj_oldaletown_footprints_man",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "OldaleTown_EventScript_FootprintsMan",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 128,
+      "z": 251,
+      "y": 0
+    },
+    {
+      "id": "obj_oldaletown_oldale_rival",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_OLDALE_TOWN_RIVAL",
+      "scriptId": "OldaleTown_EventScript_Rival",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 131,
+      "z": 261,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 125,
+      "z": 249,
+      "header": "MAP_OLDALE_TOWN_HOUSE1",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 135,
+      "z": 258,
+      "header": "MAP_OLDALE_TOWN_HOUSE2",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 126,
+      "z": 258,
+      "header": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 134,
+      "z": 248,
+      "header": "MAP_OLDALE_TOWN_MART",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": [
+    {
+      "scriptId": "OldaleTown_EventScript_BlockedPath",
+      "x": 120,
+      "z": 252,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_OLDALE_TOWN_STATE"
+    },
+    {
+      "scriptId": "OldaleTown_EventScript_RivalTrigger1",
+      "x": 128,
+      "z": 261,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_OLDALE_RIVAL_STATE"
+    },
+    {
+      "scriptId": "OldaleTown_EventScript_RivalTrigger2",
+      "x": 129,
+      "z": 261,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_OLDALE_RIVAL_STATE"
+    },
+    {
+      "scriptId": "OldaleTown_EventScript_RivalTrigger3",
+      "x": 130,
+      "z": 261,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_OLDALE_RIVAL_STATE"
+    }
+  ]
+}

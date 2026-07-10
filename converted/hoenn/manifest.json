@@ -1,0 +1,2816 @@
+{
+  "source": "pokeemerald @ 83df84e40",
+  "target_format": "pokeheartgold @ b843c93a6",
+  "canvas_metatiles": [
+    800,
+    383
+  ],
+  "matrix": {
+    "width": 25,
+    "height": 12,
+    "file": "matrix/hoenn_overworld.bin",
+    "header_slot_semantics": "headers[] stores an index into maps[] below; real MAP_HOENN_* engine header ids get assigned at integration time"
+  },
+  "maps": [
+    {
+      "index": 0,
+      "gen3_id": "MAP_DEWFORD_TOWN",
+      "proposed_header": "MAP_HOENN_DEWFORD_TOWN",
+      "at": [
+        60,
+        362
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_DEWFORD_TOWN",
+      "zone_event": "zone_event/000_DEWFORD_TOWN.json"
+    },
+    {
+      "index": 1,
+      "gen3_id": "MAP_EVER_GRANDE_CITY",
+      "proposed_header": "MAP_HOENN_EVER_GRANDE_CITY",
+      "at": [
+        760,
+        180
+      ],
+      "size": [
+        40,
+        80
+      ],
+      "layout": "LAYOUT_EVER_GRANDE_CITY",
+      "zone_event": "zone_event/001_EVER_GRANDE_CITY.json"
+    },
+    {
+      "index": 2,
+      "gen3_id": "MAP_FALLARBOR_TOWN",
+      "proposed_header": "MAP_HOENN_FALLARBOR_TOWN",
+      "at": [
+        80,
+        0
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_FALLARBOR_TOWN",
+      "zone_event": "zone_event/002_FALLARBOR_TOWN.json"
+    },
+    {
+      "index": 3,
+      "gen3_id": "MAP_FORTREE_CITY",
+      "proposed_header": "MAP_HOENN_FORTREE_CITY",
+      "at": [
+        320,
+        0
+      ],
+      "size": [
+        40,
+        20
+      ],
+      "layout": "LAYOUT_FORTREE_CITY",
+      "zone_event": "zone_event/003_FORTREE_CITY.json"
+    },
+    {
+      "index": 4,
+      "gen3_id": "MAP_LAVARIDGE_TOWN",
+      "proposed_header": "MAP_HOENN_LAVARIDGE_TOWN",
+      "at": [
+        140,
+        60
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_LAVARIDGE_TOWN",
+      "zone_event": "zone_event/004_LAVARIDGE_TOWN.json"
+    },
+    {
+      "index": 5,
+      "gen3_id": "MAP_LILYCOVE_CITY",
+      "proposed_header": "MAP_HOENN_LILYCOVE_CITY",
+      "at": [
+        480,
+        70
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_LILYCOVE_CITY",
+      "zone_event": "zone_event/005_LILYCOVE_CITY.json"
+    },
+    {
+      "index": 6,
+      "gen3_id": "MAP_LITTLEROOT_TOWN",
+      "proposed_header": "MAP_HOENN_LITTLEROOT_TOWN",
+      "at": [
+        120,
+        282
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_LITTLEROOT_TOWN",
+      "zone_event": "zone_event/006_LITTLEROOT_TOWN.json"
+    },
+    {
+      "index": 7,
+      "gen3_id": "MAP_MAUVILLE_CITY",
+      "proposed_header": "MAP_HOENN_MAUVILLE_CITY",
+      "at": [
+        200,
+        140
+      ],
+      "size": [
+        40,
+        20
+      ],
+      "layout": "LAYOUT_MAUVILLE_CITY",
+      "zone_event": "zone_event/007_MAUVILLE_CITY.json"
+    },
+    {
+      "index": 8,
+      "gen3_id": "MAP_MOSSDEEP_CITY",
+      "proposed_header": "MAP_HOENN_MOSSDEEP_CITY",
+      "at": [
+        640,
+        100
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_MOSSDEEP_CITY",
+      "zone_event": "zone_event/008_MOSSDEEP_CITY.json"
+    },
+    {
+      "index": 9,
+      "gen3_id": "MAP_OLDALE_TOWN",
+      "proposed_header": "MAP_HOENN_OLDALE_TOWN",
+      "at": [
+        120,
+        242
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_OLDALE_TOWN",
+      "zone_event": "zone_event/009_OLDALE_TOWN.json"
+    },
+    {
+      "index": 10,
+      "gen3_id": "MAP_PACIFIDLOG_TOWN",
+      "proposed_header": "MAP_HOENN_PACIFIDLOG_TOWN",
+      "at": [
+        480,
+        260
+      ],
+      "size": [
+        20,
+        40
+      ],
+      "layout": "LAYOUT_PACIFIDLOG_TOWN",
+      "zone_event": "zone_event/010_PACIFIDLOG_TOWN.json"
+    },
+    {
+      "index": 11,
+      "gen3_id": "MAP_PETALBURG_CITY",
+      "proposed_header": "MAP_HOENN_PETALBURG_CITY",
+      "at": [
+        40,
+        232
+      ],
+      "size": [
+        30,
+        30
+      ],
+      "layout": "LAYOUT_PETALBURG_CITY",
+      "zone_event": "zone_event/011_PETALBURG_CITY.json"
+    },
+    {
+      "index": 12,
+      "gen3_id": "MAP_ROUTE101",
+      "proposed_header": "MAP_HOENN_ROUTE101",
+      "at": [
+        120,
+        262
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE101",
+      "zone_event": "zone_event/012_ROUTE101.json"
+    },
+    {
+      "index": 13,
+      "gen3_id": "MAP_ROUTE102",
+      "proposed_header": "MAP_HOENN_ROUTE102",
+      "at": [
+        70,
+        242
+      ],
+      "size": [
+        50,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE102",
+      "zone_event": "zone_event/013_ROUTE102.json"
+    },
+    {
+      "index": 14,
+      "gen3_id": "MAP_ROUTE103",
+      "proposed_header": "MAP_HOENN_ROUTE103",
+      "at": [
+        120,
+        220
+      ],
+      "size": [
+        80,
+        22
+      ],
+      "layout": "LAYOUT_ROUTE103",
+      "zone_event": "zone_event/014_ROUTE103.json"
+    },
+    {
+      "index": 15,
+      "gen3_id": "MAP_ROUTE104",
+      "proposed_header": "MAP_HOENN_ROUTE104",
+      "at": [
+        0,
+        182
+      ],
+      "size": [
+        40,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE104",
+      "zone_event": "zone_event/015_ROUTE104.json"
+    },
+    {
+      "index": 16,
+      "gen3_id": "MAP_ROUTE105",
+      "proposed_header": "MAP_HOENN_ROUTE105",
+      "at": [
+        0,
+        262
+      ],
+      "size": [
+        40,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE105",
+      "zone_event": "zone_event/016_ROUTE105.json"
+    },
+    {
+      "index": 17,
+      "gen3_id": "MAP_ROUTE106",
+      "proposed_header": "MAP_HOENN_ROUTE106",
+      "at": [
+        0,
+        342
+      ],
+      "size": [
+        80,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE106",
+      "zone_event": "zone_event/017_ROUTE106.json"
+    },
+    {
+      "index": 18,
+      "gen3_id": "MAP_ROUTE107",
+      "proposed_header": "MAP_HOENN_ROUTE107",
+      "at": [
+        80,
+        360
+      ],
+      "size": [
+        60,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE107",
+      "zone_event": "zone_event/018_ROUTE107.json"
+    },
+    {
+      "index": 19,
+      "gen3_id": "MAP_ROUTE108",
+      "proposed_header": "MAP_HOENN_ROUTE108",
+      "at": [
+        140,
+        360
+      ],
+      "size": [
+        60,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE108",
+      "zone_event": "zone_event/019_ROUTE108.json"
+    },
+    {
+      "index": 20,
+      "gen3_id": "MAP_ROUTE109",
+      "proposed_header": "MAP_HOENN_ROUTE109",
+      "at": [
+        200,
+        320
+      ],
+      "size": [
+        40,
+        63
+      ],
+      "layout": "LAYOUT_ROUTE109",
+      "zone_event": "zone_event/020_ROUTE109.json"
+    },
+    {
+      "index": 21,
+      "gen3_id": "MAP_ROUTE110",
+      "proposed_header": "MAP_HOENN_ROUTE110",
+      "at": [
+        200,
+        160
+      ],
+      "size": [
+        40,
+        100
+      ],
+      "layout": "LAYOUT_ROUTE110",
+      "zone_event": "zone_event/021_ROUTE110.json"
+    },
+    {
+      "index": 22,
+      "gen3_id": "MAP_ROUTE111",
+      "proposed_header": "MAP_HOENN_ROUTE111",
+      "at": [
+        200,
+        0
+      ],
+      "size": [
+        40,
+        140
+      ],
+      "layout": "LAYOUT_ROUTE111",
+      "zone_event": "zone_event/022_ROUTE111.json"
+    },
+    {
+      "index": 23,
+      "gen3_id": "MAP_ROUTE112",
+      "proposed_header": "MAP_HOENN_ROUTE112",
+      "at": [
+        160,
+        20
+      ],
+      "size": [
+        40,
+        60
+      ],
+      "layout": "LAYOUT_ROUTE112",
+      "zone_event": "zone_event/023_ROUTE112.json"
+    },
+    {
+      "index": 24,
+      "gen3_id": "MAP_ROUTE113",
+      "proposed_header": "MAP_HOENN_ROUTE113",
+      "at": [
+        100,
+        0
+      ],
+      "size": [
+        100,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE113",
+      "zone_event": "zone_event/024_ROUTE113.json"
+    },
+    {
+      "index": 25,
+      "gen3_id": "MAP_ROUTE114",
+      "proposed_header": "MAP_HOENN_ROUTE114",
+      "at": [
+        40,
+        2
+      ],
+      "size": [
+        40,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE114",
+      "zone_event": "zone_event/025_ROUTE114.json"
+    },
+    {
+      "index": 26,
+      "gen3_id": "MAP_ROUTE115",
+      "proposed_header": "MAP_HOENN_ROUTE115",
+      "at": [
+        0,
+        42
+      ],
+      "size": [
+        40,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE115",
+      "zone_event": "zone_event/026_ROUTE115.json"
+    },
+    {
+      "index": 27,
+      "gen3_id": "MAP_ROUTE116",
+      "proposed_header": "MAP_HOENN_ROUTE116",
+      "at": [
+        40,
+        122
+      ],
+      "size": [
+        100,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE116",
+      "zone_event": "zone_event/027_ROUTE116.json"
+    },
+    {
+      "index": 28,
+      "gen3_id": "MAP_ROUTE117",
+      "proposed_header": "MAP_HOENN_ROUTE117",
+      "at": [
+        140,
+        140
+      ],
+      "size": [
+        60,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE117",
+      "zone_event": "zone_event/028_ROUTE117.json"
+    },
+    {
+      "index": 29,
+      "gen3_id": "MAP_ROUTE118",
+      "proposed_header": "MAP_HOENN_ROUTE118",
+      "at": [
+        240,
+        140
+      ],
+      "size": [
+        80,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE118",
+      "zone_event": "zone_event/029_ROUTE118.json"
+    },
+    {
+      "index": 30,
+      "gen3_id": "MAP_ROUTE119",
+      "proposed_header": "MAP_HOENN_ROUTE119",
+      "at": [
+        280,
+        0
+      ],
+      "size": [
+        40,
+        140
+      ],
+      "layout": "LAYOUT_ROUTE119",
+      "zone_event": "zone_event/030_ROUTE119.json"
+    },
+    {
+      "index": 31,
+      "gen3_id": "MAP_ROUTE120",
+      "proposed_header": "MAP_HOENN_ROUTE120",
+      "at": [
+        360,
+        0
+      ],
+      "size": [
+        40,
+        100
+      ],
+      "layout": "LAYOUT_ROUTE120",
+      "zone_event": "zone_event/031_ROUTE120.json"
+    },
+    {
+      "index": 32,
+      "gen3_id": "MAP_ROUTE121",
+      "proposed_header": "MAP_HOENN_ROUTE121",
+      "at": [
+        400,
+        80
+      ],
+      "size": [
+        80,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE121",
+      "zone_event": "zone_event/032_ROUTE121.json"
+    },
+    {
+      "index": 33,
+      "gen3_id": "MAP_ROUTE122",
+      "proposed_header": "MAP_HOENN_ROUTE122",
+      "at": [
+        420,
+        100
+      ],
+      "size": [
+        40,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE122",
+      "zone_event": "zone_event/033_ROUTE122.json"
+    },
+    {
+      "index": 34,
+      "gen3_id": "MAP_ROUTE123",
+      "proposed_header": "MAP_HOENN_ROUTE123",
+      "at": [
+        320,
+        140
+      ],
+      "size": [
+        140,
+        20
+      ],
+      "layout": "LAYOUT_ROUTE123",
+      "zone_event": "zone_event/034_ROUTE123.json"
+    },
+    {
+      "index": 35,
+      "gen3_id": "MAP_ROUTE124",
+      "proposed_header": "MAP_HOENN_ROUTE124",
+      "at": [
+        560,
+        60
+      ],
+      "size": [
+        80,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE124",
+      "zone_event": "zone_event/035_ROUTE124.json"
+    },
+    {
+      "index": 36,
+      "gen3_id": "MAP_ROUTE125",
+      "proposed_header": "MAP_HOENN_ROUTE125",
+      "at": [
+        640,
+        60
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE125",
+      "zone_event": "zone_event/036_ROUTE125.json"
+    },
+    {
+      "index": 37,
+      "gen3_id": "MAP_ROUTE126",
+      "proposed_header": "MAP_HOENN_ROUTE126",
+      "at": [
+        560,
+        140
+      ],
+      "size": [
+        80,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE126",
+      "zone_event": "zone_event/037_ROUTE126.json"
+    },
+    {
+      "index": 38,
+      "gen3_id": "MAP_ROUTE127",
+      "proposed_header": "MAP_HOENN_ROUTE127",
+      "at": [
+        640,
+        140
+      ],
+      "size": [
+        80,
+        80
+      ],
+      "layout": "LAYOUT_ROUTE127",
+      "zone_event": "zone_event/038_ROUTE127.json"
+    },
+    {
+      "index": 39,
+      "gen3_id": "MAP_ROUTE128",
+      "proposed_header": "MAP_HOENN_ROUTE128",
+      "at": [
+        640,
+        220
+      ],
+      "size": [
+        120,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE128",
+      "zone_event": "zone_event/039_ROUTE128.json"
+    },
+    {
+      "index": 40,
+      "gen3_id": "MAP_ROUTE129",
+      "proposed_header": "MAP_HOENN_ROUTE129",
+      "at": [
+        640,
+        260
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE129",
+      "zone_event": "zone_event/040_ROUTE129.json"
+    },
+    {
+      "index": 41,
+      "gen3_id": "MAP_ROUTE130",
+      "proposed_header": "MAP_HOENN_ROUTE130",
+      "at": [
+        560,
+        260
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE130",
+      "zone_event": "zone_event/041_ROUTE130.json"
+    },
+    {
+      "index": 42,
+      "gen3_id": "MAP_ROUTE131",
+      "proposed_header": "MAP_HOENN_ROUTE131",
+      "at": [
+        500,
+        260
+      ],
+      "size": [
+        60,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE131",
+      "zone_event": "zone_event/042_ROUTE131.json"
+    },
+    {
+      "index": 43,
+      "gen3_id": "MAP_ROUTE132",
+      "proposed_header": "MAP_HOENN_ROUTE132",
+      "at": [
+        400,
+        260
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE132",
+      "zone_event": "zone_event/043_ROUTE132.json"
+    },
+    {
+      "index": 44,
+      "gen3_id": "MAP_ROUTE133",
+      "proposed_header": "MAP_HOENN_ROUTE133",
+      "at": [
+        320,
+        260
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE133",
+      "zone_event": "zone_event/044_ROUTE133.json"
+    },
+    {
+      "index": 45,
+      "gen3_id": "MAP_ROUTE134",
+      "proposed_header": "MAP_HOENN_ROUTE134",
+      "at": [
+        240,
+        260
+      ],
+      "size": [
+        80,
+        40
+      ],
+      "layout": "LAYOUT_ROUTE134",
+      "zone_event": "zone_event/045_ROUTE134.json"
+    },
+    {
+      "index": 46,
+      "gen3_id": "MAP_RUSTBORO_CITY",
+      "proposed_header": "MAP_HOENN_RUSTBORO_CITY",
+      "at": [
+        0,
+        122
+      ],
+      "size": [
+        40,
+        60
+      ],
+      "layout": "LAYOUT_RUSTBORO_CITY",
+      "zone_event": "zone_event/046_RUSTBORO_CITY.json"
+    },
+    {
+      "index": 47,
+      "gen3_id": "MAP_SLATEPORT_CITY",
+      "proposed_header": "MAP_HOENN_SLATEPORT_CITY",
+      "at": [
+        200,
+        260
+      ],
+      "size": [
+        40,
+        60
+      ],
+      "layout": "LAYOUT_SLATEPORT_CITY",
+      "zone_event": "zone_event/047_SLATEPORT_CITY.json"
+    },
+    {
+      "index": 48,
+      "gen3_id": "MAP_VERDANTURF_TOWN",
+      "proposed_header": "MAP_HOENN_VERDANTURF_TOWN",
+      "at": [
+        120,
+        140
+      ],
+      "size": [
+        20,
+        20
+      ],
+      "layout": "LAYOUT_VERDANTURF_TOWN",
+      "zone_event": "zone_event/048_VERDANTURF_TOWN.json"
+    }
+  ],
+  "chunks": [
+    {
+      "chunk": 1,
+      "cell": [
+        1,
+        0
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 2,
+      "cell": [
+        2,
+        0
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 3,
+      "cell": [
+        3,
+        0
+      ],
+      "owner": "MAP_ROUTE113"
+    },
+    {
+      "chunk": 4,
+      "cell": [
+        4,
+        0
+      ],
+      "owner": "MAP_ROUTE113"
+    },
+    {
+      "chunk": 5,
+      "cell": [
+        5,
+        0
+      ],
+      "owner": "MAP_ROUTE113"
+    },
+    {
+      "chunk": 6,
+      "cell": [
+        6,
+        0
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 7,
+      "cell": [
+        7,
+        0
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 8,
+      "cell": [
+        8,
+        0
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 9,
+      "cell": [
+        9,
+        0
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 10,
+      "cell": [
+        10,
+        0
+      ],
+      "owner": "MAP_FORTREE_CITY"
+    },
+    {
+      "chunk": 11,
+      "cell": [
+        11,
+        0
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 12,
+      "cell": [
+        12,
+        0
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 13,
+      "cell": [
+        0,
+        1
+      ],
+      "owner": "MAP_ROUTE115"
+    },
+    {
+      "chunk": 14,
+      "cell": [
+        1,
+        1
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 15,
+      "cell": [
+        2,
+        1
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 16,
+      "cell": [
+        4,
+        1
+      ],
+      "owner": "MAP_LAVARIDGE_TOWN"
+    },
+    {
+      "chunk": 17,
+      "cell": [
+        5,
+        1
+      ],
+      "owner": "MAP_ROUTE112"
+    },
+    {
+      "chunk": 18,
+      "cell": [
+        6,
+        1
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 19,
+      "cell": [
+        7,
+        1
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 20,
+      "cell": [
+        8,
+        1
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 21,
+      "cell": [
+        9,
+        1
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 22,
+      "cell": [
+        11,
+        1
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 23,
+      "cell": [
+        12,
+        1
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 24,
+      "cell": [
+        17,
+        1
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 25,
+      "cell": [
+        18,
+        1
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 26,
+      "cell": [
+        19,
+        1
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 27,
+      "cell": [
+        20,
+        1
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 28,
+      "cell": [
+        21,
+        1
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 29,
+      "cell": [
+        22,
+        1
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 30,
+      "cell": [
+        0,
+        2
+      ],
+      "owner": "MAP_ROUTE115"
+    },
+    {
+      "chunk": 31,
+      "cell": [
+        1,
+        2
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 32,
+      "cell": [
+        2,
+        2
+      ],
+      "owner": "MAP_ROUTE114"
+    },
+    {
+      "chunk": 33,
+      "cell": [
+        4,
+        2
+      ],
+      "owner": "MAP_LAVARIDGE_TOWN"
+    },
+    {
+      "chunk": 34,
+      "cell": [
+        5,
+        2
+      ],
+      "owner": "MAP_ROUTE112"
+    },
+    {
+      "chunk": 35,
+      "cell": [
+        6,
+        2
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 36,
+      "cell": [
+        7,
+        2
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 37,
+      "cell": [
+        8,
+        2
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 38,
+      "cell": [
+        9,
+        2
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 39,
+      "cell": [
+        11,
+        2
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 40,
+      "cell": [
+        12,
+        2
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 41,
+      "cell": [
+        13,
+        2
+      ],
+      "owner": "MAP_ROUTE121"
+    },
+    {
+      "chunk": 42,
+      "cell": [
+        14,
+        2
+      ],
+      "owner": "MAP_ROUTE121"
+    },
+    {
+      "chunk": 43,
+      "cell": [
+        15,
+        2
+      ],
+      "owner": "MAP_LILYCOVE_CITY"
+    },
+    {
+      "chunk": 44,
+      "cell": [
+        16,
+        2
+      ],
+      "owner": "MAP_LILYCOVE_CITY"
+    },
+    {
+      "chunk": 45,
+      "cell": [
+        17,
+        2
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 46,
+      "cell": [
+        18,
+        2
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 47,
+      "cell": [
+        19,
+        2
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 48,
+      "cell": [
+        20,
+        2
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 49,
+      "cell": [
+        21,
+        2
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 50,
+      "cell": [
+        22,
+        2
+      ],
+      "owner": "MAP_ROUTE125"
+    },
+    {
+      "chunk": 51,
+      "cell": [
+        0,
+        3
+      ],
+      "owner": "MAP_ROUTE115"
+    },
+    {
+      "chunk": 52,
+      "cell": [
+        1,
+        3
+      ],
+      "owner": "MAP_ROUTE115"
+    },
+    {
+      "chunk": 53,
+      "cell": [
+        2,
+        3
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 54,
+      "cell": [
+        3,
+        3
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 55,
+      "cell": [
+        4,
+        3
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 56,
+      "cell": [
+        6,
+        3
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 57,
+      "cell": [
+        7,
+        3
+      ],
+      "owner": "MAP_ROUTE111"
+    },
+    {
+      "chunk": 58,
+      "cell": [
+        8,
+        3
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 59,
+      "cell": [
+        9,
+        3
+      ],
+      "owner": "MAP_ROUTE119"
+    },
+    {
+      "chunk": 60,
+      "cell": [
+        11,
+        3
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 61,
+      "cell": [
+        12,
+        3
+      ],
+      "owner": "MAP_ROUTE120"
+    },
+    {
+      "chunk": 62,
+      "cell": [
+        13,
+        3
+      ],
+      "owner": "MAP_ROUTE122"
+    },
+    {
+      "chunk": 63,
+      "cell": [
+        14,
+        3
+      ],
+      "owner": "MAP_ROUTE122"
+    },
+    {
+      "chunk": 64,
+      "cell": [
+        15,
+        3
+      ],
+      "owner": "MAP_LILYCOVE_CITY"
+    },
+    {
+      "chunk": 65,
+      "cell": [
+        16,
+        3
+      ],
+      "owner": "MAP_LILYCOVE_CITY"
+    },
+    {
+      "chunk": 66,
+      "cell": [
+        17,
+        3
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 67,
+      "cell": [
+        18,
+        3
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 68,
+      "cell": [
+        19,
+        3
+      ],
+      "owner": "MAP_ROUTE124"
+    },
+    {
+      "chunk": 69,
+      "cell": [
+        20,
+        3
+      ],
+      "owner": "MAP_MOSSDEEP_CITY"
+    },
+    {
+      "chunk": 70,
+      "cell": [
+        21,
+        3
+      ],
+      "owner": "MAP_MOSSDEEP_CITY"
+    },
+    {
+      "chunk": 71,
+      "cell": [
+        22,
+        3
+      ],
+      "owner": "MAP_MOSSDEEP_CITY"
+    },
+    {
+      "chunk": 72,
+      "cell": [
+        0,
+        4
+      ],
+      "owner": "MAP_RUSTBORO_CITY"
+    },
+    {
+      "chunk": 73,
+      "cell": [
+        1,
+        4
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 74,
+      "cell": [
+        2,
+        4
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 75,
+      "cell": [
+        3,
+        4
+      ],
+      "owner": "MAP_ROUTE116"
+    },
+    {
+      "chunk": 76,
+      "cell": [
+        4,
+        4
+      ],
+      "owner": "MAP_ROUTE117"
+    },
+    {
+      "chunk": 77,
+      "cell": [
+        5,
+        4
+      ],
+      "owner": "MAP_ROUTE117"
+    },
+    {
+      "chunk": 78,
+      "cell": [
+        6,
+        4
+      ],
+      "owner": "MAP_MAUVILLE_CITY"
+    },
+    {
+      "chunk": 79,
+      "cell": [
+        7,
+        4
+      ],
+      "owner": "MAP_MAUVILLE_CITY"
+    },
+    {
+      "chunk": 80,
+      "cell": [
+        8,
+        4
+      ],
+      "owner": "MAP_ROUTE118"
+    },
+    {
+      "chunk": 81,
+      "cell": [
+        9,
+        4
+      ],
+      "owner": "MAP_ROUTE118"
+    },
+    {
+      "chunk": 82,
+      "cell": [
+        10,
+        4
+      ],
+      "owner": "MAP_ROUTE123"
+    },
+    {
+      "chunk": 83,
+      "cell": [
+        11,
+        4
+      ],
+      "owner": "MAP_ROUTE123"
+    },
+    {
+      "chunk": 84,
+      "cell": [
+        12,
+        4
+      ],
+      "owner": "MAP_ROUTE123"
+    },
+    {
+      "chunk": 85,
+      "cell": [
+        13,
+        4
+      ],
+      "owner": "MAP_ROUTE123"
+    },
+    {
+      "chunk": 86,
+      "cell": [
+        14,
+        4
+      ],
+      "owner": "MAP_ROUTE123"
+    },
+    {
+      "chunk": 87,
+      "cell": [
+        17,
+        4
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 88,
+      "cell": [
+        18,
+        4
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 89,
+      "cell": [
+        19,
+        4
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 90,
+      "cell": [
+        20,
+        4
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 91,
+      "cell": [
+        21,
+        4
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 92,
+      "cell": [
+        22,
+        4
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 93,
+      "cell": [
+        0,
+        5
+      ],
+      "owner": "MAP_RUSTBORO_CITY"
+    },
+    {
+      "chunk": 94,
+      "cell": [
+        1,
+        5
+      ],
+      "owner": "MAP_RUSTBORO_CITY"
+    },
+    {
+      "chunk": 95,
+      "cell": [
+        6,
+        5
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 96,
+      "cell": [
+        7,
+        5
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 97,
+      "cell": [
+        17,
+        5
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 98,
+      "cell": [
+        18,
+        5
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 99,
+      "cell": [
+        19,
+        5
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 100,
+      "cell": [
+        20,
+        5
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 101,
+      "cell": [
+        21,
+        5
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 102,
+      "cell": [
+        22,
+        5
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 103,
+      "cell": [
+        23,
+        5
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 104,
+      "cell": [
+        24,
+        5
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 105,
+      "cell": [
+        0,
+        6
+      ],
+      "owner": "MAP_ROUTE104"
+    },
+    {
+      "chunk": 106,
+      "cell": [
+        1,
+        6
+      ],
+      "owner": "MAP_ROUTE104"
+    },
+    {
+      "chunk": 107,
+      "cell": [
+        3,
+        6
+      ],
+      "owner": "MAP_ROUTE103"
+    },
+    {
+      "chunk": 108,
+      "cell": [
+        4,
+        6
+      ],
+      "owner": "MAP_ROUTE103"
+    },
+    {
+      "chunk": 109,
+      "cell": [
+        5,
+        6
+      ],
+      "owner": "MAP_ROUTE103"
+    },
+    {
+      "chunk": 110,
+      "cell": [
+        6,
+        6
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 111,
+      "cell": [
+        7,
+        6
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 112,
+      "cell": [
+        17,
+        6
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 113,
+      "cell": [
+        18,
+        6
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 114,
+      "cell": [
+        19,
+        6
+      ],
+      "owner": "MAP_ROUTE126"
+    },
+    {
+      "chunk": 115,
+      "cell": [
+        20,
+        6
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 116,
+      "cell": [
+        21,
+        6
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 117,
+      "cell": [
+        22,
+        6
+      ],
+      "owner": "MAP_ROUTE127"
+    },
+    {
+      "chunk": 118,
+      "cell": [
+        23,
+        6
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 119,
+      "cell": [
+        24,
+        6
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 120,
+      "cell": [
+        0,
+        7
+      ],
+      "owner": "MAP_ROUTE104"
+    },
+    {
+      "chunk": 121,
+      "cell": [
+        1,
+        7
+      ],
+      "owner": "MAP_PETALBURG_CITY"
+    },
+    {
+      "chunk": 122,
+      "cell": [
+        2,
+        7
+      ],
+      "owner": "MAP_ROUTE102"
+    },
+    {
+      "chunk": 123,
+      "cell": [
+        3,
+        7
+      ],
+      "owner": "MAP_ROUTE102"
+    },
+    {
+      "chunk": 124,
+      "cell": [
+        4,
+        7
+      ],
+      "owner": "MAP_ROUTE103"
+    },
+    {
+      "chunk": 125,
+      "cell": [
+        5,
+        7
+      ],
+      "owner": "MAP_ROUTE103"
+    },
+    {
+      "chunk": 126,
+      "cell": [
+        6,
+        7
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 127,
+      "cell": [
+        7,
+        7
+      ],
+      "owner": "MAP_ROUTE110"
+    },
+    {
+      "chunk": 128,
+      "cell": [
+        20,
+        7
+      ],
+      "owner": "MAP_ROUTE128"
+    },
+    {
+      "chunk": 129,
+      "cell": [
+        21,
+        7
+      ],
+      "owner": "MAP_ROUTE128"
+    },
+    {
+      "chunk": 130,
+      "cell": [
+        22,
+        7
+      ],
+      "owner": "MAP_ROUTE128"
+    },
+    {
+      "chunk": 131,
+      "cell": [
+        23,
+        7
+      ],
+      "owner": "MAP_ROUTE128"
+    },
+    {
+      "chunk": 132,
+      "cell": [
+        24,
+        7
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 133,
+      "cell": [
+        0,
+        8
+      ],
+      "owner": "MAP_ROUTE105"
+    },
+    {
+      "chunk": 134,
+      "cell": [
+        1,
+        8
+      ],
+      "owner": "MAP_ROUTE105"
+    },
+    {
+      "chunk": 135,
+      "cell": [
+        2,
+        8
+      ],
+      "owner": "MAP_ROUTE102"
+    },
+    {
+      "chunk": 136,
+      "cell": [
+        3,
+        8
+      ],
+      "owner": "MAP_ROUTE101"
+    },
+    {
+      "chunk": 137,
+      "cell": [
+        4,
+        8
+      ],
+      "owner": "MAP_ROUTE101"
+    },
+    {
+      "chunk": 138,
+      "cell": [
+        6,
+        8
+      ],
+      "owner": "MAP_SLATEPORT_CITY"
+    },
+    {
+      "chunk": 139,
+      "cell": [
+        7,
+        8
+      ],
+      "owner": "MAP_SLATEPORT_CITY"
+    },
+    {
+      "chunk": 140,
+      "cell": [
+        8,
+        8
+      ],
+      "owner": "MAP_ROUTE134"
+    },
+    {
+      "chunk": 141,
+      "cell": [
+        9,
+        8
+      ],
+      "owner": "MAP_ROUTE134"
+    },
+    {
+      "chunk": 142,
+      "cell": [
+        10,
+        8
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 143,
+      "cell": [
+        11,
+        8
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 144,
+      "cell": [
+        12,
+        8
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 145,
+      "cell": [
+        13,
+        8
+      ],
+      "owner": "MAP_ROUTE132"
+    },
+    {
+      "chunk": 146,
+      "cell": [
+        14,
+        8
+      ],
+      "owner": "MAP_ROUTE132"
+    },
+    {
+      "chunk": 147,
+      "cell": [
+        15,
+        8
+      ],
+      "owner": "MAP_PACIFIDLOG_TOWN"
+    },
+    {
+      "chunk": 148,
+      "cell": [
+        16,
+        8
+      ],
+      "owner": "MAP_ROUTE131"
+    },
+    {
+      "chunk": 149,
+      "cell": [
+        17,
+        8
+      ],
+      "owner": "MAP_ROUTE131"
+    },
+    {
+      "chunk": 150,
+      "cell": [
+        18,
+        8
+      ],
+      "owner": "MAP_ROUTE130"
+    },
+    {
+      "chunk": 151,
+      "cell": [
+        19,
+        8
+      ],
+      "owner": "MAP_ROUTE130"
+    },
+    {
+      "chunk": 152,
+      "cell": [
+        20,
+        8
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 153,
+      "cell": [
+        21,
+        8
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 154,
+      "cell": [
+        22,
+        8
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 155,
+      "cell": [
+        23,
+        8
+      ],
+      "owner": "MAP_ROUTE128"
+    },
+    {
+      "chunk": 156,
+      "cell": [
+        24,
+        8
+      ],
+      "owner": "MAP_EVER_GRANDE_CITY"
+    },
+    {
+      "chunk": 157,
+      "cell": [
+        0,
+        9
+      ],
+      "owner": "MAP_ROUTE105"
+    },
+    {
+      "chunk": 158,
+      "cell": [
+        1,
+        9
+      ],
+      "owner": "MAP_ROUTE105"
+    },
+    {
+      "chunk": 159,
+      "cell": [
+        3,
+        9
+      ],
+      "owner": "MAP_LITTLEROOT_TOWN"
+    },
+    {
+      "chunk": 160,
+      "cell": [
+        4,
+        9
+      ],
+      "owner": "MAP_LITTLEROOT_TOWN"
+    },
+    {
+      "chunk": 161,
+      "cell": [
+        6,
+        9
+      ],
+      "owner": "MAP_SLATEPORT_CITY"
+    },
+    {
+      "chunk": 162,
+      "cell": [
+        7,
+        9
+      ],
+      "owner": "MAP_SLATEPORT_CITY"
+    },
+    {
+      "chunk": 163,
+      "cell": [
+        8,
+        9
+      ],
+      "owner": "MAP_ROUTE134"
+    },
+    {
+      "chunk": 164,
+      "cell": [
+        9,
+        9
+      ],
+      "owner": "MAP_ROUTE134"
+    },
+    {
+      "chunk": 165,
+      "cell": [
+        10,
+        9
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 166,
+      "cell": [
+        11,
+        9
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 167,
+      "cell": [
+        12,
+        9
+      ],
+      "owner": "MAP_ROUTE133"
+    },
+    {
+      "chunk": 168,
+      "cell": [
+        13,
+        9
+      ],
+      "owner": "MAP_ROUTE132"
+    },
+    {
+      "chunk": 169,
+      "cell": [
+        14,
+        9
+      ],
+      "owner": "MAP_ROUTE132"
+    },
+    {
+      "chunk": 170,
+      "cell": [
+        15,
+        9
+      ],
+      "owner": "MAP_PACIFIDLOG_TOWN"
+    },
+    {
+      "chunk": 171,
+      "cell": [
+        16,
+        9
+      ],
+      "owner": "MAP_ROUTE131"
+    },
+    {
+      "chunk": 172,
+      "cell": [
+        17,
+        9
+      ],
+      "owner": "MAP_ROUTE131"
+    },
+    {
+      "chunk": 173,
+      "cell": [
+        18,
+        9
+      ],
+      "owner": "MAP_ROUTE130"
+    },
+    {
+      "chunk": 174,
+      "cell": [
+        19,
+        9
+      ],
+      "owner": "MAP_ROUTE130"
+    },
+    {
+      "chunk": 175,
+      "cell": [
+        20,
+        9
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 176,
+      "cell": [
+        21,
+        9
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 177,
+      "cell": [
+        22,
+        9
+      ],
+      "owner": "MAP_ROUTE129"
+    },
+    {
+      "chunk": 178,
+      "cell": [
+        0,
+        10
+      ],
+      "owner": "MAP_ROUTE105"
+    },
+    {
+      "chunk": 179,
+      "cell": [
+        1,
+        10
+      ],
+      "owner": "MAP_ROUTE106"
+    },
+    {
+      "chunk": 180,
+      "cell": [
+        2,
+        10
+      ],
+      "owner": "MAP_ROUTE106"
+    },
+    {
+      "chunk": 181,
+      "cell": [
+        6,
+        10
+      ],
+      "owner": "MAP_ROUTE109"
+    },
+    {
+      "chunk": 182,
+      "cell": [
+        7,
+        10
+      ],
+      "owner": "MAP_ROUTE109"
+    },
+    {
+      "chunk": 183,
+      "cell": [
+        0,
+        11
+      ],
+      "owner": "MAP_ROUTE106"
+    },
+    {
+      "chunk": 184,
+      "cell": [
+        1,
+        11
+      ],
+      "owner": "MAP_ROUTE106"
+    },
+    {
+      "chunk": 185,
+      "cell": [
+        2,
+        11
+      ],
+      "owner": "MAP_ROUTE107"
+    },
+    {
+      "chunk": 186,
+      "cell": [
+        3,
+        11
+      ],
+      "owner": "MAP_ROUTE107"
+    },
+    {
+      "chunk": 187,
+      "cell": [
+        4,
+        11
+      ],
+      "owner": "MAP_ROUTE108"
+    },
+    {
+      "chunk": 188,
+      "cell": [
+        5,
+        11
+      ],
+      "owner": "MAP_ROUTE108"
+    },
+    {
+      "chunk": 189,
+      "cell": [
+        6,
+        11
+      ],
+      "owner": "MAP_ROUTE109"
+    },
+    {
+      "chunk": 190,
+      "cell": [
+        7,
+        11
+      ],
+      "owner": "MAP_ROUTE109"
+    }
+  ],
+  "interior_warp_targets_pending": [
+    "MAP_ABANDONED_SHIP_DECK",
+    "MAP_ALTERING_CAVE",
+    "MAP_ANCIENT_TOMB",
+    "MAP_AQUA_HIDEOUT_1F",
+    "MAP_DESERT_RUINS",
+    "MAP_DEWFORD_TOWN_GYM",
+    "MAP_DEWFORD_TOWN_HALL",
+    "MAP_DEWFORD_TOWN_HOUSE1",
+    "MAP_DEWFORD_TOWN_HOUSE2",
+    "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F",
+    "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+    "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY",
+    "MAP_FALLARBOR_TOWN_COZMOS_HOUSE",
+    "MAP_FALLARBOR_TOWN_MART",
+    "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE",
+    "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F",
+    "MAP_FIERY_PATH",
+    "MAP_FORTREE_CITY_DECORATION_SHOP",
+    "MAP_FORTREE_CITY_GYM",
+    "MAP_FORTREE_CITY_HOUSE1",
+    "MAP_FORTREE_CITY_HOUSE2",
+    "MAP_FORTREE_CITY_HOUSE3",
+    "MAP_FORTREE_CITY_HOUSE4",
+    "MAP_FORTREE_CITY_HOUSE5",
+    "MAP_FORTREE_CITY_MART",
+    "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
+    "MAP_GRANITE_CAVE_1F",
+    "MAP_ISLAND_CAVE",
+    "MAP_JAGGED_PASS",
+    "MAP_LAVARIDGE_TOWN_GYM_1F",
+    "MAP_LAVARIDGE_TOWN_HERB_SHOP",
+    "MAP_LAVARIDGE_TOWN_HOUSE",
+    "MAP_LAVARIDGE_TOWN_MART",
+    "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
+    "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
+    "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F",
+    "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
+    "MAP_LILYCOVE_CITY_HARBOR",
+    "MAP_LILYCOVE_CITY_HOUSE1",
+    "MAP_LILYCOVE_CITY_HOUSE2",
+    "MAP_LILYCOVE_CITY_HOUSE3",
+    "MAP_LILYCOVE_CITY_HOUSE4",
+    "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F",
+    "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE",
+    "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F",
+    "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB",
+    "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+    "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "MAP_MAUVILLE_CITY_BIKE_SHOP",
+    "MAP_MAUVILLE_CITY_GAME_CORNER",
+    "MAP_MAUVILLE_CITY_GYM",
+    "MAP_MAUVILLE_CITY_HOUSE1",
+    "MAP_MAUVILLE_CITY_HOUSE2",
+    "MAP_MAUVILLE_CITY_MART",
+    "MAP_MAUVILLE_CITY_POKEMON_CENTER_1F",
+    "MAP_METEOR_FALLS_1F_1R",
+    "MAP_MIRAGE_TOWER_1F",
+    "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+    "MAP_MOSSDEEP_CITY_GYM",
+    "MAP_MOSSDEEP_CITY_HOUSE1",
+    "MAP_MOSSDEEP_CITY_HOUSE2",
+    "MAP_MOSSDEEP_CITY_HOUSE3",
+    "MAP_MOSSDEEP_CITY_HOUSE4",
+    "MAP_MOSSDEEP_CITY_MART",
+    "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
+    "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
+    "MAP_MOSSDEEP_CITY_STEVENS_HOUSE",
+    "MAP_MT_PYRE_1F",
+    "MAP_NEW_MAUVILLE_ENTRANCE",
+    "MAP_OLDALE_TOWN_HOUSE1",
+    "MAP_OLDALE_TOWN_HOUSE2",
+    "MAP_OLDALE_TOWN_MART",
+    "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
+    "MAP_PACIFIDLOG_TOWN_HOUSE1",
+    "MAP_PACIFIDLOG_TOWN_HOUSE2",
+    "MAP_PACIFIDLOG_TOWN_HOUSE3",
+    "MAP_PACIFIDLOG_TOWN_HOUSE4",
+    "MAP_PACIFIDLOG_TOWN_HOUSE5",
+    "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+    "MAP_PETALBURG_CITY_GYM",
+    "MAP_PETALBURG_CITY_HOUSE1",
+    "MAP_PETALBURG_CITY_HOUSE2",
+    "MAP_PETALBURG_CITY_MART",
+    "MAP_PETALBURG_CITY_POKEMON_CENTER_1F",
+    "MAP_PETALBURG_CITY_WALLYS_HOUSE",
+    "MAP_PETALBURG_WOODS",
+    "MAP_ROUTE104_MR_BRINEYS_HOUSE",
+    "MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP",
+    "MAP_ROUTE109_SEASHORE_HOUSE",
+    "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_NORTH_ENTRANCE",
+    "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+    "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
+    "MAP_ROUTE111_OLD_LADYS_REST_STOP",
+    "MAP_ROUTE111_WINSTRATE_FAMILYS_HOUSE",
+    "MAP_ROUTE112_CABLE_CAR_STATION",
+    "MAP_ROUTE113_GLASS_WORKSHOP",
+    "MAP_ROUTE114_FOSSIL_MANIACS_HOUSE",
+    "MAP_ROUTE114_LANETTES_HOUSE",
+    "MAP_ROUTE116_TUNNELERS_REST_HOUSE",
+    "MAP_ROUTE117_POKEMON_DAY_CARE",
+    "MAP_ROUTE119_HOUSE",
+    "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
+    "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+    "MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE",
+    "MAP_RUSTBORO_CITY_CUTTERS_HOUSE",
+    "MAP_RUSTBORO_CITY_DEVON_CORP_1F",
+    "MAP_RUSTBORO_CITY_FLAT1_1F",
+    "MAP_RUSTBORO_CITY_FLAT2_1F",
+    "MAP_RUSTBORO_CITY_GYM",
+    "MAP_RUSTBORO_CITY_HOUSE1",
+    "MAP_RUSTBORO_CITY_HOUSE2",
+    "MAP_RUSTBORO_CITY_HOUSE3",
+    "MAP_RUSTBORO_CITY_MART",
+    "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
+    "MAP_RUSTBORO_CITY_POKEMON_SCHOOL",
+    "MAP_RUSTURF_TUNNEL",
+    "MAP_SCORCHED_SLAB",
+    "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
+    "MAP_SKY_PILLAR_ENTRANCE",
+    "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
+    "MAP_SLATEPORT_CITY_HARBOR",
+    "MAP_SLATEPORT_CITY_HOUSE",
+    "MAP_SLATEPORT_CITY_MART",
+    "MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE",
+    "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
+    "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F",
+    "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB",
+    "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
+    "MAP_TERRA_CAVE_ENTRANCE",
+    "MAP_TRAINER_HILL_ENTRANCE",
+    "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
+    "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
+    "MAP_VERDANTURF_TOWN_HOUSE",
+    "MAP_VERDANTURF_TOWN_MART",
+    "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
+    "MAP_VERDANTURF_TOWN_WANDAS_HOUSE",
+    "MAP_VICTORY_ROAD_1F"
+  ],
+  "notes": [
+    "seam inconsistency: MAP_VERDANTURF_TOWN overlaps MAP_ROUTE116 (first-placed wins)",
+    "dewfordtown: LOCALID_DEWFORD_BRINEY gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "dewfordtown: LOCALID_DEWFORD_BOAT gfx OBJ_EVENT_GFX_MR_BRINEYS_BOAT -> fallback",
+    "fallarbortown: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "fallarbortown: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "fallarbortown: None gfx OBJ_EVENT_GFX_AZURILL -> fallback",
+    "fortreecity: None gfx OBJ_EVENT_GFX_GAMEBOY_KID -> fallback",
+    "fortreecity: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "lavaridgetown: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "lavaridgetown: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "lavaridgetown: None gfx OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN -> fallback",
+    "lavaridgetown: None gfx OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN -> fallback",
+    "lavaridgetown: LOCALID_LAVARIDGE_RIVAL_ON_BIKE gfx OBJ_EVENT_GFX_VAR_3 -> fallback",
+    "lavaridgetown: LOCALID_LAVARIDGE_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "lavaridgetown: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_RICH_BOY -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "lilycovecity: None gfx OBJ_EVENT_GFX_SCHOOL_KID_M -> fallback",
+    "littleroottown: LOCALID_LITTLEROOT_MOM gfx OBJ_EVENT_GFX_MOM -> fallback",
+    "littleroottown: None gfx OBJ_EVENT_GFX_TRUCK -> fallback",
+    "littleroottown: None gfx OBJ_EVENT_GFX_TRUCK -> fallback",
+    "littleroottown: LOCALID_LITTLEROOT_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "littleroottown: LOCALID_LITTLEROOT_BIRCH gfx OBJ_EVENT_GFX_PROF_BIRCH -> fallback",
+    "mauvillecity: None gfx OBJ_EVENT_GFX_RICH_BOY -> fallback",
+    "mauvillecity: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "mauvillecity: None gfx OBJ_EVENT_GFX_SCHOOL_KID_M -> fallback",
+    "mauvillecity: LOCALID_MAUVILLE_WALLY gfx OBJ_EVENT_GFX_WALLY -> fallback",
+    "mauvillecity: LOCALID_MAUVILLE_WALLYS_UNCLE gfx OBJ_EVENT_GFX_POKEFAN_M -> fallback",
+    "mauvillecity: None gfx OBJ_EVENT_GFX_WATTSON -> fallback",
+    "mauvillecity: LOCALID_MAUVILLE_SCOTT gfx OBJ_EVENT_GFX_SCOTT -> fallback",
+    "mossdeepcity: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "mossdeepcity: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "mossdeepcity: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_GRUNT_1 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_GRUNT_2 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_GRUNT_3 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_GRUNT_4 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_MAXIE gfx OBJ_EVENT_GFX_MAXIE -> fallback",
+    "mossdeepcity: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "mossdeepcity: LOCALID_MOSSDEEP_SCOTT gfx OBJ_EVENT_GFX_SCOTT -> fallback",
+    "mossdeepcity: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "oldaletown: LOCALID_OLDALE_MART_EMPLOYEE gfx OBJ_EVENT_GFX_MART_EMPLOYEE -> fallback",
+    "oldaletown: LOCALID_FOOTPRINTS_MAN gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "oldaletown: LOCALID_OLDALE_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "pacifidlogtown: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "petalburgcity: LOCALID_PETALBURG_WALLY gfx OBJ_EVENT_GFX_WALLY -> fallback",
+    "petalburgcity: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "petalburgcity: LOCALID_PETALBURG_WALLYS_DAD gfx OBJ_EVENT_GFX_POKEFAN_M -> fallback",
+    "petalburgcity: LOCALID_PETALBURG_SCOTT gfx OBJ_EVENT_GFX_SCOTT -> fallback",
+    "route101: LOCALID_ROUTE101_BIRCH gfx OBJ_EVENT_GFX_PROF_BIRCH -> fallback",
+    "route101: None gfx OBJ_EVENT_GFX_BIRCHS_BAG -> fallback",
+    "route101: LOCALID_ROUTE101_ZIGZAGOON gfx OBJ_EVENT_GFX_ZIGZAGOON_1 -> fallback",
+    "route101: None gfx OBJ_EVENT_GFX_PROF_BIRCH -> fallback",
+    "route102: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route102: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route102: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route103: LOCALID_ROUTE103_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_PROF_BIRCH -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_POKEFAN_M -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route103: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route104: LOCALID_ROUTE104_BOAT gfx OBJ_EVENT_GFX_MR_BRINEYS_BOAT -> fallback",
+    "route104: LOCALID_ROUTE104_BRINEY gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route104: None gfx OBJ_EVENT_GFX_RICH_BOY -> fallback",
+    "route104: LOCALID_ROUTE104_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "route105: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route105: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route105: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route105: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route106: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route106: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_TUBER_M_SWIMMING -> fallback",
+    "route107: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route108: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route108: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route108: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route108: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route109: LOCALID_ROUTE109_BOAT gfx OBJ_EVENT_GFX_MR_BRINEYS_BOAT -> fallback",
+    "route109: LOCALID_ROUTE109_BRINEY gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_M -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_M -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_ZIGZAGOON_2 -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_F -> fallback",
+    "route109: None gfx OBJ_EVENT_GFX_TUBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_PSYCHIC_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route110: LOCALID_CHALLENGE_BIKER gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route110: LOCALID_ROUTE110_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "route110: LOCALID_ROUTE110_RIVAL_ON_BIKE gfx OBJ_EVENT_GFX_VAR_3 -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_POKEFAN_M -> fallback",
+    "route110: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F -> fallback",
+    "route110: LOCALID_ROUTE110_BIRCH gfx OBJ_EVENT_GFX_PROF_BIRCH -> fallback",
+    "route111: LOCALID_ROUTE111_VICTORIA gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "route111: LOCALID_ROUTE111_VICKY gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route111: LOCALID_ROUTE111_TY_1 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route111: LOCALID_ROUTE111_GABBY_1 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route111: LOCALID_ROUTE111_GABBY_2 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route111: LOCALID_ROUTE111_TY_2 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route111: LOCALID_ROUTE111_GABBY_3 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route111: LOCALID_ROUTE111_TY_3 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route111: None gfx OBJ_EVENT_GFX_FOSSIL -> fallback",
+    "route111: LOCALID_ROUTE111_PLAYER_FALLING gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "route112: LOCALID_ROUTE112_GRUNT_1 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "route112: LOCALID_ROUTE112_GRUNT_2 gfx OBJ_EVENT_GFX_MAGMA_MEMBER_M -> fallback",
+    "route112: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route112: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route112: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route112: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route113: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route113: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "route113: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route113: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route113: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "route114: None gfx OBJ_EVENT_GFX_POOCHYENA -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F -> fallback",
+    "route115: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route116: LOCALID_ROUTE116_BRINEY gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_SCHOOL_KID_M -> fallback",
+    "route116: LOCALID_ROUTE116_WANDAS_BF gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route116: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_ZIGZAGOON_2 -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_AZUMARILL -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_PIKACHU -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route117: None gfx OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F -> fallback",
+    "route118: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route118: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route118: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route118: LOCALID_ROUTE118_GABBY_1 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route118: LOCALID_ROUTE118_TY_1 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route118: LOCALID_ROUTE118_GABBY_2 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route118: LOCALID_ROUTE118_TY_2 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route118: LOCALID_ROUTE118_GABBY_3 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route118: LOCALID_ROUTE118_TY_3 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route118: LOCALID_ROUTE118_STEVEN gfx OBJ_EVENT_GFX_STEVEN -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BUG_CATCHER -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route119: LOCALID_ROUTE119_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route119: LOCALID_ROUTE119_RIVAL_ON_BIKE gfx OBJ_EVENT_GFX_VAR_3 -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route119: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route119: LOCALID_ROUTE119_SCOTT gfx OBJ_EVENT_GFX_SCOTT -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route120: LOCALID_ROUTE120_TY_1 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route120: LOCALID_ROUTE120_GABBY_1 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route120: LOCALID_ROUTE120_GABBY_2 gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "route120: LOCALID_ROUTE120_TY_2 gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_BEAUTY -> fallback",
+    "route120: LOCALID_BRIDGE_KECLEON gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route120: LOCALID_ROUTE120_STEVEN gfx OBJ_EVENT_GFX_STEVEN -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route120: LOCALID_BRIDGE_KECLEON_SHADOW gfx OBJ_EVENT_GFX_KECLEON_BRIDGE_SHADOW -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route120: None gfx OBJ_EVENT_GFX_KECLEON -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route121: LOCALID_ROUTE121_GRUNT_1 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route121: LOCALID_ROUTE121_GRUNT_2 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route121: LOCALID_ROUTE121_GRUNT_3 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_GENTLEMAN -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_HEX_MANIAC -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_BEAUTY -> fallback",
+    "route121: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_PSYCHIC_M -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_HEX_MANIAC -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "route123: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_TUBER_M_SWIMMING -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route124: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route125: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route125: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route125: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route125: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route125: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route126: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route127: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route127: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route127: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route128: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route128: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route128: LOCALID_ROUTE128_STEVEN gfx OBJ_EVENT_GFX_STEVEN -> fallback",
+    "route128: LOCALID_ROUTE128_ARCHIE gfx OBJ_EVENT_GFX_ARCHIE -> fallback",
+    "route128: LOCALID_ROUTE128_MAXIE gfx OBJ_EVENT_GFX_MAXIE -> fallback",
+    "route128: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route128: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route129: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route129: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route129: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route129: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route129: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route130: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route130: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route130: None gfx OBJ_EVENT_GFX_BERRY_TREE -> fallback",
+    "route130: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_TUBER_M_SWIMMING -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route131: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route132: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route132: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route132: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "route132: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route132: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "route133: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route133: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route133: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route133: None gfx OBJ_EVENT_GFX_EXPERT_F -> fallback",
+    "route133: None gfx OBJ_EVENT_GFX_EXPERT_M -> fallback",
+    "route134: None gfx OBJ_EVENT_GFX_SWIMMER_M -> fallback",
+    "route134: None gfx OBJ_EVENT_GFX_SWIMMER_F -> fallback",
+    "route134: None gfx OBJ_EVENT_GFX_BLACK_BELT -> fallback",
+    "rustborocity: None gfx OBJ_EVENT_GFX_NINJA_BOY -> fallback",
+    "rustborocity: LOCALID_RUSTBORO_GRUNT gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "rustborocity: None gfx OBJ_EVENT_GFX_DEVON_EMPLOYEE -> fallback",
+    "rustborocity: LOCALID_RUSTBORO_RIVAL gfx OBJ_EVENT_GFX_VAR_0 -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_RICH_BOY gfx OBJ_EVENT_GFX_RICH_BOY -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_1 gfx OBJ_EVENT_GFX_AQUA_MEMBER_F -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_COOK gfx OBJ_EVENT_GFX_COOK -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_TY gfx OBJ_EVENT_GFX_CAMERAMAN -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GABBY gfx OBJ_EVENT_GFX_REPORTER_F -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_MANIAC -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_2 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_3 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_MART_EMPLOYEE -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_MART_EMPLOYEE -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_MART_EMPLOYEE -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_ENERGY_GURU gfx OBJ_EVENT_GFX_POKEFAN_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_4 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_5 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_6 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_7 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_8 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_9 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_GRUNT_11 gfx OBJ_EVENT_GFX_AQUA_MEMBER_M -> fallback",
+    "slateportcity: None gfx OBJ_EVENT_GFX_POKEFAN_F -> fallback",
+    "slateportcity: LOCALID_SLATEPORT_SCOTT gfx OBJ_EVENT_GFX_SCOTT -> fallback"
+  ]
+}

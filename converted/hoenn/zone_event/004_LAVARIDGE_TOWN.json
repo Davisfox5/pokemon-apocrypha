@@ -1,0 +1,280 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_LAVARIDGE_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "LavaridgeTown_EventScript_HerbShopSign",
+      "type": 1,
+      "x": 154,
+      "z": 76,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "LavaridgeTown_EventScript_GymSign",
+      "type": 1,
+      "x": 147,
+      "z": 75,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 157,
+      "z": 65,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "LavaridgeTown_EventScript_TownSign",
+      "type": 1,
+      "x": 153,
+      "z": 68,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 150,
+      "z": 66,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 156,
+      "z": 65,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 151,
+      "z": 66,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "std_hiddenitem(ITEM_ICE_HEAL)",
+      "type": 2,
+      "x": 144,
+      "z": 65,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_ExpertF",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 148,
+      "z": 67,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_ExpertM",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 145,
+      "z": 61,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_OLDMAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_OldMan",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 145,
+      "z": 68,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_BABYGIRL1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_Twin",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 2,
+      "x": 150,
+      "z": 73,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_HotSpringsOldWoman1",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 144,
+      "z": 64,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_HotSpringsOldWoman2",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 145,
+      "z": 64,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_lavaridge_rival_on_bike",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LAVARIDGE_TOWN_RIVAL_ON_BIKE",
+      "scriptId": "0x0",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 146,
+      "z": 76,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_lavaridge_rival",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LAVARIDGE_TOWN_RIVAL",
+      "scriptId": "0x0",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 152,
+      "z": 75,
+      "y": 0
+    },
+    {
+      "id": "obj_lavaridgetown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LavaridgeTown_EventScript_EggWoman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 144,
+      "z": 67,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 152,
+      "z": 75,
+      "header": "MAP_LAVARIDGE_TOWN_HERB_SHOP",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 145,
+      "z": 75,
+      "header": "MAP_LAVARIDGE_TOWN_GYM_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 155,
+      "z": 65,
+      "header": "MAP_LAVARIDGE_TOWN_MART",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 149,
+      "z": 66,
+      "header": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 156,
+      "z": 75,
+      "header": "MAP_LAVARIDGE_TOWN_HOUSE",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 149,
+      "z": 62,
+      "header": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
+      "anchor": 3,
+      "y": 0
+    }
+  ],
+  "coords": [
+    {
+      "scriptId": "LavaridgeTown_EventScript_HotSpringsTrigger",
+      "x": 146,
+      "z": 63,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY"
+    }
+  ]
+}

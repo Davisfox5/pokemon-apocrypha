@@ -1,0 +1,290 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_LITTLEROOT_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "LittlerootTown_EventScript_TownSign",
+      "type": 1,
+      "x": 135,
+      "z": 295,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_BirchsLabSign",
+      "type": 1,
+      "x": 126,
+      "z": 299,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_BrendansHouseSign",
+      "type": 1,
+      "x": 127,
+      "z": 290,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_MaysHouseSign",
+      "type": 1,
+      "x": 132,
+      "z": 290,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_littleroottown_littleroot_twin",
+      "spriteId": "SPRITE_BABYGIRL1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LittlerootTown_EventScript_Twin",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 2,
+      "x": 136,
+      "z": 292,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_x",
+      "spriteId": "SPRITE_BIGMAN",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN",
+      "scriptId": "LittlerootTown_EventScript_FatMan",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 2,
+      "yRange": 1,
+      "x": 132,
+      "z": 295,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_x",
+      "spriteId": "SPRITE_BOY2",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "LittlerootTown_EventScript_Boy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 2,
+      "yRange": 1,
+      "x": 134,
+      "z": 299,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_littleroot_mom",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE",
+      "scriptId": "LittlerootTown_EventScript_Mom",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 125,
+      "z": 290,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK",
+      "scriptId": "0x0",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 122,
+      "z": 292,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK",
+      "scriptId": "0x0",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 131,
+      "z": 292,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_littleroot_rival",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_RIVAL",
+      "scriptId": "0x0",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 133,
+      "z": 292,
+      "y": 0
+    },
+    {
+      "id": "obj_littleroottown_littleroot_birch",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCH",
+      "scriptId": "0x0",
+      "facingDirection": 0,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 134,
+      "z": 292,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 134,
+      "z": 290,
+      "header": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 125,
+      "z": 290,
+      "header": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 127,
+      "z": 298,
+      "header": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": [
+    {
+      "scriptId": "LittlerootTown_EventScript_NeedPokemonTriggerLeft",
+      "x": 130,
+      "z": 283,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_NeedPokemonTriggerRight",
+      "x": 131,
+      "z": 283,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GoSaveBirchTrigger",
+      "x": 131,
+      "z": 283,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger4",
+      "x": 128,
+      "z": 291,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger5",
+      "x": 129,
+      "z": 291,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger2",
+      "x": 130,
+      "z": 291,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger3",
+      "x": 131,
+      "z": 291,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger0",
+      "x": 130,
+      "z": 284,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    },
+    {
+      "scriptId": "LittlerootTown_EventScript_GiveRunningShoesTrigger1",
+      "x": 131,
+      "z": 284,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE"
+    }
+  ]
+}
