@@ -134,14 +134,22 @@ under `converted/hoenn/buildings/`:
 - `bm_field_catalog.json`: the 340 vanilla models with names + placement
   counts.
 
-Strategy assessment (owner asked 2-D→3-D tile conversion vs retexturing
-similar vanilla models): **retexture wins for the ~90% of buildings with a
-vanilla analogue** — geometry, door animations, and engine plumbing come
-free; the work per building is a texture swap using `*_struct.png` as
-source. Purpose-built Hoenn shapes with no analogue (Fortree tree houses,
-Pacifidlog rafts, Mossdeep space center, Slateport lighthouse/museum) need
-simple custom boxes textured from the same cutouts. Both consume the same
-extracted assets, so starting with retexture risks nothing.
+**Strategy decision (owner review of the Littleroot pilot):** retexturing
+vanilla models is DROPPED as the primary path. The palette-swapped donor
+walls read as Johto-with-different-colors, not Hoenn — the aesthetic lives
+in the art, and no recolor of foreign art matches it. The plan of record is
+now **strategy A: the Gen-3 art itself becomes the textures on simple 3-D
+geometry** (box + roof prism per building), which is also how vanilla HGSS
+buildings work (pixel-art textures on boxes). The `bldg_*_clean.png`
+cutouts (background-free, full roof including the walk-behind ridge row)
+are the texture sources; `littleroot_mock_topdown.png` shows the target.
+The palette-swap tooling (`nsbtx.py`, models 340/341) stays as a fallback
+and for future texture edits, but no more donor retextures are planned.
+
+Detection note: Gen-3 walk-behind roof rows (passable, art in layer B) made
+the solid-cell flood stop one row short of the roof line everywhere; fixed
+by extending footprints upward over draw-over rows, and clean cutouts key
+out the surrounding ground's exact colors.
 
 ## Next steps, in order
 

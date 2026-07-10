@@ -82,6 +82,21 @@ def detect(map_id: str, layout: gba.Layout, pair: gba.TilesetPair,
     def is_solid(x, y):
         return layout.collision(x, y) != 0 and not is_greenish(layout.metatile(x, y))
 
+    # Roof top rows are walk-behind in Gen 3 (passable, art in layer B), so
+    # the solid flood stops one row short of the roof line. A metatile whose
+    # layer B carries real pixels is draw-over content — extend upward while
+    # most of the row above has it (and isn't just tree canopy).
+    _top: dict[int, bool] = {}
+
+    def has_top_content(mt: int) -> bool:
+        hit = _top.get(mt)
+        if hit is None:
+            img = pair.render_metatile(mt, layers=(1,))
+            n = sum(1 for *_, a in img.getdata() if a)
+            hit = n > 8 and not is_greenish(mt)
+            _top[mt] = hit
+        return hit
+
     seeds = {(int(w["x"]), int(w["y"])) for w in warps
              if 0 <= int(w["x"]) < W and 0 <= int(w["y"]) < H
              and is_door(int(w["x"]), int(w["y"]))}
@@ -130,6 +145,14 @@ def detect(map_id: str, layout: gba.Layout, pair: gba.TilesetPair,
             if count_row(y1) < max(2, (x1 - x0 + 1) * 3 // 10):
                 y1 -= 1; changed = True
         claimed |= region
+        # extend upward over walk-behind roof rows
+        while y0 > 0:
+            hits = sum(1 for x in range(x0, x1 + 1)
+                       if has_top_content(layout.metatile(x, y0 - 1)))
+            if hits * 2 < (x1 - x0 + 1):
+                break
+            y0 -= 1
+            claimed |= {(x, y0) for x in range(x0, x1 + 1)}
         boxes.append((x0, y0, x1 - x0 + 1, y1 - y0 + 1))
 
     # merge overlapping boxes (two doors on one building, etc.)
@@ -157,6 +180,43 @@ def render_box(layout: gba.Layout, pair: gba.TilesetPair, box, layers):
             mt = layout.metatile(x0 + x, y0 + y)
             img.paste(pair.render_metatile(mt, layers=layers), (x * 16, y * 16))
     return img
+
+
+def render_clean(layout: gba.Layout, pair: gba.TilesetPair, box):
+    """Background-free full-building art: where layer B has pixels they win
+    (roof over grass); everywhere else the composite is used with the
+    surrounding ground's exact colors keyed out. This is the strategy-A
+    texture source: the building as drawn, grass gone."""
+    from PIL import Image
+    x0, y0, w, h = box
+    ring = set()
+    for x in range(x0 - 1, x0 + w + 1):
+        for y in (y0 - 1, y0 + h):
+            if 0 <= x < layout.width and 0 <= y < layout.height:
+                ring.add(layout.metatile(x, y))
+    for y in range(y0, y0 + h):
+        for x in (x0 - 1, x0 + w):
+            if 0 <= x < layout.width and 0 <= y < layout.height:
+                ring.add(layout.metatile(x, y))
+    ground_colors = set()
+    for mt in ring:
+        ground_colors.update(
+            p[:3] for p in pair.render_metatile(mt).getdata() if p[3])
+
+    full = render_box(layout, pair, box, layers=(0, 1))
+    top = render_box(layout, pair, box, layers=(1,))
+    out = Image.new("RGBA", full.size, (0, 0, 0, 0))
+    fp, tp, op = full.load(), top.load(), out.load()
+    for y in range(full.height):
+        for x in range(full.width):
+            t = tp[x, y]
+            if t[3]:
+                op[x, y] = t
+            else:
+                f = fp[x, y]
+                if f[3] and f[:3] not in ground_colors:
+                    op[x, y] = f
+    return out
 
 
 def main() -> None:
@@ -196,6 +256,7 @@ def main() -> None:
             x0, y0, w, h = b
             for name, layers in (("full", (0, 1)), ("struct", (1,)), ("base", (0,))):
                 render_box(layout, pair, b, layers).save(d / f"bldg_{i:02}_{name}.png")
+            render_clean(layout, pair, b).save(d / f"bldg_{i:02}_clean.png")
             draw.rectangle([x0 * 16, y0 * 16, (x0 + w) * 16 - 1, (y0 + h) * 16 - 1],
                            outline=(255, 0, 0, 255), width=2)
             draw.text((x0 * 16 + 3, y0 * 16 + 2), str(i), fill=(255, 0, 0, 255))

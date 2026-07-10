@@ -5,14 +5,14 @@
     "local": [
       1,
       0,
-      5,
-      4
+      10,
+      18
     ],
     "global": [
       61,
       362,
-      5,
-      4
+      10,
+      18
     ],
     "files": "DEWFORD_TOWN/bldg_00_*.png"
   },
@@ -20,69 +20,18 @@
     "map": "MAP_DEWFORD_TOWN",
     "index": 1,
     "local": [
-      1,
-      8,
-      4,
-      3
-    ],
-    "global": [
-      61,
-      370,
-      4,
-      3
-    ],
-    "files": "DEWFORD_TOWN/bldg_01_*.png"
-  },
-  {
-    "map": "MAP_DEWFORD_TOWN",
-    "index": 2,
-    "local": [
-      5,
-      14,
-      6,
-      4
-    ],
-    "global": [
-      65,
-      376,
-      6,
-      4
-    ],
-    "files": "DEWFORD_TOWN/bldg_02_*.png"
-  },
-  {
-    "map": "MAP_DEWFORD_TOWN",
-    "index": 3,
-    "local": [
-      7,
-      5,
-      4,
-      4
-    ],
-    "global": [
-      67,
-      367,
-      4,
-      4
-    ],
-    "files": "DEWFORD_TOWN/bldg_03_*.png"
-  },
-  {
-    "map": "MAP_DEWFORD_TOWN",
-    "index": 4,
-    "local": [
       16,
-      12,
+      10,
       4,
-      3
+      5
     ],
     "global": [
       76,
-      374,
+      372,
       4,
-      3
+      5
     ],
-    "files": "DEWFORD_TOWN/bldg_04_*.png"
+    "files": "DEWFORD_TOWN/bldg_01_*.png"
   },
   {
     "map": "MAP_EVER_GRANDE_CITY",
@@ -106,15 +55,15 @@
     "index": 1,
     "local": [
       6,
-      20,
+      19,
       25,
-      34
+      35
     ],
     "global": [
       766,
-      200,
+      199,
       25,
-      34
+      35
     ],
     "files": "EVER_GRANDE_CITY/bldg_01_*.png"
   },
@@ -125,13 +74,13 @@
       0,
       1,
       20,
-      7
+      15
     ],
     "global": [
       80,
       1,
       20,
-      7
+      15
     ],
     "files": "FALLARBOR_TOWN/bldg_00_*.png"
   },
@@ -140,49 +89,32 @@
     "index": 1,
     "local": [
       5,
-      15,
+      13,
       4,
-      3
+      5
     ],
     "global": [
       85,
-      15,
+      13,
       4,
-      3
+      5
     ],
     "files": "FALLARBOR_TOWN/bldg_01_*.png"
-  },
-  {
-    "map": "MAP_FALLARBOR_TOWN",
-    "index": 2,
-    "local": [
-      14,
-      13,
-      4,
-      3
-    ],
-    "global": [
-      94,
-      13,
-      4,
-      3
-    ],
-    "files": "FALLARBOR_TOWN/bldg_02_*.png"
   },
   {
     "map": "MAP_FORTREE_CITY",
     "index": 0,
     "local": [
       3,
-      12,
+      11,
       4,
-      3
+      4
     ],
     "global": [
       323,
-      12,
+      11,
       4,
-      3
+      4
     ],
     "files": "FORTREE_CITY/bldg_00_*.png"
   },
@@ -327,15 +259,15 @@
     "index": 0,
     "local": [
       0,
-      3,
+      1,
       19,
-      17
+      19
     ],
     "global": [
       140,
-      63,
+      61,
       19,
-      17
+      19
     ],
     "files": "LAVARIDGE_TOWN/bldg_00_*.png"
   },
@@ -395,15 +327,15 @@
     "index": 3,
     "local": [
       36,
-      21,
+      20,
       6,
-      4
+      5
     ],
     "global": [
       516,
-      91,
+      90,
       6,
-      4
+      5
     ],
     "files": "LILYCOVE_CITY/bldg_03_*.png"
   },
@@ -446,15 +378,15 @@
     "index": 0,
     "local": [
       2,
+      4,
       5,
-      5,
-      4
+      5
     ],
     "global": [
       122,
-      287,
+      286,
       5,
-      4
+      5
     ],
     "files": "LITTLEROOT_TOWN/bldg_00_*.png"
   },
@@ -463,15 +395,15 @@
     "index": 1,
     "local": [
       3,
-      13,
+      12,
       7,
-      4
+      5
     ],
     "global": [
       123,
-      295,
+      294,
       7,
-      4
+      5
     ],
     "files": "LITTLEROOT_TOWN/bldg_01_*.png"
   },
@@ -480,15 +412,15 @@
     "index": 2,
     "local": [
       13,
+      4,
       5,
-      5,
-      4
+      5
     ],
     "global": [
       133,
-      287,
+      286,
       5,
-      4
+      5
     ],
     "files": "LITTLEROOT_TOWN/bldg_02_*.png"
   },
@@ -497,15 +429,15 @@
     "index": 0,
     "local": [
       5,
-      2,
+      1,
       6,
-      4
+      5
     ],
     "global": [
       205,
-      142,
+      141,
       6,
-      4
+      5
     ],
     "files": "MAUVILLE_CITY/bldg_00_*.png"
   },
@@ -514,15 +446,15 @@
     "index": 1,
     "local": [
       5,
-      11,
+      10,
       7,
-      3
+      4
     ],
     "global": [
       205,
-      151,
+      150,
       7,
-      3
+      4
     ],
     "files": "MAUVILLE_CITY/bldg_01_*.png"
   },
@@ -531,15 +463,15 @@
     "index": 2,
     "local": [
       18,
-      12,
+      11,
       8,
-      3
+      4
     ],
     "global": [
       218,
-      152,
+      151,
       8,
-      3
+      4
     ],
     "files": "MAUVILLE_CITY/bldg_02_*.png"
   },
@@ -565,15 +497,15 @@
     "index": 4,
     "local": [
       31,
-      12,
+      11,
       9,
-      4
+      5
     ],
     "global": [
       231,
-      152,
+      151,
       9,
-      4
+      5
     ],
     "files": "MAUVILLE_CITY/bldg_04_*.png"
   },
@@ -599,15 +531,15 @@
     "index": 0,
     "local": [
       13,
-      8,
+      7,
       9,
-      16
+      17
     ],
     "global": [
       653,
-      108,
+      107,
       9,
-      16
+      17
     ],
     "files": "MOSSDEEP_CITY/bldg_00_*.png"
   },
@@ -616,15 +548,15 @@
     "index": 1,
     "local": [
       27,
-      7,
+      6,
       4,
-      3
+      4
     ],
     "global": [
       667,
-      107,
+      106,
       4,
-      3
+      4
     ],
     "files": "MOSSDEEP_CITY/bldg_01_*.png"
   },
@@ -633,15 +565,15 @@
     "index": 2,
     "local": [
       27,
-      14,
+      13,
       4,
-      3
+      4
     ],
     "global": [
       667,
-      114,
+      113,
       4,
-      3
+      4
     ],
     "files": "MOSSDEEP_CITY/bldg_02_*.png"
   },
@@ -650,15 +582,15 @@
     "index": 3,
     "local": [
       35,
+      5,
       6,
-      6,
-      4
+      5
     ],
     "global": [
       675,
-      106,
+      105,
       6,
-      4
+      5
     ],
     "files": "MOSSDEEP_CITY/bldg_03_*.png"
   },
@@ -701,15 +633,15 @@
     "index": 6,
     "local": [
       60,
-      8,
+      4,
       20,
-      27
+      31
     ],
     "global": [
       700,
-      108,
+      104,
       20,
-      27
+      31
     ],
     "files": "MOSSDEEP_CITY/bldg_06_*.png"
   },
@@ -718,15 +650,15 @@
     "index": 0,
     "local": [
       4,
-      5,
       4,
-      3
+      4,
+      4
     ],
     "global": [
       124,
-      247,
+      246,
       4,
-      3
+      4
     ],
     "files": "OLDALE_TOWN/bldg_00_*.png"
   },
@@ -735,15 +667,15 @@
     "index": 1,
     "local": [
       5,
-      14,
+      13,
       4,
-      3
+      4
     ],
     "global": [
       125,
-      256,
+      255,
       4,
-      3
+      4
     ],
     "files": "OLDALE_TOWN/bldg_01_*.png"
   },
@@ -752,15 +684,15 @@
     "index": 2,
     "local": [
       13,
+      3,
       4,
-      4,
-      3
+      4
     ],
     "global": [
       133,
-      246,
+      245,
       4,
-      3
+      4
     ],
     "files": "OLDALE_TOWN/bldg_02_*.png"
   },
@@ -769,15 +701,15 @@
     "index": 3,
     "local": [
       14,
-      14,
+      13,
       4,
-      3
+      4
     ],
     "global": [
       134,
-      256,
+      255,
       4,
-      3
+      4
     ],
     "files": "OLDALE_TOWN/bldg_03_*.png"
   },
@@ -786,15 +718,15 @@
     "index": 0,
     "local": [
       1,
-      11,
+      10,
       3,
-      2
+      3
     ],
     "global": [
       481,
-      271,
+      270,
       3,
-      2
+      3
     ],
     "files": "PACIFIDLOG_TOWN/bldg_00_*.png"
   },
@@ -803,15 +735,15 @@
     "index": 1,
     "local": [
       2,
-      21,
+      20,
       3,
-      2
+      3
     ],
     "global": [
       482,
-      281,
+      280,
       3,
-      2
+      3
     ],
     "files": "PACIFIDLOG_TOWN/bldg_01_*.png"
   },
@@ -820,15 +752,15 @@
     "index": 2,
     "local": [
       7,
-      13,
+      12,
       4,
-      3
+      4
     ],
     "global": [
       487,
-      273,
+      272,
       4,
-      3
+      4
     ],
     "files": "PACIFIDLOG_TOWN/bldg_02_*.png"
   },
@@ -837,15 +769,15 @@
     "index": 3,
     "local": [
       11,
-      23,
+      22,
       3,
-      2
+      3
     ],
     "global": [
       491,
-      283,
+      282,
       3,
-      2
+      3
     ],
     "files": "PACIFIDLOG_TOWN/bldg_03_*.png"
   },
@@ -854,15 +786,15 @@
     "index": 4,
     "local": [
       15,
-      12,
+      11,
       3,
-      2
+      3
     ],
     "global": [
       495,
-      272,
+      271,
       3,
-      2
+      3
     ],
     "files": "PACIFIDLOG_TOWN/bldg_04_*.png"
   },
@@ -871,15 +803,15 @@
     "index": 5,
     "local": [
       16,
-      20,
+      19,
       3,
-      2
+      3
     ],
     "global": [
       496,
-      280,
+      279,
       3,
-      2
+      3
     ],
     "files": "PACIFIDLOG_TOWN/bldg_05_*.png"
   },
@@ -905,15 +837,15 @@
     "index": 1,
     "local": [
       9,
-      17,
+      16,
       4,
-      3
+      4
     ],
     "global": [
       49,
-      249,
+      248,
       4,
-      3
+      4
     ],
     "files": "PETALBURG_CITY/bldg_01_*.png"
   },
@@ -939,15 +871,15 @@
     "index": 3,
     "local": [
       19,
-      14,
+      13,
       4,
-      3
+      4
     ],
     "global": [
       59,
-      246,
+      245,
       4,
-      3
+      4
     ],
     "files": "PETALBURG_CITY/bldg_03_*.png"
   },
@@ -973,15 +905,15 @@
     "index": 5,
     "local": [
       24,
-      10,
+      9,
       4,
-      3
+      4
     ],
     "global": [
       64,
-      242,
+      241,
       4,
-      3
+      4
     ],
     "files": "PETALBURG_CITY/bldg_05_*.png"
   },
@@ -1041,15 +973,15 @@
     "index": 0,
     "local": [
       36,
-      12,
+      11,
       16,
-      8
+      9
     ],
     "global": [
       36,
-      354,
+      353,
       16,
-      8
+      9
     ],
     "files": "ROUTE106/bldg_00_*.png"
   },
@@ -1058,15 +990,15 @@
     "index": 0,
     "local": [
       10,
-      3,
+      0,
       5,
-      3
+      6
     ],
     "global": [
       210,
-      323,
+      320,
       5,
-      3
+      6
     ],
     "files": "ROUTE109/bldg_00_*.png"
   },
@@ -1075,15 +1007,15 @@
     "index": 0,
     "local": [
       9,
-      58,
+      29,
       7,
-      11
+      40
     ],
     "global": [
       209,
-      218,
+      189,
       7,
-      11
+      40
     ],
     "files": "ROUTE110/bldg_00_*.png"
   },
@@ -1109,15 +1041,15 @@
     "index": 2,
     "local": [
       14,
-      85,
+      83,
       14,
-      5
+      7
     ],
     "global": [
       214,
-      245,
+      243,
       14,
-      5
+      7
     ],
     "files": "ROUTE110/bldg_02_*.png"
   },
@@ -1143,15 +1075,15 @@
     "index": 0,
     "local": [
       10,
-      110,
+      109,
       8,
-      5
+      6
     ],
     "global": [
       210,
-      110,
+      109,
       8,
-      5
+      6
     ],
     "files": "ROUTE111/bldg_00_*.png"
   },
@@ -1160,15 +1092,15 @@
     "index": 1,
     "local": [
       18,
-      57,
+      53,
       3,
-      2
+      6
     ],
     "global": [
       218,
-      57,
+      53,
       3,
-      2
+      6
     ],
     "files": "ROUTE111/bldg_01_*.png"
   },
@@ -1228,49 +1160,32 @@
     "index": 0,
     "local": [
       1,
-      24,
-      21,
-      13
+      6,
+      32,
+      31
     ],
     "global": [
       161,
-      44,
-      21,
-      13
+      26,
+      32,
+      31
     ],
     "files": "ROUTE112/bldg_00_*.png"
-  },
-  {
-    "map": "MAP_ROUTE112",
-    "index": 1,
-    "local": [
-      10,
-      6,
-      23,
-      22
-    ],
-    "global": [
-      170,
-      26,
-      23,
-      22
-    ],
-    "files": "ROUTE112/bldg_01_*.png"
   },
   {
     "map": "MAP_ROUTE113",
     "index": 0,
     "local": [
       31,
-      2,
+      0,
       10,
-      4
+      6
     ],
     "global": [
       131,
-      2,
+      0,
       10,
-      4
+      6
     ],
     "files": "ROUTE113/bldg_00_*.png"
   },
@@ -1313,15 +1228,15 @@
     "index": 2,
     "local": [
       25,
-      34,
+      33,
       5,
-      3
+      4
     ],
     "global": [
       65,
-      36,
+      35,
       5,
-      3
+      4
     ],
     "files": "ROUTE114/bldg_02_*.png"
   },
@@ -1381,15 +1296,15 @@
     "index": 0,
     "local": [
       50,
-      3,
+      2,
       4,
-      3
+      4
     ],
     "global": [
       190,
-      143,
+      142,
       4,
-      3
+      4
     ],
     "files": "ROUTE117/bldg_00_*.png"
   },
@@ -1500,15 +1415,15 @@
     "index": 0,
     "local": [
       21,
+      3,
       4,
-      4,
-      3
+      4
     ],
     "global": [
       341,
-      144,
+      143,
       4,
-      3
+      4
     ],
     "files": "ROUTE123/bldg_00_*.png"
   },
@@ -1517,15 +1432,15 @@
     "index": 0,
     "local": [
       69,
-      46,
+      45,
       4,
-      3
+      4
     ],
     "global": [
       629,
-      106,
+      105,
       4,
-      3
+      4
     ],
     "files": "ROUTE124/bldg_00_*.png"
   },
@@ -1551,15 +1466,15 @@
     "index": 0,
     "local": [
       2,
-      44,
+      43,
       8,
-      11
+      12
     ],
     "global": [
       2,
-      166,
+      165,
       8,
-      11
+      12
     ],
     "files": "RUSTBORO_CITY/bldg_00_*.png"
   },
@@ -1585,15 +1500,15 @@
     "index": 2,
     "local": [
       6,
-      35,
+      34,
       6,
-      4
+      5
     ],
     "global": [
       6,
-      157,
+      156,
       6,
-      4
+      5
     ],
     "files": "RUSTBORO_CITY/bldg_02_*.png"
   },
@@ -1602,15 +1517,15 @@
     "index": 3,
     "local": [
       9,
-      26,
+      25,
       9,
-      5
+      6
     ],
     "global": [
       9,
-      148,
+      147,
       9,
-      5
+      6
     ],
     "files": "RUSTBORO_CITY/bldg_03_*.png"
   },
@@ -1619,15 +1534,15 @@
     "index": 4,
     "local": [
       15,
-      36,
+      35,
       4,
-      3
+      4
     ],
     "global": [
       15,
-      158,
+      157,
       4,
-      3
+      4
     ],
     "files": "RUSTBORO_CITY/bldg_04_*.png"
   },
@@ -1636,15 +1551,15 @@
     "index": 5,
     "local": [
       15,
-      43,
+      42,
       4,
-      3
+      4
     ],
     "global": [
       15,
-      165,
+      164,
       4,
-      3
+      4
     ],
     "files": "RUSTBORO_CITY/bldg_05_*.png"
   },
@@ -1670,15 +1585,15 @@
     "index": 7,
     "local": [
       24,
-      43,
+      42,
       6,
-      4
+      5
     ],
     "global": [
       24,
-      165,
+      164,
       6,
-      4
+      5
     ],
     "files": "RUSTBORO_CITY/bldg_07_*.png"
   },
@@ -1704,15 +1619,15 @@
     "index": 1,
     "local": [
       4,
-      17,
+      16,
       4,
-      3
+      4
     ],
     "global": [
       204,
-      277,
+      276,
       4,
-      3
+      4
     ],
     "files": "SLATEPORT_CITY/bldg_01_*.png"
   },
@@ -1738,15 +1653,15 @@
     "index": 3,
     "local": [
       12,
-      24,
+      23,
       4,
-      3
+      4
     ],
     "global": [
       212,
-      284,
+      283,
       4,
-      3
+      4
     ],
     "files": "SLATEPORT_CITY/bldg_03_*.png"
   },
@@ -1755,15 +1670,15 @@
     "index": 4,
     "local": [
       18,
-      17,
+      16,
       4,
-      3
+      4
     ],
     "global": [
       218,
-      277,
+      276,
       4,
-      3
+      4
     ],
     "files": "SLATEPORT_CITY/bldg_04_*.png"
   },
@@ -1772,15 +1687,15 @@
     "index": 5,
     "local": [
       20,
-      33,
+      31,
       19,
-      12
+      14
     ],
     "global": [
       220,
-      293,
+      291,
       19,
-      12
+      14
     ],
     "files": "SLATEPORT_CITY/bldg_05_*.png"
   },

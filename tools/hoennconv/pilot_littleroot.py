@@ -269,7 +269,34 @@ def ground_textures() -> None:
     print(f"ground textures for cells {cells}")
 
 
+def make_mock() -> None:
+    """Top-down preview of the strategy-A result: the untouched Hoenn
+    building art (clean cutouts) standing on the cleared ground — exactly
+    what a box model textured with that art shows the HGSS camera."""
+    from PIL import Image
+    catalog = json.loads((ROOT / "converted/hoenn/buildings/buildings.json")
+                         .read_text())
+    lits = [c for c in catalog if c["map"] == "MAP_LITTLEROOT_TOWN"]
+    grid = Image.new("RGBA", (1024, 1024))
+    for cx, cy in ((3, 8), (4, 8), (3, 9), (4, 9)):
+        f = OUT / "preview" / f"ground_c{cx}_{cy}.png"
+        if f.exists():
+            grid.paste(Image.open(f), ((cx - 3) * 512, (cy - 8) * 512))
+    town = grid.crop((384, 416, 704, 736)).convert("RGBA")
+    for c in lits:
+        lx, ly, w, h = c["local"]
+        spr = Image.open(ROOT / "converted/hoenn/buildings" /
+                         c["files"].replace("*", "clean"))
+        sh = Image.new("RGBA", (spr.width, 6), (0, 0, 0, 70))
+        town.paste(sh, (lx * 16 + 2, ly * 16 + spr.height - 3), sh)
+        town.paste(spr, (lx * 16, ly * 16), spr)
+    town = town.resize((town.width * 3, town.height * 3), Image.NEAREST)
+    town.save(OUT / "preview" / "littleroot_mock_topdown.png")
+    print("mock written")
+
+
 if __name__ == "__main__":
-    build_models()
+    build_models()      # palette-swap donors: kept as fallback, not the plan
     place_buildings()
     ground_textures()
+    make_mock()
