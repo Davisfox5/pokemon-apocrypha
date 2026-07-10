@@ -44,6 +44,216 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
+## Region Port Status (M2/M3 — updated 2026-07-10, v6)
+
+**Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
+buildings and full-scale seamless Hoenn rendering.** Tooling lives in
+`tools/regionport/` (all generators idempotent; run `import_sinnoh.py` then
+`import_hoenn.py`, `rm files/fielddata/mapmatrix/map_matrix.narc`, rebuild).
+
+### v6 — Gen-4 semantic re-skin of Hoenn (the "stop looking like a GBA
+screenshot" round)
+
+v5's dither cleanup didn't change the aesthetic: the renderer was still a quilt
+of raw Emerald pixels (2,438 unique tiles, VRAM-forced to 8px). v6 replaces the
+whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
+
+- **Semantic classification** (`hoenn_texmap.py`): Emerald's own metatile
+  attributes (behavior lo byte, layer bits 12-15) + map-grid collision bucket
+  ~100% of the 122,580 tile occurrences; behavior alone covers 55.7%. A curated
+  (tileset, metatile) table (built by eyeballing generated contact sheets of
+  the top 400 MB_NORMAL kinds) + hue fallback covers the rest. Per-tile
+  ELEVATION (map.bin bits 12-15) is parsed and reserved for a cliff-geometry
+  round.
+- **Donor textures** (`donorlib.py`): terrain art extracted from vanilla HGSS
+  `a/0/4/4` texsets 2/7/9/18 + Platinum sets 6/19. The reusable Gen-4 terrain
+  vocabulary is tiny (~40-60 names, 4bpp, 32-45KB/area). Palette association
+  uses ground truth mined from 3,468 tex→pal bindings in real map models
+  (irregulars like `grass01gs→grass01`, `sea_on→sea_f02_pl` baked as
+  overrides). Hoenn's whole texset: **16 textures, 9.6KB** (v5: 163KB).
+- **Renderer** (`hoenn_ground.py`): merged repeat-UV ground rects, two-layer
+  sea (sea_un base + cutout sea_on), encounter-grass/flower cutout decals,
+  and real tree geometry — hedge runs become vertical quads with the vanilla
+  64x64 canopy, one wall per even row. Worst 2x2-window verts: 4160 (cap
+  5400) with NO merge/decimation machinery — it all got deleted.
+- **39-material chunk template**: `map_data_242.bin` (largest clean vanilla
+  outdoor model, one-mat-per-dict-entry, posScale 64) replaces the 8-slot
+  template for chunks; every chunk binds the SAME donor list so per-chunk
+  pool assignment is gone. `nsbmd.Template` now derives slot count from the
+  file; props still use the 8-slot template.
+- **pltt4 GOTCHA**: vanilla marks 4-color palettes with dict-entry flag=1
+  (second u16); our writer emits flag=0, and the engine renders pltt4
+  textures as zebra garbage. Fix: expand pltt4 donors to pltt16 at assembly
+  (2bpp→4bpp, +384 bytes total).
+- Buildings still v5 fold-billboards; the Gen-4 model swap (matched: 16
+  drop-in types, 13 retint, 3 custom needed) and elevation cliffs are the
+  next rounds.
+
+- **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
+  HGSS land-data container, 13 Platinum tilesets, 30x30 matrix, 66 headers
+  (`MAP_APOC_SINNOH_*`, ids 540-605). **v2 adds building props**: the 140
+  Platinum building models the ported areas need are appended to
+  `bm_field.narc`/`a/0/4/0` (global ids 340-479; HGSS caps the model-file array
+  at 550), with matshp locator records, per-area build lists + prop texture
+  sets, and `a/1/0/7` no-anim members (HGSS reads that NARC per model id with
+  NO bounds guard — missing members hang the engine). Towns render real
+  Platinum architecture. `MAP_MATRIX_MAX_SIZE` 799→900; RomSize 1G→2G.
+  Causeway carver opens gate/cave seams; ~80% of the on-foot overworld is
+  reachable from the arrival pier.
+- **Hoenn** (cross-gen rebuild): 190 chunks *generated* from pokeemerald data —
+  real per-tile collision, flat BDHC, NSBMD models by template surgery on an
+  **outdoor** Platinum chunk (`map_data_147`; posScale 64 — v1 templated an
+  indoor chunk whose posScale 32 drew every chunk at HALF scale around its
+  center, the root cause of all "black chunk" sightings). **One shared
+  area/texture set for the whole region** (the engine binds chunk textures
+  against the current map's area, so per-map areas break cross-map rendering):
+  a global pool of 189 repeating tile textures + one 512x256 atlas
+  (2x2 supertiles incl. pool-pattern blocks, 2x1/1x2 pair-tiles, 8px tail with
+  nearest-content remap), per-chunk material name patching, and real NNS
+  patricia dictionary trees (dicts with 16+ entries are tree-walked by the
+  engine; builder verified against all 148 Platinum tileset dicts). Every 2x2
+  chunk window is budgeted under 5400 vertices (DS renders ~6144/frame).
+  45 headers (`MAP_APOC_HOENN_*`, ids 606-650), all `areaDataBank = 119`.
+  Emerald pixels render as flat "diorama" ground with correct collision.
+- **v3 — Sinnoh interactivity** (`sinnoh_life.py`, run after `import_sinnoh.py`;
+  persists per-map banks to `build/sinnoh_overrides.json` so importer re-runs
+  keep them): 384 always-visible Platinum NPCs imported with coordinates 1:1
+  (the Sinnoh matrix preserves Platinum's 30x30 layout), sprites remapped to
+  HGSS equivalents, movement remapped, generic Apocrypha dialogue from a new
+  msg bank (`msg_0830_APOCSIN`) + script bank (`scr_seq_0967_APOCSIN`; script 0
+  is the Canalave→Cherrygrove return ferry). PC/Mart doors in 15 cities warp to
+  30 cloned interiors (headers 670+ reusing Cherrygrove PC/Mart map+scripts —
+  nurse healing and the shop work verbatim; exit warps return to the right
+  city). 49 wild-encounter tables generated from Platinum's encounter JSONs
+  into `g_/s_enc_data.csv` (land levels/species incl. time-of-day slots 2/3,
+  surf/rod slots, dual-slot species → Hoenn/Sinnoh Sound radio). Verified
+  in-emu: Canalave loads with wandering NPCs, PC door → cloned interior
+  (nurse/PC/escalator alive) at the door tile.
+- **v3 — Hoenn 3D buildings** (`hoenn_buildings.py`, driven by
+  `import_hoenn.py`): enterable buildings extracted per map by rectangle
+  growth from each warp door (body = impassable at **elevation 0** — fences
+  and cliffs sit at elevation 3; up to 3 roof-art rows above), art cropped
+  from the rendered map, masked, and deduped perceptually (type+size+per-tile
+  mean color — exact bytes differ across towns via baked background corners).
+  Each distinct art becomes a fold-billboard NSBMD prop (front wall vertical,
+  roof tilted back, solid-color sides from an 8x8 patch baked into the
+  texture padding) textured with its own GBA art as pltt16 (color 0
+  transparent), registered through the Sinnoh prop pipeline (models 480+,
+  matshp, anim stubs, one build list + prop texset for shared area 119).
+  Footprints are flattened in the ground to the door-approach tile before
+  texture planning. Verified in-emu: Slateport's Pokémon Center and Mart
+  stand as real 3D buildings on clean ground.
+- **v3 — lighting fix**: generated Hoenn chunks were unlit vertex-color
+  materials (v2's template normalization used the *indoor* recipe), which the
+  arealight day/night system cannot tint — they rendered ~half-bright at noon
+  and never darkened. Chunk materials now use the vanilla outdoor recipe
+  (light0 enable + fog + white ambient + vertex-color diffuse, both faces);
+  Slateport midday brightness now matches vanilla Johto (140 vs 145 mean).
+  `files/data/area00light.txt` is parsed at runtime and is CRLF-sensitive —
+  LF-only or missing final `EOF` hangs every outdoor map load.
+- **Access (temporary scaffolding)**: two sailors on Cherrygrove beach warp to
+  Canalave City (38,743) and Slateport City plaza (216,272); return sailors at
+  both piers. Scripts 019-022 in `scr_seq_0850_T21.s` (Canalave's return
+  sailor now uses `scr_seq_0967_APOCSIN` script 0).
+- **Hard limits mapped**: HGSS renders props by the matshp locator's
+  mat/shp pairs — a locator count of 0 draws NOTHING (Platinum's C falls back
+  to a full-model draw); every generated prop carries one (mat0,shp0) pair.
+  Field **texture VRAM holds ~192KB total** (empirical: ground 175KB + props
+  16KB works; +69KB corrupts the ground; +99KB corrupts the props), so the
+  building texel budget is 16KB = the 6 most-instanced arts (PCs, marts,
+  common houses; 18 placements). Raising it requires shrinking the ground
+  atlas (512x256 fixed) — a retune of the supertile/merge/vertex system.
+- **v4 — HM field moves from bag items**: overworld Cut/Surf/Strength/Rock
+  Smash/Waterfall/Whirlpool/Rock Climb are usable whenever the matching HM
+  item (ITEM_HM01..08) is in the bag — no badge, no party mon that knows the
+  move. Most gates live in the std field-move script `scr_seq_0146.s` (each
+  handler's `get_party_slot_with_move`+`check_badge` pair → `hasitem
+  ITEM_HMxx`; the mon that plays the field animation falls back to the party
+  lead). **Surf is special**: its tile-interaction is gated in still-ASM
+  overlay code (`asm/overlay_01_021E6880.s`, `GetInteractedMetatileScript`) —
+  the badge(FOG)+`GetIdxOfFirstPartyMonWithMove(SURF)` pre-checks there bail
+  before the script runs, so those two conditionals were removed and the
+  bag-item gate added to the surf script instead. Party-menu badge gates
+  disabled in `field_move.c` (8 `PlayerProfile_TestBadgeFlag` blocks). An HM
+  porter NPC on the Canalave pier hands out HM01-08 once (keyed on owning
+  HM01). Verified in-emu: the surf prompt fires with an empty/no-Surf party
+  (mounting still needs *a* Pokémon to ride). ASM overlay `.s` files ARE
+  assembled by the build (COMPARE=0), so editing them is a supported patch
+  path — mind the assembler uses `;` for comments, not `@`.
+- **v4 — Sinnoh fully populated**: every city building is enterable (181
+  interior clones — PC/Mart + generic house rooms cloned from Cherrygrove,
+  headers 670+); town/route **signposts** carry name+slogan text; **location
+  names** show in the entry popup (new `MAPSEC_APOC_*` values 235+, appended
+  `msg_0279` rows indexed by mapsec — the popup indexes that gmm directly, so
+  gmm rows must track new mapsec constants 1:1; town-map position is
+  per-header `worldMapX/Y`, not mapsec-indexed, so it's safe); **music** set
+  per map type (SEQ_GS town/city/port/snow/route themes; day==night per
+  vanilla convention).
+- **v4 — Sinnoh building lights**: Platinum window-light animations ported
+  for the imported building models. `bm_anime` files (NSBTA/NSBTP, byte-
+  identical between games) copied into HGSS `a/1/0/6`; per-model 24-byte list
+  entries rebuilt in `a/1/0/7` from Platinum's 20-byte `bm_anime_list`
+  members (re-based file ids; day/night pairs preserved as header `flags
+  0x03 / kind 2 / 2 ids`). The lit-window textures already live in the
+  imported prop texture sets, so no extra texture import was needed.
+- **v4 — Hoenn art**: the roof-with-ground-baked-in artifact is fixed —
+  roof-overdraw rows (passable rows above a building's collision body) are
+  re-rendered from the metatiles' **top layer only** (color 0 transparent),
+  so no ground bleeds behind the roof. All Emerald-derived ground + building
+  textures get a +12% brightness lift (`HOENN_GAIN`) to match DS-native map
+  brightness (Slateport plaza mean ~150 vs vanilla Johto ~145).
+- **v5 — Hoenn ground cleanup** (the "fuzzy, wrong pixels" pass): three
+  compounding texture-quality bugs fixed in `import_hoenn.py`/`nsbmd.py`:
+  1. **Dither speckle**: every ground texture went through PIL `quantize()`
+     whose *default* is Floyd-Steinberg dithering — deliberate noise scattered
+     over every tile, shimmering where tiles repeat. All quantize calls now
+     pass `dither=NONE` (atlas additionally uses MAXCOVERAGE, which keeps
+     dominant exact colors — better for flat-color pixel art).
+  2. **Pool tiles now pixel-exact 4bpp**: the 191 repeating pool textures
+     (the majority of on-screen area) were 8bpp indices into one shared
+     256-color palette. They're now format-3 (4bpp) with **first-fit grouped
+     16-color palettes** (29 groups, BGR555-exact for tiles with ≤16 colors —
+     nearly all of them): truer color than the shared palette at HALF the
+     texels (63KB→24KB). Vanilla area texsets are almost entirely fmt 2/3
+     (only THREE 8bpp textures in all 119) — this is the vanilla pattern.
+     `build_btx_named` grew a 6th tuple element: fmt-3 *without* the
+     color-0-transparent bit (ground must be opaque; buildings keep it).
+  3. **TEMPLATE PALETTE-DICT TRAP (the v5 regression)**: per-material palette
+     names only bind correctly if the template's palette dict has one entry
+     per material. `map_data_147`'s dict has SEVEN entries — materials 3+4
+     share one — so patching 8 distinct names positionally shifted every
+     binding after slot 3 and silently dropped the 8th (`glb_pl`): washed-out
+     pale Hoenn, atlas drawn with a 16-color pool palette. Template is now
+     `map_data_415` (outdoor beach, 8 mats/shapes/textures/palettes, one
+     material per dict entry), and `build_model` patches names through the
+     dict-slot→material permutation (`tex_slot_of`/`pal_slot_of`), not by
+     position. Diagnosed by decoding a generated chunk's dicts offline —
+     cheaper than emulator round-trips.
+  Also: 16px-tier promotion in the atlas is now score-greedy across
+  supers/pairs/singles (equal extra-bytes per tile-occurrence ⇒ one merged
+  occurrence ranking); LANCZOS→BOX for 8px downscale (no ringing);
+  prop texel budget 16K→40K from the pool savings (13 building arts now 3D,
+  27 placements — shipyard/museum-class landmarks still splat); RTC-noon
+  verification trick: py-desmume `movie.record(rtc_date=…)` forces daytime
+  regardless of host clock (arealight tint otherwise makes night captures
+  unjudgeable).
+- **v5 reality check on capacity**: the detail layer wants 2438 distinct
+  16x16 tiles ≈ 610KB at 8bpp — VRAM holds ~200KB total, so the single
+  512x256 atlas keeps everything at 8px (1030 kept, 1408 rare singles
+  remapped to nearest). Fixing *that* needs the multi-material vanilla-style
+  architecture (more pool slots per chunk + several 4bpp group atlases), a
+  future round.
+- **v4 gaps**: Sinnoh interiors are all Cherrygrove clones (no bespoke gym/
+  house layouts); Mart clones sell Cherrygrove stock; NPC dialogue is a
+  16-line generic pool; encounter tables still unverified in battle; Hoenn
+  ground is still flat (no 3D relief) and rarer buildings beyond the 16KB
+  prop-texel budget stay 2D-baked; surf-only areas + Hoenn east islands
+  unreached; long-range `emu_ram.teleport` corrupts chunk-streaming (black
+  screen on next warp) — short in-map hops are safe. Building window lights
+  are ported but only verified as **non-crashing** (Canalave loads and is
+  playable); the day/night frame-select call site is HGSS field ASM, so
+  whether windows actually toggle at night is unconfirmed.
+
 ## The Five Hardest Problems
 
 1. **Merging engine forks and porting the two non-native regions.** HGSS and Platinum are separate Gen-4 decomp forks that must be reconciled into a single ROM; Hoenn is a Gen-3→Gen-4 format conversion; Unova is a Gen-5→Gen-4 extract-and-convert. Four of five regions have source in hand, so the burden concentrates in the Hoenn conversion and the Unova sourcing gap rather than spreading across all five.
