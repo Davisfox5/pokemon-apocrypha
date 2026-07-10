@@ -5,24 +5,25 @@ of the Hoenn overworld is generated and committed under `converted/hoenn/`.
 Tooling lives in `tools/hoennconv/`. Everything here runs without the
 proprietary toolchain (this is [source]-tier work per the M-roadmap).
 
-## Continuity note — prior session's work was unrecoverable
+## Continuity note — the in-submodule work lives on the owner's machine
 
-Earlier sessions committed map work *inside the submodules* and recorded the
-pins in this repo (e.g. `disasm/pokeheartgold @ 1256c28`, `disasm/pokeemerald
-@ 27bcf06`). Those commits were never pushed to any remote this environment
-can reach — `pret/pokeheartgold` rejects the pins (`not our ref`) and no
-accessible fork carries them — so every "(submodule)" commit in this repo's
-history references history that only existed in expired session containers.
-The Hoenn conversion work from the previous conversation is therefore lost to
-this environment and has been **rebuilt from scratch, entirely inside this
-repo**, so it cannot be lost the same way again.
+Earlier sessions committed map/story work *inside the submodules* and
+recorded the pins in this repo (`disasm/pokeheartgold @ 1256c28`,
+`disasm/pokeemerald @ 27bcf06`). **Those commits are safe on the owner's
+local machine** (confirmed by the owner), but were never pushed to a remote,
+so remote sessions cannot fetch them (`pret/pokeheartgold` rejects the pins
+with `not our ref`). The owner's local state also includes: the Sinnoh
+matrix integrated and navigable from the HGSS base, and a first (still 2-D)
+Hoenn integration.
 
-**Action for the design owner:** if a local clone still has those submodule
-commits, push them to forks and repoint `.gitmodules`; ALL prior in-submodule
-story/chapter work (Ch1–Ch4 scripts, scenes) is otherwise dangling. Until
-then, work here targets upstream pins: `pokeheartgold b843c93` (the pin
-ENGINEERING.md verified against), `pokeemerald 83df84e` (master at time of
-writing).
+Consequences for remote work: everything authored here must live in **this
+repo** (tools + `converted/` artifacts), never as submodule commits; the
+recorded pins are respected and left untouched. **Standing ask:** when back
+at the machine, push the submodule commits to forks and repoint
+`.gitmodules` so remote sessions can see the real integration state. Until
+then, remote sessions read the submodules at upstream commits
+(`pokeheartgold b843c93`, `pokeemerald` master) — close enough for format
+work, blind to local integration.
 
 ## What exists now
 
@@ -91,6 +92,56 @@ meaning is undecoded; we don't emit them).
 - **Dive:** dive spots convert as sea; the mechanic itself is M4 territory.
 - **Secret bases:** converted as scenery (hack design drops Gen-3 secret
   bases).
+
+## Buildings: why the ground "rises with the roof", and the way out
+
+Field report from the owner's local integration: Hoenn is in-game but 2-D,
+and extruding buildings drags the background ground up with the roof.
+
+That happens because in the Gen-3 art the roof-edge tiles *contain* the
+ground pixels behind them — the GBA fakes depth by baking grass into the
+roof tile. HGSS's architecture never does this: the ground chunk model is
+bare terrain, and every building is a **separate NSBMD** (there are 340 of
+them in `files/fielddata/build_model/bm_field.narc`) placed by the 48-byte
+entries in each chunk. So buildings must not be raised out of the ground
+texture; they must be cut out of it and re-added as placed models.
+
+Two useful facts make that mechanical rather than per-pixel art surgery:
+
+1. **The Gen-3 layer split is the building/background separation.** Each
+   metatile is two 4-tile planes; roof pixels live in layer B with
+   palette-0 transparency, the grass behind them in layer A. Rendering
+   layer B alone yields the building art with clean transparent edges — no
+   hand-editing of each tile to remove background.
+2. **Vanilla models are named and countable.** `bm_field_catalog.json` maps
+   every model id to its internal names (`en_pc` = Pokémon Center,
+   `en_fs` = mart, `en_gym`, house variants...) and how often vanilla
+   places it — the donor list for retexturing.
+
+Tooling added (`tools/hoennconv/buildings.py`, `bm_catalog.py`), artifacts
+under `converted/hoenn/buildings/`:
+
+- **111 building footprints** auto-detected across 34 overworld maps
+  (door-warp-seeded flood over solid, non-green metatiles; window-capped;
+  per-town `review.png` overlays; `overrides.json` accepts
+  `{"MAP_X": {"add": [[x,y,w,h]...], "drop": [i...]}}` corrections —
+  Lavaridge/Fortree are the known override cases, cliff- and tree-hugging
+  towns).
+- Per building: `*_full.png` (GBA look), `*_struct.png` (layer B only —
+  background-free building art), `*_base.png` (layer A only — what belongs
+  in the ground texture under the model).
+- `buildings.json`: local + matrix-global footprints per building.
+- `bm_field_catalog.json`: the 340 vanilla models with names + placement
+  counts.
+
+Strategy assessment (owner asked 2-D→3-D tile conversion vs retexturing
+similar vanilla models): **retexture wins for the ~90% of buildings with a
+vanilla analogue** — geometry, door animations, and engine plumbing come
+free; the work per building is a texture swap using `*_struct.png` as
+source. Purpose-built Hoenn shapes with no analogue (Fortree tree houses,
+Pacifidlog rafts, Mossdeep space center, Slateport lighthouse/museum) need
+simple custom boxes textured from the same cutouts. Both consume the same
+extracted assets, so starting with retexture risks nothing.
 
 ## Next steps, in order
 

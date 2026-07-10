@@ -189,15 +189,21 @@ class TilesetPair:
         return a & 0x00FF
 
     # -- rendering ------------------------------------------------------ #
-    def render_metatile(self, mt: int):
-        """16x16 RGBA PIL image of a metatile (bottom layer, then top layer
-        with palette-index-0 transparency)."""
+    def render_metatile(self, mt: int, layers: tuple[int, ...] = (0, 1)):
+        """16x16 RGBA PIL image of a metatile.
+
+        layers selects which of the two 4-tile planes to draw: (0, 1) is the
+        full composite, (1,) is layer B alone (roof/wall art with transparent
+        background — see buildings.py), (0,) is layer A alone. Palette index
+        0 is transparent on every layer except a solo layer 0 full render's
+        base, so cutouts stay clean.
+        """
         from PIL import Image
 
         img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
         px = img.load()
         tdef = self.metatile_def(mt)
-        for layer in range(2):
+        for layer in layers:
             for q in range(4):
                 ref = tdef[layer * 4 + q]
                 tile = ref & 0x03FF
