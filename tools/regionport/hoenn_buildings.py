@@ -201,11 +201,12 @@ from narc import narc_read, narc_write                           # noqa: E402
 HG = os.path.join(ROOT, "disasm", "pokeheartgold")
 
 MAX_RECT_W, MAX_RECT_H = 14, 12   # tiles; bigger structures stay 2D
-MAX_ARTS = 60                     # 550-slot model-file array: 480 used + head-room
-TEXEL_BUDGET = 16_000             # 4bpp texel bytes. HARD WALL: the field
-                                  # texture VRAM holds ~192K total and the ground texset uses ~176K,
-                                  # so props get ~16K: the most-instanced arts (PCs, marts, common
-                                  # houses). Raising this needs an atlas retune (see ENGINEERING.md).
+MAX_ARTS = 68                     # 550-slot model-file array: 480 used + head-room
+TEXEL_BUDGET = 40_000             # 4bpp texel bytes. The ground texset's move
+                                  # to 4bpp pool tiles (v5) freed ~31K of the
+                                  # ~200K field texture VRAM, so props grew
+                                  # 16K->40K: rarer buildings (shipyard, gyms,
+                                  # contest halls) go 3D instead of flat splats.
 DOWNSCALE_PX = 128                # arts wider/taller than this use half-res
                                   # textures (world size unchanged)
 BASE_MODELS = 480                 # vanilla 340 + sinnoh import 140
@@ -422,7 +423,7 @@ def _quantize16(img):
         for x in range(w):
             if not apx[x, y]:
                 rpx[x, y] = wall
-    q = rgb.quantize(colors=15)
+    q = rgb.quantize(colors=15, dither=Image.Dither.NONE)
     qpx = q.load()
     pal = (q.getpalette() + [0] * 45)[:45]
     # nearest palette slot for the wall color
@@ -467,6 +468,8 @@ def _fold_model(art, name, ground_d_px):
     ts = 1   # texel scale: art px per texel
     if w > DOWNSCALE_PX or h > DOWNSCALE_PX:
         ts = 2
+        # NEAREST, not BOX: box-averaging blends the (0,0,0) keyed-out pixels
+        # into building edges as dark fringes
         img = img.resize((w // 2, h // 2), Image.NEAREST)
     texels, palbin, pw, ph, patch = _quantize16(img)
     hw = w / 2.0

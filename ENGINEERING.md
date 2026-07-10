@@ -44,7 +44,7 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-09, v4)
+## Region Port Status (M2/M3 — updated 2026-07-09, v5)
 
 **Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
 buildings and full-scale seamless Hoenn rendering.** Tooling lives in
@@ -164,6 +164,47 @@ buildings and full-scale seamless Hoenn rendering.** Tooling lives in
   so no ground bleeds behind the roof. All Emerald-derived ground + building
   textures get a +12% brightness lift (`HOENN_GAIN`) to match DS-native map
   brightness (Slateport plaza mean ~150 vs vanilla Johto ~145).
+- **v5 — Hoenn ground cleanup** (the "fuzzy, wrong pixels" pass): three
+  compounding texture-quality bugs fixed in `import_hoenn.py`/`nsbmd.py`:
+  1. **Dither speckle**: every ground texture went through PIL `quantize()`
+     whose *default* is Floyd-Steinberg dithering — deliberate noise scattered
+     over every tile, shimmering where tiles repeat. All quantize calls now
+     pass `dither=NONE` (atlas additionally uses MAXCOVERAGE, which keeps
+     dominant exact colors — better for flat-color pixel art).
+  2. **Pool tiles now pixel-exact 4bpp**: the 191 repeating pool textures
+     (the majority of on-screen area) were 8bpp indices into one shared
+     256-color palette. They're now format-3 (4bpp) with **first-fit grouped
+     16-color palettes** (29 groups, BGR555-exact for tiles with ≤16 colors —
+     nearly all of them): truer color than the shared palette at HALF the
+     texels (63KB→24KB). Vanilla area texsets are almost entirely fmt 2/3
+     (only THREE 8bpp textures in all 119) — this is the vanilla pattern.
+     `build_btx_named` grew a 6th tuple element: fmt-3 *without* the
+     color-0-transparent bit (ground must be opaque; buildings keep it).
+  3. **TEMPLATE PALETTE-DICT TRAP (the v5 regression)**: per-material palette
+     names only bind correctly if the template's palette dict has one entry
+     per material. `map_data_147`'s dict has SEVEN entries — materials 3+4
+     share one — so patching 8 distinct names positionally shifted every
+     binding after slot 3 and silently dropped the 8th (`glb_pl`): washed-out
+     pale Hoenn, atlas drawn with a 16-color pool palette. Template is now
+     `map_data_415` (outdoor beach, 8 mats/shapes/textures/palettes, one
+     material per dict entry), and `build_model` patches names through the
+     dict-slot→material permutation (`tex_slot_of`/`pal_slot_of`), not by
+     position. Diagnosed by decoding a generated chunk's dicts offline —
+     cheaper than emulator round-trips.
+  Also: 16px-tier promotion in the atlas is now score-greedy across
+  supers/pairs/singles (equal extra-bytes per tile-occurrence ⇒ one merged
+  occurrence ranking); LANCZOS→BOX for 8px downscale (no ringing);
+  prop texel budget 16K→40K from the pool savings (13 building arts now 3D,
+  27 placements — shipyard/museum-class landmarks still splat); RTC-noon
+  verification trick: py-desmume `movie.record(rtc_date=…)` forces daytime
+  regardless of host clock (arealight tint otherwise makes night captures
+  unjudgeable).
+- **v5 reality check on capacity**: the detail layer wants 2438 distinct
+  16x16 tiles ≈ 610KB at 8bpp — VRAM holds ~200KB total, so the single
+  512x256 atlas keeps everything at 8px (1030 kept, 1408 rare singles
+  remapped to nearest). Fixing *that* needs the multi-material vanilla-style
+  architecture (more pool slots per chunk + several 4bpp group atlases), a
+  future round.
 - **v4 gaps**: Sinnoh interiors are all Cherrygrove clones (no bespoke gym/
   house layouts); Mart clones sell Cherrygrove stock; NPC dialogue is a
   16-line generic pool; encounter tables still unverified in battle; Hoenn

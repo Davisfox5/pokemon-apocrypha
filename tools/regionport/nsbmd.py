@@ -28,10 +28,15 @@ import struct
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 # Template must be an OUTDOOR chunk: indoor models (e.g. map_data_191) carry
 # posScale=32 and other conventions that break the field renderer — outdoor
-# chunks use posScale=64, which fx() below assumes. 147 is a beach chunk with
-# exactly 8 materials/shapes.
+# chunks use posScale=64, which fx() below assumes. It must also have
+# EIGHT palette-dict entries binding one material each: the earlier template
+# (map_data_147) had only 7 — materials 3+4 shared one entry, so patching 8
+# distinct palette names positionally shifted every binding after slot 3 and
+# silently dropped the last name (washed-out Hoenn, v5 regression). 415 is a
+# beach chunk with 8 materials/shapes/textures/palettes, one material per
+# dict entry (permutation handled by tex_slot_of/pal_slot_of below).
 TEMPLATE_PATH = os.path.join(
-    ROOT, "disasm/pokeplatinum/res/field/maps/data/map_data_147.bin")
+    ROOT, "disasm/pokeplatinum/res/field/maps/data/map_data_415.bin")
 
 NUM_TEX = 8
 TEX_NAMES = [f"pc_room{i+1}" for i in range(NUM_TEX)]
@@ -63,6 +68,26 @@ class Template:
         self.pal_tree = self._tree(mat + ofsPalDict)
         self.tex_name_offs = self._dict_name_offsets(mat + ofsTexDict)
         self.pal_name_offs = self._dict_name_offsets(mat + ofsPalDict)
+        # dict slot -> bound material (texToMatList/palToMatList). Each slot
+        # must bind exactly ONE material or per-material palette patching is
+        # ambiguous; build_model writes names via the inverse permutation.
+        def slot_mats(off):
+            n = b[off + 1]
+            ofs_entry = struct.unpack_from("<H", b, off + 6)[0]
+            ep = off + ofs_entry
+            unit = struct.unpack_from("<H", b, ep)[0]
+            out = []
+            for k in range(n):
+                o, num, _bound = struct.unpack_from("<HBB", b, ep + 4 + k * unit)
+                out.append(tuple(b[mat + o + i] for i in range(num)))
+            return out
+        tex_slots = slot_mats(mat + ofsTexDict)
+        pal_slots = slot_mats(mat + ofsPalDict)
+        assert all(len(s) == 1 for s in tex_slots), tex_slots
+        assert all(len(s) == 1 for s in pal_slots), (
+            "template palette dict must bind one material per entry", pal_slots)
+        self.tex_slot_of = {s[0]: k for k, s in enumerate(tex_slots)}  # mat -> slot
+        self.pal_slot_of = {s[0]: k for k, s in enumerate(pal_slots)}
         # material body offsets (relative to mat block)
         n = b[mat + 4 + 1]
         assert n == NUM_TEX
@@ -172,11 +197,15 @@ def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None,
     Returns a complete BMD0."""
     t = template()
     b = bytearray(t.prefix)
+    # names are given PER MATERIAL k; write each into the dict slot that
+    # actually binds material k (dict order is an arbitrary permutation)
     if tex_names is not None:
-        for off, nm in zip(t.tex_name_offs, tex_names):
+        for k, nm in enumerate(tex_names):
+            off = t.tex_name_offs[t.tex_slot_of[k]]
             b[off:off + 16] = nm.encode().ljust(16, b"\0")
     if pal_names is not None:
-        for off, nm in zip(t.pal_name_offs, pal_names):
+        for k, nm in enumerate(pal_names):
+            off = t.pal_name_offs[t.pal_slot_of[k]]
             b[off:off + 16] = nm.encode().ljust(16, b"\0")
     # append DLs after the shape headers; patch each shape header
     shp = t.m + t.ofsShp
@@ -402,7 +431,8 @@ def _mkdict(tree, entries, unit, names):
 def build_btx_named(textures, palettes, pal_of=None):
     """Generalized NSBTX. textures: [(name, w, h, texels)] for 8bpp pltt256,
     or [(name, w, h, texels, fmt)] with fmt 3 = 4bpp pltt16 (color 0 drawn
-    transparent). palettes: [(name, 512-byte BGR555)] or 32-byte for pltt16.
+    transparent); a 6th element True makes color 0 opaque (ground tiles).
+    palettes: [(name, 512-byte BGR555)] or 32-byte for pltt16.
     All texture dims must be 8<<k. pal_of unused — palette selection happens
     at bind time by the model's palette names."""
     texdata = bytearray()
@@ -410,6 +440,7 @@ def build_btx_named(textures, palettes, pal_of=None):
     for entry in textures:
         name, w, h, texels = entry[:4]
         fmt = entry[4] if len(entry) > 4 else 4
+        opaque0 = entry[5] if len(entry) > 5 else False
         expected = w * h if fmt == 4 else w * h // 2
         assert len(texels) == expected, (name, w, h, fmt, len(texels))
         while len(texdata) % 8:
@@ -417,7 +448,7 @@ def build_btx_named(textures, palettes, pal_of=None):
         ofs = len(texdata)
         texdata += texels
         w0 = ((ofs >> 3) & 0xFFFF) | (_log2(w) << 20) | (_log2(h) << 23) | (fmt << 26)
-        if fmt == 3:
+        if fmt == 3 and not opaque0:
             w0 |= 1 << 29   # color 0 transparent
         w1 = w | (h << 11) | 0x80000000
         tex_entries.append((w0, w1))

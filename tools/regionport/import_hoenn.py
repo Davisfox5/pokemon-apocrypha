@@ -537,11 +537,15 @@ def main():
 
     # ---- global atlas layout (two resolutions, hard byte budget) ------------ #
     # Uniform-size shelf zones: supers (2x2 tiles), h/v pairs, singles — each
-    # at 16px/tile (hot) or 8px/tile (cold). Singles beyond capacity are
-    # dropped and remapped to the visually nearest kept cell.
+    # at 16px/tile (hot) or 8px/tile (cold). 16px promotion is score-greedy:
+    # every class costs the same extra bytes per tile-occurrence (192), so a
+    # single merged occurrence ranking maximizes on-screen full-res coverage.
+    # Singles beyond capacity are dropped and remapped to the nearest kept cell.
     AW = 512
-    TEX_BUDGET = 240_000   # pool + atlas texel bytes; ~2.8x the largest
-    pool_bytes = len(ranked) * 256   # vanilla upload — verified in-emu below
+    TEX_BUDGET = 200_000   # pool + atlas texel bytes (props budget lives in
+                           # hoenn_buildings.TEXEL_BUDGET; keep the total near
+                           # the in-emu-proven ~200K upload)
+    pool_bytes = len(ranked) * 128   # 4bpp pool — verified in-emu below
 
     def shelf(pos, items, w, h, rows):
         per = AW // w
@@ -549,14 +553,14 @@ def main():
             pos[key] = ((i % per) * w, rows + (i // per) * h, w, h)
         return rows + ((len(items) + per - 1) // per) * h
 
-    def layout(s16, p16, n16, ncap):
+    def layout(s16, hp16, vp16, n16, ncap):
         pos = {}
         rows = shelf(pos, supers[:s16], 32, 32, 0)
         rows = shelf(pos, supers[s16:], 16, 16, rows)
-        rows = shelf(pos, hpairs[:p16], 32, 16, rows)
-        rows = shelf(pos, hpairs[p16:], 16, 8, rows)
-        rows = shelf(pos, vpairs[:p16], 16, 32, rows)
-        rows = shelf(pos, vpairs[p16:], 8, 16, rows)
+        rows = shelf(pos, hpairs[:hp16], 32, 16, rows)
+        rows = shelf(pos, hpairs[hp16:], 16, 8, rows)
+        rows = shelf(pos, vpairs[:vp16], 16, 32, rows)
+        rows = shelf(pos, vpairs[vp16:], 8, 16, rows)
         rows = shelf(pos, singles[:n16], 16, 16, rows)
         rows = shelf(pos, singles[n16:ncap], 8, 8, rows)
         ah = 8
@@ -564,22 +568,39 @@ def main():
             ah *= 2
         return pos, ah
 
-    s16, p16, n16, ncap = 64, 128, 256, len(singles)
-    pos, AH = layout(s16, p16, n16, ncap)
-    order = ["n16", "p16", "s16", "ncap"]
-    oi = 0
-    while AW * AH + pool_bytes > TEX_BUDGET or AH > 512:
-        if n16:
-            n16 = max(0, n16 - 64)
-        elif p16:
-            p16 = max(0, p16 - 32)
-        elif s16:
-            s16 = max(0, s16 - 16)
-        elif ncap > 256:
-            ncap = max(256, ncap - 128)
+    # merged promotion ranking: (class, occurrences) sorted hot-first; class
+    # lists are census-sorted so a rank prefix maps to per-class tier counts
+    cand = ([('s', super_census[k]) for k in supers]
+            + [('h', hpair_census[k]) for k in hpairs]
+            + [('v', vpair_census[k]) for k in vpairs]
+            + [('n', singles_votes[c]) for c in singles])
+    rank = sorted(range(len(cand)), key=lambda i: -cand[i][1])
+
+    def tiers(n_promoted):
+        t = {'s': 0, 'h': 0, 'v': 0, 'n': 0}
+        for i in rank[:n_promoted]:
+            t[cand[i][0]] += 1
+        return t
+
+    def try_layout(n_promoted, ncap):
+        t = tiers(n_promoted)
+        pos, ah = layout(t['s'], t['h'], t['v'], t['n'], ncap)
+        ok = AW * ah + pool_bytes <= TEX_BUDGET and ah <= 512
+        return ok, pos, ah, t
+
+    ncap = len(singles)
+    while not try_layout(0, ncap)[0]:
+        assert ncap > 256, f"atlas cannot fit even all-cold: pool {pool_bytes}"
+        ncap = max(256, ncap - 128)
+    lo, hi = 0, len(cand)
+    while lo < hi:                      # max promotions that still fit
+        mid = (lo + hi + 1) // 2
+        if try_layout(mid, ncap)[0]:
+            lo = mid
         else:
-            raise AssertionError(f"atlas cannot fit: {AW}x{AH} + pool {pool_bytes}")
-        pos, AH = layout(s16, p16, n16, ncap)
+            hi = mid - 1
+    _, pos, AH, t = try_layout(lo, ncap)
+    s16, p16, n16 = t['s'], (t['h'], t['v']), t['n']
     dropped = singles[ncap:]
     if dropped:
         # remap each dropped single to the visually nearest kept single
@@ -597,8 +618,13 @@ def main():
     print(f"atlas {AW}x{AH} ({AW*AH//1024}KB) + pool {pool_bytes//1024}KB; "
           f"tiers s16={s16} p16={p16} n16={n16} kept={ncap}/{len(singles)}")
 
-    # ---- build the ONE global NSBTX (pool + atlas, one 256-color palette) --- #
-    strip = Image.new("RGB", (AW, AH + 16 * ((len(ranked) + 31) // 32)), (0, 0, 0))
+    # ---- build the ONE global NSBTX --------------------------------------- #
+    # Pool tiles: pixel-exact 4bpp, palettes greedily merged into shared
+    # 16-color groups (BGR555 space) — half the texels of 8bpp and no global-
+    # palette error on the tiles that cover most of the screen. Atlas: 8bpp
+    # with its own 256-color palette. No dithering anywhere: Floyd-Steinberg
+    # (PIL's default) speckles every tile, and repeats make it shimmer.
+    atlas_img = Image.new("RGB", (AW, AH), (0, 0, 0))
     drawn = set()
     for c, (px, py, w, h) in pos.items():
         if (px, py) in drawn:      # remapped duplicates share a cell
@@ -618,29 +644,64 @@ def main():
         else:
             im = Image.frombytes("RGB", (16, 16), c)
         if im.size != (w, h):
-            im = im.resize((w, h), Image.LANCZOS)
-        strip.paste(im, (px, py))
-    for i, c in enumerate(ranked):     # pool tiles below the atlas
-        strip.paste(Image.frombytes("RGB", (16, 16), c),
-                    ((i % 32) * 16, AH + (i // 32) * 16))
-    q = strip.quantize(colors=256)
+            im = im.resize((w, h), Image.BOX)   # clean 2x2 average, no ringing
+        atlas_img.paste(im, (px, py))
+    try:
+        q = atlas_img.quantize(colors=256, method=Image.Quantize.MAXCOVERAGE,
+                               dither=Image.Dither.NONE)
+    except Exception:   # MAXCOVERAGE can reject some inputs
+        q = atlas_img.quantize(colors=256, dither=Image.Dither.NONE)
     pal = (q.getpalette() or [])[:768]
     pal += [0] * (768 - len(pal))
     qpx = q.load()
     atlas_tex = bytes(qpx[x, y] for y in range(AH) for x in range(AW))
-    pool_tex = []
-    for i in range(len(ranked)):
-        ox, oy = (i % 32) * 16, AH + (i // 32) * 16
-        pool_tex.append(bytes(qpx[ox + x, oy + y] for y in range(16) for x in range(16)))
     palbin = bytearray()
     for i in range(256):
         r, g, b = pal[i * 3] >> 3, pal[i * 3 + 1] >> 3, pal[i * 3 + 2] >> 3
         palbin += struct.pack("<H", r | (g << 5) | (b << 10))
+    # pool tiles: exact colors, first-fit grouping into 16-color palettes
+    pool_imgs = []
+    for c in ranked:
+        im = Image.frombytes("RGB", (16, 16), c)
+        cset = {(r >> 3, g >> 3, b >> 3) for _, (r, g, b) in im.getcolors(256)}
+        if len(cset) > 16:
+            im = im.quantize(colors=16, dither=Image.Dither.NONE).convert("RGB")
+            cset = {(r >> 3, g >> 3, b >> 3) for _, (r, g, b) in im.getcolors(16)}
+        pool_imgs.append((im, cset))
+    groups, group_of = [], []
+    for im, cset in pool_imgs:
+        gi = next((j for j, g in enumerate(groups) if len(g | cset) <= 16), None)
+        if gi is None:
+            gi = len(groups)
+            groups.append(set())
+        groups[gi] |= cset
+        group_of.append(gi)
+    group_index, group_pals = [], []
+    for gi, g in enumerate(groups):
+        cl = sorted(g)
+        group_index.append({c: k for k, c in enumerate(cl)})
+        pb = bytearray(32)
+        for k, (r, gg, b) in enumerate(cl):
+            struct.pack_into("<H", pb, k * 2, r | (gg << 5) | (b << 10))
+        group_pals.append((f"p{gi:02x}", bytes(pb)))
+    pool_pal = {}
+    pool_tex4 = []
+    for i, (im, cset) in enumerate(pool_imgs):
+        idx = group_index[group_of[i]]
+        pool_pal[ranked[i]] = f"p{group_of[i]:02x}"
+        p = im.load()
+        t = bytearray(128)
+        for y in range(16):
+            for x in range(16):
+                r, gg, b = p[x, y]
+                t[(y * 16 + x) // 2] |= idx[(r >> 3, gg >> 3, b >> 3)] << (4 * (x & 1))
+        pool_tex4.append(bytes(t))
     global_btx = nsbmd.build_btx_named(
-        [(pool_name[c], 16, 16, pool_tex[i]) for i, c in enumerate(ranked)]
+        [(pool_name[c], 16, 16, pool_tex4[i], 3, True) for i, c in enumerate(ranked)]
         + [("atlas", AW, AH, atlas_tex)],
-        [("glb_pl", bytes(palbin))])
-    print(f"global NSBTX: {len(global_btx)} bytes")
+        group_pals + [("glb_pl", bytes(palbin))])
+    print(f"global NSBTX: {len(global_btx)} bytes "
+          f"({len(groups)} pool palette groups)")
 
     # ---- load target NARCs (truncate to post-sinnoh baseline) ------------- #
     land = narc_read(os.path.join(HG, "files/a/0/6/5"))[:BASE["land"]]
@@ -702,10 +763,13 @@ def main():
             shape_dls.append(nsbmd.quad_dl(quads))
         shape_dls.append(nsbmd.quad_dl(dq))
         names = [pool_name[c] for c in assigned[(cx, cy)]]
+        pals = [pool_pal[c] for c in assigned[(cx, cy)]]
         names += [fill_name] * (7 - len(names))
+        pals += [pool_pal[ranked[0]]] * (7 - len(pals))
         names.append("atlas")
+        pals.append("glb_pl")
         model = nsbmd.build_model(shape_dls, [(16, 16)] * 7 + [(AW, AH)],
-                                  tex_names=names, pal_names=["glb_pl"] * 8)
+                                  tex_names=names, pal_names=pals)
         member = (struct.pack("<4I", 0x800, 0, len(model), len(FLAT_BDHC))
                   + struct.pack("<HH", 0x1234, 0) + bytes(perms) + model + FLAT_BDHC)
         models_grid[cy][cx] = len(land)
