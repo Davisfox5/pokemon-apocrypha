@@ -9,18 +9,20 @@ re-runs so it is idempotent).
 Per 32x32 chunk of the stitched 49-map overworld (emeraldmap.stitch):
   perms  : collision+behavior mapped to HGSS types (grass 0x02, water 0x15,
            ledges/doors/blocked 0x80)
-  model  : generated NSBMD (see nsbmd.py) — the chunk-owner map's most common
-           tile images drawn as merged rects with repeating 16x16 textures
-           from a GLOBAL pool, everything else as quads into ONE global
-           content-addressed atlas (2x2 detail blocks baked as supertiles)
-  bdhc   : flat template plane (Hoenn v1 is flat)
+  model  : generated NSBMD (nsbmd.py 39-slot chunk template) — v6 Gen-4
+           re-skin: every tile is classified semantically (hoenn_texmap.py)
+           and drawn as merged repeat-UV rects of vanilla HGSS/Platinum
+           donor terrain textures, with cutout overlays (encounter grass,
+           flowers, water surface) and real hedge-wall tree quads
+           (hoenn_ground.py). The GBA art only steers classification now —
+           no Emerald pixel ever reaches the ROM.
+  bdhc   : flat template plane (elevation geometry is a later round)
 
 ONE shared area for the whole region: the engine only renders chunks whose
 owner map's area matches the currently-loaded one (crossing a map header
 boundary swaps areas and blanks all foreign chunks — the v1 black-chunk bug),
-so every Hoenn header points at a single area entry / NSBTX. Per-chunk
-texture variety comes from patching the 8 material name slots per chunk
-(pool names + 'atlas'); binding resolves them against the shared texture set.
+so every Hoenn header points at a single area entry / NSBTX. All chunks bind
+the SAME donor texture list in the same material slots.
 One matrix (map_matrix_0289_HOENN.bin) + 45 headers.
 """
 import json
@@ -34,6 +36,7 @@ from narc import narc_read, narc_write            # noqa: E402
 import emeraldmap as em                           # noqa: E402
 import nsbmd                                      # noqa: E402
 import hoenn_buildings as hb                      # noqa: E402
+import hoenn_ground as hg2                        # noqa: E402
 from PIL import Image                             # noqa: E402
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
@@ -167,10 +170,8 @@ def main():
     binfo = hb.prepare(origins, ckey)
     mapdatas = {mid: em.MapData(mid) for mid in origins}
 
-    # ---- chunk ownership + per-map content stats -------------------------- #
+    # ---- chunk ownership --------------------------------------------------- #
     chunk_owner = {}
-    content_of = {}   # (mid, mt) -> content bytes (lazy)
-    map_counts = {}   # owner map -> Counter(content)
     for cy in range(CH):
         for cx in range(CW):
             oc = Counter()
@@ -181,527 +182,28 @@ def main():
             if not oc:
                 continue
             chunk_owner[(cx, cy)] = oc.most_common(1)[0][0]
-    for (cx, cy), mid in chunk_owner.items():
-        cnt = map_counts.setdefault(mid, Counter())
-        for z in range(cy * 32, min(cy * 32 + 32, GH)):
-            for x in range(cx * 32, min(cx * 32 + 32, GW)):
-                k = ckey[z][x]
-                if k is None:
-                    continue
-                c = content_of.get(k)
-                if c is None:
-                    c = content_of[k] = tile_image(mapdatas, *k)
-                cnt[c] += 1
 
-    # ---- global texture planning (one shared area) ------------------------- #
-    # A global pool of repeating 16x16 tile textures ('t00'..) covers each
-    # map's most common tiles; everything else goes into ONE global atlas
-    # ('atlas') as singles or 2x2 supertiles. Chunks pick their 7 pool
-    # textures by patched material names.
-    used_maps = sorted(map_counts, key=lambda m: list(origins).index(m))
-    chunks_of = {}
-    for (cx, cy), mid in chunk_owner.items():
-        chunks_of.setdefault(mid, []).append((cx, cy))
+    # ---- Gen-4 semantic re-skin (v6) --------------------------------------- #
+    # Classify every tile semantically (behavior/curated/heuristic) and draw
+    # it with vanilla Gen-4 donor textures (hoenn_ground.py). Every chunk
+    # binds the SAME texture list, so there is no per-chunk pool assignment.
+    used_maps = sorted(set(chunk_owner.values()),
+                       key=lambda m: list(origins).index(m))
 
-    def tile_content_at(gx, gz):
-        k = ckey[gz][gx]
-        if k is None:
-            return None
-        c = content_of.get(k)
-        if c is None:
-            c = content_of[k] = tile_image(mapdatas, *k)
-        return c
+    def avg_rgb_of(mid, mt):
+        im = Image.frombytes("RGB", (16, 16), tile_image(mapdatas, mid, mt))
+        return im.resize((1, 1), Image.BOX).getpixel((0, 0))
 
-    # Pool textures are chosen PER CHUNK (material names are patched per
-    # chunk), so a dense city chunk gets its own dominant tiles as cheap
-    # merged-rect geometry even when they're rare region-wide.
-    POOL_CAP = 246   # + 'atlas' stays under the 255-entry dict limit
-    fill_content = None  # set below: global most common tile (ocean)
-
-    chunk_counts = {}
-    for (cx, cy) in chunk_owner:
-        cc = Counter()
-        for lz in range(32):
-            for lx in range(32):
-                gx, gz = cx * 32 + lx, cy * 32 + lz
-                c = tile_content_at(gx, gz) if gx < GW and gz < GH else None
-                if c is not None:
-                    cc[c] += 1
-        chunk_counts[(cx, cy)] = cc
-    global_counts = Counter()
-    for cc in chunk_counts.values():
-        global_counts.update(cc)
-    fill_content = global_counts.most_common(1)[0][0]
-    for (cx, cy), cc in chunk_counts.items():
-        blanks = 1024 - sum(cc.values())
-        if blanks:
-            cc[fill_content] += blanks
-
-    votes = Counter()
-    chunk_top = {}
-    for key, cc in chunk_counts.items():
-        top = [c for c, _ in cc.most_common(7)]
-        chunk_top[key] = top
-        for c in top:
-            votes[c] += cc[c]
-    votes[fill_content] += 1 << 30   # fill must always be poolable
-    ranked = [c for c, _ in votes.most_common(POOL_CAP)]
-    pool_name = {c: f"t{i:02x}" for i, c in enumerate(ranked)}
-    assigned = {key: [c for c in chunk_top[key] if c in pool_name]
-                for key in chunk_counts}
-
-    # global atlas contents: per-chunk detail tiles + 2x2 supertile candidates
-    singles_votes = Counter()
-    for key, cc in chunk_counts.items():
-        a = set(assigned[key])
-        for c, n in cc.items():
-            if c not in a:
-                singles_votes[c] += n
-    singles = [c for c, _ in singles_votes.most_common()]
-    def super_candidate(quad, a):
-        """A 2x2 block worth baking: either all-detail, or an all-pool
-        PATTERN (mixed, no 3-of-a-kind — those merge fine as rects)."""
-        inpool = sum(1 for c in quad if c in a)
-        if inpool == 0:
-            return True
-        if inpool == 4:
-            mc = Counter(quad).most_common(1)[0][1]
-            return 1 < len(set(quad)) and mc <= 2
-        return False
-
-    super_census = Counter()
-    for (cx, cy) in chunk_owner:
-        a = set(assigned[(cx, cy)])
-        for lz in range(0, 32, 2):
-            for lx in range(0, 32, 2):
-                quad = []
-                for dz in (0, 1):
-                    for dx in (0, 1):
-                        gx, gz = cx * 32 + lx + dx, cy * 32 + lz + dz
-                        c = tile_content_at(gx, gz) if gx < GW and gz < GH else None
-                        quad.append(fill_content if c is None else c)
-                if super_candidate(quad, a):
-                    super_census[tuple(quad)] += 1
-    supers = [k for k, n in super_census.most_common() if n >= 3]
-    print(f"pool {len(ranked)}, singles {len(singles)}, super candidates "
-          f"{len(super_census)} (>=3: {len(supers)})")
-
-    # ---- per-chunk quad counting + window vertex budget --------------------- #
-    # The DS renders ~6144 vertices/frame across the 4 loaded chunks; leave
-    # headroom for the player/NPCs. Escalate supertile baking until every
-    # 2x2 chunk window fits.
-    WINDOW_VERT_CAP = 5400
-
-    chunk_over = {}   # (cx,cy) -> {content: pool content} vertex-decimation remaps
-
-    def chunk_geometry(cx, cy, superset, hpairset, vpairset):
-        """(pool_lists, super_blocks, hpairs, vpairs, single_cells) for a
-        chunk under the current merge sets. Mirrors the emit loop exactly."""
-        aslot = {c: k for k, c in enumerate(assigned[(cx, cy)])}
-        over = chunk_over.get((cx, cy), {})
-        grid_content = [[None] * 32 for _ in range(32)]
-        for lz in range(32):
-            for lx in range(32):
-                gx, gz = cx * 32 + lx, cy * 32 + lz
-                c = tile_content_at(gx, gz) if gx < GW and gz < GH else None
-                if c is None:
-                    c = fill_content
-                grid_content[lz][lx] = over.get(c, c)
-        # supertiles first, over the FULL grid — this is what merges
-        # alternating pool-tile patterns (city pavement) that greedy rects
-        # fragment into 1x1s
-        sblocks = []
-        for lz in range(0, 32, 2):
-            for lx in range(0, 32, 2):
-                key = (grid_content[lz][lx], grid_content[lz][lx + 1],
-                       grid_content[lz + 1][lx], grid_content[lz + 1][lx + 1])
-                if None in key or key not in superset:
-                    continue
-                sblocks.append((lx, lz, key))
-                for dz in (0, 1):
-                    for dx in (0, 1):
-                        grid_content[lz + dz][lx + dx] = None
-        by_pool = [[] for _ in range(7)]
-        for lz in range(32):
-            for lx in range(32):
-                c = grid_content[lz][lx]
-                if c is None:
-                    continue
-                ti = aslot.get(c)
-                if ti is not None:
-                    by_pool[ti].append((lx, lz))
-                    grid_content[lz][lx] = None
-        hpairs = []
-        for lz in range(32):
-            lx = 0
-            while lx < 31:
-                key = (grid_content[lz][lx], grid_content[lz][lx + 1])
-                if None not in key and key in hpairset:
-                    hpairs.append((lx, lz, key))
-                    grid_content[lz][lx] = grid_content[lz][lx + 1] = None
-                    lx += 2
-                else:
-                    lx += 1
-        vpairs = []
-        for lx in range(32):
-            lz = 0
-            while lz < 31:
-                key = (grid_content[lz][lx], grid_content[lz + 1][lx])
-                if None not in key and key in vpairset:
-                    vpairs.append((lx, lz, key))
-                    grid_content[lz][lx] = grid_content[lz + 1][lx] = None
-                    lz += 2
-                else:
-                    lz += 1
-        cells = [(lx, lz, grid_content[lz][lx])
-                 for lz in range(32) for lx in range(32)
-                 if grid_content[lz][lx] is not None]
-        return by_pool, sblocks, hpairs, vpairs, cells
-
-    def chunk_verts(cx, cy, superset, hpairset, vpairset):
-        by_pool, sblocks, hp, vp, cells = chunk_geometry(
-            cx, cy, superset, hpairset, vpairset)
-        nrects = sum(len(greedy_rects(by_pool[k])) for k in range(7))
-        return 4 * (nrects + len(sblocks) + len(hp) + len(vp) + len(cells))
-
-    # pair census (horizontal/vertical 2x1 merges of leftover detail cells)
-    hpair_census, vpair_census = Counter(), Counter()
-    superset0 = set(supers)
-    for (cx, cy) in chunk_owner:
-        _, _, _, _, cells = chunk_geometry(cx, cy, superset0, set(), set())
-        grid = {(lx, lz): c for lx, lz, c in cells}
-        for (lx, lz), c in grid.items():
-            r = grid.get((lx + 1, lz))
-            if r is not None:
-                hpair_census[(c, r)] += 1
-            d = grid.get((lx, lz + 1))
-            if d is not None:
-                vpair_census[(c, d)] += 1
-
-    # Merge-cell selection is atlas-byte constrained: a cold pair cell costs
-    # 128B and saves 4 verts/occurrence, a cold super cell 256B saving 8.
-    # Base sets take the globally hottest; the enforcement loop then spends
-    # the remaining byte budget on candidates censused INSIDE failing windows.
-    MERGE_BYTE_BUDGET = 48_000
-    RESERVE = 24_000   # kept back for window-targeted additions below
-    superset, hpairset, vpairset = set(), set(), set()
-
-    def merge_bytes():
-        return len(superset) * 256 + (len(hpairset) + len(vpairset)) * 128
-
-    base = ([(n * 8 / 256, 'super', k) for k, n in super_census.items() if n >= 3]
-            + [(n * 4 / 128, 'h', k) for k, n in hpair_census.items() if n >= 6]
-            + [(n * 4 / 128, 'v', k) for k, n in vpair_census.items() if n >= 6])
-    base.sort(reverse=True)
-    for _, kind, k in base:
-        if merge_bytes() >= MERGE_BYTE_BUDGET - RESERVE:
-            break
-        {'super': superset, 'h': hpairset, 'v': vpairset}[kind].add(k)
-
-    verts = {c: chunk_verts(*c, superset, hpairset, vpairset) for c in chunk_owner}
-    for _round in range(24):
-        bad = []
-        for (cx, cy) in chunk_owner:
-            s = sum(verts.get((cx + dx, cy + dy), 0) for dx in (0, 1) for dy in (0, 1))
-            if s > WINDOW_VERT_CAP:
-                bad.append((s, cx, cy))
-        if not bad:
-            break
-        if merge_bytes() >= MERGE_BYTE_BUDGET:
-            print(f"NOTE: {len(bad)} windows over {WINDOW_VERT_CAP} "
-                  f"(worst {max(bad)[0]}) with merge byte budget spent")
-            break
-        # census merge candidates inside the failing windows only
-        bad_chunks = {c for _, cx, cy in bad for c in
-                      [(cx + dx, cy + dy) for dx in (0, 1) for dy in (0, 1)]
-                      if c in chunk_owner}
-        wsc, whc, wvc = Counter(), Counter(), Counter()
-        for (cx, cy) in bad_chunks:
-            a = set(assigned[(cx, cy)])
-            over = chunk_over.get((cx, cy), {})
-            # pattern/detail supers over the full grid
-            for lz in range(0, 32, 2):
-                for lx in range(0, 32, 2):
-                    quad = []
-                    for dz in (0, 1):
-                        for dx in (0, 1):
-                            gx, gz = cx * 32 + lx + dx, cy * 32 + lz + dz
-                            c = tile_content_at(gx, gz) if gx < GW and gz < GH else None
-                            c = fill_content if c is None else c
-                            quad.append(over.get(c, c))
-                    q = tuple(quad)
-                    if q not in superset and super_candidate(q, a):
-                        wsc[q] += 1
-            # pairs over the leftover detail cells
-            _, _, _, _, cells = chunk_geometry(cx, cy, superset, hpairset, vpairset)
-            grid = {(lx, lz): c for lx, lz, c in cells}
-            for (lx, lz), c in grid.items():
-                r = grid.get((lx + 1, lz))
-                if r is not None:
-                    whc[(c, r)] += 1
-                d = grid.get((lx, lz + 1))
-                if d is not None:
-                    wvc[(c, d)] += 1
-        # spend on best savings-per-byte first
-        cands = ([(n * 8 / 256, 'super', k) for k, n in wsc.items() if n >= 2]
-                 + [(n * 4 / 128, 'h', k) for k, n in whc.items() if n >= 2]
-                 + [(n * 4 / 128, 'v', k) for k, n in wvc.items() if n >= 2])
-        cands.sort(reverse=True)
-        added = 0
-        for _, kind, k in cands[:64]:
-            if merge_bytes() >= MERGE_BYTE_BUDGET:
-                break
-            {'super': superset, 'h': hpairset, 'v': vpairset}[kind].add(k)
-            added += 1
-        if not added:
-            print(f"NOTE: {len(bad)} windows over {WINDOW_VERT_CAP} "
-                  f"(worst {max(bad)[0]}), no candidates left")
-            break
-        for c in {c for _, cx, cy in bad for c in
-                  [(cx + dx, cy + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)]
-                  if c in chunk_owner}:
-            verts[c] = chunk_verts(*c, superset, hpairset, vpairset)
-    # Final decimation: in windows still over cap, remap the worst chunk's
-    # rarest detail tiles to its visually-nearest assigned pool tile — a lone
-    # detail cell inside a pool expanse dissolves into the merged rect.
-    def tile_feat(c):
-        im = Image.frombytes("RGB", (16, 16), c).resize((2, 2), Image.LANCZOS)
-        return list(im.tobytes())
-
-    exhausted = set()
-    for _round in range(400):
-        bad = []
-        for (cx, cy) in chunk_owner:
-            s = sum(verts.get((cx + dx, cy + dy), 0) for dx in (0, 1) for dy in (0, 1))
-            if s > WINDOW_VERT_CAP:
-                bad.append((s, cx, cy))
-        if not bad:
-            break
-        target = None
-        for s, wx, wy in sorted(bad, reverse=True):
-            wcands = sorted(
-                ((verts[c], c) for c in
-                 [(wx + dx, wy + dy) for dx in (0, 1) for dy in (0, 1)]
-                 if c in chunk_owner and c not in exhausted and assigned[c]),
-                reverse=True)
-            if wcands:
-                target = wcands[0][1]
-                break
-        if target is None:
-            print(f"NOTE: {len(bad)} windows over cap remain after decimation "
-                  f"(worst {max(bad)[0]})")
-            break
-        _, _, _, _, cells = chunk_geometry(*target, superset, hpairset, vpairset)
-        acc = assigned[target]
-        over = chunk_over.setdefault(target, {})
-        eff = [a for a in acc if a not in over]
-        if cells:
-            # stage 1: rarest detail tiles -> visually nearest pool tile
-            cc = Counter(c for _, _, c in cells)
-            afeat = [tile_feat(a) for a in eff or acc]
-            src = eff or acc
-            for c, _ in sorted(cc.items(), key=lambda t: t[1])[:24]:
-                f = tile_feat(c)
-                best = min(range(len(src)),
-                           key=lambda i: sum((a - b) ** 2 for a, b in zip(afeat[i], f)))
-                over[c] = src[best]
-        elif len(eff) >= 2:
-            # stage 2: merge the two closest pool tiles chunk-wide, collapsing
-            # checker patterns into rect-mergeable expanses
-            ef = [tile_feat(a) for a in eff]
-            bi, bj, bd = 0, 1, None
-            for i in range(len(eff)):
-                for j in range(i + 1, len(eff)):
-                    d = sum((a - b) ** 2 for a, b in zip(ef[i], ef[j]))
-                    if bd is None or d < bd:
-                        bi, bj, bd = i, j, d
-            over[eff[bj]] = eff[bi]
-        else:
-            exhausted.add(target)
-        for c in [(target[0] + dx, target[1] + dy)
-                  for dx in (-1, 0, 1) for dy in (-1, 0, 1)]:
-            if c in chunk_owner:
-                verts[c] = chunk_verts(*c, superset, hpairset, vpairset)
-    ndecim = sum(len(v) for v in chunk_over.values())
-    supers = sorted(superset, key=lambda k: -super_census[k])
-    hpairs = sorted(hpairset, key=lambda k: -hpair_census[k])
-    vpairs = sorted(vpairset, key=lambda k: -vpair_census[k])
-    vv = sorted(verts.values())
-    print(f"supers {len(supers)}, hpairs {len(hpairs)}, vpairs {len(vpairs)} "
-          f"({merge_bytes()//1024}KB); decimated {ndecim} tile kinds in "
-          f"{len(chunk_over)} chunks; chunk verts min/med/max: "
-          f"{vv[0]}/{vv[len(vv)//2]}/{vv[-1]}")
-    worst = max(sum(verts.get((cx + dx, cy + dy), 0) for dx in (0, 1) for dy in (0, 1))
-                for (cx, cy) in chunk_owner)
-    print(f"worst 2x2 window: {worst} (cap {WINDOW_VERT_CAP})")
-
-    # ---- global atlas layout (two resolutions, hard byte budget) ------------ #
-    # Uniform-size shelf zones: supers (2x2 tiles), h/v pairs, singles — each
-    # at 16px/tile (hot) or 8px/tile (cold). 16px promotion is score-greedy:
-    # every class costs the same extra bytes per tile-occurrence (192), so a
-    # single merged occurrence ranking maximizes on-screen full-res coverage.
-    # Singles beyond capacity are dropped and remapped to the nearest kept cell.
-    AW = 512
-    TEX_BUDGET = 200_000   # pool + atlas texel bytes (props budget lives in
-                           # hoenn_buildings.TEXEL_BUDGET; keep the total near
-                           # the in-emu-proven ~200K upload)
-    pool_bytes = len(ranked) * 128   # 4bpp pool — verified in-emu below
-
-    def shelf(pos, items, w, h, rows):
-        per = AW // w
-        for i, key in enumerate(items):
-            pos[key] = ((i % per) * w, rows + (i // per) * h, w, h)
-        return rows + ((len(items) + per - 1) // per) * h
-
-    def layout(s16, hp16, vp16, n16, ncap):
-        pos = {}
-        rows = shelf(pos, supers[:s16], 32, 32, 0)
-        rows = shelf(pos, supers[s16:], 16, 16, rows)
-        rows = shelf(pos, hpairs[:hp16], 32, 16, rows)
-        rows = shelf(pos, hpairs[hp16:], 16, 8, rows)
-        rows = shelf(pos, vpairs[:vp16], 16, 32, rows)
-        rows = shelf(pos, vpairs[vp16:], 8, 16, rows)
-        rows = shelf(pos, singles[:n16], 16, 16, rows)
-        rows = shelf(pos, singles[n16:ncap], 8, 8, rows)
-        ah = 8
-        while ah < rows:
-            ah *= 2
-        return pos, ah
-
-    # merged promotion ranking: (class, occurrences) sorted hot-first; class
-    # lists are census-sorted so a rank prefix maps to per-class tier counts
-    cand = ([('s', super_census[k]) for k in supers]
-            + [('h', hpair_census[k]) for k in hpairs]
-            + [('v', vpair_census[k]) for k in vpairs]
-            + [('n', singles_votes[c]) for c in singles])
-    rank = sorted(range(len(cand)), key=lambda i: -cand[i][1])
-
-    def tiers(n_promoted):
-        t = {'s': 0, 'h': 0, 'v': 0, 'n': 0}
-        for i in rank[:n_promoted]:
-            t[cand[i][0]] += 1
-        return t
-
-    def try_layout(n_promoted, ncap):
-        t = tiers(n_promoted)
-        pos, ah = layout(t['s'], t['h'], t['v'], t['n'], ncap)
-        ok = AW * ah + pool_bytes <= TEX_BUDGET and ah <= 512
-        return ok, pos, ah, t
-
-    ncap = len(singles)
-    while not try_layout(0, ncap)[0]:
-        assert ncap > 256, f"atlas cannot fit even all-cold: pool {pool_bytes}"
-        ncap = max(256, ncap - 128)
-    lo, hi = 0, len(cand)
-    while lo < hi:                      # max promotions that still fit
-        mid = (lo + hi + 1) // 2
-        if try_layout(mid, ncap)[0]:
-            lo = mid
-        else:
-            hi = mid - 1
-    _, pos, AH, t = try_layout(lo, ncap)
-    s16, p16, n16 = t['s'], (t['h'], t['v']), t['n']
-    dropped = singles[ncap:]
-    if dropped:
-        # remap each dropped single to the visually nearest kept single
-        def feat(c):
-            im = Image.frombytes("RGB", (16, 16), c).resize((2, 2), Image.LANCZOS)
-            return list(im.tobytes())
-        kept = singles[:ncap]
-        kf = [feat(c) for c in kept]
-        for c in dropped:
-            f = feat(c)
-            best = min(range(len(kept)),
-                       key=lambda i: sum((a - b) ** 2 for a, b in zip(kf[i], f)))
-            pos[c] = pos[kept[best]]
-        print(f"dropped {len(dropped)} rare singles (remapped to nearest)")
-    print(f"atlas {AW}x{AH} ({AW*AH//1024}KB) + pool {pool_bytes//1024}KB; "
-          f"tiers s16={s16} p16={p16} n16={n16} kept={ncap}/{len(singles)}")
-
-    # ---- build the ONE global NSBTX --------------------------------------- #
-    # Pool tiles: pixel-exact 4bpp, palettes greedily merged into shared
-    # 16-color groups (BGR555 space) — half the texels of 8bpp and no global-
-    # palette error on the tiles that cover most of the screen. Atlas: 8bpp
-    # with its own 256-color palette. No dithering anywhere: Floyd-Steinberg
-    # (PIL's default) speckles every tile, and repeats make it shimmer.
-    atlas_img = Image.new("RGB", (AW, AH), (0, 0, 0))
-    drawn = set()
-    for c, (px, py, w, h) in pos.items():
-        if (px, py) in drawn:      # remapped duplicates share a cell
-            continue
-        drawn.add((px, py))
-        if isinstance(c, tuple) and len(c) == 4:      # 2x2 supertile
-            im = Image.new("RGB", (32, 32))
-            for i, sub in enumerate(c):
-                im.paste(Image.frombytes("RGB", (16, 16), sub),
-                         ((i % 2) * 16, (i // 2) * 16))
-        elif isinstance(c, tuple):                    # pair: (left,right)/(top,bottom)
-            horiz = w >= h
-            im = Image.new("RGB", (32, 16) if horiz else (16, 32))
-            im.paste(Image.frombytes("RGB", (16, 16), c[0]), (0, 0))
-            im.paste(Image.frombytes("RGB", (16, 16), c[1]),
-                     (16, 0) if horiz else (0, 16))
-        else:
-            im = Image.frombytes("RGB", (16, 16), c)
-        if im.size != (w, h):
-            im = im.resize((w, h), Image.BOX)   # clean 2x2 average, no ringing
-        atlas_img.paste(im, (px, py))
-    try:
-        q = atlas_img.quantize(colors=256, method=Image.Quantize.MAXCOVERAGE,
-                               dither=Image.Dither.NONE)
-    except Exception:   # MAXCOVERAGE can reject some inputs
-        q = atlas_img.quantize(colors=256, dither=Image.Dither.NONE)
-    pal = (q.getpalette() or [])[:768]
-    pal += [0] * (768 - len(pal))
-    qpx = q.load()
-    atlas_tex = bytes(qpx[x, y] for y in range(AH) for x in range(AW))
-    palbin = bytearray()
-    for i in range(256):
-        r, g, b = pal[i * 3] >> 3, pal[i * 3 + 1] >> 3, pal[i * 3 + 2] >> 3
-        palbin += struct.pack("<H", r | (g << 5) | (b << 10))
-    # pool tiles: exact colors, first-fit grouping into 16-color palettes
-    pool_imgs = []
-    for c in ranked:
-        im = Image.frombytes("RGB", (16, 16), c)
-        cset = {(r >> 3, g >> 3, b >> 3) for _, (r, g, b) in im.getcolors(256)}
-        if len(cset) > 16:
-            im = im.quantize(colors=16, dither=Image.Dither.NONE).convert("RGB")
-            cset = {(r >> 3, g >> 3, b >> 3) for _, (r, g, b) in im.getcolors(16)}
-        pool_imgs.append((im, cset))
-    groups, group_of = [], []
-    for im, cset in pool_imgs:
-        gi = next((j for j, g in enumerate(groups) if len(g | cset) <= 16), None)
-        if gi is None:
-            gi = len(groups)
-            groups.append(set())
-        groups[gi] |= cset
-        group_of.append(gi)
-    group_index, group_pals = [], []
-    for gi, g in enumerate(groups):
-        cl = sorted(g)
-        group_index.append({c: k for k, c in enumerate(cl)})
-        pb = bytearray(32)
-        for k, (r, gg, b) in enumerate(cl):
-            struct.pack_into("<H", pb, k * 2, r | (gg << 5) | (b << 10))
-        group_pals.append((f"p{gi:02x}", bytes(pb)))
-    pool_pal = {}
-    pool_tex4 = []
-    for i, (im, cset) in enumerate(pool_imgs):
-        idx = group_index[group_of[i]]
-        pool_pal[ranked[i]] = f"p{group_of[i]:02x}"
-        p = im.load()
-        t = bytearray(128)
-        for y in range(16):
-            for x in range(16):
-                r, gg, b = p[x, y]
-                t[(y * 16 + x) // 2] |= idx[(r >> 3, gg >> 3, b >> 3)] << (4 * (x & 1))
-        pool_tex4.append(bytes(t))
-    global_btx = nsbmd.build_btx_named(
-        [(pool_name[c], 16, 16, pool_tex4[i], 3, True) for i, c in enumerate(ranked)]
-        + [("atlas", AW, AH, atlas_tex)],
-        group_pals + [("glb_pl", bytes(palbin))])
+    sem = hg2.classify_grid(mapdatas, ckey, GW, GH, avg_rgb_of)
+    cstats = Counter(sem[z][x] for z in range(GH) for x in range(GW)
+                     if ckey[z][x] is not None)
+    print("classes:", ", ".join(f"{c}={n}" for c, n in cstats.most_common()))
+    ts = hg2.TexSet()
+    global_btx = ts.btx
+    chunk_tmpl = nsbmd.template(nsbmd.CHUNK_TEMPLATE_PATH)
+    tex_names, pal_names, tex_dims, repeat_slots = ts.model_binding(chunk_tmpl.num)
     print(f"global NSBTX: {len(global_btx)} bytes "
-          f"({len(groups)} pool palette groups)")
+          f"({len(ts.slots)} donor textures)")
 
     # ---- load target NARCs (truncate to post-sinnoh baseline) ------------- #
     land = narc_read(os.path.join(HG, "files/a/0/6/5"))[:BASE["land"]]
@@ -725,10 +227,8 @@ def main():
 
     # ---- generate chunks --------------------------------------------------- #
     models_grid = [[0xFFFF] * CW for _ in range(CH)]
-    fill_name = pool_name[ranked[0]]
+    chunk_verts = {}
     for (cx, cy), mid in sorted(chunk_owner.items(), key=lambda t: (t[0][1], t[0][0])):
-        by_pool, sblocks, hp, vp, cells = chunk_geometry(
-            cx, cy, superset, hpairset, vpairset)
         perms = bytearray(0x800)
         for lz in range(32):
             for lx in range(32):
@@ -740,42 +240,24 @@ def main():
                 i = (lz * 32 + lx) * 2
                 perms[i] = t
                 perms[i + 1] = c
-        dq = []
-        for lx, lz, key in sblocks:
-            px, py, w, h = pos[key]
-            dq.append(tile_quad(lx, lz, 2, 2, px, py, px + w, py + h))
-        for lx, lz, key in hp:
-            px, py, w, h = pos[key]
-            dq.append(tile_quad(lx, lz, 2, 1, px, py, px + w, py + h))
-        for lx, lz, key in vp:
-            px, py, w, h = pos[key]
-            dq.append(tile_quad(lx, lz, 1, 2, px, py, px + w, py + h))
-        for lx, lz, c in cells:
-            p = pos.get(c)
-            if p is None:
-                continue
-            px, py, w, h = p
-            dq.append(tile_quad(lx, lz, 1, 1, px, py, px + w, py + h))
-        shape_dls = []
-        for k in range(7):
-            quads = [tile_quad(x, z, w, h, 0, 0, w * 16, h * 16)
-                     for (x, z, w, h) in greedy_rects(by_pool[k])]
-            shape_dls.append(nsbmd.quad_dl(quads))
-        shape_dls.append(nsbmd.quad_dl(dq))
-        names = [pool_name[c] for c in assigned[(cx, cy)]]
-        pals = [pool_pal[c] for c in assigned[(cx, cy)]]
-        names += [fill_name] * (7 - len(names))
-        pals += [pool_pal[ranked[0]]] * (7 - len(pals))
-        names.append("atlas")
-        pals.append("glb_pl")
-        model = nsbmd.build_model(shape_dls, [(16, 16)] * 7 + [(AW, AH)],
-                                  tex_names=names, pal_names=pals)
+        shape_dls, nverts = hg2.emit_chunk(ts, sem, cx, cy, GW, GH)
+        chunk_verts[(cx, cy)] = nverts
+        model = nsbmd.build_model(shape_dls, tex_dims, tex_names=tex_names,
+                                  pal_names=pal_names,
+                                  wrap_repeat_slots=repeat_slots,
+                                  tmpl=chunk_tmpl)
         member = (struct.pack("<4I", 0x800, 0, len(model), len(FLAT_BDHC))
                   + struct.pack("<HH", 0x1234, 0) + bytes(perms) + model + FLAT_BDHC)
         models_grid[cy][cx] = len(land)
         land.append(member)
     n_chunks = sum(1 for r in models_grid for v in r if v != 0xFFFF)
-    print(f"chunks generated: {n_chunks}, land {BASE['land']}->{len(land)}")
+    vv = sorted(chunk_verts.values())
+    worst = max(sum(chunk_verts.get((cx + dx, cy + dy), 0)
+                    for dx in (0, 1) for dy in (0, 1))
+                for (cx, cy) in chunk_owner)
+    print(f"chunks generated: {n_chunks}, land {BASE['land']}->{len(land)}; "
+          f"verts min/med/max {vv[0]}/{vv[len(vv)//2]}/{vv[-1]}, "
+          f"worst 2x2 window {worst} (DS budget ~6144)")
 
     # ---- headers + matrix --------------------------------------------------- #
     id_map = {}

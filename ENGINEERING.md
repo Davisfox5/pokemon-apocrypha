@@ -44,12 +44,50 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-09, v5)
+## Region Port Status (M2/M3 — updated 2026-07-10, v6)
 
 **Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
 buildings and full-scale seamless Hoenn rendering.** Tooling lives in
 `tools/regionport/` (all generators idempotent; run `import_sinnoh.py` then
 `import_hoenn.py`, `rm files/fielddata/mapmatrix/map_matrix.narc`, rebuild).
+
+### v6 — Gen-4 semantic re-skin of Hoenn (the "stop looking like a GBA
+screenshot" round)
+
+v5's dither cleanup didn't change the aesthetic: the renderer was still a quilt
+of raw Emerald pixels (2,438 unique tiles, VRAM-forced to 8px). v6 replaces the
+whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
+
+- **Semantic classification** (`hoenn_texmap.py`): Emerald's own metatile
+  attributes (behavior lo byte, layer bits 12-15) + map-grid collision bucket
+  ~100% of the 122,580 tile occurrences; behavior alone covers 55.7%. A curated
+  (tileset, metatile) table (built by eyeballing generated contact sheets of
+  the top 400 MB_NORMAL kinds) + hue fallback covers the rest. Per-tile
+  ELEVATION (map.bin bits 12-15) is parsed and reserved for a cliff-geometry
+  round.
+- **Donor textures** (`donorlib.py`): terrain art extracted from vanilla HGSS
+  `a/0/4/4` texsets 2/7/9/18 + Platinum sets 6/19. The reusable Gen-4 terrain
+  vocabulary is tiny (~40-60 names, 4bpp, 32-45KB/area). Palette association
+  uses ground truth mined from 3,468 tex→pal bindings in real map models
+  (irregulars like `grass01gs→grass01`, `sea_on→sea_f02_pl` baked as
+  overrides). Hoenn's whole texset: **16 textures, 9.6KB** (v5: 163KB).
+- **Renderer** (`hoenn_ground.py`): merged repeat-UV ground rects, two-layer
+  sea (sea_un base + cutout sea_on), encounter-grass/flower cutout decals,
+  and real tree geometry — hedge runs become vertical quads with the vanilla
+  64x64 canopy, one wall per even row. Worst 2x2-window verts: 4160 (cap
+  5400) with NO merge/decimation machinery — it all got deleted.
+- **39-material chunk template**: `map_data_242.bin` (largest clean vanilla
+  outdoor model, one-mat-per-dict-entry, posScale 64) replaces the 8-slot
+  template for chunks; every chunk binds the SAME donor list so per-chunk
+  pool assignment is gone. `nsbmd.Template` now derives slot count from the
+  file; props still use the 8-slot template.
+- **pltt4 GOTCHA**: vanilla marks 4-color palettes with dict-entry flag=1
+  (second u16); our writer emits flag=0, and the engine renders pltt4
+  textures as zebra garbage. Fix: expand pltt4 donors to pltt16 at assembly
+  (2bpp→4bpp, +384 bytes total).
+- Buildings still v5 fold-billboards; the Gen-4 model swap (matched: 16
+  drop-in types, 13 retint, 3 custom needed) and elevation cliffs are the
+  next rounds.
 
 - **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
   HGSS land-data container, 13 Platinum tilesets, 30x30 matrix, 66 headers

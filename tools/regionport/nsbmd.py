@@ -37,6 +37,11 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 # dict entry (permutation handled by tex_slot_of/pal_slot_of below).
 TEMPLATE_PATH = os.path.join(
     ROOT, "disasm/pokeplatinum/res/field/maps/data/map_data_415.bin")
+# Ground chunks use the largest clean outdoor model instead: 39 mats/shapes/
+# textures/palettes, same SBC shell, posScale 64 — lifts the 8-texture-per-
+# chunk ceiling for the Gen-4 re-skin (towns bind 15-25 terrain textures).
+CHUNK_TEMPLATE_PATH = os.path.join(
+    ROOT, "disasm/pokeplatinum/res/field/maps/data/map_data_242.bin")
 
 NUM_TEX = 8
 TEX_NAMES = [f"pc_room{i+1}" for i in range(NUM_TEX)]
@@ -90,14 +95,16 @@ class Template:
         self.pal_slot_of = {s[0]: k for k, s in enumerate(pal_slots)}
         # material body offsets (relative to mat block)
         n = b[mat + 4 + 1]
-        assert n == NUM_TEX
+        assert n == len(self.tex_name_offs) == len(self.pal_name_offs), (
+            "template must have equal material/texture/palette counts", n)
+        self.num = n
         enthdr = mat + 4 + 8 + (n + 1) * 4
         self.mat_offsets = [mat + struct.unpack_from("<I", b, enthdr + 4 + i * 4)[0]
                             for i in range(n)]
-        # shape section: dict + 8 headers, then DLs
+        # shape section: dict + n headers, then DLs
         shp = self.m + self.ofsShp
         sn = b[shp + 1]
-        assert sn == NUM_TEX
+        assert sn == n
         dsize = struct.unpack_from("<H", b, shp + 2)[0]
         self.shp_dict_size = dsize
         enthdr2 = shp + 8 + (sn + 1) * 4
@@ -117,9 +124,9 @@ class Template:
         sbc = self.m + self.ofsSbc
         shell = bytes((0x26, 0, 0, 0, 0, 0x02, 0, 0x01, 0x0B))
         assert bytes(b[sbc:sbc + 9]) == shell, b[sbc:sbc + 9].hex()
-        for k in range(NUM_TEX):
+        for k in range(n):
             b[sbc + 9 + k * 4:sbc + 9 + k * 4 + 4] = bytes((0x04, k, 0x05, k))
-        assert b[sbc + 9 + NUM_TEX * 4] == 0x2B
+        assert b[sbc + 9 + n * 4] == 0x2B
         for off in self.mat_offsets:
             struct.pack_into("<3I", b, off + 4, 0x7FFFE739, 0, 0x001F80C1)
         # prefix: everything up to end of last shape header
@@ -139,14 +146,13 @@ class Template:
         return [ep + ofs_name + i * 16 for i in range(n)]
 
 
-_template = None
+_templates = {}
 
 
-def template():
-    global _template
-    if _template is None:
-        _template = Template()
-    return _template
+def template(path=TEMPLATE_PATH):
+    if path not in _templates:
+        _templates[path] = Template(path)
+    return _templates[path]
 
 
 def pack_dl(cmds):
@@ -187,15 +193,19 @@ def quad_dl(quads):
 
 
 def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None,
-                wrap_repeat_slots=7):
-    """shape_dls: 8 display-list byte blobs (shape k drawn with texture k).
-    tex_dims: 8 (w,h) texture dimensions for material origW/origH.
-    tex_names/pal_names: optional 8 names to patch into the material dicts
+                wrap_repeat_slots=7, tmpl=None):
+    """shape_dls: t.num display-list byte blobs (shape k drawn with texture k).
+    tex_dims: t.num (w,h) texture dimensions for material origW/origH.
+    tex_names/pal_names: optional t.num names to patch into the material dicts
     (binding iterates these linearly; the stale model-side tree is unused).
-    wrap_repeat_slots: first N materials get repeat wrap, the rest clamp
-    (chunks: 7 repeating pool tiles + clamped atlas; props: 0 = all clamp).
+    wrap_repeat_slots: first N materials get repeat wrap, the rest clamp.
+    wrap_repeat_slots may also be a set of material indices to repeat.
+    tmpl: Template to surger (default 8-slot prop template; ground chunks
+    pass template(CHUNK_TEMPLATE_PATH) = 39 slots).
     Returns a complete BMD0."""
-    t = template()
+    t = tmpl or template()
+    assert len(shape_dls) == t.num and len(tex_dims) == t.num, (
+        len(shape_dls), len(tex_dims), t.num)
     b = bytearray(t.prefix)
     # names are given PER MATERIAL k; write each into the dict slot that
     # actually binds material k (dict order is an arbitrary permutation)
@@ -262,7 +272,9 @@ def build_model(shape_dls, tex_dims, tex_names=None, pal_names=None,
     for k, (w, h) in enumerate(tex_dims):
         struct.pack_into("<2H", b, t.mat_offsets[k] + 0x20, w, h)
         ti = struct.unpack_from("<I", b, t.mat_offsets[k] + 0x14)[0]
-        ti = (ti & ~0x000F0000) | (0x00030000 if k < wrap_repeat_slots else 0)
+        rep = (k in wrap_repeat_slots) if isinstance(wrap_repeat_slots, (set, frozenset)) \
+            else k < wrap_repeat_slots
+        ti = (ti & ~0x000F0000) | (0x00030000 if rep else 0)
         struct.pack_into("<I", b, t.mat_offsets[k] + 0x14, ti)
     mdl0_size = len(b) - t.mdl0
     struct.pack_into("<I", b, t.mdl0 + 4, mdl0_size)
@@ -428,11 +440,16 @@ def _mkdict(tree, entries, unit, names):
     return bytes(d)
 
 
+_TEXEL_BYTES = {1: 1.0, 2: 0.25, 3: 0.5, 4: 1.0, 6: 1.0}  # per pixel
+
+
 def build_btx_named(textures, palettes, pal_of=None):
     """Generalized NSBTX. textures: [(name, w, h, texels)] for 8bpp pltt256,
-    or [(name, w, h, texels, fmt)] with fmt 3 = 4bpp pltt16 (color 0 drawn
-    transparent); a 6th element True makes color 0 opaque (ground tiles).
-    palettes: [(name, 512-byte BGR555)] or 32-byte for pltt16.
+    or [(name, w, h, texels, fmt)] with fmt in {1 a3i5, 2 pltt4, 3 pltt16,
+    4 pltt256, 6 a5i3}. fmt 3 draws color 0 transparent unless a 6th element
+    is True (opaque ground tiles); for fmt 2/4 an EXPLICIT 6th element False
+    requests color-0 transparency (donor cutouts), absent = opaque as before.
+    palettes: [(name, BGR555 bytes)], any multiple of 8 bytes up to 512.
     All texture dims must be 8<<k. pal_of unused — palette selection happens
     at bind time by the model's palette names."""
     texdata = bytearray()
@@ -441,7 +458,7 @@ def build_btx_named(textures, palettes, pal_of=None):
         name, w, h, texels = entry[:4]
         fmt = entry[4] if len(entry) > 4 else 4
         opaque0 = entry[5] if len(entry) > 5 else False
-        expected = w * h if fmt == 4 else w * h // 2
+        expected = int(w * h * _TEXEL_BYTES[fmt])
         assert len(texels) == expected, (name, w, h, fmt, len(texels))
         while len(texdata) % 8:
             texdata.append(0)
@@ -450,6 +467,8 @@ def build_btx_named(textures, palettes, pal_of=None):
         w0 = ((ofs >> 3) & 0xFFFF) | (_log2(w) << 20) | (_log2(h) << 23) | (fmt << 26)
         if fmt == 3 and not opaque0:
             w0 |= 1 << 29   # color 0 transparent
+        if fmt in (2, 4) and len(entry) > 5 and entry[5] is False:
+            w0 |= 1 << 29
         w1 = w | (h << 11) | 0x80000000
         tex_entries.append((w0, w1))
         tex_names.append(name)
@@ -458,7 +477,7 @@ def build_btx_named(textures, palettes, pal_of=None):
     paldata = bytearray()
     pal_entries, pal_names = [], []
     for name, pal in palettes:
-        assert len(pal) in (32, 512), (name, len(pal))
+        assert len(pal) % 8 == 0 and 8 <= len(pal) <= 512, (name, len(pal))
         while len(paldata) % 8:
             paldata += b"\0"
         pal_entries.append((len(paldata) >> 3, 0))

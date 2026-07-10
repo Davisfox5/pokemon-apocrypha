@@ -131,6 +131,23 @@ class MapData:
             return None, 0
         return metatiles[idx], (attrs[idx] & 0xFF) if idx < len(attrs) else 0
 
+    def metatile_info(self, mt_id):
+        """(mdef, behavior, layer_type, owner_tileset_short) — the full
+        attribute word (behavior lo byte, layer bits 12-15) plus which
+        tileset owns the metatile ('general', 'slateport', ...)."""
+        if mt_id < NUM_METATILES_PRIMARY:
+            label, idx = self.primary, mt_id
+        else:
+            label, idx = self.secondary, mt_id - NUM_METATILES_PRIMARY
+        metatiles, attrs, _, _ = load_tileset(label)
+        name = label[len("gTileset_"):]
+        short = "".join(("_" + c.lower()) if c.isupper() else c
+                        for c in name).lstrip("_")
+        if idx >= len(metatiles):
+            return None, 0, 0, short
+        a = attrs[idx] if idx < len(attrs) else 0
+        return metatiles[idx], a & 0xFF, (a >> 12) & 0xF, short
+
     def palettes(self):
         """Combined 13-slot palette bank: primary 0-5, secondary 6-12."""
         _, _, _, ppals = load_tileset(self.primary)
