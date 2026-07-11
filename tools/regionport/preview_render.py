@@ -96,7 +96,104 @@ def solid_quad(canvas, color, world_quad, cam):
     ImageDraw.Draw(canvas).polygon(proj, fill=color)
 
 
-def render(mid="MAP_LITTLEROOT_TOWN", out_path=None):
+def paste_face(canvas, tex, face, cam, wrap=(True, True, False, False)):
+    """Textured tri/quad with per-face UVs in texels (repeat/flip-aware)."""
+    from PIL import Image, ImageDraw
+    import math
+    pts = [v[0] for v in face]
+    uvs = [v[1] for v in face]
+    us = [u for u, _ in uvs]
+    vs = [v for _, v in uvs]
+    rep_s, rep_t, flip_s, flip_t = wrap
+    if 0 <= min(us) and max(us) <= tex.width and 0 <= min(vs) and max(vs) <= tex.height:
+        tiled, u0, v0 = tex, 0, 0
+    else:
+        # cover [floor(min/w)..ceil(max/w)) whole tiles, mirroring when
+        # the flip bit is set (DS mirrored-repeat)
+        i0 = math.floor(min(us) / tex.width)
+        i1 = math.ceil(max(us) / tex.width)
+        j0 = math.floor(min(vs) / tex.height)
+        j1 = math.ceil(max(vs) / tex.height)
+        tiled = Image.new("RGBA", ((i1 - i0) * tex.width,
+                                   (j1 - j0) * tex.height))
+        for j in range(j0, j1):
+            for i in range(i0, i1):
+                t = tex
+                if flip_s and i % 2:
+                    t = t.transpose(Image.FLIP_LEFT_RIGHT)
+                if flip_t and j % 2:
+                    t = t.transpose(Image.FLIP_TOP_BOTTOM)
+                if not rep_s and i != 0:
+                    continue
+                if not rep_t and j != 0:
+                    continue
+                tiled.alpha_composite(t, ((i - i0) * tex.width,
+                                          (j - j0) * tex.height))
+        u0, v0 = i0 * tex.width, j0 * tex.height
+    src = [(u - u0, v - v0) for u, v in uvs]
+
+    proj = [cam.project(p) for p in pts]
+    xs = [p[0] for p in proj]
+    ys = [p[1] for p in proj]
+    x0, y0 = int(max(0, min(xs) - 1)), int(max(0, min(ys) - 1))
+    x1 = int(min(canvas.width, max(xs) + 2))
+    y1 = int(min(canvas.height, max(ys) + 2))
+    if x1 <= x0 or y1 <= y0:
+        return
+    dst = [(p[0] - x0, p[1] - y0) for p in proj]
+    try:
+        if len(pts) == 4:
+            coeffs = find_coeffs(dst, src)
+            warped = tiled.transform((x1 - x0, y1 - y0), Image.PERSPECTIVE,
+                                     coeffs, Image.NEAREST)
+        else:
+            a = np.array([[dst[i][0], dst[i][1], 1, 0, 0, 0] for i in range(3)] +
+                         [[0, 0, 0, dst[i][0], dst[i][1], 1] for i in range(3)])
+            b = np.array([src[i][0] for i in range(3)] +
+                         [src[i][1] for i in range(3)])
+            c = np.linalg.solve(a, b)
+            warped = tiled.transform((x1 - x0, y1 - y0), Image.AFFINE,
+                                     (c[0], c[1], c[2], c[3], c[4], c[5]),
+                                     Image.NEAREST)
+            mask = Image.new("L", warped.size, 0)
+            ImageDraw.Draw(mask).polygon(dst, fill=255)
+            warped.putalpha(Image.composite(
+                warped.getchannel("A"), Image.new("L", warped.size, 0), mask))
+    except np.linalg.LinAlgError:
+        return
+    canvas.alpha_composite(warped, (x0, y0))
+
+
+DONOR_BY_TYPE = {"house": 20, "lab": 21, "pokecenter": 2, "mart": 1, "gym": 5}
+MODEL_UNIT_PX = 16          # 1 model unit == 1 tile == 16 art px
+
+
+def draw_donor(canvas, model, cx, cz, cam, scale=1.0):
+    """Project a decoded vanilla model at ground position (cx, 0, cz)."""
+    s = MODEL_UNIT_PX * scale
+    faces = []
+    for mat_id, f in model.faces():
+        world = [((cx + x * s, y * s, cz + z * s), uv) for (x, y, z), uv in f]
+        centroid = np.mean([p for p, _ in world], axis=0)
+        depth = (centroid - cam.eye) @ cam.f
+        faces.append((depth, mat_id, world))
+    from PIL import ImageDraw
+    for _d, mat_id, world in sorted(faces, key=lambda t: -t[0]):
+        tex = model.texture_image(mat_id)
+        if "kage" in model.tex_name(mat_id):
+            # ground shadow: engine blends it; approximate at 35% black
+            proj = [cam.project(v[0])[:2] for v in world]
+            ov = canvas.copy()
+            ImageDraw.Draw(ov).polygon(proj, fill=(0, 0, 0, 255))
+            canvas.paste(Image.blend(canvas, ov, 0.35))
+            continue
+        if tex is None:
+            solid_quad(canvas, (120, 120, 130, 255), [v[0] for v in world], cam)
+        else:
+            paste_face(canvas, tex, world, cam, model.wrap_flags(mat_id))
+
+
+def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
     mb = hb.MapBuildings(mid)
     m = mb.m
     ground = m.render().convert("RGBA")
@@ -109,7 +206,7 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None):
         b["art"] = raw.crop((x0 * 16, y0 * 16, (x1 + 1) * 16, (y1 + 1) * 16))
         art = hb._mask_art(mb, b)
         art = Image.eval(art, lambda v: min(255, round(v * hb.HOENN_GAIN)))
-        builds.append({"rect": b["rect"], "img": art})
+        builds.append({"rect": b["rect"], "img": art, "type": b["type"]})
         # flatten footprint to the door-approach row (matches the importer)
         patch = ground.crop((x0 * 16, (y1 + 1) * 16,
                              (x1 + 1) * 16, (y1 + 2) * 16))
@@ -122,6 +219,32 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None):
 
     paste_quad(canvas, ground,
                [(0, 0, 0), (W, 0, 0), (W, 0, H), (0, 0, H)], cam)
+
+    if donor:
+        import mdlview
+        from narc import narc_read
+        bm = narc_read(os.path.join(
+            hb.ROOT, "disasm/pokeheartgold/files/fielddata/build_model/"
+            "bm_field.narc"))
+        cache = {}
+        for b in sorted(builds, key=lambda b: b["rect"][1]):
+            x0, y0, x1, y1 = b["rect"]
+            did = DONOR_BY_TYPE.get(b["type"], 20)
+            if did not in cache:
+                cache[did] = mdlview.Model(bm[did])
+            mdl = cache[did]
+            # scale the donor to the Hoenn footprint width (what a real
+            # drop-in integration would tune via the matshp locator)
+            xs = [v[0][0] for _, f in mdl.faces() for v in f]
+            fit = ((x1 - x0 + 1) * 16) / ((max(xs) - min(xs)) * MODEL_UNIT_PX)
+            cx = (x0 + x1 + 1) * 8
+            cz = (y0 + y1 + 1) * 8
+            draw_donor(canvas, mdl, cx, cz, cam, scale=fit)
+        canvas = canvas.resize((OUT_W, OUT_H), Image.LANCZOS)
+        out_path = out_path or os.path.join(hb.OUT, f"render_{mid}_donor.png")
+        canvas.convert("RGB").save(out_path)
+        print("wrote", out_path)
+        return
 
     # painter's: farthest (smallest z back) first == north to south
     for b in sorted(builds, key=lambda b: b["rect"][1]):
@@ -164,6 +287,11 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None):
     print("wrote", out_path)
 
 
+def _here_hc():
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "..", "hoennconv")
+
+
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    render(*(args or ()))
+    args = [a for a in sys.argv[1:] if a != "--donor"]
+    render(*(args or ()), donor="--donor" in sys.argv)
