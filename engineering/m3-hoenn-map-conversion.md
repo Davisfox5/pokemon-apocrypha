@@ -151,6 +151,27 @@ the solid-cell flood stop one row short of the roof line everywhere; fixed
 by extending footprints upward over draw-over rows, and clean cutouts key
 out the surrounding ground's exact colors.
 
+## Reconciliation with tools/regionport (merged from main, 2026-07-11)
+
+The parallel conversation's `tools/regionport/` suite is the **canonical
+pipeline**: it is emulator-verified (Sinnoh + Hoenn traversable in the ROM,
+Slateport buildings standing in 3-D) and includes a real NSBMD writer.
+Where the two toolchains overlap, regionport supersedes hoennconv
+(chunk/matrix generation, ground models, building extraction). Still unique
+to hoennconv and current: the byte-round-trip verify gate (`verify.py`),
+the zone_event JSON conversion for all 49 Hoenn maps, the behavior->type
+mapping doc, and `preview_render.py` (added to regionport) — a software
+renderer that draws a town with the exact `_fold_model` geometry and
+`_mask_art` textures, for previewing without a ROM build.
+
+**Open strategy decision for the owner:** regionport's v6 notes plan to
+replace the fold-billboard buildings with matched Gen-4 donor models
+("16 drop-in, 13 retint, 3 custom"). The owner's review in this
+conversation went the other way — keep the Gen-3 art as the texture source
+(fold-billboards/boxes), after rejecting donor retints for Littleroot.
+These need to be settled as one plan; the fold-billboard path currently
+matches the owner's stated preference.
+
 ## Next steps, in order
 
 1. **Terrain models:** generate real per-chunk NSBMD (flat textured planes
