@@ -212,6 +212,7 @@ DOWNSCALE_PX = 128                # arts wider/taller than this use half-res
 BASE_MODELS = 480                 # vanilla 340 + sinnoh import 140
 WALL_PX_SHORT, WALL_PX_TALL = 32, 48
 ROOF_TILT = 16                    # world units of roof rise front->back
+RIDGE_PX = 12                     # top art rows folded up as the ridge
 
 NO_ANIM_MEMBER = bytes.fromhex("ffff000000000000" + "ff" * 16)
 
@@ -494,16 +495,26 @@ def _quantize16(img, wall_rows=0):
     for y in range(py0, py0 + 8):
         for x in range(px0, px0 + 8):
             idx[y * pw + x] = best + 1
-    # side-wall strip: the front wall's outer edge columns, baked below the
+    # side-wall strip: the first mostly-OPAQUE 8px column band of the wall
+    # rows (edge columns can be transparent/keyed corners — sampling them
+    # leaves a grass-colored seam between front and side), baked below the
     # patch so side faces show connected wall texture instead of flat color
     strip = None
     wall_r = wall_rows if wall_rows and wall_rows <= h else 0
     if wall_r and py0 + 8 + wall_r <= ph and px0 + 8 <= pw:
+        sx0 = 0
+        for x in range(0, max(1, w - 8)):
+            if sum(1 for y in range(h - wall_r, h) if apx[x, y]) >= wall_r * 0.9:
+                sx0 = x
+                break
         sy = py0 + 8
         for y in range(wall_r):
+            yy = h - wall_r + y
+            src = best + 1
             for x in range(8):
-                src = qpx[min(x, w - 1), h - wall_r + y] + 1 \
-                    if apx[min(x, w - 1), h - wall_r + y] else best + 1
+                xx = min(sx0 + x, w - 1)
+                if apx[xx, yy]:
+                    src = qpx[xx, yy] + 1
                 idx[(sy + y) * pw + (px0 + x)] = src
         strip = (px0, sy, 8, wall_r)
     texels = bytearray(pw * ph // 2)
@@ -548,13 +559,26 @@ def _fold_model(art, name, ground_d_px):
         ((hw, 0, hd), (w / ts, h / ts)),
         ((-hw, 0, hd), (0, h / ts)),
     ]))
+    # roof overhangs the walls; the top art rows fold up as the ridge so the
+    # far side of a gabled roof reads as a surface, not a cut line
+    OV = 3
+    hwo, hdo = hw + OV, hd + OV
+    ridge = RIDGE_PX if roof_v >= 24 else 0
     if roof_v > 0:
-        # roof: front edge y=wall at z=+hd, back edge y=wall+tilt at z=-hd
+        # main slope: front edge y=wall at z=+hdo, back y=wall+tilt at -hdo
         faces.append(((0, 0.97, 0.24), [
-            ((-hw, wall + tilt, -hd), (0, 0)),
-            ((hw, wall + tilt, -hd), (w / ts, 0)),
-            ((hw, wall, hd), (w / ts, roof_v / ts)),
-            ((-hw, wall, hd), (0, roof_v / ts)),
+            ((-hwo, wall + tilt, -hdo), (0, ridge / ts)),
+            ((hwo, wall + tilt, -hdo), (w / ts, ridge / ts)),
+            ((hwo, wall, hdo), (w / ts, roof_v / ts)),
+            ((-hwo, wall, hdo), (0, roof_v / ts)),
+        ]))
+    if ridge:
+        rl = ridge / ts
+        faces.append(((0, 0.6, -0.8), [
+            ((-hwo, wall + tilt + ridge * 0.8, -hdo - ridge * 0.6), (0, 0)),
+            ((hwo, wall + tilt + ridge * 0.8, -hdo - ridge * 0.6), (w / ts, 0)),
+            ((hwo, wall + tilt, -hdo), (w / ts, rl)),
+            ((-hwo, wall + tilt, -hdo), (0, rl)),
         ]))
     # sides: front wall's edge-column strip, top of strip at the eave line
     faces.append(((1, 0, 0), [

@@ -98,6 +98,16 @@ whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
   grass at sloped roof corners), and _quantize16/_fold_model now bake an
   8px front-wall edge strip into the texture padding and UV the side/back
   faces with it (connected wall texture instead of flat patch color).
+  Owner-review round 2 landed: side strip now samples the first mostly-
+  OPAQUE wall column (edge columns are keyed corners — sampling them left a
+  grass seam), the roof overhangs the walls by 3px, and the top RIDGE_PX=12
+  art rows fold up as a ridge face so the far roof side reads as a surface
+  instead of a cut line (_fold_model emits 6 faces now; geometry verified
+  by decode round-trip). preview_render.py also 3-D-ifies surroundings for
+  look-dev: tree canopies as 2-cell billboards (column runs segmented),
+  signs as billboards from bg_events, and the map's border.bin block
+  rendered as an apron ring around the town. ROM-side: trees already erect
+  as quads in hoenn_ground v6; signs as small props are a proposed round.
   Remaining building rounds: per-type wall heights, door-face alignment,
   and elevation cliffs.
 

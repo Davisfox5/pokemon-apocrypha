@@ -111,13 +111,18 @@ class Model:
             else:
                 p += 1      # unknown: skip conservatively
 
-        self.tex = Tex0(blob)
+        try:
+            self.tex = Tex0(blob)      # None for props with external NSBTX
+        except ValueError:
+            self.tex = None
         self._teximg = {}
 
     def texture_image(self, mat_id):
         """RGBA PIL image for a material (None if untextured)."""
         name = self.mat_tex.get(mat_id)
         if name is None:
+            return None
+        if self.tex is None:
             return None
         if name not in self._teximg:
             e = next((t for t in self.tex.textures if t.name == name), None)
