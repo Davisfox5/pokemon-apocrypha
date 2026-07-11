@@ -110,6 +110,21 @@ whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
   as quads in hoenn_ground v6; signs as small props are a proposed round.
   Remaining building rounds: per-type wall heights, door-face alignment,
   and elevation cliffs.
+- **Community-practice research (2026-07-11):** high-quality DS hacks use
+  Pokemon DS Map Studio: maps are PAINTED from tilesets where each tile is
+  a hand-authored 3-D prefab (made once in Blender/SketchUp or ripped from
+  vanilla maps via apicula), then exported IMD->NSBMD via g3dcvtr;
+  buildings are one-time hand-modeled/kitbashed types reused everywhere.
+  Their quality = hand-authored asset vocabulary; their layouts are manual.
+  Our inverse advantage: automated layout/collision from Emerald data.
+  Adoption plan: (1) procedural "gable shell" upgrade of fold-billboards
+  (true two-slope roof + textured gable ends, generated from the art's
+  roof/wall split); (2) hand-fix only landmark buildings (gym, space
+  center, lighthouse...) via Blender->IMD, consuming our clean cutouts as
+  textures; (3) drive real cliff geometry from Emerald's per-tile
+  elevation bits (already parsed) with a small cliff-piece vocabulary;
+  (4) optionally consume PDSMS tileset prefabs programmatically for
+  generic 3-D pieces (trees/cliffs) where Hoenn identity isn't at stake.
 
 - **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
   HGSS land-data container, 13 Platinum tilesets, 30x30 matrix, 66 headers
