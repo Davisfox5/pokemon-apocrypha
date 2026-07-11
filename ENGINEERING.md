@@ -117,9 +117,17 @@ whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
   (ridge_rows_uniform — chimneys/domes would smear). _faces_dl emits
   mixed quad+tri BEGIN blocks. Flat-roof arts fall back to the fold
   model. Geometry verified by mdlview decode (6 quads + 2 tris).
+  TREES refactored per owner review (stood-up GBA tiles read as 2-D
+  cutouts): the vanilla Gen-4 tree kit worked backwards — tree01gs front
+  quad + tree01_un TOP-DOWN canopy cap (both in donorlib texsets; the
+  _un cap's teal shade ring keys out by hue), hue-shifted toward the
+  Emerald tree green per map. Preview places one 2x2-block tree per tree
+  blob cell pair, plus the border.bin apron ring. ROM-side TODO: extend
+  hoenn_ground's hedge walls with the same _un top caps + per-tree fronts.
   Remaining building rounds: per-type wall heights, door-face alignment,
   hand-modeled landmarks (gyms, space center, lighthouse) via
-  Blender->IMD, and elevation cliffs.
+  Blender->IMD, and elevation cliffs (next up; per-tile elevation already
+  parsed).
 - **Community-practice research (2026-07-11):** high-quality DS hacks use
   Pokemon DS Map Studio: maps are PAINTED from tilesets where each tile is
   a hand-authored 3-D prefab (made once in Blender/SketchUp or ripped from

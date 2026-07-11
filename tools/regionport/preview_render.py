@@ -278,6 +278,58 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
         if common_img is not None:
             break
 
+    # Gen-4 donor tree kit (worked backwards, per the owner's direction):
+    # tree01gs = front view, tree01_un = top-down canopy — the same two
+    # pieces vanilla HGSS builds its trees from. Hue-shifted toward the
+    # Emerald tree green so Hoenn keeps its palette.
+    import colorsys
+    import donorlib
+    dtex, dpal = donorlib.hgss_texset(2)
+
+    def keyed(name):
+        """Decode + drop the teal shade ring (vanilla renders it blended)."""
+        im, _ = donorlib.decode_rgba(dtex[name], dpal, "hgss")
+        im = im.convert("RGBA")
+        px = im.load()
+        for y in range(im.height):
+            for x in range(im.width):
+                r, g, bl, a = px[x, y]
+                if not a:
+                    continue
+                hh, ss, vv = colorsys.rgb_to_hsv(r / 255, g / 255, bl / 255)
+                if 0.40 <= hh <= 0.60 and ss > 0.15:
+                    px[x, y] = (0, 0, 0, 0)
+        return im
+
+    tree_front = keyed("tree01gs")
+    tree_top = keyed("tree01_un")
+
+    def dominant_hue(im):
+        hs = []
+        for r, g, bl, a in im.convert("RGBA").getdata():
+            if a and g > 60:
+                h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, bl / 255)
+                if s > 0.2:
+                    hs.append(h)
+        hs.sort()
+        return hs[len(hs) // 2] if hs else 0.33
+
+    def hue_shift(im, dh, ds=0.0):
+        im = im.convert("RGBA")
+        out = im.copy()
+        px, op = im.load(), out.load()
+        for y in range(im.height):
+            for x in range(im.width):
+                r, g, bl, a = px[x, y]
+                if not a:
+                    continue
+                h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, bl / 255)
+                r2, g2, b2 = colorsys.hsv_to_rgb((h + dh) % 1.0,
+                                                 min(1, max(0, s + ds)), v)
+                op[x, y] = (round(r2 * 255), round(g2 * 255),
+                            round(b2 * 255), a)
+        return out
+
     objects = []      # (south_z, kind, payload)
     tree_cells = set()
     _tree_memo = {}
@@ -290,30 +342,39 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
             _tree_memo[(tx, ty)] = bool(solid) and greenish(cell_art(tx, ty))
         return _tree_memo[(tx, ty)]
 
-    # segment each column's tree run into 2-cell canopies from the bottom up
-    for tx in range(m.w):
-        ty = m.h - 1
-        while ty >= 0:
-            if not is_tree(tx, ty) or (tx, ty) in tree_cells:
-                ty -= 1
+    # Hoenn-hued donor tree pieces (computed once per map from the first
+    # tree cell's art)
+    sample = None
+    for ty in range(m.h):
+        for tx in range(m.w):
+            if is_tree(tx, ty):
+                sample = cell_art(tx, ty)
+                break
+        if sample:
+            break
+    if sample is not None:
+        dh = dominant_hue(sample) - dominant_hue(tree_front)
+        h_front = hue_shift(tree_front, dh)
+        h_top = hue_shift(tree_top, dh)
+    else:
+        h_front, h_top = tree_front, tree_top
+
+    # one donor tree per 2x2 tree block (vanilla trees are 2 tiles wide);
+    # remaining single cells get a slimmer tree
+    for ty in range(m.h):
+        for tx in range(m.w):
+            if (tx, ty) in tree_cells or not is_tree(tx, ty):
                 continue
-            top = ty
-            while top - 1 >= 0 and is_tree(tx, top - 1):
-                top -= 1
-            yb = ty
-            while yb >= top:
-                hcells = 2 if yb - 1 >= top else 1
-                tex = raw.crop((tx * 16, (yb - hcells + 1) * 16,
-                                (tx + 1) * 16, (yb + 1) * 16))
-                tex = Image.eval(tex,
-                                 lambda v: min(255, round(v * hb.HOENN_GAIN)))
-                for k in range(hcells):
-                    tree_cells.add((tx, yb - k))
-                objects.append(((yb + 1) * 16, "billboard",
-                                (tex, tx * 16 + 8, (yb + 1) * 16,
-                                 16, hcells * 16)))
-                yb -= hcells
-            ty = top - 1
+            big = (is_tree(tx + 1, ty) and (tx + 1, ty) not in tree_cells
+                   and is_tree(tx, ty - 1) and is_tree(tx + 1, ty - 1))
+            cells = ([(tx, ty), (tx + 1, ty), (tx, ty - 1), (tx + 1, ty - 1)]
+                     if big else [(tx, ty)])
+            tree_cells.update(cells)
+            wpx = 32 if big else 18
+            hpx = 40 if big else 24
+            cx0 = tx * 16 + (16 if big else 8)
+            bz = (ty + 1) * 16
+            objects.append((bz, "tree", (cx0, bz, wpx, hpx, h_front, h_top)))
     for ev in (mb.m.json.get("bg_events") or []):
         tx, ty = int(ev.get("x", -1)), int(ev.get("y", -1))
         if not (0 <= tx < m.w and 0 <= ty < m.h) or (tx, ty) in in_rect:
@@ -375,16 +436,13 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
         big.paste(ground, (APRON * 16, APRON * 16))
         ground = big
         A = APRON * 16
-        # billboard the apron's inner ring so the enclosure reads as 3-D
+        # donor trees along the apron's inner ring
         for bx in range(-A, W + A, 32):
-            objects.append((0, "billboard",
-                            (border_img, bx + 16, 0, 32, 32)))
-            objects.append((H + A, "billboard",
-                            (border_img, bx + 16, H + A, 32, 32)))
+            objects.append((0, "tree", (bx + 16, 0, 32, 40, None, None)))
+            objects.append((H + A, "tree", (bx + 16, H + A, 32, 40, None, None)))
         for bz in range(32, H + A, 32):
-            objects.append((bz, "billboard", (border_img, -A + 16, bz, 32, 32)))
-            objects.append((bz, "billboard",
-                            (border_img, W + A - 16, bz, 32, 32)))
+            objects.append((bz, "tree", (-A + 16, bz, 32, 40, None, None)))
+            objects.append((bz, "tree", (W + A - 16, bz, 32, 40, None, None)))
     else:
         A = 0
 
@@ -402,6 +460,22 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
         if kind == "billboard":
             tex, bx, bz, bw, bh = payload
             paste_quad(canvas, tex,
+                       [(bx - bw / 2, bh, bz), (bx + bw / 2, bh, bz),
+                        (bx + bw / 2, 0, bz), (bx - bw / 2, 0, bz)], cam)
+            continue
+        if kind == "tree":
+            bx, bz, bw, bh, tf, tt = payload
+            tf = tf if tf is not None else h_front
+            tt = tt if tt is not None else h_top
+            capy = bh * 0.85
+            bw_cap = bw * 0.8
+            # top-down canopy cap first (visible behind the front quad)
+            paste_quad(canvas, tt,
+                       [(bx - bw / 2, capy, bz - bw_cap),
+                        (bx + bw / 2, capy, bz - bw_cap),
+                        (bx + bw / 2, capy, bz - bw_cap * 0.15),
+                        (bx - bw / 2, capy, bz - bw_cap * 0.15)], cam)
+            paste_quad(canvas, tf,
                        [(bx - bw / 2, bh, bz), (bx + bw / 2, bh, bz),
                         (bx + bw / 2, 0, bz), (bx - bw / 2, 0, bz)], cam)
             continue
