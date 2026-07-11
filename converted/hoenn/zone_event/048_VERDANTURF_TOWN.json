@@ -1,0 +1,191 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_VERDANTURF_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 134,
+      "z": 143,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "VerdanturfTown_EventScript_TownSign",
+      "type": 1,
+      "x": 134,
+      "z": 146,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 137,
+      "z": 143,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "VerdanturfTown_EventScript_WandasHouseSign",
+      "type": 1,
+      "x": 127,
+      "z": 154,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 133,
+      "z": 143,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 138,
+      "z": 143,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "VerdanturfTown_EventScript_BattleTentSign",
+      "type": 1,
+      "x": 121,
+      "z": 148,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "VerdanturfTown_EventScript_RusturfTunnelSign",
+      "type": 1,
+      "x": 127,
+      "z": 143,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_verdanturftown_x",
+      "spriteId": "SPRITE_MAN2",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "VerdanturfTown_EventScript_Man",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 124,
+      "z": 157,
+      "y": 0
+    },
+    {
+      "id": "obj_verdanturftown_verdanturf_twin",
+      "spriteId": "SPRITE_BABYGIRL1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "VerdanturfTown_EventScript_Twin",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 129,
+      "z": 142,
+      "y": 0
+    },
+    {
+      "id": "obj_verdanturftown_x",
+      "spriteId": "SPRITE_BOY1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "VerdanturfTown_EventScript_Boy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 127,
+      "z": 151,
+      "y": 0
+    },
+    {
+      "id": "obj_verdanturftown_x",
+      "spriteId": "SPRITE_BOY3",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "VerdanturfTown_EventScript_Camper",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 127,
+      "z": 146,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 123,
+      "z": 147,
+      "header": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 132,
+      "z": 143,
+      "header": "MAP_VERDANTURF_TOWN_MART",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 136,
+      "z": 143,
+      "header": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 130,
+      "z": 154,
+      "header": "MAP_VERDANTURF_TOWN_WANDAS_HOUSE",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 128,
+      "z": 141,
+      "header": "MAP_RUSTURF_TUNNEL",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 121,
+      "z": 154,
+      "header": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 137,
+      "z": 155,
+      "header": "MAP_VERDANTURF_TOWN_HOUSE",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

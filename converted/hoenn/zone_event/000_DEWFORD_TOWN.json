@@ -1,0 +1,170 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_DEWFORD_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "DewfordTown_EventScript_TownSign",
+      "type": 1,
+      "x": 70,
+      "z": 372,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "DewfordTown_EventScript_GymSign",
+      "type": 1,
+      "x": 71,
+      "z": 378,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 64,
+      "z": 372,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 63,
+      "z": 372,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "DewfordTown_EventScript_HallSign",
+      "type": 1,
+      "x": 62,
+      "z": 366,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_dewfordtown_x",
+      "spriteId": "SPRITE_WOMAN2",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "DewfordTown_EventScript_Woman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 67,
+      "z": 374,
+      "y": 0
+    },
+    {
+      "id": "obj_dewfordtown_dewford_briney",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN",
+      "scriptId": "DewfordTown_EventScript_Briney",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 72,
+      "z": 371,
+      "y": 0
+    },
+    {
+      "id": "obj_dewfordtown_x",
+      "spriteId": "SPRITE_FISHING",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "DewfordTown_EventScript_OldRodFisherman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 72,
+      "z": 376,
+      "y": 0
+    },
+    {
+      "id": "obj_dewfordtown_dewford_boat",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN",
+      "scriptId": "0x0",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 72,
+      "z": 370,
+      "y": 0
+    },
+    {
+      "id": "obj_dewfordtown_x",
+      "spriteId": "SPRITE_BOY1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "DewfordTown_EventScript_TrendyPhraseBoy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 61,
+      "z": 368,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 63,
+      "z": 365,
+      "header": "MAP_DEWFORD_TOWN_HALL",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 62,
+      "z": 372,
+      "header": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 68,
+      "z": 379,
+      "header": "MAP_DEWFORD_TOWN_GYM",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 77,
+      "z": 376,
+      "header": "MAP_DEWFORD_TOWN_HOUSE1",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 68,
+      "z": 370,
+      "header": "MAP_DEWFORD_TOWN_HOUSE2",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

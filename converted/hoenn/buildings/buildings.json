@@ -1,0 +1,1804 @@
+[
+  {
+    "map": "MAP_DEWFORD_TOWN",
+    "index": 0,
+    "local": [
+      1,
+      0,
+      10,
+      18
+    ],
+    "global": [
+      61,
+      362,
+      10,
+      18
+    ],
+    "files": "DEWFORD_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_DEWFORD_TOWN",
+    "index": 1,
+    "local": [
+      16,
+      10,
+      4,
+      5
+    ],
+    "global": [
+      76,
+      372,
+      4,
+      5
+    ],
+    "files": "DEWFORD_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_EVER_GRANDE_CITY",
+    "index": 0,
+    "local": [
+      6,
+      0,
+      25,
+      16
+    ],
+    "global": [
+      766,
+      180,
+      25,
+      16
+    ],
+    "files": "EVER_GRANDE_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_EVER_GRANDE_CITY",
+    "index": 1,
+    "local": [
+      6,
+      19,
+      25,
+      35
+    ],
+    "global": [
+      766,
+      199,
+      25,
+      35
+    ],
+    "files": "EVER_GRANDE_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_FALLARBOR_TOWN",
+    "index": 0,
+    "local": [
+      0,
+      1,
+      20,
+      15
+    ],
+    "global": [
+      80,
+      1,
+      20,
+      15
+    ],
+    "files": "FALLARBOR_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_FALLARBOR_TOWN",
+    "index": 1,
+    "local": [
+      5,
+      13,
+      4,
+      5
+    ],
+    "global": [
+      85,
+      13,
+      4,
+      5
+    ],
+    "files": "FALLARBOR_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 0,
+    "local": [
+      3,
+      11,
+      4,
+      4
+    ],
+    "global": [
+      323,
+      11,
+      4,
+      4
+    ],
+    "files": "FORTREE_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 1,
+    "local": [
+      4,
+      3,
+      4,
+      4
+    ],
+    "global": [
+      324,
+      3,
+      4,
+      4
+    ],
+    "files": "FORTREE_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 2,
+    "local": [
+      9,
+      2,
+      3,
+      2
+    ],
+    "global": [
+      329,
+      2,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 3,
+    "local": [
+      11,
+      12,
+      3,
+      2
+    ],
+    "global": [
+      331,
+      12,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 4,
+    "local": [
+      16,
+      2,
+      3,
+      2
+    ],
+    "global": [
+      336,
+      2,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 5,
+    "local": [
+      19,
+      7,
+      6,
+      5
+    ],
+    "global": [
+      339,
+      7,
+      6,
+      5
+    ],
+    "files": "FORTREE_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 6,
+    "local": [
+      24,
+      2,
+      3,
+      2
+    ],
+    "global": [
+      344,
+      2,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_06_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 7,
+    "local": [
+      31,
+      1,
+      3,
+      2
+    ],
+    "global": [
+      351,
+      1,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_07_*.png"
+  },
+  {
+    "map": "MAP_FORTREE_CITY",
+    "index": 8,
+    "local": [
+      36,
+      12,
+      3,
+      2
+    ],
+    "global": [
+      356,
+      12,
+      3,
+      2
+    ],
+    "files": "FORTREE_CITY/bldg_08_*.png"
+  },
+  {
+    "map": "MAP_LAVARIDGE_TOWN",
+    "index": 0,
+    "local": [
+      0,
+      1,
+      19,
+      19
+    ],
+    "global": [
+      140,
+      61,
+      19,
+      19
+    ],
+    "files": "LAVARIDGE_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 0,
+    "local": [
+      0,
+      0,
+      48,
+      15
+    ],
+    "global": [
+      480,
+      70,
+      48,
+      15
+    ],
+    "files": "LILYCOVE_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 1,
+    "local": [
+      2,
+      28,
+      18,
+      10
+    ],
+    "global": [
+      482,
+      98,
+      18,
+      10
+    ],
+    "files": "LILYCOVE_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 2,
+    "local": [
+      10,
+      19,
+      14,
+      6
+    ],
+    "global": [
+      490,
+      89,
+      14,
+      6
+    ],
+    "files": "LILYCOVE_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 3,
+    "local": [
+      36,
+      20,
+      6,
+      5
+    ],
+    "global": [
+      516,
+      90,
+      6,
+      5
+    ],
+    "files": "LILYCOVE_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 4,
+    "local": [
+      54,
+      3,
+      7,
+      18
+    ],
+    "global": [
+      534,
+      73,
+      7,
+      18
+    ],
+    "files": "LILYCOVE_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_LILYCOVE_CITY",
+    "index": 5,
+    "local": [
+      63,
+      0,
+      15,
+      12
+    ],
+    "global": [
+      543,
+      70,
+      15,
+      12
+    ],
+    "files": "LILYCOVE_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_LITTLEROOT_TOWN",
+    "index": 0,
+    "local": [
+      2,
+      4,
+      5,
+      5
+    ],
+    "global": [
+      122,
+      286,
+      5,
+      5
+    ],
+    "files": "LITTLEROOT_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_LITTLEROOT_TOWN",
+    "index": 1,
+    "local": [
+      3,
+      12,
+      7,
+      5
+    ],
+    "global": [
+      123,
+      294,
+      7,
+      5
+    ],
+    "files": "LITTLEROOT_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_LITTLEROOT_TOWN",
+    "index": 2,
+    "local": [
+      13,
+      4,
+      5,
+      5
+    ],
+    "global": [
+      133,
+      286,
+      5,
+      5
+    ],
+    "files": "LITTLEROOT_TOWN/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 0,
+    "local": [
+      5,
+      1,
+      6,
+      5
+    ],
+    "global": [
+      205,
+      141,
+      6,
+      5
+    ],
+    "files": "MAUVILLE_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 1,
+    "local": [
+      5,
+      10,
+      7,
+      4
+    ],
+    "global": [
+      205,
+      150,
+      7,
+      4
+    ],
+    "files": "MAUVILLE_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 2,
+    "local": [
+      18,
+      11,
+      8,
+      4
+    ],
+    "global": [
+      218,
+      151,
+      8,
+      4
+    ],
+    "files": "MAUVILLE_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 3,
+    "local": [
+      21,
+      2,
+      4,
+      4
+    ],
+    "global": [
+      221,
+      142,
+      4,
+      4
+    ],
+    "files": "MAUVILLE_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 4,
+    "local": [
+      31,
+      11,
+      9,
+      5
+    ],
+    "global": [
+      231,
+      151,
+      9,
+      5
+    ],
+    "files": "MAUVILLE_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_MAUVILLE_CITY",
+    "index": 5,
+    "local": [
+      34,
+      2,
+      5,
+      4
+    ],
+    "global": [
+      234,
+      142,
+      5,
+      4
+    ],
+    "files": "MAUVILLE_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 0,
+    "local": [
+      13,
+      7,
+      9,
+      17
+    ],
+    "global": [
+      653,
+      107,
+      9,
+      17
+    ],
+    "files": "MOSSDEEP_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 1,
+    "local": [
+      27,
+      6,
+      4,
+      4
+    ],
+    "global": [
+      667,
+      106,
+      4,
+      4
+    ],
+    "files": "MOSSDEEP_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 2,
+    "local": [
+      27,
+      13,
+      4,
+      4
+    ],
+    "global": [
+      667,
+      113,
+      4,
+      4
+    ],
+    "files": "MOSSDEEP_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 3,
+    "local": [
+      35,
+      5,
+      6,
+      5
+    ],
+    "global": [
+      675,
+      105,
+      6,
+      5
+    ],
+    "files": "MOSSDEEP_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 4,
+    "local": [
+      35,
+      16,
+      14,
+      9
+    ],
+    "global": [
+      675,
+      116,
+      14,
+      9
+    ],
+    "files": "MOSSDEEP_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 5,
+    "local": [
+      46,
+      0,
+      9,
+      7
+    ],
+    "global": [
+      686,
+      100,
+      9,
+      7
+    ],
+    "files": "MOSSDEEP_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_MOSSDEEP_CITY",
+    "index": 6,
+    "local": [
+      60,
+      4,
+      20,
+      31
+    ],
+    "global": [
+      700,
+      104,
+      20,
+      31
+    ],
+    "files": "MOSSDEEP_CITY/bldg_06_*.png"
+  },
+  {
+    "map": "MAP_OLDALE_TOWN",
+    "index": 0,
+    "local": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "global": [
+      124,
+      246,
+      4,
+      4
+    ],
+    "files": "OLDALE_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_OLDALE_TOWN",
+    "index": 1,
+    "local": [
+      5,
+      13,
+      4,
+      4
+    ],
+    "global": [
+      125,
+      255,
+      4,
+      4
+    ],
+    "files": "OLDALE_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_OLDALE_TOWN",
+    "index": 2,
+    "local": [
+      13,
+      3,
+      4,
+      4
+    ],
+    "global": [
+      133,
+      245,
+      4,
+      4
+    ],
+    "files": "OLDALE_TOWN/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_OLDALE_TOWN",
+    "index": 3,
+    "local": [
+      14,
+      13,
+      4,
+      4
+    ],
+    "global": [
+      134,
+      255,
+      4,
+      4
+    ],
+    "files": "OLDALE_TOWN/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 0,
+    "local": [
+      1,
+      10,
+      3,
+      3
+    ],
+    "global": [
+      481,
+      270,
+      3,
+      3
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 1,
+    "local": [
+      2,
+      20,
+      3,
+      3
+    ],
+    "global": [
+      482,
+      280,
+      3,
+      3
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 2,
+    "local": [
+      7,
+      12,
+      4,
+      4
+    ],
+    "global": [
+      487,
+      272,
+      4,
+      4
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 3,
+    "local": [
+      11,
+      22,
+      3,
+      3
+    ],
+    "global": [
+      491,
+      282,
+      3,
+      3
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 4,
+    "local": [
+      15,
+      11,
+      3,
+      3
+    ],
+    "global": [
+      495,
+      271,
+      3,
+      3
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_PACIFIDLOG_TOWN",
+    "index": 5,
+    "local": [
+      16,
+      19,
+      3,
+      3
+    ],
+    "global": [
+      496,
+      279,
+      3,
+      3
+    ],
+    "files": "PACIFIDLOG_TOWN/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 0,
+    "local": [
+      5,
+      2,
+      5,
+      4
+    ],
+    "global": [
+      45,
+      234,
+      5,
+      4
+    ],
+    "files": "PETALBURG_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 1,
+    "local": [
+      9,
+      16,
+      4,
+      4
+    ],
+    "global": [
+      49,
+      248,
+      4,
+      4
+    ],
+    "files": "PETALBURG_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 2,
+    "local": [
+      12,
+      4,
+      6,
+      5
+    ],
+    "global": [
+      52,
+      236,
+      6,
+      5
+    ],
+    "files": "PETALBURG_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 3,
+    "local": [
+      19,
+      13,
+      4,
+      4
+    ],
+    "global": [
+      59,
+      245,
+      4,
+      4
+    ],
+    "files": "PETALBURG_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 4,
+    "local": [
+      19,
+      21,
+      6,
+      4
+    ],
+    "global": [
+      59,
+      253,
+      6,
+      4
+    ],
+    "files": "PETALBURG_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_PETALBURG_CITY",
+    "index": 5,
+    "local": [
+      24,
+      9,
+      4,
+      4
+    ],
+    "global": [
+      64,
+      241,
+      4,
+      4
+    ],
+    "files": "PETALBURG_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_ROUTE104",
+    "index": 0,
+    "local": [
+      3,
+      15,
+      6,
+      4
+    ],
+    "global": [
+      3,
+      197,
+      6,
+      4
+    ],
+    "files": "ROUTE104/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE104",
+    "index": 1,
+    "local": [
+      7,
+      46,
+      9,
+      7
+    ],
+    "global": [
+      7,
+      228,
+      9,
+      7
+    ],
+    "files": "ROUTE104/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE105",
+    "index": 0,
+    "local": [
+      7,
+      17,
+      5,
+      4
+    ],
+    "global": [
+      7,
+      279,
+      5,
+      4
+    ],
+    "files": "ROUTE105/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE106",
+    "index": 0,
+    "local": [
+      36,
+      11,
+      16,
+      9
+    ],
+    "global": [
+      36,
+      353,
+      16,
+      9
+    ],
+    "files": "ROUTE106/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE109",
+    "index": 0,
+    "local": [
+      10,
+      0,
+      5,
+      6
+    ],
+    "global": [
+      210,
+      320,
+      5,
+      6
+    ],
+    "files": "ROUTE109/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE110",
+    "index": 0,
+    "local": [
+      9,
+      29,
+      7,
+      40
+    ],
+    "global": [
+      209,
+      189,
+      7,
+      40
+    ],
+    "files": "ROUTE110/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE110",
+    "index": 1,
+    "local": [
+      14,
+      10,
+      7,
+      7
+    ],
+    "global": [
+      214,
+      170,
+      7,
+      7
+    ],
+    "files": "ROUTE110/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE110",
+    "index": 2,
+    "local": [
+      14,
+      83,
+      14,
+      7
+    ],
+    "global": [
+      214,
+      243,
+      14,
+      7
+    ],
+    "files": "ROUTE110/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_ROUTE110",
+    "index": 3,
+    "local": [
+      33,
+      18,
+      6,
+      7
+    ],
+    "global": [
+      233,
+      178,
+      6,
+      7
+    ],
+    "files": "ROUTE110/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_ROUTE111",
+    "index": 0,
+    "local": [
+      10,
+      109,
+      8,
+      6
+    ],
+    "global": [
+      210,
+      109,
+      8,
+      6
+    ],
+    "files": "ROUTE111/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE111",
+    "index": 1,
+    "local": [
+      18,
+      53,
+      3,
+      6
+    ],
+    "global": [
+      218,
+      53,
+      3,
+      6
+    ],
+    "files": "ROUTE111/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE111",
+    "index": 2,
+    "local": [
+      25,
+      15,
+      4,
+      4
+    ],
+    "global": [
+      225,
+      15,
+      4,
+      4
+    ],
+    "files": "ROUTE111/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_ROUTE111",
+    "index": 3,
+    "local": [
+      25,
+      101,
+      15,
+      25
+    ],
+    "global": [
+      225,
+      101,
+      15,
+      25
+    ],
+    "files": "ROUTE111/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_ROUTE111",
+    "index": 4,
+    "local": [
+      27,
+      84,
+      5,
+      4
+    ],
+    "global": [
+      227,
+      84,
+      5,
+      4
+    ],
+    "files": "ROUTE111/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_ROUTE112",
+    "index": 0,
+    "local": [
+      1,
+      6,
+      32,
+      31
+    ],
+    "global": [
+      161,
+      26,
+      32,
+      31
+    ],
+    "files": "ROUTE112/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE113",
+    "index": 0,
+    "local": [
+      31,
+      0,
+      10,
+      6
+    ],
+    "global": [
+      131,
+      0,
+      10,
+      6
+    ],
+    "files": "ROUTE113/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE114",
+    "index": 0,
+    "local": [
+      0,
+      51,
+      21,
+      25
+    ],
+    "global": [
+      40,
+      53,
+      21,
+      25
+    ],
+    "files": "ROUTE114/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE114",
+    "index": 1,
+    "local": [
+      17,
+      1,
+      23,
+      5
+    ],
+    "global": [
+      57,
+      3,
+      23,
+      5
+    ],
+    "files": "ROUTE114/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE114",
+    "index": 2,
+    "local": [
+      25,
+      33,
+      5,
+      4
+    ],
+    "global": [
+      65,
+      35,
+      5,
+      4
+    ],
+    "files": "ROUTE114/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_ROUTE115",
+    "index": 0,
+    "local": [
+      15,
+      25,
+      25,
+      25
+    ],
+    "global": [
+      15,
+      67,
+      25,
+      25
+    ],
+    "files": "ROUTE115/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE116",
+    "index": 0,
+    "local": [
+      36,
+      0,
+      15,
+      9
+    ],
+    "global": [
+      76,
+      122,
+      15,
+      9
+    ],
+    "files": "ROUTE116/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE116",
+    "index": 1,
+    "local": [
+      53,
+      0,
+      25,
+      14
+    ],
+    "global": [
+      93,
+      122,
+      25,
+      14
+    ],
+    "files": "ROUTE116/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE117",
+    "index": 0,
+    "local": [
+      50,
+      2,
+      4,
+      4
+    ],
+    "global": [
+      190,
+      142,
+      4,
+      4
+    ],
+    "files": "ROUTE117/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE119",
+    "index": 0,
+    "local": [
+      1,
+      24,
+      16,
+      9
+    ],
+    "global": [
+      281,
+      24,
+      16,
+      9
+    ],
+    "files": "ROUTE119/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE119",
+    "index": 1,
+    "local": [
+      32,
+      106,
+      4,
+      4
+    ],
+    "global": [
+      312,
+      106,
+      4,
+      4
+    ],
+    "files": "ROUTE119/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE120",
+    "index": 0,
+    "local": [
+      5,
+      53,
+      5,
+      3
+    ],
+    "global": [
+      365,
+      53,
+      5,
+      3
+    ],
+    "files": "ROUTE120/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE120",
+    "index": 1,
+    "local": [
+      17,
+      20,
+      7,
+      5
+    ],
+    "global": [
+      377,
+      20,
+      7,
+      5
+    ],
+    "files": "ROUTE120/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_ROUTE121",
+    "index": 0,
+    "local": [
+      35,
+      0,
+      13,
+      8
+    ],
+    "global": [
+      435,
+      80,
+      13,
+      8
+    ],
+    "files": "ROUTE121/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE122",
+    "index": 0,
+    "local": [
+      10,
+      17,
+      23,
+      14
+    ],
+    "global": [
+      430,
+      117,
+      23,
+      14
+    ],
+    "files": "ROUTE122/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE123",
+    "index": 0,
+    "local": [
+      21,
+      3,
+      4,
+      4
+    ],
+    "global": [
+      341,
+      143,
+      4,
+      4
+    ],
+    "files": "ROUTE123/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE124",
+    "index": 0,
+    "local": [
+      69,
+      45,
+      4,
+      4
+    ],
+    "global": [
+      629,
+      105,
+      4,
+      4
+    ],
+    "files": "ROUTE124/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_ROUTE125",
+    "index": 0,
+    "local": [
+      16,
+      7,
+      19,
+      16
+    ],
+    "global": [
+      656,
+      67,
+      19,
+      16
+    ],
+    "files": "ROUTE125/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 0,
+    "local": [
+      2,
+      43,
+      8,
+      12
+    ],
+    "global": [
+      2,
+      165,
+      8,
+      12
+    ],
+    "files": "RUSTBORO_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 1,
+    "local": [
+      5,
+      7,
+      13,
+      17
+    ],
+    "global": [
+      5,
+      129,
+      13,
+      17
+    ],
+    "files": "RUSTBORO_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 2,
+    "local": [
+      6,
+      34,
+      6,
+      5
+    ],
+    "global": [
+      6,
+      156,
+      6,
+      5
+    ],
+    "files": "RUSTBORO_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 3,
+    "local": [
+      9,
+      25,
+      9,
+      6
+    ],
+    "global": [
+      9,
+      147,
+      9,
+      6
+    ],
+    "files": "RUSTBORO_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 4,
+    "local": [
+      15,
+      35,
+      4,
+      4
+    ],
+    "global": [
+      15,
+      157,
+      4,
+      4
+    ],
+    "files": "RUSTBORO_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 5,
+    "local": [
+      15,
+      42,
+      4,
+      4
+    ],
+    "global": [
+      15,
+      164,
+      4,
+      4
+    ],
+    "files": "RUSTBORO_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 6,
+    "local": [
+      24,
+      13,
+      13,
+      22
+    ],
+    "global": [
+      24,
+      135,
+      13,
+      22
+    ],
+    "files": "RUSTBORO_CITY/bldg_06_*.png"
+  },
+  {
+    "map": "MAP_RUSTBORO_CITY",
+    "index": 7,
+    "local": [
+      24,
+      42,
+      6,
+      5
+    ],
+    "global": [
+      24,
+      164,
+      6,
+      5
+    ],
+    "files": "RUSTBORO_CITY/bldg_07_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 0,
+    "local": [
+      2,
+      25,
+      5,
+      2
+    ],
+    "global": [
+      202,
+      285,
+      5,
+      2
+    ],
+    "files": "SLATEPORT_CITY/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 1,
+    "local": [
+      4,
+      16,
+      4,
+      4
+    ],
+    "global": [
+      204,
+      276,
+      4,
+      4
+    ],
+    "files": "SLATEPORT_CITY/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 2,
+    "local": [
+      8,
+      8,
+      5,
+      5
+    ],
+    "global": [
+      208,
+      268,
+      5,
+      5
+    ],
+    "files": "SLATEPORT_CITY/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 3,
+    "local": [
+      12,
+      23,
+      4,
+      4
+    ],
+    "global": [
+      212,
+      283,
+      4,
+      4
+    ],
+    "files": "SLATEPORT_CITY/bldg_03_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 4,
+    "local": [
+      18,
+      16,
+      4,
+      4
+    ],
+    "global": [
+      218,
+      276,
+      4,
+      4
+    ],
+    "files": "SLATEPORT_CITY/bldg_04_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 5,
+    "local": [
+      20,
+      31,
+      19,
+      14
+    ],
+    "global": [
+      220,
+      291,
+      19,
+      14
+    ],
+    "files": "SLATEPORT_CITY/bldg_05_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 6,
+    "local": [
+      24,
+      7,
+      8,
+      6
+    ],
+    "global": [
+      224,
+      267,
+      8,
+      6
+    ],
+    "files": "SLATEPORT_CITY/bldg_06_*.png"
+  },
+  {
+    "map": "MAP_SLATEPORT_CITY",
+    "index": 7,
+    "local": [
+      28,
+      16,
+      9,
+      11
+    ],
+    "global": [
+      228,
+      276,
+      9,
+      11
+    ],
+    "files": "SLATEPORT_CITY/bldg_07_*.png"
+  },
+  {
+    "map": "MAP_VERDANTURF_TOWN",
+    "index": 0,
+    "local": [
+      0,
+      0,
+      20,
+      8
+    ],
+    "global": [
+      120,
+      140,
+      20,
+      8
+    ],
+    "files": "VERDANTURF_TOWN/bldg_00_*.png"
+  },
+  {
+    "map": "MAP_VERDANTURF_TOWN",
+    "index": 1,
+    "local": [
+      0,
+      13,
+      4,
+      2
+    ],
+    "global": [
+      120,
+      153,
+      4,
+      2
+    ],
+    "files": "VERDANTURF_TOWN/bldg_01_*.png"
+  },
+  {
+    "map": "MAP_VERDANTURF_TOWN",
+    "index": 2,
+    "local": [
+      8,
+      13,
+      5,
+      2
+    ],
+    "global": [
+      128,
+      153,
+      5,
+      2
+    ],
+    "files": "VERDANTURF_TOWN/bldg_02_*.png"
+  },
+  {
+    "map": "MAP_VERDANTURF_TOWN",
+    "index": 3,
+    "local": [
+      16,
+      14,
+      4,
+      2
+    ],
+    "global": [
+      136,
+      154,
+      4,
+      2
+    ],
+    "files": "VERDANTURF_TOWN/bldg_03_*.png"
+  }
+]

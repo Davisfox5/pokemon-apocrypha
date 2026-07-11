@@ -1,0 +1,6129 @@
+[
+  {
+    "id": 0,
+    "bytes": 1900,
+    "names": [
+      "dmybox00",
+      "pCube1",
+      "lambert2",
+      "hit_r",
+      "hit_r_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 1,
+    "bytes": 8804,
+    "names": [
+      "en_fs",
+      "polySurface2",
+      "fs_kanb",
+      "fs_a",
+      "fs_ax",
+      "fs_ay",
+      "kage",
+      "en_fs_a",
+      "gs_fs_a",
+      "h_kage",
+      "en_fs_a_pl",
+      "gs_fs_a_pl"
+    ],
+    "vanilla_placements": 86
+  },
+  {
+    "id": 2,
+    "bytes": 8872,
+    "names": [
+      "en_pc",
+      "polySurface2",
+      "gs_pc_a",
+      "gs_pc_a_",
+      "gs_pc_b",
+      "h_kage",
+      "en_pc_a",
+      "en_pc_a_pl",
+      "gs_pc_b_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 3,
+    "bytes": 11264,
+    "names": [
+      "en_gate01",
+      "polySurface1",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate",
+      "gate_2",
+      "gate_3",
+      "gate_p2",
+      "h_kage"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 4,
+    "bytes": 6212,
+    "names": [
+      "en_gate02",
+      "polySurface4",
+      "en_ga02_1",
+      "h_kage",
+      "en_ga02_1_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "DDDDDDDDDDDDDDDD",
+      "wwwwwwwwwwwwDDDD",
+      "DDDDDDDDDDDD"
+    ],
+    "vanilla_placements": 54
+  },
+  {
+    "id": 5,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "en_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "en_gym_w_pl",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 6,
+    "bytes": 7488,
+    "names": [
+      "en_sekia",
+      "polySurface5",
+      "en_seki1",
+      "en_sekia2",
+      "h_mado",
+      "lambert4",
+      "en_sekia1",
+      "h_kage",
+      "en_sekia1_pl",
+      "en_sekia2_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 7,
+    "bytes": 8688,
+    "names": [
+      "en_sekib",
+      "polySurface6",
+      "en_seki1",
+      "en_sekia2",
+      "h_mado",
+      "lambert4",
+      "lambert6",
+      "en_sekia1",
+      "en_sekib1",
+      "h_kage",
+      "en_sekia1_pl",
+      "en_sekia2_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 8,
+    "bytes": 16284,
+    "names": [
+      "en_yake",
+      "polySurface1",
+      "en_yake1",
+      "en_yake2",
+      "en_yake2_",
+      "en_yake3",
+      "h_kage",
+      "en_yake_1",
+      "en_yake_2",
+      "en_yake_3",
+      "en_yake_1_pl",
+      "en_yake_2_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 9,
+    "bytes": 24872,
+    "names": [
+      "en_suzu",
+      "polySurface2",
+      "en_suzu1",
+      "en_suzu2",
+      "en_suzu2_",
+      "en_suzu4",
+      "h_kage",
+      "en_suzu_1",
+      "en_suzu_4",
+      "en_yake_2",
+      "en_suzu_1_pl",
+      "en_suzu_4_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 10,
+    "bytes": 9384,
+    "names": [
+      "en_kabu",
+      "polySurface3",
+      "en_kabu1",
+      "en_kabu1a",
+      "en_kabu2",
+      "h_kage",
+      "h_mado",
+      "en_kabu1_pl",
+      "en_kabu2_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 11,
+    "bytes": 8508,
+    "names": [
+      "en_h01a",
+      "polySurface4",
+      "en_h01a_1",
+      "en_h01a_2",
+      "h_kage",
+      "h_mado",
+      "en_h_01",
+      "en_h_02",
+      "en_h_01_pl",
+      "en_h_02_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 12,
+    "bytes": 8216,
+    "names": [
+      "en_h01b",
+      "polySurface6",
+      "en_h01a_1",
+      "en_h01a_2",
+      "h_kage",
+      "h_mado",
+      "en_h_01",
+      "en_h_02",
+      "en_h_01_pl",
+      "en_h_02_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 16
+  },
+  {
+    "id": 13,
+    "bytes": 940,
+    "names": [
+      "en_door1",
+      "pCube1",
+      "en_door1_lm1",
+      "en_door1_pl",
+      "polygon0",
+      "UUUU"
+    ],
+    "vanilla_placements": 13
+  },
+  {
+    "id": 14,
+    "bytes": 900,
+    "names": [
+      "en_door2",
+      "pCube1",
+      "en_door2_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 15,
+    "bytes": 768,
+    "names": [
+      "p_door",
+      "pCube1",
+      "pc_door",
+      "pc_door_pl",
+      "polygon0",
+      "DDDDDDDDUPUUUUUU",
+      "UPUUUUUUf",
+      "ffffffffffffffUU",
+      "UUUUUUDDDDDDDDDD",
+      "DDDDDD3333333333"
+    ],
+    "vanilla_placements": 57
+  },
+  {
+    "id": 16,
+    "bytes": 1268,
+    "names": [
+      "gym_door",
+      "polySurface43",
+      "gym_door_pl",
+      "polygon0",
+      "CDDD4c",
+      "SUUU5c",
+      "xwfff"
+    ],
+    "vanilla_placements": 19
+  },
+  {
+    "id": 17,
+    "bytes": 1628,
+    "names": [
+      "en_door3",
+      "d_door",
+      "d_door_l",
+      "d_door_r",
+      "en_door3_pl",
+      "polygon0",
+      "polygon1",
+      "UUUUUUUUUUU3DTUU",
+      "UU33333333U3DTUU",
+      "UU33333333U3D433",
+      "UU3U3UUUU3U3D433",
+      "UU3U3UBSU3U3D433"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 18,
+    "bytes": 4452,
+    "names": [
+      "en_sp1",
+      "polySurface2",
+      "en_sp1_1",
+      "en_sp1_2",
+      "en_sp1_3",
+      "en_sp1_4",
+      "en_sp1_1_pl",
+      "en_sp1_2_pl",
+      "en_sp1_3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 19,
+    "bytes": 15068,
+    "names": [
+      "MDL08",
+      "en_sky",
+      "polySurface1",
+      "sky_down1",
+      "sky_down2",
+      "sky_up1",
+      "sky_up2",
+      "sky_down",
+      "sky_down2_pl",
+      "sky_down_pl",
+      "sky_up1_pl",
+      "sky_up2_pl"
+    ],
+    "vanilla_placements": 17
+  },
+  {
+    "id": 20,
+    "bytes": 7084,
+    "names": [
+      "wk_hhouse",
+      "polySurface1",
+      "h_kage",
+      "h_mado",
+      "wk_hh_a",
+      "wk_hh_b",
+      "h_kage_pl",
+      "h_mado_pl",
+      "wk_hh_a_pl",
+      "wk_hh_b_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 20
+  },
+  {
+    "id": 21,
+    "bytes": 11436,
+    "names": [
+      "wk_labo",
+      "polySurface2",
+      "h_kage",
+      "wk_labo_a",
+      "wk_labo_b",
+      "wk_labo_c",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "wk_labo_a_pl",
+      "wk_labo_b_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 15
+  },
+  {
+    "id": 22,
+    "bytes": 5832,
+    "names": [
+      "wk_h01",
+      "polySurface1",
+      "h_kage",
+      "h_mado",
+      "wk_h01_a",
+      "wak_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "wak_h01_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 17
+  },
+  {
+    "id": 23,
+    "bytes": 5832,
+    "names": [
+      "wk_h02",
+      "polySurface1",
+      "h_kage",
+      "h_mado",
+      "wk_h01_a",
+      "wak_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "wak_h01_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 262
+  },
+  {
+    "id": 24,
+    "bytes": 1300,
+    "names": [
+      "wk_door1",
+      "pCube1",
+      "wk_door1_pl",
+      "polygon0",
+      "UUUUUUUUUUUUUUUU",
+      "UUUUUUUUwWUUUUUU",
+      "DDDDDDDTwWDDUUUU",
+      "D333SwW33UUUU3",
+      "R433SwW33UUUU3",
+      "SwW33UUUU3",
+      "R533SwW33UUUU3T",
+      "T433SwW33UUUU3CU"
+    ],
+    "vanilla_placements": 27
+  },
+  {
+    "id": 25,
+    "bytes": 1300,
+    "names": [
+      "wk_door2",
+      "pCube1",
+      "wk_door2_pl",
+      "polygon0",
+      "MHZb9"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 26,
+    "bytes": 1732,
+    "names": [
+      "MDL0x",
+      "wk_door3",
+      "wk_door",
+      "wk_door3_",
+      "wk_door3__pl",
+      "wk_door3_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "ffffffffffffffff",
+      "fffff333333fffff",
+      "fffff"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 27,
+    "bytes": 3100,
+    "names": [
+      "MDL0T",
+      "wk_sp1",
+      "polySurface4",
+      "polySurface1",
+      "polySurface2",
+      "wk_sp1_a",
+      "wk_sp1_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "qVhZ"
+    ],
+    "vanilla_placements": 42
+  },
+  {
+    "id": 28,
+    "bytes": 6812,
+    "names": [
+      "wind",
+      "polySurface1",
+      "wind_lm3",
+      "wind_lm4",
+      "wind_lm5",
+      "wind_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "qqqqq"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 29,
+    "bytes": 2000,
+    "names": [
+      "board_a",
+      "polySurface1",
+      "board_b",
+      "h_kage",
+      "board_ab",
+      "board_ab_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX04",
+      "ffffffff"
+    ],
+    "vanilla_placements": 33
+  },
+  {
+    "id": 30,
+    "bytes": 2392,
+    "names": [
+      "board_b",
+      "polySurface1",
+      "board_a",
+      "h_kage",
+      "board_ab",
+      "board_ab_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX04",
+      "ffffffff"
+    ],
+    "vanilla_placements": 25
+  },
+  {
+    "id": 31,
+    "bytes": 1876,
+    "names": [
+      "board_c",
+      "pCube1",
+      "h_kage",
+      "board_cd",
+      "board_cd_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "ffffffff",
+      "UUUUUUUU",
+      "DDDDDDDD"
+    ],
+    "vanilla_placements": 97
+  },
+  {
+    "id": 32,
+    "bytes": 2580,
+    "names": [
+      "board_d",
+      "polySurface1",
+      "board_c",
+      "h_kage",
+      "board_cd",
+      "board_cd_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX04",
+      "ffffffff"
+    ],
+    "vanilla_placements": 51
+  },
+  {
+    "id": 33,
+    "bytes": 2736,
+    "names": [
+      "MDL0d",
+      "board_e",
+      "polySurface1",
+      "board_f",
+      "h_kage",
+      "board_ef",
+      "board_ef_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX04"
+    ],
+    "vanilla_placements": 20
+  },
+  {
+    "id": 34,
+    "bytes": 2248,
+    "names": [
+      "board_f",
+      "polySurface1",
+      "board_e",
+      "h_kage",
+      "board_ef",
+      "board_ef_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX04",
+      "DDDDDD"
+    ],
+    "vanilla_placements": 21
+  },
+  {
+    "id": 35,
+    "bytes": 10576,
+    "names": [
+      "MDL08",
+      "gate_a",
+      "polySurface1",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate",
+      "gate_2",
+      "gate_3",
+      "gate_p2"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 36,
+    "bytes": 11264,
+    "names": [
+      "gate_b",
+      "polySurface1",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate",
+      "gate_2",
+      "gate_3",
+      "gate_p2",
+      "h_kage"
+    ],
+    "vanilla_placements": 10
+  },
+  {
+    "id": 37,
+    "bytes": 6248,
+    "names": [
+      "yo_h01",
+      "polySurface1",
+      "h_kage",
+      "h_mado",
+      "yo_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "yo_h01_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "ffff"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 38,
+    "bytes": 6708,
+    "names": [
+      "yo_h02",
+      "polySurface2",
+      "h_kage",
+      "h_mado",
+      "yo_h01_a",
+      "yo_h01_b",
+      "h_kage_pl",
+      "h_mado_pl",
+      "yo_h01_a_pl",
+      "yo_h01_b_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 39,
+    "bytes": 6704,
+    "names": [
+      "polySurface2",
+      "fs_kanb",
+      "fs_a",
+      "fs_a_",
+      "fs_ax",
+      "fs_ay",
+      "kage",
+      "gs_fs_a",
+      "h_kage",
+      "gs_fs_a_pl",
+      "h_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 12
+  },
+  {
+    "id": 40,
+    "bytes": 8872,
+    "names": [
+      "polySurface2",
+      "gs_pc_a",
+      "gs_pc_a_",
+      "gs_pc_b",
+      "h_kage",
+      "gs_pc_a_pl",
+      "gs_pc_b_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3"
+    ],
+    "vanilla_placements": 31
+  },
+  {
+    "id": 41,
+    "bytes": 6332,
+    "names": [
+      "kn_h01",
+      "polySurface13",
+      "h_kage",
+      "h_mado",
+      "kn_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "kn_h01_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "ffff333333333333"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 42,
+    "bytes": 10240,
+    "names": [
+      "kn_gate",
+      "h_in",
+      "h_kage",
+      "kn_gt01",
+      "kn_gt01w",
+      "kn_gt02",
+      "h_in_pl",
+      "h_kage_pl",
+      "kn_gt01_pl",
+      "kn_gt02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 7
+  },
+  {
+    "id": 43,
+    "bytes": 3264,
+    "names": [
+      "uzushio",
+      "polySurface11",
+      "uzushio_lm1",
+      "uzushio_lm2",
+      "polygon0",
+      "polygon1",
+      "DUUUUED",
+      "UUfffffVU",
+      "DUfffffffffV",
+      "TefffUEDDDDTeV",
+      "BefffFDD",
+      "TfffVUUUUUD"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 44,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "kk_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "kk_gym_w",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "kk_gym_w_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 45,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "hw_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "hw_gym_w",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "hw_gym_w_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 46,
+    "bytes": 7020,
+    "names": [
+      "MDL0H",
+      "hw_h01",
+      "polySurface120",
+      "h_kage_lm5",
+      "h_mado_lm1",
+      "hw_entotu1_lm3",
+      "hw_h01_a_lm7",
+      "hw_h01_a_lm8",
+      "h_kage",
+      "h_mado",
+      "hw_entotu1",
+      "hw_h01_a"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 47,
+    "bytes": 7272,
+    "names": [
+      "MDL0T",
+      "hw_h02",
+      "polySurface78",
+      "h_kage_lm3",
+      "h_mado_lm4",
+      "hw_h02_a_lm2",
+      "hw_h02_b_lm1",
+      "h_kage",
+      "h_mado",
+      "hw_h02_a",
+      "hw_h02_b",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 48,
+    "bytes": 3992,
+    "names": [
+      "MDL04",
+      "hw_ido",
+      "polySurface2",
+      "fence_b",
+      "h_kage",
+      "hw_ido01",
+      "hw_ido02",
+      "fence_b_pl",
+      "h_kage_pl",
+      "hw_ido01_pl",
+      "hw_ido02_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 18
+  },
+  {
+    "id": 49,
+    "bytes": 2892,
+    "names": [
+      "time_anime",
+      "pCube1",
+      "time_a",
+      "polygon0",
+      "TEX0l",
+      "DDDDDDDDDDDDDDDD",
+      "DDDDDDTUUEDDDDDD",
+      "DDDDDTUUUUEDDDDD",
+      "DDDDDUUUUUUDDDDD",
+      "DDDDTUUUUUUEDDDD",
+      "DDDDUUUUUUUUDDDD",
+      "UUUU"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 50,
+    "bytes": 1316,
+    "names": [
+      "yo_door1",
+      "pCube1",
+      "yo_door1_pl",
+      "polygon0",
+      "fffffffff"
+    ],
+    "vanilla_placements": 30
+  },
+  {
+    "id": 51,
+    "bytes": 1920,
+    "names": [
+      "yo_sp1",
+      "polySurface4",
+      "yo_sp1_pl",
+      "polygon0",
+      "wUWu",
+      "Ve2D"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 52,
+    "bytes": 2144,
+    "names": [
+      "yo_sp2",
+      "polySurface1",
+      "h_kage",
+      "yo_sp1",
+      "h_kage_pl",
+      "yo_sp1_pl",
+      "yo_sp2_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "wUWu",
+      "Ve2D"
+    ],
+    "vanilla_placements": 31
+  },
+  {
+    "id": 53,
+    "bytes": 7420,
+    "names": [
+      "r30_h01",
+      "polySurface3",
+      "h_kage",
+      "h_mado",
+      "r30_h01a",
+      "wk_h01_a",
+      "wak_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "r30_h01a_pl",
+      "wak_h01_a_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 113
+  },
+  {
+    "id": 54,
+    "bytes": 16308,
+    "names": [
+      "kk_mada",
+      "polySurface2",
+      "h_kage",
+      "kk_mada_a",
+      "kk_mada_b",
+      "kk_mada_b_",
+      "kk_mada_c",
+      "h_kage_pl",
+      "kk_mada_a_pl",
+      "kk_mada_b_pl",
+      "kk_mada_c_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 55
+  },
+  {
+    "id": 55,
+    "bytes": 3360,
+    "names": [
+      "kk_tourou",
+      "polySurface2",
+      "h_kage",
+      "kk_tourou_a",
+      "kk_tourou_ax",
+      "kk_tourou_b",
+      "h_kage_pl",
+      "kk_tourou_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3"
+    ],
+    "vanilla_placements": 33
+  },
+  {
+    "id": 56,
+    "bytes": 7012,
+    "names": [
+      "MDL0P",
+      "kk_h01",
+      "polySurface2",
+      "h_kage",
+      "h_mado",
+      "kk_h01_a",
+      "kk_h01_b",
+      "h_kage_pl",
+      "h_mado_pl",
+      "kk_h01_a_pl",
+      "kk_h01_b_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 26
+  },
+  {
+    "id": 57,
+    "bytes": 940,
+    "names": [
+      "kk_door1",
+      "pCube1",
+      "kk_door1_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 26
+  },
+  {
+    "id": 58,
+    "bytes": 12924,
+    "names": [
+      "MDL0X",
+      "kk_school",
+      "polySurface7",
+      "h_kage",
+      "h_mado",
+      "kk_school_a",
+      "kk_school_b",
+      "h_kage_pl",
+      "h_mado_pl",
+      "kk_school_a_pl",
+      "kk_school_b_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 49
+  },
+  {
+    "id": 59,
+    "bytes": 6512,
+    "names": [
+      "kk_bridge",
+      "polySurface1",
+      "kk_bridge_pl",
+      "polygon0",
+      "BDDDDDDDDDD",
+      "DDDDffff",
+      "Bffffffffff",
+      "Bffffff",
+      "Bfffffffv",
+      "wfffff",
+      "gfff",
+      "ffff"
+    ],
+    "vanilla_placements": 39
+  },
+  {
+    "id": 60,
+    "bytes": 1620,
+    "names": [
+      "kk_door2",
+      "d_door",
+      "d_door_l",
+      "d_door_r",
+      "kk_door2_pl",
+      "polygon0",
+      "polygon1",
+      "PUUUUUUU",
+      "PwwwwwwW",
+      "PWUUUUUW",
+      "U1QW1333SW33",
+      "SW33"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 61,
+    "bytes": 1212,
+    "names": [
+      "kk_door3",
+      "pCube1",
+      "kk_door3_pl",
+      "polygon0",
+      "UUUUUUUUUUUU3333",
+      "UUDDDDDDDDUU3333",
+      "HUU3333UU",
+      "DDDDDDHUU3333UU",
+      "HUU333333",
+      "H33333333",
+      "H333333",
+      "DDDDDDH"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 62,
+    "bytes": 8872,
+    "names": [
+      "kk_pc",
+      "polySurface2",
+      "gs_pc_a",
+      "gs_pc_a_",
+      "gs_pc_b",
+      "h_kage",
+      "en_pc_a",
+      "en_pc_a_pl",
+      "gs_pc_b_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 63,
+    "bytes": 8804,
+    "names": [
+      "kk_fs",
+      "polySurface2",
+      "fs_kanb",
+      "fs_a",
+      "fs_ax",
+      "fs_ay",
+      "kage",
+      "en_fs_a",
+      "gs_fs_a",
+      "h_kage",
+      "en_fs_a_pl",
+      "gs_fs_a_pl"
+    ],
+    "vanilla_placements": 29
+  },
+  {
+    "id": 64,
+    "bytes": 2352,
+    "names": [
+      "d15_obj",
+      "mKZ1",
+      "polySurface1",
+      "d15_obj01",
+      "d15_obj02",
+      "h_kage",
+      "d15_obj01_pl",
+      "d15_obj02_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 18
+  },
+  {
+    "id": 65,
+    "bytes": 6680,
+    "names": [
+      "d15_pillar",
+      "pCube1",
+      "d15_pillar01",
+      "d15_pillar02",
+      "d15_pillar03",
+      "d15_pillar01_pl",
+      "d15_pillar02_pl",
+      "d15_pillar03_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX08"
+    ],
+    "vanilla_placements": 16
+  },
+  {
+    "id": 66,
+    "bytes": 2708,
+    "names": [
+      "d15_stairup",
+      "pCube1",
+      "d15_stairup_pl",
+      "polygon0",
+      "CDD4"
+    ],
+    "vanilla_placements": 34
+  },
+  {
+    "id": 67,
+    "bytes": 2712,
+    "names": [
+      "d15_stairdw",
+      "pCube1",
+      "dun_stairdw",
+      "dun_stairdw_pl",
+      "polygon0",
+      "CDD4"
+    ],
+    "vanilla_placements": 22
+  },
+  {
+    "id": 68,
+    "bytes": 6264,
+    "names": [
+      "d15_light",
+      "polySurface6",
+      "d15_light_a",
+      "d15_light_b",
+      "_pld15_light_b",
+      "polygon0",
+      "polygon1",
+      "_pld15_light_a",
+      "CDD3",
+      "CDD4",
+      "DDD3",
+      "DDD4"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 69,
+    "bytes": 2708,
+    "names": [
+      "dun_stairup",
+      "pCube1",
+      "dun_stairup_pl",
+      "polygon0",
+      "CDD4"
+    ],
+    "vanilla_placements": 60
+  },
+  {
+    "id": 70,
+    "bytes": 2712,
+    "names": [
+      "dun_stairdw",
+      "pCube1",
+      "dun_stairdw_pl",
+      "polygon0",
+      "CDD4"
+    ],
+    "vanilla_placements": 71
+  },
+  {
+    "id": 71,
+    "bytes": 6048,
+    "names": [
+      "MDL0T",
+      "uba_hokora",
+      "polySurface1",
+      "h_kage",
+      "t5_s02_lm",
+      "t5_s02",
+      "h_kage_pl",
+      "t5_s02_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "wwwwwwwwwwwwwwww"
+    ],
+    "vanilla_placements": 10
+  },
+  {
+    "id": 72,
+    "bytes": 1156,
+    "names": [
+      "uba_eda",
+      "pCube1",
+      "uba_eda_pl",
+      "polygon0",
+      "SU533",
+      "SU25",
+      "efff"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 73,
+    "bytes": 4736,
+    "names": [
+      "yado_light",
+      "pCube1",
+      "yado_light_pl",
+      "polygon0",
+      "PXXXXP"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 74,
+    "bytes": 4848,
+    "names": [
+      "ko_chika",
+      "polySurface1",
+      "h_kage",
+      "ko_chika_a",
+      "ko_chika_b",
+      "ko_chika_win",
+      "station_c",
+      "h_kage_pl",
+      "ko_chika_a_pl",
+      "ko_chika_b_pl",
+      "station_c_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 75,
+    "bytes": 6472,
+    "names": [
+      "ko_cycle",
+      "polySurface1",
+      "h_kage",
+      "h_mados",
+      "ko_cycle2",
+      "lambert1",
+      "station_c",
+      "h_kage_pl",
+      "ko_cycle2_pl",
+      "ko_cycle_pl",
+      "station_c_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 30
+  },
+  {
+    "id": 76,
+    "bytes": 12432,
+    "names": [
+      "MDL08",
+      "ko_depart",
+      "polySurface650",
+      "gymc_lm1",
+      "h_kage_lm2",
+      "h_mado_lm5",
+      "ko_depart_lm1",
+      "ko_maku_lm1",
+      "ko_maku_lm2",
+      "gymc_de",
+      "h_kage",
+      "h_mado"
+    ],
+    "vanilla_placements": 20
+  },
+  {
+    "id": 77,
+    "bytes": 6816,
+    "names": [
+      "ko_flower",
+      "polySurface124",
+      "h_kage_lm3",
+      "ko_flower_lm1",
+      "station_c_lm1",
+      "h_kage",
+      "station_c",
+      "h_kage_pl",
+      "ko_flower_pl",
+      "station_c_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 78,
+    "bytes": 7472,
+    "names": [
+      "MDL0l",
+      "ko_funsui",
+      "polySurface7",
+      "funsui_a1",
+      "funsui_b1",
+      "funsui_c",
+      "h_kage",
+      "funsui_a",
+      "funsui_b",
+      "funsui_a_pl",
+      "funsui_b_pl",
+      "funsui_c_pl"
+    ],
+    "vanilla_placements": 35
+  },
+  {
+    "id": 79,
+    "bytes": 10072,
+    "names": [
+      "MDL04",
+      "ko_game",
+      "polySurface3",
+      "h_kage",
+      "ko_game_a",
+      "ko_game_a_",
+      "ko_mado",
+      "light_ani_a",
+      "light_ani_b",
+      "ko_game_b",
+      "station_c",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 80,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "ko_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "ko_gym_w",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "ko_gym_w_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 81,
+    "bytes": 5540,
+    "names": [
+      "ko_h01",
+      "polySurface45",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_mado",
+      "ko_h01_a",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ko_h01_a_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 82,
+    "bytes": 6056,
+    "names": [
+      "ko_h02",
+      "polySurface277",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ko_h02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 83,
+    "bytes": 8492,
+    "names": [
+      "ko_h03",
+      "polySurface438",
+      "polySurface439",
+      "polySurface440",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "lambert5",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 84,
+    "bytes": 1892,
+    "names": [
+      "ko_foot",
+      "pCube1",
+      "ko_foot_pl",
+      "polygon0",
+      "UUUUUUUU",
+      "ffffffff",
+      "wwwwwwww",
+      "DDDDDDDD",
+      "ZsNRJ"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 85,
+    "bytes": 3164,
+    "names": [
+      "ko_overpass",
+      "polySurface1",
+      "ko_opass",
+      "overpass",
+      "overpass_pl",
+      "polygon0",
+      "D33DDDDD",
+      "ffffffffDD",
+      "wwwwwwwwDD",
+      "wwwwwwwwD33DDDDD",
+      "UUUUUUUUDD",
+      "D3CDDDDDDDDDDDDD"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 86,
+    "bytes": 10600,
+    "names": [
+      "ko_radio",
+      "polySurface18",
+      "h_kage",
+      "radio_a",
+      "radio_b",
+      "radio_mado",
+      "ko_radio_a",
+      "ko_radio_b",
+      "station_c",
+      "h_kage_pl",
+      "ko_radio_a_pl",
+      "ko_radio_b_pl"
+    ],
+    "vanilla_placements": 10
+  },
+  {
+    "id": 87,
+    "bytes": 5776,
+    "names": [
+      "ko_seimei",
+      "polySurface193",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "ko_seimei_lm4",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ko_seimei_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 88,
+    "bytes": 14160,
+    "names": [
+      "ko_station",
+      "polySurface1",
+      "h_kage",
+      "h_mado",
+      "station_a",
+      "station_b",
+      "station_c",
+      "h_kage_pl",
+      "station_a_pl",
+      "station_b_pl",
+      "station_c_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 89,
+    "bytes": 21468,
+    "names": [
+      "ko_wifi",
+      "polySurface192",
+      "c1_s03_a_lm5",
+      "c1_s03_b_lm5",
+      "c1_s03_c_lm14",
+      "h_kage_lm5",
+      "ko_chika_win",
+      "lambert7",
+      "lambert8",
+      "c1_s03_a",
+      "c1_s03_b",
+      "c1_s03_c"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 90,
+    "bytes": 1680,
+    "names": [
+      "snap_camera",
+      "pCube1",
+      "lambert2",
+      "snap_camera_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 91,
+    "bytes": 1316,
+    "names": [
+      "hw_door1",
+      "polySurface64",
+      "lambert1",
+      "hw_door1_pl",
+      "polygon0",
+      "wwwwwwwwwwww7333",
+      "wDDDDDDDDDDt7333",
+      "t7333w",
+      "t7333",
+      "RUUUUU",
+      "cfffff",
+      "i333cfffff"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 92,
+    "bytes": 1316,
+    "names": [
+      "hw_door2",
+      "polySurface66",
+      "hw_door1_lm2",
+      "hw_door1",
+      "hw_door1_pl",
+      "polygon0",
+      "wwwwwwwwwwww7333",
+      "wDDDDDDDDDDt7333",
+      "t7333w",
+      "t7333",
+      "RUUUUU",
+      "cfffff"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 93,
+    "bytes": 1888,
+    "names": [
+      "hw_maki",
+      "polySurface9",
+      "lambert2",
+      "pasted__h_kage",
+      "h_kage",
+      "hw_ki",
+      "h_kage_pl",
+      "hw_ki_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "DDDD"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 94,
+    "bytes": 1296,
+    "names": [
+      "MDL0X",
+      "ko_door1",
+      "polySurface41",
+      "wk_door2_lm1",
+      "ko_door1_pl",
+      "polygon0",
+      "DDDDDDDDDDDDDDDD",
+      "DDDDDDDDwGDDDDDD",
+      "UUUUUUUEwGUUDDDD",
+      "DDDD",
+      "DDDDUUUUUUUUUUUU"
+    ],
+    "vanilla_placements": 24
+  },
+  {
+    "id": 95,
+    "bytes": 4104,
+    "names": [
+      "ko_light",
+      "polySurface5",
+      "ko_pole",
+      "ko_pole_",
+      "ko_light_pl",
+      "ko_pole_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "CCCCCCCC",
+      "cccccccc"
+    ],
+    "vanilla_placements": 35
+  },
+  {
+    "id": 96,
+    "bytes": 4996,
+    "names": [
+      "MDL0h",
+      "ko_flag",
+      "polySurface5",
+      "ko_pole",
+      "ko_flag_pl",
+      "ko_pole_pl",
+      "polygon0",
+      "polygon1",
+      "TUUUUUDD",
+      "TU3333UE",
+      "TUUUUUCD",
+      "TU533SUE"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 97,
+    "bytes": 5472,
+    "names": [
+      "ko_arch",
+      "polySurface618",
+      "h_kage_lm1",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_kage_pl",
+      "ko_arch_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "UUUUUUUUUUUUUUUU",
+      "UUUU"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 98,
+    "bytes": 2900,
+    "names": [
+      "ko_tetra",
+      "polySurface450",
+      "h_kage_lm1",
+      "lambert6",
+      "h_kage",
+      "ko_tetora",
+      "h_kage_pl",
+      "ko_tetora_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "CCDDDADDDDDD"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 99,
+    "bytes": 4000,
+    "names": [
+      "MDL0T",
+      "ko_bell",
+      "bCgF",
+      "polySurface504",
+      "h_kage_lm1",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_kage_pl",
+      "ko_bell_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 100,
+    "bytes": 1756,
+    "names": [
+      "hw_kemuri",
+      "pCube1",
+      "hw_kemuri1",
+      "hw_kemuri2",
+      "hw_kemuri3",
+      "hw_kemuri4",
+      "hw_kemuri_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "polygon4"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 101,
+    "bytes": 6816,
+    "names": [
+      "ko_h03x",
+      "polySurface440",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "wak_h01_a_lm1",
+      "h_kage",
+      "h_mado",
+      "ko_h03",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ko_h03_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 12
+  },
+  {
+    "id": 102,
+    "bytes": 6760,
+    "names": [
+      "MDL0D",
+      "tn_h01",
+      "_kage",
+      "_mado",
+      "h_in",
+      "tn_h01_02",
+      "h_kage",
+      "h_mado",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "tn_h01_02_pl"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 103,
+    "bytes": 1216,
+    "names": [
+      "tn_door1",
+      "tn_h01_01",
+      "tn_h01_01_pl",
+      "polygon0",
+      "bFDD",
+      "ODDdDD"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 104,
+    "bytes": 6976,
+    "names": [
+      "tn_pharmacy",
+      "_h_kage",
+      "_h_mado",
+      "h_in",
+      "tn_pharmacy_02",
+      "tn_pharmacy_02w",
+      "h_kage",
+      "h_mado",
+      "tn_pharmacy02",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 105,
+    "bytes": 7608,
+    "names": [
+      "tn_photo",
+      "_kage",
+      "_mado",
+      "h_in",
+      "tn_photo_02",
+      "tn_photo_02w",
+      "tn_photo_03",
+      "h_kage",
+      "h_mado",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 106,
+    "bytes": 2096,
+    "names": [
+      "tn_dried",
+      "tn_dried1",
+      "tn_driedw",
+      "tn_dried_pl",
+      "polygon0",
+      "polygon1",
+      "TEX00"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 107,
+    "bytes": 3300,
+    "names": [
+      "tn_gymbase",
+      "pCube1",
+      "kn_h01",
+      "tn_gymbase_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 108,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "tn_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "tn_gym_w",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "tn_gym_w_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 109,
+    "bytes": 7040,
+    "names": [
+      "as_h01",
+      "polySurface557",
+      "as_h01a_lm2",
+      "h_kage_lm2",
+      "h_mado_lm7",
+      "h_kage",
+      "h_mado",
+      "as_h01_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 110,
+    "bytes": 15368,
+    "names": [
+      "as_toudai",
+      "moto",
+      "yoru",
+      "h_kage",
+      "hikari",
+      "mado_maru",
+      "toudai1",
+      "toudai2",
+      "toukage",
+      "as_mado",
+      "as_toudai1",
+      "as_toudai2"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 111,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "as_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "as_gym_w",
+      "as_gym_w_pl",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 112,
+    "bytes": 12268,
+    "names": [
+      "r39_moumou",
+      "polySurface426",
+      "h_kage_lm5",
+      "h_mado_lm5",
+      "r39_moumou_lm5",
+      "wak_h01_a_lm7",
+      "wak_h01_a_lm8",
+      "h_kage",
+      "h_mado",
+      "r39_moumou_a",
+      "r39_moumou_b",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 113,
+    "bytes": 5032,
+    "names": [
+      "r39_naya",
+      "polySurface161",
+      "h_kage_lm2",
+      "r39_naya_lm2",
+      "h_kage",
+      "h_kage_pl",
+      "r39_naya_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "DD4UU5DD4UUUCDDT",
+      "DD4UU5DD4UUUCDD4"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 114,
+    "bytes": 1320,
+    "names": [
+      "r39_door1",
+      "polySurface432",
+      "wk_door2_lm3",
+      "r39_door1_pl",
+      "polygon0",
+      "wwwwwwwwwwwwwwww",
+      "wwww",
+      "wwwwx"
+    ],
+    "vanilla_placements": 17
+  },
+  {
+    "id": 115,
+    "bytes": 2824,
+    "names": [
+      "as_bench",
+      "polySurface15",
+      "h_kage_lm5",
+      "kn_h01",
+      "lambert3",
+      "h_kage",
+      "as_bench_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX0T"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 116,
+    "bytes": 3872,
+    "names": [
+      "tn_door2",
+      "polySurface19",
+      "tn_photo_01",
+      "tn_photo_01w",
+      "tn_photo_02",
+      "tn_photo_01_pl",
+      "tn_photo_02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "ffff333333333333",
+      "ffffcffffffffff3"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 117,
+    "bytes": 3432,
+    "names": [
+      "obj_yaketa",
+      "polySurface1",
+      "gym_obj1",
+      "gym_obj2",
+      "h_kage",
+      "gym_obj1_pl",
+      "gym_obj2_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 7
+  },
+  {
+    "id": 118,
+    "bytes": 7584,
+    "names": [
+      "as_restaurant",
+      "polySurface823",
+      "h_kage_lm5",
+      "h_mado_lm8",
+      "lambert7",
+      "r39_door1_lm3",
+      "t_lm1",
+      "as_door1",
+      "h_kage",
+      "h_mado",
+      "as_door1_pl",
+      "as_restaurant_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 119,
+    "bytes": 6848,
+    "names": [
+      "MDL0t",
+      "as_yacht",
+      "yacht_main",
+      "yacht_sub",
+      "as_yachtwave",
+      "yacht_s",
+      "yacht_sbf",
+      "as_yacht_pl",
+      "as_yachtwave_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 120,
+    "bytes": 1320,
+    "names": [
+      "as_door1",
+      "polySurface824",
+      "r39_door1_lm3",
+      "as_door1_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 121,
+    "bytes": 6144,
+    "names": [
+      "as_hata",
+      "polySurface112",
+      "hata1",
+      "hata2",
+      "hata3",
+      "himo",
+      "lambert3",
+      "lambert5",
+      "as_bou",
+      "as_hata2",
+      "as_hata3",
+      "as_kage"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 122,
+    "bytes": 36288,
+    "names": [
+      "MDL04",
+      "toudai_sky",
+      "radio_skys",
+      "sky_day",
+      "sky_night",
+      "sky_sunset",
+      "radio_sky",
+      "sky_light",
+      "sky_light_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 123,
+    "bytes": 59460,
+    "names": [
+      "tou3f_back",
+      "null1",
+      "back_hiru",
+      "back_yoru",
+      "back_yuu",
+      "cloud_hiru",
+      "cloud_yoru",
+      "cloud_yuu",
+      "cloud01_a",
+      "cloud01_b",
+      "cloud01_c",
+      "cloud02_a"
+    ],
+    "vanilla_placements": 26
+  },
+  {
+    "id": 124,
+    "bytes": 4008,
+    "names": [
+      "ele_door_dun",
+      "ele_door",
+      "ele_doors",
+      "polygon0",
+      "DDDDDDDDDDT",
+      "DDDDDDDDDDR",
+      "UUUUUUUUUUU",
+      "DDDDDDDDt",
+      "UUUUUUUUu",
+      "ffffffffv",
+      "fffffffft",
+      "wwwwwwwww"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 125,
+    "bytes": 8032,
+    "names": [
+      "map15_01kokage",
+      "polySurface1427",
+      "tree_kage",
+      "tree_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 126,
+    "bytes": 6892,
+    "names": [
+      "fall03_01",
+      "polySurface1",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 127,
+    "bytes": 6708,
+    "names": [
+      "map15_02kokage",
+      "polySurface1427",
+      "tree_kage",
+      "tree_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 128,
+    "bytes": 9284,
+    "names": [
+      "map16_01kokage",
+      "polySurface1427",
+      "tree_kage",
+      "tree_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 129,
+    "bytes": 5220,
+    "names": [
+      "map16_02kokage",
+      "polySurface1427",
+      "tree_kage",
+      "tree_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 130,
+    "bytes": 5044,
+    "names": [
+      "map17_01kokage",
+      "polySurface1427",
+      "tree_kage",
+      "tree_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 131,
+    "bytes": 3248,
+    "names": [
+      "d_uzushio",
+      "polySurface11",
+      "uzushio_lm1",
+      "uzushio_lm2",
+      "uzushio",
+      "polygon0",
+      "polygon1",
+      "DUUUUED",
+      "UUfffffVU",
+      "DUfffffffffV",
+      "TefffUEDDDDTeV",
+      "BefffFDD"
+    ],
+    "vanilla_placements": 10
+  },
+  {
+    "id": 132,
+    "bytes": 8144,
+    "names": [
+      "fu_h01",
+      "polySurface230",
+      "h_kage_lm5",
+      "lambert10",
+      "lambert6",
+      "lambert8",
+      "lambert9",
+      "fu_door1",
+      "h_kage",
+      "h_mado",
+      "fu_door1_pl",
+      "fu_h01_pl"
+    ],
+    "vanilla_placements": 7
+  },
+  {
+    "id": 133,
+    "bytes": 1316,
+    "names": [
+      "fu_door1",
+      "polySurface231",
+      "lambert9",
+      "fu_door1_pl",
+      "polygon0",
+      "fDfDfDfD"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 134,
+    "bytes": 6540,
+    "names": [
+      "MDL0h",
+      "ch_h01",
+      "_kage",
+      "_mado",
+      "ch_h01_1",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "ch_h01_1_pl",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 29
+  },
+  {
+    "id": 135,
+    "bytes": 1216,
+    "names": [
+      "ch_door1",
+      "ch_door1_01",
+      "ch_d01_1",
+      "ch_d01_1_pl",
+      "polygon0",
+      "I2K6"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 136,
+    "bytes": 3516,
+    "names": [
+      "antena_tree",
+      "polySurface974",
+      "tree01",
+      "tree01_un",
+      "antree_a",
+      "antree_b",
+      "antree_a_pl",
+      "antree_b_pl",
+      "polygon0",
+      "polygon1",
+      "DDDDi",
+      "DDDD"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 137,
+    "bytes": 3516,
+    "names": [
+      "antena_tree_",
+      "polySurface974",
+      "tree01",
+      "tree01_un",
+      "antree_a_",
+      "antree_b_",
+      "antree_a__pl",
+      "antree_b__pl",
+      "polygon0",
+      "polygon1",
+      "C333",
+      "CffffBD"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 138,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "ch_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "ch_gym_w",
+      "ch_gym_w_pl",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 18
+  },
+  {
+    "id": 139,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "fu_gym",
+      "fu_gym_en_gym_w",
+      "fu_gym_en_gym_w_",
+      "fu_gym_en_gyma",
+      "fu_gym_h_kage",
+      "en_gyma",
+      "fu_gym_w",
+      "h_kage",
+      "en_gyma_pl",
+      "fu_gym_w_pl",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 140,
+    "bytes": 59212,
+    "names": [
+      "d17_tmpl",
+      "d17_h02",
+      "d17_h03",
+      "d17_h03w",
+      "d17_h04",
+      "d17_h05",
+      "d17_h06",
+      "h_in",
+      "d17_h02_pl",
+      "d17_h03_pl",
+      "d17_h04_pl",
+      "d17_h05_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 141,
+    "bytes": 1212,
+    "names": [
+      "d17_tpdr",
+      "d17_temple__000",
+      "d17_h01",
+      "d17_h01_pl",
+      "polygon0",
+      "gffffffVU5",
+      "gfffUUfVU5",
+      "gfffUUfUD4",
+      "sDgfffVefDU5",
+      "cfVUUeffffU5",
+      "cVUUUfffffV5",
+      "CffffffffDD5"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 142,
+    "bytes": 3284,
+    "names": [
+      "d22_mizu",
+      "NImC",
+      "polySurface1",
+      "h_kage",
+      "mizu_a",
+      "mizu_b",
+      "d22_mizu_a",
+      "d22_mizu_b",
+      "d22_mizu_a_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 143,
+    "bytes": 11476,
+    "names": [
+      "d22_funsui",
+      "polySurface8",
+      "funsui_a1",
+      "funsui_b1",
+      "funsui_b2",
+      "funsui_b3",
+      "funsui_b4",
+      "funsui_b5",
+      "funsui_b6",
+      "funsui_c",
+      "kage",
+      "d22fun_a"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 144,
+    "bytes": 7232,
+    "names": [
+      "fall_toujou",
+      "polySurface1",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6"
+    ],
+    "vanilla_placements": 7
+  },
+  {
+    "id": 145,
+    "bytes": 3324,
+    "names": [
+      "pke_obj01",
+      "polySurface1",
+      "c10_s02",
+      "gym_obj2",
+      "h_kage",
+      "c10_s02_pl",
+      "gym_obj2_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "CDAD"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 146,
+    "bytes": 12164,
+    "names": [
+      "pke_league",
+      "polySurface1088",
+      "h_kage_lm1",
+      "h_kage_lm2",
+      "h_mado_lm1",
+      "lambert3",
+      "pke_league_lm1",
+      "h_kage",
+      "h_mado",
+      "pke_door1",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 147,
+    "bytes": 3008,
+    "names": [
+      "pke_gate",
+      "polySurface1019",
+      "h_kage_lm1",
+      "pke_gate_lm1",
+      "h_kage",
+      "h_kage_pl",
+      "pke_gate_pl",
+      "polygon0",
+      "polygon1",
+      "ffffffffffffffff",
+      "B4C3DDD",
+      "B4C3Dff"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 148,
+    "bytes": 10340,
+    "names": [
+      "MDL04",
+      "pke_flower",
+      "polySurface1130",
+      "pke_flower2",
+      "polygon0",
+      "_plpke_flower2",
+      "jVU3",
+      "juu7",
+      "VuWUU",
+      "jfVWwg",
+      "fUUwUfVfUewwfUUV",
+      "efwwffVVffwpwffU"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 149,
+    "bytes": 1192,
+    "names": [
+      "pke_door1",
+      "polySurface1041",
+      "pke_door1_lm1",
+      "pke_door1_pl",
+      "polygon0",
+      "ffffffff",
+      "wwwwwwww"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 150,
+    "bytes": 1320,
+    "names": [
+      "MDL0p",
+      "kn_door1",
+      "kn_door1_01",
+      "kn_gt01",
+      "kn_gt01_pl",
+      "polygon0",
+      "DDDDDDDD",
+      "TUUUUUUU",
+      "efffffff",
+      "vwwwwwww6",
+      "ffffffff6"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 151,
+    "bytes": 1880,
+    "names": [
+      "kn_door2",
+      "null1",
+      "kn_door1_01",
+      "kn_door2_01",
+      "kn_gt01",
+      "kn_gt01w",
+      "kn_gt01_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "DDDDDDDD"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 152,
+    "bytes": 6892,
+    "names": [
+      "fall_suri",
+      "polySurface1",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 153,
+    "bytes": 5680,
+    "names": [
+      "ar_study",
+      "polySurface29",
+      "lambert2",
+      "mado",
+      "pasted___kage",
+      "tn_h01_02",
+      "h_kage",
+      "h_mado",
+      "ar_study_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 154,
+    "bytes": 10224,
+    "names": [
+      "ar_center",
+      "polySurface422",
+      "h_kage_lm5",
+      "lambert2",
+      "lambert5",
+      "lambert7",
+      "pasted__d_light",
+      "ar_light",
+      "ar_shrine1",
+      "ar_shrine2",
+      "ar_yogosi",
+      "h_kage"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 155,
+    "bytes": 7816,
+    "names": [
+      "MDL0d",
+      "ar_shrine1",
+      "polySurface293",
+      "ar_shrine1_lm2",
+      "ar_shrine1_lm3",
+      "ar_yogosi2_lm1",
+      "ar_yogosi_lm1",
+      "h_kage_lm6",
+      "ar_yogosi",
+      "ar_yogosi2",
+      "h_kage",
+      "ar_shrine1_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 156,
+    "bytes": 7640,
+    "names": [
+      "ar_shrine2",
+      "polySurface266",
+      "ar_shrine1_lm2",
+      "ar_shrine2_lm1",
+      "ar_yogosi2_lm1",
+      "h_kage_lm1",
+      "ar_shrine1",
+      "ar_yogosi2",
+      "h_kage",
+      "ar_shrine1_pl",
+      "ar_shrine2_pl",
+      "ar_yogosi2_pl"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 157,
+    "bytes": 7904,
+    "names": [
+      "ar_shrine3",
+      "polySurface272",
+      "h_kage_lm5",
+      "lambert2",
+      "lambert6",
+      "pasted__d_light",
+      "ar_light",
+      "ar_shrine1",
+      "ar_yogosi2",
+      "h_kage",
+      "ar_light_pl",
+      "ar_shrine1_pl"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 158,
+    "bytes": 8396,
+    "names": [
+      "ar_shrine1_2",
+      "polySurface287",
+      "ar_light_lm1",
+      "ar_shrine1_lm1",
+      "ar_shrine1_lm2",
+      "ar_yogosi_lm1",
+      "h_kage_lm1",
+      "ar_light",
+      "ar_shrine1",
+      "ar_yogosi",
+      "h_kage",
+      "ar_light_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 159,
+    "bytes": 8632,
+    "names": [
+      "ar_shrine1_3",
+      "polySurface287",
+      "ar_light_lm1",
+      "ar_shrine1_lm3",
+      "ar_shrine1_lm4",
+      "ar_yogosi_lm1",
+      "h_kage_lm1",
+      "ar_light",
+      "ar_shrine1",
+      "ar_yogosi",
+      "h_kage",
+      "ar_light_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 160,
+    "bytes": 7676,
+    "names": [
+      "ar_shrine1_4",
+      "polySurface306",
+      "ambert87",
+      "lambert2",
+      "lambert6",
+      "lambert7",
+      "pasted__kage_lm5",
+      "ar_shrine1",
+      "ar_yogosi",
+      "ar_yogosi2",
+      "h_kage",
+      "ar_shrine1_pl"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 161,
+    "bytes": 8584,
+    "names": [
+      "ar_shrine1_5",
+      "polySurface287",
+      "ar_light_lm2",
+      "ar_shrine1_lm3",
+      "ar_shrine1_lm4",
+      "ar_yogosi_lm2",
+      "h_kage_lm2",
+      "ar_light",
+      "ar_shrine1",
+      "ar_yogosi",
+      "h_kage",
+      "ar_light_pl"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 162,
+    "bytes": 8308,
+    "names": [
+      "ar_shrine1_6",
+      "polySurface287",
+      "ar_light_lm2",
+      "ar_shrine1_lm3",
+      "ar_shrine1_lm4",
+      "ar_yogosi_lm2",
+      "h_kage_lm7",
+      "ar_light",
+      "ar_shrine1",
+      "ar_yogosi",
+      "h_kage",
+      "ar_light_pl"
+    ],
+    "vanilla_placements": 10
+  },
+  {
+    "id": 163,
+    "bytes": 7320,
+    "names": [
+      "ar_shrine1_7",
+      "polySurface298",
+      "ambert87",
+      "kage_lm5",
+      "lambert2",
+      "lambert7",
+      "ar_shrine1",
+      "ar_yogosi",
+      "h_kage",
+      "ar_shrine1_pl",
+      "ar_yogosi_pl",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 164,
+    "bytes": 1200,
+    "names": [
+      "ar_study_door",
+      "polySurface28",
+      "tn_h01_01",
+      "ar_study_door_pl",
+      "polygon0",
+      "DDDD",
+      "ADDDD",
+      "BDDDD",
+      "DDDDD",
+      "BDDDDDD"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 165,
+    "bytes": 10688,
+    "names": [
+      "r34_educate",
+      "polySurface99",
+      "h_kage_lm2",
+      "h_mado_lm2",
+      "r34_door1_lm1",
+      "r34_door1_lm2",
+      "r34_educate_lm1",
+      "h_kage",
+      "h_mado",
+      "r34_door1",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 166,
+    "bytes": 1276,
+    "names": [
+      "MDL04",
+      "r34_door1",
+      "polySurface100",
+      "r34_door1_lm1",
+      "r34_door1_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 167,
+    "bytes": 7032,
+    "names": [
+      "MDL0H",
+      "as_aquagate",
+      "polySurface1",
+      "asg_wall01",
+      "asg_wall02",
+      "asg_wall03",
+      "asg_wall04",
+      "asg_yane01",
+      "asg_yane01_a",
+      "d_mat01_mat",
+      "kage",
+      "lambert34"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 168,
+    "bytes": 26848,
+    "names": [
+      "aqua_go",
+      "yM0rC",
+      "aqua_go_dr",
+      "aqua_mn1",
+      "aqua_mn2",
+      "aqua_mn3",
+      "aqua_mn4",
+      "aqua_mn5",
+      "aqua_mn6",
+      "aqua_wd",
+      "aqua_mn1_pl",
+      "aqua_mn2_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 169,
+    "bytes": 3428,
+    "names": [
+      "object_suzu",
+      "polySurface2",
+      "gym_obj1",
+      "gym_obj2",
+      "h_kage",
+      "obj_suzu02",
+      "gym_obj2_pl",
+      "h_kage_pl",
+      "obj_suzu02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 24
+  },
+  {
+    "id": 170,
+    "bytes": 6920,
+    "names": [
+      "fall_r47",
+      "polySurface1",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 171,
+    "bytes": 14420,
+    "names": [
+      "msg_gtmn",
+      "h_in",
+      "h_kage",
+      "lambert91",
+      "msr_pt08w",
+      "msr_pt10",
+      "msr_pt11",
+      "msr_pt11w",
+      "msr_pt12",
+      "msr_pt12w",
+      "msr_pt08",
+      "h_in_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 172,
+    "bytes": 15444,
+    "names": [
+      "msg_gtob",
+      "jrC4K",
+      "h_kage",
+      "msr_pt07",
+      "msr_pt08",
+      "msr_pt09",
+      "h_kage_pl",
+      "msr_pt07_pl",
+      "msr_pt08_pl",
+      "msr_pt09_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 173,
+    "bytes": 10228,
+    "names": [
+      "msg_tn01",
+      "h_kage",
+      "msr_pt02",
+      "msr_pt03",
+      "msr_pt05",
+      "h_kage_pl",
+      "msr_pt02_pl",
+      "msr_pt03_pl",
+      "msr_pt05_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 174,
+    "bytes": 15188,
+    "names": [
+      "msg_tn02",
+      "h_kage",
+      "msr_pt01",
+      "msr_pt02",
+      "msr_pt04w",
+      "msr_pt06",
+      "msr_pt06w",
+      "msr_pt04",
+      "h_kage_pl",
+      "msr_pt01_pl",
+      "msr_pt02_pl",
+      "msr_pt04_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 175,
+    "bytes": 13828,
+    "names": [
+      "MDL0L-",
+      "msg_tn03",
+      "h_kage",
+      "msr_pt01",
+      "msr_pt02",
+      "msr_pt04",
+      "msr_pt04w",
+      "msr_pt06w",
+      "msr_pt06",
+      "h_kage_pl",
+      "msr_pt01_pl",
+      "msr_pt02_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 176,
+    "bytes": 12392,
+    "names": [
+      "msg_tn04",
+      "h_kage",
+      "msr_pt02",
+      "msr_pt03",
+      "msr_pt04",
+      "msr_pt04w",
+      "msr_pt05",
+      "h_kage_pl",
+      "msr_pt02_pl",
+      "msr_pt03_pl",
+      "msr_pt04_pl",
+      "msr_pt05_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 177,
+    "bytes": 1432,
+    "names": [
+      "warp_j01",
+      "polySurface1",
+      "light",
+      "warp01a",
+      "warp_j01a",
+      "warp_j01b",
+      "warp_j01a_pl",
+      "warp_j01b_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0d",
+      "DDDD"
+    ],
+    "vanilla_placements": 17
+  },
+  {
+    "id": 178,
+    "bytes": 2184,
+    "names": [
+      "MDL0L",
+      "poke_c_bench",
+      "polySurface3",
+      "benchi",
+      "benchi2",
+      "kage",
+      "h_kage",
+      "h_kage_pl",
+      "poke_c_bench_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 179,
+    "bytes": 12288,
+    "names": [
+      "poke_c_dome",
+      "polySurface136",
+      "h_kage_lm4",
+      "poke_c_d1_lm1",
+      "poke_c_d3_lm1",
+      "poke_c_d3_lm2",
+      "h_kage",
+      "poke_c_d1",
+      "poke_c_d3",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 180,
+    "bytes": 5980,
+    "names": [
+      "MDL08",
+      "poke_c_flower",
+      "polySurface5",
+      "dodai",
+      "dodai_a",
+      "flower_sp1",
+      "hontai",
+      "mizu",
+      "poke_c_f1",
+      "poke_c_f2",
+      "poke_c_f3",
+      "poke_c_f4"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 181,
+    "bytes": 13128,
+    "names": [
+      "MDL00",
+      "poke_c_gate",
+      "polySurface20",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate_2",
+      "gate_3",
+      "gate_p2",
+      "gate_x"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 182,
+    "bytes": 3796,
+    "names": [
+      "poke_c_light",
+      "polySurface25",
+      "_light_lm1",
+      "_lm2",
+      "as_kage_lm1",
+      "ght2_lm1",
+      "as_kage",
+      "poke_c_light2",
+      "as_kage_pl",
+      "poke_c_light2_pl",
+      "poke_c_light_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 183,
+    "bytes": 7456,
+    "names": [
+      "poke_c_mon",
+      "pasted__mon",
+      "ani2",
+      "h_kage_lm4",
+      "lambert57",
+      "h_kage",
+      "poke_c_mon1",
+      "h_kage_pl",
+      "poke_c_mon1_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 184,
+    "bytes": 10388,
+    "names": [
+      "poke_c_obj",
+      "polySurface8",
+      "obj1",
+      "obj2",
+      "poke_c_obj2",
+      "poke_c_obj2_pl",
+      "poke_c_obj_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "ODTv3",
+      "VsNRJ"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 185,
+    "bytes": 2204,
+    "names": [
+      "sg_door_op",
+      "null1",
+      "kn_door1_01",
+      "kn_door2_01",
+      "msr_pt11",
+      "msr_pt11w",
+      "msr_pt11_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "DDDDDDDDDDDD"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 186,
+    "bytes": 6264,
+    "names": [
+      "d17_light",
+      "polySurface6",
+      "d15_light_a",
+      "d17_light_b",
+      "_pld17_light_b",
+      "polygon0",
+      "polygon1",
+      "_pld15_light_a",
+      "CDD3",
+      "CDD4",
+      "DDD3",
+      "DDD4"
+    ],
+    "vanilla_placements": 13
+  },
+  {
+    "id": 187,
+    "bytes": 68368,
+    "names": [
+      "MDL0x",
+      "sroof_back",
+      "null1",
+      "back_hiru",
+      "back_yoru",
+      "back_yuu",
+      "cloud_hiru",
+      "cloud_yoru",
+      "cloud_yuu",
+      "cloud01_a",
+      "cloud01_b",
+      "cloud01_c"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 188,
+    "bytes": 2932,
+    "names": [
+      "ku_gym",
+      "pCube1",
+      "kn_h01",
+      "tn_gymbase",
+      "tn_gymbase_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 189,
+    "bytes": 2128,
+    "names": [
+      "saf_go01",
+      "go01",
+      "h_kage",
+      "h_kage_pl",
+      "saf_go01_pl",
+      "polygon0",
+      "polygon1",
+      "DUUD"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 190,
+    "bytes": 1796,
+    "names": [
+      "MDL08",
+      "saf_go02",
+      "go02",
+      "h_kage",
+      "h_kage_pl",
+      "saf_go02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 191,
+    "bytes": 1796,
+    "names": [
+      "MDL08",
+      "saf_go03",
+      "go03",
+      "h_kage",
+      "h_kage_pl",
+      "saf_go03_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 192,
+    "bytes": 2480,
+    "names": [
+      "saf_to01",
+      "to01",
+      "to01_2",
+      "saf_to01_2",
+      "saf_to01_2_pl",
+      "saf_to01_pl",
+      "polygon0",
+      "polygon1",
+      "DD8w",
+      "w38DD",
+      "DDq3c",
+      "Y333"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 193,
+    "bytes": 2012,
+    "names": [
+      "saf_to02",
+      "h_kage",
+      "to02",
+      "h_kage_pl",
+      "saf_to02_pl",
+      "polygon0",
+      "polygon1",
+      "DDDB4CU5UUUS4CuG",
+      "wwwT4Cuh",
+      "T4Cuh",
+      "T4Csh",
+      "W4CswwGwW4CSUU5U"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 194,
+    "bytes": 2404,
+    "names": [
+      "saf_to03",
+      "h_kage",
+      "to03",
+      "h_kage_pl",
+      "saf_to03_pl",
+      "polygon0",
+      "polygon1",
+      "gUUvwwwwgU",
+      "DDDD"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 195,
+    "bytes": 2000,
+    "names": [
+      "saf_ro01",
+      "h_kage",
+      "ro01",
+      "h_kage_pl",
+      "saf_ro01_pl",
+      "polygon0",
+      "polygon1",
+      "ffffffff3sw",
+      "fVef",
+      "Veff",
+      "VeUf",
+      "ffUf"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 196,
+    "bytes": 1896,
+    "names": [
+      "saf_ro02",
+      "h_kage",
+      "ro02",
+      "h_kage_pl",
+      "saf_ro02_pl",
+      "polygon0",
+      "polygon1",
+      "UUUUUUUU",
+      "UUUU",
+      "wwwwjBs",
+      "wwww"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 197,
+    "bytes": 1980,
+    "names": [
+      "saf_ro03",
+      "h_kage",
+      "ro03",
+      "h_kage_pl",
+      "saf_ro03_pl",
+      "polygon0",
+      "polygon1",
+      "DDDD",
+      "DTED",
+      "UffU",
+      "f6cf",
+      "f33f"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 198,
+    "bytes": 3096,
+    "names": [
+      "saf_wo01",
+      "wo01_1",
+      "wo01_2",
+      "saf_wo01_2",
+      "saf_wo01_2_pl",
+      "saf_wo01_pl",
+      "polygon0",
+      "polygon1",
+      "RRZRRRZRZR22",
+      "RRRZRZZZZZR2",
+      "wwwUUuUDFDD3333"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 199,
+    "bytes": 3080,
+    "names": [
+      "saf_wo02",
+      "h_kage",
+      "m_eo10",
+      "wo02_a",
+      "wo02_b",
+      "funsui_b",
+      "saf_eo10",
+      "funsui_b_pl",
+      "h_kage_pl",
+      "saf_eo10_pl",
+      "saf_wo02_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 200,
+    "bytes": 2472,
+    "names": [
+      "saf_wo03",
+      "h_kage",
+      "w03_b",
+      "wo03_a",
+      "d22_mizu_b",
+      "h_kage_pl",
+      "saf_wo03_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "UUUU",
+      "CUUUU5"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 201,
+    "bytes": 1880,
+    "names": [
+      "saf_eo01",
+      "eo01",
+      "h_kage",
+      "h_kage_pl",
+      "saf_eo01_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0T",
+      "wwffwwff"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 202,
+    "bytes": 1912,
+    "names": [
+      "saf_eo02",
+      "eo02_03_04_05",
+      "h_kage",
+      "h_kage_pl",
+      "saf_eo02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 203,
+    "bytes": 1912,
+    "names": [
+      "saf_eo03",
+      "eo02_03_04_05",
+      "h_kage",
+      "saf_eo02",
+      "h_kage_pl",
+      "saf_eo02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 204,
+    "bytes": 2172,
+    "names": [
+      "saf_eo04",
+      "eo02_03_04_05",
+      "h_kage",
+      "saf_eo02",
+      "h_kage_pl",
+      "saf_eo02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 205,
+    "bytes": 2128,
+    "names": [
+      "saf_eo05",
+      "eo02_03_04_05",
+      "h_kage",
+      "saf_eo02",
+      "h_kage_pl",
+      "saf_eo02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 206,
+    "bytes": 1840,
+    "names": [
+      "saf_eo06",
+      "eo06",
+      "h_kage",
+      "board_ab",
+      "board_ab_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "ffffffff",
+      "wwwwwwww",
+      "UUUU"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 207,
+    "bytes": 2992,
+    "names": [
+      "saf_eo07m",
+      "h_kage",
+      "obj3",
+      "saf_eo07m1",
+      "saf_eo07m2",
+      "h_kage_pl",
+      "saf_eo07m1_pl",
+      "saf_eo07m2_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "wwrwt"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 208,
+    "bytes": 2992,
+    "names": [
+      "saf_eo07f",
+      "h_kage",
+      "obj3",
+      "saf_eo07f1",
+      "saf_eo07m2",
+      "h_kage_pl",
+      "saf_eo07f1_pl",
+      "saf_eo07m2_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "bfefe"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 209,
+    "bytes": 4408,
+    "names": [
+      "saf_eo08m",
+      "eo09_a",
+      "saf_eo08m1",
+      "saf_eo09",
+      "saf_eo09_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0l",
+      "UhffffffX",
+      "UUUUUUUUU",
+      "UUUUU",
+      "UUUU"
+    ],
+    "vanilla_placements": 8
+  },
+  {
+    "id": 210,
+    "bytes": 4408,
+    "names": [
+      "saf_eo08f",
+      "eo09_a",
+      "saf_eo08f3",
+      "saf_eo09",
+      "saf_eo09_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0l",
+      "twwwwwwwDDDDDtw",
+      "twwwww",
+      "zwwwww",
+      "twww"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 211,
+    "bytes": 3360,
+    "names": [
+      "saf_eo09",
+      "eo09_a",
+      "ko_light",
+      "ko_light_pl",
+      "saf_eo09_pl",
+      "polygon0",
+      "polygon1",
+      "GGGGGGGG",
+      "gggggggg"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 212,
+    "bytes": 1444,
+    "names": [
+      "MDL08",
+      "saf_eo10",
+      "h_kage",
+      "m_eo10",
+      "h_kage_pl",
+      "saf_eo10_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0T",
+      "DD33UU33ff33ww"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 213,
+    "bytes": 1436,
+    "names": [
+      "MDL00",
+      "saf_eo11",
+      "h_kage",
+      "m_eo11",
+      "h_kage_pl",
+      "saf_eo11_pl",
+      "polygon0",
+      "polygon1",
+      "TEX0T"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 214,
+    "bytes": 2200,
+    "names": [
+      "MDL0L",
+      "saf_eo12",
+      "h_kage",
+      "plant01_mat",
+      "plant01",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "ttGG",
+      "wffw",
+      "rgvgv"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 215,
+    "bytes": 7296,
+    "names": [
+      "kbc_h01",
+      "kbc_h01_01",
+      "h_in",
+      "h_kage",
+      "kbc_h02",
+      "kbc_mado",
+      "h_in_pl",
+      "h_kage_pl",
+      "kbc_h02_pl",
+      "kbc_mado_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 216,
+    "bytes": 7352,
+    "names": [
+      "kbc_h02",
+      "polySurface3",
+      "h_kage",
+      "kbc_mado",
+      "h_kage_pl",
+      "kbc_h02_pl",
+      "kbc_mado_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "Ab9R2R",
+      "b9R2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 217,
+    "bytes": 7612,
+    "names": [
+      "kbc_love",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "kbc_lv02",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "kbc_lv02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 218,
+    "bytes": 12920,
+    "names": [
+      "kbc_port",
+      "kbc_port_1",
+      "h_in",
+      "h_kage",
+      "kbc_pr01w",
+      "kbc_pr02",
+      "kbc_pr03",
+      "kbc_pr01",
+      "h_in_pl",
+      "h_kage_pl",
+      "kbc_pr01_pl",
+      "kbc_pr02_pl"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 219,
+    "bytes": 8980,
+    "names": [
+      "kbc_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kbc_gym_b",
+      "kn_gym_a"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 220,
+    "bytes": 1268,
+    "names": [
+      "gym_door_kn",
+      "polySurface43",
+      "gym_door",
+      "gym_door_pl",
+      "polygon0",
+      "CDDD4c",
+      "SUUU5c",
+      "xwfff"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 221,
+    "bytes": 1208,
+    "names": [
+      "kbc_dr01",
+      "kbc_dor1",
+      "kbc_h01",
+      "kbc_h01_pl",
+      "polygon0",
+      "afffffffffff",
+      "ffffffffffffff",
+      "fffVUUUUUUUUef",
+      "fffVeffffffVef",
+      "xwwwwwwww"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 222,
+    "bytes": 2220,
+    "names": [
+      "kbc_dr02",
+      "null1",
+      "kn_door1_01",
+      "kn_door2_01",
+      "kbc_pr01",
+      "kbc_pr01w",
+      "kbc_pr01_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "DDDDDDDDDDDD"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 223,
+    "bytes": 1012,
+    "names": [
+      "kbc_sl",
+      "kbc_sl_1",
+      "kbc_sl03",
+      "kbc_sl03_pl",
+      "polygon0",
+      "AAyzz",
+      "AAyyzzz",
+      "AAAyyy"
+    ],
+    "vanilla_placements": 13
+  },
+  {
+    "id": 224,
+    "bytes": 2004,
+    "names": [
+      "poke_c_door",
+      "door_op",
+      "door_l",
+      "door_r",
+      "poke_c_dome2_lm3",
+      "poke_c_dome2",
+      "poke_c_dome2_pl",
+      "polygon0",
+      "polygon1",
+      "DDDD",
+      "ffffffff",
+      "UUUUUUUU"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 225,
+    "bytes": 1216,
+    "names": [
+      "kbc_dr03",
+      "kbc_lv01",
+      "kbc_lv01_pl",
+      "polygon0",
+      "QUUuUU",
+      "YUUU",
+      "QUUuUUU",
+      "UUUU",
+      "QUUuVef",
+      "fffV",
+      "bffu",
+      "ifffV"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 226,
+    "bytes": 34472,
+    "names": [
+      "poke_c_dome2",
+      "yane",
+      "ani2",
+      "dd4_lm4",
+      "h_kage_lm4",
+      "lambert57",
+      "h_kage",
+      "poke_c_d1",
+      "poke_c_d2",
+      "poke_c_d_f",
+      "poke_c_dome4",
+      "poke_c_mon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 227,
+    "bytes": 3020,
+    "names": [
+      "en_light",
+      "polySurface5",
+      "ko_light",
+      "ko_pole",
+      "ko_pole_",
+      "lambert6",
+      "en_pole",
+      "h_kage",
+      "en_pole_pl",
+      "h_kage_pl",
+      "ko_light_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 228,
+    "bytes": 19488,
+    "names": [
+      "d36_00_00",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_b2",
+      "ubashadow_c",
+      "ubashadow_c2",
+      "ubashadow_d",
+      "ubashadow_d2",
+      "ubashadow_f",
+      "ubashadow_f2",
+      "uba_b21"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 229,
+    "bytes": 17256,
+    "names": [
+      "d36_00_01",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_c",
+      "ubashadow_c2",
+      "ubashadow_d",
+      "ubashadow_d2",
+      "ubashadow_e",
+      "ubashadow_f",
+      "uba_c21",
+      "uba_d21"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 230,
+    "bytes": 10572,
+    "names": [
+      "MDL0T",
+      "d36_00_02",
+      "polySurface1",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_c",
+      "ubashadow_d",
+      "ubashadow_e",
+      "ubashadow_f",
+      "_plubashadow_b",
+      "_plubashadow_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 231,
+    "bytes": 8880,
+    "names": [
+      "d36_01_00",
+      "d36_01_00_",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_c",
+      "ubashadow_d",
+      "ubashadow_f",
+      "_plubashadow_b",
+      "_plubashadow_c",
+      "_plubashadow_d",
+      "_plubashadow_f"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 232,
+    "bytes": 12372,
+    "names": [
+      "d36_01_01",
+      "d36_01_01_",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_c",
+      "ubashadow_d",
+      "ubashadow_e",
+      "ubashadow_f",
+      "_plubashadow_b",
+      "_plubashadow_c",
+      "_plubashadow_d"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 233,
+    "bytes": 4396,
+    "names": [
+      "MDL0l",
+      "d36_01_02",
+      "d36_01_02_",
+      "ubashadow",
+      "ubashadow_a",
+      "ubashadow_b",
+      "ubashadow_c",
+      "_plubashadow_b",
+      "_plubashadow_c",
+      "_plubashadow_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 234,
+    "bytes": 3332,
+    "names": [
+      "fu_mon",
+      "polySurface1104",
+      "lambert74",
+      "road05_un",
+      "fu_mon2",
+      "fu_mon2_pl",
+      "fu_mon_pl",
+      "polygon0",
+      "polygon1",
+      "hDdH",
+      "dwYX",
+      "dwwwwi"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 235,
+    "bytes": 5556,
+    "names": [
+      "MDL0h",
+      "fu_rock",
+      "polySurface1101",
+      "lambert74",
+      "lambert88",
+      "h_kage",
+      "fu_rock_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "IDDD"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 236,
+    "bytes": 6212,
+    "names": [
+      "MDL0t",
+      "ta_h01",
+      "polySurface7",
+      "h_kage_lm2",
+      "h_mado_lm1",
+      "lambert2",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ta_h01_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 237,
+    "bytes": 6200,
+    "names": [
+      "MDL0h",
+      "ta_h02",
+      "polySurface114",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "lambert2",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ta_h02_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 238,
+    "bytes": 6972,
+    "names": [
+      "MDL0l",
+      "ta_h03",
+      "polySurface3",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "lambert2",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ta_h03_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 239,
+    "bytes": 7472,
+    "names": [
+      "MDL0l",
+      "ta_fountain",
+      "pasted__polySurf",
+      "pasted__funsui_a",
+      "pasted__funsui_b",
+      "pasted__funsui_c",
+      "pasted__h_kage",
+      "funsui_a",
+      "funsui_b",
+      "funsui_c",
+      "h_kage",
+      "funsui_a_pl"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 240,
+    "bytes": 6628,
+    "names": [
+      "ta_gift",
+      "polySurface7",
+      "h_kage_lm2",
+      "h_mado_lm1",
+      "hikaru",
+      "lambert3",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ta_gift_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 241,
+    "bytes": 9696,
+    "names": [
+      "ta_game",
+      "polySurface109",
+      "anime",
+      "anime_hasira",
+      "h_kage_lm2",
+      "hikaru",
+      "lambert2",
+      "h_kage",
+      "ta_game2",
+      "h_kage_pl",
+      "ta_game2_pl",
+      "ta_game_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 242,
+    "bytes": 12656,
+    "names": [
+      "ta_depart",
+      "polySurface115",
+      "garasu",
+      "gymc_lm1",
+      "h_kage_lm2",
+      "h_mado_lm5",
+      "h_mado_lm6",
+      "maku",
+      "gymc_de",
+      "h_kage",
+      "h_mado",
+      "station_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 243,
+    "bytes": 6428,
+    "names": [
+      "ta_restaurant",
+      "polySurface8",
+      "lambert9",
+      "h_kage_lm2",
+      "h_mado_lm1",
+      "lambert2",
+      "noren",
+      "fu_door1",
+      "h_kage",
+      "h_mado",
+      "fu_door1_pl",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 244,
+    "bytes": 12484,
+    "names": [
+      "ta_mansion",
+      "polySurface60",
+      "h_kage_lm2",
+      "h_mado_lm1",
+      "lambert2",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "ta_mansion_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 245,
+    "bytes": 8980,
+    "names": [
+      "ta_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kn_gym_a",
+      "kn_gym_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 246,
+    "bytes": 10576,
+    "names": [
+      "MDL08",
+      "kn_gate_a",
+      "polySurface1",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate",
+      "gate_2",
+      "gate_3",
+      "gate_p2"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 247,
+    "bytes": 11264,
+    "names": [
+      "kn_gate_b",
+      "polySurface1",
+      "gate_2_lm1",
+      "gate_3_lm1",
+      "gate_lm1",
+      "gate_p2_lm1",
+      "h_kage_lm1",
+      "gate",
+      "gate_2",
+      "gate_3",
+      "gate_p2",
+      "h_kage"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 248,
+    "bytes": 4104,
+    "names": [
+      "as_light",
+      "polySurface5",
+      "ko_light",
+      "ko_pole",
+      "ko_pole_",
+      "ko_light_pl",
+      "ko_pole_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "CCCCCCCC",
+      "cccccccc"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 249,
+    "bytes": 6772,
+    "names": [
+      "ch_mihari",
+      "polySurface13",
+      "h_kage",
+      "kk_school_a",
+      "ch_mihari_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1",
+      "TEX04",
+      "gfWUgfWUgfWUgfWU",
+      "DD43",
+      "UUUU"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 250,
+    "bytes": 8980,
+    "names": [
+      "ya_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kn_gym_a",
+      "kn_gym_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 251,
+    "bytes": 7348,
+    "names": [
+      "ybc_h01",
+      "h_in",
+      "h_kage",
+      "ybc_eo01",
+      "ybc_mado",
+      "h_in_pl",
+      "h_kage_pl",
+      "ybc_eo01_pl",
+      "ybc_mado_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 252,
+    "bytes": 6608,
+    "names": [
+      "ybc_h02",
+      "h_kage",
+      "ybc_h1b",
+      "ybc_mado",
+      "h_kage_pl",
+      "ybc_h1b_pl",
+      "ybc_mado_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "o2fY",
+      "ADD333333C"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 253,
+    "bytes": 7912,
+    "names": [
+      "ybc_h03",
+      "h_kage",
+      "ybc_h1b",
+      "ybc_mado",
+      "h_kage_pl",
+      "ybc_h1b_pl",
+      "ybc_mado_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "o2fm",
+      "ADD333333C"
+    ],
+    "vanilla_placements": 11
+  },
+  {
+    "id": 254,
+    "bytes": 11996,
+    "names": [
+      "ybc_h04",
+      "h_kage",
+      "ybc_h1b",
+      "ybc_h1c",
+      "ybc_mado",
+      "h_kage_pl",
+      "ybc_h1b_pl",
+      "ybc_h1c_pl",
+      "ybc_mado_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 9
+  },
+  {
+    "id": 255,
+    "bytes": 10068,
+    "names": [
+      "ybc_fgm",
+      "h_in",
+      "h_kage",
+      "ybcfg_01",
+      "ybcfg_02",
+      "ybcfg_03",
+      "ybcfg_04",
+      "ybcfg_05",
+      "ybcfg_05w",
+      "ybcfg_06",
+      "ybcfg_07",
+      "h_in_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 256,
+    "bytes": 13360,
+    "names": [
+      "ybc_lnr",
+      "h_in",
+      "h_kage",
+      "lambert20",
+      "stair01_1",
+      "ybc_ln02",
+      "ybc_ln04",
+      "ybc_ln05",
+      "ybc_ln07",
+      "ybc_wd01",
+      "ybc_wd02",
+      "r_stair"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 257,
+    "bytes": 17084,
+    "names": [
+      "ybc_slf",
+      "h_in",
+      "h_kage",
+      "ybc_sl02",
+      "ybc_sl03",
+      "ybc_sl05",
+      "ybc_sl07",
+      "ybc_wd01",
+      "ybc_wd03",
+      "h_in_pl",
+      "h_kage_pl",
+      "ybc_sl02_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 258,
+    "bytes": 10760,
+    "names": [
+      "ybc_mmc",
+      "h_in",
+      "h_kage",
+      "ybc_mado",
+      "ybc_mm01",
+      "ybc_mm02",
+      "h_in_pl",
+      "h_kage_pl",
+      "ybc_mado_pl",
+      "ybc_mm01_pl",
+      "ybc_mm02_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 259,
+    "bytes": 1296,
+    "names": [
+      "MDL0H",
+      "ybc_dor1",
+      "ybc_h1a",
+      "ybc_h1a_pl",
+      "polygon0",
+      "rWUUU",
+      "QUUuU",
+      "RUUUU",
+      "l5m9nA",
+      "Y4Z6b"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 260,
+    "bytes": 1608,
+    "names": [
+      "ybc_dor2",
+      "ybc_ln01",
+      "ybc_ln01w",
+      "ybc_ln01_pl",
+      "polygon0",
+      "polygon1",
+      "QUUUUUU",
+      "Vf03333",
+      "gvCDDDDsfv",
+      "gv33333sfv",
+      "gv33333sfawwwwww",
+      "awwwwwg"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 261,
+    "bytes": 1960,
+    "names": [
+      "ybc_dor3",
+      "null1",
+      "ybc_dor3_l",
+      "ybc_dor3_r",
+      "ybc_sl01",
+      "ybc_sl01w",
+      "ybc_sl01_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "DDDDDDDDDD"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 262,
+    "bytes": 14892,
+    "names": [
+      "d31_s01",
+      "polySurface867",
+      "b_tower1_lm5",
+      "b_tower2_lm5",
+      "b_tower3_lm5",
+      "b_tower4_lm4",
+      "h_kage_lm5",
+      "b_tower1",
+      "b_tower2",
+      "b_tower3",
+      "b_tower4",
+      "b_tower_m"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 263,
+    "bytes": 15440,
+    "names": [
+      "MDL0D",
+      "d32_s01",
+      "polySurface3",
+      "d32_s01a_lm1",
+      "d32_s01a_lm2",
+      "d32_s01b_lm1",
+      "d32_s01b_lm2",
+      "d32_s01c_lm1",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "lambert60",
+      "lambert61"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 264,
+    "bytes": 12996,
+    "names": [
+      "MDL0L",
+      "d32_s02",
+      "polySurface1",
+      "d32_s02_1",
+      "d32_s02_2",
+      "d32_s02a_lm2",
+      "d32_s02b_lm2",
+      "d32_s02c_lm1",
+      "h_kage_lm3",
+      "h_mado_lm3",
+      "lambert10",
+      "lambert8"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 265,
+    "bytes": 13776,
+    "names": [
+      "d32_s03",
+      "polySurface19",
+      "d32_s03a_lm3",
+      "d32_s03b_lm4",
+      "d32_s03c_lm1",
+      "d32_s03d_lm3",
+      "h_kage_lm4",
+      "lambert10",
+      "lambert9",
+      "d32_s03a",
+      "d32_s03b",
+      "d32_s03c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 266,
+    "bytes": 15440,
+    "names": [
+      "d32_s04",
+      "polySurface29",
+      "d32_s04a_lm2",
+      "d32_s04b_lm2",
+      "d32_s04d_lm2",
+      "h_kage_lm3",
+      "d32_s04a",
+      "d32_s04b",
+      "d32_s04d",
+      "h_kage",
+      "d32_s04a_pl",
+      "d32_s04b_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 267,
+    "bytes": 2476,
+    "names": [
+      "MDL0l",
+      "d32_s05",
+      "polySurface6",
+      "d32_s05a_lm1",
+      "d32_s05b_lm1",
+      "d32_s05c_lm1",
+      "d32_s05a",
+      "d32_s05b",
+      "d32_s05c",
+      "d32_s05a_pl",
+      "d32_s05b_pl",
+      "d32_s05c_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 268,
+    "bytes": 4184,
+    "names": [
+      "MDL0T",
+      "d32_s06",
+      "polySurface895",
+      "d32_s05b_lm1",
+      "d32_s05c_lm1",
+      "lambert57",
+      "lambert58",
+      "d32_s06a",
+      "d32_s06b",
+      "d32_s06c",
+      "d32_s06d",
+      "d32_s06a_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 269,
+    "bytes": 876,
+    "names": [
+      "MDL0t",
+      "gym_door00",
+      "null1",
+      "pCube1",
+      "pCube2",
+      "gym_door00_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 270,
+    "bytes": 2348,
+    "names": [
+      "d32_hata",
+      "pCube1",
+      "bf_hata02_lm4",
+      "bf_hata02",
+      "polygon0",
+      "TEX0L",
+      "UUUUUUUUUUUU",
+      "wUUUUUUUUwR",
+      "wwwR",
+      "DDDDDDDD",
+      "HDDH",
+      "DHHD"
+    ],
+    "vanilla_placements": 12
+  },
+  {
+    "id": 271,
+    "bytes": 528,
+    "names": [
+      "gate_pokes",
+      "pCube1",
+      "lambert1",
+      "polygon0"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 272,
+    "bytes": 5828,
+    "names": [
+      "MDL04",
+      "bf_h01",
+      "h_kage",
+      "h_mado",
+      "t6_h01_a",
+      "bf_h01_a",
+      "h_mado2",
+      "bf_h01_a_pl",
+      "h_kage_pl",
+      "h_mado2_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 273,
+    "bytes": 1196,
+    "names": [
+      "bf_door1",
+      "t3_door2",
+      "bf_door1_pl",
+      "polygon0",
+      "UUUU33",
+      "UUUUffFdfFdfFdff",
+      "UUUUff",
+      "afFdfFdffUUUUff",
+      "fFdfFdffUUUUf",
+      "aFdfFdffUUUUf",
+      "aFdfFdffUUUUff",
+      "FFdfFdffUUUUfF"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 274,
+    "bytes": 1260,
+    "names": [
+      "tafl04_door1",
+      "pCube1",
+      "lambert2",
+      "tmfl04_door1",
+      "tmfl04_door1_pl",
+      "polygon0",
+      "wwwwwwww",
+      "wHDDDD",
+      "wXUUUU"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 275,
+    "bytes": 9016,
+    "names": [
+      "tafl04_h01",
+      "polySurface2",
+      "h_mado",
+      "lambert12",
+      "wall_1",
+      "wall_2",
+      "win_1",
+      "yane_1",
+      "yane_2",
+      "yane_3",
+      "yane_4",
+      "yane_5"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 276,
+    "bytes": 6788,
+    "names": [
+      "ha_h01a",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "hdc_h01b",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "hdc_h01b_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 277,
+    "bytes": 6780,
+    "names": [
+      "ha_h01b",
+      "h_kage",
+      "h_mado",
+      "hdc_h01b",
+      "h_kage_pl",
+      "h_mado_pl",
+      "hdc_h01b_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "UUUUUUUU33333333",
+      "fffffff"
+    ],
+    "vanilla_placements": 3
+  },
+  {
+    "id": 278,
+    "bytes": 8620,
+    "names": [
+      "ha_cycle",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "hdc_cy01",
+      "hdc_cy02",
+      "hdc_cy03",
+      "hdc_cy04",
+      "hdc_cy05",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 279,
+    "bytes": 7020,
+    "names": [
+      "MDL0H",
+      "misaki_h01",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "msk_h01b",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "msk_h01b_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 280,
+    "bytes": 5600,
+    "names": [
+      "si_h01",
+      "polySurface91",
+      "h_kage_lm2",
+      "lambert5",
+      "light1",
+      "h_kage",
+      "si_mado",
+      "h_kage_pl",
+      "si_h01_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 281,
+    "bytes": 16064,
+    "names": [
+      "si_radio",
+      "polySurface688",
+      "h_kage_lm1",
+      "lambert5",
+      "light1",
+      "si_radio2_lm1",
+      "h_kage",
+      "si_mado",
+      "si_radio2",
+      "h_kage_pl",
+      "si_radio2_pl",
+      "si_radio_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 282,
+    "bytes": 7792,
+    "names": [
+      "si_temp",
+      "polySurface94",
+      "h_kage_lm1",
+      "lambert5",
+      "light1",
+      "h_kage",
+      "si_mado",
+      "h_kage_pl",
+      "si_temp_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 283,
+    "bytes": 15120,
+    "names": [
+      "MDL0L2",
+      "kn_power",
+      "knp_p01",
+      "knp_p02",
+      "knp_p03",
+      "knp_p04",
+      "knp_p05",
+      "knp_p06",
+      "knp_p07",
+      "lambert2",
+      "h_kage",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 284,
+    "bytes": 8980,
+    "names": [
+      "ha_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "ha_gym_b",
+      "kn_gym_a"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 285,
+    "bytes": 11984,
+    "names": [
+      "MDL00",
+      "si_gym",
+      "polySurface56",
+      "en_gym_w",
+      "en_gym_w_",
+      "en_gyma",
+      "h_kage",
+      "en_gym_w_pl",
+      "en_gyma_pl",
+      "h_kage_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 286,
+    "bytes": 1216,
+    "names": [
+      "ha_dr01",
+      "hdc_h01a",
+      "hdc_h01a_pl",
+      "polygon0",
+      "C433C4333",
+      "fffVeffVefff",
+      "iVeffVefff",
+      "VeffVefff",
+      "WeffVefff",
+      "yReffVefff",
+      "UeffVefff",
+      "RVeffVefff"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 287,
+    "bytes": 1580,
+    "names": [
+      "MDL0d",
+      "msk_dr01",
+      "msk_h01a",
+      "msk_h01a_pl",
+      "polygon0",
+      "SUUUU5",
+      "UUUU",
+      "UUU5",
+      "UUUU53UU",
+      "UUUUUUUU",
+      "UUUUUU",
+      "UUUUUUwwUwwwwwwU"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 288,
+    "bytes": 1316,
+    "names": [
+      "si_door1",
+      "polySurface70",
+      "si_door1_lm1",
+      "si_door1_pl",
+      "polygon0",
+      "QUUUU",
+      "QUUUUUUUU",
+      "QUUUUUU",
+      "UUUU"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 289,
+    "bytes": 1316,
+    "names": [
+      "si_door2",
+      "polySurface78",
+      "lambert7",
+      "si_door2_pl",
+      "polygon0",
+      "c1g9"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 290,
+    "bytes": 4848,
+    "names": [
+      "kn_chika",
+      "polySurface1",
+      "h_kage",
+      "ko_chika_a",
+      "ko_chika_b",
+      "ko_chika_win",
+      "kn_chika_a",
+      "kn_chika_b",
+      "station_c",
+      "h_kage_pl",
+      "kn_chika_a_pl",
+      "kn_chika_b_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 291,
+    "bytes": 3100,
+    "names": [
+      "MDL0T",
+      "a13_anemo",
+      "polySurface4",
+      "polySurface1",
+      "polySurface2",
+      "wk_sp1_a",
+      "wk_sp1_a_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "qVhZ"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 292,
+    "bytes": 6512,
+    "names": [
+      "MDL0L",
+      "nbc_h01",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "nbc_h01b",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "nbc_h01b_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 293,
+    "bytes": 13512,
+    "names": [
+      "nbc_msem",
+      "h_kage",
+      "nbc_mm01",
+      "nbc_mm01w",
+      "nbc_mm02",
+      "nbc_mm03",
+      "nbc_mm04",
+      "nbc_mm05",
+      "nbc_mm06",
+      "nbc_mm07",
+      "nbc_mm08",
+      "nbc_mm09"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 294,
+    "bytes": 8980,
+    "names": [
+      "nbc_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kn_gym_a",
+      "kn_gym_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 295,
+    "bytes": 7084,
+    "names": [
+      "se_palpark",
+      "polySurface16",
+      "lambert10",
+      "lambert12",
+      "lambert13",
+      "lambert8",
+      "park_mark",
+      "pokepark",
+      "station_c",
+      "park_mark_pl",
+      "pokepark_pl",
+      "station_c_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 296,
+    "bytes": 17104,
+    "names": [
+      "uzu_taki",
+      "polySurface37",
+      "uzu_taki1_lm5",
+      "uzu_taki2_lm5",
+      "uzu_taki2_lm6",
+      "uzu_taki2_lm9",
+      "uzu_taki_c_lm2",
+      "uzu_taki_d_lm1",
+      "wave2",
+      "wave6",
+      "uzu_taki1",
+      "uzu_taki2"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 297,
+    "bytes": 6552,
+    "names": [
+      "sk_h01",
+      "polySurface61",
+      "h_kage_lm3",
+      "h_mado_lm4",
+      "sk_h03_lm1",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "sk_h01_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 298,
+    "bytes": 6488,
+    "names": [
+      "sk_h02",
+      "polySurface71",
+      "h_kage_lm3",
+      "h_mado_lm4",
+      "sk_h02_lm1",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "sk_h02_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 299,
+    "bytes": 7652,
+    "names": [
+      "sk_h03",
+      "polySurface56",
+      "h_kage_lm3",
+      "h_mado_lm3",
+      "sk_h01_lm1",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "sk_h03_pl",
+      "polygon0",
+      "polygon1"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 300,
+    "bytes": 8980,
+    "names": [
+      "sk_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kn_gym_a",
+      "kn_gym_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 301,
+    "bytes": 1296,
+    "names": [
+      "MDL0H",
+      "nbc_dr1",
+      "nbc_h01a",
+      "nbc_h01a_pl",
+      "polygon0",
+      "UUUETUUETUUU",
+      "xdFw"
+    ],
+    "vanilla_placements": 5
+  },
+  {
+    "id": 302,
+    "bytes": 992,
+    "names": [
+      "cl_slht",
+      "cl_slht_01",
+      "cl_slht1",
+      "cl_slht1_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 303,
+    "bytes": 5856,
+    "names": [
+      "cl_stbg",
+      "cl_stbg_01",
+      "cl_stbg_lt",
+      "cl_stbg_sd",
+      "cl_stbg1",
+      "cl_stbg2",
+      "cl_stbg3",
+      "f_kage",
+      "cl_stbg1_pl",
+      "cl_stbg2_pl",
+      "cl_stbg3_pl",
+      "f_kage_pl"
+    ],
+    "vanilla_placements": 26
+  },
+  {
+    "id": 304,
+    "bytes": 3724,
+    "names": [
+      "obj_hosz",
+      "obj_lgsz1",
+      "ob_lgsz1",
+      "ob_lgsz2",
+      "ob_lgsz3",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "TEX0t",
+      "ffffffffDDDDDDDD",
+      "UUUUUUUUUUUUUUUU",
+      "UUUU"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 305,
+    "bytes": 5612,
+    "names": [
+      "obj_lgsz",
+      "obj_lgsz1",
+      "ob_lgsz1",
+      "ob_lgsz2",
+      "ob_lgsz3",
+      "ob_lgsz4",
+      "ob_lgsz4_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "ffffffffDDDDDDDD"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 306,
+    "bytes": 1280,
+    "names": [
+      "MDL08",
+      "sk_door1",
+      "polySurface39",
+      "sk_door1_lm1",
+      "sk_door1_pl",
+      "polygon0",
+      "QXUUUUU",
+      "QXfffff",
+      "affff",
+      "ffff",
+      "uyTffff",
+      "uwTffff"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 307,
+    "bytes": 1280,
+    "names": [
+      "MDL08",
+      "sk_door2",
+      "polySurface59",
+      "sk_door2_lm1",
+      "sk_door2_pl",
+      "polygon0",
+      "U0333333",
+      "CDDDD3",
+      "uxV3DDDD3",
+      "uwV3DDDD3",
+      "DDDDD3"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 308,
+    "bytes": 10004,
+    "names": [
+      "kn_gate_l",
+      "h_kage",
+      "kn_gt01",
+      "kn_gt01w",
+      "kn_gt02",
+      "h_kage_pl",
+      "kn_gt01_pl",
+      "kn_gt02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 309,
+    "bytes": 9924,
+    "names": [
+      "MDL04",
+      "kn_gate_r",
+      "h_kage",
+      "kn_gt01",
+      "kn_gt01w",
+      "kn_gt02",
+      "h_kage_pl",
+      "kn_gt01_pl",
+      "kn_gt02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 310,
+    "bytes": 1684,
+    "names": [
+      "mst_dr1",
+      "mt_dr01",
+      "mt_dr01w",
+      "mt_dr01_pl",
+      "polygon0",
+      "polygon1",
+      "ffffffff",
+      "BDDDDDD",
+      "k9szs"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 311,
+    "bytes": 1216,
+    "names": [
+      "mst_dr2",
+      "mt_dr02",
+      "mt_dr02_pl",
+      "polygon0",
+      "EDDT",
+      "afff",
+      "pff3",
+      "hff3",
+      "Mfffffff3",
+      "A4fffffff3",
+      "fffffff3",
+      "cfffffff3"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 312,
+    "bytes": 7168,
+    "names": [
+      "MDL00",
+      "mst_grh",
+      "mst_rdh",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "mt_rdh01",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "mt_rdh01_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 313,
+    "bytes": 8092,
+    "names": [
+      "mst_rdh",
+      "h_in",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "mt_rdh01",
+      "mt_rdh02",
+      "h_kage",
+      "h_mado",
+      "h_in_pl",
+      "h_kage_pl",
+      "h_mado_pl",
+      "mt_rdh01_pl"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 314,
+    "bytes": 8424,
+    "names": [
+      "mst_okl",
+      "mst_okl1",
+      "h_in",
+      "h_kage",
+      "h_mado",
+      "lambert1",
+      "mt_okl01",
+      "mt_okl02",
+      "mt_okl03",
+      "mt_okl04",
+      "mt_okl05",
+      "mt_okl06"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 315,
+    "bytes": 7596,
+    "names": [
+      "to_h01",
+      "polySurface20",
+      "kage",
+      "lambert2",
+      "lambert3",
+      "mado",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "to_h01_pl",
+      "polygon0"
+    ],
+    "vanilla_placements": 2
+  },
+  {
+    "id": 316,
+    "bytes": 8268,
+    "names": [
+      "to_h02",
+      "kage",
+      "lambert3",
+      "mado",
+      "h_kage",
+      "h_mado",
+      "h_kage_pl",
+      "h_mado_pl",
+      "to_h02_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 317,
+    "bytes": 17708,
+    "names": [
+      "to_trainer",
+      "polySurface18",
+      "hana",
+      "kage",
+      "lambert3",
+      "mado",
+      "h_kage",
+      "h_mado",
+      "to_trainer_f",
+      "h_kage_pl",
+      "h_mado_pl",
+      "to_trainer_f_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 318,
+    "bytes": 8980,
+    "names": [
+      "to_gym",
+      "polySurface58",
+      "lambert11",
+      "lambert12",
+      "lambert13",
+      "lambert14",
+      "lambert15",
+      "lambert16",
+      "lambert5",
+      "h_kage",
+      "kn_gym_a",
+      "kn_gym_c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 319,
+    "bytes": 6940,
+    "names": [
+      "dsm_fal1",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6",
+      "wfall_wave"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 320,
+    "bytes": 6968,
+    "names": [
+      "dsm_fal2",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6",
+      "wfall_wave"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 321,
+    "bytes": 12068,
+    "names": [
+      "dsm_bg1",
+      "polySurface1",
+      "polySurface1_1",
+      "polySurface1_2",
+      "polySurface1_3",
+      "polySurface2",
+      "polySurface2_1",
+      "polySurface2_2",
+      "polySurface2_3",
+      "dsm_m01a",
+      "dsm_m01b",
+      "dsm_m01c"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 322,
+    "bytes": 5036,
+    "names": [
+      "o_moon",
+      "polySurface10",
+      "lambert2",
+      "lambert4",
+      "o_moon1",
+      "o_moon2",
+      "o_moon1_pl",
+      "o_moon2_pl",
+      "polygon0",
+      "polygon1",
+      "SUEDTU",
+      "UUEDTU5"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 323,
+    "bytes": 9196,
+    "names": [
+      "fall_futago",
+      "polySurface719",
+      "fall_base",
+      "fall_base2",
+      "wfall_c",
+      "wfall_d",
+      "wfall_e",
+      "wfall_e2",
+      "wfall_e3",
+      "wfall_e4",
+      "wfall_e5",
+      "wfall_e6"
+    ],
+    "vanilla_placements": 0
+  },
+  {
+    "id": 324,
+    "bytes": 8324,
+    "names": [
+      "md52k_01",
+      "mkgr_r2k",
+      "mkgr_r2k_pl",
+      "polygon0",
+      "LLLLLLLLdddddddd",
+      "ddddddddLLLLLLLL"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 325,
+    "bytes": 9540,
+    "names": [
+      "md52g_01",
+      "mkgr_r2g",
+      "mkgr_r2g_pl",
+      "polygon0",
+      "LLLLLLLLdddddddd",
+      "ddddddddLLLLLLLL"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 326,
+    "bytes": 10240,
+    "names": [
+      "MDL0H",
+      "md52r_01",
+      "mkgr_r2r",
+      "mkgr_r2r_pl",
+      "polygon0",
+      "LLLLLLLLdddddddd",
+      "ddddddddLLLLLLLL"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 327,
+    "bytes": 1684,
+    "names": [
+      "tafl_light",
+      "ace486",
+      "light",
+      "tafl_light_pl",
+      "polygon0",
+      "aaaaaaaaaaaa"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 328,
+    "bytes": 3584,
+    "names": [
+      "msp_f",
+      "f_kage",
+      "msp_001",
+      "msp_001w",
+      "msp_002",
+      "f_kage_pl",
+      "msp_001_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3",
+      "zwwwwww"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 329,
+    "bytes": 4784,
+    "names": [
+      "tkwa_sl",
+      "tkwa_slp",
+      "tkwa_sls",
+      "tkwa_sl2",
+      "tkwa_sl2l",
+      "tkwa_sl2w",
+      "tkwa_sl3",
+      "tkwa_sl2_pl",
+      "tkwa_sl3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 14
+  },
+  {
+    "id": 330,
+    "bytes": 3812,
+    "names": [
+      "ymbk_sl",
+      "ymbk_slp",
+      "lambert87",
+      "lambert88",
+      "ymbk_sl2",
+      "ymbk_sl3",
+      "ymbk_sl2_pl",
+      "ymbk_sl3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "polygon3"
+    ],
+    "vanilla_placements": 15
+  },
+  {
+    "id": 331,
+    "bytes": 1012,
+    "names": [
+      "hnda_sl",
+      "kbc_sl03",
+      "kbc_sl03_pl",
+      "polygon0",
+      "AAyzz",
+      "AAyyzzz",
+      "AAAyyy"
+    ],
+    "vanilla_placements": 17
+  },
+  {
+    "id": 332,
+    "bytes": 5764,
+    "names": [
+      "MDL0X",
+      "tmms_sl",
+      "tmms_slp",
+      "lambert87",
+      "lambert88",
+      "tmms_sl2",
+      "tmms_sl3",
+      "tmms_sl2_pl",
+      "tmms_sl3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 6
+  },
+  {
+    "id": 333,
+    "bytes": 4196,
+    "names": [
+      "MDL0X",
+      "sktk_sl",
+      "sktk_slp",
+      "lambert87",
+      "lambert88",
+      "sktk_sl2",
+      "sktk_sl3",
+      "sktk_sl2_pl",
+      "sktk_sl3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 12
+  },
+  {
+    "id": 334,
+    "bytes": 3240,
+    "names": [
+      "nibi_sl",
+      "nibi_slp",
+      "nibi_sl2",
+      "nibi_sl2w",
+      "nibi_sl3",
+      "nibi_sl2_pl",
+      "nibi_sl3_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2",
+      "AAyzz",
+      "AAyyzzz"
+    ],
+    "vanilla_placements": 13
+  },
+  {
+    "id": 335,
+    "bytes": 8428,
+    "names": [
+      "sinto_h01",
+      "polySurface440",
+      "colum__h02_lm1",
+      "colum__h02_lm2",
+      "h_kage_lm1",
+      "h_mado_lm1",
+      "shin_yuki2_lm1",
+      "colum__h02",
+      "h_kage",
+      "h_mado",
+      "shin_yuki2",
+      "colum__h02_pl"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 336,
+    "bytes": 1200,
+    "names": [
+      "sinto_door1",
+      "polySurface441",
+      "colum__door_lm1",
+      "colum__door",
+      "colum__door_pl",
+      "polygon0",
+      "BDDDDDDDDD",
+      "DDDDDDD",
+      "CDDDDDD",
+      "vgAUUUUED",
+      "wwAUUUUED",
+      "SUUUUED"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 337,
+    "bytes": 3672,
+    "names": [
+      "MDL0l",
+      "ms01_p01",
+      "ms01_p01_main",
+      "ms01_p01_sub",
+      "ms01_ob3",
+      "ms01_ob4",
+      "ms01_pt1",
+      "ms01_ob3_pl",
+      "ms01_ob4_pl",
+      "polygon0",
+      "polygon1",
+      "polygon2"
+    ],
+    "vanilla_placements": 4
+  },
+  {
+    "id": 338,
+    "bytes": 1172,
+    "names": [
+      "radio",
+      "pCube1",
+      "radio_pl",
+      "polygon0",
+      "QUSSS",
+      "UUUUUU",
+      "ffffff",
+      "DDDDDD",
+      "DDDD",
+      "J33C",
+      "I38C"
+    ],
+    "vanilla_placements": 1
+  },
+  {
+    "id": 339,
+    "bytes": 5504,
+    "names": [
+      "kn_chika_x",
+      "polySurface1",
+      "h_kage",
+      "ko_chika_a",
+      "ko_chika_b",
+      "ko_chika_win",
+      "lambert6",
+      "kn_chika_a",
+      "kn_chika_b",
+      "r39_door1",
+      "station_c",
+      "h_kage_pl"
+    ],
+    "vanilla_placements": 2
+  }
+]

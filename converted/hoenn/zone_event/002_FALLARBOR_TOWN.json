@@ -1,0 +1,177 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_FALLARBOR_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 96,
+      "z": 15,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 95,
+      "z": 7,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "FallarborTown_EventScript_BattleTentSign",
+      "type": 1,
+      "x": 86,
+      "z": 8,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 96,
+      "z": 7,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "FallarborTown_EventScript_TownSign",
+      "type": 1,
+      "x": 90,
+      "z": 11,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 97,
+      "z": 15,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "FallarborTown_EventScript_MoveTutorSign",
+      "type": 1,
+      "x": 83,
+      "z": 7,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "std_hiddenitem(ITEM_NUGGET)",
+      "type": 2,
+      "x": 82,
+      "z": 15,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_fallarbortown_x",
+      "spriteId": "SPRITE_GIRL1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FallarborTown_EventScript_Girl",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 88,
+      "z": 11,
+      "y": 0
+    },
+    {
+      "id": "obj_fallarbortown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FallarborTown_EventScript_ExpertM",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 91,
+      "z": 9,
+      "y": 0
+    },
+    {
+      "id": "obj_fallarbortown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FallarborTown_EventScript_Gentleman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 91,
+      "z": 15,
+      "y": 0
+    },
+    {
+      "id": "obj_fallarbortown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_FALLARBOR_AZURILL",
+      "scriptId": "FallarborTown_EventScript_Azurill",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 88,
+      "z": 12,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 95,
+      "z": 15,
+      "header": "MAP_FALLARBOR_TOWN_MART",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 88,
+      "z": 7,
+      "header": "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 94,
+      "z": 7,
+      "header": "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 86,
+      "z": 17,
+      "header": "MAP_FALLARBOR_TOWN_COZMOS_HOUSE",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 81,
+      "z": 6,
+      "header": "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

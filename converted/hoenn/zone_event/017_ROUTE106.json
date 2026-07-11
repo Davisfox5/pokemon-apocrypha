@@ -1,0 +1,134 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_ROUTE106.h",
+  "bgs": [
+    {
+      "scriptId": "std_hiddenitem(ITEM_POKE_BALL)",
+      "type": 2,
+      "x": 41,
+      "z": 353,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "std_hiddenitem(ITEM_STARDUST)",
+      "type": 2,
+      "x": 53,
+      "z": 354,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "std_hiddenitem(ITEM_HEART_SCALE)",
+      "type": 2,
+      "x": 68,
+      "z": 357,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Route106_EventScript_TrainerTipsSign",
+      "type": 1,
+      "x": 59,
+      "z": 355,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_route106_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 5,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "Route106_EventScript_Douglas",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 4,
+      "yRange": 0,
+      "x": 18,
+      "z": 347,
+      "y": 0
+    },
+    {
+      "id": "obj_route106_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "Route106_EventScript_Kyla",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 29,
+      "z": 352,
+      "y": 0
+    },
+    {
+      "id": "obj_route106_x",
+      "spriteId": "SPRITE_FISHING",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "Route106_EventScript_Elliot",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 51,
+      "z": 356,
+      "y": 0
+    },
+    {
+      "id": "obj_route106_x",
+      "spriteId": "SPRITE_FISHING",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "Route106_EventScript_Ned",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 65,
+      "z": 356,
+      "y": 0
+    },
+    {
+      "id": "obj_route106_x",
+      "spriteId": "SPRITE_MONSTARBALL",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_ITEM_ROUTE_106_PROTEIN",
+      "scriptId": "Route106_EventScript_ItemProtein",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 29,
+      "z": 356,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 48,
+      "z": 358,
+      "header": "MAP_GRANITE_CAVE_1F",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

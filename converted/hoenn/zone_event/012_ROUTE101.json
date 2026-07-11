@@ -1,0 +1,210 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_ROUTE101.h",
+  "bgs": [
+    {
+      "scriptId": "Route101_EventScript_RouteSign",
+      "type": 1,
+      "x": 125,
+      "z": 271,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_route101_x",
+      "spriteId": "SPRITE_BOY2",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "Route101_EventScript_Youngster",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 136,
+      "z": 270,
+      "y": 0
+    },
+    {
+      "id": "obj_route101_route101_birch",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE",
+      "scriptId": "0x0",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 129,
+      "z": 275,
+      "y": 0
+    },
+    {
+      "id": "obj_route101_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG",
+      "scriptId": "Route101_EventScript_BirchsBag",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 127,
+      "z": 276,
+      "y": 0
+    },
+    {
+      "id": "obj_route101_route101_zigzagoon",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_ROUTE_101_ZIGZAGOON",
+      "scriptId": "0x0",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 130,
+      "z": 275,
+      "y": 0
+    },
+    {
+      "id": "obj_route101_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_ROUTE_101_BIRCH",
+      "scriptId": "ProfBirch_EventScript_RatePokedexOrRegister",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 125,
+      "z": 273,
+      "y": 0
+    },
+    {
+      "id": "obj_route101_x",
+      "spriteId": "SPRITE_BOY2",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_ROUTE_101_BOY",
+      "scriptId": "Route101_EventScript_Boy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 122,
+      "z": 275,
+      "y": 0
+    }
+  ],
+  "warps": [],
+  "coords": [
+    {
+      "scriptId": "Route101_EventScript_StartBirchRescue",
+      "x": 130,
+      "z": 281,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_StartBirchRescue",
+      "x": 131,
+      "z": 281,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitSouth",
+      "x": 130,
+      "z": 280,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitSouth",
+      "x": 131,
+      "z": 280,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitWest",
+      "x": 126,
+      "z": 278,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitWest",
+      "x": 126,
+      "z": 277,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitWest",
+      "x": 126,
+      "z": 279,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitWest",
+      "x": 126,
+      "z": 280,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    },
+    {
+      "scriptId": "Route101_EventScript_PreventExitNorth",
+      "x": 127,
+      "z": 275,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 2,
+      "var": "VAR_ROUTE101_STATE"
+    }
+  ]
+}

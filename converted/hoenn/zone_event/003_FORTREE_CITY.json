@@ -1,0 +1,240 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_FORTREE_CITY.h",
+  "bgs": [
+    {
+      "scriptId": "FortreeCity_EventScript_CitySign",
+      "type": 1,
+      "x": 326,
+      "z": 9,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 327,
+      "z": 6,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 325,
+      "z": 14,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "FortreeCity_EventScript_GymSign",
+      "type": 1,
+      "x": 346,
+      "z": 10,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 326,
+      "z": 6,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemartSign",
+      "type": 1,
+      "x": 326,
+      "z": 14,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_MAN2",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_Man",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 351,
+      "z": 3,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_GIRL1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_Girl",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 352,
+      "z": 16,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_MIDDLEWOMAN1",
+      "movement": 3,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_Woman",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 1,
+      "yRange": 1,
+      "x": 352,
+      "z": 10,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_BOY1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_Boy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 331,
+      "z": 14,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_OLDMAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_OldMan",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 328,
+      "z": 10,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "FortreeCity_EventScript_GameboyKid",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 329,
+      "z": 16,
+      "y": 0
+    },
+    {
+      "id": "obj_fortreecity_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_HIDE_FORTREE_CITY_KECLEON",
+      "scriptId": "FortreeCity_EventScript_Kecleon",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 345,
+      "z": 8,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 325,
+      "z": 6,
+      "header": "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 330,
+      "z": 3,
+      "header": "MAP_FORTREE_CITY_HOUSE1",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 342,
+      "z": 11,
+      "header": "MAP_FORTREE_CITY_GYM",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 324,
+      "z": 14,
+      "header": "MAP_FORTREE_CITY_MART",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 337,
+      "z": 3,
+      "header": "MAP_FORTREE_CITY_HOUSE2",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 345,
+      "z": 3,
+      "header": "MAP_FORTREE_CITY_HOUSE3",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 352,
+      "z": 2,
+      "header": "MAP_FORTREE_CITY_HOUSE4",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 332,
+      "z": 13,
+      "header": "MAP_FORTREE_CITY_HOUSE5",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 357,
+      "z": 13,
+      "header": "MAP_FORTREE_CITY_DECORATION_SHOP",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}

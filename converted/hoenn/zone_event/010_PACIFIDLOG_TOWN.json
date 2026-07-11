@@ -1,0 +1,127 @@
+{
+  "header": "fielddata/script/scr_seq/event_HOENN_PACIFIDLOG_TOWN.h",
+  "bgs": [
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 489,
+      "z": 275,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "PacifidlogTown_EventScript_TownSign",
+      "type": 1,
+      "x": 487,
+      "z": 276,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "Common_EventScript_ShowPokemonCenterSign",
+      "type": 1,
+      "x": 490,
+      "z": 275,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_pacifidlogtown_x",
+      "spriteId": "SPRITE_GIRL1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "PacifidlogTown_EventScript_Girl",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 490,
+      "z": 283,
+      "y": 0
+    },
+    {
+      "id": "obj_pacifidlogtown_x",
+      "spriteId": "SPRITE_FISHING",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "PacifidlogTown_EventScript_Fisherman",
+      "facingDirection": 3,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 491,
+      "z": 274,
+      "y": 0
+    },
+    {
+      "id": "obj_pacifidlogtown_x",
+      "spriteId": "SPRITE_MAN1",
+      "movement": 0,
+      "type": 0,
+      "eventFlag": "FLAG_NOTHING",
+      "scriptId": "PacifidlogTown_EventScript_NinjaBoy",
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 489,
+      "z": 276,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 488,
+      "z": 275,
+      "header": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 496,
+      "z": 273,
+      "header": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 483,
+      "z": 282,
+      "header": "MAP_PACIFIDLOG_TOWN_HOUSE2",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 492,
+      "z": 284,
+      "header": "MAP_PACIFIDLOG_TOWN_HOUSE3",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 482,
+      "z": 272,
+      "header": "MAP_PACIFIDLOG_TOWN_HOUSE4",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 497,
+      "z": 281,
+      "header": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+      "anchor": 0,
+      "y": 0
+    }
+  ],
+  "coords": []
+}
