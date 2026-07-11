@@ -108,8 +108,18 @@ whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
   signs as billboards from bg_events, and the map's border.bin block
   rendered as an apron ring around the town. ROM-side: trees already erect
   as quads in hoenn_ground v6; signs as small props are a proposed round.
+  GABLE SHELLS landed (community-prefab adoption step 1): _gable_model
+  replaces the fold-billboard for arts with >=24px of roof — two roof
+  slopes meeting at a ridge (ridge at 35% depth from the back, rise
+  14-24px), textured triangular gable ends + side/back walls from the
+  opaque wall strip, 3px eave overhang. Back slope drapes the art's ridge
+  rows when they're a plain band, else reuses the front-slope shingles
+  (ridge_rows_uniform — chimneys/domes would smear). _faces_dl emits
+  mixed quad+tri BEGIN blocks. Flat-roof arts fall back to the fold
+  model. Geometry verified by mdlview decode (6 quads + 2 tris).
   Remaining building rounds: per-type wall heights, door-face alignment,
-  and elevation cliffs.
+  hand-modeled landmarks (gyms, space center, lighthouse) via
+  Blender->IMD, and elevation cliffs.
 - **Community-practice research (2026-07-11):** high-quality DS hacks use
   Pokemon DS Map Studio: maps are PAINTED from tilesets where each tile is
   a hand-authored 3-D prefab (made once in Blender/SketchUp or ripped from

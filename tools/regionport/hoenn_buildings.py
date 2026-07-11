@@ -428,16 +428,31 @@ def _pack_normal(nx, ny, nz):
 
 
 def _faces_dl(faces):
-    """faces: [(normal(3), [4 x ((x,y,z),(s,t))])] -> packed DL (quads)."""
-    cmds = [(nsbmd.G_BEGIN, [1])]
-    for normal, verts in faces:
-        cmds.append((nsbmd.G_NORMAL, [_pack_normal(*normal)]))
-        for (wx, wy, wz), (s, t) in verts:
-            st = (int(round(s * 16)) & 0xFFFF) | ((int(round(t * 16)) & 0xFFFF) << 16)
-            cmds.append((nsbmd.G_TEXCOORD, [st]))
-            cmds.append((nsbmd.G_VTX_16,
-                         [nsbmd.fx(wx) | (nsbmd.fx(wy) << 16), nsbmd.fx(wz)]))
-    cmds.append((nsbmd.G_END, []))
+    """faces: [(normal(3), [3 or 4 x ((x,y,z),(s,t))])] -> packed DL.
+    Quads and triangles are emitted as separate BEGIN blocks."""
+    def emit(cmds, group):
+        for normal, verts in group:
+            cmds.append((nsbmd.G_NORMAL, [_pack_normal(*normal)]))
+            for (wx, wy, wz), (s, t) in verts:
+                st = (int(round(s * 16)) & 0xFFFF) | \
+                     ((int(round(t * 16)) & 0xFFFF) << 16)
+                cmds.append((nsbmd.G_TEXCOORD, [st]))
+                cmds.append((nsbmd.G_VTX_16,
+                             [nsbmd.fx(wx) | (nsbmd.fx(wy) << 16),
+                              nsbmd.fx(wz)]))
+    quads = [f for f in faces if len(f[1]) == 4]
+    tris = [f for f in faces if len(f[1]) == 3]
+    cmds = []
+    if quads:
+        cmds.append((nsbmd.G_BEGIN, [1]))
+        emit(cmds, quads)
+        cmds.append((nsbmd.G_END, []))
+    if tris:
+        cmds.append((nsbmd.G_BEGIN, [0]))
+        emit(cmds, tris)
+        cmds.append((nsbmd.G_END, []))
+    if not cmds:
+        cmds = [(nsbmd.G_BEGIN, [1]), (nsbmd.G_END, [])]
     return nsbmd.pack_dl(cmds)
 
 
@@ -604,6 +619,127 @@ def _fold_model(art, name, ground_d_px):
     return model, (name, pw, ph, texels, 3), (name + "_p", palbin)
 
 
+GABLE_MIN_ROOF = 24        # art px of roof needed to earn true gable massing
+GABLE_RIDGE_AT = 0.35      # ridge position, fraction of depth from the back
+
+
+def ridge_rows_uniform(img, ridge_px):
+    """True when the art's top rows are a plain ridge band (safe to drape
+    over the back slope). False when they carry structure — a chimney or
+    dome would smear across the slope; those arts reuse the front-slope
+    rows on the back instead."""
+    w = img.width
+    if w < 24:
+        return True
+    col_means = []
+    px = img.convert("RGBA").load()
+    for x in range(0, w, 4):
+        vals = [px[x, y][:3] for y in range(min(ridge_px, img.height))
+                if px[x, y][3]]
+        if vals:
+            col_means.append(tuple(sum(c[i] for c in vals) / len(vals)
+                                   for i in range(3)))
+    if len(col_means) < 3:
+        return True
+    avg = tuple(sum(c[i] for c in col_means) / len(col_means) for i in range(3))
+    dev = max(sum(abs(c[i] - avg[i]) for i in range(3)) for c in col_means)
+    return dev < 90
+
+
+def _gable_model(art, name, ground_d_px):
+    """True gabled shell: two roof slopes meeting at a ridge + textured
+    triangular gable ends — the community-prefab silhouette, generated
+    procedurally from the art's roof/wall split. Origin: ground center."""
+    img = art["img"]
+    w, h = img.size
+    ts = 1
+    if w > DOWNSCALE_PX or h > DOWNSCALE_PX:
+        ts = 2
+        img = img.resize((w // 2, h // 2), Image.NEAREST)
+    wall = WALL_PX_SHORT if h <= 80 else WALL_PX_TALL
+    wall = min(wall, h)
+    texels, palbin, pw, ph, patch, strip = _quantize16(img, wall // ts)
+    hw, hd = w / 2.0, ground_d_px / 2.0
+    roof_v = h - wall
+    ridge_px = RIDGE_PX if roof_v >= GABLE_MIN_ROOF else 0
+    if not ridge_px:
+        return _fold_model(art, name, ground_d_px)
+    rise = min(24, max(14, roof_v - ridge_px - 4))
+    if ridge_rows_uniform(img, ridge_px // ts):
+        bs_v0, bs_v1 = ridge_px, 0                    # drape top rows
+    else:
+        bs_v0, bs_v1 = ridge_px, min(2 * ridge_px, roof_v)   # reuse shingles
+    OV = 3
+    hwo = hw + OV
+    zr = -hd + 2 * hd * GABLE_RIDGE_AT       # ridge line z
+    zf, zb = hd + OV, -hd - OV               # eave overhang extents
+    pu, pv = patch
+    if strip:
+        sx, sy, sw, sh = strip
+        s_quad = [(sx, sy), (sx + sw, sy), (sx + sw, sy + sh), (sx, sy + sh)]
+        s_tri = [(sx + sw / 2, sy), (sx, sy + sh), (sx + sw, sy + sh)]
+    else:
+        s_quad = [(pu, pv)] * 4
+        s_tri = [(pu, pv)] * 3
+
+    faces = [
+        # front wall
+        ((0, 0, 1), [
+            ((-hw, wall, hd), (0, (h - wall) / ts)),
+            ((hw, wall, hd), (w / ts, (h - wall) / ts)),
+            ((hw, 0, hd), (w / ts, h / ts)),
+            ((-hw, 0, hd), (0, h / ts)),
+        ]),
+        # front slope: ridge -> front eave, art rows [ridge_px..roof_v)
+        ((0, 0.9, 0.44), [
+            ((-hwo, wall + rise, zr), (0, ridge_px / ts)),
+            ((hwo, wall + rise, zr), (w / ts, ridge_px / ts)),
+            ((hwo, wall, zf), (w / ts, roof_v / ts)),
+            ((-hwo, wall, zf), (0, roof_v / ts)),
+        ]),
+        # back slope: ridge -> back eave; plain ridge bands drape over it,
+        # structured tops (chimneys/domes) reuse the front-slope rows
+        ((0, 0.9, -0.44),
+         [((hwo, wall + rise, zr), (w / ts, bs_v0 / ts)),
+          ((-hwo, wall + rise, zr), (0, bs_v0 / ts)),
+          ((-hwo, wall, zb), (0, bs_v1 / ts)),
+          ((hwo, wall, zb), (w / ts, bs_v1 / ts))]),
+        # gable ends (triangles above the side walls)
+        ((1, 0, 0), [
+            ((hw, wall + rise, zr), s_tri[0]),
+            ((hw, wall, zb), s_tri[1]),
+            ((hw, wall, zf), s_tri[2]),
+        ]),
+        ((-1, 0, 0), [
+            ((-hw, wall + rise, zr), s_tri[0]),
+            ((-hw, wall, zf), s_tri[1]),
+            ((-hw, wall, zb), s_tri[2]),
+        ]),
+        # side walls
+        ((1, 0, 0), [
+            ((hw, wall, hd), s_quad[0]), ((hw, wall, -hd), s_quad[1]),
+            ((hw, 0, -hd), s_quad[2]), ((hw, 0, hd), s_quad[3]),
+        ]),
+        ((-1, 0, 0), [
+            ((-hw, wall, -hd), s_quad[0]), ((-hw, wall, hd), s_quad[1]),
+            ((-hw, 0, hd), s_quad[2]), ((-hw, 0, -hd), s_quad[3]),
+        ]),
+        # back wall
+        ((0, 0, -1), [
+            ((hw, wall, -hd), s_quad[0]), ((-hw, wall, -hd), s_quad[1]),
+            ((-hw, 0, -hd), s_quad[2]), ((hw, 0, -hd), s_quad[3]),
+        ]),
+    ]
+    dl = _faces_dl(faces)
+    empty = nsbmd.pack_dl([(nsbmd.G_BEGIN, [1]), (nsbmd.G_END, [])])
+    model = nsbmd.build_model([dl] + [empty] * 7,
+                              [(pw, ph)] * 8,
+                              tex_names=[name] * 8,
+                              pal_names=[name + "_p"] * 8,
+                              wrap_repeat_slots=0)
+    return model, (name, pw, ph, texels, 3), (name + "_p", palbin)
+
+
 def build_props(binfo):
     """Returns (models bytes list, btx bytes, texel_total). Also extends
     bm_field/a040/matshp/a107 NARC files on disk (truncating to the
@@ -614,7 +750,7 @@ def build_props(binfo):
         # depth from the widest instance of this art (they share footprints)
         insts = [i for i in binfo["instances"] if i["art_id"] == a["id"]]
         d_px = max((i["g_ground1"] - i["g_ground0"] + 1) for i in insts) * 16
-        model, tex, pal = _fold_model(a, name, d_px)
+        model, tex, pal = _gable_model(a, name, d_px)
         models.append(model)
         textures.append(tex)
         palettes.append(pal)

@@ -436,33 +436,48 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
                 if not sp[x, y][3]:
                     sp[x, y] = fillc
 
-        for face in (
-            [(cx + hw, wall, zf), (cx + hw, wall + tilt, zb),
-             (cx + hw, 0, zb), (cx + hw, 0, zf)],
-            [(cx - hw, wall + tilt, zb), (cx - hw, wall, zf),
-             (cx - hw, 0, zf), (cx - hw, 0, zb)],
-            [(cx + hw, wall + tilt, zb), (cx - hw, wall + tilt, zb),
-             (cx - hw, 0, zb), (cx + hw, 0, zb)],
-        ):
-            paste_quad(canvas, strip, face, cam)
-
-        # roof: overhangs the walls; top rows fold up as the ridge so the
-        # far side of a gabled roof stays visible instead of a cut line
+        # true gabled shell (mirrors hoenn_buildings._gable_model): two roof
+        # slopes meeting at a ridge + textured triangular gable ends
         ridge = 12 if roof_v >= 24 else 0
+        rise = min(24, max(14, roof_v - ridge - 4)) if ridge else \
+            hb.ROOF_TILT if roof_v else 0
+        zr = zb + (zf - zb) * (1 - 0.35)     # ridge z, 35% from the back
+        if not ridge:
+            zr = zb - OV
+
+        # back wall, then back slope (mostly hidden)
+        paste_quad(canvas, strip,
+                   [(cx + hw, wall, zb), (cx - hw, wall, zb),
+                    (cx - hw, 0, zb), (cx + hw, 0, zb)], cam)
+        if ridge:
+            if hb.ridge_rows_uniform(img, ridge):
+                back_tex = img.crop((0, 0, w, ridge)).transpose(
+                    Image.FLIP_TOP_BOTTOM)
+            else:
+                back_tex = img.crop((0, ridge, w, min(2 * ridge, roof_v)))
+            paste_quad(canvas, back_tex,
+                       [(cx + hwo, wall + rise, zr), (cx - hwo, wall + rise, zr),
+                        (cx - hwo, wall, zb - OV), (cx + hwo, wall, zb - OV)],
+                       cam)
+        # gable ends + side walls
+        for sgn in (1, -1):
+            x = cx + sgn * hw
+            paste_quad(canvas, strip,
+                       [(x, wall, zf), (x, wall, zb),
+                        (x, 0, zb), (x, 0, zf)], cam)
+            if ridge:
+                tw, th2 = strip.width, strip.height
+                paste_face(canvas, strip,
+                           [((x, wall + rise, zr), (tw / 2, 0)),
+                            ((x, wall, zb), (0, th2)),
+                            ((x, wall, zf), (tw, th2))], cam)
+        # front slope + front wall
         if roof_v > 0:
             roof_tex = img.crop((0, ridge, w, roof_v))
             paste_quad(canvas, roof_tex,
-                       [(cx - hwo, wall + tilt, zb - OV),
-                        (cx + hwo, wall + tilt, zb - OV),
-                        (cx + hwo, wall, zf + OV),
-                        (cx - hwo, wall, zf + OV)], cam)
-        if ridge:
-            rtex = img.crop((0, 0, w, ridge))
-            paste_quad(canvas, rtex,
-                       [(cx - hwo, wall + tilt + ridge * 0.8, zb - OV - ridge * 0.6),
-                        (cx + hwo, wall + tilt + ridge * 0.8, zb - OV - ridge * 0.6),
-                        (cx + hwo, wall + tilt, zb - OV),
-                        (cx - hwo, wall + tilt, zb - OV)], cam)
+                       [(cx - hwo, wall + rise, zr), (cx + hwo, wall + rise, zr),
+                        (cx + hwo, wall, zf + OV), (cx - hwo, wall, zf + OV)],
+                       cam)
         wall_tex = img.crop((0, roof_v, w, h))
         paste_quad(canvas, wall_tex,
                    [(cx - hw, wall, zf), (cx + hw, wall, zf),
