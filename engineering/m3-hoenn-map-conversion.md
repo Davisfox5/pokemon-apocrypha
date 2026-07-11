@@ -164,13 +164,11 @@ mapping doc, and `preview_render.py` (added to regionport) — a software
 renderer that draws a town with the exact `_fold_model` geometry and
 `_mask_art` textures, for previewing without a ROM build.
 
-**Open strategy decision for the owner:** regionport's v6 notes plan to
-replace the fold-billboard buildings with matched Gen-4 donor models
-("16 drop-in, 13 retint, 3 custom"). The owner's review in this
-conversation went the other way — keep the Gen-3 art as the texture source
-(fold-billboards/boxes), after rejecting donor retints for Littleroot.
-These need to be settled as one plan; the fold-billboard path currently
-matches the owner's stated preference.
+**Strategy decision (owner, 2026-07-11): SETTLED — fold-billboards for
+buildings.** The A/B render comparison (littleroot_A_vs_B.png) confirmed
+donor models read as Johto architecture; Hoenn keeps its own art. Donor
+Gen-4 models remain in play for non-building objects. See ENGINEERING.md
+Region Port Status for the edge fixes that landed with the decision.
 
 ## Next steps, in order
 

@@ -85,9 +85,21 @@ whole texturing pipeline — **no Emerald pixel reaches the ROM anymore**:
   (second u16); our writer emits flag=0, and the engine renders pltt4
   textures as zebra garbage. Fix: expand pltt4 donors to pltt16 at assembly
   (2bpp→4bpp, +384 bytes total).
-- Buildings still v5 fold-billboards; the Gen-4 model swap (matched: 16
-  drop-in types, 13 retint, 3 custom needed) and elevation cliffs are the
-  next rounds.
+- **Buildings decision (owner, 2026-07-11): fold-billboards are the plan of
+  record — the Gen-4 donor-model swap is OFF for buildings.** The owner
+  reviewed a side-by-side (converted/hoenn/pilot_littleroot/preview/
+  littleroot_A_vs_B.png, rendered via tools/regionport/preview_render.py
+  and the new mdlview.py NSBMD geometry decoder): donor models look more
+  3-D-native but read as Johto architecture; keeping Hoenn's own art is the
+  priority. Donor models stay in scope for OTHER object classes (props,
+  furniture, non-building scenery) where no Hoenn identity is at stake.
+  Edge fixes landed with the decision: roof-edge cells in body rows that
+  are SPLIT layer type re-render top-layer-only in _mask_art (kills baked
+  grass at sloped roof corners), and _quantize16/_fold_model now bake an
+  8px front-wall edge strip into the texture padding and UV the side/back
+  faces with it (connected wall texture instead of flat patch color).
+  Remaining building rounds: per-type wall heights, door-face alignment,
+  and elevation cliffs.
 
 - **Sinnoh** (same-gen lift): all 176 Platinum overworld chunks converted to the
   HGSS land-data container, 13 Platinum tilesets, 30x30 matrix, 66 headers

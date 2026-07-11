@@ -242,6 +242,31 @@ def _top_layer_tile(mb, mt):
     return out
 
 
+_tile_color_cache = {}
+
+
+def _tile_colors(mb, mt):
+    """Set of RGB colors a metatile renders (both layers)."""
+    key = (id(mb), mt)
+    if key not in _tile_color_cache:
+        m = mb.m
+        mdef, _ = m.metatile_def(mt)
+        cols = set()
+        if mdef is not None:
+            pals = m.palettes()
+            for sub in range(8):
+                v = mdef[sub]
+                tid, pal = v & 0x3FF, (v >> 12) & 0xF
+                rows = m.subtile_pixels(tid)
+                colors = pals[pal] if pal < len(pals) else []
+                for row in rows:
+                    for ci in row:
+                        if ci and ci < len(colors):
+                            cols.add(colors[ci])
+        _tile_color_cache[key] = cols
+    return _tile_color_cache[key]
+
+
 def _mask_art(mb, b):
     """Crop art with non-building cells keyed out (alpha 0). Roof-art rows
     (above the collision body) are re-rendered from the metatiles' TOP layer
@@ -270,6 +295,23 @@ def _mask_art(mb, b):
                 for dy in range(16):
                     for dx in range(16):
                         px[(tx - x0) * 16 + dx, (ty - y0) * 16 + dy] = (0, 0, 0, 0)
+    # Roof-edge cells in BODY rows (sloped corners, side eaves) are SPLIT
+    # layer type: their roof pixels live in the top layer and the baked
+    # grass in the bottom layer — re-render those cells top-layer-only,
+    # exactly like the roof overdraw rows above the body.
+    for ty in range(g0, y1 + 1):
+        for tx in range(x0, x1 + 1):
+            c = mb.cell(tx, ty)
+            if not c or c["layer"] != LAYER_SPLIT:
+                continue
+            if not (mb.is_body(tx, ty) or (tx, ty) in doors):
+                continue
+            top = _top_layer_tile(mb, c["mt"])
+            for dy in range(16):
+                for dx in range(16):
+                    v = top[dy][dx]
+                    px[(tx - x0) * 16 + dx, (ty - y0) * 16 + dy] = (
+                        (v[0], v[1], v[2], 255) if v else (0, 0, 0, 0))
     return art
 
 
@@ -398,10 +440,12 @@ def _faces_dl(faces):
     return nsbmd.pack_dl(cmds)
 
 
-def _quantize16(img):
+def _quantize16(img, wall_rows=0):
     """RGBA -> (4bpp texels padded to pow2, 32B BGR555 palette, pw, ph,
-    patch_uv). Color 0 = transparent. An 8x8 solid wall-color patch is
-    placed in the padding (or an extra row block) for side/back walls."""
+    patch_uv, strip). Color 0 = transparent. An 8x8 solid wall-color patch
+    is placed in the padding for the back wall; when wall_rows is given, an
+    8xwall_rows strip of the front wall's edge columns is baked below it
+    for the side walls (strip = (x, y, w, h) in texels, or None)."""
     w, h = img.size
     rgb = img.convert("RGB")
     alpha = img.split()[3]
@@ -450,6 +494,18 @@ def _quantize16(img):
     for y in range(py0, py0 + 8):
         for x in range(px0, px0 + 8):
             idx[y * pw + x] = best + 1
+    # side-wall strip: the front wall's outer edge columns, baked below the
+    # patch so side faces show connected wall texture instead of flat color
+    strip = None
+    wall_r = wall_rows if wall_rows and wall_rows <= h else 0
+    if wall_r and py0 + 8 + wall_r <= ph and px0 + 8 <= pw:
+        sy = py0 + 8
+        for y in range(wall_r):
+            for x in range(8):
+                src = qpx[min(x, w - 1), h - wall_r + y] + 1 \
+                    if apx[min(x, w - 1), h - wall_r + y] else best + 1
+                idx[(sy + y) * pw + (px0 + x)] = src
+        strip = (px0, sy, 8, wall_r)
     texels = bytearray(pw * ph // 2)
     for i in range(0, pw * ph, 2):
         texels[i // 2] = idx[i] | (idx[i + 1] << 4)
@@ -458,7 +514,7 @@ def _quantize16(img):
         r, g, bl = pal[i * 3:i * 3 + 3]
         struct.pack_into("<H", palbin, (i + 1) * 2,
                          (r >> 3) | ((g >> 3) << 5) | ((bl >> 3) << 10))
-    return bytes(texels), bytes(palbin), pw, ph, (px0 + 4, py0 + 4)
+    return bytes(texels), bytes(palbin), pw, ph, (px0 + 4, py0 + 4), strip
 
 
 def _fold_model(art, name, ground_d_px):
@@ -471,14 +527,19 @@ def _fold_model(art, name, ground_d_px):
         # NEAREST, not BOX: box-averaging blends the (0,0,0) keyed-out pixels
         # into building edges as dark fringes
         img = img.resize((w // 2, h // 2), Image.NEAREST)
-    texels, palbin, pw, ph, patch = _quantize16(img)
-    hw = w / 2.0
-    hd = ground_d_px / 2.0
     wall = WALL_PX_SHORT if h <= 80 else WALL_PX_TALL
     wall = min(wall, h)
+    texels, palbin, pw, ph, patch, strip = _quantize16(img, wall // ts)
+    hw = w / 2.0
+    hd = ground_d_px / 2.0
     roof_v = h - wall            # art rows used by the roof
     tilt = ROOF_TILT if roof_v > 0 else 0
     pu, pv = patch
+    if strip:
+        sx, sy, sw, sh = strip
+        s_uv = [(sx, sy), (sx + sw, sy), (sx + sw, sy + sh), (sx, sy + sh)]
+    else:
+        s_uv = [(pu, pv)] * 4
     faces = []
     # front wall (south, +z)
     faces.append(((0, 0, 1), [
@@ -495,19 +556,19 @@ def _fold_model(art, name, ground_d_px):
             ((hw, wall, hd), (w / ts, roof_v / ts)),
             ((-hw, wall, hd), (0, roof_v / ts)),
         ]))
-    # sides
+    # sides: front wall's edge-column strip, top of strip at the eave line
     faces.append(((1, 0, 0), [
-        ((hw, wall, hd), (pu, pv)), ((hw, wall + tilt, -hd), (pu, pv)),
-        ((hw, 0, -hd), (pu, pv)), ((hw, 0, hd), (pu, pv)),
+        ((hw, wall, hd), s_uv[0]), ((hw, wall + tilt, -hd), s_uv[1]),
+        ((hw, 0, -hd), s_uv[2]), ((hw, 0, hd), s_uv[3]),
     ]))
     faces.append(((-1, 0, 0), [
-        ((-hw, wall + tilt, -hd), (pu, pv)), ((-hw, wall, hd), (pu, pv)),
-        ((-hw, 0, hd), (pu, pv)), ((-hw, 0, -hd), (pu, pv)),
+        ((-hw, wall + tilt, -hd), s_uv[0]), ((-hw, wall, hd), s_uv[1]),
+        ((-hw, 0, hd), s_uv[2]), ((-hw, 0, -hd), s_uv[3]),
     ]))
-    # back wall (north, -z)
+    # back wall (north, -z): strip too — flat color otherwise
     faces.append(((0, 0, -1), [
-        ((hw, wall + tilt, -hd), (pu, pv)), ((-hw, wall + tilt, -hd), (pu, pv)),
-        ((-hw, 0, -hd), (pu, pv)), ((hw, 0, -hd), (pu, pv)),
+        ((hw, wall + tilt, -hd), s_uv[0]), ((-hw, wall + tilt, -hd), s_uv[1]),
+        ((-hw, 0, -hd), s_uv[2]), ((hw, 0, -hd), s_uv[3]),
     ]))
     dl = _faces_dl(faces)
     empty = nsbmd.pack_dl([(nsbmd.G_BEGIN, [1]), (nsbmd.G_END, [])])

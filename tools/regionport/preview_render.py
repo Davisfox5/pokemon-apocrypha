@@ -258,10 +258,10 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
         roof_v = h - wall
         tilt = hb.ROOF_TILT if roof_v > 0 else 0
         hw = w / 2.0
-        side = img.crop((2, h - wall + 2, min(10, w), h - wall + 10)).resize((1, 1))
-        scol = tuple(side.getpixel((0, 0)))
+        # sides/back: the front wall's edge-column strip (matches the strip
+        # _quantize16 bakes into the texture padding)
+        strip = img.crop((0, roof_v, 8, h))
 
-        # side + back solids (drawn first)
         for face in (
             [(cx + hw, wall, zf), (cx + hw, wall + tilt, zb),
              (cx + hw, 0, zb), (cx + hw, 0, zf)],
@@ -270,7 +270,7 @@ def render(mid="MAP_LITTLEROOT_TOWN", out_path=None, donor=False):
             [(cx + hw, wall + tilt, zb), (cx - hw, wall + tilt, zb),
              (cx - hw, 0, zb), (cx + hw, 0, zb)],
         ):
-            solid_quad(canvas, scol, face, cam)
+            paste_quad(canvas, strip, face, cam)
         if roof_v > 0:
             roof_tex = img.crop((0, 0, w, roof_v))
             paste_quad(canvas, roof_tex,
