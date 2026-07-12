@@ -108,12 +108,34 @@ class MapBuildings:
             self._cg = {mt for mt, _ in cnt.most_common(30)}
         return self._cg
 
+    def _is_ridge_cell(self, c):
+        """Walk-behind roof-row cell: passable, MB_NORMAL, and with real
+        top-layer art. (Common-ground membership was the old test; on small
+        maps the ridge tiles themselves crack the top-30 list — Littleroot's
+        houses kept a baked roof strip in the ground.)"""
+        if c is None or c["coll"]:
+            return False
+        mt = c["mt"]
+        if not hasattr(self, "_ridge_memo"):
+            self._ridge_memo = {}
+        v = self._ridge_memo.get(mt)
+        if v is None:
+            if mt < em.NUM_METATILES_PRIMARY:
+                raw = self._prim[1][mt] if mt < len(self._prim[1]) else 0
+            else:
+                i = mt - em.NUM_METATILES_PRIMARY
+                raw = self._sec[1][i] if i < len(self._sec[1]) else 0
+            tl = _top_layer_tile(self, mt)
+            v = (raw & 0xFF) == 0 and any(
+                px is not None for row in tl for px in row)
+            self._ridge_memo[mt] = v
+        return v
+
     def extract(self):
         """[{type, doors:[(x,y)], rect, ground_rows}] — rectangle-grown from
         each warp door: up the door column over body cells, widened while
         whole columns of the band are body, then up to 3 roof-art rows."""
         m = self.m
-        cg = self.common_ground()
         buildings = []
         for w in m.json.get("warp_events", []):
             x, y, dest = int(w["x"]), int(w["y"]), w["dest_map"]
@@ -142,7 +164,7 @@ class MapBuildings:
                 if ry == 0:
                     break
                 row = [self.cell(cx, ry - 1) for cx in range(x0, x1 + 1)]
-                odd = sum(1 for c in row if c and not c["coll"] and c["mt"] not in cg)
+                odd = sum(1 for c in row if self._is_ridge_cell(c))
                 if odd < (x1 - x0 + 1) * 0.7:
                     break
                 ry -= 1
@@ -202,11 +224,14 @@ HG = os.path.join(ROOT, "disasm", "pokeheartgold")
 
 MAX_RECT_W, MAX_RECT_H = 14, 12   # tiles; bigger structures stay 2D
 MAX_ARTS = 68                     # 550-slot model-file array: 480 used + head-room
-TEXEL_BUDGET = 40_000             # 4bpp texel bytes. The ground texset's move
-                                  # to 4bpp pool tiles (v5) freed ~31K of the
-                                  # ~200K field texture VRAM, so props grew
-                                  # 16K->40K: rarer buildings (shipyard, gyms,
-                                  # contest halls) go 3D instead of flat splats.
+TEXEL_BUDGET = 150_000            # 4bpp texel bytes. The v7 ground texset is
+                                  # ~42K (254 authentic 16px arts); v5 shipped
+                                  # 163K ground + 40K props without VRAM
+                                  # corruption, so ~150K of props keeps the
+                                  # total at that proven ~200K level and
+                                  # promotes far more of the region's ~115
+                                  # building instances from flat-baked ground
+                                  # art to 3D fold-billboard props.
 DOWNSCALE_PX = 128                # arts wider/taller than this use half-res
                                   # textures (world size unchanged)
 BASE_MODELS = 480                 # vanilla 340 + sinnoh import 140

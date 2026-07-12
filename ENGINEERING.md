@@ -44,15 +44,57 @@ Five regions, one target engine (HGSS). Mapping confirmed with the design owner 
 
 ---
 
-## Region Port Status (M2/M3 — updated 2026-07-10, v6)
+## Region Port Status (M2/M3 — updated 2026-07-12, v7)
 
 **Sinnoh and Hoenn overworlds are in the ROM and traversable, with Sinnoh
 buildings and full-scale seamless Hoenn rendering.** Tooling lives in
 `tools/regionport/` (all generators idempotent; run `import_sinnoh.py` then
 `import_hoenn.py`, `rm files/fielddata/mapmatrix/map_matrix.narc`, rebuild).
 
-### v6 — Gen-4 semantic re-skin of Hoenn (the "stop looking like a GBA
-screenshot" round)
+### v7 — authentic-art ground (the pivot back to Hoenn's own pixels)
+
+The owner verdict on v6 (2026-07-11, from the in-emu Slateport shots plus
+the littleroot_A_vs_B.png review): Gen-4 donor art reads as Johto — **Hoenn
+keeps its own art**. v7 keeps all of v6's machinery (semantic classifier,
+39-material template, merged repeat-UV rects, wall-quad trees, per-run
+idempotent NARC surgery) and swaps only the texture source back to Emerald:
+
+- **Per-tile authentic textures.** Every unique ground metatile art (16x16
+  RGB, HOENN_GAIN-lifted, content-hashed) is a 4bpp pltt16 texture
+  candidate. The NNS resdict format indexes entries with a single byte, so
+  one texset holds **at most 255 names** (this is why v5's pool stopped at
+  246): the top ~230 arts by occurrence are kept — 94% of all ground-tile
+  occurrences — at a trivial 42KB (v5's quilt: 163KB at 8px; v6's donors:
+  9.6KB but wrong art). The long tail demotes to per-class BASE textures
+  (each class's most common art), so demotions stay in-family.
+- **Per-chunk binding returns (cheaply).** Chunks bind their own top-39
+  selection by name-patching the material dicts: class bases for every
+  class present + the chunk's most-covering detail arts, with a per-chunk
+  vertex cap (1300) that demotes the rarest details until every 2x2 chunk
+  window stays under 5400 verts (measured worst: 5312). Same-art runs
+  merge as repeat-UV rects (period = 1 tile), so no supertile/atlas/
+  decimation machinery came back. Median chunk: 24 distinct textures,
+  852 verts.
+- **Trees**: per-column bottom-up 2-cell segmentation (computed globally so
+  chunk borders keep phase, then merged into horizontal runs) becomes
+  32-tall wall quads textured with the region's 6 most common vertical
+  tree-art pairs (16x32).
+- **Palettes**: exact-color quantize (dither NONE) + first-fit grouping
+  into 16-color palettes — 25 groups, ~0.8KB, vanilla-scale.
+- **Buildings ride along**: extraction's roof-row test now keys on "has
+  top-layer art + MB_NORMAL + passable" instead of common-ground
+  membership (on small maps the ridge tiles themselves crack the top-30
+  common list — Littleroot's houses kept a baked roof strip). Prop texel
+  budget 40K -> 150K (v5 shipped 163K ground + 40K props, so ~42K + ~146K
+  keeps the proven total): 45 of 115 building instances are 3-D
+  fold-billboards (35 models, ids 480-514), prioritized by instance count;
+  the rest stay flat-baked authentic art. Rustboro currently gets none
+  (budget tie-break) — polish item.
+- Water is single-layer authentic art (no sea_on overlay); classification
+  now only steers geometry (trees, bases, fill), not the art itself.
+
+### v6 — Gen-4 semantic re-skin of Hoenn (superseded by v7's verdict:
+donor terrain read as Johto; kept for the machinery it introduced)
 
 v5's dither cleanup didn't change the aesthetic: the renderer was still a quilt
 of raw Emerald pixels (2,438 unique tiles, VRAM-forced to 8px). v6 replaces the

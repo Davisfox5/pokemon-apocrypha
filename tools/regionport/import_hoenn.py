@@ -9,20 +9,20 @@ re-runs so it is idempotent).
 Per 32x32 chunk of the stitched 49-map overworld (emeraldmap.stitch):
   perms  : collision+behavior mapped to HGSS types (grass 0x02, water 0x15,
            ledges/doors/blocked 0x80)
-  model  : generated NSBMD (nsbmd.py 39-slot chunk template) — v6 Gen-4
-           re-skin: every tile is classified semantically (hoenn_texmap.py)
-           and drawn as merged repeat-UV rects of vanilla HGSS/Platinum
-           donor terrain textures, with cutout overlays (encounter grass,
-           flowers, water surface) and real hedge-wall tree quads
-           (hoenn_ground.py). The GBA art only steers classification now —
-           no Emerald pixel ever reaches the ROM.
+  model  : generated NSBMD (nsbmd.py 39-slot chunk template) — v7
+           authentic-art renderer: every tile is classified semantically
+           (hoenn_texmap.py) and drawn as merged repeat-UV rects of its
+           OWN Emerald art at full 16px (hoenn_ground.py; owner decision
+           2026-07-11: Hoenn keeps its own art — the v6 Gen-4 donor skin
+           read as Johto). Rare arts demote to per-class base textures;
+           trees are wall quads textured with real canopy pairs.
   bdhc   : flat template plane (elevation geometry is a later round)
 
 ONE shared area for the whole region: the engine only renders chunks whose
 owner map's area matches the currently-loaded one (crossing a map header
 boundary swaps areas and blanks all foreign chunks — the v1 black-chunk bug),
-so every Hoenn header points at a single area entry / NSBTX. All chunks bind
-the SAME donor texture list in the same material slots.
+so every Hoenn header points at a single area entry / NSBTX. Chunks bind
+their own 39-slot texture selection from it (per-chunk name patching).
 One matrix (map_matrix_0289_HOENN.bin) + 45 headers.
 """
 import json
@@ -183,10 +183,10 @@ def main():
                 continue
             chunk_owner[(cx, cy)] = oc.most_common(1)[0][0]
 
-    # ---- Gen-4 semantic re-skin (v6) --------------------------------------- #
-    # Classify every tile semantically (behavior/curated/heuristic) and draw
-    # it with vanilla Gen-4 donor textures (hoenn_ground.py). Every chunk
-    # binds the SAME texture list, so there is no per-chunk pool assignment.
+    # ---- authentic-art render (v7) ------------------------------------------ #
+    # Classify every tile semantically (behavior/curated/heuristic), then ship
+    # the Emerald art itself: unique arts become pltt16 textures, chunks bind
+    # their own top-39 selection, the long tail demotes to class bases.
     used_maps = sorted(set(chunk_owner.values()),
                        key=lambda m: list(origins).index(m))
 
@@ -198,12 +198,12 @@ def main():
     cstats = Counter(sem[z][x] for z in range(GH) for x in range(GW)
                      if ckey[z][x] is not None)
     print("classes:", ", ".join(f"{c}={n}" for c, n in cstats.most_common()))
-    ts = hg2.TexSet()
+    ts = hg2.TexSet(mapdatas, ckey, sem, GW, GH,
+                    lambda mid, mt: tile_image(mapdatas, mid, mt))
     global_btx = ts.btx
     chunk_tmpl = nsbmd.template(nsbmd.CHUNK_TEMPLATE_PATH)
-    tex_names, pal_names, tex_dims, repeat_slots = ts.model_binding(chunk_tmpl.num)
-    print(f"global NSBTX: {len(global_btx)} bytes "
-          f"({len(ts.slots)} donor textures)")
+    print(f"texset: {ts.stats}")
+    print(f"global NSBTX: {len(global_btx)} bytes, {ts.npals} palette groups")
 
     # ---- load target NARCs (truncate to post-sinnoh baseline) ------------- #
     land = narc_read(os.path.join(HG, "files/a/0/6/5"))[:BASE["land"]]
@@ -240,7 +240,8 @@ def main():
                 i = (lz * 32 + lx) * 2
                 perms[i] = t
                 perms[i + 1] = c
-        shape_dls, nverts = hg2.emit_chunk(ts, sem, cx, cy, GW, GH)
+        (shape_dls, nverts, tex_names, pal_names,
+         tex_dims, repeat_slots) = hg2.emit_chunk(ts, sem, cx, cy, GW, GH)
         chunk_verts[(cx, cy)] = nverts
         model = nsbmd.build_model(shape_dls, tex_dims, tex_names=tex_names,
                                   pal_names=pal_names,
