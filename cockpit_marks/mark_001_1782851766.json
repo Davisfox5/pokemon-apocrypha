@@ -1,0 +1,75 @@
+{
+  "mark": 1,
+  "ts": 1782851766,
+  "note": "Mom is in the incorrect spot. Player character is facing N, mom is three tiles south. ",
+  "map": 63,
+  "player_tile": [
+    3,
+    6
+  ],
+  "player_face": "N",
+  "circled_tile": [
+    4,
+    7
+  ],
+  "circled_object": null,
+  "scene_vars": {
+    "0x4073": 0,
+    "0x4106": 2
+  },
+  "all_objects": [
+    {
+      "id": 255,
+      "sprite": 0,
+      "x": 3,
+      "z": 6,
+      "face": "N"
+    },
+    {
+      "id": 0,
+      "sprite": 365,
+      "x": 3,
+      "z": 5,
+      "face": "S"
+    }
+  ],
+  "recent_timeline": [
+    {
+      "frame": 2072,
+      "event": "map -> 63"
+    },
+    {
+      "frame": 4320,
+      "event": "var 0x4106: 0->1"
+    },
+    {
+      "frame": 4608,
+      "event": "map -> 64"
+    },
+    {
+      "frame": 4856,
+      "event": "map -> 63"
+    },
+    {
+      "frame": 6936,
+      "event": "map -> 64"
+    },
+    {
+      "frame": 7360,
+      "event": "map -> 63"
+    },
+    {
+      "frame": 7616,
+      "event": "map -> 64"
+    },
+    {
+      "frame": 8384,
+      "event": "var 0x4106: 1->2"
+    },
+    {
+      "frame": 8608,
+      "event": "map -> 63"
+    }
+  ],
+  "png": "cockpit_marks/mark_001_1782851766.png"
+}

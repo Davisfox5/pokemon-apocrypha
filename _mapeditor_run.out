@@ -1,0 +1,70 @@
+pygame 2.6.1 (SDL 2.28.4, Python 3.9.6)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+objc[91523]: Class SDLApplication is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d792c8) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119ac940). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLAppDelegate is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79318) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119ac990). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLTranslatorResponder is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79390) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119aca08). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLMessageBoxPresenter is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d793b8) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119aca30). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_cocoametalview is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79408) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119aca80). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLOpenGLContext is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79458) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acad0). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_ShapeData is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d794d0) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acb48). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_CocoaClosure is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79520) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acb98). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_VideoData is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79570) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acbe8). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_WindowData is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d795c0) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acc38). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLWindow is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d795e8) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acc60). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class Cocoa_WindowListener is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79610) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acc88). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDLView is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79688) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acd00). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class METAL_RenderData is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79700) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acd78). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class METAL_TextureData is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79750) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acdc8). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_RumbleMotor is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d79778) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119acdf0). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+objc[91523]: Class SDL_RumbleContext is implemented in both /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib (0x109d797c8) and /Users/davisfox/Documents/GitHub/the-omni-hack/.emu-venv/lib/python3.9/site-packages/desmume/.dylibs/libSDL2-2.0.0.dylib (0x1119ace40). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+Microphone successfully inited.
+DeSmuME 0.9.12 git#0 ARM64
+SoftRasterizer: Running using 10 additional threads. (Multithreading enabled.)
+
+ROM game code: IPKE
+ROM crc: 3D69DECA
+ROM serial: NTR-IPKE-USA
+ROM chipID: 00007FC2
+ROM internal name: POKEMON HG
+ROM developer: Nintendo
+
+Slot1 auto-selected device type: Retail MC+ROM
+Slot2 auto-selected device type: None (0xFF)
+BackupDevice: size = 4 Mbit
+Already decrypted.
+WIFI: MAC Address = 00:09:BF:12:34:56
+WIFI: Emulation level is OFF.
+Slot1 auto-selected device type: Retail MC+ROM
+Slot2 auto-selected device type: None (0xFF)
+BackupDevice: size = 4 Mbit
+Already decrypted.
+WIFI: MAC Address = 00:09:BF:12:34:56
+WIFI: Emulation level is OFF.
+Slot 2: None
+Savestate info:
+	DeSmuME version: 0.9.12 svn 0
+	Save created: 2026-JUL-02 Thu 01:37:17
+Slot1 auto-selected device type: Retail MC+ROM
+BackupDevice: size = 4 Mbit
+Already decrypted.
+WIFI: MAC Address = 00:09:BF:12:34:56
+WIFI: Emulation level is OFF.
+Savestate info:
+	DeSmuME version: 0.9.12 svn 0
+	Save created: 2026-JUL-02 Thu 09:32:15
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C
+MC9: Unverified Backup Memory command: 08 FROM 020DDE94
+MC9: Unverified Backup Memory command: 08 FROM 020DDF3C

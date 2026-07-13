@@ -75,7 +75,7 @@ Add narration states using `OakSpeech_PrintAndFadeCenteredFullScreenText` (white
 ### S2-A · Rescue — `scr_seq_T21_013`, coord fires `CHERRYGROVE_OW`==1 (north grass)
 **Intent:** find Kestra calmly searching the grass → she excitedly spots a wild mon → Gold rushes in a beat too late → a real catching demo. The kids have no Pokémon, so Gold handles it.
 **Actors:** Kestra `friend` (→548,385), wild Rattata `wildmon` (549,385), Gold (→548,387).
-**End state:** wild mon caught/gone; `CHERRYGROVE_OW` = 2; warp to (557,404) for the ceremony.
+**End state:** wild mon caught/gone; `CHERRYGROVE_OW` = 2; warp to the north gate (549,387) — the T21 scene table auto-starts the grand tour (`scr_seq_T21_018`, five separate stops in order: Poké Center front (564,394) msg 64, Poké Mart front (555,394) msg 70, Route 29 mouth (572,398) msg 68, the sea shore (544,402) msgs 71/69, then Gold's doorstep), which ends on the ceremony pins and hands off to `_T21_ceremony_body`.
 
 - [ ] ❌→🔧 **Kestra is visible**, searching the grass. *(fix: `move_person` before `show_person`)*
 - [ ] 🔧 The wild Rattata appears (ideally emerging, not popping in place).
@@ -103,4 +103,6 @@ Add narration states using `OakSpeech_PrintAndFadeCenteredFullScreenText` (white
 - **O-1b** text-on-black narration → `oaks_speech.c` C edit (your greenlight).
 - **S2-A** catch fidelity → engine demo (have now) vs custom "Gold catches" cutscene (C).
 - **House boxes** → new sprite/model assets.
-- Scenes 3–4 (Route 29/New Bark/Elm Pokédex; catching tutorial + Mom goodbye) → not built.
+- Scene 3B (Elm Pokédex hand-off) → 🔧 implemented 2026-07-05 (`scr_seq_T20R0101_011`, entry coord at `VAR_SCENE_ELMS_LAB==0`, requires starter; Kestra present; sets `ELMS_LAB=9` which also arms Mom's savings). Ceremony send-off lines now point east to Elm; Ch2's R30 opener requires `FLAG_GOT_POKEDEX`. Gold hands 5 Poké Balls at the R30 catch demo.
+- Scene 3A (Route 29 Kestra goad/peel-off beat) → ⬜ not built (optional; the ceremony "race you to the lab" line covers the narrative). `FLAG_APOC_R29_INTRO_DONE` reserved.
+- Scene 4C (forced Mom goodbye) → ⬜ not built (her savings talk is available post-Pokédex but skippable). `FLAG_APOC_MOM_GOODBYE_DONE` reserved.

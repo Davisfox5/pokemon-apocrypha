@@ -1,0 +1,78 @@
+{
+  "mark": 10,
+  "ts": 1782878703,
+  "note": "There is a moving box (custom sprite we added) stuck in the counter. ",
+  "map": 63,
+  "player_tile": [
+    4,
+    9
+  ],
+  "player_face": "W",
+  "circled_tile": [
+    2,
+    9
+  ],
+  "circled_object": {
+    "id": 0,
+    "sprite": 365,
+    "x": 3,
+    "z": 9,
+    "dir": 3,
+    "dirname": "E"
+  },
+  "scene_vars": {
+    "0x4073": 0,
+    "0x4106": 0
+  },
+  "all_objects": [
+    {
+      "id": 255,
+      "sprite": 0,
+      "x": 4,
+      "z": 9,
+      "face": "W"
+    },
+    {
+      "id": 0,
+      "sprite": 365,
+      "x": 3,
+      "z": 9,
+      "face": "E"
+    },
+    {
+      "id": 1,
+      "sprite": 1050,
+      "x": 1,
+      "z": 4,
+      "face": "S"
+    },
+    {
+      "id": 2,
+      "sprite": 1050,
+      "x": 2,
+      "z": 8,
+      "face": "S"
+    },
+    {
+      "id": 3,
+      "sprite": 1050,
+      "x": 8,
+      "z": 5,
+      "face": "S"
+    },
+    {
+      "id": 4,
+      "sprite": 1050,
+      "x": 6,
+      "z": 9,
+      "face": "S"
+    }
+  ],
+  "recent_timeline": [
+    {
+      "frame": 28584,
+      "event": "map -> 63"
+    }
+  ],
+  "png": "cockpit_marks/mark_010_1782878703.png"
+}

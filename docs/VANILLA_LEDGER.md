@@ -8,7 +8,7 @@
 - **KEEP** — pure flavor/mechanics with no story conflict.
 - **GATE** — content that belongs to a later chapter; physically block access.
 
-**Suppression mechanism.** `scr_seq_0149.s` is `_std_init` and runs on **every map load** (`src/fieldmap.c:576`), before objects spawn — a `setflag` there is the canonical way to permanently hide a vanilla actor, and it applies to existing saves on the next map transition. Belt-and-suspenders: also stub the scene scripts that could re-show or re-trigger the content, since map-load inits and scene scripts re-run per load. For phone/engine systems, seed vanilla guard flags at the same place so untouched flag-ladders resolve to neutral branches.
+**Suppression mechanism.** `scr_seq_0149.s` is `_std_init` and runs **once at new game** (`src/field_warp_tasks.c:351`, `CallFieldTask_NewGame`) — a `setflag` there persists in the save and is the canonical way to hide a vanilla actor **for new saves**. Saves created before a given `setflag` was added never get it; for player-visible actors, add a per-load belt in the map's own type-2 init (done for New Bark: Silver/Marill in `scr_seq_T20_006`, the friends'-room pair in `scr_seq_T20R0402_002`). Belt-and-suspenders: also stub the scene scripts that could re-show or re-trigger the content. For phone/engine systems, seed vanilla guard flags at new game so untouched flag-ladders resolve to neutral branches (new saves only — old saves keep whatever phone state they accumulated).
 
 Status legend: ✅ fixed this pass · 🕐 deferred (noted why) · ✔ verified already handled.
 
@@ -32,6 +32,7 @@ Status legend: ✅ fixed this pass · 🕐 deferred (noted why) · ✔ verified 
 | "Elm Pokémon Lab" / town signs, gswoman1 "tell your mom", friend's parent ("Lyra is upstairs…"), Elm family 2F, Elm fan (SW house), R29 signs | various T20* gmm | RETHEME | ✅ |
 | Stale vanilla rows in rewired player-house gmm (`msg_0545_T20R0201`) | rows 5–141 (Elm favor, Pokégear repair, Mr. Pokémon) | RETHEME/blank dead rows | ✅ |
 | Mom, town friend pairs, R29 friend+Marill, lab officer, trophies, Cameron, Tuscany, R29 gatehouse | — | KEEP / verified hidden | ✔ |
+| New Bark player-house **door duplicated** the player's Cherrygrove home — warp led into `T20R0201` (whose exit goes to Cherrygrove), so the same interior was reachable from both towns and New Bark visitors were ejected to Cherrygrove | `057_T20.json` warp[1] (695,396) → `T20R0201` | RETHEME — repointed to new dedicated interior `MAP_NEW_BARK_MOMS_HOUSE` (id 660 — above the Hoenn region-port range; Gold's-mother NPC, exits back to New Bark); Cherrygrove keeps `T20R0201` as the player home. Emulator-verified: door→map 660 loads, mom + dialogue render, exit→New Bark | ✅ |
 
 ## 2. Cherrygrove / Route 30 / Route 31 (T21*, R30*, R31*)
 
@@ -43,6 +44,7 @@ Status legend: ✅ fixed this pass · 🕐 deferred (noted why) · ✔ verified 
 | R31 "Is that a Pokémon Egg?" sleeper | `msg_0378_R31` row 11 | RETHEME | ✅ |
 | Guide Gent object + tour/map-card/road-rival scenes | T21 — hidden by on-load init; scenes unwired | verified handled | ✔ |
 | Mr. Pokémon's house: Oak object deleted, egg/orb scripts stubbed; live script = Quick Claw | `139_R30R0201.json` | verified handled | ✔ |
+| Mr. Pokémon's house auto-cutscene trigger (Mystery Egg / Red Scale / Embedded Tower scene table) — **froze the player on first arrival** (empty scene 001 re-fired every frame while `VAR_SCENE_MR_POKEMONS_HOUSE == 0`; stubbing the script bodies but leaving the trigger live was the bug) | `scr_seq_0474_R30R0201_hdr.s` map_scripts_2 + type-3 load | REMOVE — header now `.byte 0`, no map/scene scripts | ✅ |
 | Dead text: Guide-Gent tour, in-house starter ceremony, Egg/Oak/Red-Scale, Lyra gate rows | `msg_0550_T21`, `msg_0554_T21R0401`, `msg_0377_R30R0201`, `msg_0379_R31R0101` | REMOVE (blank dead rows) | ✅ |
 | Kenya/Spearow loan quest (R31), Apricorn house, Dark Cave R31 side, marts/centers | — | KEEP | ✔ |
 | "Badges all over Johto" line (T21R0301) | `msg_0553_T21R0301` row 0 | RETHEME | ✅ |
@@ -115,9 +117,16 @@ Status legend: ✅ fixed this pass · 🕐 deferred (noted why) · ✔ verified 
 
 ---
 
-## Known debt surfaced by this pass (not vanilla leftovers — missing Apocrypha content)
+## Deep pass (2026-07-05, second sweep): completability fixes
 
-- **Ch1 Pokédex hand-off scene is unimplemented.** Nothing in the repo calls `give_pokedex` or sets `FLAG_GOT_POKEDEX`; CHAPTER1_BUILD.md Increment 5 (Elm's lab coord scene) never landed. Elm's talk tree is now wired and ready for it (pre-dex greeting / post-dex line both exist), but the scene itself must be built.
-- **Mom's savings offer** (Cherrygrove house) is gated on `VAR_SCENE_ELMS_LAB >= 4`, which nothing can set anymore — re-gate on `FLAG_GOT_POKEDEX` when the Pokédex scene lands.
+All four chapters walked as state machines by parallel audits; every hard blocker fixed the same day:
+
+- **Ch1 Pokédex scene implemented** (`scr_seq_T20R0101_011` — was specced but never built) with Kestra present; sets `ELMS_LAB=9`, which also arms Mom's savings (its `>= 4` gate now works). Ceremony send-off rewritten to point east; Ch2's R30 opener now requires `FLAG_GOT_POKEDEX`; Gold hands 5 Poké Balls at the catch demo (none existed anywhere in Ch1).
+- **Ch1 softlock closed:** the Apricorn-man scene shared `VAR_SCENE_ROUTE_30_OW==0` with the catch-demo coords and could permanently disarm the starter ceremony — now inert until `FLAG_APOC_CATCH_TUT_DONE`.
+- **Ch3 hard deadlock fixed:** the survey guard spawned permanently on (434,461), the *only* tile connecting town to the well plateau, and nothing ever set `WELL_PROGRESS=1` so the well bounced the player out forever. Now: Kurt's talk and Turk's recruit both set it; the T23 init stands the survey crew down at `>= 1`; a second blocker coord covers the chokepoint bypass; the Silver-arrival trio restaged from inside the cliff onto walkable z456 tiles.
+- **Ch4 hard blocker fixed:** tower Kestra was parked at (26,25) outside the room AND hidden by a flag nothing cleared per-load — send-off (and thus the Magnet Train) unreachable. Moved to the lobby (16,10) with an init spawn window (`CH4_SCENE >= 2` until send-off). Plaza Kestra now hidden until her reveal (was standing in Goldenrod from arrival); the exterior Day-Care Lyra escort cutscene stubbed (interior already was); R30 Kestra no longer respawns mute on re-entry.
+- **Data layer:** Goldenrod Dept Store TM racks trimmed to the badge-1 utility tier (was selling Blizzard/Fire Blast/Thunder/Hyper Beam ungated); Union Cave Nick's placeholder Kanto-starter party → Machop/Graveler/Zubat; Benny Beedrill→Spinarak per doc; Turk support core to doc levels; Ilex Seedot rebalanced under native Oddish; rare Bidoof land slot added to R34.
+
+**Remaining polish debt (non-blocking, from the audits):** Ch2 — Earl's persistent dean chat unreachable (his object is hidden by the arrival scene); Violet arc fully skippable (no soft gate at the south exit); kimono beat needs a Violet re-entry to fire; commotion trigger band possibly 1 tile narrow (x485). Ch4 — Goldenrod guidance gap (silent arrival + 3-tile plaza trigger); interior flavor pass still open (Dept Store/Underground/Global Terminal/Bill/Saffron street NPCs); "MEL: Two. Press." plays with no Mel sprite at the station; boarding-refusal and R34 extra trainers (3 Ace Trainers + Cameron/Cal) still vanilla-lined. Misc — Kurt's phone registration dead (survey var double-books `VAR_UNK_4080`); Silver's post-well dialogue references the King's Rock even if not picked up; underground vendors sell Rare Candy @2000 (money-gated; decide); dead flags `FLAG_APOC_CH3_SILVER_MET`, `FLAG_APOC_CH2_KESTRA_BATTLE_DONE`, `FLAG_APOC_CH4_GOLDENROD_INTRO_DONE` set-but-never-read; optional unbuilt scenes: R29 Kestra goad beat, forced Mom goodbye.
 
 **Future chapters:** when Ch5+ opens new maps (Kanto proper, Ecruteak, upper Radio Tower, deep Silph), run this same audit on the newly reachable band *before* calling the chapter done: objects (`event_*.h`/zone JSONs, trace every `eventFlag` to an actual setflag), scene scripts/triggers (hdr tables + coord events at fresh var values), gmm text (grep Rocket/Silver/Elm/Lyra/badge-givers), and cross-map systems (phone registrations, radio, rematches, gift items). Also revisit the 🕐 items above.

@@ -1,0 +1,78 @@
+{
+  "mark": 4,
+  "ts": 1782878392,
+  "note": "Kestra sprite still in same place after exiting. You can see her sprite walking in the frames immediately preceeding, but she is . There is just a leftover sprite that needs to disappear after her dialogue and as she walks offscreen. ",
+  "map": 63,
+  "player_tile": [
+    4,
+    9
+  ],
+  "player_face": "W",
+  "circled_tile": [
+    4,
+    8
+  ],
+  "circled_object": {
+    "id": 0,
+    "sprite": 365,
+    "x": 3,
+    "z": 9,
+    "dir": 3,
+    "dirname": "E"
+  },
+  "scene_vars": {
+    "0x4073": 0,
+    "0x4106": 0
+  },
+  "all_objects": [
+    {
+      "id": 255,
+      "sprite": 0,
+      "x": 4,
+      "z": 9,
+      "face": "W"
+    },
+    {
+      "id": 0,
+      "sprite": 365,
+      "x": 3,
+      "z": 9,
+      "face": "E"
+    },
+    {
+      "id": 1,
+      "sprite": 1050,
+      "x": 1,
+      "z": 4,
+      "face": "S"
+    },
+    {
+      "id": 2,
+      "sprite": 1050,
+      "x": 2,
+      "z": 8,
+      "face": "S"
+    },
+    {
+      "id": 3,
+      "sprite": 1050,
+      "x": 8,
+      "z": 5,
+      "face": "S"
+    },
+    {
+      "id": 4,
+      "sprite": 1050,
+      "x": 6,
+      "z": 9,
+      "face": "S"
+    }
+  ],
+  "recent_timeline": [
+    {
+      "frame": 28584,
+      "event": "map -> 63"
+    }
+  ],
+  "png": "cockpit_marks/mark_004_1782878392.png"
+}
