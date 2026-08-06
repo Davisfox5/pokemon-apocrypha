@@ -57,6 +57,12 @@ Each class = **5 consecutive NARC members**:
 - OAM priority: lowest-index OAM wins on overlap (front class 102 has
   overlapping pieces; it round-trips render-identical, not byte-identical).
 
+**Slot assignments (this hack):** class 23 (RIVAL) now carries **Kestra**
+(all live class-23 trainer entries are her repurposed rival battles;
+source art `assets/src/trainers/front/kestra_front*.png`). Silver's
+late-game Champion battle (Ch8, spec-only) must NOT use class 23 — assign
+him a different class when Ch8 is built.
+
 **Scripted insertion (no DSPRE needed for these):**
 `scripts/extract_trainer.py` decodes any class to a PNG frame strip;
 `scripts/insert_trainer.py` splices a validated strip back in (tiles +

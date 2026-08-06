@@ -12,7 +12,9 @@ setup:
 	bash scripts/bootstrap.sh
 
 # Full source-to-output conversion. Per asset class:
-#   trainers/front     -> 80x80, 16 colors (index 0 transparent)
+#   trainers/front     -> 16 colors (index 0 transparent), dimensions kept:
+#                         80x80 single frames or 80x80-per-frame strips for
+#                         animated classes (validate.py enforces shape)
 #   trainers/back      -> 16 colors, dimensions kept (multi-frame sheets are
 #                         authored at final size; ~5 frames of 80x80)
 #   trainers/overworld -> 16 colors (15 opaque + transparent), dimensions kept
@@ -24,7 +26,7 @@ setup:
 build:
 	@test -x $(PYTHON) || { echo "error: .venv missing — run 'make setup' first"; exit 1; }
 	@for f in $(SRC)/trainers/front/*.png; do [ -e "$$f" ] || continue; \
-		$(PYTHON) scripts/quantize.py "$$f" -o $(OUT)/trainers/front/$$(basename "$$f") --size 80x80 --colors 16 || exit 1; done
+		$(PYTHON) scripts/quantize.py "$$f" -o $(OUT)/trainers/front/$$(basename "$$f") --colors 16 || exit 1; done
 	@for f in $(SRC)/trainers/back/*.png; do [ -e "$$f" ] || continue; \
 		$(PYTHON) scripts/quantize.py "$$f" -o $(OUT)/trainers/back/$$(basename "$$f") --colors 16 || exit 1; done
 	@for f in $(SRC)/trainers/overworld/*.png; do [ -e "$$f" ] || continue; \
