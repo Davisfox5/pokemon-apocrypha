@@ -8,10 +8,12 @@ Checks a file or directory (recursively) for:
   - expected size/shape for the asset class
 
 Asset classes and their rules:
-  trainer-front      exactly 80x80, <=16 total colors incl. transparent index 0
+  trainer-front      80x80, or a strip of 80x80 frames for animated classes
+                     (verified in HGSS a/0/5/8: most classes 1 frame, some 3+);
+                     <=16 total colors incl. transparent index 0
   trainer-back       multi-frame sheet: one dimension exactly 80, the other a
-                     multiple of 80 (HGSS backsprites are ~5-frame animated
-                     sheets); <=16 total colors
+                     multiple of 80; verified in HGSS a/0/0/6: sheets are 5 or
+                     8 frames of 80x80; <=16 total colors
   trainer-overworld  sheet of 32x32 frames: both dimensions multiples of 32;
                      <=15 NON-transparent colors (+ transparent index 0)
   map-tile           dimensions multiple of 8, <=16 total colors
@@ -87,8 +89,12 @@ def check_file(path, asset_class):
             errors.append(f"transparent index is {transparency}, must be 0")
 
     if asset_class == "trainer-front":
-        if (w, h) != (80, 80):
-            errors.append(f"size {w}x{h}, trainer front sprites must be exactly 80x80")
+        if not ((w == 80 and h % 80 == 0) or (h == 80 and w % 80 == 0)):
+            errors.append(f"size {w}x{h}, trainer fronts are 80x80 (or a strip of 80x80 "
+                          "frames for animated classes)")
+        elif (w, h) != (80, 80):
+            warnings.append(f"{max(w, h) // 80}-frame strip; fine only if the target class "
+                            "is animated (check with extract_trainer.py)")
         if n_total > 16:
             errors.append(f"{n_total} colors used, budget is 16 including transparent index 0")
 
@@ -98,8 +104,8 @@ def check_file(path, asset_class):
                           "(one dimension 80, the other a multiple of 80)")
         else:
             frames = max(w, h) // 80
-            if frames != 5:
-                warnings.append(f"{frames} frame(s); HGSS backsprite sheets are typically ~5 frames")
+            if frames not in (5, 8):
+                warnings.append(f"{frames} frame(s); HGSS backsprite sheets are 5 or 8 frames")
         if n_total > 16:
             errors.append(f"{n_total} colors used, budget is 16 including transparent index 0")
 
