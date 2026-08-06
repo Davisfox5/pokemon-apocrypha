@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Pre-commit hook: hard-fail if any staged file has a ROM/save extension.
+# Installed into .git/hooks/pre-commit by scripts/bootstrap.sh (or `make setup`).
+# ROMs must never enter this repository.
+
+set -u
+
+BLOCKED_RE='\.(nds|srl|gba|sav|srm)$'
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+bad=$(printf '%s\n' "$staged" | grep -iE "$BLOCKED_RE" || true)
+
+if [ -n "$bad" ]; then
+    echo "COMMIT BLOCKED: staged file(s) with a ROM/save extension:" >&2
+    printf '  %s\n' $bad >&2
+    echo "ROMs and save files must never be committed to this repository." >&2
+    echo "Unstage them with: git restore --staged <file>" >&2
+    exit 1
+fi
+
+exit 0

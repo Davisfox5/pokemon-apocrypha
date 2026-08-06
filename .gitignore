@@ -1,2 +1,23 @@
 __pycache__/
 *.pyc
+
+# ROMs and save files — never committable (enforced by scripts/hooks/pre-commit)
+*.nds
+*.srl
+*.gba
+*.sav
+*.srm
+
+# Python virtual environments
+.venv/
+
+# Asset pipeline output (regenerate with `make build`)
+assets/out/
+
+# Third-party binaries and jars dropped into tools/ (see tools/README.md)
+tools/vendor/*
+!tools/vendor/README.md
+tools/*.jar
+tools/*.exe
+tools/*.dll
+tools/*.zip
