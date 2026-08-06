@@ -24,14 +24,46 @@ This is the lookup sheet — the workflow itself is in the root
 ## Format budgets by asset class
 
 ### Trainer battle sprites (front)
-- **80x80** pixels, exactly.
-- 4bpp indexed: **max 16 colors including transparent index 0**.
+- **80x80** pixels per frame, 4bpp indexed: **max 16 colors including
+  transparent index 0**.
 - All graphics dimensions must be a multiple of 8 (hardware tile size).
+- Verified in HGSS `a/0/5/8` (129 classes): 97 classes are a single static
+  frame; 23 classes (gym leaders etc.) have 3 frames; a handful (Red,
+  rival, E4) have 4-12. Frame count is fixed by the class's cell data —
+  match it when replacing.
 
 ### Trainer battle backsprites
-- Multi-frame **animated sheets, ~5 frames** of 80x80 (HGSS plays the
-  throw animation from these).
+- Multi-frame **animated strips of 80x80 frames** (the throw animation).
+  Verified in HGSS `a/0/0/6` (17 classes): **12 classes have 8 frames,
+  5 have 5 frames** — not "~5"; match the target class exactly.
 - Same 4bpp / 16-color / index-0-transparent budget.
+
+### HGSS trainer sprite NARC internals (verified against nitrogfx + vanilla data)
+Each class = **5 consecutive NARC members**:
+`NCGR` (tiles) / `NCLR` (palette) / `NCER` (cells) / `NANR` (anim timing) /
+`NCGR` aux (200 tiles = 2 extra VRAM-streamed animation frames).
+- Tile data is **plain tiled 4bpp — NOT scanned/encrypted** (the Gen 4
+  PRNG scrambling applies elsewhere, e.g. DP Pokémon sprites; nitrogfx's
+  scanned flag `charHeader[0x14]` is 0 here).
+- NCGR pixel data at chunk+0x20, byte size at chunk+0x18. NCLR color data
+  at chunk+0x18, byte size at chunk+0x10. (Offsets from nitrogfx
+  `ReadNtrImage` / `ReadNtrPalette` — the naive "dataOffset field" read is
+  8 bytes off and was the source of subtle corruption.)
+- One NCER cell bank per animation frame, 6 OAM pieces each, char-name
+  shift 1, and per-frame **char partitions** of 3200 bytes (= one 80x80
+  frame). Animation banks shift their bounding box (the backsprite throw
+  slides right) — compose/decompose must anchor to each bank's own
+  minX/minY.
+- OAM priority: lowest-index OAM wins on overlap (front class 102 has
+  overlapping pieces; it round-trips render-identical, not byte-identical).
+
+**Scripted insertion (no DSPRE needed for these):**
+`scripts/extract_trainer.py` decodes any class to a PNG frame strip;
+`scripts/insert_trainer.py` splices a validated strip back in (tiles +
+palette; cells/timing untouched). Round-trip is byte-identical for 145 of
+146 vanilla classes (render-identical for all 146). All vanilla sprites are
+pre-extracted in `artwork-library/heartgold-johto/trainers/battle-front/`
+(named by class) and `battle-back/`.
 
 ### Platinum VS mugshot palette trap
 The VS mugshot does **not** take its palette from `field_encountereffect` —
@@ -75,9 +107,11 @@ expect) or `tools/vendor/` (gitignored) — see
 
 - ROMs are never stored in this repo; `.gitignore` and the pre-commit hook
   both block `*.nds`/`*.gba`/`*.sav`/`*.srm`.
-- Sprite insertion order of operations: validated indexed PNG →
-  DSPRE/Tinke converts to the Nitro format and repacks the NARC → NARC
-  dropped back under the build's `files/` tree → rebuild
-  (`_omni_native_build.sh` packs `files/` as-is; see ART_ASSETS_SPEC.md §0).
+- HGSS trainer battle sprite insertion is fully scripted:
+  `insert_trainer.py` writes straight into `disasm/pokeheartgold/files/a/0/5/8`
+  (or `a/0/0/6`) → rebuild (`_omni_native_build.sh` packs `files/` as-is).
+- Other asset kinds (overworld sprites, tiles, models) still go through
+  GUI tools: DSPRE/Tinke convert + repack the NARC → NARC dropped back
+  under `files/` → rebuild (see ART_ASSETS_SPEC.md §0).
 - When replacing a Platinum front sprite, re-insert the mugshot (or at
   least re-check it) — they share the palette entry you just changed.

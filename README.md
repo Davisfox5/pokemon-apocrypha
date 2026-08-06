@@ -56,11 +56,22 @@ yourself (see [tools/vendor/README.md](tools/vendor/README.md)).
    ```
 4. **Check**: `make validate` — per-file report of mode/size/color budgets,
    nonzero exit on any violation. `make clean` wipes `assets/out/`.
-5. **Insert** (manual, GUI tools): validated PNGs go into the game via
-   DSPRE (sprites, via wine — `tools/launch_dspre.sh`) or Pokémon DS Map
-   Studio (map models/`.nsbtx` — `tools/launch_pdsms.sh`), then the NARC
-   goes back under the build tree and the ROM is rebuilt. Paths and budgets:
-   [docs/gen4-reference.md](docs/gen4-reference.md).
+5. **Insert**:
+   - **HGSS trainer battle sprites — scripted, native.** Check the target
+     class's frame count, then splice the validated strip straight into the
+     decomp's NARC and rebuild:
+     ```sh
+     .venv/bin/python scripts/extract_trainer.py disasm/pokeheartgold/files/a/0/5/8 -o ref --cls 12
+     .venv/bin/python scripts/insert_trainer.py  disasm/pokeheartgold/files/a/0/5/8 my_sprite.png --cls 12 --in-place
+     ```
+     Round-trip verified byte-identical against every vanilla class. All
+     vanilla sprites are pre-extracted for reference in
+     `artwork-library/heartgold-johto/trainers/battle-front|back/`.
+   - **Everything else (manual, GUI tools):** DSPRE (via wine —
+     `tools/launch_dspre.sh`) or Pokémon DS Map Studio
+     (models/`.nsbtx` — `tools/launch_pdsms.sh`), then the NARC goes back
+     under the build tree and the ROM is rebuilt. Paths and budgets:
+     [docs/gen4-reference.md](docs/gen4-reference.md).
 6. **Test** in melonDS, or drive it with this repo's `tools/play.py` /
    `tools/cockpit.py` DeSmuME harness.
 
@@ -70,8 +81,9 @@ yourself (see [tools/vendor/README.md](tools/vendor/README.md)).
 |---|---|
 | Resize/quantize/palette/validate PNGs | yes — `make build` / `make validate` |
 | Front+mugshot shared palette | **manual** — run `shared_palette.py` per trainer pair |
+| HGSS trainer battle sprite extraction/insertion | yes — `extract_trainer.py` / `insert_trainer.py` |
 | Authoring 3D models (.nsbmd, <~100 tris) | **manual** — PDSMS |
-| PNG → Nitro format + NARC insertion | **manual** — DSPRE / PDSMS / Tinke |
+| Other PNG → Nitro conversions + NARC insertion (OW sprites, tiles, textures) | **manual** — DSPRE / PDSMS / Tinke |
 | ROM rebuild + emulator test | scripted elsewhere (`_omni_native_build.sh`), launch is manual |
 
 ## Scripts
@@ -86,3 +98,6 @@ Each is a standalone CLI; run with `-h` for full usage.
   failure.
 - `scripts/sheet.py` — slice/assemble sprite sheets by frame grid.
 - `scripts/texture_prep.py` — pad/scale textures to power-of-two + quantize.
+- `scripts/extract_trainer.py` / `scripts/insert_trainer.py` — decode /
+  splice HGSS trainer battle sprites directly in the decomp NARCs
+  (shared codec in `scripts/nitro.py`).
