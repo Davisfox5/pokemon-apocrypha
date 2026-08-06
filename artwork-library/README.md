@@ -25,7 +25,10 @@ overworld sprites; `render_gen3_blocks.py` — Gen 3 metatile block sheets).
   (+ `_female_*` where the species is dimorphic).
 - **`pokemon-icons/`** (HG) — 544 party/menu icons, numbered by National Dex.
 - **`trainers/`** — Gen 3: battle front pics (`back_*` = player back sprites). HG: the 76
-  VS/preview mugshots.
+  VS/preview mugshots, plus **`battle-front/`** (all 129 trainer-class battle sprites as
+  frame strips, named from `trainer_class.h`) and **`battle-back/`** (all 17 backsprite
+  throw-animation strips, 5 or 8 frames). Extracted by `scripts/extract_trainer.py`;
+  re-insert customs with `scripts/insert_trainer.py`.
 - **`overworld-people/`** (Gen 3) — walking NPC sprite strips.
 - **`overworld-sprites/`** (HG) — all 847 overworld models as RGBA frame strips:
   `<mmodel-id>_<name>.png`, names from `include/constants/mmodel.h` (NPCs, the player,
