@@ -17,7 +17,7 @@ This is the lookup sheet — the workflow itself is in the root
 | Trainer battle backsprites | HGSS | `/a/0/0/6` |
 | Trainer battle backsprites | Platinum | `TODO(verify)` |
 | VS mugshots | Platinum | `TODO(verify)` — but the **palette** comes from `/poketool/trgra/trfgra`, see below |
-| Overworld sprites | HGSS | `TODO(verify)` |
+| Overworld sprites | HGSS | `/data/mmodel/mmodel.narc` (decomp: `files/data/mmodel/mmodel/mmodel_%08d.bin`, packed by index) |
 | Overworld sprites | Platinum | `TODO(verify)` |
 | Map models / textures | both | inserted via editor tools (DSPRE / SDSME / PDSMS), not hand-repacked here |
 
@@ -82,6 +82,28 @@ palette** or one of them will render wrong in-game. That is what
 - **32x32 per frame**, sheets of directional walk cycles.
 - **Max 15 non-transparent colors** (+ transparent index 0).
 - Slice/assemble sheets with `scripts/sheet.py` (row-major grid).
+
+### HGSS overworld NPC internals (verified against vanilla mmodel members)
+- Overworlds are **billboarded textures**: one BTX0 (NSBTX) file per model
+  in `files/data/mmodel/mmodel/mmodel_%08d.bin`; `mmodel.mk` repacks the
+  directory into `mmodel.narc` by filename order, so appending
+  `mmodel_00000864.bin` (vanilla ends at 863) adds a model.
+- NPC walkers: **16 texture dict entries sharing 12 unique 512-byte
+  32x32 4bpp frames** + one 16-color palette (color 0 transparent). The
+  TEX0 header offsets at +0x0E/+0x34 point directly at NNS resource dicts.
+- Three ID spaces: event JSONs use `SPRITE_*` (`constants/sprites.h`),
+  mapped to `MMODEL_*` (= NARC index, `constants/mmodel.h`) by the table
+  in `asm/overlay_01_sprite_data.s` (ends at a `0xFFFF` sentinel — append
+  rows before it; copy the donor's third param, `0x000 | (0 << 10)` for
+  GS-style walkers).
+- Scripted extract/insert: `scripts/extract_ow.py` / `scripts/insert_ow.py`
+  (round-trip byte-identical on vanilla members). Strips hold the unique
+  frames in ascending data-offset order.
+
+**Slot assignments (this hack):** `MMODEL_KESTRA` = 864 /
+`SPRITE_KESTRA` = 1051 — Kestra's overworld (GIRL2 base, palette+pixel
+edit matching battle sprite v11). All 8 of her placements (T22 x3, T23,
+R30 x2, T25, D15R0102) point at it; vanilla GSGIRL2 NPCs are untouched.
 
 ### Map assets
 - Houses, trees, props are **3D geometry (`.nsbmd`)**, not sprites.

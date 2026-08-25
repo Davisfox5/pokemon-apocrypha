@@ -182,6 +182,110 @@ def decompose_frame(pixels, bank, shift, part_size, canvas=80, base=None):
     return bytes(out)
 
 
+# ---------- BTX0 (overworld mmodel textures) ----------
+#
+# HGSS overworld NPC sprites are billboarded textures: one BTX0 (NSBTX) file
+# per model in files/data/mmodel/mmodel/ (mmodel_%08d.bin, packed by index
+# into mmodel.narc). Layout verified empirically against vanilla members
+# (e.g. 6 GIRL2, 118 GSGIRL2): a single TEX0 block whose header offsets at
+# +0x0E/+0x34 point directly at NNS resource dicts. NPC walkers hold 16
+# dict entries sharing 12 unique 512-byte 32x32 4bpp frames plus one
+# 16-color palette.
+
+def _btx_dict(b, base):
+    """Parse an NNS G3D resource dict -> (entries, names)."""
+    _check(b[base] == 0, f"resdict revision != 0 at {hex(base)}")
+    count = b[base + 1]
+    entbase = base + struct.unpack_from("<H", b, base + 6)[0]
+    unit, nameofs = struct.unpack_from("<HH", b, entbase)
+    ents = [b[entbase + 4 + i * unit: entbase + 4 + (i + 1) * unit] for i in range(count)]
+    nb = entbase + nameofs
+    names = [b[nb + i * 16: nb + i * 16 + 16].rstrip(b"\0").decode("ascii", "replace")
+             for i in range(count)]
+    return ents, names
+
+
+def _btx_tex0(b):
+    _check(b[:4] == b"BTX0", "not a BTX0")
+    t, = struct.unpack_from("<I", b, 0x10)
+    _check(b[t:t + 4] == b"TEX0", "BTX0 without TEX0 block")
+    return t
+
+
+def btx_frames(b):
+    """-> (frames, tex_data_off): frames = [(name, offset, w, h, color0)]
+    for every 4bpp-paletted (format 3) texture, in dict order. Offsets are
+    relative to tex_data_off; several dict entries may share one offset."""
+    t = _btx_tex0(b)
+    texinfo = struct.unpack_from("<H", b, t + 0x0E)[0]
+    texdata = struct.unpack_from("<I", b, t + 0x14)[0]
+    ents, names = _btx_dict(b, t + texinfo)
+    frames = []
+    for ent, name in zip(ents, names):
+        param, = struct.unpack_from("<I", ent)
+        fmt = (param >> 26) & 7
+        if fmt != 3:
+            continue
+        frames.append((name, (param & 0xFFFF) << 3,
+                       8 << ((param >> 20) & 7), 8 << ((param >> 23) & 7),
+                       (param >> 29) & 1))
+    return frames, t + texdata
+
+
+def btx_pixels(b, frame, tex_data_off):
+    """-> flat list of palette indices for one frame from btx_frames."""
+    _name, ofs, w, h, _c0 = frame
+    raw = b[tex_data_off + ofs: tex_data_off + ofs + w * h // 2]
+    out = []
+    for byte in raw:
+        out.append(byte & 0xF)
+        out.append(byte >> 4)
+    return out
+
+
+def btx_palette(b, n=16):
+    """-> first palette's first n colors as 8-bit (r, g, b) tuples."""
+    t = _btx_tex0(b)
+    palinfo = struct.unpack_from("<I", b, t + 0x34)[0]
+    paldata = struct.unpack_from("<I", b, t + 0x38)[0]
+    ents, _names = _btx_dict(b, t + palinfo)
+    pofs = struct.unpack_from("<H", ents[0])[0] << 3
+    pal = []
+    for i in range(n):
+        v, = struct.unpack_from("<H", b, t + paldata + pofs + 2 * i)
+        r, g, bl = v & 31, (v >> 5) & 31, (v >> 10) & 31
+        pal.append(((r << 3) | (r >> 2), (g << 3) | (g >> 2), (bl << 3) | (bl >> 2)))
+    return pal
+
+
+def btx_replace(b, frame_pixels, palette=None):
+    """Return a new BTX0 blob with texture pixels (and optionally the first
+    palette's colors) replaced in place. frame_pixels maps a frame's data
+    offset (from btx_frames) -> flat list of palette indices."""
+    t = _btx_tex0(b)
+    out = bytearray(b)
+    frames, texdata = btx_frames(b)
+    sizes = {ofs: (w, h) for _n, ofs, w, h, _c in frames}
+    for ofs, pixels in frame_pixels.items():
+        _check(ofs in sizes, f"no texture at offset {hex(ofs)}")
+        w, h = sizes[ofs]
+        _check(len(pixels) == w * h, f"frame at {hex(ofs)}: expected {w * h} pixels, got {len(pixels)}")
+        for i in range(0, len(pixels), 2):
+            _check(pixels[i] < 16 and pixels[i + 1] < 16, "palette index out of range")
+            out[texdata + ofs + i // 2] = pixels[i] | (pixels[i + 1] << 4)
+    if palette is not None:
+        palinfo = struct.unpack_from("<I", b, t + 0x34)[0]
+        paldata = struct.unpack_from("<I", b, t + 0x38)[0]
+        ents, _names = _btx_dict(b, t + palinfo)
+        pofs = struct.unpack_from("<H", ents[0])[0] << 3
+        palsize = struct.unpack_from("<H", b, t + 0x30)[0] << 3
+        _check(len(palette) * 2 <= palsize, f"palette too long ({len(palette)} colors)")
+        for i, (r, g, bl) in enumerate(palette):
+            v = (r >> 3) | ((g >> 3) << 5) | ((bl >> 3) << 10)
+            struct.pack_into("<H", out, t + paldata + pofs + 2 * i, v)
+    return bytes(out)
+
+
 # ---------- class-level helpers ----------
 
 def class_members(members, cls):
