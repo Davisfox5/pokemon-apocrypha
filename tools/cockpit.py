@@ -12,6 +12,19 @@ Run (inside .emu-venv):
     source .emu-venv/bin/activate
     python tools/cockpit.py                 # fresh boot
     python tools/cockpit.py --state cur_cherrygrove.dsv   # seed from a checkpoint
+    python tools/cockpit.py --record paths/ch1_s2.json    # also record what you press
+
+RECORD mode (--record PATH):
+    Every button press and touch you make is logged as a rig-replayable step.
+    Walk the choreography by hand once instead of hand-coding press() calls,
+    then replay it:
+
+        from tools.path_replay import load, replay
+        replay(e, load("paths/ch1_s2.json"))
+
+    The file is written on exit (Esc) and also on F8, so a long session is not
+    lost to a crash. F7 drops a named checkpoint comment into the path so a
+    later reader can see where a scene starts.
 
 Controls (PLAY mode):
     Arrow keys .......... D-pad
@@ -63,6 +76,18 @@ PLAYER_PX_Y = 88
 TILE_PX     = 16
 
 # keyboard -> DS key map
+# cockpit pygame key -> the Emu.press() name the rig replays. Kept separate
+# from KEYMAP (which maps to desmume Keys) so a recorded path stays readable
+# and does not depend on pygame or desmume enum values.
+RIG_KEYNAME = {
+    pygame.K_UP: "UP", pygame.K_DOWN: "DOWN",
+    pygame.K_LEFT: "LEFT", pygame.K_RIGHT: "RIGHT",
+    pygame.K_z: "A", pygame.K_x: "B",
+    pygame.K_a: "Y", pygame.K_s: "X",
+    pygame.K_q: "L", pygame.K_w: "R",
+    pygame.K_RETURN: "START", pygame.K_RSHIFT: "SELECT",
+}
+
 KEYMAP = {
     pygame.K_UP: Keys.KEY_UP, pygame.K_DOWN: Keys.KEY_DOWN,
     pygame.K_LEFT: Keys.KEY_LEFT, pygame.K_RIGHT: Keys.KEY_RIGHT,
@@ -93,7 +118,7 @@ def project_pixel_to_tile(px_native_x, px_native_y, player_tile):
 
 
 class Cockpit:
-    def __init__(self, state=None):
+    def __init__(self, state=None, record_path=None):
         self.e = Emu()
         self.e.wait(8)
         if state and os.path.exists(state):
@@ -125,6 +150,17 @@ class Cockpit:
         self.mark_count = len(os.listdir(MARKS_DIR)) if os.path.isdir(MARKS_DIR) else 0
         self.status = "ready"
 
+        # --- record mode ---
+        # A path is a flat list of rig steps. Presses are recorded on release so
+        # the hold length is real frames held, not a guess. `after` is filled in
+        # when the NEXT step starts, so idle time between presses is preserved:
+        # that gap is usually a script or a transition playing, and dropping it
+        # is what makes hand-coded choreography desync.
+        self.record_path = record_path
+        self.path = []
+        self.held = {}                # rig key name -> frame the press started
+        self.last_step_end = None     # frame the previous step released
+
     # --- RAM sampling --------------------------------------------------------
     def sample(self):
         try:
@@ -152,6 +188,69 @@ class Cockpit:
         self.timeline = self.timeline[-12:]
         return snap
 
+    # --- record ---------------------------------------------------------------
+    def _rec_step(self, step):
+        """Append one rig step, back-filling the previous step's `after` gap."""
+        if not self.record_path:
+            return
+        if self.path and self.last_step_end is not None:
+            gap = self.frame - self.last_step_end
+            # A recorded gap is real emulated frames of nothing happening. Keep
+            # it; a script or map transition is usually running through it.
+            self.path[-1]["after"] = max(0, gap)
+        self.path.append(step)
+        self.last_step_end = self.frame
+
+    def record_keys(self, pressed):
+        """Turn held/released pygame keys into rig press steps.
+
+        Recorded on release so `hold` is the number of frames actually held.
+        A key held across the whole press becomes one step, not one per frame.
+        """
+        if not self.record_path:
+            return
+        for pk, name in RIG_KEYNAME.items():
+            down = bool(pressed[pk])
+            if down and name not in self.held:
+                self.held[name] = self.frame
+            elif not down and name in self.held:
+                hold = max(1, self.frame - self.held.pop(name))
+                self._rec_step({"op": "press", "key": name,
+                                "hold": hold, "after": 0})
+
+    def record_touch(self, tx, ty, releasing):
+        if not self.record_path:
+            return
+        if not releasing:
+            if "__touch__" not in self.held:
+                self.held["__touch__"] = self.frame
+                self.touch_at = (tx, ty)
+            return
+        if "__touch__" in self.held:
+            hold = max(1, self.frame - self.held.pop("__touch__"))
+            x, y = getattr(self, "touch_at", (tx, ty))
+            self._rec_step({"op": "touch", "x": int(x), "y": int(y),
+                            "hold": hold, "after": 0})
+
+    def record_note(self, text):
+        """Drop a comment step. Ignored on replay, read by humans."""
+        self._rec_step({"op": "note", "text": text})
+
+    def save_path(self):
+        if not self.record_path or not self.path:
+            return None
+        d = os.path.dirname(os.path.abspath(self.record_path))
+        if d:
+            os.makedirs(d, exist_ok=True)
+        payload = {
+            "seed_state": os.path.basename(self.seed) if self.seed else None,
+            "frames": self.frame,
+            "steps": self.path,
+        }
+        with open(self.record_path, "w") as f:
+            json.dump(payload, f, indent=2)
+        return self.record_path
+
     # --- input ---------------------------------------------------------------
     def apply_keys(self):
         pressed = pygame.key.get_pressed()
@@ -160,6 +259,7 @@ class Cockpit:
             if pressed[pk]:
                 mask |= keymask(dk)
         self.e.emu.input.keypad_update(mask)
+        self.record_keys(pressed)
 
     def handle_mouse_play(self):
         # touch on the bottom screen
@@ -169,8 +269,10 @@ class Cockpit:
             ty = (my // SCALE) - SCREEN_SPLIT
             if 0 <= tx < DS_W and 0 <= ty < SCREEN_SPLIT:
                 self.e.emu.input.touch_set_pos(tx, ty)
+                self.record_touch(tx, ty, releasing=False)
         else:
             self.e.emu.input.touch_release()
+            self.record_touch(0, 0, releasing=True)
 
     # --- annotate ------------------------------------------------------------
     def save_mark(self, snap):
@@ -322,6 +424,15 @@ class Cockpit:
                         self.e.savestate(QUICK_STATE); self.status = "quick-saved"
                     elif ev.key == pygame.K_F9 and os.path.exists(QUICK_STATE):
                         self.e.loadstate(QUICK_STATE); self.status = "quick-loaded"
+                    elif ev.key == pygame.K_F7 and self.record_path:
+                        # Checkpoint comment. Replay ignores it; a reader uses it
+                        # to find where a scene starts in a long path.
+                        self.record_note(f"checkpoint @ frame {self.frame}")
+                        self.status = f"path note ({len(self.path)} steps)"
+                    elif ev.key == pygame.K_F8 and self.record_path:
+                        # Flush mid-session so a crash does not cost the walk.
+                        out = self.save_path()
+                        self.status = f"path -> {out}" if out else "nothing recorded"
                 else:  # annotate -- Space types a space; Esc resumes; Enter saves+resumes
                     if ev.key == pygame.K_ESCAPE:
                         self.mode = "play"; self.box = None; self.note = ""
@@ -366,17 +477,32 @@ class Cockpit:
         if self.seed:
             self.e.savestate(self.seed)
             self.status = f"saved -> {self.seed}"
+        # Release anything still held so the last press gets a real hold value.
+        for name in list(self.held):
+            if name == "__touch__":
+                self.record_touch(0, 0, releasing=True)
+            else:
+                hold = max(1, self.frame - self.held.pop(name))
+                self._rec_step({"op": "press", "key": name, "hold": hold, "after": 0})
+        out = self.save_path()
+        if out:
+            print(f"recorded {len(self.path)} steps -> {out}")
         pygame.quit()
 
 
 def main():
     state = None
+    record = None
     args = sys.argv[1:]
     if "--state" in args:
         state = args[args.index("--state") + 1]
         if not os.path.isabs(state):
             state = os.path.abspath(state)
-    Cockpit(state).run()
+    if "--record" in args:
+        record = args[args.index("--record") + 1]
+        if not os.path.isabs(record):
+            record = os.path.abspath(record)
+    Cockpit(state, record_path=record).run()
 
 
 if __name__ == "__main__":
