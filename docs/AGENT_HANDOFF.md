@@ -18,6 +18,16 @@ agent's preview or merge experimental maps into production.
 
 ## Immediate next task
 
+**Claude's independent Cherrygrove (2026-09-15):** built on the portable workbench
+preset in a remote Linux session. Original scenery drawn to Gen 3 tile conventions
+with HGSS shapes and colours (front-gabled rose-roof homes, orange Center, blue
+Mart, scalloped round trees, sandstone sea cliff, beach, pier, blossom park);
+Gold, Silver, Kestra, four Johto residents and five regional visitors walk and
+talk. Doors, stairs, both route stubs, ordinary save, cold reload and title-menu
+Continue pass. See [the README](../gba/art/claude-cherrygrove/README.md); source
+patch `gba/claude-cherrygrove.patch` applies on top of the workbench preset.
+Production `game/` and every earlier preview are untouched.
+
 **Fresh custom Cherrygrove (2026-09-14):** the owner rejected the repurposed HGSS
 art direction and requested a fresh start, returning to the custom buildings on
 Emerald terrain. [The current preview](../gba/art/johto-restart/README.md) starts

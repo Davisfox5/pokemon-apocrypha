@@ -1,0 +1,129 @@
+{
+  "width": 60,
+  "height": 34,
+  "secondary_tiles": 339,
+  "secondary_metatiles": 151,
+  "bank_conflict_tiles": 8,
+  "doors": [
+    {
+      "name": "Mart",
+      "door": [
+        36,
+        7
+      ],
+      "metatile": 581,
+      "bank": 11
+    },
+    {
+      "name": "PokemonCenter",
+      "door": [
+        44,
+        7
+      ],
+      "metatile": 586,
+      "bank": 11
+    },
+    {
+      "name": "NeighborHouse",
+      "door": [
+        29,
+        11
+      ],
+      "metatile": 605,
+      "bank": 9
+    },
+    {
+      "name": "GoldHouse",
+      "door": [
+        39,
+        14
+      ],
+      "metatile": 605,
+      "bank": 9
+    },
+    {
+      "name": "PlayerHouse",
+      "door": [
+        50,
+        17
+      ],
+      "metatile": 605,
+      "bank": 9
+    },
+    {
+      "name": "TransplantHouse",
+      "door": [
+        32,
+        24
+      ],
+      "metatile": 652,
+      "bank": 10
+    }
+  ],
+  "spawn": [
+    50,
+    18
+  ],
+  "buildings": [
+    {
+      "name": "Mart",
+      "style": "mart",
+      "x": 35,
+      "y": 5,
+      "door": [
+        36,
+        7
+      ]
+    },
+    {
+      "name": "PokemonCenter",
+      "style": "center",
+      "x": 42,
+      "y": 4,
+      "door": [
+        44,
+        7
+      ]
+    },
+    {
+      "name": "NeighborHouse",
+      "style": "house",
+      "x": 28,
+      "y": 8,
+      "door": [
+        29,
+        11
+      ]
+    },
+    {
+      "name": "GoldHouse",
+      "style": "house",
+      "x": 38,
+      "y": 11,
+      "door": [
+        39,
+        14
+      ]
+    },
+    {
+      "name": "PlayerHouse",
+      "style": "house",
+      "x": 49,
+      "y": 14,
+      "door": [
+        50,
+        17
+      ]
+    },
+    {
+      "name": "TransplantHouse",
+      "style": "house2",
+      "x": 31,
+      "y": 21,
+      "door": [
+        32,
+        24
+      ]
+    }
+  ]
+}
