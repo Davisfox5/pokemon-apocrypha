@@ -65,8 +65,9 @@ static const char *argv_out;
 static void interaction(unsigned gid,unsigned x,unsigned y,unsigned key,const char *tag){
  // A warp reloads the map, so the NPC is back on its spawn cell; press A quickly before it wanders.
  int locked=0;
- for(int attempt=0;attempt<12&&!locked;attempt++){
-  call("MapProof_Enter",(x<<8)|(y<<16));frames(70,0);
+ static const int dxs[5]={0,-1,1,-2,2};
+ for(int attempt=0;attempt<15&&!locked;attempt++){
+  call("MapProof_Enter",((x+dxs[attempt%5])<<8)|(y<<16));frames(70,0);
   frames(1,key);frames(6,0);
   for(unsigned i=0;i<10&&!call("ArePlayerFieldControlsLocked",0);i++){frames(2,1);frames(6,0);}
   locked=call("ArePlayerFieldControlsLocked",0);
@@ -133,8 +134,8 @@ def generate():
     order = ['PlayerHouse', 'GoldHouse', 'NeighborHouse', 'TransplantHouse', 'Mart', 'PokemonCenter']
     by = {b['name']: b for b in doors}
     door_cells = [L.door_of(by[n]) for n in order]
-    views = [(50, 18), (40, 9), (44, 14), (43, 25), (24, 20), (19, 27), (21, 9)]
-    shots = [('home-street', 50, 18), ('shops', 40, 9), ('gold-yard', 44, 14), ('park', 43, 25), ('beach', 24, 20), ('pier', 21, 26), ('lookout', 19, 6), ('cliff', 10, 5)]
+    views = [(49, 15), (40, 9), (44, 13), (43, 24), (22, 18), (18, 27), (19, 6)]
+    shots = [('home-street', 49, 15), ('shops', 40, 9), ('gold-yard', 44, 13), ('park', 43, 24), ('beach', 22, 18), ('pier', 18, 27), ('lookout', 19, 6), ('cliff', 10, 6)]
     gid = {'OBJ_EVENT_GFX_JOHTO_GOLD': 1029, 'OBJ_EVENT_GFX_JOHTO_SILVER': 1030, 'OBJ_EVENT_GFX_JOHTO_KESTRA': 1031,
            'OBJ_EVENT_GFX_REGIONAL_HOENN': 1032, 'OBJ_EVENT_GFX_REGIONAL_KANTO': 1033, 'OBJ_EVENT_GFX_REGIONAL_JOHTO': 1034,
            'OBJ_EVENT_GFX_REGIONAL_SINNOH': 1035, 'OBJ_EVENT_GFX_REGIONAL_UNOVA': 1036,

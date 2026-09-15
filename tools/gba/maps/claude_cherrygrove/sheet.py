@@ -1,14 +1,13 @@
-"""Render every asset on a grass ground at 3x for inspection."""
+"""Render every asset on a grass ground for inspection."""
 import sys
-from pathlib import Path
 import numpy as np
 from PIL import Image
-from .art import build_all
 
-def render(out, scale=3, ground=(120, 200, 136)):
-    assets = build_all()
+def render(out, assets=None, scale=3, ground=(104, 208, 152)):
+    if assets is None:
+        from .build import build_assets
+        assets, _ = build_assets()
     x = 4; y = 4; row_h = 0; tiles = []
-    W = 4
     for name, c in assets.items():
         rgba = c.to_rgba()
         if x + c.w + 4 > 640: x = 4; y += row_h + 12; row_h = 0

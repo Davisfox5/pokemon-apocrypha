@@ -32,8 +32,9 @@ static const char *argv_out;
 static void interaction(unsigned gid,unsigned x,unsigned y,unsigned key,const char *tag){
  // A warp reloads the map, so the NPC is back on its spawn cell; press A quickly before it wanders.
  int locked=0;
- for(int attempt=0;attempt<12&&!locked;attempt++){
-  call("MapProof_Enter",(x<<8)|(y<<16));frames(70,0);
+ static const int dxs[5]={0,-1,1,-2,2};
+ for(int attempt=0;attempt<15&&!locked;attempt++){
+  call("MapProof_Enter",((x+dxs[attempt%5])<<8)|(y<<16));frames(70,0);
   frames(1,key);frames(6,0);
   for(unsigned i=0;i<10&&!call("ArePlayerFieldControlsLocked",0);i++){frames(2,1);frames(6,0);}
   locked=call("ArePlayerFieldControlsLocked",0);
@@ -60,31 +61,31 @@ int main(int argc,char**argv){
  c->rtc.override=RTC_FIXED;c->rtc.value=1789315200000LL;
  c->reset(c);frames(600,0);
  if(!strcmp(argv[4],"menu")){
-  screenshot(argv[3],"boot-before-start");frames(1,8);frames(180,0);screenshot(argv[3],"boot-after-start");frames(1,1);frames(300,0);screenshot(argv[3],"boot-after-a");frames(1,1);frames(180,0);screenshot(argv[3],"continue-menu");frames(1,1);frames(300,0);screenshot(argv[3],"ordinary-continue");expect(0,"ordinary-title-continue");if(state[3]!=50||state[4]!=18)return 12;
+  screenshot(argv[3],"boot-before-start");frames(1,8);frames(180,0);screenshot(argv[3],"boot-after-start");frames(1,1);frames(300,0);screenshot(argv[3],"boot-after-a");frames(1,1);frames(180,0);screenshot(argv[3],"continue-menu");frames(1,1);frames(300,0);screenshot(argv[3],"ordinary-continue");expect(0,"ordinary-title-continue");if(state[3]!=49||state[4]!=14)return 12;
  }else if(!strcmp(argv[4],"read")){
-  unsigned s=call("LoadGameSave",0);if(s!=1)return 8;call("MapProof_Resume",0);frames(240,0);expect(0,"cold-reload");screenshot(argv[3],"cold-reload");if(state[3]!=50||state[4]!=18)return 9;
+  unsigned s=call("LoadGameSave",0);if(s!=1)return 8;call("MapProof_Resume",0);frames(240,0);expect(0,"cold-reload");screenshot(argv[3],"cold-reload");if(state[3]!=49||state[4]!=14)return 9;
  }else if(!strcmp(argv[4],"walk")){
   call("MapProof_Boot",0);frames(240,0);
-  const unsigned views[][2]={{50,18},{40,9},{44,14},{43,25},{24,20},{19,27},{21,9}};
+  const unsigned views[][2]={{49,15},{40,9},{44,13},{43,24},{22,18},{18,27},{19,6}};
   for(view=0;view<7;view++){
    call("MapProof_Enter",(views[view][0]<<8)|(views[view][1]<<16));frames(360,0);
    for(unsigned i=0;i<360;i++){frames(4,0);sample(i*4);if(view<4){char tag[80];sprintf(tag,"view-%u-%03u",view,i);screenshot(argv[3],tag);}}
   }
     interaction(1029,45,14,64,"gold-dialogue");
   interaction(1030,44,16,64,"silver-dialogue");
-  interaction(1031,52,21,64,"kestra-dialogue");
+  interaction(1031,53,22,64,"kestra-dialogue");
   interaction(1027,30,27,64,"woman-dialogue");
   interaction(1026,38,10,64,"man-dialogue");
   interaction(1024,41,22,64,"boy-dialogue");
   interaction(1025,22,21,64,"girl-dialogue");
   interaction(1032,23,13,64,"hoenn-dialogue");
-  interaction(1033,54,14,64,"kanto-dialogue");
-  interaction(1034,40,9,64,"johto-dialogue");
+  interaction(1033,56,14,64,"kanto-dialogue");
+  interaction(1034,41,10,64,"johto-dialogue");
   interaction(1035,19,7,64,"sinnoh-dialogue");
   interaction(1036,44,26,64,"unova-dialogue");
  }else{
-  call("MapProof_Boot",0);frames(240,0);expect(0,"town-spawn");screenshot(argv[3],"town-spawn");if(state[3]!=50||state[4]!=18){fprintf(stderr,"spawn %u,%u\n",state[3],state[4]);return 13;}
-  const unsigned doors[][2]={{50,17},{39,14},{29,11},{32,24},{36,7},{44,7}};
+  call("MapProof_Boot",0);frames(240,0);expect(0,"town-spawn");screenshot(argv[3],"town-spawn");if(state[3]!=49||state[4]!=14){fprintf(stderr,"spawn %u,%u\n",state[3],state[4]);return 13;}
+  const unsigned doors[][2]={{49,13},{40,14},{27,13},{32,25},{36,7},{44,7}};
   const unsigned maps[]={1,2,3,4,5,6};
   const unsigned exits[][2]={{9,8},{3,8},{3,8},{3,8},{3,7},{7,8}};
   for(unsigned i=0;i<6;i++){
@@ -98,16 +99,16 @@ int main(int argc,char**argv){
   go(0,59,13);frames(64,16);frames(40,0);expect(9,"route29-out");screenshot(argv[3],"route29");frames(80,32);frames(40,0);expect(0,"route29-return");
   go(0,32,1);frames(64,64);frames(40,0);expect(10,"route30-out");screenshot(argv[3],"route30");frames(80,128);frames(40,0);expect(0,"route30-return");
   go(0,17,14);frames(32,32);frames(20,0);expect(0,"shore-collision");if(state[3]<15){fprintf(stderr,"walked into the sea: x=%u\n",state[3]);return 10;}
-    go(0,50,18);screenshot(argv[3],"home-street");
+    go(0,49,15);screenshot(argv[3],"home-street");
   go(0,40,9);screenshot(argv[3],"shops");
-  go(0,44,14);screenshot(argv[3],"gold-yard");
-  go(0,43,25);screenshot(argv[3],"park");
-  go(0,24,20);screenshot(argv[3],"beach");
-  go(0,21,26);screenshot(argv[3],"pier");
+  go(0,44,13);screenshot(argv[3],"gold-yard");
+  go(0,43,24);screenshot(argv[3],"park");
+  go(0,22,18);screenshot(argv[3],"beach");
+  go(0,18,27);screenshot(argv[3],"pier");
   go(0,19,6);screenshot(argv[3],"lookout");
-  go(0,10,5);screenshot(argv[3],"cliff");
+  go(0,10,6);screenshot(argv[3],"cliff");
   go(5,3,3);frames(8,32);frames(8,0);frames(1,1);frames(150,0);frames(1,1);frames(90,0);screenshot(argv[3],"mart-menu");close_dialog();
-  go(0,50,18);expect(0,"save-at-home");screenshot(argv[3],"home");unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
+  go(0,49,14);expect(0,"save-at-home");screenshot(argv[3],"home");unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }
  c->deinit(c);return 0;
 }

@@ -1,207 +1,80 @@
 {
   "assets": {
-    "house": {
-      "width": 64,
+    "cliff": {
+      "width": 32,
       "height": 64,
-      "bank": 9,
+      "bank": 2,
+      "pool": "primary",
       "metatiles": [
-        4,
+        2,
         4
       ]
     },
-    "house2": {
-      "width": 64,
+    "cliff_sand": {
+      "width": 32,
       "height": 64,
-      "bank": 10,
+      "bank": 2,
+      "pool": "primary",
       "metatiles": [
-        4,
+        2,
         4
-      ]
-    },
-    "center": {
-      "width": 80,
-      "height": 64,
-      "bank": 11,
-      "metatiles": [
-        5,
-        4
-      ]
-    },
-    "mart": {
-      "width": 64,
-      "height": 48,
-      "bank": 11,
-      "metatiles": [
-        4,
-        3
       ]
     },
     "tree": {
       "width": 32,
+      "height": 48,
+      "bank": 3,
+      "pool": "primary",
+      "metatiles": [
+        2,
+        3
+      ]
+    },
+    "tulips0": {
+      "width": 16,
+      "height": 16,
+      "bank": 4,
+      "pool": "primary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "tulips1": {
+      "width": 16,
+      "height": 16,
+      "bank": 4,
+      "pool": "primary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "daisies": {
+      "width": 32,
+      "height": 16,
+      "bank": 4,
+      "pool": "primary",
+      "metatiles": [
+        2,
+        1
+      ]
+    },
+    "bush": {
+      "width": 16,
       "height": 32,
-      "bank": 6,
+      "bank": 4,
+      "pool": "primary",
       "metatiles": [
-        2,
+        1,
         2
-      ]
-    },
-    "blossom": {
-      "width": 32,
-      "height": 32,
-      "bank": 7,
-      "metatiles": [
-        2,
-        2
-      ]
-    },
-    "cliff": {
-      "width": 32,
-      "height": 32,
-      "bank": 8,
-      "metatiles": [
-        2,
-        2
-      ]
-    },
-    "cliff_l": {
-      "width": 32,
-      "height": 32,
-      "bank": 8,
-      "metatiles": [
-        2,
-        2
-      ]
-    },
-    "cliff_r": {
-      "width": 32,
-      "height": 32,
-      "bank": 8,
-      "metatiles": [
-        2,
-        2
-      ]
-    },
-    "rock1": {
-      "width": 16,
-      "height": 16,
-      "bank": 8,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "rock2": {
-      "width": 32,
-      "height": 24,
-      "bank": 8,
-      "metatiles": [
-        2,
-        1
-      ]
-    },
-    "sand": {
-      "width": 16,
-      "height": 16,
-      "bank": 5,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "sand_wet": {
-      "width": 16,
-      "height": 16,
-      "bank": 5,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "deck": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "deck_s": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "deck_n": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "deck_w": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "deck_e": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "rail_h": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "rail_v": {
-      "width": 16,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "boat": {
-      "width": 32,
-      "height": 32,
-      "bank": 12,
-      "metatiles": [
-        2,
-        2
-      ]
-    },
-    "nets": {
-      "width": 32,
-      "height": 16,
-      "bank": 12,
-      "metatiles": [
-        2,
-        1
       ]
     },
     "fence_h": {
       "width": 16,
       "height": 16,
-      "bank": 12,
+      "bank": 4,
+      "pool": "primary",
       "metatiles": [
         1,
         1
@@ -210,88 +83,228 @@
     "fence_v": {
       "width": 16,
       "height": 16,
-      "bank": 12,
+      "bank": 4,
+      "pool": "primary",
       "metatiles": [
         1,
         1
       ]
     },
-    "fence_post": {
+    "fence_corner": {
       "width": 16,
       "height": 16,
-      "bank": 12,
+      "bank": 4,
+      "pool": "primary",
       "metatiles": [
         1,
         1
       ]
     },
-    "sign": {
+    "sea_rock": {
+      "width": 32,
+      "height": 32,
+      "bank": 5,
+      "pool": "primary",
+      "metatiles": [
+        2,
+        2
+      ]
+    },
+    "sea_rock_small": {
       "width": 16,
       "height": 16,
-      "bank": 12,
+      "bank": 5,
+      "pool": "primary",
       "metatiles": [
         1,
         1
       ]
     },
-    "mailbox": {
+    "rock": {
+      "width": 32,
+      "height": 32,
+      "bank": 5,
+      "pool": "primary",
+      "metatiles": [
+        2,
+        2
+      ]
+    },
+    "house": {
+      "width": 80,
+      "height": 80,
+      "bank": 6,
+      "pool": "secondary",
+      "metatiles": [
+        5,
+        5
+      ]
+    },
+    "gable": {
+      "width": 80,
+      "height": 80,
+      "bank": 6,
+      "pool": "secondary",
+      "metatiles": [
+        5,
+        5
+      ]
+    },
+    "center": {
+      "width": 96,
+      "height": 96,
+      "bank": 8,
+      "pool": "secondary",
+      "metatiles": [
+        6,
+        6
+      ]
+    },
+    "mart": {
+      "width": 80,
+      "height": 64,
+      "bank": 9,
+      "pool": "secondary",
+      "metatiles": [
+        5,
+        4
+      ]
+    },
+    "mart_sign": {
+      "width": 32,
+      "height": 64,
+      "bank": 9,
+      "pool": "secondary",
+      "metatiles": [
+        2,
+        4
+      ]
+    },
+    "house2": {
+      "width": 80,
+      "height": 80,
+      "bank": 7,
+      "pool": "secondary",
+      "metatiles": [
+        5,
+        5
+      ]
+    },
+    "house_l": {
+      "width": 80,
+      "height": 80,
+      "bank": 6,
+      "pool": "secondary",
+      "metatiles": [
+        5,
+        5
+      ]
+    },
+    "blossom": {
+      "width": 32,
+      "height": 48,
+      "bank": 10,
+      "pool": "secondary",
+      "metatiles": [
+        2,
+        3
+      ]
+    },
+    "deck": {
       "width": 16,
       "height": 16,
-      "bank": 12,
+      "bank": 11,
+      "pool": "secondary",
       "metatiles": [
         1,
+        1
+      ]
+    },
+    "deck_s": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "deck_n": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "deck_w": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "deck_e": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "rail_h": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "rail_v": {
+      "width": 16,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        1
+      ]
+    },
+    "boat": {
+      "width": 32,
+      "height": 32,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        2,
+        2
+      ]
+    },
+    "nets": {
+      "width": 32,
+      "height": 16,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        2,
         1
       ]
     },
     "bench": {
       "width": 16,
       "height": 16,
-      "bank": 12,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "bed_red": {
-      "width": 16,
-      "height": 16,
-      "bank": 2,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "bed_yel": {
-      "width": 16,
-      "height": 16,
-      "bank": 2,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "bed_pink": {
-      "width": 16,
-      "height": 16,
-      "bank": 2,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "petals": {
-      "width": 16,
-      "height": 16,
-      "bank": 7,
-      "metatiles": [
-        1,
-        1
-      ]
-    },
-    "bush": {
-      "width": 16,
-      "height": 16,
-      "bank": 6,
+      "bank": 11,
+      "pool": "secondary",
       "metatiles": [
         1,
         1
@@ -300,7 +313,28 @@
     "lamp": {
       "width": 16,
       "height": 32,
-      "bank": 12,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        1,
+        2
+      ]
+    },
+    "sign": {
+      "width": 32,
+      "height": 32,
+      "bank": 11,
+      "pool": "secondary",
+      "metatiles": [
+        2,
+        2
+      ]
+    },
+    "mailbox": {
+      "width": 16,
+      "height": 32,
+      "bank": 11,
+      "pool": "secondary",
       "metatiles": [
         1,
         2
@@ -308,522 +342,348 @@
     }
   },
   "palettes": {
-    "TREE": {
-      "bank": 6,
-      "slots": {
-        "ol": 1,
-        "g0": 2,
-        "g1": 3,
-        "g2": 4,
-        "g3": 5,
-        "g4": 6,
-        "t0": 7,
-        "t1": 8,
-        "t2": 9,
-        "gs": 10
-      },
+    "ground": {
+      "bank": 0,
       "colors": [
         [
           0,
           0,
           0
-        ],
-        [
-          30,
-          66,
-          44
-        ],
-        [
-          40,
-          106,
-          60
-        ],
-        [
-          64,
-          146,
-          76
-        ],
-        [
-          110,
-          190,
-          96
-        ],
-        [
-          160,
-          224,
-          120
-        ],
-        [
-          210,
-          246,
-          160
-        ],
-        [
-          76,
-          48,
-          30
-        ],
-        [
-          122,
-          82,
-          46
-        ],
-        [
-          170,
-          124,
-          72
-        ],
-        [
-          52,
-          122,
-          66
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    "BLOSSOM": {
-      "bank": 7,
-      "slots": {
-        "ol": 1,
-        "g0": 2,
-        "g1": 3,
-        "g2": 4,
-        "g3": 5,
-        "g4": 6,
-        "t0": 7,
-        "t1": 8,
-        "t2": 9,
-        "gs": 10
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          84,
-          42,
-          70
-        ],
-        [
-          154,
-          74,
-          122
-        ],
-        [
-          196,
-          108,
-          158
-        ],
-        [
-          228,
-          150,
-          190
-        ],
-        [
-          246,
-          190,
-          216
-        ],
-        [
-          255,
-          226,
-          238
-        ],
-        [
-          76,
-          48,
-          30
-        ],
-        [
-          122,
-          82,
-          46
-        ],
-        [
-          170,
-          124,
-          72
-        ],
-        [
-          176,
-          92,
-          140
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    "TERRAIN": {
-      "bank": 8,
-      "slots": {
-        "ol": 1,
-        "r0": 2,
-        "r1": 3,
-        "r2": 4,
-        "r3": 5,
-        "r4": 6,
-        "k0": 7,
-        "k1": 8,
-        "k2": 9,
-        "k3": 10,
-        "k4": 11,
-        "moss": 12
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          58,
-          58,
-          92
-        ],
-        [
-          106,
-          66,
-          44
-        ],
-        [
-          156,
-          106,
-          66
-        ],
-        [
-          198,
-          150,
-          100
-        ],
-        [
-          230,
-          194,
-          140
-        ],
-        [
-          246,
-          222,
-          172
-        ],
-        [
-          70,
-          74,
-          90
-        ],
-        [
-          116,
-          122,
-          140
-        ],
-        [
-          164,
-          170,
-          186
-        ],
-        [
-          206,
-          210,
-          222
-        ],
-        [
-          238,
-          240,
-          246
-        ],
-        [
-          128,
-          150,
-          90
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    "HOUSE": {
-      "bank": 9,
-      "slots": {
-        "ol": 1,
-        "r0": 2,
-        "r1": 3,
-        "r2": 4,
-        "r3": 5,
-        "w0": 6,
-        "w1": 7,
-        "w2": 8,
-        "b0": 9,
-        "b1": 10,
-        "gl0": 11,
-        "gl1": 12,
-        "gl2": 13,
-        "door": 14,
-        "white": 15
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          58,
-          58,
-          92
-        ],
-        [
-          156,
-          48,
-          74
-        ],
-        [
-          214,
-          84,
-          100
-        ],
-        [
-          240,
-          130,
-          138
-        ],
-        [
-          255,
-          186,
-          182
-        ],
-        [
-          194,
-          154,
-          104
-        ],
-        [
-          232,
-          200,
-          148
-        ],
-        [
-          252,
-          236,
-          196
         ],
         [
           104,
+          208,
+          152
+        ],
+        [
+          104,
+          200,
+          152
+        ],
+        [
+          88,
+          176,
+          136
+        ],
+        [
+          96,
+          192,
+          144
+        ],
+        [
+          224,
+          200,
+          128
+        ],
+        [
+          216,
+          184,
+          128
+        ],
+        [
+          184,
+          168,
+          128
+        ],
+        [
+          128,
+          136,
+          120
+        ],
+        [
+          152,
+          144,
+          112
+        ],
+        [
+          240,
+          240,
+          200
+        ],
+        [
+          232,
+          232,
+          192
+        ],
+        [
+          224,
+          224,
+          184
+        ],
+        [
+          208,
+          208,
+          168
+        ],
+        [
+          168,
+          216,
+          152
+        ],
+        [
+          216,
+          216,
+          176
+        ]
+      ]
+    },
+    "sea": {
+      "bank": 1,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          96,
+          216
+        ],
+        [
+          24,
+          104,
+          224
+        ],
+        [
+          32,
+          120,
+          224
+        ],
+        [
+          40,
+          136,
+          224
+        ],
+        [
+          56,
+          176,
+          224
+        ],
+        [
+          64,
+          192,
+          224
+        ],
+        [
+          200,
+          232,
+          224
+        ],
+        [
+          152,
+          224,
+          224
+        ],
+        [
+          104,
+          192,
+          224
+        ],
+        [
+          72,
+          160,
+          224
+        ],
+        [
+          240,
+          240,
+          200
+        ],
+        [
+          232,
+          232,
+          192
+        ],
+        [
+          224,
+          224,
+          184
+        ],
+        [
+          208,
+          208,
+          168
+        ],
+        [
+          200,
+          192,
+          144
+        ]
+      ]
+    },
+    "cliff": {
+      "bank": 2,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          232,
+          232,
+          192
+        ],
+        [
+          200,
+          168,
+          112
+        ],
+        [
+          104,
+          208,
+          152
+        ],
+        [
+          112,
+          184,
+          120
+        ],
+        [
+          184,
+          136,
+          96
+        ],
+        [
+          128,
+          120,
+          104
+        ],
+        [
+          152,
+          104,
+          80
+        ],
+        [
+          136,
+          96,
+          64
+        ],
+        [
+          120,
+          112,
+          96
+        ],
+        [
+          120,
+          80,
+          56
+        ],
+        [
+          104,
+          88,
+          88
+        ],
+        [
+          104,
+          72,
+          56
+        ],
+        [
+          104,
+          72,
+          48
+        ],
+        [
+          88,
+          88,
+          88
+        ],
+        [
+          88,
+          64,
+          64
+        ]
+      ]
+    },
+    "tree": {
+      "bank": 3,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          64,
+          56,
+          40
+        ],
+        [
+          64,
           64,
           40
         ],
         [
-          148,
-          100,
-          56
+          64,
+          136,
+          104
         ],
         [
-          56,
-          110,
-          190
-        ],
-        [
-          108,
-          182,
-          240
-        ],
-        [
-          184,
-          226,
-          255
-        ],
-        [
-          206,
-          60,
-          56
-        ],
-        [
-          255,
-          255,
-          255
-        ]
-      ]
-    },
-    "HOUSE2": {
-      "bank": 10,
-      "slots": {
-        "ol": 1,
-        "r0": 2,
-        "r1": 3,
-        "r2": 4,
-        "r3": 5,
-        "w0": 6,
-        "w1": 7,
-        "w2": 8,
-        "b0": 9,
-        "b1": 10,
-        "gl0": 11,
-        "gl1": 12,
-        "gl2": 13,
-        "door": 14,
-        "white": 15
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          58,
-          58,
-          92
-        ],
-        [
-          60,
-          82,
-          118
-        ],
-        [
-          94,
-          126,
-          162
-        ],
-        [
-          140,
-          172,
-          200
-        ],
-        [
-          196,
-          218,
-          236
-        ],
-        [
-          170,
-          166,
-          150
-        ],
-        [
-          216,
-          212,
-          196
-        ],
-        [
-          244,
-          242,
-          228
-        ],
-        [
-          96,
-          70,
+          72,
+          72,
           48
         ],
         [
-          140,
-          106,
-          68
+          80,
+          88,
+          40
         ],
         [
-          56,
-          110,
-          190
+          88,
+          104,
+          32
         ],
         [
-          108,
-          182,
-          240
+          88,
+          112,
+          32
         ],
         [
-          184,
-          226,
-          255
+          96,
+          120,
+          32
         ],
         [
-          76,
-          122,
-          96
+          112,
+          144,
+          32
         ],
         [
-          255,
-          255,
-          255
+          120,
+          152,
+          32
+        ],
+        [
+          136,
+          168,
+          40
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
         ]
       ]
     },
-    "SHOPS": {
-      "bank": 11,
-      "slots": {
-        "ol": 1,
-        "o0": 2,
-        "o1": 3,
-        "o2": 4,
-        "b0": 5,
-        "b1": 6,
-        "b2": 7,
-        "w0": 8,
-        "w1": 9,
-        "w2": 10,
-        "white": 11,
-        "gl0": 12,
-        "gl1": 13,
-        "gl2": 14,
-        "red": 15
-      },
+    "flowers": {
+      "bank": 4,
       "colors": [
         [
           0,
@@ -831,100 +691,594 @@
           0
         ],
         [
-          58,
-          58,
-          92
-        ],
-        [
-          186,
-          74,
-          30
-        ],
-        [
-          236,
-          118,
-          44
-        ],
-        [
-          252,
-          172,
-          96
-        ],
-        [
-          34,
-          84,
-          156
-        ],
-        [
-          58,
-          126,
-          208
-        ],
-        [
-          112,
-          180,
-          244
-        ],
-        [
-          140,
-          148,
-          172
-        ],
-        [
-          196,
-          204,
-          220
+          192,
+          200,
+          216
         ],
         [
           232,
-          236,
-          244
+          168,
+          104
         ],
         [
-          255,
-          255,
-          255
+          144,
+          152,
+          152
         ],
         [
-          48,
-          82,
-          156
+          232,
+          144,
+          104
         ],
         [
-          98,
+          72,
+          176,
+          120
+        ],
+        [
+          136,
+          168,
+          40
+        ],
+        [
+          40,
+          144,
+          96
+        ],
+        [
+          232,
+          128,
+          168
+        ],
+        [
+          224,
+          136,
+          96
+        ],
+        [
+          192,
+          80,
+          8
+        ],
+        [
+          200,
+          72,
+          112
+        ],
+        [
           160,
-          230
+          64,
+          136
         ],
         [
-          170,
-          214,
-          250
+          96,
+          96,
+          104
         ],
         [
-          222,
-          48,
-          56
+          32,
+          120,
+          80
+        ],
+        [
+          136,
+          40,
+          112
         ]
       ]
     },
-    "WOOD": {
-      "bank": 12,
-      "slots": {
-        "ol": 1,
-        "d0": 2,
-        "d1": 3,
-        "d2": 4,
-        "d3": 5,
-        "white": 6,
-        "grey": 7,
-        "dgrey": 8,
-        "blue": 9,
-        "blue2": 10,
-        "net": 11,
-        "net2": 12,
-        "red": 13,
-        "rope": 14
-      },
+    "rocks": {
+      "bank": 5,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          184,
+          208,
+          208
+        ],
+        [
+          224,
+          168,
+          112
+        ],
+        [
+          192,
+          136,
+          96
+        ],
+        [
+          168,
+          176,
+          160
+        ],
+        [
+          80,
+          128,
+          192
+        ],
+        [
+          128,
+          120,
+          120
+        ],
+        [
+          112,
+          112,
+          104
+        ],
+        [
+          152,
+          104,
+          80
+        ],
+        [
+          128,
+          88,
+          64
+        ],
+        [
+          96,
+          96,
+          88
+        ],
+        [
+          88,
+          88,
+          88
+        ],
+        [
+          104,
+          72,
+          56
+        ],
+        [
+          80,
+          80,
+          80
+        ],
+        [
+          72,
+          56,
+          48
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "house": {
+      "bank": 6,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          112,
+          112,
+          176
+        ],
+        [
+          96,
+          96,
+          160
+        ],
+        [
+          200,
+          184,
+          168
+        ],
+        [
+          232,
+          152,
+          152
+        ],
+        [
+          232,
+          152,
+          144
+        ],
+        [
+          208,
+          128,
+          112
+        ],
+        [
+          200,
+          104,
+          104
+        ],
+        [
+          144,
+          120,
+          96
+        ],
+        [
+          128,
+          112,
+          88
+        ],
+        [
+          184,
+          88,
+          88
+        ],
+        [
+          168,
+          72,
+          72
+        ],
+        [
+          112,
+          88,
+          64
+        ],
+        [
+          112,
+          48,
+          48
+        ],
+        [
+          120,
+          32,
+          40
+        ],
+        [
+          40,
+          32,
+          48
+        ]
+      ]
+    },
+    "house-teal": {
+      "bank": 7,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          112,
+          112,
+          176
+        ],
+        [
+          96,
+          96,
+          160
+        ],
+        [
+          200,
+          184,
+          168
+        ],
+        [
+          167,
+          232,
+          216
+        ],
+        [
+          161,
+          232,
+          220
+        ],
+        [
+          131,
+          208,
+          201
+        ],
+        [
+          123,
+          200,
+          180
+        ],
+        [
+          144,
+          120,
+          96
+        ],
+        [
+          128,
+          112,
+          88
+        ],
+        [
+          107,
+          184,
+          164
+        ],
+        [
+          91,
+          168,
+          148
+        ],
+        [
+          112,
+          88,
+          64
+        ],
+        [
+          60,
+          112,
+          99
+        ],
+        [
+          49,
+          120,
+          95
+        ],
+        [
+          40,
+          32,
+          48
+        ]
+      ]
+    },
+    "center": {
+      "bank": 8,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          96,
+          104,
+          96
+        ],
+        [
+          72,
+          160,
+          224
+        ],
+        [
+          240,
+          240,
+          232
+        ],
+        [
+          216,
+          216,
+          208
+        ],
+        [
+          240,
+          144,
+          56
+        ],
+        [
+          168,
+          168,
+          160
+        ],
+        [
+          64,
+          144,
+          216
+        ],
+        [
+          232,
+          120,
+          48
+        ],
+        [
+          120,
+          120,
+          112
+        ],
+        [
+          192,
+          72,
+          8
+        ],
+        [
+          184,
+          56,
+          0
+        ],
+        [
+          136,
+          32,
+          0
+        ],
+        [
+          80,
+          88,
+          104
+        ],
+        [
+          56,
+          56,
+          72
+        ],
+        [
+          32,
+          32,
+          32
+        ]
+      ]
+    },
+    "mart": {
+      "bank": 9,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          48,
+          56
+        ],
+        [
+          176,
+          192,
+          184
+        ],
+        [
+          72,
+          176,
+          216
+        ],
+        [
+          152,
+          168,
+          152
+        ],
+        [
+          64,
+          144,
+          216
+        ],
+        [
+          16,
+          152,
+          224
+        ],
+        [
+          16,
+          128,
+          208
+        ],
+        [
+          96,
+          104,
+          96
+        ],
+        [
+          80,
+          96,
+          112
+        ],
+        [
+          24,
+          104,
+          192
+        ],
+        [
+          72,
+          80,
+          80
+        ],
+        [
+          56,
+          72,
+          96
+        ],
+        [
+          16,
+          72,
+          144
+        ],
+        [
+          48,
+          56,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ]
+      ]
+    },
+    "blossom": {
+      "bank": 10,
+      "colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          64,
+          56,
+          40
+        ],
+        [
+          64,
+          64,
+          40
+        ],
+        [
+          183,
+          166,
+          135
+        ],
+        [
+          72,
+          72,
+          48
+        ],
+        [
+          118,
+          86,
+          110
+        ],
+        [
+          140,
+          91,
+          125
+        ],
+        [
+          151,
+          97,
+          130
+        ],
+        [
+          162,
+          102,
+          140
+        ],
+        [
+          194,
+          118,
+          166
+        ],
+        [
+          205,
+          124,
+          176
+        ],
+        [
+          226,
+          140,
+          197
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "wood": {
+      "bank": 11,
       "colors": [
         [
           0,
@@ -1007,239 +1361,45 @@
           0
         ]
       ]
-    },
-    "FLOWER": {
-      "bank": 2,
-      "slots": {
-        "ol": 1,
-        "l1": 2,
-        "l2": 3,
-        "red": 5,
-        "red2": 6,
-        "yel": 7,
-        "yel2": 8,
-        "pink": 9,
-        "pink2": 10,
-        "soil": 11
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          30,
-          66,
-          44
-        ],
-        [
-          60,
-          140,
-          76
-        ],
-        [
-          110,
-          190,
-          100
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          222,
-          44,
-          60
-        ],
-        [
-          252,
-          116,
-          108
-        ],
-        [
-          246,
-          202,
-          44
-        ],
-        [
-          255,
-          240,
-          150
-        ],
-        [
-          232,
-          116,
-          176
-        ],
-        [
-          255,
-          186,
-          218
-        ],
-        [
-          118,
-          84,
-          50
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    "SHORE": {
-      "bank": 5,
-      "slots": {
-        "sand": 1,
-        "sand2": 2,
-        "sand0": 3,
-        "wet": 4,
-        "foam": 5,
-        "foam2": 6,
-        "wl": 7,
-        "wm": 8,
-        "wd": 9,
-        "wet0": 10
-      },
-      "colors": [
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          242,
-          228,
-          184
-        ],
-        [
-          252,
-          244,
-          212
-        ],
-        [
-          220,
-          198,
-          150
-        ],
-        [
-          188,
-          166,
-          126
-        ],
-        [
-          255,
-          255,
-          255
-        ],
-        [
-          210,
-          236,
-          252
-        ],
-        [
-          130,
-          196,
-          240
-        ],
-        [
-          106,
-          172,
-          232
-        ],
-        [
-          82,
-          140,
-          214
-        ],
-        [
-          150,
-          132,
-          100
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0
-        ]
-      ]
     }
   },
   "layout": {
     "width": 60,
     "height": 34,
     "spawn": [
-      50,
-      18
+      49,
+      14
     ],
     "buildings": [
       {
         "name": "Mart",
         "style": "mart",
         "x": 35,
-        "y": 5
+        "y": 4
       },
       {
         "name": "PokemonCenter",
         "style": "center",
         "x": 42,
-        "y": 4
+        "y": 2
       },
       {
         "name": "NeighborHouse",
-        "style": "house",
-        "x": 28,
-        "y": 8
+        "style": "house_l",
+        "x": 26,
+        "y": 9
       },
       {
         "name": "GoldHouse",
-        "style": "house",
+        "style": "gable",
         "x": 38,
-        "y": 11
+        "y": 10
       },
       {
         "name": "PlayerHouse",
         "style": "house",
-        "x": 49,
-        "y": 14
+        "x": 48,
+        "y": 9
       },
       {
         "name": "TransplantHouse",
@@ -1249,5 +1409,5 @@
       }
     ]
   },
-  "provenance": "All scenery is original pixel art authored in tools/gba/maps/claude_cherrygrove/art.py for this build, following Gen 3 tile conventions with HGSS Cherrygrove shapes and colours. Ground grass, sand paths and animated water are Emerald primary tiles with regraded palettes. Characters come from the workbench preset (existing Gold/Silver/Kestra, Johto residents and regional samples); no character pixels were changed."
+  "provenance": "Scenery is derived read-only from HeartGold/SoulSilver: buildings, cliff, rocks, flowers, fences, signpost, mailbox and the beach ripple are lifted at native 16 px scale from the top-down HGSS Cherrygrove render (gba/art/johto-v1/references/cherrygrove-hgss.png), cleaned of neighbours and shadows and door-aligned to movement cells (tools/gba/maps/claude_cherrygrove/hgss.py); the tree is the HGSS tree01 texture from disasm/pokeheartgold/files/a/0/4/4 at its rendered size in the render's tones. Grass, paths, sand and sea are painted in the render's sampled colours with its rim profiles (ground.py). The teal house and blossom trees are palette recolours of the HGSS house and tree. Pier, boats, nets, benches and lamps are original pixel art (art.py). Original designs: Game Freak / Nintendo / Creatures. Characters come from the workbench preset; no character pixels were changed."
 }

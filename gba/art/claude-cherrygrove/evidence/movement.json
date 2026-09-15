@@ -2,7 +2,7 @@
   "samples": 2520,
   "engine_frames": 10080,
   "residents_observed": 12,
-  "one_sample_turn_upload_lag": 597,
+  "one_sample_turn_upload_lag": 571,
   "actual_obj_vram_frames_verified": true,
   "no_horizontal_mirroring": true,
   "distinct_palettes": true,
@@ -34,7 +34,7 @@
       ]
     },
     "1024": {
-      "cells_visited": 14,
+      "cells_visited": 10,
       "facings": [
         1,
         2,
@@ -49,24 +49,6 @@
         4
       ]
     },
-    "1036": {
-      "cells_visited": 9,
-      "facings": [
-        1,
-        2,
-        3,
-        4
-      ]
-    },
-    "1026": {
-      "cells_visited": 11,
-      "facings": [
-        1,
-        2,
-        3,
-        4
-      ]
-    },
     "1034": {
       "cells_visited": 4,
       "facings": [
@@ -74,8 +56,26 @@
         4
       ]
     },
-    "1027": {
+    "1026": {
       "cells_visited": 8,
+      "facings": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "1036": {
+      "cells_visited": 6,
+      "facings": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "1027": {
+      "cells_visited": 3,
       "facings": [
         1,
         2,
@@ -91,7 +91,7 @@
       ]
     },
     "1032": {
-      "cells_visited": 7,
+      "cells_visited": 12,
       "facings": [
         1,
         2,

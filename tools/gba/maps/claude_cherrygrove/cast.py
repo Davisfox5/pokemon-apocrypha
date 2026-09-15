@@ -34,7 +34,7 @@ NPCS = [
     walk('OBJ_EVENT_GFX_JOHTO_GOLD', 'Gold', 45, 13, 'MOVEMENT_TYPE_WANDER_AROUND', 1, 1,
          'GOLD: SILVER came by to\\nvisit. We had a battle.\\pI lost. He says I have\\ngotten rusty.\\pThat is fine by me.\\nIt was a good battle.'),
     walk('OBJ_EVENT_GFX_JOHTO_SILVER', 'Silver', 44, 15, 'MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT', 1, 1, script=SILVER_SCRIPT),
-    walk('OBJ_EVENT_GFX_JOHTO_KESTRA', 'Kestra', 52, 20, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 2, 0,
+    walk('OBJ_EVENT_GFX_JOHTO_KESTRA', 'Kestra', 53, 21, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 2, 0,
          'KESTRA: Did you see that?\\nThat was SILVER!\\pThe CHAMPION, right here\\nin CHERRYGROVE!\\pI want to battle like\\nthat someday.'),
     # Johto residents.
     walk('OBJ_EVENT_GFX_JOHTO_WOMAN', 'Woman', 30, 26, 'MOVEMENT_TYPE_WANDER_AROUND', 2, 1,
@@ -48,9 +48,9 @@ NPCS = [
     # Visitors from the other regions.
     walk('OBJ_EVENT_GFX_REGIONAL_HOENN', 'Hoenn', 23, 12, 'MOVEMENT_TYPE_WANDER_AROUND', 1, 2,
          'I came from HOENN to see\\nJOHTO.\\pThe sea is colder here.\\nThe sand is just as soft.'),
-    walk('OBJ_EVENT_GFX_REGIONAL_KANTO', 'Kanto', 54, 13, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 2, 0,
+    walk('OBJ_EVENT_GFX_REGIONAL_KANTO', 'Kanto', 56, 13, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 2, 0,
          "I'm from KANTO. It's not so\\nfar from here.\\pThe towns are bigger there.\\nI like it quiet here."),
-    walk('OBJ_EVENT_GFX_REGIONAL_JOHTO', 'Johto', 40, 8, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 3, 0,
+    walk('OBJ_EVENT_GFX_REGIONAL_JOHTO', 'Johto', 41, 9, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 3, 0,
          'The POKEMON CENTER is here\\nand the MART is next door.\\pIt is a small town. Nothing\\nis hard to find.'),
     walk('OBJ_EVENT_GFX_REGIONAL_SINNOH', 'Sinnoh', 19, 6, 'MOVEMENT_TYPE_FACE_UP', 0, 0,
          'Back home in SINNOH the sea\\nis grey and the wind bites.\\pI could stand here all day.'),

@@ -19,13 +19,16 @@ agent's preview or merge experimental maps into production.
 ## Immediate next task
 
 **Claude's independent Cherrygrove (2026-09-15):** built on the portable workbench
-preset in a remote Linux session. Original scenery drawn to Gen 3 tile conventions
-with HGSS shapes and colours (front-gabled rose-roof homes, orange Center, blue
-Mart, scalloped round trees, sandstone sea cliff, beach, pier, blossom park);
+preset (Linux container, then the owner's Mac). Second revision after the owner
+asked for the Gen 4 HGSS Johto look in 2D: scenery is now derived read-only from
+HGSS itself (buildings, cliff, rocks, flowers, fences and props lifted at native
+scale from the 1:1 HGSS Cherrygrove render, the tree from the DS texture, ground
+painted in the render's sampled colours with its rim profiles); the pier, boats,
+nets, benches and lanterns stay original art. Own primary and secondary tilesets.
 Gold, Silver, Kestra, four Johto residents and five regional visitors walk and
-talk. Doors, stairs, both route stubs, ordinary save, cold reload and title-menu
-Continue pass. See [the README](../gba/art/claude-cherrygrove/README.md); source
-patch `gba/claude-cherrygrove.patch` applies on top of the workbench preset.
+talk. Doors, stairs, both route stubs, ordinary save, cold reload, title-menu
+Continue and a Porymap save round-trip pass. See [the README](../gba/art/claude-cherrygrove/README.md);
+source patch `gba/claude-cherrygrove.patch` applies on top of the workbench preset.
 Production `game/` and every earlier preview are untouched.
 
 **Fresh custom Cherrygrove (2026-09-14):** the owner rejected the repurposed HGSS

@@ -1,0 +1,17 @@
+{
+  "porymap": "6.3.1",
+  "method": "File > Save clicked through System Events UI scripting (no focus change)",
+  "files_rewritten_by_save": [
+    "data/maps/map_groups.json",
+    "data/layouts/layouts.json",
+    "data/maps/CherrygroveCity/map.json",
+    "data/layouts/CherrygroveCity/map.bin",
+    "data/layouts/CherrygroveCity/border.bin"
+  ],
+  "files_differ_after_save": [],
+  "rom_before": "fb8d5fe3dad57042cb02649a0753cd828589fdf5d9c8aa533f95f29d3f1a372d",
+  "rom_after": "fb8d5fe3dad57042cb02649a0753cd828589fdf5d9c8aa533f95f29d3f1a372d",
+  "readback": [
+    "2026-09-15 14:15:33  [INFO] claude-verify {\"width\":60,\"height\":34,\"blocked\":1341,\"passable\":699,\"secondary_metatile_cells\":251,\"sea_cells\":542,\"sea_blocked\":532,\"spawn_collision\":0,\"spawn_elevation\":3,\"doors\":[[36,7,570,0,3],[44,7,577,0,3],[27,13,632,0,3],[40,14,650,0,3],[49,13,644,0,3],[32,25,706,0,3]]}"
+  ]
+}

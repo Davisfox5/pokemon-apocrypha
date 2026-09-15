@@ -1,11 +1,11 @@
 {
   "workbench_commit": "ec2d5d1becf8565d91c60c402c5a56be502e4ef9",
-  "rom_sha256": "20a774bf51210cab19845a2d1c0b2deca95d6aa35d0a70dcb0e632afc16dca8b",
-  "save_sha256": "8007b30cb6c6efadc951c725592ad45ada37e1d7ddfc54625e801905f074de51",
-  "patch_sha256": "acbbcf5aaa538386ea88372236b2d5a8cd694e0050c48ae9062072b6674ed226",
-  "patch_stat": " 52 files changed, 886 insertions(+), 568 deletions(-)",
+  "rom_sha256": "fb8d5fe3dad57042cb02649a0753cd828589fdf5d9c8aa533f95f29d3f1a372d",
+  "save_sha256": "b03605185edf7bdcdc544bb0670095857d21ad0748632af0c7c3cda13439811b",
+  "patch_sha256": "010d3ba706cfb21e8c4a3c0234627fac1f55d2435466430c2a3bcdf5d984b251",
+  "patch_stat": " 57 files changed, 1636 insertions(+), 1286 deletions(-)",
   "package": "tools/vendor/gba/Cherrygrove-claude-preview.zip",
-  "package_sha256": "757bd0ffec192d1af1b41a9244d50b8304bb711ab23b54bb50818f4c89e46a6b",
+  "package_sha256": "afaba03c1ab6164ad71b09ab7acd13a111f6494e09351dfc8c8bb787fcb9d5ec",
   "rom_bytes": 33554432,
   "toolchain": "Darwin-arm64 ARM GNU 14.2.rel1"
 }

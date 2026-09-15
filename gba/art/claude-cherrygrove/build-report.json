@@ -1,9 +1,25 @@
 {
   "width": 60,
   "height": 34,
-  "secondary_tiles": 339,
-  "secondary_metatiles": 149,
-  "bank_conflict_tiles": 8,
+  "primary_tiles": 426,
+  "primary_metatiles": 317,
+  "secondary_tiles": 452,
+  "secondary_metatiles": 215,
+  "bank_conflict_tiles": 3,
+  "tiles_per_bank": {
+    "0": 193,
+    "1": 79,
+    "2": 59,
+    "3": 34,
+    "4": 34,
+    "5": 27,
+    "6": 141,
+    "7": 72,
+    "8": 98,
+    "9": 72,
+    "10": 15,
+    "11": 54
+  },
   "doors": [
     {
       "name": "Mart",
@@ -11,8 +27,8 @@
         36,
         7
       ],
-      "metatile": 581,
-      "bank": 11
+      "metatile": 570,
+      "bank": 9
     },
     {
       "name": "PokemonCenter",
@@ -20,56 +36,56 @@
         44,
         7
       ],
-      "metatile": 586,
-      "bank": 11
+      "metatile": 577,
+      "bank": 8
     },
     {
       "name": "NeighborHouse",
       "door": [
-        29,
-        11
+        27,
+        13
       ],
-      "metatile": 605,
-      "bank": 9
+      "metatile": 632,
+      "bank": 6
     },
     {
       "name": "GoldHouse",
       "door": [
-        39,
+        40,
         14
       ],
-      "metatile": 605,
-      "bank": 9
+      "metatile": 650,
+      "bank": 6
     },
     {
       "name": "PlayerHouse",
       "door": [
-        50,
-        17
+        49,
+        13
       ],
-      "metatile": 605,
-      "bank": 9
+      "metatile": 644,
+      "bank": 6
     },
     {
       "name": "TransplantHouse",
       "door": [
         32,
-        24
+        25
       ],
-      "metatile": 650,
-      "bank": 10
+      "metatile": 706,
+      "bank": 7
     }
   ],
   "spawn": [
-    50,
-    18
+    49,
+    14
   ],
   "buildings": [
     {
       "name": "Mart",
       "style": "mart",
       "x": 35,
-      "y": 5,
+      "y": 4,
       "door": [
         36,
         7
@@ -79,7 +95,7 @@
       "name": "PokemonCenter",
       "style": "center",
       "x": 42,
-      "y": 4,
+      "y": 2,
       "door": [
         44,
         7
@@ -87,32 +103,32 @@
     },
     {
       "name": "NeighborHouse",
-      "style": "house",
-      "x": 28,
-      "y": 8,
+      "style": "house_l",
+      "x": 26,
+      "y": 9,
       "door": [
-        29,
-        11
+        27,
+        13
       ]
     },
     {
       "name": "GoldHouse",
-      "style": "house",
+      "style": "gable",
       "x": 38,
-      "y": 11,
+      "y": 10,
       "door": [
-        39,
+        40,
         14
       ]
     },
     {
       "name": "PlayerHouse",
       "style": "house",
-      "x": 49,
-      "y": 14,
+      "x": 48,
+      "y": 9,
       "door": [
-        50,
-        17
+        49,
+        13
       ]
     },
     {
@@ -122,7 +138,7 @@
       "y": 21,
       "door": [
         32,
-        24
+        25
       ]
     }
   ]

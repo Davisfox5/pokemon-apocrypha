@@ -1,0 +1,29 @@
+{
+  "reference_render": {
+    "path": "gba/art/johto-v1/references/cherrygrove-hgss.png",
+    "sha256": "e5444bcfe9ddfe3d874c2c69a1592a7a20ea65b116f10e3fb7aab3bf59d24115",
+    "size": "1034x370, native scale, cell grid origin (8,4)",
+    "used_for": "buildings, Mart sign, cliff, rocks, tulips, fences, daisies, rose hedge, planters, mailbox, signpost, beach ripple, sea block, sampled ground colours and rim profiles"
+  },
+  "ds_textures": {
+    "path": "disasm/pokeheartgold/files/a/0/4/4",
+    "member": 2,
+    "sha256": "7cc9b3590972da486696811a4c72542a43131784671fb6d60de197b006512c06",
+    "textures": [
+      "tree01gs (palette tree01)"
+    ],
+    "used_for": "the tree, resampled to its rendered 32x42 size and mapped to the render tones"
+  },
+  "original_art": [
+    "pier deck and rails",
+    "boats",
+    "drying nets",
+    "benches",
+    "lanterns"
+  ],
+  "recolours": [
+    "house2 (teal roof) from the HGSS house palette",
+    "blossom from the tree palette"
+  ],
+  "credit": "Original designs and art: Game Freak / Nintendo / Creatures. Read-only derivation for the Pokemon Apocrypha reconstruction; no source file was modified."
+}
