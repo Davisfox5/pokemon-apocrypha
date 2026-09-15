@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-11",
+  "decision": "M01: owner approved Gen 4\u20135 per-move physical/special split",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "setting": {
+    "B_PHYSICAL_SPECIAL_SPLIT": "GEN_5"
+  },
+  "build_exit_code": 0,
+  "normal_rom_sha256": "8a116c48fb1f30ca7f8e72fd6bda67a8e91580f234b32c2b62ea929f2b1d67f6",
+  "normal_elf_sha256": "d8e5c7e1d98d99b7fb3935546f198cf684f5a7e2a889ee3d3d6678d950687cbd",
+  "same_rom_as_prior_audit": false,
+  "source_sha256": {
+    "gba/mechanics-profile.patch": "0125dbebcb3b6f3606ef8bc61a128fb9b27609695ba186f3edbbe1db7858c466",
+    "gba/mechanics-profile.json": "9174a22520023b64ffd74fb56119cf6cf66a5c3fabbd0d6120a4c6a967b4b444",
+    "game/include/config/battle.h": "7804c22368cc226bafe74b2fc47c9733cc8d4b9698101eea28c2be17d34d27eb"
+  },
+  "build_log_sha256": "8f3ca9613144677ac492491f11e2b7697564a941de747e05deb08fbaa753ab45",
+  "verification": "Ordinary ROM rebuilt; profile inventory checked and patch reverse-applicability checked. No new runtime tests: the source selector uses the same Gen 4+ branch as the prior tested profile.",
+  "unresolved": "Experience package and other generation-dependent rules remain unapproved; no save changes."
+}

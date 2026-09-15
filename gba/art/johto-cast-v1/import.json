@@ -1,0 +1,101 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "frame_size": [
+    32,
+    32
+  ],
+  "frame_count": 12,
+  "translation": [
+    0,
+    0
+  ],
+  "directions": {
+    "SOUTH": [
+      9,
+      10,
+      11
+    ],
+    "NORTH": [
+      0,
+      7,
+      8
+    ],
+    "WEST": [
+      1,
+      2,
+      3
+    ],
+    "EAST": [
+      4,
+      5,
+      6
+    ]
+  },
+  "assets": [
+    {
+      "name": "Gold",
+      "source": "gold.png",
+      "graphics_id": 1029,
+      "palette_tag": 4485
+    },
+    {
+      "name": "Silver",
+      "source": "silver.png",
+      "graphics_id": 1030,
+      "palette_tag": 4486
+    },
+    {
+      "name": "Kestra",
+      "source": "kestra.png",
+      "graphics_id": 1031,
+      "palette_tag": 4487
+    }
+  ],
+  "placements": [
+    {
+      "asset": "Gold",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_GOLD",
+      "position": [
+        47,
+        13
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "GOLD"
+    },
+    {
+      "asset": "Silver",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_SILVER",
+      "position": [
+        54,
+        15
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SILVER"
+    },
+    {
+      "asset": "Kestra",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_KESTRA",
+      "position": [
+        55,
+        11
+      ],
+      "movement": "WALK_LEFT_AND_RIGHT",
+      "range": [
+        1,
+        0
+      ],
+      "text": "KESTRA"
+    }
+  ]
+}

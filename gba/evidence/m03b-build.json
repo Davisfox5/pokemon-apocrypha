@@ -1,0 +1,80 @@
+{
+  "decision": "M03b Gen 5 species abilities with owner exceptions, approved 2026-09-11",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "825f1ffd17ff2598fa8ddb9f73d5d99f85f6d1f7b792f328de1f8b6ac21e1dea",
+  "build_exit_code": 0,
+  "tests_passed": 12,
+  "tests_total": 12,
+  "setting": "P_UPDATED_ABILITIES GEN_LATEST -> GEN_5, plus 18 pinned exceptions",
+  "selector_audit": {
+    "method": "Static scan of game/src/data/pokemon/species_info/*.h for every P_UPDATED_ABILITIES selector, resolved against GEN_5.",
+    "selectors_total": 134,
+    "selectors_unchanged_at_gen_5": 91,
+    "selectors_affected_at_gen_5": 43,
+    "unchanged_breakdown": "91 gated on >= GEN_4 stay true, so the Gen 4/5-era ability updates are retained.",
+    "affected_breakdown": "21 gated on >= GEN_6, 15 on >= GEN_7, 2 on >= GEN_8, 5 on >= GEN_9.",
+    "resolution": "25 of the 43 take the Black 2/White 2 set; 18 are pinned to the present-day set as owner exceptions.",
+    "direction_note": "The switch is not one-way. Gen 5 removes later additions (weather setters, Neutralizing Gas, Sharpness, Competitive, Protean, Reckless, Frisk, Anticipation) but also restores abilities later removed (Gengar Levitate, Litwick line Shadow Tag, Zapdos Lightning Rod, legendary beast absorbing abilities, Piplup line Defiant, Shiftry Early Bird, Venipede line Quick Feet).",
+    "shared_macros_traced": [
+      "GENGAR_ABILITIES"
+    ],
+    "gen_6_plus_entries_reached": "None. No Mega form, no Gigantamax form and not Sylveon carries a P_UPDATED_ABILITIES selector; Mega Gengar has its own entry and does not read GENGAR_ABILITIES."
+  },
+  "owner_exceptions": {
+    "kept_present_day": {
+      "weather_setters_and_families": [
+        "TORKOAL Drought",
+        "PELIPPER Drizzle",
+        "WINGULL Hydration",
+        "GIGALITH Sand Stream",
+        "ROGGENROLA Weak Armor",
+        "BOLDORE Weak Armor",
+        "VANILLUXE Snow Warning",
+        "VANILLITE Snow Cloak",
+        "VANILLISH Snow Cloak",
+        "CUBCHOO Slush Rush",
+        "BEARTIC Slush Rush"
+      ],
+      "other": [
+        "KOFFING Neutralizing Gas",
+        "WEEZING Neutralizing Gas",
+        "GALLADE Sharpness"
+      ],
+      "agent_judgment": "The owner named the four weather setters, Weezing and Gallade. Pre-evolutions and same-line members were included so no evolution line is half Gen 5 and half present-day; this is a routine reversible choice and is reversible per species."
+    },
+    "overridden_away_from_gen_5": [
+      "GENGAR Cursed Body instead of restored Levitate",
+      "LITWICK / LAMPENT / CHANDELURE Infiltrator instead of restored Shadow Tag"
+    ],
+    "gen_5_kept_where_it_restores": [
+      "ZAPDOS Lightning Rod",
+      "RAIKOU Volt Absorb",
+      "ENTEI Flash Fire",
+      "SUICUNE Water Absorb",
+      "PIPLUP line Defiant",
+      "SHIFTRY Early Bird",
+      "VENIPEDE line Quick Feet"
+    ]
+  },
+  "sources": {
+    "gba/mechanics-profile.patch": "9c06f20bef38cbd6b1413a394099dc09b314a7cb936efd7c3de325b95f8d6cec",
+    "gba/mechanics-profile.json": "664aeb230417b36f771d5b417f092767427dd9b1f74d74ad714f7f292e23d9ad",
+    "tools/gba/mechanics_test.c": "df0ad15c20a056d0d7ee5cb7e4e97155283278835237bbd100d5465070c76cb6",
+    "game/include/config/pokemon.h": "26d7ab8b232c57985ab97f51616a3442572ae3e4a3656432fcaad22475a0a087",
+    "game/src/data/pokemon/species_info/gen_1_families.h": "40a2084811ddf01c0b0d5811705e4e4ed364ccc3c592a9b8d43b5018f6a1c098",
+    "game/src/data/pokemon/species_info/gen_3_families.h": "3f5a801fb5f24997aa7dbad49673825c856f9c11ab57a84002b0f61a09e5f9f2",
+    "game/src/data/pokemon/species_info/gen_5_families.h": "24f54aa4cd5f7f27d98bf252c3b84bd8c0911114bf57afb42daf2a76cdb9663e"
+  },
+  "logs": {
+    "tools/vendor/gba/m03b-build.log": "027d7112b5fe6ae22e7b5dfc1182a3ebc5b53c5768b053532690d65d33e142c6",
+    "tools/vendor/gba/m03b-tests.log": "8a34b8cc85891a4c72ac3bb56c39cd12ebf594aeb2370f9101b2bc5f33206056"
+  },
+  "limits": [
+    "Static selector scan plus runtime assertions over sampled species; not an exhaustive per-species historical database audit",
+    "How the player obtains Hidden Abilities is still undecided, so several pinned hidden abilities may be unreachable in play",
+    "Weather-setter abilities change battle pacing; gym leader and trainer teams have not been designed or rebalanced around them",
+    "Learnsets, move power/accuracy/PP and species experience yields remain inherited and unapproved",
+    "The existing linker RWX warning is unchanged; this is not a warning-free or release certification",
+    "No full playthrough, menu pass or five-region progression balance"
+  ]
+}

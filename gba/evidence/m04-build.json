@@ -1,0 +1,459 @@
+{
+  "decision": "M04 revised 2026-09-12: curated per-region TM list replacing the wholesale B2W2 import",
+  "supersedes": "The earlier same-day M04 build, which appended B2W2's list wholesale. The owner rejected that approach: TMs are to be the generic toolkit, and signature moves belong to regional tutors.",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "81b9df9a07105f68874e93e76b85dfdc0514e342527187868d29184bb262fcb7",
+  "build_exit_code": 0,
+  "tests_passed": 18,
+  "tests_total": 18,
+  "design": "See docs/MOVE_ECONOMY.md. Three tiers: generic TMs, origin-locked signature tutors gated behind cross-region trade goods, and ordinary tutors. Owner decisions of 2026-09-12: origin-matched TM sourcing, split currency, exactly 100 TMs, signature moves trickling in late with the full list post-game.",
+  "tm_list": {
+    "total": 100,
+    "per_region": 20,
+    "order": "Johto, Kanto, Hoenn, Sinnoh, Unova (story order)",
+    "rule": "Each region stocks only moves its own generation introduced, capped at 85 power, chosen for breadth of species coverage and a spread of types and roles.",
+    "validation": "All 100 verified: correct origin generation, power <= 85, none an HM, no duplicates.",
+    "by_region": {
+      "Johto": [
+        "PROTECT",
+        "RETURN",
+        "FRUSTRATION",
+        "HIDDEN_POWER",
+        "SLEEP_TALK",
+        "ENDURE",
+        "ATTRACT",
+        "RAIN_DANCE",
+        "SUNNY_DAY",
+        "SANDSTORM",
+        "SAFEGUARD",
+        "THIEF",
+        "ICY_WIND",
+        "SHADOW_BALL",
+        "GIGA_DRAIN",
+        "CRUNCH",
+        "STEEL_WING",
+        "ANCIENT_POWER",
+        "ENCORE",
+        "FALSE_SWIPE"
+      ],
+      "Kanto": [
+        "TOXIC",
+        "REST",
+        "DOUBLE_TEAM",
+        "REFLECT",
+        "LIGHT_SCREEN",
+        "THUNDER_WAVE",
+        "SWORDS_DANCE",
+        "AGILITY",
+        "BODY_SLAM",
+        "DIG",
+        "ROCK_SLIDE",
+        "THUNDER_PUNCH",
+        "ICE_PUNCH",
+        "FIRE_PUNCH",
+        "SWIFT",
+        "LOW_KICK",
+        "SEISMIC_TOSS",
+        "CONFUSE_RAY",
+        "SCREECH",
+        "COUNTER"
+      ],
+      "Hoenn": [
+        "FACADE",
+        "SECRET_POWER",
+        "ROCK_TOMB",
+        "AERIAL_ACE",
+        "BRICK_BREAK",
+        "KNOCK_OFF",
+        "SHOCK_WAVE",
+        "TAUNT",
+        "WATER_PULSE",
+        "SIGNAL_BEAM",
+        "MUD_SHOT",
+        "CALM_MIND",
+        "BULK_UP",
+        "TORMENT",
+        "HAIL",
+        "IRON_DEFENSE",
+        "WILL_O_WISP",
+        "BULLET_SEED",
+        "MAGICAL_LEAF",
+        "AIR_CUTTER"
+      ],
+      "Sinnoh": [
+        "ZEN_HEADBUTT",
+        "PAYBACK",
+        "STEALTH_ROCK",
+        "CHARGE_BEAM",
+        "POISON_JAB",
+        "SHADOW_CLAW",
+        "NASTY_PLOT",
+        "SEED_BOMB",
+        "IRON_HEAD",
+        "DARK_PULSE",
+        "U_TURN",
+        "DRAIN_PUNCH",
+        "ROOST",
+        "AIR_SLASH",
+        "TRICK_ROOM",
+        "NIGHT_SLASH",
+        "FLASH_CANNON",
+        "X_SCISSOR",
+        "AVALANCHE",
+        "GRASS_KNOT"
+      ],
+      "Unova": [
+        "ROUND",
+        "BULLDOZE",
+        "WORK_UP",
+        "RETALIATE",
+        "INCINERATE",
+        "HONE_CLAWS",
+        "SMACK_DOWN",
+        "SCALD",
+        "ACROBATICS",
+        "PSYSHOCK",
+        "LOW_SWEEP",
+        "VENOSHOCK",
+        "SNARL",
+        "HEX",
+        "STRUGGLE_BUG",
+        "DRAGON_TAIL",
+        "ELECTROWEB",
+        "FLAME_CHARGE",
+        "VOLT_SWITCH",
+        "DRILL_RUN"
+      ]
+    }
+  },
+  "signature_pool_sizes": {
+    "Johto": 10,
+    "Kanto": 25,
+    "Hoenn": 19,
+    "Sinnoh": 30,
+    "Unova": 19
+  },
+  "collateral_work": {
+    "vanilla_reference_retheme": "18 of the TMs vanilla content referenced are no longer TMs. Every reference was retargeted to a type-matched survivor (Thunderbolt -> Shock Wave, Earthquake -> Bulldoze, Ice Beam -> Avalanche, and so on) across 28 files in game/data, game/src and game/test. These are placeholder rewards in vanilla Hoenn content slated for redesign.",
+    "item_entries": "All 100 TM item entries regenerated, numbered TM01-TM100 in story order. 32 descriptions were reused from vanilla entries, 31 from the earlier M04 batch, and 37 newly authored. Taunt and Hail needed rewriting because their vanilla descriptions embed #if conditionals that cannot be harvested as plain text.",
+    "prices": "3000 for power >= 70, 2000 for weaker attacks, 1500 for status moves."
+  },
+  "fairy_consequence": "Dazzling Gleam is no longer a TM. It is Gen 6, so it belongs to no region's origin set, and Fairy attacks are the kind of move this design routes through tutors. Reachability is unchanged -- every Fairy-typed roster species still learns a Fairy attacking move by level-up after M03c, with Mr. Mime pinned -- but the breadth the earlier build gave (176 species) is gone until a Fairy tutor exists. A Fairy tutor should be among the first signature tutors placed.",
+  "sources": {
+    "gba/mechanics-profile.patch": "6343c393cb5f21f60c2deb8e9ef89a8a03a030a83a1362bf359ffbb3b8dd07bd",
+    "tools/gba/mechanics_test.c": "fd7f73c9f6a74321a78487ecb552f0b68db29c24ac59887b0f432a56c3530ce8",
+    "tools/gba/move_inventory.py": "48bfaacc375f11ed226126a63595815f1de665f0303129e41c765ef8c3fd0a4f",
+    "game/include/constants/tms_hms.h": "fa8d9b627b5b94aba354fc47e3be1ea7bc71157fd17e261c8d6267ffeaf6da0b",
+    "game/src/data/pokemon/special_movesets.json": "576e55577cc1b919eb356bfd5ea9d7450dcc2666758bf8e0a4395c67d3927845",
+    "docs/MOVE_ECONOMY.md": "660c120e0623699539451cc34dcf2c9f31d6b0177b88f7a5ff1143dfde5925f9",
+    "docs/TUTOR_ROSTERS.md": "1f023bbe3f22377310621ffc39c9835c2dc599b94f885f3d9e9127642de37e51",
+    "gba/evidence/tutor-regions.json": "21244ba3f639a70af28389fb60a231ffafbbe300bfc64d553310e051a4b25086"
+  },
+  "logs": {
+    "tools/vendor/gba/m04-build.log": "fb5b67c04b581a7b57955d446030447b2b70dae94ca5a3505202a9b827eb8438",
+    "tools/vendor/gba/m04-tests.log": "9321af5cf7e24ea0e70c7a27c8cf61cd45523e9f08fed0f544f18b3f5ecc551d"
+  },
+  "limits": [
+    "Tutors are designed but not implemented. No tutor exists beyond Emerald's 30, and no signature move is obtainable.",
+    "No TM is placed in the world. None of the 100 is obtainable in play; distribution is reward and map work that has not started.",
+    "The TM list fills the engine's 100-id ceiling exactly. Adding one means removing one, or renumbering the item enum.",
+    "Curation is design judgement over breadth, power and type spread. It has not been playtested, and the per-region difficulty curve is untested.",
+    "The retheme of vanilla TM rewards is placeholder work; those rewards will be re-specified when the regions are built.",
+    "The existing linker RWX warning is unchanged; this is not a warning-free or release certification."
+  ],
+  "independent_review": {
+    "reviewer": "Codex, relayed 2026-09-12. Report at docs/M04_REVIEW.md.",
+    "verified_by_review": "Upstream pin, ROM SHA-256, every source and log hash, reverse-apply of the mechanics patch, the config audit, and an independent rerun of the mechanics suite at 18/18.",
+    "findings_accepted": "All six. Independently checked; no substantive disagreement.",
+    "corrections_made_to_documentation": [
+      "SaveBlock1 is 15,660 of 15,872 with 212 bytes free, not 15,588/284. The earlier figure came from an ad-hoc compile probe using the default ABI; the production build uses -mabi=apcs-gnu, which changes struct padding. measure.py and the ordinary ELF both give 15,660. Use measure.py, not a probe.",
+      "The TM power table was wrong for nine entries because the curation script took the maximum numeral from generation-dependent expressions instead of resolving them. Independent recomputation found the error affects 39 of 552 moves in the whole inventory, which is worse than the review reported. All 39 were overestimates, so the 85 table-power cap on the 100 TMs still holds; that was verified.",
+      "Six moves were wrongly placed in signature candidate pools. Only Energy Ball (80 power, breadth 148) matters; Luster Purge, Mist Ball, Night Daze and Techno Blast are single-species signature moves that belong in tutors regardless, and Synchronoise (70, breadth 33) is a plausible TM candidate.",
+      "Removed the inference that an 85 power cap proves the absence of power spikes. Return and Frustration reach 102, Acrobatics 110, Facade 140, Low Kick and Grass Knot 120, and Bullet Seed is multiHit for up to 125. Added an Effective column flagging conditional cases.",
+      "'None of the 100 TMs is obtainable' was false. Inherited and rethemed vanilla content still distributes them; the Lilycove department store sells eight. Corrected to say Apocrypha distribution is unimplemented.",
+      "Clarified that TM exclusion is not an acquisition gate: Pikachu learns Thunderbolt at 42 by level-up, inherited tutors still teach Double-Edge and Explosion, and Surf is a 95-power HM.",
+      "Resolved the Fairy contradiction: Dazzling Gleam belongs to Tier 3 as an ordinary tutor, not a signature tutor. A Gen 6 move cannot be origin-locked, and signature teaching is late by design. Also corrected 'every Fairy species learns a Fairy attack by level-up': six of 23 rely on evolution or a pre-evolution.",
+      "Downgraded Tier 2 from 'designed' to 'candidate pools only'.",
+      "Corrected the claim that all tutor work is blocked on map scripts: special_movesets.json has an extraTutors list the generator merges with script-discovered tutors.",
+      "Marked RESERVED_MOVE_POOL.md and its JSON stale, and flagged that its warning against gating starter ultimates predates the owner-approved signature-tutor economy."
+    ],
+    "additional_finding_not_in_review": "The eight HMs sit outside both tiers, and Surf (95) and Fly (90) exceed the TM power cap outright, with Strength, Waterfall and Dive at 80. They are near-mandatory traversal tools, so they deliver mid-power coverage on a schedule the move economy does not control. No policy exists for this.",
+    "no_gameplay_change": "Only documentation was corrected in response to the review. The ROM, the TM list, the patch and the tests are unchanged and still match the recorded hashes.",
+    "owner_decisions_preserved": [
+      "origin-matched TMs",
+      "exactly 100 TMs",
+      "split tutor currencies",
+      "signature teaching trickling in late with the full list post-game"
+    ]
+  },
+  "pool_regeneration": {
+    "step": "Review response step 1: rebuild the candidate inventory on resolved power and regenerate the Tier 2 pools.",
+    "method": "New tracked tool tools/gba/move_inventory.py preprocesses the move table with the Makefile CPPFLAGS and evaluates the resolved numeric expressions exactly. Replaces the ad-hoc source scan that caused the error, the same correction measure.py already represents for save size.",
+    "reproduced_the_review_finding": "39 of the 559 Gen 1-5 moves were misreported by the old max-numeral method, all overestimates; 9 of those are among the published 100 TMs. Both figures are correct in their own scope.",
+    "tm_power_cap_reverified": "No TM exceeds 85 table power on resolved data; the TM range is 0-85. The cap holds; the balance inference drawn from it does not.",
+    "pool_sizes_before": {
+      "Johto": 10,
+      "Kanto": 25,
+      "Hoenn": 19,
+      "Sinnoh": 30,
+      "Unova": 19
+    },
+    "pool_sizes_after": {
+      "Hoenn": 17,
+      "Johto": 10,
+      "Kanto": 25,
+      "Sinnoh": 29,
+      "Unova": 16
+    },
+    "teachable_after_exclusions": {
+      "Hoenn": 15,
+      "Johto": 8,
+      "Kanto": 21,
+      "Sinnoh": 24,
+      "Unova": 8
+    },
+    "six_dropouts_confirmed": [
+      "Energy Ball 90->80",
+      "Synchronoise 120->70",
+      "Luster Purge 95->70",
+      "Mist Ball 95->70",
+      "Night Daze 90->85",
+      "Techno Blast 120->85"
+    ],
+    "new_findings": [
+      "Twenty-one candidates have exactly one learner (Aeroblast, Roar of Time, Psystrike and peers). A tutor for a move its only learner already gets is not a tutor. These are pool artefacts of a pure power filter.",
+      "Six candidates are already taught outside Tier 2 and so are neither origin-locked nor late: Explosion, Double-Edge, Mega Kick and Dream Eater from Emerald tutors, Volt Tackle by breeding, Dynamic Punch by a vanilla tutor. Locking them requires removing that access first.",
+      "Unova closes the game with only eight teachable signature candidates, ten of its sixteen being single-legendary moves. The power filter cannot fix this; Gen 5 depth is in utility and mid-power moves."
+    ],
+    "no_gameplay_change": "Documentation, evidence and tooling only. game/ untouched; mechanics patch hash unchanged at 5999e0573688d9c4f5ad539255ea18ce3ff84ad853716e8e78161d0ea9469b9f.",
+    "evidence": "gba/evidence/move-inventory.json"
+  },
+  "hm_expansion": {
+    "decision": "Owner, 2026-09-13: Defog and Rock Climb ship as HMs, not TMs, so they cost no region a TM slot.",
+    "rationale": "Traversing all five regions as originally built needs eleven field moves: Cut, Fly, Surf, Strength, Flash, Rock Smash, Waterfall, Dive, Whirlpool, Rock Climb, Defog. Sinnoh alone contributes Rock Climb and Defog. The engine reserved eight HM ids; the ceiling was an id reservation, not a structural limit.",
+    "engine_changes": [
+      "FOREACH_HM gained F(DEFOG) and F(ROCK_CLIMB).",
+      "ITEM_HM09/ITEM_HM10 take 690/691; every item from 690 up shifted by two. Appending after the charms does not compile: enum members must be declared before the ENUM_HM zip consumes them.",
+      "BAG_TMHM_COUNT 108 -> 110; two entries added to src/data/items.h.",
+      "OW_DEFOG_FIELD_MOVE and OW_ROCK_CLIMB_FIELD_MOVE flipped FALSE -> TRUE.",
+      "Bug fix: src/item_menu.c formatted the HM number at a fixed one-digit width, so HM10 rendered as HM0. Now NUM_HIDDEN_MACHINES >= 10 ? 2 : 1."
+    ],
+    "id_renumbering": "Items 690-873 shifted to 692-875. No player save exists, so no saved id is invalidated. This is the moment to freeze item ids.",
+    "normal_rom_sha256": "8a80af001a883b9cc5e1ce2fcb30d2d7f4ce4c469c69bb304add0cd905ec34d4",
+    "supersedes_rom_sha256": "81b9df9a07105f68874e93e76b85dfdc0514e342527187868d29184bb262fcb7",
+    "tests_passed": 20,
+    "tests_total": 20,
+    "patch_verified": "Regenerated against the roster baseline and round-tripped: reverse-apply lands exactly on roster tree f31b4400a5200d01355cb346306a09d94fcfe12c, re-apply restores 575144924167f563378a444a4586fc1769488f96.",
+    "tm_list_unchanged": "The 100 TMs are untouched by this change. The rebalancing swaps and the Fairy block remain proposed, not applied.",
+    "still_open": "Whirlpool is built. No tileset assigns MB_WHIRLPOOL yet, so it is inert until map work places whirlpool tiles.",
+    "hm_count": 11,
+    "save_cost": {
+      "bag_tmhm_count": "64 -> 111",
+      "saveblock1_bytes": 15672,
+      "saveblock1_budget": 15872,
+      "free_bytes": 200,
+      "note": "Measured with tools/gba/measure.py, which uses the production -mabi=apcs-gnu. The three added HMs cost 12 bytes of the 212 free before them."
+    }
+  },
+  "whirlpool": {
+    "decision": "Owner, 2026-09-13: build Whirlpool as HM11.",
+    "why_not_a_dive_site": "Dive is a warp to a paired MAP_TYPE_UNDERWATER map, of which vanilla ships twenty-six, each with its own layout, collision, tileset, events and scripts. Re-cutting Johto whirlpools as dive sites is map production, which this phase defers. Building the field move is bounded engine work.",
+    "model": "Waterfall. Both are used from the surfing state and test the tile ahead. Whirlpool differs in having no fixed direction, so the ride uses the player's current facing rather than DIR_NORTH.",
+    "no_new_art": "Reuses FLDEFF_FIELD_MOVE_SHOW_MON and existing walk movement. No new sprites or animations, so nothing here is blocked on art production.",
+    "built": [
+      "MB_WHIRLPOOL appended after MB_ROCK_CLIMB; surfable; MetatileBehavior_IsWhirlpool.",
+      "FLDEFF_USE_WHIRLPOOL = 82, script entry, and a five-state task in field_effect.c that rides through consecutive whirlpool tiles.",
+      "FIELD_MOVE_WHIRLPOOL and a gFieldMoveInfo entry behind OW_WHIRLPOOL_FIELD_MOVE.",
+      "SetUpFieldMove_Whirlpool (party menu) and an overworld trigger in field_control_avatar.c, both gated on PLAYER_AVATAR_FLAG_SURFING.",
+      "EventScript_UseWhirlpool / EventScript_CannotUseWhirlpool with their text.",
+      "ITEM_HM11 = 692; items 692-875 shifted to 693-876. BAG_TMHM_COUNT 110 -> 111."
+    ],
+    "caveat_badge_gating": "The field move is BADGE_UNLOCK against FLAG_BADGE08_GET, copied from the vanilla eight-badge assumption. Apocrypha has twenty badges and no settled badge order, so this placeholder must be revisited with the Tier 4 HM timing policy. It is not a considered choice.",
+    "caveat_inert": "No tileset assigns MB_WHIRLPOOL, so no whirlpool exists in any map yet. The move works; nothing in the world uses it."
+  },
+  "tm_rebalance": {
+    "decision": "Owner, 2026-09-13: apply the proposed swaps. Criterion was balance across the eighteen types and the physical/special/status split.",
+    "structure": "Johto 19, Kanto 19, Hoenn 19, Sinnoh 20, Unova 20, plus a 3-move Fairy block at TM98-100. Still exactly 100.",
+    "fairy_rationale": "Fairy postdates every one of these regions, so under the origin rule no region could stock it and the list had none at all. It belongs to no region because it is new to the world, which is the premise rather than an exception to it.",
+    "swaps": {
+      "Johto": {
+        "drop": [
+          "Frustration (Return mirrored)",
+          "Safeguard"
+        ],
+        "add": [
+          "Dragon Breath"
+        ]
+      },
+      "Kanto": {
+        "drop": [
+          "Swift",
+          "Double Team (evasion stalling)"
+        ],
+        "add": [
+          "Psybeam"
+        ]
+      },
+      "Hoenn": {
+        "drop": [
+          "Secret Power (Facade duplicate)",
+          "Torment"
+        ],
+        "add": [
+          "Dragon Claw"
+        ]
+      },
+      "Sinnoh": {
+        "drop": [
+          "Grass Knot (weight-variable, to 120)"
+        ],
+        "add": [
+          "Energy Ball (flat 80)"
+        ]
+      },
+      "Unova": {
+        "drop": [],
+        "add": []
+      },
+      "Fairy": {
+        "drop": [],
+        "add": [
+          "Dazzling Gleam",
+          "Disarming Voice",
+          "Draining Kiss"
+        ]
+      }
+    },
+    "attacking_coverage_before_after": {
+      "Normal": "10 -> 7",
+      "Dragon": "1 -> 3",
+      "Psychic": "2 -> 3",
+      "Fairy": "0 -> 3",
+      "unchanged": "every other type"
+    },
+    "category_before_after": "41 phys / 27 spec / 32 status -> 40 / 31 / 29",
+    "power_cap_holds": "No TM exceeds 85 table power, re-verified on resolved data.",
+    "accepted_gaps": [
+      "Poison stays at 2. The only qualifying addition is Acid Spray at 40 power; padding the list would not improve it.",
+      "Fighting has six attacking TMs but three are fixed or weight-based damage (Seismic Toss, Counter, Low Kick), so real coverage is three plus Rock Smash. No special Fighting move at or below 85 exists under the origin rule except Vacuum Wave at 40."
+    ],
+    "collateral": "9 vanilla files retargeted from the seven dropped TMs to type- and role-matched survivors. All 100 item entries renumbered.",
+    "normal_rom_sha256": "19bdc0605d7f8d2d0479050a9242e2231aaaf511b303212848910ab0a3406fad",
+    "tests_passed": 22,
+    "tests_total": 22,
+    "save": {
+      "saveblock1_bytes": 15672,
+      "free_bytes": 200,
+      "note": "Unchanged by this step; the TM count did not move."
+    },
+    "bug_hit_and_fixed": "Rewriting FOREACH_TM by slicing from its #define to FOREACH_TMHM silently deleted FOREACH_HM, which sits between them. The symptom was an unexpanded macro in the item enum and a cascade of errors in unrelated headers. Same family as the block-comment-inside-the-macro trap already on record."
+  },
+  "secret_bases": {
+    "decision": "Owner, 2026-09-13: Secret Bases are cut entirely, along with most of the items that would go in them.",
+    "consequence_for_this_change": "Secret Power was dropped as a TM. It is in universalMoves so every species can learn it, but the TM was its only delivery and it is the move that creates Secret Bases. With the feature cut there is nothing to preserve, so no tutor is owed.",
+    "not_done_here": "The removal itself is a vanilla subtractive pass, not part of a TM list change. Roughly 25 secret-base maps and 73 source/header files reference the feature. Vanilla references to ITEM_TM_SECRET_POWER were retargeted to keep the tree building; Route 111 still runs a script about making a Secret Base and must be removed in that pass."
+  },
+  "tutor_restoration": {
+    "decision": "Owner, 2026-09-13: every historical TM move not in our machine list is to be available from a tutor, assigned to the region of its introducing generation. Tutor placement is to be redone, with tutors gaining more advanced moves as the game progresses and the high-tier moves bought with rare goods, often from another region.",
+    "source_of_truth": "Per-game TMMoves in game/tools/learnset_helpers/porymoves_files/, across the eleven Gen 1-5 mainline games (RBY, Yellow, GS, Crystal, RSE, FRLG, DP, Platinum, HGSS, BW, B2W2). Real game data, not recollection.",
+    "moves_restored": 89,
+    "by_region": {
+      "Johto": {
+        "signature": 4,
+        "ordinary": 12
+      },
+      "Kanto": {
+        "signature": 19,
+        "ordinary": 25
+      },
+      "Hoenn": {
+        "signature": 2,
+        "ordinary": 6
+      },
+      "Sinnoh": {
+        "signature": 4,
+        "ordinary": 9
+      },
+      "Unova": {
+        "signature": 2,
+        "ordinary": 6
+      }
+    },
+    "tier_rule": "Signature is table power 86 or above, i.e. above the TM cap. Mechanical on power alone; not reviewed for conditional damage or utility.",
+    "implementation": "All 89 added to extraTutors in special_movesets.json. The generator merges it into gTutorMoves[] (about 30 -> 101 moves) and the teachable learnsets, so each move is teachable by every species that can learn it.",
+    "data_layer_only": "No tutor exists in the world, none has a price or a location. This makes the moves teachable; it does not make them obtainable.",
+    "lopsidedness": "Origin-matching gives Kanto 44 and leaves Hoenn and Unova 8 each, because Gen 1 introduced the moves that stayed TMs for eleven games. Combined with the Tier 2 candidate pools: Kanto 50, Sinnoh 32, Johto 21, Hoenn 21, Unova 14. Unova is thin from both directions and closes the game. Not resolved; progression gating within a region is the option that costs no canon.",
+    "needs_an_explicit_decision": [
+      "Double Team was a TM in all eleven games and so is on the restored list, but it was cut from the TM list deliberately because evasion stalling is bad design. Restoring it as a tutor move undoes that on a technicality.",
+      "Secret Power is restored for the same reason, but Secret Bases are cut so its field function is dead weight and it duplicates Facade as an attack."
+    ],
+    "rom_cost": "ROM 19,565,696 -> 19,588,584 bytes, about 22 KB, 58.38% of 32 MB. EWRAM and IWRAM unchanged.",
+    "normal_rom_sha256": "85eddb2a9add64ada88fe03607adc98e8f19cc4b8b515ec68d880214f0ec5509",
+    "tests_passed": 23,
+    "tests_total": 23,
+    "test_error_caught": "The first version of the regression test asserted Pidgeot can learn Roar. It cannot in this build. The assertion was written from memory rather than checked against all_learnables.json; retargeted to Gyarados, which can.",
+    "evidence": "docs/TUTOR_ROSTERS.md",
+    "regional_rebalance": {
+      "decision": "Owner, 2026-09-13: rebalance the 89 restored tutor moves into regions that make logical sense, preserving the most iconic to their region first.",
+      "why_origin_matching_failed": "Gen 1 introduced the moves that stayed TMs for eleven games, so origin-matching gave Kanto 44 and left Hoenn and Unova 8 each, with Kanto only the second region the player reaches.",
+      "why_not_data_driven": "Learner distribution was tested as a tiebreaker and does not discriminate: Roar's learners are 21-33% of every region's roster and Hyper Beam's 46-60%. The assignment is a design judgment on landmark and type identity.",
+      "result": {
+        "Johto": 18,
+        "Kanto": 19,
+        "Hoenn": 18,
+        "Sinnoh": 18,
+        "Unova": 16
+      },
+      "moves_reassigned": 29,
+      "anchors_kept": "Hyper Beam, Psychic, Dream Eater and the Fighting Dojo trio stay in Kanto; Dynamic Punch, Fury Cutter, Rollout and Curse stay in Johto; Overheat and Focus Punch stay in Hoenn; Stone Edge, Rock Polish and Gyro Ball stay in Sinnoh.",
+      "notable_moves": "Headbutt and Roar to Johto (the Headbutt tree and the roaming beasts); Blizzard and Ice Beam to Sinnoh (Snowpoint); Fire Blast, Flamethrower and Solar Beam to Hoenn (Mt. Chimney, Groudon); Thunderbolt and Thunder held in Kanto (Lt. Surge, the Power Plant); Sludge Bomb and Sludge Wave to Unova (Virbank).",
+      "residual_imbalance": "Kanto still holds 19 and nine of them are signature tier, and it covers only five attacking types because the classic kit is Normal-heavy. Spreading that across the game is a progression question, not a geography one.",
+      "no_gameplay_change": "Design assignment only. All 89 were already teachable through extraTutors and the engine has no concept of a region, so game/ is untouched and the ROM is unchanged.",
+      "evidence": "docs/TUTOR_ROSTERS.md, gba/evidence/tutor-regions.json"
+    }
+  },
+  "tutor_roster_complete": {
+    "decision": "Owner, 2026-09-14: place the 12 previously unassigned Emerald tutor moves; keep Double Team and Secret Power as early-game tutor moves rather than cutting them; and place all 49 Tier 2 signature moves.",
+    "total_tutor_moves": 150,
+    "composition": {
+      "historical_TM": 89,
+      "vanilla_emerald_tutor": 12,
+      "tier_2_signature": 49
+    },
+    "by_region": {
+      "Johto": {
+        "total": 31,
+        "signature": 10
+      },
+      "Kanto": {
+        "total": 28,
+        "signature": 14
+      },
+      "Hoenn": {
+        "total": 30,
+        "signature": 20
+      },
+      "Sinnoh": {
+        "total": 35,
+        "signature": 21
+      },
+      "Unova": {
+        "total": 26,
+        "signature": 15
+      }
+    },
+    "gTutorMoves_matches_assignment": "Verified: gTutorMoves[] holds exactly 150 moves and every one has a region. No tutor move is unassigned and no assignment is unbacked.",
+    "early_game_replacements": {
+      "Double Team": "Unova -> Kanto. A Celadon Game Corner prize in Red and Blue, and Kanto is reached early. Kept on the owner's call; the earlier recommendation to cut it for evasion stalling is overridden.",
+      "Secret Power": "Hoenn -> Johto. Secret Bases are cut so it has no regional identity left; as a plain universal attack it suits a first-region teacher."
+    },
+    "elemental_punches_split": "Thunder Punch to Kanto (Lt. Surge), Fire Punch to Hoenn (Mt. Chimney), Ice Punch to Sinnoh (Snowpoint). Vanilla taught all three from one tutor; splitting them by element serves the cross-region design.",
+    "named_character_teachers": "Owner note: not every teacher need be a generic tutor. Marked in the roster: Lance for Draco Meteor, Steven for Meteor Mash, Riley for Aura Sphere. The Hoenn starter ultimates sit with a single \"master of the three starters\" for the same reason.",
+    "rom": "ROM 19,588,584 -> 19,593,152 bytes, 58.39% of 32 MB. EWRAM and IWRAM unchanged.",
+    "normal_rom_sha256": "7f2065033ed7e0b8bcf540d018d371cb0763bdbf3882565e3ae43d9b75a6a905",
+    "still_open": "Placement, pricing, the progression schedule, and which trade goods buy the signature tier. Nothing is obtainable: no tutor is placed.",
+    "evidence": "docs/TUTOR_ROSTERS.md, gba/evidence/tutor-regions.json",
+    "tests_passed": 24,
+    "tests_total": 24
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "frame_size": [
+    32,
+    32
+  ],
+  "frame_count": 12,
+  "translation": [
+    0,
+    0
+  ],
+  "directions": {
+    "SOUTH": [
+      9,
+      10,
+      11
+    ],
+    "NORTH": [
+      0,
+      7,
+      8
+    ],
+    "WEST": [
+      1,
+      2,
+      3
+    ],
+    "EAST": [
+      4,
+      5,
+      6
+    ]
+  },
+  "assets": [
+    {
+      "name": "Gold",
+      "source": "gold.png",
+      "graphics_id": 1029,
+      "palette_tag": 4485
+    },
+    {
+      "name": "Silver",
+      "source": "silver.png",
+      "graphics_id": 1030,
+      "palette_tag": 4486
+    },
+    {
+      "name": "Kestra",
+      "source": "kestra.png",
+      "graphics_id": 1031,
+      "palette_tag": 4487
+    },
+    {
+      "name": "Hoenn",
+      "source": "hoenn.png",
+      "graphics_id": 1032,
+      "palette_tag": 4488
+    },
+    {
+      "name": "Kanto",
+      "source": "kanto.png",
+      "graphics_id": 1033,
+      "palette_tag": 4489
+    },
+    {
+      "name": "Johto",
+      "source": "johto.png",
+      "graphics_id": 1034,
+      "palette_tag": 4490
+    },
+    {
+      "name": "Sinnoh",
+      "source": "sinnoh.png",
+      "graphics_id": 1035,
+      "palette_tag": 4491
+    },
+    {
+      "name": "Unova",
+      "source": "unova.png",
+      "graphics_id": 1036,
+      "palette_tag": 4492
+    }
+  ],
+  "placements": [
+    {
+      "asset": "Gold",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_GOLD",
+      "position": [
+        47,
+        13
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "GOLD"
+    },
+    {
+      "asset": "Silver",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_SILVER",
+      "position": [
+        54,
+        15
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SILVER"
+    },
+    {
+      "asset": "Kestra",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_KESTRA",
+      "position": [
+        55,
+        11
+      ],
+      "movement": "WALK_LEFT_AND_RIGHT",
+      "range": [
+        1,
+        0
+      ],
+      "text": "KESTRA"
+    },
+    {
+      "asset": "Hoenn",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_HOENN",
+      "position": [
+        44,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "HOENN"
+    },
+    {
+      "asset": "Kanto",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_KANTO",
+      "position": [
+        47,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "KANTO"
+    },
+    {
+      "asset": "Johto",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_JOHTO",
+      "position": [
+        50,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "JOHTO"
+    },
+    {
+      "asset": "Sinnoh",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_SINNOH",
+      "position": [
+        53,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SINNOH"
+    },
+    {
+      "asset": "Unova",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_UNOVA",
+      "position": [
+        56,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "UNOVA"
+    }
+  ]
+}

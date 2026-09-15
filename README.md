@@ -1,103 +1,38 @@
-# the-omni-hack
+# Pokemon Apocrypha
 
-A custom Gen 4 (Nintendo DS) ROM hack targeting Pokémon Platinum and
-HeartGold/SoulSilver, with fully custom trainer sprites (battle + overworld)
-and custom map assets. This repo holds **source art, conversion scripts, and
-validation tooling — never ROMs** (blocked by `.gitignore` *and* a
-pre-commit hook).
+A five-region Pokemon story set roughly a decade later, built for **GBA with
+Gen 3 2D graphics on pokeemerald-expansion**. AI agents perform production;
+the owner directs story and creative identity and reviews the results.
 
-For the hack's story/design see [DESIGN.md](DESIGN.md) and
-[ENGINEERING.md](ENGINEERING.md). This README covers the **asset pipeline**.
+Remote Claude/Grok sessions: use branch **codex/gba-source-handoff** and the
+[GBA remote setup guide](docs/GBA_REMOTE_HANDOFF.md). The Mac folder name
+`the-omni-hack` and GitHub repository `pokemon-apocrypha` refer to the same project.
 
-## Layout
+## Find what you need
 
-```
-assets/src/            full-resolution source art (tracked)
-  trainers/front/      battle front sprites (and Platinum mugshot sources)
-  trainers/back/       battle backsprite sheets (~5 frames of 80x80)
-  trainers/overworld/  32x32-per-frame walk-cycle sheets
-  maps/tiles/          map tile art
-  maps/textures/       textures for 3D map models
-assets/out/            converted, game-ready output (gitignored; `make build`)
-scripts/               Python pipeline (Pillow) + bootstrap + git hooks
-tools/                 first-party tooling; third-party binaries in tools/vendor/ (gitignored)
-docs/gen4-reference.md NARC paths, format budgets, tool chain
-```
+- Agents: [shared rules](AGENTS.md), then [task-specific context index](docs/CONTEXT_INDEX.md).
+- Approved scope: [foundation decisions](docs/FOUNDATION_DECISIONS.md).
+- Build commands, measurements, and actual status: [GBA baseline qualification](docs/GBA_BASELINE.md).
+- Production and testing: [agent workflow](docs/AGENT_WORKFLOW.md).
+- Story: relevant sections of [DESIGN.md](DESIGN.md); do not load the whole document by default.
+- Historical DS implementation and fallback: [archive index](archive/gen4/README.md).
+  Read only when a task explicitly needs historical evidence.
 
-## Setup
+Resume work using the [agent handoff](docs/AGENT_HANDOFF.md): completed decisions,
+verified builds, pending implementation and exact next steps.
 
-```sh
-make setup        # runs scripts/bootstrap.sh
-```
+## Implementation status
 
-Bootstrap creates `.venv` with Pillow, installs the ROM-blocking pre-commit
-hook, and **reports** (never silently installs): Java for Pokémon DS Map
-Studio, melonDS/mGBA via Homebrew, and whether a Windows compatibility
-layer (wine/Whisky/CrossOver/Parallels) is present for DSPRE/SDSME. It
-downloads nothing that requires accepting a license — GUI tools you install
-yourself (see [tools/vendor/README.md](tools/vendor/README.md)).
+The pinned expansion is installed at `game/`. Upstream and roster benchmark builds,
+emulator boot, and baseline save tests pass. Use `python3 tools/gba/build.py` after
+the documented setup. The [mechanics audit](docs/GBA_MECHANICS_AUDIT.md) records eighteen applied scope
+corrections and the remaining rules choices. The owner deferred save/autosave
+architecture; the [isolated storage prototype](docs/GBA_STORAGE_PROTOTYPE.md) records
+results and open questions, not universal GBA limitations. Production 30 boxes and
+the full five-region game are not yet implemented. The four `disasm/`
+submodules remain source references, separate from the active expansion.
+Existing scripts and root `make build` still implement the deprecated DS asset
+pipeline. Do not run those commands as GBA setup. Follow the baseline document.
 
-## Workflow
-
-1. **Author** full-resolution art and drop it under `assets/src/...` as PNG.
-   Backsprite and overworld **sheets are authored at final pixel size**
-   (the pipeline won't guess frame layouts): backs as strips of 80x80
-   frames, overworld as grids of 32x32 frames
-   (`scripts/sheet.py slice|assemble` helps build them).
-2. **Convert**: `make build` — mirrors `assets/src/` into `assets/out/`:
-   - fronts → 80x80 nearest-neighbor, 16-color indexed, index 0 transparent
-   - backs / overworld / tiles → 16-color indexed, dimensions kept
-   - textures → padded to power-of-two, 16-color indexed
-3. **Platinum front + VS mugshot** (manual, per trainer): both must share
-   one palette because the mugshot pulls its palette from the front-sprite
-   NARC (`/poketool/trgra/trfgra`):
-   ```sh
-   .venv/bin/python scripts/shared_palette.py front.png mugshot.png -o assets/out/trainers/front/
-   ```
-4. **Check**: `make validate` — per-file report of mode/size/color budgets,
-   nonzero exit on any violation. `make clean` wipes `assets/out/`.
-5. **Insert**:
-   - **HGSS trainer battle sprites — scripted, native.** Check the target
-     class's frame count, then splice the validated strip straight into the
-     decomp's NARC and rebuild:
-     ```sh
-     .venv/bin/python scripts/extract_trainer.py disasm/pokeheartgold/files/a/0/5/8 -o ref --cls 12
-     .venv/bin/python scripts/insert_trainer.py  disasm/pokeheartgold/files/a/0/5/8 my_sprite.png --cls 12 --in-place
-     ```
-     Round-trip verified byte-identical against every vanilla class. All
-     vanilla sprites are pre-extracted for reference in
-     `artwork-library/heartgold-johto/trainers/battle-front|back/`.
-   - **Everything else (manual, GUI tools):** DSPRE (via wine —
-     `tools/launch_dspre.sh`) or Pokémon DS Map Studio
-     (models/`.nsbtx` — `tools/launch_pdsms.sh`), then the NARC goes back
-     under the build tree and the ROM is rebuilt. Paths and budgets:
-     [docs/gen4-reference.md](docs/gen4-reference.md).
-6. **Test** in melonDS, or drive it with this repo's `tools/play.py` /
-   `tools/cockpit.py` DeSmuME harness.
-
-### Which steps are manual
-
-| Step | Automated? |
-|---|---|
-| Resize/quantize/palette/validate PNGs | yes — `make build` / `make validate` |
-| Front+mugshot shared palette | **manual** — run `shared_palette.py` per trainer pair |
-| HGSS trainer battle sprite extraction/insertion | yes — `extract_trainer.py` / `insert_trainer.py` |
-| Authoring 3D models (.nsbmd, <~100 tris) | **manual** — PDSMS |
-| Other PNG → Nitro conversions + NARC insertion (OW sprites, tiles, textures) | **manual** — DSPRE / PDSMS / Tinke |
-| ROM rebuild + emulator test | scripted elsewhere (`_omni_native_build.sh`), launch is manual |
-
-## Scripts
-
-Each is a standalone CLI; run with `-h` for full usage.
-
-- `scripts/quantize.py` — downscale (nearest-neighbor) + quantize to an
-  indexed palette, index 0 reserved for transparency.
-- `scripts/shared_palette.py` — one 16-color palette across 2+ images,
-  re-indexes each (the Platinum front/mugshot case).
-- `scripts/validate.py` — enforce per-asset-class budgets; nonzero exit on
-  failure.
-- `scripts/sheet.py` — slice/assemble sprite sheets by frame grid.
-- `scripts/texture_prep.py` — pad/scale textures to power-of-two + quantize.
-- `scripts/extract_trainer.py` / `scripts/insert_trainer.py` — decode /
-  splice HGSS trainer battle sprites directly in the decomp NARCs
-  (shared codec in `scripts/nitro.py`).
+Track source, editable art, and reproducible tools. Do not commit ROMs, saves,
+credentials, environments, or third-party tool binaries.

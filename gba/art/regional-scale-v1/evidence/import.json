@@ -1,0 +1,859 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "assets": [
+    {
+      "name": "Gold",
+      "source": "gold.png",
+      "graphics_id": 1029,
+      "palette_tag": 4485,
+      "source_sha256": "08a37b0954b73dc84dca57922d53010e8535eb0ed64fd9f0d9ea1f091d6e8549",
+      "source_bounds": [
+        [
+          8,
+          10,
+          22,
+          31
+        ],
+        [
+          6,
+          9,
+          22,
+          31
+        ],
+        [
+          6,
+          10,
+          22,
+          31
+        ],
+        [
+          6,
+          9,
+          22,
+          30
+        ],
+        [
+          9,
+          10,
+          25,
+          31
+        ],
+        [
+          9,
+          9,
+          25,
+          30
+        ],
+        [
+          9,
+          9,
+          25,
+          31
+        ],
+        [
+          8,
+          10,
+          22,
+          29
+        ],
+        [
+          7,
+          10,
+          22,
+          31
+        ],
+        [
+          8,
+          12,
+          22,
+          31
+        ],
+        [
+          7,
+          11,
+          24,
+          32
+        ],
+        [
+          6,
+          11,
+          23,
+          32
+        ]
+      ],
+      "opaque_colors": 12,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Silver",
+      "source": "silver.png",
+      "graphics_id": 1030,
+      "palette_tag": 4486,
+      "source_sha256": "73858ff4054d3106c7d03f3c8a0ff75f722bd6995d6e435fd135943724cdd992",
+      "source_bounds": [
+        [
+          9,
+          10,
+          22,
+          31
+        ],
+        [
+          10,
+          10,
+          23,
+          31
+        ],
+        [
+          10,
+          11,
+          23,
+          31
+        ],
+        [
+          10,
+          10,
+          23,
+          31
+        ],
+        [
+          9,
+          11,
+          22,
+          31
+        ],
+        [
+          9,
+          10,
+          22,
+          31
+        ],
+        [
+          9,
+          10,
+          22,
+          31
+        ],
+        [
+          9,
+          9,
+          22,
+          32
+        ],
+        [
+          9,
+          9,
+          22,
+          32
+        ],
+        [
+          8,
+          10,
+          23,
+          31
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Kestra",
+      "source": "kestra.png",
+      "graphics_id": 1031,
+      "palette_tag": 4487,
+      "source_sha256": "07a630b15d21ec176b43665c550e0ec3d2ad220a5d6de89178d41ae16fa864a9",
+      "source_bounds": [
+        [
+          8,
+          10,
+          23,
+          31
+        ],
+        [
+          10,
+          9,
+          26,
+          31
+        ],
+        [
+          10,
+          10,
+          24,
+          31
+        ],
+        [
+          10,
+          9,
+          26,
+          31
+        ],
+        [
+          8,
+          10,
+          22,
+          31
+        ],
+        [
+          6,
+          9,
+          22,
+          31
+        ],
+        [
+          6,
+          9,
+          22,
+          31
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ],
+        [
+          8,
+          10,
+          23,
+          31
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ],
+        [
+          8,
+          9,
+          23,
+          32
+        ]
+      ],
+      "opaque_colors": 13,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Hoenn",
+      "source": "hoenn.png",
+      "graphics_id": 1032,
+      "palette_tag": 4488,
+      "source_sha256": "c07036a295e6927d0bc3a459548755ac2f12c8b352e47452c3867f62dee5076f",
+      "source_bounds": [
+        [
+          9,
+          11,
+          23,
+          31
+        ],
+        [
+          10,
+          11,
+          22,
+          31
+        ],
+        [
+          10,
+          12,
+          22,
+          32
+        ],
+        [
+          10,
+          12,
+          22,
+          32
+        ],
+        [
+          10,
+          11,
+          22,
+          31
+        ],
+        [
+          10,
+          12,
+          22,
+          32
+        ],
+        [
+          10,
+          12,
+          22,
+          32
+        ],
+        [
+          9,
+          12,
+          23,
+          32
+        ],
+        [
+          9,
+          12,
+          23,
+          32
+        ],
+        [
+          9,
+          11,
+          23,
+          31
+        ],
+        [
+          9,
+          12,
+          23,
+          32
+        ],
+        [
+          9,
+          12,
+          23,
+          32
+        ]
+      ],
+      "opaque_colors": 13,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Kanto",
+      "source": "kanto.png",
+      "graphics_id": 1033,
+      "palette_tag": 4489,
+      "source_sha256": "21658a20de63995dbdaa0db57b6a462423840d0eed2154259c06870273a5b46d",
+      "source_bounds": [
+        [
+          9,
+          12,
+          23,
+          31
+        ],
+        [
+          9,
+          12,
+          24,
+          31
+        ],
+        [
+          9,
+          13,
+          24,
+          31
+        ],
+        [
+          9,
+          13,
+          24,
+          31
+        ],
+        [
+          8,
+          12,
+          23,
+          31
+        ],
+        [
+          8,
+          13,
+          23,
+          31
+        ],
+        [
+          8,
+          13,
+          23,
+          31
+        ],
+        [
+          9,
+          13,
+          23,
+          32
+        ],
+        [
+          9,
+          13,
+          23,
+          32
+        ],
+        [
+          9,
+          12,
+          23,
+          31
+        ],
+        [
+          8,
+          13,
+          23,
+          32
+        ],
+        [
+          9,
+          13,
+          24,
+          32
+        ]
+      ],
+      "opaque_colors": 12,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Johto",
+      "source": "johto.png",
+      "graphics_id": 1034,
+      "palette_tag": 4490,
+      "source_sha256": "e6612bd7c4a1bcf28bbcd17c0937e0b672680fbde9509c247bea615f405f6281",
+      "source_bounds": [
+        [
+          6,
+          10,
+          23,
+          31
+        ],
+        [
+          10,
+          10,
+          25,
+          31
+        ],
+        [
+          10,
+          11,
+          25,
+          31
+        ],
+        [
+          10,
+          10,
+          25,
+          31
+        ],
+        [
+          7,
+          11,
+          22,
+          31
+        ],
+        [
+          7,
+          10,
+          22,
+          31
+        ],
+        [
+          7,
+          10,
+          22,
+          31
+        ],
+        [
+          6,
+          9,
+          23,
+          32
+        ],
+        [
+          6,
+          9,
+          23,
+          32
+        ],
+        [
+          8,
+          10,
+          25,
+          31
+        ],
+        [
+          8,
+          9,
+          25,
+          32
+        ],
+        [
+          8,
+          9,
+          25,
+          32
+        ]
+      ],
+      "opaque_colors": 14,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Sinnoh",
+      "source": "sinnoh.png",
+      "graphics_id": 1035,
+      "palette_tag": 4491,
+      "source_sha256": "81a26073a580a77dec9d36783ca3cbd0fd146cdf380b98f486b4c999808ea7bd",
+      "source_bounds": [
+        [
+          7,
+          11,
+          24,
+          31
+        ],
+        [
+          8,
+          10,
+          25,
+          31
+        ],
+        [
+          8,
+          11,
+          25,
+          31
+        ],
+        [
+          8,
+          10,
+          25,
+          30
+        ],
+        [
+          7,
+          11,
+          24,
+          31
+        ],
+        [
+          7,
+          10,
+          24,
+          31
+        ],
+        [
+          7,
+          10,
+          24,
+          30
+        ],
+        [
+          7,
+          10,
+          24,
+          32
+        ],
+        [
+          7,
+          10,
+          24,
+          32
+        ],
+        [
+          7,
+          11,
+          24,
+          31
+        ],
+        [
+          7,
+          10,
+          24,
+          32
+        ],
+        [
+          7,
+          10,
+          24,
+          32
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Unova",
+      "source": "unova.png",
+      "graphics_id": 1036,
+      "palette_tag": 4492,
+      "source_sha256": "b6c1459a7543698b622b8ef5f31a77e6f4a8d36ac7f76e58bb50f2e775cc8831",
+      "source_bounds": [
+        [
+          9,
+          9,
+          23,
+          31
+        ],
+        [
+          10,
+          9,
+          23,
+          31
+        ],
+        [
+          10,
+          8,
+          23,
+          31
+        ],
+        [
+          10,
+          8,
+          23,
+          31
+        ],
+        [
+          9,
+          9,
+          22,
+          31
+        ],
+        [
+          9,
+          8,
+          22,
+          31
+        ],
+        [
+          9,
+          8,
+          22,
+          31
+        ],
+        [
+          9,
+          8,
+          23,
+          32
+        ],
+        [
+          9,
+          8,
+          23,
+          32
+        ],
+        [
+          9,
+          9,
+          23,
+          31
+        ],
+        [
+          9,
+          8,
+          23,
+          32
+        ],
+        [
+          9,
+          8,
+          23,
+          32
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    }
+  ],
+  "directions": {
+    "SOUTH": [
+      9,
+      10,
+      11
+    ],
+    "NORTH": [
+      0,
+      7,
+      8
+    ],
+    "WEST": [
+      1,
+      2,
+      3
+    ],
+    "EAST": [
+      4,
+      5,
+      6
+    ]
+  },
+  "placements": [
+    {
+      "asset": "Gold",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_GOLD",
+      "position": [
+        47,
+        13
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "GOLD"
+    },
+    {
+      "asset": "Silver",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_SILVER",
+      "position": [
+        54,
+        15
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SILVER"
+    },
+    {
+      "asset": "Kestra",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_KESTRA",
+      "position": [
+        55,
+        11
+      ],
+      "movement": "WALK_LEFT_AND_RIGHT",
+      "range": [
+        1,
+        0
+      ],
+      "text": "KESTRA"
+    },
+    {
+      "asset": "Hoenn",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_HOENN",
+      "position": [
+        44,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "HOENN"
+    },
+    {
+      "asset": "Kanto",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_KANTO",
+      "position": [
+        47,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "KANTO"
+    },
+    {
+      "asset": "Johto",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_JOHTO",
+      "position": [
+        50,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "JOHTO"
+    },
+    {
+      "asset": "Sinnoh",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_SINNOH",
+      "position": [
+        53,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SINNOH"
+    },
+    {
+      "asset": "Unova",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_COMPARE_UNOVA",
+      "position": [
+        56,
+        10
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "UNOVA"
+    }
+  ],
+  "original_enum_and_dynamic_ids_unchanged": true,
+  "independent_east_frames": true,
+  "source_frame_size": [
+    32,
+    32
+  ]
+}

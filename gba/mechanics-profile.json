@@ -1,0 +1,181 @@
+{
+  "status": "partial approved-scope alignment; category split, experience package, base stats, abilities, learnsets, move data and experience yields applied; move flags, TM/HM list, Hidden Ability access and breeding rules pending",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "settings": [
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_AFFECTION_MECHANICS",
+      "before": "TRUE",
+      "value": "FALSE",
+      "reason": "No unapproved friendship-based battle or experience bonuses."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_RUN_TRAINER_BATTLE",
+      "before": "TRUE",
+      "value": "FALSE",
+      "reason": "Preserve classic trainer battle flow."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_CATCH_SWAP_INTO_PARTY",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "Full-party catches go to the PC without a party replacement prompt."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_OBEDIENCE_MECHANICS",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "Preserve classic outsider-based obedience; twenty-badge thresholds remain future work."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_TRAINERS_KNOCK_OFF_ITEMS",
+      "before": "TRUE",
+      "value": "FALSE",
+      "reason": "Preserve vanilla restriction on trainer item theft."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_EXTRAPOLATED_MOVE_FLAGS",
+      "before": "TRUE",
+      "value": "FALSE",
+      "reason": "Do not invent unofficial move properties."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_UPDATED_TYPE_MATCHUPS",
+      "before": "GEN_LATEST",
+      "value": "GEN_6",
+      "reason": "Explicit standard Fairy-era type chart."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_UPDATED_MOVE_TYPES",
+      "before": "GEN_LATEST",
+      "value": "GEN_6",
+      "reason": "Retain canonical Fairy move retyping."
+    },
+    {
+      "file": "include/config/pokemon.h",
+      "setting": "P_UPDATED_TYPES",
+      "before": "GEN_LATEST",
+      "value": "GEN_6",
+      "reason": "Retain canonical Fairy species retyping."
+    },
+    {
+      "file": "include/config/pokemon.h",
+      "setting": "P_UPDATED_STATS",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M03a approved 2026-09-11: Black 2/White 2 base stats for the Gen 1-5 roster. Sylveon needs no selector; Mega Alakazam is pinned to its canonical 105 Sp. Def in src/data/pokemon/species_info/gen_1_families.h because it is the only retained Mega form the selector reached."
+    },
+    {
+      "file": "include/config/pokemon.h",
+      "setting": "P_UPDATED_ABILITIES",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M03b approved 2026-09-11: Black 2/White 2 ability sets for the Gen 1-5 roster, with eighteen owner-chosen exceptions pinned in src/data/pokemon/species_info/. Kept from present-day: the four weather setters and their families, Koffing/Weezing Neutralizing Gas, Gallade Sharpness. Overridden away from the Gen 5 restoration: Gengar Cursed Body, Litwick line Infiltrator."
+    },
+    {
+      "file": "include/config/pokemon.h",
+      "setting": "P_UPDATED_EXP_YIELDS",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M03d approved 2026-09-12: Black 2/White 2 experience yields, completing the Gen 5 experience package begun in M02. About 190 roster species drop to 90% of the present-day value. No exception pin was needed: Sylveon is a literal and every Mega selector falls back to a real Gen 6 or Gen 7 figure."
+    },
+    {
+      "file": "include/config/pokemon.h",
+      "setting": "P_LVL_UP_LEARNSETS",
+      "before": "GEN_LATEST",
+      "value": "GEN_6",
+      "reason": "M03c approved 2026-09-11: ORAS level-up learnsets. Gen 5 learnsets would leave 22 of the 23 Fairy-typed roster species with no Fairy attacking move, and the TM list has none to teach. Mr. Mime is the one remaining gap and is given Dazzling Gleam at 44 in src/data/pokemon/level_up_learnsets/gen_6.h."
+    },
+    {
+      "file": "include/config/overworld.h",
+      "setting": "OW_PC_HEAL",
+      "before": "GEN_LATEST",
+      "value": "GEN_3",
+      "reason": "Depositing heals Pokemon as in classic games."
+    },
+    {
+      "file": "include/config/overworld.h",
+      "setting": "OW_PC_MOVE_ORDER",
+      "before": "GEN_LATEST",
+      "value": "GEN_3",
+      "reason": "Preserve Emerald PC menu order."
+    },
+    {
+      "file": "include/config/overworld.h",
+      "setting": "OW_PC_PRESS_B",
+      "before": "GEN_LATEST",
+      "value": "GEN_3",
+      "reason": "Preserve Emerald handling of a Pokemon held by the cursor."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_PHYSICAL_SPECIAL_SPLIT",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "Owner approved Gen 4\u20135 per-move categories on 2026-09-11; not a global Gen 5 preset."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_UPDATED_MOVE_DATA",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M03c approved 2026-09-11: Gen 5 move power, accuracy and PP across 133 moves. B_UPDATED_MOVE_FLAGS is deliberately left at GEN_LATEST and is a separate open choice."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_EXP_CATCH",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M02 approved 2026-09-11: No experience for catching Pokemon."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_SPLIT_EXP",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M02 approved 2026-09-11: Divide experience among participants."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_SCALED_EXP",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M02 approved 2026-09-11: Gen 5 recipient-level experience scaling."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_TRAINER_EXP_MULTIPLIER",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M02 approved 2026-09-11: Classic trainer-battle experience bonus."
+    },
+    {
+      "file": "include/config/battle.h",
+      "setting": "B_UNEVOLVED_EXP_MULTIPLIER",
+      "before": "GEN_LATEST",
+      "value": "GEN_5",
+      "reason": "M02 approved 2026-09-11: No bonus for delaying evolution."
+    },
+    {
+      "file": "include/config/item.h",
+      "setting": "I_EXP_SHARE_ITEM",
+      "before": "GEN_5",
+      "value": "GEN_5",
+      "reason": "M02 approved: retain classic held-item Exp. Share without whole-party sharing."
+    },
+    {
+      "file": "include/config/item.h",
+      "setting": "I_EXP_SHARE_FLAG",
+      "before": "0",
+      "value": "0",
+      "reason": "M02 approved: retain classic held-item Exp. Share without whole-party sharing."
+    }
+  ]
+}

@@ -1,0 +1,2778 @@
+diff --git a/data/event_scripts.s b/data/event_scripts.s
+index 7362601e..f2b669dc 100644
+--- a/data/event_scripts.s
++++ b/data/event_scripts.s
+@@ -1748,3 +1748,25 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
+ .include "data/maps/MapProofSinnoh/scripts.inc"
+ 
+ .include "data/maps/MapProofUnova/scripts.inc"
++
++.include "data/maps/CherrygroveCity/scripts.inc"
++
++.include "data/maps/CherrygrovePlayerHouse/scripts.inc"
++
++.include "data/maps/CherrygroveGoldHouse/scripts.inc"
++
++.include "data/maps/CherrygroveNeighborHouse/scripts.inc"
++
++.include "data/maps/CherrygroveTransplantHouse/scripts.inc"
++
++.include "data/maps/CherrygroveMart/scripts.inc"
++
++.include "data/maps/CherrygrovePokemonCenter/scripts.inc"
++
++.include "data/maps/CherrygrovePlayerBedroom/scripts.inc"
++
++.include "data/maps/CherrygroveCenterUpstairs/scripts.inc"
++
++.include "data/maps/CherrygroveRoute29Approach/scripts.inc"
++
++.include "data/maps/CherrygroveRoute30Approach/scripts.inc"
+diff --git a/data/layouts/CherrygroveCity/border.bin b/data/layouts/CherrygroveCity/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..d44c2ead18c970cf13062b48b878420e7a031b28
+GIT binary patch
+literal 8
+LcmXT0EdWCR444A7
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/CherrygroveCity/map.bin b/data/layouts/CherrygroveCity/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..89b1821b04548498bf3af0580ba1891f54ec4fd3
+GIT binary patch
+literal 3520
+zcmcJR$#N4h5Qb~YT`nLwuv}uFGUk$`I7sHg;!zcFVY#qeSS|rxz^}r-?>iWt2Ht?Y
+zL2}2x{<Ni$1}3fwr5b6}YJF<`EsZ^{#=iWlepTtSWP8)nx2b(6eNxBO?`k7^mTfsL
+z1KTv#W>aoc49e|{^1U?q$2R41{X6ci+o({ZuiUoSn#RdJ?6uvj?z#JJ%h#LL){Kky
+zc^<^AT&!7`2kxQMx-c4VVOWe<8Ol-7KH9V9oH=hUY<qA7Eaf5|>>nfArrcw4Tu#Wz
+z8uy}HlFM?%+jJgS%0=u@0bFfU?z)_k({iT9y(-t_y4>(KotNqW6(+-;MT?VLZl5#m
+z4mD16--do+*5#($lG~n36$_K<Kt(6R7w)Aa6ZIhCU<Yx(X{ExXIuvHbu1?D<_u8Q)
+zJLcrv*rNKTI>h_Kd(f9NP^a<6T-7(%VUO(fWuMn8a5)3@zqqPzuETyg;LE{;%NeKx
+zmwSlg)&1r=EXjiOrcXcN>WrAeJ;WCE%5_+lLsCwkLB^d7RdLND_t3=6b&&0Bp^fvV
+zk>r%zLSMaah@BRAmbNp}dr|tYJMKx(zU#jC<wF-eo)36)6gB4I?kE?r$6R>l<zx4g
+zFQ2;@<N3(FkXz*<hefpeChyXI=`P6E>GREVc|Mvv12^cvI~VR->F*%=t2X3yGNh%s
+zUYo@mbYRq|skG)FmXO!Zh$kd?*WXl!`c0!x%;hauvWv4)|E|@kg;8$(rq#KKjJF_A
+z@y4}MBKyj%-?TaxJ>G&kmunTKX|Ku+83|{x^d~LWcV(u+qFwXff2^7AHT^zNPtrmi
+zb3uXEz{Xii_nLkm!U^N)A-kE26|{uC(vp84U`IBXk@!3)L*os7oIdV>UzNh7I?xx{
+zU`BSzP1g!KjQ#(a(&q`8=MAMUYu?%!akR9s(x#U0LlpelqAhLEVO*)t-&@Y+_#5{&
+z`o-o5er?Hx56{`W-1_Q2TwFM&+#^+6VN`8iI<DOImfUgm$USyXT)TgphjNtr)ID?0
+YcY&)M<+jB!@A&`XGUxL~v)lfE0ECT--~a#s
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/CherrygroveRoute29Approach/border.bin b/data/layouts/CherrygroveRoute29Approach/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/CherrygroveRoute29Approach/map.bin b/data/layouts/CherrygroveRoute29Approach/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..c35563dc7defcb90ca01b50116d59e9e2423b477
+GIT binary patch
+literal 1280
+mcmd<H;TwgcAwYHrC>mmiuvCRzR?(1J@-TBo>Cq4%Cj<bD-nxMR
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/CherrygroveRoute30Approach/border.bin b/data/layouts/CherrygroveRoute30Approach/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/CherrygroveRoute30Approach/map.bin b/data/layouts/CherrygroveRoute30Approach/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..e27152749f049d54d95ab00b08c0f6fa01010cb4
+GIT binary patch
+literal 1056
+fcmd<H;Twem6atEd5J>G97&R9XqNCwJc{l(7Yvh@s
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/layouts.json b/data/layouts/layouts.json
+index 9ea559a1..ee4b0553 100644
+--- a/data/layouts/layouts.json
++++ b/data/layouts/layouts.json
+@@ -9385,6 +9385,42 @@
+       "blockdata_filepath": "data/layouts/MapProofUnova/map.bin",
+       "layout_version": "emerald",
+       "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_CHERRYGROVE_CITY",
++      "name": "CherrygroveCity_Layout",
++      "width": 44,
++      "height": 40,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_Cherrygrove",
++      "border_filepath": "data/layouts/CherrygroveCity/border.bin",
++      "blockdata_filepath": "data/layouts/CherrygroveCity/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
++      "name": "CherrygroveRoute29Approach_Layout",
++      "width": 16,
++      "height": 40,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_Cherrygrove",
++      "border_filepath": "data/layouts/CherrygroveRoute29Approach/border.bin",
++      "blockdata_filepath": "data/layouts/CherrygroveRoute29Approach/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
++      "name": "CherrygroveRoute30Approach_Layout",
++      "width": 44,
++      "height": 12,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_Cherrygrove",
++      "border_filepath": "data/layouts/CherrygroveRoute30Approach/border.bin",
++      "blockdata_filepath": "data/layouts/CherrygroveRoute30Approach/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
+     }
+   ]
+ }
+diff --git a/data/maps/CherrygroveCenterUpstairs/map.json b/data/maps/CherrygroveCenterUpstairs/map.json
+new file mode 100644
+index 00000000..65df8767
+--- /dev/null
++++ b/data/maps/CherrygroveCenterUpstairs/map.json
+@@ -0,0 +1,30 @@
++{
++  "id": "MAP_CHERRYGROVE_CENTER_UPSTAIRS",
++  "name": "CherrygroveCenterUpstairs",
++  "layout": "LAYOUT_POKEMON_CENTER_2F",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 1,
++      "y": 6,
++      "elevation": 4,
++      "dest_map": "MAP_CHERRYGROVE_POKEMON_CENTER",
++      "dest_warp_id": "2"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveCenterUpstairs/scripts.inc b/data/maps/CherrygroveCenterUpstairs/scripts.inc
+new file mode 100644
+index 00000000..f003eda5
+--- /dev/null
++++ b/data/maps/CherrygroveCenterUpstairs/scripts.inc
+@@ -0,0 +1,2 @@
++CherrygroveCenterUpstairs_MapScripts::
++    .byte 0
+diff --git a/data/maps/CherrygroveCity/map.json b/data/maps/CherrygroveCity/map.json
+new file mode 100644
+index 00000000..ca95731c
+--- /dev/null
++++ b/data/maps/CherrygroveCity/map.json
+@@ -0,0 +1,146 @@
++{
++  "id": "MAP_CHERRYGROVE_CITY",
++  "name": "CherrygroveCity",
++  "layout": "LAYOUT_CHERRYGROVE_CITY",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_CITY",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
++      "offset": 0,
++      "direction": "right"
++    },
++    {
++      "map": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
++      "offset": 0,
++      "direction": "up"
++    }
++  ],
++  "object_events": [
++    {
++      "local_id": "LOCALID_WATERFRONT",
++      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
++      "x": 19,
++      "y": 31,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_Waterfront",
++      "flag": "0"
++    },
++    {
++      "local_id": "LOCALID_COMMUTER",
++      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
++      "x": 29,
++      "y": 18,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_Commuter",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 9,
++      "y": 15,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_PLAYER_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 25,
++      "y": 20,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_GOLD_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 36,
++      "y": 27,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_NEIGHBOR_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 6,
++      "y": 25,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_TRANSPLANT_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 23,
++      "y": 7,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_MART",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 33,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_POKEMON_CENTER",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": [
++    {
++      "type": "sign",
++      "x": 12,
++      "y": 17,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygroveCity_TownSign"
++    },
++    {
++      "type": "sign",
++      "x": 18,
++      "y": 2,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygroveCity_NorthSign"
++    },
++    {
++      "type": "sign",
++      "x": 40,
++      "y": 17,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygroveCity_EastSign"
++    },
++    {
++      "type": "sign",
++      "x": 28,
++      "y": 21,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygroveCity_GoldSign"
++    },
++    {
++      "type": "sign",
++      "x": 20,
++      "y": 30,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygroveCity_WaterfrontSign"
++    }
++  ]
++}
+diff --git a/data/maps/CherrygroveCity/scripts.inc b/data/maps/CherrygroveCity/scripts.inc
+new file mode 100644
+index 00000000..fda633b7
+--- /dev/null
++++ b/data/maps/CherrygroveCity/scripts.inc
+@@ -0,0 +1,51 @@
++CherrygroveCity_MapScripts::
++    .byte 0
++
++CherrygroveCity_Waterfront::
++    msgbox CherrygroveCity_Waterfront_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_Waterfront_Text:
++    .string "These boats do not go far anymore.\nNow they mostly just... sit.$"
++
++CherrygroveCity_Commuter::
++    msgbox CherrygroveCity_Commuter_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_Commuter_Text:
++    .string "Half the kids here ride to New Bark\nfor the labs now. Not Gold.\pHe came to Cherrygrove to get\naway from all that humming.$"
++
++CherrygroveCity_TownSign::
++    msgbox CherrygroveCity_TownSign_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_TownSign_Text:
++    .string "CHERRYGROVE CITY\nWhere the cherry trees and the sea\plook after their own.$"
++
++CherrygroveCity_NorthSign::
++    msgbox CherrygroveCity_NorthSign_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_NorthSign_Text:
++    .string "ROUTE 30\nNorth toward VIOLET CITY$"
++
++CherrygroveCity_EastSign::
++    msgbox CherrygroveCity_EastSign_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_EastSign_Text:
++    .string "ROUTE 29\nEast toward NEW BARK TOWN$"
++
++CherrygroveCity_GoldSign::
++    msgbox CherrygroveCity_GoldSign_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_GoldSign_Text:
++    .string "A quiet house and a worn battle yard.\nA man who has done enough.$"
++
++CherrygroveCity_WaterfrontSign::
++    msgbox CherrygroveCity_WaterfrontSign_Text, MSGBOX_NPC
++    end
++
++CherrygroveCity_WaterfrontSign_Text:
++    .string "CHERRYGROVE WATERFRONT$"
+diff --git a/data/maps/CherrygroveGoldHouse/map.json b/data/maps/CherrygroveGoldHouse/map.json
+new file mode 100644
+index 00000000..30ae6a47
+--- /dev/null
++++ b/data/maps/CherrygroveGoldHouse/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_CHERRYGROVE_GOLD_HOUSE",
++  "name": "CherrygroveGoldHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "1"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "1"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveGoldHouse/scripts.inc b/data/maps/CherrygroveGoldHouse/scripts.inc
+new file mode 100644
+index 00000000..d873ba23
+--- /dev/null
++++ b/data/maps/CherrygroveGoldHouse/scripts.inc
+@@ -0,0 +1,2 @@
++CherrygroveGoldHouse_MapScripts::
++    .byte 0
+diff --git a/data/maps/CherrygroveMart/map.json b/data/maps/CherrygroveMart/map.json
+new file mode 100644
+index 00000000..9072566e
+--- /dev/null
++++ b/data/maps/CherrygroveMart/map.json
+@@ -0,0 +1,52 @@
++{
++  "id": "MAP_CHERRYGROVE_MART",
++  "name": "CherrygroveMart",
++  "layout": "LAYOUT_MART",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_CLERK",
++      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
++      "x": 1,
++      "y": 3,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveMart_Clerk",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 7,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "4"
++    },
++    {
++      "x": 4,
++      "y": 7,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "4"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveMart/scripts.inc b/data/maps/CherrygroveMart/scripts.inc
+new file mode 100644
+index 00000000..ef8be5e8
+--- /dev/null
++++ b/data/maps/CherrygroveMart/scripts.inc
+@@ -0,0 +1,19 @@
++CherrygroveMart_MapScripts::
++    .byte 0
++
++CherrygroveMart_Clerk::
++    lock
++    faceplayer
++    message gText_HowMayIServeYou
++    waitmessage
++    pokemart CherrygroveMart_Stock
++    msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
++    release
++    end
++
++    .align 2
++CherrygroveMart_Stock:
++    .2byte ITEM_POTION
++    .2byte ITEM_ANTIDOTE
++    .2byte ITEM_PARALYZE_HEAL
++    pokemartlistend
+diff --git a/data/maps/CherrygroveNeighborHouse/map.json b/data/maps/CherrygroveNeighborHouse/map.json
+new file mode 100644
+index 00000000..875d9fcd
+--- /dev/null
++++ b/data/maps/CherrygroveNeighborHouse/map.json
+@@ -0,0 +1,52 @@
++{
++  "id": "MAP_CHERRYGROVE_NEIGHBOR_HOUSE",
++  "name": "CherrygroveNeighborHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_NEIGHBOR",
++      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
++      "x": 5,
++      "y": 4,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveNeighborHouse_Neighbor",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "2"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "2"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveNeighborHouse/scripts.inc b/data/maps/CherrygroveNeighborHouse/scripts.inc
+new file mode 100644
+index 00000000..2d286154
+--- /dev/null
++++ b/data/maps/CherrygroveNeighborHouse/scripts.inc
+@@ -0,0 +1,9 @@
++CherrygroveNeighborHouse_MapScripts::
++    .byte 0
++
++CherrygroveNeighborHouse_Neighbor::
++    msgbox CherrygroveNeighborHouse_Neighbor_Text, MSGBOX_NPC
++    end
++
++CherrygroveNeighborHouse_Neighbor_Text:
++    .string "Gold has made a home here.\nWe look after our neighbors.$"
+diff --git a/data/maps/CherrygrovePlayerBedroom/map.json b/data/maps/CherrygrovePlayerBedroom/map.json
+new file mode 100644
+index 00000000..2aa4d18d
+--- /dev/null
++++ b/data/maps/CherrygrovePlayerBedroom/map.json
+@@ -0,0 +1,30 @@
++{
++  "id": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
++  "name": "CherrygrovePlayerBedroom",
++  "layout": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 7,
++      "y": 1,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_PLAYER_HOUSE",
++      "dest_warp_id": "2"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygrovePlayerBedroom/scripts.inc b/data/maps/CherrygrovePlayerBedroom/scripts.inc
+new file mode 100644
+index 00000000..fd898c70
+--- /dev/null
++++ b/data/maps/CherrygrovePlayerBedroom/scripts.inc
+@@ -0,0 +1,2 @@
++CherrygrovePlayerBedroom_MapScripts::
++    .byte 0
+diff --git a/data/maps/CherrygrovePlayerHouse/map.json b/data/maps/CherrygrovePlayerHouse/map.json
+new file mode 100644
+index 00000000..81cb0a29
+--- /dev/null
++++ b/data/maps/CherrygrovePlayerHouse/map.json
+@@ -0,0 +1,87 @@
++{
++  "id": "MAP_CHERRYGROVE_PLAYER_HOUSE",
++  "name": "CherrygrovePlayerHouse",
++  "layout": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_MOTHER",
++      "graphics_id": "OBJ_EVENT_GFX_MOM",
++      "x": 5,
++      "y": 4,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygrovePlayerHouse_Mother",
++      "flag": "0"
++    },
++    {
++      "local_id": "LOCALID_BOXONE",
++      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
++      "x": 4,
++      "y": 6,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygrovePlayerHouse_BoxOne",
++      "flag": "0"
++    },
++    {
++      "local_id": "LOCALID_BOXTWO",
++      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
++      "x": 5,
++      "y": 6,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygrovePlayerHouse_BoxTwo",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 9,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 8,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 8,
++      "y": 2,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygrovePlayerHouse/scripts.inc b/data/maps/CherrygrovePlayerHouse/scripts.inc
+new file mode 100644
+index 00000000..86c1cd0e
+--- /dev/null
++++ b/data/maps/CherrygrovePlayerHouse/scripts.inc
+@@ -0,0 +1,23 @@
++CherrygrovePlayerHouse_MapScripts::
++    .byte 0
++
++CherrygrovePlayerHouse_Mother::
++    msgbox CherrygrovePlayerHouse_Mother_Text, MSGBOX_NPC
++    end
++
++CherrygrovePlayerHouse_Mother_Text:
++    .string "Our new home!\nTake a look around, honey.$"
++
++CherrygrovePlayerHouse_BoxOne::
++    msgbox CherrygrovePlayerHouse_BoxOne_Text, MSGBOX_NPC
++    end
++
++CherrygrovePlayerHouse_BoxOne_Text:
++    .string "A box from the move.$"
++
++CherrygrovePlayerHouse_BoxTwo::
++    msgbox CherrygrovePlayerHouse_BoxTwo_Text, MSGBOX_NPC
++    end
++
++CherrygrovePlayerHouse_BoxTwo_Text:
++    .string "Still waiting to be unpacked.$"
+diff --git a/data/maps/CherrygrovePokemonCenter/map.json b/data/maps/CherrygrovePokemonCenter/map.json
+new file mode 100644
+index 00000000..3f7a7f8e
+--- /dev/null
++++ b/data/maps/CherrygrovePokemonCenter/map.json
+@@ -0,0 +1,59 @@
++{
++  "id": "MAP_CHERRYGROVE_POKEMON_CENTER",
++  "name": "CherrygrovePokemonCenter",
++  "layout": "LAYOUT_POKEMON_CENTER_1F",
++  "music": "MUS_POKE_CENTER",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_NURSE",
++      "graphics_id": "OBJ_EVENT_GFX_NURSE",
++      "x": 7,
++      "y": 2,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygrovePokemonCenter_Nurse",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 7,
++      "y": 8,
++      "elevation": 3,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "5"
++    },
++    {
++      "x": 6,
++      "y": 8,
++      "elevation": 3,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "5"
++    },
++    {
++      "x": 1,
++      "y": 6,
++      "elevation": 4,
++      "dest_map": "MAP_CHERRYGROVE_CENTER_UPSTAIRS",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygrovePokemonCenter/scripts.inc b/data/maps/CherrygrovePokemonCenter/scripts.inc
+new file mode 100644
+index 00000000..679e546c
+--- /dev/null
++++ b/data/maps/CherrygrovePokemonCenter/scripts.inc
+@@ -0,0 +1,10 @@
++CherrygrovePokemonCenter_MapScripts::
++    .byte 0
++
++CherrygrovePokemonCenter_Nurse::
++    setvar VAR_0x800B, LOCALID_NURSE
++    call Common_EventScript_PkmnCenterNurse
++    waitmessage
++    waitbuttonpress
++    release
++    end
+diff --git a/data/maps/CherrygroveRoute29Approach/map.json b/data/maps/CherrygroveRoute29Approach/map.json
+new file mode 100644
+index 00000000..03f8f536
+--- /dev/null
++++ b/data/maps/CherrygroveRoute29Approach/map.json
+@@ -0,0 +1,28 @@
++{
++  "id": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
++  "name": "CherrygroveRoute29Approach",
++  "layout": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_CITY",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_CHERRYGROVE_CITY",
++      "offset": 0,
++      "direction": "left"
++    }
++  ],
++  "object_events": [],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveRoute29Approach/scripts.inc b/data/maps/CherrygroveRoute29Approach/scripts.inc
+new file mode 100644
+index 00000000..4df6e8ce
+--- /dev/null
++++ b/data/maps/CherrygroveRoute29Approach/scripts.inc
+@@ -0,0 +1,2 @@
++CherrygroveRoute29Approach_MapScripts::
++    .byte 0
+diff --git a/data/maps/CherrygroveRoute30Approach/map.json b/data/maps/CherrygroveRoute30Approach/map.json
+new file mode 100644
+index 00000000..7ce712f5
+--- /dev/null
++++ b/data/maps/CherrygroveRoute30Approach/map.json
+@@ -0,0 +1,28 @@
++{
++  "id": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
++  "name": "CherrygroveRoute30Approach",
++  "layout": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_CITY",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_CHERRYGROVE_CITY",
++      "offset": 0,
++      "direction": "down"
++    }
++  ],
++  "object_events": [],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveRoute30Approach/scripts.inc b/data/maps/CherrygroveRoute30Approach/scripts.inc
+new file mode 100644
+index 00000000..1e386751
+--- /dev/null
++++ b/data/maps/CherrygroveRoute30Approach/scripts.inc
+@@ -0,0 +1,2 @@
++CherrygroveRoute30Approach_MapScripts::
++    .byte 0
+diff --git a/data/maps/CherrygroveTransplantHouse/map.json b/data/maps/CherrygroveTransplantHouse/map.json
+new file mode 100644
+index 00000000..e65b54d1
+--- /dev/null
++++ b/data/maps/CherrygroveTransplantHouse/map.json
+@@ -0,0 +1,52 @@
++{
++  "id": "MAP_CHERRYGROVE_TRANSPLANT_HOUSE",
++  "name": "CherrygroveTransplantHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_RESIDENT",
++      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
++      "x": 5,
++      "y": 4,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveTransplantHouse_Resident",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "3"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_CHERRYGROVE_CITY",
++      "dest_warp_id": "3"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/CherrygroveTransplantHouse/scripts.inc b/data/maps/CherrygroveTransplantHouse/scripts.inc
+new file mode 100644
+index 00000000..ec91748a
+--- /dev/null
++++ b/data/maps/CherrygroveTransplantHouse/scripts.inc
+@@ -0,0 +1,9 @@
++CherrygroveTransplantHouse_MapScripts::
++    .byte 0
++
++CherrygroveTransplantHouse_Resident::
++    msgbox CherrygroveTransplantHouse_Resident_Text, MSGBOX_NPC
++    end
++
++CherrygroveTransplantHouse_Resident_Text:
++    .string "We moved here for the quiet.\nJust like Gold did.$"
+diff --git a/data/maps/map_groups.json b/data/maps/map_groups.json
+index 2ef909b7..4c5cb23a 100644
+--- a/data/maps/map_groups.json
++++ b/data/maps/map_groups.json
+@@ -79,7 +79,8 @@
+     "gMapGroup_ProofJohto",
+     "gMapGroup_ProofKanto",
+     "gMapGroup_ProofSinnoh",
+-    "gMapGroup_ProofUnova"
++    "gMapGroup_ProofUnova",
++    "gMapGroup_Cherrygrove"
+   ],
+   "gMapGroup_TownsAndRoutes": [
+     "PetalburgCity",
+@@ -1180,5 +1181,18 @@
+   ],
+   "gMapGroup_ProofUnova": [
+     "MapProofUnova"
++  ],
++  "gMapGroup_Cherrygrove": [
++    "CherrygroveCity",
++    "CherrygrovePlayerHouse",
++    "CherrygroveGoldHouse",
++    "CherrygroveNeighborHouse",
++    "CherrygroveTransplantHouse",
++    "CherrygroveMart",
++    "CherrygrovePokemonCenter",
++    "CherrygrovePlayerBedroom",
++    "CherrygroveCenterUpstairs",
++    "CherrygroveRoute29Approach",
++    "CherrygroveRoute30Approach"
+   ]
+ }
+diff --git a/data/tilesets/primary/cherrygrove/anim/flower/0.png b/data/tilesets/primary/cherrygrove/anim/flower/0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..106b75af5a5d340640b7fb8958eff9c649707c5b
+GIT binary patch
+literal 239
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!73?$#)eFPFP2=EDUmCy{@^1r$HXp&{Op=A)m
+zy(z_6QBg~hq8u#^{~w)lFDvP+W6+YTM~jaxaoo}@u_Wt&Ors=FZ<VKuV+hAg+p`;a
+z+Y|)a9_EWBFfClTq3PHmgE=NgJbR2I5;YT>_Ama)T|Dn%#aY{(drmIg)0{4AzG?2f
+z?z!S(X2xf{uh?!1a4vB&+ETbOSi|hqmSqk0;_@}0)U}qMHQrR{_;THGJs)nro(v-a
+mQ_DqFT2psumeeo5&&qG*<G<+eS#F>!7(8A5T-G@yGywpZNnF+d
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/flower/1.png b/data/tilesets/primary/cherrygrove/anim/flower/1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..cf35dfd6c1bc7944ac6573cd2bdb76930e4c50e1
+GIT binary patch
+literal 238
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!73?$#)eFPFP2=EDUmCy{@^1r$HXp&{Op=A)m
+zy(z_6QBg~hq8u#^{~w)lFDvP+W6+YTM~jaxaoo}@u_Wt&Ors=FZ>6V;V+hAg-Lr;#
+zhYWaFFVs(4qJAJ!VwZrv?5aDwr5i0cAMyCaa#}LZ4u4|Bs9*Q%*R;U@&G)N#C!A5f
+z`Sjr-<BiJaZyY{yNYSd}M@?^rO6AVG<|g?(dt~?Iu!gppeiZ+DD0NY=y?<0u#KMg;
+lGGi{@$l82w<G;Ih><9mPFFLf&_YKey44$rjF6*2UngAhcVM71_
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/flower/2.png b/data/tilesets/primary/cherrygrove/anim/flower/2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d482e5475e15ba3bcfb11ba5ddb032934508dc0e
+GIT binary patch
+literal 241
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!73?$#)eFPFP2=EDUmCy{@^1r$HXp&{Op=A)m
+zy(z_6QBg~hq8u#^{~w)lFDvP+W6+YTM~jaxaoo}@u_Wt&Ors=FZ;hvmV+hAg-Lo5c
+zTMT$uFW7q@Vo5g_S^20<=~Tf57oVmXja;X?XFS-oWupGWb7$*+{hBoKe|!8MYmJ@D
+zEid0|ZI))ToZ~iW!$#gCkA0Xmeiq(+*0F8IwcJXD%R<^-LYjv}#eZ8|IQ`HlW|2AL
+pQMao}%y}1UR)?g#z5n$ytCxxAZJEW>Rs-F^;OXk;vd$@?2>_Z=W7_}#
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/land_water_edge/0.png b/data/tilesets/primary/cherrygrove/anim/land_water_edge/0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c1dcd5f5a2cb8effcc5474a8f0bb5eb6be878041
+GIT binary patch
+literal 333
+zcmV-T0kZyyP)<h;3K|Lk000e1NJLTq002+`000OC0{{R3oZ@8!0000mP)t-s00030
+z|Nqt1)xEvFq@<*SgNs45gQV5PK`}w@)y>|tq`j1joO5%7T3TX3Qgg+m7%15j0002k
+zNkl<Z7?l-|L5{>A3<S}NhoQ*V`6$tTAclM(IHx&HXij?@!5g-X1XkmcyB+dA>!WI2
+zwLa^}m^1yT;qjVx8*5Rkg}gAE7J_9>jC`*pQc&ADWYgZ@S_{H2+sy!6<>vdTY;5*i
+zY6S4PI;iOoPJ+EnpgV_e9S#ue1aRyPL!<$L835zO8l<hlK?dmr`k{17k&c0xIBsCV
+zYdfn?z`@iIxm3HoQ+&a#*PqC?3D2wRWe$FF(@K!r@;d~7e9I7`NTTKn&zKT(KEGq8
+fsO65{2$KE*h8Wih3)S6=00000NkvXXu0mjfol2FC
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/land_water_edge/1.png b/data/tilesets/primary/cherrygrove/anim/land_water_edge/1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..75aea1193a11a5ea8b56665a217fdb5b2dfb8d88
+GIT binary patch
+literal 341
+zcmV-b0jmCqP)<h;3K|Lk000e1NJLTq002+`000OC0{{R3oZ@8!0000mP)t-s00030
+z|Nqt1)xEvFq@<*SgNs45gQV5PK`}w@)y>|tq`j1joO5%7T3TX3Qgg+m7%15j0002s
+zNkl<Z7?mxMF>b>!3`IHk0$pRELy)Pygi&y8E-IrJFeP8WlBZ6Qz9w&hbcT{aH1LD?
+zPy7VQEiGh`R767Vt3x~IVNA%TUrVZ;=V6jWuA@cq3i{qq-O-u(8zFA0Tq3L=J?K~M
+zm;mhl(E12waNZ@EKK6o>c}k#7!4ex#jKee3H&{&9CF0K#K(*V5Pi6ReLrDP^t&0=`
+zR*6Y><U8o-r#T-t8*q=?3%stnwStp~b_z0Uw1MyUBYU!_i;EIe$JeGrR%{}X{+YE`
+nBUe4k#cj`OXYt2i2J!q4>$b6HjpHl-00000NkvXXu0mjfl*E`L
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/land_water_edge/2.png b/data/tilesets/primary/cherrygrove/anim/land_water_edge/2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..bafda3aa276e632cfc59a05784d957dc57b7f157
+GIT binary patch
+literal 342
+zcmV-c0jd6pP)<h;3K|Lk000e1NJLTq002+`000OC0{{R3oZ@8!0000mP)t-s00030
+z|Nqt1)xEvFq@<*SgNs45gQV5PK`}w@)y>|tq`j1joO5%7T3TX3Qgg+m7%15j0002t
+zNkl<Z7?n*>J8r`;4CUYx7@dMH4KyY39c)2UkdxZzQe-MEPu(PW2r|W@hag)ZouQ;U
+zq#XG0@ID|2{gCW}7$Txw@^??lw3Ys8mc-Z%VSNby3eaat9!EBgInmnB55rSie^$om
+zlc&N@1fTg%D$s@8VWx&|wg`KNN>ICa6>JEm%u1cM6pdCyPg{gHhXs#=Hzja|RgC7N
+z)+HE&Elmd;qu>sCwG}Uz@8;jUPk)U&zFLa#Wt_5l`MSLeB)IV?)g6i*pfs`(fHN&~
+o7M4}<Tej0v-qekAB?6fC7jY$$R5q3c6951J07*qoM6N<$f`JT?)Bpeg
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/land_water_edge/3.png b/data/tilesets/primary/cherrygrove/anim/land_water_edge/3.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8d9645f6b7399511e0dd0ef5739898876bd1bc2a
+GIT binary patch
+literal 360
+zcmV-u0hj)XP)<h;3K|Lk000e1NJLTq002+`000OC0{{R3oZ@8!0000mP)t-s00030
+z|Nqt1)xEvFq@<*SgNs45gQV5PK`}w@)y>|tq`j1joO5%7T3TX3Qgg+m7%15j0002<
+zNkl<Z7?mxMF>b{m42BtUfp%=F4o{g%=ozAjH9aU%FAzh9s9PXI^ri=9sNPn=8EQY3
+z!M`nkzp*ULTwDYQ3Bbj=7{vR~v;kuweV;?FdT1mBVd_*o*eyX{%bCq_*IJLtZ7Zox
+z9xF*}QGC^M^$HPpdr-VNZj5n<z~D_LB&YmFvDSjUFNpnt#Q(a?z_~+WU1qPYWSmgs
+zPZ}}4b%^@X;TfFbi3x0CU;!U!M@`^SA4@%T94Egzq~x-I4FpO6stDAYzGm?M^>PnL
+zz>9eWN7_C%6@tS?pb+F4sBS^UOlNsE>rdvh*pG%ALJxm%Dy7`mF%6yo0000<MNUMn
+GLSTY9tC{ft
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/0.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..46dcf9088d0ed0e8daa729ea422863dec25b619c
+GIT binary patch
+literal 259
+zcmV+e0sQ`nP)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0001v
+zNkl<Z7?o|1(G3G33`4yD>_5zHfT?Z(js;q7hK3|QsZ#j>%Mkks0J!cGdrk5+Cs0Wq
+z2Z4_XHli?{eX}i$5R4~3;*wachZwe8R10%a!tlTzj;0<__mh!Mv#e;htZZ*tYFR4n
+ze|WOW#>G>ZJa{LMMF)m|0@s3n%RZ<a-$x4Pp?D}BiihIS_!pt->BP)i_16FZ002ov
+JPDHLkV1iFjZDRlc
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/1.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4188eefbe39729fb34b4ee6cc4530429c5092255
+GIT binary patch
+literal 293
+zcmV+=0owkFP)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!00026
+zNkl<Z7?ov^F%H5o3`M`FFVF)pK<5m!td&ZeWA_GeCPtFGV8?D5uoU^rPW)dC05LAm
+zh|~0p5uh>DcRvAJD4c5rJqq)_GiYXwB%LN0TXC@-;&zHpK3b*KKp|PBo9z-VfwPIL
+zzoJv9MPV~dDZ9JOa<Am>GW@{EKaAHOSQng!X6M0LCCLXt_gd>X=n}?$&?V?vG_i+?
+r;-c|bMR*#8@+fjp9yOI?JW<MDDoDj~%}{I200000NkvXXu0mjfCEk6%
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/2.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f414a71ae4d2baca95ce74c0e5f8fc45586640ef
+GIT binary patch
+literal 303
+zcmV+~0nq-5P)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0002G
+zNkl<Z7?n+syAH!33`ITg1CX^DFf#*mtRl4uYri}&bv6G|n@1E&2}d`Gdk6qPN^gL+
+z$^fV%A_}Bntab=$H`@=j2leq(Y9&Z^%QC!$2H=3*&csa6uSTHI_e6ztKwL|QeJ1t-
+z-c0S2&*xbr;Zh=Q*K*#;T?<Kabrnc)YFuJryB#R<>M&G;`|<_tf?7MdGP<Wrx1Z36
+z-+4?2njk)v*D5}uqltaQ-LC8t*@vG3T$K;=$bScjpmY^%nxg;!002ovPDHLkV1ltg
+Bfe-)y
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/3.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/3.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0a8fc0514e7ef80618afb61be334afe0ac247303
+GIT binary patch
+literal 320
+zcmV-G0l)r<P)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0002X
+zNkl<Z7?n+s&2a-E425-Y15$GH<{;RceKDqh7^&-|gOxj=m`G?3VdlZdL!%!6093yL
+z))@=nqAI02=-68y#f{oZK?kYAhzQ#KPB-(AC*RE+nqDnoYzbq%g!4$}^5hft$Mu9k
+z38P_x7f5JKHW%RSINlMAo6R{vD|w#7K-y<G4x>iGH>hwXR4tf|^;f|k{PoPTzZl8K
+z>8&6$fQV1pYmB_;-zO~c-OiN|{h${>@_wR#YXVoa5VQ}xhd>B7*B2-gh5i6Q4Q}3$
+S?e=^C0000<MNUMnLSTZI299C?
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/4.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/4.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..202cf97d528a7a149dd05276bda5e2052bb7f24d
+GIT binary patch
+literal 281
+zcmV+!0p|XRP)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0001_
+zNkl<Z7?pL9F%HBq2m~qolDJJ3D09-u@cWP-_%T^9x$Z2jJ=)0YB}7DKU!pu?5jE^0
+zR)$&{=_DK*$CuHWJ)ocN3G55>T%e;sjs?xiX(F#<{T~PdXF7Ub*In1=oOmK~u6k=u
+zCpC+}JNs0Px0u-AsM=Ibx6a7HEIBEhcVu1g`w2<dz1D*0gDhu8pN)5i&}XoRaHa2|
+fECzj|>JfSX$}@Xe&aH-x00000NkvXXu0mjf;XHgx
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/5.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/5.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..3f984d0acfbdc95aacf95bb34d652bc0bb66a8b0
+GIT binary patch
+literal 261
+zcmV+g0s8)lP)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0001x
+zNkl<Z7?pjHK@J2V2n0F!Bj&g!o8a#UegJ>jZpSh4vLr1PG|(s_GR9YAW`;-`rk5!S
+zrVJGHQwV7`bK#~h(5Q5Gz|1H332lSL3qAiqF1YWQ;GUTriWm3loVka_F})tJsAYb6
+z#yXMQYcI%>Ufg|u!X%u&;sN?$->M)a0DiQWQ=;$#(P2-DAC=S(sSm0+Xv_rr00000
+LNkvXXu0mjfGsSOz
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/sand_water_edge/6.png b/data/tilesets/primary/cherrygrove/anim/sand_water_edge/6.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..9c60501deb380be93ef21adf53e2db64faa1a39c
+GIT binary patch
+literal 249
+zcmV<V00#ewP)<h;3K|Lk000e1NJLTq000mG001Zi0{{R31@vc<0000mP)t-s7%5W!
+z|Nq|R?!C?CoV4D9gNtHfdqGNSDKT1ez4l_P?(XKK-pzy6v}(<qQgg+m5hj*!0001l
+zNkl<Z7?pjHF%H8p3<EjjVI92o$$f$3t)ujpP>gH@Ef4~>4>Bx~27obMfX)(djLdHV
+z&k~Mzx_<=Wl<~%;XUGMiXMAqn5F6%S<p$AUHdiI0M_A8d^EGtdr^gQ{MFUHWvjZw}
+zR^<H&BJSS0AR6T7s?bmM&GMtZ<)@r-%>{k}gYM2Ge_Icg00000NkvXXu0mjfRY+=n
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/0.png b/data/tilesets/primary/cherrygrove/anim/water/0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..209b93b291c558d26684a3983bc203ac2c6c726e
+GIT binary patch
+literal 608
+zcmV-m0-ybfP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10005&
+zNkl<ZIE{Uiv2NQy42JnE8M@@HJlvwX&v7v-&!J%L7LhC&yd1p8sol}A1W{wqA--qm
+z&%09_pr}0@KG@`E-Y<$&r#MdWN(nSZii*$4AYL`TUNSTrZ4xjamGoDmJ?oK9eTV9v
+z>6XXW8h=ianx@tDhel#<bsNpYtV5SPjB5PXICO0ij@ofHpP21OTD|pbowRyt3&>Fu
+z45CI5qQhJ?_H3RtJk~v||9bdfo@c<OEx^_dusbQs>?vTb45*@2x|e~pYOV|$Es*jN
+zF8K_9@<IC`b@9lSIC%`%JVSwv7T}Uk$=S+ri%<E;oR3JlS3C?Lq!B-A5y5pLGEOi>
+zHPZBSKIJpa`Sdv-F^?R2w8JA$&m!9zfSe!wwd5RQip8H`r4V-RW#_64!8vk2LJ0Q;
+zt_tqUuD~J~d_~1wAe<-<cXW@_Iw3r}mpzt5tK^CFUM0^rI%m%^!y+tic`%F15DM5V
+zHWQsO3r5+~c~NC}hXbxXO>p2VO=Gy_q&N53-V5931h&r!(mo>_%bF}3>%^mM<gt-1
+z1B;Mg=lH=uI+j&aV9N!>GvP!zdwOWB95r}3{CM$o2KAnNn#Ta|mw&w!_^t)K&Eq}F
+uZJvvjqvqdz=6Rp<9`-!%A^&#|d;Sf_4zHRRz|&a(0000<MNUMnLSTZfD;(nh
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/1.png b/data/tilesets/primary/cherrygrove/anim/water/1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..cf07461b638271701de1e922aea491ca783af9e8
+GIT binary patch
+literal 651
+zcmV;60(AX}P)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10006O
+zNkl<ZIE{^y&x)Kt5Qpnoa-H|`B6ClkV0FP<Cnb1a3%tz1OOMx(*`{+`Y)yGy7W5hN
+zEB|Z=EF{p#N0<Fg_0JmeVVM<+bPRw6pyQ;|GSjRY<~~~p<xpx_63REOBGdA!K2{oO
+z%A2v{O6gyoX<4YOG<-#knDzFAEdxI^I#J|m>`*5y8})%JQmJ9M0|xkYT)`;NW5Y&w
+z8YHs002<9jovNCP6fgKt7XZfTXFyy%jlt&OYW4iUukW77e|ee__o^#%*}W=r*}bB<
+zsDJ}uF#6HJY9M<)Z?fkT<vkxfakt$ghesN!R*yWPAM+Tnd4?6tbL3;k<;bU$BOh$7
+z`9v`a_+F1j&onK4F6arMJz%?6|0f?g^0~j~GaGCkX~aA~5$_=1vMuK!TXqk=?MR<a
+zN$Rl3T~B}n;IFOwo}`pIcS_qNA(T&vGe~ZDy)$s9HgzqvNqRK{@_9+!S#iP5qcpnJ
+za|W!QGreq{^9P>f@K`Sn53*jIYXRuRd6&|NUa;4}14s>$4&XbQ5{IG-6m)d$S%3Z4
+zJlp?bv3a)t#bWae@Y9U%W!ZFg{2`Z`v4}4@KmdFxxs;k}=DaRN2<2SZK=`v@%iy7`
+zxg@-I`C`X?$O^@>egN6pPp^GetaDiOSw<*_Obzg@GHe<6zR;fV-q_jkbq+tC=jxc}
+lZ4M21pXYrJ<2Hw={{}%DudkJ|9tZ#c002ovPDHLkV1m5$HqQV6
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/2.png b/data/tilesets/primary/cherrygrove/anim/water/2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..28fc4de47151f4b2ff15c03979d10f0f53acb64e
+GIT binary patch
+literal 597
+zcmV-b0;>IqP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10005t
+zNkl<ZIE{^yJ#yke5JvkfPAOkXff7oweS{IPjv3I#7Grq>2P8x71(r!&U~34sWPauh
+z{<>RQXJ#jQHQn{-`P5KMIHzr-$aLNW3h@B)TiWuKnR&W|*e!4<weij3P&$Xb!ZbvI
+zYo2uW^fSc81CVSR_q9M3_KVd6U<uD+o~T=*orNFGCNR;&`E7`MhRSmhU@cq<>{5V>
+zjtp=?h*qfa6YOyS%bvFyARY$sD8RE*s6r3yiEd@tMKV<-@8YNHyZFk}56uAcv{7R@
+zHhn%HPeVQ;{KnHrJ^)usJ_;3k+^;?#yrO&R^XaNSpET+7NoB+Da+JD>dkzfAln&nv
+zkc?}BKr&zXxFMg_kk2lW(|iCp@F>jNcn~n>a3Eu?Nhf%Gj+1#$UT6gPv(EF^Y(zJD
+zmC<-4kW>D$L9GB}eyul|Hc`C1=J_}xAN53fSI;fIXv>)1)l+=u;Su~l@C=xRXCnMS
+zcH`FtLynmW`U?kKzbWY}A|)Q9;4%JVpYgxouEhU~g95TqIBAV6NA_qe;sw<AC6)M&
+z&fOW#kgx7&RZ5p5H<ucqE_-;?8byOMm3aU&nP&&mdH729kh@@Rr3RRV9;RBmzK7MY
+jhgdB;?6dA6!%}OXFnN;#Wrqc)00000NkvXXu0mjftW*{r
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/3.png b/data/tilesets/primary/cherrygrove/anim/water/3.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..3440c0970aaef117f12925b801e008be4a7c51b2
+GIT binary patch
+literal 610
+zcmV-o0-gPdP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10005)
+zNkl<ZIE{UiL5><R5Jl@gt+^BnHi$WgK@4lE)!8=|$zm34oSa~~w+J(sWyD0_Gvxnr
+zccM`gyn3>#pY31Oa>-czB}*c72|zlhgdNbTGdR}uxtBhrld3jyODO?Vav#4KJn}fu
+zjh;H4*133Mi#=)JskiGaN>9DXa_yr=3O~A}JVTan@HAQOy2L$M`g0G60Bz_ZC|&Xk
+zKo^A?p%$g5_5kzvR<tn>K+SU$z6l<K;vr~%`YO?HDO5=`!zK1|dzS|_ok66_-t{@3
+zk1?NEgln<=4yXV1=;+Z;9>24E0N;ju@QOeAT*rL!m=Ak}Jumr+clmUZoZX5&17x@3
+zyVxAp$Cn`=Kjh=LV?J#b&wM;O=$UhyE&#uS$H1@XajFjOzRP}!Rqdw|3<BT{@EQVk
+zus5j;Q1)6$6}|)J6Pbiy^@2}l2ABI`I(_2&6i=4-;`t%(#bZFv(<2Y>vM*rg18^7K
+zNe;M6nC<6sz+J*D%;hH>Rd{=rj6%4OPr1hZ;XLPYo^wK3=@;v7)_2wmvoWX{*`oHM
+z1g8Mf2K`bGYMlYfHVauO0VCR~Re8auTZ5y+>W>b86IPc1q~ZT^&i+%EP*(24`jxO(
+wtQUOxVo>Ig^Q`~O^MB?L^W2Q{tiwG22C9{#8f>OWy8r+H07*qoM6N<$f)<%1NB{r;
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/4.png b/data/tilesets/primary/cherrygrove/anim/water/4.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..994d08a12a0392906af82c2936a35a9240a89319
+GIT binary patch
+literal 534
+zcmV+x0_pvUP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10004@
+zNkl<ZIE{^yF>b>!3`KcbF9v!Jp+GX12E5w>+A)ig6J!r;7xdUIIz#^#Wg|n=HVB9p
+zS$w9y6|tQ29YxG`K(#f?%8Flvsp}m~6@XQMn%r&F86>}XLiH@2Eyp`xhGWRp(~U=y
+z9=f@E%SG5zSOBZ?YTRxFBhK>rzCkQt0B+$eqIwrg54D5Eqo{iZQTI%O^$J=&e5T^z
+zGokB4EY>m1bOUBEEAHh+hu-07K3d0cPaLXe8JLE93iLIf2T$DcLHk2K(dWs=+Zw@a
+zfl-h@*8sVI0kS{W3ObmEnor#F8TWj$(1xy6B63~^0+yzL_DG^<QVr!Tr>1FI6iI1=
+zE9&*s$f-&ArsU8TIOEzmVKcWkN!W1$iQR8ad%<Zj_hk8W&x_pLb8%<^KYREo(C)x_
+zI16Wz8#V*sX)Aoe0oO%x!$A{*+Q<0c|6*m<<$sa4^USP;9n4x3k&P%gT05X>7o}t6
+zt1K`&@S1WD8&%lRfy6=x2Nc|52UNTknL>Fv=5TP}HJ=BKChV93yHuZ@=ReP()^iB@
+Y2BUktpiraOm;e9(07*qoM6N<$g2VCjfB*mh
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/5.png b/data/tilesets/primary/cherrygrove/anim/water/5.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..227dbaed885b1b8eb7b0b63ffa0d93f9812c5f43
+GIT binary patch
+literal 538
+zcmV+#0_FXQP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10004{
+zNkl<ZIE{sqF>b>!3`KcbFGYF|BY-=X2E4}tyn0cx<_Ll1Kpu-WfPIGkPf2OeA<;lQ
+zi_{nOCCi2pmu;1$073@FSg(Tk-NhIQd(99OQ>X!e<f+btdO+L7w&8Lt&_jmM4n+rf
+ziF4m620=ptRc<0p<d%UDi7NX$3<g1Nj*SA?pSJx6K||{j#NZCnna)hGRR_^KbOw{~
+zOc;y&xSqRrGCNI>`vI5-0PJq%2IkLg`0o$T6ld26&xAIH($A1}0NQ08f);=Nbl}vZ
+zKd$)WocXgt17!{niB7gVtOhf#iAfwV`IBu4E*k|`Ho+kV-WkAFZQ=l*4FOa23R~*p
+zPle&f>P^N1{tP%1_~`)_z4w44az}#YJZb<Sba<)!X~FwRI;&ih&Q7jLXD64Wb9$!3
+zZ}vo}MuVhNL5HOy1wC;mU(kToyKHYZv!D$mPdL}h|6;TM!t6BIGB9WNwa{yE81T85
+zwg5r~Mg>^pRT5kV=9JF{<-JOc5vRJ5sQ^L-#t5*;HVAbF=Byu-H~Ag%^@alJ9X`J2
+cSMLz?3ub(`ZuAs8eE<Le07*qoM6N<$f@I3>=>Px#
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/6.png b/data/tilesets/primary/cherrygrove/anim/water/6.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..05e05510e8c5bf3c45ebed24595c1981b62fe55a
+GIT binary patch
+literal 554
+zcmV+_0@eMAP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10005C
+zNkl<ZIE{UiL5|xn3`KcbZ-VJL+yI&N(17<b0ngGKH9f|_c0ex&ofg&^`afj_MHk_M
+zc!}sQQu>mdoslKyynD`D1s5l@Ex_|HUptrV+Zn|RU>*7bt{U(}r)>}LuJa9`zThL@
+z0{Q}>v!Mn661QOi^#JW3-~p>f8H*Q6$fd&X0N0|^QAc&r&MpM#*cjje(S=<Po%Jex
+z1uZ)7@?|lX%DL>mRPfpl=hB!+&P8!S8!^`+U-f*L5wD_U_ql@CeyWZ=&S!plKAj!s
+zbGEU-cN?*Yxn|yyS<Gd=n(Pn@z%6a9d;8z{*ig>L?79<1w>QAb;a@Y0*EigpjDVH^
+zjXCqWn<g<DKyymXX_Dpx@X;hm@ehG{0yOD{@*k+d&r?bSt^x9XPw7Vgl&?1VEIL2s
+zUjDhsz3AMY>97|Dcb^JC2R$`a=SA)ln+E)W2DH9OPV8^WYy%sFji0}Z;%8*~IWljD
+zuovJOz)TqiutCkb3M%>l<_-`U*Ag%k;2Hq$kkJC#3trS*A>P*k%rhV|{X@7E;2IsJ
+sho6i6bg58%_^+R}`dO==4<9an0mM?gO7=%?7XSbN07*qoM6N<$g3lQOEdT%j
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/water/7.png b/data/tilesets/primary/cherrygrove/anim/water/7.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..fa295f8524a2f57d879153b7d3d9c6e4b051ada4
+GIT binary patch
+literal 612
+zcmV-q0-ODbP)<h;3K|Lk000e1NJLTq000mG004Ld0{{R333_j30000mP)t-s7%5W!
+z|Nq|R?*9P){{a900RNn%y;5q`L0Y{zQk*G4i>$@wi=^IagVj=M)pNz9vQ|J10005+
+zNkl<ZIE{sqF^=0X5Jl%KF1FcQsbFJl&Y>79*Gs|bEh0*hLJhI~df`neNP<UYDvM{x
+z|0LrCLEyMB9z4|Z%;!i})o|4%NB~_TgrLj!HN#uA$O4!TjS9+@+Ox{4b*HLl`Oww^
+ztlaaIC1H`du64Pt@JzPR08gWU<gxSwxyBlV7XV4-_r~Hwuv3CBmPL5nS$SUQpo?JX
+zl0)+Be|x4AJ&r&R;Xn_7GwI~I>`4HR`^vd2U9#&q7s25vxPHMTGa=?P<DXJKx4CjY
+zP4vurVd0|lQ8>zU>TWO!XPORO&d2^EpZ%Zt%xSLWy>l^^<>b%_;kwh=aV}&GN^^C2
+zt^im0S3X_N$GIcoJy|^c!kir%-RGRgutra%3Ca%*LAKtT!uLiD=v#!r`2JxFFcEs`
+z3B}fn@1M5bY&@RgalesAj~Wz6Y%s+u*Cu&_{79ZpG9=Gyf&y^I!(P~vuosfB7xpB>
+zgTYS*p2Dz5;l{)DBnk&yoNF+TY~z3L1^1cnMcU^Dr$W4U9*_5h8uz)yrX6kV#DQKS
+zIA`l!dxKhP!m+i2a%){_@f45anm*%7xV2It@Mj%MDJ%9vz-u+WRW}%ABs^E>XT+%z
+y{ouRG{h$U#-b1W$+CzfP`<!9Qd)VCBL;Dl_Rku&M9gcVa0000<MNUMnLSTXgXe~+r
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/waterfall/0.png b/data/tilesets/primary/cherrygrove/anim/waterfall/0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f69a4686b32c436bf9dc9cee744c953ec9ba3a56
+GIT binary patch
+literal 199
+zcmeAS@N?(olHy`uVBq!ia0vp^96)Tq!VDzuai~>*H~~H(t`eF-|NsBL_w3z&hW`*W
+zXUX26tgDVudo6?JXgYSUIr^-7$-S)Rt3bixqf0i0Iq(AY26?(ThH%VG-oeen!|{km
+zAVIZ^nXx5+iHW08z<I^)@9%UsRVF;rxsej`_~5Nw<?rtuzED`@&+g1F;Lss1Tl-$(
+p9wTGRj%ul+UPhg}mpifuFfd%7mUm)ywKvFg22WQ%mvv4FO#tBnODzBZ
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/waterfall/1.png b/data/tilesets/primary/cherrygrove/anim/waterfall/1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a3c68c8f4cbb6fb4ec9a9d9ffac64844c10c2d4
+GIT binary patch
+literal 214
+zcmeAS@N?(olHy`uVBq!ia0vp^96)Tq!VDzuai~>*H~~H(t`eF-|NsBL_w3z&hW`*W
+zXUX26tgDVudo6?JXgYSUIr^-7$-S)Rt3bixqf0i0Iq(AYCVIL!hH%VWdUiK&g98t9
+zz<H<Bi_{ejdDd<|*ve~>C6&kaNl+x<(Ie4`NsA*V<g5y)b!_@$G>MswTg?5hnEcVE
+z#b;#iPI~iqkNKRhj?DGK>a)~?0#;2~GwE6u-(SV3nm<e&j(MjSJ<I(Cw2Z;i)z4*}
+HQ$iB}Vw+Wk
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/waterfall/2.png b/data/tilesets/primary/cherrygrove/anim/waterfall/2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4d09e8de9bd5fa0d252f22ae7b6c2ccdec459a18
+GIT binary patch
+literal 195
+zcmeAS@N?(olHy`uVBq!ia0vp^96)Tq!VDzuai~>*H~~H(t`eF-|NsBL_w3z&hW`*W
+zXUX26tgDVudo6?JXgYSUIr^-7$-S)Rt3bixqf0i0Iq(AY`gyuIhH%VG-oeen!|{km
+zKtXVKV}nG}<Zo)KDtX`E-L00e@_YX>;ROQ|$HzsB-^(7hR%j6Tes8bqHgTUhth*Vm
+mN;*t_XQaW%*m^{+LzaOfsZhQ7)AmlF$qb&ZelF{r5}E+=6-r3}
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/anim/waterfall/3.png b/data/tilesets/primary/cherrygrove/anim/waterfall/3.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0c50e43fb0559773ae5e3fceef0cadf056f33377
+GIT binary patch
+literal 191
+zcmeAS@N?(olHy`uVBq!ia0vp^96)Tq!VDzuai~>*H~~H(t`eF-|NsBL_w3z&hW`*W
+zXUX26tgDVudo6?JXgYSUIr^-7$-S)Rt3bixqf0i0Iq(AYdU?7yhH%VG-oeen!|{km
+zV1e-N#s)`D4h5Y#ED?rBL_!uH*mQSy`TN8d7JHXBFJ$IWIMUs>ubk(71B26@>hEGV
+ibrYBpEswICuwm%_l`mJoQXBy^mBG{1&t;ucLK6U-rbuG|
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/metatile_attributes.bin b/data/tilesets/primary/cherrygrove/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..d9cd29016d792fb568494dbf2f820100081a14f8
+GIT binary patch
+literal 1024
+zcmbVLNlpVn3^c>F50yksUnjo+MS`zz;gH{e#3Hdsc@hz1-b0mp8zO}RwtCvtw#)8i
+z%!;5Ibsnn0`HXr#!`7p*HK98j?AhL1Oa#UTXhg*E#Xj0nYz$j4zo8nisz#aP5pEDi
+z`3TMy6yVIXDtoQ;3+H&VD_mleJMp+1Tz5>e?8hh-v;3-ooa6r6T&v}~n-MFh9}U_X
+zR9IlI08gq2-F5+KmX2j@*i9(@K(37Q9`zMA`z(6Ex9@U-^a}^?(!aDO;tAT3n5)e3
+zj*D}wn2saX?E5dw`^L`1(mIq~Bq5Pu-Kq;KW8o*q49{F*S+UOxq|U|_Wi|E_SgesJ
+zUEYsZG2KSVlt160v+12ub*B{vf4dpyE~ESCw}g9p;GUGD_=HD$DtqJ#*I(^Tm^;#o
+h*C>@eN42{S{D(T?yFMxW=l&sajN=}A_3hbu$v>c<JO}^)
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/metatiles.bin b/data/tilesets/primary/cherrygrove/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..af899bcc5efa4bdd3ab1f418b371a866441207c9
+GIT binary patch
+literal 8192
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/primary/cherrygrove/palettes/00.pal b/data/tilesets/primary/cherrygrove/palettes/00.pal
+new file mode 100644
+index 00000000..54b1ae42
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++185 180 118
++89 178 204
++77 163 198
++89 178 204
++77 156 186
++66 134 167
++60 114 149
++111 173 174
+diff --git a/data/tilesets/primary/cherrygrove/palettes/01.pal b/data/tilesets/primary/cherrygrove/palettes/01.pal
+new file mode 100644
+index 00000000..575ba16e
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++247 180 118
++231 143 104
++216 104 90
++200 66 76
++111 173 174
+diff --git a/data/tilesets/primary/cherrygrove/palettes/02.pal b/data/tilesets/primary/cherrygrove/palettes/02.pal
+new file mode 100644
+index 00000000..2d82af30
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++168 221 143
++125 173 112
++60 125 66
++60 78 20
++216 143 104
++110 91 85
++162 97 83
++72 60 47
++247 188 133
++216 104 90
++200 66 76
++162 202 175
++111 173 174
++67 159 143
++31 146 119
+diff --git a/data/tilesets/primary/cherrygrove/palettes/03.pal b/data/tilesets/primary/cherrygrove/palettes/03.pal
+new file mode 100644
+index 00000000..43f9806b
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++247 246 240
++208 207 201
++186 184 178
++163 161 155
++133 130 131
++67 159 143
++162 202 175
++72 53 62
++231 202 182
++216 172 147
++185 143 125
++154 112 104
++131 89 83
++100 66 76
++111 173 174
+diff --git a/data/tilesets/primary/cherrygrove/palettes/04.pal b/data/tilesets/primary/cherrygrove/palettes/04.pal
+new file mode 100644
+index 00000000..98230cd9
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++247 7 225
++247 7 225
++247 7 225
++118 156 161
++66 106 179
++54 92 161
++48 85 137
++37 70 124
++129 185 192
++106 156 186
++83 127 179
++66 106 179
++111 173 174
+diff --git a/data/tilesets/primary/cherrygrove/palettes/05.pal b/data/tilesets/primary/cherrygrove/palettes/05.pal
+new file mode 100644
+index 00000000..e885996b
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++231 218 147
++216 195 118
++208 172 97
++200 150 76
++111 173 174
+diff --git a/data/tilesets/primary/cherrygrove/palettes/06.pal b/data/tilesets/primary/cherrygrove/palettes/06.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/07.pal b/data/tilesets/primary/cherrygrove/palettes/07.pal
+new file mode 100644
+index 00000000..f6a91702
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++25 49 81
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/08.pal b/data/tilesets/primary/cherrygrove/palettes/08.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/09.pal b/data/tilesets/primary/cherrygrove/palettes/09.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/10.pal b/data/tilesets/primary/cherrygrove/palettes/10.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/11.pal b/data/tilesets/primary/cherrygrove/palettes/11.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/12.pal b/data/tilesets/primary/cherrygrove/palettes/12.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/13.pal b/data/tilesets/primary/cherrygrove/palettes/13.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/14.pal b/data/tilesets/primary/cherrygrove/palettes/14.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/palettes/15.pal b/data/tilesets/primary/cherrygrove/palettes/15.pal
+new file mode 100644
+index 00000000..37ee7a43
+--- /dev/null
++++ b/data/tilesets/primary/cherrygrove/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++111 173 174
++247 202 160
++247 188 133
++216 143 104
++123 66 61
++48 78 112
++37 63 93
++25 49 81
++20 41 62
++217 223 224
++247 188 83
++185 150 83
++247 97 83
++193 66 61
++247 246 240
++13 7 1
+diff --git a/data/tilesets/primary/cherrygrove/tiles.png b/data/tilesets/primary/cherrygrove/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..17426ab80e8fe2434bc9ecefbc8e063fd4e6d09a
+GIT binary patch
+literal 7622
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/cherrygrove/metatile_attributes.bin b/data/tilesets/secondary/cherrygrove/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..55fe7ef7d7cb3478c658a17532220908b0ab644e
+GIT binary patch
+literal 350
+zcmZQzU=RR8$^pm}WJtP+U{_=^WWsc!x(lBhL2}5dk=ZcQP-r`tX)qe3ABZy%e1-)e
+L9Y}l-ms9`%J=O!N
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/cherrygrove/metatiles.bin b/data/tilesets/secondary/cherrygrove/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..11ba4963c9461ff1c2351e0d0897ac6a56b0a63d
+GIT binary patch
+literal 2800
+zcmaKu?{5@E7{{l#rO;B*D_r3UlG){Y?Uq6o+9Ida1W&6-o3ur%Seoe8^aX_ER{O&E
+zD=;)fMM>Efs-R|>7Jm!6#oyK!S5w}UHzNOlr+)-ce>~4lpY1Lr&Xb3|&wgj0@9fOZ
+zP{!gd!8M2k@9ypCeYW?xUgBkZSti9(nFQaw4fP7XoY(T&O!Kydol(BEOFd8e4Q_6!
+z)YJ9klGZEhP5nl*;(4f~`ZJc0jMYeDO=@yA1aUd2YanlLq%RW{A|+}CaRqQ~jF$tg
+z6+0kKi_^!c4)sq+L)JhNZ;~pAGqPM}<eej^7g?c_v3kK+78rx-XGH^01F*_7;>__0
+zF%jy9w88ZSNX9T*WQ%+ef}VdKT!$eUqa;OL6MTozc!y{cj6DLmLmYHFAQ`(4=uwyt
+z)Q4jFP)u);8qeF?!Qmkr{SUf%8=r55I}h6lj`~QTi$#4T)Q^GQ0rmR?dOrz?-hGhh
+z&Dc}mKLq+jsH68pOwZdI-)EzDFC=>JgG6t}o`Cv;ppS?8AZX(e9oKV6bbyy?$Q^Je
+z%0m&R`*g+m9<lS_r5bYH9*MDQyD=V#=;%Em`a(bS?u)E1dPmoreCRp|-sASZuzubi
+z1R4){%pL<;;z7`(Oy4Kg>&osmqP*9*ox2wGnM_x<%jh&Zv-rNR*sq3uIDfB+*TeUr
+zdMib>ST8ofdaC_;msln46&pkDGzPMr#^EgK{YJlW2qM8}G8*IncpZkM_onL!`)&K2
+z{eI~GjyNek5FdvAyrh?`(zeoO(JUSiyM$5NRN7u@DQyv3fgS{ZRUh94)6-2Z^+_G;
+z<NKSL^ZJy2A!PEU>qYC5h36OYJ!Q$VC?|ne^sMV?gi!tGd6cihQ_5fH2aE&RcB4J!
+zkLwX1PnV(UEd3kR(JwmQWLZtwQcv}3EsUpOaXeTb$Fr_yMKHeG8Q(vu?=|l9PtXYr
+z=WPv~w`z4^72&*F4d<QO5A^-JHl7b|u>V@6YvcY`PaJ^tZV%U6=>0GshhRQ%?GueN
+z8C;uzrp|z2zMIv04Q#~|*8o?>Hc3p4XW&i-PG5B=58uDq4`VjYz}VvcAG7IvQ2r}q
+zrCcY|@T}rW;B<_ufa;)XyruOz-PD_c?}M><US-zlHyb0YS8lo4XyX50)u_jx#`RZz
+zjnb5u#3ua4SmGw2rvLTF?<wjZaKs<Dn(8t3vh|YnmPNc%=Hz4U9+x-={D%7`@IhCD
+z%*p%Z9`|uLR~aj~4sb3Qi?EJat~F+<_nPNXrt#G2Rc3igORY(*PT}~Fv41jIlO#X%
+ze%jsdHgc2i<T)Pb@coiMdhd6iagVr1-BI^cFb?b!-ETO*QAU3n5B)tcVx6$gTIVcc
+z_<JO$@%1?<RgT%*zR<d%t-1{;h+C~1U)cuxJ5U*W*L}}D3juwDM&qw2EHBg+YKM<F
+zm4#6!T_C-xaMVc;pK^#j$1F%^GGuf3yffuo2zgau)$qo`#$nZez7XZBP<3wi6^Oar
+zo`2q#{-jSl<zMhWf*}6b|HS{)|19Ls{V)74{fi-A^1t%G_Wh8j{mcG0{<l885Bh&s
+z{Jt3FABsPQ{8RDgBK9GDrua+1bY2ukXGbxKXW=&n^_SkH=X=v0@g(qcjHiGugFfqN
+zkVTI%%vnzbdSg>6p1;3(m<fIj`j@(Y1Nx(zv1{HnZ_c{{q?%H(|L-1Se|D4qg7dfY
+YkMpl{z59CiUl5Dk8S&jo#!f>12ap?Qr~m)}
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/00.pal b/data/tilesets/secondary/cherrygrove/palettes/00.pal
+new file mode 100644
+index 00000000..32dc7670
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++247 7 225
++89 178 204
++77 163 198
++89 178 204
++77 156 186
++66 134 167
++60 114 149
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/01.pal b/data/tilesets/secondary/cherrygrove/palettes/01.pal
+new file mode 100644
+index 00000000..575ba16e
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++247 180 118
++231 143 104
++216 104 90
++200 66 76
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/02.pal b/data/tilesets/secondary/cherrygrove/palettes/02.pal
+new file mode 100644
+index 00000000..2d82af30
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++168 221 143
++125 173 112
++60 125 66
++60 78 20
++216 143 104
++110 91 85
++162 97 83
++72 60 47
++247 188 133
++216 104 90
++200 66 76
++162 202 175
++111 173 174
++67 159 143
++31 146 119
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/03.pal b/data/tilesets/secondary/cherrygrove/palettes/03.pal
+new file mode 100644
+index 00000000..7e536e16
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++208 207 201
++186 184 178
++163 161 155
++133 130 131
++247 7 225
++247 7 225
++72 53 62
++231 202 182
++216 172 147
++185 143 125
++154 112 104
++131 89 83
++100 66 76
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/04.pal b/data/tilesets/secondary/cherrygrove/palettes/04.pal
+new file mode 100644
+index 00000000..1c80c7a3
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++247 7 225
++247 7 225
++247 7 225
++247 7 225
++66 106 179
++54 92 161
++48 85 143
++43 78 131
++129 185 192
++106 156 186
++83 127 179
++66 106 179
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/05.pal b/data/tilesets/secondary/cherrygrove/palettes/05.pal
+new file mode 100644
+index 00000000..e885996b
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++231 218 147
++216 195 118
++208 172 97
++200 150 76
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/06.pal b/data/tilesets/secondary/cherrygrove/palettes/06.pal
+new file mode 100644
+index 00000000..827089a3
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++224 215 209
++208 207 186
++185 188 153
++133 130 131
++77 106 112
++54 78 99
++37 56 87
++123 199 192
++83 178 167
++224 211 140
++200 188 111
++177 157 111
++162 134 90
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/07.pal b/data/tilesets/secondary/cherrygrove/palettes/07.pal
+new file mode 100644
+index 00000000..9684c09f
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++255 220 218
++232 159 174
++192 103 139
++109 68 98
++216 143 104
++110 91 85
++162 97 83
++72 60 47
++247 188 133
++216 104 90
++200 66 76
++162 202 175
++111 173 174
++67 159 143
++31 146 119
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/08.pal b/data/tilesets/secondary/cherrygrove/palettes/08.pal
+new file mode 100644
+index 00000000..27a57cf0
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++208 211 153
++185 195 153
++185 180 118
++162 165 111
++133 130 131
++77 106 112
++54 78 99
++37 56 87
++123 199 192
++83 178 167
++231 230 232
++200 202 210
++156 153 170
++111 152 73
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/09.pal b/data/tilesets/secondary/cherrygrove/palettes/09.pal
+new file mode 100644
+index 00000000..23a37487
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++224 223 224
++201 199 209
++193 172 196
++95 127 137
++77 99 112
++54 78 99
++37 56 87
++200 195 133
++169 143 83
++216 202 210
++194 176 178
++163 153 155
++100 106 149
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/10.pal b/data/tilesets/secondary/cherrygrove/palettes/10.pal
+new file mode 100644
+index 00000000..de3f3e84
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++133 130 131
++77 99 112
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++246 215 147
++216 177 105
++178 131 76
++123 90 60
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/11.pal b/data/tilesets/secondary/cherrygrove/palettes/11.pal
+new file mode 100644
+index 00000000..ad71ff75
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++224 218 182
++216 211 160
++185 180 140
++162 150 118
++131 127 83
++118 115 116
++54 78 99
++37 56 87
++89 178 204
++77 163 198
++185 218 196
++147 202 175
++77 163 155
++96 132 135
++111 173 174
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/12.pal b/data/tilesets/secondary/cherrygrove/palettes/12.pal
+new file mode 100644
+index 00000000..f80b1f1f
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++25 49 81
++247 246 240
++217 223 224
++141 192 192
++118 170 186
++247 180 125
++239 112 69
++154 82 48
++176 214 205
++140 200 128
++17 125 81
++72 185 198
++77 156 149
++247 218 140
++224 188 61
++54 78 99
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/13.pal b/data/tilesets/secondary/cherrygrove/palettes/13.pal
+new file mode 100644
+index 00000000..b3724925
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/14.pal b/data/tilesets/secondary/cherrygrove/palettes/14.pal
+new file mode 100644
+index 00000000..55da8da4
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++13 7 1
++13 7 1
++13 7 1
++13 7 1
++247 195 111
++216 165 104
++185 134 104
++154 104 104
++111 173 174
++224 202 168
++200 172 153
++177 143 147
++154 120 140
++13 7 1
++13 7 1
++13 7 1
+diff --git a/data/tilesets/secondary/cherrygrove/palettes/15.pal b/data/tilesets/secondary/cherrygrove/palettes/15.pal
+new file mode 100644
+index 00000000..37ee7a43
+--- /dev/null
++++ b/data/tilesets/secondary/cherrygrove/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++111 173 174
++247 202 160
++247 188 133
++216 143 104
++123 66 61
++48 78 112
++37 63 93
++25 49 81
++20 41 62
++217 223 224
++247 188 83
++185 150 83
++247 97 83
++193 66 61
++247 246 240
++13 7 1
+diff --git a/data/tilesets/secondary/cherrygrove/tiles.png b/data/tilesets/secondary/cherrygrove/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0f08af34f41eeb12b260bd52dc08e5a798507b6b
+GIT binary patch
+literal 2320
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/include/regions.h b/include/regions.h
+index df55ce64..46f6f9ea 100644
+--- a/include/regions.h
++++ b/include/regions.h
+@@ -9,6 +9,7 @@ enum KantoSubRegion GetKantoSubregion(u32 mapSecId);
+ static inline enum Region GetRegionForSectionId(u32 sectionId)
+ {
+     switch (sectionId) {
++    case MAPSEC_CHERRYGROVE_CITY: return REGION_JOHTO;
+     case MAPSEC_PROOF_HOENN: return REGION_HOENN;
+     case MAPSEC_PROOF_JOHTO: return REGION_JOHTO;
+     case MAPSEC_PROOF_KANTO: return REGION_KANTO;
+diff --git a/src/apocrypha_map_proof.c b/src/apocrypha_map_proof.c
+index 5e355c59..79f8929a 100644
+--- a/src/apocrypha_map_proof.c
++++ b/src/apocrypha_map_proof.c
+@@ -11,12 +11,12 @@
+ #include "constants/map_groups.h"
+ 
+ EWRAM_DATA u32 gMapProofState[12] = {0};
+-const u16 sMapProofMaps[] = {MAP_PROOF_HOENN, MAP_PROOF_JOHTO, MAP_PROOF_KANTO, MAP_PROOF_SINNOH, MAP_PROOF_UNOVA};
++const u16 sMapProofMaps[] = {MAP_CHERRYGROVE_CITY, MAP_CHERRYGROVE_PLAYER_HOUSE, MAP_CHERRYGROVE_GOLD_HOUSE, MAP_CHERRYGROVE_NEIGHBOR_HOUSE, MAP_CHERRYGROVE_TRANSPLANT_HOUSE, MAP_CHERRYGROVE_MART, MAP_CHERRYGROVE_POKEMON_CENTER, MAP_CHERRYGROVE_PLAYER_BEDROOM, MAP_CHERRYGROVE_CENTER_UPSTAIRS, MAP_CHERRYGROVE_ROUTE29_APPROACH, MAP_CHERRYGROVE_ROUTE30_APPROACH};
+ void MapProof_Boot(void) { SetMainCallback2(CB2_NewGame); }
+ void MapProof_Enter(u32 region)
+ {
+-    u16 map = sMapProofMaps[region % 5];
+-    SetWarpDestination(MAP_GROUP(map), MAP_NUM(map), WARP_ID_NONE, 10, 11);
++    u16 map = sMapProofMaps[(region & 255) % 11];
++    SetWarpDestination(MAP_GROUP(map), MAP_NUM(map), WARP_ID_NONE, (region >> 8) & 255, (region >> 16) & 255);
+     DoWarp();
+ }
+ void MapProof_ReadState(void)
+diff --git a/src/data/heal_locations.json b/src/data/heal_locations.json
+index ad1e5f1d..15cbcd8e 100644
+--- a/src/data/heal_locations.json
++++ b/src/data/heal_locations.json
+@@ -193,10 +193,10 @@
+       "map": "MAP_PALLET_TOWN",
+       "x": 6,
+       "y": 8,
+-      "respawn_x": 8,
+-      "respawn_y": 5,
+       "respawn_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
+-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
++      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
++      "respawn_x": 8,
++      "respawn_y": 5
+     },
+     {
+       "id": "HEAL_LOCATION_VIRIDIAN_CITY",
+diff --git a/src/data/region_map/region_map_sections.json b/src/data/region_map/region_map_sections.json
+index e58ed688..ca88e635 100644
+--- a/src/data/region_map/region_map_sections.json
++++ b/src/data/region_map/region_map_sections.json
+@@ -1670,6 +1670,14 @@
+       "y": 1,
+       "width": 1,
+       "height": 1
++    },
++    {
++      "id": "MAPSEC_CHERRYGROVE_CITY",
++      "name": "CHERRYGROVE CITY",
++      "x": 3,
++      "y": 6,
++      "width": 1,
++      "height": 1
+     }
+   ]
+ }
+diff --git a/src/data/tilesets/graphics.h b/src/data/tilesets/graphics.h
+index d588f324..3151767d 100644
+--- a/src/data/tilesets/graphics.h
++++ b/src/data/tilesets/graphics.h
+@@ -3080,3 +3080,43 @@ const u16 gTilesetPalettes_ProofKantoPallet[][16] =
+     INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/15.pal", ".gbapal"),
+ };
+ const u32 gTilesetTiles_ProofKantoPallet[] = INCGFX_U32("data/tilesets/secondary/pallet_town_frlg/tiles.png", ".4bpp.fastSmol");
++
++const u32 gTilesetTiles_CherrygrovePrimary[] = INCGFX_U32("data/tilesets/primary/cherrygrove/tiles.png", ".4bpp.fastSmol");
++const u16 gTilesetPalettes_CherrygrovePrimary[][16] = {
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/primary/cherrygrove/palettes/15.pal", ".gbapal"),
++};
++
++const u32 gTilesetTiles_Cherrygrove[] = INCGFX_U32("data/tilesets/secondary/cherrygrove/tiles.png", ".4bpp.fastSmol");
++const u16 gTilesetPalettes_Cherrygrove[][16] = {
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/cherrygrove/palettes/15.pal", ".gbapal"),
++};
+diff --git a/src/data/tilesets/headers.h b/src/data/tilesets/headers.h
+index 57913c4e..b60eb3f4 100644
+--- a/src/data/tilesets/headers.h
++++ b/src/data/tilesets/headers.h
+@@ -1563,3 +1563,7 @@ const struct Tileset gTileset_ProofKantoPallet =
+     .metatileAttributes = gMetatileAttributes_ProofKantoPallet,
+     .callback = NULL,
+ };
++
++const struct Tileset gTileset_CherrygrovePrimary = { .isCompressed = TRUE, .isSecondary = FALSE, .tiles = gTilesetTiles_CherrygrovePrimary, .palettes = gTilesetPalettes_CherrygrovePrimary, .metatiles = gMetatiles_CherrygrovePrimary, .metatileAttributes = gMetatileAttributes_CherrygrovePrimary, .callback = InitTilesetAnim_General };
++
++const struct Tileset gTileset_Cherrygrove = { .isCompressed = TRUE, .isSecondary = TRUE, .tiles = gTilesetTiles_Cherrygrove, .palettes = gTilesetPalettes_Cherrygrove, .metatiles = gMetatiles_Cherrygrove, .metatileAttributes = gMetatileAttributes_Cherrygrove, .callback = NULL };
+diff --git a/src/data/tilesets/metatiles.h b/src/data/tilesets/metatiles.h
+index 8e5249ad..2e721897 100644
+--- a/src/data/tilesets/metatiles.h
++++ b/src/data/tilesets/metatiles.h
+@@ -414,3 +414,9 @@ const u16 gMetatiles_ProofKantoGeneral[] = INCBIN_U16("data/tilesets/primary/gen
+ const u16 gMetatileAttributes_ProofKantoGeneral[] = INCBIN_U16("data/tilesets/primary/general_frlg/metatile_attributes.bin");
+ const u16 gMetatiles_ProofKantoPallet[] = INCBIN_U16("data/tilesets/secondary/pallet_town_frlg/metatiles.bin");
+ const u16 gMetatileAttributes_ProofKantoPallet[] = INCBIN_U16("data/tilesets/secondary/pallet_town_frlg/metatile_attributes.bin");
++
++const u16 gMetatiles_CherrygrovePrimary[] = INCBIN_U16("data/tilesets/primary/cherrygrove/metatiles.bin");
++const u16 gMetatileAttributes_CherrygrovePrimary[] = INCBIN_U16("data/tilesets/primary/cherrygrove/metatile_attributes.bin");
++
++const u16 gMetatiles_Cherrygrove[] = INCBIN_U16("data/tilesets/secondary/cherrygrove/metatiles.bin");
++const u16 gMetatileAttributes_Cherrygrove[] = INCBIN_U16("data/tilesets/secondary/cherrygrove/metatile_attributes.bin");
+diff --git a/src/new_game.c b/src/new_game.c
+index a68201df..5b82ef31 100644
+--- a/src/new_game.c
++++ b/src/new_game.c
+@@ -138,7 +138,7 @@ static void WarpToTruck(void)
+     if (IS_FRLG)
+         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+     else
+-        SetWarpDestination(MAP_GROUP(MAP_PROOF_HOENN), MAP_NUM(MAP_PROOF_HOENN), WARP_ID_NONE, 10, 11);
++        SetWarpDestination(MAP_GROUP(MAP_CHERRYGROVE_CITY), MAP_NUM(MAP_CHERRYGROVE_CITY), WARP_ID_NONE, 9, 17);
+     WarpIntoMap();
+ }
+ 

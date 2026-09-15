@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-13",
+  "town_baseline": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "patch_order": [
+    "gba/johto-art-v3.patch",
+    "gba/johto-npc-v1.patch",
+    "gba/johto-cast-v1.patch"
+  ],
+  "patch_sha256": "7e60d3d697bb823755b76ba1f5b013583e969cfd1a2540b1661195fdd7dae0ef",
+  "forward_reverse_patch_checks": true,
+  "build_exit_code": 0,
+  "memory_bytes": {
+    "EWRAM": 226736,
+    "IWRAM": 28392,
+    "ROM": 19703012
+  },
+  "linked_rom_increase_over_npc_v1": 19312,
+  "rom_sha256": "135dd3a8edcfd4d398d5bd31070355824ab6aa9fe0fd5503b3d71915b4bd97ec",
+  "save_sha256": "346134c60697b361feb0a0965a855b78c2ff60f7e0ee82a377b46729eefb69f5",
+  "save_bytes": 131072,
+  "continue_position": [
+    50,
+    13
+  ],
+  "town_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "town_phases_pass": true,
+  "six_simultaneous_residents": true,
+  "custom_cast_interactions_pass": true,
+  "actual_vram_idle_pixels_verified": true,
+  "step_animation_tables_registered_for_cast_and_original_residents": true,
+  "package": "tools/vendor/gba/Cherrygrove-cast-preview.zip",
+  "package_sha256": "d97346c43901ee9974c29ccdb88e55210fa56a5448dec5869406d957a093f906",
+  "package_rom_and_save_verified": true,
+  "production_game_untouched": true
+}

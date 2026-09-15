@@ -1,0 +1,762 @@
+{
+ "Kanto": [
+  {
+   "id": "MOVE_HYPER_BEAM",
+   "why": "the Celadon Game Corner prize, the ultimate Gen 1 TM",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_PSYCHIC",
+   "why": "Saffron and Sabrina",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DREAM_EATER",
+   "why": "Hypno and Lavender Town",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_MEGA_PUNCH",
+   "why": "the Saffron Fighting Dojo",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_MEGA_KICK",
+   "why": "the Saffron Fighting Dojo",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SUBMISSION",
+   "why": "the Saffron Fighting Dojo",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_THUNDERBOLT",
+   "why": "Lt. Surge and the Power Plant",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_THUNDER",
+   "why": "the Power Plant",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_EARTHQUAKE",
+   "why": "Giovanni's ground",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_EXPLOSION",
+   "why": "Voltorb and Electrode at the Power Plant",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SELF_DESTRUCT",
+   "why": "the same",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SUBSTITUTE",
+   "why": "the defining Gen 1 utility TM",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_METRONOME",
+   "why": "Clefairy in Mt. Moon",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_MIMIC",
+   "why": "a Gen 1 staple",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_PAY_DAY",
+   "why": "Meowth and the Game Corner",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SOFT_BOILED",
+   "why": "Chansey",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_TELEPORT",
+   "why": "Abra and Saffron",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_HORN_DRILL",
+   "why": "the Gen 1 one-hit KO, Rhydon and Nidoking",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FISSURE",
+   "why": "the Gen 1 one-hit KO, Giovanni's ground",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DOUBLE_TEAM",
+   "why": "a Celadon Game Corner prize in Red and Blue",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_BODY_SLAM",
+   "why": "Snorlax asleep on the road",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_COUNTER",
+   "why": "the Saffron Fighting Dojo",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_THUNDER_PUNCH",
+   "why": "Lt. Surge and the Power Plant",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_HIGH_JUMP_KICK",
+   "why": "Hitmonlee at the Fighting Dojo",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_JUMP_KICK",
+   "why": "Hitmonlee at the Fighting Dojo",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_CRABHAMMER",
+   "why": "Kingler in the Cerulean waters",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_THRASH",
+   "why": "a Gen 1 rampage",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_PETAL_DANCE",
+   "why": "Erika at Celadon",
+   "source": "tier2"
+  }
+ ],
+ "Johto": [
+  {
+   "id": "MOVE_HEADBUTT",
+   "why": "the Headbutt tree -- Johto's own field mechanic",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ROAR",
+   "why": "the roaming legendary beasts",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_WHIRLWIND",
+   "why": "the other half of the phazing pair",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DYNAMIC_PUNCH",
+   "why": "Mt. Mortar's Karate King",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_IRON_TAIL",
+   "why": "Steel was introduced here; Steelix",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ZAP_CANNON",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_CURSE",
+   "why": "Ecruteak and the Burned Tower",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_NIGHTMARE",
+   "why": "Ecruteak",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FURY_CUTTER",
+   "why": "Bugsy in Azalea",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ROLLOUT",
+   "why": "Whitney's Miltank",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DETECT",
+   "why": "martial discipline",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SWAGGER",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_PSYCH_UP",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SAFEGUARD",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SWEET_SCENT",
+   "why": "the National Park",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SNORE",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FRUSTRATION",
+   "why": "the mirror of Return, which is a Johto TM",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_MUD_SLAP",
+   "why": "a Gen 2 original",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SECRET_POWER",
+   "why": "Secret Bases are cut, so it is simply a plain universal attack -- first-region fare",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SLEEP_TALK",
+   "why": "a Gen 2 original",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_ENDURE",
+   "why": "a Gen 2 original",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_SWORDS_DANCE",
+   "why": "Mt. Mortar's martial discipline",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_ICY_WIND",
+   "why": "Pryce's gym at Mahogany",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_SEISMIC_TOSS",
+   "why": "Mt. Mortar's martial discipline",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_OUTRAGE",
+   "why": "the Dragon's Den clan",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_DRACO_METEOR",
+   "why": "Blackthorn's dragon masters -- Lance's move to give",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_MEGAHORN",
+   "why": "Heracross in the National Park",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FUTURE_SIGHT",
+   "why": "the Ruins of Alph",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_CROSS_CHOP",
+   "why": "Mt. Mortar's Karate King",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_SACRED_FIRE",
+   "why": "Ho-Oh and the Tin Tower",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_SUPERPOWER",
+   "why": "Mt. Mortar's martial discipline",
+   "source": "tier2"
+  }
+ ],
+ "Hoenn": [
+  {
+   "id": "MOVE_OVERHEAT",
+   "why": "Mt. Chimney and Team Magma",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FIRE_BLAST",
+   "why": "volcanic Hoenn",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FLAMETHROWER",
+   "why": "volcanic Hoenn",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SOLAR_BEAM",
+   "why": "Groudon's harsh sunlight",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_WATER_GUN",
+   "why": "the sea region",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_BUBBLE_BEAM",
+   "why": "the sea region",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_BRINE",
+   "why": "the sea region",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FOCUS_PUNCH",
+   "why": "Hoenn's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SKILL_SWAP",
+   "why": "Mossdeep, Tate and Liza",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_TORMENT",
+   "why": "Hoenn's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SNATCH",
+   "why": "Hoenn's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_RECYCLE",
+   "why": "Hoenn's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SILVER_WIND",
+   "why": "Beautifly and the contest circuit",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SKY_ATTACK",
+   "why": "Winona and Fortree",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DRAGON_RAGE",
+   "why": "Meteor Falls and the Bagon line",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DOUBLE_EDGE",
+   "why": "a contest staple",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_TAKE_DOWN",
+   "why": "a contest staple",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FIRE_PUNCH",
+   "why": "Mt. Chimney",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_WATER_SPOUT",
+   "why": "Kyogre",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_ERUPTION",
+   "why": "Groudon and Mt. Chimney",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_BLAST_BURN",
+   "why": "the master of the three starters",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_HYDRO_CANNON",
+   "why": "the master of the three starters",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FRENZY_PLANT",
+   "why": "the master of the three starters",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_PSYCHO_BOOST",
+   "why": "Deoxys and the Mossdeep Space Center",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_HEAT_WAVE",
+   "why": "Mt. Chimney",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_METEOR_MASH",
+   "why": "Meteor Falls and Metagross -- Steven's move to give",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_MUDDY_WATER",
+   "why": "the Hoenn sea",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_HYDRO_PUMP",
+   "why": "Sootopolis",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_UPROAR",
+   "why": "Loudred and the contest circuit",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_LEAF_BLADE",
+   "why": "Sceptile",
+   "source": "tier2"
+  }
+ ],
+ "Sinnoh": [
+  {
+   "id": "MOVE_BLIZZARD",
+   "why": "Snowpoint and Route 217",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ICE_BEAM",
+   "why": "Snowpoint",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FROST_BREATH",
+   "why": "the snow country",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_STONE_EDGE",
+   "why": "Mt. Coronet",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ROCK_POLISH",
+   "why": "Mt. Coronet",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_GYRO_BALL",
+   "why": "Iron Island",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_GIGA_IMPACT",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FOCUS_BLAST",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_FLING",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_GRASS_KNOT",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_NATURAL_GIFT",
+   "why": "the berry culture",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_EMBARGO",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_PLUCK",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_RAZOR_WIND",
+   "why": "Mt. Coronet's winds",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SKULL_BASH",
+   "why": "mountain country",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DEFENSE_CURL",
+   "why": "mountain country",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SWIFT",
+   "why": "Sinnoh's myth of the heavens",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_CAPTIVATE",
+   "why": "Sinnoh's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ROCK_SLIDE",
+   "why": "Mt. Coronet's rockfalls",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_ICE_PUNCH",
+   "why": "Snowpoint",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_HEAD_SMASH",
+   "why": "Rampardos from Oreburgh's mine",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_ROCK_WRECKER",
+   "why": "Rhyperior and Iron Island",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_LAST_RESORT",
+   "why": "Sinnoh's own",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_LEAF_STORM",
+   "why": "Eterna Forest",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_CLOSE_COMBAT",
+   "why": "Maylene at Veilstone",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FLARE_BLITZ",
+   "why": "Infernape",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_BRAVE_BIRD",
+   "why": "Staraptor",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_WRING_OUT",
+   "why": "Sinnoh's own",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_WOOD_HAMMER",
+   "why": "Torterra",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_SEED_FLARE",
+   "why": "Shaymin at Flower Paradise",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_HAMMER_ARM",
+   "why": "Veilstone",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_DRAGON_RUSH",
+   "why": "Garchomp and Cynthia's shadow",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_AQUA_TAIL",
+   "why": "the Pastoria marsh",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_BUG_BUZZ",
+   "why": "Eterna Forest",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_AURA_SPHERE",
+   "why": "Riley and Iron Island -- Riley's move to give",
+   "source": "tier2"
+  }
+ ],
+ "Unova": [
+  {
+   "id": "MOVE_WILD_CHARGE",
+   "why": "Chargestone Cave and Nimbasa",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SLUDGE_WAVE",
+   "why": "Virbank's industry",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SLUDGE_BOMB",
+   "why": "Virbank's industry",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_DRAGON_PULSE",
+   "why": "Opelucid, Drayden and Iris",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_TRI_ATTACK",
+   "why": "Klink and Genesect, Unova's machine Pokemon",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ECHOED_VOICE",
+   "why": "Unova's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_ALLY_SWITCH",
+   "why": "Unova's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_TELEKINESIS",
+   "why": "Unova's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_QUASH",
+   "why": "Unova's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_SKY_DROP",
+   "why": "Unova's own",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_BIDE",
+   "why": "a plain move for a plain teacher",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_RAGE",
+   "why": "a plain move for a plain teacher",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_PSYWAVE",
+   "why": "a plain move for a plain teacher",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_MEGA_DRAIN",
+   "why": "Pinwheel Forest",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_EGG_BOMB",
+   "why": "the Day Care culture",
+   "source": "historical"
+  },
+  {
+   "id": "MOVE_THUNDER_WAVE",
+   "why": "Elesa at Nimbasa",
+   "source": "vanilla"
+  },
+  {
+   "id": "MOVE_HURRICANE",
+   "why": "Tornadus over the plains",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_INFERNO",
+   "why": "Unova's own",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FUSION_FLARE",
+   "why": "Reshiram",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FUSION_BOLT",
+   "why": "Zekrom",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_FOUL_PLAY",
+   "why": "Team Plasma's methods",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_SACRED_SWORD",
+   "why": "the Swords of Justice",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_HYPER_VOICE",
+   "why": "Meloetta and Nimbasa's musicals",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_EARTH_POWER",
+   "why": "the Desert Resort",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_GUNK_SHOT",
+   "why": "Garbodor and Virbank's industry",
+   "source": "tier2"
+  },
+  {
+   "id": "MOVE_POWER_WHIP",
+   "why": "Ferrothorn in Chargestone Cave",
+   "source": "tier2"
+  }
+ ]
+}

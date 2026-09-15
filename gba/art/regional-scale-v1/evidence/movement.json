@@ -1,0 +1,429 @@
+{
+  "samples": 360,
+  "observed_engine_frames": 1440,
+  "read_only_struct_probe": true,
+  "collision_clear": true,
+  "distinct_npc_palettes": true,
+  "no_horizontal_mirroring": true,
+  "compiled_assets_exact": true,
+  "rendered_direction_verified": true,
+  "one_sample_turn_upload_lag": 344,
+  "residents": [
+    {
+      "name": "Gold",
+      "graphics_id": 1029,
+      "positions": [
+        [
+          47,
+          12
+        ],
+        [
+          47,
+          13
+        ],
+        [
+          48,
+          12
+        ],
+        [
+          48,
+          13
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Silver",
+      "graphics_id": 1030,
+      "positions": [
+        [
+          54,
+          14
+        ],
+        [
+          54,
+          15
+        ],
+        [
+          55,
+          14
+        ],
+        [
+          55,
+          15
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Kestra",
+      "graphics_id": 1031,
+      "positions": [
+        [
+          54,
+          11
+        ],
+        [
+          55,
+          11
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "3": [
+          0,
+          1
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Hoenn",
+      "graphics_id": 1032,
+      "positions": [
+        [
+          44,
+          9
+        ],
+        [
+          44,
+          10
+        ],
+        [
+          45,
+          9
+        ],
+        [
+          45,
+          10
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Kanto",
+      "graphics_id": 1033,
+      "positions": [
+        [
+          47,
+          9
+        ],
+        [
+          47,
+          10
+        ],
+        [
+          48,
+          9
+        ],
+        [
+          48,
+          10
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Johto",
+      "graphics_id": 1034,
+      "positions": [
+        [
+          50,
+          9
+        ],
+        [
+          50,
+          10
+        ],
+        [
+          51,
+          9
+        ],
+        [
+          51,
+          10
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Sinnoh",
+      "graphics_id": 1035,
+      "positions": [
+        [
+          53,
+          9
+        ],
+        [
+          53,
+          10
+        ],
+        [
+          54,
+          9
+        ],
+        [
+          54,
+          10
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    },
+    {
+      "name": "Unova",
+      "graphics_id": 1036,
+      "positions": [
+        [
+          56,
+          9
+        ],
+        [
+          56,
+          10
+        ],
+        [
+          57,
+          9
+        ],
+        [
+          57,
+          10
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "commands_by_direction": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          2,
+          3
+        ],
+        "4": [
+          2,
+          3
+        ]
+      },
+      "all_walk_commands_seen_across_route": true
+    }
+  ],
+  "interaction": [
+    {
+      "interaction": 1029,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1030,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1031,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1032,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1033,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1034,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1035,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1036,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "base_commit": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "base": "clean Emerald town baseline",
+  "character_only_patches": [
+    "johto-npc-v1.patch",
+    "johto-cast-v1.patch",
+    "regional-scale-v1.patch"
+  ],
+  "excluded_from_character_patches": [
+    "data/maps/CherrygroveCity/map.json",
+    "data/maps/CherrygroveCity/scripts.inc"
+  ],
+  "approved_buildings": [
+    "gba/art/johto-v2/native/house.png",
+    "gba/art/johto-v2/native/center.png"
+  ],
+  "rejected_v4_used": false
+}

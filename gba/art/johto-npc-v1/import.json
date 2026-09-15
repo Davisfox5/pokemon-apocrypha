@@ -1,0 +1,21 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "frame_size": [32,32],
+  "frame_count": 12,
+  "translation": [0,1],
+  "directions": {"SOUTH":[9,10,11],"NORTH":[0,7,8],"WEST":[1,2,3],"EAST":[4,5,6]},
+  "assets": [
+    {"name":"Boy","source":"0115_gsboy2.png","graphics_id":1024,"palette_tag":4480},
+    {"name":"Girl","source":"0117_gsgirl1.png","graphics_id":1025,"palette_tag":4481},
+    {"name":"Man","source":"0120_gsman1.png","graphics_id":1026,"palette_tag":4482},
+    {"name":"Woman","source":"0123_gswoman1.png","graphics_id":1027,"palette_tag":4483},
+    {"name":"Clerk","source":"0132_shopm1_2.png","graphics_id":1028,"palette_tag":4484}
+  ],
+  "placements": [
+    {"asset":"Woman","map":"CherrygroveCity","existing_local_id":"LOCALID_WATERFRONT","movement":"FACE_DOWN"},
+    {"asset":"Man","map":"CherrygroveCity","existing_local_id":"LOCALID_COMMUTER","position":[49,15],"movement":"WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT","range":[1,1]},
+    {"asset":"Boy","map":"CherrygroveCity","local_id":"LOCALID_JOHTO_BOY","position":[48,11],"movement":"WALK_LEFT_AND_RIGHT","range":[2,0],"text":"The sea breeze feels nice today."},
+    {"asset":"Girl","map":"CherrygroveCity","local_id":"LOCALID_JOHTO_GIRL","position":[52,12],"movement":"WALK_UP_AND_DOWN","range":[0,1],"text":"I like taking the long way home."},
+    {"asset":"Clerk","map":"CherrygroveMart","existing_local_id":"LOCALID_CLERK","movement":"FACE_RIGHT"}
+  ]
+}

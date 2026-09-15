@@ -1,5 +1,11 @@
 # Pokémon Apocrypha — Hoenn Battles & Encounters
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 The Hoenn companion to [JOHTO_BATTLES.md](JOHTO_BATTLES.md) / [KANTO_BATTLES.md](KANTO_BATTLES.md):
 wild encounter tables, trainer/gym battles, and the level band for the Hoenn chapters. Hoenn
 begins at **Slateport City (Chapter 8)**, when the player arrives by sea from Vermilion, and

@@ -1,0 +1,780 @@
+diff --git a/data/maps/CherrygroveCity/map.json b/data/maps/CherrygroveCity/map.json
+index 465fefdd..8d74bf42 100644
+--- a/data/maps/CherrygroveCity/map.json
++++ b/data/maps/CherrygroveCity/map.json
+@@ -44,8 +44,8 @@
+     {
+       "local_id": "LOCALID_COMMUTER",
+       "graphics_id": "OBJ_EVENT_GFX_JOHTO_MAN",
+-      "x": 49,
+-      "y": 15,
++      "x": 40,
++      "y": 12,
+       "elevation": 3,
+       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+       "movement_range_x": 1,
+@@ -66,8 +66,8 @@
+       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+       "movement_range_x": 2,
+       "movement_range_y": 0,
+-      "x": 48,
+-      "y": 11
++      "x": 43,
++      "y": 15
+     },
+     {
+       "local_id": "LOCALID_JOHTO_GIRL",
+@@ -80,8 +80,8 @@
+       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+       "movement_range_x": 0,
+       "movement_range_y": 1,
+-      "x": 52,
+-      "y": 12
++      "x": 58,
++      "y": 15
+     },
+     {
+       "local_id": "LOCALID_CAST_GOLD",
+@@ -124,6 +124,76 @@
+       "movement_range_y": 0,
+       "x": 55,
+       "y": 11
++    },
++    {
++      "local_id": "LOCALID_COMPARE_HOENN",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_CompareHoenn",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_HOENN",
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
++      "x": 44,
++      "y": 10
++    },
++    {
++      "local_id": "LOCALID_COMPARE_KANTO",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_CompareKanto",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_KANTO",
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
++      "x": 47,
++      "y": 10
++    },
++    {
++      "local_id": "LOCALID_COMPARE_JOHTO",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_CompareJohto",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_JOHTO",
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
++      "x": 50,
++      "y": 10
++    },
++    {
++      "local_id": "LOCALID_COMPARE_SINNOH",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_CompareSinnoh",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_SINNOH",
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
++      "x": 53,
++      "y": 10
++    },
++    {
++      "local_id": "LOCALID_COMPARE_UNOVA",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_CompareUnova",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
++      "x": 56,
++      "y": 10
+     }
+   ],
+   "warp_events": [
+diff --git a/data/maps/CherrygroveCity/scripts.inc b/data/maps/CherrygroveCity/scripts.inc
+index 30112179..ce2c0461 100644
+--- a/data/maps/CherrygroveCity/scripts.inc
++++ b/data/maps/CherrygroveCity/scripts.inc
+@@ -99,3 +99,53 @@ CherrygroveCity_CastKestra::
+ 
+ CherrygroveCity_CastKestra_Text::
+     .string "KESTRA$"
++
++CherrygroveCity_CompareHoenn::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_CompareHoenn_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_CompareHoenn_Text::
++    .string "HOENN$"
++
++CherrygroveCity_CompareKanto::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_CompareKanto_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_CompareKanto_Text::
++    .string "KANTO$"
++
++CherrygroveCity_CompareJohto::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_CompareJohto_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_CompareJohto_Text::
++    .string "JOHTO$"
++
++CherrygroveCity_CompareSinnoh::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_CompareSinnoh_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_CompareSinnoh_Text::
++    .string "SINNOH$"
++
++CherrygroveCity_CompareUnova::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_CompareUnova_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_CompareUnova_Text::
++    .string "UNOVA$"
+diff --git a/graphics/object_events/palettes/regional_hoenn.pal b/graphics/object_events/palettes/regional_hoenn.pal
+new file mode 100644
+index 00000000..39c67b47
+--- /dev/null
++++ b/graphics/object_events/palettes/regional_hoenn.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++16 57 0
++66 123 0
++74 74 123
++82 16 0
++123 66 66
++148 57 41
++156 156 189
++206 206 222
++222 148 115
++255 198 148
++255 214 181
++255 255 255
++0 0 0
++0 0 0
+diff --git a/graphics/object_events/palettes/regional_johto.pal b/graphics/object_events/palettes/regional_johto.pal
+new file mode 100644
+index 00000000..49d1efa9
+--- /dev/null
++++ b/graphics/object_events/palettes/regional_johto.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++49 49 57
++57 41 41
++66 82 140
++82 66 66
++90 49 41
++90 123 198
++123 66 66
++173 165 206
++189 123 16
++222 165 123
++239 239 255
++255 173 33
++255 214 189
++0 0 0
+diff --git a/graphics/object_events/palettes/regional_kanto.pal b/graphics/object_events/palettes/regional_kanto.pal
+new file mode 100644
+index 00000000..6618b63f
+--- /dev/null
++++ b/graphics/object_events/palettes/regional_kanto.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++66 57 99
++74 49 49
++107 82 189
++123 66 66
++132 99 0
++165 140 239
++214 173 33
++222 148 115
++247 189 148
++255 214 181
++255 222 74
++0 0 0
++0 0 0
++0 0 0
+diff --git a/graphics/object_events/palettes/regional_sinnoh.pal b/graphics/object_events/palettes/regional_sinnoh.pal
+new file mode 100644
+index 00000000..3d279a53
+--- /dev/null
++++ b/graphics/object_events/palettes/regional_sinnoh.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++49 49 57
++66 74 82
++82 66 66
++90 82 123
++90 123 90
++115 90 82
++123 66 66
++123 165 90
++165 173 181
++181 140 123
++222 165 123
++222 222 231
++255 206 156
++255 214 189
+diff --git a/graphics/object_events/palettes/regional_unova.pal b/graphics/object_events/palettes/regional_unova.pal
+new file mode 100644
+index 00000000..f986e470
+--- /dev/null
++++ b/graphics/object_events/palettes/regional_unova.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++16 82 82
++41 49 74
++41 115 132
++41 156 198
++49 49 49
++74 74 99
++82 82 132
++115 74 41
++173 198 222
++206 49 99
++206 148 107
++231 115 90
++239 239 247
++247 206 181
+diff --git a/graphics/object_events/pics/people/johto/gold.png b/graphics/object_events/pics/people/johto/gold.png
+index 53901b24f6f9e0b8ae078e358e1c1f2511a9c11e..4fab4ae90fb921cade9def22628242cfe8ef1bb5 100644
+GIT binary patch
+delta 1035
+zcmV+m1oZo*54R4mJOh6N<w-<ARCt{2TH9{rAPi(|V{pj-fA7j9=^kk@RK4wKn~|zM
+zFef)M!(b<+8y^o62gT#u2^=!`Brqa^9Eb>bArRh3pp!rmq1K#puC<N{FamOh!$u5P
+zrUTiAgoJzn!F}2}ZsXyUa3LZnN+|`pg-0kI*rG=bVBY~~8Q*_IQ|$Y`L($rp@qqC;
+zn8E!ox=4}!Ymx9S@c8e>=K}FmI^eSz2`{CDQ+g6H<U++;2t-ufU6@%a{rk?42-j1a
+zREg&V@Zbm}bP>Ruhu5Hb$v09r#K<V;$S4iFnORI|tu-fv{$PDvH55)tE-g`w$M=nS
+zE0Y6ko0hRTbfAAVRh_&rXr}%kLk2SdvKIOS{HNH%_2k5D4^IL-wSf=`*Gl~w*8Wh}
+z2EuPOko+_T!tXSYGBFTEDT+NNz`BFP1hS@4kUIc`N$<q`mAvt5<ey%VALK#)3j)UZ
+zLB5szB_gCGs&n~oo9aA2VB0j_PO26~8*iaHv@ts&WQc!<3xL9N;NCv`DE}bWZcL#|
+z{t-c5?JznX=SoL@@E9S37mqJ{aNekx!Y|{MhJ@@d^ywfpIz_tdLpyPBl{sfJGC`zX
+z%h?TN4++_v;4Tsn603GbG@ev@fC$G^DusF5CyX7w0f{XrK~-lCl0c-*XiAW|J>bp{
+zUj#h8{H1@M@!?qI2L$>n|6wgv9^@}8`OEXlUtS}Bo#l&EJU?s`2I;n8Mu0VF(P+W}
+zCos1?s)5p(AFv7#>Bj#DzP~^4Djvv(#RL09f56B11LpByTf_sDGB*(Pd@$}_IQpYh
+zYvFuz^KKC0`Xjh|%k-^GH=YCZ3;LUQcYiZ|L4SV}*()VN6dVCodV|xulR*=<91Tuj
+zOh`~~a4x!&`@Y}Z$s6CsAFv?67XASH7XFaDEkGa*%ZmysrA)T&pwl0sanRupf&5{|
+z?jW8__(?oL%*zKY&L16!<K~ImUw#Vcz&jj9<_419O@NyiPa_KV@mYr9?u3Cd6jE!2
+zI}m>jcNnn09~K3xKQ3rsK@d_^5=8Aq+hOL7l;}aJ?{8YO=l~$7`7i|n2bKOH3PtDO
+z!=na`<`W_yraOWB4)v!?{o#ru*W$k-a4=3Ugy@~+Q~eVHFE%JVS3kX4{j^d)qU<k+
+z`m<rY{^C-<B@9yx9@IZn7s{djSbFWO)P#TPHlHpp1VsdR$;*pc5uxKw7{A3KaOHz&
+zy69TnBMafx^3SUR1h4V|UHKpi#=Oc0vdRbiVh}+-z$_o2HNZ}X7%lHGgH7`RkbLo<
+z=L0`^GcC~<*heiG2-WMKsd+Ivj41tU8o!oc{L`%A4;RNLK*&c3&j0`b07*qoM6Lru
+FV1jbb<K+MV
+
+delta 1145
+zcmV-<1cv*!4y6yUJOh6OQ%OWYRCt{2nvHVfAPj_A2?PSa|MT8R`Dqd(a&t}Znw~Y&
+zX*+D}fZ5Lik<t;nplm_W$bi@dOo-a~BnT8Zx0?d13*_JucrKu;fC2%X1r!KcYo(OZ
+zTAK-=AOcDO0D|rmP%VW{QHt&b3D9y0#eAgn+CFPec9C;L?Sg+=YlZaSVRdh>6@98e
+z?*O(9fb=@)#1O*f0aO|LaTo*Q3JC0<Nf-Fqi=ZQ52K!IYPvq<$&N&{abo1+oRbVlp
+zl0Psu--Sb+FV@1kJ?A!6$Vxy&)S5Y;nR9EDAKNoCwMPCW{f`GhcEQ=3L{kBo?au+;
+z-+~wyfelBQd`W+ZTn#?&rXnjTl~U%g6~(4%Akn!%#~8x|As^J+MIL%^8|IuW61Q)i
+zx!1)7dY3w3!!=N=)V`%4fH6d5F`qD0e54}<8$w72$M;AnVT<^2i31NW2^;{SJAm*X
+z0;K#kfRrZy;ZFjjt^fifNSJV@WJ!!51V~CyCrB(H9WsAS^sWKqwIHo0^$|bD{`ubi
+zkAm!i8~aZL^dx`CZ)X3zaIeVP{=JK=^9S@UEBjaTe`NohMXF%LYotvEvk9Up2eZCq
+z5Fr3?EFZoRKghfp^Mfw#5BSkO_<&~unY3pE$cY~Y5TeJq%Wi)Mh=U|QD)>Hq;N5l$
+zGd={3_JV(618@<5X?Kf+D?LP9x$6fRIg~U*=k_H-hpKLoAQd%%V`MH!EaHl&J&AY%
+z5jCfjYGv-*LP1q}UtMB@tx#e{C5T8&kmNf?G6IZxfGDr=fFpnSKkT3H?QeUGI|1F;
+zf4|$B@9m$T**||<`{&=WzpV0$R4sq#EBj0DSP6eNbAMggUk9X$<oQJa6EF|iqCIaq
+z<qyaH<JSk?oe%u!^dP@5J<u=Y175=itkZ-3Bt1a2{9wh0UZ3n>!t#R=&nXa*=s@Iu
+z9%_UL3m6IPXjx2b9O!sW&}nnwf39!h)Ah~t7wVfpE#42JQYTk{R@)b}>ZRrPvm$JT
+z?Hzx(0uw>9x~3I47sW@i`lr`7gDC@MQykUF9}@KLe83YvK%ejd`WAdh_Er`UNP?F)
+zthv@2uFM7AZhV+u0M<R{!?Xf|G3@xlwrzp?p=#;X;@uB_?~^@}_4dJ-9G<w11z*l_
+z@Z}Xjr}zXP^2M8f#E0|}fN;*dOfcBn!vueW+15Bwf+4obYOTTfLHn&Y=*_X8`2i~2
+zgv<aUR<jck+jyH6|KMvA^)g71VTi9zhR%;4U<@*ed3b6+s8aQTs5HL^fLb$WPeEqi
+zA%RZ_qE-GtOh^9kGlC9&q;J9xJ@ccO|Mv#R9Y3%)IOKyLQ~#mYdg4c9{_3fL?E!HG
+z>kHVvgU^^Kfl#%QxD9y(5EzE+p&c2<I|LnsNdKA;Fx%Y|;_>5(b%p_F!j%xg`6PG}
+zqEhSpjJ7QwY#=O=2p-n?97$wf*g+QC%?`346WDniqr|lR%h2!(MyN9ir^SWB00000
+LNkvXXu0mjfrh*{e
+
+diff --git a/graphics/object_events/pics/people/johto/kestra.png b/graphics/object_events/pics/people/johto/kestra.png
+index edbf180f8c227f07148c28b3fe18dce01b44ce81..8e96d3484b9b646cb41bc18541398b3fe3d55062 100644
+GIT binary patch
+delta 968
+zcmV;(12_Df5cLhPJOh6Nqe(<TRCt{2TG4LgFbFhRn*hQ8|GOthvXxE-SG{f3_B^Wk
+z!mQ0^H50%tW#LnRh-p|22?h1gBPSSQ0wJlAVnjhDTLOt_%s^EqM7tna1U(NL#?e#s
+z_~>aM${RsOd!W!ACmALQ^aOm2P-gK0lX!W6KSg*140voO9%FyT);B(}^*&soLTjzI
+z)}YoXNif7omNOE^7hVlaEuieCu;jx#yMV^4Agb=nm%0W7HS9(p8f~Lb1XiVv!~TsE
+zWV*rup|C#X8(IwANsI}ImcFsZTVOqq1WAbk0vv)O7|K_A?@kDn(YvJaf{22UDGT`V
+z*b)M4%#aeQNT`4PVsWg7iTnX@W&kjWFMJmR+1($K5APWPp9T_Y(_khwX6Oz4uz~2U
+z{vZcl266$m+(3}Ici@E3+(BYOu`(wYKcp!xyc)Rb2VL^N<<DvTuvrC>5Sr^h$)UCe
+zP~$9#2%seO1DvZbi}?1&QOr1apArz$IPanVppx!;qD+58A1tKW)yp23$4lsK4$PVp
+zG@M}28IQgxdYBZ4<B4J~O(hh<qest*$lO6<0yv@fKAv!tiy`3x#p`-We{`7C55Ukn
+zC-nnV5UDNMqO1bqhseJuVXS^UtA<ei=$c97kN(O<i)ZiUf0TbYS2&EY<d1Xtb6#Ko
+z^OnS`>py=cG#@|2RSwXsJb)y<g;!$vgJJo@`{$Fz++oZ70jxS`seeFg$pDj}0AvLO
+zockn6E_~JTW$~%t<aF}TBO6aBGsp7_w3Ek3ndN!<NF1esmwE8;?6F)n<%>*@FZEX+
+zUzYp$GWtQ`I=*BHJcuuX1O%w}@nx6-)K*(|eqn!r#9<r|jd7k>2J$7>8*p;F;qZ5N
+zVh`%>kP*}_H^ly+cIm*S7nUiQ6&QGa{FLuFuFv>y_6NMLHw5ubZutj{P2@I^Fo$;f
+zLudd{-5-(xLW|Ai#B4ZGmNk4M1EGE21LZn!XXZU2kl#&;Uk94E7iHdnu(t=Hk0IFs
+zhjV`@G7vr)6d4Gic&`*2h=_>GH!u)9s)*PrM_?d$K<^zwLb2Y%5E=kT@AjA7j}nph
+z+>fdsz8_WHK<c_5^-KB-8f)S&`QuFfl+*`~w6%YM{MGe6jN|_%e+-^APx_0kUxXGl
+zAoZ*tvg=RP>W4{<0IR?FDg6b-(k|!ahqOREpjml<srbwChnM*SPRfI~{(=L0kaiJz
+q4@Q(%dC<Zel;G}=jUPUzzxV_8B~5^h|BdGW0000<MNUMnLSTYLywX4b
+
+delta 1265
+zcmV<N1P=T44V)0LJOh6O%1J~)RCt{2T8nn$ItUbwJO(WN|L@*|EIZi^kh}NM-L|3a
+z>4T{vJDTxGP|D{E0C~Q(h8OvkA<*`=CjiV5A_N+mh%^LafEnBxH?WI<CC628V|EZ2
+z|7?IJ-j#sI{Mbej8_NeY*p+wyjF-QH@iPKYegx>#&44nW5N3bY=UEaz29;k26nc>_
+zg)q|y^0(W7z<%)ax*VY%Vi6IV01}bq3DEmUSdjhlG(@db*L59VRI5A7y3P;(Dhe@^
+zMRXfVA$t7w*#o%-Y_`A?#3o~XM}q(p;6s4cHaQUvyPCxuf}c5#NsDbelqAZJfODxh
+zQf)sF&l7ASe5QXRKzkstgOCS+D^nOMG_u}JC<O}G<qw3bbG`0h9dhTcTXfnLszy+E
+z-D>Z>AAn$8qj$A@yzT)gQd*GQZc757#i*SDq<0dD5mZ&FM&vHU71d(R>0j41x(_t|
+zP88|j6<<UkK1e`HH2RhS@E{;AF`C7xK^}dN*tWw7M0tM;z|k;_)LTHx2MNfM3ka5>
+zAPGQ*g2Y2$9SV|Z&`N2(n3u}APhUqH@b(YwP5<(7^q15>EXMx?AcOyje^>|qlS$Uq
+z_+P`z<aM=uNC+Uig;Wy%K&QnhUpVmk?18bR`PLxYO8}7OWed~?2Oll(n+ps!ZClJ-
+zm}khiU5<bBArB%Upc#biASB8+<F*grJ0Lvb;F*u^1W)~hbNWzhN!z=njJ<Y5iyo@b
+zoqRx{17I?uE})p@R@EL1U_oS3hkx!Lik&blOY#ary}R$!463AB*K7`zDB6B}8v}uV
+zM}Oq>$LSdY`eSk;q(6?wWkP=(mLR1+e)JFSRknXO{Xdrek{b*XNd$sq@IO0$sK);g
+zK<hYuKx7Zd>_c|`NT-7e6@WguG>mxbgT-4PK3E^*g*_m12bn&Qxr10Ah=w}|AOFPF
+z+`(Fr0jeEO1_%O^-HTWC3;O&rfxlC}M4oTi=>!I|;sPdclqVwqMq$zC)qMwXu*;Vr
+zK2(2%#mMCV+N3X}u_se}R~I`1h{~5|c;!pJvZE6ERm+#f)M1t{{Y68!S)CM7b&eS6
+zUcOWhK%;aq%a@BcK&^C@FM}!4QNRrA7v%u0vBZp^7x|LZKWF^;`hi>@@S?o|bIHf~
+zeLR{IKpV{qNqa*(+YjOyumOVh1~ltTFqnV%?F|?LV-dAC;4~pwd&3#ux4i+l+8f;b
+zqB^XBh1>qHsOr7F!9^_h_J-cwSD~}LAu4f_NrN>vM2~l}e@>tM^c|$(KQb8XvhE7-
+zwrv>#n}}?Q0pZ}eJ>yQkL_lW5XPhJUU;`qD#Ta`KS3txH93xDNo&kISjxB_5Fywzk
+zuqz<VyuWD#LIHuQnvNh45MZyWT6dT|_5iw5@1x4$3kXJq!?qt${}Z%#`^@^IR5j_3
+z>ZgF*>i^XrwbmgZ)fB{?WqtQY{Sy6=0k&<+6aokRV|w$Xe}KRwUbM}@m4DN}{z3GI
+z_h!iDAN>8r()&gK)di^L`-@_IPbX>p-AR@*_ZK1k%elYEJpg?N6M<Lz3r_6;*z7^}
+z@JDJ7z%T3p-u9q;7JUG6d$2t0FGQRp&_#8<^uc@h|FFMs4=~2|VV*zu?%=Wqaq)qF
+b)BfTwZKZa@F_}mh00000NkvXXu0mjftQ}zR
+
+diff --git a/graphics/object_events/pics/people/johto/silver.png b/graphics/object_events/pics/people/johto/silver.png
+index 3f2b1088590a6c9321269151ab0ff32f9ddff0ac..daff553a8a2775780e9b63b601cd9748d232ab08 100644
+GIT binary patch
+delta 884
+zcmV-)1B?9o4x$aPJOh6NP)S5VRCt{2T3vJ8APi)&BTyxq|Nn100_WNXBzMwWn-6v_
+zmj~?;Vn%x_iIf(e0-`&DgbWg~R}eoA;ea7VFkl`>4<1IEGKl2?o-V+DPT(nlnAte?
+zYf4C+F+gu3;FiF~xPFqysI@XNd5@B))=C8DFiL%(Oyj!k0~>$qd<EpqkWq@a2Rz;#
+zM*8)>@P9#f@<1Xnhp4BHPvI-|yaUGwABV>v5xz8Jz5rS3j#YeubOr}|WcKtSB`Acu
+zK6t71a?;QbkAPE$1~`vXTWg&_-V&|pwZuH0N+|`z!GYCUDuVN@R4ZzA;|Y+E0H`A8
+z{U-gfZ8rjdB@lmKLO@c_PI{t%u&GBk5dTp?$ihKx;@b!aYOO);o@i~$*(W4`D6kL7
+z7)u>K259*Q!}1RoDw#V7lCv7YdyEF;eTS+q0Nb_!Ir{_*aaaoRX+W_(kVqcVDBOJl
+zj#xiZw+@F0@tlJ0E_#o{BN+NNoyuKa^}`|1Xh5*2vxk4w2`o_81sQ}+Ew0QmGwInJ
+z0uS+Mt<6jSG~%kx0;w|y#p?_hh)_#ZU!-myg5yTcTWe8r!|cQI51$7VHz0|e@8x$(
+zf9d(@_9u_$r@wUf;7U;XHtAo@KSb$Y%|8U$yYD$i{sC9#A!tw_*x$mx2Q7V&r4PU5
+zf20p={Yig{`;+_b_a8txBWzD%tmE%t;p2=ilhqGVc_Du}zNFE6aGRX;{P88aHjMb!
+z7+>m~P%p4L1i9vy-gL6GLGWZWrLt#3FuyS5KtMXMZ7BwpfV>B2=>xupJ`}yV-cZy&
+z-{G7^!F9VqJP!gMgyy*zT>9X<n0%)V+Zug-BoKc+`F@o2=|dnOG8DqEFAmcWe*66>
+zehvEqLPH+r1Y%}Yr9PpU|CbCkz!#7oFRJ?TV@?1u*<`TcB%XacgUM<SgCh_iXlwR@
+zw})Dbsup++#@fxrkdRrt=z|d5k2=@=sBe@0iNqVoy-)hnYy9p0f&Vi7!6G{T&ZkI!
+zI1g+axYFPA2lXbqlVA|w6d*;hpK_j@y!0<H_psmA7kd~_tG@VGprsG|#q@#adqBPP
+z!L2VI`Y=C>qBgwbTH)0fC2`jWxLs1KP;&O|LmzN>p@BEm7e4{Jx=l+yPTAi80000<
+KMNUMnLSTZjNT_=N
+
+delta 1103
+zcmV-V1hD&}4f_tTJOh6ODM>^@RCt{2n(LAyCk%yk01LFp-S7XlDFL2!ttC9EY^IXg
+zR=M0ibWC5*X9=3<{};^f1bweymYssRcl$&VmVUo?>0NvUdN;uc_`mN<ad*eS{B6Gv
+z4T1qa;&ll8B6t}B@~jY7AW!*M0n3P)6>(03<vE<w<TnERBJh6>l1FBJ!5xC7wPxwp
+z0f>mvm|L?ic(=2*=cuoFm5ee2S@cCwRe?P68PHb&)ryj`MJlMTc_Kn8B_;dv&VlSi
+z$JwootHAT-`v$+m1DmzC8Xl&KCCu}|j}%zexx4nKpZUA5fY=e-EguNjc5evr0f8}q
+zA!<Y@=u_bshaP`JOow}r66FEG$le51beRJ8QdPYjycvM%i9;6!+<T_yd7e{X26u-z
+z^<xNcA5?3tgA?H$Z>=_Lo|(q2p|vPY1auRG)&tHn@4U-)EzSQM`vWK?<w$|?opU5u
+zfo~6pcfl7x=mN+W0|ae@2QoovAs&e6FoLA0Iv^qxRStj42MgE{Zq1KB0S<iGpDz1<
+zb^U-h_HStJWnOVG8v$Z_!fFRqL<Y~JLjh7GfK?7iY1d$2ZlYuOlY+N|;4#IpNlV}6
+zWtuAFM_;oK!4rcuvk)pU(P0{P&D|$nhX1_>0*{%49t?p+jvfhkkt52}#{`6QR`)b`
+z3Z&bE@11`puOaxjIc+&HKYXtTPER0n>Ot5rqVXPB_4EdywG)Ox#Ld%?pw(S}L8E-&
+zT?fLg>;y<DpC^uups;Gxe^`w2;i?}-T=pMv+5c<o->iPvxw~2YurVK)Vg3*Q+e=Al
+zQ$HYEeF1ABB0-)L5AiPWhp@ro;=_oG4_{UuV9S38>01G;x5&)Lc7C$N(+l8avy-Ld
+z90@oj?4~DyZ$b&amM{BrT+5g8o0c!N`klcF@fIJc_A*x|OL7+<>v_r)h;Q$zIu<W;
+zPB-72)fPA{!u1Opy}>vJ+C+MjC%jwUp#MHU_~Jvq_&~pd4^`j1-cVKT=PSIsS*uMQ
+zj=z8I()}6)Nv1%8Dh9XtdPB}GfoQfD#)shb2O7t)ojyP+DNKGBG<-6c{~<v7ZuNpb
+z0gyf!5(A_!LIeQ0e=sHj$bF<G1c*G$9RNgr+CKycuXHHT*=l)&;n7>Ds$H!RAW#eV
+zD<mw!KW?ge`{6B4fLH5b^LFY00K&p!g~NZ^50=+H2`s33p7yEm2*OrBR8_6kLpTT7
+zR&BAiFZrrslM_RL7QY{Ll;g;0_kPrIy&v_t;LHB~vOoP@`@^#aqv2tHw?4p={l)Ju
+z8kWF!_o;$%^y3ha+kmJd<$TNe7Pz}sTfZ1(%BDcTXZnls{rd~L_|Pvt(5Lu-H|0kG
+z%+-qzet#iPe1LE6HU(&Ie_`g9!3T&2{Y5f3<e+?*{l%yce84>Q7jE(~#J|yB`~{Bw
+VbYdUhjNSkM002ovPDHLkV1ner7XttQ
+
+diff --git a/graphics/object_events/pics/people/regional/hoenn.png b/graphics/object_events/pics/people/regional/hoenn.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..555d2e3f1f2497146e4c275bc392c24d904f1ad5
+GIT binary patch
+literal 1661
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAAYjShRL$V!
+zRUIV2Q0?S2#Zq(5oW1AH-McrX`2Vpf|F3QR|NlQk<tRBC0>dc;UNxls1^S1vB*-tA
+z!Qt7BG+@Ti_H=O!shIP2*2TOh1{|)E#~&EB{QrMf^v30H2L(c>Zkru>zx`X|>as_i
+z?g<Pxe#r_7E`9jf=KPJOidB{Z%@xAj^OtYg$~=3AbCR=gc(gRf?e>DNmYnu7J4_hr
+zE`Bn;kX}<O6dGT+_Vtc$g70^gT)9_WZ#Uon_g<q33G<yI?Up5Ei{<6!GH9jBIBOpK
+z9@)2YQy+8mnHU*~2{SL&v#@<I?&GU^9sh(m_2Flc$o=_h$J;HN-p}?kt?N)tPp~*&
+ztWuC5aJ)agJV9Wh$!=E<3v-(wW`Wr)nl)=r>fX%uU$W|CVEEfryIKwhTs=2Oa@MWI
+z-^8T6l+&^TzcD*#x){nG;Ni48U^L$~$?Cw8LZSP+re-j+<S`4pJ)`MxWu7Sui`-ex
+zA{j^B<6$upj!aAoDjEYH{bHQ?cE9@b25Gr+p<KHIxjzo9dHwB3=&bAFiH(ghd-i1n
+zHa6J2C~#q5OgY?as-UQFA@}0%50{o5k=-P(v;ER<cFF7P=?@NE`@`mBTJYe+pCA4Y
+zPShlOq!dW97%_9lO3EodpAa#J;iM~1w1x7@RcRkz-Q2%#f5FvtXJ#%et#<kASRbhK
+z-}{nX!*=nRjC=Rr;5}Babc><!H$#i%j{kpx>@zq7Z2BVYAB6rru&~+vufR3-jK(F5
+zGjFl%Y|r@2`0j9fo~&C~!j~`q7M}UtE)=UT6aJmw=AHbcZ%#H_-pk)}-NL@Wfb(-R
+zqsG<nnz?(Al=3;4nw7{mxUn*wWz68!=9t4A(4`UnjKRd@z>J1A=AaqE7jh094ByI}
+z=XA$o%TEUT=gc*q6pdbVeBZUsan-As2_3wpdLAr2LRGpR4jBclKYj06$M86KZ<2p_
+ztD|D}m*W%veca|P{Zf8!(T!Uk|6eRU;?2z0<Y6#RVWYI6aC^7&o3+j<46}7?T;vj~
+z9gh67KlE?GD+zyrqrU^Q+}ED0o04T3zej%Qx*U72?5pwj`h{-ydzmQ|ym#LVip+h?
+z0uj=$xD^V2FJM;abd*&ntY5fn%l-i76Z+r9H+8q0gW^zC{=upP4gPj6ZT}uQU$Ogg
+uvVF<^8LV!1;?FQCS9I*Z7GEPSSkIud$&J(av>_9yOz?E|b6Mw<&;$SkMV*!a
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/regional/johto.png b/graphics/object_events/pics/people/regional/johto.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..52ea7603d90a12d09251ccf3e28068a214729db2
+GIT binary patch
+literal 1772
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAU}$J*sj2A{
+z)Dz_76lJIxReh}5$!YD<b9<`=?k%l;|Nj5~wTl0*?S&{FB}YSG*o1)l%JUb2o?$Er
+z@(X5gcy=QVm@#H~x;TbZ%y}F2w&<|}&lN4Mgp`W^$M*^z+k0+~OWL}(v9~JJGwU;&
+zKOSG#%5t$)pMhWJk&<P1i^w_4&3^@_GkVy$ors)MaBlV!PQeNm!QUT0+N;d@G1-CT
+z+4db%9tnu3H%HD@T(Co4yz6~=zr%sQN6vN&KP<C8w0*X;`mVVj*cH5t=glcLa0ukR
+z;3wyGeecz%+w1O1GwoG2b!OUCKWkF!OjYit$Sg_o%{!)_RA5SLt6$Gk{Nx3L_`Fk!
+zKT0|@^e!tZwawVZ&s^}{!e{zrg__#a);0<`-N`&RQe>SN-`uo+AoyjUsIA36MUmaF
+ze0v|;-`M+o-72YH&X$i<#oRPqv%R<<hAg-yk~KN#wd~e5mbO)k+HR>fW(f*jx8qSN
+zW38I*V`os;IY;@BONp%ho_UQP|J>O&aqe$u4CuMluuEY{TBJ+w(wS||N7$SaiYH9n
+zrnqQhtK^~Vl85t~*Z*m>3;cKHfA~Mvh?Dj5zxpLJPRc0EV-7m!RuI<BJSnt@O+`r|
+zy25cmCf{_|JuZz-(^$EzLSKq&WO)28>EFMFe_F2V1Ir2vhWV^Q)obo<wQtL1h}yRM
+z*K*E;AIJH4U-Pe8m8Q(dsKLJY$S?oU?(k&GiCP!5S{+RPXK*u5oamrq!x0qn*W@ij
+z$m3Us4@|Y+Gvm+Eeeo*wKiB?~*Q>XgU~dw-+QFr;DeUt9pns(=?04ON5%whZ34df&
+z{4#dS=cQE*r={ny*ZgFz@3J?rcdcTW5?VFEt!zX4KZa<lC0C|>^?V|8-NQA(R`qMX
+z`CQgBmsRgrUU({`e{rA6liXAG-WTpq;oqh|@#n<G7vD4DAI&&oo0-7y_eFf)_ubYG
+z*VF!<wq=#&`Lazq>hn?dqtU;OW+)%KydfiglIHF&a%L86r<yGkzx8*Xwzp#hy1};H
+zehT})02AMO4!#A~Ds0Nke|Yv~-O4R@zO3NNc<W2MoT{bKU&dW`?i~meoVJE1`{+Fd
+zujJ`Rl^7SDmfDy8yNS7Jk7bAa@sj?)E8iY{s&2mW%vQ4Ey@KMy7H5s8bDJxQ8>YFl
+z1)VYxh_0$m56pSF(0%&h{d~3Udqckm%>L`5GJnzD+sj?_%Vo8ve0uVGamkzhOWE~T
+zj2r%M{==C+Tl&+pz2YANe_pO;sxJI1`DuCIl2wcUN}O@z|G7MaaglMoM_paR@z>mk
+zw(k4k`QWtt2irf4{C^n3EM@*}h=@1&+@4UI*z%J9*Tt`_FK%8F-_MX4X2Z2xV9z&D
+O`Qz#8=d#Wzp$P!E)8Ik?
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/regional/kanto.png b/graphics/object_events/pics/people/regional/kanto.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b788bffda9e8c2a73c4db7ad22392ae02f19e6f5
+GIT binary patch
+literal 1629
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IA;AENXWoVck
+zw71&HsU?|VY0vv>YZdQJDgM59%KvLy|KIb1C>te5LtvPNz=dUZB!FIGED7=pW^j0R
+zBMq1_xIJAQLn`LHopn3!u>p^ZXa9*ATmJvA7N7FgihoIyt62Azs|;Vem+fPjDLl#O
+z;+1x<(9#`y-v5q^-m?DK!if0qrsp=i%YJuZ>-zV<qonmj*=%)>PTrtA?GW4ZGYMUf
+z<rYkn^a#1QRO@H)r$W}NU;cNdJkCqJcgeUT_x7PPdva!{@);h#6qU_wV>-cL`|-yg
+zGtM0KbuvA-psQxC#K#4zH0Cwkc*Jbg*V_F4@s;n>`xqC_<u_IM^2k{*&gP?H>4Q#w
+z&6I-2iD!8(oL=~QUhT)iwB6eKJ&iYS2t6rSUUoUpi&sT2&p>;!tC09b#{#j2ox6@+
+zxb)!MTVCcum+C38D?B>;1#UC&#o9dlFnfux!WT(~M8St)%q@47_n69CtUC~MPg&60
+zCOI}CU`f4F(yMDvm}@!Y6&4=sw~k6KUN7s=UBJ)4)ZqH+og<UM;xC_F4*O5qH}hYq
+zP5p)CKb^m=z4ABn-vsGv)eIBs)^9v++4t3E&W=zClSTCo3bi~(7R}mRZCc+Td1h&p
+zdeXHW4m<q>ec7hnx^P1l=)S%8<1eg{TQ<*x(P=*Oglo|~w=O8{na7vt9Ps7Yf-~k-
+z`HhZ$6E@e)r~<i(Oa4V@Gh_K<vl;%6X87|g<5n_Mk`>{&^PHdAqg73%uD>L&;nQvD
+z1xfm54ytw2`*|;L8Eli0Uf|t2p%utEkzdC(M|#0hN5S+CH}(B2Uw<u%Tek1J<uYdf
+zvOg*>pD_QwEUuzce&T4m(w?Hviu+kNck};ba9ULMqGm<fk~0=R0`?wtyekxYVn@XW
+zabd1mJwNm=`S;tu`?0*#Fxuh*f7nv#z0NBxo#iS&5--T(mM?qb^jmgA;qMk=ucLeZ
+zEjG}<*Z(Qk`H1}OY1<T%%G$(59V+(8n|{5&6c{613ZIx1lFZmTTte%ZmN<ySe|0{)
+zVCi-KO;0(LtQdoWdG_v)h<K&gd8}u1)KWuhKHsuG8bBBS4Q*6h>Adepz>>-Pe@u`*
+z@@Dn^6N+1NFa7Rb`lx;899FkHg^BkT@x(27CF}N6>}TrFXtzI%oDvp_>wG(Yg0j7*
+LtDnm{r-UW|?M<I&
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/regional/sinnoh.png b/graphics/object_events/pics/people/regional/sinnoh.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d543c3596f9f51b8123cb27b0ddf5c02679f6034
+GIT binary patch
+literal 1737
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAU}$LR<P{X;
+z<P;TD9aSAw45XZ#s+UGBUAuK_PxZZ})%Wf_|9@`I|7&|8>PN}Z5EvdIkhAl}KcG(-
+zOM?7@862M7NCRe!a!(h>kcv5Pqu%DpDDr$^cy{<T_xu0brY63RT3MlN>N|P2(aC;~
+zc^h<g&6MVGk&bUPdU*Zo*#&&cGGXDrH4`KCtBgYW?@L<r6fBZu7i(F3ccK`}p~4rD
+z*F)!O^;!N~*uF@QqpO&$-ASC~kpG8AoGvW;lDG1-38Yz8u=pOFQ1X|hNvYeT?OW>J
+zRi_j>zCHE+(r0l^ld1NrKtr;bOPeugoxq;$7dHC5+RHjuxtjk*h1%a>iPGBY%TJG6
+z&G_Q?cly?Ux1Il|uKj;a?WzA)fBUO@*Im}<c^<sdbJ?HZB90v^)vivNBUtsmcF&US
+zlS;3x*6)d0{Y>ZLYGFf#Nt>;iw%=1!x~I~t%hGaFIb}syTHLL6#q{W<_lg&r8vGMp
+zTiGIfgY9EHOUEY;0q*Jr`;!!23M%x88%&sDchO-H!=%50iz2!vJn1s$V}Cfsmg!Kz
+z1n$!2oBsUF+xkAQ@6~s^`Ll7Jw*3+BpVt@G@7D|dFQ;s@Ikn#0-efLIdHIE?&84UI
+zH72Nayk%J5@af~f=2^8d-{h~nioaH`kUU41<GB0>zqvuPzA1WMXHhZczbY-mB<XlH
+z=ZGRhsZrS3=0*+6?6rBaC#K2QG-qc1YCnDA<Q>O{LJZGVN$FkTH|_uUddug--bdMG
+zdDQKu@SnD~edJu7_H+8DpP$Z0vLtMum-3|jnc;*PsW0xop1A1q1^Yb}7mD6b|G98$
+z*<ASzdmsK@kW;_l`N#Gj^XxeS{_5Ayd3hjJ;pVl*nfi|!r5vO8z4706nPr;t1+&KG
+zjz8agbN>0^W9qL3_E*#`_qj+OpRT&@S;h+~R~4t<w~k$S{&J~7bxX<yfsN~4|1G%G
+z{eOq>pMOdWE^ps49%s-y7s2*G`b=l8!GEUI-^{h#^($=W{d?d#XPv~q4g2;uY+Eh=
+zPT^*!hJ^a;ws);E`{LsZes8G}vMK$x?&GG~hFsqDEt}rE2VR}{hh2FM?-I6+x4k`^
+zwzt0AzH#IJowweUSNv{YwfA=Z*Z1yM3mG2W?SG{u{O|7yh3&U}o9gYm&OUrI;jr-p
+ztDFtH7?u0Eu9R}V`5kzlJ@q+zmC(=N{ipBGZT9<FeVu!O(G&e1RmN*k5}&^J$vbdd
+z|D?_x{Y|U7{v(&hZTT1Te=y(s%)aL_|AlIs9k=37c(9-TW59V>{)(~TX134mTkCBe
+lIWok)(SMct`Qzj@57|Gwjm(gXGPeSiES|1@F6*2UngH=~?Ueuk
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/regional/unova.png b/graphics/object_events/pics/people/regional/unova.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..58f36f7b7e2333d5fa02ac2d4e469e933ade3324
+GIT binary patch
+literal 1869
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAAP^L!Y3QX{
+z+@d+>n4zJemsfI7P)o6w=GtTT&KV}3o09#!IO_fT@88dDg{U7TM?+wEgh0$>9%G<S
+z7)yfuf*Bm1-ADswjNhIvjv*Cu-bTgtKhY4-4nESt!~6gL{drwWs^c|g#NM5=>-(ej
+ziyjf20&mvwyX5^5Ji*HNdlqB8PjHjkrG*LiC$Gx7_5H50&BSB+0lu=Utg1Ly=<}pA
+zPMYg%#J`+#U%;Hy4@{f9S8NSCbXQA8_FouVn?Td{iAozD3OId{5acjqb7`NrSmBsN
+zV?_I7*6UWRsXP2Qa>Q4DdoPhC&v{tCbkTXfcS<hjbiW+W|I_~MK<BscdlwGIP7EsQ
+zFEx7T|Htu5D!-MC`_HBSKYB|^KW~|2-CV-Kf5m6%+`k`Hq_Y-^3CS(o8Wv%+r+IF)
+z_A>jz#+ahDo8KN=e9b^o{K|&294iEGn^n4YWE}q@>yo`Ww8Qe(moo=!a@+)d=v6=7
+z`(*#}f0G~CGu-g4+Fh<zqFP_}{zm!b_Y*FBc`DHNC;BzdEBDj(v;U;eUp(WFy8WJ_
+zQ}#MbBHIrhX1&1Uu<WCf`X^T(F*zR|g)gFK!Wiq{9DD!p8~e}fKaOGl1P*OG`as2^
+zZC9=$o4Tuzci}2k3FF*Lo7y=Wxm2D9OZlZAP^owLznM$%Nm-}AmP3d2l9OBl>&`xy
+z8hhjYsg4P8{|wjhz7XE|qUXT1S>dr4?B>ZfNi?5|xt+Ymu0iKikoV^&Cu1UZ^;)n9
+zXe{j&{>^t~*4d_-mMHn)yDhqBbTe+xd33lnpubJSer9|}sOLMD$LlBTpW|xjep_i#
+znAwweMjIyB`+we0xVnm0Zh^R0=Hnkt*DHQk{7hD?cbWWOrGX>%-(^jOBb|Q|AAR>;
+zqQqj+Ex&|az+>_c##&Wv<^xH8j(tCHTmH-cNBovYGAk9Q3!GJ|Vba;V;+&o2xqn9%
+z#kXeGHD)q2XqQEN)z7PO`W@s~{ejnIvX=0JtMVIi;+H)yh}x!qH8cLz)I<w*>Gv1*
+zx#Y)R^51=UQSD6rmd&*<BMSw;eM|ik#A6_Fu!tjnTBn%e52@DLWd?62zECRfSp7ul
+z&eqO)-aUUC<sb43iL*8SDB;NGTNt0u@vtB)@Zx%Nfu%e6gwM*yG#*@}Q1oMIU1#{^
+zmJhPs0%wY34&Q0w+3sHB($1W)iCe(F(!Oh!_sM<sD~|qMdsCGCxWlKJQYPQ)LQ<=3
+zq&BB3tkGC2Dw02U&$9`4-@0W^tN*dElC@~w7Kez}i>J8v$|XD7%JnbKyFFu~dE(z+
+ztByRo*WdN=wf3=-e>FZ?yz#mFeX$+WpNDMf=h&88ujBOi@_Y7=us;(%>(pt)*2MgB
+zmb^cI%JvEN`agHymYx6U`<!nTr|!>W?pknqe^|ew!OzbHr*#Z|MhiSVD^y<hG4R1#
+z{u=fA16np6_k;^#{yjL^e)}c=hfm$iwl*8AR+_WUvOjQM-($|h#`f~F`u`aDQcU>{
+TFAX~iD&0I?{an^LB{Ts5fn^_8
+
+literal 0
+HcmV?d00001
+
+diff --git a/include/constants/event_objects.h b/include/constants/event_objects.h
+index 01efdace..46a60019 100644
+--- a/include/constants/event_objects.h
++++ b/include/constants/event_objects.h
+@@ -646,3 +646,18 @@ enum
+ #define OBJ_EVENT_GFX_CAST_FIRST 1029
+ #define OBJ_EVENT_GFX_CAST_END 1032
+ // END JOHTO CAST IMPORT
++
++// BEGIN REGIONAL COMPARISON IMPORT
++#define OBJ_EVENT_GFX_REGIONAL_HOENN 1032
++#define OBJ_EVENT_PAL_TAG_REGIONAL_HOENN 0x1188
++#define OBJ_EVENT_GFX_REGIONAL_KANTO 1033
++#define OBJ_EVENT_PAL_TAG_REGIONAL_KANTO 0x1189
++#define OBJ_EVENT_GFX_REGIONAL_JOHTO 1034
++#define OBJ_EVENT_PAL_TAG_REGIONAL_JOHTO 0x118A
++#define OBJ_EVENT_GFX_REGIONAL_SINNOH 1035
++#define OBJ_EVENT_PAL_TAG_REGIONAL_SINNOH 0x118B
++#define OBJ_EVENT_GFX_REGIONAL_UNOVA 1036
++#define OBJ_EVENT_PAL_TAG_REGIONAL_UNOVA 0x118C
++#define OBJ_EVENT_GFX_REGIONAL_FIRST 1032
++#define OBJ_EVENT_GFX_REGIONAL_END 1037
++// END REGIONAL COMPARISON IMPORT
+diff --git a/src/data/object_events/object_event_graphics.h b/src/data/object_events/object_event_graphics.h
+index 913fe30b..b51cba97 100755
+--- a/src/data/object_events/object_event_graphics.h
++++ b/src/data/object_events/object_event_graphics.h
+@@ -655,3 +655,16 @@ const u16 gObjectEventPal_JohtoSilver[] = INCGFX_U16("graphics/object_events/pal
+ const u32 gObjectEventPic_JohtoKestra[] = INCGFX_U32("graphics/object_events/pics/people/johto/kestra.png", ".4bpp", "-mwidth 4 -mheight 4");
+ const u16 gObjectEventPal_JohtoKestra[] = INCGFX_U16("graphics/object_events/palettes/johto_kestra.pal", ".gbapal");
+ // END JOHTO CAST IMPORT
++
++// BEGIN REGIONAL COMPARISON IMPORT
++const u32 gObjectEventPic_RegionalHoenn[] = INCGFX_U32("graphics/object_events/pics/people/regional/hoenn.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_RegionalHoenn[] = INCGFX_U16("graphics/object_events/palettes/regional_hoenn.pal", ".gbapal");
++const u32 gObjectEventPic_RegionalKanto[] = INCGFX_U32("graphics/object_events/pics/people/regional/kanto.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_RegionalKanto[] = INCGFX_U16("graphics/object_events/palettes/regional_kanto.pal", ".gbapal");
++const u32 gObjectEventPic_RegionalJohto[] = INCGFX_U32("graphics/object_events/pics/people/regional/johto.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_RegionalJohto[] = INCGFX_U16("graphics/object_events/palettes/regional_johto.pal", ".gbapal");
++const u32 gObjectEventPic_RegionalSinnoh[] = INCGFX_U32("graphics/object_events/pics/people/regional/sinnoh.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_RegionalSinnoh[] = INCGFX_U16("graphics/object_events/palettes/regional_sinnoh.pal", ".gbapal");
++const u32 gObjectEventPic_RegionalUnova[] = INCGFX_U32("graphics/object_events/pics/people/regional/unova.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_RegionalUnova[] = INCGFX_U16("graphics/object_events/palettes/regional_unova.pal", ".gbapal");
++// END REGIONAL COMPARISON IMPORT
+diff --git a/src/data/object_events/object_event_graphics_info.h b/src/data/object_events/object_event_graphics_info.h
+index 8a6cae98..2e942c10 100755
+--- a/src/data/object_events/object_event_graphics_info.h
++++ b/src/data/object_events/object_event_graphics_info.h
+@@ -7303,3 +7303,51 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoKestra = {
+     .images = sPicTable_JohtoKestra,
+ };
+ // END JOHTO CAST IMPORT
++
++// BEGIN REGIONAL COMPARISON IMPORT
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalHoenn = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_REGIONAL_HOENN,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoCast,
++    .images = sPicTable_RegionalHoenn,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalKanto = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_REGIONAL_KANTO,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoCast,
++    .images = sPicTable_RegionalKanto,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalJohto = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_REGIONAL_JOHTO,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoCast,
++    .images = sPicTable_RegionalJohto,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalSinnoh = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_REGIONAL_SINNOH,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoCast,
++    .images = sPicTable_RegionalSinnoh,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalUnova = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_REGIONAL_UNOVA,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoCast,
++    .images = sPicTable_RegionalUnova,
++};
++// END REGIONAL COMPARISON IMPORT
+diff --git a/src/data/object_events/object_event_graphics_info_pointers.h b/src/data/object_events/object_event_graphics_info_pointers.h
+index cbff23c9..1d73b3e4 100755
+--- a/src/data/object_events/object_event_graphics_info_pointers.h
++++ b/src/data/object_events/object_event_graphics_info_pointers.h
+@@ -409,7 +409,17 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoClerk;
+ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoGold;
+ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoSilver;
+ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoKestra;
+-const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_CAST_END] = {
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalHoenn;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalKanto;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalJohto;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalSinnoh;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalUnova;
++const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_REGIONAL_END] = {
++    [OBJ_EVENT_GFX_REGIONAL_HOENN] = &gObjectEventGraphicsInfo_RegionalHoenn,
++    [OBJ_EVENT_GFX_REGIONAL_KANTO] = &gObjectEventGraphicsInfo_RegionalKanto,
++    [OBJ_EVENT_GFX_REGIONAL_JOHTO] = &gObjectEventGraphicsInfo_RegionalJohto,
++    [OBJ_EVENT_GFX_REGIONAL_SINNOH] = &gObjectEventGraphicsInfo_RegionalSinnoh,
++    [OBJ_EVENT_GFX_REGIONAL_UNOVA] = &gObjectEventGraphicsInfo_RegionalUnova,
+     [OBJ_EVENT_GFX_JOHTO_GOLD] = &gObjectEventGraphicsInfo_JohtoGold,
+     [OBJ_EVENT_GFX_JOHTO_SILVER] = &gObjectEventGraphicsInfo_JohtoSilver,
+     [OBJ_EVENT_GFX_JOHTO_KESTRA] = &gObjectEventGraphicsInfo_JohtoKestra,
+diff --git a/src/data/object_events/object_event_pic_tables.h b/src/data/object_events/object_event_pic_tables.h
+index 275c2955..ed2bc7d0 100755
+--- a/src/data/object_events/object_event_pic_tables.h
++++ b/src/data/object_events/object_event_pic_tables.h
+@@ -2524,3 +2524,21 @@ static const struct SpriteFrameImage sPicTable_JohtoKestra[] = {
+     overworld_ascending_frames(gObjectEventPic_JohtoKestra, 4, 4),
+ };
+ // END JOHTO CAST IMPORT
++
++// BEGIN REGIONAL COMPARISON IMPORT
++static const struct SpriteFrameImage sPicTable_RegionalHoenn[] = {
++    overworld_ascending_frames(gObjectEventPic_RegionalHoenn, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_RegionalKanto[] = {
++    overworld_ascending_frames(gObjectEventPic_RegionalKanto, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_RegionalJohto[] = {
++    overworld_ascending_frames(gObjectEventPic_RegionalJohto, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_RegionalSinnoh[] = {
++    overworld_ascending_frames(gObjectEventPic_RegionalSinnoh, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_RegionalUnova[] = {
++    overworld_ascending_frames(gObjectEventPic_RegionalUnova, 4, 4),
++};
++// END REGIONAL COMPARISON IMPORT
+diff --git a/src/event_object_movement.c b/src/event_object_movement.c
+index e7924fe7..b54f61ac 100644
+--- a/src/event_object_movement.c
++++ b/src/event_object_movement.c
+@@ -496,6 +496,11 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
+ #include "data/object_events/object_event_graphics_info_followers.h"
+ 
+ static const struct SpritePalette sObjectEventSpritePalettes[] = {
++    {gObjectEventPal_RegionalHoenn, OBJ_EVENT_PAL_TAG_REGIONAL_HOENN},
++    {gObjectEventPal_RegionalKanto, OBJ_EVENT_PAL_TAG_REGIONAL_KANTO},
++    {gObjectEventPal_RegionalJohto, OBJ_EVENT_PAL_TAG_REGIONAL_JOHTO},
++    {gObjectEventPal_RegionalSinnoh, OBJ_EVENT_PAL_TAG_REGIONAL_SINNOH},
++    {gObjectEventPal_RegionalUnova, OBJ_EVENT_PAL_TAG_REGIONAL_UNOVA},
+     {gObjectEventPal_JohtoGold, OBJ_EVENT_PAL_TAG_JOHTO_GOLD},
+     {gObjectEventPal_JohtoSilver, OBJ_EVENT_PAL_TAG_JOHTO_SILVER},
+     {gObjectEventPal_JohtoKestra, OBJ_EVENT_PAL_TAG_JOHTO_KESTRA},
+@@ -3221,6 +3226,9 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
+     if (graphicsId >= OBJ_EVENT_GFX_CAST_FIRST && graphicsId < OBJ_EVENT_GFX_CAST_END)
+         return gObjectEventGraphicsInfoPointers[graphicsId];
+ 
++    if (graphicsId >= OBJ_EVENT_GFX_REGIONAL_FIRST && graphicsId < OBJ_EVENT_GFX_REGIONAL_END)
++        return gObjectEventGraphicsInfoPointers[graphicsId];
++
+     if (graphicsId >= NUM_OBJ_EVENT_GFX)
+         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+ 
+@@ -12137,3 +12145,8 @@ _Static_assert(OBJ_EVENT_GFX_JOHTO_END < OBJ_EVENT_MON, "Johto graphics overlap
+ _Static_assert(OBJ_EVENT_GFX_VAR_F < OBJ_EVENT_GFX_CAST_FIRST, "Johto graphics overlap dynamic IDs");
+ _Static_assert(OBJ_EVENT_GFX_CAST_END < OBJ_EVENT_MON, "Johto graphics overlap follower IDs");
+ // END JOHTO CAST IMPORT
++
++// BEGIN REGIONAL COMPARISON IMPORT
++_Static_assert(OBJ_EVENT_GFX_VAR_F < OBJ_EVENT_GFX_REGIONAL_FIRST, "Johto graphics overlap dynamic IDs");
++_Static_assert(OBJ_EVENT_GFX_REGIONAL_END < OBJ_EVENT_MON, "Johto graphics overlap follower IDs");
++// END REGIONAL COMPARISON IMPORT

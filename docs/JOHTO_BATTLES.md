@@ -1,5 +1,11 @@
 # Pokémon Apocrypha — Johto Battles & Encounters
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 > **Scope:** Wild encounter tables and trainer/gym battles for the **Johto** chapters. One of the per-region battle docs (so no single file bloats). Pairs with:
 > - [DESIGN.md](../DESIGN.md) — region/map design + high-level story (canon spine)
 > - [JOHTO_ITEMS.md](JOHTO_ITEMS.md) — item & hidden-item locations
@@ -23,7 +29,7 @@ A continuous climb across 20 badges and five regions. Badges interleave regions 
 | 5 | ~36 | |
 | 10 | ~53 | |
 | 15 | ~69 | |
-| 20 | ~85 | Final gym (Viridian, Tera) |
+| 20 | ~85 | Final gym (Viridian, Terra) |
 | Elite Four / Silver | high-80s (~87–90) | Endgame climax |
 | Postgame (Red) | ~90–100 | Mt. Silver |
 

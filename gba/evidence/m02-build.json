@@ -1,0 +1,23 @@
+{
+  "decision": "M02 experience package approved 2026-09-11",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "b23282df287872f914372b8b85cc71e55c45e73a52c93cb97069df5e12d62dfc",
+  "build_exit_code": 0,
+  "tests_passed": 7,
+  "tests_total": 7,
+  "sources": {
+    "gba/mechanics-profile.patch": "8ca139c9235258ebc0a984695c23d1cd99895761f508b1a12406335d7206ce36",
+    "gba/mechanics-profile.json": "47592339bab898caa8f278ba37a418ee9913a254d1824462c7ca0ef011322bb4",
+    "tools/gba/mechanics_test.c": "fcbe9a5681bd96fe5d1d04874224da15e5c56ecf42bfaf9d317b041c3f00ca24"
+  },
+  "logs": {
+    "tools/vendor/gba/m02-build.log": "71d74074fa71f2a073f6516c41df0c63a26580be2c95a33cb17dd23ade5e05e3",
+    "tools/vendor/gba/m02-tests.log": "76ed4228f9d6d97243fb8c6aad09ae31f3826f145acfbbff80d6347f36105e85"
+  },
+  "limits": [
+    "No full playthrough or five-region progression balance",
+    "No save-format changes or 30-box investigation",
+    "Species experience yields remain inherited pending M03",
+    "Two initial fixtures were invalid because explicit Speed was not supplied to every Pokemon; corrected fixtures passed without production changes"
+  ]
+}

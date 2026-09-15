@@ -1,0 +1,274 @@
+[
+  {
+    "name": "WATERFRONT",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_WOMAN",
+    "start": [
+      29,
+      20
+    ],
+    "mode": "UD",
+    "positions": [
+      [
+        29,
+        19
+      ],
+      [
+        29,
+        20
+      ]
+    ]
+  },
+  {
+    "name": "COMMUTER",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_MAN",
+    "start": [
+      36,
+      8
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        35,
+        8
+      ],
+      [
+        36,
+        8
+      ]
+    ]
+  },
+  {
+    "name": "JOHTO_BOY",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_BOY",
+    "start": [
+      42,
+      24
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        41,
+        24
+      ],
+      [
+        42,
+        24
+      ]
+    ]
+  },
+  {
+    "name": "JOHTO_GIRL",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_GIRL",
+    "start": [
+      58,
+      20
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        57,
+        20
+      ],
+      [
+        58,
+        20
+      ]
+    ]
+  },
+  {
+    "name": "CAST_GOLD",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_GOLD",
+    "start": [
+      40,
+      18
+    ],
+    "mode": "SQ",
+    "positions": [
+      [
+        40,
+        18
+      ],
+      [
+        40,
+        17
+      ],
+      [
+        41,
+        17
+      ],
+      [
+        41,
+        18
+      ]
+    ]
+  },
+  {
+    "name": "CAST_SILVER",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_SILVER",
+    "start": [
+      49,
+      24
+    ],
+    "mode": "SQ",
+    "positions": [
+      [
+        49,
+        24
+      ],
+      [
+        49,
+        23
+      ],
+      [
+        50,
+        23
+      ],
+      [
+        50,
+        24
+      ]
+    ]
+  },
+  {
+    "name": "CAST_KESTRA",
+    "graphics": "OBJ_EVENT_GFX_JOHTO_KESTRA",
+    "start": [
+      37,
+      22
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        35,
+        22
+      ],
+      [
+        36,
+        22
+      ],
+      [
+        37,
+        22
+      ]
+    ]
+  },
+  {
+    "name": "COMPARE_HOENN",
+    "graphics": "OBJ_EVENT_GFX_REGIONAL_HOENN",
+    "start": [
+      48,
+      12
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        47,
+        12
+      ],
+      [
+        48,
+        12
+      ]
+    ]
+  },
+  {
+    "name": "COMPARE_KANTO",
+    "graphics": "OBJ_EVENT_GFX_REGIONAL_KANTO",
+    "start": [
+      58,
+      18
+    ],
+    "mode": "SQ",
+    "positions": [
+      [
+        58,
+        18
+      ],
+      [
+        58,
+        17
+      ],
+      [
+        59,
+        17
+      ],
+      [
+        59,
+        18
+      ]
+    ]
+  },
+  {
+    "name": "COMPARE_JOHTO",
+    "graphics": "OBJ_EVENT_GFX_REGIONAL_JOHTO",
+    "start": [
+      39,
+      12
+    ],
+    "mode": "SQ",
+    "positions": [
+      [
+        39,
+        12
+      ],
+      [
+        39,
+        11
+      ],
+      [
+        40,
+        11
+      ],
+      [
+        40,
+        12
+      ]
+    ]
+  },
+  {
+    "name": "COMPARE_SINNOH",
+    "graphics": "OBJ_EVENT_GFX_REGIONAL_SINNOH",
+    "start": [
+      30,
+      22
+    ],
+    "mode": "SQ",
+    "positions": [
+      [
+        30,
+        22
+      ],
+      [
+        30,
+        21
+      ],
+      [
+        31,
+        21
+      ],
+      [
+        31,
+        22
+      ]
+    ]
+  },
+  {
+    "name": "COMPARE_UNOVA",
+    "graphics": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
+    "start": [
+      54,
+      29
+    ],
+    "mode": "LR",
+    "positions": [
+      [
+        53,
+        29
+      ],
+      [
+        54,
+        29
+      ]
+    ]
+  }
+]

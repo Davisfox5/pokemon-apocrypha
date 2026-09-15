@@ -1,0 +1,43 @@
+{
+  "decision": "M03d Gen 5 species experience yields, approved 2026-09-12",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "937e727aa305221222e7da7cc352257bebc4ce957bac91a5b3898bd5d36aa5ed",
+  "build_exit_code": 0,
+  "tests_passed": 16,
+  "tests_total": 16,
+  "setting": "P_UPDATED_EXP_YIELDS GEN_LATEST -> GEN_5",
+  "audit": {
+    "selectors_total": 814,
+    "unaffected_at_gen_5": "514 gated on >= GEN_4 or >= GEN_5 stay on their current branch.",
+    "affected_at_gen_5": "300 gated on >= GEN_6, GEN_7, GEN_8 or GEN_9 fall back to the B2W2 value.",
+    "roster_species_changed": "~190 (124 through #if blocks, 65 through ternary selectors).",
+    "magnitude": "Median and mean Gen 5 / present-day ratio both 0.90, so affected species are worth about 10% less experience. Examples: Clefable 242->213, Nidoking 253->223, Alakazam 250->221, Gengar 250->225, Krookodile 260->229.",
+    "shared_macros_traced": [
+      "GENGAR_EXP_YIELD"
+    ],
+    "exceptions_needed": "None. This is the first M03 decision requiring no pin.",
+    "exception_check": {
+      "sylveon": "Flat literal 184; no selector.",
+      "megas": "All 35 Mega entries with a selector fall back to a genuine Gen 6 or Gen 7 figure, not a pre-Mega placeholder. Mega Venusaur 313->281, Mega Alakazam 300->266 (its Gen 6 value; the Gen 7 rise came with the Sp. Def change that M03a pinned for base stats only). Chimecho Mega and Lucario Mega Z fall below 200 but are compiled out by P_GEN_9_MEGA_EVOLUTIONS.",
+      "zero_check": "No species' Gen 5 branch resolves to an expYield of 0."
+    }
+  },
+  "package_note": "This completes the Gen 5 experience package started in M02. The rules (participant division, level scaling, trainer bonus, no catch experience, held-item Exp. Share) and the yields those rules multiply now both come from Black 2 / White 2.",
+  "sources": {
+    "gba/mechanics-profile.patch": "3011f970314261cfa864ea29a9076fd80fbeb2a39aa0706446174026e46b489f",
+    "gba/mechanics-profile.json": "60eac5401cc8b6f300de2b99aea197fd0e9e079179ad3aeeb08d7642bca1dd7f",
+    "tools/gba/mechanics_test.c": "24e33eaaba3bd9988b8c5d77c718b86ac17d6e57fc105325a98cbfe058947047",
+    "game/include/config/pokemon.h": "3a6d79f0de01d264625b2e7d71449d5851a2c16e8fba65d781d88344ca149cb2"
+  },
+  "logs": {
+    "tools/vendor/gba/m03d-build.log": "982a44f5c4d16160566222a4e4b4564cbfb084e44434249cc8caa3ade583c378",
+    "tools/vendor/gba/m03d-tests.log": "f37e068e56c5023f85bb7ece9de165fa90bdca9a715805e46ae55f96756b8e42"
+  },
+  "limits": [
+    "One test assertion was written as 270 for Mega Alakazam and corrected to 266 after reading the three-branch selector; no production data was changed.",
+    "Static resolution plus runtime assertions over sampled species; not an exhaustive per-species audit.",
+    "No pacing or playtest validation. The level curve for trainers and wild encounters is unwritten and affects progression far more than this setting does.",
+    "P_UPDATED_EVS, P_UPDATED_FRIENDSHIP and P_UPDATED_EGG_GROUPS remain inherited and unapproved.",
+    "The existing linker RWX warning is unchanged; this is not a warning-free or release certification."
+  ]
+}

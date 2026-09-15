@@ -1,0 +1,111 @@
+{
+  "regional": [
+    {
+      "name": "hoenn",
+      "source": "artwork-library/emerald-hoenn/overworld-people/man_1.png",
+      "identity": "Emerald Man 1",
+      "sha256": "827c3aba7f909000af82df8c9609d8ab67c329679517ca32ea65fa96d40b47b1"
+    },
+    {
+      "name": "kanto",
+      "source": "artwork-library/firered-kanto/overworld-people/youngster.png",
+      "identity": "FireRed Youngster",
+      "sha256": "86dfa7e28d76ce53d82085ced36f0c76bc35b715ef7975e25ad8699850a6e6e8"
+    },
+    {
+      "name": "johto",
+      "source": "artwork-library/heartgold-johto/overworld-sprites/0115_gsboy2.png",
+      "identity": "HeartGold boy 2",
+      "sha256": "1b0598973319402e17a42bcc2ac4d1a4a308b0d86497a3d700c4e211afe7ca2f"
+    },
+    {
+      "name": "sinnoh",
+      "source": "gba/art/regional-scale-v1/sources/platinum-model-4.png",
+      "identity": "Platinum overworld model 4",
+      "sha256": "45d6462ce0c83748656c4f7d9157e398a86ff95454f26387f3186e438575e89b"
+    },
+    {
+      "name": "unova",
+      "source": "gba/art/regional-scale-v1/sources/bw-npcs.png",
+      "identity": "Black/White sheet first trainer, twelve walking frames",
+      "sha256": "ccff7ca20db75a4c86c2a48d3884b804a8153e0d120c428c072882719c1e3d33"
+    }
+  ],
+  "custom": [
+    {
+      "name": "gold",
+      "source": "gba/art/johto-cast-v1/prepared/gold.png",
+      "sha256": "81bebd0058870bc02a4a95207cf90b32c4847b391ba32cf1f4410d42ea19f293"
+    },
+    {
+      "name": "silver",
+      "source": "gba/art/johto-cast-v1/prepared/silver.png",
+      "sha256": "0db827eccad6fb9d0da6da3019674aa2cf000fd95df48243848c80647b94adb4"
+    },
+    {
+      "name": "kestra",
+      "source": "gba/art/johto-cast-v1/prepared/kestra.png",
+      "sha256": "67a7cb15dc0c0bd3c965c17d259bdbaf8afb5ac6e628bc5059af321014eb0cbd"
+    }
+  ],
+  "unova": {
+    "page": "https://www.spriters-resource.com/ds_dsi/pokemonblackwhite/asset/34109/",
+    "image": "https://www.spriters-resource.com/media/assets/31/34109.png?updated=1755472688",
+    "ripper": "Barubary",
+    "credit_text": "Ripped by Barubary. No need for credit, but do not claim as your own.",
+    "source_rect": [
+      0,
+      0,
+      96,
+      128
+    ],
+    "cell_size": [
+      32,
+      32
+    ],
+    "background_rgba": [
+      64,
+      176,
+      104,
+      255
+    ],
+    "original_cell_mapping": [
+      0,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "sinnoh": {
+    "binary": "disasm/pokeplatinum/res/prebuilt/data/mmodel/mmodel/mmodel_00000004.bin",
+    "sha256": "8b4ae618cfd0f699f56426fd66a1d8a1a47f0ea1df94cedae9a1b44d421ceae3",
+    "decoder": "tools/btx0_sprite.py extract",
+    "donor_commit": "fc033518793585217db02f2104bdeb27d1d6f96b"
+  },
+  "rights": "Pokemon game-derived sprites: Game Freak / Nintendo / Creatures. Existing custom edits remain owner-authored; extraction credit is not a claim to underlying IP.",
+  "gen3_cell_mapping": [
+    1,
+    2,
+    7,
+    8,
+    2,
+    7,
+    8,
+    5,
+    6,
+    0,
+    3,
+    4
+  ],
+  "gen3_east": "Baked mirror of original west cells, matching source game; other sources have independent east cells.",
+  "recipe": "tools/artwork_library/prepare_regional_scale.lua",
+  "sourceframes": "Lossless canonical assembly, before reduction. Indexed transparent color and BW green backdrop removed, RGB555 conversion applied."
+}

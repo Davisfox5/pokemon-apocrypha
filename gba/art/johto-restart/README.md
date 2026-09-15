@@ -1,0 +1,66 @@
+# Cherrygrove — fresh custom exterior
+
+2026-09-14. Current visual-review build, made after the owner rejected the repurposed HGSS-art reconstruction. The owner preferred the earlier custom buildings on Emerald terrain and explicitly requested a fresh start with the same geography, polish and moving-cast expectations. Visual acceptance of this new version remains the owner's next decision.
+
+This exterior starts from clean Emerald town baseline `f09ec1de2e6754e9f9a8e02281d3d773efcfa65e`, upstream `e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7`. It uses a new layout and newly generated tree, cliff, Mart and island art. No v4 assets, layouts or source patch were used. The approved v2 house and Center PNGs are byte-identical; the previously approved character integration is retained. Production `game/`, all earlier previews and original character sources remain separate.
+
+## Review
+
+- Playable package: `tools/vendor/gba/Cherrygrove-custom-restart-preview.zip` from repository root. Extract the matching ROM/save together and choose **Continue**. Starts at `(40,20)`.
+- [Actual in-game walking tour](evidence/walking-tour.gif), [four-view board](evidence/in-game-tour.png), [opening doors](evidence/doors-in-game.png), [animated water](evidence/water-in-game.gif).
+- [Whole exterior](evidence/town-overview.png) is a decoded map render; unlike the walking tour it does not include live residents.
+
+Three asymmetrical red-roof homes and the approved orange-roof Center set the architectural style. A new blue-roof Mart complements them. Newly generated trees have one continuous canopy and a short trunk. New warm sandstone cliffs and rocky outcrops border a curved western beach; sage grass, pale dirt and blue water retain Emerald's native tile patterns and animation. The compositor preserves the actual background behind transparent objects, including live water. Each building has a matching three-stage door animation.
+
+Geography follows the [HGSS Cherrygrove map reference](https://archives.bulbagarden.net/wiki/File:Cherrygrove_City_HGSS.png): western ocean and beach, northern cliff, offshore rocks, three houses, Mart/Center, gardens, north Route 30 and east Route 29. This is a 64×36 adaptation for the larger custom building footprints, not a pixel-for-pixel HGSS copy. The earlier invented docks, boats and park are absent from this fresh layout. Local reference: `gba/art/johto-v1/references/cherrygrove-hgss.png`.
+
+Twelve residents walk: four Johto citizens, custom Gold/Silver/Kestra, and Hoenn, Kanto, Johto, Sinnoh and Unova samples. The regional samples and custom cast retain the earlier scale-comparison treatment. Four imported citizens retain their original size. Movement is ordinary engine NPC movement with collision; talking stops the eight named/sample actors, faces the player and resumes their routes. Cast name labels and visitor dialogue are preview staging, not new campaign scenes.
+
+## Source and artwork
+
+- [Foundation record](foundation.json), [layout](layout.json), [resident routes](residents.json).
+- Standalone source patch: `gba/johto-restart.patch`. Apply directly to the clean town baseline above; **do not apply the old art patches first**. It includes the required character integration and all new exterior/door edits.
+- `generated/`: original transparent bitmap outputs from the built-in `image_gen` tool. Full prompts and references: [prompts.json](prompts.json), [island-prompt.json](island-prompt.json).
+- `native/`: palette-constrained PNGs, JASC palettes and collision source; `prepared/`: editable Aseprite documents for all six scenery assets. [Provenance and hashes](provenance.json).
+- `tools/gba/maps/build_johto_restart.py`: fresh layout, native terrain palette changes, alpha composition, tile packing, collision, connections and resident placement. It reads the clean baseline, approved v2 art and pre-v4 character scripts. Earlier exact-composition helpers informed the implementation; no rejected reconstruction input is used.
+- `tools/gba/maps/johto_restart_doors.py`: building-specific native door frames and engine registration.
+- `tools/artwork_library/preserve_johto_restart.lua`: editable Aseprite preservation.
+- `tools/gba/maps/preserve_johto_restart.py`: complete binary source patch, with forward/reverse application checks using a private Git index. Raw door graphics are included even though the engine normally ignores them.
+
+Scenery was generated specifically for this task. Pokémon architecture and native Emerald assets are by Game Freak/Nintendo/Creatures. Existing character provenance remains in `johto-npc-v1`, `johto-cast-v1` and `regional-scale-v1`; custom Gold is the recovered owner-created source, not stock Ethan. See the linked provenance record for exact generated asset hashes.
+
+## Verified result
+
+Built with ARM GNU 14.2.rel1; tested using mGBA 0.10.5. [Build/package hashes](evidence/build.json) bind the tested ROM to the packaged ROM and 128 KiB ordinary save. The complete source patch regenerated byte-for-byte identically, and rebuilding regenerated source produced the same tested ROM hash.
+
+- [Town runtime](evidence/runtime.json): all five building entry/exit pairs, bedroom stairs both directions, both route connections and returns, blocked shoreline, ordinary save, cold reload and title-screen Continue passed. Door animation screenshots were visually inspected.
+- [Walking verification](evidence/movement.json): 7,200 engine frames / 1,800 observations across five camera positions, all twelve complete routes, eight conversations. Displayed OBJ VRAM pixels match the correct source frames; no horizontal mirroring, palette conflicts or blocked-cell occupation.
+- [Water](evidence/water.json): 512 frames, eight animation states, no static-terrain overwrites.
+- [Connectivity](evidence/structure.json): all five door approaches, both exits and every resident route are reachable. Legacy warp 3 remains reserved in blocked forest.
+- [Tile integration](evidence/integration.json): exact pixel roundtrip through installed tiles/metatiles, approved buildings unchanged, animation slots excluded from static art. 558 new art tiles use 496 secondary slots and 62 unused primary slots; 16 door-animation slots remain reserved. Secondary metatiles: 216/512. These are scene-specific allocations, not a guarantee of spare capacity for arbitrary future maps sharing this tileset.
+- Linked use: EWRAM 226,736 bytes; IWRAM 28,392 bytes; ROM 19,748,932 bytes, padded to 32 MiB. No wider mechanics qualification is claimed by these visual checks.
+
+Native captures and movement sequences were visually inspected. Corrections made during inspection included cliff proportions, shoreline joins, terrain colors, tree collision and the clipped northern forest continuation.
+
+## Reproduce
+
+Commands below run from repository root. The existing isolated clone is `tools/vendor/gba/johto-restart-game`. For an independent reproduction, create a clean clone at the pinned town baseline and apply `gba/johto-restart.patch` with `git apply --binary`. That patch is sufficient for engine source/art; no image generation is needed to rebuild. The toolchain and `compresSmol` dependency must be installed as recorded by the GBA baseline workflow.
+
+To regenerate the preserved art/layout in the existing isolated preview, then build and test:
+
+```sh
+python3 tools/gba/maps/build_johto_restart.py
+python3 tools/gba/maps/johto_restart_doors.py
+gmake -C tools/vendor/gba/johto-restart-game -j8 TOOLCHAIN="$PWD/tools/vendor/gba/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi"
+python3 tools/gba/maps/check_cherrygrove.py tools/vendor/gba/johto-restart-game tools/vendor/gba/johto-restart-review-run --toolchain tools/vendor/gba/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi --runtime-source tools/gba/maps/johto_restart_runtime.c
+python3 tools/gba/maps/check_johto_restart.py
+cc -I/opt/homebrew/opt/mgba/include tools/gba/maps/johto_restart_water_runtime.c -L/opt/homebrew/opt/mgba/lib -lmgba -o tools/vendor/gba/johto-restart-water/runtime
+tools/vendor/gba/johto-restart-water/runtime tools/vendor/gba/johto-restart-game/pokeemerald.gba tools/vendor/gba/johto-restart-movement/symbols.txt tools/vendor/gba/johto-restart-water
+python3 tools/gba/maps/preserve_johto_restart.py
+```
+
+The regeneration script expects the clean `johto-art-v3-baseline` directory and retained prior approved asset sources. `check_cherrygrove.py` requires a new output-directory name each run. The movement checker refreshes the ELF symbols consumed by the water check. Runtime proof entrypoints position the camera/player to exercise each view; all observed NPC movement and animation uses the normal game engine. Fixed noon RTC is used only in test harnesses for consistent screenshots.
+
+## Preview boundaries
+
+The new exterior connects to existing preview interiors and short Route 29/30 stubs. Those rooms and the wider regional campaign have not been rebuilt in this art pass. Surf access and offshore gameplay are not qualified here. The fourth old interior ID remains preserved but inaccessible. Prior preview saves belong with their original ROMs because this version changes map coordinates. A successful build and runtime checks do not substitute for the owner's visual acceptance.

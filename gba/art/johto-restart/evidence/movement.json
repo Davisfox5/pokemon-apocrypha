@@ -1,0 +1,341 @@
+{
+  "samples": 1800,
+  "engine_frames": 7200,
+  "camera_positions": 5,
+  "walking_residents": 12,
+  "actual_obj_vram_frames_verified": true,
+  "no_horizontal_mirroring": true,
+  "distinct_palettes": true,
+  "collision_clear": true,
+  "one_sample_turn_upload_lag": 1305,
+  "residents": [
+    {
+      "name": "WATERFRONT",
+      "graphics": 1027,
+      "positions": [
+        [
+          29,
+          19
+        ],
+        [
+          29,
+          20
+        ]
+      ],
+      "directions": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "COMMUTER",
+      "graphics": 1026,
+      "positions": [
+        [
+          35,
+          8
+        ],
+        [
+          36,
+          8
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "JOHTO_BOY",
+      "graphics": 1024,
+      "positions": [
+        [
+          41,
+          24
+        ],
+        [
+          42,
+          24
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "JOHTO_GIRL",
+      "graphics": 1025,
+      "positions": [
+        [
+          57,
+          20
+        ],
+        [
+          58,
+          20
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_GOLD",
+      "graphics": 1029,
+      "positions": [
+        [
+          40,
+          17
+        ],
+        [
+          40,
+          18
+        ],
+        [
+          41,
+          17
+        ],
+        [
+          41,
+          18
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_SILVER",
+      "graphics": 1030,
+      "positions": [
+        [
+          49,
+          23
+        ],
+        [
+          49,
+          24
+        ],
+        [
+          50,
+          23
+        ],
+        [
+          50,
+          24
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_KESTRA",
+      "graphics": 1031,
+      "positions": [
+        [
+          35,
+          22
+        ],
+        [
+          36,
+          22
+        ],
+        [
+          37,
+          22
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_HOENN",
+      "graphics": 1032,
+      "positions": [
+        [
+          47,
+          12
+        ],
+        [
+          48,
+          12
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_KANTO",
+      "graphics": 1033,
+      "positions": [
+        [
+          58,
+          17
+        ],
+        [
+          58,
+          18
+        ],
+        [
+          59,
+          17
+        ],
+        [
+          59,
+          18
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_JOHTO",
+      "graphics": 1034,
+      "positions": [
+        [
+          39,
+          11
+        ],
+        [
+          39,
+          12
+        ],
+        [
+          40,
+          11
+        ],
+        [
+          40,
+          12
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_SINNOH",
+      "graphics": 1035,
+      "positions": [
+        [
+          30,
+          21
+        ],
+        [
+          30,
+          22
+        ],
+        [
+          31,
+          21
+        ],
+        [
+          31,
+          22
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_UNOVA",
+      "graphics": 1036,
+      "positions": [
+        [
+          53,
+          29
+        ],
+        [
+          54,
+          29
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "interaction": 1029,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1030,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1031,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1032,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1033,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1034,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1035,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    },
+    {
+      "interaction": 1036,
+      "faces_player": true,
+      "displayed_south_idle_frame_verified": true,
+      "stops_for_dialogue": true,
+      "resumes_walking": true
+    }
+  ]
+}

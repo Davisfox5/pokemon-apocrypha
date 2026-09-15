@@ -10,3 +10,6 @@
 [submodule "disasm/pokeplatinum"]
 	path = disasm/pokeplatinum
 	url = https://github.com/pret/pokeplatinum.git
+[submodule "game"]
+	path = game
+	url = https://github.com/rh-hideout/pokeemerald-expansion.git

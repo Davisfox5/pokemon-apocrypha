@@ -1,0 +1,21 @@
+{
+  "tool": "built-in image_gen",
+  "style_references": [
+    "gba/art/johto-v2/native/house.png",
+    "gba/art/johto-v2/native/center.png"
+  ],
+  "assets": [
+    {
+      "name": "tree",
+      "prompt": "Use case: stylized-concept. Create ONE original pixel-art Johto forest tree sprite for a GBA Pokemon-style overworld. The supplied custom house and Pokemon Center are STYLE REFERENCES ONLY: match their crisp chunky pixel clusters, warm highlights, teal-green shadows and strong outline. Single unified egg-shaped slightly pointed canopy, broad middle tapering naturally upward, one short visible brown trunk. No stacked cones, no second crown, no branches that look like another tree. Logical silhouette 32 pixels wide by 40 pixels tall, enlarged cleanly with nearest-neighbor pixels. Limited 12-color olive/sage palette, soft golden green on upper-left, deep forest teal underside, bold readable shapes. Keep foliage restrained, no speckled microtexture. Orthographic Pokemon top-down three-quarter view, south facing trunk. Isolated on genuine transparent background, entire tree visible with modest clear margin. No ground, lawn, grass, shadow ellipse, border, text, scene, buildings, additional trees or props. The output is a production sprite, not a painting. Fresh original artwork, do not trace or copy HGSS textures."
+    },
+    {
+      "name": "cliff",
+      "prompt": "Use case: stylized-concept. Production pixel-art environment asset for an original Johto-style GBA Pokemon town. The supplied house and Center are STYLE REFERENCES ONLY. Create ONE horizontal coastal escarpment strip, orthographic Pokemon top-down three-quarter, facing south. Logical rectangle 128 pixels wide, 48 pixels tall, neatly enlarged using nearest-neighbor pixel blocks. A continuous narrow grassy olive-sage lip occupies top 8 pixels, then warm tan sandstone ledge, then a single 32-pixel-tall sturdy rock face ending in a dark teal-brown base outline. Large irregular vertical rock slabs with cracks and simple 3-tone shaded planes; no tiny repetitive pebble pattern, no scattered individual boulders, no stacked miniature mountains. The left and right edges must continue seamlessly so this one coherent wall can repeat. Strong clean outlines, flat limited color shades, readable at GBA scale, no lighting gradients or tiny texture noise. Entire image is this single rectangular cliff section from edge to edge, straight top/bottom. No sky, sea, buildings, ground beyond the thin top lip, labels or grid. Match the visual weight and crisp deliberate pixels of the attached custom buildings. Fresh original artwork, not HGSS imported graphics."
+    },
+    {
+      "name": "mart",
+      "prompt": "Use case: stylized-concept. Create ONE original production pixel-art Johto Poke Mart building, using the supplied custom house and Pokemon Center as STYLE REFERENCES ONLY. Match their bold pixel outlines, restrained shades, warm cream stone and dark teal framing. Orthographic Pokemon top-down three-quarter, front faces south, no isometric rotation. Logical 80x80-pixel canvas, enlarged by nearest-neighbor with crisp pixel blocks. Modest neighborhood shop: broad rectangular cobalt/teal-blue roof with chamfered corners and pale rim, roof occupies upper 50 pixels; compact cream/charcoal front facade below, teal shop windows, single centered blue sliding entrance exactly on center x40 and bottom baseline y80, entrance width16 pixels. A small square side sign with a simple white shopping-bag icon, no letters. Unmistakably a smaller companion to the reference orange-roof Pokemon Center, same scale and visual perspective. Genuine transparent background. Only the complete building, no ground plane, grass, scene, additional building, characters, drop shadow, labels or borders. Limit to about 15 strong colors plus alpha. No gradients, antialiasing, painterly detail or soft shading. Do not copy or trace DS game art."
+    }
+  ]
+}

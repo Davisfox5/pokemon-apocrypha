@@ -1,0 +1,4052 @@
+diff --git a/data/field_effect_scripts.s b/data/field_effect_scripts.s
+index a35fa8a8d4..904d9b359e 100644
+--- a/data/field_effect_scripts.s
++++ b/data/field_effect_scripts.s
+@@ -88,6 +88,7 @@ gFieldEffectScriptPointers::
+ 	.4byte gFieldEffectScript_HallOfFameRecordFrlg      @ FLDEFF_HALL_OF_FAME_RECORD_FRLG
+ 	.4byte gFldEffScript_PhotoFlash      		        @ FLDEFF_PHOTO_FLASH
+ 	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
++	.4byte gFieldEffectScript_UseWhirlpool              @ FLDEFF_USE_WHIRLPOOL
+ 
+ gFieldEffectScript_ExclamationMarkIcon1::
+ 	field_eff_callnative FldEff_ExclamationMarkIcon
+@@ -420,3 +421,7 @@ gFldEffScript_PhotoFlash::
+ gFieldEffectScript_OWE_SpawnAnim::
+ 	field_eff_callnative FldEff_OWE_SpawnAnim
+ 	field_eff_end
++
++gFieldEffectScript_UseWhirlpool::
++	field_eff_callnative FldEff_UseWhirlpool
++	field_eff_end
+diff --git a/data/maps/AbandonedShip_Room_B1F/map.json b/data/maps/AbandonedShip_Room_B1F/map.json
+index 3b1bb261d2..783ae93106 100644
+--- a/data/maps/AbandonedShip_Room_B1F/map.json
++++ b/data/maps/AbandonedShip_Room_B1F/map.json
+@@ -24,7 +24,7 @@
+       "movement_range_x": 1,
+       "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_ICE_BEAM",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_AVALANCHE",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_ICE_BEAM"
+     }
+diff --git a/data/maps/DewfordTown_Hall/scripts.inc b/data/maps/DewfordTown_Hall/scripts.inc
+index 87fa85440d..30c7238430 100644
+--- a/data/maps/DewfordTown_Hall/scripts.inc
++++ b/data/maps/DewfordTown_Hall/scripts.inc
+@@ -243,7 +243,7 @@ DewfordTown_Hall_EventScript_SludgeBombMan::
+ 	call Common_EventScript_BufferTrendyPhrase
+ 	goto_if_set FLAG_RECEIVED_TM_SLUDGE_BOMB, DewfordTown_Hall_EventScript_ReceivedSludgeBomb
+ 	msgbox DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_SLUDGE_BOMB
++	giveitem ITEM_TM_VENOSHOCK
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_TM_SLUDGE_BOMB
+ 	release
+diff --git a/data/maps/LavaridgeTown_Gym_1F/scripts.inc b/data/maps/LavaridgeTown_Gym_1F/scripts.inc
+index 68615f6f92..d0d7e061f5 100644
+--- a/data/maps/LavaridgeTown_Gym_1F/scripts.inc
++++ b/data/maps/LavaridgeTown_Gym_1F/scripts.inc
+@@ -79,7 +79,7 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
+ 	end
+ 
+ LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
+-	giveitem ITEM_TM_OVERHEAT
++	giveitem ITEM_TM_FLAME_CHARGE
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
+ 	setflag FLAG_RECEIVED_TM_OVERHEAT
+@@ -87,7 +87,7 @@ LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
+ 	end
+ 
+ LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
+-	giveitem ITEM_TM_OVERHEAT
++	giveitem ITEM_TM_FLAME_CHARGE
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+ 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
+ 	setflag FLAG_RECEIVED_TM_OVERHEAT
+diff --git a/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc b/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
+index 0d6403b206..6a31d1ae91 100644
+--- a/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
++++ b/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
+@@ -25,10 +25,10 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkLeft::
+ 
+ 	.align 2
+ LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs:
+-	.2byte ITEM_TM_FIRE_BLAST
+-	.2byte ITEM_TM_THUNDER
+-	.2byte ITEM_TM_BLIZZARD
+-	.2byte ITEM_TM_HYPER_BEAM
++	.2byte ITEM_TM_FIRE_PUNCH
++	.2byte ITEM_TM_THUNDER_PUNCH
++	.2byte ITEM_TM_ICY_WIND
++	.2byte ITEM_TM_BODY_SLAM
+ 	pokemartlistend
+ 
+ LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight::
+@@ -44,7 +44,7 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight::
+ 	.align 2
+ LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs:
+ 	.2byte ITEM_TM_PROTECT
+-	.2byte ITEM_TM_SAFEGUARD
++	.2byte ITEM_TM_REST
+ 	.2byte ITEM_TM_REFLECT
+ 	.2byte ITEM_TM_LIGHT_SCREEN
+ 	pokemartlistend
+diff --git a/data/maps/MauvilleCity/scripts.inc b/data/maps/MauvilleCity/scripts.inc
+index 6f6ea0276b..e12d21ef18 100644
+--- a/data/maps/MauvilleCity/scripts.inc
++++ b/data/maps/MauvilleCity/scripts.inc
+@@ -432,7 +432,7 @@ MauvilleCity_EventScript_BegunNewMauville::
+ 
+ MauvilleCity_EventScript_CompletedNewMauville::
+ 	msgbox MauvilleCity_Text_WattsonThanksTakeTM, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_THUNDERBOLT
++	giveitem ITEM_TM_SHOCK_WAVE
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON
+ 	msgbox MauvilleCity_Text_WattsonYoungTakeCharge, MSGBOX_DEFAULT
+diff --git a/data/maps/MauvilleCity_GameCorner/scripts.inc b/data/maps/MauvilleCity_GameCorner/scripts.inc
+index 78c465aa55..6f9fb76807 100644
+--- a/data/maps/MauvilleCity_GameCorner/scripts.inc
++++ b/data/maps/MauvilleCity_GameCorner/scripts.inc
+@@ -247,32 +247,32 @@ MauvilleCity_GameCorner_EventScript_ChooseTMPrize::
+ 
+ MauvilleCity_GameCorner_EventScript_TMDoubleTeam::
+ 	setvar VAR_TEMP_1, 1
+-	bufferitemname STR_VAR_1, ITEM_TM_DOUBLE_TEAM
+-	setvar VAR_0x8004, ITEM_TM_DOUBLE_TEAM
++	bufferitemname STR_VAR_1, ITEM_TM_AGILITY
++	setvar VAR_0x8004, ITEM_TM_AGILITY
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_TMPsychic::
+ 	setvar VAR_TEMP_1, 2
+-	bufferitemname STR_VAR_1, ITEM_TM_PSYCHIC
+-	setvar VAR_0x8004, ITEM_TM_PSYCHIC
++	bufferitemname STR_VAR_1, ITEM_TM_PSYSHOCK
++	setvar VAR_0x8004, ITEM_TM_PSYSHOCK
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_TMFlamethrower::
+ 	setvar VAR_TEMP_1, 3
+-	bufferitemname STR_VAR_1, ITEM_TM_FLAMETHROWER
+-	setvar VAR_0x8004, ITEM_TM_FLAMETHROWER
++	bufferitemname STR_VAR_1, ITEM_TM_INCINERATE
++	setvar VAR_0x8004, ITEM_TM_INCINERATE
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_TMThunderbolt::
+ 	setvar VAR_TEMP_1, 4
+-	bufferitemname STR_VAR_1, ITEM_TM_THUNDERBOLT
+-	setvar VAR_0x8004, ITEM_TM_THUNDERBOLT
++	bufferitemname STR_VAR_1, ITEM_TM_SHOCK_WAVE
++	setvar VAR_0x8004, ITEM_TM_SHOCK_WAVE
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_TMIceBeam::
+ 	setvar VAR_TEMP_1, 5
+-	bufferitemname STR_VAR_1, ITEM_TM_ICE_BEAM
+-	setvar VAR_0x8004, ITEM_TM_ICE_BEAM
++	bufferitemname STR_VAR_1, ITEM_TM_AVALANCHE
++	setvar VAR_0x8004, ITEM_TM_AVALANCHE
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
+@@ -290,10 +290,10 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
+ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_DOUBLE_TEAM
++	checkitemspace ITEM_TM_AGILITY
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_DOUBLE_TEAM_COINS
+-	additem ITEM_TM_DOUBLE_TEAM
++	additem ITEM_TM_AGILITY
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+@@ -303,10 +303,10 @@ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
+ MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_PSYCHIC_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_PSYCHIC
++	checkitemspace ITEM_TM_PSYSHOCK
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_PSYCHIC_COINS
+-	additem ITEM_TM_PSYCHIC
++	additem ITEM_TM_PSYSHOCK
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+@@ -316,10 +316,10 @@ MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
+ MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_FLAMETHROWER_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_FLAMETHROWER
++	checkitemspace ITEM_TM_INCINERATE
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_FLAMETHROWER_COINS
+-	additem ITEM_TM_FLAMETHROWER
++	additem ITEM_TM_INCINERATE
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+@@ -329,10 +329,10 @@ MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
+ MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_THUNDERBOLT_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_THUNDERBOLT
++	checkitemspace ITEM_TM_SHOCK_WAVE
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_THUNDERBOLT_COINS
+-	additem ITEM_TM_THUNDERBOLT
++	additem ITEM_TM_SHOCK_WAVE
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+@@ -342,10 +342,10 @@ MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
+ MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_ICE_BEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_ICE_BEAM
++	checkitemspace ITEM_TM_AVALANCHE
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_ICE_BEAM_COINS
+-	additem ITEM_TM_ICE_BEAM
++	additem ITEM_TM_AVALANCHE
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+diff --git a/data/maps/MeteorFalls_1F_1R/map.json b/data/maps/MeteorFalls_1F_1R/map.json
+index 8a2ce3cd2a..ec82db68c0 100644
+--- a/data/maps/MeteorFalls_1F_1R/map.json
++++ b/data/maps/MeteorFalls_1F_1R/map.json
+@@ -24,7 +24,7 @@
+       "movement_range_x": 0,
+       "movement_range_y": 0,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_IRON_TAIL",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_IRON_HEAD",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_METEOR_FALLS_1F_1R_TM_IRON_TAIL"
+     },
+diff --git a/data/maps/MeteorFalls_B1F_2R/map.json b/data/maps/MeteorFalls_B1F_2R/map.json
+index 9012897d25..3a46730386 100644
+--- a/data/maps/MeteorFalls_B1F_2R/map.json
++++ b/data/maps/MeteorFalls_B1F_2R/map.json
+@@ -24,7 +24,7 @@
+       "movement_range_x": 1,
+       "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_DRAGON_CLAW",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_DRAGON_TAIL",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_METEOR_FALLS_B1F_2R_TM_DRAGON_CLAW"
+     }
+diff --git a/data/maps/MtPyre_Exterior/map.json b/data/maps/MtPyre_Exterior/map.json
+index a9b52bdff1..c30af45575 100644
+--- a/data/maps/MtPyre_Exterior/map.json
++++ b/data/maps/MtPyre_Exterior/map.json
+@@ -37,7 +37,7 @@
+       "movement_range_x": 0,
+       "movement_range_y": 0,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_SKILL_SWAP",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_TRICK_ROOM",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP"
+     }
+diff --git a/data/maps/PacifidlogTown_House2/scripts.inc b/data/maps/PacifidlogTown_House2/scripts.inc
+index 3acb7583e8..b0eb6410c5 100644
+--- a/data/maps/PacifidlogTown_House2/scripts.inc
++++ b/data/maps/PacifidlogTown_House2/scripts.inc
+@@ -53,7 +53,7 @@ PacifidlogTown_House2_EventScript_PutInEffort::
+ 
+ PacifidlogTown_House2_EventScript_GiveFrustration::
+ 	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_FRUSTRATION
++	giveitem ITEM_TM_RETURN
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
+ 	special SetPacifidlogTMReceivedDay
+diff --git a/data/maps/Route113/map.json b/data/maps/Route113/map.json
+index 0e67cb20a8..78c14ffb1a 100644
+--- a/data/maps/Route113/map.json
++++ b/data/maps/Route113/map.json
+@@ -451,7 +451,7 @@
+       "x": 22,
+       "y": 5,
+       "elevation": 3,
+-      "item": "ITEM_TM_DOUBLE_TEAM",
++      "item": "ITEM_TM_AGILITY",
+       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM"
+     },
+     {
+diff --git a/data/maps/Route114/scripts.inc b/data/maps/Route114/scripts.inc
+index 44cd7d21ef..cb4f173303 100644
+--- a/data/maps/Route114/scripts.inc
++++ b/data/maps/Route114/scripts.inc
+@@ -42,7 +42,7 @@ Route114_EventScript_RoarGentleman::
+ 	faceplayer
+ 	goto_if_set FLAG_RECEIVED_TM_ROAR, Route114_EventScript_ReceivedRoar
+ 	msgbox Route114_Text_AllMyMonDoesIsRoarTakeThis, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_ROAR
++	giveitem ITEM_TM_TAUNT
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_TM_ROAR
+ 	msgbox Route114_Text_ExplainRoar, MSGBOX_DEFAULT
+diff --git a/data/maps/Route115/map.json b/data/maps/Route115/map.json
+index 092e024c8c..518d981558 100644
+--- a/data/maps/Route115/map.json
++++ b/data/maps/Route115/map.json
+@@ -165,7 +165,7 @@
+       "movement_range_x": 0,
+       "movement_range_y": 0,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_FOCUS_PUNCH",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_BRICK_BREAK",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_ROUTE_115_TM_FOCUS_PUNCH"
+     },
+diff --git a/data/maps/SSTidalRooms/scripts.inc b/data/maps/SSTidalRooms/scripts.inc
+index 53596ba838..f96accc77b 100644
+--- a/data/maps/SSTidalRooms/scripts.inc
++++ b/data/maps/SSTidalRooms/scripts.inc
+@@ -6,7 +6,7 @@ SSTidalRooms_EventScript_SnatchGiver::
+ 	faceplayer
+ 	goto_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalRooms_EventScript_ExplainSnatch
+ 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_SNATCH
++	giveitem ITEM_TM_KNOCK_OFF
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_TM_SNATCH
+ 	msgbox SSTidalRooms_Text_ExplainSnatch, MSGBOX_DEFAULT
+diff --git a/data/maps/SafariZone_Northwest/map.json b/data/maps/SafariZone_Northwest/map.json
+index 05a8361204..780f039ab6 100644
+--- a/data/maps/SafariZone_Northwest/map.json
++++ b/data/maps/SafariZone_Northwest/map.json
+@@ -48,7 +48,7 @@
+       "movement_range_x": 1,
+       "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_SOLAR_BEAM",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_GIGA_DRAIN",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_SAFARI_ZONE_NORTH_WEST_TM_SOLAR_BEAM"
+     }
+diff --git a/data/maps/SeafloorCavern_Room9/map.json b/data/maps/SeafloorCavern_Room9/map.json
+index b720b5c43c..42ce60a5eb 100644
+--- a/data/maps/SeafloorCavern_Room9/map.json
++++ b/data/maps/SeafloorCavern_Room9/map.json
+@@ -94,7 +94,7 @@
+       "movement_range_x": 1,
+       "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_EARTHQUAKE",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_BULLDOZE",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_9_TM_EARTHQUAKE"
+     },
+diff --git a/data/maps/SlateportCity/scripts.inc b/data/maps/SlateportCity/scripts.inc
+index 00f02b6ced..6da4d23d87 100644
+--- a/data/maps/SlateportCity/scripts.inc
++++ b/data/maps/SlateportCity/scripts.inc
+@@ -538,7 +538,7 @@ SlateportCity_EventScript_PowerTMClerk::
+ 	.align 2
+ SlateportCity_Pokemart_PowerTMs:
+ 	.2byte ITEM_TM_HIDDEN_POWER
+-	.2byte ITEM_TM_SECRET_POWER
++	.2byte ITEM_TM_ANCIENT_POWER
+ 	pokemartlistend
+ 
+ @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
+diff --git a/data/maps/SlateportCity_BattleTentLobby/scripts.inc b/data/maps/SlateportCity_BattleTentLobby/scripts.inc
+index 26c6e56f47..72709dbff7 100644
+--- a/data/maps/SlateportCity_BattleTentLobby/scripts.inc
++++ b/data/maps/SlateportCity_BattleTentLobby/scripts.inc
+@@ -199,7 +199,7 @@ SlateportCity_BattleTentLobby_EventScript_TormentGiver::
+ 	faceplayer
+ 	goto_if_set FLAG_RECEIVED_TM_TORMENT, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
+ 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_TORMENT
++	giveitem ITEM_TM_HONE_CLAWS
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_TM_TORMENT
+ 	msgbox SlateportCity_BattleTentLobby_Text_ExplainTorment, MSGBOX_DEFAULT
+diff --git a/data/maps/VictoryRoad_B1F/map.json b/data/maps/VictoryRoad_B1F/map.json
+index 56d514ba77..6eaa79ab14 100644
+--- a/data/maps/VictoryRoad_B1F/map.json
++++ b/data/maps/VictoryRoad_B1F/map.json
+@@ -245,7 +245,7 @@
+       "movement_range_x": 1,
+       "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+-      "trainer_sight_or_berry_tree_id": "ITEM_TM_PSYCHIC",
++      "trainer_sight_or_berry_tree_id": "ITEM_TM_PSYSHOCK",
+       "script": "Common_EventScript_FindItem",
+       "flag": "FLAG_ITEM_VICTORY_ROAD_B1F_TM_PSYCHIC"
+     },
+diff --git a/data/scripts/field_move_scripts.inc b/data/scripts/field_move_scripts.inc
+index 0aeaa23af6..e884488559 100644
+--- a/data/scripts/field_move_scripts.inc
++++ b/data/scripts/field_move_scripts.inc
+@@ -295,6 +295,39 @@ EventScript_UseWaterfall::
+ 	callnative FollowerNPC_WarpSetEnd
+ 	goto EventScript_EndWaterfall
+ 
++EventScript_UseWhirlpool::
++	lockall
++	checkfieldmove FIELD_MOVE_WHIRLPOOL
++	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWhirlpool
++	bufferpartymonnick STR_VAR_1, VAR_RESULT
++	setfieldeffectargument 0, VAR_RESULT
++	msgbox Text_WantToWhirlpool, MSGBOX_YESNO
++	goto_if_eq VAR_RESULT, NO, EventScript_EndWhirlpool
++	msgbox Text_MonUsedWhirlpool, MSGBOX_DEFAULT
++	dofieldeffect FLDEFF_USE_WHIRLPOOL
++	goto EventScript_EndWhirlpool
++
++EventScript_CannotUseWhirlpool::
++	lockall
++
++EventScript_CantWhirlpool::
++	msgbox Text_CantWhirlpool, MSGBOX_DEFAULT
++
++EventScript_EndWhirlpool::
++	releaseall
++	end
++
++Text_CantWhirlpool:
++	.string "A fierce whirlpool is blocking the\n"
++	.string "way.$"
++
++Text_WantToWhirlpool:
++	.string "A fierce whirlpool is blocking the\n"
++	.string "way.\pShould {STR_VAR_1} use WHIRLPOOL?$"
++
++Text_MonUsedWhirlpool:
++	.string "{STR_VAR_1} used WHIRLPOOL!$"
++
+ EventScript_CannotUseWaterfall::
+ 	lockall
+ 
+diff --git a/data/scripts/secret_power_tm.inc b/data/scripts/secret_power_tm.inc
+index 58ddc8ce55..a240f00c51 100644
+--- a/data/scripts/secret_power_tm.inc
++++ b/data/scripts/secret_power_tm.inc
+@@ -43,7 +43,7 @@ Route111_EventScript_SecretPowerMan::
+ 	end
+ 
+ Route111_EventScript_GiveSecretPower::
+-	giveitem ITEM_TM_SECRET_POWER
++	giveitem ITEM_TM_ANCIENT_POWER
+ 	goto_if_eq VAR_RESULT, FALSE, Route111_EventScript_NoRoomForSecretPower
+ 	msgbox Route111_Text_ExplainSecretPower, MSGBOX_DEFAULT
+ 	closemessage
+diff --git a/include/config/battle.h b/include/config/battle.h
+index 6163802363..ad2745b8cb 100644
+--- a/include/config/battle.h
++++ b/include/config/battle.h
+@@ -12,11 +12,11 @@
+ #define B_PARALYSIS_CHANCE          GEN_LATEST // In Champions, paralysis has a 12.5% chance of not moving, instead of 25%.
+ 
+ // Experience settings
+-#define B_EXP_CATCH                 GEN_LATEST // In Gen6+, the party gains experience when the player catches another Pokémon.
+-#define B_TRAINER_EXP_MULTIPLIER    GEN_LATEST // In Gen7+, Trainer battles no longer increase total experience by 1.5x.
+-#define B_SPLIT_EXP                 GEN_LATEST // In Gen6+, all Pokémon that participate in a battle gain full experience. In Gen5 and earlier, the total experience would be evenly split across them.
+-#define B_SCALED_EXP                GEN_LATEST // In Gen5 and Gen7+, experience gain is weighted by the difference between the levels of the player's Pokémon and the target.
+-#define B_UNEVOLVED_EXP_MULTIPLIER  GEN_LATEST // In Gen6+, if a Pokémon is at or past the level where it would be able to evolve, but it has not, it gains ~1.2x experience. This only applies to species with the EVO_LEVEL method.
++#define B_EXP_CATCH                 GEN_5 // In Gen6+, the party gains experience when the player catches another Pokémon.
++#define B_TRAINER_EXP_MULTIPLIER    GEN_5 // In Gen7+, Trainer battles no longer increase total experience by 1.5x.
++#define B_SPLIT_EXP                 GEN_5 // In Gen6+, all Pokémon that participate in a battle gain full experience. In Gen5 and earlier, the total experience would be evenly split across them.
++#define B_SCALED_EXP                GEN_5 // In Gen5 and Gen7+, experience gain is weighted by the difference between the levels of the player's Pokémon and the target.
++#define B_UNEVOLVED_EXP_MULTIPLIER  GEN_5 // In Gen6+, if a Pokémon is at or past the level where it would be able to evolve, but it has not, it gains ~1.2x experience. This only applies to species with the EVO_LEVEL method.
+ #define B_LEVEL_UP_NOTIFICATION     GEN_LATEST // In Gen9+, if a Pokémon gains enough experience to level up multiple times, a message is only displayed once.
+ 
+ // Stat settings
+@@ -43,7 +43,7 @@
+ #define B_GHOSTS_ESCAPE             GEN_LATEST // In Gen6+, escape prevention fails on Ghost-types. Additionally, attempting to escape from a wild battle is always sucessful.
+ #define B_PARALYZE_ELECTRIC         GEN_LATEST // In Gen6+, Electric-types can no longer be paralyzed.
+ #define B_POWDER_GRASS              GEN_LATEST // In Gen6+, Grass-types are immune to powder and spore moves.
+-#define B_UPDATED_TYPE_MATCHUPS     GEN_LATEST // Changes type matchups. src/data/types_info.h for details.
++#define B_UPDATED_TYPE_MATCHUPS     GEN_6 // Changes type matchups. src/data/types_info.h for details.
+ #define B_PRANKSTER_DARK_TYPES      GEN_LATEST // In Gen7+, Prankster-elevated status moves do not affect Dark-types.
+ #define B_SHEER_COLD_IMMUNITY       GEN_LATEST // In Gen7+, Ice-types are immune to Sheer Cold.
+ #define B_ROOST_PURE_FLYING         GEN_LATEST // In Gen5+, Roost turns pure Flying-types into Normal-types.
+@@ -67,16 +67,16 @@
+                                                // As of Champions, freeze has a 25% chance of being thawed out with a hard cap of 3 turns.
+ 
+ // Move data settings
+-#define B_UPDATED_MOVE_DATA         GEN_LATEST // Updates move data in gMovesInfo, including Power, Accuracy, PP, category, range, and additional effects.
+-#define B_UPDATED_MOVE_TYPES        GEN_LATEST // Updates move types in gMovesInfo.
++#define B_UPDATED_MOVE_DATA         GEN_5 // Updates move data in gMovesInfo, including Power, Accuracy, PP, category, range, and additional effects.
++#define B_UPDATED_MOVE_TYPES        GEN_6 // Updates move types in gMovesInfo.
+ #define B_UPDATED_MOVE_FLAGS        GEN_LATEST // Updates move flags in gMovesInfo.
+-#define B_PHYSICAL_SPECIAL_SPLIT    GEN_LATEST // In Gens1-3, a move's type determines if it will do physical or special damage. The category icon in the summary will reflect this.
++#define B_PHYSICAL_SPECIAL_SPLIT    GEN_5 // In Gens1-3, a move's type determines if it will do physical or special damage. The category icon in the summary will reflect this.
+ #define B_RECOIL_IF_MISS_DMG        GEN_LATEST // Crash damage's formula. See EFFECT_RECOIL_IF_MISS.
+ #define B_KLUTZ_FLING_INTERACTION   GEN_LATEST // In Gen5+, Pokémon with the Klutz Ability can no longer use Fling.
+ #define B_UPDATED_CONVERSION        GEN_LATEST // In Gen6+, Conversion changes the user's type to match that of their first move. In Gen5 and earlier, it would choose a move at random.
+ #define B_UPDATED_CONVERSION_2      GEN_LATEST // In Gen5+, Conversion 2 changes the user's type to a type that resists the last move used by the selected target. In Gen4 and earlier, it would consider the last move the user was successfully hit by. Additionally, Struggle was considered Normal-type.
+ #define B_PP_REDUCED_BY_SPITE       GEN_LATEST // In Gen4+, Spite reduces the PP of the target's last move by 4 instead of 2-5.
+-#define B_EXTRAPOLATED_MOVE_FLAGS   TRUE       // Adds flags to moves that they don't officially have, but would likely have if they were in the latest core series game.
++#define B_EXTRAPOLATED_MOVE_FLAGS   FALSE       // Adds flags to moves that they don't officially have, but would likely have if they were in the latest core series game.
+ #define B_HIDDEN_POWER_COUNTER      GEN_LATEST // In Gen3 and earlier, Counter and Mirror Coat treat Hidden Power as physical regardless of type.
+ #define B_MODERN_TRICK_CHOICE_LOCK  GEN_LATEST // In Gen5+, if a choice item is swapped for another choice item, the Trick/Switcheroo user can choose another move before being locked into it.
+ #define B_PROTECT_FAILURE_RATE      GEN_LATEST // In Gen5+, protection moves fail 1/3 of the time instead of 1/2.
+@@ -245,7 +245,7 @@
+ #define B_X_ITEMS_BUFF              GEN_LATEST // In Gen7+, X items raise a stat by 2 stages instead of 1.
+ #define B_X_ITEMS_CROSSUSE          TRUE       // In Gen3, you can only use X items on the current battler, but in Gen7 you can use an X item on any friendly battler in double battles (we are not sure in which gen the change occured)
+ #define B_MENTAL_HERB               GEN_LATEST // In Gen5+, Mental Herb cures Taunt, Encore, Torment, Heal Block, and Disable in addition to Infatuation from before.
+-#define B_TRAINERS_KNOCK_OFF_ITEMS  TRUE       // If TRUE, Trainers can steal/swap your items (non-berries are restored after battle). In vanilla games, Trainers cannot steal items outside of facilities.
++#define B_TRAINERS_KNOCK_OFF_ITEMS  FALSE       // If TRUE, Trainers can steal/swap your items (non-berries are restored after battle). In vanilla games, Trainers cannot steal items outside of facilities.
+ #define B_RETURN_STOLEN_NPC_ITEMS   GEN_LATEST // In Gen5+, Thief and Covet no longer permanently steal items from NPCs.
+ #define B_STEAL_WILD_ITEMS          GEN_LATEST // In Gen9+, Thief and Covet steal a wild Pokémon's item and send it to the Bag. In Gen8 and earlier, the stolen item would be held by the Thief/Covet user.
+ #define B_RESTORE_HELD_BATTLE_ITEMS GEN_LATEST // In Gen9+, all non-Berry items are restored after battle.
+@@ -351,7 +351,7 @@
+ #define B_HIDE_HEALTHBOX_IN_ANIMS           TRUE       // If set to TRUE, healthboxes will be hidden during move animations.
+ #define B_WAIT_TIME_MULTIPLIER              16         // This determines how long text pauses for in battle. Vanilla is 16. Lower values result in faster battles.
+ #define B_QUICK_MOVE_CURSOR_TO_RUN          FALSE      // If set to TRUE, pushing B in the battle menu in a wild encounter will move the cursor to the Run option.
+-#define B_RUN_TRAINER_BATTLE                TRUE       // If set to TRUE, players can run from Trainer battles as in Gen9+. This is treated as a white out.
++#define B_RUN_TRAINER_BATTLE                FALSE       // If set to TRUE, players can run from Trainer battles as in Gen9+. This is treated as a white out.
+ #define B_MOVE_DESCRIPTION_BUTTON           L_BUTTON   // If set to a button other than B_LAST_USED_BALL_BUTTON, pressing this button will open the move description menu.
+ #define B_SHOW_USELESS_Z_MOVE_INFO          FALSE      // If set to TRUE, Z-Moves without additional effects, like newer generation status moves, will say "No additional effect."
+ #define B_ANIMATE_MON_AFTER_KO              TRUE       // If set to TRUE, if a Pokémon on the opposing side faints, the non-fainted Pokémon will play their animations.
+@@ -375,16 +375,16 @@
+ #define B_LAST_USED_BALL            TRUE       // If set to TRUE, the "last used Ball" feature from Gen7+ will be implemented
+ #define B_LAST_USED_BALL_BUTTON     R_BUTTON   // If last used Ball is implemented, this button (or button combination) will trigger throwing the last used Ball.
+ #define B_LAST_USED_BALL_CYCLE      TRUE       // If set to TRUE, then holding B_LAST_USED_BALL_BUTTON while pressing the D-Pad cycles through the Balls.
+-#define B_CATCH_SWAP_INTO_PARTY     GEN_LATEST // In Gen7+, the option to swap caught Pokémon into the party will appear, allowing you to send a different Pokémon to the Box.
++#define B_CATCH_SWAP_INTO_PARTY     GEN_5 // In Gen7+, the option to swap caught Pokémon into the party will appear, allowing you to send a different Pokémon to the Box.
+ #define B_CATCH_SWAP_CHECK_HMS      TRUE       // If set to TRUE, the catch swap feature above will prevent returning Pokémon to the Box if they know HMs.
+ 
+ // Other settings
+ #define B_MULTI_BATTLE_WHITEOUT         GEN_LATEST // In Gen4+, Multi Battles end when the player as well as their partner don't have any Pokémon left.
+ #define B_EVOLUTION_AFTER_WHITEOUT      GEN_LATEST // In Gen6+, Pokémon that qualify for evolution after battle will evolve even if the player loses.
+-#define B_AFFECTION_MECHANICS           TRUE       // In Gen6+, there's a stat called affection that can trigger different effects in battle. From LGPE onwards, these effects use friendship instead.
++#define B_AFFECTION_MECHANICS           FALSE       // In Gen6+, there's a stat called affection that can trigger different effects in battle. From LGPE onwards, these effects use friendship instead.
+ #define B_TRAINER_CLASS_POKE_BALLS      GEN_LATEST // In Gen7+, Trainers will use certain kinds of Poké Balls depending on their Trainer class.
+ #define B_TRAINER_MON_RANDOM_ABILITY    0          // If this is set to 0, trainers mons with no set ability only use the first ability of a mon. If set to 1 it will roll a random non-hidden ability. If set to 2, it will roll any ability (including hidden ability) with equal chance
+-#define B_OBEDIENCE_MECHANICS           GEN_LATEST // In PLA onwards (GEN_8 here), obedience restrictions also apply to non-outsider Pokémon, albeit based on their met level rather than their current level.
++#define B_OBEDIENCE_MECHANICS           GEN_5 // In PLA onwards (GEN_8 here), obedience restrictions also apply to non-outsider Pokémon, albeit based on their met level rather than their current level.
+ #define B_USE_FROSTBITE                 FALSE      // In PLA, Frostbite replaces Freeze. Enabling this flag does the same here. Moves can still be cherry-picked to either Freeze or Frostbite. Freeze-Dry, Secret Power & Tri Attack depend on this config.
+ #define B_TOXIC_REVERSAL                GEN_LATEST // In Gen5+, bad poison will change to regular poison at the end of battles.
+ #define B_TRY_CATCH_TRAINER_BALL        GEN_LATEST // In Gen4+, trying to catch a Trainer's Pokémon no longers consume the Poké Ball.
+diff --git a/include/config/overworld.h b/include/config/overworld.h
+index 08d0fc3037..870cd2bec0 100644
+--- a/include/config/overworld.h
++++ b/include/config/overworld.h
+@@ -10,8 +10,11 @@
+ #define OW_DOUBLE_APPROACH_WITH_ONE_MON FALSE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible Pokémon in your party.
+ #define OW_HIDE_REPEAT_MAP_POPUP        FALSE      // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
+ #define OW_WHITEOUT_CUTSCENE            GEN_LATEST // In Gen4+, whiting out shows an additional message and post whiteout event script cutscene with a healing NPC. (While this change was also in FRLG, for the sake of simplicity, setting this to GEN_3 will result in RSE behavior.)
+-#define OW_DEFOG_FIELD_MOVE             FALSE      // If enabled, Defog can be used as a Field Move as seen in DPPt.
+-#define OW_ROCK_CLIMB_FIELD_MOVE        FALSE      // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
++#define OW_DEFOG_FIELD_MOVE             TRUE       // If enabled, Defog can be used as a Field Move as seen in DPPt.
++#define OW_ROCK_CLIMB_FIELD_MOVE        TRUE       // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
++// Apocrypha: not an upstream feature. MB_WHIRLPOOL, the field effect and the
++// party-menu/overworld hooks are ours, modelled on Waterfall.
++#define OW_WHIRLPOOL_FIELD_MOVE         TRUE       // If enabled, Whirlpool can be used as a Field Move as seen in GSC/HGSS.
+ #define OW_CHOOSE_FROM_PC_AND_PARTY     TRUE       // If enabled, NPCs like move tutors or trainers asking for trade will let you pick a Pokémon from your PC or party instead of just your party
+ 
+ // Item Obtain Description Box
+@@ -25,10 +28,10 @@
+ #define GEN_6_ORAS GEN_COUNT + 1
+ 
+ // PC settings
+-#define OW_PC_PRESS_B               GEN_LATEST // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
++#define OW_PC_PRESS_B               GEN_3 // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
+ #define OW_PC_JAPAN_WALDA_ICONS     TRUE       // In the US release of Emerald, the Cross, Bolt, and Plusle icons for Walda's wallpapers were left blank from the Japan release. Setting this to TRUE will restore them.
+-#define OW_PC_HEAL                  GEN_LATEST // In Gen8+, Pokémon are not healed when deposited in the PC.
+-#define OW_PC_MOVE_ORDER            GEN_LATEST // Starting in Gen4, the order of options in the PC menu change.
++#define OW_PC_HEAL                  GEN_3 // In Gen8+, Pokémon are not healed when deposited in the PC.
++#define OW_PC_MOVE_ORDER            GEN_3 // Starting in Gen4, the order of options in the PC menu change.
+ #define OW_PC_RELEASE_ITEM          GEN_LATEST // In Gen8+, Pokémon that get released with a held item return it to the bag.
+ 
+ #define OW_BERRY_MUTATIONS             FALSE      // If enabled, Berry plants can mutate based on berries planted next to them.
+diff --git a/include/config/pokemon.h b/include/config/pokemon.h
+index 65fdec05d0..5779020171 100644
+--- a/include/config/pokemon.h
++++ b/include/config/pokemon.h
+@@ -2,16 +2,16 @@
+ #define GUARD_CONFIG_POKEMON_H
+ 
+ // Species data settings
+-#define P_UPDATED_TYPES             GEN_LATEST  // Some Pokémon have received type updates after their introduction.
+-#define P_UPDATED_STATS             GEN_LATEST  // Some Pokémon have received base stat updates after their introduction.
+-#define P_UPDATED_ABILITIES         GEN_LATEST  // Since Gen 4, certain Pokémon have had their abilities changed.
++#define P_UPDATED_TYPES             GEN_6  // Some Pokémon have received type updates after their introduction.
++#define P_UPDATED_STATS             GEN_5  // Some Pokémon have received base stat updates after their introduction.
++#define P_UPDATED_ABILITIES         GEN_5  // Since Gen 4, certain Pokémon have had their abilities changed.
+ #define P_UPDATED_EGG_GROUPS        GEN_LATEST  // Since Gen 8, certain Pokémon have gained new egg groups.
+ #define P_UPDATED_FRIENDSHIP        GEN_LATEST  // Since Gen 8, the base friendship of certain Pokémon was changed.
+ #define P_UPDATED_EVS               GEN_LATEST  // Since Gen 4, some Pokémon have received EV updates.
+-#define P_UPDATED_EXP_YIELDS        GEN_LATEST  // Since Gen 5, some Pokémon have received base Experience changes.
++#define P_UPDATED_EXP_YIELDS        GEN_5  // Since Gen 5, some Pokémon have received base Experience changes.
+ 
+ // Learnsets
+-#define P_LVL_UP_LEARNSETS          GEN_LATEST  // Choose which set of Level Up Learnsets to use.
++#define P_LVL_UP_LEARNSETS          GEN_6  // Choose which set of Level Up Learnsets to use.
+                                                 // For generations that hadn't introduced a species yet, we use their first appearence (eg. Chikorita's Gen2 data if the config is set to GEN_1).
+                                                 // For generations that don't include a previously introduced species, we use their last apperance (eg. Snivy's Gen7 data if the config is set to GEN_8).
+                                                 // GEN_1/2/3/4/5/6/7: Yellow, Crystal, RSE, HGSS, B2W2, ORAS, USUM learnsets respectively.
+diff --git a/include/constants/field_effects.h b/include/constants/field_effects.h
+index dd3fb71362..e3a0a96547 100644
+--- a/include/constants/field_effects.h
++++ b/include/constants/field_effects.h
+@@ -84,6 +84,7 @@
+ #define FLDEFF_HALL_OF_FAME_RECORD_FRLG  79
+ #define FLDEFF_PHOTO_FLASH               80
+ #define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   81
++#define FLDEFF_USE_WHIRLPOOL             82
+ 
+ #define FLDEFFOBJ_SHADOW_S              0
+ #define FLDEFFOBJ_SHADOW_M              1
+diff --git a/include/constants/field_move.h b/include/constants/field_move.h
+index 08a5a18644..eee862e5a1 100644
+--- a/include/constants/field_move.h
++++ b/include/constants/field_move.h
+@@ -20,6 +20,7 @@ enum FieldMove
+     FIELD_MOVE_SWEET_SCENT,
+     FIELD_MOVE_ROCK_CLIMB,
+     FIELD_MOVE_DEFOG,
++    FIELD_MOVE_WHIRLPOOL,
+     FIELD_MOVES_COUNT
+ };
+ 
+diff --git a/include/constants/global.h b/include/constants/global.h
+index 2609094924..e149ba0733 100644
+--- a/include/constants/global.h
++++ b/include/constants/global.h
+@@ -113,7 +113,7 @@ enum Language
+ #define BAG_ITEMS_COUNT 30
+ #define BAG_KEYITEMS_COUNT 30
+ #define BAG_POKEBALLS_COUNT 16
+-#define BAG_TMHM_COUNT 64
++#define BAG_TMHM_COUNT 111 // Apocrypha M04: 100 TMs + 11 HMs.
+ #define BAG_BERRIES_COUNT 46
+ 
+ // Number of facilities for Ranking Hall.
+diff --git a/include/constants/items.h b/include/constants/items.h
+index bf4522306b..b9818cbdc3 100644
+--- a/include/constants/items.h
++++ b/include/constants/items.h
+@@ -821,6 +821,14 @@ enum __attribute__((packed)) Item
+     ITEM_HM06 = 687,
+     ITEM_HM07 = 688,
+     ITEM_HM08 = 689,
++    // Apocrypha: Defog and Rock Climb as HMs. Sinnoh's routes need both, and
++    // field moves key on the move rather than the HM item, so the engine only
++    // needed the two ids and the list entry. Every item from 690 up shifted by
++    // two to keep the HM block contiguous.
++    ITEM_HM09 = 690,
++    ITEM_HM10 = 691,
++    ITEM_HM11 = 692,   // Apocrypha: Whirlpool, built for Johto
++
+ 
+ 
+     /* Expands to:
+@@ -838,219 +846,219 @@ enum __attribute__((packed)) Item
+     #undef TO_TMHM_NUMS
+ 
+     // Charms
+-    ITEM_OVAL_CHARM = 690,
+-    ITEM_SHINY_CHARM = 691,
+-    ITEM_CATCHING_CHARM = 692,
+-    ITEM_EXP_CHARM = 693,
++    ITEM_OVAL_CHARM = 693,
++    ITEM_SHINY_CHARM = 694,
++    ITEM_CATCHING_CHARM = 695,
++    ITEM_EXP_CHARM = 696,
+ 
+     // Form-changing Key Items
+-    ITEM_ROTOM_CATALOG = 694,
+-    ITEM_GRACIDEA = 695,
+-    ITEM_REVEAL_GLASS = 696,
+-    ITEM_DNA_SPLICERS = 697,
+-    ITEM_ZYGARDE_CUBE = 698,
+-    ITEM_PRISON_BOTTLE = 699,
+-    ITEM_N_SOLARIZER = 700,
+-    ITEM_N_LUNARIZER = 701,
+-    ITEM_REINS_OF_UNITY = 702,
++    ITEM_ROTOM_CATALOG = 697,
++    ITEM_GRACIDEA = 698,
++    ITEM_REVEAL_GLASS = 699,
++    ITEM_DNA_SPLICERS = 700,
++    ITEM_ZYGARDE_CUBE = 701,
++    ITEM_PRISON_BOTTLE = 702,
++    ITEM_N_SOLARIZER = 703,
++    ITEM_N_LUNARIZER = 704,
++    ITEM_REINS_OF_UNITY = 705,
+ 
+     // Battle Mechanic Key Items
+-    ITEM_MEGA_RING = 703,
+-    ITEM_Z_POWER_RING = 704,
+-    ITEM_DYNAMAX_BAND = 705,
++    ITEM_MEGA_RING = 706,
++    ITEM_Z_POWER_RING = 707,
++    ITEM_DYNAMAX_BAND = 708,
+ 
+     // Misc. Key Items
+-    ITEM_BICYCLE = 706,
+-    ITEM_MACH_BIKE = 707,
+-    ITEM_ACRO_BIKE = 708,
+-    ITEM_OLD_ROD = 709,
+-    ITEM_GOOD_ROD = 710,
+-    ITEM_SUPER_ROD = 711,
+-    ITEM_DOWSING_MACHINE = 712,
++    ITEM_BICYCLE = 709,
++    ITEM_MACH_BIKE = 710,
++    ITEM_ACRO_BIKE = 711,
++    ITEM_OLD_ROD = 712,
++    ITEM_GOOD_ROD = 713,
++    ITEM_SUPER_ROD = 714,
++    ITEM_DOWSING_MACHINE = 715,
+     ITEM_ITEMFINDER = ITEM_DOWSING_MACHINE, // Pre-Gen IV name
+     ITEM_DOWSING_MCHN = ITEM_DOWSING_MACHINE, // Gen IV-V name
+-    ITEM_TOWN_MAP = 713,
+-    ITEM_VS_SEEKER = 714,
+-    ITEM_TM_CASE = 715,
+-    ITEM_BERRY_POUCH = 716,
+-    ITEM_POKEMON_BOX_LINK = 717,
++    ITEM_TOWN_MAP = 716,
++    ITEM_VS_SEEKER = 717,
++    ITEM_TM_CASE = 718,
++    ITEM_BERRY_POUCH = 719,
++    ITEM_POKEMON_BOX_LINK = 720,
+     ITEM_POKEMON_BOX = ITEM_POKEMON_BOX_LINK, // Pre-Gen VIII name
+-    ITEM_COIN_CASE = 718,
+-    ITEM_POWDER_JAR = 719,
+-    ITEM_WAILMER_PAIL = 720,
+-    ITEM_POKE_RADAR = 721,
+-    ITEM_POKEBLOCK_CASE = 722,
+-    ITEM_SOOT_SACK = 723,
+-    ITEM_POKE_FLUTE = 724,
+-    ITEM_FAME_CHECKER = 725,
+-    ITEM_TEACHY_TV = 726,
++    ITEM_COIN_CASE = 721,
++    ITEM_POWDER_JAR = 722,
++    ITEM_WAILMER_PAIL = 723,
++    ITEM_POKE_RADAR = 724,
++    ITEM_POKEBLOCK_CASE = 725,
++    ITEM_SOOT_SACK = 726,
++    ITEM_POKE_FLUTE = 727,
++    ITEM_FAME_CHECKER = 728,
++    ITEM_TEACHY_TV = 729,
+ 
+     // Story Key Items
+-    ITEM_SS_TICKET = 727,
+-    ITEM_EON_TICKET = 728,
+-    ITEM_MYSTIC_TICKET = 729,
+-    ITEM_AURORA_TICKET = 730,
+-    ITEM_OLD_SEA_MAP = 731,
+-    ITEM_LETTER = 732,
+-    ITEM_DEVON_PARTS = 733,
++    ITEM_SS_TICKET = 730,
++    ITEM_EON_TICKET = 731,
++    ITEM_MYSTIC_TICKET = 732,
++    ITEM_AURORA_TICKET = 733,
++    ITEM_OLD_SEA_MAP = 734,
++    ITEM_LETTER = 735,
++    ITEM_DEVON_PARTS = 736,
+     ITEM_DEVON_GOODS = ITEM_DEVON_PARTS, // Pre-Gen VI name
+-    ITEM_GO_GOGGLES = 734,
+-    ITEM_DEVON_SCOPE = 735,
+-    ITEM_BASEMENT_KEY = 736,
+-    ITEM_SCANNER = 737,
+-    ITEM_STORAGE_KEY = 738,
+-    ITEM_KEY_TO_ROOM_1 = 739,
++    ITEM_GO_GOGGLES = 737,
++    ITEM_DEVON_SCOPE = 738,
++    ITEM_BASEMENT_KEY = 739,
++    ITEM_SCANNER = 740,
++    ITEM_STORAGE_KEY = 741,
++    ITEM_KEY_TO_ROOM_1 = 742,
+     ITEM_RM_1_KEY = ITEM_KEY_TO_ROOM_1, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_2 = 740,
++    ITEM_KEY_TO_ROOM_2 = 743,
+     ITEM_RM_2_KEY = ITEM_KEY_TO_ROOM_2, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_4 = 741,
++    ITEM_KEY_TO_ROOM_4 = 744,
+     ITEM_RM_4_KEY = ITEM_KEY_TO_ROOM_4, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_6 = 742,
++    ITEM_KEY_TO_ROOM_6 = 745,
+     ITEM_RM_6_KEY = ITEM_KEY_TO_ROOM_6, // Pre-Gen VI name
+-    ITEM_METEORITE = 743,
+-    ITEM_MAGMA_EMBLEM = 744,
+-    ITEM_CONTEST_PASS = 745,
+-    ITEM_PARCEL = 746,
++    ITEM_METEORITE = 746,
++    ITEM_MAGMA_EMBLEM = 747,
++    ITEM_CONTEST_PASS = 748,
++    ITEM_PARCEL = 749,
+     ITEM_OAKS_PARCEL = ITEM_PARCEL, // Pre-Gen IV name
+-    ITEM_SECRET_KEY = 747,
+-    ITEM_BIKE_VOUCHER = 748,
+-    ITEM_GOLD_TEETH = 749,
+-    ITEM_CARD_KEY = 750,
+-    ITEM_LIFT_KEY = 751,
+-    ITEM_SILPH_SCOPE = 752,
+-    ITEM_TRI_PASS = 753,
+-    ITEM_RAINBOW_PASS = 754,
+-    ITEM_TEA = 755,
+-    ITEM_RUBY = 756,
+-    ITEM_SAPPHIRE = 757,
++    ITEM_SECRET_KEY = 750,
++    ITEM_BIKE_VOUCHER = 751,
++    ITEM_GOLD_TEETH = 752,
++    ITEM_CARD_KEY = 753,
++    ITEM_LIFT_KEY = 754,
++    ITEM_SILPH_SCOPE = 755,
++    ITEM_TRI_PASS = 756,
++    ITEM_RAINBOW_PASS = 757,
++    ITEM_TEA = 758,
++    ITEM_RUBY = 759,
++    ITEM_SAPPHIRE = 760,
+ 
+     // GEN IX ITEMS
+-    ITEM_ABILITY_SHIELD = 758,
+-    ITEM_CLEAR_AMULET = 759,
+-    ITEM_PUNCHING_GLOVE = 760,
+-    ITEM_COVERT_CLOAK = 761,
+-    ITEM_LOADED_DICE = 762,
+-    ITEM_AUSPICIOUS_ARMOR = 763,
+-    ITEM_BOOSTER_ENERGY = 764,
+-    ITEM_BIG_BAMBOO_SHOOT = 765,
+-    ITEM_GIMMIGHOUL_COIN = 766,
+-    ITEM_LEADERS_CREST = 767,
+-    ITEM_MALICIOUS_ARMOR = 768,
+-    ITEM_MIRROR_HERB = 769,
+-    ITEM_SCROLL_OF_DARKNESS = 770,
+-    ITEM_SCROLL_OF_WATERS = 771,
+-    ITEM_TERA_ORB = 772,
+-    ITEM_TINY_BAMBOO_SHOOT = 773,
+-
+-    ITEM_BUG_TERA_SHARD = 774,
+-    ITEM_DARK_TERA_SHARD = 775,
+-    ITEM_DRAGON_TERA_SHARD = 776,
+-    ITEM_ELECTRIC_TERA_SHARD = 777,
+-    ITEM_FAIRY_TERA_SHARD = 778,
+-    ITEM_FIGHTING_TERA_SHARD = 779,
+-    ITEM_FIRE_TERA_SHARD = 780,
+-    ITEM_FLYING_TERA_SHARD = 781,
+-    ITEM_GHOST_TERA_SHARD = 782,
+-    ITEM_GRASS_TERA_SHARD = 783,
+-    ITEM_GROUND_TERA_SHARD = 784,
+-    ITEM_ICE_TERA_SHARD = 785,
+-    ITEM_NORMAL_TERA_SHARD = 786,
+-    ITEM_POISON_TERA_SHARD = 787,
+-    ITEM_PSYCHIC_TERA_SHARD = 788,
+-    ITEM_ROCK_TERA_SHARD = 789,
+-    ITEM_STEEL_TERA_SHARD = 790,
+-    ITEM_WATER_TERA_SHARD = 791,
+-
+-    ITEM_ADAMANT_CRYSTAL = 792,
+-    ITEM_GRISEOUS_CORE = 793,
+-    ITEM_LUSTROUS_GLOBE = 794,
+-
+-    ITEM_BLACK_AUGURITE = 795,
+-    ITEM_LINKING_CORD = 796,
+-    ITEM_PEAT_BLOCK = 797,
+-    ITEM_BERSERK_GENE = 798,
+-
+-    ITEM_FAIRY_FEATHER = 799,
+-    ITEM_SYRUPY_APPLE = 800,
+-    ITEM_UNREMARKABLE_TEACUP = 801,
+-    ITEM_MASTERPIECE_TEACUP = 802,
+-    ITEM_CORNERSTONE_MASK = 803,
+-    ITEM_WELLSPRING_MASK = 804,
+-    ITEM_HEARTHFLAME_MASK = 805,
+-    ITEM_HEALTH_MOCHI = 806,
+-    ITEM_MUSCLE_MOCHI = 807,
+-    ITEM_RESIST_MOCHI = 808,
+-    ITEM_GENIUS_MOCHI = 809,
+-    ITEM_CLEVER_MOCHI = 810,
+-    ITEM_SWIFT_MOCHI = 811,
+-    ITEM_FRESH_START_MOCHI = 812,
+-    ITEM_GLIMMERING_CHARM = 813,
+-    ITEM_METAL_ALLOY = 814,
+-    ITEM_STELLAR_TERA_SHARD = 815,
+-
+-    ITEM_JUBILIFE_MUFFIN = 816,
+-    ITEM_REMEDY = 817,
+-    ITEM_FINE_REMEDY = 818,
+-    ITEM_SUPERB_REMEDY = 819,
+-    ITEM_AUX_EVASION = 820,
+-    ITEM_AUX_GUARD = 821,
+-    ITEM_AUX_POWER = 822,
+-    ITEM_AUX_POWERGUARD = 823,
+-    ITEM_CHOICE_DUMPLING = 824,
+-    ITEM_SWAP_SNACK = 825,
+-    ITEM_TWICE_SPICED_RADISH = 826,
+-    ITEM_POKESHI_DOLL = 827,
+-
+-    ITEM_STRANGE_BALL = 828,
++    ITEM_ABILITY_SHIELD = 761,
++    ITEM_CLEAR_AMULET = 762,
++    ITEM_PUNCHING_GLOVE = 763,
++    ITEM_COVERT_CLOAK = 764,
++    ITEM_LOADED_DICE = 765,
++    ITEM_AUSPICIOUS_ARMOR = 766,
++    ITEM_BOOSTER_ENERGY = 767,
++    ITEM_BIG_BAMBOO_SHOOT = 768,
++    ITEM_GIMMIGHOUL_COIN = 769,
++    ITEM_LEADERS_CREST = 770,
++    ITEM_MALICIOUS_ARMOR = 771,
++    ITEM_MIRROR_HERB = 772,
++    ITEM_SCROLL_OF_DARKNESS = 773,
++    ITEM_SCROLL_OF_WATERS = 774,
++    ITEM_TERA_ORB = 775,
++    ITEM_TINY_BAMBOO_SHOOT = 776,
++
++    ITEM_BUG_TERA_SHARD = 777,
++    ITEM_DARK_TERA_SHARD = 778,
++    ITEM_DRAGON_TERA_SHARD = 779,
++    ITEM_ELECTRIC_TERA_SHARD = 780,
++    ITEM_FAIRY_TERA_SHARD = 781,
++    ITEM_FIGHTING_TERA_SHARD = 782,
++    ITEM_FIRE_TERA_SHARD = 783,
++    ITEM_FLYING_TERA_SHARD = 784,
++    ITEM_GHOST_TERA_SHARD = 785,
++    ITEM_GRASS_TERA_SHARD = 786,
++    ITEM_GROUND_TERA_SHARD = 787,
++    ITEM_ICE_TERA_SHARD = 788,
++    ITEM_NORMAL_TERA_SHARD = 789,
++    ITEM_POISON_TERA_SHARD = 790,
++    ITEM_PSYCHIC_TERA_SHARD = 791,
++    ITEM_ROCK_TERA_SHARD = 792,
++    ITEM_STEEL_TERA_SHARD = 793,
++    ITEM_WATER_TERA_SHARD = 794,
++
++    ITEM_ADAMANT_CRYSTAL = 795,
++    ITEM_GRISEOUS_CORE = 796,
++    ITEM_LUSTROUS_GLOBE = 797,
++
++    ITEM_BLACK_AUGURITE = 798,
++    ITEM_LINKING_CORD = 799,
++    ITEM_PEAT_BLOCK = 800,
++    ITEM_BERSERK_GENE = 801,
++
++    ITEM_FAIRY_FEATHER = 802,
++    ITEM_SYRUPY_APPLE = 803,
++    ITEM_UNREMARKABLE_TEACUP = 804,
++    ITEM_MASTERPIECE_TEACUP = 805,
++    ITEM_CORNERSTONE_MASK = 806,
++    ITEM_WELLSPRING_MASK = 807,
++    ITEM_HEARTHFLAME_MASK = 808,
++    ITEM_HEALTH_MOCHI = 809,
++    ITEM_MUSCLE_MOCHI = 810,
++    ITEM_RESIST_MOCHI = 811,
++    ITEM_GENIUS_MOCHI = 812,
++    ITEM_CLEVER_MOCHI = 813,
++    ITEM_SWIFT_MOCHI = 814,
++    ITEM_FRESH_START_MOCHI = 815,
++    ITEM_GLIMMERING_CHARM = 816,
++    ITEM_METAL_ALLOY = 817,
++    ITEM_STELLAR_TERA_SHARD = 818,
++
++    ITEM_JUBILIFE_MUFFIN = 819,
++    ITEM_REMEDY = 820,
++    ITEM_FINE_REMEDY = 821,
++    ITEM_SUPERB_REMEDY = 822,
++    ITEM_AUX_EVASION = 823,
++    ITEM_AUX_GUARD = 824,
++    ITEM_AUX_POWER = 825,
++    ITEM_AUX_POWERGUARD = 826,
++    ITEM_CHOICE_DUMPLING = 827,
++    ITEM_SWAP_SNACK = 828,
++    ITEM_TWICE_SPICED_RADISH = 829,
++    ITEM_POKESHI_DOLL = 830,
++
++    ITEM_STRANGE_BALL = 831,
+ 
+     // Legends Z-A Mega Stones
+-    ITEM_CLEFABLITE = 829,
+-    ITEM_VICTREEBELITE = 830,
+-    ITEM_STARMINITE = 831,
+-    ITEM_DRAGONINITE = 832,
+-    ITEM_MEGANIUMITE = 833,
+-    ITEM_FERALIGITE = 834,
+-    ITEM_SKARMORITE = 835,
+-    ITEM_FROSLASSITE = 836,
+-    ITEM_EMBOARITE = 837,
+-    ITEM_EXCADRITE = 838,
+-    ITEM_SCOLIPITE = 839,
+-    ITEM_SCRAFTINITE = 840,
+-    ITEM_EELEKTROSSITE = 841,
+-    ITEM_CHANDELURITE = 842,
+-    ITEM_CHESNAUGHTITE = 843,
+-    ITEM_DELPHOXITE = 844,
+-    ITEM_GRENINJITE = 845,
+-    ITEM_PYROARITE = 846,
+-    ITEM_FLOETTITE = 847,
+-    ITEM_MALAMARITE = 848,
+-    ITEM_BARBARACITE = 849,
+-    ITEM_DRAGALGITE = 850,
+-    ITEM_HAWLUCHANITE = 851,
+-    ITEM_ZYGARDITE = 852,
+-    ITEM_DRAMPANITE = 853,
+-    ITEM_FALINKSITE = 854,
++    ITEM_CLEFABLITE = 832,
++    ITEM_VICTREEBELITE = 833,
++    ITEM_STARMINITE = 834,
++    ITEM_DRAGONINITE = 835,
++    ITEM_MEGANIUMITE = 836,
++    ITEM_FERALIGITE = 837,
++    ITEM_SKARMORITE = 838,
++    ITEM_FROSLASSITE = 839,
++    ITEM_EMBOARITE = 840,
++    ITEM_EXCADRITE = 841,
++    ITEM_SCOLIPITE = 842,
++    ITEM_SCRAFTINITE = 843,
++    ITEM_EELEKTROSSITE = 844,
++    ITEM_CHANDELURITE = 845,
++    ITEM_CHESNAUGHTITE = 846,
++    ITEM_DELPHOXITE = 847,
++    ITEM_GRENINJITE = 848,
++    ITEM_PYROARITE = 849,
++    ITEM_FLOETTITE = 850,
++    ITEM_MALAMARITE = 851,
++    ITEM_BARBARACITE = 852,
++    ITEM_DRAGALGITE = 853,
++    ITEM_HAWLUCHANITE = 854,
++    ITEM_ZYGARDITE = 855,
++    ITEM_DRAMPANITE = 856,
++    ITEM_FALINKSITE = 857,
+ 
+     // Legends Z-A: Mega Dimension DLC Mega Stones
+-    ITEM_HEATRANITE = 855,
+-    ITEM_DARKRANITE = 856,
+-    ITEM_ZERAORITE = 857,
+-    ITEM_RAICHUNITE_X = 858,
+-    ITEM_RAICHUNITE_Y = 859,
+-    ITEM_CHIMECHITE = 860,
+-    ITEM_ABSOLITE_Z = 861,
+-    ITEM_STARAPTITE = 862,
+-    ITEM_GARCHOMPITE_Z = 863,
+-    ITEM_LUCARIONITE_Z = 864,
+-    ITEM_GOLURKITE = 865,
+-    ITEM_MEOWSTICITE = 866,
+-    ITEM_CRABOMINITE = 867,
+-    ITEM_GOLISOPITE = 868,
+-    ITEM_MAGEARNITE = 869,
+-    ITEM_SCOVILLAINITE = 870,
+-    ITEM_BAXCALIBRITE = 871,
+-    ITEM_TATSUGIRINITE = 872,
+-    ITEM_GLIMMORANITE = 873,
++    ITEM_HEATRANITE = 858,
++    ITEM_DARKRANITE = 859,
++    ITEM_ZERAORITE = 860,
++    ITEM_RAICHUNITE_X = 861,
++    ITEM_RAICHUNITE_Y = 862,
++    ITEM_CHIMECHITE = 863,
++    ITEM_ABSOLITE_Z = 864,
++    ITEM_STARAPTITE = 865,
++    ITEM_GARCHOMPITE_Z = 866,
++    ITEM_LUCARIONITE_Z = 867,
++    ITEM_GOLURKITE = 868,
++    ITEM_MEOWSTICITE = 869,
++    ITEM_CRABOMINITE = 870,
++    ITEM_GOLISOPITE = 871,
++    ITEM_MAGEARNITE = 872,
++    ITEM_SCOVILLAINITE = 873,
++    ITEM_BAXCALIBRITE = 874,
++    ITEM_TATSUGIRINITE = 875,
++    ITEM_GLIMMORANITE = 876,
+ 
+     ITEMS_COUNT,
+     ITEM_FIELD_ARROW = ITEMS_COUNT,
+diff --git a/include/constants/metatile_behaviors.h b/include/constants/metatile_behaviors.h
+index c0b9a71103..810ab31ea8 100755
+--- a/include/constants/metatile_behaviors.h
++++ b/include/constants/metatile_behaviors.h
+@@ -242,6 +242,7 @@ enum {
+     MB_DOWN_RIGHT_STAIR_WARP,
+     MB_DOWN_LEFT_STAIR_WARP,
+     MB_ROCK_CLIMB,
++    MB_WHIRLPOOL,   // Apocrypha: Johto's Whirl Islands and the Route 41 crossing
+     NUM_METATILE_BEHAVIORS
+ };
+ 
+diff --git a/include/constants/tms_hms.h b/include/constants/tms_hms.h
+index 03fb934139..5e4baa60b9 100644
+--- a/include/constants/tms_hms.h
++++ b/include/constants/tms_hms.h
+@@ -1,57 +1,131 @@
+ #ifndef GUARD_CONSTANTS_TMS_HMS_H
+ #define GUARD_CONSTANTS_TMS_HMS_H
+ 
++// Apocrypha M04: 100 TMs and 11 HMs.
++//
++// TMs are the generic toolkit: each region stocks only moves its own generation
++// introduced, capped at 85 power, and the signature high-power moves are excluded
++// and belong to the regional move tutors instead. Regions run in story order.
++// Johto, Kanto and Hoenn carry nineteen each rather than twenty, because the three
++// Fairy TMs close the list: every offensive Fairy move is Gen 6 or later, so under
++// the origin rule no region could stock one. (Charm, Sweet Kiss and Moonlight are
++// Gen 2 moves retyped to Fairy and so are Johto-eligible, but all three are status
++// moves and none was ever a TM.)
++//
++// HMs cover traversal and sit outside the TM power cap. The five regions as
++// originally built need eleven field moves between them, so there are eleven HMs.
++// Defog and Rock Climb are Sinnoh's; Whirlpool is Johto's and was built from
++// nothing, modelled on Waterfall.
++//
++// A block comment placed *inside* either backslash-continued macro truncates it
++// silently and produces errors in unrelated files. Keep comments outside.
+ #define FOREACH_TM(F) \
+-    F(FOCUS_PUNCH) \
+-    F(DRAGON_CLAW) \
+-    F(WATER_PULSE) \
+-    F(CALM_MIND) \
+-    F(ROAR) \
+-    F(TOXIC) \
+-    F(HAIL) \
+-    F(BULK_UP) \
+-    F(BULLET_SEED) \
+-    F(HIDDEN_POWER) \
+-    F(SUNNY_DAY) \
+-    F(TAUNT) \
+-    F(ICE_BEAM) \
+-    F(BLIZZARD) \
+-    F(HYPER_BEAM) \
+-    F(LIGHT_SCREEN) \
++    /* Johto */ \
+     F(PROTECT) \
+-    F(RAIN_DANCE) \
+-    F(GIGA_DRAIN) \
+-    F(SAFEGUARD) \
+-    F(FRUSTRATION) \
+-    F(SOLAR_BEAM) \
+-    F(IRON_TAIL) \
+-    F(THUNDERBOLT) \
+-    F(THUNDER) \
+-    F(EARTHQUAKE) \
+     F(RETURN) \
+-    F(DIG) \
+-    F(PSYCHIC) \
++    F(HIDDEN_POWER) \
++    F(SLEEP_TALK) \
++    F(ENDURE) \
++    F(ATTRACT) \
++    F(RAIN_DANCE) \
++    F(SUNNY_DAY) \
++    F(SANDSTORM) \
++    F(THIEF) \
++    F(ICY_WIND) \
+     F(SHADOW_BALL) \
+-    F(BRICK_BREAK) \
+-    F(DOUBLE_TEAM) \
++    F(GIGA_DRAIN) \
++    F(CRUNCH) \
++    F(STEEL_WING) \
++    F(ANCIENT_POWER) \
++    F(ENCORE) \
++    F(FALSE_SWIPE) \
++    F(DRAGON_BREATH) \
++    /* Kanto */ \
++    F(TOXIC) \
++    F(REST) \
+     F(REFLECT) \
+-    F(SHOCK_WAVE) \
+-    F(FLAMETHROWER) \
+-    F(SLUDGE_BOMB) \
+-    F(SANDSTORM) \
+-    F(FIRE_BLAST) \
++    F(LIGHT_SCREEN) \
++    F(THUNDER_WAVE) \
++    F(SWORDS_DANCE) \
++    F(AGILITY) \
++    F(BODY_SLAM) \
++    F(DIG) \
++    F(ROCK_SLIDE) \
++    F(THUNDER_PUNCH) \
++    F(ICE_PUNCH) \
++    F(FIRE_PUNCH) \
++    F(LOW_KICK) \
++    F(SEISMIC_TOSS) \
++    F(CONFUSE_RAY) \
++    F(SCREECH) \
++    F(COUNTER) \
++    F(PSYBEAM) \
++    /* Hoenn */ \
++    F(FACADE) \
+     F(ROCK_TOMB) \
+     F(AERIAL_ACE) \
+-    F(TORMENT) \
+-    F(FACADE) \
+-    F(SECRET_POWER) \
+-    F(REST) \
+-    F(ATTRACT) \
+-    F(THIEF) \
+-    F(STEEL_WING) \
+-    F(SKILL_SWAP) \
+-    F(SNATCH) \
+-    F(OVERHEAT)
++    F(BRICK_BREAK) \
++    F(KNOCK_OFF) \
++    F(SHOCK_WAVE) \
++    F(TAUNT) \
++    F(WATER_PULSE) \
++    F(SIGNAL_BEAM) \
++    F(MUD_SHOT) \
++    F(CALM_MIND) \
++    F(BULK_UP) \
++    F(HAIL) \
++    F(IRON_DEFENSE) \
++    F(WILL_O_WISP) \
++    F(BULLET_SEED) \
++    F(MAGICAL_LEAF) \
++    F(AIR_CUTTER) \
++    F(DRAGON_CLAW) \
++    /* Sinnoh */ \
++    F(ZEN_HEADBUTT) \
++    F(PAYBACK) \
++    F(STEALTH_ROCK) \
++    F(CHARGE_BEAM) \
++    F(POISON_JAB) \
++    F(SHADOW_CLAW) \
++    F(NASTY_PLOT) \
++    F(SEED_BOMB) \
++    F(IRON_HEAD) \
++    F(DARK_PULSE) \
++    F(U_TURN) \
++    F(DRAIN_PUNCH) \
++    F(ROOST) \
++    F(AIR_SLASH) \
++    F(TRICK_ROOM) \
++    F(NIGHT_SLASH) \
++    F(FLASH_CANNON) \
++    F(X_SCISSOR) \
++    F(AVALANCHE) \
++    F(ENERGY_BALL) \
++    /* Unova */ \
++    F(ROUND) \
++    F(BULLDOZE) \
++    F(WORK_UP) \
++    F(RETALIATE) \
++    F(INCINERATE) \
++    F(HONE_CLAWS) \
++    F(SMACK_DOWN) \
++    F(SCALD) \
++    F(ACROBATICS) \
++    F(PSYSHOCK) \
++    F(LOW_SWEEP) \
++    F(VENOSHOCK) \
++    F(SNARL) \
++    F(HEX) \
++    F(STRUGGLE_BUG) \
++    F(DRAGON_TAIL) \
++    F(ELECTROWEB) \
++    F(FLAME_CHARGE) \
++    F(VOLT_SWITCH) \
++    F(DRILL_RUN) \
++    /* Fairy -- belongs to no region's past, so it belongs to none of their sets */ \
++    F(DAZZLING_GLEAM) \
++    F(DISARMING_VOICE) \
++    F(DRAINING_KISS)
+ 
+ #define FOREACH_HM(F) \
+     F(CUT) \
+@@ -61,7 +135,10 @@
+     F(FLASH) \
+     F(ROCK_SMASH) \
+     F(WATERFALL) \
+-    F(DIVE)
++    F(DIVE) \
++    F(DEFOG) \
++    F(ROCK_CLIMB) \
++    F(WHIRLPOOL)
+ 
+ #define FOREACH_TMHM(F) \
+     FOREACH_TM(F) \
+diff --git a/include/event_scripts.h b/include/event_scripts.h
+index 235bea5c62..3aac65e588 100644
+--- a/include/event_scripts.h
++++ b/include/event_scripts.h
+@@ -595,6 +595,8 @@ extern const u8 EventScript_UseWaterfall[];
+ extern const u8 EventScript_CannotUseWaterfall[];
+ extern const u8 EventScript_UseDive[];
+ extern const u8 EventScript_UseDiveUnderwater[];
++extern const u8 EventScript_UseWhirlpool[];
++extern const u8 EventScript_CannotUseWhirlpool[];
+ extern const u8 EventScript_UseRockClimb[];
+ extern const u8 EventScript_FallDownHole[];
+ extern const u8 EventScript_FieldPoison[];
+diff --git a/include/item.h b/include/item.h
+index 671735f552..dc6a823d66 100644
+--- a/include/item.h
++++ b/include/item.h
+@@ -119,9 +119,9 @@ static inline enum TMHMIndex GetItemTMHMIndex(enum Item item)
+     switch (item)
+     {
+     /* Expands to:
+-        * case ITEM_TM_FOCUS_PUNCH:
++        * case ITEM_TM_BRICK_BREAK:
+         *     return 1;
+-        * case ITEM_TM_DRAGON_CLAW:
++        * case ITEM_TM_DRAGON_TAIL:
+         *      return 2;
+         * etc */
+     FOREACH_TM(UNPACK_ITEM_TO_TM_INDEX)
+@@ -136,9 +136,9 @@ static inline enum Move GetItemTMHMMoveId(enum Item item)
+     switch (item)
+     {
+     /* Expands to:
+-        * case ITEM_TM_FOCUS_PUNCH:
++        * case ITEM_TM_BRICK_BREAK:
+         *     return MOVE_FOCUS_PUNCH;
+-        * case ITEM_TM_DRAGON_CLAW:
++        * case ITEM_TM_DRAGON_TAIL:
+         *      return MOVE_DRAGON_CLAW;
+         * etc */
+     FOREACH_TM(UNPACK_ITEM_TO_TM_MOVE_ID)
+@@ -154,9 +154,9 @@ static inline enum Item GetTMHMItemIdFromMoveId(enum Move move)
+     {
+     /* Expands to:
+         * case MOVE_FOCUS_PUNCH:
+-        *     return ITEM_TM_FOCUS_PUNCH;
++        *     return ITEM_TM_BRICK_BREAK;
+         * case MOVE_DRAGON_CLAW:
+-        *      return ITEM_TM_DRAGON_CLAW;
++        *      return ITEM_TM_DRAGON_TAIL;
+         * etc */
+     FOREACH_TM(UNPACK_TM_MOVE_TO_ITEM_ID)
+     FOREACH_HM(UNPACK_HM_MOVE_TO_ITEM_ID)
+diff --git a/include/metatile_behavior.h b/include/metatile_behavior.h
+index 0bda059d4a..9da99ff6df 100644
+--- a/include/metatile_behavior.h
++++ b/include/metatile_behavior.h
+@@ -100,6 +100,7 @@ bool8 MetatileBehavior_IsSouthBlocked(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsShortGrass(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsHotSprings(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior);
++bool8 MetatileBehavior_IsWhirlpool(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsPacifidlogVerticalLogBottom(u8 metatileBehavior);
+diff --git a/include/party_menu.h b/include/party_menu.h
+index 50ed3c1d34..159dbcc164 100644
+--- a/include/party_menu.h
++++ b/include/party_menu.h
+@@ -145,6 +145,7 @@ bool32 SetUpFieldMove_Surf(void);
+ bool32 SetUpFieldMove_Fly(void);
+ bool32 SetUpFieldMove_Waterfall(void);
+ bool32 SetUpFieldMove_Dive(void);
++bool32 SetUpFieldMove_Whirlpool(void);
+ bool32 SetUpFieldMove_RockClimb(void);
+ 
+ #if TESTING
+diff --git a/src/data/items.h b/src/data/items.h
+index c51a5acf9a..bc18b753ee 100644
+--- a/src/data/items.h
++++ b/src/data/items.h
+@@ -12323,406 +12323,369 @@ const struct ItemInfo gItemsInfo[] =
+ 
+ // TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId.
+ 
+-    [ITEM_TM_FOCUS_PUNCH] =
++    // Apocrypha M04: Johto TMs
++    [ITEM_TM_PROTECT] =
+     {
+         .name = ITEM_NAME("TM01"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Powerful, but fails\n"
+-            "if the user is\n"
+-            "hit by the foe."),
++        "Negates all damage,\n"
++        "but may fail if used\n"
++        "in succession."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_DRAGON_CLAW] =
++    [ITEM_TM_RETURN] =
+     {
+         .name = ITEM_NAME("TM02"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Hooks and slashes\n"
+-            "the foe with long,\n"
+-            "sharp claws."),
++        "The more the user\n"
++        "likes you, the more\n"
++        "powerful this move."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_WATER_PULSE] =
++
++    [ITEM_TM_HIDDEN_POWER] =
+     {
+         .name = ITEM_NAME("TM03"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Generates an\n"
+-            "ultrasonic wave\n"
+-            "that may confuse."),
++        "The type\n"
++        "varies among\n"
++        "different Pokémon."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_CALM_MIND] =
++    [ITEM_TM_SLEEP_TALK] =
+     {
+         .name = ITEM_NAME("TM04"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Raises Sp. Atk and\n"
+-            "Sp. Def by focusing\n"
+-            "the mind."),
++            "Uses one of the\n"
++            "user's own moves\n"
++            "while fast asleep."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_ROAR] =
++    [ITEM_TM_ENDURE] =
+     {
+         .name = ITEM_NAME("TM05"),
+-        .price = 1000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "A roar that makes\n"
+-            "the foe switch or\n"
+-            "ends the battle."),
++            "Always leaves at\n"
++            "least 1 HP, but may\n"
++            "fail if used again."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_TOXIC] =
++    [ITEM_TM_ATTRACT] =
+     {
+         .name = ITEM_NAME("TM06"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Poisons the foe\n"
+-            "with a toxin that\n"
+-            "gradually worsens."),
++        "Makes it tough for\n"
++        "the opposite\n"
++        "gender to attack."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_HAIL] =
++    [ITEM_TM_RAIN_DANCE] =
+     {
+         .name = ITEM_NAME("TM07"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-        #if B_PREFERRED_ICE_WEATHER == B_ICE_WEATHER_SNOW
+-            "Boosts the\n"
+-            "Defense of Ice-\n"
+-            "types for 5 turns."),
+-        #else
+-            "Damages all\n"
+-            "types except Ice\n"
+-            "for 5 turns."),
+-        #endif
++        "Boosts the power\n"
++        "of Water-type\n"
++        "moves for 5 turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_BULK_UP] =
++    [ITEM_TM_SUNNY_DAY] =
+     {
+         .name = ITEM_NAME("TM08"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Bulks up the body\n"
+-            "to raise both\n"
+-            "Attack & Defense."),
++        "Boosts the power\n"
++        "of Fire-type moves\n"
++        "for 5 turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_BULLET_SEED] =
++    [ITEM_TM_SANDSTORM] =
+     {
+         .name = ITEM_NAME("TM09"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Shoots 2 to 5 seeds\n"
+-            "in a row to strike\n"
+-            "the foe."),
++        "Causes a sandstorm\n"
++        "that hits\n"
++        "over 5 turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_HIDDEN_POWER] =
++
++    [ITEM_TM_THIEF] =
+     {
+         .name = ITEM_NAME("TM10"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "The type\n"
+-            "varies among\n"
+-            "different Pokémon."),
++        "While attacking,\n"
++        "it steals the\n"
++        "foe's held item."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SUNNY_DAY] =
++    [ITEM_TM_ICY_WIND] =
+     {
+         .name = ITEM_NAME("TM11"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Boosts the power\n"
+-            "of Fire-type moves\n"
+-            "for 5 turns."),
++            "A chilling gust that\n"
++            "also lowers the\n"
++            "foe's Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_TAUNT] =
++    [ITEM_TM_SHADOW_BALL] =
+     {
+         .name = ITEM_NAME("TM12"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "The foe can only\n"
+-            "use attack moves\n"
+-        #if B_TAUNT_TURNS >= GEN_5
+-            "for 3 turns."),
+-        #elif B_TAUNT_TURNS == GEN_4
+-            "for 2 to 4 turns."),
+-        #else
+-            "for 2 turns."),
+-        #endif
++        "Hurls a dark lump\n"
++        "at the foe. It may\n"
++        "lower Sp. Def."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_ICE_BEAM] =
++    [ITEM_TM_GIGA_DRAIN] =
+     {
+         .name = ITEM_NAME("TM13"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Fires an icy cold\n"
+-            "beam that may\n"
+-        #if B_USE_FROSTBITE
+-            "cause frostbite."),
+-        #else
+-            "freeze the foe."),
+-        #endif
++        "Recovers half the\n"
++        "HP of the damage \n"
++        "this move inflicts."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_BLIZZARD] =
++    [ITEM_TM_CRUNCH] =
+     {
+         .name = ITEM_NAME("TM14"),
+-        .price = 5500,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-        #if B_USE_FROSTBITE
+-            "A snow-and-wind\n"
+-            "attack that may\n"
+-            "cause frostbite."),
+-        #else
+-            "A brutal snow-and-\n"
+-            "wind attack that\n"
+-            "may freeze the foe."),
+-        #endif
++            "Bites with sharp\n"
++            "fangs. May lower\n"
++            "the foe's Defense."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_HYPER_BEAM] =
++    [ITEM_TM_STEEL_WING] =
+     {
+         .name = ITEM_NAME("TM15"),
+-        .price = 7500,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-        #if B_SKIP_RECHARGE != GEN_1
+-            "Powerful, but needs\n"
+-            "recharging the\n"
+-            "next turn."),
+-        #else
+-            "Needs recharging if\n"
+-            "it doesn't knock\n"
+-            "out the target."),
+-        #endif
++        "Slams into the\n"
++        "foe. This may\n"
++        "raise Defense."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_LIGHT_SCREEN] =
++    [ITEM_TM_ANCIENT_POWER] =
+     {
+         .name = ITEM_NAME("TM16"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Creates a wall of\n"
+-            "light that reduces\n"
+-            "special damage."),
++            "An attack of ancient\n"
++            "power that may\n"
++            "raise all stats."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_PROTECT] =
++    [ITEM_TM_ENCORE] =
+     {
+         .name = ITEM_NAME("TM17"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Negates all damage,\n"
+-            "but may fail if used\n"
+-            "in succession."),
++            "Forces the foe to\n"
++            "repeat its last\n"
++            "move for a while."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_RAIN_DANCE] =
++    [ITEM_TM_FALSE_SWIPE] =
+     {
+         .name = ITEM_NAME("TM18"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Boosts the power\n"
+-            "of Water-type\n"
+-            "moves for 5 turns."),
++            "A restrained blow\n"
++            "that always leaves\n"
++            "the foe with 1 HP."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_GIGA_DRAIN] =
+-    {
+-        .name = ITEM_NAME("TM19"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING(
+-            "Recovers half the\n"
+-            "HP of the damage \n"
+-            "this move inflicts."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+-
+-    [ITEM_TM_SAFEGUARD] =
++    // Apocrypha M04: Kanto TMs
++    [ITEM_TM_TOXIC] =
+     {
+         .name = ITEM_NAME("TM20"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Guards allies from\n"
+-            "status problems\n"
+-            "for 5 turns."),
++        "Poisons the foe\n"
++        "with a toxin that\n"
++        "gradually worsens."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_FRUSTRATION] =
++    [ITEM_TM_REST] =
+     {
+         .name = ITEM_NAME("TM21"),
+-        .price = 1000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "The less the user\n"
+-            "likes you, the more\n"
+-            "powerful this move."),
++        "The user sleeps for\n"
++        "2 turns to restore\n"
++        "health and status."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SOLAR_BEAM] =
++
++    [ITEM_TM_REFLECT] =
+     {
+         .name = ITEM_NAME("TM22"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Absorbs sunlight in\n"
+-            "the 1st turn, then\n"
+-            "attacks next turn."),
++        "Creates a wall of\n"
++        "light that weakens\n"
++        "physical attacks."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_IRON_TAIL] =
++    [ITEM_TM_LIGHT_SCREEN] =
+     {
+         .name = ITEM_NAME("TM23"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Slams the foe with\n"
+-            "a hard tail. It may\n"
+-            "lower Defense."),
++        "Creates a wall of\n"
++        "light that reduces\n"
++        "special damage."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_THUNDERBOLT] =
++    [ITEM_TM_THUNDER_WAVE] =
+     {
+         .name = ITEM_NAME("TM24"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "A powerful electric\n"
+-            "attack that may\n"
+-            "cause paralysis."),
++            "A weak jolt of\n"
++            "electricity that\n"
++            "paralyzes the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_THUNDER] =
++    [ITEM_TM_SWORDS_DANCE] =
+     {
+         .name = ITEM_NAME("TM25"),
+-        .price = 5500,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Strikes the foe\n"
+-            "with a thunderbolt.\n"
+-            "It may paralyze."),
++            "A frenetic dance\n"
++            "that sharply raises\n"
++            "the user's Attack."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_EARTHQUAKE] =
++    [ITEM_TM_AGILITY] =
+     {
+         .name = ITEM_NAME("TM26"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Causes a quake\n"
+-            "that hits all\n"
+-            "other Pokémon."),
++            "Relaxes the body to\n"
++            "sharply raise the\n"
++            "user's Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_RETURN] =
++    [ITEM_TM_BODY_SLAM] =
+     {
+         .name = ITEM_NAME("TM27"),
+-        .price = 1000,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-            "The more the user\n"
+-            "likes you, the more\n"
+-            "powerful this move."),
++            "A full-body charge.\n"
++            "May leave the foe\n"
++            "paralyzed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+@@ -12732,869 +12695,1040 @@ const struct ItemInfo gItemsInfo[] =
+     [ITEM_TM_DIG] =
+     {
+         .name = ITEM_NAME("TM28"),
+-        .price = 2000,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Digs underground\n"
+-            "the 1st turn, then\n"
+-            "strikes next turn."),
++        "Digs underground\n"
++        "the 1st turn, then\n"
++        "strikes next turn."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_PSYCHIC] =
++    [ITEM_TM_ROCK_SLIDE] =
+     {
+         .name = ITEM_NAME("TM29"),
+-        .price = 2000,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-            "A powerful psychic\n"
+-            "attack that may\n"
+-            "lower Sp. Def."),
++            "Large boulders are\n"
++            "hurled. May make\n"
++            "the foe flinch."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SHADOW_BALL] =
++    [ITEM_TM_THUNDER_PUNCH] =
+     {
+         .name = ITEM_NAME("TM30"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Hurls a dark lump\n"
+-            "at the foe. It may\n"
+-            "lower Sp. Def."),
++            "An electrified punch\n"
++            "that may leave the\n"
++            "foe paralyzed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_BRICK_BREAK] =
++    [ITEM_TM_ICE_PUNCH] =
+     {
+         .name = ITEM_NAME("TM31"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Destroys barriers\n"
+-            "like Light Screen\n"
+-            "and causes damage."),
++            "An icy punch that\n"
++            "may leave the foe\n"
++            "frozen solid."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_DOUBLE_TEAM] =
++    [ITEM_TM_FIRE_PUNCH] =
+     {
+         .name = ITEM_NAME("TM32"),
+-        .price = 2000,
++        .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Creates illusory\n"
+-            "copies to raise\n"
+-            "evasiveness."),
++            "A fiery punch that\n"
++            "may leave the foe\n"
++            "with a burn."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_REFLECT] =
++
++    [ITEM_TM_LOW_KICK] =
+     {
+         .name = ITEM_NAME("TM33"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Creates a wall of\n"
+-            "light that weakens\n"
+-            "physical attacks."),
++            "A kick to the legs.\n"
++            "Stronger against\n"
++            "heavier foes."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SHOCK_WAVE] =
++    [ITEM_TM_SEISMIC_TOSS] =
+     {
+         .name = ITEM_NAME("TM34"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Zaps the foe with a\n"
+-            "jolt of electricity\n"
+-            "that never misses."),
++            "Throws the foe for\n"
++            "damage equal to the\n"
++            "user's own level."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_FLAMETHROWER] =
++    [ITEM_TM_CONFUSE_RAY] =
+     {
+         .name = ITEM_NAME("TM35"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Looses a stream of\n"
+-            "fire that may burn\n"
+-            "the foe."),
++            "A sinister ray that\n"
++            "leaves the foe\n"
++            "badly confused."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SLUDGE_BOMB] =
++    [ITEM_TM_SCREECH] =
+     {
+         .name = ITEM_NAME("TM36"),
+-        .price = 1000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Hurls sludge at the\n"
+-            "foe. It may poison\n"
+-            "the foe."),
++            "A horrible screech\n"
++            "that sharply lowers\n"
++            "the foe's Defense."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SANDSTORM] =
++    [ITEM_TM_COUNTER] =
+     {
+         .name = ITEM_NAME("TM37"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Causes a sandstorm\n"
+-            "that hits\n"
+-            "over 5 turns."),
++            "Strikes back at\n"
++            "twice the power of\n"
++            "a physical hit."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_FIRE_BLAST] =
+-    {
+-        .name = ITEM_NAME("TM38"),
+-        .price = 5500,
+-        .description = COMPOUND_STRING(
+-            "A powerful fire\n"
+-            "attack that may\n"
+-            "burn the foe."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+-
+-    [ITEM_TM_ROCK_TOMB] =
++    // Apocrypha M04: Hoenn TMs
++    [ITEM_TM_FACADE] =
+     {
+         .name = ITEM_NAME("TM39"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Stops the foe from\n"
+-            "moving with rocks.\n"
+-            "May lower Speed."),
++        "Boosts power when\n"
++        "poisoned, burned,\n"
++        "or paralyzed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_AERIAL_ACE] =
++
++    [ITEM_TM_ROCK_TOMB] =
+     {
+         .name = ITEM_NAME("TM40"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "An extremely fast\n"
+-            "attack that can't\n"
+-            "be avoided."),
++        "Stops the foe from\n"
++        "moving with rocks.\n"
++        "May lower Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_TORMENT] =
++    [ITEM_TM_AERIAL_ACE] =
+     {
+         .name = ITEM_NAME("TM41"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Prevents the foe\n"
+-            "from using the same\n"
+-            "move in a row."),
++        "An extremely fast\n"
++        "attack that can't\n"
++        "be avoided."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_FACADE] =
++    [ITEM_TM_BRICK_BREAK] =
+     {
+         .name = ITEM_NAME("TM42"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Boosts power when\n"
+-            "poisoned, burned,\n"
+-            "or paralyzed."),
++        "Destroys barriers\n"
++        "like Light Screen\n"
++        "and causes damage."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SECRET_POWER] =
++    [ITEM_TM_KNOCK_OFF] =
+     {
+         .name = ITEM_NAME("TM43"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Adds an effect to\n"
+-            "attack depending\n"
+-            "on the location."),
++            "Slaps away the\n"
++            "foe's held item so\n"
++            "it cannot be used."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_REST] =
++    [ITEM_TM_SHOCK_WAVE] =
+     {
+         .name = ITEM_NAME("TM44"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "The user sleeps for\n"
+-            "2 turns to restore\n"
+-            "health and status."),
++        "Zaps the foe with a\n"
++        "jolt of electricity\n"
++        "that never misses."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_ATTRACT] =
++    [ITEM_TM_TAUNT] =
+     {
+         .name = ITEM_NAME("TM45"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Makes it tough for\n"
+-            "the opposite\n"
+-            "gender to attack."),
++            "The foe can only\n"
++            "use attack moves\n"
++            "for several turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_THIEF] =
++    [ITEM_TM_WATER_PULSE] =
+     {
+         .name = ITEM_NAME("TM46"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "While attacking,\n"
+-            "it steals the\n"
+-            "foe's held item."),
++        "Generates an\n"
++        "ultrasonic wave\n"
++        "that may confuse."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_STEEL_WING] =
++    [ITEM_TM_SIGNAL_BEAM] =
+     {
+         .name = ITEM_NAME("TM47"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+-            "Slams into the\n"
+-            "foe. This may\n"
+-            "raise Defense."),
++            "A sinister beam of\n"
++            "light that may\n"
++            "confuse the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SKILL_SWAP] =
++    [ITEM_TM_MUD_SHOT] =
+     {
+         .name = ITEM_NAME("TM48"),
+-        .price = 3000,
++        .price = 2000,
+         .description = COMPOUND_STRING(
+-            "Switches Abilities\n"
+-            "with the foe on the\n"
+-            "turn this is used."),
++            "Hurls mud at the\n"
++            "foe and lowers its\n"
++            "Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SNATCH] =
++    [ITEM_TM_CALM_MIND] =
+     {
+         .name = ITEM_NAME("TM49"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Steals the next\n"
+-            "healing or stat-\n"
+-            "changing move."),
++        "Raises Sp. Atk and\n"
++        "Sp. Def by focusing\n"
++        "the mind."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_OVERHEAT] =
++    [ITEM_TM_BULK_UP] =
+     {
+         .name = ITEM_NAME("TM50"),
+-        .price = 3000,
++        .price = 1500,
+         .description = COMPOUND_STRING(
+-            "Enables full-power\n"
+-            "attack, but harshly\n"
+-            "lowers Sp. Atk."),
++        "Bulks up the body\n"
++        "to raise both\n"
++        "Attack & Defense."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM51] =
++
++    [ITEM_TM_HAIL] =
+     {
+         .name = ITEM_NAME("TM51"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Calls up a bitter\n"
++            "cold that lasts\n"
++            "for five turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM52] =
++    [ITEM_TM_IRON_DEFENSE] =
+     {
+         .name = ITEM_NAME("TM52"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Hardens the body\n"
++            "like iron to sharply\n"
++            "raise Defense."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM53] =
++    [ITEM_TM_WILL_O_WISP] =
+     {
+         .name = ITEM_NAME("TM53"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "A sinister flame\n"
++            "that inflicts a\n"
++            "burn on the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM54] =
++    [ITEM_TM_BULLET_SEED] =
+     {
+         .name = ITEM_NAME("TM54"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++        "Shoots 2 to 5 seeds\n"
++        "in a row to strike\n"
++        "the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM55] =
++    [ITEM_TM_MAGICAL_LEAF] =
+     {
+         .name = ITEM_NAME("TM55"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Scatters glowing\n"
++            "leaves that never\n"
++            "miss the target."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM56] =
++    [ITEM_TM_AIR_CUTTER] =
+     {
+         .name = ITEM_NAME("TM56"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+-
+-    [ITEM_TM57] =
+-    {
+-        .name = ITEM_NAME("TM57"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Razor-like wind\n"
++            "slashes the foe.\n"
++            "High critical rate."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM58] =
++    // Apocrypha M04: Sinnoh TMs
++    [ITEM_TM_ZEN_HEADBUTT] =
+     {
+         .name = ITEM_NAME("TM58"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Focuses willpower\n"
++            "into the head. May\n"
++            "make the foe flinch."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM59] =
++    [ITEM_TM_PAYBACK] =
+     {
+         .name = ITEM_NAME("TM59"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Twice as strong if\n"
++            "the user attacks\n"
++            "after the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM60] =
++    [ITEM_TM_STEALTH_ROCK] =
+     {
+         .name = ITEM_NAME("TM60"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Floating stones hurt\n"
++            "each foe that\n"
++            "switches into play."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM61] =
++    [ITEM_TM_CHARGE_BEAM] =
+     {
+         .name = ITEM_NAME("TM61"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "A beam of current\n"
++            "that may raise the\n"
++            "user's Sp. Atk."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM62] =
++    [ITEM_TM_POISON_JAB] =
+     {
+         .name = ITEM_NAME("TM62"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Stabs with a\n"
++            "poisonous limb.\n"
++            "May poison."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM63] =
++    [ITEM_TM_SHADOW_CLAW] =
+     {
+         .name = ITEM_NAME("TM63"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Strikes with a claw\n"
++            "of shadow. High\n"
++            "critical-hit rate."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM64] =
++    [ITEM_TM_NASTY_PLOT] =
+     {
+         .name = ITEM_NAME("TM64"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Plots something bad\n"
++            "to sharply raise\n"
++            "the user's Sp. Atk."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM65] =
++    [ITEM_TM_SEED_BOMB] =
+     {
+         .name = ITEM_NAME("TM65"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Slams a barrage of\n"
++            "hard seeds down on\n"
++            "the target."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM66] =
++    [ITEM_TM_IRON_HEAD] =
+     {
+         .name = ITEM_NAME("TM66"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Slams with a head\n"
++            "of iron. May make\n"
++            "the foe flinch."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM67] =
++    [ITEM_TM_DARK_PULSE] =
+     {
+         .name = ITEM_NAME("TM67"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "A horrible aura of\n"
++            "dark thoughts. May\n"
++            "make the foe flinch."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM68] =
++    [ITEM_TM_U_TURN] =
+     {
+         .name = ITEM_NAME("TM68"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Strikes, then darts\n"
++            "back to swap for a\n"
++            "party member."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM69] =
++    [ITEM_TM_DRAIN_PUNCH] =
+     {
+         .name = ITEM_NAME("TM69"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "A punch that drains\n"
++            "half the damage\n"
++            "dealt to heal up."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM70] =
++    [ITEM_TM_ROOST] =
+     {
+         .name = ITEM_NAME("TM70"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Lands and rests the\n"
++            "body, restoring up\n"
++            "to half of max HP."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM71] =
++    [ITEM_TM_AIR_SLASH] =
+     {
+         .name = ITEM_NAME("TM71"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Slices with a blade\n"
++            "of air. May make\n"
++            "the foe flinch."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM72] =
++    [ITEM_TM_TRICK_ROOM] =
+     {
+         .name = ITEM_NAME("TM72"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Slower Pokemon get\n"
++            "to move first for\n"
++            "five turns."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM73] =
++    [ITEM_TM_NIGHT_SLASH] =
+     {
+         .name = ITEM_NAME("TM73"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Slashes the moment\n"
++            "the foe drops its\n"
++            "guard. High crit."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM74] =
++    [ITEM_TM_FLASH_CANNON] =
+     {
+         .name = ITEM_NAME("TM74"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Fires a blast of\n"
++            "light. May lower\n"
++            "the foe's Sp. Def."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM75] =
++    [ITEM_TM_X_SCISSOR] =
+     {
+         .name = ITEM_NAME("TM75"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Slashes with\n"
++            "crossed scythes\n"
++            "or claws."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM76] =
++    [ITEM_TM_AVALANCHE] =
+     {
+         .name = ITEM_NAME("TM76"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Twice as strong if\n"
++            "the user was hurt\n"
++            "by the foe first."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM77] =
+-    {
+-        .name = ITEM_NAME("TM77"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+-    [ITEM_TM78] =
++    // Apocrypha M04: Unova TMs
++    [ITEM_TM_ROUND] =
+     {
+         .name = ITEM_NAME("TM78"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "A song. Stronger if\n"
++            "allies use it in\n"
++            "the same turn."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM79] =
++    [ITEM_TM_BULLDOZE] =
+     {
+         .name = ITEM_NAME("TM79"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Stomps the ground.\n"
++            "Lowers the Speed\n"
++            "of all it hits."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM80] =
++    [ITEM_TM_WORK_UP] =
+     {
+         .name = ITEM_NAME("TM80"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "The user is roused,\n"
++            "raising both\n"
++            "Attack and Sp. Atk."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM81] =
++    [ITEM_TM_RETALIATE] =
+     {
+         .name = ITEM_NAME("TM81"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Twice as strong if\n"
++            "an ally fainted on\n"
++            "the previous turn."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM82] =
++    [ITEM_TM_INCINERATE] =
+     {
+         .name = ITEM_NAME("TM82"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Burns up the foe's\n"
++            "held Berry so it\n"
++            "cannot be eaten."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM83] =
++    [ITEM_TM_HONE_CLAWS] =
+     {
+         .name = ITEM_NAME("TM83"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Raises Attack and\n"
++            "accuracy with\n"
++            "honed sharp claws."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM84] =
++    [ITEM_TM_SMACK_DOWN] =
+     {
+         .name = ITEM_NAME("TM84"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Knocks a flying foe\n"
++            "down to the ground\n"
++            "with a projectile."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM85] =
++    [ITEM_TM_SCALD] =
+     {
+         .name = ITEM_NAME("TM85"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Shoots boiling\n"
++            "water that may\n"
++            "burn the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM86] =
++    [ITEM_TM_ACROBATICS] =
+     {
+         .name = ITEM_NAME("TM86"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Strikes lightly.\n"
++            "Twice as strong if\n"
++            "holding no item."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM87] =
++    [ITEM_TM_PSYSHOCK] =
+     {
+         .name = ITEM_NAME("TM87"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "A psychic wave that\n"
++            "strikes the foe's\n"
++            "Defense instead."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM88] =
++    [ITEM_TM_LOW_SWEEP] =
+     {
+         .name = ITEM_NAME("TM88"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "A swift blow to the\n"
++            "legs that lowers\n"
++            "the foe's Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM89] =
++    [ITEM_TM_VENOSHOCK] =
+     {
+         .name = ITEM_NAME("TM89"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Double damage if\n"
++            "the foe is already\n"
++            "poisoned."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM90] =
++    [ITEM_TM_SNARL] =
+     {
+         .name = ITEM_NAME("TM90"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Yells and rants to\n"
++            "lower the foe's\n"
++            "Sp. Atk."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM91] =
++    [ITEM_TM_HEX] =
+     {
+         .name = ITEM_NAME("TM91"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Deals double damage\n"
++            "to a foe with a\n"
++            "status condition."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM92] =
++    [ITEM_TM_STRUGGLE_BUG] =
+     {
+         .name = ITEM_NAME("TM92"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 1500,
++        .description = COMPOUND_STRING(
++            "Resists with a bug\n"
++            "cry. Lowers the\n"
++            "foe's Sp. Atk."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM93] =
++    [ITEM_TM_DRAGON_TAIL] =
+     {
+         .name = ITEM_NAME("TM93"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Strikes and forces\n"
++            "the foe to switch\n"
++            "out of battle."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM94] =
++    [ITEM_TM_ELECTROWEB] =
+     {
+         .name = ITEM_NAME("TM94"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Snares foes in an\n"
++            "electric net and\n"
++            "lowers their Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM95] =
++    [ITEM_TM_FLAME_CHARGE] =
+     {
+         .name = ITEM_NAME("TM95"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++            "Attacks cloaked in\n"
++            "flame and raises\n"
++            "the user's Speed."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM96] =
++    [ITEM_TM_VOLT_SWITCH] =
+     {
+         .name = ITEM_NAME("TM96"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Attacks, then darts\n"
++            "back to swap for a\n"
++            "party member."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM97] =
++    [ITEM_TM_DRILL_RUN] =
+     {
+         .name = ITEM_NAME("TM97"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++            "Spins like a drill\n"
++            "and charges. High\n"
++            "critical-hit rate."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DRAGON_BREATH] =
++    {
++        .name = ITEM_NAME("TM19"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Blasts the foe with\n"
++        "an intense breath\n"
++        "of draconic fire."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM98] =
++    [ITEM_TM_PSYBEAM] =
++    {
++        .name = ITEM_NAME("TM38"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Fires a peculiar\n"
++        "ray that may leave\n"
++        "the foe confused."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DRAGON_CLAW] =
++    {
++        .name = ITEM_NAME("TM57"),
++        .price = 3000,
++        .description = COMPOUND_STRING(
++        "Slashes the foe\n"
++        "with sharp claws\n"
++        "of great hardness."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_ENERGY_BALL] =
++    {
++        .name = ITEM_NAME("TM77"),
++        .price = 3000,
++        .description = COMPOUND_STRING(
++        "Draws power from\n"
++        "nature to attack.\n"
++        "May lower Sp. Def."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DAZZLING_GLEAM] =
+     {
+         .name = ITEM_NAME("TM98"),
+         .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .description = COMPOUND_STRING(
++        "Damages the foe\n"
++        "with a strong flash\n"
++        "of brilliant light."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM99] =
++    [ITEM_TM_DISARMING_VOICE] =
+     {
+         .name = ITEM_NAME("TM99"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Lets out a charming\n"
++        "cry that always\n"
++        "strikes the foe."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM100] =
++    [ITEM_TM_DRAINING_KISS] =
+     {
+         .name = ITEM_NAME("TM100"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING("?????"), // Todo
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Steals the foe's\n"
++        "energy with a kiss\n"
++        "to restore HP."),
+         .importance = I_REUSABLE_TMS,
+         .pocket = POCKET_TM_HM,
+         .type = ITEM_USE_PARTY_MENU,
+@@ -13723,6 +13857,48 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
++    [ITEM_HM_DEFOG] =
++    {
++        .name = ITEM_NAME("HM09"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Clears away fog\n"
++            "and lowers the\n"
++            "foe's evasiveness."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_HM_ROCK_CLIMB] =
++    {
++        .name = ITEM_NAME("HM10"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Scales rock walls\n"
++            "while attacking\n"
++            "with great force."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_HM_WHIRLPOOL] =
++    {
++        .name = ITEM_NAME("HM11"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Traps the foe in\n"
++            "a violent, swirling\n"
++            "vortex of water."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
+ // Charms
+ 
+     [ITEM_OVAL_CHARM] =
+diff --git a/src/data/lilycove_lady.h b/src/data/lilycove_lady.h
+index 2ba3ea1002..3db0a03e7c 100644
+--- a/src/data/lilycove_lady.h
++++ b/src/data/lilycove_lady.h
+@@ -294,7 +294,7 @@ static const struct LilycoveQuizLadyQuestions sQuizLadyQuestions[] =
+     {.question = sQuizLadyQuestion8,  .answer = EC_WORD_SHADOW_TAG, .prize = ITEM_BELUE_BERRY},
+     {.question = sQuizLadyQuestion9,  .answer = EC_WORD_IMMUNITY,   .prize = ITEM_DURIN_BERRY},
+     {.question = sQuizLadyQuestion10, .answer = EC_WORD_POKEMON,    .prize = ITEM_LUXURY_BALL},
+-    {.question = sQuizLadyQuestion11, .answer = EC_WORD_PC,         .prize = ITEM_TM_HYPER_BEAM},
++    {.question = sQuizLadyQuestion11, .answer = EC_WORD_PC,         .prize = ITEM_TM_BODY_SLAM},
+     {.question = sQuizLadyQuestion12, .answer = EC_WORD_TELEVISION, .prize = ITEM_BIG_PEARL},
+     {.question = sQuizLadyQuestion13, .answer = EC_WORD_PLUSH_DOLL, .prize = ITEM_STAR_PIECE},
+     {.question = sQuizLadyQuestion14, .answer = EC_WORD_ICE,        .prize = ITEM_RARE_CANDY},
+diff --git a/src/data/pokemon/level_up_learnsets/gen_6.h b/src/data/pokemon/level_up_learnsets/gen_6.h
+index c5a3a39acf..ad4c231c5f 100644
+--- a/src/data/pokemon/level_up_learnsets/gen_6.h
++++ b/src/data/pokemon/level_up_learnsets/gen_6.h
+@@ -3517,6 +3517,10 @@ static const struct LevelUpMove sMrMimeLevelUpLearnset[] = {
+     LEVEL_UP_MOVE(36, MOVE_TRICK),
+     LEVEL_UP_MOVE(39, MOVE_PSYCHIC),
+     LEVEL_UP_MOVE(43, MOVE_ROLE_PLAY),
++    // Apocrypha M03c exception: Mr. Mime is the only Fairy-typed species on the roster that the
++    // ORAS learnsets leave with no Fairy attacking move, and the TM list has none to teach it.
++    // Level 44 matches where Mr. Mime learns Dazzling Gleam in the present-day games.
++    LEVEL_UP_MOVE(44, MOVE_DAZZLING_GLEAM),
+     LEVEL_UP_MOVE(46, MOVE_BATON_PASS),
+     LEVEL_UP_MOVE(50, MOVE_SAFEGUARD),
+     LEVEL_UP_END
+diff --git a/src/data/pokemon/special_movesets.json b/src/data/pokemon/special_movesets.json
+index 892f911734..3c7cb25c4c 100644
+--- a/src/data/pokemon/special_movesets.json
++++ b/src/data/pokemon/special_movesets.json
+@@ -1,37 +1,171 @@
+ {
+-  "universalMoves":
+-    [
+-      "MOVE_BIDE",
+-      "MOVE_FRUSTRATION",
+-      "MOVE_HIDDEN_POWER",
+-      "MOVE_MIMIC",
+-      "MOVE_NATURAL_GIFT",
+-      "MOVE_RAGE",
+-      "MOVE_RETURN",
+-      "MOVE_SECRET_POWER",
+-      "MOVE_SUBSTITUTE",
+-      "MOVE_TERA_BLAST"
+-    ],
+-  "signatureTeachables":
+-    [
+-      "MOVE_BADDY_BAD",
+-      "MOVE_BOUNCY_BUBBLE",
+-      "MOVE_BUZZY_BUZZ",
+-      "MOVE_DRAGON_ASCENT",
+-      "MOVE_FLOATY_FALL",
+-      "MOVE_FREEZY_FROST",
+-      "MOVE_GLITZY_GLOW",
+-      "MOVE_RELIC_SONG",
+-      "MOVE_SAPPY_SEED",
+-      "MOVE_SECRET_SWORD",
+-      "MOVE_SIZZLY_SLIDE",
+-      "MOVE_SPARKLY_SWIRL",
+-      "MOVE_SPLISHY_SPLASH",
+-      "MOVE_VOLT_TACKLE",
+-      "MOVE_ZIPPY_ZAP"
+-    ],
+-  "extraTutors":
+-    [
+-      
+-    ]
++  "universalMoves": [
++    "MOVE_BIDE",
++    "MOVE_FRUSTRATION",
++    "MOVE_HIDDEN_POWER",
++    "MOVE_MIMIC",
++    "MOVE_NATURAL_GIFT",
++    "MOVE_RAGE",
++    "MOVE_RETURN",
++    "MOVE_SECRET_POWER",
++    "MOVE_SUBSTITUTE",
++    "MOVE_TERA_BLAST"
++  ],
++  "signatureTeachables": [
++    "MOVE_BADDY_BAD",
++    "MOVE_BOUNCY_BUBBLE",
++    "MOVE_BUZZY_BUZZ",
++    "MOVE_DRAGON_ASCENT",
++    "MOVE_FLOATY_FALL",
++    "MOVE_FREEZY_FROST",
++    "MOVE_GLITZY_GLOW",
++    "MOVE_RELIC_SONG",
++    "MOVE_SAPPY_SEED",
++    "MOVE_SECRET_SWORD",
++    "MOVE_SIZZLY_SLIDE",
++    "MOVE_SPARKLY_SWIRL",
++    "MOVE_SPLISHY_SPLASH",
++    "MOVE_VOLT_TACKLE",
++    "MOVE_ZIPPY_ZAP"
++  ],
++  "extraTutors": [
++    "MOVE_ALLY_SWITCH",
++    "MOVE_AQUA_TAIL",
++    "MOVE_AURA_SPHERE",
++    "MOVE_BIDE",
++    "MOVE_BLAST_BURN",
++    "MOVE_BLIZZARD",
++    "MOVE_BRAVE_BIRD",
++    "MOVE_BRINE",
++    "MOVE_BUBBLE_BEAM",
++    "MOVE_BUG_BUZZ",
++    "MOVE_CAPTIVATE",
++    "MOVE_CLOSE_COMBAT",
++    "MOVE_CRABHAMMER",
++    "MOVE_CROSS_CHOP",
++    "MOVE_CURSE",
++    "MOVE_DEFENSE_CURL",
++    "MOVE_DETECT",
++    "MOVE_DOUBLE_EDGE",
++    "MOVE_DOUBLE_TEAM",
++    "MOVE_DRACO_METEOR",
++    "MOVE_DRAGON_PULSE",
++    "MOVE_DRAGON_RAGE",
++    "MOVE_DRAGON_RUSH",
++    "MOVE_DREAM_EATER",
++    "MOVE_DYNAMIC_PUNCH",
++    "MOVE_EARTHQUAKE",
++    "MOVE_EARTH_POWER",
++    "MOVE_ECHOED_VOICE",
++    "MOVE_EGG_BOMB",
++    "MOVE_EMBARGO",
++    "MOVE_ERUPTION",
++    "MOVE_EXPLOSION",
++    "MOVE_FIRE_BLAST",
++    "MOVE_FISSURE",
++    "MOVE_FLAMETHROWER",
++    "MOVE_FLARE_BLITZ",
++    "MOVE_FLING",
++    "MOVE_FOCUS_BLAST",
++    "MOVE_FOCUS_PUNCH",
++    "MOVE_FOUL_PLAY",
++    "MOVE_FRENZY_PLANT",
++    "MOVE_FROST_BREATH",
++    "MOVE_FRUSTRATION",
++    "MOVE_FURY_CUTTER",
++    "MOVE_FUSION_BOLT",
++    "MOVE_FUSION_FLARE",
++    "MOVE_FUTURE_SIGHT",
++    "MOVE_GIGA_IMPACT",
++    "MOVE_GRASS_KNOT",
++    "MOVE_GUNK_SHOT",
++    "MOVE_GYRO_BALL",
++    "MOVE_HAMMER_ARM",
++    "MOVE_HEADBUTT",
++    "MOVE_HEAD_SMASH",
++    "MOVE_HEAT_WAVE",
++    "MOVE_HIGH_JUMP_KICK",
++    "MOVE_HORN_DRILL",
++    "MOVE_HURRICANE",
++    "MOVE_HYDRO_CANNON",
++    "MOVE_HYDRO_PUMP",
++    "MOVE_HYPER_BEAM",
++    "MOVE_HYPER_VOICE",
++    "MOVE_ICE_BEAM",
++    "MOVE_INFERNO",
++    "MOVE_IRON_TAIL",
++    "MOVE_JUMP_KICK",
++    "MOVE_LAST_RESORT",
++    "MOVE_LEAF_BLADE",
++    "MOVE_LEAF_STORM",
++    "MOVE_MEGAHORN",
++    "MOVE_MEGA_DRAIN",
++    "MOVE_MEGA_KICK",
++    "MOVE_MEGA_PUNCH",
++    "MOVE_METEOR_MASH",
++    "MOVE_METRONOME",
++    "MOVE_MIMIC",
++    "MOVE_MUDDY_WATER",
++    "MOVE_MUD_SLAP",
++    "MOVE_NATURAL_GIFT",
++    "MOVE_NIGHTMARE",
++    "MOVE_OUTRAGE",
++    "MOVE_OVERHEAT",
++    "MOVE_PAY_DAY",
++    "MOVE_PETAL_DANCE",
++    "MOVE_PLUCK",
++    "MOVE_POWER_WHIP",
++    "MOVE_PSYCHIC",
++    "MOVE_PSYCHO_BOOST",
++    "MOVE_PSYCH_UP",
++    "MOVE_PSYWAVE",
++    "MOVE_QUASH",
++    "MOVE_RAGE",
++    "MOVE_RAZOR_WIND",
++    "MOVE_RECYCLE",
++    "MOVE_ROAR",
++    "MOVE_ROCK_POLISH",
++    "MOVE_ROCK_WRECKER",
++    "MOVE_ROLLOUT",
++    "MOVE_SACRED_FIRE",
++    "MOVE_SACRED_SWORD",
++    "MOVE_SAFEGUARD",
++    "MOVE_SECRET_POWER",
++    "MOVE_SEED_FLARE",
++    "MOVE_SELF_DESTRUCT",
++    "MOVE_SILVER_WIND",
++    "MOVE_SKILL_SWAP",
++    "MOVE_SKULL_BASH",
++    "MOVE_SKY_ATTACK",
++    "MOVE_SKY_DROP",
++    "MOVE_SLUDGE_BOMB",
++    "MOVE_SLUDGE_WAVE",
++    "MOVE_SNATCH",
++    "MOVE_SNORE",
++    "MOVE_SOFT_BOILED",
++    "MOVE_SOLAR_BEAM",
++    "MOVE_STONE_EDGE",
++    "MOVE_SUBMISSION",
++    "MOVE_SUBSTITUTE",
++    "MOVE_SUPERPOWER",
++    "MOVE_SWAGGER",
++    "MOVE_SWEET_SCENT",
++    "MOVE_SWIFT",
++    "MOVE_TAKE_DOWN",
++    "MOVE_TELEKINESIS",
++    "MOVE_TELEPORT",
++    "MOVE_THRASH",
++    "MOVE_THUNDER",
++    "MOVE_THUNDERBOLT",
++    "MOVE_TORMENT",
++    "MOVE_TRI_ATTACK",
++    "MOVE_UPROAR",
++    "MOVE_WATER_GUN",
++    "MOVE_WATER_SPOUT",
++    "MOVE_WHIRLWIND",
++    "MOVE_WILD_CHARGE",
++    "MOVE_WOOD_HAMMER",
++    "MOVE_WRING_OUT",
++    "MOVE_ZAP_CANNON"
++  ]
+ }
+diff --git a/src/data/pokemon/species_info/gen_1_families.h b/src/data/pokemon/species_info/gen_1_families.h
+index ad22f68a73..0ddd5de875 100644
+--- a/src/data/pokemon/species_info/gen_1_families.h
++++ b/src/data/pokemon/species_info/gen_1_families.h
+@@ -8833,7 +8833,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
+         .baseDefense   = 65,
+         .baseSpeed     = 150,
+         .baseSpAttack  = 175,
+-        .baseSpDefense = P_UPDATED_STATS >= GEN_7 ? 105 : 95,
++        // Apocrypha M03a: retained Mega forms keep canonical later stats; P_UPDATED_STATS is GEN_5 for the Gen 1-5 roster only.
++        .baseSpDefense = 105,
+         .types = MON_TYPES(TYPE_PSYCHIC),
+         .catchRate = 50,
+     #if P_UPDATED_EXP_YIELDS >= GEN_8
+@@ -12274,11 +12275,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
+     #define GENGAR_EXP_YIELD 190
+ #endif
+ 
+-#if P_UPDATED_ABILITIES >= GEN_7
+-    #define GENGAR_ABILITIES {ABILITY_CURSED_BODY, ABILITY_NONE, ABILITY_NONE}
+-#else
+-    #define GENGAR_ABILITIES {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE}
+-#endif
++// Apocrypha M03b exception: owner overrode the Gen 5 ability back to the present-day one.
++// Gen 5 would restore Levitate, giving Gengar a Ground immunity; keep Cursed Body instead.
++#define GENGAR_ABILITIES {ABILITY_CURSED_BODY, ABILITY_NONE, ABILITY_NONE}
+ 
+     [SPECIES_GENGAR] =
+     {
+@@ -14369,11 +14368,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+-    #if P_UPDATED_ABILITIES >= GEN_8
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_LEVITATE, ABILITY_NEUTRALIZING_GAS, ABILITY_STENCH },
+-    #else
+-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+-    #endif
+         .bodyColor = BODY_COLOR_PURPLE,
+         .speciesName = _("Koffing"),
+         .cryId = CRY_KOFFING,
+@@ -14450,11 +14446,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+-    #if P_UPDATED_ABILITIES >= GEN_8
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_LEVITATE, ABILITY_NEUTRALIZING_GAS, ABILITY_STENCH },
+-    #else
+-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+-    #endif
+         .bodyColor = BODY_COLOR_PURPLE,
+         .noFlip = TRUE,
+         .speciesName = _("Weezing"),
+diff --git a/src/data/pokemon/species_info/gen_3_families.h b/src/data/pokemon/species_info/gen_3_families.h
+index 98d9af35b2..9055f1f6d5 100644
+--- a/src/data/pokemon/species_info/gen_3_families.h
++++ b/src/data/pokemon/species_info/gen_3_families.h
+@@ -2529,11 +2529,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_KEEN_EYE, ABILITY_HYDRATION, ABILITY_RAIN_DISH },
+-    #else
+-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Wingull"),
+         .cryId = CRY_WINGULL,
+@@ -2610,11 +2607,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_KEEN_EYE, ABILITY_DRIZZLE, ABILITY_RAIN_DISH },
+-    #else
+-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
+-    #endif
+         .bodyColor = BODY_COLOR_YELLOW,
+         .speciesName = _("Pelipper"),
+         .cryId = CRY_PELIPPER,
+@@ -2995,11 +2989,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
+         .friendship = 35,
+         .growthRate = GROWTH_SLOW,
+         .eggGroups = RALTS_FAMILY_EGG_GROUPS,
+-    #if P_UPDATED_ABILITIES >= GEN_9
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_STEADFAST, ABILITY_SHARPNESS, ABILITY_JUSTIFIED },
+-    #else
+-        .abilities = { ABILITY_STEADFAST, ABILITY_NONE, ABILITY_JUSTIFIED },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Gallade"),
+         .cryId = CRY_GALLADE,
+@@ -7032,11 +7023,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_WHITE_SMOKE, ABILITY_DROUGHT, ABILITY_SHELL_ARMOR },
+-    #else
+-        .abilities = { ABILITY_WHITE_SMOKE, ABILITY_NONE, ABILITY_SHELL_ARMOR },
+-    #endif
+         .bodyColor = BODY_COLOR_BROWN,
+         .speciesName = _("Torkoal"),
+         .cryId = CRY_TORKOAL,
+diff --git a/src/data/pokemon/species_info/gen_5_families.h b/src/data/pokemon/species_info/gen_5_families.h
+index ee963c0cd8..45dc2ef242 100644
+--- a/src/data/pokemon/species_info/gen_5_families.h
++++ b/src/data/pokemon/species_info/gen_5_families.h
+@@ -2318,11 +2318,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_STURDY, ABILITY_WEAK_ARMOR, ABILITY_SAND_FORCE },
+-    #else
+-        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_SAND_FORCE },
+-    #endif
+         .bodyColor = BODY_COLOR_BLUE,
+         .speciesName = _("Roggenrola"),
+         .cryId = CRY_ROGGENROLA,
+@@ -2394,11 +2391,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_STURDY, ABILITY_WEAK_ARMOR, ABILITY_SAND_FORCE },
+-    #else
+-        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_SAND_FORCE },
+-    #endif
+         .bodyColor = BODY_COLOR_BLUE,
+         .speciesName = _("Boldore"),
+         .cryId = CRY_BOLDORE,
+@@ -2478,11 +2472,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_STURDY, ABILITY_SAND_STREAM, ABILITY_SAND_FORCE },
+-    #else
+-        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_SAND_FORCE },
+-    #endif
+         .bodyColor = BODY_COLOR_BLUE,
+         .speciesName = _("Gigalith"),
+         .cryId = CRY_GIGALITH,
+@@ -7736,11 +7727,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK, ABILITY_WEAK_ARMOR },
+-    #else
+-        .abilities = { ABILITY_ICE_BODY, ABILITY_NONE, ABILITY_WEAK_ARMOR },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Vanillite"),
+         .cryId = CRY_VANILLITE,
+@@ -7812,11 +7800,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK, ABILITY_WEAK_ARMOR },
+-    #else
+-        .abilities = { ABILITY_ICE_BODY, ABILITY_NONE, ABILITY_WEAK_ARMOR },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Vanillish"),
+         .cryId = CRY_VANILLISH,
+@@ -7885,11 +7870,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_ICE_BODY, ABILITY_SNOW_WARNING, ABILITY_WEAK_ARMOR },
+-    #else
+-        .abilities = { ABILITY_ICE_BODY, ABILITY_NONE, ABILITY_WEAK_ARMOR },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .noFlip = TRUE,
+         .speciesName = _("Vanilluxe"),
+@@ -10027,11 +10009,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+-    #if P_UPDATED_ABILITIES >= GEN_6
++        // Apocrypha M03b exception: owner overrode the Gen 5 ability back to the present-day one.
+         .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_INFILTRATOR },
+-    #else
+-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_SHADOW_TAG },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .noFlip = TRUE,
+         .speciesName = _("Litwick"),
+@@ -10102,11 +10081,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+-    #if P_UPDATED_ABILITIES >= GEN_6
++        // Apocrypha M03b exception: owner overrode the Gen 5 ability back to the present-day one.
+         .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_INFILTRATOR },
+-    #else
+-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_SHADOW_TAG },
+-    #endif
+         .bodyColor = BODY_COLOR_BLACK,
+         .speciesName = _("Lampent"),
+         .cryId = CRY_LAMPENT,
+@@ -10176,11 +10152,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_SLOW,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+-    #if P_UPDATED_ABILITIES >= GEN_6
++        // Apocrypha M03b exception: owner overrode the Gen 5 ability back to the present-day one.
+         .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_INFILTRATOR },
+-    #else
+-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_SHADOW_TAG },
+-    #endif
+         .bodyColor = BODY_COLOR_BLACK,
+         .speciesName = _("Chandelure"),
+         .cryId = CRY_CHANDELURE,
+@@ -10518,11 +10491,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH, ABILITY_RATTLED },
+-    #else
+-        .abilities = { ABILITY_SNOW_CLOAK, ABILITY_NONE, ABILITY_RATTLED },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Cubchoo"),
+         .cryId = CRY_CUBCHOO,
+@@ -10591,11 +10561,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
+         .friendship = STANDARD_FRIENDSHIP,
+         .growthRate = GROWTH_MEDIUM_FAST,
+         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+-    #if P_UPDATED_ABILITIES >= GEN_7
++        // Apocrypha M03b exception: owner kept this post-Gen-5 ability set; P_UPDATED_ABILITIES is GEN_5 elsewhere.
+         .abilities = { ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH, ABILITY_SWIFT_SWIM },
+-    #else
+-        .abilities = { ABILITY_SNOW_CLOAK, ABILITY_NONE, ABILITY_SWIFT_SWIM },
+-    #endif
+         .bodyColor = BODY_COLOR_WHITE,
+         .speciesName = _("Beartic"),
+         .cryId = CRY_BEARTIC,
+diff --git a/src/field_control_avatar.c b/src/field_control_avatar.c
+index b271b1d2ce..321c7e8373 100644
+--- a/src/field_control_avatar.c
++++ b/src/field_control_avatar.c
+@@ -601,6 +601,14 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
+     if (IsFieldMoveUnlocked(FIELD_MOVE_ROCK_CLIMB) && MetatileBehavior_IsRockClimbable(metatileBehavior) == TRUE && !IsRockClimbActive())
+         return EventScript_UseRockClimb;
+ 
++    if (MetatileBehavior_IsWhirlpool(metatileBehavior) == TRUE)
++    {
++        if (IsFieldMoveUnlocked(FIELD_MOVE_WHIRLPOOL) && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING))
++            return EventScript_UseWhirlpool;
++        else
++            return EventScript_CannotUseWhirlpool;
++    }
++
+     elevation = position->elevation;
+     if (elevation == MapGridGetElevationAt(position->x, position->y))
+     {
+diff --git a/src/field_effect.c b/src/field_effect.c
+index 8e03db312c..a824f73648 100644
+--- a/src/field_effect.c
++++ b/src/field_effect.c
+@@ -120,6 +120,13 @@ static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *, struct ObjectEve
+ static bool8 WaterfallFieldEffect_RideUp(struct Task *, struct ObjectEvent *);
+ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
+ 
++static void Task_UseWhirlpool(u8);
++static bool8 WhirlpoolFieldEffect_Init(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_RideThrough(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
++
+ static void Task_UseDive(u8);
+ static bool8 DiveFieldEffect_Init(struct Task *);
+ static bool8 DiveFieldEffect_ShowMon(struct Task *);
+@@ -729,6 +736,15 @@ static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectE
+     WaterfallFieldEffect_ContinueRideOrEnd,
+ };
+ 
++static bool8 (*const sWhirlpoolFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
++{
++    WhirlpoolFieldEffect_Init,
++    WhirlpoolFieldEffect_ShowMon,
++    WhirlpoolFieldEffect_WaitForShowMon,
++    WhirlpoolFieldEffect_RideThrough,
++    WhirlpoolFieldEffect_ContinueRideOrEnd,
++};
++
+ static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *) =
+ {
+     DiveFieldEffect_Init,
+@@ -2125,6 +2141,79 @@ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
+     return FALSE;
+ }
+ 
++// Whirlpool follows Waterfall's shape because the situations match: the player is
++// surfing, the obstacle is the tile ahead, and crossing is a slow ride onto it.
++// It differs in having no fixed direction -- a whirlpool is crossed whichever way
++// the player faces -- so the ride uses the player's current facing.
++bool8 FldEff_UseWhirlpool(void)
++{
++    u8 taskId = CreateTask(Task_UseWhirlpool, 0xff);
++    gTasks[taskId].tMonId = gFieldEffectArguments[0];
++    Task_UseWhirlpool(taskId);
++    return FALSE;
++}
++
++static void Task_UseWhirlpool(u8 taskId)
++{
++    while (sWhirlpoolFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
++}
++
++static bool8 WhirlpoolFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    LockPlayerFieldControls();
++    gPlayerAvatar.preventStep = TRUE;
++    task->tState++;
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    LockPlayerFieldControls();
++    if (!ObjectEventIsMovementOverridden(objectEvent))
++    {
++        ObjectEventClearHeldMovementIfFinished(objectEvent);
++        gFieldEffectArguments[0] = task->tMonId;
++        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
++        task->tState++;
++    }
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    if (FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
++        return FALSE;
++
++    task->tState++;
++    return TRUE;
++}
++
++static bool8 WhirlpoolFieldEffect_RideThrough(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    ObjectEventSetHeldMovement(objectEvent, GetWalkSlowMovementAction(objectEvent->facingDirection));
++    task->tState++;
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
++        return FALSE;
++
++    // Whirlpools can be laid in a row; keep riding while still standing on one.
++    if (MetatileBehavior_IsWhirlpool(objectEvent->currentMetatileBehavior))
++    {
++        task->tState = 3;
++        return TRUE;
++    }
++
++    UnlockPlayerFieldControls();
++    gPlayerAvatar.preventStep = FALSE;
++    DestroyTask(FindTaskIdByFunc(Task_UseWhirlpool));
++    FieldEffectActiveListRemove(FLDEFF_USE_WHIRLPOOL);
++    return FALSE;
++}
++
+ #undef tState
+ #undef tMonId
+ 
+diff --git a/src/field_move.c b/src/field_move.c
+index a8faf4d98d..ff3c508d7a 100644
+--- a/src/field_move.c
++++ b/src/field_move.c
+@@ -178,6 +178,20 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
+         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+         .hideIfLocked = TRUE,
+     },
++    [FIELD_MOVE_WHIRLPOOL] =
++    {
++        .fieldMoveFunc = SetUpFieldMove_Whirlpool,
++#if OW_WHIRLPOOL_FIELD_MOVE
++        .unlockType = BADGE_UNLOCK,
++#else
++        .unlockType = CANT_UNLOCK,
++#endif
++        .moveID = MOVE_WHIRLPOOL,
++        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
++        .arg = FLAG_TO_BADGE(FLAG_BADGE08_GET),
++        .hideIfLocked = TRUE,
++    },
++
+     [FIELD_MOVE_DEFOG] =
+     {
+         .fieldMoveFunc = SetUpFieldMove_Defog,
+diff --git a/src/item.c b/src/item.c
+index 919eb4b334..646434db58 100644
+--- a/src/item.c
++++ b/src/item.c
+@@ -53,8 +53,8 @@ const struct TmHmIndexKey gTMHMItemMoveIds[NUM_ALL_MACHINES + 1] =
+     /*
+      * Expands to the following:
+      *
+-     * [1] = { ITEM_TM_FOCUS_PUNCH, MOVE_FOCUS_PUNCH },
+-     * [2] = { ITEM_TM_DRAGON_CLAW, MOVE_DRAGON_CLAW },
++     * [1] = { ITEM_TM_BRICK_BREAK, MOVE_FOCUS_PUNCH },
++     * [2] = { ITEM_TM_DRAGON_TAIL, MOVE_DRAGON_CLAW },
+      * [3] = { ITEM_TM_WATER_PULSE, MOVE_WATER_PULSE },
+      * etc etc
+     */
+diff --git a/src/item_menu.c b/src/item_menu.c
+index d5acdfd9aa..d6af345bf5 100755
+--- a/src/item_menu.c
++++ b/src/item_menu.c
+@@ -949,7 +949,7 @@ static void GetItemNameFromPocket(u8 *dest, enum Item itemId)
+         if (GetItemTMHMIndex(itemId) > NUM_TECHNICAL_MACHINES)
+         {
+             // Get HM number
+-            ConvertIntToDecimalStringN(gStringVar1, GetItemTMHMIndex(itemId) - NUM_TECHNICAL_MACHINES, STR_CONV_MODE_LEADING_ZEROS, 1);
++            ConvertIntToDecimalStringN(gStringVar1, GetItemTMHMIndex(itemId) - NUM_TECHNICAL_MACHINES, STR_CONV_MODE_LEADING_ZEROS, NUM_HIDDEN_MACHINES >= 10 ? 2 : 1);
+             StringExpandPlaceholders(dest, gText_NumberItem_HM);
+         }
+         else
+diff --git a/src/metatile_behavior.c b/src/metatile_behavior.c
+index 9d5d49bfa1..b6ef614e0d 100644
+--- a/src/metatile_behavior.c
++++ b/src/metatile_behavior.c
+@@ -26,6 +26,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
+     [MB_INTERIOR_DEEP_WATER]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_DEEP_WATER]                         = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_WATERFALL]                          = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
++    [MB_WHIRLPOOL]                          = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
+     [MB_SOOTOPOLIS_DEEP_WATER]              = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
+     [MB_OCEAN_WATER]                        = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_PUDDLE]                             = TILE_FLAG_UNUSED,
+@@ -967,6 +968,17 @@ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
+         return FALSE;
+ }
+ 
++// A whirlpool sits on surfable water and blocks the crossing until dispelled.
++// Unlike a waterfall it has no direction: the player passes through it whichever
++// way they are facing.
++bool8 MetatileBehavior_IsWhirlpool(u8 metatileBehavior)
++{
++    if (metatileBehavior == MB_WHIRLPOOL)
++        return TRUE;
++    else
++        return FALSE;
++}
++
+ bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior)
+ {
+     if (metatileBehavior == MB_FORTREE_BRIDGE)
+diff --git a/src/party_menu.c b/src/party_menu.c
+index 1a175da6c6..8a070ca096 100644
+--- a/src/party_menu.c
++++ b/src/party_menu.c
+@@ -487,6 +487,7 @@ static void ShowMoveSelectWindow(u8 slot);
+ static void Task_HandleWhichMoveInput(u8 taskId);
+ static void Task_HideFollowerNPCForTeleport(u8);
+ static void FieldCallback_RockClimb(void);
++static void FieldCallback_Whirlpool(void);
+ static void GetPartyAndSlotFromPartyMenuId(s8 menuId, struct Pokemon **party, s8 *partySlot);
+ static struct Pokemon *GetPartyMonFromPartyMenuId(s8 menuId);
+ static void GetMultiPartyForSummaryScreen(void);
+@@ -4340,6 +4341,28 @@ bool32 SetUpFieldMove_Waterfall(void)
+     return FALSE;
+ }
+ 
++static void FieldCallback_Whirlpool(void)
++{
++    gFieldEffectArguments[0] = GetCursorSelectionMonId();
++    FieldEffectStart(FLDEFF_USE_WHIRLPOOL);
++}
++
++bool32 SetUpFieldMove_Whirlpool(void)
++{
++    s16 x, y;
++
++    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
++    // Surfing only: a whirlpool is crossed from the water, in any direction.
++    if (MetatileBehavior_IsWhirlpool(MapGridGetMetatileBehaviorAt(x, y)) == TRUE
++     && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING))
++    {
++        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
++        gPostMenuFieldCallback = FieldCallback_Whirlpool;
++        return TRUE;
++    }
++    return FALSE;
++}
++
+ bool32 SetUpFieldMove_RockClimb(void)
+ {
+     s16 x, y;
+diff --git a/src/trainer_hill.c b/src/trainer_hill.c
+index b227cf5de1..8f7f0cffec 100644
+--- a/src/trainer_hill.c
++++ b/src/trainer_hill.c
+@@ -151,11 +151,11 @@ static const enum Item sPrizeListLuxuryBall1[] = {ITEM_LUXURY_BALL,      ITEM_ET
+ static const enum Item sPrizeListMaxRevive1[]  = {ITEM_MAX_REVIVE,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListMaxEther1[]   = {ITEM_MAX_ETHER,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListElixir1[]     = {ITEM_ELIXIR,           ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListRoar[]        = {ITEM_TM_ROAR,          ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListSludgeBomb[]  = {ITEM_TM_SLUDGE_BOMB,   ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListRoar[]        = {ITEM_TM_TAUNT,          ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListSludgeBomb[]  = {ITEM_TM_VENOSHOCK,   ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListToxic[]       = {ITEM_TM_TOXIC,         ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListSunnyDay[]    = {ITEM_TM_SUNNY_DAY,     ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListEarthQuake[]  = {ITEM_TM_EARTHQUAKE,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListEarthQuake[]  = {ITEM_TM_BULLDOZE,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ 
+ static const enum Item sPrizeListRareCandy2[]  = {ITEM_RARE_CANDY,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListLuxuryBall2[] = {ITEM_LUXURY_BALL,      ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+@@ -163,8 +163,8 @@ static const enum Item sPrizeListMaxRevive2[]  = {ITEM_MAX_REVIVE,       ITEM_ET
+ static const enum Item sPrizeListMaxEther2[]   = {ITEM_MAX_ETHER,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListElixir2[]     = {ITEM_ELIXIR,           ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListBrickBreak[]  = {ITEM_TM_BRICK_BREAK,   ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListTorment[]     = {ITEM_TM_TORMENT,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListSkillSwap[]   = {ITEM_TM_SKILL_SWAP,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListTorment[]     = {ITEM_TM_HONE_CLAWS,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListSkillSwap[]   = {ITEM_TM_TRICK_ROOM,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListGigaDrain[]   = {ITEM_TM_GIGA_DRAIN,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListAttract[]     = {ITEM_TM_ATTRACT,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ 
+diff --git a/test/battle/move_effect/fling.c b/test/battle/move_effect/fling.c
+index a9cdc9910c..5927ebe284 100644
+--- a/test/battle/move_effect/fling.c
++++ b/test/battle/move_effect/fling.c
+@@ -569,13 +569,13 @@ SINGLE_BATTLE_TEST("Fling deals damage based on a TM's move power if reusable or
+     GIVEN {
+         ASSUME(GetMovePower(MOVE_EARTHQUAKE) == GetMovePower(MOVE_EGG_BOMB));
+         ASSUME(!IsSpeciesOfType(SPECIES_WOBBUFFET, TYPE_DARK));
+-        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_TM_EARTHQUAKE); }
++        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_TM_BULLDOZE); }
+         OPPONENT(SPECIES_HIPPOWDON);
+     } WHEN {
+         TURN { MOVE(player, MOVE_FLING); }
+         TURN { MOVE(player, MOVE_EGG_BOMB); }
+     } SCENE {
+-        if (GetItemImportance(ITEM_TM_EARTHQUAKE) == 0) {
++        if (GetItemImportance(ITEM_TM_BULLDOZE) == 0) {
+             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
+             HP_BAR(opponent, captureDamage: &damage[0]);
+         } else {
+@@ -585,7 +585,7 @@ SINGLE_BATTLE_TEST("Fling deals damage based on a TM's move power if reusable or
+         ANIMATION(ANIM_TYPE_MOVE, MOVE_EGG_BOMB, player);
+         HP_BAR(opponent, captureDamage: &damage[1]);
+     } THEN {
+-        if (GetItemImportance(ITEM_TM_EARTHQUAKE) == 0)
++        if (GetItemImportance(ITEM_TM_BULLDOZE) == 0)
+             EXPECT_EQ(damage[0], damage[1]);
+     }
+ }

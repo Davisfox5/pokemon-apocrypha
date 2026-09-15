@@ -1,5 +1,11 @@
 # Chapter 4 — Scene Spec & Full Script (Route 34 · Goldenrod · Radio Tower · Magnet Train · Saffron arrival)
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 This is the **complete line-by-line dialogue** for Chapter 4, the single source of
 truth for what every character says. It sits one altitude below
 [CHAPTER4_BUILD.md](CHAPTER4_BUILD.md) (staging, flags, files) and pairs with

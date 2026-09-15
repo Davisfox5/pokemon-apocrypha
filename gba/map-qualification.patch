@@ -1,0 +1,883 @@
+diff --git a/data/event_scripts.s b/data/event_scripts.s
+index bc9688b6..7362601e 100644
+--- a/data/event_scripts.s
++++ b/data/event_scripts.s
+@@ -1738,3 +1738,13 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
+ 	.include "data/scripts/battle_frontier.inc"
+ 	.include "data/scripts/apricorn_tree.inc"
+ 	.include "data/scripts/wild_encounter.inc"
++
++.include "data/maps/MapProofHoenn/scripts.inc"
++
++.include "data/maps/MapProofJohto/scripts.inc"
++
++.include "data/maps/MapProofKanto/scripts.inc"
++
++.include "data/maps/MapProofSinnoh/scripts.inc"
++
++.include "data/maps/MapProofUnova/scripts.inc"
+diff --git a/data/layouts/MapProofHoenn/border.bin b/data/layouts/MapProofHoenn/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofHoenn/map.bin b/data/layouts/MapProofHoenn/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..aace7ea27f803b3596646b4a241b620335ea0080
+GIT binary patch
+literal 960
+tcmd<H;Uf_;8W0abW)rWP(O^_P{?Hn@@WCFB1Lq#>;WQlF1M&m$5CGyOWG(;z
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofJohto/border.bin b/data/layouts/MapProofJohto/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofJohto/map.bin b/data/layouts/MapProofJohto/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..552e1ce951f05feaf889cb6616c941b05c7e2693
+GIT binary patch
+literal 960
+zcmd<H;Uf_;8W0abW)rWP(O^_Pq0k~NJV7B!$V60mT<S>`M>Q3}!(|Ra1uBcS>IY+b
+IBP~Ay0NRXWe*gdg
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofKanto/border.bin b/data/layouts/MapProofKanto/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..a701312cfff9ef56ae960aed042d8b9e68eefb84
+GIT binary patch
+literal 8
+Pcmb1PkYx~I5M=-W0uTUW
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofKanto/map.bin b/data/layouts/MapProofKanto/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..f2113394f22d6f0180f364071301b5ed06588773
+GIT binary patch
+literal 960
+zcmZuvSxdt}7=*eE?TfOd>PxE+^#Ju@`Tn8zNxh91-c|*ziU*4Kt$3h5`E%Sa*>=-S
+z8NOsQJDE&|O^b|3N2XEaX^R>nd`6^1t!NU>&a{dG?Nf`xvo<Z*D;Gg8^*P+A|Gku`
+z*IqLkoz&%{+kc8O9@QED0=>`@4Pwa0FrM`rQN|1TdnDC3CNZHgg=wv?#8`iiHfa`f
+zn8yMZjXuh7UqOD4_OOC=tYH-!MjvIY|BdeATBqQ<U6nK8{M?3%ZQ3!oq7(m*tiP+}
+zehzSGaD-!g=>}|m-tR$xnBYD=I>Wia1ujw0OxWKep#n%1^m&UreB&Muc*K*h5Bpnv
+z+~{BNhCl4$9Uu6t;9n&YN-7@qFK;SGBToKcKR9>XBcBJ0;E%%j-G;`fAB>pb>ww=t
+yG5=}F=_i?$S^1lE-{xoAk2JXxs!g_QbV!@Tu9i#vSF0Mu6EEqdUfU_|bN+vQvI_11
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofSinnoh/border.bin b/data/layouts/MapProofSinnoh/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofSinnoh/map.bin b/data/layouts/MapProofSinnoh/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..94c47fe23ac81611c67e0e577de186d7dcb8e0ad
+GIT binary patch
+literal 960
+zcmd<H;Uf_;8W0abW)rWP(O~4MCna=1;WJR`vD=JY6t^2`ubwm;24i|7Ek6PPyBcGE
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofUnova/border.bin b/data/layouts/MapProofUnova/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a248c7b512f6c50501434e156e70d0a82ce00b5
+GIT binary patch
+literal 8
+Lcmd<H;R8be1mFQF
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/MapProofUnova/map.bin b/data/layouts/MapProofUnova/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..82a28c9fcc571bdd2ae2d5c08236a365126db1cf
+GIT binary patch
+literal 12800
+zcmeIy!3n@16a_(Sz*<s3`mZZk!$$ar!Se<gAKC97e%3Sh9J{%<TaWv-*Wt&n3AEb&
+zZu!mlZ+qWc@7uonSM7b9BtL#lpw;%ruL-o;{`fV4R@)!HCeUj8<JSaQZGZflK&$PK
+zUlVAx{qbu8t+qdYO`z5G$FB*r+Wz=8fmYiezb4RX`{UOHT5W&)nn0`Vk6#mLwf%L!
+HV>tJGI~eFP
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/layouts.json b/data/layouts/layouts.json
+index 2b25587a..9ea559a1 100644
+--- a/data/layouts/layouts.json
++++ b/data/layouts/layouts.json
+@@ -9323,6 +9323,68 @@
+       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
+       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
+       "layout_version": "frlg"
++    },
++    {
++      "id": "LAYOUT_MAP_PROOF_HOENN",
++      "name": "MapProofHoenn_Layout",
++      "width": 24,
++      "height": 20,
++      "primary_tileset": "gTileset_General",
++      "secondary_tileset": "gTileset_Petalburg",
++      "border_filepath": "data/layouts/MapProofHoenn/border.bin",
++      "blockdata_filepath": "data/layouts/MapProofHoenn/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_MAP_PROOF_JOHTO",
++      "name": "MapProofJohto_Layout",
++      "width": 24,
++      "height": 20,
++      "primary_tileset": "gTileset_General",
++      "secondary_tileset": "gTileset_Petalburg",
++      "border_filepath": "data/layouts/MapProofJohto/border.bin",
++      "blockdata_filepath": "data/layouts/MapProofJohto/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_MAP_PROOF_KANTO",
++      "name": "MapProofKanto_Layout",
++      "width": 24,
++      "height": 20,
++      "primary_tileset": "gTileset_ProofKantoGeneral",
++      "secondary_tileset": "gTileset_ProofKantoPallet",
++      "border_filepath": "data/layouts/MapProofKanto/border.bin",
++      "blockdata_filepath": "data/layouts/MapProofKanto/map.bin",
++      "layout_version": "frlg",
++      "build_target": "emerald",
++      "border_width": 2,
++      "border_height": 2
++    },
++    {
++      "id": "LAYOUT_MAP_PROOF_SINNOH",
++      "name": "MapProofSinnoh_Layout",
++      "width": 24,
++      "height": 20,
++      "primary_tileset": "gTileset_General",
++      "secondary_tileset": "gTileset_Petalburg",
++      "border_filepath": "data/layouts/MapProofSinnoh/border.bin",
++      "blockdata_filepath": "data/layouts/MapProofSinnoh/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_MAP_PROOF_UNOVA",
++      "name": "MapProofUnova_Layout",
++      "width": 80,
++      "height": 80,
++      "primary_tileset": "gTileset_General",
++      "secondary_tileset": "gTileset_Petalburg",
++      "border_filepath": "data/layouts/MapProofUnova/border.bin",
++      "blockdata_filepath": "data/layouts/MapProofUnova/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
+     }
+   ]
+ }
+diff --git a/data/maps/MapProofHoenn/map.json b/data/maps/MapProofHoenn/map.json
+new file mode 100644
+index 00000000..9a4eae1c
+--- /dev/null
++++ b/data/maps/MapProofHoenn/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_PROOF_HOENN",
++  "name": "MapProofHoenn",
++  "layout": "LAYOUT_MAP_PROOF_HOENN",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_HOENN",
++  "region_map_section": "MAPSEC_PROOF_HOENN",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_TOWN",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_PROOF_GUIDE",
++      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
++      "x": 10,
++      "y": 10,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "MapProofHoenn_Guide",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/MapProofHoenn/scripts.inc b/data/maps/MapProofHoenn/scripts.inc
+new file mode 100644
+index 00000000..6081b173
+--- /dev/null
++++ b/data/maps/MapProofHoenn/scripts.inc
+@@ -0,0 +1,15 @@
++MapProofHoenn_MapScripts::
++    .byte 0
++
++MapProofHoenn_Guide::
++    lock
++    faceplayer
++    setvar VAR_TEMP_1, 77
++    msgbox MapProofHoenn_Text, MSGBOX_DEFAULT
++    warp MAP_PROOF_JOHTO, 10, 11
++    waitstate
++    release
++    end
++
++MapProofHoenn_Text:
++    .string "HOENN MAP PIPELINE TEST.\nNext region, please!$"
+diff --git a/data/maps/MapProofJohto/map.json b/data/maps/MapProofJohto/map.json
+new file mode 100644
+index 00000000..c7486fa6
+--- /dev/null
++++ b/data/maps/MapProofJohto/map.json
+@@ -0,0 +1,43 @@
++{
++  "id": "MAP_PROOF_JOHTO",
++  "name": "MapProofJohto",
++  "layout": "LAYOUT_MAP_PROOF_JOHTO",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_PROOF_JOHTO",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_TOWN",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_PROOF_SINNOH",
++      "offset": 0,
++      "direction": "right"
++    }
++  ],
++  "object_events": [
++    {
++      "local_id": "LOCALID_PROOF_GUIDE",
++      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
++      "x": 10,
++      "y": 10,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "MapProofJohto_Guide",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/MapProofJohto/scripts.inc b/data/maps/MapProofJohto/scripts.inc
+new file mode 100644
+index 00000000..31f91824
+--- /dev/null
++++ b/data/maps/MapProofJohto/scripts.inc
+@@ -0,0 +1,15 @@
++MapProofJohto_MapScripts::
++    .byte 0
++
++MapProofJohto_Guide::
++    lock
++    faceplayer
++    setvar VAR_TEMP_1, 77
++    msgbox MapProofJohto_Text, MSGBOX_DEFAULT
++    warp MAP_PROOF_KANTO, 10, 11
++    waitstate
++    release
++    end
++
++MapProofJohto_Text:
++    .string "JOHTO MAP PIPELINE TEST.\nNext region, please!$"
+diff --git a/data/maps/MapProofKanto/map.json b/data/maps/MapProofKanto/map.json
+new file mode 100644
+index 00000000..1416a987
+--- /dev/null
++++ b/data/maps/MapProofKanto/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_PROOF_KANTO",
++  "name": "MapProofKanto",
++  "layout": "LAYOUT_MAP_PROOF_KANTO",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_KANTO",
++  "region_map_section": "MAPSEC_PROOF_KANTO",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_TOWN",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_PROOF_GUIDE",
++      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
++      "x": 10,
++      "y": 10,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "MapProofKanto_Guide",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/MapProofKanto/scripts.inc b/data/maps/MapProofKanto/scripts.inc
+new file mode 100644
+index 00000000..f9c268fc
+--- /dev/null
++++ b/data/maps/MapProofKanto/scripts.inc
+@@ -0,0 +1,15 @@
++MapProofKanto_MapScripts::
++    .byte 0
++
++MapProofKanto_Guide::
++    lock
++    faceplayer
++    setvar VAR_TEMP_1, 77
++    msgbox MapProofKanto_Text, MSGBOX_DEFAULT
++    warp MAP_PROOF_SINNOH, 10, 11
++    waitstate
++    release
++    end
++
++MapProofKanto_Text:
++    .string "KANTO MAP PIPELINE TEST.\nNext region, please!$"
+diff --git a/data/maps/MapProofSinnoh/map.json b/data/maps/MapProofSinnoh/map.json
+new file mode 100644
+index 00000000..c2965e6e
+--- /dev/null
++++ b/data/maps/MapProofSinnoh/map.json
+@@ -0,0 +1,43 @@
++{
++  "id": "MAP_PROOF_SINNOH",
++  "name": "MapProofSinnoh",
++  "layout": "LAYOUT_MAP_PROOF_SINNOH",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_SINNOH",
++  "region_map_section": "MAPSEC_PROOF_SINNOH",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_TOWN",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_PROOF_JOHTO",
++      "offset": 0,
++      "direction": "left"
++    }
++  ],
++  "object_events": [
++    {
++      "local_id": "LOCALID_PROOF_GUIDE",
++      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
++      "x": 10,
++      "y": 10,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "MapProofSinnoh_Guide",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/MapProofSinnoh/scripts.inc b/data/maps/MapProofSinnoh/scripts.inc
+new file mode 100644
+index 00000000..49d4d1b8
+--- /dev/null
++++ b/data/maps/MapProofSinnoh/scripts.inc
+@@ -0,0 +1,15 @@
++MapProofSinnoh_MapScripts::
++    .byte 0
++
++MapProofSinnoh_Guide::
++    lock
++    faceplayer
++    setvar VAR_TEMP_1, 77
++    msgbox MapProofSinnoh_Text, MSGBOX_DEFAULT
++    warp MAP_PROOF_UNOVA, 10, 11
++    waitstate
++    release
++    end
++
++MapProofSinnoh_Text:
++    .string "SINNOH MAP PIPELINE TEST.\nNext region, please!$"
+diff --git a/data/maps/MapProofUnova/map.json b/data/maps/MapProofUnova/map.json
+new file mode 100644
+index 00000000..9a2a0353
+--- /dev/null
++++ b/data/maps/MapProofUnova/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_PROOF_UNOVA",
++  "name": "MapProofUnova",
++  "layout": "LAYOUT_MAP_PROOF_UNOVA",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_UNOVA",
++  "region_map_section": "MAPSEC_PROOF_UNOVA",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_TOWN",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [
++    {
++      "local_id": "LOCALID_PROOF_GUIDE",
++      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
++      "x": 10,
++      "y": 10,
++      "elevation": 3,
++      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 0,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "MapProofUnova_Guide",
++      "flag": "0"
++    }
++  ],
++  "warp_events": [],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/MapProofUnova/scripts.inc b/data/maps/MapProofUnova/scripts.inc
+new file mode 100644
+index 00000000..c2210d44
+--- /dev/null
++++ b/data/maps/MapProofUnova/scripts.inc
+@@ -0,0 +1,15 @@
++MapProofUnova_MapScripts::
++    .byte 0
++
++MapProofUnova_Guide::
++    lock
++    faceplayer
++    setvar VAR_TEMP_1, 77
++    msgbox MapProofUnova_Text, MSGBOX_DEFAULT
++    warp MAP_PROOF_HOENN, 10, 11
++    waitstate
++    release
++    end
++
++MapProofUnova_Text:
++    .string "UNOVA MAP PIPELINE TEST.\nNext region, please!$"
+diff --git a/data/maps/map_groups.json b/data/maps/map_groups.json
+index d6320f48..2ef909b7 100644
+--- a/data/maps/map_groups.json
++++ b/data/maps/map_groups.json
+@@ -74,7 +74,12 @@
+     "gMapGroup_IndoorFiveIslandRoute_Frlg",
+     "gMapGroup_IndoorTwoIslandRoute_Frlg",
+     "gMapGroup_IndoorSixIslandRoute_Frlg",
+-    "gMapGroup_IndoorSevenIslandRoute_Frlg"
++    "gMapGroup_IndoorSevenIslandRoute_Frlg",
++    "gMapGroup_ProofHoenn",
++    "gMapGroup_ProofJohto",
++    "gMapGroup_ProofKanto",
++    "gMapGroup_ProofSinnoh",
++    "gMapGroup_ProofUnova"
+   ],
+   "gMapGroup_TownsAndRoutes": [
+     "PetalburgCity",
+@@ -1160,5 +1165,20 @@
+   ],
+   "gMapGroup_IndoorSevenIslandRoute_Frlg": [
+     "SevenIsland_SevaultCanyon_House_Frlg"
++  ],
++  "gMapGroup_ProofHoenn": [
++    "MapProofHoenn"
++  ],
++  "gMapGroup_ProofJohto": [
++    "MapProofJohto"
++  ],
++  "gMapGroup_ProofKanto": [
++    "MapProofKanto"
++  ],
++  "gMapGroup_ProofSinnoh": [
++    "MapProofSinnoh"
++  ],
++  "gMapGroup_ProofUnova": [
++    "MapProofUnova"
+   ]
+ }
+diff --git a/include/regions.h b/include/regions.h
+index bfe680f5..df55ce64 100644
+--- a/include/regions.h
++++ b/include/regions.h
+@@ -8,6 +8,13 @@ enum KantoSubRegion GetKantoSubregion(u32 mapSecId);
+ 
+ static inline enum Region GetRegionForSectionId(u32 sectionId)
+ {
++    switch (sectionId) {
++    case MAPSEC_PROOF_HOENN: return REGION_HOENN;
++    case MAPSEC_PROOF_JOHTO: return REGION_JOHTO;
++    case MAPSEC_PROOF_KANTO: return REGION_KANTO;
++    case MAPSEC_PROOF_SINNOH: return REGION_SINNOH;
++    case MAPSEC_PROOF_UNOVA: return REGION_UNOVA;
++    }
+     if (sectionId >= KANTO_MAPSEC_START && sectionId < MAPSEC_SPECIAL_AREA)
+         return REGION_KANTO;
+     return REGION_HOENN;
+diff --git a/src/apocrypha_map_proof.c b/src/apocrypha_map_proof.c
+new file mode 100644
+index 00000000..5e355c59
+--- /dev/null
++++ b/src/apocrypha_map_proof.c
+@@ -0,0 +1,39 @@
++// Test-only engine entry points. Never included in the production source tree.
++#include "global.h"
++#include "main.h"
++#include "overworld.h"
++#include "field_screen_effect.h"
++#include "field_player_avatar.h"
++#include "event_data.h"
++#include "regions.h"
++#include "save.h"
++#include "load_save.h"
++#include "constants/map_groups.h"
++
++EWRAM_DATA u32 gMapProofState[12] = {0};
++const u16 sMapProofMaps[] = {MAP_PROOF_HOENN, MAP_PROOF_JOHTO, MAP_PROOF_KANTO, MAP_PROOF_SINNOH, MAP_PROOF_UNOVA};
++void MapProof_Boot(void) { SetMainCallback2(CB2_NewGame); }
++void MapProof_Enter(u32 region)
++{
++    u16 map = sMapProofMaps[region % 5];
++    SetWarpDestination(MAP_GROUP(map), MAP_NUM(map), WARP_ID_NONE, 10, 11);
++    DoWarp();
++}
++void MapProof_ReadState(void)
++{
++    s16 x,y;
++    PlayerGetDestCoords(&x,&y);
++    gMapProofState[0]=GetCurrentRegion();
++    gMapProofState[1]=gSaveBlock1Ptr->location.mapGroup;
++    gMapProofState[2]=gSaveBlock1Ptr->location.mapNum;
++    gMapProofState[3]=x-7;
++    gMapProofState[4]=y-7;
++    gMapProofState[5]=gMapHeader.mapLayout->isFrlg;
++    gMapProofState[6]=gMapHeader.mapLayout->width;
++    gMapProofState[7]=gMapHeader.mapLayout->height;
++    gMapProofState[8]=VarGet(VAR_TEMP_1);
++    gMapProofState[9]=gMapHeader.regionMapSectionId;
++}
++void MapProof_Resume(void) { SetMainCallback2(CB2_ContinueSavedGame); }
++
++void MapProof_Keep(void) { asm volatile ("" :: "r"(MapProof_Boot), "r"(MapProof_Enter), "r"(MapProof_ReadState), "r"(MapProof_Resume)); }
+diff --git a/src/data/region_map/region_map_sections.json b/src/data/region_map/region_map_sections.json
+index e1703383..e58ed688 100644
+--- a/src/data/region_map/region_map_sections.json
++++ b/src/data/region_map/region_map_sections.json
+@@ -1072,7 +1072,7 @@
+     },
+     {
+       "id": "MAPSEC_POKEMON_MANSION",
+-      "name": "POKéMON MANSION",
++      "name": "POK\u00e9MON MANSION",
+       "x": 4,
+       "y": 14,
+       "width": 1,
+@@ -1088,7 +1088,7 @@
+     },
+     {
+       "id": "MAPSEC_POKEMON_LEAGUE",
+-      "name": "POKéMON LEAGUE",
++      "name": "POK\u00e9MON LEAGUE",
+       "x": 2,
+       "y": 3,
+       "width": 1,
+@@ -1112,7 +1112,7 @@
+     },
+     {
+       "id": "MAPSEC_POKEMON_TOWER",
+-      "name": "POKéMON TOWER",
++      "name": "POK\u00e9MON TOWER",
+       "x": 18,
+       "y": 6,
+       "width": 1,
+@@ -1630,6 +1630,46 @@
+       "y": 4,
+       "width": 1,
+       "height": 1
++    },
++    {
++      "id": "MAPSEC_PROOF_HOENN",
++      "name": "HOENN MAP TEST",
++      "x": 1,
++      "y": 1,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_PROOF_JOHTO",
++      "name": "JOHTO MAP TEST",
++      "x": 2,
++      "y": 1,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_PROOF_KANTO",
++      "name": "KANTO MAP TEST",
++      "x": 3,
++      "y": 1,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_PROOF_SINNOH",
++      "name": "SINNOH MAP TEST",
++      "x": 4,
++      "y": 1,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_PROOF_UNOVA",
++      "name": "UNOVA MAP TEST",
++      "x": 5,
++      "y": 1,
++      "width": 1,
++      "height": 1
+     }
+   ]
+ }
+diff --git a/src/data/tilesets/graphics.h b/src/data/tilesets/graphics.h
+index e1a44dca..d588f324 100644
+--- a/src/data/tilesets/graphics.h
++++ b/src/data/tilesets/graphics.h
+@@ -3038,3 +3038,45 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
+ const u32 gTilesetTiles_General_Frlg[] = INCGFX_U32("data/tilesets/primary/general_frlg/tiles.png", ".4bpp.smol");
+ 
+ #endif // IS_FRLG
++
++// Isolated qualification: native Kanto art, no donor story scripts.
++const u16 ALIGNED(4) gTilesetPalettes_ProofKantoGeneral[][16] =
++{
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/00.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/01.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/02.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/03.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/04.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/05.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/06.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/07.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/08.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/09.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/10.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/11.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/12.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/13.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/14.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/primary/general_frlg/palettes/15.pal", ".gbapal"),
++};
++const u32 gTilesetTiles_ProofKantoGeneral[] = INCGFX_U32("data/tilesets/primary/general_frlg/tiles.png", ".4bpp.smol");
++const u16 gTilesetPalettes_ProofKantoPallet[][16] =
++{
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/00.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/01.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/02.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/03.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/04.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/05.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/06.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/07.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/08.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/09.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/10.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/11.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/12.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/13.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/14.pal", ".gbapal"),
++    INCGFX_U16("data/tilesets/secondary/pallet_town_frlg/palettes/15.pal", ".gbapal"),
++};
++const u32 gTilesetTiles_ProofKantoPallet[] = INCGFX_U32("data/tilesets/secondary/pallet_town_frlg/tiles.png", ".4bpp.fastSmol");
+diff --git a/src/data/tilesets/headers.h b/src/data/tilesets/headers.h
+index c7702c23..57913c4e 100644
+--- a/src/data/tilesets/headers.h
++++ b/src/data/tilesets/headers.h
+@@ -1541,3 +1541,25 @@ const struct Tileset gTileset_HallOfFame =
+ };
+ 
+ #endif // IS_FRLG
++
++// Isolated qualification: native Kanto art, no donor story scripts.
++const struct Tileset gTileset_ProofKantoGeneral =
++{
++    .isCompressed = TRUE,
++    .isSecondary = FALSE,
++    .tiles = gTilesetTiles_ProofKantoGeneral,
++    .palettes = gTilesetPalettes_ProofKantoGeneral,
++    .metatiles = gMetatiles_ProofKantoGeneral,
++    .metatileAttributes = gMetatileAttributes_ProofKantoGeneral,
++    .callback = NULL,
++};
++const struct Tileset gTileset_ProofKantoPallet =
++{
++    .isCompressed = TRUE,
++    .isSecondary = TRUE,
++    .tiles = gTilesetTiles_ProofKantoPallet,
++    .palettes = gTilesetPalettes_ProofKantoPallet,
++    .metatiles = gMetatiles_ProofKantoPallet,
++    .metatileAttributes = gMetatileAttributes_ProofKantoPallet,
++    .callback = NULL,
++};
+diff --git a/src/data/tilesets/metatiles.h b/src/data/tilesets/metatiles.h
+index f82ea00f..8e5249ad 100644
+--- a/src/data/tilesets/metatiles.h
++++ b/src/data/tilesets/metatiles.h
+@@ -408,3 +408,9 @@ const u16 gMetatiles_HallOfFame[] = INCBIN_U16("data/tilesets/secondary/hall_of_
+ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary/hall_of_fame_frlg/metatile_attributes.bin");
+ 
+ #endif // IS_FRLG
++
++// Isolated qualification: native Kanto art, no donor story scripts.
++const u16 gMetatiles_ProofKantoGeneral[] = INCBIN_U16("data/tilesets/primary/general_frlg/metatiles.bin");
++const u16 gMetatileAttributes_ProofKantoGeneral[] = INCBIN_U16("data/tilesets/primary/general_frlg/metatile_attributes.bin");
++const u16 gMetatiles_ProofKantoPallet[] = INCBIN_U16("data/tilesets/secondary/pallet_town_frlg/metatiles.bin");
++const u16 gMetatileAttributes_ProofKantoPallet[] = INCBIN_U16("data/tilesets/secondary/pallet_town_frlg/metatile_attributes.bin");
+diff --git a/src/new_game.c b/src/new_game.c
+index 89a2bf4c..a68201df 100644
+--- a/src/new_game.c
++++ b/src/new_game.c
+@@ -138,7 +138,7 @@ static void WarpToTruck(void)
+     if (IS_FRLG)
+         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+     else
+-        SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
++        SetWarpDestination(MAP_GROUP(MAP_PROOF_HOENN), MAP_NUM(MAP_PROOF_HOENN), WARP_ID_NONE, 10, 11);
+     WarpIntoMap();
+ }
+ 
+@@ -158,8 +158,10 @@ void ResetMenuAndMonGlobals(void)
+     ResetPokeblockScrollPositions();
+ }
+ 
++extern void MapProof_Keep(void);
+ void NewGameInitData(void)
+ {
++    MapProof_Keep();
+ #if IS_FRLG
+     u8 rivalName[PLAYER_NAME_LENGTH + 1];
+ #endif
+diff --git a/src/overworld.c b/src/overworld.c
+index 6546ad89..ec69363c 100644
+--- a/src/overworld.c
++++ b/src/overworld.c
+@@ -1941,7 +1941,7 @@ void CB2_NewGame(void)
+     if (IS_FRLG)
+         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+     else
+-        gFieldCallback = ExecuteTruckSequence;
++        gFieldCallback = NULL; // isolated map qualification starts outdoors
+     gFieldCallback2 = NULL;
+     DoMapLoadLoop(&gMain.state);
+     SetFieldVBlankCallback();
+diff --git a/tools/mapjson/mapjson.cpp b/tools/mapjson/mapjson.cpp
+index d05467ab..84f916bf 100644
+--- a/tools/mapjson/mapjson.cpp
++++ b/tools/mapjson/mapjson.cpp
+@@ -750,8 +750,9 @@ void process_groups(string groups_filepath, vector<string> &map_filepaths, strin
+         }
+         string map_name = json_to_string(map_data, "name");
+ 
+-        if ((version == "emerald" && region != "REGION_HOENN")
+-         || (version == "firered" && region != "REGION_KANTO")) {
++        string build_target = json_to_string(map_data, "build_target", true);
++        if (build_target.empty() ? ((version == "emerald" && region != "REGION_HOENN")
++         || (version == "firered" && region != "REGION_KANTO")) : build_target != version) {
+             invalid_maps.push_back(map_name);
+         }
+     }
+@@ -790,8 +791,9 @@ string generate_layout_headers_text(Json layouts_data) {
+             else if (version == "firered")
+                 layout_version = "frlg";
+         }
+-        if ((version == "emerald" && layout_version != "emerald")
+-         || (version == "firered" && layout_version != "frlg"))
++        if (json_to_string(layout, "build_target", true).empty()
++            ? ((version == "emerald" && layout_version != "emerald") || (version == "firered" && layout_version != "frlg"))
++            : json_to_string(layout, "build_target", true) != version)
+             continue;
+         string layoutName = json_to_string(layout, "name");
+         string border_label = layoutName + "_Border";
+@@ -848,7 +850,9 @@ string generate_layouts_table_text(Json layouts_data) {
+             else if (version == "firered")
+                 layout_version = "frlg";
+         }
+-        if ((version == "emerald" && layout_version != "emerald") || (version == "firered" && layout_version != "frlg")) {
++        if (json_to_string(layout, "build_target", true).empty()
++            ? ((version == "emerald" && layout_version != "emerald") || (version == "firered" && layout_version != "frlg"))
++            : json_to_string(layout, "build_target", true) != version) {
+             text << "\t.4byte NULL\n";
+         } else {
+             string layout_name = json_to_string(layout, "name", true);

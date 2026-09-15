@@ -1,5 +1,11 @@
 # Pokémon Apocrypha — Kanto Item Locations
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 The Kanto companion to [JOHTO_ITEMS.md](JOHTO_ITEMS.md): item & hidden-item locations
 and Mart stock for the Kanto chapters. Kanto begins at **Saffron City (Chapter 5)**.
 

@@ -1,0 +1,344 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "assets": [
+    {
+      "name": "Gold",
+      "source": "gold.png",
+      "graphics_id": 1029,
+      "palette_tag": 4485,
+      "source_sha256": "81bebd0058870bc02a4a95207cf90b32c4847b391ba32cf1f4410d42ea19f293",
+      "source_bounds": [
+        [
+          7,
+          8,
+          24,
+          31
+        ],
+        [
+          5,
+          7,
+          24,
+          31
+        ],
+        [
+          5,
+          8,
+          24,
+          31
+        ],
+        [
+          5,
+          7,
+          24,
+          30
+        ],
+        [
+          8,
+          8,
+          27,
+          31
+        ],
+        [
+          8,
+          7,
+          27,
+          30
+        ],
+        [
+          8,
+          7,
+          27,
+          31
+        ],
+        [
+          7,
+          8,
+          24,
+          29
+        ],
+        [
+          6,
+          8,
+          24,
+          31
+        ],
+        [
+          7,
+          8,
+          24,
+          29
+        ],
+        [
+          6,
+          9,
+          26,
+          32
+        ],
+        [
+          5,
+          9,
+          25,
+          32
+        ]
+      ],
+      "opaque_colors": 12,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Silver",
+      "source": "silver.png",
+      "graphics_id": 1030,
+      "palette_tag": 4486,
+      "source_sha256": "0db827eccad6fb9d0da6da3019674aa2cf000fd95df48243848c80647b94adb4",
+      "source_bounds": [
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          8,
+          5,
+          25,
+          31
+        ],
+        [
+          8,
+          6,
+          25,
+          31
+        ],
+        [
+          8,
+          5,
+          25,
+          31
+        ],
+        [
+          7,
+          6,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          4,
+          24,
+          32
+        ],
+        [
+          7,
+          4,
+          24,
+          32
+        ],
+        [
+          6,
+          5,
+          25,
+          31
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Kestra",
+      "source": "kestra.png",
+      "graphics_id": 1031,
+      "palette_tag": 4487,
+      "source_sha256": "67a7cb15dc0c0bd3c965c17d259bdbaf8afb5ac6e628bc5059af321014eb0cbd",
+      "source_bounds": [
+        [
+          6,
+          5,
+          25,
+          31
+        ],
+        [
+          8,
+          4,
+          28,
+          31
+        ],
+        [
+          8,
+          5,
+          26,
+          31
+        ],
+        [
+          8,
+          4,
+          28,
+          31
+        ],
+        [
+          6,
+          5,
+          24,
+          31
+        ],
+        [
+          4,
+          4,
+          24,
+          31
+        ],
+        [
+          4,
+          4,
+          24,
+          31
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ],
+        [
+          6,
+          5,
+          25,
+          31
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ],
+        [
+          6,
+          4,
+          25,
+          32
+        ]
+      ],
+      "opaque_colors": 13,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        0
+      ]
+    }
+  ],
+  "directions": {
+    "SOUTH": [
+      9,
+      10,
+      11
+    ],
+    "NORTH": [
+      0,
+      7,
+      8
+    ],
+    "WEST": [
+      1,
+      2,
+      3
+    ],
+    "EAST": [
+      4,
+      5,
+      6
+    ]
+  },
+  "placements": [
+    {
+      "asset": "Gold",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_GOLD",
+      "position": [
+        47,
+        13
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "GOLD"
+    },
+    {
+      "asset": "Silver",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_SILVER",
+      "position": [
+        54,
+        15
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ],
+      "text": "SILVER"
+    },
+    {
+      "asset": "Kestra",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_CAST_KESTRA",
+      "position": [
+        55,
+        11
+      ],
+      "movement": "WALK_LEFT_AND_RIGHT",
+      "range": [
+        1,
+        0
+      ],
+      "text": "KESTRA"
+    }
+  ],
+  "original_enum_and_dynamic_ids_unchanged": true,
+  "independent_east_frames": true,
+  "source_frame_size": [
+    32,
+    32
+  ]
+}

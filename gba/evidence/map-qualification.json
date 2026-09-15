@@ -1,0 +1,422 @@
+{
+  "timestamp_utc": "2026-09-13T08:17:03.202156+00:00",
+  "status": "runtime_passed_editor_roundtrip_unqualified",
+  "production_unchanged_diff_sha256": "44ffdabc57d76b9e6939ce523f0bbce0fbe9e8cfbcd04f002daf8875694d2edc",
+  "provenance": {
+    "upstream": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+    "production_diff_sha256": "44ffdabc57d76b9e6939ce523f0bbce0fbe9e8cfbcd04f002daf8875694d2edc",
+    "snapshot_commit": "4a06e98a3c1643b2d491f19a06b80ea07634d548"
+  },
+  "build": {
+    "exit_code": 0,
+    "rom_sha256": "af32eae8aa879d8271f9a93639a6a0ff044f97bc8e39ac19245ab29d43741448",
+    "rom_file_bytes": 33554432,
+    "elf_sha256": "09927ec5ebe8e6da965fdec8c20c4e4350538f06e2f62ed785afb98043f127ab",
+    "log_sha256": "49165b59e941c30774e4eda6f5c244cb0e6ab47d2e6f787fd394c5ba0a56b303",
+    "linker_rom_used_bytes": 19609168,
+    "rom_capacity_bytes": 33554432,
+    "ewram_used_bytes": 226736,
+    "iwram_used_bytes": 28392,
+    "warning": "ELF LOAD segment has RWX permissions"
+  },
+  "tools": {
+    "arm_gnu": "14.2.rel1, GCC 14.2.1",
+    "mgba": "0.10.5",
+    "porymap": "6.3.1, opened but roundtrip not qualified"
+  },
+  "source_sha256": {
+    "tools/gba/maps/prepare.py": "82f86239ff77485df5820b50902cceecc15e06caf89e4df8d71c4927eb9d753f",
+    "tools/gba/maps/probe.c": "966862890ffcfd9ac81bfc93cd42615281b177834520b0a80eab01de4538e779",
+    "tools/gba/maps/runtime.c": "07b47ce95f4c57356b0c20bdc72aa2f2ff6420d276ee11ef0de50a3b03ae5b0f",
+    "tools/gba/maps/check_runtime.py": "1f5d2c574819c37e58d5e09c36247690b463b26648f7e0448cda9e38635c29b3",
+    "gba/map-qualification.patch": "6dcf6c26a42f301b54993aaceedde3ec33c230fb2dc55d1b9520787afa5084fe"
+  },
+  "source_preparation_exact_patch_reproduced": true,
+  "patch_reverse_apply_check": true,
+  "results": [
+    {
+      "phase": "write",
+      "region_index": 0,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "step": "arrived",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        },
+        {
+          "step": "npc-dialogue",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 77,
+          "mapsec": 209
+        },
+        {
+          "step": "npc-script-warp",
+          "region": 2,
+          "group": 76,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 210
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "region_index": 0,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "load_status": 1
+        },
+        {
+          "step": "cold-reload",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        }
+      ]
+    },
+    {
+      "phase": "write",
+      "region_index": 1,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "step": "arrived",
+          "region": 2,
+          "group": 76,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 210
+        },
+        {
+          "step": "collision-right",
+          "region": 2,
+          "group": 76,
+          "map": 0,
+          "x": 11,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 210
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        },
+        {
+          "step": "edge-connection-east",
+          "region": 4,
+          "group": 78,
+          "map": 0,
+          "x": 3,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 212
+        },
+        {
+          "step": "edge-connection-west",
+          "region": 2,
+          "group": 76,
+          "map": 0,
+          "x": 11,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 210
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "region_index": 1,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "load_status": 1
+        },
+        {
+          "step": "cold-reload",
+          "region": 2,
+          "group": 76,
+          "map": 0,
+          "x": 11,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 210
+        }
+      ]
+    },
+    {
+      "phase": "write",
+      "region_index": 2,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "step": "arrived",
+          "region": 1,
+          "group": 77,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 1,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 211
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "region_index": 2,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "load_status": 1
+        },
+        {
+          "step": "cold-reload",
+          "region": 1,
+          "group": 77,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 1,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 211
+        }
+      ]
+    },
+    {
+      "phase": "write",
+      "region_index": 3,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "step": "arrived",
+          "region": 4,
+          "group": 78,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 212
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "region_index": 3,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "load_status": 1
+        },
+        {
+          "step": "cold-reload",
+          "region": 4,
+          "group": 78,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 212
+        }
+      ]
+    },
+    {
+      "phase": "write",
+      "region_index": 4,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 3,
+          "group": 75,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 24,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 209
+        },
+        {
+          "step": "arrived",
+          "region": 5,
+          "group": 79,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 80,
+          "interaction": 0,
+          "mapsec": 213
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "region_index": 4,
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "load_status": 1
+        },
+        {
+          "step": "cold-reload",
+          "region": 5,
+          "group": 79,
+          "map": 0,
+          "x": 10,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 80,
+          "interaction": 0,
+          "mapsec": 213
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic Johto, Sinnoh, Unova yards; no completed regional art or geography",
+    "Kanto static native FRLG art; animation callback disabled",
+    "Town-map/Fly and full regional lookup unfinished",
+    "Editor configured pokeruby on initial open; mixed-format editor roundtrip incomplete",
+    "Small fixture does not establish full five-region ROM capacity",
+    "Engine save/load invoked by harness; no save-menu UI or hardware test",
+    "No older-save migration or 30-box architecture qualification"
+  ]
+}

@@ -1,5 +1,11 @@
 # Pokémon Apocrypha — Johto Item Locations
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 > **Scope:** Item locations for the **Johto** chapters — gift/key items, hidden items, and notable Mart stock. One of the per-region item docs. Pairs with:
 > - [DESIGN.md](../DESIGN.md) — region/map design + high-level story
 > - [JOHTO_BATTLES.md](JOHTO_BATTLES.md) — wild encounters + trainer battles

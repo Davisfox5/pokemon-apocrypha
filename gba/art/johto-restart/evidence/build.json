@@ -1,0 +1,29 @@
+{
+  "base_commit": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "toolchain": "arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi",
+  "emulator": "mGBA 0.10.5",
+  "rom_sha256": "17f2777c09499dc63246e2d1f57d7dc6d8e891faff2773b305eb4094c5f190fb",
+  "rom_bytes": 33554432,
+  "save_sha256": "bedd530e09526c682702ff1aaceaeb8fb547738c974863f62a00b75ee10f509e",
+  "save_bytes": 131072,
+  "patch_sha256": "aaa4d2818ea0793d71361040594d6f0cd65d4462c60314ab2e710f802f8fe51e",
+  "build_log_sha256": "d9ab0d4b5cbdf38007724003c22e18cc28de16ce41fa546098d000bbb9cc8b86",
+  "package": "tools/vendor/gba/Cherrygrove-custom-restart-preview.zip",
+  "package_sha256": "3e29ac6bde10630edaab5bebe2e3e56807e507ae19674d7a32330dcf7842a7f4",
+  "zip_bytes_verified": true,
+  "regenerated_rom_matches_tested_rom": true,
+  "linked_bytes": {
+    "EWRAM": 226736,
+    "IWRAM": 28392,
+    "ROM": 19748932
+  },
+  "runtime_phases_passed": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "movement_engine_frames": 7200,
+  "water_engine_frames": 512,
+  "production_game_modified_by_this_task": false
+}

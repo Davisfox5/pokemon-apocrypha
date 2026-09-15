@@ -1,0 +1,37 @@
+{
+  "tool": "built-in image_gen",
+  "foundation": "clean Emerald town baseline f09ec1de",
+  "native_terrain": "pokeemerald-expansion terrain patterns with task-specific palette edits",
+  "approved_buildings_preserved": [
+    "gba/art/johto-v2/native/house.png",
+    "gba/art/johto-v2/native/center.png"
+  ],
+  "generated_assets": [
+    {
+      "name": "cliff",
+      "source": "gba/art/johto-restart/generated/cliff.png",
+      "sha256": "aebad4c48c7a18bbb7634a88beff86857c914b375bfb810e13d13d6cc052a9c2"
+    },
+    {
+      "name": "island",
+      "source": "gba/art/johto-restart/generated/island.png",
+      "sha256": "09d07be3835331d0c00336d5887472e17f9b6be76e30404f203b5fac21c81023"
+    },
+    {
+      "name": "mart",
+      "source": "gba/art/johto-restart/generated/mart.png",
+      "sha256": "f6342cec9e821cbee0cce6931b8645dc5da5cea2cc7bf471060bcc4bf990ca85"
+    },
+    {
+      "name": "tree",
+      "source": "gba/art/johto-restart/generated/tree.png",
+      "sha256": "1e7d4da9f6829fc8f2507b4b63c6b5ca2c71a18319c9dd2889bf523f597b0ae8"
+    }
+  ],
+  "prompts": [
+    "prompts.json",
+    "island-prompt.json"
+  ],
+  "credits": "Original generated scenery; underlying Pokemon architectural motifs and Emerald terrain: Game Freak / Nintendo / Creatures. Existing custom cast and regional sprite credits remain in their original provenance records.",
+  "rejected_reconstruction_assets_used": false
+}

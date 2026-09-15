@@ -21,3 +21,9 @@ tools/*.jar
 tools/*.exe
 tools/*.dll
 tools/*.zip
+
+# Local emulator environments and saves
+.emu-venv/
+*.dsv
+*.dst
+.DS_Store

@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "edit_target": "gba/art/johto-v1/generated/tree-alpha.png",
+  "output": "generated/tree.png",
+  "request": "One continuous crown and one short trunk; preserve olive/lime and teal chunky Johto pixel rendering; remove the stacked second crown; genuine transparent background, no grass, halo or shadow.",
+  "prompt": "Use case: precise-object-edit. Edit target: the attached Johto game tree. Create ONE single tree with ONE continuous rounded, slightly tapered crown above ONE short brown trunk. The current reference incorrectly looks like two separate trees stacked vertically: eliminate that double-decker structure and the second pointed crown halfway down. Preserve the excellent olive/lime green foliage, teal shadow colors and chunky pixel art rendering. GBA Pokemon overworld perspective, viewed slightly from above, symmetrical upright silhouette, one crown, no trunk inside the canopy, no separate tiers or repeated treetops. Compact width-to-height ratio approximately 4:5 including trunk, suitable for reduction to 32x40 pixels. Hard crisp pixel edges, simplified coherent leaf clusters. Fully transparent background with genuine alpha, no glow, no haze, no ground, no grass base, no shadow outside the tree silhouette, no border, no text. Single isolated tree only."
+}
