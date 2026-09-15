@@ -25,9 +25,10 @@ HGSS itself (buildings, cliff, rocks, flowers, fences and props lifted at native
 scale from the 1:1 HGSS Cherrygrove render, the tree from the DS texture, ground
 painted in the render's sampled colours with its rim profiles); the pier, boats,
 nets, benches and lanterns stay original art. Own primary and secondary tilesets.
-Gold, Silver, Kestra, four Johto residents and five regional visitors walk and
-talk. Doors, stairs, both route stubs, ordinary save, cold reload, title-menu
-Continue and a Porymap save round-trip pass. See [the README](../gba/art/claude-cherrygrove/README.md);
+Gold (sprite rebuilt from the HGSS hero), Silver, Kestra, four Johto residents
+and five regional visitors walk and talk; the sea animates. Revision 3 answers the
+owner's nineteen pinned review notes. Doors, stairs, both route stubs, ordinary
+save, cold reload, title-menu Continue and a Porymap save round-trip pass. See [the README](../gba/art/claude-cherrygrove/README.md);
 source patch `gba/claude-cherrygrove.patch` applies on top of the workbench preset.
 Production `game/` and every earlier preview are untouched.
 

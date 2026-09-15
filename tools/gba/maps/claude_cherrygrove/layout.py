@@ -1,12 +1,14 @@
 """Cherrygrove City layout: my reading of the HGSS town, ten years on.
 
-Coordinates are metatiles (16 px). West is open sea under a sandstone cliff,
-a concave beach runs down the west side of town, Route 30 leaves north beside
-the shops and Route 29 leaves east past the player's home. The blossom park and
-the faded fishing pier are the two Apocrypha additions the design bible asks for.
+Coordinates are metatiles (16 px). West is open sea under the brown cliff,
+which turns south at the town's edge as in HGSS; a concave beach runs down the
+west side, Route 30 leaves north beside the shops and Route 29 leaves east past
+the player's home. The blossom park and the fishing pier are the two Apocrypha
+additions the design bible asks for.
 
 Building footprints follow the HGSS models: homes are five cells wide and five
-tall (roof top to doorstep), the Pokemon Center six by six, the Mart five by four.
+tall (roof top to doorstep), Gold's gable house six wide, the Pokemon Center six
+by six, the Mart five by four.
 """
 W, H = 60, 34
 
@@ -36,7 +38,8 @@ def sand_end(y):
 
 SEA_TOP = 5                  # first open-sea row below the cliff foot
 CLIFF_ROWS = (1, 4)          # crest row .. foot row (the HGSS cliff is four cells tall)
-CLIFF_X = (0, 28)            # spans the whole north-west, ends under the town's trees
+CLIFF_X = (0, 26)            # straight band; the corner piece stands at CLIFF_CORNER
+CLIFF_CORNER = 26            # left cell of the 5x6 corner where the cliff turns south and ends on the beach
 
 # Buildings: name, style, top-left cell. Door cell derives from the style.
 BUILDINGS = [
@@ -48,7 +51,7 @@ BUILDINGS = [
     dict(name='TransplantHouse', style='house2', x=31, y=21),
 ]
 DOOR_COLUMN = dict(house=1, house_l=1, house2=1, gable=2, center=2, mart=1)
-SIZE = dict(house=(5, 5), house_l=(5, 5), house2=(5, 5), gable=(5, 5), center=(6, 6), mart=(5, 4))
+SIZE = dict(house=(5, 5), house_l=(5, 5), house2=(5, 5), gable=(6, 5), center=(6, 6), mart=(5, 4))
 
 def door_of(b):
     w, h = SIZE[b['style']]
@@ -68,25 +71,24 @@ LANES = [
     (30, 26, 8, 2),    # waterfront lane
 ]
 
-# Scattered trees (top-left cells of 2x3 crowns) placed by hand, plus the bands.
+# Scattered trees (top-left cells of 2x3 sprites) placed by hand, clear of the bands.
 TREES = [
-    (25, 6), (23, 15), (30, 17), (27, 22), (33, 11),
-    (55, 9), (55, 17), (55, 21), (52, 24), (49, 27),
-    (37, 27), (33, 28), (43, 27), (36, 1), (39, 1),
+    (23, 15), (30, 17), (27, 22), (33, 11),
+    (53, 12), (52, 24), (49, 26),
 ]
 BLOSSOMS = [(38, 22), (47, 21), (41, 24), (46, 24), (43, 22)]
 # Forest bands: (x0, y0, x1, y1) inclusive cell ranges filled with the HGSS lattice
-# (32 px rows, 32 px columns, odd rows offset one cell).
+# (one cell between rows, two between trees, alternate rows offset one cell).
 FOREST = [
-    (28, -3, 30, 0), (34, -3, 59, 0),   # north wall, split at the Route 30 gap
-    (56, 3, 59, 9), (56, 16, 59, 33),   # east wall, split at the Route 29 gap
+    (34, -3, 59, -1),                   # north wall east of the Route 30 gap (crowns reach row 1)
+    (56, 2, 59, 10), (56, 15, 59, 33),  # east wall, split at the Route 29 gap
     (31, 29, 59, 33),                   # south wall
-    (0, -3, 27, -1),                    # cliff-top wood
+    (0, -3, 24, -2),                    # cliff-top wood (trunks stop above the crest)
 ]
 
-# Fenced gardens: (x, y, w, h) with tulip beds inside a picket fence.
+# Fenced tulip beds: (x, y, w, h); pickets along the front, posts down both sides, open at the back.
 GARDENS = [
-    (49, 5, 6, 2),    # east of the Pokemon Center
+    (49, 5, 5, 2),    # east of the Pokemon Center
     (47, 18, 4, 2),   # beside the park
     (26, 16, 3, 3),   # neighbour's plot by the beach
 ]
@@ -95,18 +97,15 @@ PETALS = (38, 21, 12, 8)       # park lawn area (daisy patches)
 PARK_PROPS = dict(bench=[(40, 27), (45, 27)], lamp=[(37, 21), (45, 22)])
 
 PIER = dict(x0=14, x1=22, y=26)          # deck cells x0..x1-1 on rows y, y+1
-BOATS = [(9, 23), (15, 29)]
-NETS = [(24, 28)]
-LOOKOUT = dict(x=17, y=5, w=4, h=2)     # timber deck over the water below the cliff
+BOATS = [(9, 22), (14, 29)]
+LOOKOUT = None
 SEA_ROCKS = [(2, 7), (9, 30), (20, 31), (6, 12), (11, 20)]      # 2x2 grey boulders in the bay
-SEA_ROCKS_SMALL = [(6, 9), (12, 13), (8, 19), (3, 26), (24, 32), (5, 15)]
-ROCKS = [(23, 30), (21, 10)]             # brown boulders on the sand
+ROCKS = [(23, 29), (21, 9)]              # brown boulders (2x3 sprites, lower two cells solid)
 SIGNS = [
     ('TownSign', 34, 17), ('NorthSign', 34, 3), ('EastSign', 54, 11), ('GoldSign', 43, 10), ('WaterfrontSign', 29, 28),
-    ('ParkSign', 38, 21), ('LookoutSign', 21, 8),
+    ('ParkSign', 38, 21),
 ]
 MAILBOXES = [(25, 13), (37, 14), (47, 13), (30, 25)]
-BUSHES = [(34, 14), (53, 10), (55, 15), (24, 22)]
-PLANTERS = []   # planters are part of the house sprites
+BUSHES = []
 
 SPAWN = (49, 14)    # new game start: outside the player's front door

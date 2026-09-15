@@ -11,6 +11,11 @@ every earlier preview are untouched.
 Owner direction on 2026-09-15: the town must look almost exactly like the Gen 4
 HGSS Johto games, in 2D rather than 3D. This revision replaces the earlier
 Gen 3 style pixel art with scenery derived from HGSS itself (see Art below).
+Revision 3 (same day) answers the owner's nineteen pinned review notes: 16 px
+doors, the whole gable roof, trunks under every tree and the dense HGSS forest
+lattice, the cliff turning south at the town's edge as in HGSS, clean rocks,
+HGSS-style tulip beds and fences, a plank pier and readable rowboats, a clean
+Mart sign, Gold's sprite rebuilt from the HGSS hero, and an animated sea.
 
 ## Review
 
@@ -55,16 +60,22 @@ it (the rendered grass is (104,208,152), darker than the raw grass texture).
   palette recolour of the same tiles.
 - **Cliff, rocks, tulip beds, picket fences, daisies, rose hedge, planters,
   mailbox, signpost** are lifted from the render at native scale.
-- **Apocrypha additions** keep their original pixel art: the fishing pier, two
-  boats, drying nets, benches and lanterns, plus the teal-roofed transplant home
-  (a palette recolour of the HGSS house).
+- **Apocrypha additions**: the fishing pier is built from the HGSS bridge plank
+  texture with log posts, the two rowboats, benches and lanterns are original
+  pixel art, and the teal-roofed transplant home is a palette recolour of the
+  HGSS house.
+- **Sea animation**: the primary tileset's callback cycles eight frames over the
+  68 sea tiles (the HGSS base water with its sparkle layer drifting east), so the
+  bay moves as it does on the DS ([sea-animation.json](evidence/sea-animation.json)).
+- **Gold's sprite** is the HGSS hero's twelve walking frames (north, west, east,
+  south idles and steps) in the workbench's Johto cast frame layout
+  (`gold_sprite.py`); his palette is the HGSS one.
 
 Palettes: primary banks 0-5 hold the terrain (ground, sea, cliff, trees, flowers
 and fences, rocks) and are shared by the route stubs; secondary banks 6-11 hold
 the houses, the teal recolour, Center, Mart, blossom recolour and wood props.
-Tile use is in [build-report.json](build-report.json) (primary 426/512 tiles,
-secondary 452/512). The primary tileset is our own, so its General water
-animation callback is switched off; the sea is static in this revision.
+Tile use is in [build-report.json](build-report.json); the primary tileset is
+our own, with its own animation callback for the sea.
 
 Provenance: original designs and art are Game Freak / Nintendo / Creatures;
 this is a read-only derivation for the Apocrypha reconstruction. Sources and
@@ -108,7 +119,8 @@ No flags or variables are used.
 - `build.py`: paints ground and objects, dedupes 8x8 tiles (with flips) into the
   `cherrygrove` primary and secondary tilesets, writes metatiles, attributes,
   palettes, the town and stub layouts, warps, signs, object events, scripts, the
-  new-game spawn, the six door animations and the tileset header callback.
+  new-game spawn, the six door animations, the sea animation frames and engine
+  callback, and Gold's sprite.
 - `runtime.py`: generated libmGBA harness (write, read, menu, walk phases).
   `evidence.py`: structure BFS, movement analysis, boards and GIF. `preserve.py`:
   source patch and package. `export.py`: editable source art.
@@ -161,15 +173,12 @@ per phase. Hashes binding the tested ROM, the packaged save and the patch are in
 
 ## Limitations
 
-- The sea does not animate (HGSS scrolls a sparkle overlay). The primary
-  tileset's animation callback is off; a Cherrygrove callback with sparkle frames
-  is the natural next step.
 - Buildings are 15-colour reductions of the render's gradients; the Center's
   roof shading is slightly flattened.
-- Three 8x8 tiles mix two palette banks (a bush beside a mailbox, a lantern by
-  a blossom tree) and are remapped to the majority bank.
 - The offshore rock islands and the northeast pond of HGSS are not built; the
   bay has grey boulders instead.
+- The lookout deck and drying nets from the first revision were removed at the
+  owner's request; the pier and boats remain as the design bible's waterfront.
 
 ## Reproduce
 

@@ -102,7 +102,7 @@ int main(int argc,char**argv){
   const unsigned views[][2]={VIEWS};
   for(view=0;view<NVIEWS;view++){
    call("MapProof_Enter",(views[view][0]<<8)|(views[view][1]<<16));frames(360,0);
-   for(unsigned i=0;i<360;i++){frames(4,0);sample(i*4);if(view<4){char tag[80];sprintf(tag,"view-%u-%03u",view,i);screenshot(argv[3],tag);}}
+   for(unsigned i=0;i<360;i++){frames(4,0);sample(i*4);if(view<4||view==5){char tag[80];sprintf(tag,"view-%u-%03u",view,i);screenshot(argv[3],tag);}}
   }
   INTERACTIONS
  }else{
@@ -134,8 +134,8 @@ def generate():
     order = ['PlayerHouse', 'GoldHouse', 'NeighborHouse', 'TransplantHouse', 'Mart', 'PokemonCenter']
     by = {b['name']: b for b in doors}
     door_cells = [L.door_of(by[n]) for n in order]
-    views = [(49, 15), (40, 9), (44, 13), (43, 24), (22, 18), (18, 27), (19, 6)]
-    shots = [('home-street', 49, 15), ('shops', 40, 9), ('gold-yard', 44, 13), ('park', 43, 24), ('beach', 22, 18), ('pier', 18, 27), ('lookout', 19, 6), ('cliff', 10, 6)]
+    views = [(49, 15), (40, 9), (44, 13), (43, 24), (22, 18), (18, 27), (24, 6)]
+    shots = [('home-street', 49, 15), ('shops', 40, 9), ('gold-yard', 44, 13), ('park', 43, 24), ('beach', 22, 18), ('pier', 18, 27), ('cliff-corner', 26, 7), ('cliff', 10, 6)]
     gid = {'OBJ_EVENT_GFX_JOHTO_GOLD': 1029, 'OBJ_EVENT_GFX_JOHTO_SILVER': 1030, 'OBJ_EVENT_GFX_JOHTO_KESTRA': 1031,
            'OBJ_EVENT_GFX_REGIONAL_HOENN': 1032, 'OBJ_EVENT_GFX_REGIONAL_KANTO': 1033, 'OBJ_EVENT_GFX_REGIONAL_JOHTO': 1034,
            'OBJ_EVENT_GFX_REGIONAL_SINNOH': 1035, 'OBJ_EVENT_GFX_REGIONAL_UNOVA': 1036,

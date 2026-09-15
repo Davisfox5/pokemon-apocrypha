@@ -52,8 +52,8 @@ NPCS = [
          "I'm from KANTO. It's not so\\nfar from here.\\pThe towns are bigger there.\\nI like it quiet here."),
     walk('OBJ_EVENT_GFX_REGIONAL_JOHTO', 'Johto', 41, 9, 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 3, 0,
          'The POKEMON CENTER is here\\nand the MART is next door.\\pIt is a small town. Nothing\\nis hard to find.'),
-    walk('OBJ_EVENT_GFX_REGIONAL_SINNOH', 'Sinnoh', 19, 6, 'MOVEMENT_TYPE_FACE_UP', 0, 0,
-         'Back home in SINNOH the sea\\nis grey and the wind bites.\\pI could stand here all day.'),
+    walk('OBJ_EVENT_GFX_REGIONAL_SINNOH', 'Sinnoh', 16, 27, 'MOVEMENT_TYPE_FACE_LEFT', 0, 0,
+         'Back home in SINNOH the sea\\nis grey and the wind bites.\\pI could stand on this pier\\nall day.'),
     walk('OBJ_EVENT_GFX_REGIONAL_UNOVA', 'Unova', 44, 25, 'MOVEMENT_TYPE_WANDER_AROUND', 2, 1,
          'UNOVA has parks too, but\\nnothing like this one.\\pAll these trees are pink!'),
 ]

@@ -44,16 +44,21 @@ def build_assets():
     B['SEA'] = banks.Bank(1, 'SEA', 'primary'); B['SEA'].palette = Palette(1, SEA_PAL, [f'c{i}' for i in range(15)])
     B['CLIFF'] = banks.Bank(2, 'CLIFF', 'primary').add('cliff', hgss.cliff()).add('cliff_sand', hgss.cliff_sand())
     B['TREE'] = banks.Bank(3, 'TREE', 'primary').add('tree', hgss.tree())
-    B['FLOWERS'] = (banks.Bank(4, 'FLOWERS', 'primary').add('tulips0', hgss.tulips(0)).add('tulips1', hgss.tulips(1)).add('daisies', hgss.daisies())
+    B['FLOWERS'] = (banks.Bank(4, 'FLOWERS', 'primary').add('tulips', hgss.tulips()).add('daisies', hgss.daisies())
                     .add('bush', hgss.bush()).add('fence_h', hgss.fence_h()).add('fence_v', hgss.fence_v()).add('fence_corner', hgss.fence_corner())
                     .keep((232, 232, 240), (200, 200, 208), (152, 152, 168)))
-    B['ROCKS'] = banks.Bank(5, 'ROCKS', 'primary').add('sea_rock', hgss.sea_rock()).add('sea_rock_small', hgss.sea_rock_small()).add('rock', hgss.rock())
+    B['ROCKS'] = banks.Bank(5, 'ROCKS', 'primary').add('sea_rock', hgss.sea_rock()).add('rock', hgss.rock())
+    B['CLIFF'].add('cliff_end', hgss.cliff_end())
     ha, hb = hgss.house_a(), hgss.house_b()
     B['HOUSE'] = banks.Bank(6, 'HOUSE', 'secondary').add('house', ha).add('gable', hb).keep(*hgss.dominant(ha, (40, 58, 14, 14), 2))
     c = hgss.center()
     B['CENTER'] = banks.Bank(8, 'CENTER', 'secondary').add('center', c).keep(*hgss.dominant(c, (12, 60, 20, 6), 1), *hgss.dominant(c, (40, 80, 16, 12), 1))
     m = hgss.mart()
     B['MART'] = banks.Bank(9, 'MART', 'secondary').add('mart', m).add('mart_sign', hgss.mart_sign()).keep(*hgss.dominant(m, (50, 48, 16, 12), 1))
+    B['WOOD'] = (banks.Bank(11, 'WOOD', 'secondary').add('pier', hgss.pier(L.PIER['x1'] - L.PIER['x0'])).add('boat', hgss.boat())
+                 .add('sign', hgss.signpost()).add('mailbox', hgss.mailbox()))
+    for k, f in art.ASSETS.items():
+        if k in ('bench', 'lamp'): B['WOOD'].add(k, f().to_rgba())
     assets = {}
     for b in B.values():
         if b.assets: assets.update(b.build())
@@ -64,18 +69,8 @@ def build_assets():
         n = Canvas(cv.w, cv.h, pal); n.px = cv.px.copy(); n.pool = 'secondary'; return n
     assets['house2'] = clone(assets['house'], pal_house2); assets['house_l'] = assets['house']
     assets['blossom'] = clone(assets['tree'], pal_blossom)
-    # Wood props from the hand-painted set (bank 11) plus the HGSS signpost and mailbox mapped into it.
-    wood = art.PALETTES['WOOD']
-    for k, f in art.ASSETS.items():
-        if k in ('deck', 'deck_s', 'deck_n', 'deck_w', 'deck_e', 'rail_h', 'rail_v', 'boat', 'nets', 'bench', 'lamp'):
-            cv = f(); cv.pool = 'secondary'; assets[k] = cv
-    arr = np.array(wood.colors, dtype=np.int32)
-    for k, a in (('sign', hgss.signpost()), ('mailbox', hgss.mailbox())):
-        cv = Canvas(a.shape[1], a.shape[0], wood); mk = a[..., 3] > 0
-        idx = ((a[mk][:, :3].astype(np.int32)[:, None, :] - arr[None]) ** 2).sum(-1).argmin(1)
-        cv.px[mk] = np.array(wood.slots)[idx]; cv.pool = 'secondary'; assets[k] = cv
     palettes = {b.bank: b.palette for b in B.values()}
-    palettes.update({7: pal_house2, 10: pal_blossom, 11: wood})
+    palettes.update({7: pal_house2, 10: pal_blossom})
     return assets, palettes
 
 # ----------------------------------------------------------------- canvas
@@ -120,11 +115,21 @@ def compose_town(assets):
     behavior = np.zeros((Ht, Wd), dtype=np.uint8)
     mc = MapCanvas(Wd, Ht)
     objects = []   # (sort_y, x_px, y_px, canvas, flip)
+    claims = {}    # cell -> owner, to catch objects placed on top of each other
+    warnings = []
 
+    def claim(x, y, w, h, owner, soft=False):
+        for yy in range(max(y, 0), min(y + h, Ht)):
+            for xx in range(max(x, 0), min(x + w, Wd)):
+                other = claims.get((xx, yy))
+                if other and other != owner and not (other.startswith('forest') and owner.startswith('forest')) and not soft:
+                    warnings.append(f'{owner} overlaps {other} at ({xx},{yy})')
+                claims[(xx, yy)] = owner
     def cell_solid(x, y, w=1, h=1):
         solid[max(y, 0):y + h, max(x, 0):x + w] = True
-    def obj(canvas, cx, cy, sort=None, flip=False):
-        h = canvas.h; objects.append(((cy * 16 + h - 1) if sort is None else sort, cx * 16, cy * 16, canvas, flip))
+    def obj(canvas, cx, cy, sort=None, flip=False, py=None):
+        h = canvas.h; ypx = cy * 16 if py is None else py
+        objects.append(((ypx + h - 1) if sort is None else sort, cx * 16, ypx, canvas, flip))
 
     # Sea, beach and cliff foot.
     for y in range(Ht):
@@ -133,76 +138,77 @@ def compose_town(assets):
             elif y >= L.SEA_TOP and x < L.sand_end(y): cells[y, x] = S
     for y in range(30, Ht):
         for x in range(0, 29): cells[y, x] = W; cell_solid(x, y)
-    for x in range(L.CLIFF_X[0], L.CLIFF_X[1]):
+    for x in range(L.CLIFF_X[0], L.CLIFF_CORNER + 2):
         cells[L.CLIFF_ROWS[1], x] = R if x < L.shore(L.SEA_TOP) else S
     # Paths.
     for (x, y, w, h) in L.LANES + [L.BATTLE_YARD]: cells[y:y + h, x:x + w] = P
     for y in range(Ht):
         for x in range(Wd):
             if cells[y, x] == S and not solid[y, x]: behavior[y, x] = MB_SAND
-    # Cliff band.
+    # Cliff band and its corner.
     cy0, cy1 = L.CLIFF_ROWS
     for x in range(L.CLIFF_X[0], L.CLIFF_X[1], 2):
-        obj(assets['cliff'] if x < L.shore(L.SEA_TOP) - 1 else assets['cliff_sand'], x, cy0, sort=cy1 * 16 + 15); cell_solid(x, cy0, 2, cy1 - cy0 + 1)
-    # Forest bands: the HGSS lattice (32 px rows and columns, odd rows offset one cell).
+        obj(assets['cliff'] if x < L.shore(L.SEA_TOP) - 1 else assets['cliff_sand'], x, cy0, sort=cy1 * 16 + 15); cell_solid(x, cy0, 2, cy1 - cy0 + 1); claim(x, cy0, 2, 4, 'cliff')
+    corner = assets['cliff_end']; obj(corner, L.CLIFF_CORNER, cy0, sort=cy0 * 16 - 8 + corner.h - 1, py=cy0 * 16 - 8)
+    for yy in range(corner.h // 16 + 1):
+        for xx in range(corner.w // 16):
+            y0 = cy0 * 16 - 8 + yy * 16; sub = corner.px[max(0, y0 - (cy0 * 16 - 8)):max(0, y0 - (cy0 * 16 - 8)) + 16, xx * 16:xx * 16 + 16]
+            cyy = (y0) // 16
+            if sub.size and (sub != 0).sum() > 8 and 0 <= cyy < Ht: cell_solid(L.CLIFF_CORNER + xx, cyy); claim(L.CLIFF_CORNER + xx, cyy, 1, 1, 'cliff-corner')
+    # Forest bands: the HGSS lattice, one cell between rows, alternate rows offset one cell; crowns overhang the band
+    # by one cell on odd rows unless that would cover a path.
+    def tree_at(x, y, owner, kind='tree'):
+        if x + 1 >= Wd or x < -1 or y >= Ht: return
+        if (cells[max(y, 0):y + 3, max(x, 0):x + 2] == P).any(): return
+        obj(assets[kind], x, y); cell_solid(x, y, 2, 3); claim(x, y, 2, 3, owner)
     def forest(x0, y0, x1, y1):
-        for j, y in enumerate(range(y0, y1 + 1, 2)):
-            for x in range(x0 + (j % 2), x1 + 1, 2):
-                obj(assets['tree'], x, y)
-        cell_solid(x0, y0, x1 - x0 + 1, y1 - y0 + 3)   # crowns two cells, trunks land one row below the last row
+        for j, y in enumerate(range(y0, y1 + 1)):
+            for x in range(x0 - (j % 2), x1 + 1, 2):
+                if x + 1 > x1 + 1: continue
+                tree_at(x, y, 'forest')
     for band in L.FOREST: forest(*band)
-    for (x, y) in L.TREES: obj(assets['tree'], x, y); cell_solid(x, y, 2, 3)
-    for (x, y) in L.BLOSSOMS: obj(assets['blossom'], x, y); cell_solid(x, y, 2, 3)
+    for (x, y) in L.TREES: tree_at(x, y, f'tree{x},{y}')
+    for (x, y) in L.BLOSSOMS: tree_at(x, y, f'blossom{x},{y}', 'blossom')
     # Buildings.
     doors = {}
     for b in L.BUILDINGS:
         c = assets[b['style']]; w, h = L.SIZE[b['style']]
-        obj(c, b['x'], b['y']); cell_solid(b['x'], b['y'], w, h)
+        obj(c, b['x'], b['y']); cell_solid(b['x'], b['y'], w, h); claim(b['x'], b['y'], w, h, b['name'])
         dx, dy = L.door_of(b); solid[dy, dx] = False; behavior[dy, dx] = MB_ANIMATED_DOOR; doors[b['name']] = (dx, dy)
         if b['style'] == 'mart':
-            obj(assets['mart_sign'], b['x'] + 4, b['y'] + 1, sort=(b['y'] + 4) * 16 + 15); cell_solid(b['x'] + 4, b['y'] + 1, 2, 4)
-    # Gardens: tulip beds ringed by a picket fence.
-    for (x, y, w, h) in L.GARDENS:
+            obj(assets['mart_sign'], b['x'] + 4, b['y'] + 1, sort=(b['y'] + 4) * 16 + 15); cell_solid(b['x'] + 4, b['y'] + 1, 2, 4); claim(b['x'] + 4, b['y'] + 1, 2, 4, 'mart-sign', soft=True)
+    # Tulip beds: pickets along the front, posts down both sides, open at the back (as in HGSS).
+    for gi, (x, y, w, h) in enumerate(L.GARDENS):
         for yy in range(y, y + h):
-            for xx in range(x, x + w): obj(assets['tulips0' if (yy - y) % 2 == 0 else 'tulips1'], xx, yy); cell_solid(xx, yy)
-        for xx in range(x, x + w):
-            obj(assets['fence_h'], xx, y - 1); obj(assets['fence_h'], xx, y + h); cell_solid(xx, y - 1); cell_solid(xx, y + h)
+            for xx in range(x, x + w): obj(assets['tulips'], xx, yy, sort=yy * 16 + 15, py=yy * 16 - 8); cell_solid(xx, yy)
+        claim(x, y, w, h, f'garden{gi}')
+        for xx in range(x, x + w): obj(assets['fence_h'], xx, y + h); cell_solid(xx, y + h)
         for yy in range(y, y + h):
             obj(assets['fence_v'], x - 1, yy); obj(assets['fence_v'], x + w, yy, flip=True); cell_solid(x - 1, yy); cell_solid(x + w, yy)
-        obj(assets['fence_corner'], x - 1, y + h); obj(assets['fence_corner'], x + w, y + h, flip=True)
-        obj(assets['fence_corner'], x - 1, y - 1); obj(assets['fence_corner'], x + w, y - 1, flip=True)
-        cell_solid(x - 1, y - 1); cell_solid(x + w, y - 1); cell_solid(x - 1, y + h); cell_solid(x + w, y + h)
-    for (x, y) in L.PARK_PROPS['bench']: obj(assets['bench'], x, y); cell_solid(x, y)
-    for (x, y) in L.PARK_PROPS['lamp']: obj(assets['lamp'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True
-    for (x, y) in L.BUSHES: obj(assets['bush'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True
-    for (x, y) in L.MAILBOXES: obj(assets['mailbox'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True
+        obj(assets['fence_corner'], x - 1, y + h); obj(assets['fence_corner'], x + w, y + h, flip=True); cell_solid(x - 1, y + h); cell_solid(x + w, y + h)
+        claim(x - 1, y, w + 2, h + 1, f'garden{gi}')
+    for (x, y) in L.PARK_PROPS['bench']: obj(assets['bench'], x, y); cell_solid(x, y); claim(x, y, 1, 1, 'bench')
+    for (x, y) in L.PARK_PROPS['lamp']: obj(assets['lamp'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True; claim(x, y - 1, 1, 2, 'lamp')
+    for (x, y) in L.MAILBOXES: obj(assets['mailbox'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True; claim(x, y - 1, 1, 2, 'mailbox')
     for (name, x, y) in L.SIGNS:
-        obj(assets['sign'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); behavior[y, x] = MB_SIGNPOST; mc.above[y - 1, x] = True
-    # Waterfront: pier, boats, nets; lookout deck under the cliff.
+        obj(assets['sign'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); behavior[y, x] = MB_SIGNPOST; mc.above[y - 1, x] = True; claim(x, y - 1, 2, 2, name, soft=True)
+    # Waterfront: the plank pier and two boats.
     p = L.PIER
+    obj(assets['pier'], p['x0'], p['y'])
     for x in range(p['x0'], p['x1']):
-        top = assets['rail_v'] if x == p['x0'] else assets['deck_n']
-        bot = assets['rail_v'] if x == p['x0'] else assets['deck_s']
-        obj(top, x, p['y']); obj(bot, x, p['y'] + 1)
-        for yy in (p['y'], p['y'] + 1): solid[yy, x] = (x == p['x0']); behavior[yy, x] = 0
-    for (x, y) in L.BOATS: obj(assets['boat'], x, y); cell_solid(x, y, 2, 2)
-    for (x, y) in L.NETS: obj(assets['nets'], x, y); cell_solid(x, y, 2, 1)
-    lk = L.LOOKOUT
-    for x in range(lk['x'], lk['x'] + lk['w']):
-        obj(assets['rail_h'], x, lk['y']); cell_solid(x, lk['y'])
-        obj(assets['rail_v'] if x == lk['x'] else assets['deck_s'], x, lk['y'] + 1)
-        solid[lk['y'] + 1, x] = (x == lk['x']); behavior[lk['y'] + 1, x] = 0
-    obj(assets['bench'], lk['x'] + 2, lk['y'], sort=lk['y'] * 16 + 15.5)
-    for (x, y) in L.SEA_ROCKS: obj(assets['sea_rock'], x, y); cell_solid(x, y, 2, 2)
-    for (x, y) in L.SEA_ROCKS_SMALL: obj(assets['sea_rock_small'], x, y); cell_solid(x, y)
-    for (x, y) in L.ROCKS: obj(assets['rock'], x, y); cell_solid(x, y, 2, 2)
+        for yy in (p['y'], p['y'] + 1): solid[yy, x] = False; behavior[yy, x] = 0
+    claim(p['x0'], p['y'], p['x1'] - p['x0'], 2, 'pier')
+    for (x, y) in L.BOATS: obj(assets['boat'], x, y); cell_solid(x, y, 2, 1); claim(x, y, 2, 1, 'boat')
+    for (x, y) in L.SEA_ROCKS: obj(assets['sea_rock'], x, y); cell_solid(x, y, 2, 2); claim(x, y, 2, 2, 'sea-rock')
+    for (x, y) in L.ROCKS: obj(assets['rock'], x, y); cell_solid(x, y + 1, 2, 2); claim(x, y, 2, 3, 'rock')
     # Daisy patches on the park lawn and open grass.
     px0, py0, pw, ph = L.PETALS
     for y in range(py0, py0 + ph):
         for x in range(px0, px0 + pw - 1):
-            if (x * 7 + y * 3) % 7 == 0 and cells[y, x] == G and not solid[y, x:x + 2].any() and not solid[max(y - 1, 0), x:x + 2].any():
+            if (x * 7 + y * 3) % 7 == 0 and cells[y, x] == G and not solid[y, x:x + 2].any() and not solid[max(y - 1, 0), x:x + 2].any() and (x, y) not in claims and (x + 1, y) not in claims:
                 obj(assets['daisies'], x, y, sort=-1)
     for _, px, py, c, flip in sorted(objects, key=lambda o: (o[0], o[1])): mc.blit(c, px, py, flip)
+    for w in sorted(set(warnings)): print('WARNING:', w)
     return dict(cells=cells, solid=solid, behavior=behavior, canvas=mc, doors=doors, W=Wd, H=Ht)
 
 def compose_stub(assets, Wd, Ht, path_rect, side):
@@ -211,7 +217,7 @@ def compose_stub(assets, Wd, Ht, path_rect, side):
     mc = MapCanvas(Wd, Ht); objects = []
     x, y, w, h = path_rect; cells[y:y + h, x:x + w] = P
     lane = cells == P
-    for j, yy in enumerate(range(-3, Ht, 2)):
+    for j, yy in enumerate(range(-3, Ht)):
         for xx in range(-2 + (j % 2), Wd, 2):
             if lane[max(yy, 0):yy + 3, max(xx, 0):xx + 2].any(): continue
             objects.append((yy * 16 + 47, xx * 16, yy * 16, assets['tree'], False))
@@ -230,13 +236,14 @@ class Packer:
         self.blocks = {'primary': [], 'secondary': []}
         self.attrs = {'primary': [], 'secondary': []}
         self.block_lookup = {}
-        self.conflicts = 0; self.conflict_cells = []
+        self.conflicts = 0; self.conflict_cells = []; self.first_pos = {}
         self.tiles['primary'].append((0, np.zeros((8, 8), np.uint8)))   # tile 0 must stay blank: it is what an empty layer entry draws
     def pool_of(self, bank):
         return 'primary' if bank < 6 else 'secondary'
-    def tile(self, bank, arr):
+    def tile(self, bank, arr, pos=None):
         for hf in (0, 1):
             for vf in (0, 1):
+                if bank == 1 and (hf or vf): continue
                 a = arr[::-1] if vf else arr; a = a[:, ::-1] if hf else a
                 key = (bank, a.tobytes())
                 if key in self.lookup: return self.lookup[key] | (hf << 10) | (vf << 11)
@@ -245,8 +252,10 @@ class Packer:
         if len(self.tiles[pool]) >= 512:
             counts = Counter(b for b, _ in self.tiles[pool])
             raise SystemExit(f'{pool} tile budget exhausted; tiles per bank: {dict(counts)}')
-        self.tiles[pool].append((bank, arr.copy())); self.lookup[(bank, arr.tobytes())] = tid; return tid
-    def slice(self, bank_img, idx_img, cx, cy):
+        self.tiles[pool].append((bank, arr.copy())); self.lookup[(bank, arr.tobytes())] = tid
+        if pos is not None: self.first_pos[tid] = pos
+        return tid
+    def slice(self, bank_img, idx_img, cx, cy, ground_tag=None):
         """Four 8x8 tiles of one cell -> metatile entries (0 when empty), and whether the cell is fully opaque."""
         entries = []; opaque = True
         for q in range(4):
@@ -267,7 +276,7 @@ class Packer:
                 bank = np.where(bank >= 0, major, -1)
             arr = np.where(bank >= 0, idx, 0).astype(np.uint8)
             b = bks[0] if len(bks) == 1 else major
-            entries.append(self.tile(b, arr) | (b << 12))
+            entries.append(self.tile(b, arr, pos=(ground_tag, x0, y0) if ground_tag else None) | (b << 12))
         return entries, opaque
     def metatile(self, entries, attr):
         key = (tuple(entries), attr)
@@ -284,7 +293,7 @@ def grid_for(comp, packer, palettes):
     grid = []
     for y in range(Ht):
         for x in range(Wd):
-            base, _ = packer.slice(gbank, gidx, x, y)
+            base, _ = packer.slice(gbank, gidx, x, y, ground_tag=comp.get('tag', 'stub'))
             entries, opaque = packer.slice(mc.bank, mc.idx, x, y)
             beh = int(comp['behavior'][y, x])
             if all(e == 0 for e in entries):
@@ -296,6 +305,7 @@ def grid_for(comp, packer, palettes):
             else:
                 mid = packer.metatile(base + entries, beh | COVERED)
             grid.append(mid | (0x3 << 12) | (0xC00 if comp['solid'][y, x] else 0))
+    comp['mat'] = mat
     return grid, gimg
 
 # ----------------------------------------------------------------- engine writing
@@ -414,10 +424,82 @@ def write_events(game, comp, grid):
     s = re.sub(r'MAP_NUM\(MAP_CHERRYGROVE_CITY\), WARP_ID_NONE, \d+, \d+', f'MAP_NUM(MAP_CHERRYGROVE_CITY), WARP_ID_NONE, {L.SPAWN[0]}, {L.SPAWN[1]}', s)
     ng.write_text(s)
 
+def sea_frames(n=8):
+    """n 32x32 RGB sea textures: the HGSS base water in the render's tones with the sparkle layer drifting east."""
+    base = hgss._texture('sea_un'); spark = hgss._texture('sea_on', 'sea_f02_pl')
+    lum = lambda c: 0.3 * c[0] + 0.6 * c[1] + 0.1 * c[2]
+    bsrc = sorted({tuple(int(v) for v in c[:3]) for c in base[base[..., 3] > 0]}, key=lum)
+    ssrc = sorted({tuple(int(v) for v in c[:3]) for c in spark[spark[..., 3] > 0]}, key=lum)
+    btones = [SEA_PAL[0], SEA_PAL[1], SEA_PAL[2], SEA_PAL[3], SEA_PAL[3]]; stones = [SEA_PAL[3], SEA_PAL[4], SEA_PAL[5], SEA_PAL[5], SEA_PAL[5]]
+    b = np.zeros((32, 32, 3), np.uint8)
+    for i, c in enumerate(bsrc): b[(base[..., :3] == c).all(-1)] = btones[min(i * len(btones) // max(len(bsrc), 1), len(btones) - 1)]
+    frames = []
+    for k in range(n):
+        f = b.copy(); dx = (k * 32) // n
+        for i, c in enumerate(ssrc):
+            m = (spark[..., :3] == c).all(-1) & (spark[..., 3] > 0)
+            m = np.roll(m, dx, axis=1); f[m] = stones[min(i * len(stones) // max(len(ssrc), 1), len(stones) - 1)]
+        frames.append(f)
+    return frames
+
+def animate_sea(packer, town, palettes):
+    """Find every primary sea tile, build its frames, and move those tiles to a contiguous block after tile 0."""
+    mat = town['mat']; pal = np.array(palettes[1].gba()[1:], dtype=np.int32); frames = sea_frames()
+    anim = {}
+    for tid, (bank, arr) in enumerate(packer.tiles['primary']):
+        if bank != 1 or tid not in packer.first_pos: continue
+        tag, x0, y0 = packer.first_pos[tid]
+        if tag != 'town': continue
+        m = mat[y0:y0 + 8, x0:x0 + 8] == W
+        if not m.any(): continue
+        fr = []
+        for f in frames:
+            a = arr.copy(); rgb = f[np.arange(y0, y0 + 8)[:, None] % 32, np.arange(x0, x0 + 8)[None, :] % 32]
+            idx = ((rgb.reshape(-1, 3)[:, None, :] - pal[None]) ** 2).sum(-1).argmin(1).reshape(8, 8) + 1
+            a[m] = idx[m]; fr.append(a)
+        if all((x == fr[0]).all() for x in fr): continue
+        anim[tid] = fr
+    order = [0] + sorted(anim) + [i for i in range(1, len(packer.tiles['primary'])) if i not in anim]
+    remap = {old: new for new, old in enumerate(order)}
+    packer.tiles['primary'] = [packer.tiles['primary'][i] for i in order]
+    def fix(e):
+        tid = e & 1023
+        return (e & ~1023) | remap[tid] if tid < 512 else e
+    for pool in ('primary', 'secondary'):
+        packer.blocks[pool] = [tuple(fix(e) for e in b) for b in packer.blocks[pool]]
+    n = len(anim)
+    return [[anim[old][k] for old in sorted(anim)] for k in range(8)], 1, n
+
+def write_sea_anim(game, frames, start, n):
+    folder = game / 'data/tilesets/primary/cherrygrove/anim/sea'; folder.mkdir(parents=True, exist_ok=True)
+    for k, tiles in enumerate(frames):
+        rows = (n + 15) // 16; im = Image.new('P', (128, max(rows, 1) * 8), 0); grey = []
+        for i in range(16): grey += [i * 16, i * 16, i * 16]
+        im.putpalette(grey + [0] * (768 - len(grey))); px = im.load()
+        for i, arr in enumerate(tiles):
+            for yy in range(8):
+                for xx in range(8): px[(i % 16) * 8 + xx, (i // 16) * 8 + yy] = int(arr[yy, xx])
+        im.save(folder / f'{k}.png', bits=4)
+    src = game / 'src/tileset_anims.c'; s = src.read_text()
+    a, b = s.find('// Claude Cherrygrove sea'), s.find('// End Claude Cherrygrove sea\n')
+    if a >= 0: s = s[:a] + s[b + len('// End Claude Cherrygrove sea\n'):]
+    decl = ['// Claude Cherrygrove sea']
+    decl += [f'const u16 gTilesetAnims_Cherrygrove_Sea_Frame{k}[] = INCGFX_U16("data/tilesets/primary/cherrygrove/anim/sea/{k}.png", ".4bpp");' for k in range(8)]
+    decl.append('const u16 *const gTilesetAnims_Cherrygrove_Sea[] = {' + ', '.join(f'gTilesetAnims_Cherrygrove_Sea_Frame{k}' for k in range(8)) + '};')
+    decl.append('static void TilesetAnim_CherrygrovePrimary(u16 timer);')
+    decl.append('void InitTilesetAnim_CherrygrovePrimary(void)\n{\n    sPrimaryTilesetAnimCounter = 0;\n    sPrimaryTilesetAnimCounterMax = 256;\n    sPrimaryTilesetAnimCallback = TilesetAnim_CherrygrovePrimary;\n}')
+    decl.append(f'static void TilesetAnim_CherrygrovePrimary(u16 timer)\n{{\n    if (timer % 16 == 1)\n        AppendTilesetAnimToBuffer(gTilesetAnims_Cherrygrove_Sea[(timer / 16) % 8], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP({start})), {n} * TILE_SIZE_4BPP);\n}}')
+    decl.append('// End Claude Cherrygrove sea')
+    marker = 'void InitTilesetAnim_General(void)'
+    assert marker in s; s = s.replace(marker, '\n'.join(decl) + '\n\n' + marker, 1); src.write_text(s)
+    h = game / 'include/tileset_anims.h'; hs = h.read_text()
+    if 'InitTilesetAnim_CherrygrovePrimary' not in hs:
+        hs = hs.replace('void InitTilesetAnim_General(void);', 'void InitTilesetAnim_General(void);\nvoid InitTilesetAnim_CherrygrovePrimary(void);', 1); h.write_text(hs)
+
 def write_headers(game):
-    """The primary tileset is our own now: no General tile animation may write over it."""
+    """The primary tileset is our own: its callback animates the sea tiles."""
     h = game / 'src/data/tilesets/headers.h'; s = h.read_text()
-    s2 = re.sub(r'(gTileset_CherrygrovePrimary = \{[^}]*?\.callback = )InitTilesetAnim_General', r'\1NULL', s)
+    s2 = re.sub(r'(gTileset_CherrygrovePrimary = \{[^}]*?\.callback = )(InitTilesetAnim_General|NULL)', r'\1InitTilesetAnim_CherrygrovePrimary', s)
     if s2 != s: h.write_text(s2)
 
 def render_preview(game, grid, Wd, Ht, path):
@@ -428,7 +510,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     assets, palettes = build_assets()
     packer = Packer(palettes)
-    town = compose_town(assets); grid, gimg = grid_for(town, packer, palettes)
+    town = compose_town(assets); town['tag'] = 'town'; grid, gimg = grid_for(town, packer, palettes)
     Image.fromarray(gimg).save(OUT / 'evidence' / 'ground-layer.png') if (OUT / 'evidence').is_dir() else None
     # Border: dense canopy from a small forest composition.
     forest = compose_stub(assets, 4, 6, (0, 0, 0, 0), 'up'); fgrid, _ = grid_for(forest, packer, palettes)
@@ -441,15 +523,17 @@ def main():
     r29 = compose_stub(assets, 16, L.H, (0, L.EAST_EXIT[0], 16, L.EAST_EXIT[1] - L.EAST_EXIT[0]), 'right')
     g29, _ = grid_for(r29, packer, palettes); write_layout(game, layouts, 'CherrygroveRoute29Approach', g29, 16, L.H, border)
     (game / 'data/layouts/layouts.json').write_text(json.dumps(layouts, indent=2) + '\n')
+    frames, start, n_anim = animate_sea(packer, town, palettes); write_sea_anim(game, frames, start, n_anim)
     write_tileset(game, 'primary', 'cherrygrove', packer.tiles['primary'], packer.blocks['primary'], packer.attrs['primary'], palettes, range(0, 6))
     write_tileset(game, 'secondary', 'cherrygrove', packer.tiles['secondary'], packer.blocks['secondary'], packer.attrs['secondary'], palettes, range(6, 13))
     write_headers(game)
+    from claude_cherrygrove import gold_sprite; gold_colors = gold_sprite.main(game)
     write_events(game, town, grid)
     doors = write_doors(game, assets, town, grid)
     render_preview(game, grid, L.W, L.H, OUT / 'town-overview.png')
     render_preview(game, g30, L.W, 12, OUT / 'route30-stub.png'); render_preview(game, g29, 16, L.H, OUT / 'route29-stub.png')
     report = dict(width=L.W, height=L.H, primary_tiles=len(packer.tiles['primary']), primary_metatiles=len(packer.blocks['primary']),
-                  secondary_tiles=len(packer.tiles['secondary']), secondary_metatiles=len(packer.blocks['secondary']), bank_conflict_tiles=packer.conflicts,
+                  secondary_tiles=len(packer.tiles['secondary']), secondary_metatiles=len(packer.blocks['secondary']), bank_conflict_tiles=packer.conflicts, animated_sea_tiles=n_anim, gold_sprite_colors=gold_colors,
                   tiles_per_bank={str(k): v for k, v in sorted(Counter(b for pool in packer.tiles.values() for b, _ in pool).items())},
                   doors=doors, spawn=L.SPAWN, buildings=[dict(b, door=L.door_of(b)) for b in L.BUILDINGS])
     (OUT / 'build-report.json').write_text(json.dumps(report, indent=2) + '\n')

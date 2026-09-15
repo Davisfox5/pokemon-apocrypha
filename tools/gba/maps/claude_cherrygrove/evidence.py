@@ -34,9 +34,7 @@ def structure(game):
     report['east_exit'] = all((W - 1, y) in seen for y in range(*L.EAST_EXIT))
     for npc in cast.NPCS: report[f'npc_{npc["id"]}'] = tuple(npc['pos']) in seen
     report['pier_end_reachable'] = (L.PIER['x0'] + 1, L.PIER['y']) in seen
-    report['lookout_reachable'] = (L.LOOKOUT['x'] + 1, L.LOOKOUT['y'] + 1) in seen
     deck = {(x, y) for x in range(L.PIER['x0'], L.PIER['x1']) for y in (L.PIER['y'], L.PIER['y'] + 1)}
-    deck |= {(x, y) for x in range(L.LOOKOUT['x'], L.LOOKOUT['x'] + L.LOOKOUT['w']) for y in range(L.LOOKOUT['y'], L.LOOKOUT['y'] + L.LOOKOUT['h'])}
     report['sea_blocked'] = all(blocked(x, y) for y in range(6, 28) for x in range(0, L.shore(y) - 1) if (x, y) not in deck)
     return report
 
@@ -90,7 +88,7 @@ def main():
         board(walk, [f'view-{v}-000' for v in range(4)], EV / 'in-game-tour.png', cols=2,
               labels=['Home street: player house, Kestra', 'Shops: Mart and Pokemon Center', "Gold's yard: Gold and Silver", 'Blossom park'])
         board(walk, [f'{n["id"].lower()}-dialogue' for n in cast.NPCS], EV / 'dialogue.png', cols=4, labels=[n['id'] for n in cast.NPCS])
-    shots = ['town-spawn', 'home-street', 'shops', 'gold-yard', 'park', 'beach', 'pier', 'lookout', 'cliff', 'route29', 'route30', 'bedroom']
+    shots = ['town-spawn', 'home-street', 'shops', 'gold-yard', 'park', 'beach', 'pier', 'cliff-corner', 'cliff', 'route29', 'route30', 'bedroom']
     board(out, shots, EV / 'places.png', cols=3)
     for n in shots:
         if (out / f'{n}.png').exists(): Image.open(out / f'{n}.png').save(EV / f'{n}.png')

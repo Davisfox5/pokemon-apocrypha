@@ -66,10 +66,10 @@ int main(int argc,char**argv){
   unsigned s=call("LoadGameSave",0);if(s!=1)return 8;call("MapProof_Resume",0);frames(240,0);expect(0,"cold-reload");screenshot(argv[3],"cold-reload");if(state[3]!=49||state[4]!=14)return 9;
  }else if(!strcmp(argv[4],"walk")){
   call("MapProof_Boot",0);frames(240,0);
-  const unsigned views[][2]={{49,15},{40,9},{44,13},{43,24},{22,18},{18,27},{19,6}};
+  const unsigned views[][2]={{49,15},{40,9},{44,13},{43,24},{22,18},{18,27},{24,6}};
   for(view=0;view<7;view++){
    call("MapProof_Enter",(views[view][0]<<8)|(views[view][1]<<16));frames(360,0);
-   for(unsigned i=0;i<360;i++){frames(4,0);sample(i*4);if(view<4){char tag[80];sprintf(tag,"view-%u-%03u",view,i);screenshot(argv[3],tag);}}
+   for(unsigned i=0;i<360;i++){frames(4,0);sample(i*4);if(view<4||view==5){char tag[80];sprintf(tag,"view-%u-%03u",view,i);screenshot(argv[3],tag);}}
   }
     interaction(1029,45,14,64,"gold-dialogue");
   interaction(1030,44,16,64,"silver-dialogue");
@@ -81,7 +81,7 @@ int main(int argc,char**argv){
   interaction(1032,23,13,64,"hoenn-dialogue");
   interaction(1033,56,14,64,"kanto-dialogue");
   interaction(1034,41,10,64,"johto-dialogue");
-  interaction(1035,19,7,64,"sinnoh-dialogue");
+  interaction(1035,16,28,64,"sinnoh-dialogue");
   interaction(1036,44,26,64,"unova-dialogue");
  }else{
   call("MapProof_Boot",0);frames(240,0);expect(0,"town-spawn");screenshot(argv[3],"town-spawn");if(state[3]!=49||state[4]!=14){fprintf(stderr,"spawn %u,%u\n",state[3],state[4]);return 13;}
@@ -105,7 +105,7 @@ int main(int argc,char**argv){
   go(0,43,24);screenshot(argv[3],"park");
   go(0,22,18);screenshot(argv[3],"beach");
   go(0,18,27);screenshot(argv[3],"pier");
-  go(0,19,6);screenshot(argv[3],"lookout");
+  go(0,26,7);screenshot(argv[3],"cliff-corner");
   go(0,10,6);screenshot(argv[3],"cliff");
   go(5,3,3);frames(8,32);frames(8,0);frames(1,1);frames(150,0);frames(1,1);frames(90,0);screenshot(argv[3],"mart-menu");close_dialog();
   go(0,49,14);expect(0,"save-at-home");screenshot(argv[3],"home");unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);

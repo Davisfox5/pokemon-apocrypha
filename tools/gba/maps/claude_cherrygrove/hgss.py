@@ -112,6 +112,18 @@ def paste(dst, src, x, y):
     dst[y0:y1, x0:x1][m] = s[m]
     return dst
 
+def narrow(a, x0, y0, w, h, target):
+    """Shrink a rectangle (a door with its frame) to `target` px wide by dropping interior columns; the
+    outline columns at both edges survive. The freed columns on the right are refilled from the wall beyond."""
+    block = a[y0:y0 + h, x0:x0 + w].copy()
+    inner = block[:, 1:w - 1]; keep = target - 2
+    cols = np.linspace(0, inner.shape[1] - 1, keep).round().astype(int)
+    out = np.concatenate([block[:, :1], inner[:, cols], block[:, w - 1:w]], axis=1)
+    fill = a[y0:y0 + h, x0 + w:x0 + w + 1]
+    a[y0:y0 + h, x0:x0 + w] = np.repeat(fill, w, axis=1)
+    a[y0:y0 + h, x0:x0 + target] = out
+    return a
+
 def shift_rect(a, x0, y0, w, h, dx):
     """Slide a rectangle horizontally by dx; the vacated strip is refilled from the neighbouring wall columns."""
     block = a[y0:y0 + h, x0:x0 + w].copy()
@@ -128,36 +140,44 @@ def shift_rect(a, x0, y0, w, h, dx):
 # Window origins in render pixels; crops measured on the masked cutouts.
 
 def house_a():
-    """Skylight house (the two western homes). 80x80: door in cell column 1, rows 3-4."""
+    """Skylight house (the two western homes). 80x80: 16 px door in cell column 1, rows 3-4."""
     win = cutout(520, 116, 96, 80, erase=[(75, 36, 21, 44), (0, 74, 96, 6)])   # planter, ground shadow
-    s = blank(80, 80); paste(s, win[:, 10:90], 0, 6)   # wall base lands on y=80
-    return shift_rect(s, 18, 56, 18, 24, -3)           # door 28..46 in window -> 15..33 in sprite
+    s = blank(80, 80); paste(s, win[:, 10:90], 0, 6)
+    s[46:80, 0:6] = 0                                   # the model's shadowed side wall, which read as a stray block
+    narrow(s, 18, 56, 18, 24, 16)                        # door 18 -> 16 px, now at sprite x 18..34
+    return shift_rect(s, 18, 56, 16, 24, -2)             # centre it in cell column 1 (x 16..32)
 
 def house_b():
-    """Gable house (Gold's). 80x80: door in cell column 2."""
-    win = cutout(680, 132, 96, 96, erase=[(0, 54, 31, 42), (0, 80, 96, 16), (88, 40, 8, 56), (0, 0, 26, 56)])   # mailbox, shadow, rose sliver, daisies
-    s = blank(80, 80); paste(s, win[0:80, 13:93], 0, 0)
-    return shift_rect(s, 27, 56, 18, 24, 4)
-
-def center():
-    """Pokemon Center. 96x96: door in cell column 2, rows 4-5."""
-    win = cutout(776, 4, 96, 96, erase=[(0, 60, 12, 36), (92, 60, 4, 36), (0, 92, 96, 4)])
-    s = blank(96, 96); paste(s, win[:, 9:105] if win.shape[1] >= 105 else np.pad(win, ((0, 0), (0, 9), (0, 0)))[:, 9:105], 0, 4)
+    """Gable house (Gold's). 96x80: the whole roof survives; 16 px door in cell column 2."""
+    win = cutout(680, 132, 104, 96, erase=[(0, 54, 31, 42), (0, 80, 104, 16), (0, 0, 26, 56)])   # mailbox, shadow, daisies
+    s = blank(96, 80); paste(s, win[0:80, 8:104], 0, 0)
+    s[40:80, 83:96] = 0; s[0:56, 0:6] = 0              # the neighbour's rose sliver and a stray daisy
+    narrow(s, 32, 56, 18, 24, 16)                        # door 40..58 in window -> 32..50 here -> 32..48
     return s
 
+def center():
+    """Pokemon Center. 96x96: 16 px door in cell column 2, rows 4-5."""
+    win = cutout(776, 4, 96, 96, erase=[(0, 60, 12, 36), (92, 60, 4, 36), (0, 92, 96, 4)])
+    s = blank(96, 96); paste(s, win[:, 9:105] if win.shape[1] >= 105 else np.pad(win, ((0, 0), (0, 9), (0, 0)))[:, 9:105], 0, 4)
+    narrow(s, 31, 78, 18, 14, 16)                        # blue door 40..58 in window -> 31..49 here -> 31..47
+    return shift_rect(s, 31, 78, 16, 14, 1)
+
 def mart():
-    """Poke Mart body without its sign. 80x64: door in cell column 1, rows 2-3."""
+    """Poke Mart body without its sign. 80x64: 16 px door in cell column 1, rows 2-3."""
     win = cutout(648, 4, 112, 96, erase=[(78, 0, 34, 96), (0, 80, 112, 16)])
     win[18:50, 72:78] = win[18:50, 12:18][:, ::-1]      # the sign board overlapped the roof corner; the roof is symmetric
     s = blank(80, 64); paste(s, win[16:80, 10:90], 0, 0)
-    return s
+    narrow(s, 14, 46, 20, 18, 16)                        # sliding door 24..44 in window -> 14..34 here -> 14..30
+    return shift_rect(s, 14, 46, 16, 18, 2)
 
 def mart_sign():
-    """The Mart's flag sign on its pole, 32x64, drawn over the Mart's right edge."""
+    """The Mart's flag sign on its pole, 32x64: board and pole only."""
     a = px(648 + 72, 4 + 26, 32, 64)
-    keep = np.zeros(a.shape[:2], bool); keep[0:32, :] = True; keep[32:60, 14:20] = True
+    keep = np.zeros(a.shape[:2], bool); keep[0:32, :] = True; keep[32:58, 14:20] = True
     bgm = _near(a, GROUND_COLORS + TREE_COLORS + SHADOW_COLORS + [(56, 72, 152), (40, 48, 120), (24, 96, 216)], 14)
     a[..., 3] = (keep & ~bgm) * 255
+    pole = a[32:58, 14:20]; greyish = (np.abs(pole[..., 0].astype(int) - pole[..., 1].astype(int)) < 24) & (np.abs(pole[..., 1].astype(int) - pole[..., 2].astype(int)) < 30)
+    pole[..., 3] = np.where(greyish, pole[..., 3], 0)
     return a
 
 def planter(side='right'):
@@ -179,25 +199,25 @@ def signpost():
 # ------------------------------------------------------------------ vegetation
 
 def tree():
-    """One HGSS Johto tree, 32x48: the tree01 texture at its rendered size, in the render's tones, over its shadow."""
+    """One HGSS Johto tree, 32x48: the tree01 texture at its rendered size, in the render's tones, over a trunk and shadow."""
     import sys; sys.path.insert(0, str(ROOT / 'tools/hoennconv'))
     import narc; from nsbtx import Tex0
     t = Tex0(narc.load(ROOT / 'disasm/pokeheartgold/files/a/0/4/4')[2]); orig = t.pal_for
     t.pal_for = lambda e: next(p for p in t.palettes if p.name == 'tree01') if e.name == 'tree01gs' else orig(e)
     e = next(e for e in t.textures if e.name == 'tree01gs'); tex = np.asarray(t.render(e).convert('RGBA')).astype(np.int16)
     ys, xs = np.nonzero(tex[..., 3]); tex = tex[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
-    im = Image.fromarray(tex.astype(np.uint8)).resize((32, 42), Image.NEAREST); a = np.asarray(im).astype(np.int16)
-    # colour map: texture tones -> rendered tones by luminance rank
+    im = Image.fromarray(tex.astype(np.uint8)).resize((32, 38), Image.NEAREST); a = np.asarray(im).astype(np.int16)
     src = sorted({tuple(c[:3]) for c in a[a[..., 3] > 0]}, key=lambda c: 0.3 * c[0] + 0.6 * c[1] + 0.1 * c[2])
     dst = sorted(TREE_COLORS, key=lambda c: 0.3 * c[0] + 0.6 * c[1] + 0.1 * c[2])
     out = blank(32, 48)
+    # shadow, then trunk, then crown (the render shows a short trunk with a dark shadow ellipse)
+    for y in range(38, 48):
+        for x in range(32):
+            if ((x - 15.5) / 13.0) ** 2 + ((y - 43.0) / 4.0) ** 2 <= 1: out[y, x] = (*TREE_SHADOW, 255)
+    out[36:44, 12:20] = (136, 96, 72, 255); out[36:44, 12:14] = (104, 72, 56, 255); out[36:44, 18:20] = (104, 72, 56, 255); out[43, 12:20] = (88, 64, 48, 255)
     for i, c in enumerate(src):
         j = round(i * (len(dst) - 1) / max(len(src) - 1, 1)); m = (a[..., :3] == c).all(-1) & (a[..., 3] > 0)
-        out[0:42, :, :3][m] = dst[j]; out[0:42, :, 3][m] = 255
-    # ground shadow ellipse under the trunk
-    for y in range(40, 48):
-        for x in range(32):
-            if ((x - 15.5) / 12.0) ** 2 + ((y - 43.5) / 3.5) ** 2 <= 1 and out[y, x, 3] == 0: out[y, x] = (*TREE_SHADOW, 255)
+        out[0:38, :, :3][m] = dst[j]; out[0:38, :, 3][m] = 255
     return out
 
 def _trim_shadow(a):
@@ -208,9 +228,9 @@ def bush():
     a = px(916, 220, 16, 32); bgm = _near(a, GROUND_COLORS + SHADOW_COLORS, 12); a[..., 3] = (~bgm) * 255
     return a
 
-def tulips(row):
-    """One 16x16 flower-bed cell; the render alternates two tulip colourways by row."""
-    return px(880, 116 + 16 * (row % 2), 16, 16)
+def tulips(row=0):
+    """One flower-bed cell as a 16x24 sprite (the heads rise 8 px above the cell)."""
+    return px(876, 108, 16, 24)
 
 def daisies():
     """Scattered daisies and one orange bloom on grass, 32x16 ground overlay."""
@@ -222,7 +242,7 @@ def fence_h():
     return a
 
 def fence_v():
-    a = px(862, 116, 16, 16); bgm = _near(a, GROUND_COLORS + SHADOW_COLORS, 10); a[..., 3] = (~bgm) * 255; a[:, 11:, 3] = 0
+    a = px(864, 116, 16, 16); bgm = _near(a, GROUND_COLORS + SHADOW_COLORS, 10); a[..., 3] = (~bgm) * 255; a[:, 11:, 3] = 0
     return a
 
 def fence_corner():
@@ -236,12 +256,32 @@ def sea():
     return cell(13, 10, 2, 2)
 
 def cliff():
-    """32x64 cliff band: crest, upper course, lower course, foot with lapping water (repeats every 32 px)."""
-    return px(OX + 13 * 16, 44, 32, 64)
+    """32x64 cliff band: crest lip, upper course, lower course, foot with lapping water (repeats every 32 px).
+    The grass and tree shadows above the lip are cleared so the map's own ground and trees show."""
+    a = px(OX + 13 * 16, 44, 32, 64); return _clear_crest(a)
+
+def _clear_crest(a):
+    """Keep only rock and lip pixels in the crest row (warm tones); grass and tree shadows become transparent."""
+    top = a[0:16]; r, g, b = top[..., 0].astype(int), top[..., 1].astype(int), top[..., 2].astype(int)
+    rocky = (r >= g) & (r > b); top[..., 3] = np.where(rocky, top[..., 3], 0); return a
+
+def cliff_end():
+    """80x104 corner where the HGSS cliff turns south and ends on the beach (placed 8 px above the crest row).
+    Everything that is not rock is cleared: grass and tree tones, beach sand, the path and the roof beyond."""
+    a = px(472, 36, 80, 104)
+    r, g, b = a[..., 0].astype(int), a[..., 1].astype(int), a[..., 2].astype(int)
+    green = g > r + 8
+    sand = (r > 222) & (g > 222) & (b > 165)
+    path = _near(a, [PATH, PATH_SPECK, PATH_SPECK2, (208, 168, 112), (192, 152, 104), (208, 184, 112), (216, 168, 128), EDGE_DARK, (152, 144, 112), (104, 152, 120)], 10)
+    roof = (r > 150) & (g < 130) & (b < 130) & (r - g > 60)
+    a[..., 3] = np.where(green | sand | path | roof, 0, 255)
+    a[60:, 60:, 3] = 0; a[88:, 44:, 3] = 0; a[0:8, 0:30, 3] = 0; a[0:10, 64:80, 3] = 0; a[56:, 0:16, 3] = 0
+    a[..., 3] = _fill_holes(a[..., 3] > 0) * 255
+    return a
 
 def cliff_sand():
-    """32x64 cliff band whose foot stands on the beach instead of the sea."""
-    return px(OX + 24 * 16, 44, 32, 64)
+    """32x64 cliff band whose foot stands on the beach (a clean stretch without foot rocks)."""
+    a = px(OX + 27 * 16, 44, 32, 64); return _clear_crest(a)
 
 def dominant(rgba, rect, n=1):
     """The n most common opaque colours inside rect=(x, y, w, h) of a sprite."""
@@ -251,18 +291,16 @@ def dominant(rgba, rect, n=1):
     return [tuple(int(v) for v in u[i]) for i in np.argsort(-c)[:n]]
 
 def sea_rock():
-    a = cutout(OX + 9 * 16 - 4, OY + 8 * 16 - 8, 40, 40, keep_colors_tol=16)
-    s = blank(32, 32); paste(s, a[4:36, 4:36], 0, 0)
-    return s
+    a = px(72, 112, 36, 36); bgm = _near(a, SEA_COLORS + [(24, 104, 224), (32, 112, 224)], 20); a[..., 3] = (~bgm) * 255
+    return centered(a, 32, 32)
 
 def sea_rock_small():
-    a = cutout(OX + 6 * 16 - 2, OY + 8 * 16 + 2, 20, 20, keep_colors_tol=16)
-    s = blank(16, 16); paste(s, a[2:18, 2:18], 0, 0)
-    return s
+    return blank(16, 16)
 
 def rock():
-    a = cutout(190, 226, 48, 48, keep_colors_tol=12, bg=SEA_COLORS + [SAND, SAND2, SAND3, (216, 216, 176), (208, 208, 168), (200, 192, 144), (200, 232, 224), (152, 224, 224), (104, 192, 224), (72, 160, 224)])
-    return centered(a, 32, 32)
+    """Brown boulder, 32x48 (it is taller than two cells); footprint is the lower two cells."""
+    a = cutout(190, 224, 48, 48, keep_colors_tol=12, bg=SEA_COLORS + [SAND, SAND2, SAND3, (216, 216, 176), (208, 208, 168), (200, 192, 144), (200, 232, 224), (152, 224, 224), (104, 192, 224), (72, 160, 224)])
+    return centered(a, 32, 48)
 
 def grass_tile():
     s = blank(16, 16); s[..., :3] = GRASS; s[..., 3] = 255
@@ -277,3 +315,58 @@ def path_tile():
 def sand_tile():
     """Beach sand with the soft diagonal ripple of the render."""
     return cell(25, 9)
+
+# ------------------------------------------------------------------ waterfront (HGSS bridge textures + original boat)
+
+def _texture(name, alias=None):
+    import sys; sys.path.insert(0, str(ROOT / 'tools/hoennconv'))
+    import narc; from nsbtx import Tex0
+    t = Tex0(narc.load(ROOT / 'disasm/pokeheartgold/files/a/0/4/4')[2]); orig = t.pal_for
+    if alias: t.pal_for = lambda e: next(p for p in t.palettes if p.name == alias) if e.name == name else orig(e)
+    e = next(e for e in t.textures if e.name == name); return np.asarray(t.render(e).convert('RGBA')).astype(np.int16)
+
+def _tone(a, k=0.82):
+    """The DS renderer draws textures darker than their raw pixels; match the render."""
+    out = a.copy(); out[..., :3] = np.clip(a[..., :3] * k, 0, 255); return out.astype(np.uint8)
+
+def pier(cells):
+    """A plank pier `cells` wide and two cells tall from the HGSS bridge planks: a dark rim, a lit top edge,
+    a water shadow under the seaward side and round log posts along it."""
+    planks = _tone(_texture('bridge_c'))
+    w = cells * 16; s = blank(w, 32)
+    for x in range(0, w, 32): paste(s, planks[:, :min(32, w - x)], x, 0)
+    rim = (72, 48, 32, 255)
+    s[0, :] = rim; s[29, :] = rim; s[:, 0] = rim; s[:30, w - 1] = rim
+    s[1, :, :3] = (176, 136, 96); s[28, :, :3] = (112, 76, 48)
+    s[30, 1:w - 1] = (40, 64, 112, 255); s[31, 2:w - 2] = (24, 56, 120, 255)   # shadow on the water
+    def post(x, y):
+        s[y:y + 12, x:x + 6] = (120, 80, 48, 255); s[y:y + 12, x + 1:x + 2] = (168, 120, 80, 255); s[y:y + 12, x + 5:x + 6] = (72, 48, 32, 255)
+        s[y, x:x + 6] = (184, 136, 88, 255); s[y + 1, x + 1:x + 5] = (200, 152, 104, 255); s[y + 11, x:x + 6] = (56, 40, 24, 255)
+    for x in range(2, w - 6, 16): post(x, 20)
+    post(1, 2); post(w - 7, 2)
+    return s
+
+BOAT_ROWS = [
+    '.......OOOOOOOOOOOOOOOOOO.......',
+    '....OOOwwwwwwwwwwwwwwwwwwOOO....',
+    '..OOwwwddddddddddddddddddwwwOO..',
+    '.OwwwddOOOOOOOOOOOOOOOOOOddwwwO.',
+    'OwwddOllllllllOppOllllllllOddwwO',
+    'OwwddOllllllllOppOllllllllOddwwO',
+    'OwwddOlllOOOOOOppOOOOOOlllOddwwO',
+    'OwwddOllllllllOppOllllllllOddwwO',
+    '.OwwwddOOOOOOOOOOOOOOOOOOddwwwO.',
+    '..OOwwwddddddddddddddddddwwwOO..',
+    '....OOOwwwwwwwwwwwwwwwwwwOOO....',
+    '.......OOOOOOOOOOOOOOOOOO.......',
+]
+BOAT_KEY = dict(O=(64, 40, 28), w=(232, 232, 216), d=(200, 144, 96), l=(152, 104, 64), p=(120, 80, 48))
+
+def boat():
+    """A wooden rowboat seen from above, 32x16 (two cells wide, one tall): pale hull, plank floor, a thwart."""
+    s = blank(32, 16)
+    for dy, row in enumerate(BOAT_ROWS):
+        for dx, ch in enumerate(row):
+            if ch != '.': s[2 + dy, dx] = (*BOAT_KEY[ch], 255)
+    s[14, 2:30] = (24, 56, 120, 255)   # water shadow
+    return s
