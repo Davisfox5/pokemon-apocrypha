@@ -1,0 +1,401 @@
+[
+  {
+    "phase": "write",
+    "exit_code": 0,
+    "observations": [
+      {
+        "step": "town-spawn",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 49,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-1",
+        "region": 2,
+        "group": 80,
+        "map": 1,
+        "x": 9,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 11,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-1",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 49,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-2",
+        "region": 2,
+        "group": 80,
+        "map": 2,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-2",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 40,
+        "y": 15,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-3",
+        "region": 2,
+        "group": 80,
+        "map": 3,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-3",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 27,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-4",
+        "region": 2,
+        "group": 80,
+        "map": 4,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-4",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 32,
+        "y": 26,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-5",
+        "region": 2,
+        "group": 80,
+        "map": 5,
+        "x": 3,
+        "y": 7,
+        "frlg_layout": 0,
+        "width": 11,
+        "height": 8,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-5",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 36,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-6",
+        "region": 2,
+        "group": 80,
+        "map": 6,
+        "x": 7,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 14,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-out-6",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 44,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "bedroom-stairs-up",
+        "region": 2,
+        "group": 80,
+        "map": 7,
+        "x": 7,
+        "y": 2,
+        "frlg_layout": 0,
+        "width": 9,
+        "height": 8,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "bedroom-stairs-down",
+        "region": 2,
+        "group": 80,
+        "map": 1,
+        "x": 8,
+        "y": 3,
+        "frlg_layout": 0,
+        "width": 11,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "route29-out",
+        "region": 2,
+        "group": 80,
+        "map": 9,
+        "x": 3,
+        "y": 13,
+        "frlg_layout": 0,
+        "width": 16,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "route29-return",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 58,
+        "y": 13,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "route30-out",
+        "region": 2,
+        "group": 80,
+        "map": 10,
+        "x": 32,
+        "y": 9,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 12,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "route30-return",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 32,
+        "y": 2,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "shore-collision",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 15,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "save-at-home",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 49,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "save_status": 1,
+        "flash_bytes": 131072
+      }
+    ]
+  },
+  {
+    "phase": "read",
+    "exit_code": 0,
+    "observations": [
+      {
+        "step": "cold-reload",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 49,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      }
+    ]
+  },
+  {
+    "phase": "menu",
+    "exit_code": 0,
+    "observations": [
+      {
+        "step": "ordinary-title-continue",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 49,
+        "y": 14,
+        "frlg_layout": 0,
+        "width": 60,
+        "height": 34,
+        "interaction": 0,
+        "mapsec": 214
+      }
+    ]
+  },
+  {
+    "phase": "walk",
+    "exit_code": 0,
+    "observations": [
+      {
+        "interaction": 1029,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1030,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1031,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1027,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1026,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1024,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1025,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1032,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1033,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1034,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1035,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      },
+      {
+        "interaction": 1036,
+        "faces_player": 1,
+        "displayed_idle_frame_verified": true,
+        "stops_for_dialogue": true
+      }
+    ]
+  }
+]

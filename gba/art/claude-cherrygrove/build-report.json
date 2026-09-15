@@ -1,0 +1,147 @@
+{
+  "width": 60,
+  "height": 34,
+  "primary_tiles": 452,
+  "primary_metatiles": 338,
+  "secondary_tiles": 448,
+  "secondary_metatiles": 203,
+  "bank_conflict_tiles": 0,
+  "animated_sea_tiles": 68,
+  "gold_sprite_colors": 15,
+  "tiles_per_bank": {
+    "0": 193,
+    "1": 79,
+    "2": 95,
+    "3": 33,
+    "4": 24,
+    "5": 28,
+    "6": 142,
+    "7": 72,
+    "8": 98,
+    "9": 74,
+    "10": 15,
+    "11": 47
+  },
+  "doors": [
+    {
+      "name": "Mart",
+      "door": [
+        36,
+        7
+      ],
+      "metatile": 561,
+      "bank": 9
+    },
+    {
+      "name": "PokemonCenter",
+      "door": [
+        44,
+        7
+      ],
+      "metatile": 568,
+      "bank": 8
+    },
+    {
+      "name": "NeighborHouse",
+      "door": [
+        27,
+        13
+      ],
+      "metatile": 622,
+      "bank": 6
+    },
+    {
+      "name": "GoldHouse",
+      "door": [
+        40,
+        14
+      ],
+      "metatile": 640,
+      "bank": 6
+    },
+    {
+      "name": "PlayerHouse",
+      "door": [
+        49,
+        13
+      ],
+      "metatile": 634,
+      "bank": 6
+    },
+    {
+      "name": "TransplantHouse",
+      "door": [
+        32,
+        25
+      ],
+      "metatile": 695,
+      "bank": 7
+    }
+  ],
+  "spawn": [
+    49,
+    14
+  ],
+  "buildings": [
+    {
+      "name": "Mart",
+      "style": "mart",
+      "x": 35,
+      "y": 4,
+      "door": [
+        36,
+        7
+      ]
+    },
+    {
+      "name": "PokemonCenter",
+      "style": "center",
+      "x": 42,
+      "y": 2,
+      "door": [
+        44,
+        7
+      ]
+    },
+    {
+      "name": "NeighborHouse",
+      "style": "house_l",
+      "x": 26,
+      "y": 9,
+      "door": [
+        27,
+        13
+      ]
+    },
+    {
+      "name": "GoldHouse",
+      "style": "gable",
+      "x": 38,
+      "y": 10,
+      "door": [
+        40,
+        14
+      ]
+    },
+    {
+      "name": "PlayerHouse",
+      "style": "house",
+      "x": 48,
+      "y": 9,
+      "door": [
+        49,
+        13
+      ]
+    },
+    {
+      "name": "TransplantHouse",
+      "style": "house2",
+      "x": 31,
+      "y": 21,
+      "door": [
+        32,
+        25
+      ]
+    }
+  ]
+}
