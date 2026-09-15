@@ -22,7 +22,9 @@ sys.path.insert(0, str(HERE.parent))
 from claude_cherrygrove import layout as L, cast  # noqa: E402
 
 ROOT = HERE.parents[3]
-TOOLCHAIN = ROOT / 'tools/vendor/gba/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi'
+import platform as _platform
+_TOOLCHAINS = {'Linux-x86_64': 'arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi', 'Linux-aarch64': 'arm-gnu-toolchain-14.2.rel1-aarch64-arm-none-eabi', 'Darwin-arm64': 'arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi'}
+TOOLCHAIN = ROOT / 'tools/vendor/gba' / _TOOLCHAINS[_platform.system() + '-' + _platform.machine()]
 
 MAP_INDEX = {'CherrygroveCity': 0, 'PlayerHouse': 1, 'GoldHouse': 2, 'NeighborHouse': 3, 'TransplantHouse': 4, 'Mart': 5, 'PokemonCenter': 6,
              'PlayerBedroom': 7, 'CenterUpstairs': 8, 'Route29Approach': 9, 'Route30Approach': 10}
@@ -159,7 +161,9 @@ def main():
     game = Path(sys.argv[1]).resolve(); out = Path(sys.argv[2]).resolve(); out.mkdir(parents=True, exist_ok=False)
     src, views, shots = generate(); csrc = out / 'town_runtime.c'; csrc.write_text(src)
     (HERE / 'generated').mkdir(exist_ok=True); (HERE / 'generated' / 'town_runtime.c').write_text(src)
-    flags = shlex.split(os.environ.get('MGBA_FLAGS', '')) or ['-lmgba']
+    flags = shlex.split(os.environ.get('MGBA_FLAGS', ''))
+    if not flags and Path('/opt/homebrew/opt/mgba').exists(): flags = ['-I/opt/homebrew/opt/mgba/include', '-L/opt/homebrew/opt/mgba/lib', '-lmgba']
+    if not flags: flags = ['-lmgba']
     subprocess.run(['cc', str(csrc), *flags, '-o', str(out / 'runtime')], check=True)
     lines = subprocess.check_output([str(TOOLCHAIN / 'bin/arm-none-eabi-nm'), str(game / 'pokeemerald.elf')], text=True)
     wanted = {'MapProof_Boot', 'MapProof_Enter', 'MapProof_ReadState', 'MapProof_Resume', 'gMapProofState', 'TrySavingData', 'LoadGameSave', 'ArePlayerFieldControlsLocked', 'gObjectEvents', 'gSprites'}

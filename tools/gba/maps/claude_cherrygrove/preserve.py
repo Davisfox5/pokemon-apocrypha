@@ -37,7 +37,7 @@ def main():
     ev = ROOT / 'gba/art/claude-cherrygrove/evidence'; ev.mkdir(parents=True, exist_ok=True)
     record = dict(workbench_commit=base, rom_sha256=sha(game / 'pokeemerald.gba'), save_sha256=sha(check / 'town.sav'), patch_sha256=sha(out),
                   patch_stat=stat, package=str(zpath.relative_to(ROOT)), package_sha256=sha(zpath),
-                  rom_bytes=(game / 'pokeemerald.gba').stat().st_size, toolchain='arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi')
+                  rom_bytes=(game / 'pokeemerald.gba').stat().st_size, toolchain=__import__('platform').system() + '-' + __import__('platform').machine() + ' ARM GNU 14.2.rel1')
     (ev / 'build.json').write_text(json.dumps(record, indent=2) + '\n')
     print(json.dumps(record, indent=2))
 

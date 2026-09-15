@@ -2,7 +2,7 @@
   "samples": 2520,
   "engine_frames": 10080,
   "residents_observed": 12,
-  "one_sample_turn_upload_lag": 566,
+  "one_sample_turn_upload_lag": 597,
   "actual_obj_vram_frames_verified": true,
   "no_horizontal_mirroring": true,
   "distinct_palettes": true,
@@ -34,7 +34,7 @@
       ]
     },
     "1024": {
-      "cells_visited": 15,
+      "cells_visited": 14,
       "facings": [
         1,
         2,
@@ -50,7 +50,7 @@
       ]
     },
     "1036": {
-      "cells_visited": 7,
+      "cells_visited": 9,
       "facings": [
         1,
         2,
@@ -59,7 +59,7 @@
       ]
     },
     "1026": {
-      "cells_visited": 9,
+      "cells_visited": 11,
       "facings": [
         1,
         2,
@@ -75,7 +75,7 @@
       ]
     },
     "1027": {
-      "cells_visited": 7,
+      "cells_visited": 8,
       "facings": [
         1,
         2,

@@ -119,7 +119,7 @@ def compose_town(assets):
         for j, y in enumerate(range(y0, y1 + 1, 1)):
             for x in range(x0 + (j % 2), x1 + 1, 2):
                 objects.append((y * 16 + 31 + j * 0.01, x * 16, y * 16, assets['tree']))
-        cell_solid(x0, y0, x1 - x0 + 1, y1 - y0 + 1)
+        cell_solid(x0, y0, x1 - x0 + 1, y1 - y0 + 2)   # crowns are two cells tall: the last row's trunks land on y1 + 1
     for band in L.FOREST: forest(*band)
     for (x, y) in L.TREES: objects.append((y * 16 + 31, x * 16, y * 16, assets['tree'])); cell_solid(x, y, 2, 2)
     for (x, y) in L.BLOSSOMS: objects.append((y * 16 + 31, x * 16, y * 16, assets['blossom'])); cell_solid(x, y, 2, 2)

@@ -84,6 +84,20 @@ beach in ten free slots of the primary path bank, so the Emerald ground tiles
 keep their own colours. Water tones in the shore tiles copy the graded primary
 water so foam sits on live animated water.
 
+## Porymap
+
+The town is a uniform Emerald-format project, so Porymap 6.3.1 opens the
+workbench directly (`porymap.project.cfg` and `porymap.user.cfg` in the
+checkout) and renders the custom tileset, metatile picker, collision and
+events: [map view](evidence/porymap-map.png), [collision view](evidence/porymap-collision.png).
+`tools/gba/maps/claude_cherrygrove/porymap/verify.js` is a Porymap custom
+script that reads the map back through Porymap's parser and logs a summary
+(60x34, six passable door cells at elevation 3, all 497 sea cells blocked), which
+matches the build's structure evidence. `porymap/roundtrip_check.py` confirms an
+editor save is lossless and rebuilds the ROM to compare hashes. Porymap has no
+headless mode; saving from it needs the GUI (Cmd+S), which is why the build
+pipeline stays scripted and Porymap is used for editing and inspection.
+
 ## Verified
 
 Built with ARM GNU 14.2.rel1 (Linux x86_64) and tested with libmGBA from the

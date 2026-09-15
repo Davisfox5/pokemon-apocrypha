@@ -74,7 +74,7 @@ BLOSSOMS = [(38, 22), (48, 21), (41, 24), (46, 24), (43, 22)]
 # Forest bands: (x0, y0, x1, y1) inclusive cell ranges filled with a staggered crown lattice.
 FOREST = [
     (28, -2, 30, 2), (34, -2, 59, 2),   # north wall, split at the Route 30 gap
-    (56, 4, 59, 11), (56, 15, 59, 33),  # east wall, split at the Route 29 gap
+    (56, 4, 59, 10), (56, 15, 59, 33),  # east wall, split at the Route 29 gap (trunks land one row below each band)
     (31, 29, 59, 33),                   # south wall
     (0, -2, 27, 0),                     # cliff-top wood
 ]
