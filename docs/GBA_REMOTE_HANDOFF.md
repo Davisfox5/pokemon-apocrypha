@@ -109,3 +109,9 @@ See `gba/evidence/source-handoff.json` for the actual fresh-source build and run
 checks performed for this branch. Linux x86_64 and ARM use separately pinned
 compiler archives. A checksum entry alone is not evidence of a test on that host.
 Previous Mac preview measurements remain in `gba/art/johto-restart/evidence/`.
+
+Verified 2026-09-15: a clean Linux ARM64 build produced the exact same ROM hash as
+the previously tested Mac preview. All write/read/menu runtime phases passed,
+including five doors, both route connections and ordinary Continue. The independent
+workbench and production patch presets both applied successfully from public upstream.
+Linux x86_64 has a pinned toolchain but was not separately executed in this check.
