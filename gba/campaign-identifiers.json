@@ -1,0 +1,72 @@
+{
+  "status": "data layer only; applies after roster-profile + mechanics-profile",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "patch": "gba/campaign-identifiers.patch",
+  "scope": [
+    "five region IDs",
+    "twenty sanctioned badge flags and named aliases",
+    "four unsanctioned Unova gym flags",
+    "four region-travel system flags",
+    "VAR_CURRENT_REGION",
+    "count and travel helpers in event_data.c"
+  ],
+  "out_of_scope": [
+    "NUM_BADGES remains 8",
+    "trainer card tiles",
+    "HM badge gates",
+    "obedience thresholds",
+    "Terra and Shadow matchups",
+    "maps, scripts, NPC placement",
+    "breeding",
+    "tutor placement"
+  ],
+  "regions": [
+    {"id": 0, "name": "Johto", "macro": "REGION_JOHTO", "access_flag": null, "start": true},
+    {"id": 1, "name": "Kanto", "macro": "REGION_KANTO", "access_flag": "FLAG_SYS_REGION_KANTO_OPEN"},
+    {"id": 2, "name": "Hoenn", "macro": "REGION_HOENN", "access_flag": "FLAG_SYS_REGION_HOENN_OPEN"},
+    {"id": 3, "name": "Sinnoh", "macro": "REGION_SINNOH", "access_flag": "FLAG_SYS_REGION_SINNOH_OPEN"},
+    {"id": 4, "name": "Unova", "macro": "REGION_UNOVA", "access_flag": "FLAG_SYS_REGION_UNOVA_OPEN"}
+  ],
+  "var_current_region": "VAR_CURRENT_REGION",
+  "var_current_region_id": "0x40FF",
+  "num_badges_vanilla": 8,
+  "num_sanctioned_badges": 20,
+  "region_badge_count": 4,
+  "sanctioned_badges": [
+    {"slot": 1, "flag": "FLAG_BADGE01_GET", "alias": "FLAG_BADGE_AZALEA", "region": "Johto", "city": "Azalea Town", "type": "Bug", "leader": "Turk"},
+    {"slot": 2, "flag": "FLAG_BADGE02_GET", "alias": "FLAG_BADGE_ECRUTEAK", "region": "Johto", "city": "Ecruteak City", "type": "Psychic", "leader": "Will"},
+    {"slot": 3, "flag": "FLAG_BADGE03_GET", "alias": "FLAG_BADGE_BLACKTHORN", "region": "Johto", "city": "Blackthorn City", "type": "Fairy", "leader": "Valerie"},
+    {"slot": 4, "flag": "FLAG_BADGE04_GET", "alias": "FLAG_BADGE_CIANWOOD", "region": "Johto", "city": "Cianwood City", "type": "Rock", "leader": "Shuckle Trainer"},
+    {"slot": 5, "flag": "FLAG_BADGE05_GET", "alias": "FLAG_BADGE_CERULEAN", "region": "Kanto", "city": "Cerulean City", "type": "Fire", "leader": "Blaine"},
+    {"slot": 6, "flag": "FLAG_BADGE06_GET", "alias": "FLAG_BADGE_FUCHSIA", "region": "Kanto", "city": "Fuchsia City", "type": "Grass", "leader": "Gardenia"},
+    {"slot": 7, "flag": "FLAG_BADGE07_GET", "alias": "FLAG_BADGE_LAVENDER", "region": "Kanto", "city": "Lavender Town", "type": "Ghost", "leader": "Eve"},
+    {"slot": 8, "flag": "FLAG_BADGE08_GET", "alias": "FLAG_BADGE_VIRIDIAN", "region": "Kanto", "city": "Viridian City", "type": "Terra", "leader": "Paldean protagonist"},
+    {"slot": 9, "flag": "FLAG_BADGE09_GET", "alias": "FLAG_BADGE_RUSTBORO", "region": "Hoenn", "city": "Rustboro City", "type": "Shadow", "leader": "Wes"},
+    {"slot": 10, "flag": "FLAG_BADGE10_GET", "alias": "FLAG_BADGE_SLATEPORT", "region": "Hoenn", "city": "Slateport City", "type": "Fighting", "leader": "Brawly"},
+    {"slot": 11, "flag": "FLAG_BADGE11_GET", "alias": "FLAG_BADGE_FORTREE", "region": "Hoenn", "city": "Fortree City", "type": "Flying", "leader": "Falkner"},
+    {"slot": 12, "flag": "FLAG_BADGE12_GET", "alias": "FLAG_BADGE_SOOTOPOLIS", "region": "Hoenn", "city": "Sootopolis City", "type": "Dragon", "leader": "Zinnia"},
+    {"slot": 13, "flag": "FLAG_BADGE13_GET", "alias": "FLAG_BADGE_JUBILIFE", "region": "Sinnoh", "city": "Jubilife City", "type": "Steel", "leader": "Barry"},
+    {"slot": 14, "flag": "FLAG_BADGE14_GET", "alias": "FLAG_BADGE_HEARTHOME", "region": "Sinnoh", "city": "Hearthome City", "type": "Dark", "leader": "Darach"},
+    {"slot": 15, "flag": "FLAG_BADGE15_GET", "alias": "FLAG_BADGE_PASTORIA", "region": "Sinnoh", "city": "Pastoria City", "type": "Poison", "leader": "Saturn"},
+    {"slot": 16, "flag": "FLAG_BADGE16_GET", "alias": "FLAG_BADGE_SUNYSHORE", "region": "Sinnoh", "city": "Sunyshore City", "type": "Electric", "leader": "Volkner"},
+    {"slot": 17, "flag": "FLAG_BADGE17_GET", "alias": "FLAG_BADGE_ASPERTIA", "region": "Unova", "city": "Aspertia City", "type": "Normal", "leader": "Cheren"},
+    {"slot": 18, "flag": "FLAG_BADGE18_GET", "alias": "FLAG_BADGE_DRIFTVEIL", "region": "Unova", "city": "Driftveil City", "type": "Ground", "leader": "Clay"},
+    {"slot": 19, "flag": "FLAG_BADGE19_GET", "alias": "FLAG_BADGE_ICIRRUS", "region": "Unova", "city": "Icirrus City", "type": "Ice", "leader": "Brycen"},
+    {"slot": 20, "flag": "FLAG_BADGE20_GET", "alias": "FLAG_BADGE_HUMILAU", "region": "Unova", "city": "Humilau City", "type": "Water", "leader": "Marlon"}
+  ],
+  "unsanctioned_gyms": [
+    {"flag": "FLAG_UNSANCTIONED01", "alias": "FLAG_UNSANCTIONED_VIRBANK", "city": "Virbank City", "type": "Poison", "leader": "Roxie"},
+    {"flag": "FLAG_UNSANCTIONED02", "alias": "FLAG_UNSANCTIONED_CASTELIA", "city": "Castelia City", "type": "Bug", "leader": "Burgh"},
+    {"flag": "FLAG_UNSANCTIONED03", "alias": "FLAG_UNSANCTIONED_NIMBASA", "city": "Nimbasa City", "type": "Electric", "leader": "Elesa"},
+    {"flag": "FLAG_UNSANCTIONED04", "alias": "FLAG_UNSANCTIONED_OPELUCID", "city": "Opelucid City", "type": "Dragon", "leader": "Drayden"}
+  ],
+  "helpers": [
+    "CountSanctionedBadges",
+    "CountRegionBadges",
+    "CountUnsanctionedGyms",
+    "GetCurrentRegion",
+    "SetCurrentRegion",
+    "RegionIsOpen",
+    "UnlockRegion"
+  ]
+}

@@ -26,7 +26,7 @@ optional, never part of routine startup.
 | Breeding, egg moves, reward move gating | GBA_MECHANICS_AUDIT.md egg/breeding section | RESERVED_MOVE_POOL.md; `gba/evidence/egg-move-audit.json` and `reserved-move-pool.json`; `game/src/daycare.c` only for the special-move table |
 | Items, rewards, services | relevant region ITEMS document and chapter section | related narrative gates and state identifiers |
 | 30-box storage qualification | GBA_STORAGE_PROTOTYPE.md | GBA_STORAGE_QUALIFICATION.md, GBA_BASELINE.md, specific game/ save and storage files |
-| Flags, saves, badges, travel | FOUNDATION_DECISIONS.md and AGENT_WORKFLOW.md | relevant active engine definitions once installed; historical ledger only to investigate a specific old failure |
+| Flags, saves, badges, travel | FOUNDATION_DECISIONS.md and AGENT_WORKFLOW.md | `gba/campaign-identifiers.json` and `gba/campaign-identifiers.patch` for the 20-badge / 5-region data layer; relevant active engine definitions once installed; historical ledger only to investigate a specific old failure |
 | Old implementation or an asset decoder | ../archive/gen4/README.md | one indexed historical document or exact source file |
 | Explicitly authorized DS fallback | ../archive/gen4/README.md | restoration procedure and source-tree manifest |
 
