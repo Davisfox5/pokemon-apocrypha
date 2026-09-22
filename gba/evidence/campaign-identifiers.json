@@ -1,0 +1,30 @@
+{
+  "work": "campaign-identifiers",
+  "date": "2026-09-19",
+  "upstream": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "patch": "gba/campaign-identifiers.patch",
+  "patch_sha256": "575703dbf6c253ce15f161dbad27e86c4d54646c1d33eda46bc975f121b6b545",
+  "checks": {
+    "git_apply_check_on_upstream": "APPLY_OK",
+    "git_apply_after_roster_and_mechanics": "APPLY_OK",
+    "num_badges_unchanged": 8,
+    "rom_build": "not run"
+  },
+  "files": [
+    "include/constants/apocrypha.h",
+    "include/constants/flags.h",
+    "include/constants/vars.h",
+    "include/event_data.h",
+    "include/global.h",
+    "src/event_data.c"
+  ],
+  "notes": [
+    "NUM_BADGES stays 8 so trainer-card tiles and FLAG_BADGE01..08 loops keep working.",
+    "Badges 9-20 claim unused system flags 0x8E5-0x8F0.",
+    "Region travel flags claim unused system flags 0x8F1-0x8F4.",
+    "Unsanctioned gym flags claim unused system flags 0x8F5-0x8F8.",
+    "VAR_CURRENT_REGION reuses unused var 0x40FF; new saves remain REGION_JOHTO (0).",
+    "SetCurrentRegion refuses a region whose access flag is clear. Johto has no access flag.",
+    "HM gates, obedience, Terra/Shadow matchups, maps and scripts are not in this patch."
+  ]
+}

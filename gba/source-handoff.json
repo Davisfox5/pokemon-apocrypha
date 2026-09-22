@@ -48,6 +48,9 @@
       },
       {
         "path": "gba/mechanics-profile.patch"
+      },
+      {
+        "path": "gba/campaign-identifiers.patch"
       }
     ]
   },
@@ -58,6 +61,7 @@
     "gba/johto-restart.patch": "aaa4d2818ea0793d71361040594d6f0cd65d4462c60314ab2e710f802f8fe51e",
     "gba/mechanics-profile.patch": "6343c393cb5f21f60c2deb8e9ef89a8a03a030a83a1362bf359ffbb3b8dd07bd",
     "gba/regional-scale-v1.patch": "b3ec9e3b12fa60ebca85f359c8ac64cb05491272d20852d328a1757d2a224d76",
-    "gba/roster-profile.patch": "e02bb576fb0b470d026c3e309c98c46543f7bbcf7cc90457c9934d71a87dd4b5"
+    "gba/roster-profile.patch": "e02bb576fb0b470d026c3e309c98c46543f7bbcf7cc90457c9934d71a87dd4b5",
+    "gba/campaign-identifiers.patch": "575703dbf6c253ce15f161dbad27e86c4d54646c1d33eda46bc975f121b6b545"
   }
 }
