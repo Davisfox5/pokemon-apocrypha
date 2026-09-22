@@ -1,0 +1,297 @@
+diff --git a/include/constants/apocrypha.h b/include/constants/apocrypha.h
+new file mode 100644
+index 00000000..b41f6e0f
+--- /dev/null
++++ b/include/constants/apocrypha.h
+@@ -0,0 +1,52 @@
++#ifndef GUARD_CONSTANTS_APOCRYPHA_H
++#define GUARD_CONSTANTS_APOCRYPHA_H
++
++// Campaign identifiers for the five-region / twenty-badge layout in DESIGN.md.
++// Data layer only. No maps, scripts, type-chart, HM gates, or obedience curve.
++
++#define NUM_REGIONS 5
++#define REGION_JOHTO  0
++#define REGION_KANTO  1
++#define REGION_HOENN  2
++#define REGION_SINNOH 3
++#define REGION_UNOVA  4
++
++// Vanilla NUM_BADGES stays 8 (trainer card tiles, contiguous FLAG_BADGE01..08 loops).
++// Sanctioned gyms are 20; the four unsanctioned Unova gyms award a TM, not a badge.
++#define NUM_SANCTIONED_BADGES 20
++#define REGION_BADGE_COUNT    4
++#define NUM_UNSANCTIONED_GYMS 4
++
++// Johto
++#define FLAG_BADGE_AZALEA     FLAG_BADGE01_GET // Bug, Turk
++#define FLAG_BADGE_ECRUTEAK   FLAG_BADGE02_GET // Psychic, Will
++#define FLAG_BADGE_BLACKTHORN FLAG_BADGE03_GET // Fairy, Valerie
++#define FLAG_BADGE_CIANWOOD   FLAG_BADGE04_GET // Rock, Shuckle Trainer
++// Kanto
++#define FLAG_BADGE_CERULEAN   FLAG_BADGE05_GET // Fire, Blaine
++#define FLAG_BADGE_FUCHSIA    FLAG_BADGE06_GET // Grass, Gardenia
++#define FLAG_BADGE_LAVENDER   FLAG_BADGE07_GET // Ghost, Eve
++#define FLAG_BADGE_VIRIDIAN   FLAG_BADGE08_GET // Terra, Paldean protagonist (final gym)
++// Hoenn
++#define FLAG_BADGE_RUSTBORO   FLAG_BADGE09_GET // Shadow, Wes
++#define FLAG_BADGE_SLATEPORT  FLAG_BADGE10_GET // Fighting, Brawly
++#define FLAG_BADGE_FORTREE    FLAG_BADGE11_GET // Flying, Falkner
++#define FLAG_BADGE_SOOTOPOLIS FLAG_BADGE12_GET // Dragon, Zinnia
++// Sinnoh
++#define FLAG_BADGE_JUBILIFE   FLAG_BADGE13_GET // Steel, Barry
++#define FLAG_BADGE_HEARTHOME  FLAG_BADGE14_GET // Dark, Darach
++#define FLAG_BADGE_PASTORIA   FLAG_BADGE15_GET // Poison, Saturn
++#define FLAG_BADGE_SUNYSHORE  FLAG_BADGE16_GET // Electric, Volkner
++// Unova (sanctioned)
++#define FLAG_BADGE_ASPERTIA   FLAG_BADGE17_GET // Normal, Cheren
++#define FLAG_BADGE_DRIFTVEIL  FLAG_BADGE18_GET // Ground, Clay
++#define FLAG_BADGE_ICIRRUS    FLAG_BADGE19_GET // Ice, Brycen
++#define FLAG_BADGE_HUMILAU    FLAG_BADGE20_GET // Water, Marlon
++
++// Unova unsanctioned gyms (TM reward, no badge). Flags live in flags.h.
++#define FLAG_UNSANCTIONED_VIRBANK  FLAG_UNSANCTIONED01 // Poison, Roxie
++#define FLAG_UNSANCTIONED_CASTELIA FLAG_UNSANCTIONED02 // Bug, Burgh
++#define FLAG_UNSANCTIONED_NIMBASA  FLAG_UNSANCTIONED03 // Electric, Elesa
++#define FLAG_UNSANCTIONED_OPELUCID FLAG_UNSANCTIONED04 // Dragon, Drayden
++
++#endif // GUARD_CONSTANTS_APOCRYPHA_H
+diff --git a/include/constants/flags.h b/include/constants/flags.h
+index d7a02311..0d5da95f 100644
+--- a/include/constants/flags.h
++++ b/include/constants/flags.h
+@@ -1507,26 +1507,33 @@
+ 
+ #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
+ 
+-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
+-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
+-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
+-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
+-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
+-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
+-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
+-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
+-#define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
+-#define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
+-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
+-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
+-#define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
+-#define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
+-#define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
+-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
+-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
+-#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // Unused Flag
+-#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
+-#define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
++// Apocrypha sanctioned badges 9-20. 01-08 stay at SYSTEM_FLAGS+0x7..0xE so
++// vanilla NUM_BADGES loops (trainer card, HMs) keep working. See apocrypha.h.
++#define FLAG_BADGE09_GET                      (SYSTEM_FLAGS + 0x85) // Rustboro / Shadow / Wes
++#define FLAG_BADGE10_GET                      (SYSTEM_FLAGS + 0x86)
++#define FLAG_BADGE11_GET                      (SYSTEM_FLAGS + 0x87)
++#define FLAG_BADGE12_GET                      (SYSTEM_FLAGS + 0x88)
++#define FLAG_BADGE13_GET                      (SYSTEM_FLAGS + 0x89)
++#define FLAG_BADGE14_GET                      (SYSTEM_FLAGS + 0x8A)
++#define FLAG_BADGE15_GET                      (SYSTEM_FLAGS + 0x8B)
++#define FLAG_BADGE16_GET                      (SYSTEM_FLAGS + 0x8C)
++#define FLAG_BADGE17_GET                      (SYSTEM_FLAGS + 0x8D)
++#define FLAG_BADGE18_GET                      (SYSTEM_FLAGS + 0x8E)
++#define FLAG_BADGE19_GET                      (SYSTEM_FLAGS + 0x8F)
++#define FLAG_BADGE20_GET                      (SYSTEM_FLAGS + 0x90)
++
++// Story-gated region travel. Johto is the starting region and has no flag.
++#define FLAG_SYS_REGION_KANTO_OPEN            (SYSTEM_FLAGS + 0x91)
++#define FLAG_SYS_REGION_HOENN_OPEN            (SYSTEM_FLAGS + 0x92)
++#define FLAG_SYS_REGION_SINNOH_OPEN           (SYSTEM_FLAGS + 0x93)
++#define FLAG_SYS_REGION_UNOVA_OPEN            (SYSTEM_FLAGS + 0x94)
++
++// Unova unsanctioned gyms: cleared = TM awarded, never a badge.
++#define FLAG_UNSANCTIONED01                   (SYSTEM_FLAGS + 0x95) // Virbank / Roxie
++#define FLAG_UNSANCTIONED02                   (SYSTEM_FLAGS + 0x96) // Castelia / Burgh
++#define FLAG_UNSANCTIONED03                   (SYSTEM_FLAGS + 0x97) // Nimbasa / Elesa
++#define FLAG_UNSANCTIONED04                   (SYSTEM_FLAGS + 0x98) // Opelucid / Drayden
++
+ #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
+ #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
+ #define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
+diff --git a/include/constants/vars.h b/include/constants/vars.h
+index 7992ae09..85c8d72c 100644
+--- a/include/constants/vars.h
++++ b/include/constants/vars.h
+@@ -274,7 +274,7 @@
+ #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
+ #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
+ #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
++#define VAR_CURRENT_REGION                               0x40FF // Apocrypha: REGION_JOHTO..REGION_UNOVA. Johto on a new save.
+ 
+ #define VARS_END                                         0x40FF
+ #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
+diff --git a/include/event_data.h b/include/event_data.h
+index e1c1e88a..49f8f1c3 100644
+--- a/include/event_data.h
++++ b/include/event_data.h
+@@ -45,5 +45,15 @@ extern u16 gSpecialVar_MonBoxPos;
+ extern u16 gSpecialVar_Unused_0x8014;
+ 
+ extern const u16 gBadgeFlags[NUM_BADGES];
++extern const u16 gSanctionedBadgeFlags[NUM_SANCTIONED_BADGES];
++extern const u16 gRegionAccessFlags[NUM_REGIONS];
++extern const u16 gUnsanctionedGymFlags[NUM_UNSANCTIONED_GYMS];
++u32 CountSanctionedBadges(void);
++u32 CountRegionBadges(u32 region);
++u32 CountUnsanctionedGyms(void);
++u32 GetCurrentRegion(void);
++bool8 SetCurrentRegion(u32 region);
++bool32 RegionIsOpen(u32 region);
++void UnlockRegion(u32 region);
+ 
+ #endif // GUARD_EVENT_DATA_H
+diff --git a/include/global.h b/include/global.h
+index 6e29f721..110dc3c0 100644
+--- a/include/global.h
++++ b/include/global.h
+@@ -13,6 +13,7 @@
+ #include "constants/global.h"
+ #include "constants/flags.h"
+ #include "constants/vars.h"
++#include "constants/apocrypha.h"
+ #include "constants/species.h"
+ #include "constants/pokedex.h"
+ #include "constants/apricorn_tree.h"
+diff --git a/src/event_data.c b/src/event_data.c
+index 1e0e3cd2..6e5fc127 100644
+--- a/src/event_data.c
++++ b/src/event_data.c
+@@ -1,6 +1,7 @@
+ #include "global.h"
+ #include "event_data.h"
+ #include "pokedex.h"
++#include "constants/apocrypha.h"
+ 
+ #define SPECIAL_FLAGS_SIZE  (NUM_SPECIAL_FLAGS / 8)  // 8 flags per byte
+ #define TEMP_FLAGS_SIZE     (NUM_TEMP_FLAGS / 8)
+@@ -48,6 +49,123 @@ const u16 gBadgeFlags[NUM_BADGES] =
+     FLAG_BADGE08_GET,
+ };
+ 
++const u16 gSanctionedBadgeFlags[NUM_SANCTIONED_BADGES] =
++{
++    FLAG_BADGE_AZALEA,
++    FLAG_BADGE_ECRUTEAK,
++    FLAG_BADGE_BLACKTHORN,
++    FLAG_BADGE_CIANWOOD,
++    FLAG_BADGE_CERULEAN,
++    FLAG_BADGE_FUCHSIA,
++    FLAG_BADGE_LAVENDER,
++    FLAG_BADGE_VIRIDIAN,
++    FLAG_BADGE_RUSTBORO,
++    FLAG_BADGE_SLATEPORT,
++    FLAG_BADGE_FORTREE,
++    FLAG_BADGE_SOOTOPOLIS,
++    FLAG_BADGE_JUBILIFE,
++    FLAG_BADGE_HEARTHOME,
++    FLAG_BADGE_PASTORIA,
++    FLAG_BADGE_SUNYSHORE,
++    FLAG_BADGE_ASPERTIA,
++    FLAG_BADGE_DRIFTVEIL,
++    FLAG_BADGE_ICIRRUS,
++    FLAG_BADGE_HUMILAU,
++};
++
++// Johto is the starting region; its slot is 0 so RegionIsOpen always succeeds.
++const u16 gRegionAccessFlags[NUM_REGIONS] =
++{
++    0,
++    FLAG_SYS_REGION_KANTO_OPEN,
++    FLAG_SYS_REGION_HOENN_OPEN,
++    FLAG_SYS_REGION_SINNOH_OPEN,
++    FLAG_SYS_REGION_UNOVA_OPEN,
++};
++
++const u16 gUnsanctionedGymFlags[NUM_UNSANCTIONED_GYMS] =
++{
++    FLAG_UNSANCTIONED_VIRBANK,
++    FLAG_UNSANCTIONED_CASTELIA,
++    FLAG_UNSANCTIONED_NIMBASA,
++    FLAG_UNSANCTIONED_OPELUCID,
++};
++
++u32 CountSanctionedBadges(void)
++{
++    u32 i, n = 0;
++
++    for (i = 0; i < NUM_SANCTIONED_BADGES; i++)
++    {
++        if (FlagGet(gSanctionedBadgeFlags[i]))
++            n++;
++    }
++    return n;
++}
++
++u32 CountRegionBadges(u32 region)
++{
++    u32 i, n = 0;
++    u32 first;
++
++    if (region >= NUM_REGIONS)
++        return 0;
++    first = region * REGION_BADGE_COUNT;
++    for (i = 0; i < REGION_BADGE_COUNT; i++)
++    {
++        if (FlagGet(gSanctionedBadgeFlags[first + i]))
++            n++;
++    }
++    return n;
++}
++
++u32 CountUnsanctionedGyms(void)
++{
++    u32 i, n = 0;
++
++    for (i = 0; i < NUM_UNSANCTIONED_GYMS; i++)
++    {
++        if (FlagGet(gUnsanctionedGymFlags[i]))
++            n++;
++    }
++    return n;
++}
++
++u32 GetCurrentRegion(void)
++{
++    u16 region = VarGet(VAR_CURRENT_REGION);
++
++    if (region >= NUM_REGIONS)
++        return REGION_JOHTO;
++    return region;
++}
++
++bool8 SetCurrentRegion(u32 region)
++{
++    if (region >= NUM_REGIONS)
++        return FALSE;
++    if (!RegionIsOpen(region))
++        return FALSE;
++    return VarSet(VAR_CURRENT_REGION, region);
++}
++
++bool32 RegionIsOpen(u32 region)
++{
++    if (region >= NUM_REGIONS)
++        return FALSE;
++    if (gRegionAccessFlags[region] == 0)
++        return TRUE;
++    return FlagGet(gRegionAccessFlags[region]);
++}
++
++void UnlockRegion(u32 region)
++{
++    if (region >= NUM_REGIONS)
++        return;
++    if (gRegionAccessFlags[region] != 0)
++        FlagSet(gRegionAccessFlags[region]);
++}
++
+ void InitEventData(void)
+ {
+     memset(gSaveBlock1Ptr->flags, 0, sizeof(gSaveBlock1Ptr->flags));
