@@ -1,0 +1,20 @@
+{
+  "rom": "tools/vendor/gba/Floccesy-preview-20260923/Floccesy.gba",
+  "rom_sha256": "2a259de1deeeec186b8b07b5dbfce2368eb3a1dbb87627c0be046698b4c42521",
+  "save_sha256": "6e2e97be932aa34b2226980aa0034a309bb54089edfdce1541d7311f636e2586",
+  "start": [
+    30,
+    62
+  ],
+  "map_group": 80,
+  "map_id": 20,
+  "door_pairs": 6,
+  "both_way_travel": true,
+  "save_cold_reload_continue": true,
+  "source": "tools/vendor/gba/johto-restart-game",
+  "collision_probes": 126,
+  "collision_failures": 0,
+  "walking_residents_verified": 6,
+  "editor_open": true,
+  "emulator_launched": true
+}

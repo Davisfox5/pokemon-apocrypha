@@ -1,0 +1,300 @@
+[
+  {
+    "phase": "write",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "east-out-of-cherrygrove",
+        "region": 2,
+        "group": 80,
+        "map": 9,
+        "x": 1,
+        "y": 18,
+        "frlg_layout": 0,
+        "width": 24,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "walk-into-floccesy",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 9,
+        "y": 66,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "walk-back-to-johto",
+        "region": 2,
+        "group": 80,
+        "map": 9,
+        "x": 10,
+        "y": 19,
+        "frlg_layout": 0,
+        "width": 24,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "cherrygrove-return",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 77,
+        "y": 19,
+        "frlg_layout": 0,
+        "width": 80,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "step": "door-in-0",
+        "region": 5,
+        "group": 80,
+        "map": 21,
+        "x": 7,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 14,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-0",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 18,
+        "y": 63,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-in-1",
+        "region": 5,
+        "group": 80,
+        "map": 22,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-1",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 36,
+        "y": 63,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-in-2",
+        "region": 5,
+        "group": 80,
+        "map": 23,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-2",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 42,
+        "y": 63,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-in-3",
+        "region": 5,
+        "group": 80,
+        "map": 24,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-3",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 19,
+        "y": 26,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-in-4",
+        "region": 5,
+        "group": 80,
+        "map": 25,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-4",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 31,
+        "y": 27,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-in-5",
+        "region": 5,
+        "group": 80,
+        "map": 26,
+        "x": 3,
+        "y": 8,
+        "frlg_layout": 0,
+        "width": 10,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "door-out-5",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 37,
+        "y": 27,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "center-upstairs",
+        "region": 5,
+        "group": 80,
+        "map": 27,
+        "x": 2,
+        "y": 6,
+        "frlg_layout": 0,
+        "width": 14,
+        "height": 10,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "center-downstairs",
+        "region": 5,
+        "group": 80,
+        "map": 21,
+        "x": 2,
+        "y": 6,
+        "frlg_layout": 0,
+        "width": 14,
+        "height": 9,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "step": "floccesy-save",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 30,
+        "y": 62,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      },
+      {
+        "save_status": 1,
+        "flash_bytes": 131072
+      }
+    ]
+  },
+  {
+    "phase": "read",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "cold-reload",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 30,
+        "y": 62,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      }
+    ]
+  },
+  {
+    "phase": "menu",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "ordinary-title-continue",
+        "region": 5,
+        "group": 80,
+        "map": 20,
+        "x": 30,
+        "y": 62,
+        "frlg_layout": 0,
+        "width": 56,
+        "height": 78,
+        "interaction": 0,
+        "mapsec": 216
+      }
+    ]
+  }
+]

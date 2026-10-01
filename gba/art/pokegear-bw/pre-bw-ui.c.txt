@@ -1,0 +1,425 @@
+// HGSS-style single-screen application. Campaign services are kept behind
+// explicit card/event gates; no fabricated contacts or rematches are unlocked.
+#include "global.h"
+#include "apoc_pokegear.h"
+#include "bg.h"
+#include "main.h"
+#include "gpu_regs.h"
+#include "window.h"
+#include "menu.h"
+#include "text.h"
+#include "palette.h"
+#include "sprite.h"
+#include "task.h"
+#include "overworld.h"
+#include "event_data.h"
+#include "rtc.h"
+#include "string_util.h"
+#include "region_map.h"
+#include "sound.h"
+#include "trig.h"
+#include "constants/vars.h"
+#include "constants/flags.h"
+#include "constants/songs.h"
+#include "constants/rgb.h"
+enum
+{
+    GEAR_CLOCK, GEAR_RADIO, GEAR_MAP, GEAR_PHONE, GEAR_SETTINGS, GEAR_COUNT
+};
+static const u8 sShell[] = INCBIN_U8("graphics/apoc_pokegear/shell.bin");
+static const u8 sRadio[] = INCBIN_U8("graphics/apoc_pokegear/radio.bin");
+static const u16 sPalette[] = INCGFX_U16("graphics/apoc_pokegear/shell.pal", ".gbapal");
+static const struct BgTemplate sBg[] =
+{
+    {
+        .bg=0,.charBaseIndex=0,.mapBaseIndex=31,.priority=0
+    }
+};
+static const struct WindowTemplate sWindows[] =
+{
+    {
+        .bg=0,.width=30,.height=20,.paletteNum=0,.baseBlock=1
+    }
+    , DUMMY_WIN_TEMPLATE
+};
+static EWRAM_DATA u8 sApp, sTheme, sPreset, sFrequency, sCall, s24Hour;
+static EWRAM_DATA u16 sFrame, sMusic;
+static EWRAM_DATA u8 sTime[32];
+static const u8 *const sWeekdays[] =
+{
+    COMPOUND_STRING("SUNDAY"),COMPOUND_STRING("MONDAY"),COMPOUND_STRING("TUESDAY"),COMPOUND_STRING("WEDNESDAY"),COMPOUND_STRING("THURSDAY"),COMPOUND_STRING("FRIDAY"),COMPOUND_STRING("SATURDAY")
+};
+static const u8 *const sTitles[] =
+{
+    COMPOUND_STRING("CLOCK"),COMPOUND_STRING("RADIO"),COMPOUND_STRING("MAP"),COMPOUND_STRING("PHONE"),COMPOUND_STRING("STYLE")
+};
+static const u8 *const sStyles[] =
+{
+    COMPOUND_STRING("BLUE"),COMPOUND_STRING("PINK"),COMPOUND_STRING("ROCKET"),COMPOUND_STRING("DOJO"),COMPOUND_STRING("LEAGUE"),COMPOUND_STRING("SILPH")
+};
+static const u16 sThemeColors[][3] =
+{
+    {
+        RGB(5,8,29),RGB(8,10,13),RGB(31,24,3)
+    }
+    ,
+    {
+        RGB(27,8,19),RGB(15,8,13),RGB(31,25,12)
+    }
+    ,
+    {
+        RGB(4,4,5),RGB(10,10,11),RGB(29,5,5)
+    }
+    ,
+    {
+        RGB(17,12,7),RGB(10,8,5),RGB(28,24,14)
+    }
+    ,
+    {
+        RGB(19,0,3),RGB(10,4,6),RGB(31,24,3)
+    }
+    ,
+    {
+        RGB(6,22,23),RGB(6,12,15),RGB(29,30,30)
+    }
+    ,
+};
+static void Render(void);
+static void Rect(u8 color,u16 x,u16 y,u16 w,u16 h)
+{
+    FillWindowPixelRect(0,PIXEL_FILL(color),x,y,w,h);
+}
+static void Print(const u8 *text,u16 x,u16 y,u8 color)
+{
+    const u8 colors[]=
+    {
+        0,color,0
+    };
+    AddTextPrinterParameterized4(0,FONT_SMALL,x,y,0,0,colors,TEXT_SKIP_DRAW,text);
+}
+static void Number(unsigned n,u16 x,u16 y)
+{
+    u8 str[12];
+    ConvertIntToDecimalStringN(str,n,STR_CONV_MODE_LEFT_ALIGN,3);
+    Print(str,x,y,3);
+}
+static void Store(void)
+{
+    VarSet(VAR_APOC_GEAR_SETTINGS,sApp|(sTheme<<3)|(s24Hour<<6));
+    VarSet(VAR_APOC_GEAR_TUNING,sFrequency|(sPreset<<8));
+}
+static u8 Preset(u8 i)
+{
+    u16 p=VarGet(i<2?VAR_APOC_GEAR_PRESETS_01:VAR_APOC_GEAR_PRESETS_23);
+    return i&1?p>>8:p&255;
+}
+static void SavePreset(void)
+{
+    u16 v=VarGet(sPreset<2?VAR_APOC_GEAR_PRESETS_01:VAR_APOC_GEAR_PRESETS_23);
+    if(sPreset&1)v=(v&255)|(sFrequency<<8);
+    else v=(v&0xFF00)|sFrequency;
+    VarSet(sPreset<2?VAR_APOC_GEAR_PRESETS_01:VAR_APOC_GEAR_PRESETS_23,v);
+}
+static s8 Station(void)
+{
+    switch(sFrequency)
+    {
+        case 16:return 0;
+        case 48:return 1;
+        case 80:return 2;
+        case 112:return 3;
+        default:return -1;
+    }
+}
+static void Tune(void)
+{
+    s8 st=Station();
+    if(st==1)PlayBGM(MUS_RG_ROUTE1);
+    else PlayBGM(sMusic);
+}
+// Large HGSS digital readout; crisp native pixels, no scaled GBA font.
+static void Digit(u8 n,u16 x,u16 y)
+{
+    static const u8 seg[]=
+    {
+        0x3F,6,0x5B,0x4F,0x66,0x6D,0x7D,7,0x7F,0x6F
+    };
+    u8 a=seg[n];
+    if(a&1)Rect(3,x+3,y,15,3);
+    if(a&2)Rect(3,x+18,y+3,3,15);
+    if(a&4)Rect(3,x+18,y+21,3,15);
+    if(a&8)Rect(3,x+3,y+36,15,3);
+    if(a&16)Rect(3,x,y+21,3,15);
+    if(a&32)Rect(3,x,y+3,3,15);
+    if(a&64)Rect(3,x+3,y+18,15,3);
+}
+static void DrawClock(void)
+{
+    unsigned hour=gLocalTime.hours;
+    if(!s24Hour)hour=hour%12?hour%12:12;
+    Digit(hour/10,47,48);
+    Digit(hour%10,74,48);
+    Rect(3,103,60,3,3);
+    Rect(3,103,74,3,3);
+    Digit(gLocalTime.minutes/10,116,48);
+    Digit(gLocalTime.minutes%10,143,48);
+    Print(s24Hour?COMPOUND_STRING("24h"):gLocalTime.hours>=12?COMPOUND_STRING("PM"):COMPOUND_STRING("AM"),174,73,3);
+    Print(sWeekdays[GetDayOfWeek()%7],88,94,2);
+    Print(COMPOUND_STRING("A: 12 / 24 hour"),72,115,2);
+}
+static void DrawRadio(void)
+{
+    s8 station=Station();
+    static const u8 *const names[]=
+    {
+        COMPOUND_STRING("POKéMON TALK"),COMPOUND_STRING("POKéMON MUSIC"),COMPOUND_STRING("VARIETY CHANNEL"),COMPOUND_STRING("BUENA'S PASSWORD")
+    };
+    unsigned angle=sFrequency*2;
+    int x=120+(Sin(angle,30)),y=78-(Cos(angle,30));
+    Rect(2,x-2,y-2,5,5);
+    Rect(4,x-1,y-1,3,3);
+    for(u8 i=0;i<4;i++)
+    {
+        unsigned x=i&1?196:18,y=i<2?47:97;
+        Number(i+1,x+7,y+4);
+        if(i==sPreset)
+        {
+            Rect(3,x-3,y-3,25,2);
+            Rect(3,x-3,y+22,25,2);
+        }
+    }
+    Rect(4,45,25,150,12);
+    Print(station<0?COMPOUND_STRING("NO SIGNAL"):names[station],50,25,2);
+    Print(COMPOUND_STRING("A: preset  START: store"),48,115,2);
+    // A broadcast is never fabricated: news/password episodes need authored data.
+    if(station==1)
+    {
+        Print(COMPOUND_STRING("MUSIC"),99,74,2);
+    }
+    else if(station>=0)Print(COMPOUND_STRING("OFF AIR"),99,74,2);
+}
+static void DrawMap(void)
+{
+    u8 name[48];
+    GetMapNameGeneric(name,gMapHeader.regionMapSectionId);
+    Print(name,35,39,2);
+    Print(COMPOUND_STRING("MAP CARD"),80,67,3);
+    Print(COMPOUND_STRING("A MAP CARD adds regional maps."),20,90,2);
+    Print(COMPOUND_STRING("Your location is shown above."),24,109,2);
+}
+static void DrawPhone(void)
+{
+    if(!sCall)
+    {
+        Rect(1,17,37,206,21);
+        Print(COMPOUND_STRING("MOM"),31,40,2);
+        Print(COMPOUND_STRING("HOME"),168,40,3);
+        Print(COMPOUND_STRING("Registered contacts: 1"),21,78,2);
+        Print(COMPOUND_STRING("A: call   B: close"),69,111,2);
+    }
+    else
+    {
+        Rect(1,12,32,216,22);
+        Print(COMPOUND_STRING("MOM"),24,36,3);
+        Print(COMPOUND_STRING("CONNECTED"),126,36,2);
+        Print(COMPOUND_STRING("Hi, honey! Still surrounded"),18,62,2);
+        Print(COMPOUND_STRING("by boxes here. Take your time"),18,78,2);
+        Print(COMPOUND_STRING("exploring. I'll be right here."),18,94,2);
+        Print(COMPOUND_STRING("A / B: hang up"),73,115,3);
+    }
+}
+static void DrawSettings(void)
+{
+    Print(COMPOUND_STRING("BACKGROUND STYLE"),62,36,2);
+    for(u8 i=0;i<6;i++)
+    {
+        unsigned x=26+(i%3)*72,y=60+(i/3)*29;
+        Rect(i==sTheme?3:1,x,y,64,23);
+        Print(sStyles[i],x+8,y+4,i==sTheme?4:2);
+    }
+    Print(COMPOUND_STRING("D-pad: choose    A: apply"),45,115,2);
+}
+static void Render(void)
+{
+    RtcCalcLocalTime();
+    CopyToWindowPixelBuffer(0,sApp==GEAR_RADIO?sRadio:sShell,sizeof(sShell),0);
+    LoadPalette(sPalette,0,sizeof(sPalette));
+    LoadPalette(&sThemeColors[sTheme][0],5,2);
+    LoadPalette(&sThemeColors[sTheme][1],1,2);
+    LoadPalette(&sThemeColors[sTheme][2],3,2);
+    FormatDecimalTimeWithoutSeconds(sTime,gLocalTime.hours,gLocalTime.minutes,TRUE);
+    Print(sTime,8,5,3);
+    Print(sTitles[sApp],83,5,2);
+    Print(COMPOUND_STRING("L/R"),160,5,2);
+    // Original HGSS tab order: configure, radio, map, phone, return.
+    {
+        u8 tab=sApp==GEAR_CLOCK?4:sApp==GEAR_SETTINGS?0:sApp;
+        Rect(3,5+46*tab,136,38,2);
+    }
+    switch(sApp)
+    {
+        case GEAR_CLOCK:DrawClock();
+        break;
+        case GEAR_RADIO:DrawRadio();
+        break;
+        case GEAR_MAP:DrawMap();
+        break;
+        case GEAR_PHONE:DrawPhone();
+        break;
+        case GEAR_SETTINGS:DrawSettings();
+        break;
+    }
+    PutWindowTilemap(0);
+    CopyWindowToVram(0,COPYWIN_FULL);
+}
+static void VBlank(void)
+{
+    LoadOam();
+    ProcessSpriteCopyRequests();
+    TransferPlttBuffer();
+}
+static void Main(void)
+{
+    u16 keys=gMain.newKeys;
+    bool8 dirty=FALSE;
+    if(keys&B_BUTTON)
+    {
+        if(sCall)
+        {
+            sCall=0;
+            dirty=TRUE;
+        }
+        else
+        {
+            Store();
+            PlayBGM(sMusic);
+            FreeAllWindowBuffers();
+            SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+            return;
+        }
+    }
+    if(!sCall&&(keys&(L_BUTTON|R_BUTTON)))
+    {
+        sApp=(sApp+(keys&R_BUTTON?1:GEAR_COUNT-1))%GEAR_COUNT;
+        Store();
+        PlaySE(SE_SELECT);
+        dirty=TRUE;
+    }
+    if(sApp==GEAR_CLOCK&&(keys&A_BUTTON))
+    {
+        s24Hour^=1;
+        Store();
+        dirty=TRUE;
+    }
+    if(sApp==GEAR_PHONE&&(keys&A_BUTTON))
+    {
+        sCall^=1;
+        PlaySE(SE_SELECT);
+        dirty=TRUE;
+    }
+    if(sApp==GEAR_SETTINGS)
+    {
+        if(keys&DPAD_RIGHT)
+        {
+            sTheme=(sTheme+1)%6;
+            dirty=TRUE;
+        }
+        if(keys&DPAD_LEFT)
+        {
+            sTheme=(sTheme+5)%6;
+            dirty=TRUE;
+        }
+        if(keys&(DPAD_UP|DPAD_DOWN))
+        {
+            sTheme=(sTheme+3)%6;
+            dirty=TRUE;
+        }
+        if(dirty||(keys&A_BUTTON))Store();
+    }
+    if(sApp==GEAR_RADIO)
+    {
+        if(keys&DPAD_LEFT)
+        {
+            sFrequency=(sFrequency+127)%128;
+            dirty=TRUE;
+        }
+        if(keys&DPAD_RIGHT)
+        {
+            sFrequency=(sFrequency+1)%128;
+            dirty=TRUE;
+        }
+        if(keys&DPAD_DOWN)
+        {
+            sPreset=(sPreset+1)%4;
+            dirty=TRUE;
+        }
+        if(keys&DPAD_UP)
+        {
+            sPreset=(sPreset+3)%4;
+            dirty=TRUE;
+        }
+        if(keys&A_BUTTON)
+        {
+            sFrequency=Preset(sPreset);
+            dirty=TRUE;
+        }
+        if(keys&START_BUTTON)
+        {
+            SavePreset();
+            PlaySE(SE_SELECT);
+            dirty=TRUE;
+        }
+        if(dirty)
+        {
+            Store();
+            Tune();
+        }
+    }
+    if(++sFrame%60==0)dirty=TRUE;
+    if(dirty)Render();
+    BuildOamBuffer();
+    UpdatePaletteFade();
+    DoScheduledBgTilemapCopiesToVram();
+}
+static void Init(void)
+{
+    SetVBlankCallback(NULL);
+    SetGpuReg(REG_OFFSET_DISPCNT,0);
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetTasks();
+    ResetBgsAndClearDma3BusyFlags(0);
+    InitBgsFromTemplates(0,sBg,1);
+    InitWindows(sWindows);
+    DeactivateAllTextPrinters();
+    ClearScheduledBgCopiesToVram();
+    SetGpuReg(REG_OFFSET_BG0HOFS,0);
+    SetGpuReg(REG_OFFSET_BG0VOFS,0);
+    ResetPaletteFade();
+    Render();
+    ShowBg(0);
+    SetVBlankCallback(VBlank);
+    SetMainCallback2(Main);
+}
+void ApocPokegear_Open(void)
+{
+    u16 settings;
+    if(VarGet(VAR_APOC_GEAR_INITIALIZED)!=0x5047)
+    {
+        VarSet(VAR_APOC_GEAR_SETTINGS,0);
+        VarSet(VAR_APOC_GEAR_TUNING,16);
+        VarSet(VAR_APOC_GEAR_PRESETS_01,16|(48<<8));
+        VarSet(VAR_APOC_GEAR_PRESETS_23,80|(112<<8));
+        VarSet(VAR_APOC_GEAR_INITIALIZED,0x5047);
+    }
+    settings=VarGet(VAR_APOC_GEAR_SETTINGS);
+    sApp=(settings&7)%GEAR_COUNT;
+    sTheme=((settings>>3)&7)%6;
+    s24Hour=(settings>>6)&1;
+    sFrequency=VarGet(VAR_APOC_GEAR_TUNING)&127;
+    sPreset=(VarGet(VAR_APOC_GEAR_TUNING)>>8)&3;
+    sCall=0;
+    sFrame=0;
+    sMusic=GetCurrentMapMusic();
+    SetMainCallback2(Init);
+}

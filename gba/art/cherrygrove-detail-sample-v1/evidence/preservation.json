@@ -1,0 +1,138 @@
+{
+  "data/layouts/layouts.json": {
+    "base_sha256": "8e81951888dd81be55d73b892ee18f6fd6b8e7f1a6f96396f4707588057d98f7",
+    "sample_sha256": "09b04c7417e9bf005b9b170e8e41d5c6aa6b8787bcfc441f29877f2491121215"
+  },
+  "data/layouts/CherrygroveCity/map.bin": {
+    "base_sha256": "451cbdafbd7e22d6958722b737ec2ff0a74a1947843fda5a8dd87274a0cb24cc",
+    "sample_sha256": "268e0c9ad0e860f2daaac73894dff74637f18ca814f4508d86b206144361bbf6"
+  },
+  "data/layouts/CherrygroveCity/border.bin": {
+    "base_sha256": "972e9452ba0c645c4671c49606402a73734337538997c2cdd2b4000cc4016a2d",
+    "sample_sha256": "23cac2275bc00f0148b8589f08eac432d197dd86a4c8ab8a8f40931befa6b711"
+  },
+  "data/maps/CherrygroveCity/map.json": {
+    "base_sha256": "b7f8597821e4ca1e5a95d3ea2dd4578fa679f7a68f368e3456563fecf142e396",
+    "sample_sha256": "063659d9bdd4ab3de121767d6d1efad436aded64d0f522ad64c6069db59de1da"
+  },
+  "data/tilesets/primary/cherry_study/metatiles.bin": {
+    "base_sha256": "4433d69f982e4219da407052cd71aba232178b1df2645c709a077a0bf39f3004",
+    "sample_sha256": "6c627221401b9d2d0f3965b31e537dddea6f3e24c0f30e02a4baab3ae37b3abf"
+  },
+  "data/tilesets/primary/cherry_study/tiles.png": {
+    "base_sha256": "bc53609794d39d42bc5f7f5d17bd9bc983f04aa8b890e69dacb4b76bd1f8679a",
+    "sample_sha256": "9203b56f6c655b39b7d3a7da60694c1f0a5cb456be403f8560d03decf69bb381"
+  },
+  "data/tilesets/primary/cherry_study/metatile_attributes.bin": {
+    "base_sha256": "862e88e55ade135c2ffe5b66deb810dcc2cbc77896143fe0be027c61e2ca6425",
+    "sample_sha256": "0b76765f3741938828e1e9108ced8ddb0f39a48ce95f9fd8b95f1577d9aa466c"
+  },
+  "data/tilesets/primary/cherry_study/palettes/03.pal": {
+    "base_sha256": "7f47f700f173230477364c203e2cfe6889e891a56d46d697ceeb3efd24dd3280",
+    "sample_sha256": "a75f6caad4bf352adeaecc5f6c9458f7ec25edd222fe531ec2bdc63d683d5cda"
+  },
+  "data/tilesets/primary/cherry_study/palettes/02.pal": {
+    "base_sha256": "a207784203c690d8b6b7bd2f4b3d9dde7ba17aa5c147e9d38455717754cd5a60",
+    "sample_sha256": "5671c532ed6a3e561e1a2949f0ad7fd44f66e6c7de57162798623127286c9ac9"
+  },
+  "data/tilesets/primary/cherry_study/palettes/00.pal": {
+    "base_sha256": "fd1be2bd90086bbcba6a36a3395a8e314da7c74ddbc85ecc9cedff88d10e582e",
+    "sample_sha256": "d7bea89df58df76e985e2a26cf6576dcee0f8cab911c4d27c7d892256c40e44f"
+  },
+  "data/tilesets/primary/cherry_study/palettes/01.pal": {
+    "base_sha256": "d03b4c25c13e9a580972d3fac1b52621cde3789f66da4cf3f523c87ed1d5cc5a",
+    "sample_sha256": "080a08cbf1e3d4710970130b64cf659113d9e14c13903efa8b5be50651e40bc0"
+  },
+  "data/tilesets/primary/cherry_study/palettes/11.pal": {
+    "base_sha256": "217b1ce7df8bc219a88c64f686a20eb79b8b33dbdba1f95c6256fde6ae643025",
+    "sample_sha256": "a75b35d99b38905c2df774bcfcf27989583472ac72eda10932aadd828d1eaf63"
+  },
+  "data/tilesets/primary/cherry_study/palettes/05.pal": {
+    "base_sha256": "5988f4a63388d695a6b8eadcd7683fc910b49d7b16d520f602bdcfd5faff2a74",
+    "sample_sha256": "e042e04121b0db2a859458d5265150b9028dfef6e6fc0f694c0a760bc51c36ab"
+  },
+  "data/tilesets/primary/cherry_study/palettes/04.pal": {
+    "base_sha256": "0f3b684857d87ce02cfb8b22b38d460f9fd704c8ff365f27d136cf65a3e1de0c",
+    "sample_sha256": "90e1ac5cfde80176585be1a722649d4c0966aa479da80f7025fd5b05cb6106c4"
+  },
+  "data/tilesets/primary/cherry_study/palettes/10.pal": {
+    "base_sha256": "acfc8c3579055e19e32cfe205103274d8e01dbdbe41c17049d7f8572315a8635",
+    "sample_sha256": "f02b356bbde8e1bce42ef4c5512d6ae0a04d3cf9f16dfa9f505a3a5676d4352e"
+  },
+  "data/tilesets/primary/cherry_study/palettes/06.pal": {
+    "base_sha256": "71ac41c33ee9be443c7a6239f3e3a0a1fdb8ab6fbca7bc8ab6ad974110642c5b",
+    "sample_sha256": "d1d9ff5d07ff4278eb1af1f993d8295185b3be8181d573d2b999b31584c1955d"
+  },
+  "data/tilesets/primary/cherry_study/palettes/12.pal": {
+    "base_sha256": "b7ee90d3a1bcd8c890130fddf969937d5f0cec8cc60d5234f68f0ddc99360219",
+    "sample_sha256": "448c0016fd92b5d2e89153289dff82ec055defdcf86e294cee5a4c9483daaa80"
+  },
+  "data/tilesets/primary/cherry_study/palettes/07.pal": {
+    "base_sha256": "86ebc773412e7829abb7f465a510f2b2725ab75de5a91293c1f302e9757307bc",
+    "sample_sha256": "d210b012db16d0148a48f672a6fd10612b00f0b463a37b36dcac7a12f8289613"
+  },
+  "data/tilesets/primary/cherry_study/palettes/09.pal": {
+    "base_sha256": "ee458043cd2096a8da275ac272e39d3815182e2dbd58b84c0624ac178b1f7cf0",
+    "sample_sha256": "d97cbd7dd826a7450ee5f7f0c69d56391b3cf0ab75371b7e818b1d7a3112445a"
+  },
+  "data/tilesets/primary/cherry_study/palettes/08.pal": {
+    "base_sha256": "7d9b0ed249831fe1dfc878bfdc0885eb1c9673edc733f8985e0dcd1698bcd561",
+    "sample_sha256": "860a348f0ce6309e0107023e9164343012530748adf7c27b9c065f7a2b9b3590"
+  },
+  "data/tilesets/secondary/cherry_study/tiles.png": {
+    "base_sha256": "2ae151675070efe97488f84e2711334b717d60565ab025f2b4a6956acb5cf7cf",
+    "sample_sha256": "56efc3c8905b1bc771be9750e81897eec701c65015390d5d335eaac9a54192bf"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/03.pal": {
+    "base_sha256": "7f47f700f173230477364c203e2cfe6889e891a56d46d697ceeb3efd24dd3280",
+    "sample_sha256": "a75f6caad4bf352adeaecc5f6c9458f7ec25edd222fe531ec2bdc63d683d5cda"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/02.pal": {
+    "base_sha256": "a207784203c690d8b6b7bd2f4b3d9dde7ba17aa5c147e9d38455717754cd5a60",
+    "sample_sha256": "5671c532ed6a3e561e1a2949f0ad7fd44f66e6c7de57162798623127286c9ac9"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/00.pal": {
+    "base_sha256": "fd1be2bd90086bbcba6a36a3395a8e314da7c74ddbc85ecc9cedff88d10e582e",
+    "sample_sha256": "d7bea89df58df76e985e2a26cf6576dcee0f8cab911c4d27c7d892256c40e44f"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/01.pal": {
+    "base_sha256": "d03b4c25c13e9a580972d3fac1b52621cde3789f66da4cf3f523c87ed1d5cc5a",
+    "sample_sha256": "080a08cbf1e3d4710970130b64cf659113d9e14c13903efa8b5be50651e40bc0"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/11.pal": {
+    "base_sha256": "217b1ce7df8bc219a88c64f686a20eb79b8b33dbdba1f95c6256fde6ae643025",
+    "sample_sha256": "a75b35d99b38905c2df774bcfcf27989583472ac72eda10932aadd828d1eaf63"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/05.pal": {
+    "base_sha256": "5988f4a63388d695a6b8eadcd7683fc910b49d7b16d520f602bdcfd5faff2a74",
+    "sample_sha256": "e042e04121b0db2a859458d5265150b9028dfef6e6fc0f694c0a760bc51c36ab"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/04.pal": {
+    "base_sha256": "0f3b684857d87ce02cfb8b22b38d460f9fd704c8ff365f27d136cf65a3e1de0c",
+    "sample_sha256": "90e1ac5cfde80176585be1a722649d4c0966aa479da80f7025fd5b05cb6106c4"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/10.pal": {
+    "base_sha256": "acfc8c3579055e19e32cfe205103274d8e01dbdbe41c17049d7f8572315a8635",
+    "sample_sha256": "f02b356bbde8e1bce42ef4c5512d6ae0a04d3cf9f16dfa9f505a3a5676d4352e"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/06.pal": {
+    "base_sha256": "71ac41c33ee9be443c7a6239f3e3a0a1fdb8ab6fbca7bc8ab6ad974110642c5b",
+    "sample_sha256": "d1d9ff5d07ff4278eb1af1f993d8295185b3be8181d573d2b999b31584c1955d"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/12.pal": {
+    "base_sha256": "b7ee90d3a1bcd8c890130fddf969937d5f0cec8cc60d5234f68f0ddc99360219",
+    "sample_sha256": "448c0016fd92b5d2e89153289dff82ec055defdcf86e294cee5a4c9483daaa80"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/07.pal": {
+    "base_sha256": "86ebc773412e7829abb7f465a510f2b2725ab75de5a91293c1f302e9757307bc",
+    "sample_sha256": "d210b012db16d0148a48f672a6fd10612b00f0b463a37b36dcac7a12f8289613"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/09.pal": {
+    "base_sha256": "ee458043cd2096a8da275ac272e39d3815182e2dbd58b84c0624ac178b1f7cf0",
+    "sample_sha256": "d97cbd7dd826a7450ee5f7f0c69d56391b3cf0ab75371b7e818b1d7a3112445a"
+  },
+  "data/tilesets/secondary/cherry_study/palettes/08.pal": {
+    "base_sha256": "7d9b0ed249831fe1dfc878bfdc0885eb1c9673edc733f8985e0dcd1698bcd561",
+    "sample_sha256": "860a348f0ce6309e0107023e9164343012530748adf7c27b9c065f7a2b9b3590"
+  }
+}

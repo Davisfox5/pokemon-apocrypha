@@ -39,6 +39,12 @@ int main(int argc,char**argv){
   go(0,48,9);screenshot(argv[3],"center-and-mart");
   go(0,30,20);screenshot(argv[3],"shoreline");
   go(5,3,3);frames(8,32);frames(8,0);frames(1,1);frames(150,0);frames(1,1);frames(90,0);screenshot(argv[3],"mart-menu");close_dialog();
+  go(0,32,10);screenshot(argv[3],"fix-northwest-cliff");
+  go(0,34,27);screenshot(argv[3],"fix-southern-cliff");
+  go(0,36,4);screenshot(argv[3],"fix-north-route");
+  go(0,58,6);screenshot(argv[3],"fix-pond-bank");
+  go(0,57,16);screenshot(argv[3],"fix-flower-layer");
+  go(0,31,26);frames(32,128);frames(20,0);expect(0,"closed-southern-gap");if(state[4]>26)return 13;
   go(0,40,20);expect(0,"save-by-residents");screenshot(argv[3],"waterfront");unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }
  c->deinit(c);return 0;

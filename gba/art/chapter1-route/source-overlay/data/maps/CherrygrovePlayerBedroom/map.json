@@ -1,0 +1,39 @@
+{
+  "id": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
+  "name": "CherrygrovePlayerBedroom",
+  "layout": "LAYOUT_APOCRYPHA_HOME_2F",
+  "music": "MUS_LITTLEROOT",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_PLAYER_HOUSE",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 3,
+      "elevation": 3,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygrovePlayerBedroom_PC"
+    }
+  ]
+}

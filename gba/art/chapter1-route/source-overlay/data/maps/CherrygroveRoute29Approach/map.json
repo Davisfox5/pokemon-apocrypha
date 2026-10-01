@@ -1,0 +1,59 @@
+{
+  "id": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+  "name": "CherrygroveRoute29Approach",
+  "layout": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_ROUTE_29",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_CITY",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_NEW_BARK_TOWN",
+      "offset": 0,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ROUTE29_KESTRA",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_KESTRA",
+      "x": 10,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveRoute29Approach_Kestra",
+      "flag": "FLAG_APOC_ROUTE29_KESTRA_HIDDEN"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [
+    {
+      "type": "trigger", "x": 8, "y": 18, "elevation": 3,
+      "var": "VAR_APOC_CHAPTER_STAGE", "var_value": "4",
+      "script": "CherrygroveRoute29Approach_FirstGrass"
+    },
+    {
+      "type": "trigger", "x": 8, "y": 19, "elevation": 3,
+      "var": "VAR_APOC_CHAPTER_STAGE", "var_value": "4",
+      "script": "CherrygroveRoute29Approach_FirstGrass"
+    }
+  ],
+  "bg_events": [],
+  "build_target": "emerald",
+  "region": "REGION_JOHTO"
+}

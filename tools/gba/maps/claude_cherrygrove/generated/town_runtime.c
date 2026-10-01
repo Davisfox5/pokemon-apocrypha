@@ -85,7 +85,7 @@ int main(int argc,char**argv){
   interaction(1036,44,26,64,"unova-dialogue");
  }else{
   call("MapProof_Boot",0);frames(240,0);expect(0,"town-spawn");screenshot(argv[3],"town-spawn");if(state[3]!=49||state[4]!=14){fprintf(stderr,"spawn %u,%u\n",state[3],state[4]);return 13;}
-  const unsigned doors[][2]={{49,13},{40,14},{27,13},{32,25},{36,7},{44,7}};
+  const unsigned doors[][2]={{49,13},{40,14},{27,13},{32,25},{38,7},{48,7}};
   const unsigned maps[]={1,2,3,4,5,6};
   const unsigned exits[][2]={{9,8},{3,8},{3,8},{3,8},{3,7},{7,8}};
   for(unsigned i=0;i<6;i++){

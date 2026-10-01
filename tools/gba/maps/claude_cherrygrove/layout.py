@@ -43,8 +43,8 @@ CLIFF_CORNER = 26            # left cell of the 5x6 corner where the cliff turns
 
 # Buildings: name, style, top-left cell. Door cell derives from the style.
 BUILDINGS = [
-    dict(name='Mart', style='mart', x=35, y=4),
-    dict(name='PokemonCenter', style='center', x=42, y=2),
+    dict(name='Mart', style='mart', x=37, y=4),
+    dict(name='PokemonCenter', style='center', x=46, y=2),
     dict(name='NeighborHouse', style='house_l', x=26, y=9),
     dict(name='GoldHouse', style='gable', x=38, y=10),
     dict(name='PlayerHouse', style='house', x=48, y=9),
@@ -60,7 +60,7 @@ def door_of(b):
 # Sand lanes (rectangles) - the path network, in walking order around the town.
 LANES = [
     (31, 0, 3, 9),     # from Route 30 down to the shop front
-    (31, 8, 17, 2),    # shop front, west to east (Mart and Center doorsteps)
+    (31, 8, 21, 2),    # shop front, west to east (Mart and Center doorsteps)
     (35, 10, 2, 6),    # down between the neighbour's plot and Gold's house
     (33, 15, 21, 2),   # main east-west lane through the middle of town
     (53, 12, 7, 3),    # to Route 29 (matches the east exit rows)
@@ -73,39 +73,40 @@ LANES = [
 
 # Scattered trees (top-left cells of 2x3 sprites) placed by hand, clear of the bands.
 TREES = [
-    (23, 15), (30, 17), (27, 22), (33, 11),
+    (22, 15), (30, 17), (27, 22), (33, 11),
     (53, 12), (52, 24), (49, 26),
 ]
 BLOSSOMS = [(38, 22), (47, 21), (41, 24), (46, 24), (43, 22)]
-# Forest bands: (x0, y0, x1, y1) inclusive cell ranges filled with the HGSS lattice
-# (one cell between rows, two between trees, alternate rows offset one cell).
+# Forest bands: (x0, y0, x1, y1) cell ranges filled with the HGSS lattice: straight columns two cells apart
+# (x0, x0+2, ... below x1) and a row of crowns every 24 px from the top edge down.
 FOREST = [
-    (34, -3, 59, -1),                   # north wall east of the Route 30 gap (crowns reach row 1)
-    (56, 2, 59, 10), (56, 15, 59, 33),  # east wall, split at the Route 29 gap
-    (31, 29, 59, 33),                   # south wall
-    (0, -3, 24, -2),                    # cliff-top wood (trunks stop above the crest)
+    (34, -3, 54, -1),                   # north wall east of the Route 30 gap (trunks reach row 0)
+    (58, 3, 60, 10), (56, 15, 60, 33),  # east wall, split at the Route 29 gap
+    (30, 29, 56, 33),                   # south wall
+    (-1, -3, 27, -1),                   # cliff-top wood (trunks stop above the crest; clear of the corner's face)
+    (34, 1, 36, 7), (43, 1, 45, 7), (52, 1, 54, 7),   # the shops stand in the trees: a column each side of the Mart and the Center
 ]
+POND = (54, 0, 6, 3)                    # the pond in the north-east corner (x, y, w, h), open to the top edge
 
-# Fenced tulip beds: (x, y, w, h); pickets along the front, posts down both sides, open at the back.
+# Fenced tulip beds: (x, y, w, h, sides); pickets along the front, posts down the sides named in `sides`, open at the back.
 GARDENS = [
-    (49, 5, 5, 2),    # east of the Pokemon Center
-    (47, 18, 4, 2),   # beside the park
-    (26, 16, 3, 3),   # neighbour's plot by the beach
+    (56, 5, 2, 2, 'l'),    # east of the Pokemon Center, below the pond, against the east wood
+    (47, 18, 4, 2, 'lr'),  # beside the park
+    (26, 16, 3, 3, 'lr'),  # neighbour's plot by the beach
 ]
 BATTLE_YARD = (43, 11, 4, 4)   # worn sand ring east of Gold's house
 PETALS = (38, 21, 12, 8)       # park lawn area (daisy patches)
-PARK_PROPS = dict(bench=[(40, 27), (45, 27)], lamp=[(37, 21), (45, 22)])
+PARK_PROPS = dict(bench=[(40, 27), (45, 27)], lamp=[(37, 21), (46, 22)])
 
 PIER = dict(x0=14, x1=22, y=26)          # deck cells x0..x1-1 on rows y, y+1
-BOATS = [(9, 22), (14, 29)]
+BOATS = [(8, 22), (14, 29)]              # 3x2 motorboats; the second faces east
 LOOKOUT = None
 SEA_ROCKS = [(2, 7), (9, 30), (20, 31), (6, 12), (11, 20)]      # 2x2 grey boulders in the bay
 ROCKS = [(23, 29), (21, 9)]              # brown boulders (2x3 sprites, lower two cells solid)
 SIGNS = [
-    ('TownSign', 34, 17), ('NorthSign', 34, 3), ('EastSign', 54, 11), ('GoldSign', 43, 10), ('WaterfrontSign', 29, 28),
+    ('TownSign', 34, 17), ('NorthSign', 30, 3), ('EastSign', 54, 11), ('GoldSign', 43, 10), ('WaterfrontSign', 29, 28),
     ('ParkSign', 38, 21),
 ]
-MAILBOXES = [(25, 13), (37, 14), (47, 13), (30, 25)]
-BUSHES = []
+MAILBOX_STYLES = ('house', 'house_l', 'house2', 'gable')   # homes get a letterbox against the front wall's left edge
 
 SPAWN = (49, 14)    # new game start: outside the player's front door

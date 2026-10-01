@@ -1,0 +1,41 @@
+{
+  "id": "MAP_NEW_BARK_TOWN",
+  "name": "NewBarkTown",
+  "layout": "LAYOUT_NEW_BARK_TOWN",
+  "music": "MUS_LITTLEROOT",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {"map": "MAP_CHERRYGROVE_ROUTE29_APPROACH", "offset": 0, "direction": "left"}
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_NEW_BARK_RESEARCHER", "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 21, "y": 15, "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN", "movement_range_x": 0, "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE", "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewBarkTown_Researcher", "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_NEW_BARK_TOWN_KESTRA", "graphics_id": "OBJ_EVENT_GFX_JOHTO_KESTRA",
+      "x": 32, "y": 16, "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT", "movement_range_x": 0, "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE", "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewBarkTown_Kestra", "flag": "FLAG_APOC_NEW_BARK_TOWN_KESTRA_HIDDEN"
+    }
+  ],
+  "warp_events": [
+    {"x": 27, "y": 11, "elevation": 0, "dest_map": "MAP_NEW_BARK_INSTITUTE", "dest_warp_id": "0"}
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "build_target": "emerald"
+}

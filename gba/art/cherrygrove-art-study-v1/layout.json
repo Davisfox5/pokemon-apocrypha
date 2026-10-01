@@ -1,0 +1,108 @@
+{
+  "name": "CherrygroveCity",
+  "width": 66,
+  "height": 42,
+  "spawn": [
+    40,
+    21
+  ],
+  "buildings": [
+    {
+      "name": "PlayerHouse",
+      "style": "house",
+      "x": 33,
+      "y": 13,
+      "pixel_dx": 0,
+      "pixel_dy": 8,
+      "door": [
+        34,
+        17
+      ],
+      "warp": 0
+    },
+    {
+      "name": "GoldHouse",
+      "style": "house",
+      "x": 40,
+      "y": 15,
+      "pixel_dx": 8,
+      "pixel_dy": 0,
+      "door": [
+        42,
+        19
+      ],
+      "warp": 1
+    },
+    {
+      "name": "NeighborHouse",
+      "style": "house",
+      "x": 47,
+      "y": 18,
+      "pixel_dx": 0,
+      "pixel_dy": 8,
+      "door": [
+        48,
+        22
+      ],
+      "warp": 2
+    },
+    {
+      "name": "HarborHouse",
+      "style": "house",
+      "x": 39,
+      "y": 22,
+      "pixel_dx": 0,
+      "pixel_dy": 0,
+      "door": [
+        40,
+        26
+      ],
+      "warp": 6
+    },
+    {
+      "name": "GardenHouse",
+      "style": "house",
+      "x": 48,
+      "y": 23,
+      "pixel_dx": 0,
+      "pixel_dy": 0,
+      "door": [
+        49,
+        27
+      ],
+      "warp": 7
+    },
+    {
+      "name": "Mart",
+      "style": "mart",
+      "x": 38,
+      "y": 9,
+      "pixel_dx": 8,
+      "pixel_dy": 0,
+      "door": [
+        40,
+        12
+      ],
+      "warp": 4
+    },
+    {
+      "name": "PokemonCenter",
+      "style": "center",
+      "x": 44,
+      "y": 9,
+      "pixel_dx": 0,
+      "pixel_dy": 0,
+      "door": [
+        46,
+        12
+      ],
+      "warp": 5
+    }
+  ],
+  "artwork_region": [
+    8,
+    6,
+    50,
+    30
+  ]
+}

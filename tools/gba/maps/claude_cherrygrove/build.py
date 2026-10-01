@@ -44,8 +44,8 @@ def build_assets():
     B['SEA'] = banks.Bank(1, 'SEA', 'primary'); B['SEA'].palette = Palette(1, SEA_PAL, [f'c{i}' for i in range(15)])
     B['CLIFF'] = banks.Bank(2, 'CLIFF', 'primary').add('cliff', hgss.cliff()).add('cliff_sand', hgss.cliff_sand())
     B['TREE'] = banks.Bank(3, 'TREE', 'primary').add('tree', hgss.tree())
-    B['FLOWERS'] = (banks.Bank(4, 'FLOWERS', 'primary').add('tulips', hgss.tulips()).add('daisies', hgss.daisies())
-                    .add('bush', hgss.bush()).add('fence_h', hgss.fence_h()).add('fence_v', hgss.fence_v()).add('fence_corner', hgss.fence_corner())
+    B['FLOWERS'] = (banks.Bank(4, 'FLOWERS', 'primary').add('tulips', hgss.tulips()).add('tulips_top', hgss.tulips_top()).add('daisies', hgss.daisies())
+                    .add('fence_h', hgss.fence_h()).add('fence_v', hgss.fence_v()).add('fence_corner', hgss.fence_corner())
                     .keep((232, 232, 240), (200, 200, 208), (152, 152, 168)))
     B['ROCKS'] = banks.Bank(5, 'ROCKS', 'primary').add('sea_rock', hgss.sea_rock()).add('rock', hgss.rock())
     B['CLIFF'].add('cliff_end', hgss.cliff_end())
@@ -55,8 +55,10 @@ def build_assets():
     B['CENTER'] = banks.Bank(8, 'CENTER', 'secondary').add('center', c).keep(*hgss.dominant(c, (12, 60, 20, 6), 1), *hgss.dominant(c, (40, 80, 16, 12), 1))
     m = hgss.mart()
     B['MART'] = banks.Bank(9, 'MART', 'secondary').add('mart', m).add('mart_sign', hgss.mart_sign()).keep(*hgss.dominant(m, (50, 48, 16, 12), 1))
-    B['WOOD'] = (banks.Bank(11, 'WOOD', 'secondary').add('pier', hgss.pier(L.PIER['x1'] - L.PIER['x0'])).add('boat', hgss.boat())
-                 .add('sign', hgss.signpost()).add('mailbox', hgss.mailbox()))
+    p = L.PIER
+    pier = hgss.pier(p['x1'] - p['x0'], rail_px=(L.shore(p['y'] - 1) - p['x0']) * 16, piles_px=(L.shore(p['y'] + 2) - p['x0']) * 16)
+    B['WOOD'] = banks.Bank(11, 'WOOD', 'secondary').add('pier', pier).add('sign', hgss.signpost())
+    B['PROPS'] = banks.Bank(12, 'PROPS', 'secondary').add('boat', hgss.boat()).add('mailbox', hgss.mailbox())
     for k, f in art.ASSETS.items():
         if k in ('bench', 'lamp'): B['WOOD'].add(k, f().to_rgba())
     assets = {}
@@ -127,85 +129,99 @@ def compose_town(assets):
                 claims[(xx, yy)] = owner
     def cell_solid(x, y, w=1, h=1):
         solid[max(y, 0):y + h, max(x, 0):x + w] = True
-    def obj(canvas, cx, cy, sort=None, flip=False, py=None):
-        h = canvas.h; ypx = cy * 16 if py is None else py
-        objects.append(((ypx + h - 1) if sort is None else sort, cx * 16, ypx, canvas, flip))
+    def obj(canvas, cx, cy, sort=None, flip=False, py=None, px=None):
+        h = canvas.h; ypx = cy * 16 if py is None else py; xpx = cx * 16 if px is None else px
+        objects.append(((ypx + h - 1) if sort is None else sort, xpx, ypx, canvas, flip))
 
-    # Sea, beach and cliff foot.
+    # Sea, beach, the pond in the north-east corner, and the ground under the cliff foot.
     for y in range(Ht):
         for x in range(Wd):
             if y >= L.SEA_TOP and x < L.shore(y): cells[y, x] = W; cell_solid(x, y)
             elif y >= L.SEA_TOP and x < L.sand_end(y): cells[y, x] = S
     for y in range(30, Ht):
         for x in range(0, 29): cells[y, x] = W; cell_solid(x, y)
-    for x in range(L.CLIFF_X[0], L.CLIFF_CORNER + 2):
-        cells[L.CLIFF_ROWS[1], x] = R if x < L.shore(L.SEA_TOP) else S
+    px0, py0, pw, ph = L.POND
+    cells[py0:py0 + ph, px0:px0 + pw] = W; cell_solid(px0, py0, pw, ph)
+    cy0, cy1 = L.CLIFF_ROWS
+    for x in range(L.CLIFF_X[0], L.CLIFF_CORNER + 4):
+        cells[cy1, x] = cells[cy1 + 1, x]     # the cliff sprite ends at the rock's edge; sea, sand or lawn shows beneath its foot
     # Paths.
     for (x, y, w, h) in L.LANES + [L.BATTLE_YARD]: cells[y:y + h, x:x + w] = P
     for y in range(Ht):
         for x in range(Wd):
             if cells[y, x] == S and not solid[y, x]: behavior[y, x] = MB_SAND
-    # Cliff band and its corner.
-    cy0, cy1 = L.CLIFF_ROWS
+    # Cliff band and its corner (the corner sprite starts 44 px above the crest row: the face runs off the top of the map).
     for x in range(L.CLIFF_X[0], L.CLIFF_X[1], 2):
-        obj(assets['cliff'] if x < L.shore(L.SEA_TOP) - 1 else assets['cliff_sand'], x, cy0, sort=cy1 * 16 + 15); cell_solid(x, cy0, 2, cy1 - cy0 + 1); claim(x, cy0, 2, 4, 'cliff')
-    corner = assets['cliff_end']; obj(corner, L.CLIFF_CORNER, cy0, sort=cy0 * 16 - 8 + corner.h - 1, py=cy0 * 16 - 8)
-    for yy in range(corner.h // 16 + 1):
+        obj(assets['cliff'] if cells[cy1 + 1, x] == W else assets['cliff_sand'], x, cy0, sort=cy1 * 16 + 15); cell_solid(x, cy0, 2, cy1 - cy0 + 1); claim(x, cy0, 2, 4, 'cliff')
+    corner = assets['cliff_end']; cpy = cy0 * 16 - 44
+    obj(corner, L.CLIFF_CORNER, cy0, sort=cy1 * 16 + 15, py=cpy)
+    for yy in range(0, corner.h + 15, 16):
         for xx in range(corner.w // 16):
-            y0 = cy0 * 16 - 8 + yy * 16; sub = corner.px[max(0, y0 - (cy0 * 16 - 8)):max(0, y0 - (cy0 * 16 - 8)) + 16, xx * 16:xx * 16 + 16]
-            cyy = (y0) // 16
+            y0 = cpy + yy; sub = corner.px[yy:yy + 16, xx * 16:xx * 16 + 16]; cyy = y0 // 16
             if sub.size and (sub != 0).sum() > 8 and 0 <= cyy < Ht: cell_solid(L.CLIFF_CORNER + xx, cyy); claim(L.CLIFF_CORNER + xx, cyy, 1, 1, 'cliff-corner')
-    # Forest bands: the HGSS lattice, one cell between rows, alternate rows offset one cell; crowns overhang the band
-    # by one cell on odd rows unless that would cover a path.
-    def tree_at(x, y, owner, kind='tree'):
-        if x + 1 >= Wd or x < -1 or y >= Ht: return
-        if (cells[max(y, 0):y + 3, max(x, 0):x + 2] == P).any(): return
-        obj(assets[kind], x, y); cell_solid(x, y, 2, 3); claim(x, y, 2, 3, owner)
+    # Trees: the HGSS lattice is straight columns two cells apart with a row every 24 px, each crown overlapping the
+    # one behind it. A tree's tip sits on its cell's top edge; its trunk and shadow reach 32 px below.
+    tx, ty = hgss.TREE_TIP
+    def tree_px(x, ypx, owner, kind='tree', soft=False):
+        if x >= Wd or x < -1 or ypx >= Ht * 16 or ypx + 32 <= 0: return
+        r0, r1 = max(ypx, 0) // 16, min((ypx + 31) // 16, Ht - 1)
+        if (cells[r0:r1 + 1, max(x, 0):x + 2] == P).any(): return
+        obj(assets[kind], x, 0, py=ypx - ty, px=x * 16 - tx); cell_solid(x, r0, min(2, Wd - x), r1 - r0 + 1); claim(x, r0, 2, r1 - r0 + 1, owner, soft=soft)
+    def tree_at(x, y, owner, kind='tree'): tree_px(x, y * 16, owner, kind)
     def forest(x0, y0, x1, y1):
-        for j, y in enumerate(range(y0, y1 + 1)):
-            for x in range(x0 - (j % 2), x1 + 1, 2):
-                if x + 1 > x1 + 1: continue
-                tree_at(x, y, 'forest')
+        bottom = (y1 + 1) * 16
+        for x in range(x0, x1, 2):
+            ypx = y0 * 16
+            while ypx + 24 <= bottom or (y1 + 1 >= Ht and ypx < bottom - 8):
+                tree_px(x, ypx, 'forest', soft=True); ypx += hgss.TREE_PITCH[1]
     for band in L.FOREST: forest(*band)
     for (x, y) in L.TREES: tree_at(x, y, f'tree{x},{y}')
     for (x, y) in L.BLOSSOMS: tree_at(x, y, f'blossom{x},{y}', 'blossom')
-    # Buildings.
+    # Buildings, each with its letterbox standing against the front wall's left edge (the models' walls sit a few px
+    # inside their footprint, so the box is shifted right by that margin).
     doors = {}
     for b in L.BUILDINGS:
         c = assets[b['style']]; w, h = L.SIZE[b['style']]
         obj(c, b['x'], b['y']); cell_solid(b['x'], b['y'], w, h); claim(b['x'], b['y'], w, h, b['name'])
         dx, dy = L.door_of(b); solid[dy, dx] = False; behavior[dy, dx] = MB_ANIMATED_DOOR; doors[b['name']] = (dx, dy)
         if b['style'] == 'mart':
+            # the sign stands just past the Mart's east wall, its board over the roof corner as in the render
             obj(assets['mart_sign'], b['x'] + 4, b['y'] + 1, sort=(b['y'] + 4) * 16 + 15); cell_solid(b['x'] + 4, b['y'] + 1, 2, 4); claim(b['x'] + 4, b['y'] + 1, 2, 4, 'mart-sign', soft=True)
-    # Tulip beds: pickets along the front, posts down both sides, open at the back (as in HGSS).
-    for gi, (x, y, w, h) in enumerate(L.GARDENS):
+        if b['style'] in L.MAILBOX_STYLES:
+            margin = int(np.nonzero((c.px[c.h - 16:c.h] != 0).any(0))[0].min())
+            mx, my = b['x'] - 1, b['y'] + h - 1
+            obj(assets['mailbox'], mx, my - 1, sort=my * 16 + 15, px=b['x'] * 16 + margin - 16); cell_solid(mx, my); mc.above[my - 1, mx] = True; claim(mx, my - 1, 1, 2, 'mailbox')
+    # Tulip beds: pickets along the front, posts down both sides, open at the back (as in HGSS); the back row's heads
+    # rise 2 px into the cell behind.
+    for gi, (x, y, w, h, sides) in enumerate(L.GARDENS):
         for yy in range(y, y + h):
-            for xx in range(x, x + w): obj(assets['tulips'], xx, yy, sort=yy * 16 + 15, py=yy * 16 - 8); cell_solid(xx, yy)
+            for xx in range(x, x + w): obj(assets['tulips'], xx, yy); cell_solid(xx, yy)
+        for xx in range(x, x + w): obj(assets['tulips_top'], xx, y - 1, sort=y * 16 - 1)
         claim(x, y, w, h, f'garden{gi}')
         for xx in range(x, x + w): obj(assets['fence_h'], xx, y + h); cell_solid(xx, y + h)
-        for yy in range(y, y + h):
-            obj(assets['fence_v'], x - 1, yy); obj(assets['fence_v'], x + w, yy, flip=True); cell_solid(x - 1, yy); cell_solid(x + w, yy)
-        obj(assets['fence_corner'], x - 1, y + h); obj(assets['fence_corner'], x + w, y + h, flip=True); cell_solid(x - 1, y + h); cell_solid(x + w, y + h)
-        claim(x - 1, y, w + 2, h + 1, f'garden{gi}')
+        for side, fx, flip in (('l', x - 1, False), ('r', x + w, True)):
+            if side not in sides: continue
+            for yy in range(y, y + h): obj(assets['fence_v'], fx, yy, flip=flip); cell_solid(fx, yy)
+            obj(assets['fence_corner'], fx, y + h, flip=flip); cell_solid(fx, y + h); claim(fx, y, 1, h + 1, f'garden{gi}')
+        claim(x, y, w, h + 1, f'garden{gi}')
     for (x, y) in L.PARK_PROPS['bench']: obj(assets['bench'], x, y); cell_solid(x, y); claim(x, y, 1, 1, 'bench')
     for (x, y) in L.PARK_PROPS['lamp']: obj(assets['lamp'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True; claim(x, y - 1, 1, 2, 'lamp')
-    for (x, y) in L.MAILBOXES: obj(assets['mailbox'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); mc.above[y - 1, x] = True; claim(x, y - 1, 1, 2, 'mailbox')
     for (name, x, y) in L.SIGNS:
         obj(assets['sign'], x, y - 1, sort=y * 16 + 15); cell_solid(x, y); behavior[y, x] = MB_SIGNPOST; mc.above[y - 1, x] = True; claim(x, y - 1, 2, 2, name, soft=True)
-    # Waterfront: the plank pier and two boats.
+    # Waterfront: the boardwalk pier (rail over the sea cell behind it, piles in the sea cell in front) and two motorboats.
     p = L.PIER
-    obj(assets['pier'], p['x0'], p['y'])
+    obj(assets['pier'], p['x0'], p['y'] - 1, sort=(p['y'] + 1) * 16 + 15, py=p['y'] * 16 - 8)
     for x in range(p['x0'], p['x1']):
         for yy in (p['y'], p['y'] + 1): solid[yy, x] = False; behavior[yy, x] = 0
     claim(p['x0'], p['y'], p['x1'] - p['x0'], 2, 'pier')
-    for (x, y) in L.BOATS: obj(assets['boat'], x, y); cell_solid(x, y, 2, 1); claim(x, y, 2, 1, 'boat')
+    for i, (x, y) in enumerate(L.BOATS): obj(assets['boat'], x, y, flip=bool(i % 2)); cell_solid(x, y, 3, 2); claim(x, y, 3, 2, 'boat')
     for (x, y) in L.SEA_ROCKS: obj(assets['sea_rock'], x, y); cell_solid(x, y, 2, 2); claim(x, y, 2, 2, 'sea-rock')
     for (x, y) in L.ROCKS: obj(assets['rock'], x, y); cell_solid(x, y + 1, 2, 2); claim(x, y, 2, 3, 'rock')
-    # Daisy patches on the park lawn and open grass.
+    # Daisy patches (3x2 cells) on the park lawn and open grass.
     px0, py0, pw, ph = L.PETALS
-    for y in range(py0, py0 + ph):
-        for x in range(px0, px0 + pw - 1):
-            if (x * 7 + y * 3) % 7 == 0 and cells[y, x] == G and not solid[y, x:x + 2].any() and not solid[max(y - 1, 0), x:x + 2].any() and (x, y) not in claims and (x + 1, y) not in claims:
+    for y in range(py0, py0 + ph - 1):
+        for x in range(px0, px0 + pw - 2):
+            if (x * 7 + y * 3) % 11 == 0 and (cells[y:y + 2, x:x + 3] == G).all() and not solid[y:y + 2, x:x + 3].any() and not any((xx, yy) in claims for xx in range(x, x + 3) for yy in range(y, y + 2)):
                 obj(assets['daisies'], x, y, sort=-1)
     for _, px, py, c, flip in sorted(objects, key=lambda o: (o[0], o[1])): mc.blit(c, px, py, flip)
     for w in sorted(set(warnings)): print('WARNING:', w)
@@ -216,11 +232,12 @@ def compose_stub(assets, Wd, Ht, path_rect, side):
     cells = np.full((Ht, Wd), G, dtype=np.int8); solid = np.zeros((Ht, Wd), dtype=bool); behavior = np.zeros((Ht, Wd), dtype=np.uint8)
     mc = MapCanvas(Wd, Ht); objects = []
     x, y, w, h = path_rect; cells[y:y + h, x:x + w] = P
-    lane = cells == P
-    for j, yy in enumerate(range(-3, Ht)):
-        for xx in range(-2 + (j % 2), Wd, 2):
-            if lane[max(yy, 0):yy + 3, max(xx, 0):xx + 2].any(): continue
-            objects.append((yy * 16 + 47, xx * 16, yy * 16, assets['tree'], False))
+    lane = cells == P; tx, ty = hgss.TREE_TIP
+    for xx in range(0, Wd, 2):
+        for ypx in range(-24, Ht * 16, hgss.TREE_PITCH[1]):
+            r0, r1 = max(ypx, 0) // 16, min((ypx + 31) // 16, Ht - 1)
+            if lane[r0:r1 + 1, xx:xx + 2].any(): continue
+            objects.append((ypx + 31, xx * 16 - tx, ypx - ty, assets['tree'], False))
     solid[:] = ~lane
     for _, px, py, c, flip in sorted(objects, key=lambda o: (o[0], o[1])): mc.blit(c, px, py, flip)
     return dict(cells=cells, solid=solid, behavior=behavior, canvas=mc, W=Wd, H=Ht)
@@ -236,7 +253,7 @@ class Packer:
         self.blocks = {'primary': [], 'secondary': []}
         self.attrs = {'primary': [], 'secondary': []}
         self.block_lookup = {}
-        self.conflicts = 0; self.conflict_cells = []; self.first_pos = {}
+        self.conflicts = 0; self.conflict_cells = []; self.first_pos = {}; self.soft = False
         self.tiles['primary'].append((0, np.zeros((8, 8), np.uint8)))   # tile 0 must stay blank: it is what an empty layer entry draws
     def pool_of(self, bank):
         return 'primary' if bank < 6 else 'secondary'
@@ -249,7 +266,7 @@ class Packer:
                 if key in self.lookup: return self.lookup[key] | (hf << 10) | (vf << 11)
         pool = self.pool_of(bank); base = 0 if pool == 'primary' else 512
         tid = base + len(self.tiles[pool])
-        if len(self.tiles[pool]) >= 512:
+        if len(self.tiles[pool]) >= 512 and not self.soft:
             counts = Counter(b for b, _ in self.tiles[pool])
             raise SystemExit(f'{pool} tile budget exhausted; tiles per bank: {dict(counts)}')
         self.tiles[pool].append((bank, arr.copy())); self.lookup[(bank, arr.tobytes())] = tid
@@ -265,14 +282,15 @@ class Packer:
             if (bank < 0).any(): opaque = False
             bks = [int(b) for b in np.unique(bank) if b >= 0]
             if len(bks) > 1:
-                counts = {b: int((bank == b).sum()) for b in bks}; major = max(counts, key=counts.get); self.conflicts += 1
-                self.conflict_cells.append((cx, cy, tuple(bks)))
+                counts = {b: int((bank == b).sum()) for b in bks}; major = max(counts, key=counts.get); lossy = False
                 pal = np.array(self.palettes[major].gba()[1:])
                 for b in bks:
                     if b == major: continue
                     src = np.array(self.palettes[b].gba()[1:])
                     for yy, xx in zip(*np.nonzero(bank == b)):
-                        rgb = src[idx[yy, xx] - 1]; idx[yy, xx] = int(((pal - rgb) ** 2).sum(axis=1).argmin()) + 1
+                        rgb = src[idx[yy, xx] - 1]; j = int(((pal - rgb) ** 2).sum(axis=1).argmin()); idx[yy, xx] = j + 1
+                        if (pal[j] != rgb).any(): lossy = True
+                if lossy: self.conflicts += 1; self.conflict_cells.append((cx, cy, tuple(bks)))   # a bank swap that keeps every colour is not a conflict
                 bank = np.where(bank >= 0, major, -1)
             arr = np.where(bank >= 0, idx, 0).astype(np.uint8)
             b = bks[0] if len(bks) == 1 else major
@@ -293,13 +311,14 @@ def grid_for(comp, packer, palettes):
     grid = []
     for y in range(Ht):
         for x in range(Wd):
-            base, _ = packer.slice(gbank, gidx, x, y, ground_tag=comp.get('tag', 'stub'))
             entries, opaque = packer.slice(mc.bank, mc.idx, x, y)
             beh = int(comp['behavior'][y, x])
+            if opaque and not mc.above[y, x]:
+                mid = packer.metatile(entries + [0, 0, 0, 0], beh | COVERED)     # the ground beneath is never seen: no tiles for it
+                grid.append(mid | (0x3 << 12) | (0xC00 if comp['solid'][y, x] else 0)); continue
+            base, _ = packer.slice(gbank, gidx, x, y, ground_tag=comp.get('tag', 'stub'))
             if all(e == 0 for e in entries):
                 mid = packer.metatile(base + [0, 0, 0, 0], beh)
-            elif opaque and not mc.above[y, x]:
-                mid = packer.metatile(entries + [0, 0, 0, 0], beh | COVERED)
             elif mc.above[y, x]:
                 mid = packer.metatile(base + entries, beh | NORMAL)
             else:

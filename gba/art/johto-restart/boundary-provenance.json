@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "bench-north",
+      "native_size": [
+        32,
+        16
+      ],
+      "prompt": "Turn this same small wooden park bench around so it faces NORTH, toward the top of the map. We see its back from the south, in Pokemon Johto GBA overhead RPG perspective. Preserve warm brown wood slats and dark legs, horizontal axis, native 32x16-pixel sprite footprint, restrained pixel clusters and limited colors. Transparent background. A single entire bench, no ground, no shadows outside it, no other objects. This is a north-facing rear view of the bench, not an upside-down image.",
+      "source": "generated/bench-north.png",
+      "native": "native/bench-north.png",
+      "source_sha256": "c4899276778a7a48f3b7666e375a4dcf6cc5267292020383310a440642acd8d0"
+    }
+  ]
+}

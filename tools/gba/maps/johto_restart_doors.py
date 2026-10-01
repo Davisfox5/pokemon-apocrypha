@@ -38,4 +38,4 @@ for b in spec['buildings']:
  report.append(dict(name=name,metatile=mid,frames=3,tile_bytes=len(tiledata),palette_bytes=20))
 marker='static const struct DoorGraphics sDoorAnimGraphicsTable[] =\n{';assert marker in source
 source=source.replace(marker,'// Fresh custom Johto facade animations.\n'+'\n'.join(declarations)+'\n'+marker+'\n'+'\n'.join(table));(G/'src/field_door.c').write_text(source)
-(A/'evidence/doors.json').write_text(json.dumps(report,indent=2)+'\n');print('Five native animated doors compiled.')
+(A/'evidence/doors.json').write_text(json.dumps(report,indent=2)+'\n');print(f'{len(report)} native animated doors compiled.')

@@ -32,11 +32,8 @@ WAVE = [0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 0, 0, 0, 0, -1, -1, -1, -2, -2, -
 
 def textures():
     """Base textures per material, as RGB arrays sampled by absolute pixel position."""
-    grass = np.zeros((32, 32, 3), np.uint8); grass[...] = hgss.GRASS
-    for (x, y) in ((3, 2), (19, 6), (11, 13), (27, 17), (6, 24), (22, 28), (14, 21), (30, 9)): grass[y, x] = hgss.GRASS_SPECK
-    path = np.zeros((32, 32, 3), np.uint8); path[...] = hgss.PATH
-    for (x, y, c) in ((2, 3, hgss.PATH_SPECK), (9, 1, hgss.PATH_SPECK2), (13, 8, hgss.PATH_SPECK), (5, 12, hgss.PATH_SPECK2), (11, 14, hgss.PATH_SPECK),
-                      (20, 19, hgss.PATH_SPECK), (27, 24, hgss.PATH_SPECK2), (17, 29, hgss.PATH_SPECK), (24, 6, hgss.PATH_SPECK2), (30, 15, hgss.PATH_SPECK)): path[y, x] = c
+    grass = hgss.grass_texture()[..., :3].copy()   # the render's own lawn: speckle clusters every couple of cells
+    path = hgss.path_texture()[..., :3].copy()     # and its sand path, which repeats every 32 px
     sand = hgss.px(392, 148, 32, 32)[..., :3]
     sea = hgss.sea()[..., :3]
     rock = np.zeros((32, 32, 3), np.uint8); rock[...] = (152, 104, 88)

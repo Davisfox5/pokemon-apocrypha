@@ -1,0 +1,19 @@
+{
+  "revision": "Original-game owner reference",
+  "source": "tools/vendor/gba/johto-restart-game",
+  "rom": "tools/vendor/gba/Sandgem-reference-20260922/Sandgem.gba",
+  "rom_sha256": "1f9339e70d0f5a9b64ee5133b66473ddb5dec458994192f0d1a05bc2419ad8cd",
+  "save_sha256": "326f2d00af58f7a57edce2457760820cb66b83adf0173f03930a3ac4c28ecd2c",
+  "start": [
+    29,
+    29
+  ],
+  "all_five_doors": true,
+  "round_trip_cherrygrove": true,
+  "cold_reload_continue": true,
+  "collision_probes": 55,
+  "collision_failures": 0,
+  "editor_open": true,
+  "emulator_launched": true,
+  "walking_residents_verified": 6
+}

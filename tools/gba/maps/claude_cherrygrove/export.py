@@ -19,7 +19,7 @@ sys.path.insert(0, str(HERE.parent))
 from claude_cherrygrove import layout as L, build, ground  # noqa: E402
 
 OUT = HERE.parents[3] / 'gba/art/claude-cherrygrove/source'
-BANK_NAMES = {0: 'ground', 1: 'sea', 2: 'cliff', 3: 'tree', 4: 'flowers', 5: 'rocks', 6: 'house', 7: 'house-teal', 8: 'center', 9: 'mart', 10: 'blossom', 11: 'wood'}
+BANK_NAMES = {0: 'ground', 1: 'sea', 2: 'cliff', 3: 'tree', 4: 'flowers', 5: 'rocks', 6: 'house', 7: 'house-teal', 8: 'center', 9: 'mart', 10: 'blossom', 11: 'wood', 12: 'props'}
 
 def main():
     if OUT.exists(): shutil.rmtree(OUT)

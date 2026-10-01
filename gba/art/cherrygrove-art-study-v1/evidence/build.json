@@ -1,0 +1,136 @@
+{
+  "rom_sha256": "905941c51635a1d564365c9342a323ff58300e8642212f2be569868cc444563e",
+  "rom_bytes": 33554432,
+  "source": "/Users/davisfox/Documents/GitHub/the-omni-hack/tools/vendor/gba/cherrygrove-art-study-work",
+  "compiled": true,
+  "native_movement_probes_passed": 224,
+  "building_round_trips_passed": 7,
+  "route_round_trips_passed": 2,
+  "island_access": true,
+  "walking_npcs": 12,
+  "npc_positions": {
+    "1027": [
+      [
+        39,
+        20
+      ],
+      [
+        40,
+        20
+      ]
+    ],
+    "1026": [
+      [
+        39,
+        14
+      ],
+      [
+        40,
+        14
+      ]
+    ],
+    "1029": [
+      [
+        37,
+        21
+      ],
+      [
+        38,
+        21
+      ]
+    ],
+    "1030": [
+      [
+        46,
+        23
+      ],
+      [
+        47,
+        23
+      ]
+    ],
+    "1031": [
+      [
+        34,
+        20
+      ],
+      [
+        35,
+        20
+      ]
+    ],
+    "1032": [
+      [
+        44,
+        17
+      ],
+      [
+        45,
+        17
+      ]
+    ],
+    "1033": [
+      [
+        49,
+        17
+      ],
+      [
+        50,
+        17
+      ]
+    ],
+    "1034": [
+      [
+        37,
+        13
+      ],
+      [
+        38,
+        13
+      ]
+    ],
+    "1035": [
+      [
+        33,
+        23
+      ],
+      [
+        34,
+        23
+      ]
+    ],
+    "1024": [
+      [
+        41,
+        27
+      ],
+      [
+        42,
+        27
+      ]
+    ],
+    "1025": [
+      [
+        47,
+        29
+      ],
+      [
+        48,
+        29
+      ]
+    ],
+    "1036": [
+      [
+        44,
+        28
+      ],
+      [
+        45,
+        28
+      ]
+    ]
+  },
+  "save_cold_reload_continue": true,
+  "desktop_emulator_opened": false,
+  "headless_mgba_used": true
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "region": 1,
+    "file": "Kanto_Pallet_Town_Map.png",
+    "source": "https://archives.bulbagarden.net/media/upload/6/6a/Kanto_Pallet_Town_Map.png",
+    "sha256": "534bec342a0c07b3255ff8e65547ff734c4859563fcf408208aed24ff89cee62",
+    "location": [
+      92,
+      89
+    ],
+    "adaptation": "second animation frame, aspect preserved, 16-color native atlas"
+  },
+  {
+    "region": 2,
+    "file": "Johto_Cherrygrove_City_Map.png",
+    "source": "https://archives.bulbagarden.net/media/upload/2/23/Johto_Cherrygrove_City_Map.png",
+    "sha256": "a1bce62c653a528bce56075dd9073f97377c2ed205d4049ab5364eee2ed3f8b9",
+    "location": [
+      124,
+      96
+    ],
+    "adaptation": "second animation frame, aspect preserved, 16-color native atlas"
+  },
+  {
+    "region": 3,
+    "file": "Hoenn_Littleroot_Town_Map.png",
+    "source": "https://archives.bulbagarden.net/media/upload/4/42/Hoenn_Littleroot_Town_Map.png",
+    "sha256": "f0da4beb162337844b1b980406225867f7a2e280dd1aeb7a8c12c7c553d3d170",
+    "location": [
+      35,
+      87
+    ],
+    "adaptation": "second animation frame, aspect preserved, 16-color native atlas"
+  },
+  {
+    "region": 4,
+    "file": "Sinnoh_Sandgem_Town_Map.png",
+    "source": "https://archives.bulbagarden.net/media/upload/5/56/Sinnoh_Sandgem_Town_Map.png",
+    "sha256": "b6250c03fef59205c5afd23d1e675e362584ccacffb225c4303bd690fac04cf7",
+    "location": [
+      51,
+      112
+    ],
+    "adaptation": "second animation frame, aspect preserved, 16-color native atlas"
+  },
+  {
+    "region": 5,
+    "file": "Unova_Floccesy_Town_Map.png",
+    "source": "https://archives.bulbagarden.net/media/upload/3/3d/Unova_Floccesy_Town_Map.png",
+    "sha256": "f90d1e9d52d0ce374068cd615484525ae3114e8eac0ea8121a599ad14acee5fd",
+    "location": [
+      31,
+      97
+    ],
+    "adaptation": "second animation frame, aspect preserved, 16-color native atlas"
+  }
+]
