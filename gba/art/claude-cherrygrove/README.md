@@ -29,7 +29,8 @@ Mart sign, Gold's sprite rebuilt from the HGSS hero, and an animated sea.
   [door animations](evidence/doors-in-game.png), [title screen, Continue, cold reload and Mart](evidence/save-continue.png).
 - [Whole exterior](town-overview.png), rendered from the packed engine tiles
   (no residents), the [painted ground layer](evidence/ground-layer.png), plus
-  the [Route 30](route30-stub.png) and [Route 29](route29-stub.png) stubs.
+  the [Route 30](route30-stub.png) and [Route 29](route29-stub.png) stubs (superseded by the full routes in
+  [claude-routes](../claude-routes/README.md)).
 - Side by side with the source: [HGSS Cherrygrove render](../johto-v1/references/cherrygrove-hgss.png).
 
 ## Art: HGSS in 2D

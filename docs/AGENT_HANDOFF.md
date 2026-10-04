@@ -1,3 +1,15 @@
+## October 4 Route 29 and Route 30 (Claude build): isolated, qualified
+
+Owner asked Claude for the routes north and east of Cherrygrove. Read `gba/art/claude-routes/README.md`.
+Both routes follow the HGSS renders, extend Claude's Cherrygrove (`gba/art/claude-cherrygrove/`) and replace
+its stubs; workbench `tools/vendor/gba/claude-routes`, package `tools/vendor/gba/Routes-claude-preview.zip`.
+Connections to the town are seam-safe on both sides (`tools/gba/maps/claude_routes/seams.py`); the shared
+primary is at 511 of 512 tiles. New state: one hidden-item flag aliased on `FLAG_UNUSED_0x264` (no overlap
+with the Chapter 1 overlay's 0x020-0x02F). Engine: random wild battles skip an empty party. Not built: the
+gate and house interiors, Route 30 trainers, New Bark and Route 31 maps. `gba/claude-cherrygrove.patch` was
+refreshed from the current town generator; the old copy predated its last revision. Not merged into Codex's
+campaign workbench.
+
 ## September 30 Cherrygrove native detail test — isolated
 
 Owner rejected the whole-town artwork study visually, then asked to try one small section before abandoning the approach. Read `gba/art/cherrygrove-detail-sample-v1/README.md`: closer reference house/tree/grass/path conversion, native palette clustering, actual engine captures and focused walking/house-blocking proof. Source `tools/vendor/gba/cherrygrove-detail-sample-work`; package `tools/vendor/gba/Cherrygrove-detail-sample-20260930.zip`. **769 patterns for this section alone: visual test, not a scalable full-town tileset.** Await visual feedback, then modularize assets if accepted. Neither prior full map was replaced. The first whole-town art study below is owner-rejected visually despite functional checks.

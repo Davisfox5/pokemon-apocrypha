@@ -1,0 +1,17 @@
+{
+  "workbench_base_commit": "3144e50b5992d1f2f9d9942f3ded99db467fc3b5",
+  "rom_sha256": "86465ab763bcbef0882e88f536f3862173dbb39123f9c55731fb1461ce8e252a",
+  "save_sha256": "55f1a6919880752e92a785de5e36e53a10262b76116d31d1e6c24d207d231236",
+  "town_patch_sha256": "05405a2bdf166f96946dbb4a01c34d5c3ab7b1c1a9e7bfce6082bfdd604aa705",
+  "town_patch_stat": " 69 files changed, 1723 insertions(+), 1300 deletions(-)",
+  "routes_patch_sha256": "21878f2fffdefea5c23bf59d201909925f445b97733a00e892291873b3d2aa05",
+  "routes_patch_stat": " 59 files changed, 958 insertions(+), 24 deletions(-)",
+  "package": "tools/vendor/gba/Routes-claude-preview.zip",
+  "package_sha256": "161ffb6d489c90f998bcb42b552764b8d448f313950dac709d685d546689602b",
+  "rom_bytes": 33554432,
+  "toolchain": "Linux-x86_64 ARM GNU 14.2.rel1",
+  "references": {
+    "route29-hgss.png": "e9562b1e1a1aba6edb1cd024f46b44fd1c44aef78a92e48307c9eae5a39885fb",
+    "route30-hgss.png": "af12f1338f8a2a2c33bef7b6c0c3ef27e67715ef79b3e091aae3bbaac096ab1d"
+  }
+}
