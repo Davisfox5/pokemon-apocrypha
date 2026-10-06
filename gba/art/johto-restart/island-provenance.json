@@ -1,0 +1,38 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "cargo-north",
+      "native_size": [
+        48,
+        112
+      ],
+      "prompt": "Reorient this exact commercial boat for a Pokemon Johto overhead RPG map: rotate its direction 90 degrees clockwise so its bow now points NORTH (top of image) and stern SOUTH. Redraw the vessel from overhead with coherent RPG perspective rather than turning the visible cabin walls sideways. Preserve its cream cabin, dark hull, working cargo deck, mast and crates. Long vertical silhouette, about 48 pixels wide by 112 pixels long at native size, crisp tiny pixel-art clusters and limited palette. Transparent background, no water, no shadow rectangle, no pier or extra objects. Entire boat visible.",
+      "source": "generated/cargo-north.png",
+      "native": "native/cargo-north.png",
+      "source_sha256": "ed8aa409fc7eeec23c454feb87e585e5ca1fbb5199f255b4cb6ce8513e460c2d"
+    },
+    {
+      "name": "fishing-north",
+      "native_size": [
+        32,
+        64
+      ],
+      "prompt": "Reorient this same small fishing launch for a Pokemon Johto overhead RPG map: turn its heading 90 degrees clockwise, bow now NORTH at the top, stern SOUTH. Redraw from overhead so cabin perspective remains coherent, do not just tilt the cabin walls sideways. Preserve reddish wooden gunwales, cream cabin, fishing nets, dark windows. Long vertical silhouette about 24 pixels wide by 56 pixels long at native size. Crisp tiny pixel-art clusters, limited palette. Transparent background, entire single boat visible, no water, no pier, no shadow rectangle, no other objects.",
+      "source": "generated/fishing-north.png",
+      "native": "native/fishing-north.png",
+      "source_sha256": "88e8370a730c3fd22030891397943d8ffc5deb540d29215800d92bc219401aa4"
+    },
+    {
+      "name": "park-bench",
+      "native_size": [
+        32,
+        16
+      ],
+      "prompt": "Single small wooden park bench as a Pokemon Johto GBA overworld sprite. Warm brown slatted back and seat, two dark sturdy legs. Straight horizontal, bench faces south toward camera in classic orthographic top-down 3/4 RPG projection, no isometric angle. Native size 32x16 pixels, crisp pixel clusters and limited 8-color warm palette, simple readable shape. Entire single bench isolated, transparent background, no scenery, no ground, no shadow rectangle, no text, no people.",
+      "source": "generated/park-bench.png",
+      "native": "native/park-bench.png",
+      "source_sha256": "d87f7704cf17f40619f6507601afdbd0f1b388fe5c33dc90e83fde13fa802cb9"
+    }
+  ]
+}

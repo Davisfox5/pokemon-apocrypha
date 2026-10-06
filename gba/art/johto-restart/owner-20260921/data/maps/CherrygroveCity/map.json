@@ -1,0 +1,254 @@
+{
+  "id": "MAP_CHERRYGROVE_CITY",
+  "name": "CherrygroveCity",
+  "layout": "LAYOUT_CHERRYGROVE_CITY",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_WATERFRONT",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_WOMAN",
+      "x": 29,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_Waterfront",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMMUTER",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_MAN",
+      "x": 36,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_Commuter",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_JOHTO_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_BOY",
+      "x": 42,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_JohtoBoy",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_JOHTO_GIRL",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_GIRL",
+      "x": 58,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_JohtoGirl",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_CAST_GOLD",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_GOLD",
+      "x": 40,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CastGold",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_CAST_SILVER",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_SILVER",
+      "x": 49,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CastSilver",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_CAST_KESTRA",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_KESTRA",
+      "x": 37,
+      "y": 22,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CastKestra",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMPARE_HOENN",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_HOENN",
+      "x": 48,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CompareHoenn",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMPARE_KANTO",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_KANTO",
+      "x": 58,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CompareKanto",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMPARE_JOHTO",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_JOHTO",
+      "x": 39,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CompareJohto",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMPARE_SINNOH",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_SINNOH",
+      "x": 30,
+      "y": 22,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CompareSinnoh",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_COMPARE_UNOVA",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
+      "x": 54,
+      "y": 29,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveCity_CompareUnova",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 35,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_PLAYER_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 46,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_GOLD_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 56,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_NEIGHBOR_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_TRANSPLANT_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 43,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 53,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygroveCity_TownSign"
+    }
+  ],
+  "build_target": "emerald",
+  "region": "REGION_JOHTO"
+}

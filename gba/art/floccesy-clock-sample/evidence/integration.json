@@ -1,0 +1,20 @@
+{
+  "new_patterns": 148,
+  "lossless_lower_layer_reuses": 639,
+  "reclaimed_slots": 196,
+  "tile_capacity": 1008,
+  "metatiles": 755,
+  "changed_cells": 1892,
+  "lossless_compilation": true,
+  "outside_sample_pixel_identical_to_palette_corrected_baseline": true,
+  "supported_palette_correction": true,
+  "all_collision_elevation_behavior_layer_properties_identical": true,
+  "locked_files": [
+    "data/maps/FloccesyTown/map.json",
+    "data/maps/FloccesyTown/scripts.inc",
+    "data/layouts/FloccesyTown/border.bin",
+    "src/field_door.c"
+  ],
+  "referenced_tile_patterns": 960,
+  "unreferenced_pattern_slots": 48
+}

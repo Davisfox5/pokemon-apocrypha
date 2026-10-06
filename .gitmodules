@@ -3,7 +3,7 @@
 	url = https://github.com/pret/pokefirered.git
 [submodule "disasm/pokeheartgold"]
 	path = disasm/pokeheartgold
-	url = https://github.com/pret/pokeheartgold.git
+	url = https://github.com/Davisfox5/pokeheartgold.git
 [submodule "disasm/pokeemerald"]
 	path = disasm/pokeemerald
 	url = https://github.com/pret/pokeemerald.git
@@ -12,4 +12,4 @@
 	url = https://github.com/pret/pokeplatinum.git
 [submodule "game"]
 	path = game
-	url = https://github.com/rh-hideout/pokeemerald-expansion.git
+	url = https://github.com/Davisfox5/pokeemerald-expansion.git

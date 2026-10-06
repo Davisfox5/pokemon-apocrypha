@@ -194,6 +194,12 @@ transformations. This supersedes the earlier interpretation preserved in history
   explicitly instead of inheriting every modern expansion default.
 - Preserve regional art direction and established narrative. Unresolved story
   identities, late chapter sequencing, and dialogue remain owner-directed.
+- **Owner clarification, 2026-09-27:** Visual standards must allow town-specific
+  architecture, palettes, materials, scenery and atmosphere. Unova in particular,
+  and potentially Diamond/Pearl-era Sinnoh, must not be forced into a single
+  regional aesthetic. Standardize technical compatibility, character scale,
+  interaction readability and production checks; reuse visual assets where they
+  fit the location. Preserve distinctive local identity while adapting to GBA.
 
 ## Baseline pin and verification
 

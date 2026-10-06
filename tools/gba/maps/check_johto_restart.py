@@ -13,12 +13,32 @@ while q:
   if 0<=xx<W and 0<=yy<H and not blocked(xx,yy) and (xx,yy) not in seen:seen.add((xx,yy));q.append((xx,yy))
 for b in spec['buildings']:x,y=b['door'];assert (x,y+1) in seen,b
 for x in range(35,38):assert (x,0) in seen
-for y in range(17,20):assert (63,y) in seen
+for y in range(17,20):assert (W-1,y) in seen
 residents=json.loads((A/'residents.json').read_text())
 for r in residents:
  for pos in r['positions']:assert tuple(pos) in seen,(r,pos)
 assert blocked(34,32)
-(A/'evidence/structure.json').write_text(json.dumps(dict(reachable_cells=len(seen),five_door_approaches_reachable=True,both_route_exits_reachable=True,twelve_resident_routes_reachable=True,legacy_warp3_reserved_in_blocked_forest=True),indent=2)+'\n')
+# The owner's reported passage between the south cliff and forest stays closed.
+for y in range(28,H):assert blocked(31,y),('south-cliff-gap',31,y)
+if spec.get('port'):
+ assert all((x,H-1) not in seen for x in range(W)), 'Southern boundary is reachable'
+ for pos in [(18,21),(25,21),(44,32),(57,32)]:assert pos in seen,('port/neighborhood',pos)
+(A/'evidence/structure.json').write_text(json.dumps(dict(reachable_cells=len(seen),door_approaches_reachable=len(spec["buildings"]),both_route_exits_reachable=True,twelve_resident_routes_reachable=True,legacy_warp3_reserved_in_blocked_forest=True),indent=2)+'\n')
+# Island and bench remain connected, with no exit through the pond's tree belt.
+if spec['height']==42:
+ for pos in [(x,y) for x in range(15,19) for y in [23,24]]+[(58,10),(59,10)]:assert pos in seen,('island/bench',pos)
+ for x in range(56,64):assert blocked(x,0),('pond north exit',x)
+ from tiles import Tileset
+ ts=Tileset(G,'cherrygrove','cherrygrove');layer_report={}
+ for name in ['CherrygroveCity','CherrygroveRoute29Approach','CherrygroveRoute30Approach']:
+  data=(G/f'data/layouts/{name}/map.bin').read_bytes();values=struct.unpack('<'+'H'*(len(data)//2),data)
+  mids=set(v&1023 for v in values)
+  for mid in mids:
+   at=ts.attrs[mid>=512][mid%512];ent=ts.blocks[mid>=512][mid%512]
+   if at>>12!=1:
+    for e in ent[4:]:assert not any(ts.tiles[(e&1023)>=512][(e&1023)%512]),('opaque foreground',name,mid)
+  layer_report[name]=dict(used_metatiles=len(mids),no_opaque_tiles_above_characters=True)
+ (A/'evidence/tree-layer-audit.json').write_text(json.dumps(layer_report,indent=2)+'\n')
 if '--structure-only' in sys.argv:print('Structure passed.');sys.exit()
 if '--reuse' not in sys.argv:
  lines=subprocess.check_output([str(T/'bin/arm-none-eabi-nm'),str(G/'pokeemerald.elf')],text=True);wanted={'MapProof_Boot','MapProof_Enter','gObjectEvents','gSprites','ArePlayerFieldControlsLocked'};symbols={r[2]:r[0] for l in lines.splitlines() if len(r:=l.split())==3 and r[2] in wanted};assert symbols.keys()==wanted

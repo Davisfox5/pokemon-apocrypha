@@ -7,18 +7,18 @@
   "no_horizontal_mirroring": true,
   "distinct_palettes": true,
   "collision_clear": true,
-  "one_sample_turn_upload_lag": 1305,
+  "one_sample_turn_upload_lag": 945,
   "residents": [
     {
       "name": "WATERFRONT",
       "graphics": 1027,
       "positions": [
         [
-          29,
+          37,
           19
         ],
         [
-          29,
+          37,
           20
         ]
       ],
@@ -32,11 +32,11 @@
       "graphics": 1026,
       "positions": [
         [
-          35,
+          43,
           8
         ],
         [
-          36,
+          44,
           8
         ]
       ],
@@ -50,11 +50,11 @@
       "graphics": 1024,
       "positions": [
         [
-          41,
+          49,
           24
         ],
         [
-          42,
+          50,
           24
         ]
       ],
@@ -68,11 +68,11 @@
       "graphics": 1025,
       "positions": [
         [
-          57,
+          60,
           20
         ],
         [
-          58,
+          61,
           20
         ]
       ],
@@ -86,19 +86,19 @@
       "graphics": 1029,
       "positions": [
         [
-          40,
+          48,
           17
         ],
         [
-          40,
+          48,
           18
         ],
         [
-          41,
+          49,
           17
         ],
         [
-          41,
+          49,
           18
         ]
       ],
@@ -114,19 +114,19 @@
       "graphics": 1030,
       "positions": [
         [
-          49,
+          57,
           23
         ],
         [
-          49,
+          57,
           24
         ],
         [
-          50,
+          58,
           23
         ],
         [
-          50,
+          58,
           24
         ]
       ],
@@ -142,15 +142,15 @@
       "graphics": 1031,
       "positions": [
         [
-          35,
+          43,
           22
         ],
         [
-          36,
+          44,
           22
         ],
         [
-          37,
+          45,
           22
         ]
       ],
@@ -164,11 +164,11 @@
       "graphics": 1032,
       "positions": [
         [
-          47,
+          55,
           12
         ],
         [
-          48,
+          56,
           12
         ]
       ],
@@ -182,19 +182,19 @@
       "graphics": 1033,
       "positions": [
         [
-          58,
+          66,
           17
         ],
         [
-          58,
+          66,
           18
         ],
         [
-          59,
+          67,
           17
         ],
         [
-          59,
+          67,
           18
         ]
       ],
@@ -210,19 +210,19 @@
       "graphics": 1034,
       "positions": [
         [
-          39,
+          47,
           11
         ],
         [
-          39,
+          47,
           12
         ],
         [
-          40,
+          48,
           11
         ],
         [
-          40,
+          48,
           12
         ]
       ],
@@ -238,19 +238,19 @@
       "graphics": 1035,
       "positions": [
         [
-          30,
+          38,
           21
         ],
         [
-          30,
+          38,
           22
         ],
         [
-          31,
+          39,
           21
         ],
         [
-          31,
+          39,
           22
         ]
       ],
@@ -266,11 +266,11 @@
       "graphics": 1036,
       "positions": [
         [
-          53,
+          61,
           29
         ],
         [
-          54,
+          62,
           29
         ]
       ],
@@ -280,62 +280,5 @@
       ]
     }
   ],
-  "interactions": [
-    {
-      "interaction": 1029,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1030,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1031,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1032,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1033,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1034,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1035,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    },
-    {
-      "interaction": 1036,
-      "faces_player": true,
-      "displayed_south_idle_frame_verified": true,
-      "stops_for_dialogue": true,
-      "resumes_walking": true
-    }
-  ]
+  "interactions": []
 }

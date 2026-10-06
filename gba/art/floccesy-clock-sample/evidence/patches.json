@@ -1,0 +1,34 @@
+[
+  {
+    "patch": "gba/floccesy-clock-palette-fix.patch",
+    "base": "tools/vendor/gba/floccesy-detailed-work",
+    "sha256": "3442165b2643262f2721fedc7b20348711ea9633b841f4b710624b6359380f1f",
+    "bytes": 44090,
+    "changed_files": [
+      "data/layouts/FloccesyTown/map.bin",
+      "data/tilesets/primary/floccesy/metatiles.bin",
+      "data/tilesets/primary/floccesy/palettes/12.pal",
+      "data/tilesets/primary/floccesy/tiles.png",
+      "data/tilesets/secondary/floccesy/metatile_attributes.bin",
+      "data/tilesets/secondary/floccesy/metatiles.bin",
+      "data/tilesets/secondary/floccesy/palettes/12.pal"
+    ],
+    "forward_reverse_checks": true
+  },
+  {
+    "patch": "gba/floccesy-clock-sample.patch",
+    "base": "tools/vendor/gba/floccesy-clock-baseline-work",
+    "sha256": "127ffc9c1d7e77dab0b8f60b16fceb24455774b4b8d139cd26194bc598979442",
+    "bytes": 53087,
+    "changed_files": [
+      "data/layouts/FloccesyTown/map.bin",
+      "data/tilesets/primary/floccesy/palettes/10.pal",
+      "data/tilesets/primary/floccesy/tiles.png",
+      "data/tilesets/secondary/floccesy/metatile_attributes.bin",
+      "data/tilesets/secondary/floccesy/metatiles.bin",
+      "data/tilesets/secondary/floccesy/palettes/10.pal",
+      "data/tilesets/secondary/floccesy/tiles.png"
+    ],
+    "forward_reverse_checks": true
+  }
+]

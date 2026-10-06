@@ -3,17 +3,17 @@
     "name": "WATERFRONT",
     "graphics": "OBJ_EVENT_GFX_JOHTO_WOMAN",
     "start": [
-      29,
+      37,
       20
     ],
     "mode": "UD",
     "positions": [
       [
-        29,
+        37,
         19
       ],
       [
-        29,
+        37,
         20
       ]
     ]
@@ -22,17 +22,17 @@
     "name": "COMMUTER",
     "graphics": "OBJ_EVENT_GFX_JOHTO_MAN",
     "start": [
-      36,
+      44,
       8
     ],
     "mode": "LR",
     "positions": [
       [
-        35,
+        43,
         8
       ],
       [
-        36,
+        44,
         8
       ]
     ]
@@ -41,17 +41,17 @@
     "name": "JOHTO_BOY",
     "graphics": "OBJ_EVENT_GFX_JOHTO_BOY",
     "start": [
-      42,
+      50,
       24
     ],
     "mode": "LR",
     "positions": [
       [
-        41,
+        49,
         24
       ],
       [
-        42,
+        50,
         24
       ]
     ]
@@ -60,17 +60,17 @@
     "name": "JOHTO_GIRL",
     "graphics": "OBJ_EVENT_GFX_JOHTO_GIRL",
     "start": [
-      58,
+      61,
       20
     ],
     "mode": "LR",
     "positions": [
       [
-        57,
+        60,
         20
       ],
       [
-        58,
+        61,
         20
       ]
     ]
@@ -79,25 +79,25 @@
     "name": "CAST_GOLD",
     "graphics": "OBJ_EVENT_GFX_JOHTO_GOLD",
     "start": [
-      40,
+      48,
       18
     ],
     "mode": "SQ",
     "positions": [
       [
-        40,
+        48,
         18
       ],
       [
-        40,
+        48,
         17
       ],
       [
-        41,
+        49,
         17
       ],
       [
-        41,
+        49,
         18
       ]
     ]
@@ -106,25 +106,25 @@
     "name": "CAST_SILVER",
     "graphics": "OBJ_EVENT_GFX_JOHTO_SILVER",
     "start": [
-      49,
+      57,
       24
     ],
     "mode": "SQ",
     "positions": [
       [
-        49,
+        57,
         24
       ],
       [
-        49,
+        57,
         23
       ],
       [
-        50,
+        58,
         23
       ],
       [
-        50,
+        58,
         24
       ]
     ]
@@ -133,21 +133,21 @@
     "name": "CAST_KESTRA",
     "graphics": "OBJ_EVENT_GFX_JOHTO_KESTRA",
     "start": [
-      37,
+      45,
       22
     ],
     "mode": "LR",
     "positions": [
       [
-        35,
+        43,
         22
       ],
       [
-        36,
+        44,
         22
       ],
       [
-        37,
+        45,
         22
       ]
     ]
@@ -156,17 +156,17 @@
     "name": "COMPARE_HOENN",
     "graphics": "OBJ_EVENT_GFX_REGIONAL_HOENN",
     "start": [
-      48,
+      56,
       12
     ],
     "mode": "LR",
     "positions": [
       [
-        47,
+        55,
         12
       ],
       [
-        48,
+        56,
         12
       ]
     ]
@@ -175,25 +175,25 @@
     "name": "COMPARE_KANTO",
     "graphics": "OBJ_EVENT_GFX_REGIONAL_KANTO",
     "start": [
-      58,
+      66,
       18
     ],
     "mode": "SQ",
     "positions": [
       [
-        58,
+        66,
         18
       ],
       [
-        58,
+        66,
         17
       ],
       [
-        59,
+        67,
         17
       ],
       [
-        59,
+        67,
         18
       ]
     ]
@@ -202,25 +202,25 @@
     "name": "COMPARE_JOHTO",
     "graphics": "OBJ_EVENT_GFX_REGIONAL_JOHTO",
     "start": [
-      39,
+      47,
       12
     ],
     "mode": "SQ",
     "positions": [
       [
-        39,
+        47,
         12
       ],
       [
-        39,
+        47,
         11
       ],
       [
-        40,
+        48,
         11
       ],
       [
-        40,
+        48,
         12
       ]
     ]
@@ -229,25 +229,25 @@
     "name": "COMPARE_SINNOH",
     "graphics": "OBJ_EVENT_GFX_REGIONAL_SINNOH",
     "start": [
-      30,
+      38,
       22
     ],
     "mode": "SQ",
     "positions": [
       [
-        30,
+        38,
         22
       ],
       [
-        30,
+        38,
         21
       ],
       [
-        31,
+        39,
         21
       ],
       [
-        31,
+        39,
         22
       ]
     ]
@@ -256,17 +256,17 @@
     "name": "COMPARE_UNOVA",
     "graphics": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
     "start": [
-      54,
+      62,
       29
     ],
     "mode": "LR",
     "positions": [
       [
-        53,
+        61,
         29
       ],
       [
-        54,
+        62,
         29
       ]
     ]

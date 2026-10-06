@@ -1,0 +1,20 @@
+{
+  "removed_hard_surface_plant_pixels": 4849,
+  "building_edge_repairs": 420,
+  "new_patterns": 273,
+  "new_lower_reuses": 5925,
+  "lossless_lower_layer_reuses": 639,
+  "reclaimed_slots": 345,
+  "tile_capacity": 1008,
+  "metatiles": 930,
+  "changed_cells": 3821,
+  "lossless_compilation": true,
+  "whole_town_materials": true,
+  "supported_palette_correction": true,
+  "all_collision_elevation_behavior_layer_properties_identical": true,
+  "locked_files": [
+    "data/maps/FloccesyTown/map.json",
+    "data/maps/FloccesyTown/scripts.inc",
+    "data/layouts/FloccesyTown/border.bin"
+  ]
+}

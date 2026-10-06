@@ -1,0 +1,150 @@
+{
+  "source": "gba/art/pokegear-world/reference/world-map.jpg",
+  "source_dimensions": [
+    1091,
+    733
+  ],
+  "world_dimensions": [
+    416,
+    256
+  ],
+  "detail_dimensions": [
+    208,
+    128
+  ],
+  "palette": [
+    [
+      27,
+      38,
+      44
+    ],
+    [
+      39,
+      133,
+      164
+    ],
+    [
+      73,
+      181,
+      207
+    ],
+    [
+      111,
+      207,
+      223
+    ],
+    [
+      230,
+      237,
+      232
+    ],
+    [
+      42,
+      106,
+      83
+    ],
+    [
+      66,
+      147,
+      106
+    ],
+    [
+      119,
+      179,
+      124
+    ],
+    [
+      128,
+      100,
+      83
+    ],
+    [
+      179,
+      137,
+      104
+    ],
+    [
+      217,
+      178,
+      139
+    ],
+    [
+      143,
+      57,
+      66
+    ],
+    [
+      217,
+      76,
+      85
+    ],
+    [
+      94,
+      97,
+      102
+    ],
+    [
+      158,
+      164,
+      164
+    ],
+    [
+      250,
+      247,
+      238
+    ]
+  ],
+  "regions": [
+    {
+      "index": 1,
+      "name": "Kanto",
+      "source_crop": [
+        570,
+        228,
+        840,
+        394
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Johto",
+      "source_crop": [
+        385,
+        230,
+        655,
+        396
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Hoenn",
+      "source_crop": [
+        500,
+        353,
+        840,
+        562
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Sinnoh",
+      "source_crop": [
+        500,
+        8,
+        830,
+        211
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Unova",
+      "source_crop": [
+        300,
+        334,
+        550,
+        488
+      ]
+    }
+  ],
+  "note": "User-supplied world artwork; visuals only, no travel unlocks."
+}

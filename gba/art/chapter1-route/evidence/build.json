@@ -1,0 +1,16 @@
+{
+  "date_utc": "2026-09-28T10:11:37.380463+00:00",
+  "base_revision": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "rom_sha256": "282c5532c6c9175426be760c80acd018b7071ed524ff2c304df2556488ec7586",
+  "source_overlay": "gba/art/chapter1-route/source-overlay/SHA256.json",
+  "emulator": "mGBA headless core via libmgba",
+  "checks": {
+    "compile": "pass",
+    "pokegear_services": "pass",
+    "starter_choices_0_1_2": "pass",
+    "silver_murkrow_departure": "pass",
+    "new_bark_route_and_events": "pass",
+    "ordinary_save_cold_continue_at_stage7": "pass",
+    "continuous_new_game_to_departure": "not_run"
+  }
+}

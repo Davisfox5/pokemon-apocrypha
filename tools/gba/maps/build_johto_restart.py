@@ -7,6 +7,8 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 from tiles import Tileset,palette
 ROOT=Path(__file__).resolve().parents[3];ART=ROOT/'gba/art/johto-restart';OUT=ART/'native';EV=ART/'evidence';G=ROOT/'tools/vendor/gba/johto-restart-game';BASE=ROOT/'tools/vendor/gba/johto-art-v3-baseline'
+if (ART/'owner-20260921').exists():
+ sys.exit('Owner-authored snapshot exists. Do not overwrite it with the fresh builder; use the guarded port extension workflow.')
 assert subprocess.check_output(['git','-C',str(BASE),'status','--porcelain'],text=True)==''
 assert subprocess.check_output(['git','-C',str(G),'rev-parse','HEAD'],text=True).strip()=='f09ec1de2e6754e9f9a8e02281d3d773efcfa65e'
 ts=Tileset(BASE,'cherrygrove','cherrygrove');W,H=64,36
@@ -112,10 +114,20 @@ for my in range(10,29):
   centerleft=((coast[my]+coast[min(H-1,my+1)])/2-.5)*16
   flags[i]=0x3c00 if mx*16+8<centerleft+2 else 0x3000;attributes[i]=0x1000
 # Custom continuous coastal wall; broad slabs instead of a row of unrelated rocks.
-for x in range(0,32,8):obj('cliff',x,7)
+for x in range(0,24,8):obj('cliff',x,7)
+# Rounded landward return: taper the final cliff slab into the grassy upper shelf.
+cw,ch,cp=sources['cliff'];cap=[]
+for py in range(ch):
+ for px in range(cw):
+  edge=112-max(0,py-8)//2
+  cap.append(cp[py*cw+px] if px<edge-2 else min((c for c in cp if c is not None),key=sum) if px<edge else None)
+overlay(24,7,cw,ch,cap,'cliff-return')
 # Existing native Emerald side/return pieces use the same warm rock palette family.
-for y in range(7):put(32,y,0x16f,True)
-for y in range(28,H):put(30,y,0x187,True)
+# Upper forest meets the north route through grass, without isolated rock strips.
+# Native top corner turns into a continuous side face, tucked under the forest.
+put(30,28,0x17c,True)
+for y in range(29,H):put(30,y,0x16f,True)
+for y in range(28,H):flags[y*W+31]=0x3c00
 # HGSS offshore landmarks: an irregular island, southern outcrop and sandbar.
 obj('island',2,13);obj('island',-3,22)
 rect(15,23,4,2,0x121,True)
@@ -123,7 +135,22 @@ for x in range(15,19):put(x,22,0x11c,True);put(x,25,0x12c,True)
 for y in [23,24]:put(14,y,0x123,True);put(19,y,0x125,True)
 for x,y in [(6,12),(12,14),(4,20),(8,26),(12,28),(22,23),(25,27),(28,27)]:put(x,y,0x18c,True)
 # Modest northeastern pond enclosed by forest.
-rect(55,0,7,7,0x170,True)
+# Rounded grassy bank around an enclosed pond; retain native animated water.
+pond_water_cells=set()
+for my in range(0,7):
+ for mx in range(55,64):
+  put(mx,my,1,True)
+  i=my*W+mx;wet=False
+  for py in range(16):
+   for px in range(16):
+    gx=mx*16+px;gy=my*16+py
+    # Rounded rectangle, with a complete bank even at the map's northern edge.
+    dx=max(57*16-gx,0,gx-61*16);dy=max(2*16-gy,0,gy-4*16)
+    dist=dx*dx+dy*dy;j=py*16+px
+    if dist<20*20:
+     pixels[i][j]=waterpx[j];wet=True
+    elif dist<23*23:pixels[i][j]=min(grasspx,key=sum)
+  if wet:grid[i]=0x170;pond_water_cells.add((mx,my))
 # Streets are drawn before objects, using the reliable Emerald corner/edge tiles.
 path=set()
 def lane(x,y,w,h):path.update((xx,yy) for yy in range(y,y+h) for xx in range(x,x+w))
@@ -139,16 +166,12 @@ for x,y in sorted(path):
 trees=set()
 for y in [-2,0,2,4]:
  trees.update((x,y) for x in range(0,32,2));trees.update((x,y) for x in range(39,55,2) if y<4)
-for y in [4,7,10,13]:trees.update((x,y) for x in [60,62])
+for y in [7,10,13]:trees.update((x,y) for x in [60,62])
 for y in range(20,36,2):trees.update((x,y) for x in [60,62])
-for y in range(27,36,2):trees.update((x,y) for x in [32,34,36,38])
+for y in range(27,36,2):trees.update((x,y) for x in [31,33,35,37,39])
 for y in range(31,36,2):trees.update((x,y) for x in range(40,60,2))
-for x,y in [(55,6),(57,7),(58,10),(58,14),(58,26)]:trees.add((x,y))
-shadow=min(pals[6][1:-3],key=lambda c:sum((a-b)**2 for a,b in zip(c,(72,120,88))))
-for x,y in sorted(trees):
- if (x+2,y) in trees and (x,y+2) in trees:
-  overlay(x,y+1,32,32,[shadow]*1024,'forest-floor')
-for x,y in sorted(trees,key=lambda p:(p[1],p[0])):obj('tree',x,y)
+for x,y in [(57,7),(58,10),(58,14),(58,26)]:trees.add((x,y))
+# Trees are composited last so foliage occludes flowers and fences naturally.
 # Authored flower gardens are built from the baseline's native flower and fence objects.
 for x,y,w in [(55,12,4),(43,27,6),(58,22,2)]:
  for xx in range(x,x+w):native_object(xx,y,[[4]],'flowers',solid=True);native_object(xx,y+1,[[4]],'flowers',solid=True)
@@ -159,6 +182,12 @@ for b in buildings:
  obj(b['style'],b['x'],b['y']);x,y=b['door'];i=y*W+x;flags[i]=0;attributes[i]=0x1069
 for x,y in [(37,18),(45,20),(48,20),(54,26),(58,26)]:native_object(x,y,[[4]],'flowers',solid=False)
 native_object(42,15,[[3]],'town-sign')
+# Keep every tree footprint on land; transparent canopy pixels retain actual grass.
+for x,y in sorted(trees,key=lambda p:(p[1],p[0])):
+ if any((xx,yy) in pond_water_cells for yy in range(y,y+3) for xx in range(x,x+2)):continue
+ obj('tree',x,y)
+# Seal the narrow strip between the southern cliff and forest.
+for y in range(28,H):flags[y*W+31]=0x3c00
 spawn=[40,20]
 spec=dict(name='CherrygroveCity',width=W,height=H,spawn=spawn,north_exit=[35,0,3],east_exit=[63,17,3],buildings=buildings,trees=sorted(trees),objects=objects,dormant_warp=3)
 (ART/'layout.json').write_text(json.dumps(spec,indent=2)+'\n')
@@ -281,8 +310,8 @@ for name,w,h,side in [('CherrygroveRoute29Approach',16,H,'east'),('CherrygroveRo
  g=[(north_forest if side=='north' else forest)[(y%2)*2+x%2] for y in range(h) for x in range(w)]
  for y in range(h):
   for x in range(w):
-   if side=='east' and x<12:g[y*w+x]=final[y*W+62+x%2]
-   elif side=='north' and y>=4:g[y*w+x]=final[(y%2)*W+x]
+   if side=='east' and x<12 and 17<=y<20:g[y*w+x]=final[y*W+62+x%2]
+   elif side=='north' and y>=4 and 35<=x<38:g[y*w+x]=final[(y%2)*W+x]
  (G/f'data/layouts/{name}/map.bin').write_bytes(struct.pack('<'+'H'*len(g),*g))
 for name in ['CherrygroveCity','CherrygroveRoute29Approach','CherrygroveRoute30Approach']:(G/f'data/layouts/{name}/border.bin').write_bytes(struct.pack('<4H',*forest))
 s=(BASE/'src/new_game.c').read_text().replace('WARP_ID_NONE, 9, 17','WARP_ID_NONE, 40, 20');(G/'src/new_game.c').write_text(s)
