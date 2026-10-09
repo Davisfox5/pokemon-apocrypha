@@ -1,3 +1,5 @@
+Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
+
 # Read only what the task needs
 
 Startup: root AGENTS.md plus this index. Choose one route below; do not preload
@@ -6,6 +8,9 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
+| October 9 New Bark / Route 31 art rebuild after rejection | ../gba/art/johto-polish/README.md | Measured silhouettes, complete props, layered cliffs, exact scenery packing; previous previews retained |
+| October 8 HGSS New Bark / Route 31 recreation | ../gba/art/hgss-connections/README.md | Native HGSS cutouts and grid geometry following existing Porymap workflows; preserves Claude routes and the earlier campus proposal |
+| October 8 New Bark campus / Route 31 and Violet entrance | ../gba/art/johto-connections/README.md | Extends Claude's preserved routes, separate campus tileset, bidirectional camera-window checks, native walking/door/save evidence; isolated art preview, campaign scenes pending |
 | Pokégear maps, phone services, broadcasts / latest isolated build | ../gba/art/pokegear-services/README.md | Versioned save extension, service fixtures, atlas provenance, opening regression, incremental pokegear-services.patch; chapter content still pending |
 | Remote Claude/Grok setup / fresh clone | GBA_REMOTE_HANDOFF.md | Source presets, public baseline, Linux and macOS build commands |
 | Resume current work / handoff | AGENT_HANDOFF.md | only its next-step references |

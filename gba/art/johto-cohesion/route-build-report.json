@@ -1,0 +1,28 @@
+{
+  "29": {
+    "tiles": 290,
+    "metatiles": 276,
+    "protected_cherrygrove_cells": 235,
+    "scenery_pixels_verified": 487251,
+    "pixel_errors": 0,
+    "banks": {
+      "TALL": 7,
+      "LEDGE": 8,
+      "GATE": 9,
+      "FLORA": 12
+    }
+  },
+  "30": {
+    "tiles": 411,
+    "metatiles": 459,
+    "protected_cherrygrove_cells": 212,
+    "scenery_pixels_verified": 380114,
+    "pixel_errors": 0,
+    "banks": {
+      "TALL": 6,
+      "LEDGE": 7,
+      "MRPOKEMON": 8,
+      "BERRYHOUSE": 12
+    }
+  }
+}

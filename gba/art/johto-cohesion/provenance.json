@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/Davisfox5/pokeheartgold",
+  "archive": "files/a/0/4/4",
+  "member": 2,
+  "texture": "egrass",
+  "archive_sha256": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+  "strategy": "native 16-pixel TEX0 decode, stepped blade boundary masks; Cherrygrove indexed building modules reused",
+  "hgss_revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "original_art_credit": "Game Freak / Nintendo / Creatures",
+  "egrass_png_sha256": "0238212d8fbb250072aae7ff9b3fdb90a955122988c5488236d0f8ee71df0e29",
+  "native_grass_palette": [
+    [
+      32,
+      112,
+      80
+    ],
+    [
+      32,
+      120,
+      88
+    ],
+    [
+      40,
+      136,
+      80
+    ],
+    [
+      56,
+      152,
+      88
+    ],
+    [
+      64,
+      168,
+      112
+    ],
+    [
+      80,
+      192,
+      120
+    ]
+  ]
+}

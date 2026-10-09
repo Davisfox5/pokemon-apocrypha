@@ -1,3 +1,75 @@
+## October 9 cohesive route and New Bark correction
+
+Current proposal: `gba/art/johto-cohesion/README.md`, generator
+`tools/gba/maps/johto_cohesion/`, patch `gba/johto-cohesion.patch`, cloud
+workbench `tools/vendor/gba/johto-cohesion`. The owner explicitly rejected the
+johto-polish exterior quality and authorized correction of Claude Route 29/30,
+Route 31 and an enlarged institute plus connected southern New Bark housing.
+All earlier drafts and workbenches remain preserved. Production `game/` is untouched.
+
+Route buildings reuse accepted Cherrygrove house/gable modules. Tall grass now
+derives from recovered HGSS TEX0 `egrass`, uses the measured darker palette
+ladder, and avoids mirrored quadrant stripes. Exact two-layer packing replaces
+lossy mixed-palette route packing. Route 31 retains the complete measured HGSS
+cliff silhouette with bounded source texture representatives. New Bark is 36×44;
+its institute is 208×80 pixels and four southern homes connect to two streets.
+All eight town doors have independent returns; stable existing map IDs are kept
+and residence IDs append at 20–23. No new dialogue, roles or quests were added.
+
+The exterior is a review proposal, not owner visual acceptance. Route 29's gate
+and Route 30 houses retain existing closed behavior. Borrowed GBA interiors,
+static windmills/pond and unfinished full Violet/Dark Cave remain concrete limits.
+No Porymap GUI roundtrip was performed in the cloud. Native overview comparisons,
+gameplay frames, headless input/door/seam/collision/save evidence and source
+reproduction records accompany this proposal. See its README before resuming.
+
+## October 9 johto-polish draft — subsequently rejected
+
+The owner rejected the October 8 exterior quality and asked for a fresh rebuild at Cherrygrove's standard. Neither October 8 proposal below is an accepted visual baseline. Current source/review: `gba/art/johto-polish/README.md`, `tools/gba/maps/johto_polish/`, workbench `tools/vendor/gba/johto-polish-ready`.
+
+Architecture uses measured silhouettes rather than destructive grass color-keying; complete roofs, windmills, mailboxes and fencing are retained. Hardware layer factoring preserves foliage under architecture. Route 31 has stepped cliff platforms/faces, dark cave mouth, pond-bank wall, one bridge, Apricorn tree and a separate freshwater pond material. Windmill blades and pond are static. Coastal sea keeps its original animation. Source references, former previews and Claude's routes remain preserved. Decoded scenery pixels match authored indexed assets exactly; capacities are 479 New Bark / 456 Route 31 secondary tile slots.
+
+All four New Bark doors are wired with separate return destinations: institute `(19,8)`, west home `(13,17)`, east home `(24,19)`, upper home `(27,10)` (new stable map index 19). Provisional GBA interiors and the previous Violet arrival court are retained. Full Violet, full Dark Cave, Johto interiors, expanded institute/campaign integration remain unfinished. No Porymap GUI save round trip was run here. Do not infer owner visual acceptance from compilation or pixel checks.
+
+Verified October 9: ROM compilation, 470,354 exact authored scenery pixels, 210 identical seam metatiles, all four New Bark door round trips, native bridge/gate/cave walking, barriers/ledge/signs, ordinary save/cold reload/Continue, native walking film, preservation assertions, fresh-source match and forward/reverse patch checks. Source patch `gba/johto-polish.patch`; package `/workspace/library-files/Apocrypha-Johto-polish-preview.zip`; evidence under `gba/art/johto-polish/evidence/`. Owner visual approval remains pending. Serial `make -j1 generated` avoids the upstream multi-output map-generation race before parallel ROM compilation.
+
+## October 8 HGSS recreation supersedes the exterior campus proposal
+
+Owner asked to inspect previous Porymap layouts and use the same strategy for HGSS recreation, and to show Claude's routes. Continue from `gba/art/hgss-connections/README.md`. Generators and checks: `tools/gba/maps/hgss_connections/`; isolated workbench `tools/vendor/gba/hgss-connections-final`. This revision restores HGSS New Bark's four-building arrangement/eastern water and Route 31's pond, terraces, bridge and Dark Cave frontage, using native-scale cutouts and the existing town/route compiler. Claude's Route 29 and Route 30 remain intact. The earlier campus proposal below is separately retained, not the current visual direction.
+
+New Bark is 36x24 (30x24 source geometry plus a six-cell seam approach); Route 31 is 63x30. Institute door `(19,7)`; homes `(13,17)`, `(24,19)`; Route 31 gate `(4,15)`, cave `(52,13)`. Route 29 to New Bark offset 4; reciprocal -4. Route 30/31 offsets -28/28 remain. Full Violet, complete Dark Cave, expanded institute, original HGSS mailboxes/wind turbines and detailed cliff terraces remain unfinished. The upper-right New Bark house is closed. Provisional interiors/arrival court are retained. A new Porymap GUI save round trip has not been performed; standard Emerald native files use the existing verified workflow.
+
+Verified: reachable exterior doors, 174 identical seam metatiles, native route/bridge/gate/door traversal, barriers, signs, ordinary save, cold reload and title Continue. Source preservation and reverse patch application pass. Patch `gba/hgss-connections.patch`; playable package `/workspace/library-files/Apocrypha-HGSS-connections-preview.zip`. Native captures and evidence are under `gba/art/hgss-connections/evidence/`.
+
+## October 8 routes to New Bark and Violet, campus proposal: isolated, qualified
+
+Owner requested resuming both routes and New Bark's layout/tileset. Continue from
+`gba/art/johto-connections/README.md`, not the legacy DS main branch. Workbench:
+`tools/vendor/gba/routes-new-bark`; package `tools/vendor/gba/Apocrypha-routes-NewBark-preview.zip`.
+Source generators/checks: `tools/gba/maps/johto_connections/`. Patch
+`gba/johto-connections.patch` follows the refreshed Claude town and routes patches.
+
+Route 29 connects to a new research-campus New Bark (44x34); Route 30 connects
+to Route 31 (48x30), the Violet gate and a small Violet arrival court. Native teal
+institute/annex, paving, equipment and cave-entrance art; old houses/terrain reused.
+Elm's exterior door remains `(27,11)`. Two staff houses return to separate doors.
+Annex closed; Dark Cave is only a bounded entrance room. Researchers have brief
+flavor dialogue, no new quest flags. The shared 511-tile primary, old map geometry,
+old referenced art/palettes, flags and encounter tables are unchanged.
+
+Compilation, decoded seam pixels/attributes, reachable doors/signs, real walking
+across both connections both ways, institute/housing/gate/cave round trips,
+barriers, ledges, dialogue, native flash save/cold load and title Continue pass.
+Fresh source generation matches 95 changed/new files byte for byte. Source patch
+forward/reverse checks pass. Engine capture boards and native walking GIF are
+in the art folder. Compiler: Debian Arm GNU 14.2.1; libmGBA 0.10.5. The pinned
+vendor download was proxy-blocked; local Debian packages worked without bypass.
+
+This is a visual/layout proposal for owner review, not Chapter 1 campaign integration.
+Full Violet/university, full Dark Cave, route trainers/encounters, Johto interior
+art and Elm's scene remain pending. Production `game/`, earlier previews and
+owner saves are untouched. Branch `codex/routes-new-bark`; no push made.
+
 ## October 4 Route 29 and Route 30 (Claude build): isolated, qualified
 
 Owner asked Claude for the routes north and east of Cherrygrove. Read `gba/art/claude-routes/README.md`.
