@@ -1,0 +1,13 @@
+{
+  "source_files_matching_fresh_generation": 97,
+  "baseline": "9195267 + refreshed Claude town/routes source patches",
+  "compiler": "Debian ARM GCC 14.2.1 (15:14.2.rel1-1)",
+  "native_runtime": "libmGBA 0.10.5",
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "patch_reverse_application": true,
+  "porymap_gui_roundtrip_performed": false
+}

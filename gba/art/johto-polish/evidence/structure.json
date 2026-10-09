@@ -1,0 +1,20 @@
+{
+  "NewBarkTown": {
+    "passable_cells": 270,
+    "reachable_cells": 268,
+    "connection_crossings": 5,
+    "seam_metatiles_pixel_and_behavior_identical": 67,
+    "reachable_doors": 4
+  },
+  "JohtoRoute31": {
+    "passable_cells": 555,
+    "reachable_cells": 532,
+    "connection_crossings": 2,
+    "seam_metatiles_pixel_and_behavior_identical": 143,
+    "reachable_doors": 2
+  },
+  "VioletCityEntrance": {
+    "reachable_cells": 258,
+    "reachable_doors": 1
+  }
+}

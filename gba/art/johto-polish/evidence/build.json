@@ -1,0 +1,10 @@
+{
+  "source_files_matching_fresh_generation": 99,
+  "patch_forward_tree_matches_tested_source": true,
+  "patch_reverse_check": true,
+  "compiler": "Debian ARM GCC 14.2.1 (15:14.2.rel1-1)",
+  "native_runtime": "libmGBA 0.10.5",
+  "porymap_gui_roundtrip_performed": false,
+  "rom_sha256": "488d1230d4c943dc602f905d8c4e16d6b9613ad0c16031701f97ec429786c256",
+  "source_tree": "1fa5711517a71dd06de3c9f6b21cdc5acc1b0b34"
+}

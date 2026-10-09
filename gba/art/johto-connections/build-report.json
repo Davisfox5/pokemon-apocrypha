@@ -1,0 +1,74 @@
+{
+  "new_bark": {
+    "width": 44,
+    "height": 34,
+    "secondary_tile_span": 175,
+    "secondary_metatile_span": 169,
+    "secondary_tiles_used": 175,
+    "secondary_metatiles_used": 146,
+    "doors": [
+      [
+        "institute",
+        27,
+        11
+      ],
+      [
+        "house",
+        16,
+        24
+      ],
+      [
+        "house",
+        35,
+        24
+      ]
+    ],
+    "crossings": 5,
+    "neighbor_visible_cells": 168,
+    "new_visible_cells": 181,
+    "neighbor_tiles_added": 0,
+    "neighbor_sheet_padding_removed": 14,
+    "neighbor_metatiles_added": 0
+  },
+  "route31": {
+    "width": 48,
+    "height": 30,
+    "secondary_tile_span": 454,
+    "secondary_metatile_span": 382,
+    "secondary_tiles_used": 309,
+    "secondary_metatiles_used": 196,
+    "doors": [
+      [
+        "gate",
+        7,
+        15
+      ],
+      [
+        "cave",
+        36,
+        8
+      ]
+    ],
+    "crossings": 3,
+    "neighbor_visible_cells": 172,
+    "new_visible_cells": 149,
+    "neighbor_tiles_added": 6,
+    "neighbor_sheet_padding_removed": 0,
+    "neighbor_metatiles_added": 14
+  },
+  "violet_entrance": {
+    "width": 28,
+    "height": 24,
+    "secondary_tile_span": 210,
+    "secondary_metatile_span": 86,
+    "secondary_tiles_used": 210,
+    "secondary_metatiles_used": 86,
+    "doors": [
+      [
+        "gate",
+        22,
+        13
+      ]
+    ]
+  }
+}

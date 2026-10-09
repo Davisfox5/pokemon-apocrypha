@@ -1,0 +1,18 @@
+{
+  "preserved": [
+    "data/layouts/CherrygroveCity/map.bin",
+    "data/layouts/CherrygroveCity/border.bin",
+    "data/maps/CherrygroveCity/map.json",
+    "data/maps/CherrygroveCity/scripts.inc",
+    "include/constants/flags.h",
+    "src/data/wild_encounters.json",
+    "data/layouts/CherrygroveRoute29Approach/map.bin",
+    "data/layouts/CherrygroveRoute29Approach/border.bin",
+    "data/layouts/CherrygroveRoute30Approach/map.bin",
+    "data/layouts/CherrygroveRoute30Approach/border.bin"
+  ],
+  "route_art_and_events": "original entries and referenced pixels unchanged",
+  "primary": "unchanged",
+  "source_patch_sha256": "992d3e384740e3756a35892733e592c5d11704fd6828d6827284ba74b81f7be2",
+  "reverse_apply_check": true
+}

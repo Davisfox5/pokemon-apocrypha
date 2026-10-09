@@ -1,0 +1,25 @@
+{
+  "rom_sha256": "488d1230d4c943dc602f905d8c4e16d6b9613ad0c16031701f97ec429786c256",
+  "phases": [
+    {
+      "phase": "film",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "campus-walk-end",
+          "region": 2,
+          "group": 80,
+          "map": 11,
+          "x": 22,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 24,
+          "interaction": 0,
+          "mapsec": 217
+        }
+      ]
+    }
+  ]
+}
