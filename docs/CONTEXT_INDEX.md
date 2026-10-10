@@ -1,4 +1,4 @@
-Current local Johto revision: [native art rebuild](../gba/art/johto-native-refinement/README.md). Porymap roundtrip remains pending after an inaccessible file watcher warning and Mac lock. Earlier cloud drafts remain preserved.
+Current local Johto correction: [exact Cherrygrove asset reuse](../gba/art/johto-native-refinement/README.md). Houses and trees reuse the approved source pixels. Porymap roundtrip remains pending behind its inaccessible file-watcher warning; earlier cloud/redraw proposals remain preserved.
 
 Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
 

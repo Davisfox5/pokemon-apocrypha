@@ -30,14 +30,8 @@ def build(game):
         return comp
     r.compose=native_compose
     base,pal=r.town.build_assets();raw=art.architecture(base)
-    original_bank_build=r.banks.Bank.build
-    def anchored_bank(self):
-        if self.name in ('GATE','MRPOKEMON','BERRYHOUSE'):
-            self.add('__lawn',np.array([[[104,208,152,255]]],dtype=np.uint8));self.keep((104,208,152))
-        return original_bank_build(self)
-    r.banks.Bank.build=anchored_bank
     r.art.tall_slices=art.tall_slices;r.art.tall_cell=art.tall_cell
-    r.art.orange_flowers=lambda route:art.orange_flowers()
+    r.art.orange_flowers=lambda route:base['daisies'].to_rgba()
     r.art.gate=lambda:raw['gate29'];r.art.mr_pokemon_house=lambda:raw['mr_pokemon'];r.art.berry_house=lambda:raw['berry_house']
     primary=r.Primary(game,78,511);report={}
     tm,ts=seams.read_layout(game,'CherrygroveCity',TL.W,TL.H)

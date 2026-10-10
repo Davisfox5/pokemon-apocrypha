@@ -1,0 +1,41 @@
+{
+  "baseline": "gba/art/claude-cherrygrove",
+  "unchanged_assets": {
+    "tree": {
+      "source_asset": "tree",
+      "rgba_sha256": "7894f2a897a74b4d9e2cf734c03c3a182f4393ddbb003ecf3684e2c01fe5bf74",
+      "pixel_differences": 0
+    },
+    "blossom": {
+      "source_asset": "blossom",
+      "rgba_sha256": "a844975d6d6fbfe32ed3ff09e18c4045e90366f2e3e1810b01d8976d7c79abc4",
+      "pixel_differences": 0
+    },
+    "west_house": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "east_house": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "staff_a": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "staff_b": {
+      "source_asset": "gable",
+      "rgba_sha256": "d80115cf5091d17be52a613b58d16295fa871ef2f2514f46ac0d231fab78cb73",
+      "pixel_differences": 0
+    },
+    "annex": {
+      "source_asset": "gable",
+      "rgba_sha256": "d80115cf5091d17be52a613b58d16295fa871ef2f2514f46ac0d231fab78cb73",
+      "pixel_differences": 0
+    }
+  },
+  "institute": "208x80 assembly of original house wings and central gable; one entrance"
+}

@@ -23,7 +23,6 @@ ra.tall_cell=art.tall_cell
 original_assets=b.town.build_assets
 def native_assets():
     a,p=original_assets()
-    a['tree']=art.native_tree(p[3]);a['blossom']=art.native_tree(p[3]);a['blossom'].pal=p[10]
     native=OUT/'native';native.mkdir(parents=True,exist_ok=True)
     for name in ('tree','blossom'):Image.fromarray(a[name].to_rgba()).save(native/(name+'.png'))
     return a,p
@@ -32,12 +31,14 @@ b.town.build_assets=native_assets
 def assets(kind,base,shared):
     a=dict(base);pals=dict(shared)
     if kind=='new_bark':
-        raw=art.props();raw.update(art.architecture(base));raw['upper_wind']=raw['wind'].copy();raw['east_mailbox']=raw['red_mailbox'].copy();groups=[]
+        raw=art.props(base);raw.update(art.architecture(base));raw['upper_wind']=raw['wind'].copy();raw['east_mailbox']=raw['red_mailbox'].copy();groups=[]
         for bank,keys in [(6,['institute','annex','west_house','east_house','staff_a','staff_b']),
                           (9,['labwind','upper_wind','lab_fence','red_mailbox','blue_mailbox']), (12,['wind','east_mailbox'])]:
-            group=banks.Bank(bank,'ARCHITECTURE','secondary').keep(ground_color())
+            group=banks.Bank(bank,'ARCHITECTURE','secondary')
+            if bank==6:group.keep(*base['house'].pal.colors)
+            else:group.keep(ground_color())
             for name in keys:group.add(name,raw[name])
-            group.add('__grass'+str(bank),np.array([[[104,208,152,255]]],dtype='uint8'))
+            if bank!=6:group.add('__grass'+str(bank),np.array([[[104,208,152,255]]],dtype='uint8'))
             # Preserve windmill whites and the dark blue glass, as Cherrygrove protects doors.
             for name in keys:
                 if 'wind' in name:
@@ -47,7 +48,7 @@ def assets(kind,base,shared):
                         group.keep(*[tuple(c) for c in cs[np.argsort(counts)[-3:]]])
             groups.append(group)
     else:
-        raw={'gate':art.architecture(base)['gate31'],'apricorn':terrain.route31()['apricorn']};raw.update(art.cliff_modules());raw.update(terrain.pond_modules())
+        raw={'gate':art.architecture(base)['gate31'],'apricorn':terrain.route31()['apricorn']};raw.update(art.cliff_modules(base));raw.update(terrain.pond_modules())
         groups=[banks.Bank(12,'GATE','secondary').add('gate',raw['gate']).add('apricorn',raw['apricorn']),
                 banks.Bank(9,'CLIFF','secondary').keep((104,208,152))]
         for key in ['cliff','plateau','face','west_face','cliff_corner','cave_mouth','bridge']:groups[-1].add(key,raw[key])
@@ -104,7 +105,7 @@ def compose(kind,p,a):
     p=p.copy();h,w=p.shape
     if kind=='new_bark':
         for name,x,y,_ in BUILDINGS:c=a[name];p[y:y+c.h//16,x:x+c.w//16]='.'
-    else:p[9:16,:6]='.';p[9:14,48:55]='.'
+    else:p[9:16,:8]='.';p[9:14,48:55]='.'
     mc=b.town.MapCanvas(w,h);cells=np.full((h,w),ground.GRASS,np.int8);solid=p=='T';behavior=np.zeros((h,w),np.uint8)
     cells[p=='P']=ground.PATH;cells[p=='W']=ground.SEA;solid[p=='W']=True;behavior[p=='W']=16
     objects=[];doors=[]
@@ -120,7 +121,7 @@ def compose(kind,p,a):
         for name,x,y in [('labwind',24,3),('red_mailbox',9,5),('wind',17,14),('wind',28,16),('upper_wind',32,6),('east_mailbox',21,16)]:obj(name,x,y)
         for x,y in [(25,6),(9,6),(18,17),(29,19),(33,9),(21,17)]:solid[y,x]=True
     else:
-        obj('gate',0,10);solid[10:16,:6]=True;solid[15,4]=False;behavior[15,4]=105;doors.append(('gate',4,15))
+        obj('gate',0,10);solid[10:16,:8]=True;solid[15,4]=False;behavior[15,4]=105;doors.append(('gate',4,15))
         from claude_cherrygrove.pixel import Canvas
         obj('cliff',45,0)
         solid[2:14,46:]=True;solid[1:12,51:]=True;solid[:10,56:]=True
@@ -250,6 +251,16 @@ def main():
     report['references']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in REF.glob('*.png')}
     b.save_json(OUT/'build-report.json',report);print(json.dumps(report,indent=2))
     add_staff_houses(game,compiled)
+    reuse={}
+    for name,source in [('tree','tree'),('blossom','blossom'),('west_house','house'),
+                        ('east_house','house'),('staff_a','house'),('staff_b','gable'),('annex','gable')]:
+        pixels=np.asarray(Image.open(OUT/'native'/(name+'.png')))
+        original=base[source].to_rgba()
+        assert np.array_equal(pixels,original),('Cherrygrove asset drift',name)
+        reuse[name]=dict(source_asset=source,rgba_sha256=hashlib.sha256(original.tobytes()).hexdigest(),pixel_differences=0)
+    b.save_json(OUT/'evidence/cherrygrove-reuse.json',dict(
+        baseline='gba/art/claude-cherrygrove',unchanged_assets=reuse,
+        institute='208x80 assembly of original house wings and central gable; one entrance'))
 
 def add_staff_houses(game,compiled):
     townpath=game/'data/maps/NewBarkTown/map.json';m=b.load_json(townpath);group=b.load_json(game/'data/maps/map_groups.json')

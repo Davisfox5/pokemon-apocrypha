@@ -2,8 +2,8 @@
   "new_bark": {
     "width": 36,
     "height": 44,
-    "tiles": 305,
-    "metatiles": 321,
+    "tiles": 292,
+    "metatiles": 388,
     "doors": [
       [
         "institute",
@@ -49,17 +49,17 @@
     "crossings": 5,
     "neighbor_visible_cells": 168,
     "new_visible_cells": 182,
-    "neighbor_tiles_added": 1,
-    "neighbor_sheet_padding_removed": 0,
-    "neighbor_metatiles_added": 1,
-    "opaque_scenery_pixels_verified": 202112,
+    "neighbor_tiles_added": 0,
+    "neighbor_sheet_padding_removed": 14,
+    "neighbor_metatiles_added": 0,
+    "opaque_scenery_pixels_verified": 184931,
     "scenery_color_mismatches": 0
   },
   "route31": {
     "width": 63,
     "height": 30,
-    "tiles": 505,
-    "metatiles": 474,
+    "tiles": 485,
+    "metatiles": 506,
     "doors": [
       [
         "gate",
@@ -75,17 +75,17 @@
     "crossings": 2,
     "neighbor_visible_cells": 219,
     "new_visible_cells": 191,
-    "neighbor_tiles_added": 9,
+    "neighbor_tiles_added": 5,
     "neighbor_sheet_padding_removed": 0,
-    "neighbor_metatiles_added": 22,
-    "opaque_scenery_pixels_verified": 359676,
+    "neighbor_metatiles_added": 11,
+    "opaque_scenery_pixels_verified": 350863,
     "scenery_color_mismatches": 0
   },
   "violet_entrance": {
     "width": 28,
     "height": 24,
-    "tiles": 146,
-    "metatiles": 122,
+    "tiles": 147,
+    "metatiles": 110,
     "doors": [
       [
         "gate",
@@ -93,7 +93,7 @@
         13
       ]
     ],
-    "opaque_scenery_pixels_verified": 95505,
+    "opaque_scenery_pixels_verified": 89658,
     "scenery_color_mismatches": 0
   },
   "references": {

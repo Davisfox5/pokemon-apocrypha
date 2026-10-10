@@ -1,23 +1,24 @@
-## October 10 local native Johto revision — Porymap roundtrip pending
+## October 10 Cherrygrove asset reuse — Porymap roundtrip pending
 
-The owner rejected the cloud cohesion art and requested local rebuilding with
-Porymap. Current review source is `tools/gba/maps/johto_native_refinement/`, patch
-`gba/johto-native-refinement.patch`, visuals/checks
-`gba/art/johto-native-refinement/README.md`, branch
-`codex/johto-native-refinement`. Native buildings, grass, tree silhouettes,
-windmills/mailboxes and rock/cave modules replace the offending crops. Original
-route layout corridors and the enlarged institute/southern housing remain.
+The owner rejected the generic local redraw (`f732965`) and required the exact
+previous Cherrygrove style. Current source `tools/gba/maps/johto_native_refinement/`
+now directly reuses approved `claude_cherrygrove` houses, gables, trees, blossoms,
+daisies, mailboxes, ground and cliff textures. Seven exported asset families are
+verified pixel-identical to that baseline. The enlarged institute assembles
+existing house wings and central gable; southern homes reuse unchanged assets.
+Do not reintroduce generic substitute roofs, walls or tree silhouettes.
 
-Compilation, exact scenery packing, fresh generator reproduction, source
-preservation, directed corridor/Potion access and fresh headless movement,
-seams, eight town doors, ledges, cave/gate travel, save/cold Continue and walking
-film passed. Production `game/` and owner work remain untouched.
+Patch: `gba/johto-native-refinement.patch`; branch `codex/johto-native-refinement`;
+review/evidence: `gba/art/johto-native-refinement/README.md`.
+Compilation, fresh source reproduction, scenery packing, preserved town/flags/
+encounters, directed corridor/Potion access and fresh headless seams, grass,
+eight town doors, ledges, cave/gate travel and ordinary save/cold Continue pass.
+Production `game/`, main checkout and owner ROM/save work remain preserved.
 
-Porymap 6.3.1 opened the isolated project, then its file watcher raised a warning
-not exposed by computer control. The Mac subsequently locked. Final editor
-inspection/save roundtrip is pending; do not claim it is complete. Resume that
-inspection after unlock; the README identifies the workbench. Visual acceptance
-is also pending. Earlier cloud revisions below are retained historical proposals.
+Porymap still blocks controls behind an inaccessible file-watcher warning;
+editor inspection/save roundtrip is pending. The Mac is accessible again, but
+Escape/Return and map selection did not dismiss the warning. Owner visual
+acceptance is pending. Earlier proposals below are historical.
 
 ## October 9 cohesive route and New Bark correction
 
