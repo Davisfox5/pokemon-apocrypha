@@ -1,0 +1,14 @@
+{
+  "rom_sha256": "e9f662959d9d0771a8a36f4a2f8fca87b106ed166e041a30201931c6423ebe97",
+  "elf_sha256": "db9b4004af50516ccf8e79f8996b41c818ac317239fb4875ac8b4cfcaedbc810",
+  "rom_bytes": 33554432,
+  "toolchain": "ARM GNU 14.2.rel1 darwin-arm64",
+  "emulator": "libmGBA 0.10.5",
+  "native_movement_probes": 308,
+  "passed": 308,
+  "door_pairs": 7,
+  "route_round_trips": 2,
+  "ordinary_save_bytes": 131072,
+  "title_continue_passed": true,
+  "desktop_emulator_launched": false
+}

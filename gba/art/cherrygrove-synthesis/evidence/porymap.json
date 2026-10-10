@@ -1,0 +1,20 @@
+{
+  "version": "6.3.1",
+  "project": "cherrygrove-synthesis-work",
+  "map": "CherrygroveCity",
+  "opened_and_visually_reviewed": true,
+  "save_completed_without_unsaved_marker": true,
+  "files": {
+    "tools/vendor/gba/cherrygrove-synthesis-work/data/layouts/CherrygroveCity/map.bin": {
+      "before": "388db1b61b71e75ff8bfeeaa04e0e33632c0ca48c26f965a6cc021ea5ee76834",
+      "after": "388db1b61b71e75ff8bfeeaa04e0e33632c0ca48c26f965a6cc021ea5ee76834"
+    },
+    "tools/vendor/gba/cherrygrove-synthesis-work/data/maps/CherrygroveCity/map.json": {
+      "before": "ed8fdfbdd77955b533fa0a7e84bf9b040e504065a5cbdf7c430043d992a795b1",
+      "after": "ed8fdfbdd77955b533fa0a7e84bf9b040e504065a5cbdf7c430043d992a795b1"
+    }
+  },
+  "final_map_sha256": "c08d8f08ba36f2bb233979330f043b46f0b15b21a50972866c68877dc3284cfd",
+  "final_reload_completed": false,
+  "last_reload_blocker": "Mac locked. Earlier synthesis was opened, visually reviewed and saved with unchanged map/events hashes; final amendments were validated through native decoding and fresh libmGBA."
+}

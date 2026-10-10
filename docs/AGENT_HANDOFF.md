@@ -1,3 +1,21 @@
+## October 10 Cherrygrove B/C/E synthesis
+
+The owner selected B's houses/roof colors, Center/Mart, shoreline and whole green/pink
+trees; C's bright palette and cleaned cliff; E's clean 80×48 layout, door alignment,
+dock and shipyard. Reference uncertainty below is resolved by this explicit synthesis.
+Read `gba/art/cherrygrove-synthesis/README.md`. Keep the accepted New Bark lab.
+
+Current isolated source: `tools/vendor/gba/cherrygrove-synthesis-work`; standalone
+patch: `gba/cherrygrove-synthesis.patch`. Source references, native overview, in-game
+screenshots/motion, fresh movement/door/route/save proof and reproduction evidence
+are included. Original owner workbench and production source remain untouched.
+
+Porymap opened/reviewed/saved an earlier synthesis with exact map/events hashes.
+The Mac locked before the final house/Center adjustments could be reloaded. Final
+editor refresh is pending; final native decoding and background-emulator validation
+are complete. Do not claim the final Porymap reload occurred. Owner visual review
+of this synthesis is the next step, before propagating its palette/art to more maps.
+
 ## October 10 accepted original lab; Cherrygrove hybrid reference pending
 
 Read `gba/art/johto-native-refinement/README.md`. The owner accepted the original
