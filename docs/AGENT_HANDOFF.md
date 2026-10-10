@@ -1,3 +1,24 @@
+## October 10 local native Johto revision — Porymap roundtrip pending
+
+The owner rejected the cloud cohesion art and requested local rebuilding with
+Porymap. Current review source is `tools/gba/maps/johto_native_refinement/`, patch
+`gba/johto-native-refinement.patch`, visuals/checks
+`gba/art/johto-native-refinement/README.md`, branch
+`codex/johto-native-refinement`. Native buildings, grass, tree silhouettes,
+windmills/mailboxes and rock/cave modules replace the offending crops. Original
+route layout corridors and the enlarged institute/southern housing remain.
+
+Compilation, exact scenery packing, fresh generator reproduction, source
+preservation, directed corridor/Potion access and fresh headless movement,
+seams, eight town doors, ledges, cave/gate travel, save/cold Continue and walking
+film passed. Production `game/` and owner work remain untouched.
+
+Porymap 6.3.1 opened the isolated project, then its file watcher raised a warning
+not exposed by computer control. The Mac subsequently locked. Final editor
+inspection/save roundtrip is pending; do not claim it is complete. Resume that
+inspection after unlock; the README identifies the workbench. Visual acceptance
+is also pending. Earlier cloud revisions below are retained historical proposals.
+
 ## October 9 cohesive route and New Bark correction
 
 Current proposal: `gba/art/johto-cohesion/README.md`, generator

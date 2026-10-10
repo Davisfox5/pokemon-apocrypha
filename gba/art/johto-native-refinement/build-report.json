@@ -1,0 +1,103 @@
+{
+  "new_bark": {
+    "width": 36,
+    "height": 44,
+    "tiles": 305,
+    "metatiles": 321,
+    "doors": [
+      [
+        "institute",
+        16,
+        6
+      ],
+      [
+        "annex",
+        28,
+        8
+      ],
+      [
+        "west_house",
+        12,
+        17
+      ],
+      [
+        "east_house",
+        23,
+        19
+      ],
+      [
+        "staff_9_26",
+        10,
+        30
+      ],
+      [
+        "staff_23_26",
+        25,
+        30
+      ],
+      [
+        "staff_9_35",
+        10,
+        39
+      ],
+      [
+        "staff_23_35",
+        25,
+        39
+      ]
+    ],
+    "crossings": 5,
+    "neighbor_visible_cells": 168,
+    "new_visible_cells": 182,
+    "neighbor_tiles_added": 1,
+    "neighbor_sheet_padding_removed": 0,
+    "neighbor_metatiles_added": 1,
+    "opaque_scenery_pixels_verified": 202112,
+    "scenery_color_mismatches": 0
+  },
+  "route31": {
+    "width": 63,
+    "height": 30,
+    "tiles": 505,
+    "metatiles": 474,
+    "doors": [
+      [
+        "gate",
+        4,
+        15
+      ],
+      [
+        "cave",
+        52,
+        13
+      ]
+    ],
+    "crossings": 2,
+    "neighbor_visible_cells": 219,
+    "new_visible_cells": 191,
+    "neighbor_tiles_added": 9,
+    "neighbor_sheet_padding_removed": 0,
+    "neighbor_metatiles_added": 22,
+    "opaque_scenery_pixels_verified": 359676,
+    "scenery_color_mismatches": 0
+  },
+  "violet_entrance": {
+    "width": 28,
+    "height": 24,
+    "tiles": 146,
+    "metatiles": 122,
+    "doors": [
+      [
+        "gate",
+        22,
+        13
+      ]
+    ],
+    "opaque_scenery_pixels_verified": 95505,
+    "scenery_color_mismatches": 0
+  },
+  "references": {
+    "new-bark-hgss.png": "756ba2a429287b668258d3945aaac9ded197b4ca36b9589c87031ae9c5fdea93",
+    "route31-hgss.png": "f94c72aec1bab8cc1956ed22abdbb35549b084b69b068025db693a66fa3cd4b9"
+  }
+}

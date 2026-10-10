@@ -1,0 +1,3825 @@
+diff --git a/data/event_scripts.s b/data/event_scripts.s
+index f2b669dc..a9e86982 100644
+--- a/data/event_scripts.s
++++ b/data/event_scripts.s
+@@ -1770,3 +1770,29 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
+ .include "data/maps/CherrygroveRoute29Approach/scripts.inc"
+ 
+ .include "data/maps/CherrygroveRoute30Approach/scripts.inc"
++
++.include "data/maps/NewBarkTown/scripts.inc"
++
++.include "data/maps/JohtoRoute31/scripts.inc"
++
++.include "data/maps/VioletCityEntrance/scripts.inc"
++
++.include "data/maps/NewBarkInstitute/scripts.inc"
++
++.include "data/maps/NewBarkStaffHouse/scripts.inc"
++
++.include "data/maps/VioletEastGate/scripts.inc"
++
++.include "data/maps/DarkCaveEntrance/scripts.inc"
++
++.include "data/maps/NewBarkEastHouse/scripts.inc"
++
++.include "data/maps/NewBarkUpperHouse/scripts.inc"
++
++.include "data/maps/NewBarkResidence1/scripts.inc"
++
++.include "data/maps/NewBarkResidence2/scripts.inc"
++
++.include "data/maps/NewBarkResidence3/scripts.inc"
++
++.include "data/maps/NewBarkResidence4/scripts.inc"
+diff --git a/data/layouts/CherrygroveRoute29Approach/map.bin b/data/layouts/CherrygroveRoute29Approach/map.bin
+index efd4930453e79f93f503150cdfaf84b8f56480ca..760a173d6f5a3ba2012aaaf2c0c1ef113fcbe362 100644
+GIT binary patch
+literal 6664
+zcmdT{SCkY*6kWm)7EGukx`Ln*RD|xk3J6_q95EatqURtI76q1!EIET@FaQQ5h`OMt
+zAZAb$Gb&~T112!*ngiy5)~o88uI`;>SkBJJo;i1Fy1J^S`rUW$tInY+l#@bLsz%i-
+z7%{4Wny4jF8@Uy{Ht#h?b*Qd|eQ00WuY$2Z9e{c`P~spQT)}JeUgHF>g;(MuhqA##
+zMe`b6FGfjEcsqU6p=|IFr$eYd9jb6xR(R;_<#{`NWQT_s<<a5PK%rq)^iU}CC|77?
+zi-#l7h#FHPIub`kc(6IzTdv|XQsz-Tp^+^fj;1E+)0Cn-Fh|YM9LHEV7UlEC7&W$X
+zY43U9c-pyc;>&$;I*wYX&+$~6hnCa|PUz#JeBK!LCGAg9-S5dY$J36n(E#_w2$WAJ
+zNSqiN!|U?6)}beG(5Box*uJFw$*vD3o+ekzZrkD{D}HfmN$t=c9@vir2nmUkl^()t
+zCh3&OGnAhP<4fH{chN(lK-h8TICa3OV4Q~2RjaShNcEfhXIk;&d1v8loTH%U^Ek~*
+z9-WKx&{5)i+1Cjd;6eqRQ|0HOr?^C1Dtd|DqK_yPeMLVJ&TAb{j%jDQ2;6FPp^MQK
+z-F$SH{merU<0SP!fi+&wV?8iOJ^k4ClJk0_4;4}$>P!959|JJZ;#1e*puVKfgZ^TG
+z7$^qG@4@a6_cDoSJWZU#?I0R#<-iabPo8IV!1W+JUUOl180yb8^RzaK6wmhm8_k&d
+zlD-`(io`H6T#OJS-BIpncZ{oZSl8A1lvH^g#6RF+nB2#3jKD~RQ5dbfe+<TA9L8fp
+zDGqpziK<>FX_Cc*(NUZx%Q*#@qBLawpWC)-t*LVUG<l!f@P1l3Eggfgf`6O%@iR}S
+z88nk-`7xa>fAckC4t2s@mEX30%x_yqW<74Nz?HZPS6d9uQ~cRHbbzkuLCoia^MmIv
+zpg>!}y6c>^P8iqVS}?Ao>lFuf-kbdIhJ`8?w%;2qXg%FP>G)Wb;*I%RET3hGr6V2h
+zaEv+TOTqbZqrWe+zo4D(EO5eDhMTYqH{%xnneDs}s!_4Z-Lh&zz=zIpjw#12I)1r)
+ziWR<&Y_H<6w?<-q8&=AF@!q1S?`(3GI*Xk}Dcp`ba3@w_HR-&&OL_(SMHp)o4?4e1
+z?rQBAJ?R?FIo=+3`<zC{vp?OV@;@2!DxPyM-Iww`=KX#=fCsTQ4YoL2opJ6;XSq|X
+zu)<k~htxaQ!?d0rQFxR#;4y5#<Noz}dLpEgbUA8jK@pymW1pg@6%Rp<>zsc^)`g8S
+z<{bBDeU-3R@%3}`yx+s@7h@A%z>8_I-8wJr@WzWg?<Kq}d3Xh{;<Ylc8LvmY!FW9T
+zd?Aff-o!qoy@vVh67jd@ZZo&JyG4!X+Asm^bNu0&p?TQq_i*nL)n~L~=IOd(zsHq$
+z6XYrU4ZMlB@b+%74e$7|;&?Hlo*vah2MmhTi+AC;u50uWqawdvJ4nxiqv|@>_Kuhr
+z(N*}oG*O<y-^2U(Kw>*~(1(;BAE~<faVoY(1EuSz@tP<PI@ZS50=_=Mr=@r>HORD|
+z`L#%&Z{uXnOZr`obLn%R!A$2Ct^r^8_2NtaJuRH?woXd?x}s|hYlQ1gz{6Mm{TcMN
+zufuQXTeXwS`>@~Ras}s-Im=`^Kbo_t$x*xgF3nj<-~V3K9`^PhWV{0&e)K(PA%4Qo
+zz798Ir+kXc`>@~R>Iu#zbC${c{K1*l=pu9b3x36K_#J=XPpPAThrfLGi}80#kK6E%
+z?9IFn`#nzkl6kMvzHPieU7IBK{oO<7eZbMb*oFTTa`MgjiPx@@uj|hmRL$4-ccGf<
+ztDc|kzwN$N-fFL_FqkAJi&(xs&u=VsZi${__T<{u1pls)&|K*@te-tuFWs1iUIUNO
+zp4w5iF~^(hg;6p8IYnG9Dm$8ZO})yF)?OR0vSX^4CZ>xSqGqC2qOxM9m?aps6S;}X
+QirHe0VAM&}O;lF=4+b`}&j0`b
+
+literal 6664
+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
+
+diff --git a/data/layouts/CherrygroveRoute30Approach/map.bin b/data/layouts/CherrygroveRoute30Approach/map.bin
+index f0dd71b29f8f2604d9fa3699208b725f0be45822..0b75bf562ffc868c2d5d5bef3190bda56717e5ce 100644
+GIT binary patch
+literal 5180
+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
+
+literal 5180
+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
+CpxA@}
+
+diff --git a/data/layouts/DarkCaveEntrance/border.bin b/data/layouts/DarkCaveEntrance/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..423a0732e6b195d4841067cb731f545ad67f1685
+GIT binary patch
+literal 8
+LcmWe+5(Gm40ek>W
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/DarkCaveEntrance/map.bin b/data/layouts/DarkCaveEntrance/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..794cc0469098d1432c8802d14ed8c940bee87f61
+GIT binary patch
+literal 336
+zcmchTK?;B{3<R<2sFzZEs|x-h`T+g^r%Xf?gnE>LT!!6*;Q5tEPo$)fH~7fNK$UT3
+p6SE|piHVl(#B#>d7YMq=$hn0z>o)e=Icdb{rKL6o>Z|kXV+Xz=6CVHo
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/JohtoRoute31/border.bin b/data/layouts/JohtoRoute31/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d201f24bfdf727ee178d17769de718d94c49efd
+GIT binary patch
+literal 8
+PcmcDu5wexGxn~0a2uT7u
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/JohtoRoute31/map.bin b/data/layouts/JohtoRoute31/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..c6442906238b8cf3ce5b761bd54868c0890c1dbe
+GIT binary patch
+literal 3780
+zcmcImM{g7{7$vO4g_f`vs<_ZX5<xz5q3G=;h)zJFBhfGPqKIBYFQJ9rA(T)O5_%6M
+zebW=#zrh}_cf2#6oek2;da`H6<LCFj&)-Z6x*{cM2%wNMD3iKSH|oyOlX^jKJ<tcq
+zK@h!>iZtp={ir_%7+W%R4>U6B`$(4V*%*&OzU;}-F5^Aem%a1agAlsLMKQ#XH$mJW
+z&`@9Y&T9`~B&J|$6zPUDBef61a3B8o8cgRQh!Gg2wb7^yx#wkL9SF>aJ-!B0EeK!?
+zCSY0=(>c3&ULj`qu!nejBxaKBgC18gR<V^a&&4dvi(<Y}yU3^3&;lR!Ok_a8_Cb%U
+z7^~RInCC`y3lF@s3qKY**cTzTEyhwT<5&*B_Cfif`W%vHL*}wuyYn0<?^Z<ER$@Ii
+z@bN}R+l0+l+af%$YH|i`jr8g|ld@<VwsS2qm)+V`Jr^}y19n8%c48NH^YNaj&(iO`
+z*k`r<IDmXQNCJl-dv%>phv^88;uwzO1kV$bc5%L4-r*!p;WWn?oTYQTKaVw7tKlLp
+z;WBSmP#n5S*XX7fAf8R4$y{5)+I1hSvC1EHMsDFY?%*!&Q4#Lb19}(-kEoa)b8nvD
+zsn(vM1f_Ux((bxf=BSHyoL<mNdKCw+Da_uuym?FSsDw&m<L%O{a>1$nJ$)dFk3_D$
+z>ai>$lQ*9t>~_qXBkQSk^}gJp-LCWEEPp|TC%nA*N|j7$6MYuhYpVEq_4YR|h*kJT
+z-|2@Dm6k76s76(!F352;R`XiNYkJf-RU6#3-{w-!?0pLDHI(Pk3anVxQaiQ9ppMcx
+zyMEsPUwgd=cOHc;ZSLn`D&y?32Flo*z8C5{p){*LR(k_AQj-xamUg!{1ySu)ERChI
+zYMukF27hcGJqPqyWJAwSeJsv{$O&g$YFI5Rk7%!B_3S#$<sN-@%oG0TJoebUCw+fn
+zY|aUxTf8shUd+O5iB$_PIM~%ZH<!H+6$^8pjSl+78ki2DTf8shUdI~Q9Im~YnpiW_
+zT?*4!?H@s3-@PBFZvX38?IPy`Xo=x(BXKs|T#0IrH&6W6wX!zW&azkst6*a8PY<7B
+o*KzO1U#t0@0Dd#Z%+I{m^!}Gq|0jv|e?os*4x1QCbiSDP4?b3NKL7v#
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/NewBarkTown/border.bin b/data/layouts/NewBarkTown/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d201f24bfdf727ee178d17769de718d94c49efd
+GIT binary patch
+literal 8
+PcmcDu5wexGxn~0a2uT7u
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/NewBarkTown/map.bin b/data/layouts/NewBarkTown/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..c8010bdac8ae53271a8302842b5263a7e4923b53
+GIT binary patch
+literal 3168
+zcmcJRXOL7y6op}zA&9WVAuKuX!UA&|mauRdWp%}X2@njZ_(M?_6Ba0nX)&OdiV<~9
+zm?LJ)Ib*0rG3QdioCO1V`@QaYJ;R$B)Uu{db@%j}>ThnJd+#e|6BhqxCD@uJSxT}K
+zJF`oy8f87}ew&P8Nw6`C*fdZxHfIYvFX9&L5%awHKk+;*xuyNIVjH$iuR5?JyRxUp
+z>-ge%da<|t^kHB2ORxG1&j1cg^G1AeJcC%qat`JYR&XeXak$LQx|}KD0Tmsu;S1v%
+z$1{Q>S;<ix%`qIu@gQ}uuH*#a*@|1!@fyBuxNQ)hxO=JLcAUhqsKWNx0Xt$Rn7Ps9
+z;2w7tx?MymPUf!MO_-AG&Tct05!Kk8Q!o|NVCJD}Q*%;#a5`sTI``y6?1jBy?khaU
+zotHiCgPGVD`{6t+3A8_E;Q-7_Mb90Gg909RPW(6<Q*bcqae1Iaa42dq2Z!PCG+#B2
+z2zbJC+<DpKkvIx-akSMu93x!EVgZh`eCGM%v5+Uwo#l@w;v}4GbqeaR2&anbaGK@v
+zpRLE~ID?DX9_^5+GjSHq<~cl9bUtSa%LTZQ_uy{$x)_((-z~+ZyeuYP61;*}+FZCw
+z?(1q?gJpOgFL=6E;&z?HCCshsc|%P8CV3-ovbk`x@Z5r1aa-V@+j$3<i|(Yk$GdQE
+zP%G}^{W*9_xgzjcIUf+72k{Udmiu`Gk6OydI2(`Si5xsp-KpV|;<KmtG@lWkXYm{j
+z&x?G?Qmz!9m+?vto&-z9pT@7XDd%6~pE|sX*U*4fc->OI!PR&ZZ{^@A;YFN}R_blM
+zgZX$D@8NxzILyTd_z)lAV|*f%pYk()&NWzzb<7_hSFaQN0wIs_&LYp(_4rcOx$Y~9
+zkE;PS{7T~Ub%t*u4}F7gWA7`BPiCGOo~igQ!#mDL-&^k`nCTzmn<$UNI$+}SgI9n2
+zeOC*!{ga!=uRjs5>mC0$&yTiW{lx0vzWjRV?-k<t*}DH1sg>FB@%IYF=U40g^)WpD
+zULl?h*8RW5@NBT1!tCYe`5k|V`~T!d{>28YMkCc&6{%H0el^Hmv7Uiq-9#r;ex9ak
+zjpUNar%=sQ3+3j~XnI<Ho|dY$Dp76HYOC6%=h64=RfhsR9aU0wN~^One(sW9M|)jW
+zexAs$rUr%i_3!*#s!a`E&Te{B|M+`_c)IKGEvkp!l*ix8e_vH_y`pCfkH6PTn?Aab
+zy>%b$_b-?4u2=Mp;aOpQX!iQ){(3P7hz4rEe}(mDkSY_WmFvNJh+YEI-~IQEGF>6N
+z6?&*1riSa3aKI{hcMf@!8ln9DJyJ#Q8`1ZbYMStj5{}VU{`<4(7h}{|mD%sJ`@dON
+dsc~w&W-O2E6Pr7Rb<pv+-tf;yttWUqe*-O15x4*V
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/VioletCityEntrance/border.bin b/data/layouts/VioletCityEntrance/border.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d201f24bfdf727ee178d17769de718d94c49efd
+GIT binary patch
+literal 8
+PcmcDu5wexGxn~0a2uT7u
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/VioletCityEntrance/map.bin b/data/layouts/VioletCityEntrance/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..3353e0df50d8adc6d6572778989ac3c50b085280
+GIT binary patch
+literal 1344
+zcmbW1i&soh6vk5`3JpRud4?#auNov@-V}M35_wO0%DepczJ1O;*D>oDYqjqB*4^jK
+zzW2BHclO*mZeslg)WFSb<d(m*HQKW{r6z9Ub~d90f3(Bzv4zdFcxOVpRAVa(*v&oM
+z%Qo&)yq^cyjsgy%K#LD0)S)_x?8IRn;ZYvram6Rlg_AfXDQ1^j+g_~Gs-atqGd#;4
+z_VS!!aisHfcU!Z-Dxpqwmc-~I*v|nDDmG3oTeFi@g85n2J1_7eFL8*Mb6&>%2haQ*
+z&KOrfj7V1<&-W)zl4pKi<8|IpPd9N3w{Zt|<NhpGf1@1ZJ?Xyh73Qa%Yf+4GJV;!g
+z_mGd=_1O0c^V80?+c8qldEOH~b=O43Ge2!UORlHXbDlTJXPlCzGoJZrb(a6bd(IiY
+zzzknzJoD4)9InN4zlj^&%}=YdRlM1RE57pVES2+0-oKV&Ki}Xj-r+qyMDL9m7Ki-U
+z&kE-75%XAZy)OFs)PEwMP3?#L*v};_V+Eh8d0gdZev!V47xH62EBJ=*_>s*^-V@`T
+v5a)jCT*mp6Ytnkv{Kq*V4u0B<nolYH$~?E65C?x!-=11~!JpK(r`FzY#)t8S
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/layouts/layouts.json b/data/layouts/layouts.json
+index db731dee..663356be 100644
+--- a/data/layouts/layouts.json
++++ b/data/layouts/layouts.json
+@@ -9421,6 +9421,65 @@
+       "blockdata_filepath": "data/layouts/CherrygroveRoute30Approach/map.bin",
+       "build_target": "emerald",
+       "layout_version": "emerald"
++    },
++    {
++      "id": "LAYOUT_NEW_BARK_TOWN",
++      "name": "NewBarkTown_Layout",
++      "width": 36,
++      "height": 44,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_NewBark",
++      "border_filepath": "data/layouts/NewBarkTown/border.bin",
++      "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
++      "build_target": "emerald",
++      "layout_version": "emerald"
++    },
++    {
++      "id": "LAYOUT_JOHTO_ROUTE31",
++      "name": "JohtoRoute31_Layout",
++      "width": 63,
++      "height": 30,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_Route31",
++      "border_filepath": "data/layouts/JohtoRoute31/border.bin",
++      "blockdata_filepath": "data/layouts/JohtoRoute31/map.bin",
++      "build_target": "emerald",
++      "layout_version": "emerald"
++    },
++    {
++      "id": "LAYOUT_VIOLET_CITY_ENTRANCE",
++      "name": "VioletCityEntrance_Layout",
++      "width": 28,
++      "height": 24,
++      "primary_tileset": "gTileset_CherrygrovePrimary",
++      "secondary_tileset": "gTileset_VioletEntrance",
++      "border_filepath": "data/layouts/VioletCityEntrance/border.bin",
++      "blockdata_filepath": "data/layouts/VioletCityEntrance/map.bin",
++      "build_target": "emerald",
++      "layout_version": "emerald"
++    },
++    {
++      "id": "LAYOUT_VIOLET_EAST_GATE",
++      "name": "VioletEastGate_Layout",
++      "width": 15,
++      "height": 6,
++      "primary_tileset": "gTileset_Building",
++      "secondary_tileset": "gTileset_Shop",
++      "border_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/border.bin",
++      "blockdata_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/map.bin",
++      "layout_version": "emerald",
++      "build_target": "emerald"
++    },
++    {
++      "id": "LAYOUT_DARK_CAVE_ENTRANCE",
++      "name": "DarkCaveEntrance_Layout",
++      "width": 14,
++      "height": 12,
++      "primary_tileset": "gTileset_General",
++      "secondary_tileset": "gTileset_RusturfTunnel",
++      "border_filepath": "data/layouts/DarkCaveEntrance/border.bin",
++      "blockdata_filepath": "data/layouts/DarkCaveEntrance/map.bin",
++      "layout_version": "emerald"
+     }
+   ]
+ }
+diff --git a/data/maps/CherrygroveRoute29Approach/map.json b/data/maps/CherrygroveRoute29Approach/map.json
+index 5c33ad40..37f4fa98 100644
+--- a/data/maps/CherrygroveRoute29Approach/map.json
++++ b/data/maps/CherrygroveRoute29Approach/map.json
+@@ -19,6 +19,11 @@
+       "map": "MAP_CHERRYGROVE_CITY",
+       "offset": 4,
+       "direction": "left"
++    },
++    {
++      "map": "MAP_NEW_BARK_TOWN",
++      "direction": "right",
++      "offset": 4
+     }
+   ],
+   "object_events": [],
+diff --git a/data/maps/CherrygroveRoute30Approach/map.json b/data/maps/CherrygroveRoute30Approach/map.json
+index 1bd928d0..c05bdd33 100644
+--- a/data/maps/CherrygroveRoute30Approach/map.json
++++ b/data/maps/CherrygroveRoute30Approach/map.json
+@@ -19,6 +19,11 @@
+       "map": "MAP_CHERRYGROVE_CITY",
+       "offset": -24,
+       "direction": "down"
++    },
++    {
++      "map": "MAP_JOHTO_ROUTE31",
++      "direction": "up",
++      "offset": -28
+     }
+   ],
+   "object_events": [],
+diff --git a/data/maps/DarkCaveEntrance/map.json b/data/maps/DarkCaveEntrance/map.json
+new file mode 100644
+index 00000000..93f8866e
+--- /dev/null
++++ b/data/maps/DarkCaveEntrance/map.json
+@@ -0,0 +1,30 @@
++{
++  "id": "MAP_DARK_CAVE_ENTRANCE",
++  "name": "DarkCaveEntrance",
++  "layout": "LAYOUT_DARK_CAVE_ENTRANCE",
++  "music": "MUS_CAVE_OF_ORIGIN",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_DARK_CAVE",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_UNDERGROUND",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 4,
++      "y": 10,
++      "elevation": 0,
++      "dest_map": "MAP_JOHTO_ROUTE31",
++      "dest_warp_id": "1"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/DarkCaveEntrance/scripts.inc b/data/maps/DarkCaveEntrance/scripts.inc
+new file mode 100644
+index 00000000..b39a4a1e
+--- /dev/null
++++ b/data/maps/DarkCaveEntrance/scripts.inc
+@@ -0,0 +1,2 @@
++DarkCaveEntrance_MapScripts::
++    .byte 0
+diff --git a/data/maps/JohtoRoute31/map.json b/data/maps/JohtoRoute31/map.json
+new file mode 100644
+index 00000000..3feff925
+--- /dev/null
++++ b/data/maps/JohtoRoute31/map.json
+@@ -0,0 +1,60 @@
++{
++  "id": "MAP_JOHTO_ROUTE31",
++  "name": "JohtoRoute31",
++  "layout": "LAYOUT_JOHTO_ROUTE31",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_JOHTO_ROUTE_31",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_ROUTE",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
++      "direction": "down",
++      "offset": 28
++    }
++  ],
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 4,
++      "y": 15,
++      "elevation": 0,
++      "dest_map": "MAP_VIOLET_EAST_GATE",
++      "dest_warp_id": "2"
++    },
++    {
++      "x": 52,
++      "y": 13,
++      "elevation": 0,
++      "dest_map": "MAP_DARK_CAVE_ENTRANCE",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": [
++    {
++      "type": "sign",
++      "x": 10,
++      "y": 13,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "JohtoRoute31_Route"
++    },
++    {
++      "type": "sign",
++      "x": 51,
++      "y": 13,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "JohtoRoute31_Cave"
++    }
++  ]
++}
+diff --git a/data/maps/JohtoRoute31/scripts.inc b/data/maps/JohtoRoute31/scripts.inc
+new file mode 100644
+index 00000000..e4beff1b
+--- /dev/null
++++ b/data/maps/JohtoRoute31/scripts.inc
+@@ -0,0 +1,16 @@
++JohtoRoute31_MapScripts::
++    .byte 0
++
++JohtoRoute31_Route::
++    msgbox JohtoRoute31_Route_Text, MSGBOX_SIGN
++    end
++
++JohtoRoute31_Route_Text:
++    .string "ROUTE 31\nVIOLET CITY - WEST$"
++
++JohtoRoute31_Cave::
++    msgbox JohtoRoute31_Cave_Text, MSGBOX_SIGN
++    end
++
++JohtoRoute31_Cave_Text:
++    .string "DARK CAVE\nTAKE CARE IN THE DARK$"
+diff --git a/data/maps/NewBarkEastHouse/map.json b/data/maps/NewBarkEastHouse/map.json
+new file mode 100644
+index 00000000..65edf15f
+--- /dev/null
++++ b/data/maps/NewBarkEastHouse/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_EAST_HOUSE",
++  "name": "NewBarkEastHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "2"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "2"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkEastHouse/scripts.inc b/data/maps/NewBarkEastHouse/scripts.inc
+new file mode 100644
+index 00000000..0ccd50bd
+--- /dev/null
++++ b/data/maps/NewBarkEastHouse/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkEastHouse_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkInstitute/map.json b/data/maps/NewBarkInstitute/map.json
+new file mode 100644
+index 00000000..07ae2b3e
+--- /dev/null
++++ b/data/maps/NewBarkInstitute/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_INSTITUTE",
++  "name": "NewBarkInstitute",
++  "layout": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
++  "music": "MUS_BIRCH_LAB",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 6,
++      "y": 12,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 7,
++      "y": 12,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkInstitute/scripts.inc b/data/maps/NewBarkInstitute/scripts.inc
+new file mode 100644
+index 00000000..6ddbde2c
+--- /dev/null
++++ b/data/maps/NewBarkInstitute/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkInstitute_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkResidence1/map.json b/data/maps/NewBarkResidence1/map.json
+new file mode 100644
+index 00000000..832db679
+--- /dev/null
++++ b/data/maps/NewBarkResidence1/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_RESIDENCE_1",
++  "name": "NewBarkResidence1",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "4"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "4"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkResidence1/scripts.inc b/data/maps/NewBarkResidence1/scripts.inc
+new file mode 100644
+index 00000000..f818885f
+--- /dev/null
++++ b/data/maps/NewBarkResidence1/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkResidence1_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkResidence2/map.json b/data/maps/NewBarkResidence2/map.json
+new file mode 100644
+index 00000000..dfd96e4f
+--- /dev/null
++++ b/data/maps/NewBarkResidence2/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_RESIDENCE_2",
++  "name": "NewBarkResidence2",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "5"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "5"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkResidence2/scripts.inc b/data/maps/NewBarkResidence2/scripts.inc
+new file mode 100644
+index 00000000..a81ae85d
+--- /dev/null
++++ b/data/maps/NewBarkResidence2/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkResidence2_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkResidence3/map.json b/data/maps/NewBarkResidence3/map.json
+new file mode 100644
+index 00000000..c463c1e5
+--- /dev/null
++++ b/data/maps/NewBarkResidence3/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_RESIDENCE_3",
++  "name": "NewBarkResidence3",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "6"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "6"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkResidence3/scripts.inc b/data/maps/NewBarkResidence3/scripts.inc
+new file mode 100644
+index 00000000..7f22680c
+--- /dev/null
++++ b/data/maps/NewBarkResidence3/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkResidence3_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkResidence4/map.json b/data/maps/NewBarkResidence4/map.json
+new file mode 100644
+index 00000000..053fe215
+--- /dev/null
++++ b/data/maps/NewBarkResidence4/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_RESIDENCE_4",
++  "name": "NewBarkResidence4",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "7"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "7"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkResidence4/scripts.inc b/data/maps/NewBarkResidence4/scripts.inc
+new file mode 100644
+index 00000000..33585155
+--- /dev/null
++++ b/data/maps/NewBarkResidence4/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkResidence4_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkStaffHouse/map.json b/data/maps/NewBarkStaffHouse/map.json
+new file mode 100644
+index 00000000..75f7acf4
+--- /dev/null
++++ b/data/maps/NewBarkStaffHouse/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_STAFF_HOUSE",
++  "name": "NewBarkStaffHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "1"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "1"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkStaffHouse/scripts.inc b/data/maps/NewBarkStaffHouse/scripts.inc
+new file mode 100644
+index 00000000..bb0bea99
+--- /dev/null
++++ b/data/maps/NewBarkStaffHouse/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkStaffHouse_MapScripts::
++    .byte 0
+diff --git a/data/maps/NewBarkTown/map.json b/data/maps/NewBarkTown/map.json
+new file mode 100644
+index 00000000..e4bd9baa
+--- /dev/null
++++ b/data/maps/NewBarkTown/map.json
+@@ -0,0 +1,102 @@
++{
++  "id": "MAP_NEW_BARK_TOWN",
++  "name": "NewBarkTown",
++  "layout": "LAYOUT_NEW_BARK_TOWN",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_CITY",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": [
++    {
++      "map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
++      "direction": "left",
++      "offset": -4
++    }
++  ],
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 16,
++      "y": 6,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_INSTITUTE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 12,
++      "y": 17,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_STAFF_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 23,
++      "y": 19,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_EAST_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 28,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_UPPER_HOUSE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 10,
++      "y": 30,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_RESIDENCE_1",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 25,
++      "y": 30,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_RESIDENCE_2",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 10,
++      "y": 39,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_RESIDENCE_3",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 25,
++      "y": 39,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_RESIDENCE_4",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": [
++    {
++      "type": "sign",
++      "x": 15,
++      "y": 8,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "NewBarkTown_Institute"
++    },
++    {
++      "type": "sign",
++      "x": 19,
++      "y": 13,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "NewBarkTown_Town"
++    }
++  ]
++}
+diff --git a/data/maps/NewBarkTown/scripts.inc b/data/maps/NewBarkTown/scripts.inc
+new file mode 100644
+index 00000000..d777fd25
+--- /dev/null
++++ b/data/maps/NewBarkTown/scripts.inc
+@@ -0,0 +1,30 @@
++NewBarkTown_MapScripts::
++    .byte 0
++
++NewBarkTown_Institute::
++    msgbox NewBarkTown_Institute_Text, MSGBOX_SIGN
++    end
++
++NewBarkTown_Institute_Text:
++    .string "ELM POKéMON INSTITUTE\nRECEPTION AND RESEARCH$"
++
++NewBarkTown_Town::
++    msgbox NewBarkTown_Town_Text, MSGBOX_SIGN
++    end
++
++NewBarkTown_Town_Text:
++    .string "NEW BARK TOWN\nCHERRYGROVE CITY - WEST$"
++
++NewBarkTown_Researcher1::
++    msgbox NewBarkTown_Researcher1_Text, MSGBOX_NPC
++    end
++
++NewBarkTown_Researcher1_Text:
++    .string "These supplies go to the annex.\nPlease leave the path clear.$"
++
++NewBarkTown_Researcher2::
++    msgbox NewBarkTown_Researcher2_Text, MSGBOX_NPC
++    end
++
++NewBarkTown_Researcher2_Text:
++    .string "Professor ELM's reception is open.\nThe research wing is for staff.$"
+diff --git a/data/maps/NewBarkUpperHouse/map.json b/data/maps/NewBarkUpperHouse/map.json
+new file mode 100644
+index 00000000..fb5f95f0
+--- /dev/null
++++ b/data/maps/NewBarkUpperHouse/map.json
+@@ -0,0 +1,37 @@
++{
++  "id": "MAP_NEW_BARK_UPPER_HOUSE",
++  "name": "NewBarkUpperHouse",
++  "layout": "LAYOUT_HOUSE1",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 3,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "3"
++    },
++    {
++      "x": 4,
++      "y": 8,
++      "elevation": 0,
++      "dest_map": "MAP_NEW_BARK_TOWN",
++      "dest_warp_id": "3"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/NewBarkUpperHouse/scripts.inc b/data/maps/NewBarkUpperHouse/scripts.inc
+new file mode 100644
+index 00000000..bc8efde1
+--- /dev/null
++++ b/data/maps/NewBarkUpperHouse/scripts.inc
+@@ -0,0 +1,2 @@
++NewBarkUpperHouse_MapScripts::
++    .byte 0
+diff --git a/data/maps/VioletCityEntrance/map.json b/data/maps/VioletCityEntrance/map.json
+new file mode 100644
+index 00000000..6df9a05f
+--- /dev/null
++++ b/data/maps/VioletCityEntrance/map.json
+@@ -0,0 +1,39 @@
++{
++  "id": "MAP_VIOLET_CITY_ENTRANCE",
++  "name": "VioletCityEntrance",
++  "layout": "LAYOUT_VIOLET_CITY_ENTRANCE",
++  "music": "MUS_LITTLEROOT",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_VIOLET_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_SUNNY",
++  "map_type": "MAP_TYPE_CITY",
++  "allow_cycling": true,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": true,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 22,
++      "y": 13,
++      "elevation": 0,
++      "dest_map": "MAP_VIOLET_EAST_GATE",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": [
++    {
++      "type": "sign",
++      "x": 13,
++      "y": 9,
++      "elevation": 0,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "VioletCityEntrance_Violet"
++    }
++  ]
++}
+diff --git a/data/maps/VioletCityEntrance/scripts.inc b/data/maps/VioletCityEntrance/scripts.inc
+new file mode 100644
+index 00000000..1b7aaca5
+--- /dev/null
++++ b/data/maps/VioletCityEntrance/scripts.inc
+@@ -0,0 +1,9 @@
++VioletCityEntrance_MapScripts::
++    .byte 0
++
++VioletCityEntrance_Violet::
++    msgbox VioletCityEntrance_Violet_Text, MSGBOX_SIGN
++    end
++
++VioletCityEntrance_Violet_Text:
++    .string "VIOLET CITY\nEAST ENTRANCE$"
+diff --git a/data/maps/VioletEastGate/map.json b/data/maps/VioletEastGate/map.json
+new file mode 100644
+index 00000000..083158c8
+--- /dev/null
++++ b/data/maps/VioletEastGate/map.json
+@@ -0,0 +1,51 @@
++{
++  "id": "MAP_VIOLET_EAST_GATE",
++  "name": "VioletEastGate",
++  "layout": "LAYOUT_VIOLET_EAST_GATE",
++  "music": "MUS_ROUTE101",
++  "region": "REGION_JOHTO",
++  "region_map_section": "MAPSEC_VIOLET_CITY",
++  "requires_flash": false,
++  "weather": "WEATHER_NONE",
++  "map_type": "MAP_TYPE_INDOOR",
++  "allow_cycling": false,
++  "allow_escaping": false,
++  "allow_running": true,
++  "show_map_name": false,
++  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
++  "build_target": "emerald",
++  "connections": null,
++  "object_events": [],
++  "warp_events": [
++    {
++      "x": 1,
++      "y": 5,
++      "elevation": 0,
++      "dest_map": "MAP_VIOLET_CITY_ENTRANCE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 2,
++      "y": 5,
++      "elevation": 0,
++      "dest_map": "MAP_VIOLET_CITY_ENTRANCE",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 12,
++      "y": 5,
++      "elevation": 0,
++      "dest_map": "MAP_JOHTO_ROUTE31",
++      "dest_warp_id": "0"
++    },
++    {
++      "x": 13,
++      "y": 5,
++      "elevation": 0,
++      "dest_map": "MAP_JOHTO_ROUTE31",
++      "dest_warp_id": "0"
++    }
++  ],
++  "coord_events": [],
++  "bg_events": []
++}
+diff --git a/data/maps/VioletEastGate/scripts.inc b/data/maps/VioletEastGate/scripts.inc
+new file mode 100644
+index 00000000..709ee504
+--- /dev/null
++++ b/data/maps/VioletEastGate/scripts.inc
+@@ -0,0 +1,2 @@
++VioletEastGate_MapScripts::
++    .byte 0
+diff --git a/data/maps/map_groups.json b/data/maps/map_groups.json
+index 4c5cb23a..7e6082a8 100644
+--- a/data/maps/map_groups.json
++++ b/data/maps/map_groups.json
+@@ -1193,6 +1193,19 @@
+     "CherrygrovePlayerBedroom",
+     "CherrygroveCenterUpstairs",
+     "CherrygroveRoute29Approach",
+-    "CherrygroveRoute30Approach"
++    "CherrygroveRoute30Approach",
++    "NewBarkTown",
++    "JohtoRoute31",
++    "VioletCityEntrance",
++    "NewBarkInstitute",
++    "NewBarkStaffHouse",
++    "VioletEastGate",
++    "DarkCaveEntrance",
++    "NewBarkEastHouse",
++    "NewBarkUpperHouse",
++    "NewBarkResidence1",
++    "NewBarkResidence2",
++    "NewBarkResidence3",
++    "NewBarkResidence4"
+   ]
+ }
+diff --git a/data/tilesets/secondary/claude_route29/metatile_attributes.bin b/data/tilesets/secondary/claude_route29/metatile_attributes.bin
+index 776cb30294cf18237fc2ab1a8231329a1a997ea9..1128ed913392005e010c56ca4b6ff1c77200e8cb 100644
+GIT binary patch
+literal 540
+zcmb`B!41GL2m?_j;L~R($^Ls)j^&urJS(I&fH^xdeyou!F~6NQ^*@dY#M+GDjppcZ
+zd9QEZLB+lF-KF#~Q-vEB=t@c+xtdAs-Z|v{-q8oM?npg0CE0R6ds?NuAd+haRo05{
+M30@>H>6NU=2M$FQnE(I)
+
+literal 468
+zcmbtQ+Yx{;2;-c91)RkF_mU6-^!&73k4GL<&5dD|)&I(uGq&e<A{2;f=Cd!{Hji%L
+z-K~{sFt}|M``J|rdt3qj;8TrD?8}!VFa8?&XGdMkc-kFXr~n2{`hrz8=j3753b6B*
+LXC}?~#d_@v{iYE-
+
+diff --git a/data/tilesets/secondary/claude_route29/metatiles.bin b/data/tilesets/secondary/claude_route29/metatiles.bin
+index 77eebfeae3b4d8786053119576248d921ca4d77f..431016071d0067dab6b33099099589ab3efb94c1 100644
+GIT binary patch
+literal 4320
+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
+ZKN3+>g!77r=<IXwdw)J3YoEnL{|8_**meK_
+
+literal 3744
+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
+M$WM`<Bfmuc1D1>HIRF3v
+
+diff --git a/data/tilesets/secondary/claude_route29/palettes/07.pal b/data/tilesets/secondary/claude_route29/palettes/07.pal
+index 1ccebfb7..93a578f8 100644
+--- a/data/tilesets/secondary/claude_route29/palettes/07.pal
++++ b/data/tilesets/secondary/claude_route29/palettes/07.pal
+@@ -2,15 +2,15 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-16 96 64
+ 32 112 80
+ 32 120 88
+ 40 136 80
+ 56 152 88
+ 64 168 112
+ 80 192 120
+-112 104 88
+-112 112 112
++0 0 0
++0 0 0
++0 0 0
+ 0 0 0
+ 0 0 0
+ 0 0 0
+diff --git a/data/tilesets/secondary/claude_route29/palettes/09.pal b/data/tilesets/secondary/claude_route29/palettes/09.pal
+index abd5926c..7f2b8979 100644
+--- a/data/tilesets/secondary/claude_route29/palettes/09.pal
++++ b/data/tilesets/secondary/claude_route29/palettes/09.pal
+@@ -2,18 +2,18 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-224 200 168
+-192 168 144
+-88 168 216
+-152 152 144
+-56 176 176
+-48 160 152
+-32 144 136
+-32 144 120
+-128 128 120
+-112 96 64
+-24 112 96
+-8 104 80
+-96 72 56
+-24 80 64
+-32 32 32
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/claude_route29/palettes/12.pal b/data/tilesets/secondary/claude_route29/palettes/12.pal
+index 12e4f8c3..88afc5c9 100644
+--- a/data/tilesets/secondary/claude_route29/palettes/12.pal
++++ b/data/tilesets/secondary/claude_route29/palettes/12.pal
+@@ -2,18 +2,18 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-232 168 104
+-224 136 96
++152 216 120
+ 128 184 96
++240 168 136
++64 168 112
+ 56 152 96
+ 40 144 80
+ 32 128 72
+ 160 120 104
+-88 120 96
+ 120 80 64
+-80 96 48
+-72 80 56
+-24 104 56
++88 120 96
++80 120 96
+ 56 64 72
+-64 64 48
+-64 56 48
++16 120 56
++24 104 56
++24 80 48
+diff --git a/data/tilesets/secondary/claude_route29/tiles.png b/data/tilesets/secondary/claude_route29/tiles.png
+index d19e94923998ac4f451c9afc98968613435e86bf..fb992120fa45cdd81646de179b4a6bad67379fd6 100644
+GIT binary patch
+delta 3412
+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
+
+delta 3569
+zcmV<N4G!{!8=)MK7YdjJ0{{R3-j)0gks&{StVu*cRCt{2nSG2L<$cFL^X%;H+3|Vj
+zIl`OZ&U16dxDeZ8?^!4+xh}9MLA>-Fx~8IuY+BWBiV3!x$OlO6K~-WS)EufC!?|fM
+zQA$;BkXHgqkdOLI6BKG+y%>c6w&%tN77c-$SzF+j-JR(lGqXFpcjm?X(W>IBmFAg$
+zXP)Q#{NA4D`904ngz#ZJ3*~o9;*G>W(fHdnlaoN_u6c#=LrYVYP2&Kp?2#fp0hCPA
+z<x@kJ8WEh(0hol#k04-`?Es3#3+|!)H_yG*j~Y5G05G8pP$y`@)98~?SsbQDK{s;%
+zl%>Nf@uqcxxx2!?T|gyYP(bm4c_o{FHary4KV7MT0kt@RfVA(%Dt@`*ZL+E}FyB{v
+zO_3r?qViDDtbcb}gcU$%Q_X|jIW=p2fFdP6lps^c%%*4B_lGcM*uZ?<79Q9Fq_4mS
+z-Iu>Wsm}&-<>san<SRu1>}slhzy_?EV;Cq>;|uoNI-(yaTUyk{_d};72NZyRJWv4c
+zSo|P=T}&Sg^-PyZ|8y)r#t8Es*&9<|@#%3bkf9BlP*e^!R}`|*u;`6i3nM7ZjDrqj
+z%+fV@W*%$=K**rd1uS9APN0-pYtGvBqO^iG0e8umO@)pbu2#H8S*H~Oz%UF0KtJvK
+zrNB060N-~29|$-m5i=N?R7ehgOeEs(z07+g5*Pq`f#cAKJO>bd=u_W^0YJ)D6?}ja
+z0N%0A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
+
+diff --git a/data/tilesets/secondary/claude_route30/metatile_attributes.bin b/data/tilesets/secondary/claude_route30/metatile_attributes.bin
+index 6c76610214be07d7122163c7b5cda66076c7c6a1..cb2f38c0f3e0a69c64499c3a3b9471e3e26f7651 100644
+GIT binary patch
+literal 948
+zcmb`G(G9~e2t-jQ$O4_j6LtRusuO;>bNtoHK?>&sE?_%Vbz$!t!JP1)P#u9!Xs5>O
+zYD*4GM83J55#OwGgvM>X=A8;u;H`lQ%$VwHPpX4a=8mmQEVJO`={GrWt5lr!s<QS$
+z)qnn}ES2Ou(d=qYtrd^IymG!ld!}oCLS?0se*in$GpcXS=Xn#{Ej7JgT}jljFG|xR
+A_y7O^
+
+literal 736
+zcmbVKi4A}-2qc}L3pj}rx&H!kT(8g?V`51>-h)!jtV@om$@3S_4zb|A{;-y*zGi5h
+zVhhS@r91OD8@{8?#2{pC?Td)t$G_sOQR!JP&l|>e#(thT;NkArks0CTZE`!FHVz^@
+zV@}m_W_3x6(|U<_Bdrri39NqHevxTRMe&Vgi`OXTElvIZ;~|O<R_fHIM>_}R%i?WW
+Fa|5s_8g>8x
+
+diff --git a/data/tilesets/secondary/claude_route30/metatiles.bin b/data/tilesets/secondary/claude_route30/metatiles.bin
+index bf63dc093a903091eedc8b760c6f7025e56668ef..6f9eba8d87321820ad28901829a0bd2c9f0adef6 100644
+GIT binary patch
+literal 7584
+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
+
+literal 5888
+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
+
+diff --git a/data/tilesets/secondary/claude_route30/palettes/06.pal b/data/tilesets/secondary/claude_route30/palettes/06.pal
+index e7224e64..500aa6a9 100644
+--- a/data/tilesets/secondary/claude_route30/palettes/06.pal
++++ b/data/tilesets/secondary/claude_route30/palettes/06.pal
+@@ -2,18 +2,18 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-224 136 96
++240 168 136
+ 80 192 120
+ 64 168 112
+ 56 152 88
+ 40 144 72
++232 136 184
+ 40 136 80
+-160 120 96
+-112 112 112
++120 80 64
+ 72 112 88
+-72 104 80
++64 96 80
++56 64 64
+ 32 128 64
+ 32 120 88
+ 32 112 80
+-16 96 64
+-24 80 48
++24 104 56
+diff --git a/data/tilesets/secondary/claude_route30/palettes/08.pal b/data/tilesets/secondary/claude_route30/palettes/08.pal
+index 34ccb0bf..7f2b8979 100644
+--- a/data/tilesets/secondary/claude_route30/palettes/08.pal
++++ b/data/tilesets/secondary/claude_route30/palettes/08.pal
+@@ -2,18 +2,18 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-200 152 104
+-152 112 80
+-128 112 104
+-128 96 64
+-96 96 104
+-120 80 56
+-104 88 80
+-96 80 80
+-120 32 40
+-88 72 64
+-72 56 48
+-48 48 48
+-40 32 32
+-24 24 24
+-0 0 0
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/claude_route30/palettes/12.pal b/data/tilesets/secondary/claude_route30/palettes/12.pal
+index 94d9d3f0..7f2b8979 100644
+--- a/data/tilesets/secondary/claude_route30/palettes/12.pal
++++ b/data/tilesets/secondary/claude_route30/palettes/12.pal
+@@ -2,18 +2,18 @@ JASC-PAL
+ 0100
+ 16
+ 0 0 0
+-240 240 224
+-232 152 144
+-208 200 160
+-184 144 96
+-200 104 104
+-144 120 96
+-128 120 128
+-184 88 88
+-168 72 72
+-112 88 64
+-136 56 56
+-120 32 40
+-96 96 104
+-32 32 32
+-96 24 16
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/claude_route30/tiles.png b/data/tilesets/secondary/claude_route30/tiles.png
+index 8d95d1adc3ca0962ce75a8a8dac735552f91f26e..a378b988956992e21e7349baa3486310ae375dd1 100644
+GIT binary patch
+delta 6631
+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
+YT6pydx$##1`{w`;RJB#gl&oI;9}`A>-T(jq
+
+delta 6825
+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
+X6G-O`h89IK00000NkvXXu0mjf?H$&!
+
+diff --git a/data/tilesets/secondary/new_bark/metatile_attributes.bin b/data/tilesets/secondary/new_bark/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..6963d92d8ccb0dddbff815616993df5535bc077c
+GIT binary patch
+literal 642
+zcmZP&U>G2niQ8TVbT`Q&sl}rYNfo*YMDfA)3IG8_H4}<?2sa>9pqh$H9H9zkGD3t}
+hEL68rW~wOA-ylpZg!l^Ndu;wg7DZ+=fK>|!005wy7CQg{
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/new_bark/metatiles.bin b/data/tilesets/secondary/new_bark/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..98e384455e6fae6193b0a5b8e51597d12fe7f2c9
+GIT binary patch
+literal 5136
+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
+b>sizfm~TY)t@wGkA8>s6yu$xQFY*09eWB%z
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/new_bark/palettes/00.pal b/data/tilesets/secondary/new_bark/palettes/00.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/01.pal b/data/tilesets/secondary/new_bark/palettes/01.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/02.pal b/data/tilesets/secondary/new_bark/palettes/02.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/03.pal b/data/tilesets/secondary/new_bark/palettes/03.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/04.pal b/data/tilesets/secondary/new_bark/palettes/04.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/05.pal b/data/tilesets/secondary/new_bark/palettes/05.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/06.pal b/data/tilesets/secondary/new_bark/palettes/06.pal
+new file mode 100644
+index 00000000..7f2b8979
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/new_bark/palettes/07.pal b/data/tilesets/secondary/new_bark/palettes/07.pal
+new file mode 100644
+index 00000000..93a578f8
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 112 80
++32 120 88
++40 136 80
++56 152 88
++64 168 112
++80 192 120
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/08.pal b/data/tilesets/secondary/new_bark/palettes/08.pal
+new file mode 100644
+index 00000000..56d65fe1
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++96 104 96
++72 160 224
++240 240 232
++216 216 208
++240 144 56
++168 168 160
++64 144 216
++232 120 48
++120 120 112
++192 72 8
++184 56 0
++136 32 0
++80 88 104
++56 56 72
++32 32 32
+diff --git a/data/tilesets/secondary/new_bark/palettes/09.pal b/data/tilesets/secondary/new_bark/palettes/09.pal
+new file mode 100644
+index 00000000..aa23dafc
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++56 48 48
++96 64 56
++104 208 152
++112 104 88
++152 144 120
++184 104 88
++224 216 184
++240 168 136
++240 240 216
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/10.pal b/data/tilesets/secondary/new_bark/palettes/10.pal
+new file mode 100644
+index 00000000..a40c2a84
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++194 118 166
++162 102 140
++151 97 130
++136 104 64
++140 91 125
++129 126 102
++112 88 64
++118 86 110
++80 72 56
++72 72 48
++72 64 56
++64 64 40
++64 56 40
++48 56 64
++32 32 32
+diff --git a/data/tilesets/secondary/new_bark/palettes/11.pal b/data/tilesets/secondary/new_bark/palettes/11.pal
+new file mode 100644
+index 00000000..bdcb3d0e
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++216 192 144
++200 156 104
++196 148 92
++192 148 96
++184 140 92
++176 132 84
++168 124 80
++160 116 72
++152 108 68
++120 84 52
++112 96 72
++104 68 40
++58 58 92
++24 56 120
++56 36 24
+diff --git a/data/tilesets/secondary/new_bark/palettes/12.pal b/data/tilesets/secondary/new_bark/palettes/12.pal
+new file mode 100644
+index 00000000..aa23dafc
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++56 48 48
++96 64 56
++104 208 152
++112 104 88
++152 144 120
++184 104 88
++224 216 184
++240 168 136
++240 240 216
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/13.pal b/data/tilesets/secondary/new_bark/palettes/13.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/14.pal b/data/tilesets/secondary/new_bark/palettes/14.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/palettes/15.pal b/data/tilesets/secondary/new_bark/palettes/15.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/new_bark/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/new_bark/tiles.png b/data/tilesets/secondary/new_bark/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..fbffd5a74b822fa56fce7fdff1c9032bc923fea8
+GIT binary patch
+literal 3458
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/route31/metatile_attributes.bin b/data/tilesets/secondary/route31/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..4eec0d31088734d8c9b90076709ff89f108958da
+GIT binary patch
+literal 948
+zcmc&y!41G52qaE$3pk0>^x6Fvs1&c#hT6n55gs512Py*jRdHiO72`KsE|l@OJL_o4
+zF{(;1jTjpu4WqrL5oG6ER;rPVt;O~9ruzfYsYjENzd+xEbL)vdZAWYWHKKQ$6JO{3
+dm~FmK%(p7~eN#VK&pvlZ|DD^xzvtF<>;MX(5@G-V
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/route31/metatiles.bin b/data/tilesets/secondary/route31/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..e6ab06afdcf400c6c4151df2824fac02ef5cc025
+GIT binary patch
+literal 7584
+zcmeHMd32S<6~FVI3!5uOx@fISs|eQizBW)dM5++2#gMcyU~D^&Ef5sG81hsI8Wph0
+zk_iaff;bTywOc?-sin)bMQdwYx>?)WeYLed0)h*)z4x1U=ldT1S&!#%d^2Zq-f!;A
+z-Dc*_d^ZhnB{afhh>KC?5IhtQ!^6>c01Uu^I0TPK;Uftj6>u%&p$?|P(Rd6Vi$if5
+zR7EpjSae(ja6GkIm_+pYn4Kd2RZ&$mjH>Xjirzx#tpUF+dV6$2bYdBPM>HbfhLpa{
+zuMOUZ?U2LwA^=irfQ)H`tYQ9&{thyO%wVb_uMKXc@r&^m8v7WYWR~DUSci*<ycFMQ
+zP9}cyp&bgau^QlH!tW<~bxi*N%@~E{cr>=bGPoR<!w1QJfT6eoCPrOQ8+{}KxPscm
+zXkt`LRpd{MCK0L&cmXVg4q*9Sp2!!x00x^5YNr^0Q>n2nX?w)KTktfq72ierzuUA^
+zWBs|*M<0zo7BvKUwM46<=BWVFU^>iznF661X2EQ@DkB|p;2P*s8<gOAw4V1Vzn<L3
+z{`2}T#dUZ(`NPYX@uDBV8L`X;vY?ULa6)X;nRcY@#rIeqe-{0f^=-nd@#FXjl=-s1
+zg#KFoz9*s2MSyu2;dN0PwnwcIz<g?F+jH!>_Pkgg&p6v|#B=QfH1>SzyTG#le~&pF
+zgTJFbfb@FwQcrq4SpO|J)^5d?4Hwevi>R%DmCyx5D3xwlkXa4a2mf_s)~cH_Bh<nO
+zU{Q2)^st%_XQ_e=C;r}_P1s5H4<&!{ek}m+*V}M0miv1>j<X-K7u!pMJ)$q~N1iYI
+zM1as=i|_3O*wD%2ZKv(Lk1CJh@dskor-!KbQ%m@7Bn=<Hjn&shz2xuDl6?<SYleq1
+zv!O-A!B{m;T?=yq=KU0v;sbZe`ZbmGm-QDs-cGPJ_EIYh#@V@ev7JY<FQdK>TiIW{
+zHr&ef1Gv(TwT-rAgUp{yzo*zw27YOOKSuuM^W6^qe6v5hVHK=~yJR|9wg%S1-2tyB
+zf89&|k)mzhPPNkl|H-u9ro{VgI`z%4HMzm28V8%1C4C3b?;+Gg|7O!{W>FP><?A=w
+zN&FT6`170io6m3B-|UYT*W%Lr4#d2^T;|ZICD?4%;jCDnYe<W04c9`MK9^%5#J|Mf
+zKhZzcKhv!5)4BjZ*T2vJztjmG;2HfZqI>@W{8~Swe^a7Ai{2i;|M)!qwsanOel`9H
+z|A2o)*3siX2YkJ`!Q5zW5BhzIw7tXJ8SpZ*%q*wMbGi8a)kT)Ba4YGramIB~^;A#q
+za`n(1_pIFB07cyh{rUwBu#;L*7xmM+pMLpL)OoUZDuG?pw_7v+oqhH2Lf@)Q0R4UG
+z`*pRu%cbwvHIDcHGK!DO!}_l^cblDk_ZXS~Y4aKLFjbNFIrDk*1@py#<@|h!dbqWb
+zMeVTJ^%3t))Y!hwRAs(#^NGsq-M5`aZ1?N)M2J_sek0ZJfSG=#8WFJ2clGV=W1b0}
+z;{j0Ix)n#N#rTMO)ZK<(cK*H{p}yjl;#b}JIKDCebbRyt`95K~kB@SndHoi_*UYxq
+zW~TFg-B!XyJ&F9!_mlU(j2HUX%{ORAeA9@&?8|RaWnH;A^KJ7T^WA`(;`{Ac+-^9Y
+z%6_S*xDT*3#zkF6`(a2PAWN+lo^W;WJ@+_ynA?-?N%wvCgW&I{+*9s{RJ}BSAGt}e
+z!|fp7|2Xd3p)OR9s^t8RRTojbOz!8K)e+fryb=4^KYTxpq50`}+XjE3^)JM_{MG%<
+z{oVb;$$R5D_niAD=_2R-U+(!>H=#dI_}}hDx5w=v{d`#f+f)ba%?N%_t%8>_6T*II
+zq5H2!T@o<I%ke6qGk!U9VEjBijOX}yMryykVqdlYwa_E-4(U0x=dhl`10K*lu$!CE
+z2hwk@2_CS9MywH>_80g0{lW2u?^}r{9AAd#m`?XeHoT7sH>s<Yyl0s{MO~%R^eO5{
+z8oxQ%GY2jxTfZ^tPFf!w=m+ZW^~>S-+=LvzXIVdff7awKC4EN4_j!Ux(|uG><JD1F
+z)`d$OMWpuBew28?w4+;(ZI%0!@le9YWmE5e>hu2S*D9aM^L}Q1IKE{F^Bkt9v8NXx
+zldmHB?y~sK^2Fafm*q+Pl=I^COXRVBe0~#tMct9Ir>OmXBIn!ln+(kF`22o~#(W<A
+z`*ff7Sk{NJx6i+~`MtvN!jIpj_v!z{@tV)G*w6Z<?e+R4{;0_nbv2H{VI}!&XQfm;
+zQ1QUQ;Q>D1)76X+kNJGhRLub&99C4c6c3btkMVc?>sylVDW6|>eYqce+!BBL_x^gy
+zSMc|*yyp)-iz*sdJW%mK#RC-&yb&H~fKBxMoP0085i;M*GLn2kOPo*me|=GG-PzjT
+zx~o<A`0x40vx50OJt&*}zlgujJLtQc>HGBVd{J|rBS-kfJb!=t{8DdtfA7iOq#ja9
+zzUUD(3)1;9=EvXPp5K1W`Ka`G&WA96&JP?@$`4fI=rDc@WdOEflE0Ju%ifTG*`}(o
+ySNZ(QXiW3xe4EerC;6Jaln-EeFQw#p``F(7TJ)Fv;S%J08r$phox)%8o&N)$e}IDk
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/route31/palettes/00.pal b/data/tilesets/secondary/route31/palettes/00.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/01.pal b/data/tilesets/secondary/route31/palettes/01.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/02.pal b/data/tilesets/secondary/route31/palettes/02.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/03.pal b/data/tilesets/secondary/route31/palettes/03.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/04.pal b/data/tilesets/secondary/route31/palettes/04.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/05.pal b/data/tilesets/secondary/route31/palettes/05.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/06.pal b/data/tilesets/secondary/route31/palettes/06.pal
+new file mode 100644
+index 00000000..500aa6a9
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++240 168 136
++80 192 120
++64 168 112
++56 152 88
++40 144 72
++232 136 184
++40 136 80
++120 80 64
++72 112 88
++64 96 80
++56 64 64
++32 128 64
++32 120 88
++32 112 80
++24 104 56
+diff --git a/data/tilesets/secondary/route31/palettes/07.pal b/data/tilesets/secondary/route31/palettes/07.pal
+new file mode 100644
+index 00000000..d0e108d6
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++200 200 152
++176 168 120
++184 136 104
++120 152 96
++160 112 80
++128 120 80
++112 112 104
++128 88 64
++96 88 72
++96 88 48
++96 80 56
++72 80 56
++104 72 56
++72 64 56
++64 48 40
+diff --git a/data/tilesets/secondary/route31/palettes/08.pal b/data/tilesets/secondary/route31/palettes/08.pal
+new file mode 100644
+index 00000000..7f2b8979
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/route31/palettes/09.pal b/data/tilesets/secondary/route31/palettes/09.pal
+new file mode 100644
+index 00000000..bff968b6
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++72 64 48
++112 88 64
++152 112 72
++184 144 96
++208 176 120
++224 200 152
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/10.pal b/data/tilesets/secondary/route31/palettes/10.pal
+new file mode 100644
+index 00000000..78f0dc99
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++128 216 144
++64 184 224
++88 200 192
++112 200 136
++48 176 224
++200 168 112
++104 208 152
++104 200 152
++88 176 136
++66 183 226
++176 128 88
++48 160 216
++48 144 216
++136 96 80
++104 72 64
+diff --git a/data/tilesets/secondary/route31/palettes/11.pal b/data/tilesets/secondary/route31/palettes/11.pal
+new file mode 100644
+index 00000000..bdcb3d0e
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++216 192 144
++200 156 104
++196 148 92
++192 148 96
++184 140 92
++176 132 84
++168 124 80
++160 116 72
++152 108 68
++120 84 52
++112 96 72
++104 68 40
++58 58 92
++24 56 120
++56 36 24
+diff --git a/data/tilesets/secondary/route31/palettes/12.pal b/data/tilesets/secondary/route31/palettes/12.pal
+new file mode 100644
+index 00000000..140ee32d
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++104 208 152
++224 216 184
++192 184 152
++136 192 208
++240 168 136
++216 136 112
++152 144 120
++184 104 88
++112 104 88
++152 80 72
++104 80 64
++96 64 56
++48 80 88
++56 48 48
++24 24 24
+diff --git a/data/tilesets/secondary/route31/palettes/13.pal b/data/tilesets/secondary/route31/palettes/13.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/14.pal b/data/tilesets/secondary/route31/palettes/14.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/palettes/15.pal b/data/tilesets/secondary/route31/palettes/15.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/route31/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/route31/tiles.png b/data/tilesets/secondary/route31/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d3e26d1669e1b46c57710536dab77fe31d9bf138
+GIT binary patch
+literal 4035
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/violet_entrance/metatile_attributes.bin b/data/tilesets/secondary/violet_entrance/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..51c8b2ff30ababdedc90eb05badf40335470e25e
+GIT binary patch
+literal 244
+ccmZP&V4x;sKs8O4nr0)Jm5IbgwUHPe0K<I<7XSbN
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/violet_entrance/metatiles.bin b/data/tilesets/secondary/violet_entrance/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..e14ecdc965d0dde6380029e45c2b9ead3f8f7206
+GIT binary patch
+literal 1952
+zcmZ8i*LD*@4Ale(z4zXG7rjI15X#1(IfR}@0-<fzfSrU1m{1c!e}Qjs9{2z~@H-sJ
+z2O#ZO<Aw1VAK$rZbEWkLU@!#(5D=h@_dpzk<v5ssxith04n^jRD}><~vCl9$;XMLJ
+zqWCC33Wwtm9PP32V{oj;jyE0$oIAxaCAY+s+~TA00;qx%RKqwNj}verPQtTr4$@3d
+z#wj=zm7m5uz(mF_-t=NTsa<kvypU^;688<E4I;?E47QlbI}15zhYmFd<=w$7O7gR5
+z4hcV(=8-xGKc5zOob+GFry-2y{Fzw0MO?FJGYK`{WK?^pXVFHnclBv}(Khzy1G#g+
+z+NBcxP(3EFzr;8Ls+Wr({8Cy*i)l$*<8oR-D`}OlcQvh{wS*q8qxH0bHhQe_H}Q#V
+z#iG4r(0tMx!6jah<9`;?@T0J~AK+IZ<X%LH{_B0E7jlO!w3Q;*9_Qc2-#ch0?V{Z=
+zmUw%pg7(rrk1H7Oqx~LhJgM~nZ|&dj!k>cpYkk`P01i<K4%5M6gd=p6Dyj0j*vdLa
+z$LR!}^zj3#q7+q^aB*Hw@yTi4nqT`7!Wq5~_di}|=^Uj==dFfn=seYW{sLX3+V7V<
+zf0?et^CtdRIrcT)TEFV$aGfb8i2G4*8ax)h(KP*o>&mLt+}Aq;>#+eFQS>V3`E0`L
+z+>K^GpW@KMCn01_1h2h+&a|8T=75jiVLHu0bI9XI=0@3JQ|a*+p6_Eu^(g7(0^YQe
+zzty%{O(1&yk5$iGY!yJ-$p3||+kJQX?)Kg5Q|$DK*fO+j{GG8G8}TQ}N46U7$0u$1
+zkS!v}+6Rmu7VWb(>+LhPjajMxL7px00kqo`bl4nQ$nLbA_7Q(HzU9?ryV%yP$F>Td
+za6Y!?vmEE^;Cz|bH*cTDzB(V>w%b0l&+QBQ!uvnr{O<m_{7ai>f5BZ|U!6aIdVIzG
+zOybv!19-}MUDI-)+f<kaX!LlO*=?Gk#p69@uW5x_9^dA9x|7g5gjbxuG!H${3va;7
+z4{zZeyoV3ozXd+RC;05K%)?jze3YKop8lS1z5Tu40=UZWgHpY9P!Gv^o8USm>%9Rt
+zAz82Mzv%7skpHW4O#Asx@=hQ3{*eM@-sL{Y`Ih@6=UeWRobMWQ-njRbyJD@m@XvfU
+On^JtSNWP!maK6799#3)r
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/00.pal b/data/tilesets/secondary/violet_entrance/palettes/00.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/01.pal b/data/tilesets/secondary/violet_entrance/palettes/01.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/02.pal b/data/tilesets/secondary/violet_entrance/palettes/02.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/03.pal b/data/tilesets/secondary/violet_entrance/palettes/03.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/04.pal b/data/tilesets/secondary/violet_entrance/palettes/04.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/05.pal b/data/tilesets/secondary/violet_entrance/palettes/05.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/06.pal b/data/tilesets/secondary/violet_entrance/palettes/06.pal
+new file mode 100644
+index 00000000..61639929
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++40 72 80
++56 120 120
++64 136 136
++72 120 128
++136 184 176
++176 192 176
++216 192 152
++232 232 216
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/07.pal b/data/tilesets/secondary/violet_entrance/palettes/07.pal
+new file mode 100644
+index 00000000..9a6784fe
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++112 112 176
++96 96 160
++200 184 168
++167 232 216
++161 232 220
++131 208 201
++123 200 180
++144 120 96
++128 112 88
++107 184 164
++91 168 148
++112 88 64
++60 112 99
++49 120 95
++40 32 48
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/08.pal b/data/tilesets/secondary/violet_entrance/palettes/08.pal
+new file mode 100644
+index 00000000..7f2b8979
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++48 80 88
++56 48 48
++80 136 152
++96 64 56
++104 208 152
++112 104 88
++136 192 208
++152 80 72
++152 144 120
++184 104 88
++192 184 152
++216 136 112
++224 216 184
++240 168 136
++240 240 216
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/09.pal b/data/tilesets/secondary/violet_entrance/palettes/09.pal
+new file mode 100644
+index 00000000..fd5aa3fd
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++40 72 80
++64 136 136
++136 184 176
++152 176 168
++176 192 176
++192 200 184
++208 216 200
++216 192 152
++232 232 216
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/10.pal b/data/tilesets/secondary/violet_entrance/palettes/10.pal
+new file mode 100644
+index 00000000..a40c2a84
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++194 118 166
++162 102 140
++151 97 130
++136 104 64
++140 91 125
++129 126 102
++112 88 64
++118 86 110
++80 72 56
++72 72 48
++72 64 56
++64 64 40
++64 56 40
++48 56 64
++32 32 32
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/11.pal b/data/tilesets/secondary/violet_entrance/palettes/11.pal
+new file mode 100644
+index 00000000..bdcb3d0e
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++216 192 144
++200 156 104
++196 148 92
++192 148 96
++184 140 92
++176 132 84
++168 124 80
++160 116 72
++152 108 68
++120 84 52
++112 96 72
++104 68 40
++58 58 92
++24 56 120
++56 36 24
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/12.pal b/data/tilesets/secondary/violet_entrance/palettes/12.pal
+new file mode 100644
+index 00000000..1fc57310
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++224 216 200
++114 150 143
++152 144 136
++96 135 128
++144 120 96
++78 130 124
++66 119 114
++96 96 160
++128 112 80
++112 88 64
++54 104 99
++42 88 84
++36 72 69
++24 78 74
++32 32 40
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/13.pal b/data/tilesets/secondary/violet_entrance/palettes/13.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/14.pal b/data/tilesets/secondary/violet_entrance/palettes/14.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/palettes/15.pal b/data/tilesets/secondary/violet_entrance/palettes/15.pal
+new file mode 100644
+index 00000000..4b0812f0
+--- /dev/null
++++ b/data/tilesets/secondary/violet_entrance/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git a/data/tilesets/secondary/violet_entrance/tiles.png b/data/tilesets/secondary/violet_entrance/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..27358e052dfb5e6da47900e1300844d4c8b2dc1f
+GIT binary patch
+literal 1932
+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
+SK`O8S0000<MNUMnLSTYE;dF=q
+
+literal 0
+HcmV?d00001
+
+diff --git a/include/regions.h b/include/regions.h
+index 9ad7b64a..40ff676b 100644
+--- a/include/regions.h
++++ b/include/regions.h
+@@ -10,6 +10,10 @@ static inline enum Region GetRegionForSectionId(u32 sectionId)
+ {
+     switch (sectionId) {
+     case MAPSEC_CHERRYGROVE_CITY: return REGION_JOHTO;
++    case MAPSEC_DARK_CAVE: return REGION_JOHTO;
++    case MAPSEC_VIOLET_CITY: return REGION_JOHTO;
++    case MAPSEC_JOHTO_ROUTE_31: return REGION_JOHTO;
++    case MAPSEC_NEW_BARK_TOWN: return REGION_JOHTO;
+     case MAPSEC_JOHTO_ROUTE_29: return REGION_JOHTO;
+     case MAPSEC_JOHTO_ROUTE_30: return REGION_JOHTO;
+     case MAPSEC_PROOF_HOENN: return REGION_HOENN;
+diff --git a/src/apocrypha_map_proof.c b/src/apocrypha_map_proof.c
+index 79f8929a..e31e0384 100644
+--- a/src/apocrypha_map_proof.c
++++ b/src/apocrypha_map_proof.c
+@@ -11,11 +11,11 @@
+ #include "constants/map_groups.h"
+ 
+ EWRAM_DATA u32 gMapProofState[12] = {0};
+-const u16 sMapProofMaps[] = {MAP_CHERRYGROVE_CITY, MAP_CHERRYGROVE_PLAYER_HOUSE, MAP_CHERRYGROVE_GOLD_HOUSE, MAP_CHERRYGROVE_NEIGHBOR_HOUSE, MAP_CHERRYGROVE_TRANSPLANT_HOUSE, MAP_CHERRYGROVE_MART, MAP_CHERRYGROVE_POKEMON_CENTER, MAP_CHERRYGROVE_PLAYER_BEDROOM, MAP_CHERRYGROVE_CENTER_UPSTAIRS, MAP_CHERRYGROVE_ROUTE29_APPROACH, MAP_CHERRYGROVE_ROUTE30_APPROACH};
++const u16 sMapProofMaps[] = {MAP_CHERRYGROVE_CITY, MAP_CHERRYGROVE_PLAYER_HOUSE, MAP_CHERRYGROVE_GOLD_HOUSE, MAP_CHERRYGROVE_NEIGHBOR_HOUSE, MAP_CHERRYGROVE_TRANSPLANT_HOUSE, MAP_CHERRYGROVE_MART, MAP_CHERRYGROVE_POKEMON_CENTER, MAP_CHERRYGROVE_PLAYER_BEDROOM, MAP_CHERRYGROVE_CENTER_UPSTAIRS, MAP_CHERRYGROVE_ROUTE29_APPROACH, MAP_CHERRYGROVE_ROUTE30_APPROACH, MAP_NEW_BARK_TOWN, MAP_JOHTO_ROUTE31, MAP_VIOLET_CITY_ENTRANCE, MAP_NEW_BARK_INSTITUTE, MAP_NEW_BARK_STAFF_HOUSE, MAP_VIOLET_EAST_GATE, MAP_DARK_CAVE_ENTRANCE, MAP_NEW_BARK_EAST_HOUSE, MAP_NEW_BARK_UPPER_HOUSE};
+ void MapProof_Boot(void) { SetMainCallback2(CB2_NewGame); }
+ void MapProof_Enter(u32 region)
+ {
+-    u16 map = sMapProofMaps[(region & 255) % 11];
++    u16 map = sMapProofMaps[(region & 255) % 20];
+     SetWarpDestination(MAP_GROUP(map), MAP_NUM(map), WARP_ID_NONE, (region >> 8) & 255, (region >> 16) & 255);
+     DoWarp();
+ }
+diff --git a/src/data/region_map/region_map_sections.json b/src/data/region_map/region_map_sections.json
+index 98f026ae..5f60b66d 100644
+--- a/src/data/region_map/region_map_sections.json
++++ b/src/data/region_map/region_map_sections.json
+@@ -1690,6 +1690,38 @@
+       "y": 5,
+       "width": 1,
+       "height": 1
++    },
++    {
++      "id": "MAPSEC_NEW_BARK_TOWN",
++      "name": "NEW BARK TOWN",
++      "x": 5,
++      "y": 6,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_JOHTO_ROUTE_31",
++      "name": "ROUTE 31",
++      "x": 3,
++      "y": 4,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_VIOLET_CITY",
++      "name": "VIOLET CITY",
++      "x": 2,
++      "y": 4,
++      "width": 1,
++      "height": 1
++    },
++    {
++      "id": "MAPSEC_DARK_CAVE",
++      "name": "DARK CAVE",
++      "x": 4,
++      "y": 4,
++      "width": 1,
++      "height": 1
+     }
+   ]
+ }
+diff --git a/src/data/tilesets/graphics.h b/src/data/tilesets/graphics.h
+index 28aafae5..04d3b28d 100644
+--- a/src/data/tilesets/graphics.h
++++ b/src/data/tilesets/graphics.h
+@@ -3161,3 +3161,62 @@ INCGFX_U16("data/tilesets/secondary/claude_route30/palettes/14.pal", ".gbapal"),
+ INCGFX_U16("data/tilesets/secondary/claude_route30/palettes/15.pal", ".gbapal"),
+ };
+ // End Claude routes
++
++// Johto connections
++const u32 gTilesetTiles_NewBark[] = INCGFX_U32("data/tilesets/secondary/new_bark/tiles.png", ".4bpp.fastSmol");
++const u16 gTilesetPalettes_NewBark[][16] = {
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/new_bark/palettes/15.pal", ".gbapal"),
++};
++const u32 gTilesetTiles_Route31[] = INCGFX_U32("data/tilesets/secondary/route31/tiles.png", ".4bpp.fastSmol");
++const u16 gTilesetPalettes_Route31[][16] = {
++INCGFX_U16("data/tilesets/secondary/route31/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/route31/palettes/15.pal", ".gbapal"),
++};
++const u32 gTilesetTiles_VioletEntrance[] = INCGFX_U32("data/tilesets/secondary/violet_entrance/tiles.png", ".4bpp.fastSmol");
++const u16 gTilesetPalettes_VioletEntrance[][16] = {
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/violet_entrance/palettes/15.pal", ".gbapal"),
++};
+diff --git a/src/data/tilesets/headers.h b/src/data/tilesets/headers.h
+index b4dbe923..937f6abb 100644
+--- a/src/data/tilesets/headers.h
++++ b/src/data/tilesets/headers.h
+@@ -1572,3 +1572,8 @@ const struct Tileset gTileset_Cherrygrove = { .isCompressed = TRUE, .isSecondary
+ const struct Tileset gTileset_ClaudeRoute29 = { .isCompressed = TRUE, .isSecondary = TRUE, .tiles = gTilesetTiles_ClaudeRoute29, .palettes = gTilesetPalettes_ClaudeRoute29, .metatiles = gMetatiles_ClaudeRoute29, .metatileAttributes = gMetatileAttributes_ClaudeRoute29, .callback = NULL };
+ const struct Tileset gTileset_ClaudeRoute30 = { .isCompressed = TRUE, .isSecondary = TRUE, .tiles = gTilesetTiles_ClaudeRoute30, .palettes = gTilesetPalettes_ClaudeRoute30, .metatiles = gMetatiles_ClaudeRoute30, .metatileAttributes = gMetatileAttributes_ClaudeRoute30, .callback = NULL };
+ // End Claude routes
++
++// Johto connections
++const struct Tileset gTileset_NewBark = { .isCompressed=TRUE,.isSecondary=TRUE,.tiles=gTilesetTiles_NewBark,.palettes=gTilesetPalettes_NewBark,.metatiles=gMetatiles_NewBark,.metatileAttributes=gMetatileAttributes_NewBark,.callback=NULL };
++const struct Tileset gTileset_Route31 = { .isCompressed=TRUE,.isSecondary=TRUE,.tiles=gTilesetTiles_Route31,.palettes=gTilesetPalettes_Route31,.metatiles=gMetatiles_Route31,.metatileAttributes=gMetatileAttributes_Route31,.callback=NULL };
++const struct Tileset gTileset_VioletEntrance = { .isCompressed=TRUE,.isSecondary=TRUE,.tiles=gTilesetTiles_VioletEntrance,.palettes=gTilesetPalettes_VioletEntrance,.metatiles=gMetatiles_VioletEntrance,.metatileAttributes=gMetatileAttributes_VioletEntrance,.callback=NULL };
+diff --git a/src/data/tilesets/metatiles.h b/src/data/tilesets/metatiles.h
+index 0baf2817..4b345b45 100644
+--- a/src/data/tilesets/metatiles.h
++++ b/src/data/tilesets/metatiles.h
+@@ -427,3 +427,11 @@ const u16 gMetatileAttributes_ClaudeRoute29[] = INCBIN_U16("data/tilesets/second
+ const u16 gMetatiles_ClaudeRoute30[] = INCBIN_U16("data/tilesets/secondary/claude_route30/metatiles.bin");
+ const u16 gMetatileAttributes_ClaudeRoute30[] = INCBIN_U16("data/tilesets/secondary/claude_route30/metatile_attributes.bin");
+ // End Claude routes
++
++// Johto connections
++const u16 gMetatiles_NewBark[] = INCBIN_U16("data/tilesets/secondary/new_bark/metatiles.bin");
++const u16 gMetatileAttributes_NewBark[] = INCBIN_U16("data/tilesets/secondary/new_bark/metatile_attributes.bin");
++const u16 gMetatiles_Route31[] = INCBIN_U16("data/tilesets/secondary/route31/metatiles.bin");
++const u16 gMetatileAttributes_Route31[] = INCBIN_U16("data/tilesets/secondary/route31/metatile_attributes.bin");
++const u16 gMetatiles_VioletEntrance[] = INCBIN_U16("data/tilesets/secondary/violet_entrance/metatiles.bin");
++const u16 gMetatileAttributes_VioletEntrance[] = INCBIN_U16("data/tilesets/secondary/violet_entrance/metatile_attributes.bin");

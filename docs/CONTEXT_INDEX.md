@@ -1,3 +1,5 @@
+Current local Johto revision: [native art rebuild](../gba/art/johto-native-refinement/README.md). Porymap roundtrip remains pending after an inaccessible file watcher warning and Mac lock. Earlier cloud drafts remain preserved.
+
 Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
 
 # Read only what the task needs
