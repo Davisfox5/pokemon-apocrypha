@@ -24,14 +24,36 @@ def build(game):
             if route==29 and px//16<=L.R29_BLOSSOM_MAX_X and c is A['tree']:
                 c=A['blossom']
             mc.blit(c,px,py)
-        objects=(old>=0)&~np.isin(old,[3,10])
+        mc.under_bank=mc.bank.copy();mc.under_idx=mc.idx.copy()
+        objects=(old>=0)&~np.isin(old,[3,10,12])
         mc.bank[objects]=old[objects];mc.idx[objects]=ix[objects]
         comp['solid'][forest_plan=='T']=True
         return comp
     r.compose=native_compose
     base,pal=r.town.build_assets();raw=art.architecture(base)
+    r.art.ledges=lambda:art.ledges(base)
+    r.art.cliff_pieces=lambda:art.cliff_pieces(base)
+    original_banks=r.route_banks
+    def matching_banks(route,town_assets,town_palettes,reserved):
+        A,pals,assignment=original_banks(route,town_assets,town_palettes,reserved)
+        # Houses share the approved palette slots as well as the art; this
+        # keeps repeated walls/windows reusable across both route buildings.
+        from claude_cherrygrove.pixel import Canvas,Palette
+        for key in ('gate','mr_pokemon','berry_house'):
+            if key not in A:continue
+            bank=A['mr_pokemon'].pal.bank if key=='berry_house' else A[key].pal.bank
+            pal=Palette(bank,base['house'].pal.colors,list(base['house'].pal.index),slots=base['house'].pal.slots)
+            source=raw[{'gate':'gate29','mr_pokemon':'mr_pokemon','berry_house':'berry_house'}[key]]
+            c=Canvas(source.shape[1],source.shape[0],pal);c.pool='secondary'
+            m=source[...,3]>0;colors=np.asarray(pal.gba()[1:],int)
+            c.px[m]=((source[m,:3].astype(int)[:,None]-colors[None])**2).sum(2).argmin(1)+1
+            A[key]=c;pals[bank]=pal
+        A['orange']=base['daisies']
+        A['tree']=base['tree'];A['blossom']=base['tree'];pals[12]=base['tree'].pal
+        return A,pals,assignment
+    r.route_banks=matching_banks
     r.art.tall_slices=art.tall_slices;r.art.tall_cell=art.tall_cell
-    r.art.orange_flowers=lambda route:base['daisies'].to_rgba()
+    r.art.orange_flowers=lambda route:np.zeros((16,16,4),np.uint8)
     r.art.gate=lambda:raw['gate29'];r.art.mr_pokemon_house=lambda:raw['mr_pokemon'];r.art.berry_house=lambda:raw['berry_house']
     primary=r.Primary(game,78,511);report={}
     tm,ts=seams.read_layout(game,'CherrygroveCity',TL.W,TL.H)
@@ -56,10 +78,10 @@ def build(game):
         for bank in reserved:pals[bank]=r.Palette(bank,b.palette(game/f'data/tilesets/secondary/{name}/palettes/{bank:02}.pal')[1:],[f'c{i}' for i in range(15)])
         comp=r.compose(route,g,A);mc=comp['canvas']
         # Retain the forest underlayer before composite roofs/grass reach it.
-        mc.under_bank=mc.bank.copy();mc.under_idx=mc.idx.copy()
         grid=np.frombuffer((game/f'data/layouts/{lname}/map.bin').read_bytes(),dtype='<u2').reshape(g.shape).copy()
         mids|={int(v&1023) for v in grid[seen] if v&1023>=512}
         packer=r.RoutePacker(pals,primary);packer.reserve(tiles,blocks,attrs,mids)
+        print("Packing route",route,flush=True)
         pack_cells(comp,packer,pals,~seen,grid)
         nt,nb=r.write_route_tileset(game,name,packer,pals)
         (game/f'data/layouts/{lname}/map.bin').write_bytes(grid.astype('<u2').tobytes())

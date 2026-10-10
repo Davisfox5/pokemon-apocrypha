@@ -1,59 +1,67 @@
-# October 10 Cherrygrove asset reuse correction
+# October 10 original laboratory and Cherrygrove source recovery
 
-The owner rejected the earlier generic native houses and trees. This correction
-uses the actual approved Cherrygrove assets from `claude_cherrygrove.build_assets`.
-It supersedes the initial local redraw committed as `f732965`.
+## Owner direction and status
 
-## Artwork
+The owner explicitly accepted the new laboratory: “The lab look way better. Use that.”
+The lab is integrated, compiled and verified. **Trees and water remain provisional:**
+the owner remembers an intermediate Cherrygrove using Codex's owner-edited designs
+with Claude's colors. The source chat, cloud chat and historical Git revisions were
+reviewed; no exact hybrid has yet been verified. `evidence/reference-recovery/`
+compares actual recovered versions. Do not describe the current Claude foliage as
+owner-approved or invent a recovered hybrid. The reference question is pending.
 
-- Houses, gable homes, tree crowns and blossom variants are unchanged source
-  pixels, at their original size and palette. The generator asserts exact equality
-  for seven exported asset families; see `evidence/cherrygrove-reuse.json`.
-- The enlarged 208×80 institute assembles existing house wings around the original
-  central gable. Wings reuse the existing window wall in place of extra entrances.
-  Four southern residences reuse the same two house assets without scaling.
-- Routes 29 and 30 reuse those buildings and the original 32×24 woodland lattice.
-  Route 31's gate uses the same gable, with its door aligned to the existing warp.
-- Ground, paths, trees, daisies, signs and rock texture reuse Cherrygrove artwork.
-  Route 31 retains the measured landform outline with the town's grassy tops and
-  rock face. The local New Bark windmills derive from its HGSS reference.
-- Encounter grass remains the new native 16px blade module; Cherrygrove's lawn
-  and established coastal animation remain intact.
+## Changes
 
-## Validation
+- Original 176x112 lab: ivory masonry, metal hip roof, skylights, ventilation,
+  glazed research rooms and central glass entry. Built-in imagegen original and
+  exact prompt are in `generated/`; native palette conversion is reproducible in
+  `art.py`. Existing entrance remains (16,6). Source is preserved separately.
+- Current foliage copies `../claude-cherrygrove/source/tree.idx.png` and its saved
+  bank03 palette exactly into secondary bank12. Zero RGBA differences, no resize
+  or recolor. A later `hgss.tree()` generator had diverged into a clipped screenshot
+  crop; the saved source has a complete crown and trunk.
+- Full 32x48 tree footprints do not overlap or spill onto paths/buildings. New Bark
+  includes southern scenery padding (36x50) so the housing street's camera avoids
+  the old repeating border. Protected Cherrygrove connection windows remain intact.
+- Route31 pond now uses Cherrygrove's existing primary water tiles and animation,
+  replacing the separately cropped freshwater tiles. The primary source is unchanged.
+- Low ledges and rock modules have cleaner ends; cave uses the actual HGSS opening
+  with stairs. Windmills have clean complete blades. Existing houses remain reused.
+- Packing fills unused tile slots instead of counting PNG row padding as allocation.
 
-ARM GNU 14.2.rel1 compilation passed. Fresh libmGBA processes passed route seams,
-walking in encounter grass, one-way ledges, eight town door entries/returns,
-Violet gate travel, Dark Cave entry/return and ordinary save/cold Continue.
-See `evidence/native-gameplay.png` for actual gameplay frames and
-`evidence/campus-walk.gif` for a fresh 30-frame walking capture.
-Original artwork credits: Game Freak / Nintendo / Creatures; source provenance
-is recorded in `../claude-cherrygrove/provenance.json`.
-The generated source matched a second clean baseline worktree byte for byte.
-Cherrygrove map/scripts/primary tiles, flags, encounters and route scripts are
-preserved; see `evidence/preservation.json`.
+## Verification
 
-| Map | Secondary tiles / 512 | Secondary metatiles / 512 |
+ARM GNU 14.2.rel1 compilation passed. Fresh libmGBA processes passed route crossings,
+eight New Bark building entries/returns, encounter-grass walking, one-way ledges,
+Violet gate travel, cave entry/return, ordinary save, cold reload and title Continue.
+Fresh walking and pond GIFs are bound to the ROM hash. No desktop game was opened.
+Native scenery encode/decode checks pass with zero mismatches; a second clean engine
+reproduces all 118 changed source files. Patch reverse application passes.
+
+The first runtime attempt exposed a test-harness bug: fixed scratch SP 0x03007c00
+could overwrite live stack-resident decompressor instructions. The harness now uses
+scratch space below the suspended SP. The same ROM then passed, followed by fresh
+checks of the final padded map. No engine gameplay workaround was introduced.
+
+| Map | Secondary tile slots / 512 | Secondary metatile slots / 512 |
 |---|---:|---:|
-| Route 29 | 290 | 320 |
-| Route 30 | 472 | 495 |
-| New Bark | 292 | 388 |
-| Route 31 | 485 | 506 |
-| Violet approach | 147 | 110 |
+| Route 29 | 290 | 229 |
+| Route 30 | 442 | 393 |
+| New Bark | 493 | 396 |
+| Route 31 | 444 | 399 |
+| Violet approach | 160 | 100 |
 
-Route 31 has six metatile slots left, so further additions require module reuse
-or repacking. Visual acceptance remains the owner's decision.
+New Bark's remaining tile capacity is limited; preserve the accepted lab geometry.
+The tree/cave/house source credits remain Game Freak / Nintendo / Creatures;
+see `../claude-cherrygrove/provenance.json` and the HGSS references.
 
-## Porymap status
+## Porymap
 
-Porymap 6.3.1 has the isolated project open, but its inaccessible file-watcher
-warning still disables project controls and Quit. Current attempts to dismiss
-it and select NewBarkTown did not change the editor state. **Editor inspection
-and save roundtrip are pending.** The Mac lock from the earlier run is no longer
-the observed blocker. No Porymap painting or roundtrip is claimed.
-
-Project:
-`/Users/davisfox/.codex/worktrees/johto-native-refinement/the-omni-hack/tools/vendor/gba/johto-native-work`.
+The private project is open in Porymap 6.3.1. UI interactions still fail to select
+NewBarkTown from PetalburgCity; earlier file-watcher modal behavior remains unresolved.
+No editor save roundtrip or Porymap painting is claimed. Native decoded and emulator
+inspection succeeded independently. Production `game/`, owner workbench and saves
+remain untouched.
 
 ## Reproduction
 
@@ -79,8 +87,9 @@ MGBA_FLAGS='-I/opt/homebrew/include -L/opt/homebrew/lib -lmgba' \
   --toolchain TOOLCHAIN
 ```
 
-This remains exterior art work. Interiors are the borrowed GBA rooms already in
-the cloud proposal. Windmills and freshwater pond are static; coastal sea retains
-its animation. Route 29's gate and the Route 30 houses retain their existing
-closed behavior. Full Violet, full Dark Cave, campaign actors and dialogue are
-not completed by this patch. Production `game/` and owner ROM/save files are untouched.
+
+This remains exterior art work. Interiors are provisional borrowed rooms. Route29's
+gate and Route30's houses retain their existing closed behavior. Windmills are static;
+pond and coastal water use the existing animation. Full Violet/Dark Cave, narrative
+scenes and actors are outside this patch. The broader art revision is not complete
+until the owner's Cherrygrove reference is resolved.

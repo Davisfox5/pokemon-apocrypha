@@ -1,3 +1,18 @@
+## October 10 accepted original lab; Cherrygrove hybrid reference pending
+
+Read `gba/art/johto-native-refinement/README.md`. The owner accepted the original
+masonry/metal-roof laboratory. It is integrated at door (16,6), tested and preserved
+with its imagegen source/prompt. Current full tree copies Claude's saved indexed
+asset exactly; the screenshot-crop generator was the source of the truncated tree.
+Route31 water now reuses the existing animated Cherrygrove primary. New Bark has
+southern scenery padding; native packing and fresh emulator/save checks pass.
+
+The owner now recalls **Codex owner-edited designs with Claude's palette**. No exact
+hybrid was verified in historical chat/Git review; reference selection/reconstruction
+question is pending. Current trees/water are provisional, not accepted. Do not resume
+from a blanket claim that Claude's build is the approved reference. Keep the new lab.
+Porymap selection/save roundtrip remains unresolved; do not claim UI validation.
+
 ## October 10 Cherrygrove asset reuse — Porymap roundtrip pending
 
 The owner rejected the generic local redraw (`f732965`) and required the exact

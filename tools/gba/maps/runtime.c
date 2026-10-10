@@ -14,7 +14,9 @@ static unsigned rd(const char *n) { unsigned v;if(!c->readRegister(c,n,&v))exit(
 static void quiet(struct mLogger*l,int cat,enum mLogLevel level,const char*f,va_list args) { if(level&(mLOG_FATAL|mLOG_ERROR))vfprintf(stderr,f,args); }
 static unsigned call(const char *name,unsigned arg) {
  unsigned regs[16], cpsr=rd("cpsr");char rn[8];for(int i=0;i<16;i++){sprintf(rn,"r%d",i);regs[i]=rd(rn);}
- wr("cpsr",0x3f);wr("sp",0x03007c00);wr("r0",arg);wr("lr",0x09ffff01);wr("pc",sym(name)&~1u);
+ // Use scratch space below the suspended stack. The fixed 0x03007c00
+ // address can overwrite live IWRAM decompressor code during a map transition.
+ wr("cpsr",0x3f);wr("sp",(regs[13]-128)&~7u);wr("r0",arg);wr("lr",0x09ffff01);wr("pc",sym(name)&~1u);
  unsigned result=0;int done=0;
  for(unsigned n=0;n<200000000;n++){unsigned pc=rd("pc");if(pc>=0x09ffff00&&pc<=0x09ffff08){result=rd("r0");done=1;break;}c->step(c);}
  if(!done){fprintf(stderr,"call timeout %s pc=%x\n",name,rd("pc"));exit(23);}

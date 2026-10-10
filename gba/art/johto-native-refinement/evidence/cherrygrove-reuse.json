@@ -1,16 +1,6 @@
 {
   "baseline": "gba/art/claude-cherrygrove",
   "unchanged_assets": {
-    "tree": {
-      "source_asset": "tree",
-      "rgba_sha256": "7894f2a897a74b4d9e2cf734c03c3a182f4393ddbb003ecf3684e2c01fe5bf74",
-      "pixel_differences": 0
-    },
-    "blossom": {
-      "source_asset": "blossom",
-      "rgba_sha256": "a844975d6d6fbfe32ed3ff09e18c4045e90366f2e3e1810b01d8976d7c79abc4",
-      "pixel_differences": 0
-    },
     "west_house": {
       "source_asset": "house",
       "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
@@ -37,5 +27,64 @@
       "pixel_differences": 0
     }
   },
-  "institute": "208x80 assembly of original house wings and central gable; one entrance"
+  "institute": "Original masonry laboratory with metal roof, glazing, skylights and ventilation; one entrance",
+  "tree": "Literal gba/art/claude-cherrygrove/source/tree.idx.png and bank03 palette, without resize or recolor",
+  "forest_checks": [
+    {
+      "width": 98,
+      "height": 34,
+      "instances": 223,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 98,
+      "height": 34,
+      "instances": 223,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 35,
+      "height": 74,
+      "instances": 153,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 35,
+      "height": 74,
+      "instances": 153,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 36,
+      "height": 50,
+      "instances": 100,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 63,
+      "height": 30,
+      "instances": 136,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 28,
+      "height": 24,
+      "instances": 40,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    }
+  ]
 }

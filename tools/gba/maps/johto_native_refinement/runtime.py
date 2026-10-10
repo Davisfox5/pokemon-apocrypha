@@ -32,4 +32,9 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
 '''
 r.MAIN=r.MAIN.replace('11,27,18','11,16,40')
 r.FILM=r.FILM.replace('go(11,10,17)','go(11,16,28)').replace('frames(1,RIGHT)','frames(1,DOWN)').replace('state[3]>10','state[4]>28')
-if __name__=='__main__':r.main()
+if __name__=='__main__':
+    if '--water-film' in sys.argv:
+        sys.argv.remove('--water-film');sys.argv.append('--film-only')
+        r.FILM=r.FILM.replace('go(11,16,28)','go(12,33,17)').replace('frames(1,DOWN)','frames(1,0)')
+        r.FILM=r.FILM.replace('state[2]==11&&state[4]>28','state[2]==12&&state[3]==33&&state[4]==17')
+    r.main()

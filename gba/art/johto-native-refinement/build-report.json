@@ -1,9 +1,9 @@
 {
   "new_bark": {
     "width": 36,
-    "height": 44,
-    "tiles": 292,
-    "metatiles": 388,
+    "height": 50,
+    "tiles": 493,
+    "metatiles": 396,
     "doors": [
       [
         "institute",
@@ -52,14 +52,14 @@
     "neighbor_tiles_added": 0,
     "neighbor_sheet_padding_removed": 14,
     "neighbor_metatiles_added": 0,
-    "opaque_scenery_pixels_verified": 184931,
+    "opaque_scenery_pixels_verified": 148744,
     "scenery_color_mismatches": 0
   },
   "route31": {
     "width": 63,
     "height": 30,
-    "tiles": 485,
-    "metatiles": 506,
+    "tiles": 444,
+    "metatiles": 399,
     "doors": [
       [
         "gate",
@@ -75,17 +75,17 @@
     "crossings": 2,
     "neighbor_visible_cells": 219,
     "new_visible_cells": 191,
-    "neighbor_tiles_added": 5,
-    "neighbor_sheet_padding_removed": 0,
-    "neighbor_metatiles_added": 11,
-    "opaque_scenery_pixels_verified": 350863,
+    "neighbor_tiles_added": 0,
+    "neighbor_sheet_padding_removed": 4,
+    "neighbor_metatiles_added": 6,
+    "opaque_scenery_pixels_verified": 241611,
     "scenery_color_mismatches": 0
   },
   "violet_entrance": {
     "width": 28,
     "height": 24,
-    "tiles": 147,
-    "metatiles": 110,
+    "tiles": 160,
+    "metatiles": 100,
     "doors": [
       [
         "gate",
@@ -93,7 +93,7 @@
         13
       ]
     ],
-    "opaque_scenery_pixels_verified": 89658,
+    "opaque_scenery_pixels_verified": 64995,
     "scenery_color_mismatches": 0
   },
   "references": {

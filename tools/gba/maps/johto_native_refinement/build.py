@@ -23,17 +23,19 @@ ra.tall_cell=art.tall_cell
 original_assets=b.town.build_assets
 def native_assets():
     a,p=original_assets()
+    a['tree']=art.source_tree();a['blossom']=art.source_tree();p[12]=a['tree'].pal
     native=OUT/'native';native.mkdir(parents=True,exist_ok=True)
     for name in ('tree','blossom'):Image.fromarray(a[name].to_rgba()).save(native/(name+'.png'))
     return a,p
 b.town.build_assets=native_assets
 
 def assets(kind,base,shared):
-    a=dict(base);pals=dict(shared)
+    import copy
+    a=copy.deepcopy(base);pals=dict(shared)
     if kind=='new_bark':
         raw=art.props(base);raw.update(art.architecture(base));raw['upper_wind']=raw['wind'].copy();raw['east_mailbox']=raw['red_mailbox'].copy();groups=[]
-        for bank,keys in [(6,['institute','annex','west_house','east_house','staff_a','staff_b']),
-                          (9,['labwind','upper_wind','lab_fence','red_mailbox','blue_mailbox']), (12,['wind','east_mailbox'])]:
+        for bank,keys in [(6,['annex','west_house','east_house','staff_a','staff_b']), (8,['institute']),
+                          (9,['labwind','upper_wind','lab_fence','red_mailbox','blue_mailbox','wind','east_mailbox'])]:
             group=banks.Bank(bank,'ARCHITECTURE','secondary')
             if bank==6:group.keep(*base['house'].pal.colors)
             else:group.keep(ground_color())
@@ -48,19 +50,13 @@ def assets(kind,base,shared):
                         group.keep(*[tuple(c) for c in cs[np.argsort(counts)[-3:]]])
             groups.append(group)
     else:
-        raw={'gate':art.architecture(base)['gate31'],'apricorn':terrain.route31()['apricorn']};raw.update(art.cliff_modules(base));raw.update(terrain.pond_modules())
-        groups=[banks.Bank(12,'GATE','secondary').add('gate',raw['gate']).add('apricorn',raw['apricorn']),
+        raw={'gate':art.architecture(base)['gate31'],'apricorn':terrain.route31()['apricorn']};raw.update(art.cliff_modules(base));
+        groups=[banks.Bank(8,'GATE','secondary').add('gate',raw['gate']).add('apricorn',raw['apricorn']),
                 banks.Bank(9,'CLIFF','secondary').keep((104,208,152))]
         for key in ['cliff','plateau','face','west_face','cliff_corner','cave_mouth','bridge']:groups[-1].add(key,raw[key])
         cave=raw['cave_mouth'];cs,counts=np.unique(cave[...,:3].reshape(-1,3),axis=0,return_counts=True)
         dark=cs[(cs.mean(1)<60)&(counts>3)]
         if len(dark):groups[-1].keep(*[tuple(c) for c in dark[np.argsort(dark.mean(1))[:2]]])
-        lake=banks.Bank(10,'FRESHWATER','secondary')
-        cs,counts=np.unique(raw['lake0'][...,:3].reshape(-1,3),axis=0,return_counts=True)
-        lake.keep(*[tuple(c) for c in cs[np.argsort(counts)[-5:]]])
-        for name,piece in raw.items():
-            if name.startswith('lake'):lake.add(name,piece)
-        groups.append(lake)
         groups.append(banks.Bank(6,'TALL','secondary'))
         sl=ra.tall_slices()
         for n in (0,1):
@@ -96,7 +92,7 @@ def layout(kind):
         ('#',48,0,15,13),('#',46,2,2,8),('#',44,4,2,3),
     ])
 
-BUILDINGS=[('institute',10,2,6),('annex',26,4,2),('west_house',11,13,1),('east_house',22,15,1),('staff_a',9,26,1),('staff_b',23,26,2),('staff_a',9,35,1),('staff_b',23,35,2)]
+BUILDINGS=[('institute',11,0,5),('annex',26,4,2),('west_house',11,13,1),('east_house',22,15,1),('staff_a',9,26,1),('staff_b',23,26,2),('staff_a',9,35,1),('staff_b',23,35,2)]
 SIGNS={'new_bark':[('Institute',15,8),('Town',19,13)],'route31':[('Route',10,13),('Cave',51,13)]}
 
 def pals_for(a,name):return a[name].pal
@@ -126,11 +122,7 @@ def compose(kind,p,a):
         obj('cliff',45,0)
         solid[2:14,46:]=True;solid[1:12,51:]=True;solid[:10,56:]=True
         obj('cave_mouth',51,11);solid[13,52]=False;behavior[13,52]=97;doors.append(('cave',52,13))
-        cells[p=='W']=ground.GRASS
-        for y in range(7,16):
-            for x in range(26,34):
-                name='lake_nw' if y==7 and x==26 else 'lake_sw' if y==15 and x==26 else 'lake_n' if y==7 else 'lake_s' if y==15 else 'lake_w' if x==26 else 'lake'+str((x%2)+2*(y%2))
-                obj(name,x,y)
+        # Reuse Cherrygrove's primary animated sea tiles and shoreline painter.
         # The pond bank is a vertical cliff face with a wooden crossing.
         for y in range(7,28):
             if y not in (15,16,17):obj('bankwall',34,y)
@@ -143,12 +135,12 @@ def compose(kind,p,a):
                 obj(f'tall{int(nb(y-1,x))}{int(nb(y+1,x))}{int(nb(y,x-1))}{int(nb(y,x+1))}',x,y);behavior[y,x]=2
             elif p[y,x]=='_':obj('ledge_a' if x%2==0 else 'ledge_b',x,y);solid[y,x]=True;behavior[y,x]=59
     for _,x,y in SIGNS[kind]:obj('sign',x,y-1);solid[y,x]=True;behavior[y,x]=29;mc.above[y-1,x]=True
-    ordered=sorted(objects,key=lambda o:(o[3].pal.bank not in (3,10),o[0],o[1]))
+    ordered=sorted(objects,key=lambda o:(o[3].pal.bank not in (3,10,12),o[0],o[1]))
     for _,px,py,c in ordered:
-        if c.pal.bank in (3,10):mc.blit(c,px,py)
+        if c.pal.bank in (3,10,12):mc.blit(c,px,py)
     mc.under_bank=mc.bank.copy();mc.under_idx=mc.idx.copy()
     for _,px,py,c in ordered:
-        if c.pal.bank not in (3,10):mc.blit(c,px,py)
+        if c.pal.bank not in (3,10,12):mc.blit(c,px,py)
     return dict(W=w,H=h,canvas=mc,cells=cells,solid=solid,behavior=behavior,tag=kind,signs=SIGNS[kind],doors=doors)
 
 def pack_cells(comp,packer,pals,mask,grid):
@@ -167,7 +159,7 @@ def pack_cells(comp,packer,pals,mask,grid):
                 if (bi<0).any():
                     colors=np.asarray(pals[lo].gba()[1:],dtype=int);rgb=gimg[yy:yy+8,xx:xx+8,:3].astype(int)
                     low[bi<0]=((rgb[bi<0,None]-colors[None])**2).sum(2).argmin(1)+1
-                if hi in (3,10) and hasattr(mc,'under_idx'):
+                if hi in (3,10,12) and hasattr(mc,'under_idx'):
                     ub=mc.under_bank[yy:yy+8,xx:xx+8];ui=mc.under_idx[yy:yy+8,xx:xx+8].astype('uint8')
                     # Whole hidden tree patterns stay reusable beneath opaque architecture.
                     bottom.append(tile(hi,np.where(ub==hi,ui,0).astype('uint8')));top.append(tile(lo,low))
@@ -187,19 +179,23 @@ def main():
     assert not (game/'data/maps/NewBarkTown/map.json').exists(),'Use a fresh routes-baseline worktree.'
     OUT.mkdir(parents=True,exist_ok=True)
     revised_routes.build(game)
-    base,shared=b.town.build_assets();primary=b.routes.Primary(game,78,511);compiled={};report={};OUT.mkdir(parents=True,exist_ok=True)
+    base,shared=b.town.build_assets();ra.ledges=lambda:art.ledges(base);primary=b.routes.Primary(game,78,511);compiled={};report={};OUT.mkdir(parents=True,exist_ok=True)
     symbols=b.register_tilesets(game,['new_bark','route31','violet_entrance'])
     for kind in ['new_bark','route31','violet_entrance']:
-        if kind=='violet_entrance':p=b.L.violet_entrance();a,pals=b.assets(kind,base,shared);comp=b.compose(kind,p,a)
+        print('Packing',kind,flush=True)
+        if kind=='violet_entrance':
+            p=b.L.violet_entrance();a,pals=b.assets(kind,base,shared)
+            a['house']=base['house'];pals[6]=base['house'].pal;pals[12]=base['tree'].pal
+            comp=b.compose(kind,p,a,forest_builder=art.forest)
         else:
             p=layout(kind)
             if kind=='new_bark':
                 # Six-cell approach keeps the existing Route 29 camera window on shared terrain.
-                q=np.full((44,36),'T',dtype='<U1');q[:24,6:]=p;q[9:14,:6]='.';q[12:14,:6]='P';q[22:42,7:29]='.';q[7:12,16:18]='P';q[21:41,16:18]='P';q[31:33,9:28]='P';q[40:42,9:28]='P';q[29:32,10:12]='P';q[29:32,25:27]='P';q[38:41,10:12]='P';q[38:41,25:27]='P';q[12:39,34:]='W';q[38:,30:]='W';p=q
+                q=np.full((50,36),'T',dtype='<U1');q[:24,6:]=p;q[9:14,:6]='.';q[12:14,:6]='P';q[22:42,7:29]='.';q[7:12,16:18]='P';q[21:41,16:18]='P';q[31:33,9:28]='P';q[40:42,9:28]='P';q[29:32,10:12]='P';q[29:32,25:27]='P';q[38:41,10:12]='P';q[38:41,25:27]='P';q[12:39,34:]='W';q[38:,30:]='W';p=q
             a,pals=assets(kind,base,shared)
             if kind=='route31':
                 # Both visible terrain banks must use Route 30's exact existing palettes.
-                for bank in (6,7):
+                for bank in (6,7,8):
                     target=b.Palette(bank,b.palette(game/f'data/tilesets/secondary/claude_route30/palettes/{bank:02}.pal')[1:],[f'c{i}' for i in range(15)])
                     source=np.asarray(pals[bank].gba()[1:],dtype=int);dest=np.asarray(target.gba()[1:],dtype=int)
                     mapping=np.concatenate(([0],((source[:,None]-dest[None])**2).sum(2).argmin(1)+1))
@@ -252,7 +248,7 @@ def main():
     b.save_json(OUT/'build-report.json',report);print(json.dumps(report,indent=2))
     add_staff_houses(game,compiled)
     reuse={}
-    for name,source in [('tree','tree'),('blossom','blossom'),('west_house','house'),
+    for name,source in [('west_house','house'),
                         ('east_house','house'),('staff_a','house'),('staff_b','gable'),('annex','gable')]:
         pixels=np.asarray(Image.open(OUT/'native'/(name+'.png')))
         original=base[source].to_rgba()
@@ -260,7 +256,8 @@ def main():
         reuse[name]=dict(source_asset=source,rgba_sha256=hashlib.sha256(original.tobytes()).hexdigest(),pixel_differences=0)
     b.save_json(OUT/'evidence/cherrygrove-reuse.json',dict(
         baseline='gba/art/claude-cherrygrove',unchanged_assets=reuse,
-        institute='208x80 assembly of original house wings and central gable; one entrance'))
+        institute='Original masonry laboratory with metal roof, glazing, skylights and ventilation; one entrance'
+        ,tree='Literal gba/art/claude-cherrygrove/source/tree.idx.png and bank03 palette, without resize or recolor',forest_checks=art.FOREST_AUDITS))
 
 def add_staff_houses(game,compiled):
     townpath=game/'data/maps/NewBarkTown/map.json';m=b.load_json(townpath);group=b.load_json(game/'data/maps/map_groups.json')

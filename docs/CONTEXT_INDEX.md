@@ -1,4 +1,4 @@
-Current local Johto correction: [exact Cherrygrove asset reuse](../gba/art/johto-native-refinement/README.md). Houses and trees reuse the approved source pixels. Porymap roundtrip remains pending behind its inaccessible file-watcher warning; earlier cloud/redraw proposals remain preserved.
+Current local Johto work: [accepted original laboratory; Cherrygrove reference pending](../gba/art/johto-native-refinement/README.md). Fresh runtime checks pass; foliage/water remain provisional pending the recalled Codex-design/Claude-palette reference.
 
 Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
 

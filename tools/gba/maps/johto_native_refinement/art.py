@@ -5,23 +5,23 @@ from claude_cherrygrove.pixel import Canvas, Palette
 
 ROOT=Path(__file__).resolve().parents[4]
 OUT=ROOT/'gba/art/johto-native-refinement'
+FOREST_AUDITS=[]
 def pad(a,w,h,x=0,y=0):
     out=np.zeros((h,w,4),np.uint8);out[y:y+a.shape[0],x:x+a.shape[1]]=a;return out
 
 def architecture(base):
     """Reuse the approved indexed Cherrygrove shells at native pixel size."""
     house=base['house'].to_rgba();gable=base['gable'].to_rgba()
-    lab=np.zeros((80,208,4),np.uint8)
-    wing=house.copy()
-    # Convert the wing entrance to the existing glazed wall module; the central
-    # gable supplies the institute's only entrance. Roofs retain source pixels.
-    wing[56:80,16:32]=house[56:80,48:64]
-    for x,a in [(0,wing),(128,wing),(64,gable)]:
-        target=lab[:,x:x+a.shape[1]];m=a[...,3]>0;target[m]=a[m]
+    from PIL import Image
+    # Original institutional building; palette conversion occurs in its own bank.
+    im=Image.open(OUT/'generated/institute.png').convert('RGBA')
+    im.putalpha(im.getchannel('A').point(lambda v:255 if v>=192 else 0))
+    im=im.crop(im.getbbox()).resize((176,96),Image.Resampling.NEAREST)
+    lab=np.zeros((112,176,4),np.uint8);lab[16:]=np.asarray(im)
     return dict(institute=lab,annex=gable,
                 west_house=house,east_house=house,staff_a=house,staff_b=gable,
                 gate29=pad(gable,144,144,32,64),
-                mr_pokemon=pad(gable,112,96,16,16),
+                mr_pokemon=pad(gable,112,112,16,20),
                 berry_house=pad(house,96,80),gate31=pad(gable,128,96,32,16))
 
 def tall_slices():
@@ -30,10 +30,12 @@ def tall_slices():
     pal=Palette(6,[(32,112,80),(32,120,88),(40,136,80),(56,152,88),(64,168,112),(80,192,120)],
                 ['deep','shade','base','leaf','light','tip'])
     c=Canvas(16,16,pal);c.rect(0,0,16,16,'base')
-    for x,y in [(2,7),(10,7),(6,15),(14,15)]:
+    for x,y in [(3,8),(12,6),(8,15)]:
         c.hline(x-2,y,5,'deep');c.hline(x-1,y-1,3,'shade')
-        for dx,dy in [(-2,-2),(-1,-3),(0,-4),(0,-5),(1,-2),(2,-3)]:c.put(x+dx,y+dy,'leaf')
-        c.put(x-1,y-4,'light');c.put(x,y-6,'tip');c.put(x+2,y-4,'light')
+        for dx,dy in [(-2,-3),(-1,-2),(-1,-4),(0,-2),(0,-3),(0,-5),(1,-3),(2,-4)]:
+            c.put(x+dx,y+dy,'leaf')
+        c.put(x-1,y-5,'light');c.put(x,y-6,'tip');c.put(x+2,y-5,'light')
+        c.put(x+1,y-1,'base');c.put(x-2,y+1,'shade')
     return c.to_rgba()
 
 def tall_cell(src,n,s,w,e):
@@ -57,9 +59,19 @@ def orange_flowers():
     return c.to_rgba()
 
 def props(base):
-    from johto_polish.art import new_bark
-    source=new_bark()
-    return dict(wind=source['wind'],labwind=source['labwind'],
+    from PIL import Image,ImageDraw
+    p=Palette(9,[(56,64,64),(96,112,104),(152,168,152),(208,216,192),(240,240,224)],
+              ['dark','shadow','steel','light','white'])
+    c=Canvas(32,64,p)
+    c.rect(14,18,4,42,'shadow');c.rect(15,19,2,40,'light')
+    c.rect(10,59,13,3,'shadow');c.hline(10,59,13,'steel')
+    im=Image.fromarray(c.px.astype('uint8'));d=ImageDraw.Draw(im)
+    for poly in [[(15,17),(15,1),(18,1),(18,12)],
+                 [(14,18),(2,23),(3,26),(13,22)],
+                 [(17,20),(27,31),(30,29),(21,20)]]:
+        d.polygon(poly,fill=p.index['white'],outline=p.index['steel'])
+    c.px=np.asarray(im).copy();c.ellipse(16,19,3,3,'shadow');c.ellipse(16,18,2,2,'light')
+    return dict(wind=c.to_rgba(),labwind=c.to_rgba(),
                 red_mailbox=base['mailbox'].to_rgba(),
                 blue_mailbox=base['mailbox'].to_rgba(),
                 lab_fence=np.zeros((16,16,4),np.uint8))
@@ -79,10 +91,12 @@ def cliff_modules(base):
             face.hline(x,y,10,'deep');face.vline(x+10,y-3,4,'deep')
             face.hline(x+2,y+2,5,'light')
     face.hline(0,31,32,'ink')
-    cave=piece(48,48);cave.rect(0,0,48,48,'rock')
-    cave.ellipse(24,27,20,22,'shade');cave.ellipse(24,30,14,20,'deep');cave.ellipse(24,32,11,19,'ink')
-    cave.rect(13,28,23,20,'ink');cave.rect(16,40,16,8,'deep');cave.hline(16,47,16,'shade')
-    for x,y in [(6,18),(10,9),(20,5),(32,7),(39,17)]:cave.rect(x,y,5,3,'light')
+    from PIL import Image,ImageDraw
+    cave=np.asarray(Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA').crop((824,176,872,224))).copy()
+    cm=Image.new('L',(48,48));ImageDraw.Draw(cm).polygon(
+        [(0,0),(47,0),(47,43),(39,47),(33,45),(30,40),
+         (17,40),(13,46),(5,47),(0,44)],fill=255)
+    cave[...,3]=np.asarray(cm)
     bridge=piece(48,48);bridge.rect(0,0,48,48,'deep')
     for y in range(1,48,8):bridge.rect(0,y,48,6,'rock');bridge.hline(0,y,48,'top')
     bridge.rect(0,0,3,48,'ink');bridge.rect(45,0,3,48,'ink')
@@ -114,28 +128,81 @@ def cliff_modules(base):
     boundary=keep&~np.roll(keep,1,1);cliff.px[boundary]=p.index['deep']
     rim=keep&~np.roll(keep,1,0);cliff.px[rim]=p.index['top']
     return dict(cliff=result,plateau=soil,face=rock,west_face=rock[:,:16],
-                cliff_corner=rock,cave_mouth=cave.to_rgba(),bridge=bridge.to_rgba())
+                cliff_corner=rock,cave_mouth=cave,bridge=bridge.to_rgba())
+
+def source_tree():
+    """Literal indexed Cherrygrove source, never regenerated from the screenshot."""
+    from PIL import Image
+    from tiles import palette
+    source=ROOT/'gba/art/claude-cherrygrove/source'
+    colors=palette(source/'palettes/bank03-tree.pal')[1:]
+    pal=Palette(12,colors,[f'c{i}' for i in range(15)])
+    im=np.asarray(Image.open(source/'tree.idx.png'))
+    c=Canvas(im.shape[1],im.shape[0],pal);c.px=im.copy();c.pool='secondary'
+    assert np.array_equal(c.to_rgba(),np.asarray(Image.open(source/'tree.png').convert('RGBA')))
+    return c
+
+
+def ledges(base):
+    """Complete rocky lip and face, using the town's cliff material."""
+    rock=base['cliff'].to_rgba()
+    # Compress only the height of the rock face for a low jump ledge. The
+    # upper turf rim and bottom shadow give it depth without fence-like teeth.
+    from PIL import Image
+    src=np.asarray(Image.fromarray(rock[16:40]).resize((32,10),Image.Resampling.NEAREST)).copy()
+    whole=np.zeros((16,32,4),np.uint8);whole[4:14]=src
+    whole[2:4]=[80,144,96,255];whole[3]=[128,168,104,255]
+    whole[14]=[80,64,48,255];whole[15]=[96,152,104,255]
+    a=whole[:,:16].copy();b=whole[:,16:].copy()
+    left=a.copy();right=b.copy()
+    left[:3,:3,3]=0;left[12:,:2,3]=0
+    right[:3,-3:,3]=0;right[12:,-2:,3]=0
+    return dict(ledge_l=left,ledge_a=a,ledge_b=b,ledge_r=right,
+                wall_top=np.rot90(left),wall=np.rot90(a),
+                corner_se=b,corner_sw=a,corner_ne=np.rot90(b))
+
+def cliff_pieces(base):
+    """Continuous cliff modules, free of donor grass and tree fragments."""
+    rock=base['cliff'].to_rgba()
+    top=rock[8:24];foot=rock[24:40]
+    side=foot[:,:16].copy()
+    return dict(top0=top[:,:16],top1=foot[:,:16],
+                east0=side,east1=side[:,::-1],
+                corner00=top[:,:16],corner01=top[:,16:],
+                corner10=foot[:,:16],corner11=foot[:,16:],
+                cross=foot[:,:16],west=side)
 
 def forest(p,tree):
-    """Place the exact Cherrygrove crowns on its established 32x24 lattice."""
+    """Full crowns, fixed 48px rows, no tightly interleaved filler instances."""
     h,w=p.shape;items=[];covered=np.zeros(p.shape,bool)
-    def fits(x,yp):
-        rows=list(range(max(0,yp//16),min(h,(yp+31)//16+1)))
-        cols=[v for v in (x,x+1) if 0<=v<w]
+    def fits(x,y):
+        # Each instance fits completely on the map and inside forest cells.
+        if x<0 or y<0 or x+2>w or y+3>h:return [],[],False
+        rows=list(range(max(0,y),min(h,y+3)))
+        cols=list(range(max(0,x),min(w,x+2)))
         return rows,cols,bool(rows and cols and (p[np.ix_(rows,cols)]=='T').all())
-    def add(x,yp,rows,cols):
-        items.append((x*16,yp,tree));covered[np.ix_(rows,cols)]=True
-    for yp in range(-48,h*16,24):
+    # Each complete tree occupies exactly 2x3 cells. Instances never overlap
+    # each other or occupy a path/building cell.
+    for y in range(-3,h,3):
         for x in range(-2,w,2):
-            rows,cols,ok=fits(x,yp)
-            if ok:add(x,yp,rows,cols)
+            rows,cols,ok=fits(x,y)
+            if ok:
+                items.append((x*16,y*16,tree));covered[np.ix_(rows,cols)]=True
+    # Shift entire edge trees into remaining full 3x3 pockets, with no overlap
+    # against another crown. Never fill a narrow strip with half a tree.
     for y,x in zip(*np.nonzero((p=='T')&~covered)):
         if covered[y,x]:continue
-        placed=False
-        for x0 in (x-1,x):
-            for yp in range(-48,h*16,24):
-                if not yp//16<=y<=(yp+31)//16:continue
-                rows,cols,ok=fits(x0,yp)
-                if ok:add(x0,yp,rows,cols);placed=True;break
-            if placed:break
+        for yy,xx in ((y,x),(y-1,x),(y-2,x)):
+            if yy<0 or xx<0:continue
+            rows,cols,ok=fits(xx,yy)
+            if ok and not covered[np.ix_(rows,cols)].any():
+                items.append((xx*16,yy*16,tree));covered[np.ix_(rows,cols)]=True;break
+    occupied=np.zeros((h*16,w*16),bool)
+    allowed=np.repeat(np.repeat(p=='T',16,axis=0),16,axis=1)
+    for x,y,c in items:
+        m=c.px>0;region=occupied[y:y+c.h,x:x+c.w]
+        assert not (region&m).any(),'overlapping tree silhouettes'
+        assert allowed[y:y+c.h,x:x+c.w][m].all(),'tree spills onto a path or building'
+        region|=m
+    FOREST_AUDITS.append(dict(width=w,height=h,instances=len(items),overlap_pixels=0,non_forest_pixels=0,clipped_instances=0))
     return sorted(items,key=lambda v:(v[1],v[0]))

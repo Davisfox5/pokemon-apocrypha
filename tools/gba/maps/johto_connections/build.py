@@ -53,7 +53,7 @@ def assets(kind, base, shared):
         a.update(group.build());pals[group.bank]=group.palette
     return a,pals
 
-def compose(kind, plan, a):
+def compose(kind, plan, a, forest_builder=None):
     plan=plan.copy()
     if kind=='new_bark':
         for name,x,y in L.NEW_BARK_BUILDINGS:
@@ -81,11 +81,14 @@ def compose(kind, plan, a):
         if above: mc.above[max(0,y):min(h,y+(c.h+15)//16),x:x+(c.w+15)//16]=True
     # Keep the Johto lattice and material palettes at every route edge.
     phase=16 if kind=='new_bark' else 8 if kind=='route31' else 0
-    for x in range(0,w,2):
-        for yp in range(phase-24,h*16,24):
-            lo,hi=max(0,yp//16),min(h,(yp+31)//16+1)
-            if hi>lo and (plan[lo:hi,x:min(w,x+2)]=='T').all():
-                c=a['tree'];objects.append((yp+c.h,x*16,yp,c))
+    if forest_builder is not None:
+        for x,y,c in forest_builder(plan,a['tree']):objects.append((y+c.h,x,y,c))
+    else:
+        for x in range(0,w,2):
+            for yp in range(phase-24,h*16,24):
+                lo,hi=max(0,yp//16),min(h,(yp+31)//16+1)
+                if hi>lo and (plan[lo:hi,x:min(w,x+2)]=='T').all():
+                    c=a['tree'];objects.append((yp+c.h,x*16,yp,c))
     if kind=='new_bark':
         for x in range(0,w,2): obj('cliff',x,28)
         solid[28:31]=True
@@ -168,7 +171,8 @@ def pack_connected(game,kind,comp,pals,neighbor,sec,origin,start,nstart,primary)
     for b in npals:
         if b>=6:pals[b]=allpals[b]
     seed=routes.RoutePacker(pals,primary);seed.reserve(ts,bs,ats,set(range(512,512+len(bs))))
-    seed.next_tile=512+len(ts);seed.next_block=512+len(bs)
+    # Reuse unreferenced holes before appending. PNG sheets have 16-tile
+    # row padding; treating that padding as allocated can falsely exhaust VRAM.
     grid=np.zeros(comp['solid'].shape,np.uint16)
     pack_cells(comp,seed,pals,cvis,grid)
     # Keep only entries that either map can actually show across this connection.
