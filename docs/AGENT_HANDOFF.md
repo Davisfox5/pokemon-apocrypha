@@ -1,3 +1,27 @@
+## Latest: aligned Dark Cave base, shaded entrance and relocated sign
+
+The current revision aligns the lowest HGSS rock course at native y=215, fills
+its transparency holes and the grass notch right of the entrance, and shades
+local dirt into the retained arch. The sign is a freestanding prop at (51,14),
+with its original text and matching collision. Its old wall position is repaired.
+Cave warp (52,13) and all other geometry are unchanged against `6ce0635`.
+All other map images and door animations remain identical. Three complete tree
+crowns use 36 rock-backed quadrants; Route 31 now uses 966/1008 scenery slots.
+
+ROM: `42c463400d208970a578d8e378b8446cefbb84daa30ed2fa3c92f4daef8b86c8`.
+Fresh background proof passes 304 Route 31 boundary/surf cases (26 surf),
+ordinary travel/doors/stairs, cave sign interaction and entry/return, 1200 grass
+steps, save/cold reload/Continue, and 512 water frames with eight states and
+unchanged static VRAM. Portable patch reproduces 437 source files and validates
+108 warp references. No desktop emulator was launched. Porymap was not rechecked;
+a fresh editor reload/save is not claimed. Native screenshots were inspected.
+
+Initial ordinary tests failed at lab return because injected position polling
+interrupted the warp callback. Direct emulator-memory position reads resolve it;
+the final full suite passes. No game warp code was changed for that harness fix.
+See `gba/art/johto-synthesis/README.md`, `evidence/cave-review.png` and
+`evidence/route31-cave-sign-runtime.png`. Next: owner visual review.
+
 ## Latest: Dark Cave rock/trees and continuous dirt entrance
 
 Owner requested smoother cliff feet, rock behind the foreground treetops, and

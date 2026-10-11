@@ -30,6 +30,11 @@ for n,w,h,ts in [('CherrygroveRoute29Approach',98,48,'Cla udeRoute29'.replace(' 
  else:m['connections'][0]['offset']=-35
  write(G/'data/maps'/n/'map.json',m);shutil.copyfile(OLD/'data/maps'/n/'scripts.inc',G/'data/maps'/n/'scripts.inc')
 write(G/'data/layouts/layouts.json',layouts)
+# Cave sign is a freestanding field prop one tile south of its old position.
+p=G/'data/maps/JohtoRoute31/map.json';m=read(p)
+for event in m['bg_events']:
+ if event.get('script')=='JohtoRoute31_Cave':event['x']=51;event['y']=14
+write(p,m)
 for name,direction,value in [('CherrygroveCity','up',35),('NewBarkTown','left',-6)]:
  p=G/'data/maps'/name/'map.json';m=read(p)
  for c in m['connections']:

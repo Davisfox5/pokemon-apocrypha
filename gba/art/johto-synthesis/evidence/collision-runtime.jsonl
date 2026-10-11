@@ -86,8 +86,9 @@
 {"map":29,"x":47,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":47,"final_y":14,"passed":true}
 {"map":29,"x":48,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":48,"final_y":14,"passed":true}
 {"map":29,"x":49,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":49,"final_y":14,"passed":true}
+{"map":29,"x":50,"y":14,"key":16,"surf":0,"target_metatile":0,"expected_move":0,"final_x":50,"final_y":14,"passed":true}
 {"map":29,"x":50,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":50,"final_y":14,"passed":true}
-{"map":29,"x":51,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":51,"final_y":14,"passed":true}
+{"map":29,"x":52,"y":14,"key":32,"surf":0,"target_metatile":0,"expected_move":0,"final_x":52,"final_y":14,"passed":true}
 {"map":29,"x":53,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":53,"final_y":14,"passed":true}
 {"map":29,"x":54,"y":14,"key":16,"surf":0,"target_metatile":0,"expected_move":0,"final_x":54,"final_y":14,"passed":true}
 {"map":29,"x":54,"y":14,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":54,"final_y":14,"passed":true}
@@ -99,6 +100,7 @@
 {"map":29,"x":33,"y":15,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":33,"final_y":15,"passed":true}
 {"map":29,"x":34,"y":15,"key":16,"surf":0,"target_metatile":0,"expected_move":0,"final_x":34,"final_y":15,"passed":true}
 {"map":29,"x":36,"y":15,"key":32,"surf":0,"target_metatile":0,"expected_move":0,"final_x":36,"final_y":15,"passed":true}
+{"map":29,"x":51,"y":15,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":51,"final_y":15,"passed":true}
 {"map":29,"x":54,"y":15,"key":16,"surf":0,"target_metatile":0,"expected_move":0,"final_x":54,"final_y":15,"passed":true}
 {"map":29,"x":3,"y":16,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":3,"final_y":16,"passed":true}
 {"map":29,"x":5,"y":16,"key":64,"surf":0,"target_metatile":0,"expected_move":0,"final_x":5,"final_y":16,"passed":true}
@@ -292,11 +294,11 @@
 {"map":29,"x":26,"y":10,"key":32,"surf":1,"target_metatile":554,"expected_move":0,"final_x":26,"final_y":10,"passed":true}
 {"map":29,"x":26,"y":11,"key":32,"surf":1,"target_metatile":555,"expected_move":1,"final_x":25,"final_y":11,"passed":true}
 {"map":29,"x":26,"y":12,"key":32,"surf":1,"target_metatile":554,"expected_move":1,"final_x":25,"final_y":12,"passed":true}
-{"map":29,"x":26,"y":14,"key":128,"surf":1,"target_metatile":771,"expected_move":1,"final_x":26,"final_y":16,"passed":true}
+{"map":29,"x":26,"y":14,"key":128,"surf":1,"target_metatile":768,"expected_move":1,"final_x":26,"final_y":16,"passed":true}
 {"map":29,"x":32,"y":14,"key":128,"surf":1,"target_metatile":635,"expected_move":1,"final_x":32,"final_y":16,"passed":true}
-{"map":29,"x":26,"y":15,"key":32,"surf":1,"target_metatile":770,"expected_move":1,"final_x":25,"final_y":15,"passed":true}
-{"map":29,"x":26,"y":15,"key":128,"surf":1,"target_metatile":776,"expected_move":1,"final_x":26,"final_y":16,"passed":true}
-{"map":29,"x":27,"y":15,"key":128,"surf":1,"target_metatile":777,"expected_move":1,"final_x":27,"final_y":16,"passed":true}
-{"map":29,"x":28,"y":15,"key":128,"surf":1,"target_metatile":778,"expected_move":1,"final_x":28,"final_y":16,"passed":true}
-{"map":29,"x":32,"y":15,"key":16,"surf":1,"target_metatile":772,"expected_move":1,"final_x":33,"final_y":15,"passed":true}
-{"map":29,"x":32,"y":15,"key":128,"surf":1,"target_metatile":779,"expected_move":1,"final_x":32,"final_y":16,"passed":true}
+{"map":29,"x":26,"y":15,"key":32,"surf":1,"target_metatile":767,"expected_move":1,"final_x":25,"final_y":15,"passed":true}
+{"map":29,"x":26,"y":15,"key":128,"surf":1,"target_metatile":773,"expected_move":1,"final_x":26,"final_y":16,"passed":true}
+{"map":29,"x":27,"y":15,"key":128,"surf":1,"target_metatile":774,"expected_move":1,"final_x":27,"final_y":16,"passed":true}
+{"map":29,"x":28,"y":15,"key":128,"surf":1,"target_metatile":775,"expected_move":1,"final_x":28,"final_y":16,"passed":true}
+{"map":29,"x":32,"y":15,"key":16,"surf":1,"target_metatile":769,"expected_move":1,"final_x":33,"final_y":15,"passed":true}
+{"map":29,"x":32,"y":15,"key":128,"surf":1,"target_metatile":776,"expected_move":1,"final_x":32,"final_y":16,"passed":true}

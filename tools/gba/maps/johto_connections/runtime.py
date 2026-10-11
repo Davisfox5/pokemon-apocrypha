@@ -88,7 +88,7 @@ def main():
     source=out/'runtime.c';source.write_text(prefix+(FILM if args.film_only else MAIN))
     subprocess.run(['cc',str(source),*shlex.split(os.environ.get('MGBA_FLAGS','-lmgba')),'-o',str(out/'runtime')],check=True)
     raw=subprocess.check_output([str(args.toolchain.resolve()/'bin/arm-none-eabi-nm'),str(game/'pokeemerald.elf')],text=True)
-    wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','LoadGameSave','ArePlayerFieldControlsLocked','gMain','CB2_Overworld','gSaveBlock2Ptr'}
+    wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','LoadGameSave','ArePlayerFieldControlsLocked','gMain','CB2_Overworld','gSaveBlock2Ptr','gSaveBlock1Ptr','gPlayerAvatar','gObjectEvents'}
     symbols={r[2]:r[0] for line in raw.splitlines() if len(r:=line.split())==3 and r[2] in wanted};assert symbols.keys()==wanted
     (out/'symbols.txt').write_text(''.join(f'{k} {v}\n' for k,v in symbols.items()))
     results=[]

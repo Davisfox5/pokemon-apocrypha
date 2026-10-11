@@ -20,7 +20,7 @@ for name,kind in [('NewBarkTown','new_bark'),('JohtoRoute31','route31'),('Violet
   bs=[];raw=bytearray()
   for qx,qy in quads:
    cs=np.concatenate([f[qy:qy+8,qx:qx+8].reshape(-1,3) for f in frames]);cost=[]
-   for bank in range(13):
+   for bank in range(12): # Cliff/cave bank 12 must not recolor unrelated doors.
     pp=np.array(t.pals[bank>=6][bank][1:]);cost.append(((cs[:,None]-pp)**2).sum(-1).min(-1).sum())
    bs.append(int(np.argmin(cost)))
   for f in frames:

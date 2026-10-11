@@ -111,25 +111,37 @@ def assets():
  # changes concern its exposed fringe and background behind existing crowns.
  a['landform_geometry']=a['landform'].px.copy()
  c=a['landform'];original=c.px.copy()
- # Continue the straight face behind the first 16px of the forest crowns,
- # retaining its original shading progression from cap to foot.
- # Lengthen the uninterrupted vertical shading, not a repeated horizontal
- # foot strip (which would create a stack of apparent ledges).
- rows=168+np.floor(np.arange(40)*24/40).astype(int)
- c.px[168:208,176:]=original[rows,176:]
- terrain.rounded_foot(c,skip=(120,168))
- # Remove the imported gray threshold and baked tan ground. The local dirt
- # texture is drawn underneath these transparent pixels, up to the black mouth.
- for y in range(206,224):
-  left=124 if y<214 else max(112,124-(y-213)*2)
-  right=145 if y<214 else min(168,145+(y-213)*3)
+ # One native face course across the whole lowest wall. Its upper lip and
+ # base share the same y coordinates and 32px texture phase on both sides.
+ # The former separate right extension left a grass notch and a stepped base.
+ face=original[184:214,56:88].copy()
+ # The donor foot has transparent scallops. Fill those before adding the
+ # shared baseline, so no lawn holes remain enclosed inside the rock course.
+ for y in range(len(face)):
+  holes=face[y]==0;face[y,holes]=face[y-1,holes] if y else 12
+ for x in range(48,304,32):c.px[184:214,x:x+32]=face
+ c.px[214,48:]=12;c.px[215,48:]=11;c.px[216:,48:]=0
+ # Keep the HGSS arch, including its curved opening and original upper lip.
+ c.px[184:214,120:152]=original[184:214,120:152]
+ # Clear the imported floor, keeping a flared opening within the rock jambs.
+ for y in range(204,216):
+  left=125 if y<208 else 124
+  right=144 if y<208 else 145
   c.px[y,left:right]=0
- floor=c.px[214:224,112:176];floor[floor==2]=0
+ # Warm dirt recedes into darkness along the original HGSS threshold shape.
+ # A short dithered lighting ramp avoids a solid horizontal black/dirt seam.
+ ramp=[14,15,13,9,6,5,3,2,0]
+ for y in range(204,213):
+  left=125 if y<208 else 124;right=144 if y<208 else 145
+  for x in range(left,right):
+   phase=(x+y)&1;i=y-204
+   c.px[y,x]=ramp[min(i+phase,len(ramp)-1)]
  im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
  a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((536,144,552,176))))),12,pals)
  # These rock-bank entries were unused after warm-shadow remapping. They let
  # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
  pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
+ pals[12].colors[14]=(48,40,24)
  a['bridge']=indexed(raw['bridge'],5,pals)
  # The full landform already contains the actual cave arch; no second stamp.
  a['cave_mouth']=Canvas(48,48,pals[12]);a['bankwall']=Canvas(16,16,pals[12])
@@ -222,14 +234,14 @@ def route31(a):
  p[12,8:20]='.'
  # HGSS's upper terrace is inaccessible; its visible rock is the boundary.
  # Render no inherited cliff, cave or wall stamps, then place the exact sources.
- aa=dict(a,cliff=Canvas(304,224,a['landform'].pal),bridge=Canvas(48,64,a['bridge'].pal))
+ aa=dict(a,cliff=Canvas(304,224,a['landform'].pal),bridge=Canvas(48,64,a['bridge'].pal),sign=Canvas(16,32,a['sign'].pal))
  comp=old.compose('route31',p,aa);mc=comp['canvas']
  trees=(mc.bank==3);tree_pixels=mc.idx.copy()
  mc.blit(a['landform'],44*16,0)
  comp['cliff_backdrop']=(mc.bank.copy(),mc.idx.copy())
  # Restore the complete foreground crown over its new rock backing. The four
  # donor lawn-shadow pixels on each crown's rim belong to ground, not foliage.
- backing=np.zeros_like(trees);backing[192:208,880:]=True
+ backing=np.zeros_like(trees);backing[192:216,880:]=True
  keep=trees&backing&~np.isin(tree_pixels,[3,12])
  mc.bank[keep]=3;mc.idx[keep]=tree_pixels[keep]
  for y in list(range(7,15,2))+list(range(18,28,2)):mc.blit(a['route31_wall'],33*16,y*16)
@@ -241,8 +253,11 @@ def route31(a):
    mc.blit(a['top'+str(y-28)],x*16,y*16);comp['solid'][y,x]=True
  mc.blit(a['stairs_top'],37*16,28*16)
  comp['cells'][28:30,37:40]=ground.PATH;comp['solid'][28:30,37:40]=False
- # Redraw the independent sign after the rock rather than burying it.
- mc.blit(a['sign'],51*16,12*16)
+ # Redraw the route sign and the freestanding cave sign one tile lower.
+ mc.above[12,51]=False
+ comp['signs']=[('Route',10,13),('Cave',51,14)]
+ for _,x,y in comp['signs']:
+  mc.blit(a['sign'],x*16,(y-1)*16);mc.above[y-1,x]=True
  # Every visible rock cell is solid except the bridge and real cave opening.
  # This also closes the unimplemented plateau/outer-map access.
  for c,px,py in [(a['landform'],704,0)]:
@@ -256,6 +271,8 @@ def route31(a):
  comp['solid'][13,52]=False;comp['behavior'][13,52]=97
  # Cave threshold and apron connect directly to the existing path, as in HGSS.
  comp['cells'][13:16,51:54]=ground.PATH
+ comp['behavior'][13,51]=0
+ comp['solid'][14,51]=True;comp['behavior'][14,51]=29
  comp['plan']=p
  return comp
 

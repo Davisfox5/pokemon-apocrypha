@@ -6,20 +6,22 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 
 ## Latest corrections
 
-- Dark Cave now has actual rock-backed crown metatiles for the three foreground
-  trees. The rock course continues behind their tops; native tree transparency
-  is on the upper layer. The cliff's exposed bottom contour is rounded without
-  blurring its texture. Imported lawn-shadow pixels are excluded at crown rims.
-- Removed the gray threshold and tan ground baked into the cave crop. The
-  approved dirt texture now continues into the black opening, with no second
-  material strip. Warp (52,13), collision and route geometry are unchanged.
+- Aligned Dark Cave's lowest rock course and its entire exposed base at native
+  pixel row 215. Filled donor transparency holes, including the grass notch right
+  of the entrance. The HGSS arch is retained over a short warm shadow ramp into
+  the approved dirt texture.
+- Moved the cave sign down to (51,14) as a freestanding prop and repaired the rock
+  behind its previous position. The sign's collision and interaction move with it;
+  the cave warp remains (52,13). No other geometry or behavior changes.
+- Three foreground tree crowns retain complete pixels over real rock lower tiles,
+  now covering 36 backing quadrants. No lawn-colored crown background remains.
 - Replaced the noisy continuous grass material with native Emerald blade
   silhouettes, a four-value Johto green ladder and transparent local ground.
   Distinct clumps supply the edge transition without a rectangular texture mask.
 - Replaced jump ledges and their end/corner pieces with actual Emerald tiles,
   recolored to warm Johto rock. Grass and path remain visible around their
   curved outlines. All 95 one-way ledge cells retain their previous behavior.
-- Restored the full rounded HGSS cliff foot at Dark Cave. Removed exterior
+- Reused the HGSS cliff foot texture at Dark Cave. Removed exterior
   donor-ground/tree residue and cool fringe colors from the other rock cuts.
   The small Route 30 bridge has a traced outline that preserves all its planks.
 - The preceding revision replaced compressed rock bars and rotated faces with HGSS
@@ -82,8 +84,9 @@ empty-party encounter guard; this map build is not a new battle progression test
 - `terrain-review.png`: previous/current background captures at identical cameras.
 - `cave-review.png`, `route31-crowns-runtime.png`: latest Dark Cave revision,
   captured in the background game, including the rock/tree junctions.
-- `cave-structure.json`: 24 rock-backed crown quadrants, complete tree pixels,
-  continuous dirt through the mouth, unchanged geometry and other maps.
+- `cave-structure.json`: 36 rock-backed crown quadrants, complete tree pixels,
+  aligned base, shaded dirt threshold, moved sign and unchanged other maps.
+- `route31-cave-sign-runtime.png`: the relocated sign displaying its original text.
 - `terrain-geometry.json`: matching solid, behavior and ground-cell hashes against
   the previous accepted-layout revision `1016f4a6`; no geometry was changed.
 - `integration.json`: tile/metatile use, complete-tree placement and connected windows.
@@ -100,14 +103,22 @@ ordinary walking is separately exercised for 1,200 grass steps in one session.
 No desktop emulator was launched. Porymap interaction was blocked by the locked
 Mac session, so a fresh Porymap UI reload/save is not claimed.
 
-Latest verification: all 302 Route 31 boundary/surf cases (26 surf), all ordinary
+Latest verification: all 304 Route 31 boundary/surf cases (26 surf), all ordinary
 travel/door/stair assertions, 1,200 grass steps, save/cold reload/Continue and
 512 animated-water frames pass on ROM
-`765af2ae61fe006c6550a959b0e40d2bd444552a601a593fd8acf7f2bc9ca0ba`.
+`42c463400d208970a578d8e378b8446cefbb84daa30ed2fa3c92f4daef8b86c8`.
 The boundary rerun is scoped to Route 31 (`verify_extra.py ... --map 29`);
-other maps are verified pixel-identical and all geometry hashes match `74b13f5`.
-The preceding full boundary run is preserved in that commit. Route 31 now uses
-1008/1008 scenery slots; the 16 door-animation slots are separately reserved.
+other maps are verified pixel-identical. Geometry matches `6ce0635` after
+normalizing only the relocated sign's collision/behavior cells. The previous
+all-map boundary run remains preserved in `74b13f5`. Route 31 uses 966/1008
+scenery slots; the 16 door-animation slots are separately reserved.
+
+The first runs exposed a harness fault: injecting position-reading engine calls
+during a warp corrupted the lab return. The ordinary suite now polls the same
+position fields directly from emulator memory. All travel assertions pass on the
+final ROM, including lab return and cave entry/return. Cave sign dialogue is
+explicitly opened and closed. Door animations remain byte-identical to `6ce0635`;
+the cave palette is excluded from unrelated door palette selection.
 
 ## Source and reproduction
 

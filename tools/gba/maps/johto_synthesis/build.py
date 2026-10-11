@@ -52,7 +52,7 @@ def pack(comp,pals):
      si=((sea[...,None,:]-pp)**2).sum(-1).argmin(-1)+1
      lo=tile(si[np.arange(yy,yy+8)[:,None]%32,np.arange(xx,xx+8)[None,:]%32].astype('uint8'),1)
      hi=tile(np.where(mask,0,ni[sl]).astype('uint8'),0)
-    elif comp.get('cliff_backdrop') is not None and 192<=yy<208 and xx>=880 and 3 in bs:
+    elif comp.get('cliff_backdrop') is not None and 192<=yy<216 and xx>=880 and 3 in bs:
      # Full rock beneath transparent crown pixels, not a lawn-backed tree tile.
      # Keep the hidden rock pattern intact for reuse by neighboring metatiles.
      rb,ri=comp['cliff_backdrop'];pix=ri[sl].copy();missing=rb[sl]!=12

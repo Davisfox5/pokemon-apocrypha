@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "765af2ae61fe006c6550a959b0e40d2bd444552a601a593fd8acf7f2bc9ca0ba",
+  "rom_sha256": "42c463400d208970a578d8e378b8446cefbb84daa30ed2fa3c92f4daef8b86c8",
   "phases": [
     {
       "phase": "write",
@@ -642,6 +642,19 @@
           "height": 24,
           "interaction": 0,
           "mapsec": 221
+        },
+        {
+          "step": "cave-sign-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 51,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
         },
         {
           "step": "dark-cave-entry",

@@ -1,9 +1,16 @@
 {
-  "baseline_commit": "74b13f561c9063250a3ce5ad935db3c8b88c6426",
-  "geometry_unchanged": true,
+  "baseline_commit": "6ce0635d04d023073a93fcfab1301ec8cf307981",
+  "geometry_changes_only_sign": true,
+  "sign": [
+    51,
+    14
+  ],
   "other_maps_pixel_identical": true,
   "complete_rock_backed_crowns": 3,
-  "rock_background_quadrants": 24,
-  "continuous_dirt_samples": 34,
+  "rock_background_quadrants": 36,
+  "continuous_dirt_samples": 27,
+  "threshold_shades": 5,
+  "aligned_cliff_base_y": 215,
+  "grass_notch_closed": true,
   "dark_mouth_preserved": true
 }

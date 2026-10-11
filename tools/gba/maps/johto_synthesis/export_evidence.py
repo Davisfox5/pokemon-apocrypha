@@ -36,7 +36,7 @@ for row,(name,label) in enumerate([('route29-grass','Grass and ledges'),
         comparison.paste(im.convert('RGB').resize((480,320),Image.Resampling.NEAREST),(x,y+28))
 d.text((16,1120),'Background GBA captures; identical camera positions. Current ROM '+r['rom_sha256'][:12],font=font,fill=(180,190,200))
 comparison.save(EV/'terrain-review.png')
-previous=subprocess.check_output(['git','show','74b13f561c9063250a3ce5ad935db3c8b88c6426:gba/art/johto-synthesis/evidence/route31-cave-runtime.png'],cwd=ROOT)
+previous=subprocess.check_output(['git','show','6ce0635d04d023073a93fcfab1301ec8cf307981:gba/art/johto-synthesis/evidence/route31-cave-runtime.png'],cwd=ROOT)
 current=Image.open(proof/'route31-cave.png').convert('RGB')
 crowns=Image.open(proof/'route31-crowns.png').convert('RGB')
 cave=Image.new('RGB',(1008,772),(23,29,36));d=ImageDraw.Draw(cave)
@@ -46,10 +46,11 @@ for i,(label,im) in enumerate(views):
  x=16+i%2*496;y=16+i//2*368
  d.text((x,y),label,font=font,fill=(235,240,244))
  cave.paste(im.resize((480,320),Image.Resampling.NEAREST),(x,y+28))
-d.text((512,384),'Continuous dirt into the dark entrance',font=font,fill=(235,240,244))
+d.text((512,384),'Shaded threshold and freestanding sign',font=font,fill=(235,240,244))
 cave.paste(current.crop((88,24,168,104)).resize((320,320),Image.Resampling.NEAREST),(592,412))
 d.text((16,750),'Actual background GBA captures | ROM '+r['rom_sha256'][:16],font=font,fill=(180,190,200))
 cave.save(EV/'cave-review.png');shutil.copyfile(proof/'route31-crowns.png',EV/'route31-crowns-runtime.png')
+shutil.copyfile(proof/'route31-cave-sign.png',EV/'route31-cave-sign-runtime.png')
 # Explicitly isolated local package; no emulator process is started.
 pkg=ROOT/'tools/vendor/gba/Johto-synthesis-preview';pkg.mkdir(exist_ok=True)
 source=ROOT/'tools/vendor/gba/johto-synthesis-work/pokeemerald.gba'

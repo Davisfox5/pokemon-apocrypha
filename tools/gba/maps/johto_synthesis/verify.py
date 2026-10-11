@@ -1,8 +1,17 @@
 """Fresh headless emulator proof; never opens a desktop emulator or owner save."""
 from pathlib import Path
-import sys,os
+import sys,os,re
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent))
 from johto_connections import runtime as r
+# Poll positions without injecting an engine call into a suspended warp callback.
+# Offsets match global.fieldmap.h in the pinned engine: PlayerAvatar.objectEventId
+# at 5, ObjectEvent size 0x24 and currentCoords at 0x10; SaveBlock1.location at 4.
+r.TEMPLATE=re.sub(r'static void pos\([^\n]+',r'''static void pos(unsigned*m,unsigned*x,unsigned*y){
+ unsigned sb=c->busRead32(c,sym("gSaveBlock1Ptr"));
+ unsigned id=c->busRead8(c,sym("gPlayerAvatar")+5);
+ unsigned ob=sym("gObjectEvents")+id*0x24;
+ *m=c->busRead8(c,sb+5);*x=(short)c->busRead16(c,ob+0x10)-7;*y=(short)c->busRead16(c,ob+0x12)-7;
+}''',r.TEMPLATE)
 r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
   go(0,79,18);shot("town-east");step(RIGHT,1);at(9,0,18,"town-to-route29");shot("route29-entry");step(LEFT,1);at(0,79,18,"route29-to-town");
   go(0,43,0);shot("town-north");step(UP,1);at(10,8,85,"town-to-route30");shot("route30-entry");step(UP,11);at(10,8,74,"route30-entrance-corridor");go(10,8,85);step(DOWN,1);at(0,43,0,"route30-to-town");
@@ -29,6 +38,7 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
   step(UP,13);at(29,38,17,"route31-junction");step(LEFT,5);at(29,33,17,"route31-bridge");shot("route31-bridge");
   step(LEFT,29);step(UP,2);frames(360,0);observe("violet-gate-entry");need(state[2]==33,"violet-gate-entry");shot("violet-gate-interior");step(UP,1);step(LEFT,11);step(DOWN,2);frames(360,0);observe("violet-arrival");need(state[2]==30,"violet-arrival");shot("violet-arrival");
   go(29,54,14);shot("route31-crowns");
+  go(29,51,15);step(UP,1);at(29,51,15,"cave-sign-blocks");frames(1,A);frames(120,0);need(locked(),"cave-sign-dialogue");shot("route31-cave-sign");close_dialog();
   go(29,52,14);shot("route31-cave");step(UP,1);frames(360,0);observe("dark-cave-entry");need(state[2]==34,"dark-cave-entry");step(DOWN,1);frames(360,0);step(DOWN,1);at(29,52,14,"dark-cave-return");
   go(29,24,18);shot("route31-grass");step(DOWN,1);at(29,24,20,"route31-ledge-jump");step(UP,1);at(29,24,20,"route31-ledge-blocks-uphill");
   // Sustained ordinary walking exercises grass effects without test teleports.
