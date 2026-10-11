@@ -1,3 +1,18 @@
+## October 10 Cherrygrove detail refinement
+
+Latest isolated revision addresses the owner's shoreline, missing trunks, sparse
+pink trees, flat ground textures, chopped building edges and southeast forest gap.
+Read `gba/art/cherrygrove-synthesis/README.md`. The original B/C/E bundles remain
+frozen; `refine.py` and `refined/` preserve the traced HGSS silhouettes and native
+asset repairs. New tree footprints are explicit, with NPC lanes and door anchors
+preserved. Fresh build, 366 movement probes, seven door pairs, two route round
+trips, animated-water protection and ordinary save/Continue pass. The 284-file
+source reproduction matches. Keep the accepted New Bark laboratory unchanged.
+
+Final Porymap visual reload remains unverified (disabled File commands/no returned
+screenshot). Use the decoded native overview and fresh background emulator proof
+for this revision. Do not claim the older Porymap screenshot proves this revision.
+
 ## October 10 Cherrygrove B/C/E synthesis
 
 The owner selected B's houses/roof colors, Center/Mart, shoreline and whole green/pink

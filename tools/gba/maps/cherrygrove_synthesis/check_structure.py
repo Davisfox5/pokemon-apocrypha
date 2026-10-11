@@ -4,8 +4,10 @@ import json,struct,sys,hashlib
 R=Path(__file__).resolve().parents[4];sys.path.insert(0,str(R/'tools/gba/maps'));from tiles import Tileset
 G=R/'tools/vendor/gba/cherrygrove-synthesis-work';A=R/'gba/art/cherrygrove-synthesis';S=A/'references/E';t=Tileset(G,'cherrygrove','cherrygrove');report=[];probes={};buildings=json.loads((A/'evidence/integration.json').read_text())['maps'][0]['buildings']
 allowed=set()
+for x,y,w,h in json.loads((A/'evidence/integration.json').read_text())['maps'][0]['tree_footprints']:
+ allowed.update((xx,yy) for yy in range(y,y+h) for xx in range(x,x+w))
 for b in buildings:
- for x,y,w,h in [b['old'],[b['x'],b['y'],6 if b['style']=='center' else 5,6 if b['style']=='center' else 4 if b['style']=='mart' else 5]]:
+ for x,y,w,h in [b['old'],[b['x'],b['y'],b['width'],b['height']]]:
   allowed.update((xx,yy) for yy in range(y,y+h) for xx in range(x,x+w))
  if b['style']=='mart':allowed.update((xx,yy) for yy in range(b['y']+1,b['y']+5) for xx in range(b['x']+4,b['x']+6))
 for mid,name in [(0,'CherrygroveCity'),(9,'CherrygroveRoute29Approach'),(10,'CherrygroveRoute30Approach')]:
@@ -36,5 +38,5 @@ for mid,name in [(0,'CherrygroveCity'),(9,'CherrygroveRoute29Approach'),(10,'Che
     xx,yy=x+dx,y+dy;dest=new[yy*w+xx];k=kind(dest)
     if k=='door' or (xx,yy) in avoid:continue
     surf=int(source=='water');expect=int(k=='land' or (k=='water' and surf));probes.setdefault((mid,dest&1023,surf,expect),(mid,x,y,key,surf,expect,dest&1023))
- report.append(dict(map=name,collision_changes=changes,previously_clear_npc_movement_cells_preserved=True,terrain_collision_preserved_outside_buildings=True))
+ report.append(dict(map=name,collision_changes=changes,previously_clear_npc_movement_cells_preserved=True,terrain_collision_preserved_outside_buildings_and_authored_trees=True))
 (A/'evidence/collision-changes.json').write_text(json.dumps(report,indent=2)+'\n');(A/'evidence/collision-probes.tsv').write_text(''.join(' '.join(map(str,p))+'\n' for p in probes.values()));print('Native probes:',len(probes))

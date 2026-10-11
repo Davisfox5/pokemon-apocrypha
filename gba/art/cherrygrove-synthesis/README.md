@@ -8,6 +8,7 @@ laboratory remains unchanged in `johto-native-refinement`.
 
 - [Native whole map](evidence/CherrygroveCity.png)
 - [Actual in-game views](evidence/in-game-review.png)
+- [Shore, pond, trees and house close-ups](evidence/detail-review.png)
 - [Animated harbor](evidence/harbor-water.gif)
 - [Player house entrance](evidence/player-door.gif)
 
@@ -28,36 +29,54 @@ The player's house uses a mirrored B facade to retain an existing NPC's walking
 lane. The Center's transparent padding is shifted to align its glass entrance to
 the original warp cell and leave the pond visible. The neighboring home's new
 footprint replaces a conflicting fence section. Collision edits are confined to
-building/sign footprints; terrain, harbor and route collision are preserved.
+building/sign footprints and the explicitly recorded new tree footprints. Door
+anchors, harbor access, route corridors and previously clear NPC movement cells
+are preserved.
 
-Both approach maps use the same trees and terrain. Pink trees line the southern
-neighborhood and coastal grove. Trees are complete 32×48 assets, recovered from
-B's saved sources rather than the later generator's cropped screenshot sample.
+Both approach maps use the same trees and terrain. Pink trees are scattered beside the
+shops, player home, southern homes and forest edges. Trees retain B's canopies
+with visible shaded trunks and ground shadows inside complete 32×48 assets.
+The southeast grove uses a consistent 32px lattice to close the missing section.
 No new raster generation was used for this synthesis.
+
+## October 10 detail revision
+
+`refine.py` traces complete building silhouettes against the original HGSS render,
+recovering side walls and eaves removed by the earlier rectangular background
+cuts. `refined/` contains the resulting indexed assets. House, Center and Mart
+entrances retain their existing map anchors; door animation frames are regenerated
+from the revised facades. The original B/C/E reference bundles remain immutable.
+
+Grass uses clustered blades; paths use darker earth flecks; beach sand has small
+ripples, a shaded grass lip and a narrow wet-sand/foam edge. The pond receives its
+own earthy bank and grass rim rather than ocean sand. Water animation and cliff
+art remain the accepted versions. `detail-preservation.json` records source hashes,
+changed paths and the exact previous revision used for scope comparison.
 
 ## Evidence
 
 `evidence/build.json` binds the final ROM hash to fresh libmGBA tests. All seven
 building entry/return pairs, bedroom stairs, both route round trips, pier/island
 walking, water/forest barriers, ordinary 128 KiB save, cold reload and title-menu
-Continue pass. `collision-runtime.jsonl` records every focused movement probe.
+Continue pass. `collision-runtime.jsonl` records all 366 passing focused movement probes.
 Warp cells are excluded from obstacle probes because their existing travel
 scripts execute before an attempted step; travel is checked separately.
 
 `collision-changes.json` verifies that previously clear NPC movement cells remain
-clear and that terrain collision changes stay inside the new architecture.
+clear and that terrain collision changes stay inside the new architecture and authored tree footprints.
 `boundary-structure.json` and `surf-structure.json` verify connected routes and
 covered camera edges on foot and while surfing.
 
-`integration.json` records 860/1008 scenery tiles (16 additional slots reserved
-for doors), 335 metatiles, local palette seam corrections and an
+`integration.json` records 994/1008 scenery tiles (16 additional slots reserved
+for doors), 426 metatiles, local palette seam corrections and an
 exact decoded pixel roundtrip. Water is packed beneath opaque scenery so boat
 silhouettes share animated background tiles. `water.json` verifies eight distinct
 animation states over 512 frames and no overwrite of static terrain.
 
 Porymap 6.3.1 opened and displayed the synthesis, and Save preserved the map and
-event hashes. The Mac locked before the final house/Center revisions could be
-reloaded in the editor. That final reload remains pending; the final revised map
+event hashes. The final detail revision could not be
+visually reloaded: the app exposed disabled File commands and returned no
+screenshot. That editor refresh remains unverified; the final revised map
 was decoded, inspected and tested in the background emulator. See `porymap.json`.
 No desktop emulator was launched.
 
@@ -87,7 +106,11 @@ python3 tools/gba/maps/cherrygrove_synthesis/check_boundaries.py
 
 Build with the documented ARM GNU 14.2 toolchain and `gmake`, then run
 `verify.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY` with a fresh output directory.
-The verification script needs local libmGBA headers/library. The private playable
+The verification script needs local libmGBA headers/library. It also captures
+the four targeted views through `review_details.py` and `detail_views.c`.
+After preserving the patch, `check_source.py` compares all 284 source files with
+the reproduced private engine and checks changes against the preceding committed
+source manifest. The private playable
 package is `tools/vendor/gba/Cherrygrove-synthesis-preview/Cherrygrove.gba` plus its
 matching `.sav`; choose Continue. ROMs and saves are excluded from Git.
 

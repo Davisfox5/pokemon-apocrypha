@@ -1,4 +1,6 @@
-Current local Johto work: [accepted original laboratory; Cherrygrove reference pending](../gba/art/johto-native-refinement/README.md). Fresh runtime checks pass; foliage/water remain provisional pending the recalled Codex-design/Claude-palette reference.
+Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Traced building edges, shore banks, ground textures, trunks, scattered pink trees and southeast forest alignment; native proof and source patch.
+
+Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
 Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
 

@@ -1,6 +1,6 @@
 """Native B/C/E synthesis over a preserved owner-authored E snapshot."""
 from pathlib import Path
-import sys,json,struct,hashlib,shutil
+import sys,json,struct,hashlib,shutil,re
 import numpy as np
 from PIL import Image
 HERE=Path(__file__).resolve().parent
@@ -15,11 +15,8 @@ layouts=[l for l in layouts if l['name'] in ['CherrygroveCity_Layout','Cherrygro
 pals={};assets={}
 for name,bank in [('house',6),('gable',6),('house2',7),('center',8),('mart',9),('mart_sign',9),('tree',3),('blossom',10),('cliff',2)]:
  src=A/'references'/('C' if name=='cliff' else 'B')/(name+'.idx.png');im=Image.open(src);assets[name]=np.array(im,dtype=np.uint8);colors=np.array(im.getpalette()[:48]).reshape(16,3);pals[bank]=[tuple(map(int,c)) for c in colors]
-assets['house_mirror']=assets['house'][:,::-1].copy()
-# B's glass entrance sits eight pixels right of its original warp convention.
-# Its rightmost eight columns are transparent; shift that padding left so E's
-# existing door cell is centered on the entrance, without touching the pond.
-assets['center']=np.concatenate([np.zeros((96,8),np.uint8),assets['center'][:,:88]],axis=1)
+from refine import repair_assets,terrain
+repair_assets(ROOT,assets,pals)
 # C palette, B sea, E harbor's exact wood and boat color slots.
 pals[0]=palette(A/'references/C/palettes/bank00-ground.pal');pals[1]=palette(A/'references/B/palettes/bank01-sea.pal')
 pals[5]=t.pals[1][7];pals[11]=t.pals[1][10];pals[12]=t.pals[1][11]
@@ -62,7 +59,7 @@ for l in layouts:
    ox,oy=dx-2,dy-4;erase[oy*16:(dy+1)*16,ox*16:(ox+(6 if style=='mart' else 5))*16]=True
    hh,ww=assets[style].shape;col={'house':1,'house_mirror':3,'house2':1,'gable':2,'mart':1,'center':3}[style];x=dx-col;y=dy-hh//16+1
    if label=='NeighborHouse':erase[y*16:(dy+1)*16,x*16:x*16+ww]=True
-   buildings.append(dict(name=label,style=style,x=x,y=y,door=[dx,dy],old=[ox,oy,6 if style=='mart' else 5,5]))
+   buildings.append(dict(name=label,style=style,x=x,y=y,door=[dx,dy],width=ww//16,height=hh//16,old=[ox,oy,6 if style=='mart' else 5,5]))
   # E cliff is a three-cell face; C's middle rock courses fit between the same crest and toe.
   erase[7*16:10*16,:40*16]=True
  # Normalize ground and erase replaced art. All other harbor silhouettes remain E pixels.
@@ -72,18 +69,9 @@ for l in layouts:
  water=(bk==4)&(ix>=7)&(ix<=14)&~erase
  ground=(bk==5)&(ix>=11)&(ix<=14)&~erase
  nb=np.full_like(bk,4);ni=np.zeros_like(ix);nb[isgrass|ground]=0
- ni[isgrass]=nearest(np.array([104,208,152]),pals[0])
- gy,gx=np.indices(isgrass.shape);speck=isgrass&(((gx%16==3)&(gy%16==2))|((gx%16==11)&(gy%16==6))|((gx%16==6)&(gy%16==12))|((gx%16==14)&(gy%16==13)))
- ni[speck]=nearest(np.array([104,200,152]),pals[0]);ni[ground]=nearest(np.array([224,200,128]),pals[0])
- pathspeck=ground&(((gx%16==2)&(gy%16==3))|((gx%16==13)&(gy%16==8))|((gx%16==5)&(gy%16==12)))
- ni[pathspeck]=nearest(np.array([216,184,128]),pals[0])
- beachground=ground.copy();beachground[:,40*16:]=False;ni[beachground]=nearest(np.array([232,224,176]),pals[0])
- nb[water]=1;yy,xx=np.indices(water.shape);ni[water]=seaidx[0][yy[water]%32,xx[water]%32]
- # Shore foam uses the B palette on the water side, preserving E's shoreline and collision.
- from PIL import ImageFilter
- beach=ground.copy();beach[:,max(0,40*16):]=False
- near=np.array(Image.fromarray(beach.astype(np.uint8)*255).filter(ImageFilter.MaxFilter(9)))>0
- foam=water&near;ni[foam]=nearest(np.array([200,232,224]),pals[1]);water[foam]=False
+ gy,gx=np.indices(isgrass.shape)
+ nb[water]=1;ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
+ foam=terrain(ni,nb,isgrass,ground,water,gx,gy)
  for old,new in [(7,5),(10,11),(11,12)]:
   m=(bk==old)&~(isgrass|ground|water|foam);nb[m]=new;ni[m]=ix[m]
  rem=nb==4;misc.append(rgb[rem]);maps.append(dict(name=name,w=w,h=h,grid=grid,rgb=rgb,bank=nb,idx=ni,water=water,positions=positions,buildings=buildings,oldbank=bk))
@@ -95,9 +83,23 @@ for m in maps:
   hh,ww=arr.shape;x0=max(0,x);y0=max(0,y);x1=min(m['w']*16,x+ww);y1=min(m['h']*16,y+hh)
   if x1<=x0 or y1<=y0:return
   a=arr[y0-y:y1-y,x0-x:x1-x];mask=a!=0;m['bank'][y0:y1,x0:x1][mask]=bank;m['idx'][y0:y1,x0:x1][mask]=a[mask];m['water'][y0:y1,x0:x1][mask]=False
+ added=[]
+ if m['name']=='CherrygroveCity':
+  # One coherent southeast grove, on a 32px lattice, joins the southern row.
+  m['positions']=[(x,y) for x,y in m['positions'] if not (x>=68*16 and 20*16<=y<33*16)]
+  added=[(x*16,y*16) for y in range(20,31,2) for x in range(68,80,2)]
+  added += [(x*16,y*16) for x,y in [(47,5),(56,5),(45,14),(48,26),(56,26)]]
+  m['positions']+=added
+ m['tree_footprints']=[]
+ pinktrees={(39,27),(43,27),(39,3),(48,0),(62,0),(74,6),(76,12),(74,22),(78,28),(59,33),(73,33),(47,5),(45,14),(56,26)}
  for x,y in m['positions']:
-  pink=m['name']=='CherrygroveCity' and ((x//16,y//16) in [(39,27),(41,27),(43,27),(45,27),(69,26),(69,29),(63,0),(65,0)] or (y//16==33 and 49<=x//16<=67))
-  stamp(assets['blossom' if pink else 'tree'],10 if pink else 3,x,y)
+  pink=m['name']=='CherrygroveCity' and (x//16,y//16) in pinktrees
+  ar=assets['blossom' if pink else 'tree'];stamp(ar,10 if pink else 3,x,y)
+  if (x,y) in added:
+   cx,cy=x//16,y//16;m['tree_footprints'].append([cx,cy,2,3])
+   for yy in range(3):
+    for xx in range(2):
+     if np.count_nonzero(ar[yy*16:yy*16+16,xx*16:xx*16+16])>12:m['grid'][cy+yy,cx+xx]=(m['grid'][cy+yy,cx+xx]&1023)|0x3c00
  if m['name']=='CherrygroveCity':
   cliff=assets['cliff'];cliff=cliff[:48].copy();cliff[-2:]=nearest(np.array([104,72,56]),pals[2])
   # The final two columns taper into E's established landward edge.
@@ -202,6 +204,9 @@ for part in range(2):
  (folder/'metatiles.bin').write_bytes(struct.pack('<'+'H'*len(bb)*8,*[e for b in bb for e in b]));(folder/'metatile_attributes.bin').write_bytes(struct.pack('<'+'H'*len(aa),*aa))
  for b,pal in pals.items():cb.write_pal(folder/'palettes'/f'{b:02}.pal',pal)
 cb.write_sea_anim(G,[[fr[k] for _,fr in an] for k in range(8)],1,len(an))
+# The shared generator leaves blank lines when replacing its section. Keep
+# regeneration byte-stable across differing numbers of authoring runs.
+animsrc=G/'src/tileset_anims.c';animsrc.write_text(re.sub(r'\n{3,}(?=// Claude Cherrygrove sea)', '\n\n', animsrc.read_text()))
 headers=G/'src/data/tilesets/headers.h';s=headers.read_text();a=s.index('const struct Tileset gTileset_CherrygrovePrimary');end=s.index('};',a);chunk=s[a:end].replace('InitTilesetAnim_General','InitTilesetAnim_CherrygrovePrimary');s=s[:a]+chunk+s[end:];headers.write_text(s)
 for m in maps:
  f=G/f'data/layouts/{m["name"]}';f.joinpath('map.bin').write_bytes(struct.pack('<'+'H'*len(m['output']),*m['output']))
@@ -211,5 +216,5 @@ for m in maps:
 installed=Tileset(G,'cherrygrove','cherrygrove')
 for m in maps:
  im=installed.map_image(m['output'],m['w']);assert np.array_equal(np.array(im),m['expected']),('roundtrip',m['name']);im.save(EV/(m['name']+'.png'))
-(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),buildings=m['buildings']) for m in maps]),indent=2)+'\n')
+(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
 print('native',len(tiles),'tiles',len(blocks),'metatiles',len(an),'animated')
