@@ -75,3 +75,22 @@ def clean_rock_edge(rgba, protect=None):
                 seen[yy,xx]=True;todo.append((yy,xx))
     a[seen,3]=0
     return a
+
+
+def rounded_foot(c, start=0, stop=None, skip=None):
+    """Round the outside silhouette only; retain the native rock texture.
+
+    Smooth column endpoints, never the pixel colors. This removes single-column
+    spikes and square notches without blurring the face or its internal courses.
+    """
+    from scipy.ndimage import gaussian_filter1d
+    px=c.px; stop=c.w if stop is None else stop
+    bottom=np.array([np.flatnonzero(px[:,x])[-1] if px[:,x].any() else -1
+                     for x in range(c.w)])
+    smooth=np.rint(gaussian_filter1d(bottom.astype(float),1.4,mode='nearest')).astype(int)
+    for x in range(start,stop):
+        if bottom[x]<0 or (skip is not None and skip[0]<=x<skip[1]):continue
+        # Only remove or extend a tiny fringe; never join separate elevations.
+        y=bottom[x];b=int(np.clip(smooth[x],y-2,y+2));b=min(c.h-1,b)
+        if b<y:px[b+1:y+1,x]=0
+        elif b>y:px[y+1:b+1,x]=px[y,x]

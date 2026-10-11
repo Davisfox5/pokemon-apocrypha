@@ -1,3 +1,29 @@
+## Latest: Dark Cave rock/trees and continuous dirt entrance
+
+Owner requested smoother cliff feet, rock behind the foreground treetops, and
+one dirt material extending into Dark Cave's black opening. Implemented in the
+existing `johto_synthesis` generator, native tiles, standalone patch and review ROM.
+The three crowns now use real rock lower tiles / transparent tree upper tiles;
+24 backing quadrants and all crown pixels are checked. The exposed cliff foot
+is rounded at native pixels. Imported threshold/ground residue is removed, and
+Cherrygrove dirt is drawn continuously beneath the arch. See `cave-review.png`
+and `cave-structure.json` in `gba/art/johto-synthesis/evidence/`.
+
+All collision/behavior/ground-cell hashes remain unchanged from `74b13f5`.
+Other generated maps and approved Cherrygrove are pixel-identical. Warp (52,13)
+is unchanged. Source reproduces all 437 files; 108 warp references still resolve.
+Route 31 uses 1008/1008 scenery slots; future additions require further reuse.
+This is not an engine blocker. Door-animation slots 1008..1023 remain reserved.
+
+Final ROM SHA256: `765af2ae61fe006c6550a959b0e40d2bd444552a601a593fd8acf7f2bc9ca0ba`.
+Fresh background travel/doors/stairs, 1200 grass steps and save/cold reload/Continue
+pass. All 302 Route 31 boundary/surf cases (26 surf) pass; this latest boundary
+rerun is deliberately map-scoped, not a new all-map run. The other maps' geometry
+and images are checked unchanged. Water: 512 frames, eight states, static VRAM
+unchanged. Native cave entry/return and the extra crown camera were inspected.
+Porymap is still blocked by the locked Mac; no UI refresh/save is claimed.
+No desktop emulator was launched. Next: owner review of the cave revision.
+
 ## Latest: Emerald ledges, blade grass and terrain transitions
 
 The owner accepted the general route build and requested cleaner tall-grass and

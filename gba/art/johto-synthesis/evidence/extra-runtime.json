@@ -1,7 +1,10 @@
 {
-  "rom_sha256": "4c9219bc7f4a52637947bb63096ef9c5133a62e7217c277c6eddaecc19e1383e",
-  "walk_and_surf_probes": 1664,
-  "surf_probes": 98,
+  "rom_sha256": "765af2ae61fe006c6550a959b0e40d2bd444552a601a593fd8acf7f2bc9ca0ba",
+  "map_scope": [
+    29
+  ],
+  "walk_and_surf_probes": 302,
+  "surf_probes": 26,
   "passed": true,
   "water": {
     "frames": 512,

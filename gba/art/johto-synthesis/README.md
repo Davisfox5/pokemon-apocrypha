@@ -6,6 +6,13 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 
 ## Latest corrections
 
+- Dark Cave now has actual rock-backed crown metatiles for the three foreground
+  trees. The rock course continues behind their tops; native tree transparency
+  is on the upper layer. The cliff's exposed bottom contour is rounded without
+  blurring its texture. Imported lawn-shadow pixels are excluded at crown rims.
+- Removed the gray threshold and tan ground baked into the cave crop. The
+  approved dirt texture now continues into the black opening, with no second
+  material strip. Warp (52,13), collision and route geometry are unchanged.
 - Replaced the noisy continuous grass material with native Emerald blade
   silhouettes, a four-value Johto green ladder and transparent local ground.
   Distinct clumps supply the edge transition without a rectangular texture mask.
@@ -73,6 +80,10 @@ empty-party encounter guard; this map build is not a new battle progression test
 - `route29.png`, `route30.png`, `route31.png`, `new_bark.png`: native decoded maps.
 - `runtime-review.png`: captures from the background libmGBA instance.
 - `terrain-review.png`: previous/current background captures at identical cameras.
+- `cave-review.png`, `route31-crowns-runtime.png`: latest Dark Cave revision,
+  captured in the background game, including the rock/tree junctions.
+- `cave-structure.json`: 24 rock-backed crown quadrants, complete tree pixels,
+  continuous dirt through the mouth, unchanged geometry and other maps.
 - `terrain-geometry.json`: matching solid, behavior and ground-cell hashes against
   the previous accepted-layout revision `1016f4a6`; no geometry was changed.
 - `integration.json`: tile/metatile use, complete-tree placement and connected windows.
@@ -89,9 +100,14 @@ ordinary walking is separately exercised for 1,200 grass steps in one session.
 No desktop emulator was launched. Porymap interaction was blocked by the locked
 Mac session, so a fresh Porymap UI reload/save is not claimed.
 
-Final verification: 1,664 independent boundary/surf cases, all travel/door/stair
-assertions, 1,200 ordinary grass steps, save/cold reload/Continue, and 512 frames
-of animated water all pass on ROM `4c9219bc7f4a52637947bb63096ef9c5133a62e7217c277c6eddaecc19e1383e`.
+Latest verification: all 302 Route 31 boundary/surf cases (26 surf), all ordinary
+travel/door/stair assertions, 1,200 grass steps, save/cold reload/Continue and
+512 animated-water frames pass on ROM
+`765af2ae61fe006c6550a959b0e40d2bd444552a601a593fd8acf7f2bc9ca0ba`.
+The boundary rerun is scoped to Route 31 (`verify_extra.py ... --map 29`);
+other maps are verified pixel-identical and all geometry hashes match `74b13f5`.
+The preceding full boundary run is preserved in that commit. Route 31 now uses
+1008/1008 scenery slots; the 16 door-animation slots are separately reserved.
 
 ## Source and reproduction
 

@@ -19,5 +19,12 @@
     "palettes/02.pal": "6a2609b1c79e8489ed11182eb075edf0e25d80b5b3b7912c0de20dc5da594eb9",
     "palettes/03.pal": "1556f735bbb61b32d99e9feba63441c83cfc25ea11d5aaa7c99ac3be92cc7a19"
   },
-  "adaptation": "Native 16px Emerald silhouettes; local transparent ground; Johto greens and warm ledge palette; additional coherent blade highlights. HGSS cliffs retain their source, with exterior residue cleared and full cliff foot restored."
+  "adaptation": "Native 16px Emerald silhouettes; local transparent ground; Johto greens and warm ledge palette; additional coherent blade highlights. HGSS cliffs retain their source, with exterior residue cleared and full cliff foot restored.",
+  "dark_cave_revision": {
+    "source": "gba/art/hgss-connections/references/route31-hgss.png",
+    "cliff_foot": "Column endpoint smoothing limited to two native pixels; rock texture is not blurred.",
+    "tree_backing": "Face extends sixteen pixels with uninterrupted native vertical shading. Three existing complete crowns use rock lower tiles and transparent tree upper tiles; donor lawn-shadow pixels excluded at their top rims.",
+    "path": "Remove imported threshold and baked tan source ground. Existing Cherrygrove dirt is continuous through the warp tile into the mouth.",
+    "palette": "Two unused bank 12 colors now hold exact local lawn/shadow colors for mixed rock/tree tiles."
+  }
 }

@@ -2,6 +2,8 @@
 from compose import *
 import json,subprocess,hashlib,shutil
 G=Path(sys.argv[1]).resolve();O=Path(sys.argv[2]).resolve();TC=Path(sys.argv[3]).resolve();O.mkdir(parents=True,exist_ok=False);EV=OUT/'evidence'
+assert len(sys.argv) in (4,6) and (len(sys.argv)==4 or sys.argv[4]=='--map')
+selected_map=int(sys.argv[5]) if len(sys.argv)==6 else None
 def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
 flags=['-I/opt/homebrew/include','-L/opt/homebrew/lib','-lmgba'];keys={1:128,2:64,3:32,4:16}
 probes=[(m,x,y,keys[d],0,1-blocked,0) for m,x,y,d,blocked in json.loads((EV/'probes.json').read_text())]
@@ -15,7 +17,11 @@ for n,sec in [('CherrygroveRoute29Approach','claude_route29'),('CherrygroveRoute
     v=int(g[y+dy,x+dx]);mid=v&1023;b=t.attrs[mid>=512][mid%512]&255
     if b in (105,97,59):continue
     expect=int(not v&0xc00);surf.setdefault((m,mid,expect),(m,x,y,key,1,expect,mid))
-probes+=list(surf.values());(O/'probes.tsv').write_text(''.join(' '.join(map(str,p))+'\n' for p in probes))
+if selected_map is not None:
+ probes=[p for p in probes if p[0]==selected_map]
+ surf={k:v for k,v in surf.items() if v[0]==selected_map}
+probes+=list(surf.values());assert probes
+(O/'probes.tsv').write_text(''.join(' '.join(map(str,p))+'\n' for p in probes))
 raw=subprocess.check_output([str(TC/'bin/arm-none-eabi-nm'),str(G/'pokeemerald.elf')],text=True);wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','gMapProofState','ArePlayerFieldControlsLocked','SetPlayerAvatarTransitionFlags'};rows=[l.split() for l in raw.splitlines()];(O/'symbols.txt').write_text(''.join(f'{r[2]} {r[0]}\n' for r in rows if len(r)==3 and r[2] in wanted))
 romhash=hashlib.sha256((G/'pokeemerald.gba').read_bytes()).hexdigest()
 source=(ROOT/'tools/gba/maps/johto_collision_runtime.c').read_text().replace('#include "runtime.c"','#include "'+str(ROOT/'tools/gba/maps/runtime.c')+'"')
@@ -42,5 +48,5 @@ with (O/'water.json').open('w') as f:run([O/'water',G/'pokeemerald.gba',O/'symbo
 assert hashlib.sha256((G/'pokeemerald.gba').read_bytes()).hexdigest()==romhash
 for p in O.glob('*.ppm'):Image.open(p).save(p.with_suffix('.png'))
 frames=[Image.open(p) for p in sorted(O.glob('water-*.png'))[:32]];frames[0].save(EV/'route31-water.gif',save_all=True,append_images=frames[1:],duration=133,loop=0)
-report=dict(rom_sha256=romhash,walk_and_surf_probes=len(rows),surf_probes=len(surf),passed=True,water=json.loads((O/'water.json').read_text()),desktop_emulator_launched=False)
+report=dict(rom_sha256=romhash,map_scope='all' if selected_map is None else [selected_map],walk_and_surf_probes=len(rows),surf_probes=len(surf),passed=True,water=json.loads((O/'water.json').read_text()),desktop_emulator_launched=False)
 (EV/'extra-runtime.json').write_text(json.dumps(report,indent=2)+'\n');shutil.copyfile(O/'collision.jsonl',EV/'collision-runtime.jsonl');print(json.dumps(report,indent=2))

@@ -107,8 +107,29 @@ def assets():
  # Rock terraces move together; the source's right edge continues off-map.
  expanded=np.zeros((224,304,4),np.uint8);expanded[:,8:296]=land;expanded[:,296:]=land[:,-8:]
  a['landform']=rock(expanded,12,pals)
+ # Geometry remains anchored to the reviewed cliff footprint. The following
+ # changes concern its exposed fringe and background behind existing crowns.
+ a['landform_geometry']=a['landform'].px.copy()
+ c=a['landform'];original=c.px.copy()
+ # Continue the straight face behind the first 16px of the forest crowns,
+ # retaining its original shading progression from cap to foot.
+ # Lengthen the uninterrupted vertical shading, not a repeated horizontal
+ # foot strip (which would create a stack of apparent ledges).
+ rows=168+np.floor(np.arange(40)*24/40).astype(int)
+ c.px[168:208,176:]=original[rows,176:]
+ terrain.rounded_foot(c,skip=(120,168))
+ # Remove the imported gray threshold and baked tan ground. The local dirt
+ # texture is drawn underneath these transparent pixels, up to the black mouth.
+ for y in range(206,224):
+  left=124 if y<214 else max(112,124-(y-213)*2)
+  right=145 if y<214 else min(168,145+(y-213)*3)
+  c.px[y,left:right]=0
+ floor=c.px[214:224,112:176];floor[floor==2]=0
  im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
  a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((536,144,552,176))))),12,pals)
+ # These rock-bank entries were unused after warm-shadow remapping. They let
+ # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
+ pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
  a['bridge']=indexed(raw['bridge'],5,pals)
  # The full landform already contains the actual cave arch; no second stamp.
  a['cave_mouth']=Canvas(48,48,pals[12]);a['bankwall']=Canvas(16,16,pals[12])
@@ -203,7 +224,14 @@ def route31(a):
  # Render no inherited cliff, cave or wall stamps, then place the exact sources.
  aa=dict(a,cliff=Canvas(304,224,a['landform'].pal),bridge=Canvas(48,64,a['bridge'].pal))
  comp=old.compose('route31',p,aa);mc=comp['canvas']
+ trees=(mc.bank==3);tree_pixels=mc.idx.copy()
  mc.blit(a['landform'],44*16,0)
+ comp['cliff_backdrop']=(mc.bank.copy(),mc.idx.copy())
+ # Restore the complete foreground crown over its new rock backing. The four
+ # donor lawn-shadow pixels on each crown's rim belong to ground, not foliage.
+ backing=np.zeros_like(trees);backing[192:208,880:]=True
+ keep=trees&backing&~np.isin(tree_pixels,[3,12])
+ mc.bank[keep]=3;mc.idx[keep]=tree_pixels[keep]
  for y in list(range(7,15,2))+list(range(18,28,2)):mc.blit(a['route31_wall'],33*16,y*16)
  mc.blit(a['bridge'],528,240)
  # The southern rock rim and stair flight continue into Route 30's north rim.
@@ -221,7 +249,7 @@ def route31(a):
   for y in range(py//16,min(comp['H'],(py+c.h+15)//16)):
    for x in range(px//16,min(comp['W'],(px+c.w+15)//16)):
     y0=max(0,y*16-py);x0=max(0,x*16-px)
-    if (c.px[y0:min(c.h,(y+1)*16-py),x0:min(c.w,(x+1)*16-px)]>0).sum()>=48:comp['solid'][y,x]=True
+    if (a['landform_geometry'][y0:min(c.h,(y+1)*16-py),x0:min(c.w,(x+1)*16-px)]>0).sum()>=48:comp['solid'][y,x]=True
  comp['solid'][:12,44:]=True
  comp['cells'][7:28,33:35]=ground.GRASS;comp['behavior'][7:28,33:35]=0
  comp['solid'][7:28,33:35]=False;comp['solid'][7:28,33]=True;comp['solid'][15:18,33:35]=False
@@ -252,6 +280,10 @@ def ground_pixels(comp,pals):
  from PIL import ImageFilter
  water=np.array(Image.fromarray((m==ground.SEA).astype('uint8')*255).filter(ImageFilter.MedianFilter(9)).filter(ImageFilter.GaussianBlur(3)))>=128
  path=m==ground.PATH;grass=~water&~path
+ if comp['tag']=='route31':
+  # Extend the same dirt under the arch. Its upper border is hidden by rock
+  # and darkness, so no lawn edge crosses the doorway or threshold.
+  path[192:224,816:864]=True;grass=~water&~path
  textures=refine.ground_sources(ROOT,pals[0].gba(),pals[1].gba())
  nb=np.zeros_like(m,dtype=np.int8);ni=np.zeros_like(m,dtype=np.uint8)
  # Every route uses dirt, and the approved rounded pond bank. Offset only
