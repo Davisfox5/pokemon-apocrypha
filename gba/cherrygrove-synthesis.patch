@@ -50,47 +50,47 @@ literal 8
 LcmXT0EdWCR444A7
 
 diff --git a/data/layouts/CherrygroveCity/map.bin b/data/layouts/CherrygroveCity/map.bin
-index 89b1821b04548498bf3af0580ba1891f54ec4fd3..eadba10421d531cba2b4a90b8f9d1d8b71b34e85 100644
+index 89b1821b04548498bf3af0580ba1891f54ec4fd3..a8119adab54a4c84656b15f1e0eebcee0b99eeb2 100644
 GIT binary patch
 literal 7680
-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
+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
 
 literal 3520
 zcmcJR$#N4h5Qb~YT`nLwuv}uFGUk$`I7sHg;!zcFVY#qeSS|rxz^}r-?>iWt2Ht?Y
@@ -5522,7 +5522,7 @@ index ee4b0553..c9bdcc09 100644
    ]
  }
 diff --git a/data/maps/CherrygroveCity/map.json b/data/maps/CherrygroveCity/map.json
-index ca95731c..0a61e006 100644
+index ca95731c..53af26c0 100644
 --- a/data/maps/CherrygroveCity/map.json
 +++ b/data/maps/CherrygroveCity/map.json
 @@ -3,7 +3,6 @@
@@ -5710,7 +5710,7 @@ index ca95731c..0a61e006 100644
 +    {
 +      "local_id": "LOCALID_COMPARE_UNOVA",
 +      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
-+      "x": 62,
++      "x": 61,
 +      "y": 29,
 +      "elevation": 3,
 +      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
@@ -6178,6 +6178,27 @@ index 7ce712f5..5103f8ff 100644
 +  "build_target": "emerald",
 +  "region": "REGION_JOHTO"
  }
+diff --git a/data/maps/CherrygroveTransplantHouse/map.json b/data/maps/CherrygroveTransplantHouse/map.json
+index e65b54d1..57dad9b8 100644
+--- a/data/maps/CherrygroveTransplantHouse/map.json
++++ b/data/maps/CherrygroveTransplantHouse/map.json
+@@ -37,14 +37,14 @@
+       "y": 8,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_CITY",
+-      "dest_warp_id": "3"
++      "dest_warp_id": "6"
+     },
+     {
+       "x": 4,
+       "y": 8,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_CITY",
+-      "dest_warp_id": "3"
++      "dest_warp_id": "6"
+     }
+   ],
+   "coord_events": [],
 diff --git a/data/maps/FloccesyCenterUpstairs/map.json b/data/maps/FloccesyCenterUpstairs/map.json
 new file mode 100644
 index 00000000..8080477a

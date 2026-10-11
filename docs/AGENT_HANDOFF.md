@@ -1,3 +1,28 @@
+## October 11 Cherrygrove access and collision audit
+
+The owner accepted the current artwork and requested verification of paths,
+doors, warp points and collisions. Fixed three walkable tree tiles at x45,
+y14..16; moved the Unova resident's stroll one cell west, clear of the garden
+house; redirected both exits of the obsolete transplant interior to the harbor
+house landing. Visible door anchors, warp IDs, all artwork and other towns are
+unchanged. The inactive old warp slot stays forest-blocked and has no incoming
+map references. Corrections are reproducible in `build.py` and `events.py`.
+
+Fresh native proof: 3,056 position-specific movement checks, 49 exact travel
+cases, 452 focused land/surf probes, water animation/static-VRAM protection,
+ordinary save, cold reload and title Continue all pass. The 49 cases cover all
+seven buildings (both exit tiles), bedroom/Center stairs, every lane across both
+town connections, five onward preview links and safe exits from the old room.
+875 outdoor walking cells are connected. All visible doors remain reachable with
+NPC ranges treated as occupied. The 285-file source patch reproduces exactly,
+except permitted palette line endings. ROM SHA256 starts a4aa570a60177299.
+
+See `gba/art/cherrygrove-synthesis/README.md`, `evidence/access-runtime.json`,
+`collision-overlay.png` and `door-access-review.png`. Playable package remains
+`tools/vendor/gba/Cherrygrove-synthesis-preview`. This is isolated map validation;
+Chapter 1 scenes/campaign and a final Porymap UI refresh are not newly qualified.
+No desktop emulator was launched. Next: owner playtest/review of this map.
+
 ## October 11 Cherrygrove canopy and terrain borders
 
 The owner accepted the HGSS crops and requested repair of the upper-right canopy

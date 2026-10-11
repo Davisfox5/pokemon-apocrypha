@@ -1,0 +1,19 @@
+{
+  "rom_sha256": "a4aa570a601772993b9581abf1cafc24e97014f0ffa2008d5a1643524b01d505",
+  "checks": {
+    "travel": {
+      "passed": 49
+    },
+    "collision": {
+      "passed": 3056,
+      "seconds": 333.98
+    }
+  },
+  "desktop_emulator_launched": false,
+  "scope": "Isolated Cherrygrove and its two approach maps; actual input, no desktop emulator.",
+  "probe_sha256": {
+    "access-probes.tsv": "bde09276aeb9172556a5cdf52279106e983517177446dc9b5ca7721aab2b4198",
+    "access-warps.tsv": "e64c60dce4b3630a3c93312550ac1968743dc92af7aadc9ee2f5432b1d391843"
+  },
+  "travel_scope": "7 entries, 14 interior exits, 4 stair trips, 12 town connection lanes, 10 onward preview trips, 2 obsolete interior exits"
+}

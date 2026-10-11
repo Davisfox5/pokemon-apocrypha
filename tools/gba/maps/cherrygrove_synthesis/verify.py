@@ -5,12 +5,14 @@ from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parents[4];G=R/'tools/vendor/gba/cherrygrove-synthesis-work';A=R/'gba/art/cherrygrove-synthesis';EV=A/'evidence';OUT=Path(sys.argv[1]).resolve();TC=Path(sys.argv[2]).resolve();flags=['-I/opt/homebrew/include','-L/opt/homebrew/lib','-lmgba']
 def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+rom_hash=sha(G/'pokeemerald.gba')
 run([sys.executable,Path(__file__).with_name('check_terrain_sources.py')])
 run([sys.executable,R/'tools/gba/maps/check_cherrygrove.py',G,OUT,'--toolchain',TC,'--runtime-source',R/'tools/gba/maps/johto_direct_runtime.c'],env=dict(os.environ,MGBA_FLAGS=' '.join(flags)))
 water=OUT/'water';water.mkdir();run(['cc',R/'tools/gba/maps/cherrygrove_synthesis/water_runtime.c',*flags,'-o',water/'runtime']);run(['cc',R/'tools/gba/maps/johto_collision_runtime.c',*flags,'-o',water/'collision'])
 lines=subprocess.check_output([str(TC/'bin/arm-none-eabi-nm'),str(G/'pokeemerald.elf')],text=True);wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','LoadGameSave','ArePlayerFieldControlsLocked','SetPlayerAvatarTransitionFlags'};rows=[l.split() for l in lines.splitlines()];(water/'symbols.txt').write_text(''.join(f'{r[2]} {r[0]}\n' for r in rows if len(r)==3 and r[2] in wanted));n=json.loads((EV/'integration.json').read_text())['animated_tiles']
 with (water/'water.json').open('w') as f:run([water/'runtime',G/'pokeemerald.gba',water/'symbols.txt',water,n],stdout=f)
 with (water/'collision.jsonl').open('w') as f:run([water/'collision',G/'pokeemerald.gba',water/'symbols.txt',EV/'collision-probes.tsv',water],stdout=f)
+assert sha(G/'pokeemerald.gba')==rom_hash,'ROM changed during validation'
 results=json.loads((OUT/'results.json').read_text());assert all(v['exit_code']==0 for v in results);obs=[json.loads(l) for l in (water/'collision.jsonl').read_text().splitlines()];assert all(o['passed'] for o in obs)
 (EV/'runtime.json').write_text(json.dumps(dict(rom_sha256=sha(G/'pokeemerald.gba'),phases=results),indent=2)+'\n');shutil.copyfile(water/'water.json',EV/'water.json');shutil.copyfile(water/'collision.jsonl',EV/'collision-runtime.jsonl')
 (EV/'build.json').write_text(json.dumps(dict(rom_sha256=sha(G/'pokeemerald.gba'),elf_sha256=sha(G/'pokeemerald.elf'),rom_bytes=(G/'pokeemerald.gba').stat().st_size,toolchain='ARM GNU 14.2.rel1 darwin-arm64',emulator='libmGBA 0.10.5',native_movement_probes=len(obs),passed=len(obs),door_pairs=7,route_round_trips=2,ordinary_save_bytes=131072,title_continue_passed=True,desktop_emulator_launched=False),indent=2)+'\n')

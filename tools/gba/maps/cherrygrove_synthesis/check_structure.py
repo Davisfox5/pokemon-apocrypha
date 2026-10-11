@@ -1,5 +1,6 @@
 """Check preservation, collision changes, NPC routes, and prepare native movement probes."""
 from pathlib import Path
+from events import expected_events
 import json,struct,sys,hashlib
 R=Path(__file__).resolve().parents[4];sys.path.insert(0,str(R/'tools/gba/maps'));from tiles import Tileset
 G=R/'tools/vendor/gba/cherrygrove-synthesis-work';A=R/'gba/art/cherrygrove-synthesis';S=A/'references/E';t=Tileset(G,'cherrygrove','cherrygrove');report=[];probes={};buildings=json.loads((A/'evidence/integration.json').read_text())['maps'][0]['buildings']
@@ -15,11 +16,11 @@ for mid,name in [(0,'CherrygroveCity'),(9,'CherrygroveRoute29Approach'),(10,'Che
  changes=[[i%w,i//w,v>>10,new[i]>>10] for i,v in enumerate(old) if v>>10!=new[i]>>10]
  assert all(mid==0 and (x,y) in allowed for x,y,_,_ in changes),'Unapproved terrain collision change'
  if mid==0:
-  assert (G/f'data/maps/{name}/map.json').read_bytes()==(S/f'data/maps/{name}/map.json').read_bytes(),'Events/door coordinates changed'
+  assert m==expected_events(name),'Unexpected event changes'
  for e in m['object_events']:
   rx=e.get('movement_range_x',0);ry=e.get('movement_range_y',0)
   for y in range(e['y']-ry,e['y']+ry+1):
-   for x in range(e['x']-rx,e['x']+rx+1):assert old[y*w+x]&0xc00 or not new[y*w+x]&0xc00,('New NPC obstruction',e['local_id'],x,y)
+   for x in range(e['x']-rx,e['x']+rx+1):assert not new[y*w+x]&0xc00,('New NPC obstruction',e['local_id'],x,y)
   for y in range(e['y']-3,e['y']+4):
    for x in range(e['x']-3,e['x']+4):avoid.add((x,y))
  # Warps are tested separately. Starting a collision probe on the north preview

@@ -100,12 +100,49 @@ atlas tiles; this preserves visible pixels while keeping the richer borders with
 native capacity. Six scenery tile slots remain free; 16 separate slots are reserved
 for door animation.
 
+## October 11 access and collision audit
+
+The owner accepted the current artwork and requested a mechanics audit. Three
+corrections preserve that artwork and the visible door anchors:
+
+- Reapply final tree collision after clearing old building footprints. This fixes
+  three walkable tree cells at `(45,14)`, `(45,15)`, `(45,16)` beside the player's house.
+- Move the Unova preview resident from `(62,29)` to `(61,29)`, keeping its entire
+  three-cell stroll in the lane rather than against the garden house wall.
+- Redirect both exits of the unused transplant interior to the harbor-house
+  landing. Its old return point was inside the forest. The dormant outdoor warp
+  slot 3 remains blocked and has no door behavior; retaining it preserves all
+  existing warp IDs. The unused interior and its contents are preserved.
+
+`events.py` applies only these reviewed event changes to the immutable E snapshot.
+The supplemental transplant-room snapshot matches the pinned engine baseline.
+`check_access.py` checks every reachable outdoor cell, all visible door behavior,
+NPC walking ranges, reciprocal active links and clear destinations. Every visible
+entrance remains reachable even with all NPC movement ranges treated as occupied.
+It checks that no reachable cell contains a substantial tree silhouette.
+
+See [collision overlay](evidence/collision-overlay.png): red is solid, blue is
+water, green is reachable land, and yellow outlines the seven doors. The map has
+875 connected walking cells across the town and its two approach maps. The three
+removed cells were the erroneous tree penetration; no path or door was relocated.
+
+All 3,056 position-specific movement checks and 49 exact travel cases pass.
+Expanded background-emulator evidence is in `access-runtime.json`,
+`access-collision.jsonl`, and `access-travel.jsonl`. The directed collision sweep
+covers every non-NPC, non-warp walking edge in that connected area; dynamic NPC
+ranges are checked structurally and excluded from deterministic obstacle probes.
+Water/surf variants remain covered by the separate focused probe suite. Travel
+checks assert exact destinations and clear landings, both exit tiles in each
+interior, expected door facing, bedroom/Center stairs, all three lanes across
+each town connection in both directions, and all five onward preview links.
+These are isolated map checks, not Chapter 1 scene or campaign qualification.
+
 ## Evidence
 
 `evidence/build.json` binds the final ROM hash to fresh libmGBA tests. All seven
 building entry/return pairs, bedroom stairs, both route round trips, pier/island
 walking, water/forest barriers, ordinary 128 KiB save, cold reload and title-menu
-Continue pass. `collision-runtime.jsonl` records all 451 passing focused movement probes.
+Continue pass. `collision-runtime.jsonl` records all 452 passing focused movement probes.
 Warp cells are excluded from obstacle probes because their existing travel
 scripts execute before an attempted step; travel is checked separately.
 
@@ -150,13 +187,15 @@ python3 tools/gba/maps/cherrygrove_synthesis/build.py
 python3 tools/gba/maps/cherrygrove_synthesis/doors.py
 python3 tools/gba/maps/cherrygrove_synthesis/check_structure.py
 python3 tools/gba/maps/cherrygrove_synthesis/check_boundaries.py
+python3 tools/gba/maps/cherrygrove_synthesis/check_access.py
 ```
 
 Build with the documented ARM GNU 14.2 toolchain and `gmake`, then run
 `verify.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY` with a fresh output directory.
-The verification script needs local libmGBA headers/library. It also captures
+Also run `verify_access.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY` for the expanded
+position and travel audit. Both scripts need local libmGBA headers/library. It also captures
 the four targeted views through `review_details.py` and `detail_views.c`.
-After preserving the patch, `check_source.py` compares all 284 source files with
+After preserving the patch, `check_source.py` compares all 285 source files with
 the reproduced private engine and checks changes against the preceding committed
 source manifest. The private playable
 package is `tools/vendor/gba/Cherrygrove-synthesis-preview/Cherrygrove.gba` plus its

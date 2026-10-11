@@ -123,6 +123,14 @@ for m in maps:
     for yy in range(sign.shape[0]//16):
      for xx in range(sign.shape[1]//16):
       if np.count_nonzero(sign[yy*16:yy*16+16,xx*16:xx*16+16])>12:g[sy+yy,sx+xx]=(g[sy+yy,sx+xx]&1023)|0x3c00
+ # Building footprint clearing must not reopen a newly planted tree beside it.
+ # Test final visible pixels, so a hidden canopy under a facade adds no barrier.
+ for cx,cy,tw,th in m['tree_footprints']:
+  for yy in range(cy,cy+th):
+   for xx in range(cx,cx+tw):
+    bk=m['bank'][yy*16:(yy+1)*16,xx*16:(xx+1)*16]
+    if np.count_nonzero((bk==3)|(bk==10))>12:
+     m['grid'][yy,xx]=(m['grid'][yy,xx]&1023)|0x3c00
  # Store editable source and render before packing.
  rgb=np.zeros((*m['idx'].shape,3),np.uint8)
  for bank in range(13):
@@ -268,3 +276,6 @@ for m in maps:
  im=installed.map_image(m['output'],m['w']);assert np.array_equal(np.array(im),m['expected']),('roundtrip',m['name']);im.save(EV/(m['name']+'.png'))
 (EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,edge_module_reuse=edge_reuse,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
 print('native',len(tiles),'tiles',len(blocks),'metatiles',len(an),'animated')
+
+from events import apply_events
+apply_events(G)

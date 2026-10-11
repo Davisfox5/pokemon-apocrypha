@@ -1,4 +1,4 @@
-Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). October 11 repairs the canopy shoulder and rounds terrain joins using HGSS edge strips; source-versus-native terrain comparison, runtime proof and source patch.
+Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). October 11 access audit fixes three walkable tree cells, a resident lane and an obsolete interior return; expanded native collision and exact warp checks.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
