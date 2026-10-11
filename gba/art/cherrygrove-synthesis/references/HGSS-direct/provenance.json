@@ -1,0 +1,31 @@
+{
+  "source": "gba/art/johto-v1/references/cherrygrove-hgss.png",
+  "sha256": "e5444bcfe9ddfe3d874c2c69a1592a7a20ea65b116f10e3fb7aab3bf59d24115",
+  "tree_box": [
+    624,
+    46,
+    664,
+    94
+  ],
+  "ground_boxes": {
+    "grass": [
+      472,
+      116,
+      504,
+      148
+    ],
+    "path": [
+      568,
+      52,
+      600,
+      84
+    ],
+    "sand": [
+      408,
+      148,
+      424,
+      164
+    ]
+  },
+  "adaptation": "Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing GBA palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared."
+}

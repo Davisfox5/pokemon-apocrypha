@@ -14,7 +14,8 @@
       "after": "ed8fdfbdd77955b533fa0a7e84bf9b040e504065a5cbdf7c430043d992a795b1"
     }
   },
-  "final_map_sha256": "020b7787514aaacc35ca8eef5a7b996bcea80514489d8deb058033f537d02165",
+  "final_map_sha256": "ff105629ec7fe5264de30b14e098ed78a2f835e268c39aada776dfeb884e4e2d",
   "final_reload_completed": false,
-  "last_reload_blocker": "Final detail revision: app reported the correct private project, but File commands were disabled and no screenshot was returned. A refreshed editor view is unverified. Earlier saved-view evidence above is historical."
+  "last_reload_blocker": "Final detail revision: app reported the correct private project, but File commands were disabled and no screenshot was returned. A refreshed editor view is unverified. Earlier saved-view evidence above is historical.",
+  "current_revision_note": "HGSS direct-crop correction validated by native decoding and background libmGBA; prior UI evidence is historical."
 }

@@ -1,15 +1,14 @@
 {
-  "rom_sha256": "a077721b9d89165bdfb507a25a58bee5553889f406091bd5779cd28e653ad8d5",
-  "elf_sha256": "9df96092972f2c4f992f8a9f1147583a8df0cd2bf89b31f7de049020aaaf0f17",
+  "rom_sha256": "5533289364069205f765895e6852ee1f3321108e5c3071d2f618d9c62383dcd7",
+  "elf_sha256": "98c67b0736d36f01c36a7e165c4dd483215fe20fd857f901234d990eb1268d4a",
   "rom_bytes": 33554432,
   "toolchain": "ARM GNU 14.2.rel1 darwin-arm64",
   "emulator": "libmGBA 0.10.5",
-  "native_movement_probes": 366,
-  "passed": 366,
+  "native_movement_probes": 372,
+  "passed": 372,
   "door_pairs": 7,
   "route_round_trips": 2,
   "ordinary_save_bytes": 131072,
   "title_continue_passed": true,
-  "desktop_emulator_launched": false,
-  "source_whitespace_rebuild_rom_identical": true
+  "desktop_emulator_launched": false
 }

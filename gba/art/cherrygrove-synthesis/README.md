@@ -34,8 +34,9 @@ anchors, harbor access, route corridors and previously clear NPC movement cells
 are preserved.
 
 Both approach maps use the same trees and terrain. Pink trees are scattered beside the
-shops, player home, southern homes and forest edges. Trees retain B's canopies
-with visible shaded trunks and ground shadows inside complete 32×48 assets.
+shops, player home, southern homes and forest edges. Trees now use a complete crop from the HGSS map, including its actual short
+trunk and shadow, fitted to the existing 32×48 asset. Pink foliage retains B's
+colour treatment; its trunk and shadow use the same colours as the green tree.
 The southeast grove uses a consistent 32px lattice to close the missing section.
 No new raster generation was used for this synthesis.
 
@@ -47,18 +48,35 @@ cuts. `refined/` contains the resulting indexed assets. House, Center and Mart
 entrances retain their existing map anchors; door animation frames are regenerated
 from the revised facades. The original B/C/E reference bundles remain immutable.
 
-Grass uses clustered blades; paths use darker earth flecks; beach sand has small
-ripples, a shaded grass lip and a narrow wet-sand/foam edge. The pond receives its
-own earthy bank and grass rim rather than ocean sand. Water animation and cliff
-art remain the accepted versions. `detail-preservation.json` records source hashes,
-changed paths and the exact previous revision used for scope comparison.
+## Correction after rejection of invented trunks and textures
+
+The owner rejected the procedural trunks and ground motifs in `9cc4857`.
+Those implementations are removed. `references/HGSS-direct/` preserves the actual
+source crops plus reference hash, exact crop rectangles and conversion details:
+
+- Tree: HGSS Cherrygrove render rectangle `(624,46)-(664,94)`, including the
+  rendered model's short trunk and shadow. The DS canopy texture alone lacks that
+  geometry. Alpha is outlined around the foreground tree; nearest-neighbour
+  horizontal fitting makes it 32px wide without extending its trunk.
+- Grass: `(472,116)-(504,148)`, repeated as the original 32×32 lawn patch.
+- Dirt path: `(568,52)-(600,84)`, repeated as the original 32×32 path patch.
+- Sand: `(408,148)-(424,164)`, repeated as the original 16×16 beach patch.
+
+Ground pixels are assigned to the existing C GBA palette. There are no generated
+blade, dot or ripple patterns. Existing shoreline geometry, pond bank, water
+animation, buildings, cliff, events and collision remain unchanged by this
+correction. Ground hidden beneath scenery shares complete texture tiles to fit
+native limits without flattening the visible textures.
+
+`detail-preservation.json` records source hashes, changed paths and the exact
+previous revision used for scope comparison.
 
 ## Evidence
 
 `evidence/build.json` binds the final ROM hash to fresh libmGBA tests. All seven
 building entry/return pairs, bedroom stairs, both route round trips, pier/island
 walking, water/forest barriers, ordinary 128 KiB save, cold reload and title-menu
-Continue pass. `collision-runtime.jsonl` records all 366 passing focused movement probes.
+Continue pass. `collision-runtime.jsonl` records all 372 passing focused movement probes.
 Warp cells are excluded from obstacle probes because their existing travel
 scripts execute before an attempted step; travel is checked separately.
 
@@ -67,8 +85,8 @@ clear and that terrain collision changes stay inside the new architecture and au
 `boundary-structure.json` and `surf-structure.json` verify connected routes and
 covered camera edges on foot and while surfing.
 
-`integration.json` records 994/1008 scenery tiles (16 additional slots reserved
-for doors), 426 metatiles, local palette seam corrections and an
+`integration.json` records 850/1008 scenery tiles (16 additional slots reserved
+for doors), 464 metatiles, local palette seam corrections and an
 exact decoded pixel roundtrip. Water is packed beneath opaque scenery so boat
 silhouettes share animated background tiles. `water.json` verifies eight distinct
 animation states over 512 frames and no overwrite of static terrain.
@@ -84,6 +102,7 @@ No desktop emulator was launched.
 
 - `references/B`, `references/C`: pinned saved source bundles from the above Git revisions.
 - `references/E`: immutable owner layout, palettes, metatiles and event snapshot.
+- `references/HGSS-direct`: literal map crops and measured provenance for the replacement trees and terrain.
 - `tools/gba/maps/cherrygrove_synthesis/`: compositor, facade door animations,
   structural checks, native acceptance and portable patch preservation.
 - `gba/cherrygrove-synthesis.patch`: standalone engine source patch above

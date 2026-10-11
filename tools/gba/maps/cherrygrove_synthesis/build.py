@@ -15,10 +15,11 @@ layouts=[l for l in layouts if l['name'] in ['CherrygroveCity_Layout','Cherrygro
 pals={};assets={}
 for name,bank in [('house',6),('gable',6),('house2',7),('center',8),('mart',9),('mart_sign',9),('tree',3),('blossom',10),('cliff',2)]:
  src=A/'references'/('C' if name=='cliff' else 'B')/(name+'.idx.png');im=Image.open(src);assets[name]=np.array(im,dtype=np.uint8);colors=np.array(im.getpalette()[:48]).reshape(16,3);pals[bank]=[tuple(map(int,c)) for c in colors]
-from refine import repair_assets,terrain
+from refine import repair_assets,terrain,ground_sources
 repair_assets(ROOT,assets,pals)
 # C palette, B sea, E harbor's exact wood and boat color slots.
 pals[0]=palette(A/'references/C/palettes/bank00-ground.pal');pals[1]=palette(A/'references/B/palettes/bank01-sea.pal')
+textures=ground_sources(ROOT,pals[0])
 pals[5]=t.pals[1][7];pals[11]=t.pals[1][10];pals[12]=t.pals[1][11]
 sea=[np.array(Image.open(A/f'references/B/sea-frame-{k}.png').convert('RGB')) for k in range(8)];seaidx=[]
 for im in sea:
@@ -71,7 +72,7 @@ for l in layouts:
  nb=np.full_like(bk,4);ni=np.zeros_like(ix);nb[isgrass|ground]=0
  gy,gx=np.indices(isgrass.shape)
  nb[water]=1;ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
- foam=terrain(ni,nb,isgrass,ground,water,gx,gy)
+ foam=terrain(ni,nb,isgrass,ground,water,gx,gy,textures)
  for old,new in [(7,5),(10,11),(11,12)]:
   m=(bk==old)&~(isgrass|ground|water|foam);nb[m]=new;ni[m]=ix[m]
  rem=nb==4;misc.append(rgb[rem]);maps.append(dict(name=name,w=w,h=h,grid=grid,rgb=rgb,bank=nb,idx=ni,water=water,positions=positions,buildings=buildings,oldbank=bk))
@@ -180,6 +181,15 @@ for m in maps:
     bs.sort(key=lambda b:(b!=1,int(b)));es=[]
     for b in bs:
      ar=np.where(bk==b,ix,0).astype(np.uint8);wm=None
+     if b==0 and 1 not in bs:
+      # Ground is the lower layer. Fill pixels hidden by scenery with the
+      # matching original texture, avoiding a new cutout tile per tree edge.
+      known=bk==0;best=None
+      for texture in textures.values():
+       pat=texture[np.arange(y,y+8)[:,None]%texture.shape[0],np.arange(x,x+8)[None,:]%texture.shape[1]]
+       score=np.count_nonzero(pat[known]!=ix[known])
+       if best is None or score<best[0]:best=(score,pat)
+      ar[~known]=best[1][~known]
      if b==1:
       wm=m['water'][y:y+8,x:x+8].copy();covered=bk!=1;pattern=seaidx[0][np.arange(y,y+8)[:,None]%32,np.arange(x,x+8)[None,:]%32]
       ar[covered]=pattern[covered];wm|=covered

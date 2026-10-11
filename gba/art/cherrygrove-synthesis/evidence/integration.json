@@ -1,56 +1,32 @@
 {
-  "tiles": 994,
-  "metatiles": 426,
-  "animated_tiles": 44,
+  "tiles": 850,
+  "metatiles": 464,
+  "animated_tiles": 38,
   "exact_pixel_roundtrip": true,
   "seam_fixes": [
     {
       "map": "CherrygroveCity",
-      "x": 1192,
+      "x": 1184,
       "y": 352,
-      "squared_error": 8448
+      "squared_error": 2304
     },
     {
       "map": "CherrygroveCity",
-      "x": 1200,
-      "y": 352,
-      "squared_error": 8448
-    },
-    {
-      "map": "CherrygroveCity",
-      "x": 1192,
+      "x": 1184,
       "y": 384,
-      "squared_error": 24976
+      "squared_error": 2880
     },
     {
       "map": "CherrygroveCity",
-      "x": 1200,
-      "y": 384,
-      "squared_error": 24976
-    },
-    {
-      "map": "CherrygroveCity",
-      "x": 1256,
+      "x": 1248,
       "y": 448,
-      "squared_error": 8448
+      "squared_error": 2304
     },
     {
       "map": "CherrygroveCity",
-      "x": 1264,
-      "y": 448,
-      "squared_error": 8448
-    },
-    {
-      "map": "CherrygroveCity",
-      "x": 1256,
+      "x": 1248,
       "y": 480,
-      "squared_error": 24976
-    },
-    {
-      "map": "CherrygroveCity",
-      "x": 1264,
-      "y": 480,
-      "squared_error": 24976
+      "squared_error": 2880
     }
   ],
   "maps": [

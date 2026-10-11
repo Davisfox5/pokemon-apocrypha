@@ -1,3 +1,18 @@
+## October 10 HGSS tree and texture correction
+
+The owner rejected the invented trunks and ground motifs in `9cc4857`. They are
+removed. Current trees include the short trunk and shadow cropped from the HGSS
+map; grass, path and sand repeat literal HGSS source patches. Crop coordinates,
+reference hash and native palette/size adaptation are recorded in
+`gba/art/cherrygrove-synthesis/references/HGSS-direct/provenance.json`.
+Fresh build and 372 movement probes pass, with seven building round trips, two
+route round trips, water-animation protection, ordinary save and title Continue.
+All 284 reproduced source files match. Read the synthesis README for evidence.
+Keep buildings, original door
+anchors, terrain collision, pink tree placement and accepted New Bark lab intact.
+The final Porymap refresh remains unverified; native rendering and background
+emulator evidence are the current visual proof.
+
 ## October 10 Cherrygrove detail refinement
 
 Latest isolated revision addresses the owner's shoreline, missing trunks, sparse

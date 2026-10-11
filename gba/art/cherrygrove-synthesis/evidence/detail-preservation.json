@@ -1,5 +1,5 @@
 {
-  "previous_commit": "1826907509a9ada0e7f05c33235fa42fbda6eb26",
+  "previous_commit": "9cc485753e13e1431fd54ee5008e402c4b465d82",
   "events_warps_unchanged": true,
   "non_cherrygrove_sources_unchanged": true,
   "changed_source_paths": [
@@ -25,9 +25,6 @@
     "data/tilesets/secondary/cherrygrove/palettes/03.pal",
     "data/tilesets/secondary/cherrygrove/palettes/10.pal",
     "data/tilesets/secondary/cherrygrove/tiles.png",
-    "graphics/door_anims/johto_restart/GardenHouse.4bpp",
-    "graphics/door_anims/johto_restart/GoldHouse.4bpp",
-    "graphics/door_anims/johto_restart/HarborHouse.4bpp",
     "graphics/door_anims/johto_restart/NeighborHouse.4bpp",
     "graphics/door_anims/johto_restart/PlayerHouse.4bpp",
     "graphics/door_anims/johto_restart/PokemonCenter.4bpp",
@@ -35,15 +32,15 @@
     "src/tileset_anims.c"
   ],
   "refined_assets": {
-    "blossom.png": "6efbf48cac71a757d84f39446325af56f4546463d05836cc347ef219b40bc2dc",
+    "blossom.png": "5873f7a2e5048e81ffda3502d537d8346fd68e48afef4b5edf57aa92fa15c701",
     "mart.png": "6203066949ef3a3825d72a0e1dbfb321cd5434fc9753066ca83412da8838f1ac",
     "house2.png": "49d5e27b73553dcea4983398632bd04d35587687eb0f2d50633503663b2d0cc6",
     "gable.png": "00b5d4c8617ca211b5bb21bb0b45cc187f1a575a8c78cdc8b3a7b08202f7c6a0",
     "house_mirror.png": "2d8a9265f70af6ea4a17eb6fd0f6e27642a6866d3425d3abfc19a9b7c178b3ab",
     "house.png": "aa7a4136bc1b59ad6b8ee3e9abac86808118a320cb3fa1a014ec3b0bfa9c5b4f",
     "center.png": "abb72b0c37192e13d361677ba70beddf1f8f9b05c80f9e8dc4e9fd42c736649f",
-    "tree.png": "ca269df7dec1afb089f1b4691d6f22567fb6f7285771505014918793f1b675d9"
+    "tree.png": "b0456bdee26ef8c99b2ad80744ecc7c766ecb4935a5b34335a287ba60972c8bd"
   },
-  "mask_source_sha256": "2ebf62f28603a6b41aff0b1b719ce9facdf9ac6a15013e5d6900cac026edcc23",
+  "mask_source_sha256": "21da6b14aef8629dfec9dcad6f0019cf159c938d761b711caece1c840a171034",
   "hgss_reference_sha256": "e5444bcfe9ddfe3d874c2c69a1592a7a20ea65b116f10e3fb7aab3bf59d24115"
 }

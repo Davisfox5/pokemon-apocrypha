@@ -1,4 +1,4 @@
-Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Traced building edges, shore banks, ground textures, trunks, scattered pink trees and southeast forest alignment; native proof and source patch.
+Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Current correction replaces the rejected procedural trunks and ground patterns with direct HGSS map crops; preserves building edges, tree placement and mechanics. Native proof and source patch.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
