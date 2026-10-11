@@ -1,3 +1,39 @@
+## Latest: connected Johto routes and New Bark; HGSS barrier revision
+
+The owner requested the approved Cherrygrove synthesis across Routes 29/30/31
+and New Bark, then specifically corrected rock faces, Dark Cave, route widths,
+gaps, windmill placement and jump ledges. See `gba/art/johto-synthesis/README.md`
+and its native map/runtime evidence. Generator: `tools/gba/maps/johto_synthesis/`.
+Isolated engine: `tools/vendor/gba/johto-synthesis-work`; standalone patch:
+`gba/johto-synthesis.patch`, base `f09ec1de2e6754e9f9a8e02281d3d773efcfa65e`.
+Do not stack it on the Cherrygrove patch. Main `game/` and main checkout are untouched.
+
+Whole approved houses/trees, HGSS ground/tall grass and animated water are reused.
+The accepted original laboratory and southern housing remain. Actual HGSS low
+ledges, oriented cliffs, stairs, plateau bridge and Dark Cave arch replace the
+bad compressed/rotated rock. The northern Route 30 divider and eastern approach
+are restored. Both southern stair flights and the lower ledge survive: Route 30
+now appends the approved town connector instead of overwriting twelve core rows.
+Windmills are on grass with pole-base collision; the cave apron meets its threshold.
+
+Static checks protect five unavailable areas, the mandatory Route 31 bridge,
+Route 30 encounter passage, two lower stair flights and 95 one-way ledge cells.
+258 connected-window metatiles resolve identically. Approved Cherrygrove pixels
+are unchanged. Worst new map uses 1005/1008 scenery slots, with door animation
+slots 1008..1023 reserved. The patch reproduces all 437 files in a fresh checkout;
+all 108 warp references across 43 maps resolve. Existing map IDs are stable;
+old regional preview stubs are preserved as appended IDs 41/42.
+
+Final ROM SHA256: `00aa8eae76902bbcd028ba8b96db48b2f351ace1b2aac3bd3f0e223420d57bb2`.
+Native ordinary travel, doors, stairs, 1200 grass steps, save/cold reload/Continue
+pass. All 1665 independent boundary/surf cases pass, including 99 surf cases. The
+512-frame water proof shows eight animation states with static VRAM unchanged;
+all runtime evidence matches the final ROM hash.
+No desktop emulator was launched. Porymap access was blocked by the locked Mac;
+a fresh Porymap UI reload/save is not verified. Campaign scenes, furnishings,
+NPCs and full Violet City are not completed by this isolated map revision.
+Next: owner visual review, with the lab and approved Cherrygrove art preserved.
+
 ## Latest: Center door, dock path and tighter building collision
 
 The owner requested a centered Pokemon Center entrance, dirt straight to the

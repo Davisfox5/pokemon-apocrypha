@@ -1,0 +1,58 @@
+{
+  "id": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+  "name": "CherrygroveRoute29Approach",
+  "layout": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
+  "music": "MUS_ROUTE101",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_JOHTO_ROUTE_29",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_CITY",
+      "offset": 4,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_NEW_BARK_TOWN",
+      "direction": "right",
+      "offset": 4
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygroveRoute29Approach_WestSign"
+    },
+    {
+      "type": "sign",
+      "x": 87,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygroveRoute29Approach_EastSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 62,
+      "y": 25,
+      "elevation": 3,
+      "item": "ITEM_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE29_POTION"
+    }
+  ]
+}

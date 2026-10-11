@@ -1,0 +1,13 @@
+{
+  "rom_sha256": "00aa8eae76902bbcd028ba8b96db48b2f351ace1b2aac3bd3f0e223420d57bb2",
+  "walk_and_surf_probes": 1665,
+  "surf_probes": 99,
+  "passed": true,
+  "water": {
+    "frames": 512,
+    "distinct_animation_states": 8,
+    "static_terrain_unchanged": true,
+    "hgss_texture_animation": true
+  },
+  "desktop_emulator_launched": false
+}
