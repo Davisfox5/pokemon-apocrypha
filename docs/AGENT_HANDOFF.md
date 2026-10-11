@@ -1,3 +1,36 @@
+## Latest: Emerald ledges, blade grass and terrain transitions
+
+The owner accepted the general route build and requested cleaner tall-grass and
+rock transitions, more readable grass texture, and actual Emerald ledges.
+`gba/art/johto-synthesis/README.md` remains the current package. New native donor
+adapter: `tools/gba/maps/johto_synthesis/terrain.py`; source hashes and metatile IDs
+are in `terrain-provenance.json`. Emerald blade silhouettes replace the noisy
+HGSS egrass material; native ledge foregrounds retain rounded caps and corners,
+recolored for Johto. Local approved ground shows through transparent outlines.
+HGSS cliff feet are restored below the old crop, exterior tree/ground residue is
+removed, and rock shadows use warm colors. The Route 30 bridge outline preserves
+its wooden planks; an over-aggressive intermediate mask was rejected in runtime
+review and corrected before final evidence.
+
+All five generated maps retain exact prior solid/behavior/ground-cell hashes
+against `1016f4a6`; see `evidence/terrain-geometry.json`. Approved Cherrygrove remains
+pixel-identical. Static checks preserve 95 one-way ledges, five forbidden regions,
+the mandatory bridge/grass crossings, both lower stairs and every door. There are
+251 identical connected-window metatiles. Route 31 uses 989/1008 scenery slots;
+the unchanged town still uses 998. Door animation slots remain reserved.
+The standalone patch reproduces all 437 changed source files, with 108 valid warp
+references across 43 maps. No ROM or save is tracked.
+
+Final ROM: `4c9219bc7f4a52637947bb63096ef9c5133a62e7217c277c6eddaecc19e1383e`.
+Fresh ordinary travel/doors/stairs, 1200 grass steps, save/cold reload/Continue
+pass. All 1,664 independent boundary/surf cases (including 98 surf cases) pass.
+The 512-frame water test shows eight states with static terrain VRAM unchanged.
+Before/after captures are in `evidence/terrain-review.png`; both columns use
+actual background emulator captures at the same camera positions.
+Porymap remains unavailable because the Mac is locked. No desktop emulator was
+launched. Next: owner visual review of this terrain revision; accepted route
+geometry, architecture and the original lab remain unchanged.
+
 ## Latest: connected Johto routes and New Bark; HGSS barrier revision
 
 The owner requested the approved Cherrygrove synthesis across Routes 29/30/31

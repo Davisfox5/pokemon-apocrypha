@@ -1,0 +1,23 @@
+{
+  "original_art": "Nintendo / Game Freak / Creatures",
+  "engine_base": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "source": "data/tilesets/primary/general",
+  "grass_metatile": "0x00D",
+  "ledge_metatiles": [
+    "0x0D5",
+    "0x087",
+    "0x0D6",
+    "0x085",
+    "0x08D",
+    "0x08E",
+    "0x086"
+  ],
+  "source_sha256": {
+    "tiles.png": "365ba5482e7564763e614a0009900d1c317790dcd9f7a06c4ab74c363a3ba2f5",
+    "metatiles.bin": "17974b0ba1bb9d105d5ba255c69a3b80d8484a26ea0b8ff22c6c6567c6c22910",
+    "metatile_attributes.bin": "06c9548a6c70d133b6d47638090f5d36f3fec92aace3d90deca758a4404cfa9b",
+    "palettes/02.pal": "6a2609b1c79e8489ed11182eb075edf0e25d80b5b3b7912c0de20dc5da594eb9",
+    "palettes/03.pal": "1556f735bbb61b32d99e9feba63441c83cfc25ea11d5aaa7c99ac3be92cc7a19"
+  },
+  "adaptation": "Native 16px Emerald silhouettes; local transparent ground; Johto greens and warm ledge palette; additional coherent blade highlights. HGSS cliffs retain their source, with exterior residue cleared and full cliff foot restored."
+}

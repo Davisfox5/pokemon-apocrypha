@@ -6,7 +6,16 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 
 ## Latest corrections
 
-- Replaced compressed rock bars and rotated faces with real HGSS low ledges,
+- Replaced the noisy continuous grass material with native Emerald blade
+  silhouettes, a four-value Johto green ladder and transparent local ground.
+  Distinct clumps supply the edge transition without a rectangular texture mask.
+- Replaced jump ledges and their end/corner pieces with actual Emerald tiles,
+  recolored to warm Johto rock. Grass and path remain visible around their
+  curved outlines. All 95 one-way ledge cells retain their previous behavior.
+- Restored the full rounded HGSS cliff foot at Dark Cave. Removed exterior
+  donor-ground/tree residue and cool fringe colors from the other rock cuts.
+  The small Route 30 bridge has a traced outline that preserves all its planks.
+- The preceding revision replaced compressed rock bars and rotated faces with HGSS
   directional cliff faces, wooden steps and the Dark Cave arch. The cave entrance
   retains warp (52,13); its dirt apron now reaches the threshold.
 - Route 31 retains the reference's stepped terraces, pond divide, bridge and
@@ -28,13 +37,17 @@ Buildings, complete green/pink trees, ground, shores and animated water come fro
 The accepted laboratory comes from `../johto-native-refinement/native/institute.png`;
 its palette is preserved in `references/native-base/`.
 
-Ledges, stairs, Route 30 cliff modules and the plateau bridge are cropped at native
+Stairs, Route 30 cliff modules and the plateau bridge are cropped at native
 scale from `../claude-routes/references/route29-hgss.png` and `route30-hgss.png`.
 Dark Cave and the vertical rock divide use `../hgss-connections/references/route31-hgss.png`.
 The measured cliff outline/tiers are retained; repeated plateau and straight-face
 materials keep the graphic within the GBA tile budget. Its colors follow the
 Cherrygrove warm rock palette, with black/gray reserved for the cave entrance.
-Tall grass uses the recovered HGSS egrass material through `johto_cohesion.art`.
+Tall grass and low ledges now use Emerald's `primary/general` metatiles via
+`johto_synthesis/terrain.py`; see `terrain-provenance.json` for donor IDs/hashes.
+Native blade silhouettes retain their source geometry with added blade-face/tip
+highlights. Emerald lawn pixels are transparent, revealing the approved Johto
+ground. Only ledge graphics changed; jump direction and collision did not.
 Source references and their existing provenance are retained in those directories;
 Pokemon map graphics originate with Nintendo/Game Freak, with render credits in
 those packages. This revision does not change their reuse rights.
@@ -59,6 +72,9 @@ empty-party encounter guard; this map build is not a new battle progression test
 
 - `route29.png`, `route30.png`, `route31.png`, `new_bark.png`: native decoded maps.
 - `runtime-review.png`: captures from the background libmGBA instance.
+- `terrain-review.png`: previous/current background captures at identical cameras.
+- `terrain-geometry.json`: matching solid, behavior and ground-cell hashes against
+  the previous accepted-layout revision `1016f4a6`; no geometry was changed.
 - `integration.json`: tile/metatile use, complete-tree placement and connected windows.
 - `structure.json`: paths, doors, forbidden areas, mandatory crossings and jump behavior.
 - `runtime.json`: ordinary travel/door/stair checks, sustained grass walking,
@@ -73,9 +89,9 @@ ordinary walking is separately exercised for 1,200 grass steps in one session.
 No desktop emulator was launched. Porymap interaction was blocked by the locked
 Mac session, so a fresh Porymap UI reload/save is not claimed.
 
-Final verification: 1,665 independent boundary/surf cases, all travel/door/stair
+Final verification: 1,664 independent boundary/surf cases, all travel/door/stair
 assertions, 1,200 ordinary grass steps, save/cold reload/Continue, and 512 frames
-of animated water all pass on ROM `00aa8eae76902bbcd028ba8b96db48b2f351ace1b2aac3bd3f0e223420d57bb2`.
+of animated water all pass on ROM `4c9219bc7f4a52637947bb63096ef9c5133a62e7217c277c6eddaecc19e1383e`.
 
 ## Source and reproduction
 

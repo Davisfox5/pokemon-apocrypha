@@ -9,7 +9,7 @@ from claude_cherrygrove import build as town,ground
 from claude_cherrygrove.pixel import Canvas,Palette
 from claude_routes import build as routes,layouts as L,art as ra
 from johto_native_refinement import art as oldart
-from johto_cohesion import art as grass_art
+from johto_synthesis import terrain
 from johto_polish import art as hgss_terrain
 from johto_native_refinement import build as old
 from cherrygrove_synthesis import refine
@@ -25,6 +25,15 @@ def indexed(im,bank,pals):
   pp=np.array(pals[bank].gba()[1:],int);m=im[...,3]>0;c.px[m]=((im[m,:3].astype(int)[:,None]-pp)**2).sum(-1).argmin(-1)+1
  return c
 
+def rock(im,bank,pals):
+ # Reserve the cool values for the cave threshold, not exterior rock shade.
+ c=indexed(im,bank,pals)
+ original=c.px.copy()
+ for old,new in {8:6,11:12,14:13,15:12}.items():
+  if bank==12 and old>=14:continue
+  c.px[original==old]=new
+ return c
+
 def assets():
  t=Tileset(SOURCE,'cherrygrove','cherrygrove');pals={b:pal(b,t.pals[b>=6][b]) for b in range(13)}
  base,_=town.build_assets();a={}
@@ -38,25 +47,18 @@ def assets():
  lab=np.asarray(Image.open(ROOT/'gba/art/johto-native-refinement/native/institute.png').convert('RGBA'))
  labpal=palette(OUT/'references/native-base/data/tilesets/secondary/new_bark/palettes/08.pal')
  labpals=dict(pals);labpals[8]=pal(8,labpal);a['institute']=indexed(lab,8,labpals)
- # Route tall grass keeps the recovered HGSS ladder, in its own bank.
- grass=grass_art.tall_slices();cols=[]
- for c in grass.reshape(-1,4):
-  rgb=tuple(c[:3]);
-  if c[3] and rgb not in cols:cols.append(rgb)
- pals[11]=Palette(11,cols,[f'c{i}' for i in range(len(cols))])
- for n in (0,1):
-  for s in (0,1):
-   for w in (0,1):
-    for e in (0,1):a[f'tall{n}{s}{w}{e}']=indexed(grass_art.tall_cell(grass,n,s,w,e),11,pals)
- # Thin earthen ledges and orientation-specific faces are actual HGSS cuts.
- for k,v in ra.ledges().items():a[k]=indexed(v,2,pals)
- # The left donor crop includes a foreground tree trunk. Reuse the clean HGSS
- # end cap mirrored, retaining its actual pixels and eliminating that fragment.
- a['ledge_l']=a['ledge_r'].flip()
- for k,v in ra.cliff_pieces().items():a[k]=indexed(v,2,pals)
+ # Native Emerald shapes: distinct grass blades and joined low ledges, with
+ # local ground visible through the actual donor silhouette.
+ native,pals[11]=terrain.emerald(SOURCE);a.update(native)
+ for k,v in ra.cliff_pieces().items():a[k]=rock(terrain.clean_rock_edge(v),2,pals)
  for k in ('top','mid','low'):a['stairs_'+k]=indexed(ra.stairs(k),5,pals)
  bridge=ra.cells(30,15,5,2,3);bridge[:,24:,3]=0
  rgb=bridge[...,:3].astype(int);bridge[(rgb[...,1]>rgb[...,0]+15)&(rgb[...,1]>rgb[...,2]+15),3]=0
+ # The donor tree occupies the upper-right corner. Trace around the sloping
+ # plank end; color-keying the wood would erase its olive highlight ladder.
+ bridge[:18]=terrain.clean_rock_edge(bridge[:18])
+ for y in range(18,27):bridge[y,min(18,y-9):,3]=0
+ bridge[27:,18:,3]=0
  a['plateau_bridge']=indexed(bridge,5,pals)
  a['apricorn']=indexed(ra.apricorn(),3,pals);a['berry_tree']=indexed(ra.berry_tree(),3,pals);a['orange']=indexed(a['daisies'].to_rgba()[:16,:16],4,pals)
  # Architecture is placed whole and cell aligned, keeping the door anchors.
@@ -81,6 +83,12 @@ def assets():
   v[(rgb[...,1]>rgb[...,0]+15)&(rgb[...,1]>rgb[...,2]+15),3]=0
   return v
  land=no_ground(land)
+ # Retain the real rounded cliff foot below the old rectangular crop mask.
+ source=np.asarray(Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA'))
+ land[214:224,39:161]=source[214:224,759:881]
+ # The sign is replaced by its adjacent face again, including the full foot.
+ land[192:224,80:112]=land[192:224,48:80]
+ land=terrain.clean_rock_edge(land, np.s_[182:224,109:145])
  # Reuse a native 32px plateau material inside the source's measured tiers.
  # Keep the real terrace lips, vertical faces, corners and cave silhouette.
  from PIL import ImageDraw
@@ -98,9 +106,9 @@ def assets():
  # Shift the complete arch eight pixels to align its center with warp (52,13).
  # Rock terraces move together; the source's right edge continues off-map.
  expanded=np.zeros((224,304,4),np.uint8);expanded[:,8:296]=land;expanded[:,296:]=land[:,-8:]
- a['landform']=indexed(expanded,12,pals)
+ a['landform']=rock(expanded,12,pals)
  im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
- a['route31_wall']=indexed(no_ground(np.asarray(im.crop((536,144,552,176)))),12,pals)
+ a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((536,144,552,176))))),12,pals)
  a['bridge']=indexed(raw['bridge'],5,pals)
  # The full landform already contains the actual cave arch; no second stamp.
  a['cave_mouth']=Canvas(48,48,pals[12]);a['bankwall']=Canvas(16,16,pals[12])

@@ -2,7 +2,7 @@ Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synth
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
-Current Johto correction: [cohesive routes and expanded New Bark](../gba/art/johto-cohesion/README.md). The johto-polish and earlier connection drafts were rejected; retain them as references.
+Current Johto correction: [connected routes, expanded New Bark and terrain cleanup](../gba/art/johto-synthesis/README.md). This supersedes johto-cohesion; retain earlier drafts as references. The latest revision uses native Emerald ledges/blade silhouettes and cleaned HGSS cliff edges with the accepted route geometry unchanged.
 
 # Read only what the task needs
 
