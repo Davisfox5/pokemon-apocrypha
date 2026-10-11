@@ -28,7 +28,14 @@ def repair_assets(root, assets, pals):
  # and shadow. The DS leaf texture alone does not contain that model geometry.
  tree_rgb=np.array(ref.crop((624,46,664,94)))
  mask=Image.new('1',(40,48));ImageDraw.Draw(mask).polygon([(18,0),(21,0),(23,3),(25,6),(28,8),(31,10),(33,13),(36,15),(39,18),(39,24),(37,27),(36,31),(33,34),(34,39),(32,43),(27,46),(23,47),(14,47),(9,45),(5,42),(3,38),(3,32),(1,28),(2,25),(0,22),(0,15),(3,12),(5,10),(9,7),(12,5),(14,2)],fill=1)
- rgba=np.dstack([tree_rgb,np.array(mask,dtype=np.uint8)*255])
+ # Repair the under-cut right shoulder with the intact left shoulder of this
+ # same HGSS tree. Copy only the missing silhouette pixels, never the trunk.
+ matte=np.array(mask,dtype=np.uint8)
+ for y in range(20):
+  for x in range(20,40):
+   if matte[y,39-x] and not matte[y,x]:
+    matte[y,x]=1;tree_rgb[y,x]=tree_rgb[y,39-x]
+ rgba=np.dstack([tree_rgb,matte*255])
  source=root/'gba/art/cherrygrove-synthesis/references/HGSS-direct';source.mkdir(exist_ok=True)
  Image.fromarray(rgba).save(source/'tree-cutout.png')
  # Fit the established two-cell width using nearest-neighbour sampling only.
@@ -45,35 +52,72 @@ def repair_assets(root, assets, pals):
  for name,bank in [('house',6),('house_mirror',6),('house2',7),('gable',6),('center',8),('mart',9),('tree',3),('blossom',10)]:
   im=Image.fromarray(assets[name],mode='P');im.putpalette([v for c in pals[bank] for v in c]+[0]*720);im.info['transparency']=0;im.save(dst/(name+'.png'))
 
-def ground_sources(root,pal):
+def ground_sources(root,pal,sea_pal):
  ref=Image.open(root/'gba/art/johto-v1/references/cherrygrove-hgss.png').convert('RGB')
  boxes={'grass':(472,116,504,148),'path':(568,52,600,84),'sand':(408,148,424,164)}
  result={};dst=root/'gba/art/cherrygrove-synthesis/references/HGSS-direct'
  for name,box in boxes.items():
   im=ref.crop(box);im.save(dst/(name+'-source.png'));rgb=np.array(im,dtype=int);p=np.array(pal[1:],int)
   result[name]=(((rgb[...,None,:]-p)**2).sum(-1).argmin(-1)+1).astype(np.uint8)
+ # Literal 32px-long HGSS transition strips, aligned per row at the material
+ # boundary. Their colours and irregular band widths survive the GBA conversion.
+ edge_boxes={'path-edge':(592,52,624,84),'sand-edge':(432,164,480,196),'water-edge':(368,164,400,196)}
+ edges={}
+ for name,box in edge_boxes.items():
+  rgb=np.array(ref.crop(box),dtype=int);Image.fromarray(rgb.astype('uint8')).save(dst/(name+'-source.png'))
+  if name=='path-edge':inside=(rgb[...,0]>rgb[...,1])&(rgb[...,0]>150)
+  else:inside=(rgb[...,0]>=rgb[...,1]-8)&(rgb[...,0]>180)
+  anchors=np.array([np.flatnonzero(row)[0 if name=='water-edge' else -1] for row in inside])
+  colors=sea_pal[1:] if name=='water-edge' else pal[1:]
+  pp=np.array(colors,int);ids=((rgb[...,None,:]-pp)**2).sum(-1).argmin(-1)
+  edges[name]=dict(idx=(ids%15+1).astype('uint8'),bank=np.full(ids.shape,int(name=='water-edge'),dtype='uint8'),anchors=anchors)
+ result['_edges']=edges
+ rgb=np.array(ref.crop(boxes['sand']),int);pp=np.array(sea_pal[1:],int)
+ result['_sand_sea']=(((rgb[...,None,:]-pp)**2).sum(-1).argmin(-1)+1).astype('uint8')
+ result['_sand_lookup']=(((np.array(pal,int)[:,None,:]-pp)**2).sum(-1).argmin(-1)+1).astype('uint8')
  import json,hashlib
- (dst/'provenance.json').write_text(json.dumps(dict(source='gba/art/johto-v1/references/cherrygrove-hgss.png',sha256=hashlib.sha256((root/'gba/art/johto-v1/references/cherrygrove-hgss.png').read_bytes()).hexdigest(),tree_box=[624,46,664,94],ground_boxes=boxes,adaptation='Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing GBA palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.'),indent=2)+'\n')
+ (dst/'provenance.json').write_text(json.dumps(dict(source='gba/art/johto-v1/references/cherrygrove-hgss.png',sha256=hashlib.sha256((root/'gba/art/johto-v1/references/cherrygrove-hgss.png').read_bytes()).hexdigest(),tree_box=[624,46,664,94],tree_shoulder_repair='Missing upper-right alpha pixels filled by reflecting source pixels from the same tree left shoulder, rows 0..19; trunk untouched',ground_boxes=boxes,edge_boxes=edge_boxes,transition_sampling='Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops.',adaptation='Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.'),indent=2)+'\n')
  return result
 
 def terrain(ni,nb,isgrass,ground,water,gx,gy,textures):
- # Source texture pixels only; no authored blades, dots, grit or ripple motifs.
+ from PIL import ImageFilter
+ from scipy.ndimage import distance_transform_edt
+ safe=isgrass|ground
+ # Align path coverage to native movement cells and round their joins.
+ # This changes drawn borders only; metatile collision and door cells are fixed.
+ h,w=ground.shape
+ coarse=np.repeat(np.repeat(ground.reshape(h//16,16,w//16,16).mean(axis=(1,3))>=0.5,16,0),16,1)
+ coarse[:, :40*16]=ground[:, :40*16]
+ smooth=np.array(Image.fromarray(coarse.astype('uint8')*255).filter(ImageFilter.MedianFilter(5)).filter(ImageFilter.GaussianBlur(2.0)))>=128
+ smooth &= safe
+ beach=smooth&(gx<40*16);path=smooth&~beach
  def pattern(name):
   a=textures[name];return a[gy%a.shape[0],gx%a.shape[1]]
- for mask,name in [(isgrass,'grass'),(ground,'path')]:ni[mask]=pattern(name)[mask]
- beach=ground&(gx<40*16);ni[beach]=pattern('sand')[beach]
- from PIL import ImageFilter
- def dilate(m,size):return np.array(Image.fromarray(m.astype('uint8')*255).filter(ImageFilter.MaxFilter(size)))>0
- pond=water&(gx>=40*16);sea=water&~pond
- # Pond has an earthy bank with a grass lip; no ocean sand or foam on this edge.
- grasslip=isgrass&dilate(beach,5);ni[grasslip]=4
-
- nearpond=dilate(pond,9)&isgrass;ni[nearpond]=3
- lip=dilate(pond,5)&isgrass;ni[lip]=9
- rim=dilate(pond,3)&isgrass;ni[rim]=8
- # Preserve the existing wet-sand edge and two-pixel foam line on the sea side.
- shore=sea&dilate(beach,5);nb[shore]=0;ni[shore]=10
- wet=beach&dilate(sea,7);ni[wet]=13
-
- water[shore]=False
+ ni[safe]=pattern('grass')[safe]
+ ni[path]=pattern('path')[path];ni[beach]=pattern('_sand_sea')[beach];nb[beach]=1
+ def edge(mask,name,allowed,width=7,reverse=False):
+  signed=distance_transform_edt(~mask)-distance_transform_edt(mask)
+  normal_y,normal_x=np.gradient(signed)
+  phase=(np.where(abs(normal_x)>=abs(normal_y),gy,gx)%8)//4*4
+  src=textures['_edges'][name]
+  col=src['anchors'][phase]+np.rint(-signed if reverse else signed).astype(int)
+  col=np.clip(col,0,src['idx'].shape[1]-1)
+  band=(abs(signed)<=width)&allowed
+  ni[band]=src['idx'][phase[band],col[band]];nb[band]=src['bank'][phase[band],col[band]]
+  return band
+ # Rounded soil/grass joins carry the actual HGSS shaded, irregular edge bands.
+ edge(path,'path-edge',safe&(gx>=40*16),5)
+ edge(beach,'sand-edge',safe&(gx<40*16),3)
+ # Shoreline strips include the original foam and wet sand. Leave all distant
+ # animated sea pixels and existing harbor props alone.
+ sea=water&(gx<40*16)
+ nearsea=distance_transform_edt(~sea)<=8
+ nearbeach=distance_transform_edt(~beach)<=8
+ shore=edge(beach,'water-edge',(sea&nearbeach)|(beach&nearsea),5,True)
+ water[shore]=(nb[shore]==1)&np.isin(ni[shore],[1,2,3,4,5,6,9,10])
+ sandbank=beach&(nb==0)&(ni>=10)
+ ni[sandbank]=textures['_sand_lookup'][ni[sandbank]];nb[sandbank]=1
+ # The pond keeps its established shape, with a smoothly measured earth bank.
+ pond=water&(gx>=40*16)
+ edge(pond,'path-edge',safe&(gx>=40*16),5)
  return shore

@@ -9,6 +9,8 @@ laboratory remains unchanged in `johto-native-refinement`.
 - [Native whole map](evidence/CherrygroveCity.png)
 - [Actual in-game views](evidence/in-game-review.png)
 - [Shore, pond, trees and house close-ups](evidence/detail-review.png)
+- [Tree contour before/after](evidence/tree-contour-review.png)
+- [HGSS source versus native terrain tiles](evidence/terrain-source-check.png)
 - [Animated harbor](evidence/harbor-water.gif)
 - [Player house entrance](evidence/player-door.gif)
 
@@ -71,12 +73,39 @@ native limits without flattening the visible textures.
 `detail-preservation.json` records source hashes, changed paths and the exact
 previous revision used for scope comparison.
 
+## October 11 canopy and terrain borders
+
+The upper-right canopy mask was too narrow. The missing shoulder now uses matching
+pixels reflected from the intact left shoulder of the same HGSS tree. This adds
+42 native opaque pixels; every previous opaque pixel and all trunk/lower-canopy
+pixels are unchanged. Both foliage colours share the repaired silhouette.
+
+Grass/path, grass/sand and water/sand joins now use actual HGSS transition strips
+(their rectangles and sampling are recorded in `references/HGSS-direct/provenance.json`).
+Path coverage follows native 16px cells, with rounded joins; shore edges follow
+the preserved water boundary. Native 8px edge modules reuse matching material
+silhouettes, permitting at most one-pixel contour corrections. The source grain
+inside grass, dirt and sand blocks is preserved.
+
+`check_terrain_sources.py` recovers the grass/path/sand pixels from the installed
+GBA atlas and verifies exact agreement with the HGSS crops after palette conversion.
+The side-by-side source review is linked above. The native decoder also verifies
+every final map pixel, including the authored edge-module reuse and palette seams.
+Scipy 1.13.1 supplies distance transforms for border placement; Pillow and NumPy
+remain the existing image/array dependencies.
+
+Collision data, event/warp coordinates and the accepted New Bark lab remain
+unchanged. Ground tiles hidden by foreground objects now reuse matching complete
+atlas tiles; this preserves visible pixels while keeping the richer borders within
+native capacity. Six scenery tile slots remain free; 16 separate slots are reserved
+for door animation.
+
 ## Evidence
 
 `evidence/build.json` binds the final ROM hash to fresh libmGBA tests. All seven
 building entry/return pairs, bedroom stairs, both route round trips, pier/island
 walking, water/forest barriers, ordinary 128 KiB save, cold reload and title-menu
-Continue pass. `collision-runtime.jsonl` records all 372 passing focused movement probes.
+Continue pass. `collision-runtime.jsonl` records all 451 passing focused movement probes.
 Warp cells are excluded from obstacle probes because their existing travel
 scripts execute before an attempted step; travel is checked separately.
 
@@ -85,8 +114,8 @@ clear and that terrain collision changes stay inside the new architecture and au
 `boundary-structure.json` and `surf-structure.json` verify connected routes and
 covered camera edges on foot and while surfing.
 
-`integration.json` records 850/1008 scenery tiles (16 additional slots reserved
-for doors), 464 metatiles, local palette seam corrections and an
+`integration.json` records 1002/1008 scenery tiles (16 additional slots reserved
+for doors), 603 metatiles, local palette seam corrections and an
 exact decoded pixel roundtrip. Water is packed beneath opaque scenery so boat
 silhouettes share animated background tiles. `water.json` verifies eight distinct
 animation states over 512 frames and no overwrite of static terrain.

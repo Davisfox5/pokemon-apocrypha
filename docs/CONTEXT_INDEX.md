@@ -1,4 +1,4 @@
-Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Current correction replaces the rejected procedural trunks and ground patterns with direct HGSS map crops; preserves building edges, tree placement and mechanics. Native proof and source patch.
+Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). October 11 repairs the canopy shoulder and rounds terrain joins using HGSS edge strips; source-versus-native terrain comparison, runtime proof and source patch.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 

@@ -1,3 +1,18 @@
+## October 11 Cherrygrove canopy and terrain borders
+
+The owner accepted the HGSS crops and requested repair of the upper-right canopy
+and rough terrain joins. Current source adds 42 missing canopy pixels using the
+same HGSS tree's opposite shoulder; trunk and all previous opaque pixels are intact.
+Terrain joins use HGSS edge strips with rounded native-cell transitions. Ground
+interiors are verified against the installed atlas after palette conversion.
+See `gba/art/cherrygrove-synthesis/README.md`, the tree before/after and terrain
+source comparison. Layout collision and events remain unchanged. Six scenery
+slots remain available (1002/1008 used, plus 16 dedicated door slots).
+Fresh build, 451 movement probes, seven door pairs, two route round trips, water
+animation protection and ordinary save/Continue pass. The 284-file reproduced
+source matches. ROM SHA256 begins b8ccadb076bd3ad4.
+The older Porymap screenshot is historical; use fresh native/runtime evidence.
+
 ## October 10 HGSS tree and texture correction
 
 The owner rejected the invented trunks and ground motifs in `9cc4857`. They are

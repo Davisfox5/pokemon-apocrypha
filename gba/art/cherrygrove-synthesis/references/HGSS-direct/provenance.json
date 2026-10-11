@@ -7,6 +7,7 @@
     664,
     94
   ],
+  "tree_shoulder_repair": "Missing upper-right alpha pixels filled by reflecting source pixels from the same tree left shoulder, rows 0..19; trunk untouched",
   "ground_boxes": {
     "grass": [
       472,
@@ -27,5 +28,26 @@
       164
     ]
   },
-  "adaptation": "Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing GBA palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared."
+  "edge_boxes": {
+    "path-edge": [
+      592,
+      52,
+      624,
+      84
+    ],
+    "sand-edge": [
+      432,
+      164,
+      480,
+      196
+    ],
+    "water-edge": [
+      368,
+      164,
+      400,
+      196
+    ]
+  },
+  "adaptation": "Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.",
+  "transition_sampling": "Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops."
 }

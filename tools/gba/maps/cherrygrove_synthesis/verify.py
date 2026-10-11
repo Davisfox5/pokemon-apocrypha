@@ -5,6 +5,7 @@ from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parents[4];G=R/'tools/vendor/gba/cherrygrove-synthesis-work';A=R/'gba/art/cherrygrove-synthesis';EV=A/'evidence';OUT=Path(sys.argv[1]).resolve();TC=Path(sys.argv[2]).resolve();flags=['-I/opt/homebrew/include','-L/opt/homebrew/lib','-lmgba']
 def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+run([sys.executable,Path(__file__).with_name('check_terrain_sources.py')])
 run([sys.executable,R/'tools/gba/maps/check_cherrygrove.py',G,OUT,'--toolchain',TC,'--runtime-source',R/'tools/gba/maps/johto_direct_runtime.c'],env=dict(os.environ,MGBA_FLAGS=' '.join(flags)))
 water=OUT/'water';water.mkdir();run(['cc',R/'tools/gba/maps/cherrygrove_synthesis/water_runtime.c',*flags,'-o',water/'runtime']);run(['cc',R/'tools/gba/maps/johto_collision_runtime.c',*flags,'-o',water/'collision'])
 lines=subprocess.check_output([str(TC/'bin/arm-none-eabi-nm'),str(G/'pokeemerald.elf')],text=True);wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','LoadGameSave','ArePlayerFieldControlsLocked','SetPlayerAvatarTransitionFlags'};rows=[l.split() for l in lines.splitlines()];(water/'symbols.txt').write_text(''.join(f'{r[2]} {r[0]}\n' for r in rows if len(r)==3 and r[2] in wanted));n=json.loads((EV/'integration.json').read_text())['animated_tiles']

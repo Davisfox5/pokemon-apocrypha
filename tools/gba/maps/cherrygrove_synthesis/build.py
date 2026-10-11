@@ -19,7 +19,7 @@ from refine import repair_assets,terrain,ground_sources
 repair_assets(ROOT,assets,pals)
 # C palette, B sea, E harbor's exact wood and boat color slots.
 pals[0]=palette(A/'references/C/palettes/bank00-ground.pal');pals[1]=palette(A/'references/B/palettes/bank01-sea.pal')
-textures=ground_sources(ROOT,pals[0])
+textures=ground_sources(ROOT,pals[0],pals[1])
 pals[5]=t.pals[1][7];pals[11]=t.pals[1][10];pals[12]=t.pals[1][11]
 sea=[np.array(Image.open(A/f'references/B/sea-frame-{k}.png').convert('RGB')) for k in range(8)];seaidx=[]
 for im in sea:
@@ -73,6 +73,7 @@ for l in layouts:
  gy,gx=np.indices(isgrass.shape)
  nb[water]=1;ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
  foam=terrain(ni,nb,isgrass,ground,water,gx,gy,textures)
+ ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
  for old,new in [(7,5),(10,11),(11,12)]:
   m=(bk==old)&~(isgrass|ground|water|foam);nb[m]=new;ni[m]=ix[m]
  rem=nb==4;misc.append(rgb[rem]);maps.append(dict(name=name,w=w,h=h,grid=grid,rgb=rgb,bank=nb,idx=ni,water=water,positions=positions,buildings=buildings,oldbank=bk))
@@ -127,9 +128,40 @@ for m in maps:
  for bank in range(13):
   mask=m['bank']==bank;rgb[mask]=np.array(pals[bank],np.uint8)[m['idx'][mask]]
  m['expected']=rgb;Image.fromarray(rgb).save(EV/(m['name']+'-authored.png'))
+# Reuse HGSS edge modules on the native 8px grid. Match their 2px material
+# silhouettes; permit only one-pixel contour corrections when choosing the
+# shared module. Entire grass/path texture blocks remain the literal crops.
+edge_modules={};edge_reuse=[]
+classes=np.array([0,1,1,1,1,2,2,2,2,2,3,3,3,3,1,3])
+for m in maps:
+ for y in range(0,m['h']*16,8):
+  for x in range(0,m['w']*16,8):
+   bk=m['bank'][y:y+8,x:x+8];ar=m['idx'][y:y+8,x:x+8]
+   if not (bk==0).all():continue
+   shape=classes[ar];families=set(shape.ravel())
+   if not (1 in families and families&{2,3}):continue
+   small=np.rint(shape.reshape(4,2,4,2).mean(axis=(1,3))).astype('uint8');key=small.tobytes()
+   choices=edge_modules.setdefault(key,[]);replacement=None
+   for prior in choices:
+    other=classes[prior];different=shape!=other
+    if np.count_nonzero(different)>10:continue
+    pad=np.pad(shape,1,mode='edge');near=np.stack([pad[dy:dy+8,dx:dx+8] for dy,dx in [(0,1),(2,1),(1,0),(1,2),(1,1)]])
+    if ((near==other).any(axis=0)).all():replacement=prior;break
+   if replacement is None:choices.append(ar.copy())
+   elif not np.array_equal(ar,replacement):
+    edge_reuse.append(dict(map=m['name'],x=x,y=y,pixels=int(np.count_nonzero(ar!=replacement)),contour_pixels=int(np.count_nonzero(shape!=classes[replacement]))))
+    ar[:]=replacement;m['expected'][y:y+8,x:x+8]=np.array(pals[0],np.uint8)[ar]
+# Complete authored ground tiles can also serve behind foreground objects.
+# Search these before creating silhouette-specific background copies.
+ground_candidates=[]
+for m in maps:
+ for y in range(0,m['h']*16,8):
+  for x in range(0,m['w']*16,8):
+   if (m['bank'][y:y+8,x:x+8]==0).all():ground_candidates.append(m['idx'][y:y+8,x:x+8].copy())
+ground_candidates=np.unique(np.stack(ground_candidates),axis=0)
 print('composition',[(m['name'],len(m['positions'])) for m in maps])
 # Two GBA layers, exact palette factoring; global tile dedupe allows either bank in either tile pool.
-tiles=[np.zeros((8,8),np.uint8)];lookup={tiles[0].tobytes():0};animations={};blocks=[];attrs=[];bl={}
+tiles=[np.zeros((8,8),np.uint8)];lookup={tiles[0].tobytes():0};animations={};blocks=[];attrs=[];bl={};tilebanks={0:0}
 def tile(arr,bank,watermask=None,pos=None):
  if not arr.any():return 0
  if watermask is not None and watermask.any():
@@ -137,12 +169,12 @@ def tile(arr,bank,watermask=None,pos=None):
   for f in seaidx:
    a=arr.copy();patch=f[np.arange(yy,yy+8)[:,None]%32,np.arange(xx,xx+8)[None,:]%32];a[watermask]=patch[watermask];fr.append(a)
   key=b''.join(a.tobytes() for a in fr)
-  if key not in animations:animations[key]=(len(tiles),fr);tiles.append(fr[0])
+  if key not in animations:animations[key]=(len(tiles),fr);tilebanks[len(tiles)]=bank;tiles.append(fr[0])
   return animations[key][0]|bank<<12
  for hf,vf,bits in [(0,0,0),(1,0,1024),(0,1,2048),(1,1,3072)]:
   v=arr[::-1] if vf else arr;v=v[:,::-1] if hf else v
   if v.tobytes() in lookup:return lookup[v.tobytes()]|bits|bank<<12
- tid=len(tiles);tiles.append(arr.copy());lookup[arr.tobytes()]=tid;return tid|bank<<12
+ tid=len(tiles);tilebanks[tid]=bank;tiles.append(arr.copy());lookup[arr.tobytes()]=tid;return tid|bank<<12
 seam_fixes=[]
 for m in maps:
  grid=[];doors={tuple(d['door']) for d in m['buildings']}
@@ -185,14 +217,19 @@ for m in maps:
       # Ground is the lower layer. Fill pixels hidden by scenery with the
       # matching original texture, avoiding a new cutout tile per tree edge.
       known=bk==0;best=None
-      for texture in textures.values():
+      for texture in [textures[k] for k in ['grass','path','sand']]:
        pat=texture[np.arange(y,y+8)[:,None]%texture.shape[0],np.arange(x,x+8)[None,:]%texture.shape[1]]
        score=np.count_nonzero(pat[known]!=ix[known])
        if best is None or score<best[0]:best=(score,pat)
-      ar[~known]=best[1][~known]
+      matches=np.flatnonzero((ground_candidates[:,known]==ix[known]).all(axis=1))
+      if len(matches):ar[:]=ground_candidates[matches[0]]
+      else:ar[~known]=best[1][~known]
      if b==1:
       wm=m['water'][y:y+8,x:x+8].copy();covered=bk!=1;pattern=seaidx[0][np.arange(y,y+8)[:,None]%32,np.arange(x,x+8)[None,:]%32]
-      ar[covered]=pattern[covered];wm|=covered
+      if wm.any():ar[covered]=pattern[covered];wm|=covered
+      else:
+       sand=textures['_sand_sea'];patch=sand[np.arange(y,y+8)[:,None]%sand.shape[0],np.arange(x,x+8)[None,:]%sand.shape[1]]
+       ar[covered]=patch[covered]
      es.append(tile(ar,int(b),wm,(y,x)))
     pairs.append(es+[0]*(2-len(es)))
    entries=tuple(v[0] for v in pairs)+tuple(v[1] for v in pairs)
@@ -203,6 +240,9 @@ for m in maps:
    if key not in bl:bl[key]=len(blocks);blocks.append(entries);attrs.append(at)
    grid.append((old&~1023)|bl[key])
  m['output']=grid
+from collections import Counter
+print('tile banks',Counter(tilebanks.values()),'animations',len(animations))
+print('map tile demand',[(m['name'],len({e&1023 for v in m['output'] for e in blocks[v&1023]})) for m in maps])
 assert len(tiles)<=1008,('tiles',len(tiles));assert len(blocks)<=1024,('metatiles',len(blocks))
 # Animate an explicit contiguous block, remapping both tile pools afterwards.
 an=[v for v in animations.values()];oldids=[v[0] for v in an];order=[0]+oldids+[i for i in range(1,len(tiles)) if i not in set(oldids)];remap={v:i for i,v in enumerate(order)};tiles=[tiles[i] for i in order];blocks=[tuple((e&~1023)|remap[e&1023] for e in b) for b in blocks]
@@ -226,5 +266,5 @@ for m in maps:
 installed=Tileset(G,'cherrygrove','cherrygrove')
 for m in maps:
  im=installed.map_image(m['output'],m['w']);assert np.array_equal(np.array(im),m['expected']),('roundtrip',m['name']);im.save(EV/(m['name']+'.png'))
-(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
+(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,edge_module_reuse=edge_reuse,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
 print('native',len(tiles),'tiles',len(blocks),'metatiles',len(an),'animated')
