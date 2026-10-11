@@ -48,6 +48,20 @@
       196
     ]
   },
-  "adaptation": "Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.",
-  "transition_sampling": "Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops."
+  "center_native_alignment": {
+    "shift_x": 6,
+    "canvas": [
+      112,
+      96
+    ],
+    "glass": [
+      48,
+      79,
+      64,
+      89
+    ],
+    "warp_center_x": 56
+  },
+  "transition_sampling": "Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops.",
+  "adaptation": "Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared."
 }

@@ -86,6 +86,16 @@ for mid,x,y in seen:
  for e in t.blocks[v>=512][v%512]:
   if e>>12 in (3,10):count+=sum(c!=0 for c in t.tiles[(e&1023)>=512][e&511])
  assert count<=12,('walkable tree',mid,x,y,count)
+# Walls stay solid; walkable roof overhangs use the sprite-covering top layer.
+geometry=json.loads((E/'integration.json').read_text())['maps'][0]
+for b in geometry['buildings']:
+ x,y,w,h=b['wall_footprint']
+ for yy in range(y,y+h):
+  for xx in range(x,x+w):
+   if [xx,yy]!=b['door']:assert kind(0,xx,yy)=='solid',('wall hole',b['name'],xx,yy)
+for x,y in geometry['roof_overhang_cells']:
+ v=value(0,x,y)&1023
+ assert (t.attrs[v>=512][v&511]>>12)==0,('roof must cover sprites',x,y)
 probes=[];edge_counts=Counter();seams=[]
 for mid,x,y in sorted(seen):
  for dx,dy,key in steps:

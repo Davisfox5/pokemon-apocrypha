@@ -22,5 +22,9 @@ for i,(name,label) in enumerate(pairs):
 out.save(EV/'in-game-review.png')
 frames=[Image.open(p).resize((480,320),Image.Resampling.NEAREST).convert('RGB') for p in sorted(water.glob('water-*.ppm'))[:32]];frames[0].save(EV/'harbor-water.gif',save_all=True,append_images=frames[1:],duration=133,loop=0)
 frames=[Image.open(p).resize((480,320),Image.Resampling.NEAREST).convert('RGB') for p in sorted(OUT.glob('door-0-*.png'))[:35]];frames[0].save(EV/'player-door.gif',save_all=True,append_images=frames[1:],duration=34,loop=0)
+frames=[Image.open(p).resize((480,320),Image.Resampling.NEAREST).convert('RGB') for p in sorted(OUT.glob('door-4-*.png'))[:35]];frames[0].save(EV/'center-door.gif',save_all=True,append_images=frames[1:],duration=34,loop=0)
 run([sys.executable,Path(__file__).with_name('review_details.py'),OUT])
-package=R/'tools/vendor/gba/Cherrygrove-synthesis-preview';package.mkdir(exist_ok=True);shutil.copyfile(G/'pokeemerald.gba',package/'Cherrygrove.gba');shutil.copyfile(OUT/'town.sav',package/'Cherrygrove.sav');print('Verified',len(obs),'native movement probes and ordinary save/Continue.')
+package=R/'tools/vendor/gba/Cherrygrove-synthesis-preview';package.mkdir(exist_ok=True);shutil.copyfile(G/'pokeemerald.gba',package/'Cherrygrove.gba');
+# The preview may have been played since its creation. Keep that ordinary save.
+if not (package/'Cherrygrove.sav').exists():shutil.copyfile(OUT/'town.sav',package/'Cherrygrove.sav')
+print('Verified',len(obs),'native movement probes and ordinary save/Continue.')

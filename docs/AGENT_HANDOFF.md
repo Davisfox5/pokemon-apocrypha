@@ -1,3 +1,32 @@
+## Latest: Center door, dock path and tighter building collision
+
+The owner requested a centered Pokemon Center entrance, dirt straight to the
+dock, and closer building collisions. Center facade moved six pixels within its
+native canvas; its glass leaf and animation are centered on the unchanged warp
+at (61,9). Dirt replaces the two-cell sand strip at x38..39, y18..19; shoreline,
+water and dock collision are unchanged.
+
+Collision now uses explicit wall rectangles. One rear row and narrow side eaves
+are walkable and use native BG1 occlusion, so the player can stand closer and
+partly behind roofs. A deeper first attempt hid the player and was rejected
+before final verification. This follows the stated classic-overlap interpretation;
+the optional clarification question received no answer during implementation.
+All seven building wall approaches were visually reviewed in the background ROM.
+
+Fresh final proof: 3,256 movement cases, 49 exact travel cases, 481 focused
+land/surf probes, 21 wall approaches plus two view captures, ordinary save/Continue
+and static-VRAM/water-animation protection all pass. 926 connected walking cells;
+998/1008 scenery tiles and 596 metatiles. All 285 reproduced engine source files
+match except allowed palette line endings. ROM SHA256 starts 9a6efde5c87a5c98.
+Visible door anchors and event records are unchanged from 80da530. Both approach
+map renders remain byte-identical. Main checkout and production game/ are untouched.
+
+See `gba/art/cherrygrove-synthesis/README.md`, `door-dock-collision-review.png`,
+`building-collision-review.png` and `center-door.gif`. New focused capture tooling:
+`verify_geometry.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY`. Existing full
+verification scripts remain available. No desktop emulator was launched; final
+Porymap UI reload remains unverified. Next: owner review of this revision.
+
 ## October 11 Cherrygrove access and collision audit
 
 The owner accepted the current artwork and requested verification of paths,

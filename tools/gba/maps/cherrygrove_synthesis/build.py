@@ -72,7 +72,7 @@ for l in layouts:
  nb=np.full_like(bk,4);ni=np.zeros_like(ix);nb[isgrass|ground]=0
  gy,gx=np.indices(isgrass.shape)
  nb[water]=1;ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
- foam=terrain(ni,nb,isgrass,ground,water,gx,gy,textures)
+ foam=terrain(ni,nb,isgrass,ground,water,gx,gy,textures,dock_path=name=='CherrygroveCity')
  ni[water]=seaidx[0][gy[water]%32,gx[water]%32]
  for old,new in [(7,5),(10,11),(11,12)]:
   m=(bk==old)&~(isgrass|ground|water|foam);nb[m]=new;ni[m]=ix[m]
@@ -80,6 +80,7 @@ for l in layouts:
 # Remaining native fences/flowers/signs/reef share one measured palette. No blanket scene quantization.
 b=banks.Bank(4,'PROPS','primary');allmisc=np.concatenate(misc);b.add('props',np.concatenate([allmisc,np.full((len(allmisc),1),255,np.uint8)],axis=1).reshape(1,-1,4));b.build();pals[4]=b.palette.gba()
 for m in maps:
+ m['overhang']={}
  mask=m['bank']==4;m['idx'][mask]=nearest(m['rgb'][mask],pals[4])
  def stamp(arr,bank,x,y):
   hh,ww=arr.shape;x0=max(0,x);y0=max(0,y);x1=min(m['w']*16,x+ww);y1=min(m['h']*16,y+hh)
@@ -113,10 +114,20 @@ for m in maps:
   for d in m['buildings']:
    ar=assets[d['style']];bank={'house':6,'house_mirror':6,'gable':6,'house2':7,'mart':9,'center':8}[d['style']];stamp(ar,bank,d['x']*16,d['y']*16)
    ox,oy,ow,oh=d['old'];g=m['grid'];g[oy:oy+oh,ox:ox+ow]=(g[oy:oy+oh,ox:ox+ow]&1023)|0x3000
-   # Every visibly occupied facade cell is solid, except the original door anchor.
+   # Author the wall footprint independently of the projected roof silhouette.
+   # Coordinates are local, half-open native-cell rectangles. The upper roof
+   # overhang and narrow side eaves remain walkable with correct BG1 occlusion.
+   left,top,right,bottom={'house':(0,1,4,5),'house2':(0,1,4,5),
+    'house_mirror':(1,1,5,5),'gable':(1,1,5,5),
+    'mart':(0,1,4,4),'center':(1,1,6,6)}[d['style']]
+   d['wall_footprint']=[d['x']+left,d['y']+top,right-left,bottom-top]
    for yy in range(ar.shape[0]//16):
     for xx in range(ar.shape[1]//16):
-     if (ar[yy*16:yy*16+16,xx*16:xx*16+16]!=0).sum()>12:g[d['y']+yy,d['x']+xx]=(g[d['y']+yy,d['x']+xx]&1023)|0x3c00
+     cx,cy=d['x']+xx,d['y']+yy
+     solid=left<=xx<right and top<=yy<bottom
+     g[cy,cx]=(g[cy,cx]&1023)|(0x3c00 if solid else 0x3000)
+     if not solid and np.any(ar[yy*16:yy*16+16,xx*16:xx*16+16]):
+      m['overhang'][(cx,cy)]=bank
    dx,dy=d['door'];g[dy,dx]&=1023
    if d['style']=='mart':
     sign=assets['mart_sign'];sx=d['x']+4;sy=d['y']+1;stamp(sign,9,sx*16,sy*16)
@@ -239,11 +250,20 @@ for m in maps:
        sand=textures['_sand_sea'];patch=sand[np.arange(y,y+8)[:,None]%sand.shape[0],np.arange(x,x+8)[None,:]%sand.shape[1]]
        ar[covered]=patch[covered]
      es.append(tile(ar,int(b),wm,(y,x)))
+    roofbank=m['overhang'].get((cx,cy))
+    if roofbank is not None and roofbank in bs:
+     assert set(bs)<=set([0,roofbank]),('overhang palette layering',cx,cy,bs)
+     upper=es[bs.index(roofbank)]
+     if 0 in bs:lower=es[bs.index(0)]
+     else:
+      pat=textures['grass'][np.arange(y,y+8)[:,None]%32,np.arange(x,x+8)[None,:]%32]
+      lower=tile(pat,0)
+     es=[lower,upper]
     pairs.append(es+[0]*(2-len(es)))
    entries=tuple(v[0] for v in pairs)+tuple(v[1] for v in pairs)
    old=int(m['grid'][cy,cx]);mid=old&1023;at=t.attrs[int(mid>=512)][mid%512]
    if (cx,cy) in doors:at=0x1069
-   else:at=(at&0xfff)|0x1000
+   else:at=(at&0xfff)|(0x0000 if (cx,cy) in m['overhang'] else 0x1000)
    key=(entries,at)
    if key not in bl:bl[key]=len(blocks);blocks.append(entries);attrs.append(at)
    grid.append((old&~1023)|bl[key])
@@ -274,7 +294,7 @@ for m in maps:
 installed=Tileset(G,'cherrygrove','cherrygrove')
 for m in maps:
  im=installed.map_image(m['output'],m['w']);assert np.array_equal(np.array(im),m['expected']),('roundtrip',m['name']);im.save(EV/(m['name']+'.png'))
-(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,edge_module_reuse=edge_reuse,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
+(EV/'integration.json').write_text(json.dumps(dict(tiles=len(tiles),metatiles=len(blocks),animated_tiles=len(an),exact_pixel_roundtrip=True,edge_module_reuse=edge_reuse,seam_fixes=seam_fixes,maps=[dict(name=m['name'],trees=len(m['positions']),tree_footprints=m['tree_footprints'],roof_overhang_cells=[list(p) for p in sorted(m['overhang'])],buildings=m['buildings']) for m in maps]),indent=2)+'\n')
 print('native',len(tiles),'tiles',len(blocks),'metatiles',len(an),'animated')
 
 from events import apply_events

@@ -20,6 +20,17 @@ def repair_assets(root, assets, pals):
  trace('center',(777,0,873,96),[(15,13),(86,13),(92,18),(93,23),(93,53),(90,59),(89,78),(85,86),(66,86),(66,88),(60,92),(60,95),(38,95),(33,91),(31,86),(14,86),(10,82),(10,59),(8,54),(8,22),(11,16)],8)
  # The entrance opening does not include the green grass below the glass leaf.
  assets['center'][89:96,41:60]=0
+ # Center the HGSS facade on the existing warp's eight-pixel centerline.
+ # The source's glass center is x50; the native entrance center is x56.
+ original=assets['center'];center=np.zeros((96,112),dtype=np.uint8)
+ center[:,6:102]=original
+ # Fit the glass leaf to one native movement cell, keeping its source pixels
+ # and broadening the adjacent casing instead of animating grass beside it.
+ leaf=np.array(Image.fromarray(original[79:89,40:60]).resize((16,10),Image.Resampling.NEAREST))
+ center[79:89,46:48]=center[79:89,45:46]
+ center[79:89,64:66]=center[79:89,66:67]
+ center[79:89,48:64]=leaf
+ assets['center']=center
  trace('mart',(658,20,738,84),[(8,3),(60,3),(67,7),(67,36),(63,41),(63,58),(59,63),(5,63),(5,58),(3,39),(3,8)],9)
  # The separate sign overlaps the reference roof. Restore its hidden symmetric
  # corner from the left side before placing the sign as its own native asset.
@@ -76,10 +87,10 @@ def ground_sources(root,pal,sea_pal):
  result['_sand_sea']=(((rgb[...,None,:]-pp)**2).sum(-1).argmin(-1)+1).astype('uint8')
  result['_sand_lookup']=(((np.array(pal,int)[:,None,:]-pp)**2).sum(-1).argmin(-1)+1).astype('uint8')
  import json,hashlib
- (dst/'provenance.json').write_text(json.dumps(dict(source='gba/art/johto-v1/references/cherrygrove-hgss.png',sha256=hashlib.sha256((root/'gba/art/johto-v1/references/cherrygrove-hgss.png').read_bytes()).hexdigest(),tree_box=[624,46,664,94],tree_shoulder_repair='Missing upper-right alpha pixels filled by reflecting source pixels from the same tree left shoulder, rows 0..19; trunk untouched',ground_boxes=boxes,edge_boxes=edge_boxes,transition_sampling='Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops.',adaptation='Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.'),indent=2)+'\n')
+ (dst/'provenance.json').write_text(json.dumps(dict(source='gba/art/johto-v1/references/cherrygrove-hgss.png',sha256=hashlib.sha256((root/'gba/art/johto-v1/references/cherrygrove-hgss.png').read_bytes()).hexdigest(),tree_box=[624,46,664,94],tree_shoulder_repair='Missing upper-right alpha pixels filled by reflecting source pixels from the same tree left shoulder, rows 0..19; trunk untouched',ground_boxes=boxes,edge_boxes=edge_boxes,center_native_alignment=dict(shift_x=6,canvas=[112,96],glass=[48,79,64,89],warp_center_x=56),transition_sampling='Source rows 0 and 4 supply four-pixel edge repeats; profiles follow rounded 16px paths. Shared 8px edge modules allow at most one-pixel contour correction. Ground interiors remain literal source crops.',adaptation='Tree: outlined alpha matte and horizontal nearest-neighbour fit to 32x48. Ground: source pixels, nearest existing C ground palette and B coastal palette, repeated at native scale. Pink foliage uses existing B palette; trunk and shadow colours are shared.'),indent=2)+'\n')
  return result
 
-def terrain(ni,nb,isgrass,ground,water,gx,gy,textures):
+def terrain(ni,nb,isgrass,ground,water,gx,gy,textures,dock_path=False):
  from PIL import ImageFilter
  from scipy.ndimage import distance_transform_edt
  safe=isgrass|ground
@@ -120,4 +131,10 @@ def terrain(ni,nb,isgrass,ground,water,gx,gy,textures):
  # The pond keeps its established shape, with a smoothly measured earth bank.
  pond=water&(gx>=40*16)
  edge(pond,'path-edge',safe&(gx>=40*16),5)
+ # The harbor approach is dirt right up to the first wooden plank. This
+ # bounded material override changes no land/water or collision geometry.
+ if dock_path:
+  approach=safe&(gx>=38*16)&(gx<40*16)&(gy>=18*16)&(gy<20*16)
+  ni[approach]=pattern('path')[approach];nb[approach]=0
+  water[approach]=False
  return shore

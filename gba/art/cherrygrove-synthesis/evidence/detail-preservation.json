@@ -1,5 +1,5 @@
 {
-  "previous_commit": "0ecd5e0488ca60203f3a9e39b652538c488a7c54",
+  "previous_commit": "80da530cd589dba5acd178ff28ee2a4f89310886",
   "visible_door_anchors_and_warp_ids_unchanged": true,
   "event_corrections": [
     "Unova resident x=61",
@@ -8,8 +8,17 @@
   "non_cherrygrove_sources_unchanged": true,
   "changed_source_paths": [
     "data/layouts/CherrygroveCity/map.bin",
-    "data/maps/CherrygroveCity/map.json",
-    "data/maps/CherrygroveTransplantHouse/map.json"
+    "data/layouts/CherrygroveRoute29Approach/map.bin",
+    "data/layouts/CherrygroveRoute30Approach/border.bin",
+    "data/layouts/CherrygroveRoute30Approach/map.bin",
+    "data/tilesets/primary/cherrygrove/metatile_attributes.bin",
+    "data/tilesets/primary/cherrygrove/metatiles.bin",
+    "data/tilesets/primary/cherrygrove/tiles.png",
+    "data/tilesets/secondary/cherrygrove/metatile_attributes.bin",
+    "data/tilesets/secondary/cherrygrove/metatiles.bin",
+    "data/tilesets/secondary/cherrygrove/tiles.png",
+    "graphics/door_anims/johto_restart/PokemonCenter.4bpp",
+    "src/field_door.c"
   ],
   "refined_assets": {
     "blossom.png": "c33a4a6817d44b792867cdbe6e01a8d117d1c349a2435ce281287891ba94bffe",
@@ -18,9 +27,9 @@
     "gable.png": "00b5d4c8617ca211b5bb21bb0b45cc187f1a575a8c78cdc8b3a7b08202f7c6a0",
     "house_mirror.png": "2d8a9265f70af6ea4a17eb6fd0f6e27642a6866d3425d3abfc19a9b7c178b3ab",
     "house.png": "aa7a4136bc1b59ad6b8ee3e9abac86808118a320cb3fa1a014ec3b0bfa9c5b4f",
-    "center.png": "abb72b0c37192e13d361677ba70beddf1f8f9b05c80f9e8dc4e9fd42c736649f",
+    "center.png": "8dcffc7d314703ab0b85dfc8f5d8699f65cb42bc420015f877561925139d64c6",
     "tree.png": "9069036f7fd0274963c7496b9aaf2896fb88967e84af096c96ea9d8feb203808"
   },
-  "mask_source_sha256": "ac6b7f05155812f8f9d02d106e4d1dba4dd25c8b7a57cfd5477b55ac46464020",
+  "mask_source_sha256": "a084f5ab573081017d03735da44702db26af53b7e9f0d7449476c42aae96e139",
   "hgss_reference_sha256": "e5444bcfe9ddfe3d874c2c69a1592a7a20ea65b116f10e3fb7aab3bf59d24115"
 }

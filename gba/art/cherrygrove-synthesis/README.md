@@ -6,6 +6,8 @@ laboratory remains unchanged in `johto-native-refinement`.
 
 ## Review
 
+- [Latest Center, dock and collision screenshots](evidence/door-dock-collision-review.png)
+- [Centered Center door animation](evidence/center-door.gif)
 - [Native whole map](evidence/CherrygroveCity.png)
 - [Actual in-game views](evidence/in-game-review.png)
 - [Shore, pond, trees and house close-ups](evidence/detail-review.png)
@@ -100,6 +102,35 @@ atlas tiles; this preserves visible pixels while keeping the richer borders with
 native capacity. Six scenery tile slots remain free; 16 separate slots are reserved
 for door animation.
 
+## Center, dock and building-footprint revision (latest)
+
+The Center's original glass doorway and its animation rectangle were offset.
+The complete HGSS facade is now translated six pixels within a 112x96 native
+canvas; the glass leaf is fitted to 16 pixels, centered at x56 in the unchanged
+entrance cell. The door animation covers that glass rectangle only, including
+its actual ten-pixel height. The sign, closed glass, player and opening align.
+The exterior warp remains `(61,9)` with the same ID and destination.
+
+The two-cell strip at `(38..39,18..19)` now uses the same literal HGSS dirt as
+the path, continuing directly to the wooden dock. This material override does
+not change coast geometry, water flags, dock collision or the adjacent beach.
+
+Building collisions now use explicit wall rectangles in `integration.json`,
+independent of the projected roof silhouettes. One rear row and narrow side
+eaves can be walked beneath; their scenery is on the native top background
+layer so roofs correctly cover the lower part of a sprite. Walls and doors
+retain their physical blocking/warp roles. A deeper first version hid the whole
+player and was corrected before this review. Tree barriers remain solid.
+This implements the stated classic-overlap interpretation of the owner's request.
+
+`building-collision-runtime.json` records 21 actual approaches from behind,
+beside and in front of the seven buildings. See `building-collision-review.png`
+for every captured position and `door-dock-collision-review.png` for the focused
+review. The fresh build passes 3,256 position-specific collision checks, 49 exact travel
+cases, 481 focused land/surf probes, ordinary save/Continue and water-animation
+protection. The map has 926 connected walking cells; door anchors, all event records,
+other town content and the accepted New Bark lab are unchanged in this revision.
+
 ## October 11 access and collision audit
 
 The owner accepted the current artwork and requested a mechanics audit. Three
@@ -142,7 +173,7 @@ These are isolated map checks, not Chapter 1 scene or campaign qualification.
 `evidence/build.json` binds the final ROM hash to fresh libmGBA tests. All seven
 building entry/return pairs, bedroom stairs, both route round trips, pier/island
 walking, water/forest barriers, ordinary 128 KiB save, cold reload and title-menu
-Continue pass. `collision-runtime.jsonl` records all 452 passing focused movement probes.
+Continue pass. `collision-runtime.jsonl` records all 481 passing focused movement probes.
 Warp cells are excluded from obstacle probes because their existing travel
 scripts execute before an attempted step; travel is checked separately.
 
@@ -151,8 +182,8 @@ clear and that terrain collision changes stay inside the new architecture and au
 `boundary-structure.json` and `surf-structure.json` verify connected routes and
 covered camera edges on foot and while surfing.
 
-`integration.json` records 1002/1008 scenery tiles (16 additional slots reserved
-for doors), 603 metatiles, local palette seam corrections and an
+`integration.json` records 998/1008 scenery tiles (16 additional slots reserved
+for doors), 596 metatiles, local palette seam corrections and an
 exact decoded pixel roundtrip. Water is packed beneath opaque scenery so boat
 silhouettes share animated background tiles. `water.json` verifies eight distinct
 animation states over 512 frames and no overwrite of static terrain.
@@ -193,7 +224,8 @@ python3 tools/gba/maps/cherrygrove_synthesis/check_access.py
 Build with the documented ARM GNU 14.2 toolchain and `gmake`, then run
 `verify.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY` with a fresh output directory.
 Also run `verify_access.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY` for the expanded
-position and travel audit. Both scripts need local libmGBA headers/library. It also captures
+position and travel audit. Run `verify_geometry.py OUTPUT_DIRECTORY TOOLCHAIN_DIRECTORY`
+for the three wall approaches per building. These scripts need local libmGBA headers/library. It also captures
 the four targeted views through `review_details.py` and `detail_views.c`.
 After preserving the patch, `check_source.py` compares all 285 source files with
 the reproduced private engine and checks changes against the preceding committed

@@ -11,7 +11,7 @@ source=re.sub(r'^.*sRestartDoor.*\n','',source,flags=re.M).replace('// Fresh cus
 folder=G/'graphics/door_anims/johto_restart';folder.mkdir(exist_ok=True,parents=True);decl=['extern const struct Tileset gTileset_Cherrygrove;'];table=[]
 quads=[(x+dx,y+dy) for x,y in [(0,0),(0,16),(16,0),(16,16)] for dx,dy in [(0,0),(8,0),(0,8),(8,8)]]
 for b in spec:
- name=b['name'];x,y=b['door'];closed=rgb[(y-1)*16:(y+1)*16,x*16:(x+2)*16].copy();l,top,r,bot={'house':(0,12,20,29),'house_mirror':(0,12,16,29),'house2':(0,12,20,29),'gable':(0,13,16,29),'center':(0,16,20,32),'mart':(0,17,20,31)}[b['style']];frames=[]
+ name=b['name'];x,y=b['door'];closed=rgb[(y-1)*16:(y+1)*16,x*16:(x+2)*16].copy();l,top,r,bot={'house':(0,12,20,29),'house_mirror':(0,12,16,29),'house2':(0,12,20,29),'gable':(0,13,16,29),'center':(0,15,16,25),'mart':(0,17,20,31)}[b['style']];frames=[]
  for progress in (1,2,3):
   f=closed.copy();f[top:bot,l:r]=(24,32,40);width=r-l;keep=width-width*progress//3
   if keep:f[top:bot,l:l+keep]=closed[top:bot,l+np.linspace(0,width-1,keep).astype(int)]

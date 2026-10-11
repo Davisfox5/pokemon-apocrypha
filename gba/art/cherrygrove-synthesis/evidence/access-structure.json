@@ -1,6 +1,6 @@
 {
-  "reachable_tiles": 875,
-  "reachable_with_all_npc_ranges_occupied": 809,
+  "reachable_tiles": 926,
+  "reachable_with_all_npc_ranges_occupied": 860,
   "npc_ranges": [
     {
       "map": 0,
@@ -170,12 +170,12 @@
   "all_visible_door_approaches_remain_open_with_npc_ranges_occupied": true,
   "walkable_tree_cells": 0,
   "directed_edges": {
-    "land": 2991,
-    "solid": 439,
+    "land": 3201,
+    "solid": 433,
     "water": 63,
     "door": 7
   },
-  "native_collision_probes": 3056,
+  "native_collision_probes": 3256,
   "native_travel_cases": 49,
   "connection_seams": [
     [
@@ -288,8 +288,8 @@
     ]
   ],
   "layout_sha256": {
-    "CherrygroveCity": "5f20ac2b901981f7d43d5c27e3987b26e78ff0cba6e52a3fa3eb07f55f213c01",
-    "CherrygroveRoute29Approach": "9b2577c78585d2dd42e7dadf90b552f385a908df0932a9cef830248ecfe61553",
-    "CherrygroveRoute30Approach": "7a4aff0c6dca1cbfadbbc3ae3717f2e24f40dde51c40f025b492d120435db2a6"
+    "CherrygroveCity": "98af33ea590bada17a0565143f1668dfe331038154819b03c70bca1deba61026",
+    "CherrygroveRoute29Approach": "3d3a350604e8a27b69b18b86bb54bd9088f1a7f1ed50c4183082cb2d34e2b52e",
+    "CherrygroveRoute30Approach": "0e59a68d107f2191a0bbf89eb09ec2c3d534c1160780576675d70f5edfb9f29a"
   }
 }
