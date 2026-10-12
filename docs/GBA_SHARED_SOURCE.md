@@ -1,6 +1,6 @@
 # Shared map source: one branch everyone edits
 
-**Status (2026-10-12): branch created, CI build pending verification.**
+**Status (2026-10-12): branch created; the `apocrypha build` action is green on head `373e460` (run 38279735129).**
 The current accepted Johto maps now exist as ordinary Git history on the owner's
 expansion fork instead of only as patch files stacked on a private workbench.
 
@@ -11,7 +11,7 @@ expansion fork instead of only as patch files stacked on a private workbench.
 | Content | Cherrygrove B/C/E synthesis, Routes 29/30/31, expanded New Bark with the accepted laboratory, Dark Cave frontage, Violet entrance, interiors, cast graphics; 43 maps in `gMapGroup_Cherrygrove` |
 | Verified | All 437 files of `gba/art/johto-synthesis/evidence/source-manifest.json` reproduce byte for byte on this branch (palette line endings normalized) |
 | Not included | `gba/roster-profile.patch` and `gba/mechanics-profile.patch`. They do not apply on top of the map source (`species_enabled.h`, donor map scripts conflict). Merging mechanics into the map source is a separate, owner-scheduled step. Production `game/` is unchanged. |
-| CI | `.github/workflows/apocrypha.yml` on that branch compiles the ROM on every push and PR. It prints the ROM hash and uploads nothing. |
+| CI | `.github/workflows/apocrypha.yml` on that branch compiles the ROM on every push and PR (host tools, serial `generated`, parallel build). It prints the ROM hash and uploads nothing. Green on `373e460`. |
 
 This replaces "apply three patches into a fresh `tools/vendor/gba/...` workbench"
 for Johto map work. The patch files and generators stay in this repo as the
@@ -103,11 +103,10 @@ Open it in Porymap: File > Open Project > `apocrypha-src`. Porymap writes
 
 ## Next
 
-1. Confirm the `apocrypha build` action is green on the fork.
-2. Codex: point `tools/gba/maps/johto_synthesis/install.py` style installs at an
+1. Codex: point `tools/gba/maps/johto_synthesis/install.py` style installs at an
    `apocrypha` checkout and commit directly instead of preserving a patch.
-3. Decide when roster and mechanics merge into `apocrypha` (resolve the two
+2. Decide when roster and mechanics merge into `apocrypha` (resolve the two
    conflicting files; `species_enabled.h` and the donor map scripts).
-4. Wire Poryscript when the first Chapter 1 scene script lands.
-5. Update the GitHub repository description for `pokemon-apocrypha` (it still says
+3. Wire Poryscript when the first Chapter 1 scene script lands.
+4. Update the GitHub repository description for `pokemon-apocrypha` (it still says
    Gen 4 DS) and fast-forward or retire `main`, which has not moved since August.
