@@ -1,9 +1,5 @@
 # CLAUDE.md
 
-Read `AGENTS.md` first. It is the shared rulebook for every agent (Claude,
-Codex, Grok) and holds the file map of the game source. This file adds the
-Claude-specific skills. `docs/WORKFLOW.md` is the collaboration loop.
-
 Pokemon Apocrypha: a Gen-4 DS romhack built on HGSS. Five regions, 20 badges,
 a concurrent B2W2 timeline. `DESIGN.md` is the world bible and `ENGINEERING.md`
 is the engine reality check.
@@ -25,15 +21,6 @@ is the engine reality check.
 | `/apoc-lore-check` | Does this scene, NPC, or location contradict `DESIGN.md`? Refuses rather than compromises. |
 | `/apoc-budget-check` | Flag and var usage against `NUM_FLAGS` 2912, `NUM_VARS` 368, dex cap 493. Reports what is left. |
 | `/df-writing` | NPC dialogue. Carries the Apocrypha voice row: Gen 4 in-game register, one thought per message box, no modern idiom. |
-
-## Checks before a PR
-
-```bash
-make check                 # tools/check_content.py against disasm/pokeheartgold
-make check MAPS="T21 R29"  # only the maps you touched
-```
-
-Zero errors or the PR is not ready. CI runs the same script.
 
 ## The rig
 
