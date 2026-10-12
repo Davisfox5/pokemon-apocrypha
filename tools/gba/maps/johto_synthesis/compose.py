@@ -136,32 +136,23 @@ def assets():
   for x in range(left,right):
    phase=(x+y)&1;i=y-204
    c.px[y,x]=ramp[min(i+phase,len(ramp)-1)]
- im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
- # Literal Cherrygrove rock pixels and palette. One complete exposed course
- # fits the 32px footprint; its contact edge matches the town's installed toe.
- front=Canvas(32,32,pals[2]);front.px=a['cliff'].px[:32].copy()
- colors=np.array(pals[2].gba()[1:],int)
- front.px[-2:]=((colors-np.array([104,72,56]))**2).sum(-1).argmin()+1
- a['divider_face']=front
- side=Canvas(32,32,pals[2]);side.px=np.rot90(front.px).copy()
- a['route31_wall']=side
- # Actual Emerald outdoor cliff stairs, as placed in Mossdeep at x63..65,
- # y18..19: general 0x0af (lit edge) and 0x0cf (treads). Keep native geometry,
- # recolor to town rock, and mirror the edge for the opposite stair boundary.
- donor=Tileset(SOURCE)
- def stone(mid):
-  rgb=np.asarray(donor.render(mid))
-  # Preserve the donor's five-value shading ladder; generic RGB matching
-  # would turn its white treads into the palette's unrelated cream entry.
-  tones={(131,131,139):12,(164,164,164):9,(189,189,189):6,(213,213,213):3,(255,255,255):2}
-  out=np.zeros((16,16),np.uint8)
-  for color,value in tones.items():out[(rgb==color).all(-1)]=value
-  assert out.all(),'unknown native stair color'
-  return out
- edge,tread=stone(0x0af),stone(0x0cf)
- north=Canvas(48,32,pals[2]);north.px=np.tile(np.concatenate([edge,tread,edge[:,::-1]],axis=1),(2,1));a['stairs_top']=north
- crossing=Canvas(32,32,pals[2]);crossing.px=np.rot90(np.tile(np.concatenate([edge,edge[:,::-1]],axis=1),(2,1))).copy()
- a['divider_steps']=crossing
+ # Standard Emerald rock and stairs, with their original RGB colors.
+ # Bank 8 is unused on these routes and their connected camera windows.
+ donor=Tileset(SOURCE);mids=(0x75,0x7c,0x76,0x79,0x7d,0x7a,0x87,0xaf,0xcf)
+ pixels={mid:np.asarray(donor.render(mid)) for mid in mids}
+ colors=sorted({tuple(map(int,c)) for im in pixels.values() for c in im.reshape(-1,3)
+                if not (int(c[1])>int(c[0])+15 and int(c[1])>int(c[2])+15)})
+ ep=Palette(8,colors,[f'c{i}' for i in range(len(colors))])
+ def native(mid):
+  rgb=pixels[mid];out=np.zeros((16,16),np.uint8)
+  for i,color in enumerate(colors,1):out[(rgb==color).all(-1)]=i
+  c=Canvas(16,16,ep);c.px=out;return c
+ for mid in mids:a['emerald_'+hex(mid)]=native(mid)
+ front=Canvas(32,32,ep);front.px=np.tile(native(0x7c).px,(2,2));a['divider_face']=front
+ side=Canvas(32,32,ep);side.px=np.tile(native(0x75).px,(2,2));a['route31_wall']=side
+ edge,tread=native(0xaf).px,native(0xcf).px
+ north=Canvas(48,32,ep);north.px=np.tile(np.concatenate([edge,tread,tread],axis=1),(2,1));a['stairs_top']=north
+ crossing=Canvas(32,32,ep);crossing.px=np.rot90(np.tile(np.concatenate([edge,tread],axis=1),(2,1))).copy();a['divider_steps']=crossing
  # These rock-bank entries were unused after warm-shadow remapping. They let
  # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
  pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
@@ -203,6 +194,10 @@ def route_comp(number,a):
   mask=(mc.bank==6);mc.bank[mask]=-1;mc.idx[mask]=0
   mc.blit(a['mr_pokemon'],mx*16,my*16)
   mc.blit(a['plateau_bridge'],15*16,5*16)
+  # Continue the same Emerald wall below Route 31's southern map boundary.
+  for x in range(12,34):
+   mc.blit(a['emerald_0x7c'],x*16,0)
+   mc.blit(a['emerald_0x79'],x*16,16)
  forest_plan=np.pad(p,((1,0),(0,0)),constant_values='T') if number==30 else p
  for px,py,c in oldart.forest(forest_plan,a['tree']):
   if number==30:
@@ -264,7 +259,8 @@ def route31(a):
  p[12,8:20]='.'
  # HGSS's upper terrace is inaccessible; its visible rock is the boundary.
  # Render no inherited cliff, cave or wall stamps, then place the exact sources.
- aa=dict(a,cliff=Canvas(304,224,a['landform'].pal),bridge=Canvas(48,64,a['bridge'].pal),sign=Canvas(16,32,a['sign'].pal))
+ aa=dict(a,cliff=Canvas(304,224,a['landform'].pal),bridge=Canvas(48,64,a['bridge'].pal),sign=Canvas(16,32,a['sign'].pal),
+         ledge_a=a['emerald_0x87'],ledge_b=a['emerald_0x87'])
  comp=old.compose('route31',p,aa);mc=comp['canvas']
  trees=(mc.bank==3);tree_pixels=mc.idx.copy()
  mc.blit(a['landform'],44*16,0)
@@ -286,6 +282,8 @@ def route31(a):
    if 37<=x<40:continue
    face=Canvas(16,16,a['divider_face'].pal);face.px=a['divider_face'].px[(y-28)*16:(y-27)*16,(x%2)*16:(x%2+1)*16].copy()
    mc.blit(face,x*16,y*16);comp['solid'][y,x]=True
+ mc.blit(a['emerald_0x76'],34*16,28*16)
+ mc.blit(a['emerald_0x7c'],34*16,29*16)
  mc.blit(a['stairs_top'],37*16,28*16)
  comp['cells'][28:30,37:40]=ground.PATH;comp['solid'][28:30,37:40]=False
  # Redraw the route sign and the freestanding cave sign one tile lower.
@@ -314,13 +312,16 @@ def route31(a):
 
 def all_comps():
  a,pals,labpal=assets();result={}
- for n in (29,30):result[f'route{n}']=(route_comp(n,a),dict(pals))
+ for n in (29,30):
+  pp=dict(pals)
+  if n==30:pp[8]=a['route31_wall'].pal
+  result[f'route{n}']=(route_comp(n,a),pp)
  nb=new_bark(a);npals=dict(pals);npals[8]=labpal;result['new_bark']=(nb,npals)
  aa=dict(a,cliff=a['landform']);aa['gate']=Canvas(128,96,a['gable'].pal);aa['gate'].px[16:96,32:112]=a['gable'].px
  comp=route31(aa)
  comp['solid'][10:16,:8]=False
  building_geometry(comp,'violet-gate',a['gable'],2,11,WALL['gable'],(4,15))
- result['route31']=(comp,dict(pals))
+ pp=dict(pals);pp[8]=a['route31_wall'].pal;result['route31']=(comp,pp)
  # Small Violet arrival remains bounded to the already authored gate approach.
  from johto_connections import build as b
  p=b.L.violet_entrance();p[p=='V']='P';va,vp=b.assets('violet_entrance',a,pals)

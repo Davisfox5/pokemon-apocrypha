@@ -13,7 +13,7 @@ for n,(c,p) in comps.items():
 for n in ('route29','route30','new_bark','violet_entrance'):
  old=Image.open(io.BytesIO(subprocess.check_output(['git','show',baseline+':gba/art/johto-synthesis/evidence/'+n+'.png'],cwd=ROOT))).convert('RGB')
  new=Image.open(EV/(n+'.png')).convert('RGB');mask=np.ones((old.height,old.width),bool)
- if n=='route30':mask[:32,144:192]=False # Native stairs at the Route 31 seam.
+ if n=='route30':mask[:32,144:544]=False # Native rock and stairs at the Route 31 seam.
  assert np.array_equal(np.array(old)[mask],np.array(new)[mask]),('unrelated map pixels changed',n)
 
 layouts=json.loads((G/'data/layouts/layouts.json').read_text())['layouts']
@@ -45,7 +45,7 @@ m=json.loads((G/'data/maps/JohtoRoute31/map.json').read_text())
 sign=next(e for e in m['bg_events'] if e.get('script')=='JohtoRoute31_Cave')
 assert (sign['x'],sign['y'])==(51,14) and c['solid'][14,51] and c['behavior'][14,51]==29
 assert c['behavior'][13,51]==0 and any((w['x'],w['y'])==(52,13) for w in m['warp_events'])
-report=dict(baseline_commit=baseline,cave_geometry_unchanged=True,divider_geometry_checked_separately=True,sign=[51,14],other_maps_identical_except_seam_stairs=True,
+report=dict(baseline_commit=baseline,cave_geometry_unchanged=True,divider_geometry_checked_separately=True,sign=[51,14],other_maps_identical_except_seam_rock_and_stairs=True,
             complete_rock_backed_crowns=3,rock_background_quadrants=rock_quads,
             continuous_dirt_samples=27,threshold_shades=len(np.unique(shade,axis=0)),aligned_cliff_base_y=215,
             grass_notch_closed=True,dark_mouth_preserved=True)

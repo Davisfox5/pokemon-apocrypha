@@ -56,6 +56,27 @@
     "stairs_metatiles": [
       "0x0af",
       "0x0cf"
-    ]
+    ],
+    "art_superseded_by": "route31_standard_emerald_rock"
+  },
+  "route31_standard_emerald_rock": {
+    "source": "Emerald primary/general, original pixels and colors",
+    "rock_metatiles": [
+      "0x075",
+      "0x07c",
+      "0x076",
+      "0x087",
+      "0x079"
+    ],
+    "stairs_metatiles": [
+      "0x0af",
+      "0x0cf"
+    ],
+    "stairs_reference": "MossdeepCity_Layout x63..65 y18..19",
+    "adaptation": "Original green lawn made transparent over local ground. No rock or stair recoloring/resizing. Native directional cliff tiles assembled into two courses. East-west stair pattern rotated 90 degrees; north-south pattern unchanged.",
+    "palette_bank": 8,
+    "scope": "Route 31 central divider, southern rim, nearby jump ledges and two stair crossings; Route 30 adjoining northern rock strip and stairs.",
+    "geometry": "All map solid/behavior/ground arrays unchanged from 522b72e.",
+    "pixel_verification": "evidence/emerald-rock-pixels.json compares decoded packed metatiles with original donor pixels."
   }
 }

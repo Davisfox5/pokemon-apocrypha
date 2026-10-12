@@ -52,7 +52,7 @@ d.text((16,750),'Actual background GBA captures | ROM '+r['rom_sha256'][:16],fon
 cave.save(EV/'cave-review.png');shutil.copyfile(proof/'route31-crowns.png',EV/'route31-crowns-runtime.png')
 shutil.copyfile(proof/'route31-cave-sign.png',EV/'route31-cave-sign-runtime.png')
 # Current divider correction, using the same native camera for before/after.
-previous=subprocess.check_output(['git','show','405a2a70e9e41ed593629ba072d6c38f886af454:gba/art/johto-synthesis/evidence/route31-bridge-runtime.png'],cwd=ROOT)
+previous=subprocess.check_output(['git','show','522b72e838bfc83f4929274d68fbca89fc95911b:gba/art/johto-synthesis/evidence/route31-bridge-runtime.png'],cwd=ROOT)
 divider=Image.new('RGB',(1008,772),(23,29,36));d=ImageDraw.Draw(divider)
 views=[('Pond crossing / Before',Image.open(io.BytesIO(previous))),
        ('Pond crossing / Revised',Image.open(proof/'route31-bridge.png')),

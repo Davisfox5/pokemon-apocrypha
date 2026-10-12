@@ -1,3 +1,27 @@
+## Latest: standard Emerald Route 31 rock and stairs
+
+Owner requested standard Emerald tiles across the central Route 31 section.
+The divider, southern rim, nearby jump ledges and both crossings now use
+original Emerald pixels/colors in route-specific bank 8. Rock IDs 0x075,
+0x07c, 0x076 and 0x087 supply directional faces and the junction. Mossdeep
+0x0af/0x0cf supplies gray stairs, unchanged north/south and quarter-turned
+for east/west. Original lawn is transparent over local ground; no rescaling.
+Route 30's adjoining northern rock strip and seam stairs match. Dark Cave and other maps are preserved.
+
+All map collision, behavior and ground-cell arrays match 522b72e. Twenty-two
+packed-tile samples match the original donor pixels/colors. Background tests
+pass: 267 Route 31 boundary/surf probes (25 surf), ordinary travel/crossings,
+doors, cave sign/warps, 1200 grass steps, save/reload/Continue, and 512 water
+frames/eight states with static terrain unchanged. Probe count changed through
+metatile deduplication; geometry did not. Route 31 uses 911/1008 scenery slots.
+ROM: `541b8e68ccc4f6443accc757d6e1fec77e4c8ec971cef0e26244a5c840244e49`.
+
+See gba/art/johto-synthesis/README.md, evidence/divider-review.png,
+emerald-rock-pixels.json and emerald-rock-baseline.json. Source is preserved
+in gba/johto-synthesis.patch. Native screenshots were inspected; no desktop
+emulator was launched and no Porymap UI reload/save is claimed.
+Next: owner visual review.
+
 ## Latest: Cherrygrove rock and verified Emerald cliff stairs
 
 Owner requested existing Cherrygrove rock on the Route 31 ledges and suitable
