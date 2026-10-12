@@ -7,10 +7,8 @@ baseline='6ce0635d04d023073a93fcfab1301ec8cf307981'
 before=json.loads(subprocess.check_output(['git','show',baseline+':gba/art/johto-synthesis/evidence/terrain-geometry.json'],cwd=ROOT))
 comps=all_comps()
 for n,(c,p) in comps.items():
- for k in ('solid','behavior','cells'):
+ for k in (() if n=='route31' else ('solid','behavior','cells')):
   value=c[k].copy()
-  if n=='route31' and k=='solid':value[14,51]=False
-  if n=='route31' and k=='behavior':value[14,51]=0;value[13,51]=29
   assert hashlib.sha256(value.tobytes()).hexdigest()==before['maps'][n][k],(n,k)
 for n in ('route29','route30','new_bark','violet_entrance'):
  old=Image.open(io.BytesIO(subprocess.check_output(['git','show',baseline+':gba/art/johto-synthesis/evidence/'+n+'.png'],cwd=ROOT))).convert('RGB')
@@ -45,7 +43,7 @@ m=json.loads((G/'data/maps/JohtoRoute31/map.json').read_text())
 sign=next(e for e in m['bg_events'] if e.get('script')=='JohtoRoute31_Cave')
 assert (sign['x'],sign['y'])==(51,14) and c['solid'][14,51] and c['behavior'][14,51]==29
 assert c['behavior'][13,51]==0 and any((w['x'],w['y'])==(52,13) for w in m['warp_events'])
-report=dict(baseline_commit=baseline,geometry_changes_only_sign=True,sign=[51,14],other_maps_pixel_identical=True,
+report=dict(baseline_commit=baseline,cave_geometry_unchanged=True,divider_geometry_checked_separately=True,sign=[51,14],other_maps_pixel_identical=True,
             complete_rock_backed_crowns=3,rock_background_quadrants=rock_quads,
             continuous_dirt_samples=27,threshold_shades=len(np.unique(shade,axis=0)),aligned_cliff_base_y=215,
             grass_notch_closed=True,dark_mouth_preserved=True)

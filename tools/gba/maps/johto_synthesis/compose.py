@@ -137,7 +137,19 @@ def assets():
    phase=(x+y)&1;i=y-204
    c.px[y,x]=ramp[min(i+phase,len(ramp)-1)]
  im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
- a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((536,144,552,176))))),12,pals)
+ # Keep the complete east-facing HGSS cliff: lit upper rim on the west,
+ # dark exposed face and contact edge on the east. The old 16px slice lost it.
+ a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((532,144,564,176))))),12,pals)
+ # Rectify the HGSS wooden stair columns onto the Gen 3 crossing grid.
+ # Each column keeps native pixels; only its vertical origin changes.
+ source=np.asarray(im);steps=np.empty((32,32,4),np.uint8)
+ for x in range(32):
+  y=258-x//2;steps[:,x]=source[y:y+32,534+x]
+ # Trace the outer wood boundary; donor lawn at the two ends is not a tread.
+ rgb=steps[...,:3].astype(int);lawn=(rgb[...,1]>rgb[...,0]+15)&(rgb[...,1]>rgb[...,2]+15)
+ for y,x in zip(*np.nonzero(lawn)):
+  steps[y,x]=steps[y,min(27,max(4,x))]
+ a['divider_steps']=indexed(steps,5,pals)
  # These rock-bank entries were unused after warm-shadow remapping. They let
  # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
  pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
@@ -226,7 +238,13 @@ def route31(a):
  p=old.layout('route31')
  # HGSS: the cave forecourt ends against woods immediately east of the arch.
  p[12:18,55:]='T'
- p[7:28,34]='.'
+ # Pond moves up exactly one metatile; its old southern row becomes lawn.
+ p[7:16,26:34]='.';p[6:15,26:33]='W'
+ # Reserve the whole face before placing trees, including its northern anchor.
+ p[3:30,33:35]='.'
+ # The west woodland ends before the rock, never beneath its painted face.
+ p[24:30,32]='T'
+ p[16:18,33:35]='P'
  p[18,10:12]='.'
  p[28:30,35:]='#';p[28:30,37:40]='='
  # Keep the west approach against the woods instead of an extra northern lawn.
@@ -244,8 +262,12 @@ def route31(a):
  backing=np.zeros_like(trees);backing[192:216,880:]=True
  keep=trees&backing&~np.isin(tree_pixels,[3,12])
  mc.bank[keep]=3;mc.idx[keep]=tree_pixels[keep]
- for y in list(range(7,15,2))+list(range(18,28,2)):mc.blit(a['route31_wall'],33*16,y*16)
- mc.blit(a['bridge'],528,240)
+ for y in list(range(3,16,2))+list(range(18,30,2)):
+  face=a['route31_wall']
+  if y==15:
+   cap=Canvas(32,16,face.pal);cap.px=face.px[:16].copy();mc.blit(cap,528,y*16)
+  else:mc.blit(face,528,y*16)
+ mc.blit(a['divider_steps'],528,256)
  # The southern rock rim and stair flight continue into Route 30's north rim.
  for y in (28,29):
   for x in range(35,63):
@@ -266,8 +288,9 @@ def route31(a):
     y0=max(0,y*16-py);x0=max(0,x*16-px)
     if (a['landform_geometry'][y0:min(c.h,(y+1)*16-py),x0:min(c.w,(x+1)*16-px)]>0).sum()>=48:comp['solid'][y,x]=True
  comp['solid'][:12,44:]=True
- comp['cells'][7:28,33:35]=ground.GRASS;comp['behavior'][7:28,33:35]=0
- comp['solid'][7:28,33:35]=False;comp['solid'][7:28,33]=True;comp['solid'][15:18,33:35]=False
+ comp['cells'][3:30,33:35]=ground.GRASS;comp['behavior'][3:30,33:35]=0
+ comp['solid'][3:30,33:35]=True
+ comp['solid'][16:18,33:35]=False;comp['cells'][16:18,33:35]=ground.PATH
  comp['solid'][13,52]=False;comp['behavior'][13,52]=97
  # Cave threshold and apron connect directly to the existing path, as in HGSS.
  comp['cells'][13:16,51:54]=ground.PATH

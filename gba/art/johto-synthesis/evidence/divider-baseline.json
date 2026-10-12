@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "5d50fbbd53fff3b535be9a10a07b7eb49ff1c005",
+  "scope_cells": [
+    26,
+    3,
+    35,
+    30
+  ],
+  "outside_scope": {
+    "route29": {
+      "solid": "26beb1ea23f3814fa33e497f6e493b1fe34c2758517d15e40ff4791379189f13",
+      "behavior": "6cff022cf47242e50ab69072aa00abc929bc2a8aecd23212663864e72df92ca9",
+      "cells": "34a954d04adbb744d329eaf6b2268ee83094fff058a3b46327c25303dc8ed4c7"
+    },
+    "route30": {
+      "solid": "3d49e0122cfe3dd2f848d88d9720310a4eff56784c20edcaead0b7aa51ba640d",
+      "behavior": "dc69ee99d8a945921d50f67659917ab234b9c07df888c5e2c0fb0a8e000117fa",
+      "cells": "7f0429870070de999a88f28ea96c55ccc2178971a3bd7e9cf6af1a0eefcd1b90"
+    },
+    "new_bark": {
+      "solid": "3182d5276b74d75799ed13613c4315d1068892e966792d714fc452352807b43c",
+      "behavior": "473fffce8a0f4b6230b08df04db100c98fc7609827db3722f4e762bf1fb5ae70",
+      "cells": "4807f17a9569fa66451a71a9b6b7b1c17054908757ad079a125b43385c60f77a"
+    },
+    "route31": {
+      "solid": "1003d50feb98205a0f7f17067635c4788d931c326f1fa2c65e36ec7af4b78d5c",
+      "behavior": "b4f105a48c6d69b5cb0ba854a8763398cd7cdc084b874db9dbfa7694b9bedaf4",
+      "cells": "f721e369faecf49e6b67e2d0736bca0f75b0ae3062a8f8a348628900b848953a"
+    },
+    "violet_entrance": {
+      "solid": "836b0ec61f822bd9b5672f8cd5566fa0fb5c665dc3f53f6a4eff037b253acbca",
+      "behavior": "17df2a3bbe1955996cca77c397548ad3314464c04eb1d1201774908059a87c7e",
+      "cells": "d9cbf9e5adb6a293dfb897409d6ae999cce8445fc1ee990ffd2640b31b198718"
+    }
+  }
+}

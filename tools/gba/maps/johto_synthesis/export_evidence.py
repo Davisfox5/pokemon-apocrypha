@@ -51,6 +51,20 @@ cave.paste(current.crop((88,24,168,104)).resize((320,320),Image.Resampling.NEARE
 d.text((16,750),'Actual background GBA captures | ROM '+r['rom_sha256'][:16],font=font,fill=(180,190,200))
 cave.save(EV/'cave-review.png');shutil.copyfile(proof/'route31-crowns.png',EV/'route31-crowns-runtime.png')
 shutil.copyfile(proof/'route31-cave-sign.png',EV/'route31-cave-sign-runtime.png')
+# Current divider correction, using the same native camera for before/after.
+previous=subprocess.check_output(['git','show','5d50fbbd53fff3b535be9a10a07b7eb49ff1c005:gba/art/johto-synthesis/evidence/route31-bridge-runtime.png'],cwd=ROOT)
+divider=Image.new('RGB',(1008,772),(23,29,36));d=ImageDraw.Draw(divider)
+views=[('Pond crossing / Before',Image.open(io.BytesIO(previous))),
+       ('Pond crossing / Revised',Image.open(proof/'route31-bridge.png')),
+       ('Pond above the path',Image.open(proof/'route31-pond.png')),
+       ('Southern wall and complete trees',Image.open(proof/'route31-divider-south.png'))]
+for i,(label,im) in enumerate(views):
+ x=16+i%2*496;y=16+i//2*368;d.text((x,y),label,font=font,fill=(235,240,244))
+ divider.paste(im.resize((480,320),Image.Resampling.NEAREST),(x,y+28))
+d.text((16,750),'Actual background GBA captures | ROM '+r['rom_sha256'][:16],font=font,fill=(180,190,200))
+divider.save(EV/'divider-review.png')
+for name in ('route31-divider','route31-pond','route31-divider-south'):
+ shutil.copyfile(proof/(name+'.png'),EV/(name+'-runtime.png'))
 # Explicitly isolated local package; no emulator process is started.
 pkg=ROOT/'tools/vendor/gba/Johto-synthesis-preview';pkg.mkdir(exist_ok=True)
 source=ROOT/'tools/vendor/gba/johto-synthesis-work/pokeemerald.gba'

@@ -47,17 +47,17 @@
   ],
   "tiles": {
     "route29": 78,
-    "route30": 192,
+    "route30": 199,
     "new_bark": 365,
-    "route31": 451,
+    "route31": 430,
     "violet_entrance": 31,
     "town": 496
   },
   "metatiles": {
     "route29": 137,
-    "route30": 289,
+    "route30": 290,
     "new_bark": 332,
-    "route31": 274,
+    "route31": 269,
     "violet_entrance": 81,
     "town": 70
   },
@@ -94,7 +94,7 @@
     {
       "width": 63,
       "height": 30,
-      "instances": 134,
+      "instances": 131,
       "overlap_pixels": 0,
       "non_forest_pixels": 0,
       "clipped_instances": 0

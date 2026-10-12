@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "42c463400d208970a578d8e378b8446cefbb84daa30ed2fa3c92f4daef8b86c8",
+  "rom_sha256": "5f33193a5296f9e8f18d5d6a4d5094d38b09371f67137a49e17e2858cea9820c",
   "phases": [
     {
       "phase": "write",
@@ -642,6 +642,84 @@
           "height": 24,
           "interaction": 0,
           "mapsec": 221
+        },
+        {
+          "step": "divider-cross-east",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 35,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
+        },
+        {
+          "step": "divider-cross-west",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 32,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
+        },
+        {
+          "step": "divider-north-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 32,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
+        },
+        {
+          "step": "divider-south-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 35,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
+        },
+        {
+          "step": "divider-foot-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 35,
+          "y": 27,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
+        },
+        {
+          "step": "shifted-pond-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 29,
+          "x": 29,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 63,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 220
         },
         {
           "step": "cave-sign-blocks",

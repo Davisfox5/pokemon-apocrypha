@@ -1,3 +1,26 @@
+## Latest: Route 31 pond, east-facing divider and aligned steps
+
+Owner rejected the narrow central cliff, its overlaps with southern trees,
+short northern extent, diagonal stair fragments and pond against the path.
+The divider now uses the complete 32px HGSS face, with high ground west and
+exposed face east, from map row 3 to the southern rim. The existing HGSS wood
+columns are rectified onto a 2x2 crossing at x33..34/y16..17. Trees are placed
+after reserving the two cliff columns; 13 adjacent complete trees are checked.
+The pond moves north 16px to rows 6..14, leaving lawn at row 15 above the path.
+Water behavior and collision follow the moved shoreline. Dark Cave is unchanged.
+
+ROM: `5f33193a5296f9e8f18d5d6a4d5094d38b09371f67137a49e17e2858cea9820c`.
+Native background screenshots inspected. 268 Route 31 boundary/surf checks
+(26 surf) pass, plus east/west crossing, north/south wall blocking, water edge,
+all ordinary travel/doors/stairs, 1200 grass steps, save/reload/Continue, cave sign
+and entry/return, 512 water frames/eight states with static VRAM unchanged.
+Source patch reproduces 437 files and 108 warp references. Route 31 now uses
+942/1008 scenery slots. Geometry and pixels outside the explicit correction
+scope match `5d50fbb`; other map images are unchanged. See divider-baseline.json,
+divider-structure.json, divider-review.png and the full route31.png in
+`gba/art/johto-synthesis/evidence/`. No desktop emulator launched; Porymap UI
+reload/save was not performed. Next: owner review of the revised divider.
+
 ## Latest: aligned Dark Cave base, shaded entrance and relocated sign
 
 The current revision aligns the lowest HGSS rock course at native y=215, fills

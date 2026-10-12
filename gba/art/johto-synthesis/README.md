@@ -6,13 +6,23 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 
 ## Latest corrections
 
+- Rebuilt Route 31's central divider from the complete east-facing HGSS rock
+  crop, preserving its lit western rim and shaded eastern face. It extends from
+  the northern woods to the southern rim. Both cliff columns are reserved before
+  tree placement, so the wall does not paint over crowns or trunks.
+- Rectified the existing HGSS wooden steps column by column to fit the native
+  two-by-two crossing at (33..34,16..17). Both directions are walkable; the rest
+  of the divider blocks movement. No diagonal fragments hang over the path.
+- Moved the pond north one whole tile (16 pixels), including its shoreline,
+  water behavior and collision. Its southern bank now has a grass strip between
+  the water and dirt path, and its north bank meets the trees.
 - Aligned Dark Cave's lowest rock course and its entire exposed base at native
   pixel row 215. Filled donor transparency holes, including the grass notch right
   of the entrance. The HGSS arch is retained over a short warm shadow ramp into
   the approved dirt texture.
 - Moved the cave sign down to (51,14) as a freestanding prop and repaired the rock
   behind its previous position. The sign's collision and interaction move with it;
-  the cave warp remains (52,13). No other geometry or behavior changes.
+  the cave warp remains (52,13). The later pond/divider correction above is the only other geometry change.
 - Three foreground tree crowns retain complete pixels over real rock lower tiles,
   now covering 36 backing quadrants. No lawn-colored crown background remains.
 - Replaced the noisy continuous grass material with native Emerald blade
@@ -84,11 +94,16 @@ empty-party encounter guard; this map build is not a new battle progression test
 - `terrain-review.png`: previous/current background captures at identical cameras.
 - `cave-review.png`, `route31-crowns-runtime.png`: latest Dark Cave revision,
   captured in the background game, including the rock/tree junctions.
+- `divider-review.png`: before/after native crossing and southern junction captures.
+- `divider-baseline.json`, `divider-structure.json`: scoped geometry and pixel
+  preservation against `5d50fbb`, pond position, cliff/crossing collision and 13
+  complete adjacent trees.
 - `cave-structure.json`: 36 rock-backed crown quadrants, complete tree pixels,
   aligned base, shaded dirt threshold, moved sign and unchanged other maps.
 - `route31-cave-sign-runtime.png`: the relocated sign displaying its original text.
 - `terrain-geometry.json`: matching solid, behavior and ground-cell hashes against
-  the previous accepted-layout revision `1016f4a6`; no geometry was changed.
+  the earlier accepted-layout revision `1016f4a6`, retained as historical evidence.
+  Current geometry changes are recorded by the divider checks above.
 - `integration.json`: tile/metatile use, complete-tree placement and connected windows.
 - `structure.json`: paths, doors, forbidden areas, mandatory crossings and jump behavior.
 - `runtime.json`: ordinary travel/door/stair checks, sustained grass walking,
@@ -103,14 +118,15 @@ ordinary walking is separately exercised for 1,200 grass steps in one session.
 No desktop emulator was launched. Porymap interaction was blocked by the locked
 Mac session, so a fresh Porymap UI reload/save is not claimed.
 
-Latest verification: all 304 Route 31 boundary/surf cases (26 surf), all ordinary
+Latest verification: all 268 Route 31 boundary/surf cases (26 surf), all ordinary
 travel/door/stair assertions, 1,200 grass steps, save/cold reload/Continue and
 512 animated-water frames pass on ROM
-`42c463400d208970a578d8e378b8446cefbb84daa30ed2fa3c92f4daef8b86c8`.
+`5f33193a5296f9e8f18d5d6a4d5094d38b09371f67137a49e17e2858cea9820c`.
 The boundary rerun is scoped to Route 31 (`verify_extra.py ... --map 29`);
-other maps are verified pixel-identical. Geometry matches `6ce0635` after
-normalizing only the relocated sign's collision/behavior cells. The previous
-all-map boundary run remains preserved in `74b13f5`. Route 31 uses 966/1008
+other maps and Dark Cave remain pixel-identical. Geometry outside the pond and
+divider rectangle matches `5d50fbb`. Both crossing directions, cliff blocking and
+the shifted water edge were also walked in the ordinary suite. The previous
+all-map boundary run remains preserved in `74b13f5`. Route 31 uses 942/1008
 scenery slots; the 16 door-animation slots are separately reserved.
 
 The first runs exposed a harness fault: injecting position-reading engine calls

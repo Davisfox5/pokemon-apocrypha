@@ -88,7 +88,7 @@ def local_reach(n,start,deny=lambda x,y:False):
    visited.add((xx,yy));todo.append((xx,yy))
  return visited
 # Route 31 has exactly one crossing of its east/west rock divide: the bridge.
-r31=local_reach('JohtoRoute31',(38,25),lambda x,y:33<=x<35 and 15<=y<18)
+r31=local_reach('JohtoRoute31',(38,25),lambda x,y:33<=x<35 and 16<=y<18)
 assert (4,16) not in r31,'walked around Route 31 bridge'
 # Route 30 retains both lower stairs and the two intended plateau approaches.
 r30='CherrygroveRoute30Approach';g=ms[r30][1];at=ms[r30][3]

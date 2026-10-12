@@ -27,5 +27,19 @@
     "path": "HGSS arch and flared opening retained, with a short warm shadow ramp over the local dirt. The dirt becomes fully lit below the mouth; no hard black/dirt seam.",
     "palette": "Two unused bank 12 colors now hold exact local lawn/shadow colors for mixed rock/tree tiles.",
     "sign": "Existing native sign placed one tile south, base (51,14), with the original inspection script; old position rebuilt as rock."
+  },
+  "route31_divider_revision": {
+    "reference": "gba/art/hgss-connections/references/route31-hgss.png",
+    "face_crop": [
+      532,
+      144,
+      564,
+      176
+    ],
+    "face_direction": "east; raised pond and path west of the cliff",
+    "stairs": "Native 32-column HGSS wood cut, each column shifted vertically to remove perspective skew; no resizing. Upper/lower entries aligned to map rows 16/17.",
+    "pond": "Moved north 16px; shoreline, water behavior and collision follow its new rows 6 through 14. Row 15 is lawn.",
+    "tree_placement": "Reserve both cliff columns before whole-tree placement; 13 adjacent complete trees verified.",
+    "geometry_scope": "Divider/pond rectangle x26..34, y3..29; exterior geometry unchanged from 5d50fbb."
   }
 }

@@ -37,6 +37,11 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
   go(10,10,0);shot("route30-top");step(UP,1);at(29,38,29,"route30-to-route31");shot("route31-entry");step(DOWN,1);at(10,10,0,"route31-to-route30");
   step(UP,13);at(29,38,17,"route31-junction");step(LEFT,5);at(29,33,17,"route31-bridge");shot("route31-bridge");
   step(LEFT,29);step(UP,2);frames(360,0);observe("violet-gate-entry");need(state[2]==33,"violet-gate-entry");shot("violet-gate-interior");step(UP,1);step(LEFT,11);step(DOWN,2);frames(360,0);observe("violet-arrival");need(state[2]==30,"violet-arrival");shot("violet-arrival");
+  go(29,32,17);step(RIGHT,3);at(29,35,17,"divider-cross-east");shot("route31-divider");step(LEFT,3);at(29,32,17,"divider-cross-west");
+  go(29,32,15);step(RIGHT,1);at(29,32,15,"divider-north-blocks");shot("route31-pond");
+  go(29,35,19);step(LEFT,1);at(29,35,19,"divider-south-blocks");
+  go(29,35,27);shot("route31-divider-south");step(LEFT,1);at(29,35,27,"divider-foot-blocks");
+  go(29,29,15);step(UP,1);at(29,29,15,"shifted-pond-blocks");
   go(29,54,14);shot("route31-crowns");
   go(29,51,15);step(UP,1);at(29,51,15,"cave-sign-blocks");frames(1,A);frames(120,0);need(locked(),"cave-sign-dialogue");shot("route31-cave-sign");close_dialog();
   go(29,52,14);shot("route31-cave");step(UP,1);frames(360,0);observe("dark-cave-entry");need(state[2]==34,"dark-cave-entry");step(DOWN,1);frames(360,0);step(DOWN,1);at(29,52,14,"dark-cave-return");
