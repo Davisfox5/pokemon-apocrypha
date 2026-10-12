@@ -5,6 +5,13 @@ The remote repository is **Davisfox5/pokemon-apocrypha**. The Mac folder name
 This branch publishes the GBA work previously available only in that Mac checkout.
 Read AGENTS.md, CONTEXT_INDEX.md and AGENT_HANDOFF.md after this page.
 
+## Map work: use the shared source branch
+
+For Johto map, tileset and script work, clone the `apocrypha` branch of
+`Davisfox5/pokeemerald-expansion` and work on it directly. Setup, tools and rules:
+[GBA_SHARED_SOURCE.md](GBA_SHARED_SOURCE.md). The workbench presets below remain
+for reproducing historical evidence and for mechanics work against `game/`.
+
 ## Start in a remote Linux session
 
 Select this branch when attaching the GitHub repository. In an existing checkout:

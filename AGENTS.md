@@ -92,7 +92,11 @@ The owner has explicitly authorized isolated Cherrygrove map/art production and
 independent Claude/Grok interpretations. Follow docs/GBA_REMOTE_HANDOFF.md for
 remote setup. Broader campaign production remains subject to its scoped requests.
 Production source is `game/`, a pinned submodule plus the tracked roster and mechanics patches
-in `gba/`. Preserve local changes and track new engine edits in patches or an
+in `gba/`.
+**Shared map source is the `apocrypha` branch of `Davisfox5/pokeemerald-expansion`**
+(current accepted Johto maps as Git history; see `docs/GBA_SHARED_SOURCE.md`). Map and
+script work goes there as commits and PRs, not as new standalone patches. Porymap opens
+that checkout directly. Preserve local changes and track new engine edits in patches or an
 explicit source fork; never leave their only copy in a dirty submodule.
 The root `make build` is still a legacy DS asset command, not a GBA ROM build.
 Do not report a proposed dependency or configuration as installed or tested.
