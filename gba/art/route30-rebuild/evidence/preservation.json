@@ -18,5 +18,11 @@
   "ROM_committed": false,
   "save_committed": false,
   "visual_acceptance": "pending owner review",
-  "seam_fix": "Whole old tree footprints are preserved; palette references from both primary and secondary metatiles are reserved."
+  "seam_fix": "Whole old tree footprints are preserved; palette references from both primary and secondary metatiles are reserved.",
+  "apocrypha_build_ci": {
+    "name": "build",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38311831986/job/115019142962",
+    "sha": "f1c8d1801966de0d7a560074e5d87046127b333a"
+  }
 }

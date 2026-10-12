@@ -6,6 +6,8 @@ Engine source: [`codex/route30-rebuild`, `f1c8d180`](https://github.com/Davisfox
 
 This pass corrects tree alignment and original access restrictions, rather than adding density. The accepted native tree owns a complete 32×48 pixel / 2×3 tile footprint. New instances have no overlapping footprint or opaque pixels, and avoid preserved connection artwork, cliffs, stairs, signs and buildings. Empty transparent corners do not make forest cells walkable. Native house art replaces the mismatched donor perspectives; copied partial tree fragments were removed. The 16-variant tall-grass family derives from the preserved HGSS egrass texture and was compiled and decoded through Porytiles.
 
+Apocrypha clean CI build is [green on the final source commit](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38311831986/job/115019142962); details are recorded in `evidence/ci.json`.
+
 ## Evidence and limits
 
 - Porymap 6.3.1 core project loader/renderer exported the actual checkout; Route 30 matches the native decode exactly. This is not a manual GUI edit/save test.
@@ -13,7 +15,7 @@ This pass corrects tree alignment and original access restrictions, rather than 
 - Native packing has zero scenery pixel differences. The tree audit records 120 new complete instances and 96 preserved complete seam trees, zero overlaps, zero non-forest pixels and zero clipped instances. Protected connection art stays at its prior pixels.
 - Headless libmGBA 0.10.5 tests actual directional input along the entire route, both connections in both directions, ten forest/cliff barriers, tall grass, the one-way ledge, signs, ordinary 128 KiB save, cold load and title Continue. Full observations are in `evidence/results.json`. No desktop game was opened.
 - The 35×74 original terrain stencil is measured from the preserved HGSS overview and earlier reference measurements, **not recovered Gen 4 collision archives**. The accepted map's 86-row Cherrygrove approach and shared camera windows remain adaptations. Visual/original-map fidelity still requires owner review.
-- Route 30's existing houses have no interior warps; this exterior pass does not add interiors, dialogue or roles. The new freshwater pond is static. No future-story shortcuts or ten-year town changes were introduced.
+- Route 30's existing houses have no interior warps; this exterior pass does not add interiors, dialogue or roles. Terrain restrictions are covered; original story-dependent NPC gates are not implemented. The new freshwater pond is static. No future-story shortcuts or ten-year town changes were introduced.
 - ROM, save and tool binaries are not committed. Runtime fixtures use the engine's existing debug map proof entrance to position scenes, then test ordinary key inputs; they do not prove a campaign start sequence.
 
 ## Source and provenance
