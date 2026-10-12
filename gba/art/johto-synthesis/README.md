@@ -6,13 +6,16 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 
 ## Latest corrections
 
-- Rebuilt Route 31's central divider from the complete east-facing HGSS rock
-  crop, preserving its lit western rim and shaded eastern face. It extends from
-  the northern woods to the southern rim. Both cliff columns are reserved before
-  tree placement, so the wall does not paint over crowns or trunks.
-- Rectified the existing HGSS wooden steps column by column to fit the native
-  two-by-two crossing at (33..34,16..17). Both directions are walkable; the rest
-  of the divider blocks movement. No diagonal fragments hang over the path.
+- Route 31's central divider and southern rim now reuse the accepted Cherrygrove
+  C rock pixels and bank 2 palette. A complete 32px course is turned for the
+  east-facing divider; the southern face keeps its original orientation.
+- Replaced the crossing and southern connection's wooden graphics with actual
+  Emerald cliff stairs, verified in the original Mossdeep map: general metatiles
+  0x0af (lit edge) and 0x0cf (treads). Their five shading values map to the town's
+  warm rock palette; native pixel geometry is preserved. The east/west crossing
+  turns the pattern 90 degrees. Route 30's connecting stair cells match.
+- All collision, behavior and ground-cell arrays match `405a2a7` exactly. The
+  corrected divider extent, complete adjacent trees and walkable crossing remain.
 - Moved the pond north one whole tile (16 pixels), including its shoreline,
   water behavior and collision. Its southern bank now has a grass strip between
   the water and dirt path, and its north bank meets the trees.
@@ -56,9 +59,12 @@ Buildings, complete green/pink trees, ground, shores and animated water come fro
 The accepted laboratory comes from `../johto-native-refinement/native/institute.png`;
 its palette is preserved in `references/native-base/`.
 
-Stairs, Route 30 cliff modules and the plateau bridge are cropped at native
+Other stairs, Route 30 cliff modules and the plateau bridge are cropped at native
 scale from `../claude-routes/references/route29-hgss.png` and `route30-hgss.png`.
-Dark Cave and the vertical rock divide use `../hgss-connections/references/route31-hgss.png`.
+Dark Cave uses `../hgss-connections/references/route31-hgss.png`. The central
+divider and southern rim now use Cherrygrove C rock; the crossing/seam stairs use
+Emerald general 0x0af/0x0cf. Route 114 bridge decking was inspected and rejected
+as the stair donor; the final source is the verified Mossdeep cliff stairway.
 The measured cliff outline/tiers are retained; repeated plateau and straight-face
 materials keep the graphic within the GBA tile budget. Its colors follow the
 Cherrygrove warm rock palette, with black/gray reserved for the cave entrance.
@@ -95,9 +101,11 @@ empty-party encounter guard; this map build is not a new battle progression test
 - `cave-review.png`, `route31-crowns-runtime.png`: latest Dark Cave revision,
   captured in the background game, including the rock/tree junctions.
 - `divider-review.png`: before/after native crossing and southern junction captures.
+- `town-rock-baseline.json`: exact full-map geometry hashes before this art pass.
 - `divider-baseline.json`, `divider-structure.json`: scoped geometry and pixel
   preservation against `5d50fbb`, pond position, cliff/crossing collision and 13
-  complete adjacent trees.
+  complete adjacent trees; current checks additionally enforce full geometry
+  equality against `405a2a7` and allow only the southern stair graphics in Route 30.
 - `cave-structure.json`: 36 rock-backed crown quadrants, complete tree pixels,
   aligned base, shaded dirt threshold, moved sign and unchanged other maps.
 - `route31-cave-sign-runtime.png`: the relocated sign displaying its original text.
@@ -118,15 +126,15 @@ ordinary walking is separately exercised for 1,200 grass steps in one session.
 No desktop emulator was launched. Porymap interaction was blocked by the locked
 Mac session, so a fresh Porymap UI reload/save is not claimed.
 
-Latest verification: all 268 Route 31 boundary/surf cases (26 surf), all ordinary
+Latest verification: all 270 Route 31 boundary/surf cases (28 surf), all ordinary
 travel/door/stair assertions, 1,200 grass steps, save/cold reload/Continue and
 512 animated-water frames pass on ROM
-`5f33193a5296f9e8f18d5d6a4d5094d38b09371f67137a49e17e2858cea9820c`.
+`63d1a753a03c782de1192dfad6cf115f0a29d875befc453a32fb15d0381f2b5e`.
 The boundary rerun is scoped to Route 31 (`verify_extra.py ... --map 29`);
-other maps and Dark Cave remain pixel-identical. Geometry outside the pond and
-divider rectangle matches `5d50fbb`. Both crossing directions, cliff blocking and
+Dark Cave and other maps remain pixel-identical except Route 30’s matching
+northern stair graphics. All geometry matches `405a2a7`. Both crossing directions, cliff blocking and
 the shifted water edge were also walked in the ordinary suite. The previous
-all-map boundary run remains preserved in `74b13f5`. Route 31 uses 942/1008
+all-map boundary run remains preserved in `74b13f5`. Route 31 uses 929/1008
 scenery slots; the 16 door-animation slots are separately reserved.
 
 The first runs exposed a harness fault: injecting position-reading engine calls

@@ -137,19 +137,31 @@ def assets():
    phase=(x+y)&1;i=y-204
    c.px[y,x]=ramp[min(i+phase,len(ramp)-1)]
  im=Image.open(ROOT/'gba/art/hgss-connections/references/route31-hgss.png').convert('RGBA')
- # Keep the complete east-facing HGSS cliff: lit upper rim on the west,
- # dark exposed face and contact edge on the east. The old 16px slice lost it.
- a['route31_wall']=rock(terrain.clean_rock_edge(no_ground(np.asarray(im.crop((532,144,564,176))))),12,pals)
- # Rectify the HGSS wooden stair columns onto the Gen 3 crossing grid.
- # Each column keeps native pixels; only its vertical origin changes.
- source=np.asarray(im);steps=np.empty((32,32,4),np.uint8)
- for x in range(32):
-  y=258-x//2;steps[:,x]=source[y:y+32,534+x]
- # Trace the outer wood boundary; donor lawn at the two ends is not a tread.
- rgb=steps[...,:3].astype(int);lawn=(rgb[...,1]>rgb[...,0]+15)&(rgb[...,1]>rgb[...,2]+15)
- for y,x in zip(*np.nonzero(lawn)):
-  steps[y,x]=steps[y,min(27,max(4,x))]
- a['divider_steps']=indexed(steps,5,pals)
+ # Literal Cherrygrove rock pixels and palette. One complete exposed course
+ # fits the 32px footprint; its contact edge matches the town's installed toe.
+ front=Canvas(32,32,pals[2]);front.px=a['cliff'].px[:32].copy()
+ colors=np.array(pals[2].gba()[1:],int)
+ front.px[-2:]=((colors-np.array([104,72,56]))**2).sum(-1).argmin()+1
+ a['divider_face']=front
+ side=Canvas(32,32,pals[2]);side.px=np.rot90(front.px).copy()
+ a['route31_wall']=side
+ # Actual Emerald outdoor cliff stairs, as placed in Mossdeep at x63..65,
+ # y18..19: general 0x0af (lit edge) and 0x0cf (treads). Keep native geometry,
+ # recolor to town rock, and mirror the edge for the opposite stair boundary.
+ donor=Tileset(SOURCE)
+ def stone(mid):
+  rgb=np.asarray(donor.render(mid))
+  # Preserve the donor's five-value shading ladder; generic RGB matching
+  # would turn its white treads into the palette's unrelated cream entry.
+  tones={(131,131,139):12,(164,164,164):9,(189,189,189):6,(213,213,213):3,(255,255,255):2}
+  out=np.zeros((16,16),np.uint8)
+  for color,value in tones.items():out[(rgb==color).all(-1)]=value
+  assert out.all(),'unknown native stair color'
+  return out
+ edge,tread=stone(0x0af),stone(0x0cf)
+ north=Canvas(48,32,pals[2]);north.px=np.tile(np.concatenate([edge,tread,edge[:,::-1]],axis=1),(2,1));a['stairs_top']=north
+ crossing=Canvas(32,32,pals[2]);crossing.px=np.rot90(np.tile(np.concatenate([edge,edge[:,::-1]],axis=1),(2,1))).copy()
+ a['divider_steps']=crossing
  # These rock-bank entries were unused after warm-shadow remapping. They let
  # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
  pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
@@ -272,7 +284,8 @@ def route31(a):
  for y in (28,29):
   for x in range(35,63):
    if 37<=x<40:continue
-   mc.blit(a['top'+str(y-28)],x*16,y*16);comp['solid'][y,x]=True
+   face=Canvas(16,16,a['divider_face'].pal);face.px=a['divider_face'].px[(y-28)*16:(y-27)*16,(x%2)*16:(x%2+1)*16].copy()
+   mc.blit(face,x*16,y*16);comp['solid'][y,x]=True
  mc.blit(a['stairs_top'],37*16,28*16)
  comp['cells'][28:30,37:40]=ground.PATH;comp['solid'][28:30,37:40]=False
  # Redraw the route sign and the freestanding cave sign one tile lower.

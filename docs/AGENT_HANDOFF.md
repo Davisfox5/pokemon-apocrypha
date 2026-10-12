@@ -1,3 +1,30 @@
+## Latest: Cherrygrove rock and verified Emerald cliff stairs
+
+Owner requested existing Cherrygrove rock on the Route 31 ledges and suitable
+Emerald stairs. The central divider and southern rim now reuse C/cliff.idx.png
+and Cherrygrove bank 2: a complete 32px course, with the town contact edge, turned
+90 degrees for the side face. Actual Emerald general 0x0af/0x0cf stone stairs
+were verified in MossdeepCity_Layout (x63..65/y18..19 and x25..26/y24..25).
+Native five-value shading is recolored to the warm town rock ladder; edge tiles
+are mirrored at the opposite boundary. Crossing is 32x32, southern stair is
+48x32 and continues identically into Route 30. No artwork is rescaled.
+Route 114 0x293 was initially investigated but rejected after inspecting its
+original map: it is bridge decking, not stairs. It is not the final donor.
+
+All solid, behavior and ground arrays match 405a2a7 exactly. Pond placement,
+cliff extent, cave/sign, thirteen complete adjacent trees and crossing geometry
+are retained. Other map pixels remain unchanged except the Route 30 seam stairs.
+Native screenshots inspected; 270 Route 31 boundary/surf checks (28 surf),
+ordinary crossing/travel/doors/stairs, 1200 grass steps, save/reload/Continue,
+cave sign/warps and 512 animated-water frames/eight states pass. Static VRAM
+unchanged. Source patch reproduces 437 files and validates 108 warp references.
+Route 31 uses 929/1008 scenery slots, excluding the reserved 16 door slots.
+ROM: `63d1a753a03c782de1192dfad6cf115f0a29d875befc453a32fb15d0381f2b5e`.
+
+See `gba/art/johto-synthesis/evidence/divider-review.png`, full route31.png,
+town-rock-baseline.json and terrain-provenance.json. No desktop emulator was
+launched; Porymap UI reload/save was not performed. Next: owner visual review.
+
 ## Latest: Route 31 pond, east-facing divider and aligned steps
 
 Owner rejected the narrow central cliff, its overlaps with southern trees,

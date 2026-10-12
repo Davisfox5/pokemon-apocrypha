@@ -2,7 +2,7 @@ Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synth
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
-Current Johto correction: [connected routes, expanded New Bark and terrain cleanup](../gba/art/johto-synthesis/README.md). This supersedes johto-cohesion; retain earlier drafts as references. The latest revision rebuilds Route 31’s central east-facing cliff and aligned wooden crossing, removes tree overlaps and moves the pond north one tile. Dark Cave and other maps are unchanged; revised collision and native screenshots are in the package.
+Current Johto correction: [connected routes, expanded New Bark and terrain cleanup](../gba/art/johto-synthesis/README.md). This supersedes johto-cohesion; retain earlier drafts as references. The latest revision uses approved Cherrygrove rock on Route 31’s divider/southern rim and genuine Emerald Mossdeep cliff stairs on the crossing and Route 30 connection. The moved pond and all collision/behavior/ground cells are preserved.
 
 # Read only what the task needs
 

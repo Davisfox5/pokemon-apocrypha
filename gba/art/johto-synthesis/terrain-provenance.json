@@ -40,6 +40,22 @@
     "stairs": "Native 32-column HGSS wood cut, each column shifted vertically to remove perspective skew; no resizing. Upper/lower entries aligned to map rows 16/17.",
     "pond": "Moved north 16px; shoreline, water behavior and collision follow its new rows 6 through 14. Row 15 is lawn.",
     "tree_placement": "Reserve both cliff columns before whole-tree placement; 13 adjacent complete trees verified.",
-    "geometry_scope": "Divider/pond rectangle x26..34, y3..29; exterior geometry unchanged from 5d50fbb."
+    "geometry_scope": "Divider/pond rectangle x26..34, y3..29; exterior geometry unchanged from 5d50fbb.",
+    "art_superseded_by": "route31_town_rock_and_emerald_stairs; divider extent and pond geometry retained"
+  },
+  "route31_town_rock_and_emerald_stairs": {
+    "rock_source": "gba/art/cherrygrove-synthesis/references/C/cliff.idx.png",
+    "rock_sha256": "8d918a5eeb934fdd7ff070b6ab633cb0e0d5e102593813d8d557d2ec05796e54",
+    "rock_palette_bank": 2,
+    "rock_adaptation": "First 32 native rows form one course; bottom two rows use the installed Cherrygrove contact-edge color. Rotate 90 degrees counterclockwise for east-facing wall. No scaling.",
+    "stairs_tileset": "Emerald primary/general",
+    "native_usage": "MossdeepCity_Layout x63..65 y18..19; also x25..26 y24..25",
+    "stairs_pixel_sha256": "365ba5482e7564763e614a0009900d1c317790dcd9f7a06c4ab74c363a3ba2f5",
+    "stairs_adaptation": "Actual 16x16 stone tread and lit edge; mirrored edge caps opposite side. No resizing. Recolored to bank 2. Rotate east/west crossing 90 degrees; southern seam stairs retain north/south orientation.",
+    "geometry": "All map solid/behavior/ground arrays unchanged from 405a2a7.",
+    "stairs_metatiles": [
+      "0x0af",
+      "0x0cf"
+    ]
   }
 }

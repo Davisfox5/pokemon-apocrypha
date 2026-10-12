@@ -12,8 +12,15 @@ for name,(c,_) in comps.items():
  previous=Image.open(io.BytesIO(subprocess.check_output(['git','show',before['baseline_commit']+':gba/art/johto-synthesis/evidence/'+name+'.png'],cwd=ROOT))).convert('RGB')
  current=Image.open(EV/(name+'.png')).convert('RGB');a=np.array(previous);b=np.array(current)
  mask=np.ones(a.shape[:2],bool)
- if name=='route31':mask[48:480,400:576]=False
+ if name=='route31':mask[48:480,400:576]=False;mask[448:480,560:]=False
+ if name=='route30':mask[:32,144:192]=False
  assert np.array_equal(a[mask],b[mask]),('unrelated art changed',name)
+# This follow-up changes art only; every collision, behavior and ground cell
+# must match the immediately preceding pond/divider revision, on every map.
+latest=json.loads((EV/'town-rock-baseline.json').read_text())
+for name,(v,_) in comps.items():
+ for k in ('solid','behavior','cells'):
+  assert hashlib.sha256(v[k].tobytes()).hexdigest()==latest['geometry'][name][k],('geometry changed',name,k)
 c,p=comps['route31'];a=assets()[0]
 assert (c['cells'][6:15,26:33]==ground.SEA).all()
 assert (c['cells'][15,26:33]==ground.GRASS).all(),'no lawn between pond and dirt'
@@ -31,5 +38,7 @@ for x,y,t in oldart.forest(c['plan'],a['tree']):
 report=dict(baseline_commit=before['baseline_commit'],outside_scope_unchanged=True,
  pond_cells=[26,6,33,15],pond_shift_north_pixels=16,lawn_row_before_path=15,
  divider_cells=[33,3,35,30],crossing_cells=[33,16,35,18],
- full_trees_checked=tree_checks,face_direction='east',high_ground='west')
+ full_trees_checked=tree_checks,face_direction='east',high_ground='west',
+ art_revision_baseline=latest['baseline_commit'],all_geometry_unchanged=True,
+ rock_source='Cherrygrove C cliff; bank 2',stairs_source='Emerald general 0x0af/0x0cf; Mossdeep cliff stairs')
 (EV/'divider-structure.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
