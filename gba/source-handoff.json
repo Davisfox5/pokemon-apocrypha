@@ -1,0 +1,63 @@
+{
+  "upstream": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "historical_town_baseline": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "baseline_export": "Equivalent town sources, retaining upstream compresSmol build sources and upstream emulator tool files omitted from the historical snapshot.",
+  "presets": {
+    "town": [
+      {
+        "path": "gba/cherrygrove-baseline.patch"
+      }
+    ],
+    "workbench": [
+      {
+        "path": "gba/cherrygrove-baseline.patch"
+      },
+      {
+        "path": "gba/johto-npc-v1.patch",
+        "exclude": [
+          "data/maps/CherrygroveCity/map.json",
+          "data/maps/CherrygroveCity/scripts.inc"
+        ]
+      },
+      {
+        "path": "gba/johto-cast-v1.patch",
+        "exclude": [
+          "data/maps/CherrygroveCity/map.json",
+          "data/maps/CherrygroveCity/scripts.inc"
+        ]
+      },
+      {
+        "path": "gba/regional-scale-v1.patch",
+        "exclude": [
+          "data/maps/CherrygroveCity/map.json",
+          "data/maps/CherrygroveCity/scripts.inc"
+        ]
+      }
+    ],
+    "preview": [
+      {
+        "path": "gba/cherrygrove-baseline.patch"
+      },
+      {
+        "path": "gba/johto-restart.patch"
+      }
+    ],
+    "production": [
+      {
+        "path": "gba/roster-profile.patch"
+      },
+      {
+        "path": "gba/mechanics-profile.patch"
+      }
+    ]
+  },
+  "patch_sha256": {
+    "gba/cherrygrove-baseline.patch": "b426c93fa9fe4990f0e0a9950bf794bae882c8546f83dc0b1fc3039da9f70f0a",
+    "gba/johto-cast-v1.patch": "7e60d3d697bb823755b76ba1f5b013583e969cfd1a2540b1661195fdd7dae0ef",
+    "gba/johto-npc-v1.patch": "342bdcff95b964d9d32650e46f2985bfc5e5b268ef628dbc571d646fdf33ef89",
+    "gba/johto-restart.patch": "aaa4d2818ea0793d71361040594d6f0cd65d4462c60314ab2e710f802f8fe51e",
+    "gba/mechanics-profile.patch": "6343c393cb5f21f60c2deb8e9ef89a8a03a030a83a1362bf359ffbb3b8dd07bd",
+    "gba/regional-scale-v1.patch": "b3ec9e3b12fa60ebca85f359c8ac64cb05491272d20852d328a1757d2a224d76",
+    "gba/roster-profile.patch": "e02bb576fb0b470d026c3e309c98c46543f7bbcf7cc90457c9934d71a87dd4b5"
+  }
+}

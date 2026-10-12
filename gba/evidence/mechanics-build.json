@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-11",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "status": "partial mechanics profile built; final rules-era choice pending",
+  "normal_rom_sha256": "3680de44573b08a6107270d853d4c666e021c8172be7b71463e3408f923a44d3",
+  "normal_elf_sha256": "2e87541510bd21c17f0e3e23565f05a8ec386bfb0864868cfe3e6ac5b57b4bf3",
+  "source_sha256": {
+    "gba/roster-profile.patch": "e02bb576fb0b470d026c3e309c98c46543f7bbcf7cc90457c9934d71a87dd4b5",
+    "gba/mechanics-profile.patch": "d8f8b6045274d2ffb8ec10a036b89f9bf93cc37c8449469d3a6f4d15ad389331",
+    "gba/mechanics-profile.json": "d5a85080e5ed852aaecd953cdb373a0e47b4b4a4f53639af9e6605cf5e0ddcc0",
+    "tools/gba/mechanics_test.c": "d77eda489ccc82269a38ff84839b17dcf3750d28b308f83c26c9d0a940374743",
+    "tools/gba/save_roundtrip.c": "6991c1d6b876384605884a285517ecfb04461ae93983ad8cb785f0814fe09bd1",
+    "tools/gba/audit_config.py": "a1093f2dfcbea7448a3da3f9856af0569034746a018d2658aa6c66ca12972bcd",
+    "tools/gba/profile.py": "2f2c205ad38b79e724e866df5108bc6e1136f8db08b6bb30799aa99037843e74",
+    "tools/gba/build.py": "3c81e9fe13812e3f17f6eabf8c6c2876f58fc449772a92e7a4ef68e4d84a0874"
+  },
+  "checks": {
+    "build": {
+      "log": "tools/vendor/gba/mechanics-build.log",
+      "sha256": "91b99f23a0b3ce5ac15dbc6492a7807023290408a3f071ad4e8ff5901cc60903",
+      "warnings": 1
+    },
+    "qualification": {
+      "log": "tools/vendor/gba/mechanics-qualification.log",
+      "sha256": "fbff1bd4272d06b57f968694818ae72f347917fe954354b960c74e403fa05e97",
+      "warnings": 1,
+      "passed": 2,
+      "total": 2
+    },
+    "tests": {
+      "log": "tools/vendor/gba/mechanics-tests.log",
+      "sha256": "5087e63eb4cbb40cb74690587788d226712b761914a075273697caa4cbb8b392",
+      "warnings": 1,
+      "passed": 2,
+      "total": 2
+    }
+  },
+  "limits": [
+    "No complete gameplay/menu playthrough",
+    "No release build qualification",
+    "30-box persistence remains deferred",
+    "Mechanics tests cover Fairy data/chart and ordinary-trainer theft, not all twelve settings",
+    "Initial theft fixture used recorded-link singles; corrected to ordinary AI trainer battle, then passed both Thief/Covet cases"
+  ]
+}

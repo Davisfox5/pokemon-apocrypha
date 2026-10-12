@@ -1,0 +1,19 @@
+{
+  "rom_sha256": "9a6efde5c87a5c983684ab0bbeeb5e73a55cb45dcbd869281ea0b377b29fe32b",
+  "checks": {
+    "travel": {
+      "passed": 49,
+      "seconds": 6.52
+    },
+    "collision": {
+      "passed": 3256,
+      "seconds": 354.71
+    }
+  },
+  "probe_sha256": {
+    "access-probes.tsv": "8e135861b65d55960c813a809f9b3016babcb576629f3e57b96620c917fc18ea",
+    "access-warps.tsv": "e64c60dce4b3630a3c93312550ac1968743dc92af7aadc9ee2f5432b1d391843"
+  },
+  "desktop_emulator_launched": false,
+  "scope": "Isolated Cherrygrove and its two approach maps; actual input, no desktop emulator."
+}

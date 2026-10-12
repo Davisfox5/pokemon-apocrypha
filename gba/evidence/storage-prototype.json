@@ -1,0 +1,54 @@
+{
+  "slots": 900,
+  "record_bytes": 80,
+  "snapshot_capacity": 94208,
+  "flash_bytes": 131072,
+  "host_workspace_bytes": 4256,
+  "max_atomic_changed_pages": 7,
+  "fault_cases": 1410,
+  "program_fault_stride": 64,
+  "erase_fault_stride": 1024,
+  "status": "passed_bounded_transactions_only",
+  "native_suite_wall_seconds": 3.187,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "root_metadata_fault_stride_bytes": 1,
+  "commit_marker_fault_stride_bits": 1,
+  "fresh_process_phases": [
+    "write",
+    "read",
+    "update",
+    "read-updated",
+    "read-updated"
+  ],
+  "fresh_process_medium_bytes": 131072,
+  "arm_workspace_bytes": 4236,
+  "arm_object_bytes": {
+    "text": 3016,
+    "data": 0,
+    "bss": 0
+  },
+  "arm_stack_usage_per_function": "store.c:71:13:writePage\t20\tstatic\nstore.c:77:13:writeRoot\t40\tstatic\nstore.c:30:23:loadRoot\t40\tstatic\nstore.c:10:10:ApsCrc32\t16\tstatic\nstore.c:58:16:ApsMount\t256\tstatic\nstore.c:94:16:ApsFormat\t152\tstatic\nstore.c:113:16:ApsRead\t44\tstatic\nstore.c:129:16:ApsCommit\t188\tstatic\n",
+  "gba_actual_pokemon_test": "passed: 900 records, first/last updates, remount; isolated test ROM",
+  "gba_emulator_timing_seconds_approx": {
+    "format_seconds": 9,
+    "three_page_commit_seconds": 2
+  },
+  "timing_limit": "Approximately one-second resolution in emulated GBA time; not physical cartridge latency.",
+  "sources_sha256": {
+    "store.h": "fe0b6d908005f15e509fa7c0728d2ab1ab699b76c3824a6bf18001189cecc04b",
+    "store.c": "79f9d7f54e39cfa0e5f42e905282f1cabd08c5e2f8881dc388ef465ef30136c8",
+    "test_store.c": "aa786467519fa4552f5e9bb5e3bcc159fb34f81c4f9e7fbede824654ff12e6b4",
+    "gba_test.c": "ef183c90332d0ca360880c5a99d82c951ad83ae05f0f688c2d7b1d67ea893e15"
+  },
+  "limitations": [
+    "At most seven changed 4 KiB pages per atomic transaction; eight or more safely refused.",
+    "Not integrated into the production PC/menu/save path, which still has 14 boxes.",
+    "Shared data-page corruption is detected but cannot always be repaired from an older root.",
+    "A full classic manual-save implementation remains unqualified."
+  ],
+  "injected_interruption_cases": 1408,
+  "completed_controls": 2
+}

@@ -1,0 +1,295 @@
+{
+  "reachable_tiles": 926,
+  "reachable_with_all_npc_ranges_occupied": 860,
+  "npc_ranges": [
+    {
+      "map": 0,
+      "id": "LOCALID_WATERFRONT",
+      "clear_cells": 3
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMMUTER",
+      "clear_cells": 3
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_JOHTO_BOY",
+      "clear_cells": 3
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_JOHTO_GIRL",
+      "clear_cells": 3
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_CAST_GOLD",
+      "clear_cells": 9
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_CAST_SILVER",
+      "clear_cells": 9
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_CAST_KESTRA",
+      "clear_cells": 5
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMPARE_HOENN",
+      "clear_cells": 3
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMPARE_KANTO",
+      "clear_cells": 9
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMPARE_JOHTO",
+      "clear_cells": 9
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMPARE_SINNOH",
+      "clear_cells": 9
+    },
+    {
+      "map": 0,
+      "id": "LOCALID_COMPARE_UNOVA",
+      "clear_cells": 3
+    }
+  ],
+  "warps": [
+    {
+      "map": 0,
+      "index": 0,
+      "x": 43,
+      "y": 17,
+      "destination": 1,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 1,
+      "x": 54,
+      "y": 19,
+      "destination": 2,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 2,
+      "x": 64,
+      "y": 24,
+      "destination": 3,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 3,
+      "status": "reserved inactive; forest blocked"
+    },
+    {
+      "map": 0,
+      "index": 4,
+      "x": 51,
+      "y": 9,
+      "destination": 5,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 5,
+      "x": 61,
+      "y": 9,
+      "destination": 6,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 6,
+      "x": 52,
+      "y": 31,
+      "destination": 11,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 0,
+      "index": 7,
+      "x": 65,
+      "y": 31,
+      "destination": 12,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 9,
+      "index": 0,
+      "x": 10,
+      "y": 18,
+      "destination": 20,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 9,
+      "index": 1,
+      "x": 10,
+      "y": 19,
+      "destination": 20,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 10,
+      "index": 0,
+      "x": 43,
+      "y": 12,
+      "destination": 13,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 10,
+      "index": 1,
+      "x": 44,
+      "y": 12,
+      "destination": 13,
+      "status": "reachable; destination clear"
+    },
+    {
+      "map": 10,
+      "index": 2,
+      "x": 45,
+      "y": 12,
+      "destination": 13,
+      "status": "reachable; destination clear"
+    }
+  ],
+  "active_visible_doors": 7,
+  "all_visible_door_approaches_remain_open_with_npc_ranges_occupied": true,
+  "walkable_tree_cells": 0,
+  "directed_edges": {
+    "land": 3201,
+    "solid": 433,
+    "water": 63,
+    "door": 7
+  },
+  "native_collision_probes": 3256,
+  "native_travel_cases": 49,
+  "connection_seams": [
+    [
+      0,
+      43,
+      0,
+      64,
+      10,
+      43,
+      17
+    ],
+    [
+      0,
+      44,
+      0,
+      64,
+      10,
+      44,
+      17
+    ],
+    [
+      0,
+      45,
+      0,
+      64,
+      10,
+      45,
+      17
+    ],
+    [
+      0,
+      79,
+      17,
+      16,
+      9,
+      0,
+      17
+    ],
+    [
+      0,
+      79,
+      18,
+      16,
+      9,
+      0,
+      18
+    ],
+    [
+      0,
+      79,
+      19,
+      16,
+      9,
+      0,
+      19
+    ],
+    [
+      9,
+      0,
+      17,
+      32,
+      0,
+      79,
+      17
+    ],
+    [
+      9,
+      0,
+      18,
+      32,
+      0,
+      79,
+      18
+    ],
+    [
+      9,
+      0,
+      19,
+      32,
+      0,
+      79,
+      19
+    ],
+    [
+      10,
+      43,
+      17,
+      128,
+      0,
+      43,
+      0
+    ],
+    [
+      10,
+      44,
+      17,
+      128,
+      0,
+      44,
+      0
+    ],
+    [
+      10,
+      45,
+      17,
+      128,
+      0,
+      45,
+      0
+    ]
+  ],
+  "layout_sha256": {
+    "CherrygroveCity": "98af33ea590bada17a0565143f1668dfe331038154819b03c70bca1deba61026",
+    "CherrygroveRoute29Approach": "3d3a350604e8a27b69b18b86bb54bd9088f1a7f1ed50c4183082cb2d34e2b52e",
+    "CherrygroveRoute30Approach": "0e59a68d107f2191a0bbf89eb09ec2c3d534c1160780576675d70f5edfb9f29a"
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "PokemonCenter",
+    "metatile": 407,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "HouseWest",
+    "metatile": 414,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "HouseEast",
+    "metatile": 419,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "Lodge",
+    "metatile": 128,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "ShedWest",
+    "metatile": 148,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "ShedEast",
+    "metatile": 153,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  }
+]

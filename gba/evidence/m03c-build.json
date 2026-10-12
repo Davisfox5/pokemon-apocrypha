@@ -1,0 +1,68 @@
+{
+  "decision": "M03c ORAS level-up learnsets and Gen 5 move data, approved 2026-09-11",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "91268f953d73f658714a594489f620ea51d24b983134dbf9d673a1520cb38e1d",
+  "build_exit_code": 0,
+  "tests_passed": 15,
+  "tests_total": 15,
+  "settings": [
+    "P_LVL_UP_LEARNSETS GEN_LATEST -> GEN_6",
+    "B_UPDATED_MOVE_DATA GEN_LATEST -> GEN_5"
+  ],
+  "learnset_audit": {
+    "method": "Level-up learnsets are a whole-file swap in src/pokemon.c; resolved the Fairy-typed roster against each candidate file in src/data/pokemon/level_up_learnsets/.",
+    "fairy_typed_roster_species": 23,
+    "species_with_no_fairy_attacking_move": {
+      "GEN_5": 22,
+      "GEN_6": 7,
+      "GEN_7": 7,
+      "GEN_9": 2,
+      "GEN_6_after_owner_exception": 6
+    },
+    "why_not_gen_5": "At Gen 5 learnsets only Sylveon learns a Fairy attacking move, because Sylveon post-dates B2W2 and falls back to its Gen 6 data. Clefable, Gardevoir, Azumarill, Togekiss, Whimsicott, Mawile, Granbull, Wigglytuff and the rest learn none. TMs cannot compensate: include/constants/tms_hms.h still holds the vanilla Emerald 50 TMs and 8 HMs, which contain no Fairy move and no Gen 4 or Gen 5 move.",
+    "remaining_six_at_gen_6": "AZURILL, CLEFFA, IGGLYBUFF, MIME_JR and TOGEPI are babies that evolve into a species that has one; TOGEKISS has none of its own but carries Fairy Wind up from Togetic, which learns it at 14.",
+    "owner_exception": "MR_MIME was the only final-stage Fairy species left with no Fairy attacking move. Given MOVE_DAZZLING_GLEAM at level 44 in level_up_learnsets/gen_6.h, matching the level it learns it in the present-day games."
+  },
+  "move_data_audit": {
+    "selectors_total": 344,
+    "moves_changed_at_gen_5": 133,
+    "selectors_changed_at_gen_5": 169,
+    "fields": {
+      "power": 81,
+      "pp": 37,
+      "accuracy": 19,
+      "priority": 6,
+      "other": 26
+    },
+    "examples": [
+      "Flamethrower/Surf/Ice Beam/Thunderbolt 90 -> 95",
+      "Hydro Pump/Blizzard/Thunder/Fire Blast 110 -> 120",
+      "Swords Dance PP 20 -> 30, Growth PP 20 -> 40",
+      "Thunder Wave accuracy 90 -> 100",
+      "Reversed later buffs: Vine Whip 45 -> 35, Pin Missile 25 -> 14, Skull Bash 130 -> 100"
+    ],
+    "safety_check": "No selector's Gen 5 branch resolves to zero power, accuracy or PP, so no move is broken. No Fairy move carries a move-data selector that GEN_5 reaches; Moonblast, Dazzling Gleam, Play Rough, Disarming Voice, Draining Kiss and Fairy Wind are literals.",
+    "not_changed": "B_UPDATED_MOVE_FLAGS is deliberately left at GEN_LATEST. It is a separate open choice; setting it to GEN_5 would, among other things, remove sound moves' ability to bypass Substitute."
+  },
+  "sources": {
+    "gba/mechanics-profile.patch": "04c51d624c744d349a99c369a8a7638fb8e6ee47042d9368960d3f61fea92ae1",
+    "gba/mechanics-profile.json": "a2b092346022af6cc396f353ffcf35ab1b78e0a041e24d0946ef80561e153252",
+    "tools/gba/mechanics_test.c": "3348d23b0f388db2150c4eef6db2ff7618c8ac3206b57d3b41f21f2980696ad7",
+    "game/include/config/pokemon.h": "19b0de17e9748f2fb9a67a8eec0cada4fda01bc0d746b1170bfb12bc4d05f945",
+    "game/include/config/battle.h": "11aeec55c0da8cb1d9eba2c59a3bc4a346ff0490e58d5f96aaa61285d6433454",
+    "game/src/data/pokemon/level_up_learnsets/gen_6.h": "576a6801e47def723cc8c6007c2a5b037aea36aa89ebb6cce22cf1702ed643a1"
+  },
+  "logs": {
+    "tools/vendor/gba/m03c-build.log": "9e505f5df88d2cde202f82c2786ee1c688369c4e935064733ab202e16c8251f4",
+    "tools/vendor/gba/m03c-tests.log": "eb7670f5f6bb174194fef19665c6c9d341b765603516a51c6f75001b1cb447b0"
+  },
+  "limits": [
+    "One test assertion initially failed because the helper returns the first level a move is learned and Gardevoir learns Moonblast twice; the assertion was corrected to a unique level and no production data was changed",
+    "Static resolution plus runtime assertions over sampled species and moves; not an exhaustive per-species learnset or per-move historical audit",
+    "The TM/HM list is still vanilla Emerald's 50 TMs and 8 HMs, with no Gen 4, Gen 5 or Fairy move. That is a pre-existing gap, unrelated to this decision and still unaddressed",
+    "B_UPDATED_MOVE_FLAGS, species experience yields and breeding rules remain inherited and unapproved",
+    "Weather-setter abilities and the restored move power both change battle pacing; no trainer or gym team has been designed or rebalanced around either",
+    "The existing linker RWX warning is unchanged; this is not a warning-free or release certification",
+    "No full playthrough, menu pass or five-region progression balance"
+  ]
+}

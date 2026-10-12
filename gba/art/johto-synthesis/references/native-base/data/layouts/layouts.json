@@ -1,0 +1,110 @@
+{
+  "layouts_table_label": "gMapLayouts",
+  "layouts": [
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "name": "LittlerootTown_ProfessorBirchsLab_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HOUSE1",
+      "name": "House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/House1/border.bin",
+      "blockdata_filepath": "data/layouts/House1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
+      "name": "CherrygroveRoute29Approach_Layout",
+      "width": 98,
+      "height": 34,
+      "primary_tileset": "gTileset_CherrygrovePrimary",
+      "secondary_tileset": "gTileset_ClaudeRoute29",
+      "border_filepath": "data/layouts/CherrygroveRoute29Approach/border.bin",
+      "blockdata_filepath": "data/layouts/CherrygroveRoute29Approach/map.bin",
+      "build_target": "emerald",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
+      "name": "CherrygroveRoute30Approach_Layout",
+      "width": 35,
+      "height": 74,
+      "primary_tileset": "gTileset_CherrygrovePrimary",
+      "secondary_tileset": "gTileset_ClaudeRoute30",
+      "border_filepath": "data/layouts/CherrygroveRoute30Approach/border.bin",
+      "blockdata_filepath": "data/layouts/CherrygroveRoute30Approach/map.bin",
+      "build_target": "emerald",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN",
+      "name": "NewBarkTown_Layout",
+      "width": 36,
+      "height": 50,
+      "primary_tileset": "gTileset_CherrygrovePrimary",
+      "secondary_tileset": "gTileset_NewBark",
+      "border_filepath": "data/layouts/NewBarkTown/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
+      "build_target": "emerald",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE31",
+      "name": "JohtoRoute31_Layout",
+      "width": 63,
+      "height": 30,
+      "primary_tileset": "gTileset_CherrygrovePrimary",
+      "secondary_tileset": "gTileset_Route31",
+      "border_filepath": "data/layouts/JohtoRoute31/border.bin",
+      "blockdata_filepath": "data/layouts/JohtoRoute31/map.bin",
+      "build_target": "emerald",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VIOLET_CITY_ENTRANCE",
+      "name": "VioletCityEntrance_Layout",
+      "width": 28,
+      "height": 24,
+      "primary_tileset": "gTileset_CherrygrovePrimary",
+      "secondary_tileset": "gTileset_VioletEntrance",
+      "border_filepath": "data/layouts/VioletCityEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/VioletCityEntrance/map.bin",
+      "build_target": "emerald",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VIOLET_EAST_GATE",
+      "name": "VioletEastGate_Layout",
+      "width": 15,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route110_SeasideCyclingRoadEntrance/map.bin",
+      "layout_version": "emerald",
+      "build_target": "emerald"
+    },
+    {
+      "id": "LAYOUT_DARK_CAVE_ENTRANCE",
+      "name": "DarkCaveEntrance_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/DarkCaveEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/DarkCaveEntrance/map.bin",
+      "layout_version": "emerald"
+    }
+  ]
+}

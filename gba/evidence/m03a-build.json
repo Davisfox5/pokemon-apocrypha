@@ -1,0 +1,56 @@
+{
+  "decision": "M03a Gen 5 species base stats approved 2026-09-11",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "normal_rom_sha256": "479bcc744c0c7c30159896dc094e0e011e6a5c560d74f25775dae2f259b6c968",
+  "build_exit_code": 0,
+  "tests_passed": 10,
+  "tests_total": 10,
+  "setting": "P_UPDATED_STATS GEN_LATEST -> GEN_5",
+  "selector_audit": {
+    "method": "Static scan of game/src/data/pokemon/species_info/*.h for every P_UPDATED_STATS selector, resolved against GEN_5.",
+    "selectors_total": 191,
+    "selectors_unchanged_at_gen_5": 115,
+    "selectors_changed_at_gen_5": 76,
+    "unchanged_breakdown": "113 gated on >= GEN_2 stay true (Gen 1 special-stat split retained); 2 gated on == GEN_1 stay false.",
+    "changed_breakdown": "32 gated on >= GEN_6, 35 on >= GEN_7, 1 on >= GEN_8, 8 on >= GEN_9 now resolve to the Black 2/White 2 value.",
+    "shared_macros_traced": [
+      "PIKACHU_DEFENSE",
+      "PIKACHU_SP_DEF",
+      "ALAKAZAM_SP_DEF",
+      "WIGGLYTUFF_SP_ATK",
+      "VICTREEBEL_SP_DEF",
+      "AEGISLASH_MAIN_STAT",
+      "CHARIZARD_SP_ATK",
+      "BLASTOISE_SP_DEF",
+      "GENGAR_SP_DEF",
+      "EEVEE_SP_ATK"
+    ],
+    "gen_6_plus_entries_reached": {
+      "SPECIES_ALAKAZAM_MEGA": "Enabled (P_MEGA_EVOLUTIONS TRUE). Sp. Def pinned to canonical 105 in gen_1_families.h.",
+      "SPECIES_BUTTERFREE_GMAX": "Compiled out (P_GIGANTAMAX_FORMS FALSE).",
+      "SPECIES_PIKACHU_GMAX": "Compiled out (P_GIGANTAMAX_FORMS FALSE).",
+      "AEGISLASH_MAIN_STAT": "Compiled out (P_GEN_6_POKEMON FALSE).",
+      "SPECIES_ZACIAN_HERO / ZACIAN_CROWNED / ZAMAZENTA_HERO / ZAMAZENTA_CROWNED": "Compiled out (P_GEN_8_POKEMON FALSE)."
+    },
+    "sylveon": "No P_UPDATED_STATS selector; literal 95/65/65/60/110/130 is already canonical. Unaffected.",
+    "megas_checked": "All 98 Mega entries scanned; only SPECIES_ALAKAZAM_MEGA used the selector."
+  },
+  "sources": {
+    "gba/mechanics-profile.patch": "0eca7ca1c19f311768a1dbe3e042984d24bfdaaec25643cd7795d36c80e03e6b",
+    "gba/mechanics-profile.json": "223ab5402d4be09a885b969b681899235ac948e64f7926d8082eddf1035b2280",
+    "tools/gba/mechanics_test.c": "ed453abfcc9b755611e0ee878b4265cb7ab0ca5ac01d11da4415121df9d8f5b3",
+    "game/include/config/pokemon.h": "3075d18e88bc44755a552290374a7c35292720e9bdbff580cf9fd910ba696e37",
+    "game/src/data/pokemon/species_info/gen_1_families.h": "fb79fa715ef90dbef31b0a079132bdb1536de4ff7d4c73ada3920838cce4cc42"
+  },
+  "logs": {
+    "tools/vendor/gba/m03a-build.log": "a1fdd767f6b5a8eaa4d9966129c95da194a69e00181f3ecdcb6a59e3ea4029db",
+    "tools/vendor/gba/m03a-tests.log": "685f0e28ea0be06013513fba267a0c6fee8885be2e49a31fffd4ec24896a0c72"
+  },
+  "limits": [
+    "Static selector scan plus 10 runtime assertions over sampled species; not an exhaustive per-species historical database audit",
+    "Abilities, learnsets/move data and species experience yields remain inherited and unapproved",
+    "The existing linker RWX warning is unchanged; this is not a warning-free or release certification",
+    "No full playthrough, menu pass or five-region progression balance",
+    "No save-format changes; the 30-box question remains deferred"
+  ]
+}

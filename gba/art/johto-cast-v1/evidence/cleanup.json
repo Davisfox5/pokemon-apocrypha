@@ -1,0 +1,63 @@
+{
+  "scope": "Overworld walking sprites for visual review; battle art and unused Gold action cells unchanged",
+  "cleanup_method": "Aseprite Lua repairs to original indexed pixels; imagegen comparison is a reference only",
+  "cleanup_indexed_changes": {
+    "gold": 93,
+    "silver": 130,
+    "kestra": 0
+  },
+  "gold_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    11,
+    12,
+    13
+  ],
+  "silver_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "kestra_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "translation": [
+    0,
+    1
+  ],
+  "palette": "nearest RGB555; no spatial resizing",
+  "original_sha256": {
+    "gold_adult_ow_grid.png": "c1091104cbb259b743abd0ec8db15894507bdc7dadb025521574b7b06418912c",
+    "silver_adult_ow.png": "174f31fb9da9584bfba62cd764ce7b1fc00f3c681523567b02ef01b7c113eeef",
+    "kestra_ow.png": "6ba95d62b914033a3f7c3488796349eede3f2881cdcc3852f8771b9945a17b5c"
+  },
+  "generated_reference": "references/generated-cleanup-reference.png",
+  "placements_are_visual_review_only": true
+}

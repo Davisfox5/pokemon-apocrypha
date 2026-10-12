@@ -1,0 +1,36 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "references/floccesy-spring.png",
+  "assets": [
+    {
+      "name": "alder",
+      "prompt": "Use case: stylized-concept. Create ONE isolated crisp pixel-art overworld asset for a GBA Pokemon adaptation of Floccesy Town from Black 2/White 2. Use original attached town map as design reference. North-up RPG orthographic view, front wall facing due south with visible roof from above, no sideways/isometric rotation. Hand-clustered limited-color pixel art readable at 64 pixels wide. True transparent alpha background, no ground rectangle, no labels, no external cast shadows, no antialiasing. Entire asset with margin. The rustic brick house at upper left of map, beside the training court. One squat rectangular single-story dark terracotta brick lodge, broad red-brown clay tiled roof, a couple of lighter stone patches, simple dark blue central doorway at bottom, small dark blue windows either side. Rugged warm masonry. Native dimensions approximately64x64.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-0534cc88-d53e-4136-9b36-e2b6713f5a91.png"
+    },
+    {
+      "name": "shed",
+      "prompt": "Use case: stylized-concept. Create ONE isolated crisp pixel-art overworld asset for a GBA Pokemon adaptation of Floccesy Town from Black 2/White 2. Use original attached town map as design reference. North-up RPG orthographic view, front wall facing due south with visible roof from above, no sideways/isometric rotation. Hand-clustered limited-color pixel art readable at 64 pixels wide. True transparent alpha background, no ground rectangle, no labels, no external cast shadows, no antialiasing. Entire asset with margin. ONE utility barn like the LEFT barn in the pair north of the town. Tall long ridged red-orange pitched tile roof (ridge runs north-south away from viewer), olive gray single-story front wall, broad horizontal dark blue window/garage panel, stone foundation. A compact rectangular storage shed with a dark central small human door on bottom/front; no surrounding yard. Native64x64.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-b9c5eeb5-c6a9-4de5-b2b9-67a5fc0eab4f.png"
+    },
+    {
+      "name": "tree",
+      "prompt": "Use case: stylized-concept. Create ONE isolated crisp pixel-art overworld asset for a GBA Pokemon adaptation of Floccesy Town from Black 2/White 2. Use original attached town map as design reference. North-up RPG orthographic view, front wall facing due south with visible roof from above, no sideways/isometric rotation. Hand-clustered limited-color pixel art readable at 64 pixels wide. True transparent alpha background, no ground rectangle, no labels, no external cast shadows, no antialiasing. Entire asset with margin. ONE broadleaf tree matching the reference's Unova spring forest: bright yellow-green top, layered softly scalloped round canopy wider at middle, darker blue-green lower lobes, visible short warm brown trunk. Single coherent crown, not two trees stacked, no conifer tip. Top-down Pokemon style at native32x40. No ground pixels or grass beneath.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-09741ad5-706c-4d9e-afe6-5149977d5798.png"
+    },
+    {
+      "name": "house",
+      "prompt": "Use case: stylized-concept. Create ONE isolated native-style pixel-art overworld asset for a GBA Pokemon town adapted from Floccesy Town in Pokemon Black 2/White 2. Reference image is the original game map, use it only for design identity. Orthographic front-facing north-up RPG view with roof visible from above, no sideways isometric rotation. Crisp hand-clustered pixel art readable at 64-80 pixels wide; restrained 15-color palette, no antialiasing or gradients. Transparent alpha background, no ground rectangle, no captions, no shadows outside footprint. Entire object with margin. A two-story warm tan brick townhouse like the pair in the lower right of reference: red-orange tiled steep gabled roof with gable facing south, narrow cream chimney rising on the right roof slope, warm beige facade, dark teal front door slightly left of center at bottom, little arched blue attic window, dark foundation. ONE house only. Broad enough to read at 64x80.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-cda63a27-f2bc-4918-836a-436cb49d0270.png"
+    },
+    {
+      "name": "center",
+      "prompt": "Use case: stylized-concept. Create ONE isolated native-style pixel-art overworld asset for a GBA Pokemon town adapted from Floccesy Town in Pokemon Black 2/White 2. Reference image is the original game map, use it only for design identity. Orthographic front-facing north-up RPG view with roof visible from above, no sideways isometric rotation. Crisp hand-clustered pixel art readable at 64-80 pixels wide; restrained 15-color palette, no antialiasing or gradients. Transparent alpha background, no ground rectangle, no captions, no shadows outside footprint. Entire object with margin. The Pokemon Center at lower left of reference: substantial scarlet curved barrel roof, silver-gray ledges and blue glass band, pale blue lower walls, prominent orange curved entry canopy over central double sliding door at bottom, white Pokeball symbol on the blue canopy fascia. Symmetric single building with narrow side returns. Compact native silhouette for 80x80 sprite.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-f87b24af-2f85-47d6-82fc-93ad790604a4.png"
+    },
+    {
+      "name": "tower",
+      "prompt": "Use case: stylized-concept. Create ONE isolated native-style pixel-art overworld asset for a GBA Pokemon town adapted from Floccesy Town in Pokemon Black 2/White 2. Reference image is the original game map, use it only for design identity. Orthographic front-facing north-up RPG view with roof visible from above, no sideways isometric rotation. Crisp hand-clustered pixel art readable at 64-80 pixels wide; restrained 15-color palette, no antialiasing or gradients. Transparent alpha background, no ground rectangle, no captions, no shadows outside footprint. Entire object with margin. The clock tower in the middle-left of reference. ONE narrow square stone clock tower on a low stone plinth, light warm gray/beige stone, small circular dark clock on south face with visible hands, slim recess above, blue-purple pyramidal tiled roof, classic village clock tower. Top-down 3/4 FRONT view, clock facing directly south. No garden, no enclosure, no path. Compact silhouette intended 48x80 native pixels.",
+      "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-b337680e-1208-4108-bfaa-c6802d1f458a.png"
+    }
+  ]
+}

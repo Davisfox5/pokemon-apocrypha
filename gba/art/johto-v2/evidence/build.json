@@ -1,0 +1,29 @@
+{
+  "rom_sha256": "46898ca667565124f7b1e221d2ca2b496bf980385b6659b4156c2a7c77849fde",
+  "elf_sha256": "1fd7091be7b3ecad6830e323c2158755f4fcd2c2b3f5028097797b89d7a30d6d",
+  "patch_sha256": "7853269eac455a3f24765cb27ddb65d89fe46a6f076e583f7cf1a24e13c3c0f2",
+  "build_exit_code": 0,
+  "rom_linked_bytes": 19650436,
+  "ewram_bytes": 226736,
+  "iwram_bytes": 28392,
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "runtime_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "emulator": "mGBA 0.10.5",
+  "rtc_ms": 1789300800000,
+  "isolated_checkout": "tools/vendor/gba/johto-art-v2-game",
+  "production_game_edited": false,
+  "art_patch_applies_to_town_baseline": true,
+  "art_patch_reverse_check": true,
+  "native_pixels_match_installed_tiles": true,
+  "gallery_exit_code": 0,
+  "compiler_sha256": "b86b1c54a77c1ce8c5d322a3ee7370f36950dcfe65c54c119365d1977a6e0057",
+  "installer_sha256": "2023df294c99227f3479c1a13b8fe51b3c730a6b305b26fa2b228fdc8198102a"
+}

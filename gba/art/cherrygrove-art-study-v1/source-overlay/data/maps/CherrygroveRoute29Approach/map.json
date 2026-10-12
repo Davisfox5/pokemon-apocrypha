@@ -1,0 +1,44 @@
+{
+  "id": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+  "name": "CherrygroveRoute29Approach",
+  "layout": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_TOWN",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_TOWN",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 0,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "9"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "build_target": "emerald",
+  "region": "REGION_JOHTO"
+}

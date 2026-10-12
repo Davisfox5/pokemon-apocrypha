@@ -1,0 +1,28 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-09-21",
+  "assets": [
+    {
+      "name": "cargo-vessel",
+      "prompt": "Isolated medium coastal cargo vessel in Johto GBA pixel-art style; overhead view with south hull side, horizontal bow left, navy hull, cream wheelhouse, crates, mast and lifebuoy; transparent background, no people, no sea.",
+      "native_size": [
+        128,
+        64
+      ],
+      "source": "gba/art/johto-restart/generated/cargo-vessel.png",
+      "sha256": "c06fbf50fcbbb88da91e8bd1f4d65e2bd2799e4bb606cfaa424b0afdf8f52d27",
+      "processing": "Nearest-neighbor native reduction; alpha threshold 224; existing Center palette; exact map pixel roundtrip verified."
+    },
+    {
+      "name": "fishing-boat",
+      "prompt": "Isolated small Johto GBA fishing launch; horizontal bow left, cream wheelhouse, wooden gunwales, rolled nets and bucket; transparent background, no people, no water or pier.",
+      "native_size": [
+        64,
+        32
+      ],
+      "source": "gba/art/johto-restart/generated/fishing-boat.png",
+      "sha256": "ace9eed5d1997799de8aa4ee11bfe7e3bdd1581a11ee994fe1f9aa391a9de257",
+      "processing": "Nearest-neighbor native reduction; alpha threshold 224; existing Center palette; exact map pixel roundtrip verified."
+    }
+  ]
+}

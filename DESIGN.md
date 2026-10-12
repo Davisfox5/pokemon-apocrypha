@@ -1,34 +1,45 @@
 # Pokemon Apocrypha — Design Foundation
 
+> **Active platform: GBA / pokeemerald-expansion (owner-approved 2026-09-10).**
+> Read only task-relevant sections. [Foundation decisions](docs/FOUNDATION_DECISIONS.md)
+> govern technical scope; [the context index](docs/CONTEXT_INDEX.md) provides navigation.
+> DS-specific IDs, script references, coordinates, and implementation notes in
+> chapter sections are historical, not GBA instructions. Narrative intent remains
+> authoritative. [The DS archive](archive/gen4/README.md) preserves the prior version.
+
 > Working title. Subject to change.
 
-This document captures every confirmed design decision for the romhack.
-It is the single source of truth. Anything not written here is not decided.
+This document records narrative and creative decisions for the romhack.
+Approved technical scope and agent responsibilities live in
+`docs/FOUNDATION_DECISIONS.md` and `AGENTS.md`. Proposals are not canon until
+accepted by the owner; current owner instructions take precedence.
 
 ---
 
 ## Technical Foundation
 
-- **Engine**: pokeheartgold decomposition project (Gen-4 Nintendo DS). Johto and Kanto are native to this base. Sinnoh ports from the pokeplatinum decomp (same-generation DS engine). Hoenn ports from the pokeemerald decomp (Gen-3 GBA — requires map/tile format conversion to the DS engine). Unova has no decomp source available: no Black 2/White 2 decompilation exists (pret has no Gen-5 project, and the only live Gen-5 effort — pokemodding/pokeblack — targets BW1, not B2W2, and is early-stage disassembly). Unova map data will therefore be extracted directly from the B2W2 ROM using DS map-editing tools and converted to the Gen-4 (HGSS) map format.
-- **Scope**: Solo developer. All assets (sprites, tiles, music) reuse existing community resources. Outside help is welcome but not a dependency.
-- **Mega Evolution**: Introduced late-game via community-built implementations. Narratively framed as a rediscovered technique, not a new invention.
-- **Special battle mechanics (Fairy, Shadow, Tera)**: Fairy type, Shadow Pokemon, and Terastallization are all required as gym mechanics. Like Mega Evolution, they adapt existing community implementations where available rather than being built from scratch.
+- **Engine**: GBA ROM with Gen 3 2D presentation on pokeemerald-expansion. Five regions are authored for this one runtime, using existing regional assets and layouts as references rather than requiring conversion. The former DS implementation is retained as historical reference and a fallback only for an explicitly approved hard blocker.
+- **Scope and ownership**: The owner directs story and creative identity and reviews/playtests. AI agents perform design production, new map elements, character artwork, coding, gameplay implementation, tooling, testing, and revisions. Reuse suitable resources; create new assets where the design calls for them. Routine manual production by the owner is not a dependency.
+- **Mega Evolution**: Introduced late-game via existing implementations where available. Narratively a rediscovered technique. Otherwise retain classic Pokemon battle flow.
+- **Fairy typing**: Apply canonical Fairy typing to all affected existing Pokemon and approved added Fairy species.
+- **Shadow and Terra**: Two additional custom types alongside the 18 standard types. Shadow is confined to Wes's gym; Terra is confined to the designated final gym leader. Both are assigned before battle, with no mid-battle type transformation. Terra is not Terastallization, and Shadow is not merely a status condition. Preserve the existing gym narrative; matchups, moves, and individual typing assignments remain to be specified.
+- **PC and saves**: Thirty boxes (900 slots) for living-Pokedex support, with familiar PC interaction and ordinary save/continue. Verify save capacity and persistence on the actual build.
 - **Fakemon**: None. The Pokedex is entirely canonical.
 
 ---
 
-> **Engineering scope lives in `ENGINEERING.md`.** Region sourcing (how each region is ported or extracted onto the HGSS base), the hardest technical problems, and build/tooling constraints are tracked there. Consult it for any implementation, porting, engine-modification, or feasibility work. This document stays focused on creative and narrative design; when a design decision below carries engineering cost, record that cost in ENGINEERING.md rather than here.
+> **Engineering scope lives in `ENGINEERING.md` and `docs/FOUNDATION_DECISIONS.md`.** They govern the active GBA production plan. Older engine-specific chapter build reports are archived references, not prerequisites for the new implementation.
 
 ---
 
 ## Visual Identity & Art Direction
 
-The game looks deliberately different from GSC/HGSS even where it reuses their regions — a visual signal that this is a new story set roughly a decade later. The identity is a **cinematic color grade** applied as a palette-authoring discipline across every tileset. (The DS has no post-process shader, so the "grade" is a consistent rule for how palette entries are chosen, not a filter.)
+The game looks deliberately different from GSC/HGSS even where it reuses their regions — a visual signal that this is a new story set roughly a decade later. The identity is a **cinematic color grade** applied as a palette-authoring discipline across every tileset. The grade is implemented through deliberately authored palettes, not a post-process filter.
 
 - **Shadows / dark tones** shift cool — toward teal and blue, never neutral black.
 - **Highlights / light tones** shift warm — toward amber and gold.
 - **Midtones** stay rich but slightly desaturated; avoid GSC's flat primaries.
-- Day/night uses HGSS's existing time-of-day palette tinting, authored to deepen the grade rather than fight it.
+- Day/night presentation must preserve this palette direction. Qualify the selected GBA implementation rather than assuming the former HGSS tinting system is available.
 
 **Per-region hue bias** keeps the grade unified while giving each region a distinct temperature:
 
@@ -118,7 +129,7 @@ The gradient is the storytelling tool:
 
 Imports and naturalized wilds must remain **level- and stage-appropriate**: cross-region access widens the *species* pool, never the power curve. Early-game imports are low-evolution Pokemon that happen to come from elsewhere, not overleveled threats.
 
-**Dex breadth**: The obtainable roster is roughly Generations 1–5 (matching the five regions' native species) plus a small set of specific cross-region picks where the design calls for them (e.g. Sylveon and Roserade for the Fairy gym). This is *not* a full National Dex, and no Generation 7–9 species are obtainable. Note that the special gym mechanics reach later generations even though the species do not — the Tera gym, for instance, uses Terastallized Gen-1 Pokemon.
+**Dex breadth**: The obtainable roster is roughly Generations 1–5 (matching the five regions' native species) plus a small set of specific cross-region picks where the design calls for them (e.g. Sylveon and Roserade for the Fairy gym). This is *not* a full National Dex, and no Generation 7–9 species are obtainable. The Terra gym uses Gen-1 Pokemon assigned the custom Terra type before battle; this does not expand the obtainable species roster.
 
 ---
 
@@ -485,7 +496,7 @@ The climax is a coordinated confrontation across multiple fronts:
 
 ## Gym Roster
 
-All 18 standard types are represented exactly once. Two additional special mechanics (Shadow and Tera) fill the remaining slots for 20 unique gym experiences.
+All 18 standard types are represented exactly once. Two additional custom types (Shadow and Terra) fill the remaining slots for 20 unique gym experiences.
 
 **Roster Rule**: Gym leaders use Pokemon that debuted in their gym's region's generation. Leaders from a different region than their gym may bring one Pokemon from their home region.
 
@@ -505,7 +516,7 @@ All 18 standard types are represented exactly once. Two additional special mecha
 | Cerulean City | Fire | Blaine | Relocated from destroyed Cinnabar Island. Well into his 80s and refuses to stop battling — a running joke. The town rolls their eyes but he persists. Gen 1 Fire roster: Ninetales, Arcanine, Rapidash, Flareon. |
 | Fuchsia City | Grass | Gardenia | Former Eterna gym leader (Sinnoh). Relocated to the Safari Zone for its biodiversity. Gen 1 Grass roster: Venusaur, Vileplume, Victreebel, Exeggutor, Tangela, Parasect. Cross-region pick: Roserade (Gen 4). |
 | Lavender Town | Ghost | Eve | Agatha's granddaughter. Agatha is deceased (memorial in Lavender cemetery). Eve is young but older than the player — sharp, dry, amused by running a Ghost gym in a town trying to rebrand away from ghosts. Gen 1 Ghost roster: Gengar, Haunter, plus Marowak (nod to the original Lavender ghost). Small roster is intentional — these are the only ghosts in Kanto. |
-| Viridian City | Tera | Paldean protagonist | Final gym. Visiting Kanto from Paldea ("a distant region"). Terastallized Gen 1 Pokemon. Strongest leader via Tera mechanic. Absent most of the game, explaining late availability. |
+| Viridian City | Terra | Paldean protagonist | Final gym. Visiting Kanto from Paldea ("a distant region"). Gen 1 Pokemon assigned the custom Terra type before battle. Strongest gym leader; no Terastallization. Absent most of the game, explaining late availability. |
 
 ### Hoenn Gyms
 
@@ -554,7 +565,7 @@ All 18 standard types are represented exactly once. Two additional special mecha
 | Fire | Cerulean | Blaine |
 | Grass | Fuchsia | Gardenia |
 | Ghost | Lavender | Eve |
-| Tera | Viridian | Paldean protagonist |
+| Terra | Viridian | Paldean protagonist |
 | Shadow | Rustboro | Wes |
 | Fighting | Slateport | Brawly |
 | Flying | Fortree | Falkner |

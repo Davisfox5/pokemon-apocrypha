@@ -1,0 +1,69 @@
+{
+  "tiles": 789,
+  "tile_capacity": 1008,
+  "door_tiles_reserved": 16,
+  "terrain_grain_merges": 0,
+  "metatiles": 327,
+  "metatile_capacity": 1024,
+  "mean_channel_error": 0.14374160766601562,
+  "overlap_quantized_quadrants": 308,
+  "max_channel_error": 181,
+  "tree_source": "HGSS tree01gs",
+  "buildings": [
+    {
+      "name": "PlayerHouse",
+      "style": "house",
+      "x": 33,
+      "y": 10,
+      "door": [
+        34,
+        14
+      ],
+      "warp": 0
+    },
+    {
+      "name": "GoldHouse",
+      "style": "gold_house",
+      "x": 43,
+      "y": 11.5,
+      "door": [
+        45,
+        16
+      ],
+      "warp": 1
+    },
+    {
+      "name": "NeighborHouse",
+      "style": "house",
+      "x": 53,
+      "y": 15,
+      "door": [
+        54,
+        19
+      ],
+      "warp": 2
+    },
+    {
+      "name": "Mart",
+      "style": "mart",
+      "x": 41,
+      "y": 4,
+      "door": [
+        42,
+        8
+      ],
+      "warp": 4
+    },
+    {
+      "name": "PokemonCenter",
+      "style": "center",
+      "x": 49,
+      "y": 3.5,
+      "door": [
+        51,
+        8
+      ],
+      "warp": 5
+    }
+  ]
+}

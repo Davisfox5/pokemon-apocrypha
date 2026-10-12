@@ -1,0 +1,61 @@
+{
+  "route29": {
+    "width": 98,
+    "height": 34,
+    "secondary_tiles": 230,
+    "secondary_tile_span": 290,
+    "secondary_metatiles": 234,
+    "secondary_metatile_span": 234,
+    "town_metatiles_copied_for_the_seam": 7,
+    "town_palette_banks_copied": [
+      6
+    ],
+    "seam_cells_in_primary": 235,
+    "seam_crossing_cells": 4,
+    "reused_primary_tiles": 128,
+    "palette_banks": {
+      "TALL": 7,
+      "LEDGE": 8,
+      "GATE": 9,
+      "FLORA": 12
+    },
+    "bank_conflict_tiles": 52,
+    "filler_trees": 50,
+    "blossom_trees": 5,
+    "trees": 500,
+    "margin_cells_walkable": 77,
+    "margin_cells_solid": 16
+  },
+  "route30": {
+    "width": 35,
+    "height": 74,
+    "secondary_tiles": 448,
+    "secondary_tile_span": 448,
+    "secondary_metatiles": 368,
+    "secondary_metatile_span": 368,
+    "town_metatiles_copied_for_the_seam": 24,
+    "town_palette_banks_copied": [
+      9
+    ],
+    "seam_cells_in_primary": 212,
+    "seam_crossing_cells": 4,
+    "reused_primary_tiles": 162,
+    "palette_banks": {
+      "TALL": 6,
+      "LEDGE": 7,
+      "MRPOKEMON": 8,
+      "BERRYHOUSE": 12
+    },
+    "bank_conflict_tiles": 129,
+    "filler_trees": 79,
+    "trees": 442,
+    "margin_cells_solid": 26,
+    "margin_cells_walkable": 45
+  },
+  "primary_appended": {
+    "tiles": 27,
+    "metatiles": 62,
+    "tiles_total": 511,
+    "metatiles_total": 409
+  }
+}

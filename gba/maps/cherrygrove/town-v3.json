@@ -1,0 +1,26 @@
+{
+  "name": "CherrygroveCity",
+  "width": 64,
+  "height": 40,
+  "spawn": [36, 19],
+  "north_exit": [38, 0, 4],
+  "east_exit": [63, 22, 4],
+  "buildings": [
+    {"name":"PlayerHouse", "x":33,"y":13,"style":"house","door":[35,17]},
+    {"name":"GoldHouse", "x":46,"y":17,"style":"house","door":[48,21]},
+    {"name":"NeighborHouse", "x":56,"y":25,"style":"house","door":[58,29]},
+    {"name":"TransplantHouse", "x":33,"y":25,"style":"house","door":[35,29]},
+    {"name":"Mart", "x":44,"y":5,"style":"mart","door":[45,7]},
+    {"name":"PokemonCenter", "x":54,"y":4,"style":"center","door":[56,8]}
+  ],
+  "landmarks": {
+    "blossom_park": [41,27,8,6],
+    "gold_battle_yard": [46,23,7,3],
+    "south_beach": [25,31,14,3],
+    "pier": [29,32,3,6],
+    "lookout": [25,23,3,4]
+  },
+  "save_position": [30,36],
+  "reference": "https://archives.bulbagarden.net/wiki/File:Cherrygrove_City_HGSS.png",
+  "geography": "Broad western bay, northern coastal cliff, curved west-facing beach, offshore rock island and sandbar; town east of the bay, Mart west of Center, Route 30 north and Route 29 east. Southern waterfront and fourth home are established Apocrypha additions."
+}

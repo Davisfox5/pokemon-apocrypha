@@ -1,0 +1,51 @@
+[
+  {
+    "name": "PlayerHouse",
+    "metatile": 700,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "GoldHouse",
+    "metatile": 700,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "NeighborHouse",
+    "metatile": 870,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "Mart",
+    "metatile": 616,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "PokemonCenter",
+    "metatile": 622,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "HarborHouse",
+    "metatile": 848,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "GardenHouse",
+    "metatile": 848,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  }
+]

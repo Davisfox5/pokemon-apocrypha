@@ -1,0 +1,25 @@
+{
+  "house": {
+    "installed_pixels_match_native": true,
+    "4bpp_roundtrip": true,
+    "palette_banks": [
+      8,
+      10
+    ]
+  },
+  "center": {
+    "installed_pixels_match_native": true,
+    "4bpp_roundtrip": true,
+    "palette_banks": [
+      8,
+      10
+    ]
+  },
+  "tree": {
+    "installed_pixels_match_native": true,
+    "4bpp_roundtrip": true,
+    "palette_banks": [
+      6
+    ]
+  }
+}

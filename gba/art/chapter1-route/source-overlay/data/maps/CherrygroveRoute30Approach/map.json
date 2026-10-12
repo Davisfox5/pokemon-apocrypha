@@ -1,0 +1,126 @@
+{
+  "id": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
+  "name": "CherrygroveRoute30Approach",
+  "layout": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_CITY",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ROUTE_KESTRA",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_KESTRA",
+      "x": 44,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveRoute30Approach_Kestra",
+      "flag": "FLAG_APOC_ROUTE_KESTRA_HIDDEN"
+    },
+    {
+      "local_id": "LOCALID_ROUTE_GOLD",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_GOLD",
+      "x": 43,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveRoute30Approach_Gold",
+      "flag": "FLAG_APOC_ROUTE_GOLD_HIDDEN"
+    },
+    {
+      "local_id": "LOCALID_ROUTE_RATTATA",
+      "graphics_id": "OBJ_EVENT_GFX_APOC_RATTATA",
+      "x": 45,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CherrygroveRoute30Approach_Rattata",
+      "flag": "FLAG_APOC_ROUTE_RATTATA_HIDDEN"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_APOC_CHAPTER_STAGE",
+      "var_value": "2",
+      "script": "CherrygroveRoute30Approach_Kestra"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_APOC_CHAPTER_STAGE",
+      "var_value": "2",
+      "script": "CherrygroveRoute30Approach_Kestra"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_APOC_CHAPTER_STAGE",
+      "var_value": "2",
+      "script": "CherrygroveRoute30Approach_Kestra"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CherrygroveRoute30Approach_Northbound"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CherrygroveRoute30Approach_Northbound"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CherrygroveRoute30Approach_Northbound"
+    }
+  ],
+  "bg_events": [],
+  "build_target": "emerald",
+  "region": "REGION_JOHTO"
+}

@@ -1,0 +1,99 @@
+{
+  "group": 80,
+  "map_ids": {
+    "CherrygroveCity": "MAP_CHERRYGROVE_CITY",
+    "CherrygrovePlayerHouse": "MAP_CHERRYGROVE_PLAYER_HOUSE",
+    "CherrygroveGoldHouse": "MAP_CHERRYGROVE_GOLD_HOUSE",
+    "CherrygroveNeighborHouse": "MAP_CHERRYGROVE_NEIGHBOR_HOUSE",
+    "CherrygroveTransplantHouse": "MAP_CHERRYGROVE_TRANSPLANT_HOUSE",
+    "CherrygroveMart": "MAP_CHERRYGROVE_MART",
+    "CherrygrovePokemonCenter": "MAP_CHERRYGROVE_POKEMON_CENTER",
+    "CherrygrovePlayerBedroom": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
+    "CherrygroveCenterUpstairs": "MAP_CHERRYGROVE_CENTER_UPSTAIRS",
+    "CherrygroveRoute29Approach": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+    "CherrygroveRoute30Approach": "MAP_CHERRYGROVE_ROUTE30_APPROACH"
+  },
+  "dimensions": [
+    44,
+    40
+  ],
+  "secondary_tile_count": 191,
+  "secondary_metatiles": 175,
+  "blossom_metatiles": {
+    "14": 656,
+    "468": 657,
+    "469": 658,
+    "484": 659,
+    "485": 660,
+    "500": 661,
+    "501": 662
+  },
+  "buildings": [
+    {
+      "name": "PlayerHouse",
+      "x": 7,
+      "y": 12,
+      "style": "house",
+      "door": [
+        9,
+        15
+      ]
+    },
+    {
+      "name": "GoldHouse",
+      "x": 23,
+      "y": 17,
+      "style": "house",
+      "door": [
+        25,
+        20
+      ]
+    },
+    {
+      "name": "NeighborHouse",
+      "x": 34,
+      "y": 24,
+      "style": "house",
+      "door": [
+        36,
+        27
+      ]
+    },
+    {
+      "name": "TransplantHouse",
+      "x": 4,
+      "y": 22,
+      "style": "house",
+      "door": [
+        6,
+        25
+      ]
+    },
+    {
+      "name": "Mart",
+      "x": 22,
+      "y": 5,
+      "style": "mart",
+      "door": [
+        23,
+        7
+      ]
+    },
+    {
+      "name": "PokemonCenter",
+      "x": 32,
+      "y": 5,
+      "style": "center",
+      "door": [
+        33,
+        8
+      ]
+    }
+  ],
+  "spawn": [
+    9,
+    17
+  ],
+  "native_formats": "Emerald 512/512 tiles, 16-bit metatile attributes",
+  "source": "Pinned pokeemerald-expansion general, Petalburg and Slateport native assets; map-local palette and metatile composition"
+}

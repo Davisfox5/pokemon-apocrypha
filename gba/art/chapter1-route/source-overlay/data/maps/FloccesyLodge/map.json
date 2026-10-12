@@ -1,0 +1,37 @@
+{
+  "id": "MAP_FLOCCESY_LODGE",
+  "name": "FloccesyLodge",
+  "layout": "LAYOUT_HOUSE1",
+  "music": "MUS_LITTLEROOT",
+  "region": "REGION_UNOVA",
+  "region_map_section": "MAPSEC_FLOCCESY_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_TOWN",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_TOWN",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

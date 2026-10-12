@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-13",
+  "baseline_commit": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "base_art_patch": "gba/johto-art-v3.patch",
+  "base_art_patch_sha256": "704fecd8e655477eadf89ef0f49331b97dddf752fbc4f15ebef14c84269009b9",
+  "npc_patch": "gba/johto-npc-v1.patch",
+  "npc_patch_sha256": "342bdcff95b964d9d32650e46f2985bfc5e5b268ef628dbc571d646fdf33ef89",
+  "npc_patch_applies_after_art_v3": true,
+  "patch_forward_and_reverse_checks": true,
+  "build_exit_code": 0,
+  "memory_bytes": {
+    "EWRAM": 226736,
+    "IWRAM": 28392,
+    "ROM": 19683700
+  },
+  "linked_rom_increase_bytes": 34264,
+  "rom_sha256": "1fe4888eeeec81a1fd65b52273eccb25d7515cacd4c8c61657c408e2f20f078c",
+  "save_sha256": "db8b0a8b7dcf0979b058404766d53da5104afab7c3f06b0c08e106508bb2afc1",
+  "save_bytes": 131072,
+  "continue_position": [
+    50,
+    13
+  ],
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "all_runtime_phases_pass": true,
+  "npc_movement_and_dialogue_pass": true,
+  "package": "tools/vendor/gba/Johto-NPC-preview.zip",
+  "package_sha256": "25a869dbe8673c96752921ece8fd46327ca3e40ae11d9dec373b24464fb3e888",
+  "package_rom_and_save_verified": true,
+  "production_game_untouched": true
+}

@@ -1,0 +1,189 @@
+{
+  "rom_sha256": "9a6efde5c87a5c983684ab0bbeeb5e73a55cb45dcbd869281ea0b377b29fe32b",
+  "cases": [
+    {
+      "case": "PlayerHouse-behind",
+      "x": 43,
+      "y": 13,
+      "expected_x": 43,
+      "expected_y": 13,
+      "passed": true
+    },
+    {
+      "case": "PlayerHouse-side",
+      "x": 40,
+      "y": 16,
+      "expected_x": 40,
+      "expected_y": 16,
+      "passed": true
+    },
+    {
+      "case": "PlayerHouse-front",
+      "x": 41,
+      "y": 18,
+      "expected_x": 41,
+      "expected_y": 18,
+      "passed": true
+    },
+    {
+      "case": "GoldHouse-behind",
+      "x": 55,
+      "y": 15,
+      "expected_x": 55,
+      "expected_y": 15,
+      "passed": true
+    },
+    {
+      "case": "GoldHouse-side",
+      "x": 52,
+      "y": 18,
+      "expected_x": 52,
+      "expected_y": 18,
+      "passed": true
+    },
+    {
+      "case": "GoldHouse-front",
+      "x": 53,
+      "y": 20,
+      "expected_x": 53,
+      "expected_y": 20,
+      "passed": true
+    },
+    {
+      "case": "NeighborHouse-behind",
+      "x": 65,
+      "y": 20,
+      "expected_x": 65,
+      "expected_y": 20,
+      "passed": true
+    },
+    {
+      "case": "NeighborHouse-side",
+      "x": 62,
+      "y": 23,
+      "expected_x": 62,
+      "expected_y": 23,
+      "passed": true
+    },
+    {
+      "case": "NeighborHouse-front",
+      "x": 63,
+      "y": 25,
+      "expected_x": 63,
+      "expected_y": 25,
+      "passed": true
+    },
+    {
+      "case": "Mart-behind",
+      "x": 52,
+      "y": 6,
+      "expected_x": 52,
+      "expected_y": 6,
+      "passed": true
+    },
+    {
+      "case": "Mart-side",
+      "x": 49,
+      "y": 8,
+      "expected_x": 49,
+      "expected_y": 8,
+      "passed": true
+    },
+    {
+      "case": "Mart-front",
+      "x": 50,
+      "y": 10,
+      "expected_x": 50,
+      "expected_y": 10,
+      "passed": true
+    },
+    {
+      "case": "PokemonCenter-behind",
+      "x": 61,
+      "y": 4,
+      "expected_x": 61,
+      "expected_y": 4,
+      "passed": true
+    },
+    {
+      "case": "PokemonCenter-side",
+      "x": 58,
+      "y": 7,
+      "expected_x": 58,
+      "expected_y": 7,
+      "passed": true
+    },
+    {
+      "case": "PokemonCenter-front",
+      "x": 59,
+      "y": 10,
+      "expected_x": 59,
+      "expected_y": 10,
+      "passed": true
+    },
+    {
+      "case": "HarborHouse-behind",
+      "x": 53,
+      "y": 27,
+      "expected_x": 53,
+      "expected_y": 27,
+      "passed": true
+    },
+    {
+      "case": "HarborHouse-side",
+      "x": 50,
+      "y": 30,
+      "expected_x": 50,
+      "expected_y": 30,
+      "passed": true
+    },
+    {
+      "case": "HarborHouse-front",
+      "x": 51,
+      "y": 32,
+      "expected_x": 51,
+      "expected_y": 32,
+      "passed": true
+    },
+    {
+      "case": "GardenHouse-behind",
+      "x": 66,
+      "y": 27,
+      "expected_x": 66,
+      "expected_y": 27,
+      "passed": true
+    },
+    {
+      "case": "GardenHouse-side",
+      "x": 63,
+      "y": 30,
+      "expected_x": 63,
+      "expected_y": 30,
+      "passed": true
+    },
+    {
+      "case": "GardenHouse-front",
+      "x": 64,
+      "y": 32,
+      "expected_x": 64,
+      "expected_y": 32,
+      "passed": true
+    },
+    {
+      "case": "dock-path",
+      "x": 39,
+      "y": 19,
+      "expected_x": 39,
+      "expected_y": 19,
+      "passed": true
+    },
+    {
+      "case": "center-entrance",
+      "x": 61,
+      "y": 10,
+      "expected_x": 61,
+      "expected_y": 10,
+      "passed": true
+    }
+  ]
+}

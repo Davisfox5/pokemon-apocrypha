@@ -1,0 +1,59 @@
+{
+  "status": "qualification profile; not a finished production configuration",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "applied_profile": "roster-profile.patch",
+  "roster_settings": {
+    "P_GEN_6_POKEMON": "FALSE",
+    "P_GEN_7_POKEMON": "FALSE",
+    "P_GEN_8_POKEMON": "FALSE",
+    "P_GEN_9_POKEMON": "FALSE",
+    "P_PRIMAL_REVERSIONS": "FALSE",
+    "P_ULTRA_BURST_FORMS": "FALSE",
+    "P_GIGANTAMAX_FORMS": "FALSE",
+    "P_TERA_FORMS": "FALSE",
+    "P_GEN_9_MEGA_EVOLUTIONS": "FALSE",
+    "P_REGIONAL_FORMS": "FALSE",
+    "P_PIKACHU_EXTRA_FORMS": "FALSE",
+    "P_GEN_8_CROSS_EVOS": "FALSE",
+    "P_GEN_9_CROSS_EVOS": "FALSE"
+  },
+  "retained_roster_features": [
+    "Gen 1-5 families",
+    "Sylveon via P_GEN_6_CROSS_EVOS",
+    "earlier cross-generation evolutions",
+    "Gen 1-5 native forms/fusions",
+    "pre-Gen9 Mega forms of retained families"
+  ],
+  "production_requirements": {
+    "battle_reference": "Approved Gen 4\u20135 per-move split and Gen 5 experience package; other inherited rule settings remain unapproved.",
+    "fairy": "canonical typing and interactions",
+    "mega": "late-game only; story gating not implemented",
+    "terra": "custom type; final gym leader only; matchups and assignments unspecified",
+    "shadow": "custom type; Wes gym only; matchups and assignments unspecified",
+    "pc_boxes": 30,
+    "slots_per_box": 30,
+    "save": "ordinary persistent save with recoverability; stock layout insufficient for 30 boxes",
+    "regions": [
+      "Johto",
+      "Kanto",
+      "Hoenn",
+      "Sinnoh",
+      "Unova"
+    ],
+    "badges": 20,
+    "experience": "Approved Gen 5 scaling and participant division, held-item Exp. Share, trainer bonus; no catch or delayed-evolution EXP bonus.",
+    "species_base_stats": "Approved 2026-09-11: Gen 5 baseline for Gen 1\u20135 roster; canonical later stats for Sylveon and Mega forms. Not applied or verified yet; P_UPDATED_STATS remains GEN_LATEST."
+  },
+  "not_implemented": [
+    "30-box save/RAM redesign",
+    "Terra and Shadow types",
+    "20-badge state/UI integration",
+    "five-region travel/map metadata",
+    "final classic-mechanics rules selection and complete configuration",
+    "obtainability and encounter replacement",
+    "approved M03a Gen 5 base-stat profile and later-form exception verification"
+  ],
+  "applied_mechanics_profile": "mechanics-profile.patch",
+  "mechanics_audit": "docs/GBA_MECHANICS_AUDIT.md",
+  "continuation_handoff": "docs/AGENT_HANDOFF.md"
+}

@@ -1,0 +1,24 @@
+{
+  "rebuilt_roofs_and_canopy_order": true,
+  "rebuilt_fences_park_and_forest_opening": true,
+  "lossless_detail_pattern_savings": 37,
+  "native_referenced_patterns": 999,
+  "removed_hard_surface_plant_pixels": 4849,
+  "building_edge_repairs": 420,
+  "new_patterns": 540,
+  "new_lower_reuses": 5990,
+  "lossless_lower_layer_reuses": 639,
+  "reclaimed_slots": 549,
+  "tile_capacity": 1008,
+  "metatiles": 640,
+  "changed_cells": 4368,
+  "lossless_compilation": true,
+  "whole_town_materials": true,
+  "supported_palette_correction": true,
+  "all_collision_elevation_behavior_layer_properties_identical": true,
+  "locked_files": [
+    "data/maps/FloccesyTown/map.json",
+    "data/maps/FloccesyTown/scripts.inc",
+    "data/layouts/FloccesyTown/border.bin"
+  ]
+}

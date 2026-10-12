@@ -1,0 +1,61 @@
+{
+  "format": "GBA 4bpp, 8x8 row-major tiles, RGB555 palettes; index 0 transparent",
+  "alpha_threshold": 224,
+  "resampling": "nearest",
+  "assets": [
+    {
+      "name": "house",
+      "source": "gba/art/johto-v1/generated/house-final.png",
+      "source_sha256": "dd4497a540269139ede9fa19026cd9b5e4b33ad37fb9e8c56fed50a08eacdd09",
+      "source_bounds": [
+        193,
+        55,
+        1209,
+        1056
+      ],
+      "width": 80,
+      "height": 64,
+      "palette_bank": 8,
+      "opaque_colors": 15,
+      "tile_count": 80,
+      "unique_tiles": 78,
+      "packed_bytes": 2560
+    },
+    {
+      "name": "center",
+      "source": "gba/art/johto-v1/generated/center.png",
+      "source_sha256": "b0b3ff5ad2149f9d4c7f980403d613388e5649618b48483167e0f6e1734f0b65",
+      "source_bounds": [
+        88,
+        105,
+        1167,
+        1156
+      ],
+      "width": 64,
+      "height": 64,
+      "palette_bank": 10,
+      "opaque_colors": 14,
+      "tile_count": 64,
+      "unique_tiles": 63,
+      "packed_bytes": 2048
+    },
+    {
+      "name": "tree",
+      "source": "gba/art/johto-v1/generated/tree-alpha.png",
+      "source_sha256": "cf88225feb679047a29dc51ff9dce6bc6e1f1c19319bfe0627a11efbedb39bbb",
+      "source_bounds": [
+        110,
+        85,
+        902,
+        1457
+      ],
+      "width": 32,
+      "height": 48,
+      "palette_bank": 6,
+      "opaque_colors": 14,
+      "tile_count": 24,
+      "unique_tiles": 24,
+      "packed_bytes": 768
+    }
+  ]
+}

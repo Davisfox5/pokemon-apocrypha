@@ -1,0 +1,17 @@
+{
+  "parent_branch": "codex/gba-source-handoff",
+  "parent_revision": "9195267",
+  "upstream": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "compiler": "Arm GNU 14.2.1 (Debian 15:14.2.rel1-1)",
+  "emulator": "libmGBA 0.10.5",
+  "rom_sha256": "86b129d1977d5ac23119b3d6e0a5556d78d4ee6b3c68fc4aeb8ab49be09c07f5",
+  "patch_sha256": "163283707fd712c330e68f89c1d899ebde70f6634d8b233808733b849ee6e24d",
+  "package_sha256": "3c7d46ee30b35e5c75a36e9215eadec6753947eeee2b748822ef3d58de1cf9e1",
+  "source_paths": 95,
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "shared_primary_unchanged": true
+}

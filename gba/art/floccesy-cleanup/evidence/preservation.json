@@ -1,0 +1,30 @@
+{
+  "base": "tools/vendor/gba/floccesy-materials-work",
+  "patch": "gba/floccesy-cleanup.patch",
+  "patch_sha256": "73e79836ebd8e68b60602a42fb2af878311503bab587b5216a192a39c5a626da",
+  "patch_bytes": 76671,
+  "changed_files": [
+    "data/layouts/FloccesyTown/map.bin",
+    "data/tilesets/primary/floccesy/palettes/00.pal",
+    "data/tilesets/primary/floccesy/tiles.png",
+    "data/tilesets/secondary/floccesy/metatile_attributes.bin",
+    "data/tilesets/secondary/floccesy/metatiles.bin",
+    "data/tilesets/secondary/floccesy/palettes/00.pal",
+    "data/tilesets/secondary/floccesy/tiles.png",
+    "graphics/door_anims/floccesy/HouseEast.4bpp",
+    "graphics/door_anims/floccesy/ShedEast.4bpp",
+    "graphics/door_anims/floccesy/ShedWest.4bpp",
+    "src/field_door.c"
+  ],
+  "forward_reverse_checks": true,
+  "all_cell_exploration_properties_identical": true,
+  "all_event_and_script_files_identical": true,
+  "all_other_layout_binaries_identical": true,
+  "door_logic_identical": true,
+  "door_art_references_match_map": true,
+  "referenced_tile_patterns": 925,
+  "metatiles": 930,
+  "supported_palettes_only": true,
+  "base_rom_sha256": "ff07a8b0f6efaf53c93b11f373a096c0061713b971f175a484740210a2bf9abb",
+  "rom_sha256": "6eb09ea6a445827dada3b776673e608d5e376a8f238b56e9bb8af31ce0fa5d4f"
+}

@@ -1,0 +1,27 @@
+{
+  "source": "tools/vendor/gba/opening-house-work",
+  "engine_revision": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "baseline_patch": "gba/opening-house-revision.patch",
+  "patch": "gba/pokegear-modern.patch",
+  "patch_forward_reverse_check": true,
+  "changed_engine_files": [
+    "src/apoc_pokegear.c",
+    "graphics/apoc_pokegear/shell.bin",
+    "graphics/apoc_pokegear/radio.bin",
+    "graphics/apoc_pokegear/shell.pal"
+  ],
+  "rom_sha256": "9fa1e1d0201f014a883ce50c777fcec36864fdaddc27b688ad0c0556263141de",
+  "screen_size": [
+    240,
+    160
+  ],
+  "palette_colors": 16,
+  "scope": "visual presentation and queued app button edges; campaign functions and save IDs preserved",
+  "reference": "original B/W C-Gear default skin, reinterpreted as distinct Pok\u00e9gear casing and navigation",
+  "full_pokegear_functionality": false,
+  "desktop_game_opened": false,
+  "runtime_exit": 0,
+  "settings_after_cold_continue": 12,
+  "tuning_after_cold_continue": 304,
+  "one_frame_button_edges_verified": true
+}

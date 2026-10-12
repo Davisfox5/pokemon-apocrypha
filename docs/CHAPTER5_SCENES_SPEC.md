@@ -1,5 +1,11 @@
 # Chapter 5 — Scene Spec & Full Script (Saffron City · Silph lobby · the Dojos · stranded in Kanto)
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 This is the **complete line-by-line dialogue** for Chapter 5, the single source of
 truth for what every character says. It sits one altitude below
 [CHAPTER5_BUILD.md](CHAPTER5_BUILD.md) (staging, flags, files) and pairs with

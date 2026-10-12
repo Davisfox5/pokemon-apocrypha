@@ -1,0 +1,55 @@
+{
+  "audit": "Egg-move safety review, 2026-09-11. Static analysis only; no source or ROM change.",
+  "question": "Do the present-day egg-move sets introduce moves obtainable no other way that would break the game once obtained? Exclusivity itself is acceptable to the owner.",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "answer": "No. Nothing egg-exclusive on this roster is stronger than an ordinary 95-power attack, and every Gen 8/9 problem move is absent or on a species the roster profile compiles out.",
+  "method": [
+    "Egg moves are a single file, src/data/pokemon/egg_moves.h, included unconditionally. The expansion offers no per-generation egg-move file set, so there is no generation to select; the data is the present-day (Gen 9-era) set.",
+    "Resolved include/config/species_enabled.h to TRUE/FALSE and walked the species_info family files honouring the #if guards, giving 787 compiled-in species entries. Filtering by name suffix alone is not sufficient: Sirfetch'd, Ursaluna and Basculin White-Striped carry no form suffix but are compiled out by P_GALARIAN_FORMS, P_GEN_8_CROSS_EVOS and P_HISUIAN_FORMS.",
+    "Built the set of moves reachable by any compiled-in species through ORAS level-up learnsets or teachable learnsets, then subtracted it from the egg-move pool of those same species.",
+    "Classified by generation using the MOVES_COUNT_GEN* markers in include/constants/moves.h (Gen 5 ends at move id 559)."
+  ],
+  "findings": {
+    "post_gen5_moves_in_egg_pool": 34,
+    "post_gen5_moves_egg_exclusive": 15,
+    "highest_generation_reached": "Gen 7. No Gen 8 or Gen 9 move is egg-exclusive on this roster.",
+    "strongest_egg_exclusive": [
+      "BURN_UP 130 power, but it removes the user's own Fire type after use, so it is self-limiting (Growlithe, Tepig)",
+      "HIGH_HORSEPOWER 95 power / 95 accuracy, an ordinary Ground attack (Phanpy, Ponyta)",
+      "FIRST_IMPRESSION 90 power at +2 priority but only on the user's first turn out (Farfetch'd)",
+      "DRAGON_HAMMER 90 power, an ordinary Dragon attack (Tropius)",
+      "PSYCHIC_FANGS and LIQUIDATION, both 85 power (Girafarig, Lillipup, Carvanha, Corsola, Tirtouga)"
+    ],
+    "most_impactful_non_damaging": "STRENGTH_SAP on the Oddish, Bellsprout and Hoppip lines. It lowers the target's Attack and heals the user by that amount, which makes those lines durable against physical attackers. Strong but fair.",
+    "only_scaling_damage_effect": "POWER_TRIP (Stored Power clone, 20 base plus 20 per stat boost) on Mankey, Piplup and Sandile. Requires setup turns to matter.",
+    "known_broken_moves_screened": {
+      "absent_from_egg_moves.h": [
+        "POPULATION_BOMB",
+        "RAGE_FIST",
+        "SURGING_STRIKES",
+        "WICKED_BLOW",
+        "GLAIVE_RUSH",
+        "MAKE_IT_RAIN",
+        "SHED_TAIL",
+        "SALT_CURE",
+        "TRIPLE_AXEL",
+        "SCALE_SHOT",
+        "SHELL_SMASH"
+      ],
+      "present_but_unreachable": "LAST_RESPECTS, the one Gen 9 egg-exclusive move found, sits inside an #if P_HISUIAN_FORMS guard on Basculin White-Striped. P_HISUIAN_FORMS is FALSE, so neither the species nor the move is compiled in. It is the only genuinely game-warping egg move in the file and it cannot be reached."
+    },
+    "m03c_interaction": "Because B_UPDATED_MOVE_DATA is GEN_5, several of these post-Gen-5 moves resolve to their original values rather than later buffs: Fell Stinger 30 not 50, Dragon Hammer 90 not 100, First Impression 90 not 100. Fairy egg moves carry no move-data selector and are unaffected.",
+    "fairy_note": "Egg moves do not change the M03c Fairy finding. No Fairy-typed species on the roster gets a Fairy attacking move from breeding; the Fairy egg moves land on non-Fairy species such as Pichu, Whismur, Teddiursa, Swablu and Audino."
+  },
+  "sources": {
+    "game/src/data/pokemon/egg_moves.h": "cbda94368f83ee85a6c839f2b57e096f8d5f2a9df8b73bd6b890eba243bdffc1",
+    "game/include/config/species_enabled.h": "ec21d526b19b67dd27befe22b9d3084a1e4fbb2e91af391d79b63a74c1e060ce",
+    "game/include/constants/moves.h": "d86e4d5d5b94b838625a9d1c5c5bbce2e57556a171d66028eab1993f4fa44200"
+  },
+  "limits": [
+    "Static reachability analysis, not a runtime or playtest result. No battle was simulated.",
+    "Judgements about what would 'break the game' are reasoned from move power, accuracy, priority and effect, not from balance testing against designed trainer teams.",
+    "The egg-move relearner is off (P_FLAG_EGG_MOVES is 0), so egg moves are obtained by breeding only.",
+    "Breeding and inheritance rules are a separate open decision; see GBA_MECHANICS_AUDIT.md."
+  ]
+}

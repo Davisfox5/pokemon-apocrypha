@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "town",
+    "collision",
+    "npc",
+    "paired"
+  ],
+  "rom_sha256": "e02318302fe01059d22a49f21c942d456e8b7fdaf16887761083289efd7f9b05",
+  "collision_probes": 199,
+  "collision_failures": 0,
+  "npc_samples": 1800,
+  "capture_positions_walkable": true
+}

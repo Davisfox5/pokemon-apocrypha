@@ -1,0 +1,413 @@
+{
+  "matching_traversal_and_reload": true,
+  "observations": {
+    "sample": {
+      "write": [
+        {
+          "step": "clock-start",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "south-through-garden",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "west-to-wall",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "west-wall-blocks",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "south-wall-blocks",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "garden-exit-approach",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 20,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "garden-steps",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 20,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "clock-frontage",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "steps-to-street",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "street-crossing",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 30,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "north-on-street",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 30,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "npc-dialogue",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "dialogue-return-to-field",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "read": [
+        {
+          "step": "clock-cold-reload",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "menu": [
+        {
+          "step": "clock-title-continue",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "rom_sha256": "e02318302fe01059d22a49f21c942d456e8b7fdaf16887761083289efd7f9b05"
+    },
+    "baseline": {
+      "write": [
+        {
+          "step": "clock-start",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "south-through-garden",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "west-to-wall",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "west-wall-blocks",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "south-wall-blocks",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 16,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "garden-exit-approach",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 20,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "garden-steps",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 20,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "clock-frontage",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "steps-to-street",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "street-crossing",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 30,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "north-on-street",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 30,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "npc-dialogue",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        },
+        {
+          "step": "dialogue-return-to-field",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 22,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "read": [
+        {
+          "step": "clock-cold-reload",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "menu": [
+        {
+          "step": "clock-title-continue",
+          "region": 5,
+          "group": 80,
+          "map": 20,
+          "x": 17,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 56,
+          "height": 78,
+          "interaction": 0,
+          "mapsec": 216
+        }
+      ],
+      "rom_sha256": "6eb09ea6a445827dada3b776673e608d5e376a8f238b56e9bb8af31ce0fa5d4f"
+    }
+  }
+}

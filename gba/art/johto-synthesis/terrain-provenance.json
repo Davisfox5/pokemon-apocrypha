@@ -1,0 +1,82 @@
+{
+  "original_art": "Nintendo / Game Freak / Creatures",
+  "engine_base": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "source": "data/tilesets/primary/general",
+  "grass_metatile": "0x00D",
+  "ledge_metatiles": [
+    "0x0D5",
+    "0x087",
+    "0x0D6",
+    "0x085",
+    "0x08D",
+    "0x08E",
+    "0x086"
+  ],
+  "source_sha256": {
+    "tiles.png": "365ba5482e7564763e614a0009900d1c317790dcd9f7a06c4ab74c363a3ba2f5",
+    "metatiles.bin": "17974b0ba1bb9d105d5ba255c69a3b80d8484a26ea0b8ff22c6c6567c6c22910",
+    "metatile_attributes.bin": "06c9548a6c70d133b6d47638090f5d36f3fec92aace3d90deca758a4404cfa9b",
+    "palettes/02.pal": "6a2609b1c79e8489ed11182eb075edf0e25d80b5b3b7912c0de20dc5da594eb9",
+    "palettes/03.pal": "1556f735bbb61b32d99e9feba63441c83cfc25ea11d5aaa7c99ac3be92cc7a19"
+  },
+  "adaptation": "Native 16px Emerald silhouettes; local transparent ground; Johto greens and warm ledge palette; additional coherent blade highlights. HGSS cliffs retain their source, with exterior residue cleared and full cliff foot restored.",
+  "dark_cave_revision": {
+    "source": "gba/art/hgss-connections/references/route31-hgss.png",
+    "cliff_foot": "A continuous native 32px face course at y184..215 uses one texture phase and flat contact baseline. Donor alpha scallops are filled before the baseline, closing internal lawn holes.",
+    "tree_backing": "One aligned native rock course behind the first 24px of the three crowns; no separately stretched right-hand section.",
+    "path": "HGSS arch and flared opening retained, with a short warm shadow ramp over the local dirt. The dirt becomes fully lit below the mouth; no hard black/dirt seam.",
+    "palette": "Two unused bank 12 colors now hold exact local lawn/shadow colors for mixed rock/tree tiles.",
+    "sign": "Existing native sign placed one tile south, base (51,14), with the original inspection script; old position rebuilt as rock."
+  },
+  "route31_divider_revision": {
+    "reference": "gba/art/hgss-connections/references/route31-hgss.png",
+    "face_crop": [
+      532,
+      144,
+      564,
+      176
+    ],
+    "face_direction": "east; raised pond and path west of the cliff",
+    "stairs": "Native 32-column HGSS wood cut, each column shifted vertically to remove perspective skew; no resizing. Upper/lower entries aligned to map rows 16/17.",
+    "pond": "Moved north 16px; shoreline, water behavior and collision follow its new rows 6 through 14. Row 15 is lawn.",
+    "tree_placement": "Reserve both cliff columns before whole-tree placement; 13 adjacent complete trees verified.",
+    "geometry_scope": "Divider/pond rectangle x26..34, y3..29; exterior geometry unchanged from 5d50fbb.",
+    "art_superseded_by": "route31_town_rock_and_emerald_stairs; divider extent and pond geometry retained"
+  },
+  "route31_town_rock_and_emerald_stairs": {
+    "rock_source": "gba/art/cherrygrove-synthesis/references/C/cliff.idx.png",
+    "rock_sha256": "8d918a5eeb934fdd7ff070b6ab633cb0e0d5e102593813d8d557d2ec05796e54",
+    "rock_palette_bank": 2,
+    "rock_adaptation": "First 32 native rows form one course; bottom two rows use the installed Cherrygrove contact-edge color. Rotate 90 degrees counterclockwise for east-facing wall. No scaling.",
+    "stairs_tileset": "Emerald primary/general",
+    "native_usage": "MossdeepCity_Layout x63..65 y18..19; also x25..26 y24..25",
+    "stairs_pixel_sha256": "365ba5482e7564763e614a0009900d1c317790dcd9f7a06c4ab74c363a3ba2f5",
+    "stairs_adaptation": "Actual 16x16 stone tread and lit edge; mirrored edge caps opposite side. No resizing. Recolored to bank 2. Rotate east/west crossing 90 degrees; southern seam stairs retain north/south orientation.",
+    "geometry": "All map solid/behavior/ground arrays unchanged from 405a2a7.",
+    "stairs_metatiles": [
+      "0x0af",
+      "0x0cf"
+    ],
+    "art_superseded_by": "route31_standard_emerald_rock"
+  },
+  "route31_standard_emerald_rock": {
+    "source": "Emerald primary/general, original pixels and colors",
+    "rock_metatiles": [
+      "0x075",
+      "0x07c",
+      "0x076",
+      "0x087",
+      "0x079"
+    ],
+    "stairs_metatiles": [
+      "0x0af",
+      "0x0cf"
+    ],
+    "stairs_reference": "MossdeepCity_Layout x63..65 y18..19",
+    "adaptation": "Original green lawn made transparent over local ground. No rock or stair recoloring/resizing. Native directional cliff tiles assembled into two courses. East-west stair pattern rotated 90 degrees; north-south pattern unchanged.",
+    "palette_bank": 8,
+    "scope": "Route 31 central divider, southern rim, nearby jump ledges and two stair crossings; Route 30 adjoining northern rock strip and stairs.",
+    "geometry": "All map solid/behavior/ground arrays unchanged from 522b72e.",
+    "pixel_verification": "evidence/emerald-rock-pixels.json compares decoded packed metatiles with original donor pixels."
+  }
+}

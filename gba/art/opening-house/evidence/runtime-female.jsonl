@@ -1,0 +1,17 @@
+{"step":"welcome-finished","region":2,"group":80,"map":1,"x":4,"y":4,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+home_stage=1 gear=0 potion=0
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":4,"y":4,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":4,"y":4,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"exit-blocked","region":2,"group":80,"map":1,"x":2,"y":7,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"exit-guard-return","region":2,"group":80,"map":1,"x":2,"y":6,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"upstairs","region":2,"group":80,"map":7,"x":1,"y":4,"frlg_layout":0,"width":11,"height":10,"interaction":0,"mapsec":214}
+pc_stage=2 potion_flag=1 potion_count=1
+{"step":"after-pc","region":2,"group":80,"map":7,"x":5,"y":4,"frlg_layout":0,"width":11,"height":10,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":7,"x":5,"y":4,"frlg_layout":0,"width":11,"height":10,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":7,"x":5,"y":4,"frlg_layout":0,"width":11,"height":10,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":1,"y":3,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":1,"y":3,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":0,"x":43,"y":18,"frlg_layout":0,"width":80,"height":48,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":2,"y":8,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+{"step":"assert-stage","region":2,"group":80,"map":1,"x":2,"y":6,"frlg_layout":0,"width":11,"height":9,"interaction":0,"mapsec":214}
+gender=1 potion_final=1 stage_final=4

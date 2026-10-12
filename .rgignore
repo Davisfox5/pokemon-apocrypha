@@ -1,0 +1,6 @@
+# Keep default repository searches focused on active production documents/code.
+# These files remain tracked and accessible. For an intentional historical lookup:
+# rg --no-ignore 'PATTERN' archive/gen4/snapshot/docs/EXACT_FILE.md
+# rg --no-ignore 'SYMBOL' disasm/pokeemerald/include/EXACT_FILE.h
+/archive/gen4/snapshot/
+/disasm/

@@ -1,0 +1,90 @@
+{
+  "baseline": "gba/art/claude-cherrygrove",
+  "unchanged_assets": {
+    "west_house": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "east_house": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "staff_a": {
+      "source_asset": "house",
+      "rgba_sha256": "3474326f71204001ada3d3201013cc248ec58d53f8944fc8426fe0c814ac3bff",
+      "pixel_differences": 0
+    },
+    "staff_b": {
+      "source_asset": "gable",
+      "rgba_sha256": "d80115cf5091d17be52a613b58d16295fa871ef2f2514f46ac0d231fab78cb73",
+      "pixel_differences": 0
+    },
+    "annex": {
+      "source_asset": "gable",
+      "rgba_sha256": "d80115cf5091d17be52a613b58d16295fa871ef2f2514f46ac0d231fab78cb73",
+      "pixel_differences": 0
+    }
+  },
+  "institute": "Original masonry laboratory with metal roof, glazing, skylights and ventilation; one entrance",
+  "tree": "Literal gba/art/claude-cherrygrove/source/tree.idx.png and bank03 palette, without resize or recolor",
+  "forest_checks": [
+    {
+      "width": 98,
+      "height": 34,
+      "instances": 223,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 98,
+      "height": 34,
+      "instances": 223,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 35,
+      "height": 74,
+      "instances": 153,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 35,
+      "height": 74,
+      "instances": 153,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 36,
+      "height": 50,
+      "instances": 100,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 63,
+      "height": 30,
+      "instances": 136,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 28,
+      "height": 24,
+      "instances": 40,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    }
+  ]
+}

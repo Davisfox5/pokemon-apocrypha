@@ -1,0 +1,2344 @@
+{
+  "tiles": 998,
+  "metatiles": 596,
+  "animated_tiles": 92,
+  "exact_pixel_roundtrip": true,
+  "edge_module_reuse": [
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 48,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1072,
+      "y": 48,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1080,
+      "y": 48,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1088,
+      "y": 48,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 56,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 64,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 72,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 88,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1112,
+      "y": 88,
+      "pixels": 11,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 96,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1112,
+      "y": 96,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 104,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 104,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 112,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 120,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 120,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1056,
+      "y": 120,
+      "pixels": 12,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 120,
+      "pixels": 8,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1072,
+      "y": 120,
+      "pixels": 11,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1080,
+      "y": 120,
+      "pixels": 3,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 128,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 136,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 136,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 144,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 152,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 152,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1088,
+      "y": 152,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 160,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 168,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 752,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 760,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 768,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 776,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 784,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 792,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 848,
+      "y": 168,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 856,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 864,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 888,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 896,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 904,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 912,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 920,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 928,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 944,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 952,
+      "y": 168,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 960,
+      "y": 168,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 168,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 176,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 176,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 176,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 176,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 184,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 184,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 184,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 184,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 192,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 704,
+      "y": 208,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 712,
+      "y": 208,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 720,
+      "y": 208,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 208,
+      "pixels": 12,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 208,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 728,
+      "y": 216,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 216,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 216,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 224,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 808,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 816,
+      "y": 224,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 824,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 832,
+      "y": 224,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 840,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 848,
+      "y": 224,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 856,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 864,
+      "y": 224,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 872,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 880,
+      "y": 224,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 888,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 896,
+      "y": 224,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 904,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 912,
+      "y": 224,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 920,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 928,
+      "y": 224,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 224,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 224,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 224,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 232,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 232,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 232,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 240,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 240,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 240,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 248,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 248,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 248,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 248,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 256,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 256,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 256,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 264,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 264,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1016,
+      "y": 264,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1024,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1032,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1040,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1048,
+      "y": 264,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1056,
+      "y": 264,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1104,
+      "y": 264,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1112,
+      "y": 264,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 272,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 272,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 640,
+      "y": 280,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 720,
+      "y": 280,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 280,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 280,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 280,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 280,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 288,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 296,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 296,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 304,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 312,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 312,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 640,
+      "y": 320,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 648,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 656,
+      "y": 320,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 664,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 672,
+      "y": 320,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 680,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 320,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 320,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 320,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1016,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1024,
+      "y": 320,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1032,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1040,
+      "y": 320,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1048,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1056,
+      "y": 320,
+      "pixels": 15,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1064,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1072,
+      "y": 320,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1080,
+      "y": 320,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 328,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 328,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 328,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 704,
+      "y": 336,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 712,
+      "y": 336,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 720,
+      "y": 336,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 736,
+      "y": 336,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 856,
+      "y": 336,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 336,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 344,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 344,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 808,
+      "y": 344,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 816,
+      "y": 344,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 832,
+      "y": 344,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 840,
+      "y": 344,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 848,
+      "y": 344,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 856,
+      "y": 344,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 896,
+      "y": 344,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 904,
+      "y": 344,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 912,
+      "y": 344,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 928,
+      "y": 344,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 936,
+      "y": 344,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 344,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 352,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 360,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 360,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 368,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 744,
+      "y": 376,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 376,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 384,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 392,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 768,
+      "y": 400,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 776,
+      "y": 400,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 784,
+      "y": 400,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 400,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 808,
+      "y": 400,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 816,
+      "y": 400,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 832,
+      "y": 400,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 840,
+      "y": 400,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 848,
+      "y": 400,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 864,
+      "y": 400,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 872,
+      "y": 400,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 880,
+      "y": 400,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 896,
+      "y": 400,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 904,
+      "y": 400,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 912,
+      "y": 400,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1056,
+      "y": 400,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 920,
+      "y": 408,
+      "pixels": 9,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1056,
+      "y": 408,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 648,
+      "y": 424,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 432,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 432,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1024,
+      "y": 432,
+      "pixels": 2,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1032,
+      "y": 432,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1040,
+      "y": 432,
+      "pixels": 4,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1048,
+      "y": 432,
+      "pixels": 4,
+      "contour_pixels": 1
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 440,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 992,
+      "y": 448,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 752,
+      "y": 456,
+      "pixels": 6,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 760,
+      "y": 456,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 888,
+      "y": 456,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1000,
+      "y": 456,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 464,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 464,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 472,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 472,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 480,
+      "pixels": 7,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 480,
+      "pixels": 10,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 488,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 496,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 800,
+      "y": 504,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 808,
+      "y": 504,
+      "pixels": 12,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1008,
+      "y": 504,
+      "pixels": 3,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 200,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 208,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 216,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 232,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 240,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 248,
+      "pixels": 8,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 264,
+      "pixels": 16,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 272,
+      "pixels": 5,
+      "contour_pixels": 0
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "x": 680,
+      "y": 280,
+      "pixels": 8,
+      "contour_pixels": 0
+    }
+  ],
+  "seam_fixes": [
+    {
+      "map": "CherrygroveCity",
+      "x": 520,
+      "y": 336,
+      "squared_error": 1664
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1184,
+      "y": 352,
+      "squared_error": 2304
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1208,
+      "y": 352,
+      "squared_error": 2648
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 536,
+      "y": 368,
+      "squared_error": 1664
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1184,
+      "y": 384,
+      "squared_error": 2880
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1208,
+      "y": 384,
+      "squared_error": 2880
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 648,
+      "y": 432,
+      "squared_error": 1864
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1248,
+      "y": 448,
+      "squared_error": 2304
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1272,
+      "y": 448,
+      "squared_error": 2648
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1248,
+      "y": 480,
+      "squared_error": 2880
+    },
+    {
+      "map": "CherrygroveCity",
+      "x": 1272,
+      "y": 480,
+      "squared_error": 2880
+    }
+  ],
+  "maps": [
+    {
+      "name": "CherrygroveCity",
+      "trees": 240,
+      "tree_footprints": [
+        [
+          68,
+          20,
+          2,
+          3
+        ],
+        [
+          70,
+          20,
+          2,
+          3
+        ],
+        [
+          72,
+          20,
+          2,
+          3
+        ],
+        [
+          74,
+          20,
+          2,
+          3
+        ],
+        [
+          76,
+          20,
+          2,
+          3
+        ],
+        [
+          78,
+          20,
+          2,
+          3
+        ],
+        [
+          68,
+          22,
+          2,
+          3
+        ],
+        [
+          70,
+          22,
+          2,
+          3
+        ],
+        [
+          72,
+          22,
+          2,
+          3
+        ],
+        [
+          74,
+          22,
+          2,
+          3
+        ],
+        [
+          76,
+          22,
+          2,
+          3
+        ],
+        [
+          78,
+          22,
+          2,
+          3
+        ],
+        [
+          68,
+          24,
+          2,
+          3
+        ],
+        [
+          70,
+          24,
+          2,
+          3
+        ],
+        [
+          72,
+          24,
+          2,
+          3
+        ],
+        [
+          74,
+          24,
+          2,
+          3
+        ],
+        [
+          76,
+          24,
+          2,
+          3
+        ],
+        [
+          78,
+          24,
+          2,
+          3
+        ],
+        [
+          68,
+          26,
+          2,
+          3
+        ],
+        [
+          70,
+          26,
+          2,
+          3
+        ],
+        [
+          72,
+          26,
+          2,
+          3
+        ],
+        [
+          74,
+          26,
+          2,
+          3
+        ],
+        [
+          76,
+          26,
+          2,
+          3
+        ],
+        [
+          78,
+          26,
+          2,
+          3
+        ],
+        [
+          68,
+          28,
+          2,
+          3
+        ],
+        [
+          70,
+          28,
+          2,
+          3
+        ],
+        [
+          72,
+          28,
+          2,
+          3
+        ],
+        [
+          74,
+          28,
+          2,
+          3
+        ],
+        [
+          76,
+          28,
+          2,
+          3
+        ],
+        [
+          78,
+          28,
+          2,
+          3
+        ],
+        [
+          68,
+          30,
+          2,
+          3
+        ],
+        [
+          70,
+          30,
+          2,
+          3
+        ],
+        [
+          72,
+          30,
+          2,
+          3
+        ],
+        [
+          74,
+          30,
+          2,
+          3
+        ],
+        [
+          76,
+          30,
+          2,
+          3
+        ],
+        [
+          78,
+          30,
+          2,
+          3
+        ],
+        [
+          47,
+          5,
+          2,
+          3
+        ],
+        [
+          56,
+          5,
+          2,
+          3
+        ],
+        [
+          45,
+          14,
+          2,
+          3
+        ],
+        [
+          48,
+          26,
+          2,
+          3
+        ],
+        [
+          56,
+          26,
+          2,
+          3
+        ]
+      ],
+      "roof_overhang_cells": [
+        [
+          40,
+          13
+        ],
+        [
+          40,
+          14
+        ],
+        [
+          40,
+          15
+        ],
+        [
+          40,
+          16
+        ],
+        [
+          40,
+          17
+        ],
+        [
+          41,
+          13
+        ],
+        [
+          42,
+          13
+        ],
+        [
+          43,
+          13
+        ],
+        [
+          44,
+          13
+        ],
+        [
+          50,
+          6
+        ],
+        [
+          51,
+          6
+        ],
+        [
+          51,
+          27
+        ],
+        [
+          52,
+          6
+        ],
+        [
+          52,
+          16
+        ],
+        [
+          52,
+          17
+        ],
+        [
+          52,
+          18
+        ],
+        [
+          52,
+          27
+        ],
+        [
+          53,
+          6
+        ],
+        [
+          53,
+          15
+        ],
+        [
+          53,
+          27
+        ],
+        [
+          54,
+          6
+        ],
+        [
+          54,
+          7
+        ],
+        [
+          54,
+          8
+        ],
+        [
+          54,
+          15
+        ],
+        [
+          54,
+          27
+        ],
+        [
+          55,
+          15
+        ],
+        [
+          55,
+          27
+        ],
+        [
+          55,
+          28
+        ],
+        [
+          55,
+          29
+        ],
+        [
+          55,
+          30
+        ],
+        [
+          55,
+          31
+        ],
+        [
+          58,
+          5
+        ],
+        [
+          58,
+          6
+        ],
+        [
+          58,
+          7
+        ],
+        [
+          59,
+          4
+        ],
+        [
+          60,
+          4
+        ],
+        [
+          61,
+          4
+        ],
+        [
+          62,
+          4
+        ],
+        [
+          63,
+          4
+        ],
+        [
+          63,
+          20
+        ],
+        [
+          63,
+          28
+        ],
+        [
+          63,
+          29
+        ],
+        [
+          63,
+          30
+        ],
+        [
+          64,
+          5
+        ],
+        [
+          64,
+          6
+        ],
+        [
+          64,
+          7
+        ],
+        [
+          64,
+          8
+        ],
+        [
+          64,
+          20
+        ],
+        [
+          64,
+          27
+        ],
+        [
+          65,
+          20
+        ],
+        [
+          65,
+          27
+        ],
+        [
+          66,
+          20
+        ],
+        [
+          66,
+          27
+        ],
+        [
+          67,
+          20
+        ],
+        [
+          67,
+          21
+        ],
+        [
+          67,
+          22
+        ],
+        [
+          67,
+          23
+        ],
+        [
+          67,
+          24
+        ]
+      ],
+      "buildings": [
+        {
+          "name": "PlayerHouse",
+          "style": "house_mirror",
+          "x": 40,
+          "y": 13,
+          "door": [
+            43,
+            17
+          ],
+          "width": 5,
+          "height": 5,
+          "old": [
+            41,
+            13,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            41,
+            14,
+            4,
+            4
+          ]
+        },
+        {
+          "name": "GoldHouse",
+          "style": "gable",
+          "x": 52,
+          "y": 15,
+          "door": [
+            54,
+            19
+          ],
+          "width": 5,
+          "height": 5,
+          "old": [
+            52,
+            15,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            53,
+            16,
+            4,
+            4
+          ]
+        },
+        {
+          "name": "NeighborHouse",
+          "style": "house2",
+          "x": 63,
+          "y": 20,
+          "door": [
+            64,
+            24
+          ],
+          "width": 5,
+          "height": 5,
+          "old": [
+            62,
+            20,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            63,
+            21,
+            4,
+            4
+          ]
+        },
+        {
+          "name": "Mart",
+          "style": "mart",
+          "x": 50,
+          "y": 6,
+          "door": [
+            51,
+            9
+          ],
+          "width": 5,
+          "height": 4,
+          "old": [
+            49,
+            5,
+            6,
+            5
+          ],
+          "wall_footprint": [
+            50,
+            7,
+            4,
+            3
+          ]
+        },
+        {
+          "name": "PokemonCenter",
+          "style": "center",
+          "x": 58,
+          "y": 4,
+          "door": [
+            61,
+            9
+          ],
+          "width": 7,
+          "height": 6,
+          "old": [
+            59,
+            5,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            59,
+            5,
+            5,
+            5
+          ]
+        },
+        {
+          "name": "HarborHouse",
+          "style": "house2",
+          "x": 51,
+          "y": 27,
+          "door": [
+            52,
+            31
+          ],
+          "width": 5,
+          "height": 5,
+          "old": [
+            50,
+            27,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            51,
+            28,
+            4,
+            4
+          ]
+        },
+        {
+          "name": "GardenHouse",
+          "style": "gable",
+          "x": 63,
+          "y": 27,
+          "door": [
+            65,
+            31
+          ],
+          "width": 5,
+          "height": 5,
+          "old": [
+            63,
+            27,
+            5,
+            5
+          ],
+          "wall_footprint": [
+            64,
+            28,
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CherrygroveRoute29Approach",
+      "trees": 198,
+      "tree_footprints": [],
+      "roof_overhang_cells": [],
+      "buildings": []
+    },
+    {
+      "name": "CherrygroveRoute30Approach",
+      "trees": 236,
+      "tree_footprints": [],
+      "roof_overhang_cells": [],
+      "buildings": []
+    }
+  ]
+}

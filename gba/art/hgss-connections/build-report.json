@@ -1,0 +1,72 @@
+{
+  "new_bark": {
+    "width": 36,
+    "height": 24,
+    "tiles": 449,
+    "metatiles": 235,
+    "doors": [
+      [
+        "institute",
+        19,
+        7
+      ],
+      [
+        "west_house",
+        13,
+        17
+      ],
+      [
+        "east_house",
+        24,
+        19
+      ]
+    ],
+    "crossings": 5,
+    "neighbor_visible_cells": 164,
+    "new_visible_cells": 182,
+    "neighbor_tiles_added": 0,
+    "neighbor_sheet_padding_removed": 14,
+    "neighbor_metatiles_added": 1
+  },
+  "route31": {
+    "width": 63,
+    "height": 30,
+    "tiles": 449,
+    "metatiles": 373,
+    "doors": [
+      [
+        "gate",
+        4,
+        15
+      ],
+      [
+        "cave",
+        52,
+        13
+      ]
+    ],
+    "crossings": 2,
+    "neighbor_visible_cells": 219,
+    "new_visible_cells": 188,
+    "neighbor_tiles_added": 1,
+    "neighbor_sheet_padding_removed": 0,
+    "neighbor_metatiles_added": 5
+  },
+  "violet_entrance": {
+    "width": 28,
+    "height": 24,
+    "tiles": 210,
+    "metatiles": 86,
+    "doors": [
+      [
+        "gate",
+        22,
+        13
+      ]
+    ]
+  },
+  "references": {
+    "route31-hgss.png": "f94c72aec1bab8cc1956ed22abdbb35549b084b69b068025db693a66fa3cd4b9",
+    "new-bark-hgss.png": "756ba2a429287b668258d3945aaac9ded197b4ca36b9589c87031ae9c5fdea93"
+  }
+}

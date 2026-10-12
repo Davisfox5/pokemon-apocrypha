@@ -1,0 +1,19 @@
+{
+  "boot": {
+    "frames": 600,
+    "pc": 504,
+    "nonuniform_pixels": 38102,
+    "save_test": false
+  },
+  "fresh_process_write": {
+    "phase": "write",
+    "save_status": 1,
+    "story_value": 4321
+  },
+  "fresh_process_read": {
+    "phase": "read",
+    "save_status": 1,
+    "story_value": 4321
+  },
+  "method": "mGBA normal ROM engine entry points; separate host processes share only 128 KiB flash; no savestates or menu automation"
+}

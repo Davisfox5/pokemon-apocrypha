@@ -1,0 +1,531 @@
+{
+  "profile": "hgss-human-12-frame-v1",
+  "assets": [
+    {
+      "name": "Boy",
+      "source": "0115_gsboy2.png",
+      "graphics_id": 1024,
+      "palette_tag": 4480,
+      "source_sha256": "1b0598973319402e17a42bcc2ac4d1a4a308b0d86497a3d700c4e211afe7ca2f",
+      "source_bounds": [
+        [
+          5,
+          6,
+          24,
+          30
+        ],
+        [
+          9,
+          6,
+          26,
+          30
+        ],
+        [
+          9,
+          7,
+          26,
+          30
+        ],
+        [
+          9,
+          6,
+          26,
+          30
+        ],
+        [
+          6,
+          7,
+          23,
+          30
+        ],
+        [
+          6,
+          6,
+          23,
+          30
+        ],
+        [
+          6,
+          6,
+          23,
+          30
+        ],
+        [
+          5,
+          5,
+          24,
+          31
+        ],
+        [
+          5,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          6,
+          26,
+          30
+        ],
+        [
+          7,
+          5,
+          26,
+          31
+        ],
+        [
+          7,
+          5,
+          26,
+          31
+        ]
+      ],
+      "opaque_colors": 14,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Girl",
+      "source": "0117_gsgirl1.png",
+      "graphics_id": 1025,
+      "palette_tag": 4481,
+      "source_sha256": "d5740f143b46149e81b9c9f724a5b70e1ddab82093f00e267a100a2a80743622",
+      "source_bounds": [
+        [
+          5,
+          6,
+          24,
+          30
+        ],
+        [
+          8,
+          5,
+          25,
+          30
+        ],
+        [
+          8,
+          6,
+          25,
+          30
+        ],
+        [
+          8,
+          5,
+          25,
+          30
+        ],
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          30
+        ],
+        [
+          6,
+          5,
+          24,
+          31
+        ],
+        [
+          6,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          6,
+          26,
+          30
+        ],
+        [
+          7,
+          5,
+          25,
+          31
+        ],
+        [
+          7,
+          5,
+          25,
+          31
+        ]
+      ],
+      "opaque_colors": 13,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Man",
+      "source": "0120_gsman1.png",
+      "graphics_id": 1026,
+      "palette_tag": 4482,
+      "source_sha256": "b2b6682a861f21477c2247659d17f89dd93c85051a6ed1fb7be6f5ced2341481",
+      "source_bounds": [
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          9,
+          6,
+          26,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          6,
+          6,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Woman",
+      "source": "0123_gswoman1.png",
+      "graphics_id": 1027,
+      "palette_tag": 4483,
+      "source_sha256": "383e7cacee7caf74079ccf615b28a88c53872a8f4d0b93c30d1b654941efbc70",
+      "source_bounds": [
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          9,
+          6,
+          26,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          6,
+          6,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          8,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          23,
+          31
+        ],
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          8,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          23,
+          31
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Clerk",
+      "source": "0132_shopm1_2.png",
+      "graphics_id": 1028,
+      "palette_tag": 4484,
+      "source_sha256": "d700108ff49918ad9cb0a71eb300f1ceda76941f3e29c34e5965318ecb721746",
+      "source_bounds": [
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          9,
+          6,
+          26,
+          30
+        ],
+        [
+          9,
+          5,
+          26,
+          30
+        ],
+        [
+          6,
+          6,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          6,
+          5,
+          23,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          6,
+          24,
+          30
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ],
+        [
+          7,
+          5,
+          24,
+          31
+        ]
+      ],
+      "opaque_colors": 15,
+      "bytes_4bpp": 6144,
+      "exact_pixel_roundtrip": true,
+      "translation": [
+        0,
+        1
+      ]
+    }
+  ],
+  "directions": {
+    "SOUTH": [
+      9,
+      10,
+      11
+    ],
+    "NORTH": [
+      0,
+      7,
+      8
+    ],
+    "WEST": [
+      1,
+      2,
+      3
+    ],
+    "EAST": [
+      4,
+      5,
+      6
+    ]
+  },
+  "placements": [
+    {
+      "asset": "Woman",
+      "map": "CherrygroveCity",
+      "existing_local_id": "LOCALID_WATERFRONT",
+      "movement": "FACE_DOWN"
+    },
+    {
+      "asset": "Man",
+      "map": "CherrygroveCity",
+      "existing_local_id": "LOCALID_COMMUTER",
+      "position": [
+        49,
+        15
+      ],
+      "movement": "WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
+      "range": [
+        1,
+        1
+      ]
+    },
+    {
+      "asset": "Boy",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_JOHTO_BOY",
+      "position": [
+        48,
+        11
+      ],
+      "movement": "WALK_LEFT_AND_RIGHT",
+      "range": [
+        2,
+        0
+      ],
+      "text": "The sea breeze feels nice today."
+    },
+    {
+      "asset": "Girl",
+      "map": "CherrygroveCity",
+      "local_id": "LOCALID_JOHTO_GIRL",
+      "position": [
+        52,
+        12
+      ],
+      "movement": "WALK_UP_AND_DOWN",
+      "range": [
+        0,
+        1
+      ],
+      "text": "I like taking the long way home."
+    },
+    {
+      "asset": "Clerk",
+      "map": "CherrygroveMart",
+      "existing_local_id": "LOCALID_CLERK",
+      "movement": "FACE_RIGHT"
+    }
+  ],
+  "original_enum_and_dynamic_ids_unchanged": true,
+  "independent_east_frames": true,
+  "source_frame_size": [
+    32,
+    32
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "revision": "Owner map plus full exterior collision audit",
+  "source": "tools/vendor/gba/johto-restart-game",
+  "rom": "tools/vendor/gba/Cherrygrove-collision-20260922/Cherrygrove.gba",
+  "rom_sha256": "6eba3a3cf34b528c9fd85778f3c6b63159413096ba2c035f314bf1cb8174ef14",
+  "save_sha256": "459047a0cb8bee766bb7f2c632c2cec02e6aa49bb289182e3d3be21799fbe915",
+  "save_start": [
+    48,
+    20
+  ],
+  "runtime": "tools/vendor/gba/johto-collision-accepted-20260922",
+  "collision_probes": 288,
+  "collision_probes_passed": 288,
+  "reviewed_cells": 6432,
+  "changed_cells": 1349,
+  "seven_doors_and_both_routes": true,
+  "save_cold_reload_continue": true,
+  "editor_reloaded": true,
+  "scope": "All exterior cells classified; 288 representative native movement probes; connected walking and surfing camera/boundary audit. One fence at (8,6); graphics unchanged. Prior owner live save preserved.",
+  "emulator_launched": true
+}

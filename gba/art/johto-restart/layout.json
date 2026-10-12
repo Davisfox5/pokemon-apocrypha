@@ -1,0 +1,1924 @@
+{
+  "name": "CherrygroveCity",
+  "width": 80,
+  "height": 48,
+  "spawn": [
+    48,
+    20
+  ],
+  "north_exit": [
+    35,
+    0,
+    3
+  ],
+  "east_exit": [
+    63,
+    17,
+    3
+  ],
+  "buildings": [
+    {
+      "name": "PlayerHouse",
+      "x": 41,
+      "y": 13,
+      "style": "house",
+      "door": [
+        43,
+        17
+      ],
+      "warp": 0
+    },
+    {
+      "name": "GoldHouse",
+      "x": 52,
+      "y": 15,
+      "style": "house",
+      "door": [
+        54,
+        19
+      ],
+      "warp": 1
+    },
+    {
+      "name": "NeighborHouse",
+      "x": 62,
+      "y": 20,
+      "style": "house",
+      "door": [
+        64,
+        24
+      ],
+      "warp": 2
+    },
+    {
+      "name": "Mart",
+      "x": 49,
+      "y": 5,
+      "style": "mart",
+      "door": [
+        51,
+        9
+      ],
+      "warp": 4
+    },
+    {
+      "name": "PokemonCenter",
+      "x": 59,
+      "y": 5,
+      "style": "center",
+      "door": [
+        61,
+        9
+      ],
+      "warp": 5
+    },
+    {
+      "name": "HarborHouse",
+      "x": 50,
+      "y": 27,
+      "style": "house",
+      "door": [
+        52,
+        31
+      ],
+      "warp": 6
+    },
+    {
+      "name": "GardenHouse",
+      "x": 63,
+      "y": 27,
+      "style": "house",
+      "door": [
+        65,
+        31
+      ],
+      "warp": 7
+    }
+  ],
+  "trees": [
+    [
+      31,
+      27
+    ],
+    [
+      33,
+      27
+    ],
+    [
+      35,
+      27
+    ],
+    [
+      37,
+      27
+    ],
+    [
+      31,
+      30
+    ],
+    [
+      33,
+      30
+    ],
+    [
+      35,
+      30
+    ],
+    [
+      37,
+      30
+    ],
+    [
+      31,
+      33
+    ],
+    [
+      33,
+      33
+    ],
+    [
+      35,
+      33
+    ],
+    [
+      37,
+      33
+    ],
+    [
+      31,
+      36
+    ],
+    [
+      33,
+      36
+    ],
+    [
+      35,
+      36
+    ],
+    [
+      37,
+      36
+    ],
+    [
+      31,
+      39
+    ],
+    [
+      33,
+      39
+    ],
+    [
+      35,
+      39
+    ],
+    [
+      37,
+      39
+    ],
+    [
+      39,
+      33
+    ],
+    [
+      41,
+      33
+    ],
+    [
+      43,
+      33
+    ],
+    [
+      45,
+      33
+    ],
+    [
+      47,
+      33
+    ],
+    [
+      49,
+      33
+    ],
+    [
+      51,
+      33
+    ],
+    [
+      53,
+      33
+    ],
+    [
+      55,
+      33
+    ],
+    [
+      57,
+      33
+    ],
+    [
+      59,
+      33
+    ],
+    [
+      61,
+      33
+    ],
+    [
+      63,
+      33
+    ],
+    [
+      39,
+      36
+    ],
+    [
+      41,
+      36
+    ],
+    [
+      43,
+      36
+    ],
+    [
+      45,
+      36
+    ],
+    [
+      47,
+      36
+    ],
+    [
+      49,
+      36
+    ],
+    [
+      51,
+      36
+    ],
+    [
+      53,
+      36
+    ],
+    [
+      55,
+      36
+    ],
+    [
+      57,
+      36
+    ],
+    [
+      59,
+      36
+    ],
+    [
+      61,
+      36
+    ],
+    [
+      63,
+      36
+    ],
+    [
+      39,
+      39
+    ],
+    [
+      41,
+      39
+    ],
+    [
+      43,
+      39
+    ],
+    [
+      45,
+      39
+    ],
+    [
+      47,
+      39
+    ],
+    [
+      49,
+      39
+    ],
+    [
+      51,
+      39
+    ],
+    [
+      53,
+      39
+    ],
+    [
+      55,
+      39
+    ],
+    [
+      57,
+      39
+    ],
+    [
+      59,
+      39
+    ],
+    [
+      61,
+      39
+    ],
+    [
+      63,
+      39
+    ],
+    [
+      62,
+      27
+    ],
+    [
+      62,
+      30
+    ]
+  ],
+  "objects": [
+    {
+      "name": "cliff",
+      "x": 0,
+      "y": 7,
+      "width": 128,
+      "height": 48
+    },
+    {
+      "name": "cliff",
+      "x": 8,
+      "y": 7,
+      "width": 128,
+      "height": 48
+    },
+    {
+      "name": "cliff",
+      "x": 16,
+      "y": 7,
+      "width": 128,
+      "height": 48
+    },
+    {
+      "name": "cliff-return",
+      "x": 24,
+      "y": 7,
+      "width": 128,
+      "height": 48
+    },
+    {
+      "name": "island",
+      "x": 2,
+      "y": 13,
+      "width": 96,
+      "height": 64
+    },
+    {
+      "name": "island",
+      "x": -3,
+      "y": 22,
+      "width": 96,
+      "height": 64
+    },
+    {
+      "name": "flowers",
+      "x": 55,
+      "y": 12,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 55,
+      "y": 13,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 56,
+      "y": 12,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 56,
+      "y": 13,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 57,
+      "y": 12,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 57,
+      "y": 13,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 58,
+      "y": 12,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 58,
+      "y": 13,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 55,
+      "y": 14,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 56,
+      "y": 14,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 57,
+      "y": 14,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 58,
+      "y": 14,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 43,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 43,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 44,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 44,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 45,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 45,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 46,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 46,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 47,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 47,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 48,
+      "y": 27,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 48,
+      "y": 28,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 43,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 44,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 45,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 46,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 47,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 48,
+      "y": 29,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 58,
+      "y": 22,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 58,
+      "y": 23,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 59,
+      "y": 22,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 59,
+      "y": 23,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 58,
+      "y": 24,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "fence",
+      "x": 59,
+      "y": 24,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "house",
+      "x": 33,
+      "y": 13,
+      "width": 80,
+      "height": 80
+    },
+    {
+      "name": "house",
+      "x": 44,
+      "y": 15,
+      "width": 80,
+      "height": 80
+    },
+    {
+      "name": "house",
+      "x": 54,
+      "y": 21,
+      "width": 80,
+      "height": 80
+    },
+    {
+      "name": "mart",
+      "x": 41,
+      "y": 5,
+      "width": 96,
+      "height": 80
+    },
+    {
+      "name": "center",
+      "x": 51,
+      "y": 5,
+      "width": 80,
+      "height": 80
+    },
+    {
+      "name": "flowers",
+      "x": 37,
+      "y": 18,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 45,
+      "y": 20,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 48,
+      "y": 20,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 54,
+      "y": 26,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "flowers",
+      "x": 58,
+      "y": 26,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "town-sign",
+      "x": 42,
+      "y": 15,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "tree",
+      "x": 0,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 2,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 4,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 6,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 8,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 10,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 12,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 14,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 16,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 18,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 20,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 22,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 24,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 26,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 28,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 30,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 41,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 43,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 45,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 47,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 49,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 51,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 53,
+      "y": -2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 2,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 4,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 6,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 8,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 10,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 12,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 14,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 16,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 18,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 20,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 22,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 24,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 26,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 28,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 30,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 41,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 43,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 45,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 47,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 49,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 51,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 53,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 0,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 2,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 4,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 6,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 8,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 10,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 12,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 14,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 16,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 18,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 20,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 22,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 24,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 26,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 28,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 30,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 41,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 43,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 45,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 47,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 49,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 51,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 53,
+      "y": 2,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 0,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 2,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 4,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 6,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 8,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 10,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 12,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 14,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 16,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 18,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 20,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 22,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 24,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 26,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 28,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 30,
+      "y": 4,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 57,
+      "y": 7,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 7,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 7,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 10,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 10,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 10,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 13,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 13,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 14,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 20,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 20,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 22,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 22,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 24,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 24,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 26,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 26,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 26,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 31,
+      "y": 27,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 33,
+      "y": 27,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 35,
+      "y": 27,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 37,
+      "y": 27,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 27,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 28,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 28,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 31,
+      "y": 29,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 33,
+      "y": 29,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 35,
+      "y": 29,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 37,
+      "y": 29,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 29,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 30,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 30,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 31,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 33,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 35,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 37,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 40,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 42,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 44,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 46,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 48,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 50,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 52,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 54,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 56,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 31,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 32,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 32,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 31,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 33,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 35,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 37,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 40,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 42,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 44,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 46,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 48,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 50,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 52,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 54,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 56,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 33,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 60,
+      "y": 34,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 62,
+      "y": 34,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 31,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 33,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 35,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 37,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 39,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 40,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 42,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 44,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 46,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 48,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 50,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 52,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 54,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 56,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "name": "tree",
+      "x": 58,
+      "y": 35,
+      "width": 32,
+      "height": 48
+    }
+  ],
+  "dormant_warp": 3,
+  "port": [
+    {
+      "name": "cargo-north",
+      "x": 22,
+      "y": 14,
+      "width": 48,
+      "height": 112
+    },
+    {
+      "name": "fishing-north",
+      "x": 27,
+      "y": 14,
+      "width": 32,
+      "height": 64
+    },
+    {
+      "name": "fishing-boat",
+      "x": 28,
+      "y": 23,
+      "width": 64,
+      "height": 32
+    }
+  ]
+}

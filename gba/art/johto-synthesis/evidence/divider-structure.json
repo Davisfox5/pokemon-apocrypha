@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "5d50fbbd53fff3b535be9a10a07b7eb49ff1c005",
+  "outside_scope_unchanged": true,
+  "pond_cells": [
+    26,
+    6,
+    33,
+    15
+  ],
+  "pond_shift_north_pixels": 16,
+  "lawn_row_before_path": 15,
+  "divider_cells": [
+    33,
+    3,
+    35,
+    30
+  ],
+  "crossing_cells": [
+    33,
+    16,
+    35,
+    18
+  ],
+  "full_trees_checked": 13,
+  "face_direction": "east",
+  "high_ground": "west",
+  "art_revision_baseline": "522b72e838bfc83f4929274d68fbca89fc95911b",
+  "all_geometry_unchanged": true,
+  "rock_source": "Emerald general 0x75/0x7c/0x76/0x87; original colors in bank 8",
+  "stairs_source": "Emerald general 0x0af/0x0cf; Mossdeep cliff stairs"
+}

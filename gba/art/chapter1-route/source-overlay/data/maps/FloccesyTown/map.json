@@ -1,0 +1,171 @@
+{
+  "id": "MAP_FLOCCESY_TOWN",
+  "name": "FloccesyTown",
+  "layout": "LAYOUT_FLOCCESY_TOWN",
+  "music": "MUS_OLDALE",
+  "region_map_section": "MAPSEC_FLOCCESY_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_VISITOR_0",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_UNOVA",
+      "x": 39,
+      "y": 51,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VISITOR_1",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_HOENN",
+      "x": 25,
+      "y": 64,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VISITOR_2",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_KANTO",
+      "x": 44,
+      "y": 67,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VISITOR_3",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_JOHTO",
+      "x": 24,
+      "y": 53,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VISITOR_4",
+      "graphics_id": "OBJ_EVENT_GFX_REGIONAL_SINNOH",
+      "x": 35,
+      "y": 29,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VISITOR_5",
+      "graphics_id": "OBJ_EVENT_GFX_JOHTO_BOY",
+      "x": 22,
+      "y": 37,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FloccesyTown_Visitor",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 18,
+      "y": 62,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 36,
+      "y": 62,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_HOUSE_WEST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 42,
+      "y": 62,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_HOUSE_EAST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_LODGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_SHED_WEST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_FLOCCESY_SHED_EAST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 66,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 67,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 9,
+      "y": 68,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "build_target": "emerald",
+  "region": "REGION_UNOVA"
+}

@@ -1,0 +1,4146 @@
+diff --git a/data/field_effect_scripts.s b/data/field_effect_scripts.s
+index a35fa8a..904d9b3 100644
+--- a/data/field_effect_scripts.s
++++ b/data/field_effect_scripts.s
+@@ -88,6 +88,7 @@ gFieldEffectScriptPointers::
+ 	.4byte gFieldEffectScript_HallOfFameRecordFrlg      @ FLDEFF_HALL_OF_FAME_RECORD_FRLG
+ 	.4byte gFldEffScript_PhotoFlash      		        @ FLDEFF_PHOTO_FLASH
+ 	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
++	.4byte gFieldEffectScript_UseWhirlpool              @ FLDEFF_USE_WHIRLPOOL
+ 
+ gFieldEffectScript_ExclamationMarkIcon1::
+ 	field_eff_callnative FldEff_ExclamationMarkIcon
+@@ -420,3 +421,7 @@ gFldEffScript_PhotoFlash::
+ gFieldEffectScript_OWE_SpawnAnim::
+ 	field_eff_callnative FldEff_OWE_SpawnAnim
+ 	field_eff_end
++
++gFieldEffectScript_UseWhirlpool::
++	field_eff_callnative FldEff_UseWhirlpool
++	field_eff_end
+diff --git b/data/layouts/Apocrypha_Home_1F/border.bin b/data/layouts/Apocrypha_Home_1F/border.bin
+new file mode 100644
+index 0000000..1205559
+--- /dev/null
++++ b/data/layouts/Apocrypha_Home_1F/border.bin
+@@ -0,0 +1 @@
++Ñ>Ñ>Ñ>Ñ>
+\ No newline at end of file
+diff --git b/data/layouts/Apocrypha_Home_1F/map.bin b/data/layouts/Apocrypha_Home_1F/map.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..72b4442f31a241a32f04adca657d2558b1939b98
+GIT binary patch
+literal 198
+zcmV~$hav(1007aDtWfrdlFW)+B%>1|BP2pb<o`dS_X76VYo9^;4LRVTLk>G)*ipwE
+zH)7NYC!KQI8D^Pto&^_;vE;IG6RwzKl@x2Nv*D&&Zksk^mK}D<u?Obe=YWET7CGXW
+z6HYCuXO=nl!b>V#aZS}5Z@u%Lnh!qmM4e|EyzoksH{SiQ<tJZ!`(xW*|Lpj07p*fX
+AG5`Po
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/layouts/Apocrypha_Home_2F/border.bin b/data/layouts/Apocrypha_Home_2F/border.bin
+new file mode 100644
+index 0000000..1205559
+--- /dev/null
++++ b/data/layouts/Apocrypha_Home_2F/border.bin
+@@ -0,0 +1 @@
++Ñ>Ñ>Ñ>Ñ>
+\ No newline at end of file
+diff --git b/data/layouts/Apocrypha_Home_2F/map.bin b/data/layouts/Apocrypha_Home_2F/map.bin
+new file mode 100644
+index 0000000..9c96c19
+--- /dev/null
++++ b/data/layouts/Apocrypha_Home_2F/map.bin
+@@ -0,0 +1 @@
++c>d>e>f>g>h>i>j>k>l>m>n>o>p>q>r>s>t>u>v>w>x>y>z>{>|>}>~>>€>>‚>ƒ>„>…2†>‡2ˆ2‰>Š>‹>Œ>>Ž>>2‘2’2“2”2•2–2—2˜2™>š>›2œ22ž2Ÿ2 2¡2¢2£2¤>¥>¦>§>¨2©2ª2«2¬2­2®2¯>°>±>²>³2´2µ2¶2·2¸2¹>º>»>¼>½>¾2¿2À2Á2Â2Ã2Ä>Å>Æ>Ç>È>É>Ê>Ë>Ì>Í>Î>Ï>Ð>
+\ No newline at end of file
+diff --git a/data/layouts/layouts.inc b/data/layouts/layouts.inc
+index 3845916..9e6cbba 100644
+--- a/data/layouts/layouts.inc
++++ b/data/layouts/layouts.inc
+@@ -8121,3 +8121,39 @@ FloccesyTown_Layout::
+ 	.2byte 0
+ 	.byte 0
+ 
++Apocrypha_Home_1F_Border::
++	.incbin "data/layouts/Apocrypha_Home_1F/border.bin"
++
++Apocrypha_Home_1F_Blockdata::
++	.incbin "data/layouts/Apocrypha_Home_1F/map.bin"
++
++	.align 2
++Apocrypha_Home_1F::
++	.4byte 11
++	.4byte 9
++	.4byte Apocrypha_Home_1F_Border
++	.4byte Apocrypha_Home_1F_Blockdata
++	.4byte gTileset_ApocHomeBase
++	.4byte gTileset_ApocHome
++	.byte FALSE
++	.2byte 0
++	.byte 0
++
++Apocrypha_Home_2F_Border::
++	.incbin "data/layouts/Apocrypha_Home_2F/border.bin"
++
++Apocrypha_Home_2F_Blockdata::
++	.incbin "data/layouts/Apocrypha_Home_2F/map.bin"
++
++	.align 2
++Apocrypha_Home_2F::
++	.4byte 11
++	.4byte 10
++	.4byte Apocrypha_Home_2F_Border
++	.4byte Apocrypha_Home_2F_Blockdata
++	.4byte gTileset_ApocHomeBase
++	.4byte gTileset_ApocHome
++	.byte FALSE
++	.2byte 0
++	.byte 0
++
+diff --git a/data/layouts/layouts.json b/data/layouts/layouts.json
+index c9bdcc0..1e944ae 100644
+--- a/data/layouts/layouts.json
++++ b/data/layouts/layouts.json
+@@ -9445,6 +9445,26 @@
+       "blockdata_filepath": "data/layouts/FloccesyTown/map.bin",
+       "build_target": "emerald",
+       "layout_version": "emerald"
++    },
++    {
++      "id": "LAYOUT_APOCRYPHA_HOME_1F",
++      "name": "Apocrypha_Home_1F",
++      "width": 11,
++      "height": 9,
++      "primary_tileset": "gTileset_ApocHomeBase",
++      "secondary_tileset": "gTileset_ApocHome",
++      "border_filepath": "data/layouts/Apocrypha_Home_1F/border.bin",
++      "blockdata_filepath": "data/layouts/Apocrypha_Home_1F/map.bin"
++    },
++    {
++      "id": "LAYOUT_APOCRYPHA_HOME_2F",
++      "name": "Apocrypha_Home_2F",
++      "width": 11,
++      "height": 10,
++      "primary_tileset": "gTileset_ApocHomeBase",
++      "secondary_tileset": "gTileset_ApocHome",
++      "border_filepath": "data/layouts/Apocrypha_Home_2F/border.bin",
++      "blockdata_filepath": "data/layouts/Apocrypha_Home_2F/map.bin"
+     }
+   ]
+ }
+diff --git a/data/layouts/layouts_table.inc b/data/layouts/layouts_table.inc
+index 6db9b70..00ae112 100644
+--- a/data/layouts/layouts_table.inc
++++ b/data/layouts/layouts_table.inc
+@@ -799,3 +799,5 @@ gMapLayouts::
+ 	.4byte CherrygroveRoute30Approach_Layout
+ 	.4byte SandgemTown_Layout
+ 	.4byte FloccesyTown_Layout
++	.4byte Apocrypha_Home_1F
++	.4byte Apocrypha_Home_2F
+diff --git a/data/maps/CherrygrovePlayerBedroom/map.json b/data/maps/CherrygrovePlayerBedroom/map.json
+index 2aa4d18..20a94cb 100644
+--- a/data/maps/CherrygrovePlayerBedroom/map.json
++++ b/data/maps/CherrygrovePlayerBedroom/map.json
+@@ -1,7 +1,7 @@
+ {
+   "id": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
+   "name": "CherrygrovePlayerBedroom",
+-  "layout": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
++  "layout": "LAYOUT_APOCRYPHA_HOME_2F",
+   "music": "MUS_LITTLEROOT",
+   "region": "REGION_JOHTO",
+   "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+@@ -18,13 +18,22 @@
+   "object_events": [],
+   "warp_events": [
+     {
+-      "x": 7,
+-      "y": 1,
++      "x": 1,
++      "y": 3,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_PLAYER_HOUSE",
+       "dest_warp_id": "2"
+     }
+   ],
+   "coord_events": [],
+-  "bg_events": []
++  "bg_events": [
++    {
++      "type": "sign",
++      "x": 5,
++      "y": 3,
++      "elevation": 3,
++      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
++      "script": "CherrygrovePlayerBedroom_PC"
++    }
++  ]
+ }
+diff --git a/data/maps/CherrygrovePlayerBedroom/scripts.inc b/data/maps/CherrygrovePlayerBedroom/scripts.inc
+index fd898c7..236d239 100644
+--- a/data/maps/CherrygrovePlayerBedroom/scripts.inc
++++ b/data/maps/CherrygrovePlayerBedroom/scripts.inc
+@@ -1,2 +1,19 @@
+ CherrygrovePlayerBedroom_MapScripts::
+-    .byte 0
++	.byte 0
++CherrygrovePlayerBedroom_PC::
++	lockall
++	goto_if_set FLAG_APOC_PC_POTION, CherrygrovePlayerBedroom_PCMenu
++	msgbox CherrygrovePlayerBedroom_PCText, MSGBOX_DEFAULT
++	giveitem ITEM_POTION
++	goto_if_eq VAR_RESULT, FALSE, CherrygrovePlayerBedroom_End
++	setflag FLAG_APOC_PC_POTION
++	setvar VAR_APOC_HOME_STAGE, 2
++CherrygrovePlayerBedroom_PCMenu:
++	closemessage
++	special BedroomPC
++	waitstate
++CherrygrovePlayerBedroom_End:
++	releaseall
++	end
++CherrygrovePlayerBedroom_PCText:
++	.string "Your PC is ready to use.\pThere's a POTION tucked beside it,\nwith a note from MOM.$"
+diff --git a/data/maps/CherrygrovePlayerHouse/map.json b/data/maps/CherrygrovePlayerHouse/map.json
+index 81cb0a2..13543c5 100644
+--- a/data/maps/CherrygrovePlayerHouse/map.json
++++ b/data/maps/CherrygrovePlayerHouse/map.json
+@@ -1,7 +1,7 @@
+ {
+   "id": "MAP_CHERRYGROVE_PLAYER_HOUSE",
+   "name": "CherrygrovePlayerHouse",
+-  "layout": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
++  "layout": "LAYOUT_APOCRYPHA_HOME_1F",
+   "music": "MUS_LITTLEROOT",
+   "region": "REGION_JOHTO",
+   "region_map_section": "MAPSEC_CHERRYGROVE_CITY",
+@@ -32,8 +32,8 @@
+     },
+     {
+       "local_id": "LOCALID_BOXONE",
+-      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+-      "x": 4,
++      "graphics_id": "1037",
++      "x": 3,
+       "y": 6,
+       "elevation": 3,
+       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+@@ -46,9 +46,9 @@
+     },
+     {
+       "local_id": "LOCALID_BOXTWO",
+-      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+-      "x": 5,
+-      "y": 6,
++      "graphics_id": "1037",
++      "x": 4,
++      "y": 7,
+       "elevation": 3,
+       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+       "movement_range_x": 0,
+@@ -61,27 +61,46 @@
+   ],
+   "warp_events": [
+     {
+-      "x": 9,
++      "x": 2,
+       "y": 8,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_CITY",
+       "dest_warp_id": "0"
+     },
+     {
+-      "x": 8,
++      "x": 3,
+       "y": 8,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_CITY",
+       "dest_warp_id": "0"
+     },
+     {
+-      "x": 8,
++      "x": 1,
+       "y": 2,
+       "elevation": 0,
+       "dest_map": "MAP_CHERRYGROVE_PLAYER_BEDROOM",
+       "dest_warp_id": "0"
+     }
+   ],
+-  "coord_events": [],
++  "coord_events": [
++    {
++      "type": "trigger",
++      "x": 2,
++      "y": 7,
++      "elevation": 3,
++      "var": "VAR_APOC_HOME_STAGE",
++      "var_value": "1",
++      "script": "CherrygrovePlayerHouse_ExitGuard"
++    },
++    {
++      "type": "trigger",
++      "x": 3,
++      "y": 7,
++      "elevation": 3,
++      "var": "VAR_APOC_HOME_STAGE",
++      "var_value": "1",
++      "script": "CherrygrovePlayerHouse_ExitGuard"
++    }
++  ],
+   "bg_events": []
+ }
+diff --git a/data/maps/CherrygrovePlayerHouse/scripts.inc b/data/maps/CherrygrovePlayerHouse/scripts.inc
+index 86c1cd0..6a8638f 100644
+--- a/data/maps/CherrygrovePlayerHouse/scripts.inc
++++ b/data/maps/CherrygrovePlayerHouse/scripts.inc
+@@ -1,23 +1,85 @@
+ CherrygrovePlayerHouse_MapScripts::
+-    .byte 0
+-
++	map_script MAP_SCRIPT_ON_FRAME_TABLE, CherrygrovePlayerHouse_OnFrame
++	.byte 0
++CherrygrovePlayerHouse_OnFrame:
++	map_script_2 VAR_APOC_HOME_STAGE, 0, CherrygrovePlayerHouse_Opening
++	map_script_2 VAR_APOC_HOME_STAGE, 2, CherrygrovePlayerHouse_Handoff
++	.2byte 0
++CherrygrovePlayerHouse_Opening:
++	lockall
++	fadescreen FADE_TO_BLACK
++	msgbox CherrygrovePlayerHouse_Cold, MSGBOX_DEFAULT
++	closemessage
++	fadescreen FADE_FROM_BLACK
++	msgbox CherrygrovePlayerHouse_Welcome, MSGBOX_DEFAULT
++	setvar VAR_APOC_HOME_STAGE, 1
++	releaseall
++	end
++CherrygrovePlayerHouse_Handoff:
++	lockall
++	msgbox CherrygrovePlayerHouse_GearText, MSGBOX_DEFAULT
++	setflag FLAG_APOC_POKEGEAR
++	setvar VAR_APOC_HOME_STAGE, 4
++	releaseall
++	end
+ CherrygrovePlayerHouse_Mother::
+-    msgbox CherrygrovePlayerHouse_Mother_Text, MSGBOX_NPC
+-    end
+-
+-CherrygrovePlayerHouse_Mother_Text:
+-    .string "Our new home!\nTake a look around, honey.$"
+-
++	lock
++	faceplayer
++	goto_if_eq VAR_APOC_HOME_STAGE, 2, CherrygrovePlayerHouse_Handoff
++	goto_if_eq VAR_APOC_HOME_STAGE, 1, CherrygrovePlayerHouse_Reminder
++	msgbox CherrygrovePlayerHouse_After, MSGBOX_DEFAULT
++	release
++	end
++CherrygrovePlayerHouse_Reminder:
++	msgbox CherrygrovePlayerHouse_Upstairs, MSGBOX_DEFAULT
++	releaseall
++	end
++CherrygrovePlayerHouse_ExitGuard::
++	lockall
++	msgbox CherrygrovePlayerHouse_Upstairs, MSGBOX_DEFAULT
++	closemessage
++	applymovement LOCALID_PLAYER, CherrygrovePlayerHouse_Back
++	waitmovement 0
++	releaseall
++	end
++CherrygrovePlayerHouse_Back:
++	walk_up
++	step_end
+ CherrygrovePlayerHouse_BoxOne::
+-    msgbox CherrygrovePlayerHouse_BoxOne_Text, MSGBOX_NPC
+-    end
+-
+-CherrygrovePlayerHouse_BoxOne_Text:
+-    .string "A box from the move.$"
+-
++	msgbox CherrygrovePlayerHouse_BoxText, MSGBOX_SIGN
++	end
+ CherrygrovePlayerHouse_BoxTwo::
+-    msgbox CherrygrovePlayerHouse_BoxTwo_Text, MSGBOX_NPC
+-    end
+-
+-CherrygrovePlayerHouse_BoxTwo_Text:
+-    .string "Still waiting to be unpacked.$"
++	msgbox CherrygrovePlayerHouse_BoxText, MSGBOX_SIGN
++	end
++CherrygrovePlayerHouse_Cold:
++	.string "...\p......\pMOM: ...Honey. Hey--we're here.\nWake up, sleepyhead.\pWe made it. Our new home!\nI still can't believe we did it.$"
++CherrygrovePlayerHouse_Welcome:
++	.string "MOM: All the way from Kalos...\nand now this is home.\pA whole new region. A fresh start,\nfor both of us.\pThe movers got everything here\nin one piece. More or less.\pGo on up and see your new room.\nI had your things set up first.\pYour PC should be ready. Get it\nsorted while I unpack down here.$"
++CherrygrovePlayerHouse_Upstairs:
++	.string "MOM: Go see your room upstairs.\nYour PC should be ready!$"
++CherrygrovePlayerHouse_GearText:
++	.string "MOM: There you are. Settling in?\nOh--this came for you.\pYour very own POKÃ©GEAR!\nPhone, radio, clock, all in one.\pA MAP CARD will add a map, too.\pYou can open your BAG, check your\nPOKÃ©GEAR, or SAVE from the menu.\pI've registered my number.\nCall me anytime. I mean it.$"
++CherrygrovePlayerHouse_After:
++	.string "MOM: I'll keep unpacking here.\nGo on, have a look around.\pCall me anytime, honey.$"
++CherrygrovePlayerHouse_BoxText:
++	.string "A moving box from Kalos.\nThere's still plenty to unpack.$"
++Apocrypha_Pokegear_Open::
++	lockall
++	msgbox Apocrypha_Pokegear_Phone, MSGBOX_YESNO
++	goto_if_eq VAR_RESULT, NO, Apocrypha_Pokegear_Clock
++	msgbox Apocrypha_Pokegear_Mom, MSGBOX_DEFAULT
++Apocrypha_Pokegear_Clock:
++	msgbox Apocrypha_Pokegear_ClockText, MSGBOX_YESNO
++	goto_if_eq VAR_RESULT, NO, Apocrypha_Pokegear_Close
++	closemessage
++	special Special_ViewWallClock
++	waitstate
++Apocrypha_Pokegear_Close:
++	releaseall
++	end
++Apocrypha_Pokegear_Phone:
++	.string "POKÃ©GEAR / PHONE\nRegistered contact: MOM\pCall MOM?$"
++Apocrypha_Pokegear_Mom:
++	.string "MOM: Hi, honey!\nStill surrounded by boxes here.\pTake your time exploring.\nI'll be right here when you return.$"
++Apocrypha_Pokegear_ClockText:
++	.string "POKÃ©GEAR / CLOCK\nCheck the time?$"
+diff --git a/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc b/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
+index ddadb82..6a31d1a 100644
+--- a/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
++++ b/data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc
+@@ -44,7 +44,7 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight::
+ 	.align 2
+ LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs:
+ 	.2byte ITEM_TM_PROTECT
+-	.2byte ITEM_TM_SAFEGUARD
++	.2byte ITEM_TM_REST
+ 	.2byte ITEM_TM_REFLECT
+ 	.2byte ITEM_TM_LIGHT_SCREEN
+ 	pokemartlistend
+diff --git a/data/maps/MauvilleCity_GameCorner/scripts.inc b/data/maps/MauvilleCity_GameCorner/scripts.inc
+index 2be9147..6f9fb76 100644
+--- a/data/maps/MauvilleCity_GameCorner/scripts.inc
++++ b/data/maps/MauvilleCity_GameCorner/scripts.inc
+@@ -247,8 +247,8 @@ MauvilleCity_GameCorner_EventScript_ChooseTMPrize::
+ 
+ MauvilleCity_GameCorner_EventScript_TMDoubleTeam::
+ 	setvar VAR_TEMP_1, 1
+-	bufferitemname STR_VAR_1, ITEM_TM_DOUBLE_TEAM
+-	setvar VAR_0x8004, ITEM_TM_DOUBLE_TEAM
++	bufferitemname STR_VAR_1, ITEM_TM_AGILITY
++	setvar VAR_0x8004, ITEM_TM_AGILITY
+ 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
+ 
+ MauvilleCity_GameCorner_EventScript_TMPsychic::
+@@ -290,10 +290,10 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
+ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
+ 	checkcoins VAR_TEMP_2
+ 	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
+-	checkitemspace ITEM_TM_DOUBLE_TEAM
++	checkitemspace ITEM_TM_AGILITY
+ 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
+ 	removecoins TM_DOUBLE_TEAM_COINS
+-	additem ITEM_TM_DOUBLE_TEAM
++	additem ITEM_TM_AGILITY
+ 	updatecoinsbox
+ 	playse SE_SHOP
+ 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+diff --git a/data/maps/PacifidlogTown_House2/scripts.inc b/data/maps/PacifidlogTown_House2/scripts.inc
+index 3acb758..b0eb641 100644
+--- a/data/maps/PacifidlogTown_House2/scripts.inc
++++ b/data/maps/PacifidlogTown_House2/scripts.inc
+@@ -53,7 +53,7 @@ PacifidlogTown_House2_EventScript_PutInEffort::
+ 
+ PacifidlogTown_House2_EventScript_GiveFrustration::
+ 	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_FRUSTRATION
++	giveitem ITEM_TM_RETURN
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
+ 	special SetPacifidlogTMReceivedDay
+diff --git a/data/maps/Route113/map.json b/data/maps/Route113/map.json
+index 0e67cb2..78c14ff 100644
+--- a/data/maps/Route113/map.json
++++ b/data/maps/Route113/map.json
+@@ -451,7 +451,7 @@
+       "x": 22,
+       "y": 5,
+       "elevation": 3,
+-      "item": "ITEM_TM_DOUBLE_TEAM",
++      "item": "ITEM_TM_AGILITY",
+       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM"
+     },
+     {
+diff --git a/data/maps/SlateportCity/scripts.inc b/data/maps/SlateportCity/scripts.inc
+index 00f02b6..6da4d23 100644
+--- a/data/maps/SlateportCity/scripts.inc
++++ b/data/maps/SlateportCity/scripts.inc
+@@ -538,7 +538,7 @@ SlateportCity_EventScript_PowerTMClerk::
+ 	.align 2
+ SlateportCity_Pokemart_PowerTMs:
+ 	.2byte ITEM_TM_HIDDEN_POWER
+-	.2byte ITEM_TM_SECRET_POWER
++	.2byte ITEM_TM_ANCIENT_POWER
+ 	pokemartlistend
+ 
+ @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
+diff --git a/data/maps/SlateportCity_BattleTentLobby/scripts.inc b/data/maps/SlateportCity_BattleTentLobby/scripts.inc
+index 26c6e56..72709db 100644
+--- a/data/maps/SlateportCity_BattleTentLobby/scripts.inc
++++ b/data/maps/SlateportCity_BattleTentLobby/scripts.inc
+@@ -199,7 +199,7 @@ SlateportCity_BattleTentLobby_EventScript_TormentGiver::
+ 	faceplayer
+ 	goto_if_set FLAG_RECEIVED_TM_TORMENT, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
+ 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
+-	giveitem ITEM_TM_TORMENT
++	giveitem ITEM_TM_HONE_CLAWS
+ 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+ 	setflag FLAG_RECEIVED_TM_TORMENT
+ 	msgbox SlateportCity_BattleTentLobby_Text_ExplainTorment, MSGBOX_DEFAULT
+diff --git a/data/scripts/field_move_scripts.inc b/data/scripts/field_move_scripts.inc
+index 0aeaa23..e884488 100644
+--- a/data/scripts/field_move_scripts.inc
++++ b/data/scripts/field_move_scripts.inc
+@@ -295,6 +295,39 @@ EventScript_UseWaterfall::
+ 	callnative FollowerNPC_WarpSetEnd
+ 	goto EventScript_EndWaterfall
+ 
++EventScript_UseWhirlpool::
++	lockall
++	checkfieldmove FIELD_MOVE_WHIRLPOOL
++	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWhirlpool
++	bufferpartymonnick STR_VAR_1, VAR_RESULT
++	setfieldeffectargument 0, VAR_RESULT
++	msgbox Text_WantToWhirlpool, MSGBOX_YESNO
++	goto_if_eq VAR_RESULT, NO, EventScript_EndWhirlpool
++	msgbox Text_MonUsedWhirlpool, MSGBOX_DEFAULT
++	dofieldeffect FLDEFF_USE_WHIRLPOOL
++	goto EventScript_EndWhirlpool
++
++EventScript_CannotUseWhirlpool::
++	lockall
++
++EventScript_CantWhirlpool::
++	msgbox Text_CantWhirlpool, MSGBOX_DEFAULT
++
++EventScript_EndWhirlpool::
++	releaseall
++	end
++
++Text_CantWhirlpool:
++	.string "A fierce whirlpool is blocking the\n"
++	.string "way.$"
++
++Text_WantToWhirlpool:
++	.string "A fierce whirlpool is blocking the\n"
++	.string "way.\pShould {STR_VAR_1} use WHIRLPOOL?$"
++
++Text_MonUsedWhirlpool:
++	.string "{STR_VAR_1} used WHIRLPOOL!$"
++
+ EventScript_CannotUseWaterfall::
+ 	lockall
+ 
+diff --git a/data/scripts/secret_power_tm.inc b/data/scripts/secret_power_tm.inc
+index 58ddc8c..a240f00 100644
+--- a/data/scripts/secret_power_tm.inc
++++ b/data/scripts/secret_power_tm.inc
+@@ -43,7 +43,7 @@ Route111_EventScript_SecretPowerMan::
+ 	end
+ 
+ Route111_EventScript_GiveSecretPower::
+-	giveitem ITEM_TM_SECRET_POWER
++	giveitem ITEM_TM_ANCIENT_POWER
+ 	goto_if_eq VAR_RESULT, FALSE, Route111_EventScript_NoRoomForSecretPower
+ 	msgbox Route111_Text_ExplainSecretPower, MSGBOX_DEFAULT
+ 	closemessage
+diff --git b/data/tilesets/primary/apoc_home/metatile_attributes.bin b/data/tilesets/primary/apoc_home/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..06d7405020018ddf3cacee90fd4af10487da3d20
+GIT binary patch
+literal 1024
+ScmZQz7zLvtFd70QH3R?z00031
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/tilesets/primary/apoc_home/metatiles.bin b/data/tilesets/primary/apoc_home/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d17cf9d15fb9f4a2358a2d079f3b8c755d005fa
+GIT binary patch
+literal 8192
+zcmeIu0Sy2E0K%a6Pi+o2h(KY$fB^#r3>YwAz<>b*1`HT5V8DO@0|pEjFkrxd0RsjM
+GyblZ@00031
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/tilesets/primary/apoc_home/palettes/00.pal b/data/tilesets/primary/apoc_home/palettes/00.pal
+new file mode 100644
+index 0000000..4b0812f
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git b/data/tilesets/primary/apoc_home/palettes/01.pal b/data/tilesets/primary/apoc_home/palettes/01.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/02.pal b/data/tilesets/primary/apoc_home/palettes/02.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/03.pal b/data/tilesets/primary/apoc_home/palettes/03.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/04.pal b/data/tilesets/primary/apoc_home/palettes/04.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/05.pal b/data/tilesets/primary/apoc_home/palettes/05.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/06.pal b/data/tilesets/primary/apoc_home/palettes/06.pal
+new file mode 100644
+index 0000000..ad5d8eb
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++237 241 211
++212 229 235
++180 214 207
++216 184 135
++178 194 200
++200 168 120
++168 170 164
++184 160 119
++184 152 112
++153 143 126
++120 144 174
++164 100 79
++88 103 95
++162 62 42
++0 0 0
+diff --git b/data/tilesets/primary/apoc_home/palettes/07.pal b/data/tilesets/primary/apoc_home/palettes/07.pal
+new file mode 100644
+index 0000000..afed061
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++211 206 194
++215 184 139
++200 168 120
++184 152 112
++154 178 186
++112 168 120
++127 156 152
++91 162 120
++144 137 127
++133 112 78
++91 124 154
++102 110 122
++99 80 73
++123 48 38
++34 46 76
+diff --git b/data/tilesets/primary/apoc_home/palettes/08.pal b/data/tilesets/primary/apoc_home/palettes/08.pal
+new file mode 100644
+index 0000000..b73a366
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++248 224 112
++248 208 96
++216 192 120
++216 184 136
++216 184 96
++144 192 216
++144 184 200
++200 168 120
++182 156 108
++136 160 184
++120 144 176
++119 128 124
++96 112 136
++80 87 93
++64 64 64
+diff --git b/data/tilesets/primary/apoc_home/palettes/09.pal b/data/tilesets/primary/apoc_home/palettes/09.pal
+new file mode 100644
+index 0000000..f7d1246
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++207 175 127
++184 160 120
++170 142 104
++19 174 79
++32 137 93
++208 96 152
++127 111 91
++78 97 80
++24 120 88
++16 112 88
++111 75 53
++122 58 103
++68 68 63
++64 48 54
++0 0 0
+diff --git b/data/tilesets/primary/apoc_home/palettes/10.pal b/data/tilesets/primary/apoc_home/palettes/10.pal
+new file mode 100644
+index 0000000..d6eff4d
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++214 220 192
++187 207 207
++180 195 199
++182 164 124
++183 143 95
++183 143 87
++175 135 87
++167 154 137
++167 127 87
++153 165 165
++113 153 145
++156 119 78
++188 86 65
++73 75 65
++0 0 0
+diff --git b/data/tilesets/primary/apoc_home/palettes/11.pal b/data/tilesets/primary/apoc_home/palettes/11.pal
+new file mode 100644
+index 0000000..87af774
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++216 209 198
++212 191 175
++196 175 168
++155 161 152
++131 152 181
++183 138 102
++153 129 72
++131 133 146
++142 111 76
++113 88 56
++70 97 145
++49 61 65
++33 32 32
++19 31 69
++0 1 2
+diff --git b/data/tilesets/primary/apoc_home/palettes/12.pal b/data/tilesets/primary/apoc_home/palettes/12.pal
+new file mode 100644
+index 0000000..f162d6f
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++135 183 207
++135 175 191
++127 151 175
++183 143 95
++183 143 87
++175 135 87
++167 135 79
++111 135 167
++23 139 87
++167 127 87
++159 119 79
++15 111 79
++148 86 98
++50 56 43
++0 0 0
+diff --git b/data/tilesets/primary/apoc_home/palettes/13.pal b/data/tilesets/primary/apoc_home/palettes/13.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/14.pal b/data/tilesets/primary/apoc_home/palettes/14.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/palettes/15.pal b/data/tilesets/primary/apoc_home/palettes/15.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/primary/apoc_home/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/primary/apoc_home/tiles.png b/data/tilesets/primary/apoc_home/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d974df3c0f9fc2c86c4af1bf5bccb3e55d0defcb
+GIT binary patch
+literal 6206
+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
+b6QTBB4}Nc0^*;IEr>>s1fmXQ&Dg1u`j`#_n
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/tilesets/secondary/apoc_home/metatile_attributes.bin b/data/tilesets/secondary/apoc_home/metatile_attributes.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..25961929443c63e9bc69369f308a33957de6619d
+GIT binary patch
+literal 420
+ccmZQzAO$3lqL^lCQyEfeVD{kf8#a#t0E9^aivR!s
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/tilesets/secondary/apoc_home/metatiles.bin b/data/tilesets/secondary/apoc_home/metatiles.bin
+new file mode 100644
+index 0000000000000000000000000000000000000000..44d3333d6c642e296a58bafaf2dc8076aaa1d4fc
+GIT binary patch
+literal 3360
+zcmc)KRdf_t5C-5$AelgLcXxMpcXzG9ox&X&cbLJQRO8NV-06$EySuwPcQ)x_I=e4>
+z_F+?}AHGy~)!%o{j34-cKSTgWSotYOgaDfZ!D(}ly2JPW00^|%2|+gd&Wi+*AsC`?
+zKPp6n=n#YL-5(QT*&G|<u;W5Jhz|+a2_X?Ah9vBykPMPT3U*3J1*stoJ1wTe^q2u1
+zVU-axDP?A7!K|1Kv$JzxPRxb5*?BN8=EMB#0$30WVPSR=EQ-ajIJ*Rtgi=tN_m_dP
+zP!7toD?ml41eMuUpej^@>g*a=6Ki2@o>vF!Vm++SZh)a>y-!1IgpIKY_nTrfY>vQo
+zVGC@Dt=O%x4YtL0?Do(eIzUI>-w8TH7wF1H=my=P2fHWqvh{moAMA_$cwT=TfCF(5
+zdoT_`4TrLa;cy&*BiW;HG>*Zs>~T0AC*VZ(B%F+H^suMERG0?SInNB33A11}dk)Nn
+zc`%>-PyGe3(AEzDV(YL77Q+(uB3P=ljJ;gVUjZxGGhh{jz-smy_54~`$6gNtyqT@<
+zj{zINo5}J<*aY6pmN$p%Z_&1D+tlR<tL@qjZKt-2y<6L(?bS^79!)CkWAE1vXa}`J
+z?89o-5ubVC_aAj1b02q~a67{4B%FfNaE9}pg>!HoF0j4*i$49W+9fspGVi;hUA5)C
+zrd`)=Xg9fkUAv{-*6y(HYWHmS-&fNf_~d=)e&l}ae!}^lx}Uk9yI-(hs<V9suQ{Lh
+zY~R3Jw)gDc!F%=x?W6Wd`^@{lXkWE&+IO3O{EPli?U#DqG1U6J{5<}i2%d-@>pTNI
+zfgYzS%R#P4E~hK9%liC-UBRv>sw_u!MRP@0cUX?$imCL+L8|ZT|Jsk`iEYd0Bqzn8
+zxa0^4EhojJ_>_R1kP=a1O2SS`$tXFcVEcvmg`}iZ?9`No(o#Bhddff<DHA(0WudH;
+zjh$WX&p|oa-aNS|x6R)FS^4r%Udl)L*#)Q|6{5oIB2<)$QE_$&DoLfNG`kFyrE*lB
+zU4bf6C92G>LRG06RcF_rnpBHwv+Gb@sz>$N4X7bCqQ>kdDr-}pyv?XN0lB!}f?855
+zYRzs#ZK)l#XLq2E)Jc`~zMZLy&0PhGZlb$ztPiaoqNnI3db9h8zM`M#&mJHKia}y9
+zd!QI1G%=JtOl2MJlXnD-q){}Q_m82mG>*ozC(uNiq%JGpWSUHF^4L6urn0Ar>0*YM
+z$@^xB*<y~E%bq9Ziv?mKJ4BGs#Ul1%u|zBt%h=0R))hW^SJEn4tuk17*3ep7N9);w
+z4B9{&*_&uHZK18~ZM2<s&`x&v{w~^0duT8BO_H>a_OlPrK{`Z-*+*y-9aS5xJjYbl
+z<34%4Sy$5u?w_Pnbehhv&(b+MPZ!u1=@MP`@fGu`dCk0TI`)Rv4fCdX%e>9LW8O9I
+znfKWb%!lS9^D+AgJ*8*#oaeuwm-LEWv)`z!Z+-H<6Ys?b@sZE}llUyYh_CE#;=A}E
+zezJd&L-*7Db?f~j$cQpP21+ZhQwGUM@-FB3yCchB8HMkUsz=kK>oIs<Og)w!TaUwz
+ztE*ouby@r38wrerMk2%dek3-M7)gy}?BqrYBc+jwomx+$r`6N(y!0}I%qTPQ{>(Cq
+z%qp|loL%N%=aji*ZkdOjSI?*C*9-8xg0he-EQ@fzsLEQ*CvS11gy9rUKEIMiDVs|h
+zWo$01ms3ywdEfG~f^?crKF^A>lFgN66`QNdYBpEbYuM)1l(lUA+JANb?DOvS-T%K^
+Sy}R%GhtE^TKeQZSf4>3M6ya(B
+
+literal 0
+HcmV?d00001
+
+diff --git b/data/tilesets/secondary/apoc_home/palettes/00.pal b/data/tilesets/secondary/apoc_home/palettes/00.pal
+new file mode 100644
+index 0000000..4b0812f
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/00.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git b/data/tilesets/secondary/apoc_home/palettes/01.pal b/data/tilesets/secondary/apoc_home/palettes/01.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/01.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/02.pal b/data/tilesets/secondary/apoc_home/palettes/02.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/02.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/03.pal b/data/tilesets/secondary/apoc_home/palettes/03.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/03.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/04.pal b/data/tilesets/secondary/apoc_home/palettes/04.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/04.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/05.pal b/data/tilesets/secondary/apoc_home/palettes/05.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/05.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/06.pal b/data/tilesets/secondary/apoc_home/palettes/06.pal
+new file mode 100644
+index 0000000..ad5d8eb
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/06.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++237 241 211
++212 229 235
++180 214 207
++216 184 135
++178 194 200
++200 168 120
++168 170 164
++184 160 119
++184 152 112
++153 143 126
++120 144 174
++164 100 79
++88 103 95
++162 62 42
++0 0 0
+diff --git b/data/tilesets/secondary/apoc_home/palettes/07.pal b/data/tilesets/secondary/apoc_home/palettes/07.pal
+new file mode 100644
+index 0000000..afed061
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/07.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++211 206 194
++215 184 139
++200 168 120
++184 152 112
++154 178 186
++112 168 120
++127 156 152
++91 162 120
++144 137 127
++133 112 78
++91 124 154
++102 110 122
++99 80 73
++123 48 38
++34 46 76
+diff --git b/data/tilesets/secondary/apoc_home/palettes/08.pal b/data/tilesets/secondary/apoc_home/palettes/08.pal
+new file mode 100644
+index 0000000..b73a366
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/08.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++248 224 112
++248 208 96
++216 192 120
++216 184 136
++216 184 96
++144 192 216
++144 184 200
++200 168 120
++182 156 108
++136 160 184
++120 144 176
++119 128 124
++96 112 136
++80 87 93
++64 64 64
+diff --git b/data/tilesets/secondary/apoc_home/palettes/09.pal b/data/tilesets/secondary/apoc_home/palettes/09.pal
+new file mode 100644
+index 0000000..f7d1246
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/09.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++207 175 127
++184 160 120
++170 142 104
++19 174 79
++32 137 93
++208 96 152
++127 111 91
++78 97 80
++24 120 88
++16 112 88
++111 75 53
++122 58 103
++68 68 63
++64 48 54
++0 0 0
+diff --git b/data/tilesets/secondary/apoc_home/palettes/10.pal b/data/tilesets/secondary/apoc_home/palettes/10.pal
+new file mode 100644
+index 0000000..d6eff4d
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/10.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++214 220 192
++187 207 207
++180 195 199
++182 164 124
++183 143 95
++183 143 87
++175 135 87
++167 154 137
++167 127 87
++153 165 165
++113 153 145
++156 119 78
++188 86 65
++73 75 65
++0 0 0
+diff --git b/data/tilesets/secondary/apoc_home/palettes/11.pal b/data/tilesets/secondary/apoc_home/palettes/11.pal
+new file mode 100644
+index 0000000..87af774
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/11.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++216 209 198
++212 191 175
++196 175 168
++155 161 152
++131 152 181
++183 138 102
++153 129 72
++131 133 146
++142 111 76
++113 88 56
++70 97 145
++49 61 65
++33 32 32
++19 31 69
++0 1 2
+diff --git b/data/tilesets/secondary/apoc_home/palettes/12.pal b/data/tilesets/secondary/apoc_home/palettes/12.pal
+new file mode 100644
+index 0000000..f162d6f
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/12.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++135 183 207
++135 175 191
++127 151 175
++183 143 95
++183 143 87
++175 135 87
++167 135 79
++111 135 167
++23 139 87
++167 127 87
++159 119 79
++15 111 79
++148 86 98
++50 56 43
++0 0 0
+diff --git b/data/tilesets/secondary/apoc_home/palettes/13.pal b/data/tilesets/secondary/apoc_home/palettes/13.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/13.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/14.pal b/data/tilesets/secondary/apoc_home/palettes/14.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/14.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/palettes/15.pal b/data/tilesets/secondary/apoc_home/palettes/15.pal
+new file mode 100644
+index 0000000..f2cf6b7
+--- /dev/null
++++ b/data/tilesets/secondary/apoc_home/palettes/15.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++32 32 40
++64 48 48
++88 64 48
++120 80 56
++152 104 64
++184 136 88
++216 176 120
++232 208 160
++248 232 192
++80 104 104
++104 144 144
++152 192 192
++184 216 208
++104 64 80
++152 96 112
+diff --git b/data/tilesets/secondary/apoc_home/tiles.png b/data/tilesets/secondary/apoc_home/tiles.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..eb861bc7f7b81cd676fd1a14a8e41237189dd8ee
+GIT binary patch
+literal 1741
+zcmeAS@N?(olHy`uVBq!ia0vp^4M1$b!3-qdX*KmQFfcO&_=LCux$WD}x3Aw{KYji7
+z{`l?v;p^MOm$&=pw=Wm(4qsj$KEK?bKi_{!Sdx*2Hc;^>7!85p6apMPm!ARiLWie|
+zV@SoEqtknf)+q3_2DUVC?E8QF9;b@LqIG+3msKyjEE;Aze}?=uhLgNq=h!E0{cLl-
+zEHJs-{q28?XP2*7Y!qa0Veq(m)bg>X)PcK<XFi+wUS7kf<@9yw<%~1JoxOY7IqucV
+zDwrtqE|?!9{ZFPL*W79?L+z%(|25(YTA2(N3>Pr`^15@hflWbv^TmVPJ_^d^MF%mw
+z+|6)&ZJ^=B#!8k2(l0-D=e$UNctqJjMV8YksLfXQC!;9CdJg6X+b^4}6ty^#nQ8IH
+zWmXv9oZH-)<$R~&p1vsV|I+c9hvDYiKPNu(RL)XcZK4_ZI%XP!d(Re)iwyrv8~)Za
+z{N~uOxnA?Bsl&GS3^(MNPkdu@*b&R9;K=X9E3kNj{!#;nKU@wRmrs7=Qb>D|c|vo?
+z`zh+TISw3~_=nv&TiuY)vSk79*A~~d3Z{%SeZ~sbE0gS*G(y{E94z>@*mnPyz1Lc^
+z8T^hHo^)^c#W#;}nPy0X<o&kioKlAax61EMU2Dz#TEoS8C7-#GJ>P~umIpTd;b?fr
+zyDPT(s*Ho@cdi{16Az1Nush_(EOI?nHZw?w*N8=C`IfTGhR3tF&h-+X!OW1~%y}iu
+zh53c*%IVw;ktg=Vhwr_zdjGV<h6De23Zgz4YGf?jozilLVTZOP=Y)q07P*&28&2)|
+z&Uk1;;|`8sqf6CRr&t&IzA1mSO~+f)GMV@A|L*%MW-i@0L6Wmzs@mz>465mDCw9g#
+zMP#cU;QqayVaF}!SzW6cmR{LEo#DdgvMu{gNBgyQD@<jOV>p{BTBPT|5Xih{&i3RJ
+zUs9gFKiW1^tkNggX1VZ`Dc5Y65*E9QvMrc9>EpiC7Z2u#&D{1ig87ALV#BR7-d_6{
+zw^+C|EMZV$wAg>``^xF@DxtOycj?I(HeR0+WG)ze@b&H0>rXKyBr`DVV9an_&RB9G
+zv!O~bU+%*%<^}uMmNR-R%Tp*|FI0@2QKERM_4&FB9RCs*O@Fj=nLN{zK*c3(srF10
+zgv^{ISuIo<N{la^eZKBy!GzbH_xhf*P58{YU>y^)%-flt@-kMrm&=yS5>Gy-by@qv
+zg*#6kOlMs4N3eeBv-(vvAACR7^4zPd`*1vbnUl6&f75i~IoHzuC(pchH|yaGt&m;i
+z{}L1Hy!SDCG)=N+W0-Ph->pfuW&Qq)Ia8vw-^cH$_|MsJ;W$Im`RvU3#eYN^loRvh
+lzMXz#$NFK)^8LIY_)jif@Y3#V<v~yx<LT<>vd$@?2>`WT$?5<A
+
+literal 0
+HcmV?d00001
+
+diff --git b/graphics/object_events/palettes/apoc_moving_box.pal b/graphics/object_events/palettes/apoc_moving_box.pal
+new file mode 100644
+index 0000000..b21a949
+--- /dev/null
++++ b/graphics/object_events/palettes/apoc_moving_box.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++64 40 24
++104 64 32
++152 96 48
++192 136 72
++216 168 104
++240 208 144
++248 232 184
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
++0 0 0
+diff --git b/graphics/object_events/pics/misc/apoc_moving_box.png b/graphics/object_events/pics/misc/apoc_moving_box.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..12a8c8bbcfb2e692472fd68ec10c4127bfb7fdae
+GIT binary patch
+literal 913
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!63?wyl`GXl4m>B|mLR^7d2Mvh~2Zb341_wGk
+zZmh`oaACra7dwFBqhK@yhJ6V9KdY<@^rVlci(^Q|oYM1wd<_O1%oj|r6#bW;z3Zjf
+zm49CaJu==JuZZQ;;qaW<RQ%m<QsUb}M#e9NJPI=#em6AxObSfA_oI2|qs5|g*thMm
+aw`X)HVJdj^%4QKL@H}1pT-G@yGywp+NjxwB
+
+literal 0
+HcmV?d00001
+
+diff --git a/include/config/overworld.h b/include/config/overworld.h
+index 3bccdc4..870cd2b 100644
+--- a/include/config/overworld.h
++++ b/include/config/overworld.h
+@@ -10,8 +10,11 @@
+ #define OW_DOUBLE_APPROACH_WITH_ONE_MON FALSE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible PokÃ©mon in your party.
+ #define OW_HIDE_REPEAT_MAP_POPUP        FALSE      // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
+ #define OW_WHITEOUT_CUTSCENE            GEN_LATEST // In Gen4+, whiting out shows an additional message and post whiteout event script cutscene with a healing NPC. (While this change was also in FRLG, for the sake of simplicity, setting this to GEN_3 will result in RSE behavior.)
+-#define OW_DEFOG_FIELD_MOVE             FALSE      // If enabled, Defog can be used as a Field Move as seen in DPPt.
+-#define OW_ROCK_CLIMB_FIELD_MOVE        FALSE      // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
++#define OW_DEFOG_FIELD_MOVE             TRUE       // If enabled, Defog can be used as a Field Move as seen in DPPt.
++#define OW_ROCK_CLIMB_FIELD_MOVE        TRUE       // If enabled, Rock Climb can be used as a Field Move as seen in DPPt.
++// Apocrypha: not an upstream feature. MB_WHIRLPOOL, the field effect and the
++// party-menu/overworld hooks are ours, modelled on Waterfall.
++#define OW_WHIRLPOOL_FIELD_MOVE         TRUE       // If enabled, Whirlpool can be used as a Field Move as seen in GSC/HGSS.
+ #define OW_CHOOSE_FROM_PC_AND_PARTY     TRUE       // If enabled, NPCs like move tutors or trainers asking for trade will let you pick a PokÃ©mon from your PC or party instead of just your party
+ 
+ // Item Obtain Description Box
+diff --git a/include/constants/field_effects.h b/include/constants/field_effects.h
+index dd3fb71..e3a0a96 100644
+--- a/include/constants/field_effects.h
++++ b/include/constants/field_effects.h
+@@ -84,6 +84,7 @@
+ #define FLDEFF_HALL_OF_FAME_RECORD_FRLG  79
+ #define FLDEFF_PHOTO_FLASH               80
+ #define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   81
++#define FLDEFF_USE_WHIRLPOOL             82
+ 
+ #define FLDEFFOBJ_SHADOW_S              0
+ #define FLDEFFOBJ_SHADOW_M              1
+diff --git a/include/constants/field_move.h b/include/constants/field_move.h
+index 08a5a18..eee862e 100644
+--- a/include/constants/field_move.h
++++ b/include/constants/field_move.h
+@@ -20,6 +20,7 @@ enum FieldMove
+     FIELD_MOVE_SWEET_SCENT,
+     FIELD_MOVE_ROCK_CLIMB,
+     FIELD_MOVE_DEFOG,
++    FIELD_MOVE_WHIRLPOOL,
+     FIELD_MOVES_COUNT
+ };
+ 
+diff --git a/include/constants/flags.h b/include/constants/flags.h
+index d7a0231..f2938d8 100644
+--- a/include/constants/flags.h
++++ b/include/constants/flags.h
+@@ -2434,6 +2434,7 @@
+ #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       0
+ #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        0
+ 
++
+ #endif
+ 
+ #if TESTING
+@@ -2449,4 +2450,7 @@
+ #endif // TESTING
+ 
+ 
++#define FLAG_APOC_POKEGEAR FLAG_UNUSED_0x020
++#define FLAG_APOC_PC_POTION FLAG_UNUSED_0x021
++
+ #endif // GUARD_CONSTANTS_FLAGS_H
+diff --git a/include/constants/global.h b/include/constants/global.h
+index ec1e0c7..e149ba0 100644
+--- a/include/constants/global.h
++++ b/include/constants/global.h
+@@ -113,7 +113,7 @@ enum Language
+ #define BAG_ITEMS_COUNT 30
+ #define BAG_KEYITEMS_COUNT 30
+ #define BAG_POKEBALLS_COUNT 16
+-#define BAG_TMHM_COUNT 108 // Apocrypha M04: 100 TMs + 8 HMs.
++#define BAG_TMHM_COUNT 111 // Apocrypha M04: 100 TMs + 11 HMs.
+ #define BAG_BERRIES_COUNT 46
+ 
+ // Number of facilities for Ranking Hall.
+diff --git a/include/constants/items.h b/include/constants/items.h
+index bf45223..b9818cb 100644
+--- a/include/constants/items.h
++++ b/include/constants/items.h
+@@ -821,6 +821,14 @@ enum __attribute__((packed)) Item
+     ITEM_HM06 = 687,
+     ITEM_HM07 = 688,
+     ITEM_HM08 = 689,
++    // Apocrypha: Defog and Rock Climb as HMs. Sinnoh's routes need both, and
++    // field moves key on the move rather than the HM item, so the engine only
++    // needed the two ids and the list entry. Every item from 690 up shifted by
++    // two to keep the HM block contiguous.
++    ITEM_HM09 = 690,
++    ITEM_HM10 = 691,
++    ITEM_HM11 = 692,   // Apocrypha: Whirlpool, built for Johto
++
+ 
+ 
+     /* Expands to:
+@@ -838,219 +846,219 @@ enum __attribute__((packed)) Item
+     #undef TO_TMHM_NUMS
+ 
+     // Charms
+-    ITEM_OVAL_CHARM = 690,
+-    ITEM_SHINY_CHARM = 691,
+-    ITEM_CATCHING_CHARM = 692,
+-    ITEM_EXP_CHARM = 693,
++    ITEM_OVAL_CHARM = 693,
++    ITEM_SHINY_CHARM = 694,
++    ITEM_CATCHING_CHARM = 695,
++    ITEM_EXP_CHARM = 696,
+ 
+     // Form-changing Key Items
+-    ITEM_ROTOM_CATALOG = 694,
+-    ITEM_GRACIDEA = 695,
+-    ITEM_REVEAL_GLASS = 696,
+-    ITEM_DNA_SPLICERS = 697,
+-    ITEM_ZYGARDE_CUBE = 698,
+-    ITEM_PRISON_BOTTLE = 699,
+-    ITEM_N_SOLARIZER = 700,
+-    ITEM_N_LUNARIZER = 701,
+-    ITEM_REINS_OF_UNITY = 702,
++    ITEM_ROTOM_CATALOG = 697,
++    ITEM_GRACIDEA = 698,
++    ITEM_REVEAL_GLASS = 699,
++    ITEM_DNA_SPLICERS = 700,
++    ITEM_ZYGARDE_CUBE = 701,
++    ITEM_PRISON_BOTTLE = 702,
++    ITEM_N_SOLARIZER = 703,
++    ITEM_N_LUNARIZER = 704,
++    ITEM_REINS_OF_UNITY = 705,
+ 
+     // Battle Mechanic Key Items
+-    ITEM_MEGA_RING = 703,
+-    ITEM_Z_POWER_RING = 704,
+-    ITEM_DYNAMAX_BAND = 705,
++    ITEM_MEGA_RING = 706,
++    ITEM_Z_POWER_RING = 707,
++    ITEM_DYNAMAX_BAND = 708,
+ 
+     // Misc. Key Items
+-    ITEM_BICYCLE = 706,
+-    ITEM_MACH_BIKE = 707,
+-    ITEM_ACRO_BIKE = 708,
+-    ITEM_OLD_ROD = 709,
+-    ITEM_GOOD_ROD = 710,
+-    ITEM_SUPER_ROD = 711,
+-    ITEM_DOWSING_MACHINE = 712,
++    ITEM_BICYCLE = 709,
++    ITEM_MACH_BIKE = 710,
++    ITEM_ACRO_BIKE = 711,
++    ITEM_OLD_ROD = 712,
++    ITEM_GOOD_ROD = 713,
++    ITEM_SUPER_ROD = 714,
++    ITEM_DOWSING_MACHINE = 715,
+     ITEM_ITEMFINDER = ITEM_DOWSING_MACHINE, // Pre-Gen IV name
+     ITEM_DOWSING_MCHN = ITEM_DOWSING_MACHINE, // Gen IV-V name
+-    ITEM_TOWN_MAP = 713,
+-    ITEM_VS_SEEKER = 714,
+-    ITEM_TM_CASE = 715,
+-    ITEM_BERRY_POUCH = 716,
+-    ITEM_POKEMON_BOX_LINK = 717,
++    ITEM_TOWN_MAP = 716,
++    ITEM_VS_SEEKER = 717,
++    ITEM_TM_CASE = 718,
++    ITEM_BERRY_POUCH = 719,
++    ITEM_POKEMON_BOX_LINK = 720,
+     ITEM_POKEMON_BOX = ITEM_POKEMON_BOX_LINK, // Pre-Gen VIII name
+-    ITEM_COIN_CASE = 718,
+-    ITEM_POWDER_JAR = 719,
+-    ITEM_WAILMER_PAIL = 720,
+-    ITEM_POKE_RADAR = 721,
+-    ITEM_POKEBLOCK_CASE = 722,
+-    ITEM_SOOT_SACK = 723,
+-    ITEM_POKE_FLUTE = 724,
+-    ITEM_FAME_CHECKER = 725,
+-    ITEM_TEACHY_TV = 726,
++    ITEM_COIN_CASE = 721,
++    ITEM_POWDER_JAR = 722,
++    ITEM_WAILMER_PAIL = 723,
++    ITEM_POKE_RADAR = 724,
++    ITEM_POKEBLOCK_CASE = 725,
++    ITEM_SOOT_SACK = 726,
++    ITEM_POKE_FLUTE = 727,
++    ITEM_FAME_CHECKER = 728,
++    ITEM_TEACHY_TV = 729,
+ 
+     // Story Key Items
+-    ITEM_SS_TICKET = 727,
+-    ITEM_EON_TICKET = 728,
+-    ITEM_MYSTIC_TICKET = 729,
+-    ITEM_AURORA_TICKET = 730,
+-    ITEM_OLD_SEA_MAP = 731,
+-    ITEM_LETTER = 732,
+-    ITEM_DEVON_PARTS = 733,
++    ITEM_SS_TICKET = 730,
++    ITEM_EON_TICKET = 731,
++    ITEM_MYSTIC_TICKET = 732,
++    ITEM_AURORA_TICKET = 733,
++    ITEM_OLD_SEA_MAP = 734,
++    ITEM_LETTER = 735,
++    ITEM_DEVON_PARTS = 736,
+     ITEM_DEVON_GOODS = ITEM_DEVON_PARTS, // Pre-Gen VI name
+-    ITEM_GO_GOGGLES = 734,
+-    ITEM_DEVON_SCOPE = 735,
+-    ITEM_BASEMENT_KEY = 736,
+-    ITEM_SCANNER = 737,
+-    ITEM_STORAGE_KEY = 738,
+-    ITEM_KEY_TO_ROOM_1 = 739,
++    ITEM_GO_GOGGLES = 737,
++    ITEM_DEVON_SCOPE = 738,
++    ITEM_BASEMENT_KEY = 739,
++    ITEM_SCANNER = 740,
++    ITEM_STORAGE_KEY = 741,
++    ITEM_KEY_TO_ROOM_1 = 742,
+     ITEM_RM_1_KEY = ITEM_KEY_TO_ROOM_1, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_2 = 740,
++    ITEM_KEY_TO_ROOM_2 = 743,
+     ITEM_RM_2_KEY = ITEM_KEY_TO_ROOM_2, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_4 = 741,
++    ITEM_KEY_TO_ROOM_4 = 744,
+     ITEM_RM_4_KEY = ITEM_KEY_TO_ROOM_4, // Pre-Gen VI name
+-    ITEM_KEY_TO_ROOM_6 = 742,
++    ITEM_KEY_TO_ROOM_6 = 745,
+     ITEM_RM_6_KEY = ITEM_KEY_TO_ROOM_6, // Pre-Gen VI name
+-    ITEM_METEORITE = 743,
+-    ITEM_MAGMA_EMBLEM = 744,
+-    ITEM_CONTEST_PASS = 745,
+-    ITEM_PARCEL = 746,
++    ITEM_METEORITE = 746,
++    ITEM_MAGMA_EMBLEM = 747,
++    ITEM_CONTEST_PASS = 748,
++    ITEM_PARCEL = 749,
+     ITEM_OAKS_PARCEL = ITEM_PARCEL, // Pre-Gen IV name
+-    ITEM_SECRET_KEY = 747,
+-    ITEM_BIKE_VOUCHER = 748,
+-    ITEM_GOLD_TEETH = 749,
+-    ITEM_CARD_KEY = 750,
+-    ITEM_LIFT_KEY = 751,
+-    ITEM_SILPH_SCOPE = 752,
+-    ITEM_TRI_PASS = 753,
+-    ITEM_RAINBOW_PASS = 754,
+-    ITEM_TEA = 755,
+-    ITEM_RUBY = 756,
+-    ITEM_SAPPHIRE = 757,
++    ITEM_SECRET_KEY = 750,
++    ITEM_BIKE_VOUCHER = 751,
++    ITEM_GOLD_TEETH = 752,
++    ITEM_CARD_KEY = 753,
++    ITEM_LIFT_KEY = 754,
++    ITEM_SILPH_SCOPE = 755,
++    ITEM_TRI_PASS = 756,
++    ITEM_RAINBOW_PASS = 757,
++    ITEM_TEA = 758,
++    ITEM_RUBY = 759,
++    ITEM_SAPPHIRE = 760,
+ 
+     // GEN IX ITEMS
+-    ITEM_ABILITY_SHIELD = 758,
+-    ITEM_CLEAR_AMULET = 759,
+-    ITEM_PUNCHING_GLOVE = 760,
+-    ITEM_COVERT_CLOAK = 761,
+-    ITEM_LOADED_DICE = 762,
+-    ITEM_AUSPICIOUS_ARMOR = 763,
+-    ITEM_BOOSTER_ENERGY = 764,
+-    ITEM_BIG_BAMBOO_SHOOT = 765,
+-    ITEM_GIMMIGHOUL_COIN = 766,
+-    ITEM_LEADERS_CREST = 767,
+-    ITEM_MALICIOUS_ARMOR = 768,
+-    ITEM_MIRROR_HERB = 769,
+-    ITEM_SCROLL_OF_DARKNESS = 770,
+-    ITEM_SCROLL_OF_WATERS = 771,
+-    ITEM_TERA_ORB = 772,
+-    ITEM_TINY_BAMBOO_SHOOT = 773,
+-
+-    ITEM_BUG_TERA_SHARD = 774,
+-    ITEM_DARK_TERA_SHARD = 775,
+-    ITEM_DRAGON_TERA_SHARD = 776,
+-    ITEM_ELECTRIC_TERA_SHARD = 777,
+-    ITEM_FAIRY_TERA_SHARD = 778,
+-    ITEM_FIGHTING_TERA_SHARD = 779,
+-    ITEM_FIRE_TERA_SHARD = 780,
+-    ITEM_FLYING_TERA_SHARD = 781,
+-    ITEM_GHOST_TERA_SHARD = 782,
+-    ITEM_GRASS_TERA_SHARD = 783,
+-    ITEM_GROUND_TERA_SHARD = 784,
+-    ITEM_ICE_TERA_SHARD = 785,
+-    ITEM_NORMAL_TERA_SHARD = 786,
+-    ITEM_POISON_TERA_SHARD = 787,
+-    ITEM_PSYCHIC_TERA_SHARD = 788,
+-    ITEM_ROCK_TERA_SHARD = 789,
+-    ITEM_STEEL_TERA_SHARD = 790,
+-    ITEM_WATER_TERA_SHARD = 791,
+-
+-    ITEM_ADAMANT_CRYSTAL = 792,
+-    ITEM_GRISEOUS_CORE = 793,
+-    ITEM_LUSTROUS_GLOBE = 794,
+-
+-    ITEM_BLACK_AUGURITE = 795,
+-    ITEM_LINKING_CORD = 796,
+-    ITEM_PEAT_BLOCK = 797,
+-    ITEM_BERSERK_GENE = 798,
+-
+-    ITEM_FAIRY_FEATHER = 799,
+-    ITEM_SYRUPY_APPLE = 800,
+-    ITEM_UNREMARKABLE_TEACUP = 801,
+-    ITEM_MASTERPIECE_TEACUP = 802,
+-    ITEM_CORNERSTONE_MASK = 803,
+-    ITEM_WELLSPRING_MASK = 804,
+-    ITEM_HEARTHFLAME_MASK = 805,
+-    ITEM_HEALTH_MOCHI = 806,
+-    ITEM_MUSCLE_MOCHI = 807,
+-    ITEM_RESIST_MOCHI = 808,
+-    ITEM_GENIUS_MOCHI = 809,
+-    ITEM_CLEVER_MOCHI = 810,
+-    ITEM_SWIFT_MOCHI = 811,
+-    ITEM_FRESH_START_MOCHI = 812,
+-    ITEM_GLIMMERING_CHARM = 813,
+-    ITEM_METAL_ALLOY = 814,
+-    ITEM_STELLAR_TERA_SHARD = 815,
+-
+-    ITEM_JUBILIFE_MUFFIN = 816,
+-    ITEM_REMEDY = 817,
+-    ITEM_FINE_REMEDY = 818,
+-    ITEM_SUPERB_REMEDY = 819,
+-    ITEM_AUX_EVASION = 820,
+-    ITEM_AUX_GUARD = 821,
+-    ITEM_AUX_POWER = 822,
+-    ITEM_AUX_POWERGUARD = 823,
+-    ITEM_CHOICE_DUMPLING = 824,
+-    ITEM_SWAP_SNACK = 825,
+-    ITEM_TWICE_SPICED_RADISH = 826,
+-    ITEM_POKESHI_DOLL = 827,
+-
+-    ITEM_STRANGE_BALL = 828,
++    ITEM_ABILITY_SHIELD = 761,
++    ITEM_CLEAR_AMULET = 762,
++    ITEM_PUNCHING_GLOVE = 763,
++    ITEM_COVERT_CLOAK = 764,
++    ITEM_LOADED_DICE = 765,
++    ITEM_AUSPICIOUS_ARMOR = 766,
++    ITEM_BOOSTER_ENERGY = 767,
++    ITEM_BIG_BAMBOO_SHOOT = 768,
++    ITEM_GIMMIGHOUL_COIN = 769,
++    ITEM_LEADERS_CREST = 770,
++    ITEM_MALICIOUS_ARMOR = 771,
++    ITEM_MIRROR_HERB = 772,
++    ITEM_SCROLL_OF_DARKNESS = 773,
++    ITEM_SCROLL_OF_WATERS = 774,
++    ITEM_TERA_ORB = 775,
++    ITEM_TINY_BAMBOO_SHOOT = 776,
++
++    ITEM_BUG_TERA_SHARD = 777,
++    ITEM_DARK_TERA_SHARD = 778,
++    ITEM_DRAGON_TERA_SHARD = 779,
++    ITEM_ELECTRIC_TERA_SHARD = 780,
++    ITEM_FAIRY_TERA_SHARD = 781,
++    ITEM_FIGHTING_TERA_SHARD = 782,
++    ITEM_FIRE_TERA_SHARD = 783,
++    ITEM_FLYING_TERA_SHARD = 784,
++    ITEM_GHOST_TERA_SHARD = 785,
++    ITEM_GRASS_TERA_SHARD = 786,
++    ITEM_GROUND_TERA_SHARD = 787,
++    ITEM_ICE_TERA_SHARD = 788,
++    ITEM_NORMAL_TERA_SHARD = 789,
++    ITEM_POISON_TERA_SHARD = 790,
++    ITEM_PSYCHIC_TERA_SHARD = 791,
++    ITEM_ROCK_TERA_SHARD = 792,
++    ITEM_STEEL_TERA_SHARD = 793,
++    ITEM_WATER_TERA_SHARD = 794,
++
++    ITEM_ADAMANT_CRYSTAL = 795,
++    ITEM_GRISEOUS_CORE = 796,
++    ITEM_LUSTROUS_GLOBE = 797,
++
++    ITEM_BLACK_AUGURITE = 798,
++    ITEM_LINKING_CORD = 799,
++    ITEM_PEAT_BLOCK = 800,
++    ITEM_BERSERK_GENE = 801,
++
++    ITEM_FAIRY_FEATHER = 802,
++    ITEM_SYRUPY_APPLE = 803,
++    ITEM_UNREMARKABLE_TEACUP = 804,
++    ITEM_MASTERPIECE_TEACUP = 805,
++    ITEM_CORNERSTONE_MASK = 806,
++    ITEM_WELLSPRING_MASK = 807,
++    ITEM_HEARTHFLAME_MASK = 808,
++    ITEM_HEALTH_MOCHI = 809,
++    ITEM_MUSCLE_MOCHI = 810,
++    ITEM_RESIST_MOCHI = 811,
++    ITEM_GENIUS_MOCHI = 812,
++    ITEM_CLEVER_MOCHI = 813,
++    ITEM_SWIFT_MOCHI = 814,
++    ITEM_FRESH_START_MOCHI = 815,
++    ITEM_GLIMMERING_CHARM = 816,
++    ITEM_METAL_ALLOY = 817,
++    ITEM_STELLAR_TERA_SHARD = 818,
++
++    ITEM_JUBILIFE_MUFFIN = 819,
++    ITEM_REMEDY = 820,
++    ITEM_FINE_REMEDY = 821,
++    ITEM_SUPERB_REMEDY = 822,
++    ITEM_AUX_EVASION = 823,
++    ITEM_AUX_GUARD = 824,
++    ITEM_AUX_POWER = 825,
++    ITEM_AUX_POWERGUARD = 826,
++    ITEM_CHOICE_DUMPLING = 827,
++    ITEM_SWAP_SNACK = 828,
++    ITEM_TWICE_SPICED_RADISH = 829,
++    ITEM_POKESHI_DOLL = 830,
++
++    ITEM_STRANGE_BALL = 831,
+ 
+     // Legends Z-A Mega Stones
+-    ITEM_CLEFABLITE = 829,
+-    ITEM_VICTREEBELITE = 830,
+-    ITEM_STARMINITE = 831,
+-    ITEM_DRAGONINITE = 832,
+-    ITEM_MEGANIUMITE = 833,
+-    ITEM_FERALIGITE = 834,
+-    ITEM_SKARMORITE = 835,
+-    ITEM_FROSLASSITE = 836,
+-    ITEM_EMBOARITE = 837,
+-    ITEM_EXCADRITE = 838,
+-    ITEM_SCOLIPITE = 839,
+-    ITEM_SCRAFTINITE = 840,
+-    ITEM_EELEKTROSSITE = 841,
+-    ITEM_CHANDELURITE = 842,
+-    ITEM_CHESNAUGHTITE = 843,
+-    ITEM_DELPHOXITE = 844,
+-    ITEM_GRENINJITE = 845,
+-    ITEM_PYROARITE = 846,
+-    ITEM_FLOETTITE = 847,
+-    ITEM_MALAMARITE = 848,
+-    ITEM_BARBARACITE = 849,
+-    ITEM_DRAGALGITE = 850,
+-    ITEM_HAWLUCHANITE = 851,
+-    ITEM_ZYGARDITE = 852,
+-    ITEM_DRAMPANITE = 853,
+-    ITEM_FALINKSITE = 854,
++    ITEM_CLEFABLITE = 832,
++    ITEM_VICTREEBELITE = 833,
++    ITEM_STARMINITE = 834,
++    ITEM_DRAGONINITE = 835,
++    ITEM_MEGANIUMITE = 836,
++    ITEM_FERALIGITE = 837,
++    ITEM_SKARMORITE = 838,
++    ITEM_FROSLASSITE = 839,
++    ITEM_EMBOARITE = 840,
++    ITEM_EXCADRITE = 841,
++    ITEM_SCOLIPITE = 842,
++    ITEM_SCRAFTINITE = 843,
++    ITEM_EELEKTROSSITE = 844,
++    ITEM_CHANDELURITE = 845,
++    ITEM_CHESNAUGHTITE = 846,
++    ITEM_DELPHOXITE = 847,
++    ITEM_GRENINJITE = 848,
++    ITEM_PYROARITE = 849,
++    ITEM_FLOETTITE = 850,
++    ITEM_MALAMARITE = 851,
++    ITEM_BARBARACITE = 852,
++    ITEM_DRAGALGITE = 853,
++    ITEM_HAWLUCHANITE = 854,
++    ITEM_ZYGARDITE = 855,
++    ITEM_DRAMPANITE = 856,
++    ITEM_FALINKSITE = 857,
+ 
+     // Legends Z-A: Mega Dimension DLC Mega Stones
+-    ITEM_HEATRANITE = 855,
+-    ITEM_DARKRANITE = 856,
+-    ITEM_ZERAORITE = 857,
+-    ITEM_RAICHUNITE_X = 858,
+-    ITEM_RAICHUNITE_Y = 859,
+-    ITEM_CHIMECHITE = 860,
+-    ITEM_ABSOLITE_Z = 861,
+-    ITEM_STARAPTITE = 862,
+-    ITEM_GARCHOMPITE_Z = 863,
+-    ITEM_LUCARIONITE_Z = 864,
+-    ITEM_GOLURKITE = 865,
+-    ITEM_MEOWSTICITE = 866,
+-    ITEM_CRABOMINITE = 867,
+-    ITEM_GOLISOPITE = 868,
+-    ITEM_MAGEARNITE = 869,
+-    ITEM_SCOVILLAINITE = 870,
+-    ITEM_BAXCALIBRITE = 871,
+-    ITEM_TATSUGIRINITE = 872,
+-    ITEM_GLIMMORANITE = 873,
++    ITEM_HEATRANITE = 858,
++    ITEM_DARKRANITE = 859,
++    ITEM_ZERAORITE = 860,
++    ITEM_RAICHUNITE_X = 861,
++    ITEM_RAICHUNITE_Y = 862,
++    ITEM_CHIMECHITE = 863,
++    ITEM_ABSOLITE_Z = 864,
++    ITEM_STARAPTITE = 865,
++    ITEM_GARCHOMPITE_Z = 866,
++    ITEM_LUCARIONITE_Z = 867,
++    ITEM_GOLURKITE = 868,
++    ITEM_MEOWSTICITE = 869,
++    ITEM_CRABOMINITE = 870,
++    ITEM_GOLISOPITE = 871,
++    ITEM_MAGEARNITE = 872,
++    ITEM_SCOVILLAINITE = 873,
++    ITEM_BAXCALIBRITE = 874,
++    ITEM_TATSUGIRINITE = 875,
++    ITEM_GLIMMORANITE = 876,
+ 
+     ITEMS_COUNT,
+     ITEM_FIELD_ARROW = ITEMS_COUNT,
+diff --git a/include/constants/layouts.h b/include/constants/layouts.h
+index c98aa56..c823bb1 100644
+--- a/include/constants/layouts.h
++++ b/include/constants/layouts.h
+@@ -800,6 +800,8 @@
+ #define LAYOUT_CHERRYGROVE_ROUTE30_APPROACH 793
+ #define LAYOUT_SANDGEM_TOWN 794
+ #define LAYOUT_FLOCCESY_TOWN 795
++#define LAYOUT_APOCRYPHA_HOME_1F 796
++#define LAYOUT_APOCRYPHA_HOME_2F 797
+ 
+ //Constants for unused layouts
+ 
+diff --git a/include/constants/metatile_behaviors.h b/include/constants/metatile_behaviors.h
+index c0b9a71..810ab31 100755
+--- a/include/constants/metatile_behaviors.h
++++ b/include/constants/metatile_behaviors.h
+@@ -242,6 +242,7 @@ enum {
+     MB_DOWN_RIGHT_STAIR_WARP,
+     MB_DOWN_LEFT_STAIR_WARP,
+     MB_ROCK_CLIMB,
++    MB_WHIRLPOOL,   // Apocrypha: Johto's Whirl Islands and the Route 41 crossing
+     NUM_METATILE_BEHAVIORS
+ };
+ 
+diff --git a/include/constants/tms_hms.h b/include/constants/tms_hms.h
+index 031d271..5e4baa6 100644
+--- a/include/constants/tms_hms.h
++++ b/include/constants/tms_hms.h
+@@ -1,16 +1,28 @@
+ #ifndef GUARD_CONSTANTS_TMS_HMS_H
+ #define GUARD_CONSTANTS_TMS_HMS_H
+ 
+-// Apocrypha M04: 100 TMs, twenty per region, each stocked with generic moves that the
+-// region's own generation introduced. Power is capped at 85; the signature high-power
+-// moves are deliberately excluded and belong to the regional move tutors instead.
+-// Regions appear in story order. Dazzling Gleam is not here: it is Gen 6 and the Fairy
+-// teaching route is a tutor, not a TM.
++// Apocrypha M04: 100 TMs and 11 HMs.
++//
++// TMs are the generic toolkit: each region stocks only moves its own generation
++// introduced, capped at 85 power, and the signature high-power moves are excluded
++// and belong to the regional move tutors instead. Regions run in story order.
++// Johto, Kanto and Hoenn carry nineteen each rather than twenty, because the three
++// Fairy TMs close the list: every offensive Fairy move is Gen 6 or later, so under
++// the origin rule no region could stock one. (Charm, Sweet Kiss and Moonlight are
++// Gen 2 moves retyped to Fairy and so are Johto-eligible, but all three are status
++// moves and none was ever a TM.)
++//
++// HMs cover traversal and sit outside the TM power cap. The five regions as
++// originally built need eleven field moves between them, so there are eleven HMs.
++// Defog and Rock Climb are Sinnoh's; Whirlpool is Johto's and was built from
++// nothing, modelled on Waterfall.
++//
++// A block comment placed *inside* either backslash-continued macro truncates it
++// silently and produces errors in unrelated files. Keep comments outside.
+ #define FOREACH_TM(F) \
+     /* Johto */ \
+     F(PROTECT) \
+     F(RETURN) \
+-    F(FRUSTRATION) \
+     F(HIDDEN_POWER) \
+     F(SLEEP_TALK) \
+     F(ENDURE) \
+@@ -18,7 +30,6 @@
+     F(RAIN_DANCE) \
+     F(SUNNY_DAY) \
+     F(SANDSTORM) \
+-    F(SAFEGUARD) \
+     F(THIEF) \
+     F(ICY_WIND) \
+     F(SHADOW_BALL) \
+@@ -28,10 +39,10 @@
+     F(ANCIENT_POWER) \
+     F(ENCORE) \
+     F(FALSE_SWIPE) \
++    F(DRAGON_BREATH) \
+     /* Kanto */ \
+     F(TOXIC) \
+     F(REST) \
+-    F(DOUBLE_TEAM) \
+     F(REFLECT) \
+     F(LIGHT_SCREEN) \
+     F(THUNDER_WAVE) \
+@@ -43,15 +54,14 @@
+     F(THUNDER_PUNCH) \
+     F(ICE_PUNCH) \
+     F(FIRE_PUNCH) \
+-    F(SWIFT) \
+     F(LOW_KICK) \
+     F(SEISMIC_TOSS) \
+     F(CONFUSE_RAY) \
+     F(SCREECH) \
+     F(COUNTER) \
++    F(PSYBEAM) \
+     /* Hoenn */ \
+     F(FACADE) \
+-    F(SECRET_POWER) \
+     F(ROCK_TOMB) \
+     F(AERIAL_ACE) \
+     F(BRICK_BREAK) \
+@@ -63,13 +73,13 @@
+     F(MUD_SHOT) \
+     F(CALM_MIND) \
+     F(BULK_UP) \
+-    F(TORMENT) \
+     F(HAIL) \
+     F(IRON_DEFENSE) \
+     F(WILL_O_WISP) \
+     F(BULLET_SEED) \
+     F(MAGICAL_LEAF) \
+     F(AIR_CUTTER) \
++    F(DRAGON_CLAW) \
+     /* Sinnoh */ \
+     F(ZEN_HEADBUTT) \
+     F(PAYBACK) \
+@@ -90,7 +100,7 @@
+     F(FLASH_CANNON) \
+     F(X_SCISSOR) \
+     F(AVALANCHE) \
+-    F(GRASS_KNOT) \
++    F(ENERGY_BALL) \
+     /* Unova */ \
+     F(ROUND) \
+     F(BULLDOZE) \
+@@ -111,7 +121,11 @@
+     F(ELECTROWEB) \
+     F(FLAME_CHARGE) \
+     F(VOLT_SWITCH) \
+-    F(DRILL_RUN)
++    F(DRILL_RUN) \
++    /* Fairy -- belongs to no region's past, so it belongs to none of their sets */ \
++    F(DAZZLING_GLEAM) \
++    F(DISARMING_VOICE) \
++    F(DRAINING_KISS)
+ 
+ #define FOREACH_HM(F) \
+     F(CUT) \
+@@ -121,7 +135,10 @@
+     F(FLASH) \
+     F(ROCK_SMASH) \
+     F(WATERFALL) \
+-    F(DIVE)
++    F(DIVE) \
++    F(DEFOG) \
++    F(ROCK_CLIMB) \
++    F(WHIRLPOOL)
+ 
+ #define FOREACH_TMHM(F) \
+     FOREACH_TM(F) \
+diff --git a/include/constants/vars.h b/include/constants/vars.h
+index 7992ae0..46f0722 100644
+--- a/include/constants/vars.h
++++ b/include/constants/vars.h
+@@ -336,6 +336,9 @@
+ #define TESTING_VAR_UNUSED_5                (TESTING_VARS_START + 0x5)
+ #define TESTING_VAR_UNUSED_6                (TESTING_VARS_START + 0x6)
+ #define TESTING_VAR_UNUSED_7                (TESTING_VARS_START + 0x7)
++
+ #endif // TESTING
+ 
++#define VAR_APOC_HOME_STAGE VAR_UNUSED_0x40F7
++
+ #endif // GUARD_CONSTANTS_VARS_H
+diff --git a/include/event_scripts.h b/include/event_scripts.h
+index 235bea5..3aac65e 100644
+--- a/include/event_scripts.h
++++ b/include/event_scripts.h
+@@ -595,6 +595,8 @@ extern const u8 EventScript_UseWaterfall[];
+ extern const u8 EventScript_CannotUseWaterfall[];
+ extern const u8 EventScript_UseDive[];
+ extern const u8 EventScript_UseDiveUnderwater[];
++extern const u8 EventScript_UseWhirlpool[];
++extern const u8 EventScript_CannotUseWhirlpool[];
+ extern const u8 EventScript_UseRockClimb[];
+ extern const u8 EventScript_FallDownHole[];
+ extern const u8 EventScript_FieldPoison[];
+diff --git a/include/metatile_behavior.h b/include/metatile_behavior.h
+index 0bda059..9da99ff 100644
+--- a/include/metatile_behavior.h
++++ b/include/metatile_behavior.h
+@@ -100,6 +100,7 @@ bool8 MetatileBehavior_IsSouthBlocked(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsShortGrass(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsHotSprings(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior);
++bool8 MetatileBehavior_IsWhirlpool(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior);
+ bool8 MetatileBehavior_IsPacifidlogVerticalLogBottom(u8 metatileBehavior);
+diff --git a/include/party_menu.h b/include/party_menu.h
+index 50ed3c1..159dbcc 100644
+--- a/include/party_menu.h
++++ b/include/party_menu.h
+@@ -145,6 +145,7 @@ bool32 SetUpFieldMove_Surf(void);
+ bool32 SetUpFieldMove_Fly(void);
+ bool32 SetUpFieldMove_Waterfall(void);
+ bool32 SetUpFieldMove_Dive(void);
++bool32 SetUpFieldMove_Whirlpool(void);
+ bool32 SetUpFieldMove_RockClimb(void);
+ 
+ #if TESTING
+diff --git a/src/data/items.h b/src/data/items.h
+index 11da574..bc18b75 100644
+--- a/src/data/items.h
++++ b/src/data/items.h
+@@ -12352,23 +12352,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_FRUSTRATION] =
+-    {
+-        .name = ITEM_NAME("TM03"),
+-        .price = 2000,
+-        .description = COMPOUND_STRING(
+-        "The less the user\n"
+-        "likes you, the more\n"
+-        "powerful this move."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_HIDDEN_POWER] =
+     {
+-        .name = ITEM_NAME("TM04"),
++        .name = ITEM_NAME("TM03"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "The type\n"
+@@ -12382,7 +12369,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SLEEP_TALK] =
+     {
+-        .name = ITEM_NAME("TM05"),
++        .name = ITEM_NAME("TM04"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Uses one of the\n"
+@@ -12396,7 +12383,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ENDURE] =
+     {
+-        .name = ITEM_NAME("TM06"),
++        .name = ITEM_NAME("TM05"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Always leaves at\n"
+@@ -12410,7 +12397,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ATTRACT] =
+     {
+-        .name = ITEM_NAME("TM07"),
++        .name = ITEM_NAME("TM06"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Makes it tough for\n"
+@@ -12424,7 +12411,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_RAIN_DANCE] =
+     {
+-        .name = ITEM_NAME("TM08"),
++        .name = ITEM_NAME("TM07"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Boosts the power\n"
+@@ -12438,7 +12425,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SUNNY_DAY] =
+     {
+-        .name = ITEM_NAME("TM09"),
++        .name = ITEM_NAME("TM08"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Boosts the power\n"
+@@ -12452,7 +12439,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SANDSTORM] =
+     {
+-        .name = ITEM_NAME("TM10"),
++        .name = ITEM_NAME("TM09"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Causes a sandstorm\n"
+@@ -12464,23 +12451,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SAFEGUARD] =
+-    {
+-        .name = ITEM_NAME("TM11"),
+-        .price = 1500,
+-        .description = COMPOUND_STRING(
+-        "Guards allies from\n"
+-        "status problems\n"
+-        "for 5 turns."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_THIEF] =
+     {
+-        .name = ITEM_NAME("TM12"),
++        .name = ITEM_NAME("TM10"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "While attacking,\n"
+@@ -12494,7 +12468,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ICY_WIND] =
+     {
+-        .name = ITEM_NAME("TM13"),
++        .name = ITEM_NAME("TM11"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "A chilling gust that\n"
+@@ -12508,7 +12482,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SHADOW_BALL] =
+     {
+-        .name = ITEM_NAME("TM14"),
++        .name = ITEM_NAME("TM12"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+         "Hurls a dark lump\n"
+@@ -12522,7 +12496,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_GIGA_DRAIN] =
+     {
+-        .name = ITEM_NAME("TM15"),
++        .name = ITEM_NAME("TM13"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Recovers half the\n"
+@@ -12536,7 +12510,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_CRUNCH] =
+     {
+-        .name = ITEM_NAME("TM16"),
++        .name = ITEM_NAME("TM14"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Bites with sharp\n"
+@@ -12550,7 +12524,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_STEEL_WING] =
+     {
+-        .name = ITEM_NAME("TM17"),
++        .name = ITEM_NAME("TM15"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+         "Slams into the\n"
+@@ -12564,7 +12538,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ANCIENT_POWER] =
+     {
+-        .name = ITEM_NAME("TM18"),
++        .name = ITEM_NAME("TM16"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "An attack of ancient\n"
+@@ -12578,7 +12552,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ENCORE] =
+     {
+-        .name = ITEM_NAME("TM19"),
++        .name = ITEM_NAME("TM17"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Forces the foe to\n"
+@@ -12592,7 +12566,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_FALSE_SWIPE] =
+     {
+-        .name = ITEM_NAME("TM20"),
++        .name = ITEM_NAME("TM18"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "A restrained blow\n"
+@@ -12607,7 +12581,7 @@ const struct ItemInfo gItemsInfo[] =
+     // Apocrypha M04: Kanto TMs
+     [ITEM_TM_TOXIC] =
+     {
+-        .name = ITEM_NAME("TM21"),
++        .name = ITEM_NAME("TM20"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Poisons the foe\n"
+@@ -12621,7 +12595,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_REST] =
+     {
+-        .name = ITEM_NAME("TM22"),
++        .name = ITEM_NAME("TM21"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "The user sleeps for\n"
+@@ -12633,23 +12607,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_DOUBLE_TEAM] =
+-    {
+-        .name = ITEM_NAME("TM23"),
+-        .price = 1500,
+-        .description = COMPOUND_STRING(
+-        "Creates illusory\n"
+-        "copies to raise\n"
+-        "evasiveness."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_REFLECT] =
+     {
+-        .name = ITEM_NAME("TM24"),
++        .name = ITEM_NAME("TM22"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Creates a wall of\n"
+@@ -12663,7 +12624,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_LIGHT_SCREEN] =
+     {
+-        .name = ITEM_NAME("TM25"),
++        .name = ITEM_NAME("TM23"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Creates a wall of\n"
+@@ -12677,7 +12638,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_THUNDER_WAVE] =
+     {
+-        .name = ITEM_NAME("TM26"),
++        .name = ITEM_NAME("TM24"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A weak jolt of\n"
+@@ -12691,7 +12652,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SWORDS_DANCE] =
+     {
+-        .name = ITEM_NAME("TM27"),
++        .name = ITEM_NAME("TM25"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A frenetic dance\n"
+@@ -12705,7 +12666,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_AGILITY] =
+     {
+-        .name = ITEM_NAME("TM28"),
++        .name = ITEM_NAME("TM26"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Relaxes the body to\n"
+@@ -12719,7 +12680,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_BODY_SLAM] =
+     {
+-        .name = ITEM_NAME("TM29"),
++        .name = ITEM_NAME("TM27"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "A full-body charge.\n"
+@@ -12733,7 +12694,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_DIG] =
+     {
+-        .name = ITEM_NAME("TM30"),
++        .name = ITEM_NAME("TM28"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+         "Digs underground\n"
+@@ -12747,7 +12708,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ROCK_SLIDE] =
+     {
+-        .name = ITEM_NAME("TM31"),
++        .name = ITEM_NAME("TM29"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Large boulders are\n"
+@@ -12761,7 +12722,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_THUNDER_PUNCH] =
+     {
+-        .name = ITEM_NAME("TM32"),
++        .name = ITEM_NAME("TM30"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "An electrified punch\n"
+@@ -12775,7 +12736,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ICE_PUNCH] =
+     {
+-        .name = ITEM_NAME("TM33"),
++        .name = ITEM_NAME("TM31"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "An icy punch that\n"
+@@ -12789,7 +12750,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_FIRE_PUNCH] =
+     {
+-        .name = ITEM_NAME("TM34"),
++        .name = ITEM_NAME("TM32"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "A fiery punch that\n"
+@@ -12801,23 +12762,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SWIFT] =
+-    {
+-        .name = ITEM_NAME("TM35"),
+-        .price = 2000,
+-        .description = COMPOUND_STRING(
+-            "Fires star-shaped\n"
+-            "rays that never\n"
+-            "miss the target."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_LOW_KICK] =
+     {
+-        .name = ITEM_NAME("TM36"),
++        .name = ITEM_NAME("TM33"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A kick to the legs.\n"
+@@ -12831,7 +12779,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SEISMIC_TOSS] =
+     {
+-        .name = ITEM_NAME("TM37"),
++        .name = ITEM_NAME("TM34"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Throws the foe for\n"
+@@ -12845,7 +12793,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_CONFUSE_RAY] =
+     {
+-        .name = ITEM_NAME("TM38"),
++        .name = ITEM_NAME("TM35"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A sinister ray that\n"
+@@ -12859,7 +12807,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SCREECH] =
+     {
+-        .name = ITEM_NAME("TM39"),
++        .name = ITEM_NAME("TM36"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A horrible screech\n"
+@@ -12873,7 +12821,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_COUNTER] =
+     {
+-        .name = ITEM_NAME("TM40"),
++        .name = ITEM_NAME("TM37"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Strikes back at\n"
+@@ -12888,7 +12836,7 @@ const struct ItemInfo gItemsInfo[] =
+     // Apocrypha M04: Hoenn TMs
+     [ITEM_TM_FACADE] =
+     {
+-        .name = ITEM_NAME("TM41"),
++        .name = ITEM_NAME("TM39"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+         "Boosts power when\n"
+@@ -12900,23 +12848,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_SECRET_POWER] =
+-    {
+-        .name = ITEM_NAME("TM42"),
+-        .price = 3000,
+-        .description = COMPOUND_STRING(
+-        "Adds an effect to\n"
+-        "attack depending\n"
+-        "on the location."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_ROCK_TOMB] =
+     {
+-        .name = ITEM_NAME("TM43"),
++        .name = ITEM_NAME("TM40"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Stops the foe from\n"
+@@ -12930,7 +12865,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_AERIAL_ACE] =
+     {
+-        .name = ITEM_NAME("TM44"),
++        .name = ITEM_NAME("TM41"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+         "An extremely fast\n"
+@@ -12944,7 +12879,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_BRICK_BREAK] =
+     {
+-        .name = ITEM_NAME("TM45"),
++        .name = ITEM_NAME("TM42"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+         "Destroys barriers\n"
+@@ -12958,7 +12893,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_KNOCK_OFF] =
+     {
+-        .name = ITEM_NAME("TM46"),
++        .name = ITEM_NAME("TM43"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Slaps away the\n"
+@@ -12972,7 +12907,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SHOCK_WAVE] =
+     {
+-        .name = ITEM_NAME("TM47"),
++        .name = ITEM_NAME("TM44"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+         "Zaps the foe with a\n"
+@@ -12986,7 +12921,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_TAUNT] =
+     {
+-        .name = ITEM_NAME("TM48"),
++        .name = ITEM_NAME("TM45"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "The foe can only\n"
+@@ -13000,7 +12935,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_WATER_PULSE] =
+     {
+-        .name = ITEM_NAME("TM49"),
++        .name = ITEM_NAME("TM46"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+         "Generates an\n"
+@@ -13014,7 +12949,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SIGNAL_BEAM] =
+     {
+-        .name = ITEM_NAME("TM50"),
++        .name = ITEM_NAME("TM47"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "A sinister beam of\n"
+@@ -13028,7 +12963,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_MUD_SHOT] =
+     {
+-        .name = ITEM_NAME("TM51"),
++        .name = ITEM_NAME("TM48"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Hurls mud at the\n"
+@@ -13042,7 +12977,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_CALM_MIND] =
+     {
+-        .name = ITEM_NAME("TM52"),
++        .name = ITEM_NAME("TM49"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Raises Sp. Atk and\n"
+@@ -13056,7 +12991,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_BULK_UP] =
+     {
+-        .name = ITEM_NAME("TM53"),
++        .name = ITEM_NAME("TM50"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Bulks up the body\n"
+@@ -13068,23 +13003,10 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_TORMENT] =
+-    {
+-        .name = ITEM_NAME("TM54"),
+-        .price = 1500,
+-        .description = COMPOUND_STRING(
+-        "Prevents the foe\n"
+-        "from using the same\n"
+-        "move in a row."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     [ITEM_TM_HAIL] =
+     {
+-        .name = ITEM_NAME("TM55"),
++        .name = ITEM_NAME("TM51"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Calls up a bitter\n"
+@@ -13098,7 +13020,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_IRON_DEFENSE] =
+     {
+-        .name = ITEM_NAME("TM56"),
++        .name = ITEM_NAME("TM52"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Hardens the body\n"
+@@ -13112,7 +13034,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_WILL_O_WISP] =
+     {
+-        .name = ITEM_NAME("TM57"),
++        .name = ITEM_NAME("TM53"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A sinister flame\n"
+@@ -13126,7 +13048,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_BULLET_SEED] =
+     {
+-        .name = ITEM_NAME("TM58"),
++        .name = ITEM_NAME("TM54"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+         "Shoots 2 to 5 seeds\n"
+@@ -13140,7 +13062,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_MAGICAL_LEAF] =
+     {
+-        .name = ITEM_NAME("TM59"),
++        .name = ITEM_NAME("TM55"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Scatters glowing\n"
+@@ -13154,7 +13076,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_AIR_CUTTER] =
+     {
+-        .name = ITEM_NAME("TM60"),
++        .name = ITEM_NAME("TM56"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Razor-like wind\n"
+@@ -13169,7 +13091,7 @@ const struct ItemInfo gItemsInfo[] =
+     // Apocrypha M04: Sinnoh TMs
+     [ITEM_TM_ZEN_HEADBUTT] =
+     {
+-        .name = ITEM_NAME("TM61"),
++        .name = ITEM_NAME("TM58"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Focuses willpower\n"
+@@ -13183,7 +13105,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_PAYBACK] =
+     {
+-        .name = ITEM_NAME("TM62"),
++        .name = ITEM_NAME("TM59"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Twice as strong if\n"
+@@ -13197,7 +13119,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_STEALTH_ROCK] =
+     {
+-        .name = ITEM_NAME("TM63"),
++        .name = ITEM_NAME("TM60"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Floating stones hurt\n"
+@@ -13211,7 +13133,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_CHARGE_BEAM] =
+     {
+-        .name = ITEM_NAME("TM64"),
++        .name = ITEM_NAME("TM61"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "A beam of current\n"
+@@ -13225,7 +13147,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_POISON_JAB] =
+     {
+-        .name = ITEM_NAME("TM65"),
++        .name = ITEM_NAME("TM62"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Stabs with a\n"
+@@ -13239,7 +13161,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SHADOW_CLAW] =
+     {
+-        .name = ITEM_NAME("TM66"),
++        .name = ITEM_NAME("TM63"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Strikes with a claw\n"
+@@ -13253,7 +13175,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_NASTY_PLOT] =
+     {
+-        .name = ITEM_NAME("TM67"),
++        .name = ITEM_NAME("TM64"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Plots something bad\n"
+@@ -13267,7 +13189,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SEED_BOMB] =
+     {
+-        .name = ITEM_NAME("TM68"),
++        .name = ITEM_NAME("TM65"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Slams a barrage of\n"
+@@ -13281,7 +13203,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_IRON_HEAD] =
+     {
+-        .name = ITEM_NAME("TM69"),
++        .name = ITEM_NAME("TM66"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Slams with a head\n"
+@@ -13295,7 +13217,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_DARK_PULSE] =
+     {
+-        .name = ITEM_NAME("TM70"),
++        .name = ITEM_NAME("TM67"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "A horrible aura of\n"
+@@ -13309,7 +13231,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_U_TURN] =
+     {
+-        .name = ITEM_NAME("TM71"),
++        .name = ITEM_NAME("TM68"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Strikes, then darts\n"
+@@ -13323,7 +13245,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_DRAIN_PUNCH] =
+     {
+-        .name = ITEM_NAME("TM72"),
++        .name = ITEM_NAME("TM69"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A punch that drains\n"
+@@ -13337,7 +13259,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ROOST] =
+     {
+-        .name = ITEM_NAME("TM73"),
++        .name = ITEM_NAME("TM70"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Lands and rests the\n"
+@@ -13351,7 +13273,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_AIR_SLASH] =
+     {
+-        .name = ITEM_NAME("TM74"),
++        .name = ITEM_NAME("TM71"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Slices with a blade\n"
+@@ -13365,7 +13287,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_TRICK_ROOM] =
+     {
+-        .name = ITEM_NAME("TM75"),
++        .name = ITEM_NAME("TM72"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Slower Pokemon get\n"
+@@ -13379,7 +13301,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_NIGHT_SLASH] =
+     {
+-        .name = ITEM_NAME("TM76"),
++        .name = ITEM_NAME("TM73"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Slashes the moment\n"
+@@ -13393,7 +13315,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_FLASH_CANNON] =
+     {
+-        .name = ITEM_NAME("TM77"),
++        .name = ITEM_NAME("TM74"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Fires a blast of\n"
+@@ -13407,7 +13329,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_X_SCISSOR] =
+     {
+-        .name = ITEM_NAME("TM78"),
++        .name = ITEM_NAME("TM75"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Slashes with\n"
+@@ -13421,7 +13343,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_AVALANCHE] =
+     {
+-        .name = ITEM_NAME("TM79"),
++        .name = ITEM_NAME("TM76"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Twice as strong if\n"
+@@ -13433,24 +13355,11 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
+-    [ITEM_TM_GRASS_KNOT] =
+-    {
+-        .name = ITEM_NAME("TM80"),
+-        .price = 2000,
+-        .description = COMPOUND_STRING(
+-            "Trips the foe with\n"
+-            "grass. Stronger on\n"
+-            "heavier targets."),
+-        .importance = I_REUSABLE_TMS,
+-        .pocket = POCKET_TM_HM,
+-        .type = ITEM_USE_PARTY_MENU,
+-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+-    },
+ 
+     // Apocrypha M04: Unova TMs
+     [ITEM_TM_ROUND] =
+     {
+-        .name = ITEM_NAME("TM81"),
++        .name = ITEM_NAME("TM78"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "A song. Stronger if\n"
+@@ -13464,7 +13373,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_BULLDOZE] =
+     {
+-        .name = ITEM_NAME("TM82"),
++        .name = ITEM_NAME("TM79"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Stomps the ground.\n"
+@@ -13478,7 +13387,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_WORK_UP] =
+     {
+-        .name = ITEM_NAME("TM83"),
++        .name = ITEM_NAME("TM80"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "The user is roused,\n"
+@@ -13492,7 +13401,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_RETALIATE] =
+     {
+-        .name = ITEM_NAME("TM84"),
++        .name = ITEM_NAME("TM81"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Twice as strong if\n"
+@@ -13506,7 +13415,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_INCINERATE] =
+     {
+-        .name = ITEM_NAME("TM85"),
++        .name = ITEM_NAME("TM82"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Burns up the foe's\n"
+@@ -13520,7 +13429,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_HONE_CLAWS] =
+     {
+-        .name = ITEM_NAME("TM86"),
++        .name = ITEM_NAME("TM83"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Raises Attack and\n"
+@@ -13534,7 +13443,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SMACK_DOWN] =
+     {
+-        .name = ITEM_NAME("TM87"),
++        .name = ITEM_NAME("TM84"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Knocks a flying foe\n"
+@@ -13548,7 +13457,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SCALD] =
+     {
+-        .name = ITEM_NAME("TM88"),
++        .name = ITEM_NAME("TM85"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Shoots boiling\n"
+@@ -13562,7 +13471,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ACROBATICS] =
+     {
+-        .name = ITEM_NAME("TM89"),
++        .name = ITEM_NAME("TM86"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Strikes lightly.\n"
+@@ -13576,7 +13485,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_PSYSHOCK] =
+     {
+-        .name = ITEM_NAME("TM90"),
++        .name = ITEM_NAME("TM87"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "A psychic wave that\n"
+@@ -13590,7 +13499,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_LOW_SWEEP] =
+     {
+-        .name = ITEM_NAME("TM91"),
++        .name = ITEM_NAME("TM88"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "A swift blow to the\n"
+@@ -13604,7 +13513,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_VENOSHOCK] =
+     {
+-        .name = ITEM_NAME("TM92"),
++        .name = ITEM_NAME("TM89"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Double damage if\n"
+@@ -13618,7 +13527,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_SNARL] =
+     {
+-        .name = ITEM_NAME("TM93"),
++        .name = ITEM_NAME("TM90"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Yells and rants to\n"
+@@ -13632,7 +13541,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_HEX] =
+     {
+-        .name = ITEM_NAME("TM94"),
++        .name = ITEM_NAME("TM91"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Deals double damage\n"
+@@ -13646,7 +13555,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_STRUGGLE_BUG] =
+     {
+-        .name = ITEM_NAME("TM95"),
++        .name = ITEM_NAME("TM92"),
+         .price = 1500,
+         .description = COMPOUND_STRING(
+             "Resists with a bug\n"
+@@ -13660,7 +13569,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_DRAGON_TAIL] =
+     {
+-        .name = ITEM_NAME("TM96"),
++        .name = ITEM_NAME("TM93"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Strikes and forces\n"
+@@ -13674,7 +13583,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_ELECTROWEB] =
+     {
+-        .name = ITEM_NAME("TM97"),
++        .name = ITEM_NAME("TM94"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Snares foes in an\n"
+@@ -13688,7 +13597,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_FLAME_CHARGE] =
+     {
+-        .name = ITEM_NAME("TM98"),
++        .name = ITEM_NAME("TM95"),
+         .price = 2000,
+         .description = COMPOUND_STRING(
+             "Attacks cloaked in\n"
+@@ -13702,7 +13611,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_VOLT_SWITCH] =
+     {
+-        .name = ITEM_NAME("TM99"),
++        .name = ITEM_NAME("TM96"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Attacks, then darts\n"
+@@ -13716,7 +13625,7 @@ const struct ItemInfo gItemsInfo[] =
+ 
+     [ITEM_TM_DRILL_RUN] =
+     {
+-        .name = ITEM_NAME("TM100"),
++        .name = ITEM_NAME("TM97"),
+         .price = 3000,
+         .description = COMPOUND_STRING(
+             "Spins like a drill\n"
+@@ -13728,6 +13637,104 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
++    [ITEM_TM_DRAGON_BREATH] =
++    {
++        .name = ITEM_NAME("TM19"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Blasts the foe with\n"
++        "an intense breath\n"
++        "of draconic fire."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_PSYBEAM] =
++    {
++        .name = ITEM_NAME("TM38"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Fires a peculiar\n"
++        "ray that may leave\n"
++        "the foe confused."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DRAGON_CLAW] =
++    {
++        .name = ITEM_NAME("TM57"),
++        .price = 3000,
++        .description = COMPOUND_STRING(
++        "Slashes the foe\n"
++        "with sharp claws\n"
++        "of great hardness."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_ENERGY_BALL] =
++    {
++        .name = ITEM_NAME("TM77"),
++        .price = 3000,
++        .description = COMPOUND_STRING(
++        "Draws power from\n"
++        "nature to attack.\n"
++        "May lower Sp. Def."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DAZZLING_GLEAM] =
++    {
++        .name = ITEM_NAME("TM98"),
++        .price = 3000,
++        .description = COMPOUND_STRING(
++        "Damages the foe\n"
++        "with a strong flash\n"
++        "of brilliant light."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DISARMING_VOICE] =
++    {
++        .name = ITEM_NAME("TM99"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Lets out a charming\n"
++        "cry that always\n"
++        "strikes the foe."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_TM_DRAINING_KISS] =
++    {
++        .name = ITEM_NAME("TM100"),
++        .price = 2000,
++        .description = COMPOUND_STRING(
++        "Steals the foe's\n"
++        "energy with a kiss\n"
++        "to restore HP."),
++        .importance = I_REUSABLE_TMS,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
+     [ITEM_HM_CUT] =
+     {
+         .name = ITEM_NAME("HM01"),
+@@ -13850,6 +13857,48 @@ const struct ItemInfo gItemsInfo[] =
+         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+     },
+ 
++    [ITEM_HM_DEFOG] =
++    {
++        .name = ITEM_NAME("HM09"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Clears away fog\n"
++            "and lowers the\n"
++            "foe's evasiveness."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_HM_ROCK_CLIMB] =
++    {
++        .name = ITEM_NAME("HM10"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Scales rock walls\n"
++            "while attacking\n"
++            "with great force."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
++    [ITEM_HM_WHIRLPOOL] =
++    {
++        .name = ITEM_NAME("HM11"),
++        .price = 0,
++        .description = COMPOUND_STRING(
++            "Traps the foe in\n"
++            "a violent, swirling\n"
++            "vortex of water."),
++        .importance = 1,
++        .pocket = POCKET_TM_HM,
++        .type = ITEM_USE_PARTY_MENU,
++        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
++    },
++
+ // Charms
+ 
+     [ITEM_OVAL_CHARM] =
+diff --git a/src/data/object_events/object_event_graphics.h b/src/data/object_events/object_event_graphics.h
+index b51cba9..8d2719d 100755
+--- a/src/data/object_events/object_event_graphics.h
++++ b/src/data/object_events/object_event_graphics.h
+@@ -668,3 +668,6 @@ const u16 gObjectEventPal_RegionalSinnoh[] = INCGFX_U16("graphics/object_events/
+ const u32 gObjectEventPic_RegionalUnova[] = INCGFX_U32("graphics/object_events/pics/people/regional/unova.png", ".4bpp", "-mwidth 4 -mheight 4");
+ const u16 gObjectEventPal_RegionalUnova[] = INCGFX_U16("graphics/object_events/palettes/regional_unova.pal", ".gbapal");
+ // END REGIONAL COMPARISON IMPORT
++
++const u32 gObjectEventPic_ApocMovingBox[] = INCGFX_U32("graphics/object_events/pics/misc/apoc_moving_box.png", ".4bpp");
++const u16 gObjectEventPal_ApocMovingBox[] = INCGFX_U16("graphics/object_events/palettes/apoc_moving_box.pal", ".gbapal");
+diff --git a/src/data/object_events/object_event_graphics_info.h b/src/data/object_events/object_event_graphics_info.h
+index 2e942c1..85ef2c4 100755
+--- a/src/data/object_events/object_event_graphics_info.h
++++ b/src/data/object_events/object_event_graphics_info.h
+@@ -7351,3 +7351,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RegionalUnova = {
+     .images = sPicTable_RegionalUnova,
+ };
+ // END REGIONAL COMPARISON IMPORT
++
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApocMovingBox = {
++    .tileTag = TAG_NONE,
++    .paletteTag = 0x118D,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 128,
++    .width = 16,
++    .height = 16,
++    .paletteSlot = PALSLOT_NPC_SPECIAL,
++    .shadowSize = SHADOW_SIZE_S,
++    .inanimate = TRUE,
++    .compressed = FALSE,
++    .tracks = TRACKS_NONE,
++    .oam = &gObjectEventBaseOam_16x16,
++    .subspriteTables = sOamTables_16x16,
++    .anims = sAnimTable_Inanimate,
++    .images = sPicTable_ApocMovingBox,
++};
+diff --git a/src/data/object_events/object_event_pic_tables.h b/src/data/object_events/object_event_pic_tables.h
+index ed2bc7d..2d058d0 100755
+--- a/src/data/object_events/object_event_pic_tables.h
++++ b/src/data/object_events/object_event_pic_tables.h
+@@ -2542,3 +2542,5 @@ static const struct SpriteFrameImage sPicTable_RegionalUnova[] = {
+     overworld_ascending_frames(gObjectEventPic_RegionalUnova, 4, 4),
+ };
+ // END REGIONAL COMPARISON IMPORT
++
++static const struct SpriteFrameImage sPicTable_ApocMovingBox[] = {obj_frame_tiles(gObjectEventPic_ApocMovingBox)};
+diff --git a/src/data/pokemon/special_movesets.json b/src/data/pokemon/special_movesets.json
+index 892f911..3c7cb25 100644
+--- a/src/data/pokemon/special_movesets.json
++++ b/src/data/pokemon/special_movesets.json
+@@ -1,37 +1,171 @@
+ {
+-  "universalMoves":
+-    [
+-      "MOVE_BIDE",
+-      "MOVE_FRUSTRATION",
+-      "MOVE_HIDDEN_POWER",
+-      "MOVE_MIMIC",
+-      "MOVE_NATURAL_GIFT",
+-      "MOVE_RAGE",
+-      "MOVE_RETURN",
+-      "MOVE_SECRET_POWER",
+-      "MOVE_SUBSTITUTE",
+-      "MOVE_TERA_BLAST"
+-    ],
+-  "signatureTeachables":
+-    [
+-      "MOVE_BADDY_BAD",
+-      "MOVE_BOUNCY_BUBBLE",
+-      "MOVE_BUZZY_BUZZ",
+-      "MOVE_DRAGON_ASCENT",
+-      "MOVE_FLOATY_FALL",
+-      "MOVE_FREEZY_FROST",
+-      "MOVE_GLITZY_GLOW",
+-      "MOVE_RELIC_SONG",
+-      "MOVE_SAPPY_SEED",
+-      "MOVE_SECRET_SWORD",
+-      "MOVE_SIZZLY_SLIDE",
+-      "MOVE_SPARKLY_SWIRL",
+-      "MOVE_SPLISHY_SPLASH",
+-      "MOVE_VOLT_TACKLE",
+-      "MOVE_ZIPPY_ZAP"
+-    ],
+-  "extraTutors":
+-    [
+-      
+-    ]
++  "universalMoves": [
++    "MOVE_BIDE",
++    "MOVE_FRUSTRATION",
++    "MOVE_HIDDEN_POWER",
++    "MOVE_MIMIC",
++    "MOVE_NATURAL_GIFT",
++    "MOVE_RAGE",
++    "MOVE_RETURN",
++    "MOVE_SECRET_POWER",
++    "MOVE_SUBSTITUTE",
++    "MOVE_TERA_BLAST"
++  ],
++  "signatureTeachables": [
++    "MOVE_BADDY_BAD",
++    "MOVE_BOUNCY_BUBBLE",
++    "MOVE_BUZZY_BUZZ",
++    "MOVE_DRAGON_ASCENT",
++    "MOVE_FLOATY_FALL",
++    "MOVE_FREEZY_FROST",
++    "MOVE_GLITZY_GLOW",
++    "MOVE_RELIC_SONG",
++    "MOVE_SAPPY_SEED",
++    "MOVE_SECRET_SWORD",
++    "MOVE_SIZZLY_SLIDE",
++    "MOVE_SPARKLY_SWIRL",
++    "MOVE_SPLISHY_SPLASH",
++    "MOVE_VOLT_TACKLE",
++    "MOVE_ZIPPY_ZAP"
++  ],
++  "extraTutors": [
++    "MOVE_ALLY_SWITCH",
++    "MOVE_AQUA_TAIL",
++    "MOVE_AURA_SPHERE",
++    "MOVE_BIDE",
++    "MOVE_BLAST_BURN",
++    "MOVE_BLIZZARD",
++    "MOVE_BRAVE_BIRD",
++    "MOVE_BRINE",
++    "MOVE_BUBBLE_BEAM",
++    "MOVE_BUG_BUZZ",
++    "MOVE_CAPTIVATE",
++    "MOVE_CLOSE_COMBAT",
++    "MOVE_CRABHAMMER",
++    "MOVE_CROSS_CHOP",
++    "MOVE_CURSE",
++    "MOVE_DEFENSE_CURL",
++    "MOVE_DETECT",
++    "MOVE_DOUBLE_EDGE",
++    "MOVE_DOUBLE_TEAM",
++    "MOVE_DRACO_METEOR",
++    "MOVE_DRAGON_PULSE",
++    "MOVE_DRAGON_RAGE",
++    "MOVE_DRAGON_RUSH",
++    "MOVE_DREAM_EATER",
++    "MOVE_DYNAMIC_PUNCH",
++    "MOVE_EARTHQUAKE",
++    "MOVE_EARTH_POWER",
++    "MOVE_ECHOED_VOICE",
++    "MOVE_EGG_BOMB",
++    "MOVE_EMBARGO",
++    "MOVE_ERUPTION",
++    "MOVE_EXPLOSION",
++    "MOVE_FIRE_BLAST",
++    "MOVE_FISSURE",
++    "MOVE_FLAMETHROWER",
++    "MOVE_FLARE_BLITZ",
++    "MOVE_FLING",
++    "MOVE_FOCUS_BLAST",
++    "MOVE_FOCUS_PUNCH",
++    "MOVE_FOUL_PLAY",
++    "MOVE_FRENZY_PLANT",
++    "MOVE_FROST_BREATH",
++    "MOVE_FRUSTRATION",
++    "MOVE_FURY_CUTTER",
++    "MOVE_FUSION_BOLT",
++    "MOVE_FUSION_FLARE",
++    "MOVE_FUTURE_SIGHT",
++    "MOVE_GIGA_IMPACT",
++    "MOVE_GRASS_KNOT",
++    "MOVE_GUNK_SHOT",
++    "MOVE_GYRO_BALL",
++    "MOVE_HAMMER_ARM",
++    "MOVE_HEADBUTT",
++    "MOVE_HEAD_SMASH",
++    "MOVE_HEAT_WAVE",
++    "MOVE_HIGH_JUMP_KICK",
++    "MOVE_HORN_DRILL",
++    "MOVE_HURRICANE",
++    "MOVE_HYDRO_CANNON",
++    "MOVE_HYDRO_PUMP",
++    "MOVE_HYPER_BEAM",
++    "MOVE_HYPER_VOICE",
++    "MOVE_ICE_BEAM",
++    "MOVE_INFERNO",
++    "MOVE_IRON_TAIL",
++    "MOVE_JUMP_KICK",
++    "MOVE_LAST_RESORT",
++    "MOVE_LEAF_BLADE",
++    "MOVE_LEAF_STORM",
++    "MOVE_MEGAHORN",
++    "MOVE_MEGA_DRAIN",
++    "MOVE_MEGA_KICK",
++    "MOVE_MEGA_PUNCH",
++    "MOVE_METEOR_MASH",
++    "MOVE_METRONOME",
++    "MOVE_MIMIC",
++    "MOVE_MUDDY_WATER",
++    "MOVE_MUD_SLAP",
++    "MOVE_NATURAL_GIFT",
++    "MOVE_NIGHTMARE",
++    "MOVE_OUTRAGE",
++    "MOVE_OVERHEAT",
++    "MOVE_PAY_DAY",
++    "MOVE_PETAL_DANCE",
++    "MOVE_PLUCK",
++    "MOVE_POWER_WHIP",
++    "MOVE_PSYCHIC",
++    "MOVE_PSYCHO_BOOST",
++    "MOVE_PSYCH_UP",
++    "MOVE_PSYWAVE",
++    "MOVE_QUASH",
++    "MOVE_RAGE",
++    "MOVE_RAZOR_WIND",
++    "MOVE_RECYCLE",
++    "MOVE_ROAR",
++    "MOVE_ROCK_POLISH",
++    "MOVE_ROCK_WRECKER",
++    "MOVE_ROLLOUT",
++    "MOVE_SACRED_FIRE",
++    "MOVE_SACRED_SWORD",
++    "MOVE_SAFEGUARD",
++    "MOVE_SECRET_POWER",
++    "MOVE_SEED_FLARE",
++    "MOVE_SELF_DESTRUCT",
++    "MOVE_SILVER_WIND",
++    "MOVE_SKILL_SWAP",
++    "MOVE_SKULL_BASH",
++    "MOVE_SKY_ATTACK",
++    "MOVE_SKY_DROP",
++    "MOVE_SLUDGE_BOMB",
++    "MOVE_SLUDGE_WAVE",
++    "MOVE_SNATCH",
++    "MOVE_SNORE",
++    "MOVE_SOFT_BOILED",
++    "MOVE_SOLAR_BEAM",
++    "MOVE_STONE_EDGE",
++    "MOVE_SUBMISSION",
++    "MOVE_SUBSTITUTE",
++    "MOVE_SUPERPOWER",
++    "MOVE_SWAGGER",
++    "MOVE_SWEET_SCENT",
++    "MOVE_SWIFT",
++    "MOVE_TAKE_DOWN",
++    "MOVE_TELEKINESIS",
++    "MOVE_TELEPORT",
++    "MOVE_THRASH",
++    "MOVE_THUNDER",
++    "MOVE_THUNDERBOLT",
++    "MOVE_TORMENT",
++    "MOVE_TRI_ATTACK",
++    "MOVE_UPROAR",
++    "MOVE_WATER_GUN",
++    "MOVE_WATER_SPOUT",
++    "MOVE_WHIRLWIND",
++    "MOVE_WILD_CHARGE",
++    "MOVE_WOOD_HAMMER",
++    "MOVE_WRING_OUT",
++    "MOVE_ZAP_CANNON"
++  ]
+ }
+diff --git a/src/data/tilesets/graphics.h b/src/data/tilesets/graphics.h
+index c7740c2..a7f8715 100644
+--- a/src/data/tilesets/graphics.h
++++ b/src/data/tilesets/graphics.h
+@@ -3200,3 +3200,25 @@ INCGFX_U16("data/tilesets/secondary/floccesy/palettes/13.pal", ".gbapal"),
+ INCGFX_U16("data/tilesets/secondary/floccesy/palettes/14.pal", ".gbapal"),
+ INCGFX_U16("data/tilesets/secondary/floccesy/palettes/15.pal", ".gbapal"),
+ };
++
++const u32 gTilesetTiles_ApocHome[] = INCGFX_U32("data/tilesets/secondary/apoc_home/tiles.png", ".4bpp.lz");
++const u16 gTilesetPalettes_ApocHome[][16] = {
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/00.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/01.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/02.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/03.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/04.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/05.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/06.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/07.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/08.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/09.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/10.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/11.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/12.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/13.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/14.pal", ".gbapal"),
++INCGFX_U16("data/tilesets/secondary/apoc_home/palettes/15.pal", ".gbapal"),
++};
++
++const u32 gTilesetTiles_ApocHomeBase[] = INCGFX_U32("data/tilesets/primary/apoc_home/tiles.png", ".4bpp.lz");
+diff --git a/src/data/tilesets/headers.h b/src/data/tilesets/headers.h
+index 6542acc..3d41816 100644
+--- a/src/data/tilesets/headers.h
++++ b/src/data/tilesets/headers.h
+@@ -1575,3 +1575,7 @@ const struct Tileset gTileset_Sandgem = { .isCompressed = TRUE, .isSecondary = T
+ const struct Tileset gTileset_FloccesyPrimary = { .isCompressed = TRUE, .isSecondary = FALSE, .tiles = gTilesetTiles_FloccesyPrimary, .palettes = gTilesetPalettes_FloccesyPrimary, .metatiles = gMetatiles_FloccesyPrimary, .metatileAttributes = gMetatileAttributes_FloccesyPrimary, .callback = NULL };
+ 
+ const struct Tileset gTileset_Floccesy = { .isCompressed = TRUE, .isSecondary = TRUE, .tiles = gTilesetTiles_Floccesy, .palettes = gTilesetPalettes_Floccesy, .metatiles = gMetatiles_Floccesy, .metatileAttributes = gMetatileAttributes_Floccesy, .callback = NULL };
++
++const struct Tileset gTileset_ApocHome = {.isCompressed = TRUE, .isSecondary = TRUE, .tiles = gTilesetTiles_ApocHome, .palettes = gTilesetPalettes_ApocHome, .metatiles = gMetatiles_ApocHome, .metatileAttributes = gMetatileAttributes_ApocHome, .callback = NULL};
++
++const struct Tileset gTileset_ApocHomeBase = {.isCompressed = TRUE, .isSecondary = FALSE, .tiles = gTilesetTiles_ApocHomeBase, .palettes = gTilesetPalettes_ApocHome, .metatiles = gMetatiles_ApocHomeBase, .metatileAttributes = gMetatileAttributes_ApocHomeBase, .callback = NULL};
+diff --git a/src/data/tilesets/metatiles.h b/src/data/tilesets/metatiles.h
+index 53be847..fa18534 100644
+--- a/src/data/tilesets/metatiles.h
++++ b/src/data/tilesets/metatiles.h
+@@ -432,3 +432,9 @@ const u16 gMetatileAttributes_FloccesyPrimary[] = INCBIN_U16("data/tilesets/prim
+ 
+ const u16 gMetatiles_Floccesy[] = INCBIN_U16("data/tilesets/secondary/floccesy/metatiles.bin");
+ const u16 gMetatileAttributes_Floccesy[] = INCBIN_U16("data/tilesets/secondary/floccesy/metatile_attributes.bin");
++
++const u16 gMetatiles_ApocHome[] = INCBIN_U16("data/tilesets/secondary/apoc_home/metatiles.bin");
++const u16 gMetatileAttributes_ApocHome[] = INCBIN_U16("data/tilesets/secondary/apoc_home/metatile_attributes.bin");
++
++const u16 gMetatiles_ApocHomeBase[] = INCBIN_U16("data/tilesets/primary/apoc_home/metatiles.bin");
++const u16 gMetatileAttributes_ApocHomeBase[] = INCBIN_U16("data/tilesets/primary/apoc_home/metatile_attributes.bin");
+diff --git a/src/event_object_movement.c b/src/event_object_movement.c
+index b54f61a..785f1c4 100644
+--- a/src/event_object_movement.c
++++ b/src/event_object_movement.c
+@@ -496,6 +496,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
+ #include "data/object_events/object_event_graphics_info_followers.h"
+ 
+ static const struct SpritePalette sObjectEventSpritePalettes[] = {
++    {gObjectEventPal_ApocMovingBox, 0x118D},
+     {gObjectEventPal_RegionalHoenn, OBJ_EVENT_PAL_TAG_REGIONAL_HOENN},
+     {gObjectEventPal_RegionalKanto, OBJ_EVENT_PAL_TAG_REGIONAL_KANTO},
+     {gObjectEventPal_RegionalJohto, OBJ_EVENT_PAL_TAG_REGIONAL_JOHTO},
+@@ -3229,6 +3230,9 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
+     if (graphicsId >= OBJ_EVENT_GFX_REGIONAL_FIRST && graphicsId < OBJ_EVENT_GFX_REGIONAL_END)
+         return gObjectEventGraphicsInfoPointers[graphicsId];
+ 
++    if (graphicsId == 1037)
++        return &gObjectEventGraphicsInfo_ApocMovingBox;
++
+     if (graphicsId >= NUM_OBJ_EVENT_GFX)
+         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+ 
+diff --git a/src/field_control_avatar.c b/src/field_control_avatar.c
+index b271b1d..321c7e8 100644
+--- a/src/field_control_avatar.c
++++ b/src/field_control_avatar.c
+@@ -601,6 +601,14 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
+     if (IsFieldMoveUnlocked(FIELD_MOVE_ROCK_CLIMB) && MetatileBehavior_IsRockClimbable(metatileBehavior) == TRUE && !IsRockClimbActive())
+         return EventScript_UseRockClimb;
+ 
++    if (MetatileBehavior_IsWhirlpool(metatileBehavior) == TRUE)
++    {
++        if (IsFieldMoveUnlocked(FIELD_MOVE_WHIRLPOOL) && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING))
++            return EventScript_UseWhirlpool;
++        else
++            return EventScript_CannotUseWhirlpool;
++    }
++
+     elevation = position->elevation;
+     if (elevation == MapGridGetElevationAt(position->x, position->y))
+     {
+diff --git a/src/field_effect.c b/src/field_effect.c
+index 8e03db3..a824f73 100644
+--- a/src/field_effect.c
++++ b/src/field_effect.c
+@@ -120,6 +120,13 @@ static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *, struct ObjectEve
+ static bool8 WaterfallFieldEffect_RideUp(struct Task *, struct ObjectEvent *);
+ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
+ 
++static void Task_UseWhirlpool(u8);
++static bool8 WhirlpoolFieldEffect_Init(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_RideThrough(struct Task *, struct ObjectEvent *);
++static bool8 WhirlpoolFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
++
+ static void Task_UseDive(u8);
+ static bool8 DiveFieldEffect_Init(struct Task *);
+ static bool8 DiveFieldEffect_ShowMon(struct Task *);
+@@ -729,6 +736,15 @@ static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectE
+     WaterfallFieldEffect_ContinueRideOrEnd,
+ };
+ 
++static bool8 (*const sWhirlpoolFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
++{
++    WhirlpoolFieldEffect_Init,
++    WhirlpoolFieldEffect_ShowMon,
++    WhirlpoolFieldEffect_WaitForShowMon,
++    WhirlpoolFieldEffect_RideThrough,
++    WhirlpoolFieldEffect_ContinueRideOrEnd,
++};
++
+ static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *) =
+ {
+     DiveFieldEffect_Init,
+@@ -2125,6 +2141,79 @@ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
+     return FALSE;
+ }
+ 
++// Whirlpool follows Waterfall's shape because the situations match: the player is
++// surfing, the obstacle is the tile ahead, and crossing is a slow ride onto it.
++// It differs in having no fixed direction -- a whirlpool is crossed whichever way
++// the player faces -- so the ride uses the player's current facing.
++bool8 FldEff_UseWhirlpool(void)
++{
++    u8 taskId = CreateTask(Task_UseWhirlpool, 0xff);
++    gTasks[taskId].tMonId = gFieldEffectArguments[0];
++    Task_UseWhirlpool(taskId);
++    return FALSE;
++}
++
++static void Task_UseWhirlpool(u8 taskId)
++{
++    while (sWhirlpoolFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
++}
++
++static bool8 WhirlpoolFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    LockPlayerFieldControls();
++    gPlayerAvatar.preventStep = TRUE;
++    task->tState++;
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    LockPlayerFieldControls();
++    if (!ObjectEventIsMovementOverridden(objectEvent))
++    {
++        ObjectEventClearHeldMovementIfFinished(objectEvent);
++        gFieldEffectArguments[0] = task->tMonId;
++        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
++        task->tState++;
++    }
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    if (FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
++        return FALSE;
++
++    task->tState++;
++    return TRUE;
++}
++
++static bool8 WhirlpoolFieldEffect_RideThrough(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    ObjectEventSetHeldMovement(objectEvent, GetWalkSlowMovementAction(objectEvent->facingDirection));
++    task->tState++;
++    return FALSE;
++}
++
++static bool8 WhirlpoolFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
++{
++    if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
++        return FALSE;
++
++    // Whirlpools can be laid in a row; keep riding while still standing on one.
++    if (MetatileBehavior_IsWhirlpool(objectEvent->currentMetatileBehavior))
++    {
++        task->tState = 3;
++        return TRUE;
++    }
++
++    UnlockPlayerFieldControls();
++    gPlayerAvatar.preventStep = FALSE;
++    DestroyTask(FindTaskIdByFunc(Task_UseWhirlpool));
++    FieldEffectActiveListRemove(FLDEFF_USE_WHIRLPOOL);
++    return FALSE;
++}
++
+ #undef tState
+ #undef tMonId
+ 
+diff --git a/src/field_move.c b/src/field_move.c
+index a8faf4d..ff3c508 100644
+--- a/src/field_move.c
++++ b/src/field_move.c
+@@ -178,6 +178,20 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
+         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+         .hideIfLocked = TRUE,
+     },
++    [FIELD_MOVE_WHIRLPOOL] =
++    {
++        .fieldMoveFunc = SetUpFieldMove_Whirlpool,
++#if OW_WHIRLPOOL_FIELD_MOVE
++        .unlockType = BADGE_UNLOCK,
++#else
++        .unlockType = CANT_UNLOCK,
++#endif
++        .moveID = MOVE_WHIRLPOOL,
++        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
++        .arg = FLAG_TO_BADGE(FLAG_BADGE08_GET),
++        .hideIfLocked = TRUE,
++    },
++
+     [FIELD_MOVE_DEFOG] =
+     {
+         .fieldMoveFunc = SetUpFieldMove_Defog,
+diff --git a/src/item_menu.c b/src/item_menu.c
+index d5acdfd..d6af345 100755
+--- a/src/item_menu.c
++++ b/src/item_menu.c
+@@ -949,7 +949,7 @@ static void GetItemNameFromPocket(u8 *dest, enum Item itemId)
+         if (GetItemTMHMIndex(itemId) > NUM_TECHNICAL_MACHINES)
+         {
+             // Get HM number
+-            ConvertIntToDecimalStringN(gStringVar1, GetItemTMHMIndex(itemId) - NUM_TECHNICAL_MACHINES, STR_CONV_MODE_LEADING_ZEROS, 1);
++            ConvertIntToDecimalStringN(gStringVar1, GetItemTMHMIndex(itemId) - NUM_TECHNICAL_MACHINES, STR_CONV_MODE_LEADING_ZEROS, NUM_HIDDEN_MACHINES >= 10 ? 2 : 1);
+             StringExpandPlaceholders(dest, gText_NumberItem_HM);
+         }
+         else
+diff --git a/src/main_menu.c b/src/main_menu.c
+index 7fc7e41..82f7343 100644
+--- a/src/main_menu.c
++++ b/src/main_menu.c
+@@ -1316,12 +1316,19 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
+     FreeAllSpritePalettes();
+     ResetAllPicSprites();
+     AddBirchSpeechObjects(taskId);
++    InitWindows(sNewGameBirchSpeechTextWindows);
++    LoadMainMenuWindowFrameTiles(0, 0xF3);
++    LoadMessageBoxGfx(0, BIRCH_DLG_BASE_TILE_NUM, BG_PLTT_ID(15));
++    DrawDialogFrameWithCustomTile(0, TRUE, BIRCH_DLG_BASE_TILE_NUM);
++    PutWindowTilemap(0);
++    CopyWindowToVram(0, COPYWIN_GFX);
+     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+     gTasks[taskId].tBG1HOFS = 0;
+-    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowBirch;
++    gTasks[taskId].func = Task_NewGameBirchSpeech_StartPlayerFadeIn;
++    gTasks[taskId].tIsDoneFadingSprites = TRUE;
+     gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
+     gTasks[taskId].data[3] = 0xFF;
+-    gTasks[taskId].tTimer = 0xD8;
++    gTasks[taskId].tTimer = 0;
+     PlayBGM(MUS_ROUTE122);
+     ShowBg(0);
+     ShowBg(1);
+@@ -1516,7 +1523,7 @@ static void Task_NewGameBirchSpeech_WaitForPlayerFadeIn(u8 taskId)
+ static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
+ {
+     NewGameBirchSpeech_ClearWindow(0);
+-    StringExpandPlaceholders(gStringVar4, gText_Birch_BoyOrGirl);
++    StringCopy(gStringVar4, COMPOUND_STRING("Choose your appearance."));
+     AddTextPrinterForMessage(TRUE);
+     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowGenderMenu;
+ }
+@@ -1541,14 +1548,18 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
+         PlaySE(SE_SELECT);
+         gSaveBlock2Ptr->playerGender = gender;
+         NewGameBirchSpeech_ClearGenderWindow(1, 1);
+-        gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+-        break;
++        StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("PLAYER"));
++        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
++        gTasks[taskId].func = Task_NewGameBirchSpeech_Cleanup;
++        return;
+     case FEMALE:
+         PlaySE(SE_SELECT);
+         gSaveBlock2Ptr->playerGender = gender;
+         NewGameBirchSpeech_ClearGenderWindow(1, 1);
+-        gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+-        break;
++        StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("PLAYER"));
++        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
++        gTasks[taskId].func = Task_NewGameBirchSpeech_Cleanup;
++        return;
+     default: //repeat task if nothing is selected
+         break;
+     }
+diff --git a/src/metatile_behavior.c b/src/metatile_behavior.c
+index 9d5d49b..b6ef614 100644
+--- a/src/metatile_behavior.c
++++ b/src/metatile_behavior.c
+@@ -26,6 +26,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
+     [MB_INTERIOR_DEEP_WATER]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_DEEP_WATER]                         = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_WATERFALL]                          = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
++    [MB_WHIRLPOOL]                          = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
+     [MB_SOOTOPOLIS_DEEP_WATER]              = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
+     [MB_OCEAN_WATER]                        = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
+     [MB_PUDDLE]                             = TILE_FLAG_UNUSED,
+@@ -967,6 +968,17 @@ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
+         return FALSE;
+ }
+ 
++// A whirlpool sits on surfable water and blocks the crossing until dispelled.
++// Unlike a waterfall it has no direction: the player passes through it whichever
++// way they are facing.
++bool8 MetatileBehavior_IsWhirlpool(u8 metatileBehavior)
++{
++    if (metatileBehavior == MB_WHIRLPOOL)
++        return TRUE;
++    else
++        return FALSE;
++}
++
+ bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior)
+ {
+     if (metatileBehavior == MB_FORTREE_BRIDGE)
+diff --git a/src/new_game.c b/src/new_game.c
+index 44aeab6..bd87364 100644
+--- a/src/new_game.c
++++ b/src/new_game.c
+@@ -138,7 +138,7 @@ static void WarpToTruck(void)
+     if (IS_FRLG)
+         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+     else
+-        SetWarpDestination(MAP_GROUP(MAP_CHERRYGROVE_CITY), MAP_NUM(MAP_CHERRYGROVE_CITY), WARP_ID_NONE, 40, 20);
++        SetWarpDestination(MAP_GROUP(MAP_CHERRYGROVE_PLAYER_HOUSE), MAP_NUM(MAP_CHERRYGROVE_PLAYER_HOUSE), WARP_ID_NONE, 4, 4);
+     WarpIntoMap();
+ }
+ 
+diff --git a/src/party_menu.c b/src/party_menu.c
+index 1a175da..8a070ca 100644
+--- a/src/party_menu.c
++++ b/src/party_menu.c
+@@ -487,6 +487,7 @@ static void ShowMoveSelectWindow(u8 slot);
+ static void Task_HandleWhichMoveInput(u8 taskId);
+ static void Task_HideFollowerNPCForTeleport(u8);
+ static void FieldCallback_RockClimb(void);
++static void FieldCallback_Whirlpool(void);
+ static void GetPartyAndSlotFromPartyMenuId(s8 menuId, struct Pokemon **party, s8 *partySlot);
+ static struct Pokemon *GetPartyMonFromPartyMenuId(s8 menuId);
+ static void GetMultiPartyForSummaryScreen(void);
+@@ -4340,6 +4341,28 @@ bool32 SetUpFieldMove_Waterfall(void)
+     return FALSE;
+ }
+ 
++static void FieldCallback_Whirlpool(void)
++{
++    gFieldEffectArguments[0] = GetCursorSelectionMonId();
++    FieldEffectStart(FLDEFF_USE_WHIRLPOOL);
++}
++
++bool32 SetUpFieldMove_Whirlpool(void)
++{
++    s16 x, y;
++
++    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
++    // Surfing only: a whirlpool is crossed from the water, in any direction.
++    if (MetatileBehavior_IsWhirlpool(MapGridGetMetatileBehaviorAt(x, y)) == TRUE
++     && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING))
++    {
++        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
++        gPostMenuFieldCallback = FieldCallback_Whirlpool;
++        return TRUE;
++    }
++    return FALSE;
++}
++
+ bool32 SetUpFieldMove_RockClimb(void)
+ {
+     s16 x, y;
+diff --git a/src/player_pc.c b/src/player_pc.c
+index a4e1e11..8a54bc3 100644
+--- a/src/player_pc.c
++++ b/src/player_pc.c
+@@ -221,7 +221,7 @@ static const struct MenuAction sItemStorage_MenuActions[] =
+ 
+ static const u16 sNewGamePCItems[][2] =
+ {
+-    { ITEM_POTION, 1 },
++    // The opening bedroom script grants the single Potion explicitly.
+     { ITEM_NONE, 0 }
+ };
+ 
+diff --git a/src/start_menu.c b/src/start_menu.c
+index 648fa83..eacd1ac 100644
+--- a/src/start_menu.c
++++ b/src/start_menu.c
+@@ -49,6 +49,7 @@
+ #include "wild_encounter.h"
+ #include "constants/battle_frontier.h"
+ #include "constants/rgb.h"
++#include "constants/vars.h"
+ #include "constants/songs.h"
+ 
+ // Menu actions
+@@ -69,6 +70,7 @@ enum
+     MENU_ACTION_PYRAMID_BAG,
+     MENU_ACTION_DEBUG,
+     MENU_ACTION_DEXNAV,
++    MENU_ACTION_POKEGEAR,
+ };
+ 
+ // Save status
+@@ -101,6 +103,8 @@ static bool8 StartMenuPokedexCallback(void);
+ static bool8 StartMenuPokemonCallback(void);
+ static bool8 StartMenuBagCallback(void);
+ static bool8 StartMenuPokeNavCallback(void);
++static bool8 StartMenuPokegearCallback(void);
++extern const u8 Apocrypha_Pokegear_Open[];
+ static bool8 StartMenuPlayerNameCallback(void);
+ static bool8 StartMenuSaveCallback(void);
+ static bool8 StartMenuOptionCallback(void);
+@@ -194,6 +198,7 @@ static const struct MenuAction sStartMenuItems[] =
+     [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
+     [MENU_ACTION_POKEMON]         = {gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback}},
+     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
++    [MENU_ACTION_POKEGEAR] = {COMPOUND_STRING("POKÃ©GEAR"), {.u8_void = StartMenuPokegearCallback}},
+     [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
+     [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
+     [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
+@@ -338,7 +343,11 @@ static void BuildNormalStartMenu(void)
+     if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+         AddStartMenuAction(MENU_ACTION_POKENAV);
+ 
+-    AddStartMenuAction(MENU_ACTION_PLAYER);
++    if (FlagGet(FLAG_APOC_POKEGEAR))
++        AddStartMenuAction(MENU_ACTION_POKEGEAR);
++    // The Trainer Card becomes available at the later naming scene.
++    if (VarGet(VAR_APOC_HOME_STAGE) >= 5)
++        AddStartMenuAction(MENU_ACTION_PLAYER);
+     AddStartMenuAction(MENU_ACTION_SAVE);
+     AddStartMenuAction(MENU_ACTION_OPTION);
+     AddStartMenuAction(MENU_ACTION_EXIT);
+@@ -653,6 +662,7 @@ static bool8 HandleStartMenuInput(void)
+         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
+ 
+         if (gMenuCallback != StartMenuSaveCallback
++            && gMenuCallback != StartMenuPokegearCallback
+             && gMenuCallback != StartMenuExitCallback
+             && gMenuCallback != StartMenuDebugCallback
+             && gMenuCallback != StartMenuSafariZoneRetireCallback
+@@ -720,6 +730,14 @@ static bool8 StartMenuBagCallback(void)
+     return FALSE;
+ }
+ 
++static bool8 StartMenuPokegearCallback(void)
++{
++    RemoveExtraStartMenuWindows();
++    HideStartMenu();
++    ScriptContext_SetupScript(Apocrypha_Pokegear_Open);
++    return TRUE;
++}
++
+ static bool8 StartMenuPokeNavCallback(void)
+ {
+     if (!gPaletteFade.active)
+diff --git a/src/trainer_hill.c b/src/trainer_hill.c
+index 34b2d04..8f7f0cf 100644
+--- a/src/trainer_hill.c
++++ b/src/trainer_hill.c
+@@ -163,7 +163,7 @@ static const enum Item sPrizeListMaxRevive2[]  = {ITEM_MAX_REVIVE,       ITEM_ET
+ static const enum Item sPrizeListMaxEther2[]   = {ITEM_MAX_ETHER,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListElixir2[]     = {ITEM_ELIXIR,           ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListBrickBreak[]  = {ITEM_TM_BRICK_BREAK,   ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+-static const enum Item sPrizeListTorment[]     = {ITEM_TM_TORMENT,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
++static const enum Item sPrizeListTorment[]     = {ITEM_TM_HONE_CLAWS,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListSkillSwap[]   = {ITEM_TM_TRICK_ROOM,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListGigaDrain[]   = {ITEM_TM_GIGA_DRAIN,    ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+ static const enum Item sPrizeListAttract[]     = {ITEM_TM_ATTRACT,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};

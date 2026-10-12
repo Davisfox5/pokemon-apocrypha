@@ -1,5 +1,11 @@
 # Chapter 1 — Scene Spec (single source of truth)
 
+> **GBA production scope (2026-09-10):** Reuse the narrative, dialogue, teams,
+> and item intent relevant to the task. DS/HGSS file paths, addresses, numeric IDs,
+> script commands, map coordinates, and implementation-status claims below are
+> historical and must not be applied to the GBA build. See
+> [the context index](CONTEXT_INDEX.md); read only the needed chapter/section.
+
 This is the **authoritative desired end-state** for every Chapter 1 scene. I implement
 toward this and test against it; you tick the checklists. When something's wrong, change
 the spec line (or drop a screenshot/save-state) rather than re-describing in prose — the

@@ -1,0 +1,503 @@
+{
+  "source": "disasm/pokeheartgold/files/a/0/4/4",
+  "member": 2,
+  "sha256": "7cc9b3590972da486696811a4c72542a43131784671fb6d60de197b006512c06",
+  "assets": [
+    {
+      "name": "fieldkk01",
+      "palette": "fieldkk01_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "tree01gs",
+      "palette": "tree01",
+      "size": [
+        64,
+        64
+      ],
+      "colors": 12,
+      "alpha_bbox": [
+        11,
+        15,
+        53,
+        58
+      ]
+    },
+    {
+      "name": "tree01_re",
+      "palette": "tree01_re",
+      "size": [
+        64,
+        64
+      ],
+      "colors": 12,
+      "alpha_bbox": [
+        0,
+        15,
+        64,
+        58
+      ]
+    },
+    {
+      "name": "tree01_un",
+      "palette": "tree01_un",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 11,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "cliff01gs",
+      "palette": "cliff01",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 9,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "grass02",
+      "palette": "grass02_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "grass02_r",
+      "palette": "grass02_r_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 8,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "road01",
+      "palette": "road01",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "road01_r",
+      "palette": "road01_r",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 9,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "road01_sub",
+      "palette": "road01_sub_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 4,
+      "alpha_bbox": [
+        3,
+        4,
+        14,
+        14
+      ]
+    },
+    {
+      "name": "beach01",
+      "palette": "beach01_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "beach01_r",
+      "palette": "beach01_r_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 7,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "beach_sub",
+      "palette": "beach_sub_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "alpha_bbox": [
+        2,
+        2,
+        14,
+        16
+      ]
+    },
+    {
+      "name": "sea_on",
+      "palette": "sea_f02_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        1,
+        3,
+        25,
+        27
+      ]
+    },
+    {
+      "name": "sea_un",
+      "palette": "sea_un",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "sea_line02",
+      "palette": "sea_line02_pl",
+      "size": [
+        16,
+        32
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        0,
+        9,
+        16,
+        23
+      ]
+    },
+    {
+      "name": "sea_rock",
+      "palette": "sea_rock_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 12,
+      "alpha_bbox": [
+        0,
+        1,
+        32,
+        31
+      ]
+    },
+    {
+      "name": "sea_rock_m",
+      "palette": "sea_rock_m_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "alpha_bbox": [
+        0,
+        2,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "rock01",
+      "palette": "rock01",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 8,
+      "alpha_bbox": [
+        1,
+        1,
+        31,
+        31
+      ]
+    },
+    {
+      "name": "wall01_d",
+      "palette": "wall01_d",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 15,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "wall01_g",
+      "palette": "wall01_g",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 16,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "flower01",
+      "palette": "flower01",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 7,
+      "alpha_bbox": [
+        0,
+        0,
+        15,
+        16
+      ]
+    },
+    {
+      "name": "flower02",
+      "palette": "flower02",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 7,
+      "alpha_bbox": [
+        0,
+        0,
+        15,
+        16
+      ]
+    },
+    {
+      "name": "flower03",
+      "palette": "flower03",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "yo_sp1",
+      "palette": "yo_sp1_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 16,
+      "alpha_bbox": [
+        0,
+        4,
+        32,
+        31
+      ]
+    },
+    {
+      "name": "fence_a",
+      "palette": "fence_a_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 7,
+      "alpha_bbox": [
+        0,
+        1,
+        32,
+        26
+      ]
+    },
+    {
+      "name": "bridge_a",
+      "palette": "bridge_a_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 12,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "bridge_b",
+      "palette": "bridge_b_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 5,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "bridge_c",
+      "palette": "bridge_c_pl",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 6,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "pond_edge",
+      "palette": "pond_edge",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "pond_on",
+      "palette": "pond_on",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "name": "pond_un",
+      "palette": "pond_un",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 1,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "f_kage",
+      "palette": "f_kage_pl",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 1,
+      "alpha_bbox": [
+        0,
+        0,
+        16,
+        16
+      ]
+    }
+  ],
+  "credit": "Game Freak / Nintendo / Creatures; HGSS game-derived art, read-only extraction."
+}

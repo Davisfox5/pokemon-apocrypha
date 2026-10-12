@@ -1,0 +1,284 @@
+{
+  "samples": 1800,
+  "engine_frames": 7200,
+  "camera_positions": 5,
+  "walking_residents": 12,
+  "actual_obj_vram_frames_verified": true,
+  "no_horizontal_mirroring": true,
+  "distinct_palettes": true,
+  "collision_clear": true,
+  "one_sample_turn_upload_lag": 945,
+  "residents": [
+    {
+      "name": "WATERFRONT",
+      "graphics": 1027,
+      "positions": [
+        [
+          37,
+          19
+        ],
+        [
+          37,
+          20
+        ]
+      ],
+      "directions": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "COMMUTER",
+      "graphics": 1026,
+      "positions": [
+        [
+          43,
+          8
+        ],
+        [
+          44,
+          8
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "JOHTO_BOY",
+      "graphics": 1024,
+      "positions": [
+        [
+          49,
+          24
+        ],
+        [
+          50,
+          24
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "JOHTO_GIRL",
+      "graphics": 1025,
+      "positions": [
+        [
+          60,
+          20
+        ],
+        [
+          61,
+          20
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_GOLD",
+      "graphics": 1029,
+      "positions": [
+        [
+          48,
+          17
+        ],
+        [
+          48,
+          18
+        ],
+        [
+          49,
+          17
+        ],
+        [
+          49,
+          18
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_SILVER",
+      "graphics": 1030,
+      "positions": [
+        [
+          57,
+          23
+        ],
+        [
+          57,
+          24
+        ],
+        [
+          58,
+          23
+        ],
+        [
+          58,
+          24
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "CAST_KESTRA",
+      "graphics": 1031,
+      "positions": [
+        [
+          43,
+          22
+        ],
+        [
+          44,
+          22
+        ],
+        [
+          45,
+          22
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_HOENN",
+      "graphics": 1032,
+      "positions": [
+        [
+          55,
+          12
+        ],
+        [
+          56,
+          12
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_KANTO",
+      "graphics": 1033,
+      "positions": [
+        [
+          66,
+          17
+        ],
+        [
+          66,
+          18
+        ],
+        [
+          67,
+          17
+        ],
+        [
+          67,
+          18
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_JOHTO",
+      "graphics": 1034,
+      "positions": [
+        [
+          47,
+          11
+        ],
+        [
+          47,
+          12
+        ],
+        [
+          48,
+          11
+        ],
+        [
+          48,
+          12
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_SINNOH",
+      "graphics": 1035,
+      "positions": [
+        [
+          38,
+          21
+        ],
+        [
+          38,
+          22
+        ],
+        [
+          39,
+          21
+        ],
+        [
+          39,
+          22
+        ]
+      ],
+      "directions": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "COMPARE_UNOVA",
+      "graphics": 1036,
+      "positions": [
+        [
+          61,
+          29
+        ],
+        [
+          62,
+          29
+        ]
+      ],
+      "directions": [
+        3,
+        4
+      ]
+    }
+  ],
+  "interactions": []
+}

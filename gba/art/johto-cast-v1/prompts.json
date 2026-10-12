@@ -1,0 +1,10 @@
+{
+  "tool": "image_gen",
+  "purpose": "Cleanup comparison reference; generated pixels are not used in the ROM",
+  "references": [
+    "references/gold-4x.png",
+    "references/silver-4x.png"
+  ],
+  "output": "references/generated-cleanup-reference.png",
+  "prompt": "Create a conservative pixel-art cleanup reference for these TWO EXISTING custom Pokemon overworld characters, Gold and Silver. Preserve the precise established identities: Gold black cap with ochre accent, reddish shirt, dark pants; Silver red hair, charcoal-indigo longcoat, crimson shoulder mantle. Do not redesign clothing or make them adult-proportioned illustrations. Native sprite scale is ~20x26px inside 32x32 cells. Deliver ONE clean comparison sheet with SIXTEEN cells total: top two rows Gold, bottom two rows Silver, four columns. Each character has SOUTH, NORTH, WEST, EAST idle in first row, same four directions walking pose in next row. Equal aligned cells, crisp square pixels, fixed feet baseline, transparent background. Repair disconnected stray pixels and incomplete cap outlines, consistent cap shading across Gold directions. Make Silver's thin crimson shoulder mantle and coat hem consistent and readable without adding a cape. No words, no labels, no grass, no shadows outside sprites, no extra tree or props. This reference guides tiny native Aseprite repairs to existing sheets; maintain close pixel-scale fidelity."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "MAP_DARK_CAVE_ENTRANCE",
+  "name": "DarkCaveEntrance",
+  "layout": "LAYOUT_DARK_CAVE_ENTRANCE",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_DARK_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE31",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

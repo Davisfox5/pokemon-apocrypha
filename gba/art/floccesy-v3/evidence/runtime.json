@@ -1,0 +1,75 @@
+{
+  "travel_and_doors": true,
+  "door_round_trips": 6,
+  "center_stairs": true,
+  "ordinary_save": true,
+  "cold_reload": true,
+  "title_continue": true,
+  "collision_probes": 186,
+  "collision_failures": 0,
+  "npc_samples": 1800,
+  "roaming_npcs": 6,
+  "npc_positions": {
+    "1032": [
+      [
+        24,
+        64
+      ],
+      [
+        25,
+        64
+      ]
+    ],
+    "1033": [
+      [
+        43,
+        67
+      ],
+      [
+        44,
+        67
+      ]
+    ],
+    "1034": [
+      [
+        23,
+        53
+      ],
+      [
+        24,
+        53
+      ]
+    ],
+    "1035": [
+      [
+        34,
+        29
+      ],
+      [
+        35,
+        29
+      ]
+    ],
+    "1024": [
+      [
+        21,
+        37
+      ],
+      [
+        22,
+        37
+      ]
+    ],
+    "1036": [
+      [
+        38,
+        51
+      ],
+      [
+        39,
+        51
+      ]
+    ]
+  },
+  "rom_sha256": "52318de7a4cb29cb652c0f1fb53ec37d306216506266b926a2838a64c01884d5"
+}

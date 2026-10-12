@@ -1,0 +1,14 @@
+{
+  "patch": "gba/johto-v4.patch",
+  "bytes": 119725,
+  "sha256": "ad5552e6d6e08d91917828c67516db1c22501764979dd11bb09b9baed6b257b9",
+  "base": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "prior_patches": [
+    "gba/johto-art-v3.patch",
+    "gba/johto-npc-v1.patch",
+    "gba/johto-cast-v1.patch",
+    "gba/regional-scale-v1.patch"
+  ],
+  "forward_check": true,
+  "reverse_check": true
+}

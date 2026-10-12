@@ -1,0 +1,255 @@
+{
+  "date": "2026-09-10",
+  "purpose": "Preserved documentation at GBA platform decision; source trees retained in place. Dirty work is not contained in commit hashes.",
+  "documents": [
+    {
+      "original": "README.md",
+      "snapshot": "archive/gen4/snapshot/README.md",
+      "sha256": "cb298ef8c64f03826800bec7a61372139450cbef96d25ca1a68cb3ee0d384933"
+    },
+    {
+      "original": "ENGINEERING.md",
+      "snapshot": "archive/gen4/snapshot/ENGINEERING.md",
+      "sha256": "67a606f20d37cd35f905f73cc8c843e7fc56f368d0034b4534e41d25eaae6fec"
+    },
+    {
+      "original": "DESIGN.md",
+      "snapshot": "archive/gen4/snapshot/DESIGN.md",
+      "sha256": "f37bb80e4a1f864e2248d1b56aa60bbe2231938df17d7ac0a2814a864f8b9b7d"
+    },
+    {
+      "original": "Makefile",
+      "snapshot": "archive/gen4/snapshot/Makefile",
+      "sha256": "c1603ceb14c579918e758c292b763b38655d179f4473aa0d0ceab2d7a00a31bb"
+    },
+    {
+      "original": "tools/README.md",
+      "snapshot": "archive/gen4/snapshot/tools/README.md",
+      "sha256": "72eb7acc200b5d4765884cb2124f759fc627c1290200d75977b4851648a246c9"
+    },
+    {
+      "original": "artwork-library/README.md",
+      "snapshot": "archive/gen4/snapshot/artwork-library/README.md",
+      "sha256": "191f3575898db923189a130937fe63b13cc2890e47ee09dd951c7c364d77bbb5"
+    },
+    {
+      "original": "engineering/m1-dex-expansion.md",
+      "snapshot": "archive/gen4/snapshot/engineering/m1-dex-expansion.md",
+      "sha256": "f41f3ce39ee6e99592fe05973521b025481ff4a3a536f1da3150d810b9b20bb6"
+    },
+    {
+      "original": "engineering/m1-state-save-architecture.md",
+      "snapshot": "archive/gen4/snapshot/engineering/m1-state-save-architecture.md",
+      "sha256": "ef85830866a058191b076d370973f0e26295e2d2f13886b3d563d243104fcfda"
+    },
+    {
+      "original": "engineering/m3-hoenn-map-conversion.md",
+      "snapshot": "archive/gen4/snapshot/engineering/m3-hoenn-map-conversion.md",
+      "sha256": "462ea22bb485a2273302f4d1e952834a5173ba5434c148e932b4ed994b87afb8"
+    },
+    {
+      "original": "docs/ART_ASSETS_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/ART_ASSETS_SPEC.md",
+      "sha256": "7376987ddcc89861f1ccfb60d769ec60e5470887d38c359c57198180b25e887e"
+    },
+    {
+      "original": "docs/CH1_PLAYTHROUGH_LOG.md",
+      "snapshot": "archive/gen4/snapshot/docs/CH1_PLAYTHROUGH_LOG.md",
+      "sha256": "815807728503dd90d6bf5ec7ee6bbcac0d211f3985ed1d23d207f2322a828b0e"
+    },
+    {
+      "original": "docs/CH1_POLISH_NOTES.md",
+      "snapshot": "archive/gen4/snapshot/docs/CH1_POLISH_NOTES.md",
+      "sha256": "fb40532c40ba3dcb6c433f452e2e7b5a0a5a068f7b7e33be720e2fb601ecdf23"
+    },
+    {
+      "original": "docs/CHAPTER1_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER1_BUILD.md",
+      "sha256": "3b7e3fcd3cdc8a02084665c43296d9eeaae2ac14e04276af7cf4ff389c2dd67d"
+    },
+    {
+      "original": "docs/CHAPTER1_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER1_SCENES_SPEC.md",
+      "sha256": "6883a19ba4e3eebba2818a0b2fac4f18c26fd02dd0430b2e9705723a5fcb8a01"
+    },
+    {
+      "original": "docs/CHAPTER2_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER2_BUILD.md",
+      "sha256": "06d8d9b45e8dd02a6cacb3ccd46cb631f5049b420bd0d62cf9a2f736bb096458"
+    },
+    {
+      "original": "docs/CHAPTER2_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER2_SCENES_SPEC.md",
+      "sha256": "34febb5c7ad6323ea309080a4c2fe58523669bb3f3c4e27529e98445f676c2a0"
+    },
+    {
+      "original": "docs/CHAPTER3_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER3_BUILD.md",
+      "sha256": "8738d3cbe9c6d6ba45841d88e25bf858df52fb120e635c25589bf0828608aeeb"
+    },
+    {
+      "original": "docs/CHAPTER3_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER3_SCENES_SPEC.md",
+      "sha256": "d7788d3a2f9c3e87b4351a9ed522dba0a26b86bb2550e2ef8be49bd2a9ef5aef"
+    },
+    {
+      "original": "docs/CHAPTER4_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER4_BUILD.md",
+      "sha256": "c481327d785a7de7f6d532969df02dae6ed5110df9ff7d8a981ae858d16b556c"
+    },
+    {
+      "original": "docs/CHAPTER4_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER4_SCENES_SPEC.md",
+      "sha256": "024c759f602da995e8349f626162db68bd62e3328c1265026f95d231a99939e6"
+    },
+    {
+      "original": "docs/CHAPTER5_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER5_BUILD.md",
+      "sha256": "31c705a23326afb80d155453fef54b9ff2668f5fd1e7f0f745fb5b96ae3d36d7"
+    },
+    {
+      "original": "docs/CHAPTER5_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER5_SCENES_SPEC.md",
+      "sha256": "01b47ed69537010c6abc906d6a83f1a168dd3020727e282407f68dedc4c25d09"
+    },
+    {
+      "original": "docs/CHAPTER6_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER6_BUILD.md",
+      "sha256": "5958f7cf1cb6c0a2e20e1ec4a5bd290f56447fbb374d65bfa886fd31910b851a"
+    },
+    {
+      "original": "docs/CHAPTER6_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER6_SCENES_SPEC.md",
+      "sha256": "2f66c83e26d2fe5d42cbcbd56c383a2dc4c06b9c7fba4e2e1461f9b5469faccf"
+    },
+    {
+      "original": "docs/CHAPTER7_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER7_BUILD.md",
+      "sha256": "ae085e5f72fe14b26eda69edcdec30e3211efde220ac3b3b0bb95bb84c0b5277"
+    },
+    {
+      "original": "docs/CHAPTER7_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER7_SCENES_SPEC.md",
+      "sha256": "35b294a135a730239049ac54562e1856a646bc7062b5286285a7c7c162ba838e"
+    },
+    {
+      "original": "docs/CHAPTER8_BUILD.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER8_BUILD.md",
+      "sha256": "0dd491e84df85b8d2dd030d3a5bbbd166e5f6d4d6b78a3b2a61876482d874722"
+    },
+    {
+      "original": "docs/CHAPTER8_SCENES_SPEC.md",
+      "snapshot": "archive/gen4/snapshot/docs/CHAPTER8_SCENES_SPEC.md",
+      "sha256": "1ada1aa44fc9b8dc9789531180ab5f0d4ed093cf7a2b1bc1da15c52211b25232"
+    },
+    {
+      "original": "docs/HOENN_BATTLES.md",
+      "snapshot": "archive/gen4/snapshot/docs/HOENN_BATTLES.md",
+      "sha256": "c9743babd72cff3ed923cadbcdf9e8faf5fd8671c32b1a6898c9f60afe362799"
+    },
+    {
+      "original": "docs/HOENN_ITEMS.md",
+      "snapshot": "archive/gen4/snapshot/docs/HOENN_ITEMS.md",
+      "sha256": "6d3418522af070b824d2bc18d7dd60d8e36ea357265d6bb43aa8bc205f005e7f"
+    },
+    {
+      "original": "docs/JOHTO_BATTLES.md",
+      "snapshot": "archive/gen4/snapshot/docs/JOHTO_BATTLES.md",
+      "sha256": "a9f2f295d7793318d1f421b1a3513e4b9d44e8a1002c83d5db1747abb4008319"
+    },
+    {
+      "original": "docs/JOHTO_ITEMS.md",
+      "snapshot": "archive/gen4/snapshot/docs/JOHTO_ITEMS.md",
+      "sha256": "b0f6c4ed7cc2c386cb7979dbdf56d1692665c2694aa95b34d11f81cfadc189a6"
+    },
+    {
+      "original": "docs/KANTO_BATTLES.md",
+      "snapshot": "archive/gen4/snapshot/docs/KANTO_BATTLES.md",
+      "sha256": "ec8b7a9f5800a226a2acc14b7c40f6f4dc314235fa1f8ec0e5e911be51b50927"
+    },
+    {
+      "original": "docs/KANTO_ITEMS.md",
+      "snapshot": "archive/gen4/snapshot/docs/KANTO_ITEMS.md",
+      "sha256": "9ce760b1b71c5ea7ef04be9e639b5eae44bd22fa58789210dc1615a3495e2bd2"
+    },
+    {
+      "original": "docs/VANILLA_LEDGER.md",
+      "snapshot": "archive/gen4/snapshot/docs/VANILLA_LEDGER.md",
+      "sha256": "2b566d86d786aa8edfd0f3d06584f9fd0303b70a1813c3a68926f4f5b5b13e4a"
+    },
+    {
+      "original": "docs/gen4-reference.md",
+      "snapshot": "archive/gen4/snapshot/docs/gen4-reference.md",
+      "sha256": "d8cab0842701736f2232d161c124136605493b189f4e107f1af40497b17ffbef"
+    },
+    {
+      "original": "cockpit_marks/mark_001_1782851766.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_001_1782851766.md",
+      "sha256": "64a51f6cd55ef03e08989e9b8730efe6d78d820dbe3c70bd934cee79e8fff0b7"
+    },
+    {
+      "original": "cockpit_marks/mark_004_1782878392.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_004_1782878392.md",
+      "sha256": "710398bf66be2729ffc248dc6f0b6fa4496804433589e97515abc4da8164508c"
+    },
+    {
+      "original": "cockpit_marks/mark_005_1782878448.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_005_1782878448.md",
+      "sha256": "05c139f0b2544c9a33162bf79f7ec290dccacc0493088b77104c5bb98aa97062"
+    },
+    {
+      "original": "cockpit_marks/mark_006_1782878492.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_006_1782878492.md",
+      "sha256": "b7eb4f34a14064f7e90fe0500570fee423e6d871dabf6acc6f4561eda64afdef"
+    },
+    {
+      "original": "cockpit_marks/mark_007_1782878518.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_007_1782878518.md",
+      "sha256": "053d641a8062239c8457371e27ddf07d9a962dcd31eb6859aaa7b05c34122079"
+    },
+    {
+      "original": "cockpit_marks/mark_008_1782878541.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_008_1782878541.md",
+      "sha256": "d6dd379e0a1145f6a2f2d23f85e744c3867fc2e5ea87398d523f0cd91ec63c09"
+    },
+    {
+      "original": "cockpit_marks/mark_009_1782878650.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_009_1782878650.md",
+      "sha256": "6a83243d29567b0777425148ca6014fdbefb49155fa75328f7b79cf3367ee723"
+    },
+    {
+      "original": "cockpit_marks/mark_010_1782878703.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_010_1782878703.md",
+      "sha256": "fb71df9f60e89683340275f2dc3d81ffc05c3653b70430d8e072652966b77001"
+    },
+    {
+      "original": "cockpit_marks/mark_011_1782878730.md",
+      "snapshot": "archive/gen4/snapshot/cockpit_marks/mark_011_1782878730.md",
+      "sha256": "4cb8d7d590a623bb02a27a4583ed1c43d1511579ecb686614289efcc5053f61c"
+    }
+  ],
+  "source_trees": {
+    "disasm/pokeheartgold": {
+      "head": "0204c417308553606ff3ed6d5886f8c54fecab5a",
+      "status": [
+        " M _omni_native_build.log",
+        " M _omni_native_build.sh",
+        " M files/fielddata/eventdata/zone_event/060_T20R0201.json",
+        " M files/msgdata/msg/msg_0545_T20R0201.gmm",
+        " M files/poketool/trainer/trainers.json"
+      ]
+    },
+    "disasm/pokeplatinum": {
+      "head": "fc033518793585217db02f2104bdeb27d1d6f96b",
+      "status": []
+    },
+    "disasm/pokeemerald": {
+      "head": "27bcf06a5056d913ac3ebd4cf80019fe8b821dbd",
+      "status": []
+    },
+    "disasm/pokefirered": {
+      "head": "87015177556a5a75362eb135d2cdb1d04c5f1e24",
+      "status": []
+    }
+  }
+}

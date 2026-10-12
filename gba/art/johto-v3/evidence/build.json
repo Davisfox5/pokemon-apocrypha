@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "rom_sha256": "4c7e24d9ea9f0f9e46514f3bf935ddcea95585ff0cccf10fec04c433785ce9a2",
+  "elf_sha256": "42e3bb5203558370160346a68031fabb89230c56952b44c32e00fa101f1083f6",
+  "patch_sha256": "704fecd8e655477eadf89ef0f49331b97dddf752fbc4f15ebef14c84269009b9",
+  "compiler_sha256": "83a91025fc58f5a196461414f18bdf1a00aef8f3c11badf305e8a375699fc1f7",
+  "spec_sha256": "b12c226c6e410a693300caf3d3ffb7bc773e9f3ce344d800b87234618bdcce52",
+  "build_exit_code": 0,
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "runtime_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "runtime_run": "tools/vendor/gba/johto-art-v3-run3",
+  "emulator": "mGBA 0.10.5",
+  "rtc_ms": 1789300800000,
+  "gallery_exit_code": 0,
+  "isolated_checkout": "tools/vendor/gba/johto-art-v3-game",
+  "production_game_edited": false,
+  "patch_forward_and_reverse_checks": true,
+  "native_scene_roundtrip": true,
+  "static_animation_alias_check": true,
+  "rom_bytes": 19649436,
+  "ewram_bytes": 226736,
+  "iwram_bytes": 28392
+}

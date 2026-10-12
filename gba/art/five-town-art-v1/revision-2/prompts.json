@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sandgem",
+    "path": "/Users/davisfox/Documents/GitHub/the-omni-hack/gba/art/five-town-art-v1/sandgem.png",
+    "prompt": "Edit this provided map with surgical local corrections only. Preserve image dimensions, composition, buildings, paths, water, colors and pixel-art rendering everywhere outside the specified areas. Do not redesign the town. Coordinates are percentages from top-left. Trees must each have one coherent crown and trunk, consistent scale and clean depth ordering, never a small second crown pasted over a larger tree. Return only corrected full map without annotations. At (95.3%,19.2%), repair the overlapping tree in the right-edge forest just northeast of the blue Mart. Remove the stray overlapping crown and reconstruct that small forest segment as a regular row of matching full trees. Preserve the Mart roof and adjacent grass.",
+    "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-a0997c01-d89b-4432-9773-15c090ae23be.png"
+  },
+  {
+    "name": "pallet",
+    "path": "/Users/davisfox/Documents/GitHub/the-omni-hack/gba/art/five-town-art-v1/pallet.png",
+    "prompt": "Edit this provided map with surgical local corrections only. Preserve image dimensions, composition, buildings, paths, water, colors and pixel-art rendering everywhere outside the specified areas. Do not redesign the town. Coordinates are percentages from top-left. Trees must each have one coherent crown and trunk, consistent scale and clean depth ordering, never a small second crown pasted over a larger tree. Return only corrected full map without annotations. At (33.3%,79.7%), remove the isolated undersized tree immediately left of the southern water channel, below the garden path. Replace its crown, trunk and shadow with continuous matching grass. Preserve the surrounding full-size border trees and exact shoreline.",
+    "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-af083520-8ce3-4d5a-9cbe-0c560910b9cc.png"
+  },
+  {
+    "name": "cherrygrove",
+    "path": "/Users/davisfox/Documents/GitHub/the-omni-hack/gba/art/five-town-art-v1/cherrygrove.png",
+    "prompt": "Edit this provided map with surgical local corrections only. Preserve image dimensions, composition, buildings, paths, water, colors and pixel-art rendering everywhere outside the specified areas. Do not redesign the town. Coordinates are percentages from top-left. Trees must each have one coherent crown and trunk, consistent scale and clean depth ordering, never a small second crown pasted over a larger tree. Return only corrected full map without annotations. Repair three overlapping/stacked crowns at (50.6%,61.2%) along the western forest/coast edge, (58.9%,67%) beside the southwest side of the lower central house, and (93%,57%) in the eastern forest between the two right-hand houses. Remove the anomalous superimposed crowns and make each local forest row read as clean individual full-size trees. Preserve shore and all houses. Also simplify the excessive decorative bushes flanking ALL five houses, especially (49.6%,32.5%) beside the upper-left harbor house: remove tall stacked hedge columns on both sides of houses, replace with simple matching grass and at most one small low shrub per house. Leave visibly generous open grass around building sides and clear door approaches, no new flowers or objects.",
+    "source": "/Users/davisfox/.codex/generated_images/01a09ae8-28bb-7430-8f7c-bd27565371ab/exec-cab2ba7d-da1b-43fb-8dc7-317f82a3104e.png"
+  }
+]

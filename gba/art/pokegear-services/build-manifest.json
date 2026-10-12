@@ -1,0 +1,43 @@
+{
+  "engine_revision": "f09ec1de2e6754e9f9a8e02281d3d773efcfa65e",
+  "source": "tools/vendor/gba/opening-house-work",
+  "baseline_patch": "gba/pokegear-modern.patch",
+  "baseline_patch_sha256": "1ab81861a3c2fff9fec6e0df09552de3147619e49e56e7f7c8e9afa9d74068fb",
+  "patch": "gba/pokegear-services.patch",
+  "patch_sha256": "3f94629b26ec399c344435ac15e81f678c91cfdbadda524caffa52a4fadd46de",
+  "patch_forward_reverse_check": true,
+  "changed_engine_files": [
+    "include/global.h",
+    "src/apoc_pokegear.c",
+    "src/field_control_avatar.c",
+    "include/apoc_pokegear_state.h",
+    "include/apoc_pokegear_services.h",
+    "src/apoc_pokegear_services.c",
+    "graphics/apoc_pokegear/atlas1.bin",
+    "graphics/apoc_pokegear/atlas1.pal",
+    "graphics/apoc_pokegear/atlas2.bin",
+    "graphics/apoc_pokegear/atlas2.pal",
+    "graphics/apoc_pokegear/atlas3.bin",
+    "graphics/apoc_pokegear/atlas3.pal",
+    "graphics/apoc_pokegear/atlas4.bin",
+    "graphics/apoc_pokegear/atlas4.pal",
+    "graphics/apoc_pokegear/atlas5.bin",
+    "graphics/apoc_pokegear/atlas5.pal"
+  ],
+  "rom_sha256": "1164bf4ca10fec1c98a54625d863277c18f0795b56d794f8fbb4f515bc10c93b",
+  "rom_bytes": 33554432,
+  "save_block3_previous_bytes": 4,
+  "save_block3_current_bytes": 940,
+  "save_block3_limit_bytes": 1624,
+  "gear_offset": 4,
+  "gear_state_bytes": 936,
+  "save_schema": "append-only version 1 with independent FNV-1a integrity checksum; legacy initializes; damaged known records prompt visibly",
+  "desktop_game_opened": false,
+  "full_hgss_campaign_content": false,
+  "tests": {
+    "opening_runtime_exit": 0,
+    "services_runtime_exit": 0
+  },
+  "fixtures": "future Gold Map Card grant, queued call/gift/registry APIs; ordinary old-save Continue, menu saves, cold Continue, real walking and app input",
+  "previous_save_sha256": "0f865b034931a55cca45a3886e2faf6e05fa7a01248ebc2a38ed8ea0a59b15af"
+}

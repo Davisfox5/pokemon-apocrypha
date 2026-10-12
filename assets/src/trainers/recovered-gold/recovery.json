@@ -1,0 +1,124 @@
+{
+  "recovered_on": "2026-09-13",
+  "source": "Aseprite recovery backups; original temporary PNGs unavailable",
+  "latest_grid": "assets/src/trainers/overworld/gold_adult_ow_grid.png",
+  "cell_size": [
+    32,
+    32
+  ],
+  "grid": [
+    6,
+    4
+  ],
+  "color_quantization_applied": false,
+  "documents": [
+    {
+      "session": "20260623-100851-3344",
+      "document": "16",
+      "original_path": "/private/tmp/adultgold_grid.png",
+      "recovered_file": "assets/src/trainers/recovered-gold/recovered/20260623-100851-3344-doc16.png",
+      "canvas": [
+        192,
+        128
+      ],
+      "cel_bounds": [
+        6,
+        6,
+        182,
+        121
+      ],
+      "palette_size": 16,
+      "transparent_index": 0,
+      "pixel_roundtrip": true,
+      "sha256": "fa2e7aa92db6c49ce849e5c844f92db4d26491b45fb3448bd98800c900b1d1d2",
+      "inputs": {
+        "aseprite-backups/20260623-100851-3344/16/doc-16.2": "277953276a4447312aefe0d8cfff85aa8e0fdd774e4ad75f4575d790006f6f4a",
+        "aseprite-backups/20260623-100851-3344/16/pal-17.1": "a9ef011619c497bf27fde8a5ec93fb69023f73eeddd8b52652deef6b855f4b15",
+        "aseprite-backups/20260623-100851-3344/16/spr-20.1": "bcaa5145f76024f76a1686d642a3b58e2c482154118139d292cd2a945207ea1c",
+        "aseprite-backups/20260623-100851-3344/16/celdata-14.3": "bb581705cf9f3c4c69b54e563ae65cbd2c3bb20dd265ba00e9c4919c32b78bbd",
+        "aseprite-backups/20260623-100851-3344/16/img-18.236": "9b4957e902c3f60339d135fe93a532a916153e29940099fbc6817c2edd805c27"
+      }
+    },
+    {
+      "session": "20260623-100851-3344",
+      "document": "8",
+      "original_path": "/private/tmp/adultgold_frame0.png",
+      "recovered_file": "assets/src/trainers/recovered-gold/recovered/20260623-100851-3344-doc8.png",
+      "canvas": [
+        32,
+        32
+      ],
+      "cel_bounds": [
+        7,
+        7,
+        17,
+        23
+      ],
+      "palette_size": 16,
+      "transparent_index": 0,
+      "pixel_roundtrip": true,
+      "sha256": "0733b14d3941d9c664adf0b85d4eb8ad8f9cca457d7570b933318420229bd373",
+      "inputs": {
+        "aseprite-backups/20260623-100851-3344/8/doc-8.3": "472413ca09e95b77df16e18456ada11bcad0aeded508b64111699b4399a81f3e",
+        "aseprite-backups/20260623-100851-3344/8/pal-11.1": "a9ef011619c497bf27fde8a5ec93fb69023f73eeddd8b52652deef6b855f4b15",
+        "aseprite-backups/20260623-100851-3344/8/spr-12.1": "394658ed4a8bedfb4d7ee88633786b9cf5a218432d16a96835a219e48c6b00f8",
+        "aseprite-backups/20260623-100851-3344/8/celdata-6.2": "38e4e7336b2ca69f4af3e536cc8a39b53ddb953ed3389f96cb48bc96b1812145",
+        "aseprite-backups/20260623-100851-3344/8/img-10.109": "9bacfe2051fcd910965b7dd7badf1047290bc1c27dff0e0fdc8f1e09672351cc"
+      }
+    },
+    {
+      "session": "20260624-111216-33012",
+      "document": "8",
+      "original_path": "/private/tmp/adultgold_grid.png",
+      "recovered_file": "assets/src/trainers/recovered-gold/recovered/20260624-111216-33012-doc8.png",
+      "canvas": [
+        192,
+        128
+      ],
+      "cel_bounds": [
+        6,
+        6,
+        183,
+        121
+      ],
+      "palette_size": 16,
+      "transparent_index": 0,
+      "pixel_roundtrip": true,
+      "sha256": "b8976ed6610d511092dd1c4772277dcb16bf2dc27acf52624d22c9d339d45962",
+      "inputs": {
+        "aseprite-backups/20260624-111216-33012/8/doc-8.2": "2fec40c726263da126989c2d40db31b0a89e6ee13fd842f80a12b255ddcb1faf",
+        "aseprite-backups/20260624-111216-33012/8/pal-11.1": "a9ef011619c497bf27fde8a5ec93fb69023f73eeddd8b52652deef6b855f4b15",
+        "aseprite-backups/20260624-111216-33012/8/spr-12.1": "e59ac6da30cc1cb3e6967a7b0ef14f9f4a5f595f7df0f669152730a57480a70e",
+        "aseprite-backups/20260624-111216-33012/8/celdata-6.3": "47d0a6b3fffe4f677acb8d43b4e7d066bd5c323f8af01d63d3f14bcea9699b2b",
+        "aseprite-backups/20260624-111216-33012/8/img-10.195": "082dbd302006bf2f42c8b605bd678a282dece4117178022427e2ef06948e34d4"
+      }
+    },
+    {
+      "session": "20260625-003641-36760",
+      "document": "8",
+      "original_path": "/private/tmp/adultgold_grid.png",
+      "recovered_file": "assets/src/trainers/recovered-gold/recovered/20260625-003641-36760-doc8.png",
+      "canvas": [
+        192,
+        128
+      ],
+      "cel_bounds": [
+        6,
+        6,
+        183,
+        121
+      ],
+      "palette_size": 16,
+      "transparent_index": 0,
+      "pixel_roundtrip": true,
+      "sha256": "c1091104cbb259b743abd0ec8db15894507bdc7dadb025521574b7b06418912c",
+      "inputs": {
+        "aseprite-backups/20260625-003641-36760/8/doc-8.2": "2fec40c726263da126989c2d40db31b0a89e6ee13fd842f80a12b255ddcb1faf",
+        "aseprite-backups/20260625-003641-36760/8/pal-11.1": "a9ef011619c497bf27fde8a5ec93fb69023f73eeddd8b52652deef6b855f4b15",
+        "aseprite-backups/20260625-003641-36760/8/spr-12.1": "e59ac6da30cc1cb3e6967a7b0ef14f9f4a5f595f7df0f669152730a57480a70e",
+        "aseprite-backups/20260625-003641-36760/8/celdata-6.2": "47d0a6b3fffe4f677acb8d43b4e7d066bd5c323f8af01d63d3f14bcea9699b2b",
+        "aseprite-backups/20260625-003641-36760/8/img-10.25": "ff98ff4a2f7c573035945bf69088efc7e0d4129293f9775773f01dc55597d618"
+      }
+    }
+  ]
+}

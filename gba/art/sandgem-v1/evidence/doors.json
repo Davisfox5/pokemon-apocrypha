@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Lab",
+    "metatile": 576,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "PokemonCenter",
+    "metatile": 582,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "Mart",
+    "metatile": 586,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "HouseWest",
+    "metatile": 620,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  },
+  {
+    "name": "HouseSouth",
+    "metatile": 623,
+    "frames": 3,
+    "tile_bytes": 1536,
+    "palette_bytes": 20
+  }
+]

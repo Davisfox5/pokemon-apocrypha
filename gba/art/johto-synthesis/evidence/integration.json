@@ -1,0 +1,317 @@
+{
+  "seams": [
+    {
+      "a": "town",
+      "b": "route29",
+      "offset": [
+        80,
+        0
+      ],
+      "crossings": 3,
+      "a_cells": 144,
+      "b_cells": 162
+    },
+    {
+      "a": "town",
+      "b": "route30",
+      "offset": [
+        35,
+        -86
+      ],
+      "crossings": 3,
+      "a_cells": 168,
+      "b_cells": 181
+    },
+    {
+      "a": "route29",
+      "b": "new_bark",
+      "offset": [
+        98,
+        6
+      ],
+      "crossings": 5,
+      "a_cells": 180,
+      "b_cells": 182
+    },
+    {
+      "a": "route30",
+      "b": "route31",
+      "offset": [
+        -28,
+        -30
+      ],
+      "crossings": 3,
+      "a_cells": 224,
+      "b_cells": 194
+    }
+  ],
+  "tiles": {
+    "route29": 78,
+    "route30": 172,
+    "new_bark": 365,
+    "route31": 399,
+    "violet_entrance": 31,
+    "town": 496
+  },
+  "metatiles": {
+    "route29": 137,
+    "route30": 278,
+    "new_bark": 332,
+    "route31": 253,
+    "violet_entrance": 81,
+    "town": 70
+  },
+  "town_pixels_unchanged": true,
+  "door_tiles_reserved": [
+    1008,
+    1023
+  ],
+  "forests": [
+    {
+      "width": 98,
+      "height": 34,
+      "instances": 223,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 35,
+      "height": 75,
+      "instances": 163,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 36,
+      "height": 50,
+      "instances": 97,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 63,
+      "height": 30,
+      "instances": 131,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    },
+    {
+      "width": 28,
+      "height": 24,
+      "instances": 40,
+      "overlap_pixels": 0,
+      "non_forest_pixels": 0,
+      "clipped_instances": 0
+    }
+  ],
+  "buildings": {
+    "route29": [
+      {
+        "name": "closed-route46-gate",
+        "x": 50,
+        "y": 5,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          51,
+          6,
+          4,
+          4
+        ],
+        "door": null
+      }
+    ],
+    "route30": [
+      {
+        "name": "mr-pokemon",
+        "x": 24,
+        "y": 3,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          25,
+          4,
+          4,
+          4
+        ],
+        "door": null
+      },
+      {
+        "name": "berry-house",
+        "x": 10,
+        "y": 48,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          10,
+          49,
+          4,
+          4
+        ],
+        "door": null
+      }
+    ],
+    "new_bark": [
+      {
+        "name": "institute",
+        "x": 11,
+        "y": 0,
+        "width": 11,
+        "height": 7,
+        "wall": [
+          11,
+          2,
+          11,
+          5
+        ],
+        "door": [
+          16,
+          6
+        ]
+      },
+      {
+        "name": "annex",
+        "x": 26,
+        "y": 4,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          27,
+          5,
+          4,
+          4
+        ],
+        "door": [
+          28,
+          8
+        ]
+      },
+      {
+        "name": "west_house",
+        "x": 11,
+        "y": 13,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          11,
+          14,
+          4,
+          4
+        ],
+        "door": [
+          12,
+          17
+        ]
+      },
+      {
+        "name": "east_house",
+        "x": 22,
+        "y": 15,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          22,
+          16,
+          4,
+          4
+        ],
+        "door": [
+          23,
+          19
+        ]
+      },
+      {
+        "name": "staff_a",
+        "x": 9,
+        "y": 26,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          9,
+          27,
+          4,
+          4
+        ],
+        "door": [
+          10,
+          30
+        ]
+      },
+      {
+        "name": "staff_b",
+        "x": 23,
+        "y": 26,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          24,
+          27,
+          4,
+          4
+        ],
+        "door": [
+          25,
+          30
+        ]
+      },
+      {
+        "name": "staff_a",
+        "x": 9,
+        "y": 35,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          9,
+          36,
+          4,
+          4
+        ],
+        "door": [
+          10,
+          39
+        ]
+      },
+      {
+        "name": "staff_b",
+        "x": 23,
+        "y": 35,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          24,
+          36,
+          4,
+          4
+        ],
+        "door": [
+          25,
+          39
+        ]
+      }
+    ],
+    "route31": [
+      {
+        "name": "violet-gate",
+        "x": 2,
+        "y": 11,
+        "width": 5,
+        "height": 5,
+        "wall": [
+          3,
+          12,
+          4,
+          4
+        ],
+        "door": [
+          4,
+          15
+        ]
+      }
+    ],
+    "violet_entrance": []
+  }
+}

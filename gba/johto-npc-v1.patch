@@ -1,0 +1,640 @@
+diff --git a/data/maps/CherrygroveCity/map.json b/data/maps/CherrygroveCity/map.json
+index f1e073fe..bf2a1a3a 100644
+--- a/data/maps/CherrygroveCity/map.json
++++ b/data/maps/CherrygroveCity/map.json
+@@ -29,7 +29,7 @@
+   "object_events": [
+     {
+       "local_id": "LOCALID_WATERFRONT",
+-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
++      "graphics_id": "OBJ_EVENT_GFX_JOHTO_WOMAN",
+       "x": 33,
+       "y": 32,
+       "elevation": 3,
+@@ -43,17 +43,45 @@
+     },
+     {
+       "local_id": "LOCALID_COMMUTER",
+-      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+-      "x": 52,
+-      "y": 21,
++      "graphics_id": "OBJ_EVENT_GFX_JOHTO_MAN",
++      "x": 49,
++      "y": 15,
+       "elevation": 3,
+-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+-      "movement_range_x": 0,
+-      "movement_range_y": 0,
++      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
++      "movement_range_x": 1,
++      "movement_range_y": 1,
+       "trainer_type": "TRAINER_TYPE_NONE",
+       "trainer_sight_or_berry_tree_id": "0",
+       "script": "CherrygroveCity_Commuter",
+       "flag": "0"
++    },
++    {
++      "local_id": "LOCALID_JOHTO_BOY",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_JohtoBoy",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_JOHTO_BOY",
++      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
++      "movement_range_x": 2,
++      "movement_range_y": 0,
++      "x": 48,
++      "y": 11
++    },
++    {
++      "local_id": "LOCALID_JOHTO_GIRL",
++      "elevation": 3,
++      "trainer_type": "TRAINER_TYPE_NONE",
++      "trainer_sight_or_berry_tree_id": "0",
++      "script": "CherrygroveCity_JohtoGirl",
++      "flag": "0",
++      "graphics_id": "OBJ_EVENT_GFX_JOHTO_GIRL",
++      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
++      "movement_range_x": 0,
++      "movement_range_y": 1,
++      "x": 52,
++      "y": 12
+     }
+   ],
+   "warp_events": [
+diff --git a/data/maps/CherrygroveCity/scripts.inc b/data/maps/CherrygroveCity/scripts.inc
+index fda633b7..b4376e03 100644
+--- a/data/maps/CherrygroveCity/scripts.inc
++++ b/data/maps/CherrygroveCity/scripts.inc
+@@ -49,3 +49,23 @@ CherrygroveCity_WaterfrontSign::
+ 
+ CherrygroveCity_WaterfrontSign_Text:
+     .string "CHERRYGROVE WATERFRONT$"
++
++CherrygroveCity_JohtoBoy::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_JohtoBoy_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_JohtoBoy_Text::
++    .string "The sea breeze feels nice today.$"
++
++CherrygroveCity_JohtoGirl::
++    lock
++    faceplayer
++    msgbox CherrygroveCity_JohtoGirl_Text, MSGBOX_DEFAULT
++    release
++    end
++
++CherrygroveCity_JohtoGirl_Text::
++    .string "I like taking the long way home.$"
+diff --git a/data/maps/CherrygroveMart/map.json b/data/maps/CherrygroveMart/map.json
+index 9072566e..67d6886e 100644
+--- a/data/maps/CherrygroveMart/map.json
++++ b/data/maps/CherrygroveMart/map.json
+@@ -18,11 +18,11 @@
+   "object_events": [
+     {
+       "local_id": "LOCALID_CLERK",
+-      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
++      "graphics_id": "OBJ_EVENT_GFX_JOHTO_CLERK",
+       "x": 1,
+       "y": 3,
+       "elevation": 3,
+-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
++      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+       "movement_range_x": 0,
+       "movement_range_y": 0,
+       "trainer_type": "TRAINER_TYPE_NONE",
+diff --git a/graphics/object_events/palettes/johto_boy.pal b/graphics/object_events/palettes/johto_boy.pal
+new file mode 100644
+index 00000000..49d1efa9
+--- /dev/null
++++ b/graphics/object_events/palettes/johto_boy.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++49 49 57
++57 41 41
++66 82 140
++82 66 66
++90 49 41
++90 123 198
++123 66 66
++173 165 206
++189 123 16
++222 165 123
++239 239 255
++255 173 33
++255 214 189
++0 0 0
+diff --git a/graphics/object_events/palettes/johto_clerk.pal b/graphics/object_events/palettes/johto_clerk.pal
+new file mode 100644
+index 00000000..79c133f8
+--- /dev/null
++++ b/graphics/object_events/palettes/johto_clerk.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++66 66 74
++82 66 74
++82 90 82
++99 140 123
++99 189 181
++123 66 66
++123 90 82
++173 165 206
++189 148 90
++198 82 90
++222 156 115
++239 239 255
++247 123 90
++255 214 189
+diff --git a/graphics/object_events/palettes/johto_girl.pal b/graphics/object_events/palettes/johto_girl.pal
+new file mode 100644
+index 00000000..cc659eff
+--- /dev/null
++++ b/graphics/object_events/palettes/johto_girl.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++57 57 57
++74 74 74
++99 49 41
++115 115 115
++123 66 66
++132 82 57
++173 173 222
++189 115 82
++222 156 115
++239 239 255
++255 99 49
++255 214 189
++0 0 0
++0 0 0
+diff --git a/graphics/object_events/palettes/johto_man.pal b/graphics/object_events/palettes/johto_man.pal
+new file mode 100644
+index 00000000..eca5b1db
+--- /dev/null
++++ b/graphics/object_events/palettes/johto_man.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++57 57 82
++66 49 33
++82 82 115
++90 123 239
++99 74 66
++107 74 57
++123 66 66
++132 165 247
++165 99 74
++165 123 82
++189 189 189
++222 156 115
++239 239 255
++255 214 189
+diff --git a/graphics/object_events/palettes/johto_woman.pal b/graphics/object_events/palettes/johto_woman.pal
+new file mode 100644
+index 00000000..e8cf35ec
+--- /dev/null
++++ b/graphics/object_events/palettes/johto_woman.pal
+@@ -0,0 +1,19 @@
++JASC-PAL
++0100
++16
++0 0 0
++0 0 0
++49 82 148
++57 49 41
++74 115 156
++90 156 181
++99 82 49
++123 66 66
++123 74 82
++132 99 66
++181 181 189
++198 115 132
++222 156 115
++231 148 173
++239 239 255
++255 214 189
+diff --git a/graphics/object_events/pics/people/johto/boy.png b/graphics/object_events/pics/people/johto/boy.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c65439e2ee61a3179fede94403d3a02e1d05e5c4
+GIT binary patch
+literal 1851
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAU}$J*sj2A{
+z)Dz_76lJIxReh}5$!YD<b9<`=?k%l;|Nj5~wTl0*?S&{FB}YSG*o1)l%JUb2o?$Er
+z@(X5gcy=QVm@!^@x;TbZ%y~PjyX>(UkBgyzuT#sB|NrmE1@y1cZt%NpJKN;ioSaF#
+z$2RE{uKS@>WnXxG!JHsXO;<6$r6SLQygtb|)PMcQf4ypE@J8nwj55q#Gv6-VtsE=!
+zqW-SV-{~g`PF3>DNpqBm`fWUMbb-8B+KaEYBK^n9R{s20z{BFx?<~BoRLSRZ+RSAq
+zR|l8pe0r@?xjy|P{{@k&EV=WXqb{ee-MX&Z?0Dlc-Syp>XMJyfwc5h=<m!~f|Ap(A
+zgFMgVoISXgk7epTnIk)UVm&y|<k+7O-_}(BC))p4Y>S7U;t7sIr31O&U#{8B_T`3b
+z!-q$+<DOdAX3RU@R_XU<E{k9L+!J3XcP%h~8{6k7zxl<xk9Ny7#IAateQXw!yVf-H
+zs>T1c*H!brD=jj8?x?2~klnY)eaiJ~0k01<<Z-;_33ct=JbQtbrfR!f?6hi$*q~0C
+z7x%q8d3G}~-2LVLNLr!7ydhxCE~e6i6W;7DZ%$;JAGvsDu7aXN#{stqf!iidI>uql
+zdi}$-`$x<Fd|dnJyiIN9A6AKD^;;{B^Q}3p?QF($M7=YnOHzqx$)c4ayHx}KFN~;6
+zSRl)1uCz~1KGVd}(S6CHD;H*3*0VK#aOtma@2`}T{&BL<@Wan{duwbN<{N8V%Ub_g
+zd`qxM!>K<3`EU4xpC4zs?qK#mq2h%^Aur2`XCL?zPVHP(vAjYfJYlVfR`}t=Mh~1#
+z4_g^5xz{M+z~vcY+b7?Y#nZlS_x}%?A7$(J1pfJ`^zTAUE}POS;Vn^n++VJ<{lECf
+z^?CnSTwS;{<!ApdevOmMEFZsP?CWfwz_8=y2hWdZ*=zXie9qioRLyW=Lp4M75B^>3
+zJIm#-ReWK1E&b#I!)x0GQwoGc%Y?l=qb?n2xcEh-tY(j`>W{d6I`#!WgJPHytvlVr
+z<PA5ikH7W!_UygR*}HE2dOB%y{)KJ&@$2$-T$q(}div`5^$}nCpL+i{X4rf1=;`TK
+zd@t>JdNE!_|5Z!)Y3VPYe;zcKKgIvBdC!e|3acugJB#?*et1x3uwd5bq}|eCUpKQR
+z-2Hi>=}Xdb=e|ds$<@sZlQ!&aw5-~*c&l3A$0H)WEz-RAn-#wJ2$VAf+Hn}g=S%l}
+zbag*cvv*^Knn#Mo*HZ_k?>Zsuux>t+)_#T~l^-0B>clR(H(BsfyWFjC%OkwY&7vhT
+zA{OO%S&MwtcZuGt|DAWm`~FRWT?cO7cKN^fZ{V%(?l1S+zgqgE&;FjlKaReJHLGs_
+zW8yj{e)UnlS$WMu_dj=!+n@XB+BVy+CaK18$8qs`pPJ8%`G?r|ypUU<FI8se@|gQ<
+z^!Eeu@dx7ee^zARdGSK-&-0J1{4>_e#Q$NfDEH&*d94L10T?`8{an^LB{Ts53j82o
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/johto/clerk.png b/graphics/object_events/pics/people/johto/clerk.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..730b582bf0f954547b7c808b4be1014037094a9b
+GIT binary patch
+literal 1910
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IA;N;{L1Vm9m
+z$vxG{d$(3QIaNmmtzCL<@06%xK~eYS6u*D}|9f@R|7&|8>PN}Z5EvdIP_&1!ALtXt
+zk|4ie28U-i(ij+6R6JcALn`LHo%OKjjsj21)&vK}qkI0}E@MfLx0<+P%jJKb7g8p9
+zZfVy)_FL9T;O_wrsnsQ^>)v=Vg+DuRCP(`~XuNGo0o#gXmcMy?2b>pH7IVC~zx;?G
+zOP$*RtMhG4`=9n^E7-hi+;?ZETSeS~6T-)AdU6a{O+<~)SbOeJDfqN9(armrXkSQ_
+zkLJ;^OCKWxe@*-#pdh=qMyNw%%A{gF)?cTeD{@)Pd#aP3GUa^brQNd8JsVwrS1#ng
+z{E#!twI{It22<4?h39sE*Kn+7IPiJl*2@*=+EyNLFP_OSYrjbEP3+YNhaa_Vjkv#P
+znXFTTYulkx`4o+|YTxpO_u00;4X=8i%#qHZWxMC=!-C`cmp<P6+WPAs-PrYptlx^G
+z-S+MHr>?cM<JWyp;Xt3~lHuDt+|TLiv03!bd7RV{QRTm`+>=$w>h-$H?AiWv^;ej_
+zaMAhGuNlqEAT1Ezv4OFPcfxw+Cm{|$e%=V#@W@%3C6dc!gNVtRPbN1uv@x5>q~-j+
+zyzRgIt^Gg$^*cATE-+<1aOtiuqd<5Q+lKTHQH|HQb~9<n7`)<nE;QqNhVrBTmzw95
+zY{)mYyKs2js-GJ-Kls3!obR~z{iVkIs+NSeye*yTXS-)KeQ0nN5G;PL5c45nn_Nwd
+zGmGiYz|dqqL8lk_2Zb)&u@ZRrk1yE4S<%Sw(L4Jo3k}#W1XOrz<o++&@qDJ(Y343V
+z`Seep6GU}5nEm!nU&^4Q&Dc0qK-=-|>-P07H@@-T{#T#!f7<7bo9bm6B6iNc`hOjR
+z)p@0CM&`5evMn2bK44-n-pasWCY_dJm+<*v@}5V|Ir`Js1)VoMaDKm3*Y3{a2$>&D
+zS2kKiaP7!o3|g(eLcw?ci}-}#rn28c_t)3XoO3Q=*X`-;7o$~VUf$ei!unF^fkof>
+zpO>n4-J0$;Ys<mT-L)_O2v=O(w<Oz1?6wL+#Z~8v7x>iIGOfQQ{e}65pqc!k?GKza
+zGb{HjJW(j0?=f$I&71tWc?wp2kFD-aIHTCn_qw8an!q%M>mS)-RV|v#emtnHQr;E(
+zm*dEZ)934s?9f`6vH0PArk2<LSv~f0HH3?D?PlQQZ?9tD>=$ceo}ggt^SgOw>(1|X
+zby5tD4<aQ?1kL_%ua&*$^xk$)X7iycVWsyk_CAh166Y|bvh`l>V?jsJU!gM3pDtTI
+zZOMXE;Xu{x#UCE#+>}^cBDiHnaUZYJxt}YF+p6tWZJn5Z)>>Y4>y8V*4&9D>utKP{
+zMR~>Vnk(VTIltTUlm3_8wx7vwcIooJlREOBF8^Dm@bvb-XKHL!``_m8bM3Hso3H)h
+z)IXQx-v_tvXFI0V9CmQEYR9oSmkZCBYsKvtUOsa+j-NO0H1ldJ4XqtN6Q&zHedb)Y
+zO{4JRLCc39V&o#K5AN6JmuWil^x&b{$@xjCv2!oF{>s1jfxE~l(%gF0$Jd}@(9_k=
+JWt~$(697usG+Y1x
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/johto/girl.png b/graphics/object_events/pics/people/johto/girl.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..e3ffdeddac2c5185a588b4fc1d6de825687acd5d
+GIT binary patch
+literal 1918
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAU}<UT<>i%Z
+zs99WGT<zr45@fk{?Y+IlLHFhqzkmP#f3o5KYkMIoN6FC;7)~MZK>l<Y&_9eNL4Lsu
+z4$p3+F)*;`c)B=-RLprh>t)en3!avnEG{P&eEhe5H|r~}qYQIb-935Er$zo;quI*U
+z_7hpWe>NVJ+x*4(iQ-C@PXdX8f+;`S4K|-vV%^NWhxI>CRpW_(3cIYP?eE%MT<o?p
+zylF3IdAzmuo~jHdmqZ;?ds941Do0z&pBm9Az6CBdiuX7^sKwi9JgUiTXVN|Qecuii
+z@Ang#ZiTOs+fr8hcF9bw6+(fkD{gs9pIsBm!?^1I$6GGaH?8cVD`o`v3tfG{;npB2
+z_p(&uz;Std>xx(ZH`)H&`M>hVwOYaFsW+@uS@d2X<N9#t|BZc>W=#PH#F?EKUr(q^
+zPn2J?Z98*|duH07nmk#T{#fJNvnTx6nR6_5Z)v+{$<kR1rFW|s?wB>RGmEbwZP_Ya
+zc9+bxn(gWZEZ6p3QrU0gY3(a=<&1+c>p{&)TnBC$eA@Z<=G**fdnTVs{QqWY=`r38
+zeU|$S6NME%i76-*HyGSwbTMG<P+`kcclhw1spXf|$?NJ9zs=HK)i0BEmNBTj>C7yK
+zj7zSCr_T5-vXIWRsJQcOdi9?VbH6RmWtn(;|FviT=6`79STOCZe8e#Z*I=dt@0pI-
+zB=fP~>G-krheoo~JF)Z6j%?cf{o{!risFn)>8H;19b7m?zKB8P+3}8+B#HmB@~1Qt
+zDmZ*BA8{v7c>XiRm|L;qtw4g**<Gh2o_uJZwY69&LEb_m+Fe5<xzI6GMmfsJHQ1N$
+zp$%W|$0POJYv!ggIKK7zvL<t0*4NaI&W2+@6h%csm_D(cvaR`1^dYzYW83m??DuZQ
+zr{vWiv;J-TqxbL6?;GsbUjE43vFlRt%qN^_y~~(FpD^`&Z00X{v}Z={>HeS2oqLyV
+z=`K3nF`IwK&kuVKGh4`h+HOCGZ|$=6^%<XUy53`oD0R@7`DvQr`VXyhN-BkZzj<_w
+z<^Rp6-VMv2p8mA1Cen?0^QY9G*{7yI4Lb6(YO20-_Li;jPfv3g{Rr6CqrtMdY>NKj
+zS1MP!Cs+S8vSa75@HsU-RXB9^d4&n_%k{ZV@jqa{Uo&C;A@;h@wK2D)mGaGYZ!`b0
+z_2}vO7C!};mR(J*ZeAbg<{sGpmNzt+A>sbL2Rt3;o7XNoDQGVBZ}$UxX@#XVOdbvb
+zb`K221Zz{R1wSNf2iAxs{QeflR$064heqE9YmJJMo6C<FeB0B>_MFpU_j%bRubmgK
+zKFdG9>c)zqmh$GmbM2faip-w%i*d%bCuv{#<}Wb$uX-vwJ~Mai+R1+dxoxMb>jLR5
+zI^0WtFD`iB|LfR;{b&9ii2gl&=U>ZPNt*I+<ab5e-I!k={QGm}|0iXiQvYw@kJ$f4
+ze$T(evRn73OT@Fj`Ym?npNnpZyx#BU&z2_szsbP3&-T^4xIe!i%;qopoXGOo)TZO*
+zg6AI=w4dIv3g~tHD~m3kYo8!r{WIyg^S592&%_I>4qvIs{doPrL;1~hey2~#%bfrf
+Nik_~1F6*2UngCG$L^S{a
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/johto/man.png b/graphics/object_events/pics/people/johto/man.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..1973703fa50df206f1f6f7dcbf08cf1390bf96ab
+GIT binary patch
+literal 1835
+zcmeAS@N?(olHy`uVBq!ia0vp^3JeU44IIos*6;HZ<}ffYGX(gAxB|IAU}+iTWT+Sv
+zR2)_PKH1AD+sm@r$*E=O_oc~RORIzS?%jKDPVxKq|Nmdx3sFBxj)uVS2!T~kL>~fu
+z!dMdI7tG-B>_!?eW8Cy~aSW-L^LAFRpSC4WYw;s1d*jI;fA4>L%9HE+s<Ks6%LJPu
+zSUGE6m9@?5zv0QT-@qezs$J2!cI|~VPkbz&=V(vpR~9anoWtb4e!=~-Ogptr@~1WY
+ztMl+-Ja&7w<9e=N#`8bFUb^V7YQ~T2`hp9}E2pV%%42z9d`4RIgPJ^tGt-TF?xbTJ
+zY2J=oi&A<|Y~82jwOf0KQE}>(-BZIIwO1%Fu-`LH!(-+1U?<IIsq@k=S@=IUYAl)e
+zt3ka(aAUn?lfnF#qCY|%z5lm=-1t@X$B!HPPs(p&n*Z~#3QODferMgh-}BvWDY6vp
+zZ}a3hY;!{8@_{A)O#a+`;+*)a-=!%02CI|CB>k89M+^%D?@Wp==Dp|Qa!cUG{M(m4
+zyD}y`bJkdD@^$}YKE(%0k6h>Ft(qFfs#O>})j=@POWQG<i}Cs%!!njR+>Sk(bH9A}
+z+b{5;Vn>tUY3r@Y$JjW`9PF6HfB!FUW@=fyb;l2mD^iuM5?7SW*E39-qQLFwaL7pB
+z%4yoO<86mKa_e(`*Dw9M^IFmAQ~y>nE9`0t7U%c4_q&H*<*nlb&IQ`+Us^l93%!`x
+z+woso{>zsA*M*-auXK2R%&Ae`s_*EJhY~_YA03(ff7KYJF<&@&K$!0l$BUWMpZSOv
+zEpJZ|d>ofJMd4IY>c(4nC3#z>J#EwEh`o60K!+-aRh>p`qS%FiiY-az|C9xk<F#*3
+zV0!e;-gv>Pj>wOV`I_F0QQFmiKZrWs{<r1rf60VJOaCtX+&=a1Os&h8?jBJ(D(ax#
+zZ*`)CHGRJAu7Agx&rK0yI3Qu8!_aWHO>#E>mY*NCo@U<Zz4jl2@wcOnQ9bIyZtV}b
+z7TlKR<X`UGIEi`nN0qeljhc?tzbDn*`=&axp7+<CeJRQLhA;j-y|b@`CFU`Z%WdS^
+z^8BBw51Z&*?V`0)ZT~YHuHCNByz8%c1IMd3`wqV3a*{9Jb8~OUYd)1fZ68^3?Jo2`
+zV7~aP!a4I#<(`A0M;JM(nIgH)Kjz&yOVz1DF27-$z_ZXLC)s0F*Yue$d9j1Pi!C;O
+z#~+Wq|0DX;FS#AA7x`k%;FQnc^me5Yqmzo#=5_-{rzuZ0H!@z*3w?5$*(2NBg{8c@
+zwoz{Bcez`27Jr#T7V<CO&c1n`ZHDTmoqyWr_3!f1oIbC=snSlXXz$N!V#$SeUH9kq
+zKdQBRHJc^(_vQ1O?PoI0`gZ-_p;eAsKW(v(PpdDyZt+&$x4iqso5UOUa~z`H>)&{<
+z?{)L<(Q>X^H4Ek+WUtz6qj4+V$L_}8qeqJ?6TXWt-D)wNed8?QQ$h1iH}80(KZXDO
+hZ|?M-U$wux>lrj2hA6L)G3N)BU7oIfF6*2UngAEV3z`4`
+
+literal 0
+HcmV?d00001
+
+diff --git a/graphics/object_events/pics/people/johto/woman.png b/graphics/object_events/pics/people/johto/woman.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..235748bd7344882b8a3037b60981cfbc8db92ca4
+GIT binary patch
+literal 1990
+zcmeHH=~I#k9DV^WNEb9HT`#mutu{nmq0t1)Qpr%k5p!F$+_lsV4;*uXR(#bov$D<9
+z@Li7%F;i1Y+q}pvwHfbDOGUCaN+l2SVC7hM_P^Na_u)Bao-fby;deHe;b(&S76kx+
+zNr1mEbDi-3023G?*45fjAp`&jAUH5|-@08tBC}{W(V5PLBB16NCXwgk!=p2^V|<#M
+zJ9@a;Qiv-rs-K(F>0WmHm;Z`i7x;fHP<Cj~zeQlFOa=>}ei)4f0KL=zUs`B7q!5NA
+zzTa+~v)kMS%hKv39j*bf`)db6+X!sWrZ7cTP{1}%`GywcTSS(7+NUsjTthZ}M-JV&
+zJ1jV^9%Jpw5~S4)qXJ?1yQ);o=%{Ou*_xTtolJ`9@PYC`*dApuo?6j$$wNugXP1Hk
+zk_rP95COtaL4;p@bc?QYrIt-oOsFw2UV1U=(0MBa-^is$os28r=p2TL4=knVXIePR
+z^GdlXoQ=ev&toU#!Kg|K#5bBTeK7RtI@qE`_nw@*B3tObk4s;@)<HbRf|J2&1NJ!{
+zJR(m2Y*ppWVVu`mvBSKgFDT~(rCc~ZdimJjr?xyK;mlr5y2@|ZABavT>^zA?Zafmo
+zGl|`_ExPG(=<~<~kqi}or^D|i!m6t#hFXu5qrBu)Ms4Gwo!BU4@PcQ^R+#f&=6h(g
+z0#mL>BGO7Cbo^s#+hYRA5y%Xl;F?z=W(@Fqk>W^6d9)MF1F$%U_ol`(!L2xQW}V*a
+ztCmuZ(p2j)a~I^Sz2nYCNk=KQnu`;e&UtgQwk4X24zoK7%F_o2w01Z9?K?YYt!>mV
+z#!}%8=x8cZ@KWflXKPB9C2g5XT%hH~jm!Pp#9ojFDG{T?$45zqZ&H4}s~=v!;YuOF
+zsTF+X(DlMAX_FCqPWD7u{e3XK>cM8d0}E5^Q!`AO#r2r^SM3&sXG9t1h5OgFdRtL}
+zyqtkn8$)9J3+rrdF1ZYQnvANEe*=btm8xu_qbFDi>X|Yc@HOzr)8Z+qx7zh%3uR&%
+zjb6LFZ0oV?_saT=NRVb&q9ZL2_31h_+`;J#Q5(jm;E<-`aWeT0bQ|{84q#7q?E^R-
+zP_hzM(UU8Fhe+jNCOPP9^@3fEEruiVM-T+z+zWllqW8#P`yxASQFW0yi}6&rgZgm0
+zYr8{|x}8YN@a)_vpC7S|D(3P(Ir$@-!j6Al71!|^+t6=)pA#kRy(KYjoyJR6QSlig
+z{VTnz;>9vmbvQO3kt;ZIG++Ln%SUo8A0?zFUmy(demcV-a~WdGAUH<XT%9?Pkl39D
+zv`!&bX)6l`e3b2U7CKfq^GsU|ie`r>^U$J~G`d4~)xyyhi~Er4?`V6k$3;Iy2K(%6
+z@>{o|+XMKQ230V}T}=VN%>wdr;%4gMwfh_Jotm*j-KFqTtz%}xaf)ZM!Gnc^Hsh|f
+zb<@;bwDjOpwvby*VB;rCxl=#12iYl&nj~6me*Y~Uy)oplXSlEVk8(5xTv}xvi>-G#
+z)9h)!cZ7)DGPvLvMq|Txy%k3l*Jo5t%P=#I$$p?hem$L)Df6~nx?MS@{WA1g@<wN|
+zbR<K<|5&0qUqX_MPV(E7(89e8V}`2GW|=g1N%gx1A$?6bo?)+;zF5io&N}%sd}ZNQ
+zlG0A?#;;jZz!E}|PN3`B+kZj#FVge~V~9Sjl?^|sFZUceQZ+BjVtXI%6`l6-r=Oz!
+i*_V)*GRafBxvLG~BnF<eQr7bCHwxIt@NMvk2LAyY7*x>!
+
+literal 0
+HcmV?d00001
+
+diff --git a/include/constants/event_objects.h b/include/constants/event_objects.h
+index af305e85..56fff048 100644
+--- a/include/constants/event_objects.h
++++ b/include/constants/event_objects.h
+@@ -620,3 +620,18 @@ enum
+ #define COMP_OW_TILE_TAG_BASE 0xCE00
+ 
+ #endif  // GUARD_CONSTANTS_EVENT_OBJECTS_H
++
++// BEGIN JOHTO NPC IMPORT
++#define OBJ_EVENT_GFX_JOHTO_BOY 1024
++#define OBJ_EVENT_PAL_TAG_JOHTO_BOY 0x1180
++#define OBJ_EVENT_GFX_JOHTO_GIRL 1025
++#define OBJ_EVENT_PAL_TAG_JOHTO_GIRL 0x1181
++#define OBJ_EVENT_GFX_JOHTO_MAN 1026
++#define OBJ_EVENT_PAL_TAG_JOHTO_MAN 0x1182
++#define OBJ_EVENT_GFX_JOHTO_WOMAN 1027
++#define OBJ_EVENT_PAL_TAG_JOHTO_WOMAN 0x1183
++#define OBJ_EVENT_GFX_JOHTO_CLERK 1028
++#define OBJ_EVENT_PAL_TAG_JOHTO_CLERK 0x1184
++#define OBJ_EVENT_GFX_JOHTO_FIRST 1024
++#define OBJ_EVENT_GFX_JOHTO_END 1029
++// END JOHTO NPC IMPORT
+diff --git a/src/data/object_events/object_event_anims.h b/src/data/object_events/object_event_anims.h
+index dc92f7bf..eb8727ad 100755
+--- a/src/data/object_events/object_event_anims.h
++++ b/src/data/object_events/object_event_anims.h
+@@ -1651,3 +1651,48 @@ static const union AnimCmd *const sAnimTable_RedGreenVSSeeker[] = {
+ static const union AnimCmd *const sAnimTable_RedGreenVSSeekerBike[] = {
+     sAnim_VSSeekerBike,
+ };
++
++// BEGIN JOHTO NPC IMPORT
++static const union AnimCmd sJohto_FACE_SOUTH[] = { ANIMCMD_FRAME(9, 16), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_SOUTH[] = { ANIMCMD_FRAME(10, 8), ANIMCMD_FRAME(9, 8), ANIMCMD_FRAME(11, 8), ANIMCMD_FRAME(9, 8), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FAST_SOUTH[] = { ANIMCMD_FRAME(10, 4), ANIMCMD_FRAME(9, 4), ANIMCMD_FRAME(11, 4), ANIMCMD_FRAME(9, 4), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTER_SOUTH[] = { ANIMCMD_FRAME(10, 2), ANIMCMD_FRAME(9, 2), ANIMCMD_FRAME(11, 2), ANIMCMD_FRAME(9, 2), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTEST_SOUTH[] = { ANIMCMD_FRAME(10, 1), ANIMCMD_FRAME(9, 1), ANIMCMD_FRAME(11, 1), ANIMCMD_FRAME(9, 1), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_FACE_NORTH[] = { ANIMCMD_FRAME(0, 16), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_NORTH[] = { ANIMCMD_FRAME(7, 8), ANIMCMD_FRAME(0, 8), ANIMCMD_FRAME(8, 8), ANIMCMD_FRAME(0, 8), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FAST_NORTH[] = { ANIMCMD_FRAME(7, 4), ANIMCMD_FRAME(0, 4), ANIMCMD_FRAME(8, 4), ANIMCMD_FRAME(0, 4), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTER_NORTH[] = { ANIMCMD_FRAME(7, 2), ANIMCMD_FRAME(0, 2), ANIMCMD_FRAME(8, 2), ANIMCMD_FRAME(0, 2), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTEST_NORTH[] = { ANIMCMD_FRAME(7, 1), ANIMCMD_FRAME(0, 1), ANIMCMD_FRAME(8, 1), ANIMCMD_FRAME(0, 1), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_FACE_WEST[] = { ANIMCMD_FRAME(1, 16), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_WEST[] = { ANIMCMD_FRAME(2, 8), ANIMCMD_FRAME(1, 8), ANIMCMD_FRAME(3, 8), ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FAST_WEST[] = { ANIMCMD_FRAME(2, 4), ANIMCMD_FRAME(1, 4), ANIMCMD_FRAME(3, 4), ANIMCMD_FRAME(1, 4), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTER_WEST[] = { ANIMCMD_FRAME(2, 2), ANIMCMD_FRAME(1, 2), ANIMCMD_FRAME(3, 2), ANIMCMD_FRAME(1, 2), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTEST_WEST[] = { ANIMCMD_FRAME(2, 1), ANIMCMD_FRAME(1, 1), ANIMCMD_FRAME(3, 1), ANIMCMD_FRAME(1, 1), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_FACE_EAST[] = { ANIMCMD_FRAME(4, 16), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_EAST[] = { ANIMCMD_FRAME(5, 8), ANIMCMD_FRAME(4, 8), ANIMCMD_FRAME(6, 8), ANIMCMD_FRAME(4, 8), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FAST_EAST[] = { ANIMCMD_FRAME(5, 4), ANIMCMD_FRAME(4, 4), ANIMCMD_FRAME(6, 4), ANIMCMD_FRAME(4, 4), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTER_EAST[] = { ANIMCMD_FRAME(5, 2), ANIMCMD_FRAME(4, 2), ANIMCMD_FRAME(6, 2), ANIMCMD_FRAME(4, 2), ANIMCMD_JUMP(0) };
++static const union AnimCmd sJohto_GO_FASTEST_EAST[] = { ANIMCMD_FRAME(5, 1), ANIMCMD_FRAME(4, 1), ANIMCMD_FRAME(6, 1), ANIMCMD_FRAME(4, 1), ANIMCMD_JUMP(0) };
++static const union AnimCmd *const sAnimTable_JohtoHuman[] = {
++    [ANIM_STD_FACE_SOUTH] = sJohto_FACE_SOUTH,
++    [ANIM_STD_GO_SOUTH] = sJohto_GO_SOUTH,
++    [ANIM_STD_GO_FAST_SOUTH] = sJohto_GO_FAST_SOUTH,
++    [ANIM_STD_GO_FASTER_SOUTH] = sJohto_GO_FASTER_SOUTH,
++    [ANIM_STD_GO_FASTEST_SOUTH] = sJohto_GO_FASTEST_SOUTH,
++    [ANIM_STD_FACE_NORTH] = sJohto_FACE_NORTH,
++    [ANIM_STD_GO_NORTH] = sJohto_GO_NORTH,
++    [ANIM_STD_GO_FAST_NORTH] = sJohto_GO_FAST_NORTH,
++    [ANIM_STD_GO_FASTER_NORTH] = sJohto_GO_FASTER_NORTH,
++    [ANIM_STD_GO_FASTEST_NORTH] = sJohto_GO_FASTEST_NORTH,
++    [ANIM_STD_FACE_WEST] = sJohto_FACE_WEST,
++    [ANIM_STD_GO_WEST] = sJohto_GO_WEST,
++    [ANIM_STD_GO_FAST_WEST] = sJohto_GO_FAST_WEST,
++    [ANIM_STD_GO_FASTER_WEST] = sJohto_GO_FASTER_WEST,
++    [ANIM_STD_GO_FASTEST_WEST] = sJohto_GO_FASTEST_WEST,
++    [ANIM_STD_FACE_EAST] = sJohto_FACE_EAST,
++    [ANIM_STD_GO_EAST] = sJohto_GO_EAST,
++    [ANIM_STD_GO_FAST_EAST] = sJohto_GO_FAST_EAST,
++    [ANIM_STD_GO_FASTER_EAST] = sJohto_GO_FASTER_EAST,
++    [ANIM_STD_GO_FASTEST_EAST] = sJohto_GO_FASTEST_EAST,
++};
++// END JOHTO NPC IMPORT
+diff --git a/src/data/object_events/object_event_graphics.h b/src/data/object_events/object_event_graphics.h
+index 4e53633c..d275d6ed 100755
+--- a/src/data/object_events/object_event_graphics.h
++++ b/src/data/object_events/object_event_graphics.h
+@@ -633,3 +633,16 @@ const u16 gObjectEventPic_PidgeyOld[] = INCGFX_U16("graphics/object_events/pics/
+ const u16 gObjectEventPic_ClefairyOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/clefairy.png", ".4bpp", "-mwidth 2 -mheight 2");
+ 
+ #endif // IS_FRLG
++
++// BEGIN JOHTO NPC IMPORT
++const u32 gObjectEventPic_JohtoBoy[] = INCGFX_U32("graphics/object_events/pics/people/johto/boy.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_JohtoBoy[] = INCGFX_U16("graphics/object_events/palettes/johto_boy.pal", ".gbapal");
++const u32 gObjectEventPic_JohtoGirl[] = INCGFX_U32("graphics/object_events/pics/people/johto/girl.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_JohtoGirl[] = INCGFX_U16("graphics/object_events/palettes/johto_girl.pal", ".gbapal");
++const u32 gObjectEventPic_JohtoMan[] = INCGFX_U32("graphics/object_events/pics/people/johto/man.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_JohtoMan[] = INCGFX_U16("graphics/object_events/palettes/johto_man.pal", ".gbapal");
++const u32 gObjectEventPic_JohtoWoman[] = INCGFX_U32("graphics/object_events/pics/people/johto/woman.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_JohtoWoman[] = INCGFX_U16("graphics/object_events/palettes/johto_woman.pal", ".gbapal");
++const u32 gObjectEventPic_JohtoClerk[] = INCGFX_U32("graphics/object_events/pics/people/johto/clerk.png", ".4bpp", "-mwidth 4 -mheight 4");
++const u16 gObjectEventPal_JohtoClerk[] = INCGFX_U16("graphics/object_events/palettes/johto_clerk.pal", ".gbapal");
++// END JOHTO NPC IMPORT
+diff --git a/src/data/object_events/object_event_graphics_info.h b/src/data/object_events/object_event_graphics_info.h
+index d1bb7adf..9d55679d 100755
+--- a/src/data/object_events/object_event_graphics_info.h
++++ b/src/data/object_events/object_event_graphics_info.h
+@@ -7225,3 +7225,51 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne = {
+ };
+ 
+ #endif // IS_FRLG
++
++// BEGIN JOHTO NPC IMPORT
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoBoy = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_BOY,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoHuman,
++    .images = sPicTable_JohtoBoy,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoGirl = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_GIRL,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoHuman,
++    .images = sPicTable_JohtoGirl,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoMan = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_MAN,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoHuman,
++    .images = sPicTable_JohtoMan,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoWoman = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_WOMAN,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoHuman,
++    .images = sPicTable_JohtoWoman,
++};
++const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoClerk = {
++    .tileTag = TAG_NONE, .paletteTag = OBJ_EVENT_PAL_TAG_JOHTO_CLERK,
++    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
++    .size = 512, .width = 32, .height = 32, .paletteSlot = PALSLOT_NPC_1,
++    .shadowSize = SHADOW_SIZE_M, .inanimate = FALSE, .compressed = FALSE,
++    .tracks = TRACKS_FOOT, .oam = &gObjectEventBaseOam_32x32,
++    .subspriteTables = sOamTables_32x32, .anims = sAnimTable_JohtoHuman,
++    .images = sPicTable_JohtoClerk,
++};
++// END JOHTO NPC IMPORT
+diff --git a/src/data/object_events/object_event_graphics_info_pointers.h b/src/data/object_events/object_event_graphics_info_pointers.h
+index 90b888e6..9fdfe665 100755
+--- a/src/data/object_events/object_event_graphics_info_pointers.h
++++ b/src/data/object_events/object_event_graphics_info_pointers.h
+@@ -401,7 +401,17 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvi
+ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
+ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
+ 
+-const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoBoy;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoGirl;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoMan;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoWoman;
++extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoClerk;
++const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_JOHTO_END] = {
++    [OBJ_EVENT_GFX_JOHTO_BOY] = &gObjectEventGraphicsInfo_JohtoBoy,
++    [OBJ_EVENT_GFX_JOHTO_GIRL] = &gObjectEventGraphicsInfo_JohtoGirl,
++    [OBJ_EVENT_GFX_JOHTO_MAN] = &gObjectEventGraphicsInfo_JohtoMan,
++    [OBJ_EVENT_GFX_JOHTO_WOMAN] = &gObjectEventGraphicsInfo_JohtoWoman,
++    [OBJ_EVENT_GFX_JOHTO_CLERK] = &gObjectEventGraphicsInfo_JohtoClerk,
+     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
+     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
+     [OBJ_EVENT_GFX_BRENDAN_SURFING] =          &gObjectEventGraphicsInfo_BrendanSurfing,
+diff --git a/src/data/object_events/object_event_pic_tables.h b/src/data/object_events/object_event_pic_tables.h
+index 612f3b68..2c11eaf3 100755
+--- a/src/data/object_events/object_event_pic_tables.h
++++ b/src/data/object_events/object_event_pic_tables.h
+@@ -2494,3 +2494,21 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
+ };
+ 
+ #endif // IS_FRLG
++
++// BEGIN JOHTO NPC IMPORT
++static const struct SpriteFrameImage sPicTable_JohtoBoy[] = {
++    overworld_ascending_frames(gObjectEventPic_JohtoBoy, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_JohtoGirl[] = {
++    overworld_ascending_frames(gObjectEventPic_JohtoGirl, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_JohtoMan[] = {
++    overworld_ascending_frames(gObjectEventPic_JohtoMan, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_JohtoWoman[] = {
++    overworld_ascending_frames(gObjectEventPic_JohtoWoman, 4, 4),
++};
++static const struct SpriteFrameImage sPicTable_JohtoClerk[] = {
++    overworld_ascending_frames(gObjectEventPic_JohtoClerk, 4, 4),
++};
++// END JOHTO NPC IMPORT
+diff --git a/src/event_object_movement.c b/src/event_object_movement.c
+index 37e5e0df..57d8dd68 100644
+--- a/src/event_object_movement.c
++++ b/src/event_object_movement.c
+@@ -496,6 +496,11 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
+ #include "data/object_events/object_event_graphics_info_followers.h"
+ 
+ static const struct SpritePalette sObjectEventSpritePalettes[] = {
++    {gObjectEventPal_JohtoBoy, OBJ_EVENT_PAL_TAG_JOHTO_BOY},
++    {gObjectEventPal_JohtoGirl, OBJ_EVENT_PAL_TAG_JOHTO_GIRL},
++    {gObjectEventPal_JohtoMan, OBJ_EVENT_PAL_TAG_JOHTO_MAN},
++    {gObjectEventPal_JohtoWoman, OBJ_EVENT_PAL_TAG_JOHTO_WOMAN},
++    {gObjectEventPal_JohtoClerk, OBJ_EVENT_PAL_TAG_JOHTO_CLERK},
+     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
+     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
+     {gObjectEventPal_Npc3,                  OBJ_EVENT_PAL_TAG_NPC_3},
+@@ -3207,6 +3212,9 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
+     if (graphicsId & OBJ_EVENT_MON)
+         return SpeciesToGraphicsInfo(graphicsId & OBJ_EVENT_MON_SPECIES_MASK, graphicsId & OBJ_EVENT_MON_SHINY, graphicsId & OBJ_EVENT_MON_FEMALE);
+ 
++    if (graphicsId >= OBJ_EVENT_GFX_JOHTO_FIRST && graphicsId < OBJ_EVENT_GFX_JOHTO_END)
++        return gObjectEventGraphicsInfoPointers[graphicsId];
++
+     if (graphicsId >= NUM_OBJ_EVENT_GFX)
+         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+ 
+@@ -12113,3 +12121,8 @@ bool8 MovementType_OverworldWildEncounter_Despawn_Step11(struct ObjectEvent *obj
+ }
+ 
+ #undef sDespawnTimer
++
++// BEGIN JOHTO NPC IMPORT
++_Static_assert(OBJ_EVENT_GFX_VAR_F < OBJ_EVENT_GFX_JOHTO_FIRST, "Johto graphics overlap dynamic IDs");
++_Static_assert(OBJ_EVENT_GFX_JOHTO_END < OBJ_EVENT_MON, "Johto graphics overlap follower IDs");
++// END JOHTO NPC IMPORT

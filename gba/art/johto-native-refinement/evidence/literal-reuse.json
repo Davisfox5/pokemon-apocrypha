@@ -1,0 +1,10 @@
+{
+  "tree_source": "gba/art/claude-cherrygrove/source/tree.png",
+  "tree_native": "gba/art/johto-native-refinement/native/tree.png",
+  "rgba_equal": true,
+  "tree_rgba_sha256": "9ae652676442ec81001a031759f773824027214788226d444dd84f0161fe440b",
+  "water_source": "Unchanged Cherrygrove primary tileset and callback; Route31 uses it instead of the separate HGSS pond cutouts",
+  "pond_animation_frames": 30,
+  "distinct_pond_crops": 8,
+  "owner_status": "Lab accepted; foliage and water reference under discussion. Owner remembers Codex designs with Claude palette."
+}

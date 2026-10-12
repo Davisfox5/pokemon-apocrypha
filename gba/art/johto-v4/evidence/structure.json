@@ -1,0 +1,66 @@
+{
+  "reachable_cells": 736,
+  "active_doors": [
+    {
+      "building": "PlayerHouse",
+      "door": [
+        34,
+        14
+      ],
+      "approach_reachable": true
+    },
+    {
+      "building": "GoldHouse",
+      "door": [
+        45,
+        16
+      ],
+      "approach_reachable": true
+    },
+    {
+      "building": "NeighborHouse",
+      "door": [
+        54,
+        19
+      ],
+      "approach_reachable": true
+    },
+    {
+      "building": "Mart",
+      "door": [
+        42,
+        8
+      ],
+      "approach_reachable": true
+    },
+    {
+      "building": "PokemonCenter",
+      "door": [
+        51,
+        8
+      ],
+      "approach_reachable": true
+    }
+  ],
+  "dormant_warp": 3,
+  "walking_residents": 12,
+  "all_npc_routes_reachable": true,
+  "route_connections_reachable": true,
+  "layouts": [
+    {
+      "map": "CherrygroveCity",
+      "width": 64,
+      "height": 32
+    },
+    {
+      "map": "CherrygroveRoute29Approach",
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "width": 64,
+      "height": 12
+    }
+  ]
+}

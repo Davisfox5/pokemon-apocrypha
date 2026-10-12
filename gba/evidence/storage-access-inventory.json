@@ -1,0 +1,373 @@
+{
+  "direct_storage_pointer": [
+    {
+      "file": "game/src/lottery_corner.c",
+      "line": 88,
+      "code": "if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES) != SPECIES_NONE &&"
+    },
+    {
+      "file": "game/src/lottery_corner.c",
+      "line": 89,
+      "code": "!GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_IS_EGG))"
+    },
+    {
+      "file": "game/src/lottery_corner.c",
+      "line": 91,
+      "code": "u32 otId = GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_OT_ID);"
+    },
+    {
+      "file": "game/src/lottery_corner.c",
+      "line": 116,
+      "code": "GetBoxMonData(&gPokemonStoragePtr->boxes[box][slot], MON_DATA_NICKNAME, gStringVar1);"
+    },
+    {
+      "file": "game/src/chooseboxmon.c",
+      "line": 109,
+      "code": "u32 pcMonStart = (u32)&gPokemonStoragePtr->boxes;"
+    },
+    {
+      "file": "game/src/script_pokemon_util.c",
+      "line": 60,
+      "code": "boxMon = &gPokemonStoragePtr->boxes[boxId][boxPosition];"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 2941,
+      "code": "if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 2943,
+      "code": "species = GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES);"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 3648,
+      "code": "if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 3654,
+      "code": "gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 3677,
+      "code": "if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))"
+    },
+    {
+      "file": "game/src/debug.c",
+      "line": 3684,
+      "code": "gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 3809,
+      "code": "SetMonFormPSS_ItemHold(&gPokemonStoragePtr->boxes[StorageGetCurrentBox()][pos]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 6418,
+      "code": "UpdateSpeciesSpritePSS(&gPokemonStoragePtr->boxes[boxId][sCursorPosition]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 6466,
+      "code": "SetMonFormPSS(&gPokemonStoragePtr->boxes[boxId][position], FORM_CHANGE_DEPOSIT);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 8961,
+      "code": "SetMonFormPSS_ItemHold(&gPokemonStoragePtr->boxes[StorageGetCurrentBox()][cursorPos]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9003,
+      "code": "SetMonFormPSS_ItemHold(&gPokemonStoragePtr->boxes[StorageGetCurrentBox()][cursorPos]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9033,
+      "code": "SetMonFormPSS_ItemHold(&gPokemonStoragePtr->boxes[StorageGetCurrentBox()][cursorPos]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9060,
+      "code": "SetMonFormPSS_ItemHold(&gPokemonStoragePtr->boxes[StorageGetCurrentBox()][cursorPos]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9529,
+      "code": "return gPokemonStoragePtr->currentBox;"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9535,
+      "code": "gPokemonStoragePtr->currentBox = boxId;"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9551,
+      "code": "return GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], request);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9559,
+      "code": "SetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], request, value);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9564,
+      "code": "return GetBoxMonDataAt(gPokemonStoragePtr->currentBox, boxPosition, request);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9569,
+      "code": "SetBoxMonDataAt(gPokemonStoragePtr->currentBox, boxPosition, request, value);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9575,
+      "code": "return GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], request, dst);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9583,
+      "code": "gPokemonStoragePtr->boxes[boxId][boxPosition] = *src;"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9589,
+      "code": "ZeroBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition]);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9595,
+      "code": "BoxMonToMon(&gPokemonStoragePtr->boxes[boxId][boxPosition], dst);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9601,
+      "code": "return &gPokemonStoragePtr->boxes[boxId][boxPosition];"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9609,
+      "code": "return gPokemonStoragePtr->boxNames[boxId];"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9617,
+      "code": "return gPokemonStoragePtr->boxWallpapers[boxId];"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9625,
+      "code": "gPokemonStoragePtr->boxWallpapers[boxId] = wallpaperId;"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9666,
+      "code": "if (!GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES))"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9678,
+      "code": "&& GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9679,
+      "code": "&& !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_IS_EGG)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9680,
+      "code": "&& !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_IS_BAD_EGG))"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9695,
+      "code": "if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9696,
+      "code": "&& !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG))"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9713,
+      "code": "if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9714,
+      "code": "&& !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9715,
+      "code": "&& GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_KNOWN_MOVES, (u8 *)moves))"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6505,
+      "code": "CopyMon(&gPokemonStoragePtr->fusions[gTasks[taskId].storageIndex], mon2, sizeof(*mon2));"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6510,
+      "code": "mon2 = &gPokemonStoragePtr->fusions[gTasks[taskId].storageIndex];"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6512,
+      "code": "ZeroMonData(&gPokemonStoragePtr->fusions[gTasks[taskId].storageIndex]);"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6654,
+      "code": "if (gPokemonStoragePtr->fusions[itemFusion[i].fusionStorageIndex].level == 0)"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6656,
+      "code": "if (itemFusion[i].itemId == gSpecialVar_ItemId && GetMonData(&gPokemonStoragePtr->fusions[itemFusion[i].fusionStorageIndex], MON_DATA_SPECIES) == itemFusion[i].targetSpecies2)"
+    },
+    {
+      "file": "game/src/party_menu.c",
+      "line": 6696,
+      "code": "if (gPokemonStoragePtr->fusions[itemFusion[i].fusionStorageIndex].level != 0)"
+    }
+  ],
+  "borrowed_box_pointer": [
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 4466,
+      "code": "&& IsBoxMonExcluded(GetBoxedMonPtr(boxId, boxPosition)))"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 6822,
+      "code": "sStorage->summaryMon.box = GetBoxedMonPtr(StorageGetCurrentBox(), 0);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 6957,
+      "code": "SetDisplayMonData(GetBoxedMonPtr(StorageGetCurrentBox(), sCursorPosition), MODE_BOX);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 8651,
+      "code": "struct BoxPokemon *boxMon = GetBoxedMonPtr(boxId, boxPosition);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9544,
+      "code": "boxmon = GetBoxedMonPtr(StorageGetCurrentBox(), sCursorPosition);"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 9598,
+      "code": "struct BoxPokemon *GetBoxedMonPtr(u8 boxId, u8 boxPosition)"
+    },
+    {
+      "file": "game/src/pokemon_storage_system.c",
+      "line": 10089,
+      "code": "struct BoxPokemon *boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);"
+    },
+    {
+      "file": "game/src/field_specials.c",
+      "line": 3493,
+      "code": "if (GetBoxMonData(GetBoxedMonPtr(box, i), MON_DATA_SPECIES, 0) == SPECIES_NONE)"
+    },
+    {
+      "file": "game/src/pokenav_ribbons_summary.c",
+      "line": 398,
+      "code": "struct BoxPokemon *boxMon = GetBoxedMonPtr(monInfo->boxId, monInfo->monId);"
+    },
+    {
+      "file": "game/src/pokenav_ribbons_summary.c",
+      "line": 423,
+      "code": "struct BoxPokemon *boxMon = GetBoxedMonPtr(monInfo->boxId, monInfo->monId);"
+    },
+    {
+      "file": "game/src/pokemon_summary_screen.c",
+      "line": 1198,
+      "code": "sMonSummaryScreen->monList.boxMons = GetBoxedMonPtr(gSpecialVar_MonBoxId, 0);"
+    },
+    {
+      "file": "game/src/pokenav_conditions.c",
+      "line": 367,
+      "code": "boxMon = GetBoxedMonPtr(boxId, monId);"
+    },
+    {
+      "file": "game/src/pokenav_ribbons_list.c",
+      "line": 718,
+      "code": "struct BoxPokemon *mon = GetBoxedMonPtr(item->boxId, item->monId);"
+    },
+    {
+      "file": "game/src/pokenav_conditions_search_results.c",
+      "line": 722,
+      "code": "struct BoxPokemon *mon = GetBoxedMonPtr(item->boxId, item->monId);"
+    },
+    {
+      "file": "game/src/chooseboxmon.c",
+      "line": 226,
+      "code": "boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);"
+    },
+    {
+      "file": "game/src/menu_specialized.c",
+      "line": 928,
+      "code": "boxMon = GetBoxedMonPtr(box, mon);"
+    },
+    {
+      "file": "game/src/pokemon.c",
+      "line": 2975,
+      "code": "struct BoxPokemon *checkingMon = GetBoxedMonPtr(boxNo, boxPos);"
+    },
+    {
+      "file": "game/src/pokemon.c",
+      "line": 6668,
+      "code": "boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);"
+    }
+  ],
+  "storage_relocation": [
+    {
+      "file": "game/src/load_save.c",
+      "line": 37,
+      "code": "EWRAM_DATA struct PokemonStorageASLR gPokemonStorage = {0};"
+    },
+    {
+      "file": "game/src/load_save.c",
+      "line": 88,
+      "code": "gPokemonStoragePtr = (void *)(&gPokemonStorage) + offset;"
+    },
+    {
+      "file": "game/src/load_save.c",
+      "line": 100,
+      "code": "struct PokemonStorage *pokemonStorageCopy;"
+    },
+    {
+      "file": "game/src/load_save.c",
+      "line": 111,
+      "code": "pokemonStorageCopy = (struct PokemonStorage *)(gHeap + sizeof(struct SaveBlock2) + sizeof(struct SaveBlock1));"
+    },
+    {
+      "file": "game/src/load_save.c",
+      "line": 116,
+      "code": "*pokemonStorageCopy = *gPokemonStoragePtr;"
+    },
+    {
+      "file": "game/src/load_save.c",
+      "line": 129,
+      "code": "*gPokemonStoragePtr = *pokemonStorageCopy;"
+    },
+    {
+      "file": "game/src/main.c",
+      "line": 190,
+      "code": "gPokemonStoragePtr = &gPokemonStorage.block;"
+    }
+  ]
+}

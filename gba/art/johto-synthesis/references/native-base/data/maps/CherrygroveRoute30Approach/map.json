@@ -1,0 +1,50 @@
+{
+  "id": "MAP_CHERRYGROVE_ROUTE30_APPROACH",
+  "name": "CherrygroveRoute30Approach",
+  "layout": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
+  "music": "MUS_ROUTE101",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_JOHTO_ROUTE_30",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_CITY",
+      "offset": -24,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_JOHTO_ROUTE31",
+      "direction": "up",
+      "offset": -28
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygroveRoute30Approach_JunctionSign"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 58,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CherrygroveRoute30Approach_RouteSign"
+    }
+  ]
+}

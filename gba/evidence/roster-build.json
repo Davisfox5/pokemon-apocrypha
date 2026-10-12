@@ -1,0 +1,27 @@
+{
+  "ewram_used_bytes": 226336,
+  "iwram_used_bytes": 28392,
+  "rom_used_bytes": 19552960,
+  "status": "roster qualification build passed; not full production scope",
+  "upstream_commit": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "profile_sha256": "e02bb576fb0b470d026c3e309c98c46543f7bbcf7cc90457c9934d71a87dd4b5",
+  "toolchain": "Arm GNU Toolchain 14.2.Rel1 (GCC 14.2.1 20241119)",
+  "rom_file_bytes": 33554432,
+  "rom_sha256": "c26dc7a947a5ffeba4f26403b6d5091555a0e827db2208bb9097cb90a8ad6f4a",
+  "warnings": {
+    "rwx_load_segment_warnings": 1,
+    "png_background_palette_warnings": 0
+  },
+  "qualification_tests": {
+    "passed": 2,
+    "total": 2,
+    "pc_slots_exercised": 420,
+    "source_sha256": "6991c1d6b876384605884a285517ecfb04461ae93983ad8cb785f0814fe09bd1"
+  },
+  "cold_process_save_test": "passed; see roster-smoke.json",
+  "limits_bytes": {
+    "rom": 33554432,
+    "ewram": 262144,
+    "iwram": 32768
+  }
+}

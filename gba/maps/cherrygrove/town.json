@@ -1,0 +1,24 @@
+{
+  "name": "CherrygroveCity",
+  "width": 44,
+  "height": 40,
+  "spawn": [9, 17],
+  "north_exit": [14, 0, 4],
+  "east_exit": [43, 18, 4],
+  "buildings": [
+    {"name":"PlayerHouse", "x":7,"y":12,"style":"house","door":[9,15]},
+    {"name":"GoldHouse", "x":23,"y":17,"style":"house","door":[25,20]},
+    {"name":"NeighborHouse", "x":34,"y":24,"style":"house","door":[36,27]},
+    {"name":"TransplantHouse", "x":4,"y":22,"style":"house","door":[6,25]},
+    {"name":"Mart", "x":22,"y":5,"style":"mart","door":[23,7]},
+    {"name":"PokemonCenter", "x":32,"y":5,"style":"center","door":[33,8]}
+  ],
+  "landmarks": {
+    "blossom_park": [5,4,7,6],
+    "gold_battle_yard": [23,22,7,4],
+    "south_beach": [4,30,39,4],
+    "pier": [21,32,3,6],
+    "lookout": [34,30,7,3]
+  },
+  "scope": "Explorable town proposal; chapter scenes, rewards and route design remain separate."
+}

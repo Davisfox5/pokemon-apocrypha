@@ -1,0 +1,66 @@
+[
+  {
+    "phase": "write",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "pond-start",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 67,
+        "y": 10,
+        "frlg_layout": 0,
+        "width": 80,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      },
+      {
+        "save_status": 1,
+        "flash_bytes": 131072
+      }
+    ]
+  },
+  {
+    "phase": "read",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "cold-reload",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 67,
+        "y": 10,
+        "frlg_layout": 0,
+        "width": 80,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      }
+    ]
+  },
+  {
+    "phase": "menu",
+    "exit_code": 0,
+    "stderr": "",
+    "observations": [
+      {
+        "step": "ordinary-title-continue",
+        "region": 2,
+        "group": 80,
+        "map": 0,
+        "x": 67,
+        "y": 10,
+        "frlg_layout": 0,
+        "width": 80,
+        "height": 48,
+        "interaction": 0,
+        "mapsec": 214
+      }
+    ]
+  }
+]

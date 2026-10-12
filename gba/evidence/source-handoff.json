@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-15",
+  "tested_source_commit": "8fe6a9431dd6a3b8ea070afc731ac5b27b01ba7a",
+  "branch": "codex/gba-source-handoff",
+  "upstream": "e8bd1cd7b03fc032ea37e3ecd38b379b5d01a1e7",
+  "fresh_clone_no_object_alternates": true,
+  "public_upstream_submodule_initialized": true,
+  "fresh_workbench_patch_application": true,
+  "production_patch_application": true,
+  "production_tracked_edits_matched": 52,
+  "linux": {
+    "platform": "Linux-aarch64",
+    "container": "python:3.12-slim-bookworm",
+    "versions": "gcc\t4:12.2.0-3\nlibmgba-dev:arm64\t0.10.1+dfsg-1+deb12u1\nlibpng-dev:arm64\t1.6.39-2+deb12u5\nmake\t4.3-4.1\nPython 3.12.14",
+    "compiler": "Arm GNU 14.2.Rel1, GCC 14.2.1",
+    "built_from_clean_source": true,
+    "used_mac_compiled_tools": false,
+    "rom_sha256": "17f2777c09499dc63246e2d1f57d7dc6d8e891faff2773b305eb4094c5f190fb",
+    "identical_to_tested_mac_rom": true,
+    "linked_bytes": {
+      "EWRAM": 226736,
+      "IWRAM": 28392,
+      "ROM": 19748932
+    },
+    "runtime_phases": [
+      {
+        "phase": "write",
+        "exit_code": 0
+      },
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ]
+  },
+  "linux_x86_64": {
+    "toolchain_checksum_pinned": true,
+    "build_tested": false
+  },
+  "runtime_results": "source-handoff-runtime.json",
+  "build_log_sha256": "38a2842b30d544786c78e77e987fbdd6d5ca9492c2699e6da01826badbfe2783",
+  "runtime_log_sha256": "85e633a94c03ad894191fcf40bcfc2f56ebab5f3da2c96ed837dc49695e02017",
+  "initial_linux_path_issue": "Fixed portable launcher to prepend toolchain/bin for upstream parse-time shell commands; clean rebuild passed.",
+  "original_working_index_unchanged": true,
+  "source_payload": {
+    "roms_or_saves_added": false,
+    "credentials_pattern_hits": 0,
+    "oversized_files": 0,
+    "legacy_environment_and_save_paths_removed_from_handoff_branch": 2429
+  }
+}
