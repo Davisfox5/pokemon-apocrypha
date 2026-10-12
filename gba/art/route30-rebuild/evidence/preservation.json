@@ -1,0 +1,21 @@
+{
+  "expansion_commit": "17281b47f0f6d9a04f0668c1aef8800a85bae6d2",
+  "expansion_branch": "codex/route30-rebuild",
+  "base_commit": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "scope": [
+    "CherrygroveRoute30Approach/map.bin",
+    "secondary/claude_route30"
+  ],
+  "untouched": [
+    "primary/cherrygrove",
+    "all other layouts",
+    "map and event ids",
+    "map connections",
+    "New Bark accepted lab",
+    "Route 29",
+    "Route 31"
+  ],
+  "ROM_committed": false,
+  "save_committed": false,
+  "visual_acceptance": "pending owner review"
+}
