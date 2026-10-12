@@ -10,7 +10,7 @@ expansion fork instead of only as patch files stacked on a private workbench.
 | Base | upstream `expansion/1.17.0` (`e8bd1cd7`) + `gba/cherrygrove-baseline.patch` + `gba/johto-synthesis.patch` |
 | Content | Cherrygrove B/C/E synthesis, Routes 29/30/31, expanded New Bark with the accepted laboratory, Dark Cave frontage, Violet entrance, interiors, cast graphics; 43 maps in `gMapGroup_Cherrygrove` |
 | Verified | All 437 files of `gba/art/johto-synthesis/evidence/source-manifest.json` reproduce byte for byte on this branch (palette line endings normalized) |
-| Not included | `gba/roster-profile.patch` and `gba/mechanics-profile.patch`. They do not apply on top of the map source (`species_enabled.h`, donor map scripts conflict). Merging mechanics into the map source is a separate, owner-scheduled step. Production `game/` is unchanged. |
+| Mechanics | Production roster and mechanics (`gba/roster-profile.patch`, `gba/mechanics-profile.patch`) are merged in. Five files the town baseline had at an older revision (`items.h`, `tms_hms.h`, `global.h`, `trainer_hill.c`, Mauville Game Corner scripts) were taken from the production tree. The branch is now the single source: maps and mechanics together. `game/` stays pinned for the historical benchmark numbers only. |
 | CI | `.github/workflows/apocrypha.yml` on that branch compiles the ROM on every push and PR (host tools, serial `generated`, parallel build). It prints the ROM hash and uploads nothing. Green on `373e460`. |
 
 This replaces "apply three patches into a fresh `tools/vendor/gba/...` workbench"
@@ -57,7 +57,7 @@ Open it in Porymap: File > Open Project > `apocrypha-src`. Porymap writes
 | Tool | Version to use | Who uses it | Notes |
 | --- | --- | --- | --- |
 | Porymap | 6.3.1 (released 12 Apr) | Owner first; agents through its scripting API or porygon's bridge | Edits `data/maps/*/map.json`, `data/layouts/`, tilesets, wild encounters, region map. Saving through its UI preserved map blocks, IDs, `build_target`, doors and connections in the September round-trip test. |
-| Poryscript | 3.6.1 (released 31 May) | Agents, for new event scripts | Not yet wired into this branch's Makefile. Until it is, write `scripts.inc` directly, which is what the existing maps use. Adding Poryscript is a one-commit change (install the binary under `tools/poryscript/`, add the `.pory` rule); do it when the first scripted scene lands, not before. |
+| Poryscript | 3.6.1 (released 31 May) | Agents, for new event scripts | Wired. `make tools` fetches the checksum-pinned binary into `tools/poryscript/`; any `data/maps/*/scripts.pory` or `data/scripts/*.pory` compiles to the `.inc` beside it during `make generated`. Commit both; CI fails on a stale `.inc`. Existing hand-written `scripts.inc` files keep working. |
 | Porytiles | Homebrew `grunt-lucas/porytiles/porytiles` | Agents, for tilesets built from PNG art | Compatible with pokeemerald-expansion. The existing Johto tilesets were packed by this repo's `tools/gba/maps/*/build.py` compilers, which stay the reference for those banks; use Porytiles for new tilesets. |
 | porygon | `gregthegreek/porygon`, Apache-2.0 | Claude Code (MCP server + plugin); any MCP client | Map wiring (`add_warp`, `get_connections`, `edit_connection`, `set_map_properties`, `add_bg_event`), byte-exact `map.bin` / `border.bin` / `metatile_attributes.bin` I/O, `map.json` and `scripts.inc` validation, build error parsing, live Porymap bridge. Targets pokeemerald and expansion forks. Install: clone, `cd mcp && uv sync`, then register the server or install the plugin from `.claude-plugin/`. Optional; nothing in the workflow depends on it. |
 | mGBA / libmgba | 0.10.5 | Everyone | `tools/gba/maps/*/runtime.py` style headless checks need `libmgba-dev`; the owner plays in the desktop app. |
@@ -105,8 +105,5 @@ Open it in Porymap: File > Open Project > `apocrypha-src`. Porymap writes
 
 1. Codex: point `tools/gba/maps/johto_synthesis/install.py` style installs at an
    `apocrypha` checkout and commit directly instead of preserving a patch.
-2. Decide when roster and mechanics merge into `apocrypha` (resolve the two
-   conflicting files; `species_enabled.h` and the donor map scripts).
-3. Wire Poryscript when the first Chapter 1 scene script lands.
-4. Update the GitHub repository description for `pokemon-apocrypha` (it still says
-   Gen 4 DS) and fast-forward or retire `main`, which has not moved since August.
+2. Owner: set the GitHub repository description for `pokemon-apocrypha` (the
+   API refuses settings writes from agent sessions).

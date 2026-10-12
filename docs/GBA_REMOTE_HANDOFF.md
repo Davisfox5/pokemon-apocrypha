@@ -1,8 +1,8 @@
 # GBA source handoff for Claude and Grok
 
 The remote repository is **Davisfox5/pokemon-apocrypha**. The Mac folder name
-`the-omni-hack` is only a local name. Use branch **codex/gba-source-handoff**.
-This branch publishes the GBA work previously available only in that Mac checkout.
+`the-omni-hack` is only a local name. Start from **main**, which carries all merged GBA work; the older
+`codex/gba-source-handoff` branch is historical.
 Read AGENTS.md, CONTEXT_INDEX.md and AGENT_HANDOFF.md after this page.
 
 ## Map work: use the shared source branch
@@ -17,8 +17,8 @@ for reproducing historical evidence and for mechanics work against `game/`.
 Select this branch when attaching the GitHub repository. In an existing checkout:
 
 ```sh
-git fetch origin codex/gba-source-handoff
-git switch --create my-cherrygrove --track origin/codex/gba-source-handoff
+git fetch origin main
+git switch --create my-cherrygrove --track origin/main
 ```
 
 Use your own unique branch if `my-cherrygrove` already exists. Do not switch away

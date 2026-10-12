@@ -1,4 +1,6 @@
-# Asset pipeline for the Gen 4 (Platinum / HGSS) ROM hack.
+# LEGACY: asset pipeline for the archived DS prototype (see archive/gen4/).
+# The GBA build is python3 tools/gba/build.py; map source is the apocrypha
+# branch of Davisfox5/pokeemerald-expansion (docs/GBA_SHARED_SOURCE.md).
 # Source art lives in assets/src/, game-ready output in assets/out/ (gitignored).
 # See README.md for the full workflow and docs/gen4-reference.md for format budgets.
 

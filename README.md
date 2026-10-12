@@ -4,7 +4,7 @@ A five-region Pokemon story set roughly a decade later, built for **GBA with
 Gen 3 2D graphics on pokeemerald-expansion**. AI agents perform production;
 the owner directs story and creative identity and reviews the results.
 
-Remote Claude/Grok sessions: use branch **codex/gba-source-handoff** and the
+Remote Claude/Grok/Codex sessions: start from **main** and read the
 [GBA remote setup guide](docs/GBA_REMOTE_HANDOFF.md). The Mac folder name
 `the-omni-hack` and GitHub repository `pokemon-apocrypha` refer to the same project.
 
