@@ -1,0 +1,28 @@
+{
+  "expansion_commit": "f1c8d1801966de0d7a560074e5d87046127b333a",
+  "expansion_branch": "codex/route30-rebuild",
+  "base_commit": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "scope": [
+    "CherrygroveRoute30Approach/map.bin",
+    "secondary/claude_route30"
+  ],
+  "untouched": [
+    "primary/cherrygrove",
+    "all other layouts",
+    "map and event ids",
+    "map connections",
+    "New Bark accepted lab",
+    "Route 29",
+    "Route 31"
+  ],
+  "ROM_committed": false,
+  "save_committed": false,
+  "visual_acceptance": "pending owner review",
+  "seam_fix": "Whole old tree footprints are preserved; palette references from both primary and secondary metatiles are reserved.",
+  "apocrypha_build_ci": {
+    "name": "build",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38311831986/job/115019142962",
+    "sha": "f1c8d1801966de0d7a560074e5d87046127b333a"
+  }
+}
