@@ -1,0 +1,9 @@
+{
+  "source_commit": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "compiler": "arm-none-eabi-gcc 14.2.1 20241119",
+  "host_tools": "passed",
+  "serial_generated": "passed",
+  "parallel_rom_build": "passed",
+  "rom_sha256": "27f23a081d2e3f60c665b3dfe14c99928db069b9ec9c32708c0fbc526d1cb3a5",
+  "emulator_run": false
+}

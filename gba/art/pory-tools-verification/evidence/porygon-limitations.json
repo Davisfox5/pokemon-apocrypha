@@ -1,0 +1,4 @@
+{
+  "false_positive": "Route 29: ITEM_POTION reported undefined; include/constants/items.h defines it in enum Item as 28. The local ROM build succeeds. Do not change frozen item IDs to appease this parser.",
+  "warnings": "MapScripts labels reported unused by the optional validator are referenced through map headers."
+}

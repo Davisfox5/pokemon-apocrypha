@@ -1,3 +1,19 @@
+## October 12 shared-source tool verification
+
+Current cloud checkout: expansion `apocrypha` at `2722eaf7`. Porymap 6.3.1,
+Poryscript 3.6.1, Porytiles 2.0.0 and porygon 0.1.1 are installed in this cloud
+session. Host tools, serial generated data and parallel ROM compilation pass.
+Porymap's loader/renderer exported all six current Johto exteriors; a New Bark
+save preserves parsed map values and every layout/tileset byte. JSON key reorder
+was discarded; accepted lab and source layouts were not regenerated or changed.
+
+Expansion PR #1 (`codex/porymap-shared-project`, `76860650`) proposes portable
+`porymap.project.cfg` and ignores only the per-machine user config. It targets
+`apocrypha`; no map IDs, tiles or scripts change. Evidence and source hashes:
+`gba/art/pory-tools-verification/README.md`. The optional porygon validator has a
+known false positive for enum-based ITEM_POTION; do not change frozen item IDs.
+This is tool/editor verification, not new emulator or owner visual acceptance.
+
 ## Latest: shared map source branch on the expansion fork
 
 The current accepted Johto source (`gba/johto-synthesis.patch`, all 437 files)
