@@ -1,6 +1,6 @@
 # Route 30 native rebuild — review proposal
 
-Engine source: [`codex/route30-rebuild`, `17281b47`](https://github.com/Davisfox5/pokeemerald-expansion/commit/17281b47f0f6d9a04f0668c1aef8800a85bae6d2), based on `apocrypha@2722eaf`. [Engine PR #2](https://github.com/Davisfox5/pokeemerald-expansion/pull/2).
+Engine source: [`codex/route30-rebuild`, `f1c8d180`](https://github.com/Davisfox5/pokeemerald-expansion/commit/f1c8d1801966de0d7a560074e5d87046127b333a), based on `apocrypha@2722eaf`. [Engine PR #2](https://github.com/Davisfox5/pokeemerald-expansion/pull/2).
 
 [Whole-map comparison](evidence/comparison.png) · [Revised map](evidence/proposal.png) · [Full tree footprints](evidence/footprint-review.png) · [Blocked terrain overlay](evidence/blocked-terrain.png) · [Native gameplay frames](evidence/gameplay/).
 
@@ -9,8 +9,8 @@ This pass corrects tree alignment and original access restrictions, rather than 
 ## Evidence and limits
 
 - Porymap 6.3.1 core project loader/renderer exported the actual checkout; Route 30 matches the native decode exactly. This is not a manual GUI edit/save test.
-- Five surrounding maps render identically: Cherrygrove, Route 29, New Bark, Route 31, Violet entrance. The accepted lab and all map/event IDs are unchanged. Connection-visible secondary metatile IDs and palette banks were reserved.
-- Native packing has zero scenery pixel differences. The tree audit records 169 new complete instances, zero overlaps, zero non-forest pixels and zero clipped instances. Protected connection art stays at its prior pixels.
+- Five surrounding maps render identically: Cherrygrove, Route 29, New Bark, Route 31, Violet entrance. The accepted lab and all map/event IDs are unchanged. Connection-visible metatile IDs, complete tree footprints, tile IDs and palette banks from both primary and secondary entries were reserved. `seam-assets.json` proves all visible metatiles render identically with either connected tileset. The entire accepted 16-row town approach is preserved.
+- Native packing has zero scenery pixel differences. The tree audit records 120 new complete instances and 96 preserved complete seam trees, zero overlaps, zero non-forest pixels and zero clipped instances. Protected connection art stays at its prior pixels.
 - Headless libmGBA 0.10.5 tests actual directional input along the entire route, both connections in both directions, ten forest/cliff barriers, tall grass, the one-way ledge, signs, ordinary 128 KiB save, cold load and title Continue. Full observations are in `evidence/results.json`. No desktop game was opened.
 - The 35×74 original terrain stencil is measured from the preserved HGSS overview and earlier reference measurements, **not recovered Gen 4 collision archives**. The accepted map's 86-row Cherrygrove approach and shared camera windows remain adaptations. Visual/original-map fidelity still requires owner review.
 - Route 30's existing houses have no interior warps; this exterior pass does not add interiors, dialogue or roles. The new freshwater pond is static. No future-story shortcuts or ten-year town changes were introduced.
@@ -35,4 +35,4 @@ make -C /path/to/engine-review -j8
 python3 tools/gba/maps/route30_rebuild/runtime.py /path/to/engine-review /path/to/evidence --toolchain /path/to/toolchain
 ```
 
-The editor imports existing packing utilities but never calls the old map generators. It writes only Route 30's secondary tileset plus a proposed grid; porygon applies that grid. Porytiles legacy 2.0.0 compiled `source/porytiles-grass/` using `compile-primary -dual-layer -target-base-game=pokeemerald -transparency-color=0,0,0 -default-behavior=2`; native output is decoded and compared pixel-for-pixel before import into free bank 10. Bank 12 contains pond art. Other banks are preserved. Shared primary animated tiles 1–92 are reserved.
+The editor imports existing packing utilities but never calls the old map generators. It writes only Route 30's secondary tileset plus a proposed grid; porygon applies that grid. Porytiles legacy 2.0.0 compiled `source/porytiles-grass/` using `compile-primary -dual-layer -target-base-game=pokeemerald -transparency-color=0,0,0 -default-behavior=2`; native output is decoded and compared pixel-for-pixel before import into free bank 12 alongside the pond art. Grass colors and ground anchors are pinned; the small water vocabulary fits the remaining colors. Background banks 13–15 are reserved by the engine. Other banks are preserved. Shared primary animated tiles 1–92 are reserved.

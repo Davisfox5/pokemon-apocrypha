@@ -112,25 +112,45 @@ def edit(game):
    p[y,x]='P' if ch in 'P=' else '#' if ch in '#|^abcF' else ch if ch in 'TGW_' else '.'
  p[2:46,32:34]='#';p[7:27,15]='#';p[29:35,7]='#';p[35,4:9]='#';p[36:65,4]='#'
  for house in spec['houses']:p[house['y']:house['y']+5,house['x']:house['x']+5]='.'
- t=Tileset(BASE,'claude_route30','cherrygrove');pals={b:load_palette(b,game) for b in range(13)}
+ t=Tileset(BASE,'claude_route30','cherrygrove');pals={b:load_palette(b,game) for b in range(16)}
  old=np.frombuffer((BASE/'data/layouts/CherrygroveRoute30Approach/map.bin').read_bytes(),'<u2').reshape(H,W).copy();oldsolid=(old&0xC00)!=0
  # Both directions are analysed against the committed source before painting.
- layouts=json.loads((game/'data/layouts/layouts.json').read_text())['layouts'];protected=np.zeros((H,W),bool);reserve=set();rreach=seams.reachable(oldsolid,(8,H-1))
+ layouts=json.loads((game/'data/layouts/layouts.json').read_text())['layouts'];protected=np.zeros((H,W),bool);reserve=set();visible_primary=set();rreach=seams.reachable(oldsolid,(8,H-1))
  for name,ox,oy,start in [('CherrygroveCity',-35,86,(43,0)),('JohtoRoute31',-28,-30,(38,29))]:
   l=next(l for l in layouts if l['name']==name+'_Layout');ng,ns=seams.read_layout(game,name,l['width'],l['height']);nr=seams.reachable(ns,start)
   protected|=seams.visible_across(nr,(H,W),-ox,-oy);nw,rw,_=seams.crossing_windows(ns,oldsolid,-ox,-oy);protected|=rw
   neighbor_visible=seams.visible_across(rreach,ns.shape,ox,oy)|nw
   reserve|={int(v) for v in ng[neighbor_visible] if v>=512}
+  visible_primary|={int(v) for v in ng[neighbor_visible] if v<512}
+ # The accepted town-approach extension is outside the original HGSS
+ # route. Preserve its complete width instead of splicing individual cells.
+ protected[70:]=True
+ p[70:]=np.where(oldsolid[70:],'T','.')
+ # Preserve complete old tree rectangles when a camera boundary intersects
+ # them. A partial protected metatile strip cannot cut an existing crown.
+ baseline_tree=stamp_source(t,old,0,0,W,H,[3],pals)[0].px
+ tree_px=np.asarray(Image.open(ASSETS/'tree.png'));tree_mask=tree_px>0
+ fixed_tree_footprints=[]
+ for y in range(H-2):
+  for x in range(W-1):
+   candidate=baseline_tree[y*16:y*16+48,x*16:x*16+32]
+   if np.array_equal(candidate[tree_mask],tree_px[tree_mask]) and protected[y:y+3,x:x+2].any():
+    protected[y:y+3,x:x+2]=True;fixed_tree_footprints.append([x*16,y*16,32,48])
  reserve|={int(v&1023) for v in old[protected] if v&1023>=512}
+ visible_primary|={int(v&1023) for v in old[protected] if v&1023<512}
+
  reserved_banks={e>>12 for mid in reserve for e in t.blocks[1][mid-512] if e}
- assert not reserved_banks&{10,12},reserved_banks
+ reserved_banks|={e>>12 for mid in visible_primary for e in t.blocks[0][mid] if e}
+ assert not reserved_banks&{12},reserved_banks
  raw=new_materials();A={}
- for bank,prefix in [(10,'grass'),(12,'pond')]:
-  b=banks.Bank(bank,prefix,'secondary')
-  for key,rgba in raw.items():
-   if key.startswith(prefix):b.add(key,rgba)
-  for i,c in enumerate([(104,208,152),(96,200,152),(96,192,144)]):b.add('lawn'+str(i),np.array([[list(c)+[255]]],np.uint8)).keep(c)
-  A.update(b.build());pals[bank]=b.palette
+ # Emerald reserves background banks 13–15 for other engine graphics.
+ # Use the sole free map bank 12 for grass and pond together; pin the donor
+ # grass ladder and ground anchors, then fit the small water vocabulary.
+ b=banks.Bank(12,'route30_materials','secondary')
+ for key,rgba in raw.items():b.add(key,rgba)
+ b.keep(*[(32,112,80),(32,120,88),(40,136,80),(56,152,88),(64,168,112),(80,192,120)])
+ for i,c in enumerate([(104,208,152),(96,200,152),(96,192,144)]):b.add('lawn'+str(i),np.array([[list(c)+[255]]],np.uint8)).keep(c)
+ A.update(b.build());pals[12]=b.palette
  # Approved indexed art is used without resizing, new perspective or color-keying.
  for key,bank in [('tree',3),('gable',6),('house2',7)]:
   px=np.asarray(Image.open(ASSETS/(key+'.png'))).copy();c=Canvas(px.shape[1],px.shape[0],pals[bank]);c.px=px;A[key]=c
@@ -220,6 +240,18 @@ def edit(game):
  primary=pool.Primary(game,92,511);packer=pool.RoutePacker(pals,primary)
  # Seed only fixed IDs; free Route 30 slots can be reauthored independently.
  packer.reserve([np.array(v,np.uint8).reshape(8,8) for v in t.tiles[1]],t.blocks[1],t.attrs[1],reserve)
+ # Primary metatiles can reference secondary graphics. Camera transitions
+ # retain those tile entries; preserve their actual tile IDs too.
+ primary_secondary_tiles=set()
+ for mid in visible_primary:
+  for entry in t.blocks[0][mid]:
+   tid=entry&1023
+   if tid>=512:
+    arr=np.asarray(t.tiles[1][tid-512],np.uint8).reshape(8,8)
+    if tid in packer.sec_tiles:assert np.array_equal(packer.sec_tiles[tid],arr)
+    packer.sec_tiles[tid]=arr;packer.slookup.setdefault(arr.tobytes(),tid)
+    primary_secondary_tiles.add(tid)
+
  grid=old.copy();pack_cells(comp,packer,pals,~protected,grid)
  # Shared artwork IDs stay fixed, but unintended forest gaps must not remain
  # walkable simply because a neighbouring camera can see their pixels.
@@ -230,9 +262,13 @@ def edit(game):
  reference_forest=(reference[:70]=='T')
  actual_walkable=(grid[:70]&0xC00)==0
  assert not (reference_forest&actual_walkable).any(), 'HGSS forest shortcut'
+ # Only map palette banks 0–12 are loaded by Emerald.
+ for word in np.unique(grid&1023):
+  entries=packer.primary.blocks[int(word)] if word<512 else packer.sec_blocks[int(word)][0]
+  assert all(entry>>12<13 for entry in entries), 'Reserved engine palette used by map artwork'
  nt,nb=pool.write_route_tileset(game,'claude_route30',packer,pals)
  for bank in range(16):
-  if bank not in (10,12):shutil.copy2(BASE/f'data/tilesets/secondary/claude_route30/palettes/{bank:02}.pal',game/f'data/tilesets/secondary/claude_route30/palettes/{bank:02}.pal')
+  if bank !=12:shutil.copyfile(BASE/f'data/tilesets/secondary/claude_route30/palettes/{bank:02}.pal',game/f'data/tilesets/secondary/claude_route30/palettes/{bank:02}.pal')
  # Applying blockdata through porygon is separate from the authored preview.
  (OUT/'source/proposed-map.bin').write_bytes(grid.astype('<u2').tobytes());np.save(OUT/'source/plan.npy',p)
  # Decode the actual engine tileset, not the source canvas, for review.
@@ -242,6 +278,6 @@ def edit(game):
   if bank>=0:
    m=mc.bank==bank;expected[m]=np.asarray(pals[int(bank)].gba(),np.uint8)[mc.idx[m]]
  errors=np.any(np.asarray(image)!=expected,2)&check;assert not errors.any(),int(errors.sum())
- (OUT/'evidence/editor.json').write_text(json.dumps({'protected_connection_cells':int(protected.sum()),'protected_palette_banks':sorted(reserved_banks),'secondary_tile_span':nt,'secondary_metatile_span':nb,'scenery_pixels_verified':int(check.sum()),'scenery_pixel_errors':int(errors.sum()),'forest_trees':len(set(positions))},indent=2)+'\n')
+ (OUT/'evidence/editor.json').write_text(json.dumps({'protected_connection_cells':int(protected.sum()),'protected_palette_banks':sorted(reserved_banks),'secondary_tile_span':nt,'secondary_metatile_span':nb,'scenery_pixels_verified':int(check.sum()),'scenery_pixel_errors':int(errors.sum()),'forest_trees':len(set(positions)),'preserved_complete_tree_footprints':fixed_tree_footprints,'primary_metatile_secondary_tiles_reserved':len(primary_secondary_tiles)},indent=2)+'\n')
  print('Authored preview saved; blockdata not yet applied',nt,nb)
 if __name__=='__main__':edit(Path(sys.argv[1]).resolve())

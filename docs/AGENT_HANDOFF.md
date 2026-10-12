@@ -1,3 +1,26 @@
+## Latest: Route 30 footprint and access correction (owner review pending)
+
+Owner clarified that tree footprints and original HGSS barriers matter more than
+woodland density. The Route 30 proposal is engine branch `codex/route30-rebuild`,
+commit `f1c8d1801966de0d7a560074e5d87046127b333a`, PR #2 against `apocrypha`.
+Do not treat this draft as visually accepted or replay older map generators.
+New complete 2×3-cell tree footprints avoid all other trees and scenery;
+reference forest cells block unintended shortcuts. The full accepted southern
+approach and complete old seam trees are preserved. Native buildings use the
+Cherrygrove vocabulary; new HGSS-derived grass and pond share free bank 12.
+Palette references from primary metatiles must be included in seam reservations;
+Emerald only loads map banks 0–12. Restore files with fresh modification times
+when rebuilding, otherwise cached palette output can misrepresent the source.
+
+Porymap/native pixels match. Both neighbors render all crossing-visible native
+metatiles identically under either tileset. Headless actual-key route traversal,
+both connections, ten barriers, grass, ledge, signs, save and title Continue pass.
+Surrounding maps and shared primary source stay unchanged. Doors/interiors remain
+unimplemented in this exterior pass, pond is static, and the navigation stencil
+is reference-measured rather than recovered Gen 4 collision data.
+See `gba/art/route30-rebuild/README.md` and its whole-map comparison, native frames,
+footprint/blocked-terrain overlays and editable source. Next: owner visual review.
+
 ## Latest: shared map source branch on the expansion fork
 
 The current accepted Johto source (`gba/johto-synthesis.patch`, all 437 files)
