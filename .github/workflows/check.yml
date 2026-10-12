@@ -1,0 +1,42 @@
+name: content check
+
+# No-ROM validation of the game source: zone_event JSON, scripts, text, flag and
+# var budget, forbidden files. Runs tools/check_content.py against the
+# apocrypha-ch1 branch of Davisfox5/pokeheartgold. Needs no compiler or SDK.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      game_ref:
+        description: "pokeheartgold ref to check (default: the submodule pointer)"
+        required: false
+        default: ""
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch game source
+        run: |
+          set -e
+          ref="${{ github.event.inputs.game_ref }}"
+          if [ -z "$ref" ]; then
+            ref=$(git ls-tree HEAD disasm/pokeheartgold | awk '{print $3}')
+          fi
+          rm -rf disasm/pokeheartgold
+          git clone --filter=blob:none --no-checkout https://github.com/Davisfox5/pokeheartgold.git disasm/pokeheartgold
+          cd disasm/pokeheartgold
+          git fetch --depth 1 origin "$ref" || git fetch origin apocrypha-ch1
+          git checkout -q FETCH_HEAD
+          git log --oneline -1
+
+      - name: Run content checks
+        run: python3 tools/check_content.py
+
+      - name: Python syntax of hub tooling
+        run: python3 -m compileall -q tools scripts

@@ -21,3 +21,11 @@ tools/*.jar
 tools/*.exe
 tools/*.dll
 tools/*.zip
+
+# Emulator savestates and rig checkpoints (machine-specific, never shareable)
+*.dsv
+tools/checkpoints/
+
+# Scratch build and editor logs
+_*.log
+_*.out

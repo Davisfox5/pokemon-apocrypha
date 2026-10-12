@@ -6,7 +6,7 @@ PYTHON  := .venv/bin/python
 SRC     := assets/src
 OUT     := assets/out
 
-.PHONY: setup build validate clean
+.PHONY: setup build validate clean check
 
 setup:
 	bash scripts/bootstrap.sh
@@ -44,3 +44,9 @@ validate:
 
 clean:
 	rm -rf $(OUT)
+
+# No-ROM content checks against disasm/pokeheartgold (zone_event JSON, scripts,
+# text charset, flag/var budget, forbidden files). Any collaborator can run this;
+# CI runs it on every PR. Pass MAPS="T21 R29" to limit to maps you touched.
+check:
+	python3 tools/check_content.py $(MAPS)
