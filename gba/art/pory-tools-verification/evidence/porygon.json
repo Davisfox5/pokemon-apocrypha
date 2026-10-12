@@ -1,0 +1,119 @@
+{
+  "tools": [
+    "project_info",
+    "list_maps",
+    "list_layouts",
+    "get_layout",
+    "read_map",
+    "read_blockdata",
+    "write_blockdata",
+    "read_metatile_attributes",
+    "build",
+    "parse_build_log",
+    "resolve_address",
+    "lookup_symbol",
+    "emu_launch_command",
+    "validate_scripts",
+    "list_macros",
+    "lookup_macro",
+    "read_map_events",
+    "add_object_event",
+    "add_sign",
+    "add_trigger",
+    "remove_event",
+    "add_warp",
+    "add_bg_event",
+    "get_connections",
+    "edit_connection",
+    "set_map_properties",
+    "scaffold_script",
+    "poryscript_status",
+    "compile_poryscript"
+  ],
+  "checks": {
+    "CherrygroveCity": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": [\n    {\n      \"map\": \"MAP_CHERRYGROVE_ROUTE29_APPROACH\",\n      \"offset\": 0,\n      \"direction\": \"right\"\n    },\n    {\n      \"map\": \"MAP_CHERRYGROVE_ROUTE30_APPROACH\",\n      \"offset\": 35,\n      \"direction\": \"up\"\n    }\n  ]\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"CherrygroveCity\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/CherrygroveCity/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 35,\n  \"event_refs\": 13,\n  \"constants_checked\": 15,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'CherrygroveCity_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    },
+    "CherrygroveRoute29Approach": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": [\n    {\n      \"map\": \"MAP_CHERRYGROVE_CITY\",\n      \"offset\": 0,\n      \"direction\": \"left\"\n    },\n    {\n      \"map\": \"MAP_NEW_BARK_TOWN\",\n      \"direction\": \"right\",\n      \"offset\": 6\n    }\n  ]\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"CherrygroveRoute29Approach\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/CherrygroveRoute29Approach/scripts.inc\",\n  \"ok\": false,\n  \"error_count\": 1,\n  \"warning_count\": 1,\n  \"defined_labels\": 5,\n  \"event_refs\": 1,\n  \"constants_checked\": 2,\n  \"findings\": [\n    {\n      \"severity\": \"error\",\n      \"kind\": \"unknown_constant\",\n      \"message\": \"undefined constant 'ITEM_POTION'\",\n      \"detail\": \"items.h\"\n    },\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'CherrygroveRoute29Approach_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    },
+    "CherrygroveRoute30Approach": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": [\n    {\n      \"map\": \"MAP_CHERRYGROVE_CITY\",\n      \"offset\": -35,\n      \"direction\": \"down\"\n    },\n    {\n      \"map\": \"MAP_JOHTO_ROUTE31\",\n      \"direction\": \"up\",\n      \"offset\": -28\n    }\n  ]\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"CherrygroveRoute30Approach\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/CherrygroveRoute30Approach/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 5,\n  \"event_refs\": 2,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'CherrygroveRoute30Approach_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    },
+    "NewBarkTown": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": [\n    {\n      \"map\": \"MAP_CHERRYGROVE_ROUTE29_APPROACH\",\n      \"direction\": \"left\",\n      \"offset\": -6\n    }\n  ]\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"NewBarkTown\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/NewBarkTown/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 9,\n  \"event_refs\": 2,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'NewBarkTown_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    },
+    "JohtoRoute31": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": [\n    {\n      \"map\": \"MAP_CHERRYGROVE_ROUTE30_APPROACH\",\n      \"direction\": \"down\",\n      \"offset\": 28\n    }\n  ]\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"JohtoRoute31\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/JohtoRoute31/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 5,\n  \"event_refs\": 2,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'JohtoRoute31_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    },
+    "VioletCityEntrance": {
+      "get_connections": {
+        "isError": false,
+        "content": [
+          "{\n  \"connections\": []\n}"
+        ]
+      },
+      "validate_scripts": {
+        "isError": false,
+        "content": [
+          "{\n  \"map\": \"VioletCityEntrance\",\n  \"scripts_file\": \"/workspace/apocrypha-src/data/maps/VioletCityEntrance/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 3,\n  \"event_refs\": 1,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'VioletCityEntrance_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+        ]
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+Shared-source tools verified: [Porymap exports, save roundtrip and cloud build](../gba/art/pory-tools-verification/README.md). Portable editor config is proposed in expansion PR #1; accepted maps are unchanged.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
