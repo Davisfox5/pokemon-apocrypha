@@ -1,3 +1,16 @@
+## Latest: shared map source branch on the expansion fork
+
+The current accepted Johto source (`gba/johto-synthesis.patch`, all 437 files)
+now lives as Git history on `Davisfox5/pokeemerald-expansion` branch `apocrypha`,
+reconstructed from public patches on upstream `e8bd1cd7` plus
+`gba/cherrygrove-baseline.patch` (the public equivalent of private base
+`f09ec1de`). Verified against the committed source manifest byte for byte.
+A GitHub Actions build runs on every push and PR there and is green on `373e460`. Roster and mechanics
+patches do not apply on top yet (two conflicting files) and were not merged.
+Read `docs/GBA_SHARED_SOURCE.md` for setup, tool versions (Porymap 6.3.1,
+Poryscript 3.6.1, Porytiles, porygon), lanes and rules. Next:
+move Codex's install step onto the branch, schedule the mechanics merge.
+
 ## Latest: standard Emerald Route 31 rock and stairs
 
 Owner requested standard Emerald tiles across the central Route 31 section.
