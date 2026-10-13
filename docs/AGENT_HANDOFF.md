@@ -4,7 +4,7 @@ Owner rejected the mixed prior Gen 3/HGSS design and authorized a new block-by-b
 
 35x74 reference blocks are independently surveyed; no core block copies the earlier Gen 3 layout. Twelve southern rows are an explicit compatibility adapter. Native foreground/shadow packing, exclusive tree footprints, grass from decoded HGSS textures/Porytiles and source/native comparison boards are preserved. Route 31 receives unused shared seam storage only; its own render and all other maps are unchanged. Do not run the provenance reconstruction over production edits routinely.
 
-Build, Porymap decoded equality, actual-input headless traversal/barriers/connections and ordinary save/title Continue pass. Owner visual acceptance is pending. HGSS collision is inferred from an overview, not recovered DS records. Interiors, Cut interaction and original NPC/story gates remain unimplemented. See the README for adapter, source crop and offscreen bank-12 limits. Next: review the posted whole-map comparisons and native gameplay gallery with the owner.
+Local and production CI builds, Porymap decoded equality, actual-input headless traversal/barriers/connections and ordinary save/title Continue pass. Owner visual acceptance is pending. HGSS collision is inferred from an overview, not recovered DS records. Interiors, Cut interaction and original NPC/story gates remain unimplemented. See the README for adapter, source crop and offscreen bank-12 limits. Next: review the posted whole-map comparisons and native gameplay gallery with the owner.
 
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 

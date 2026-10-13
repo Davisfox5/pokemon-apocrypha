@@ -1,0 +1,52 @@
+{
+  "expansion_commit": "b13cfe485ad96d1d5f862009f486b8282fbb14f8",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38332704570/job/115085826559",
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install toolchain",
+      "conclusion": "success"
+    },
+    {
+      "name": "Cache build tools",
+      "conclusion": "success"
+    },
+    {
+      "name": "Validate map and layout JSON",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build",
+      "conclusion": "success"
+    },
+    {
+      "name": "Committed Poryscript outputs are current",
+      "conclusion": "success"
+    },
+    {
+      "name": "Report",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Cache build tools",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ]
+}
