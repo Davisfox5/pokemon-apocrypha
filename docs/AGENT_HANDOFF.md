@@ -6,6 +6,18 @@ Owner rejected the mixed prior Gen 3/HGSS design and authorized a new block-by-b
 
 Build, Porymap decoded equality, actual-input headless traversal/barriers/connections and ordinary save/title Continue pass. Owner visual acceptance is pending. HGSS collision is inferred from an overview, not recovered DS records. Interiors, Cut interaction and original NPC/story gates remain unimplemented. See the README for adapter, source crop and offscreen bank-12 limits. Next: review the posted whole-map comparisons and native gameplay gallery with the owner.
 
+## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
+
+First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
+ledges, gate, Apricorn tree, flowers, light lawn, sign) sliced at 16 px into one
+secondary tileset `apoc_route29` (332 tiles, 161 metatiles), the layout laid out
+from the HGSS cell plan over the town's own lawn, path and forest, blossom trees
+fading in from Cherrygrove, and the accepted sea ridge and seam carried over
+verbatim. Branch `claude/route29-hgss-slices` on the expansion fork, PR against
+`apocrypha`. Read `gba/art/apoc-route29/README.md`. Not walked in an emulator and
+not opened in Porymap here. Next: owner visual review; if accepted, Codex's
+Route 29 generators retire in favour of editing this layout in Porymap.
+
 ## Latest: shared map source branch on the expansion fork
 
 The current accepted Johto source (`gba/johto-synthesis.patch`, all 437 files)
