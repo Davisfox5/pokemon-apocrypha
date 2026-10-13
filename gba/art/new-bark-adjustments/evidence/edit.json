@@ -1,0 +1,141 @@
+{
+  "base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "moves": [
+    {
+      "warp": 0,
+      "source": [
+        11,
+        0,
+        11,
+        7
+      ],
+      "target": [
+        12,
+        0
+      ],
+      "door": [
+        17,
+        6
+      ]
+    },
+    {
+      "warp": 4,
+      "source": [
+        9,
+        26,
+        5,
+        5
+      ],
+      "target": [
+        8,
+        24
+      ],
+      "door": [
+        9,
+        28
+      ]
+    },
+    {
+      "warp": 5,
+      "source": [
+        23,
+        26,
+        5,
+        5
+      ],
+      "target": [
+        24,
+        25
+      ],
+      "door": [
+        26,
+        29
+      ]
+    },
+    {
+      "warp": 6,
+      "source": [
+        9,
+        35,
+        5,
+        5
+      ],
+      "target": [
+        10,
+        32
+      ],
+      "door": [
+        11,
+        36
+      ]
+    },
+    {
+      "warp": 7,
+      "source": [
+        23,
+        35,
+        5,
+        5
+      ],
+      "target": [
+        22,
+        34
+      ],
+      "door": [
+        24,
+        38
+      ]
+    }
+  ],
+  "mailboxes": [
+    [
+      25,
+      8
+    ],
+    [
+      10,
+      17
+    ],
+    [
+      21,
+      19
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      23,
+      29
+    ],
+    [
+      9,
+      36
+    ],
+    [
+      27,
+      38
+    ]
+  ],
+  "roof_colors": {
+    "residence1": "blue",
+    "residence4": "purple"
+  },
+  "secondary_tiles": 496,
+  "secondary_metatiles": 431,
+  "original_referenced_tiles_and_metatile_prefixes_preserved": true,
+  "new_glyph_slots": [
+    982,
+    983,
+    984,
+    985,
+    986,
+    987,
+    988
+  ],
+  "door_scratch_tiles_reserved": [
+    1008,
+    1023
+  ],
+  "door_metatile_ids_preserved": true
+}

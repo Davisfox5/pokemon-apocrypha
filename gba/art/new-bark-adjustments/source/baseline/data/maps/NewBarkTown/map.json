@@ -1,0 +1,102 @@
+{
+  "id": "MAP_NEW_BARK_TOWN",
+  "name": "NewBarkTown",
+  "layout": "LAYOUT_NEW_BARK_TOWN",
+  "music": "MUS_LITTLEROOT",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_NEW_BARK_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "build_target": "emerald",
+  "connections": [
+    {
+      "map": "MAP_CHERRYGROVE_ROUTE29_APPROACH",
+      "direction": "left",
+      "offset": -6
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_INSTITUTE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_STAFF_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_EAST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_UPPER_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_RESIDENCE_1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_RESIDENCE_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_RESIDENCE_3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_BARK_RESIDENCE_4",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewBarkTown_Institute"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewBarkTown_Town"
+    }
+  ]
+}

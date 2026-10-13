@@ -1,0 +1,33 @@
+{
+  "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "expansion_commit": "e20ef274d3bb4e52ce3979818a90dcbdb0e57660",
+  "source_branch": "codex/new-bark-layout-adjustments",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/7",
+  "rom_sha256": "d06a02be905afac68900031f5253d33919a8994f2f54b06866e489b67f8f4f54",
+  "local_build": "success",
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 388
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "visual_acceptance": "pending owner review",
+  "ordinary_saves_and_stable_map_warp_event_ids": true,
+  "reproducible_source_bytes": true,
+  "project_CI": {
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38455412022"
+  },
+  "upstream_CI_matrix": "still running at verification"
+}

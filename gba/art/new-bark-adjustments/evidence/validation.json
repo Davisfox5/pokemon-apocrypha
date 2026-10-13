@@ -1,0 +1,22 @@
+{
+  "Porymap_pixel_errors": 0,
+  "outside_requested_edit_region_pixel_errors": 0,
+  "original_referenced_glyphs_and_metatile_attribute_prefixes_preserved": true,
+  "static_tile_ids_below_door_animation_scratch": true,
+  "seven_mailboxes": true,
+  "eight_door_approaches_reachable": true,
+  "lab_back_access_blocked": true,
+  "seams": [
+    {
+      "route_source": "/workspace/newbark-src",
+      "camera_errors": 0,
+      "cache_errors": 0
+    },
+    {
+      "route_source": "/workspace/apocrypha-src",
+      "camera_errors": 0,
+      "cache_errors": 0
+    }
+  ],
+  "other_maps_unchanged": true
+}

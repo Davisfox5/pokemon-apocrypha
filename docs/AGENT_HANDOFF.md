@@ -1,3 +1,9 @@
+## Latest: New Bark mailbox, lab and southern housing adjustments
+
+Owner approved the overall town and requested local adjustments. Read [New Bark adjustments](../gba/art/new-bark-adjustments/README.md): seven house mailboxes, lab one cell east with complete western trees/no roof-side passage, four southern houses moved up and staggered, updated paths, blue/purple roofs. Source `codex/new-bark-layout-adjustments` / `e20ef274d3bb4e52ce3979818a90dcbdb0e57660`, draft [PR #7](https://github.com/Davisfox5/pokeemerald-expansion/pull/7) against `apocrypha`. Hub evidence branch `codex/new-bark-layout-evidence`; no patch stack.
+
+Local build, Porymap export equality, unchanged pixels outside the edit mask and unchanged neighboring maps pass. Connection camera/cache checks pass against production and separately accepted Route 29 source `6f7661e9`. Native ordinary-input tour enters/returns all eight doors, checks all seven mailboxes after door animations, blocks the lab side and reloads ordinary flash via cold resume/title Continue. Mailbox foreground pixel checks pass for all seven; static slots 1008-1023 remain reserved for door animation. Existing glyphs and map/metatile/warp/event IDs are retained; unused zero padding holds new graphics. No story or mechanics changes. Next: owner visual review of the completed town render and native gallery.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
