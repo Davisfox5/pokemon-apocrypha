@@ -13,6 +13,7 @@ from claude_cherrygrove.pixel import Canvas,Palette
 from route30_hgss_blocks import ground_native,layers
 from tiles import Tileset,palette
 from edges import soften_building,shoreline,rounded_distance
+import campus
 OUT=ROOT/'gba/art/violet-city';S=OUT/'source';EV=OUT/'evidence';W,H=80,72
 
 def digest(path):
@@ -52,7 +53,9 @@ def main(game):
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
  for key in ['tower','academy','gym','house','gable','center','mart']:soften_building(A[key])
  # Library is a second wing in the school's existing architectural vocabulary.
- A['library']=A['academy']
+ A['university']=campus.university();pals[10]=A['university'].pal
+ A['court']=campus.court();pals[4]=A['court'].pal
+ soften_building(A['university'])
  # Repeat original bridge deck and urban paving, with no rotated staircase art.
  infrastructure=banks.Bank(11,'VIOLET_STONE_WOOD','secondary')
  for name,box in [('paving',(256,480,288,512)),('bridge',(608,304,656,336)),('rail_left',(600,304,608,336)),('rail_right',(656,304,664,336)),('island',(528,384,560,416)),('sign',(640,744,656,768))]:
@@ -76,12 +79,13 @@ def main(game):
  # Preserve editable native indexed assets and compile new landmarks with Porytiles.
  material=S/'materials';material.mkdir(exist_ok=True)
  for name,c in A.items():Image.fromarray(c.to_rgba()).save(material/f'{name}.png')
- psrc=S/'porytiles-landmarks';psrc.mkdir(exist_ok=True);bot=Image.new('RGBA',(128,320));top=bot.copy();mid=bot.copy()
+ psrc=S/'porytiles-landmarks';psrc.mkdir(exist_ok=True)
  atlas=[]
- for key in ['tower','academy']:
+ for key in ['tower','university']:
   c=A[key];ar=c.to_rgba()
   for y in range(0,c.h,16):
    for x in range(0,c.w,16):atlas.append((key,x,y,ar[y:y+16,x:x+16]))
+ bot=Image.new('RGBA',(128,((len(atlas)+7)//8)*16));top=bot.copy();mid=bot.copy()
  for i,(_,x,y,ar) in enumerate(atlas):mid.paste(Image.fromarray(ar),(i%8*16,i//8*16))
  for name,img in [('bottom',bot),('middle',mid),('top',top)]:img.save(psrc/f'{name}.png')
  subprocess.run(['porytiles-legacy','compile-primary','-dual-layer','-o',str(S/'porytiles-compiled'),str(psrc),str(game/'include/constants/metatile_behaviors.h')],check=True)
@@ -108,14 +112,19 @@ def main(game):
  rect('W',24,16,30,19);rect('.',35,13,9,6);rect('Q',31,23,12,6);rect('B',37,17,5,6);rect('B',37,29,5,6)
  for box in [(15,29,4,17),(11,28,7,4),(15,43,35,4),(37,35,5,11),(40,45,6,19),(36,61,11,6),(44,57,34,4),(57,52,19,8),(49,43,24,4),(68,40,5,16)]:rect('P',*box)
  # Campus court, library garden and a bounded southern/western path reserve.
- rect('.',54,34,22,16);rect('P',51,43,22,4);rect('P',68,43,5,13);rect('Q',56,48,9,7)
+ rect('.',54,34,22,16);rect('P',51,43,22,4);rect('P',68,43,5,13);rect('.',54,47,14,9);rect('C',55,48,12,7)
  rect('.',21,67,5,5);rect('P',22,67,3,3)
- buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',28,36,3,5),('academy','University',44,35,4,6),('library','Library',60,35,4,6),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4)]
+ buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',28,36,3,5),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4),('house','Northwest Residence',10,23,1,4),('gable','West Garden Residence',24,52,2,4),('house','South Garden Residence',55,64,1,4)]
+ # Three modest residential clearings connect to the existing street spine.
+ for box in [(8,22,10,11),(22,50,12,10),(53,62,10,9)]:rect('.',*box)
  for key,label,x,y,dx,dy in buildings:
-  c=A[key];rect('.',x,y,c.w//16,c.h//16)
+  c=A[key]
+  if key=='university':rect('.',x,y+3,c.w//16,c.h//16-3)
+  else:rect('.',x,y,c.w//16,c.h//16)
   rect('P',x+dx,y+c.h//16,2,2)
  # Connect each approach to the HGSS road spine, explicit grid geometry.
- rect('P',37,13,5,4);rect('P',20,40,3,5);rect('P',28,41,7,4);rect('P',44,41,7,5);rect('P',60,41,7,5);rect('P',47,55,5,4);rect('P',10,39,7,3);rect('P',36,62,7,3)
+ rect('P',37,13,5,4);rect('P',20,40,3,5);rect('P',28,41,7,4);rect('P',54,42,6,4);rect('P',47,55,5,4);rect('P',10,39,7,3);rect('P',36,62,7,3)
+ rect('P',11,28,7,3);rect('P',26,57,15,3);rect('P',55,59,3,5);rect('P',56,69,5,2);rect('P',59,60,2,10)
  # Arrival arch at eastern end; its warp is a cave-style threshold under the roof.
  rect('P',73,56,5,5)
  # Ground floor, structures, and upper foreground remain distinct layers.
@@ -130,11 +139,14 @@ def main(game):
    if ch=='W':
     bits=sum((1<<i)*int(0<=xx<W and 0<=yy<H and plan[yy,xx] in ['W','B','Q']) for i,(xx,yy) in enumerate([(x,y-1),(x,y+1),(x-1,y),(x+1,y)]))
     stamp(f'pond-{bits}-{y%2*2+x%2}',x,y);solid[y,x]=True;beh[y,x]=16
+   elif ch=='C':
+    src=A['court'];c=Canvas(16,16,src.pal);c.px=src.px[(y-48)*16:(y-47)*16,(x-55)*16:(x-54)*16].copy();mc.blit(c,x*16,y*16)
+    if y in [48,54] and x in [56,57,64,65]:solid[y,x]=True
    elif ch in ['P','Q']:
     src=A['paving' if ch=='P' else 'island'];c=Canvas(16,16,src.pal);c.px=src.px[y%2*16:y%2*16+16,x%2*16:x%2*16+16].copy()
     # Native cell edge masks: curb encloses the road, grass remains outside it.
     if ch=='P':
-     missing=[not(0<=nx<W and 0<=ny<H and plan[ny,nx] in ['P','B','Q']) for nx,ny in [(x,y-1),(x,y+1),(x-1,y),(x+1,y)]]
+     missing=[not(0<=nx<W and 0<=ny<H and plan[ny,nx] in ['P','B','Q','C']) for nx,ny in [(x,y-1),(x,y+1),(x-1,y),(x+1,y)]]
      dist=rounded_distance(missing,4)
      c.px[dist<1]=0
      pal=np.array(c.pal.gba(),int);rim=int(((pal-np.array([144,136,120]))**2).sum(1)[1:].argmin()+1);c.px[(dist>=1)&(dist<2)]=rim
@@ -176,13 +188,14 @@ def main(game):
    c=A[f'pond-15-{y%2*2+x%2}'];mc.background_bank[y*16:y*16+16,x*16:x*16+16]=12;mc.background_idx[y*16:y*16+16,x*16:x*16+16]=c.px
  for x,y in trees:stamp('tree',x,y,True);mc.above[y,x:x+2]=True
  # Green campus trees retain footprints. Pink trees are exclusive to Cherrygrove.
- campus_trees=[(54,36),(54,40),(74,36),(74,40),(54,50),(66,50)]
+ campus_trees=[(70,35),(74,35),(70,39),(74,39)]
  for x,y in campus_trees:
   stamp('tree',x,y,True);solid[y+1:y+3,x:x+2]=True;mc.above[y,x:x+2]=True
  anchors=[]
  for key,label,x,y,dx,dy in buildings:
   c=A[key];stamp(key,x,y,True);cw,ch=c.w//16,c.h//16
-  solid[y+1:y+ch,x:x+cw]=True;mc.above[y,x:x+cw]=True
+  solid[y+(3 if key=='university' else 1):y+ch,x:x+cw]=True;mc.above[y,x:x+cw]=True
+  if key=='university':solid[y+1:y+3,x+9:x+13]=True
   # Door threshold remains closed until that building's interior is authored.
   anchors.append({'name':label,'asset':key,'box':[x,y,cw,ch],'door':[x+dx,y+dy],'approach':[x+dx,y+ch]})
  # No open edges toward unbuilt Routes 32/36. Original rock makes the boundaries legible.
@@ -190,7 +203,7 @@ def main(game):
  for y in range(28,32):stamp('rock_e',8,y);solid[y,8]=True
  # Campus courts reuse native paving; no trainer content/encounters invented.
  # Stone signs at campus, tower and arrival; their locations remain off the main walk line.
- signs=[(43,43,'University'),(35,14,'Tower'),(65,43,'Library'),(27,42,'Lecture'),(70,59,'City')]
+ signs=[(53,43,'University'),(35,14,'Tower'),(68,43,'Library'),(27,42,'Lecture'),(70,59,'City'),(54,47,'Practice')]
  for x,y,label in signs:
   stamp('sign',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  # Gate facade reuses the complete accepted gable module, with its real door anchor.
@@ -217,6 +230,7 @@ def main(game):
  ground_native.install(game,pals);packer=CityPacker(pals);grid=np.zeros((H,W),np.uint16)
  # Keep tower palette 7 intact; unused bank 1 holds exact under-canopy composites.
  result=layers.pack(comp,packer,pals,grid,S,composite_bank=1)
+ assert sum(len(a) for a in packer.tiles.values())<=1008,('Full city scenery budget',sum(len(a) for a in packer.tiles.values()),__import__('collections').Counter(b for ts in packer.tiles.values() for b,_ in ts))
  if not packer.blocks['secondary']:
   packer.blocks['secondary'].append((0,)*8);packer.attrs['secondary'].append(0)
  for kind,banks_used in [('primary',range(6)),('secondary',range(6,13))]:native.write_tileset(game,kind,'violet_city',packer.tiles[kind],packer.blocks[kind],packer.attrs[kind],pals,banks_used)
@@ -224,7 +238,7 @@ def main(game):
  folder=game/'data/layouts/VioletCity';folder.mkdir(exist_ok=True)
  # Actual map writes go through porygon's checked binary API.
  from porygon.core.blockdata import Blockdata
- raw=grid.astype('<u2').tobytes();bd=Blockdata.decode(raw,W,H);assert bd.encode()==raw;(folder/'map.bin').write_bytes(bd.encode());(folder/'border.bin').write_bytes(struct.pack('<4H',*[int(grid[2,2])]*4))
+ raw=grid.astype('<u2').tobytes();bd=Blockdata.decode(raw,W,H);assert bd.encode()==raw;(folder/'map.bin').write_bytes(bd.encode());(folder/'border.bin').write_bytes(grid[4:6,2:4].astype('<u2').tobytes())
  lay={'id':'LAYOUT_VIOLET_CITY','name':'VioletCity_Layout','width':W,'height':H,'build_target':'emerald','primary_tileset':'gTileset_VioletCityPrimary','secondary_tileset':'gTileset_VioletCity','border_filepath':'data/layouts/VioletCity/border.bin','blockdata_filepath':'data/layouts/VioletCity/map.bin'}
  layouts=json.loads((game/'data/layouts/layouts.json').read_text())
  layouts['layouts']=[l for l in layouts['layouts'] if l['id']!=lay['id']]+[lay];(game/'data/layouts/layouts.json').write_text(json.dumps(layouts,indent=2)+'\n')
@@ -233,7 +247,7 @@ def main(game):
  (game/'data/maps/map_groups.json').write_text(json.dumps(groups,indent=2)+'\n')
  m=json.loads((game/'data/maps/VioletCityEntrance/map.json').read_text());m.update(id='MAP_VIOLET_CITY',name='VioletCity',layout='LAYOUT_VIOLET_CITY',warp_events=[{'x':74,'y':56,'elevation':0,'dest_map':'MAP_VIOLET_EAST_GATE','dest_warp_id':'0'}],bg_events=[{'type':'sign','x':x,'y':y,'elevation':0,'player_facing_dir':'BG_EVENT_PLAYER_FACING_ANY','script':'VioletCity_'+label} for x,y,label in signs])
  mf=game/'data/maps/VioletCity';mf.mkdir(exist_ok=True);(mf/'map.json').write_text(json.dumps(m,indent=2)+'\n')
- (mf/'scripts.pory').write_text('raw `VioletCity_MapScripts::\n    .byte 0\n`\n\n'+''.join('script VioletCity_'+name+' {\n    msgbox("'+text+'", MSGBOX_SIGN)\n    end\n}\n\n' for name,text in [('University','VIOLET UNIVERSITY'),('Tower','SPROUT TOWER'),('Library','UNIVERSITY LIBRARY'),('Lecture','LECTURE HALL\\nBATTLE PRACTICUM'),('City','VIOLET CITY')]))
+ (mf/'scripts.pory').write_text('raw `VioletCity_MapScripts::\n    .byte 0\n`\n\n'+''.join('script VioletCity_'+name+' {\n    msgbox("'+text+'", MSGBOX_SIGN)\n    end\n}\n\n' for name,text in [('University','VIOLET UNIVERSITY\\nMain hall, library and classrooms.'),('Tower','SPROUT TOWER'),('Library','LIBRARY AND CLASSROOMS\\nInside the main university hall.'),('Lecture','LECTURE HALL\\nBATTLE PRACTICUM'),('City','VIOLET CITY'),('Practice','UNIVERSITY PRACTICE COURT\\nObserve. Practice. Discuss.')]))
  script=mf/'scripts.pory';script.write_text(script.read_text().rstrip()+'\n')
  subprocess.run([str(game/'tools/poryscript/poryscript'),'-i','data/maps/VioletCity/scripts.pory','-o','data/maps/VioletCity/scripts.inc','-fc','tools/poryscript/font_config.json','-cc','tools/poryscript/command_config.json'],cwd=game,check=True)
  ep=game/'data/event_scripts.s';text=ep.read_text();inc='.include "data/maps/VioletCity/scripts.inc"\n'
@@ -246,7 +260,7 @@ def main(game):
  gatepath.write_text(json.dumps(m,indent=2)+'\n')
  np.save(S/'plan.npy',plan);np.save(S/'solid.npy',solid);(S/'landmarks.json').write_text(json.dumps(anchors,indent=2)+'\n')
  image=Tileset(game,'violet_city','violet_city').map_image(grid.ravel().tolist(),W);image.save(EV/'native-overview.png')
- report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(campus_trees),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; Cherrygrove green trees and buildings with Violet-only edge finishing; native Emerald rocks','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity')}
+ report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(campus_trees),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; Cherrygrove green trees and buildings with Violet-only edge finishing; native Emerald rocks','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity'),'teaching_court':[55,48,12,7]}
  # A successful regeneration updates only hashes for this authoring manifest.
  if guard.exists():guard.write_text(json.dumps({p:digest(game/p) for p in json.loads(guard.read_text())},indent=2)+'\n')
  (EV/'assembly.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

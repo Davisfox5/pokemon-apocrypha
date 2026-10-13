@@ -1,0 +1,28 @@
+{
+  "base_commit": "4d086afa28a2c9e51922f8ba5b8619adfc11475c",
+  "native_Porymap_pixel_errors": 0,
+  "lake_water_and_bridge_cells_unchanged": true,
+  "east_gate_warps_unchanged": true,
+  "house_count": 5,
+  "added_houses": 3,
+  "landmark_approaches": 10,
+  "practice_court": [
+    55,
+    48,
+    12,
+    7
+  ],
+  "lecture_hall_story": "DESIGN.md lines 835-847 and 868-878",
+  "source_boundary": "Exterior architecture and court are original native tile modules; no interiors, classes or battles implemented",
+  "tile_count": 1002,
+  "bench_blocked_cells": 8,
+  "spectator_benches": 4,
+  "ordinary_walk_steps": 492,
+  "runtime_phases_passed": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "border": "2x2 native forest pattern replaces repeated single crown quarter; southern-house runtime capture inspected",
+  "rom_sha256": "1365a65e19f445a2a75ddf450a4b8b3fbad2adbbb06046080d8b86e1fd6a5ed9"
+}

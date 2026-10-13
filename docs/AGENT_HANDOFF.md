@@ -1,3 +1,9 @@
+## October 13: Violet university, housing and teaching court
+
+Owner approved the softened exterior and requested three more houses, a university replacing the repeated purple-roofed schools, and a Scarlet/Violet-inspired teaching arena. Expansion commit `f079eaef78f8c58ffd7bdf28c4e97a2f2a0ea710` on `codex/violet-city` implements those exteriors. The main university contains the planned library/classroom entrance; the old gym remains the lecture hall and Roxanne practicum specified in DESIGN.md Chapter 2. The existing outlined court east of the Center is now a colored teaching court with trainer markings, four benches and a sign; the lake landing is unchanged. Three cleared pockets contain accepted Johto house artwork. Pink trees remain exclusive to Cherrygrove.
+
+See `gba/art/violet-city/README.md`. Native Porymap equality, 492-step walking tour to ten approaches, house/university doors, court/bench collision, six signs, gate travel and ordinary save/cold reload/Continue pass. Lake/bridge geometry, east gate warps and other maps are preserved. Native scenery uses 1,002/1,008 slots. Interiors, classes, NPCs and battles remain unimplemented. Next: owner review, then scoped interior/Chapter 2 work. No desktop emulator opened.
+
 ## October 13: Violet edge refinement
 
 Owner broadly likes Violet and requested softer edges, especially water, and no pink trees outside Cherrygrove. Updated native source `4d086afa28a2c9e51922f8ba5b8619adfc11475c` on `codex/violet-city` rounds/shades the lake bank and stone landing, eases building silhouettes, lightly rounds street corners and replaces all six Violet pink trees with green. Pink-tree exclusivity is now a project rule in AGENTS.md. Other map artwork is preserved. See `gba/art/violet-city/README.md` for before/after and background gameplay captures.
