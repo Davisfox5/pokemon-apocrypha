@@ -13,7 +13,20 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Violet identity and route approaches — current
+## Imported-art cleanup — current
+
+- Recovered the houses' left eave from the source and traced the stepped roof outline. Removed the generic corner trimming, preserving the wall bases, ridge and doorway details.
+- Removed donor paving/grass behind sign boards and posts; removed water/path fragments from bridge finials and roof/facade fragments from the Mart sign. Bridge finials now use their original neutral outline/material colors.
+- Restored the islet's full HGSS turf, canopy and cliff texture, replacing the previous repeated soil bands. Masked the surrounding donor water so it sits on the native lake texture.
+- Preserved every collision/elevation/behavior/layer value, all events, scripts and warps. University, hall, Center, tower, teaching court and west gate pixels are identical to the previous revision.
+
+Native source revision is in `evidence/preservation.json`. Porymap matches the independent native decoder exactly; local ROM compilation and the background 661-step walking tour, signs, gate return, ordinary save/cold reload/Continue pass. Native captures were inspected. Surf traversal remains unqualified; this cleanup changes no water behavior. No desktop emulator opened.
+
+Capacity is **999 / 1,008 scenery tiles**, with nine remaining. Deterministic palette-index alignment shares identical 8x8 patterns without changing RGB pixels, transparency or hardware limits. Reproducible masks and packing live in `tools/gba/maps/violet_city/cleanup.py` and `packing.py`.
+
+[Before/after cleanup](evidence/cleanup-comparison.png) · [Silhouette review](evidence/cleanup-silhouettes.png) · [Full native map](evidence/native-overview.png) · [Background captures](evidence/gameplay-gallery.png) · [Validation](evidence/cleanup-validation.json)
+
+## Previous Violet identity and route approaches
 
 The owner requested Violet-specific houses and the small details from its HGSS map. All five homes now use the steep purple gable, timber facade, green door and blue windows from the actual Violet reference. All ten landmark door anchors are preserved. The eastern gate facade uses the same regional house vocabulary and retains its working warp.
 
@@ -24,7 +37,7 @@ The owner requested Violet-specific houses and the small details from its HGSS m
 
 Engine `157028f79b6db9ce152a1056528f4af9869d83a1`, branch `codex/violet-city`. Local ROM, Porymap equality, porygon/Poryscript validation, 661-step ordinary walking tour to twelve approaches, east gate return, eight signs and ordinary save/cold reload/Continue pass. Native captures were visually inspected. Water decorations retain prior water attributes except the new solid islet; Surf traversal has not been qualified in this exterior. No desktop emulator was opened.
 
-Current capacity is **1,007 / 1,008 scenery tiles**. Further exterior assets need tile reuse or a tileset plan. The generator guard now excludes ignored mapjson compiler outputs (events/header/connections); authored source remains protected.
+That revision used **1,007 / 1,008 scenery tiles**. Further exterior assets need tile reuse or a tileset plan. The generator guard now excludes ignored mapjson compiler outputs (events/header/connections); authored source remains protected.
 
 [Full native map](evidence/native-overview.png) · [Detail board](evidence/violet-details.png) · [Before/after](evidence/violet-details-comparison.png) · [Native verification](evidence/violet-details-validation.json)
 

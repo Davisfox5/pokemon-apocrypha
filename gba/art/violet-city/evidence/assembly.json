@@ -6,19 +6,24 @@
   ],
   "tiles": {
     "primary": 512,
-    "secondary": 495
+    "secondary": 487
   },
   "metatiles": {
     "primary": 512,
-    "secondary": 8
+    "secondary": 18
   },
   "complete_trees": 639,
   "layers": {
     "composited_terrain_palette": 1,
-    "background_assets": 20,
+    "background_assets": 31,
     "background_colour_cleanup": [
       {
         "asset": "background-12-062",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-18-063",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -43,17 +48,42 @@
         "max_channel_delta": 0
       },
       {
+        "asset": "background-106-086",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-107-086",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-136-086",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-137-086",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-108-093",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-146-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
         "asset": "background-147-104",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
       {
         "asset": "background-148-104",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-151-104",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -88,7 +118,17 @@
         "max_channel_delta": 0
       },
       {
+        "asset": "background-152-112",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
         "asset": "background-153-112",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-70-114",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -103,12 +143,27 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-75-114",
+        "asset": "background-76-114",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
       {
-        "asset": "background-76-114",
+        "asset": "background-77-114",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-78-114",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-70-119",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-77-119",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },

@@ -1,3 +1,9 @@
+## Latest: Violet imported-art cleanup
+
+Owner flagged clipped homes, background fragments around signs/bridge ornaments and the unfinished islet. Expansion `9ce2004781362fa4a89605a3bce01c48ff5a6177` on `codex/violet-city` restores full house eaves/wall bases, isolates sign/post/Mart sign silhouettes, and restores the HGSS islet's turf and cliff texture. Source masks and lossless palette-index packing are reproducible; capacity is 999/1,008 tiles. See `gba/art/violet-city/evidence/cleanup-comparison.png` and `cleanup-validation.json`.
+
+All 5,760 collision/elevation/behavior/layer cells, events, scripts and warps remain identical. Approved university, hall, Center, tower, court and west gate have zero changed pixels. Local ROM, Porymap/native pixel equality and the 661-step background tour, signs, east gate return and ordinary save/cold reload/Continue pass. Surf remains unqualified; water behavior is unchanged. No desktop emulator opened. City-side Route 32/36 approaches remain incomplete beyond the city; interiors/scenes remain unbuilt. Next: owner visual review of the cleaned source imports.
+
 ## Latest: Violet houses, lake details and city-side exits
 
 Owner approved the lecture-hall roof and requested Route 32/36 exits, the correct Mart identity, Violet-specific houses and smaller HGSS details. Expansion `157028f79b6db9ce152a1056528f4af9869d83a1` on `codex/violet-city` implements five Violet purple-gabled timber homes, a matching east gate facade, bridge finials, lily pads, planted islet, the omitted HGSS Mart sign, a west gate approach and a connected southern lane. Existing door anchors/warps and approved campus/tower/Center artwork are preserved.

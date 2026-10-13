@@ -1,6 +1,6 @@
 {
   "university": "Original native 352x144 facade; slate roof classroom wings, central limestone clock tower, library inside main hall",
-  "housing": "Five HGSS Violet purple-gabled timber-fronted houses, actual source crop (160,528)-(240,624); blue window colors pinned; all doorway anchors preserved. East gate facade uses the same regional vocabulary at its original warp.",
+  "housing": "Five HGSS Violet purple-gabled timber houses, source crop (158,528)-(238,624); full stepped roof edges and wall bases preserved by explicit ownership masks. Door anchors unchanged; east gate uses the same regional facade.",
   "court": "Original native 192x112 red-blue teaching court, central Pokeball emblem, trainer boxes, four spectator benches, sign",
   "visual_reference": "https://kc1game.hatenablog.com/entry/pokemon_sv1",
   "reference_image": "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kibunchu1/20221129/20221129231518.jpg",
@@ -9,6 +9,7 @@
   "interiors": "Planned, not implemented",
   "former_gym": "Owner-corrected original 144x112 lecture hall architecture: broad copper roof, raised clerestory, rectangular wings, original copper/cyan colors, orange ribs and curved blue glass canopy. Supersedes the earlier silhouette-preserving trim edit.",
   "roof_revision": "Staggered overlapping copper tiles with shaded lower lips and diagonal hip caps; only roof pixels changed. All facade pixels, silhouette, collision, events and warps preserved.",
-  "lake_details": "Six HGSS bridge finials, five original native lily-pad clusters, HGSS planted islet with repeated earth-face modules and pinned foliage greens.",
-  "exits": "City-side western gate and southern approach only; route maps and west gate interior pending."
+  "lake_details": "Six HGSS bridge finials with terrain-free silhouettes, five native lily-pad clusters, HGSS planted islet preserving the original turf and cliff texture with source water masked out.",
+  "exits": "City-side western gate and southern approach only; route maps and west gate interior pending.",
+  "cleanup": "Sign board/pole and Mart sign masks remove donor terrain and building fragments. Native palette-index permutations preserve exact RGB while sharing hardware tile patterns. The accepted west gate image is pinned in preserved-west-gate.png from parent 7546528638172345896cd4a1bffcf610b8182d3a."
 }

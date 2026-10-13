@@ -13,7 +13,7 @@ from claude_cherrygrove.pixel import Canvas,Palette
 from route30_hgss_blocks import ground_native,layers
 from tiles import Tileset,palette
 from edges import soften_building,shoreline,rounded_distance
-import campus,exits
+import campus,exits,cleanup,packing
 OUT=ROOT/'gba/art/violet-city';S=OUT/'source';EV=OUT/'evidence';W,H=80,72
 
 def digest(path):
@@ -43,10 +43,11 @@ def main(game):
  'gym':cut('gym',(448,576,560,672),[(37,0),(76,0),(76,7),(93,15),(105,29),(109,51),(110,69),(101,82),(77,90),(24,90),(7,82),(2,66),(3,39),(10,23),(31,11),(37,11)]),
  }
  # Violet's distinctive tall purple gable and timber-fronted homes.
- house_pixels=cut('violet_house',(160,528,240,624),[(29,3),(34,3),(35,12),(64,30),(66,35),(66,68),(61,69),(61,87),(7,87),(7,69),(0,68),(0,32),(28,12)])
- housebank=banks.Bank(6,'VIOLET_HOMES','secondary').add('house',house_pixels).keep((89,140,186),(115,166,200))
+ house_pixels=cleanup.house(ref);post=cleanup.bridge_post(ref)
+ housebank=banks.Bank(6,'VIOLET_HOMES_PROPS','secondary').add('house',house_pixels).add('bridge_post',post).keep((89,140,186),(115,166,200),(32,32,32),(136,152,168),(176,168,104),(120,104,24))
  A.update(housebank.build());pals[6]=housebank.palette
  A['gable']=A['house']
+ cleanup.mart_sign_mask(A['mart_sign'])
  # Exclude foliage behind the spire before indexing the source silhouette.
  top=special['tower'][:24];top[:,:,3][top[:,:,1].astype(int)>top[:,:,0].astype(int)]=0
  purple=banks.Bank(7,'VIOLET_LANDMARKS','secondary').add('tower',special['tower']).add('academy',special['academy']);A.update(purple.build());pals[7]=purple.palette
@@ -57,7 +58,7 @@ def main(game):
   c=A[key]
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
- for key in ['tower','academy','gym','house','gable','center','mart']:soften_building(A[key])
+ for key in ['tower','academy','gym','center','mart']:soften_building(A[key])
  A['gym']=campus.lecture_hall();pals[5]=A['gym'].pal;soften_building(A['gym'])
  # Original modular university facade; its library is planned inside the main hall.
  A['university']=campus.university();pals[10]=A['university'].pal
@@ -68,6 +69,7 @@ def main(game):
  for name,box in [('paving',(256,480,288,512)),('bridge',(608,304,656,336)),('rail_left',(600,304,608,336)),('rail_right',(656,304,664,336)),('island',(528,384,560,416)),('sign',(640,744,656,768))]:
   ar=np.array(ref.crop(box));infrastructure.add(name,ar)
  A.update(infrastructure.build());pals[11]=infrastructure.palette
+ cleanup.sign_mask(A['sign'])
  # Reuse Route 30's native freshwater glyphs and complete tree art exactly.
  rt=Tileset(game,'claude_route30','cherrygrove');pals[12]=Palette(12,rt.pals[1][12][1:],[str(j) for j in range(15)])
  for phase in range(4):
@@ -78,19 +80,28 @@ def main(game):
   for phase in range(1,4):A[f'pond-{bits}-{phase}']=A[f'pond-{bits}-0']
  # Native HGSS-style west gate replaces the temporary boundary rock bank.
  A['west_gate']=exits.west_gate();pals[2]=A['west_gate'].pal
- # Bridge finials come from the HGSS reference, at native scale.
- post=cut('bridge_post',(576,544,592,576),[(6,4),(10,4),(10,8),(15,8),(15,24),(12,24),(12,30),(3,30),(3,26),(1,26),(1,8),(6,8)])
- c=Canvas(16,32,pals[11]);colors=np.array(pals[11].gba(),int);mask=post[:,:,3]>0
- c.px[mask]=((post[mask,:3].astype(int)[:,None]-colors[None,1:])**2).sum(2).argmin(1)+1;A['bridge_post']=c
+ # Clean silhouettes are imported before quantization; retain the full islet face.
  A['lily_pads']=exits.lily_pads(pals[6])
- island=cut('lake_islet',(736,432,800,512),[(29,4),(36,4),(40,8),(46,13),(54,13),(58,16),(61,19),(62,26),(61,38),(62,42),(60,50),(61,60),(60,74),(48,74),(44,72),(37,74),(28,72),(23,75),(15,74),(4,73),(2,69),(3,58),(2,51),(4,41),(2,38),(3,29),(2,21),(6,17),(10,14),(19,13),(21,10)])
- detailbank=banks.Bank(2,'VIOLET_GATE_ISLET','primary').add('west_gate',A['west_gate'].to_rgba()).add('lake_islet',island).keep((80,96,48),(96,128,32),(120,168,40))
- A.update(detailbank.build());pals[2]=detailbank.palette
- # Repeat the islet's interior earth face; keep the coast and turf edge intact.
- c=A['lake_islet']
- for y in [56,64]:c.px[y:y+8,8:56]=np.tile(c.px[y:y+8,16:24].copy(),(1,6))
+ island=cleanup.islet(ref)
+ # Preserve the accepted gate colors exactly; its ten shades also supply
+ # turf and deep soil tones. Five slots carry the island's foliage/earth.
+ gate=np.array(Image.open(S/'preserved-west-gate.png').convert('RGBA'))
+ gate_colors=[tuple(map(int,c)) for c in np.unique(gate[gate[:,:,3]>0,:3],axis=0)]
+ colors=gate_colors+[(80,96,48),(96,128,32),(120,168,40),(136,96,72),(160,120,88)]
+ pals[2]=Palette(2,colors,[str(i) for i in range(15)])
+ for name,rgba in [('west_gate',gate),('lake_islet',island)]:
+  c=Canvas(rgba.shape[1],rgba.shape[0],pals[2]);mask=rgba[:,:,3]>0
+  c.px[mask]=((rgba[mask,:3].astype(int)[:,None]-np.array(colors,int)[None])**2).sum(2).argmin(1)+1;A[name]=c
  # Snap new palette colors to GBA RGB555 before lossless compilation.
  for pal in pals.values():pal.colors=[tuple(v//8*8 for v in color) for color in pal.colors]
+ # Equal RGB555 colors share an index. This reduces storage without changing
+ # a single visible pixel or cutting detail from the imported artwork.
+ for c in A.values():
+  colors=c.pal.gba();lut=np.arange(16,dtype=np.uint8)
+  for i in range(1,16):
+   for j in range(1,i):
+    if colors[i]==colors[j]:lut[i]=j;break
+  c.px=lut[c.px]
  # Preserve editable native indexed assets and compile new landmarks with Porytiles.
  material=S/'materials';material.mkdir(exist_ok=True)
  for name,c in A.items():Image.fromarray(c.to_rgba()).save(material/f'{name}.png')
@@ -204,6 +215,9 @@ def main(game):
  mc.background_bank=mc.bank.copy();mc.background_idx=mc.idx.copy()
  for y in range(23,29):
   for x in range(31,43):
+   if x in [37,40] and y in [24,25]:
+    fg.bank[y*16:(y+1)*16,x*16:(x+1)*16]=-1;fg.idx[y*16:(y+1)*16,x*16:(x+1)*16]=0
+    continue  # Opaque landing under finials uses BG3, leaving BG2 for the prop.
    c=A[f'pond-15-{y%2*2+x%2}'];mc.background_bank[y*16:y*16+16,x*16:x*16+16]=12;mc.background_idx[y*16:y*16+16,x*16:x*16+16]=c.px
  for x,y in trees:stamp('tree',x,y,True);mc.above[y,x:x+2]=True
  # Green campus trees retain footprints. Pink trees are exclusive to Cherrygrove.
@@ -246,6 +260,7 @@ def main(game):
  # New city-only tile pools. Reuse accepted pixels; never repack shared map tilesets.
  class CityPacker(native.Packer):
   def tile(self,bank,arr,pos=None):
+   arr=palette_maps[bank][arr]
    for hf in (0,1):
     for vf in (0,1):
      aa=(arr[::-1] if vf else arr);aa=aa[:,::-1] if hf else aa;k=aa.tobytes()
@@ -258,12 +273,18 @@ def main(game):
    if k in self.block_lookup:return self.block_lookup[k]
    pool='primary' if len(self.blocks['primary'])<512 else 'secondary';assert len(self.blocks[pool])<512
    mid=(0 if pool=='primary' else 512)+len(self.blocks[pool]);self.blocks[pool].append(tuple(entries));self.attrs[pool].append(attr);self.block_lookup[k]=mid;return mid
- ground_native.install(game,pals);packer=CityPacker(pals);grid=np.zeros((H,W),np.uint16)
+ ground_native.install(game,pals);grid=np.zeros((H,W),np.uint16)
+ probe=packing.Probe();layers.pack(comp,probe,pals,grid,S,composite_bank=1)
+ palette_maps,packing_report=packing.optimize(probe)
+ (S/'palette-index-map.json').write_text(json.dumps(packing_report,indent=2)+'\n')
+ print('Lossless packing:',packing_report['unique_tiles_before'],packing_report['unique_tiles_after'],flush=True)
+ packer=CityPacker(pals)
  # Keep tower palette 7 intact; unused bank 1 holds exact under-canopy composites.
  result=layers.pack(comp,packer,pals,grid,S,composite_bank=1)
  assert sum(len(a) for a in packer.tiles.values())<=1008,('Full city scenery budget',sum(len(a) for a in packer.tiles.values()),__import__('collections').Counter(b for ts in packer.tiles.values() for b,_ in ts))
  if not packer.blocks['secondary']:
   packer.blocks['secondary'].append((0,)*8);packer.attrs['secondary'].append(0)
+ packing.apply_palettes(pals,palette_maps)
  for kind,banks_used in [('primary',range(6)),('secondary',range(6,13))]:native.write_tileset(game,kind,'violet_city',packer.tiles[kind],packer.blocks[kind],packer.attrs[kind],pals,banks_used)
  register(game)
  folder=game/'data/layouts/VioletCity';folder.mkdir(exist_ok=True)
