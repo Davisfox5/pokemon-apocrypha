@@ -114,9 +114,9 @@ def main(game):
  # Campus court, library garden and a bounded southern/western path reserve.
  rect('.',54,34,22,16);rect('P',51,43,22,4);rect('P',68,43,5,13);rect('.',54,47,14,9);rect('C',55,48,12,7)
  rect('.',21,67,5,5);rect('P',22,67,3,3)
- buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',28,36,3,5),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4),('house','Northwest Residence',10,23,1,4),('gable','West Garden Residence',24,52,2,4),('house','South Garden Residence',55,64,1,4)]
+ buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',28,36,3,5),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4),('house','Northwest Residence',10,23,1,4),('gable','West Garden Residence',24,52,2,4),('house','South Garden Residence',55,60,1,4)]
  # Three modest residential clearings connect to the existing street spine.
- for box in [(8,22,10,11),(22,50,12,10),(53,62,10,9)]:rect('.',*box)
+ for box in [(8,22,10,11),(22,50,12,10),(53,59,12,8)]:rect('.',*box)
  for key,label,x,y,dx,dy in buildings:
   c=A[key]
   if key=='university':rect('.',x,y+3,c.w//16,c.h//16-3)
@@ -124,7 +124,7 @@ def main(game):
   rect('P',x+dx,y+c.h//16,2,2)
  # Connect each approach to the HGSS road spine, explicit grid geometry.
  rect('P',37,13,5,4);rect('P',20,40,3,5);rect('P',28,41,7,4);rect('P',54,42,6,4);rect('P',47,55,5,4);rect('P',10,39,7,3);rect('P',36,62,7,3)
- rect('P',11,28,7,3);rect('P',26,57,15,3);rect('P',55,59,3,5);rect('P',56,69,5,2);rect('P',59,60,2,10)
+ rect('P',11,28,7,3);rect('P',26,57,15,3);rect('P',60,59,3,8);rect('P',56,65,7,2)
  # Arrival arch at eastern end; its warp is a cave-style threshold under the roof.
  rect('P',73,56,5,5)
  # Ground floor, structures, and upper foreground remain distinct layers.

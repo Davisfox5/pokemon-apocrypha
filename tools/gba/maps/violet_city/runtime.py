@@ -26,7 +26,7 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(43,56,53);step(DOWN,1);at(43,56,53,"court-bench-blocks");shot("court-benches");
  go(43,11,28);step(UP,1);at(43,11,28,"northwest-house-closed");
  go(43,26,57);step(UP,1);at(43,26,57,"west-garden-house-closed");
- go(43,56,69);step(UP,1);at(43,56,69,"south-garden-house-closed");
+ go(43,56,65);step(UP,1);at(43,56,65,"south-garden-house-closed");
  go(43,39,13);shot("save-at-violet");
  unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }

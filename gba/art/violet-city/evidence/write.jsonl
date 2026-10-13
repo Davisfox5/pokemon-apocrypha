@@ -486,13 +486,9 @@
 {"step":"walk-491","region":2,"group":80,"map":43,"x":53,"y":63,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-492","region":2,"group":80,"map":43,"x":53,"y":64,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-493","region":2,"group":80,"map":43,"x":53,"y":65,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-494","region":2,"group":80,"map":43,"x":53,"y":66,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-495","region":2,"group":80,"map":43,"x":53,"y":67,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-496","region":2,"group":80,"map":43,"x":53,"y":68,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-497","region":2,"group":80,"map":43,"x":53,"y":69,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-498","region":2,"group":80,"map":43,"x":54,"y":69,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-499","region":2,"group":80,"map":43,"x":55,"y":69,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-500","region":2,"group":80,"map":43,"x":56,"y":69,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"walk-494","region":2,"group":80,"map":43,"x":54,"y":65,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"walk-495","region":2,"group":80,"map":43,"x":55,"y":65,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"walk-496","region":2,"group":80,"map":43,"x":56,"y":65,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"tower-door-closed","region":2,"group":80,"map":43,"x":39,"y":13,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"bridge-rail-blocks","region":2,"group":80,"map":43,"x":38,"y":20,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"island-water-blocks","region":2,"group":80,"map":43,"x":31,"y":26,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
@@ -503,5 +499,5 @@
 {"step":"court-bench-blocks","region":2,"group":80,"map":43,"x":56,"y":53,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"northwest-house-closed","region":2,"group":80,"map":43,"x":11,"y":28,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"west-garden-house-closed","region":2,"group":80,"map":43,"x":26,"y":57,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"south-garden-house-closed","region":2,"group":80,"map":43,"x":56,"y":69,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"south-garden-house-closed","region":2,"group":80,"map":43,"x":56,"y":65,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"save_status":1,"flash_bytes":131072}

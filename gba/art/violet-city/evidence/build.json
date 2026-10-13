@@ -1,6 +1,6 @@
 {
   "engine_base": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
-  "rom_sha256": "1365a65e19f445a2a75ddf450a4b8b3fbad2adbbb06046080d8b86e1fd6a5ed9",
+  "rom_sha256": "130610987a204db06e6be2764dfb2438365d7aaccdc431c876ee58f3ab4d8156",
   "toolchain": "Arm GNU 14.2.rel1",
   "build": "gmake tools; gmake -j1 generated; gmake -j8",
   "source_manifest_files": 54,

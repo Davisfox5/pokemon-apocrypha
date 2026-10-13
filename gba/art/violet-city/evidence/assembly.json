@@ -6,16 +6,16 @@
   ],
   "tiles": {
     "primary": 512,
-    "secondary": 490
+    "secondary": 484
   },
   "metatiles": {
-    "primary": 475,
+    "primary": 468,
     "secondary": 1
   },
-  "complete_trees": 664,
+  "complete_trees": 667,
   "layers": {
     "composited_terrain_palette": 1,
-    "background_assets": 43,
+    "background_assets": 33,
     "background_colour_cleanup": [
       {
         "asset": "background-40-080",
@@ -179,56 +179,6 @@
       },
       {
         "asset": "background-69-119",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-128",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-129",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-130",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-131",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-132",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-133",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-134",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-135",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-136",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-118-137",
         "changed_pixels": 0,
         "max_channel_delta": 0
       }
@@ -404,17 +354,17 @@
       "asset": "house",
       "box": [
         55,
-        64,
+        60,
         5,
         5
       ],
       "door": [
         56,
-        68
+        64
       ],
       "approach": [
         56,
-        69
+        65
       ]
     }
   ],
