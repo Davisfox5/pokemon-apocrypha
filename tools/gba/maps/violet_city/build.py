@@ -222,7 +222,7 @@ def main(game):
  mf=game/'data/maps/VioletCity';mf.mkdir(exist_ok=True);(mf/'map.json').write_text(json.dumps(m,indent=2)+'\n')
  (mf/'scripts.pory').write_text('raw `VioletCity_MapScripts::\n    .byte 0\n`\n\n'+''.join('script VioletCity_'+name+' {\n    msgbox("'+text+'", MSGBOX_SIGN)\n    end\n}\n\n' for name,text in [('University','VIOLET UNIVERSITY'),('Tower','SPROUT TOWER'),('Library','UNIVERSITY LIBRARY'),('Lecture','LECTURE HALL\\nBATTLE PRACTICUM'),('City','VIOLET CITY')]))
  script=mf/'scripts.pory';script.write_text(script.read_text().rstrip()+'\n')
- subprocess.run([str(game/'tools/poryscript/poryscript'),'-i',str(mf/'scripts.pory'),'-o',str(mf/'scripts.inc'),'-fc',str(game/'tools/poryscript/font_config.json'),'-cc',str(game/'tools/poryscript/command_config.json')],check=True)
+ subprocess.run([str(game/'tools/poryscript/poryscript'),'-i','data/maps/VioletCity/scripts.pory','-o','data/maps/VioletCity/scripts.inc','-fc','tools/poryscript/font_config.json','-cc','tools/poryscript/command_config.json'],cwd=game,check=True)
  ep=game/'data/event_scripts.s';text=ep.read_text();inc='.include "data/maps/VioletCity/scripts.inc"\n'
  if inc not in text:ep.write_text(text+inc)
  proof=game/'src/apocrypha_map_proof.c';text=proof.read_text()

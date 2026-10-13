@@ -20,7 +20,6 @@ int main(int argc,char **argv){
   Map *m=p.loadMap(name);if(!m)return 5;
   Layout *l=m->layout();l->render(true);if(l->image.isNull()||!l->image.save(out+"/"+name+".png"))return 6;
   maps.append(QJsonObject{{"map",name},{"width_px",l->image.width()},{"height_px",l->image.height()}});
-  if(name=="NewBarkTown"&&argc>3&&!p.saveMap(m))return 7;
  }
  p.saveConfig();QByteArray json=QJsonDocument(QJsonObject{{"porymap","6.3.1"},{"maps",maps}}).toJson();fwrite(json.constData(),1,json.size(),stdout);delete porysplash;return 0;
 }
