@@ -4,8 +4,8 @@ import sys,re
 import numpy as np
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent))
 from tiles import Tileset
-G=Path(sys.argv[1]);t=Tileset(G,'new_bark','cherrygrove');grid=np.fromfile(G/'data/layouts/NewBarkTown/map.bin','<u2').reshape(50,36);rgb=np.asarray(t.map_image(grid.ravel().tolist(),36),int)
-for number,x,y in [(0,17,6),(7,24,38)]:
+G=Path(sys.argv[1]);t=Tileset(G,'new_bark','cherrygrove');grid=np.fromfile(G/'data/layouts/NewBarkTown/map.bin','<u2').reshape(53,36);rgb=np.asarray(t.map_image(grid.ravel().tolist(),36),int)
+for number,x,y in [(0,17,9),(7,24,41)]:
  closed=rgb[(y-1)*16:(y+1)*16,x*16:(x+2)*16].copy();frames=[];top,bot,right=(8,31,20) if number==0 else (13,29,16)
  for n in (1,2,3):
   f=closed.copy();f[top:bot,:right]=[24,32,40];keep=right-right*n//3
