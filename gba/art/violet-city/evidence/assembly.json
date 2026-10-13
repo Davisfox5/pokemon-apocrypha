@@ -1,0 +1,303 @@
+{
+  "base": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+  "size": [
+    80,
+    72
+  ],
+  "tiles": {
+    "primary": 512,
+    "secondary": 478
+  },
+  "metatiles": {
+    "primary": 393,
+    "secondary": 1
+  },
+  "complete_trees": 734,
+  "layers": {
+    "composited_terrain_palette": 1,
+    "background_assets": 26,
+    "background_colour_cleanup": [
+      {
+        "asset": "background-40-080",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-40-081",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-56-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-57-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-58-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-66-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-67-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-68-082",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-101-083",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-133-083",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-132-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-135-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-146-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-147-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-148-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-149-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-150-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-151-104",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-151-105",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-94-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-95-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-96-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-101-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-102-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-103-110",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-153-112",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      }
+    ],
+    "ground_colours_pinned": true,
+    "foreground_layers_explicit": true
+  },
+  "buildings": [
+    {
+      "name": "Sprout Tower",
+      "asset": "tower",
+      "box": [
+        36,
+        1,
+        7,
+        12
+      ],
+      "door": [
+        39,
+        12
+      ],
+      "approach": [
+        39,
+        13
+      ]
+    },
+    {
+      "name": "Lecture Hall",
+      "asset": "gym",
+      "box": [
+        28,
+        36,
+        7,
+        6
+      ],
+      "door": [
+        31,
+        41
+      ],
+      "approach": [
+        31,
+        42
+      ]
+    },
+    {
+      "name": "University",
+      "asset": "academy",
+      "box": [
+        44,
+        35,
+        9,
+        7
+      ],
+      "door": [
+        48,
+        41
+      ],
+      "approach": [
+        48,
+        42
+      ]
+    },
+    {
+      "name": "Library",
+      "asset": "library",
+      "box": [
+        60,
+        35,
+        9,
+        7
+      ],
+      "door": [
+        64,
+        41
+      ],
+      "approach": [
+        64,
+        42
+      ]
+    },
+    {
+      "name": "Poke Mart",
+      "asset": "mart",
+      "box": [
+        20,
+        37,
+        5,
+        4
+      ],
+      "door": [
+        21,
+        40
+      ],
+      "approach": [
+        21,
+        41
+      ]
+    },
+    {
+      "name": "Pokemon Center",
+      "asset": "center",
+      "box": [
+        46,
+        50,
+        7,
+        6
+      ],
+      "door": [
+        49,
+        55
+      ],
+      "approach": [
+        49,
+        56
+      ]
+    },
+    {
+      "name": "West Residence",
+      "asset": "house",
+      "box": [
+        9,
+        34,
+        5,
+        5
+      ],
+      "door": [
+        10,
+        38
+      ],
+      "approach": [
+        10,
+        39
+      ]
+    },
+    {
+      "name": "South Residence",
+      "asset": "gable",
+      "box": [
+        34,
+        57,
+        5,
+        5
+      ],
+      "door": [
+        36,
+        61
+      ],
+      "approach": [
+        36,
+        62
+      ]
+    }
+  ],
+  "source": "HGSS geography reference with east campus extension; shared Cherrygrove exact assets; native Emerald rocks",
+  "interiors": "not implemented; entrances closed except east gate",
+  "new_map_id": 43
+}

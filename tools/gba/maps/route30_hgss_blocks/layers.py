@@ -6,7 +6,7 @@ from PIL import Image
 from claude_cherrygrove import ground,banks
 from claude_cherrygrove.pixel import Canvas
 
-def pack(comp,packer,pals,grid,source_dir):
+def pack(comp,packer,pals,grid,source_dir,composite_bank=7):
  mc=comp['canvas'];fb,fi=mc.fore_bank,mc.fore_idx;bb,bi=mc.background_bank,mc.background_idx
  gimg,mat=ground.paint(comp['cells']);pal0=np.asarray(pals[0].gba(),int);rgb=gimg[...,:3].astype(int)
  gi=((rgb[...,None,:]-pal0[None,None])**2).sum(3).argmin(2).astype(np.uint8)
@@ -26,9 +26,9 @@ def pack(comp,packer,pals,grid,source_dir):
      mask=background==bank;q[mask,:3]=np.asarray(pals[bank].gba(),np.uint8)[background_index[mask]]
     name=f'background-{x//8:02}-{y//8:03}';cases[(x,y)]=name;mixed.append((name,q))
  if mixed:
-  bank=banks.Bank(7,'NATIVE_TERRAIN_UNDER_OVERHANG','secondary').keep((104,208,152),(104,200,152),(88,176,136),(96,192,144),(64,136,104))
+  bank=banks.Bank(composite_bank,'NATIVE_TERRAIN_UNDER_OVERHANG','secondary').keep((104,208,152),(104,200,152),(88,176,136),(96,192,144),(64,136,104))
   for name,q in mixed:bank.add(name,q)
-  converted=bank.build();pals[7]=bank.palette
+  converted=bank.build();pals[composite_bank]=bank.palette
  else:converted={}
  material=source_dir/'overhang-backgrounds';material.mkdir(exist_ok=True)
  current_names={name+'.png' for name,q in mixed}
@@ -52,7 +52,7 @@ def pack(comp,packer,pals,grid,source_dir):
     if fs and (f>=0).all() and (fx>0).all():
      bottom.append(0);top.append(entry(fs[0],fx.astype(np.uint8)));continue
     if not fs and (xx,yy) in cases:
-     c=converted[cases[(xx,yy)]];bottom.append(entry(7,c.px.astype(np.uint8)));top.append(0);continue
+     c=converted[cases[(xx,yy)]];bottom.append(entry(composite_bank,c.px.astype(np.uint8)));top.append(0);continue
     if not fs:
      if bs=={0,12}:
       colors=np.asarray(pals[12].gba(),int);src=gimg[yy:yy+8,xx:xx+8,:3].astype(int)
@@ -66,7 +66,7 @@ def pack(comp,packer,pals,grid,source_dir):
       bank=next(v for v in bs if v!=0);bottom.append(entry(0,base));top.append(entry(bank,np.where(b==bank,ix,0).astype(np.uint8)))
      continue
     if (xx,yy) in cases:
-     c=converted[cases[(xx,yy)]];bottom.append(entry(7,c.px.astype(np.uint8)))
+     c=converted[cases[(xx,yy)]];bottom.append(entry(composite_bank,c.px.astype(np.uint8)))
     elif bs=={0,12}:
      colors=np.asarray(pals[12].gba(),int);src=gimg[yy:yy+8,xx:xx+8,:3].astype(int)
      ids=((src[...,None,:]-colors[None,None])**2).sum(3).argmin(2).astype(np.uint8)
@@ -78,4 +78,4 @@ def pack(comp,packer,pals,grid,source_dir):
     top.append(entry(fs[0],np.where(f==fs[0],fx,0).astype(np.uint8)))
    attr=int(comp['behavior'][y,x])|(0 if mc.above[y,x] else 0x1000)
    grid[y,x]=packer.metatile(bottom+top,attr)|0x3000|(0xc00 if comp['solid'][y,x] else 0)
- return {'composited_terrain_palette':7 if mixed else None,'background_assets':len(mixed),'background_colour_cleanup':errors,'ground_colours_pinned':True,'foreground_layers_explicit':True}
+ return {'composited_terrain_palette':composite_bank if mixed else None,'background_assets':len(mixed),'background_colour_cleanup':errors,'ground_colours_pinned':True,'foreground_layers_explicit':True}

@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Sprout Tower",
+    "asset": "tower",
+    "box": [
+      36,
+      1,
+      7,
+      12
+    ],
+    "door": [
+      39,
+      12
+    ],
+    "approach": [
+      39,
+      13
+    ]
+  },
+  {
+    "name": "Lecture Hall",
+    "asset": "gym",
+    "box": [
+      28,
+      36,
+      7,
+      6
+    ],
+    "door": [
+      31,
+      41
+    ],
+    "approach": [
+      31,
+      42
+    ]
+  },
+  {
+    "name": "University",
+    "asset": "academy",
+    "box": [
+      44,
+      35,
+      9,
+      7
+    ],
+    "door": [
+      48,
+      41
+    ],
+    "approach": [
+      48,
+      42
+    ]
+  },
+  {
+    "name": "Library",
+    "asset": "library",
+    "box": [
+      60,
+      35,
+      9,
+      7
+    ],
+    "door": [
+      64,
+      41
+    ],
+    "approach": [
+      64,
+      42
+    ]
+  },
+  {
+    "name": "Poke Mart",
+    "asset": "mart",
+    "box": [
+      20,
+      37,
+      5,
+      4
+    ],
+    "door": [
+      21,
+      40
+    ],
+    "approach": [
+      21,
+      41
+    ]
+  },
+  {
+    "name": "Pokemon Center",
+    "asset": "center",
+    "box": [
+      46,
+      50,
+      7,
+      6
+    ],
+    "door": [
+      49,
+      55
+    ],
+    "approach": [
+      49,
+      56
+    ]
+  },
+  {
+    "name": "West Residence",
+    "asset": "house",
+    "box": [
+      9,
+      34,
+      5,
+      5
+    ],
+    "door": [
+      10,
+      38
+    ],
+    "approach": [
+      10,
+      39
+    ]
+  },
+  {
+    "name": "South Residence",
+    "asset": "gable",
+    "box": [
+      34,
+      57,
+      5,
+      5
+    ],
+    "door": [
+      36,
+      61
+    ],
+    "approach": [
+      36,
+      62
+    ]
+  }
+]

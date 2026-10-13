@@ -1,0 +1,12 @@
+{
+  "version": "6.3.1",
+  "source_commit": "139eda92b3b06a5fd675a9825a07ac62e98c1566",
+  "mode": "offscreen native project loader and layout renderer",
+  "dimensions": [
+    1280,
+    1152
+  ],
+  "pixel_errors_vs_native_decoder": 0,
+  "desktop_editor_opened": false,
+  "build_note": "Qt5 host probe; giflib BOOL changed to bool for C++ with current macOS SDK; no project code changes"
+}

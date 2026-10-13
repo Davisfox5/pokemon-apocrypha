@@ -1,0 +1,17 @@
+{
+  "get_layout": [
+    "{\n  \"id\": \"LAYOUT_VIOLET_CITY\",\n  \"name\": \"VioletCity_Layout\",\n  \"width\": 80,\n  \"height\": 72,\n  \"primary_tileset\": \"gTileset_VioletCityPrimary\",\n  \"secondary_tileset\": \"gTileset_VioletCity\",\n  \"border_filepath\": \"data/layouts/VioletCity/border.bin\",\n  \"blockdata_filepath\": \"data/layouts/VioletCity/map.bin\"\n}"
+  ],
+  "read_blockdata": [
+    "{\n  \"layout\": \"LAYOUT_VIOLET_CITY\",\n  \"width\": 80,\n  \"height\": 72,\n  \"block_count\": 5760,\n  \"unique_metatiles\": 386\n}"
+  ],
+  "validate_scripts": [
+    "{\n  \"map\": \"VioletCity\",\n  \"scripts_file\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/data/maps/VioletCity/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 11,\n  \"event_refs\": 5,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'VioletCity_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+  ],
+  "get_connections": [
+    "{\n  \"connections\": []\n}"
+  ],
+  "poryscript_status": [
+    "{\n  \"available\": true,\n  \"binary\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/poryscript\",\n  \"font_config\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/font_config.json\",\n  \"command_config\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/command_config.json\",\n  \"project_uses_poryscript\": true\n}"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "engine_base": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+  "rom_sha256": "1cfe6ff7c00c68448e032a59bcbc0c3c0e84a4ac8995355e1a8111a9acc7d095",
+  "toolchain": "Arm GNU 14.2.rel1",
+  "build": "gmake tools; gmake -j1 generated; gmake -j8",
+  "source_manifest_files": 54,
+  "headless_libmgba": "0.10.5",
+  "desktop_emulator_opened": false
+}
