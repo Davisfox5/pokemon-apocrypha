@@ -30,6 +30,11 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(43,11,28);step(UP,1);at(43,11,28,"northwest-house-closed");
  go(43,26,57);step(UP,1);at(43,26,57,"west-garden-house-closed");
  go(43,56,65);step(UP,1);at(43,56,65,"south-garden-house-closed");
+ go(43,7,30);step(LEFT,1);at(43,6,30,"west-gate-steps");step(LEFT,1);at(43,6,30,"west-gate-pending-interior");shot("route36-gate");
+ go(43,23,70);step(DOWN,1);at(43,23,71,"route32-city-boundary");step(DOWN,1);at(43,23,71,"route32-unbuilt-destination-blocks");shot("route32-exit");
+ go(43,37,26);step(UP,1);at(43,37,26,"landing-finial-blocks");shot("bridge-finials");
+ go(43,44,25);shot("lake-island-and-pads");
+ read_sign(43,9,32,"route36-sign");read_sign(43,25,67,"route32-sign");
  go(43,39,13);shot("save-at-violet");
  unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }

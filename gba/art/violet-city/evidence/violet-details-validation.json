@@ -1,0 +1,43 @@
+{
+  "base_engine_commit": "a17d6182e8dbea23836c038d2af6b26aab6475df",
+  "approved_landmark_pixel_changes": {
+    "lecture_hall": 0,
+    "university": 0,
+    "center": 0,
+    "teaching_court": 0,
+    "sprout_tower": 0
+  },
+  "all_ten_door_anchors_preserved": true,
+  "existing_warps_and_six_signs_preserved": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 1007,
+  "route_scope": "city-side approaches; route destinations and west gate interior are not built",
+  "house_source_crop": [
+    160,
+    528,
+    240,
+    624
+  ],
+  "islet_source_crop": [
+    736,
+    432,
+    800,
+    512
+  ],
+  "bridge_post_source_crop": [
+    576,
+    544,
+    592,
+    576
+  ],
+  "mart_source": "HGSS Cherrygrove adapted art, with restored existing separate sign",
+  "rom_sha256": "c8f4537c33c5abd548a395f179f3115595359931fc146d6790b4f0e85e08c3e0",
+  "walk_steps": 661,
+  "background_runtime_phases_passed": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "water_scope": "Lily-pad cells retain previous water behavior, collision and elevation. Surf traversal not qualified; a walking fixture on water cannot test Surf.",
+  "lily_pad_water_attributes_preserved": true
+}

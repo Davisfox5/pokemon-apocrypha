@@ -23,8 +23,13 @@ def path(start,goal):
 legs=[];current=start
 for b in json.loads((OUT/'source/landmarks.json').read_text()):
  steps,_=path(current,tuple(b['approach']));legs.append({'name':b['name'],'goal':b['approach'],'steps':steps});current=tuple(b['approach'])
+exits=json.loads((OUT/'source/exits.json').read_text())
+for e in exits:
+ steps,_=path(current,tuple(e['approach']));legs.append({'name':e['name'],'goal':e['approach'],'steps':steps});current=tuple(e['approach'])
 _,reachable=path(start,start)
-assert not any(x in [0,79] or y in [0,71] for x,y in reachable),'open map edge'
+edges={(x,y) for x,y in reachable if x in [0,79] or y in [0,71]}
+assert edges=={(22,71),(23,71),(24,71)},('unexpected map edge',edges)
+
 # New gate points back correctly, and preceding maps remain byte-identical.
 m=json.loads((G/'data/maps/VioletCity/map.json').read_text());gate=json.loads((G/'data/maps/VioletEastGate/map.json').read_text());assert all(gate['warp_events'][i]['dest_map']=='MAP_VIOLET_CITY' for i in [0,1]);assert m['warp_events'][0]['dest_map']=='MAP_VIOLET_EAST_GATE'
 protected=['data/tilesets/primary/cherrygrove','data/tilesets/secondary/claude_route30','data/tilesets/secondary/cherrygrove','data/layouts/CherrygroveRoute30Approach','data/layouts/JohtoRoute31','data/layouts/NewBarkTown','data/layouts/CherrygroveCity','data/layouts/VioletCityEntrance']
@@ -32,5 +37,5 @@ assert not subprocess.check_output(['git','diff','aa8ea35e','--',*protected],cwd
 t=Tileset(G,'violet_city','violet_city');assert len(t.tiles[0])+len(t.tiles[1])<=1008
 for mid in set(map(int,grid.ravel()&1023)):
  es=t.blocks[mid>=512][mid-512 if mid>=512 else mid];assert all((e>>12)<13 for e in es)
-report={'reachable_cells':len(reachable),'landmark_approaches':len(legs),'open_edges':0,'protected_maps_and_tilesets_unchanged':True,'warp_pair_valid':True,'walk_steps':sum(len(l['steps']) for l in legs)}
+report={'reachable_cells':len(reachable),'landmark_approaches':len(legs),'designated_south_exit_cells':3,'unexpected_open_edges':0,'route_destinations_implemented':False,'protected_maps_and_tilesets_unchanged':True,'warp_pair_valid':True,'walk_steps':sum(len(l['steps']) for l in legs)}
 (EV/'walk-plan.json').write_text(json.dumps(legs,indent=2)+'\n');(EV/'structure.json').write_text(json.dumps(report,indent=2)+'\n');print(report)

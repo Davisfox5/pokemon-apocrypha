@@ -1,4 +1,4 @@
-# Violet City — university campus and redesigned lecture hall
+# Violet City — regional houses, lake details and route approaches
 
 The owner approved the softened exterior and requested expanded housing, replacement of the two purple-roofed buildings with a university, and a teaching court. This campus revision is ready for visual review; Chapter 2 interiors and scenes remain incomplete. It builds on the accepted Route 30 engine source `aa8ea35e`. Native source lives in the expansion fork on `codex/violet-city`; the source commit is recorded in `evidence/preservation.json`.
 
@@ -7,13 +7,28 @@ The owner approved the softened exterior and requested expanded housing, replace
 - A new 80 × 72 map, `VioletCity`, appended to the existing Cherrygrove map group without renumbering prior maps.
 - HGSS-inspired core geography: northern Sprout Tower, lake with two bridge spans and a central stone landing, old gym, university, central streets, Center/Mart and homes.
 - The eastern campus extension is a design proposal based on `DESIGN.md` Chapter 2: university, library and practice court. The old gym is labeled as the lecture hall/battle practicum. No new character roles or story events were invented.
-- Accepted Cherrygrove green trees, houses, Center and Mart with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
-- Six readable signs authored with Poryscript 3.6.1. The existing east gate leads into the city and returns to Route 31 through its unchanged eastern exit.
+- Accepted Cherrygrove green trees, Center and Mart; HGSS Violet houses with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
+- Eight readable signs authored with Poryscript 3.6.1. The existing east gate leads into the city and returns to Route 31 through its unchanged eastern exit.
 - A closed-door exterior for the other buildings. Approaches exist and collision is placed against the buildings; the interiors are not implemented yet.
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Roof-only refinement — current
+## Violet identity and route approaches — current
+
+The owner requested Violet-specific houses and the small details from its HGSS map. All five homes now use the steep purple gable, timber facade, green door and blue windows from the actual Violet reference. All ten landmark door anchors are preserved. The eastern gate facade uses the same regional house vocabulary and retains its working warp.
+
+- Added six HGSS bridge/landing finials, five native lily-pad clusters and the planted islet beside the bridge. The islet is decorative, with a solid bank; no new item or tree interaction is implied.
+- Restored the projecting Mart sign that was omitted from Violet. The Mart body is adapted **HGSS Cherrygrove art**, not an Emerald Mart.
+- Built the western HGSS-style gate approach toward Route 36 and connected the southern Route 32 lane to the town street. Two route signs identify them. **These are city-side exits only. Route 32/36 maps and the western gate interior remain unbuilt, so onward travel is not active.**
+- University, lecture hall including its approved roof, Center, teaching court and Sprout Tower pixels are unchanged. All existing warps and six original signs are preserved; other authored maps remain unchanged.
+
+Engine `157028f79b6db9ce152a1056528f4af9869d83a1`, branch `codex/violet-city`. Local ROM, Porymap equality, porygon/Poryscript validation, 661-step ordinary walking tour to twelve approaches, east gate return, eight signs and ordinary save/cold reload/Continue pass. Native captures were visually inspected. Water decorations retain prior water attributes except the new solid islet; Surf traversal has not been qualified in this exterior. No desktop emulator was opened.
+
+Current capacity is **1,007 / 1,008 scenery tiles**. Further exterior assets need tile reuse or a tileset plan. The generator guard now excludes ignored mapjson compiler outputs (events/header/connections); authored source remains protected.
+
+[Full native map](evidence/native-overview.png) · [Detail board](evidence/violet-details.png) · [Before/after](evidence/violet-details-comparison.png) · [Native verification](evidence/violet-details-validation.json)
+
+## Previous roof-only refinement
 
 The square paving-like grid is replaced with short, staggered copper roof tiles, shaded lower lips and diagonal hip caps. Exactly 3,160 roof pixels change; every pixel outside the roof and the complete alpha silhouette remain unchanged. Windows, walls, canopy, trim, doors and map placement are preserved. Collision, elevation, behavior, layers, scripts, events and warps are unchanged.
 
@@ -81,7 +96,7 @@ The preview uses the engine's existing lighting. No desktop emulator was opened.
 - **Porymap 6.3.1:** original loader and renderer executed offscreen; exported 1280 × 1152 pixels exactly match the independent native decoder. This is renderer evidence, not a desktop editor save round-trip. The test host's bundled giflib required a C++ `bool` compatibility correction for the current macOS SDK, confined to the temporary probe build.
 - **Prior cloud build:** [lecture-hall redesign](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38446877103) targets `b652df9490` and was in_progress when recorded. Current local native build, Porymap and background runtime checks pass; cloud snapshot is in `evidence/ci.json`.
 - **ROM build:** host tools, serial generated data, then Arm GNU 14.2 parallel build passed. Existing linker warnings remain. ROM hash is recorded in `evidence/build.json`; no ROM is committed.
-- **Headless libmGBA 0.10.5:** 488 ordinary walking steps visit all ten landmark approaches; gate travel in both directions, bridge/island collision, closed doors and all six signs pass. A 128 KiB ordinary save passes cold reload and title-screen Continue. Fixtures only place the player for isolated probes; the tour itself uses directional inputs.
+- **Headless libmGBA 0.10.5:** 661 ordinary walking steps visit ten landmarks and both new exit approaches; gate travel in both directions, bridge/island collision, closed doors and all eight signs pass. A 128 KiB ordinary save passes cold reload and title-screen Continue. Fixtures only place the player for isolated probes; the tour itself uses directional inputs.
 - **Preservation:** Route 30, Route 31, Cherrygrove, New Bark, and their protected graphics/layout files remain byte-identical to the base. No open walkable map edges lead into unbuilt areas.
 
 ## Reference and art provenance
@@ -90,14 +105,14 @@ Core geography and landmark silhouettes were surveyed from [Violet City HGSS on 
 
 Tower/school masks are explicit traced polygons. Colors are adapted to GBA RGB555 banks; repeating interior roof courses fit native tile constraints while preserving the outer profiles. The earlier school masks remain reference material; the current university and court are original modular native art in `tools/gba/maps/violet_city/campus.py`. Trees and service buildings retain the accepted Cherrygrove asset provenance in `gba/art/cherrygrove-synthesis/`. Freshwater comes from `gba/art/route30-hgss-blocks/`. These changes are native adaptations, not a pixel-exact recreation of the DS town.
 
-The exterior uses **961 of 1,008 scenery tile slots**, with 47 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
+The exterior uses **1,007 of 1,008 scenery tile slots**, with 1 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
 
 ## Next work
 
 1. Owner review of the university, additional homes and teaching court.
 2. Build actual Sprout Tower, lecture/practicum, library, service and residential interiors with reciprocal doors.
 3. Implement the existing Chapter 2 scene specifications, actors and lessons; trainer teams and rewards remain separate approved design work.
-4. Connect Routes 32/36 when those areas exist. Current boundaries deliberately stay closed.
+4. Connect Routes 32/36 when those areas exist. City-side approaches are built; the Route 36 gate interior and onward route transitions remain inactive.
 
 Water is currently static, and the court has no battles or actors. No trainers, encounters, new flags, rewards, badges or persistent-state mechanics were added. The Center and Mart have no new service interiors in this proposal. Do not infer those features from their exterior art.
 

@@ -1,3 +1,9 @@
+## Latest: Violet houses, lake details and city-side exits
+
+Owner approved the lecture-hall roof and requested Route 32/36 exits, the correct Mart identity, Violet-specific houses and smaller HGSS details. Expansion `157028f79b6db9ce152a1056528f4af9869d83a1` on `codex/violet-city` implements five Violet purple-gabled timber homes, a matching east gate facade, bridge finials, lily pads, planted islet, the omitted HGSS Mart sign, a west gate approach and a connected southern lane. Existing door anchors/warps and approved campus/tower/Center artwork are preserved.
+
+**Exit scope: city side only. Full Routes 32/36 and the west gate interior are not built; onward travel is inactive.** See `gba/art/violet-city/README.md` and `evidence/violet-details.png`. Porymap equality, local ROM, porygon, 661-step background tour, eight signs, east gate return and save/cold reload/Continue pass. Surf traversal remains unqualified; lily-pad cells retain prior water flags. Capacity 1,007/1,008; future exterior additions require tile reuse or a tileset plan. Authoring guard excludes ignored mapjson compiler outputs while preserving all authored source. No desktop emulator opened. Next: owner review, then full routes/interiors within scoped requests.
+
 ## Latest: Violet lecture hall roof-only refinement
 
 Owner approved the architecture but requested a roof that reads as roofing rather than flooring. Expansion `a17d6182e8dbea23836c038d2af6b26aab6475df` on `codex/violet-city` replaces only the copper roof grid with staggered overlapping tiles and shaded lips. Exactly 3,160 roof pixels change; facade, silhouette, all other map pixels, collision/elevation/behavior/layers, events, scripts and warps are unchanged. See `gba/art/violet-city/evidence/roof-comparison.png` and `roof-validation.json`.
