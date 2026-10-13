@@ -6,10 +6,10 @@
   ],
   "tiles": {
     "primary": 512,
-    "secondary": 478
+    "secondary": 489
   },
   "metatiles": {
-    "primary": 393,
+    "primary": 387,
     "secondary": 1
   },
   "complete_trees": 734,
@@ -297,7 +297,7 @@
       ]
     }
   ],
-  "source": "HGSS geography reference with east campus extension; shared Cherrygrove exact assets; native Emerald rocks",
+  "source": "HGSS geography reference with east campus extension; Cherrygrove green trees and buildings with Violet-only edge finishing; native Emerald rocks",
   "interiors": "not implemented; entrances closed except east gate",
   "new_map_id": 43
 }

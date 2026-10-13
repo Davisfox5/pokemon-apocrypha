@@ -15,6 +15,8 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
 '''+ '\n'.join(walk)+r'''
  go(43,39,13);step(UP,1);at(43,39,13,"tower-door-closed");shot("tower-approach");
  go(43,38,20);step(LEFT,1);at(43,38,20,"bridge-rail-blocks");shot("bridge-rail");
+ go(43,33,24);shot("stone-landing");
+ go(43,23,20);shot("lake-bank");
  go(43,31,26);step(LEFT,1);at(43,31,26,"island-water-blocks");
  go(43,49,56);step(UP,1);at(43,49,56,"center-closed");shot("center-entrance");
  go(43,65,44);step(UP,1);at(43,65,44,"library-sign-blocks");

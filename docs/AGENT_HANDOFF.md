@@ -1,3 +1,9 @@
+## October 13: Violet edge refinement
+
+Owner broadly likes Violet and requested softer edges, especially water, and no pink trees outside Cherrygrove. Updated native source `4d086afa28a2c9e51922f8ba5b8619adfc11475c` on `codex/violet-city` rounds/shades the lake bank and stone landing, eases building silhouettes, lightly rounds street corners and replaces all six Violet pink trees with green. Pink-tree exclusivity is now a project rule in AGENTS.md. Other map artwork is preserved. See `gba/art/violet-city/README.md` for before/after and background gameplay captures.
+
+All 5,760 cells retain collision/elevation/behavior/layer attributes; doors/events/warps are unchanged. Local ROM, Porymap equality, 355-step headless tour, gate/sign/barrier probes and ordinary save/reload/Continue pass. Capacity is 1,001/1,008 scenery tiles. No desktop emulator opened. Owner visual review of this refinement is next; interiors/scenes remain unimplemented.
+
 ## October 13: Violet City first native exterior
 
 Violet City is now a new 80x72 native exterior on expansion branch `codex/violet-city`, engine commit `cb814b0ac94337b4de22ac5a41cda7f375b4ed07`, based on the approved Route 30 `aa8ea35e`. Read `gba/art/violet-city/README.md`. Source and Porymap/native screenshots are preserved; all eight approaches, both gate directions, five signs, ordinary save/cold load/title Continue pass. The 355-step native tour uses ordinary walking inputs. Porymap 6.3.1 offscreen rendering matches the native decoder exactly. Porytiles, Poryscript and porygon were used and recorded.

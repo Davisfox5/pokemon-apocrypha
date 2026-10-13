@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""First native Violet exterior. New-map authoring only; never regenerate owner edits.
+"""Native Violet exterior with owner-requested edge finishing. New-map authoring only; never regenerate owner edits.
 HGSS geography is interpreted on 16px cells; eastern campus is a canon-led proposal.
 """
 import sys,json,struct,hashlib,subprocess,shutil
@@ -12,6 +12,7 @@ from claude_cherrygrove import build as native,ground,banks
 from claude_cherrygrove.pixel import Canvas,Palette
 from route30_hgss_blocks import ground_native,layers
 from tiles import Tileset,palette
+from edges import soften_building,shoreline,rounded_distance
 OUT=ROOT/'gba/art/violet-city';S=OUT/'source';EV=OUT/'evidence';W,H=80,72
 
 def digest(path):
@@ -28,7 +29,7 @@ def main(game):
  cg=ROOT/'gba/art/cherrygrove-synthesis';t=Tileset(game,'cherrygrove','cherrygrove')
  pals={i:Palette(i,t.pals[i>=6][i][1:],[str(j) for j in range(15)]) for i in range(13)}
  A={}
- for name,b in [('tree',3),('blossom',10),('house',6),('gable',6),('center',8),('mart',9)]:
+ for name,b in [('tree',3),('house',6),('gable',6),('center',8),('mart',9)]:
   ar=np.array(Image.open(cg/'refined'/f'{name}.png'));c=Canvas(ar.shape[1],ar.shape[0],pals[b]);c.px=ar;A[name]=c
  ref=Image.open(S/'hgss-reference.png').convert('RGBA')
  # Explicit source silhouettes, preserving original pixel scale.
@@ -49,6 +50,7 @@ def main(game):
   c=A[key]
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
+ for key in ['tower','academy','gym','house','gable','center','mart']:soften_building(A[key])
  # Library is a second wing in the school's existing architectural vocabulary.
  A['library']=A['academy']
  # Repeat original bridge deck and urban paving, with no rotated staircase art.
@@ -58,8 +60,12 @@ def main(game):
  A.update(infrastructure.build());pals[11]=infrastructure.palette
  # Reuse Route 30's native freshwater glyphs and complete tree art exactly.
  rt=Tileset(game,'claude_route30','cherrygrove');pals[12]=Palette(12,rt.pals[1][12][1:],[str(j) for j in range(15)])
- for p in (ROOT/'gba/art/route30-hgss-blocks/source/materials').glob('pond-*.png'):
-  ar=np.array(Image.open(p).convert('RGBA'));c=Canvas(16,16,pals[12]);colors=np.array(pals[12].gba(),int);mask=ar[:,:,3]>0;c.px[mask]=((ar[mask,:3].astype(int)[:,None]-colors[None])**2).sum(2).argmin(1);A[p.stem]=c
+ for phase in range(4):
+  ar=np.array(Image.open(ROOT/'gba/art/route30-hgss-blocks/source/materials'/f'pond-15-{phase}.png').convert('RGBA'));c=Canvas(16,16,pals[12]);colors=np.array(pals[12].gba(),int);mask=ar[:,:,3]>0;c.px[mask]=((ar[mask,:3].astype(int)[:,None]-colors[None])**2).sum(2).argmin(1)
+  for bits in range(16):A[f'pond-{bits}-{phase}']=shoreline(c,bits)
+ # Repeating shoreline modules leave native capacity for the stone landing bevel.
+ for bits in range(15):
+  for phase in range(1,4):A[f'pond-{bits}-{phase}']=A[f'pond-{bits}-0']
  # Original Emerald cliff courses reused at original colors.
  donor=Tileset(game);rb=banks.Bank(2,'EMERALD_ROCK','primary')
  for name,mid in [('rock',0x7c),('rock_w',0x76),('rock_e',0x75),('ledge',0x87)]:
@@ -128,19 +134,23 @@ def main(game):
     src=A['paving' if ch=='P' else 'island'];c=Canvas(16,16,src.pal);c.px=src.px[y%2*16:y%2*16+16,x%2*16:x%2*16+16].copy()
     # Native cell edge masks: curb encloses the road, grass remains outside it.
     if ch=='P':
-     yy,xx=np.indices((16,16));dist=np.full((16,16),99)
-     for neighbor,edge in [((x,y-1),yy),((x,y+1),15-yy),((x-1,y),xx),((x+1,y),15-xx)]:
-      nx,ny=neighbor
-      if not (0<=nx<W and 0<=ny<H and plan[ny,nx] in ['P','B','Q']):dist=np.minimum(dist,edge)
-     c.px[dist==0]=0
-     pal=np.array(c.pal.gba(),int);rim=int(((pal-np.array([144,136,120]))**2).sum(1)[1:].argmin()+1);c.px[dist==1]=rim
+     missing=[not(0<=nx<W and 0<=ny<H and plan[ny,nx] in ['P','B','Q']) for nx,ny in [(x,y-1),(x,y+1),(x-1,y),(x+1,y)]]
+     dist=rounded_distance(missing,4)
+     c.px[dist<1]=0
+     pal=np.array(c.pal.gba(),int);rim=int(((pal-np.array([144,136,120]))**2).sum(1)[1:].argmin()+1);c.px[(dist>=1)&(dist<2)]=rim
     if ch=='Q' and 31<=x<43 and 23<=y<29:
-     # Keep the original island footprint, giving the stone platform a readable rim.
-     yy,xx=np.indices((16,16));edge=((x==31)&(xx<2))|((x==42)&(xx>13))|((y==23)&(yy<2))|((y==28)&(yy>12))
-     if x in [38,39,40]:
-      if y==23:edge&=yy>=2
-      if y==28:edge&=yy<=12
-     pal=np.array(c.pal.gba(),int);dark=int(((pal-np.array([96,96,112]))**2).sum(1)[1:].argmin()+1);c.px[edge]=dark
+     # Rounded stone landing corners reveal water, never a patch of grass.
+     yy,xx=np.indices((16,16));missing=[y==23,y==28,x==31,x==42]
+     if x in [37,38,39,40,41]:missing[:2]=[False,False]
+     distance=rounded_distance(missing,5)
+     pal=np.array(c.pal.gba(),int)
+     def tone(rgb):return int(((pal[1:]-np.array(rgb))**2).sum(1).argmin()+1)
+     c.px[distance<0]=0
+     c.px[(distance>=0)&(distance<1)]=tone([112,120,136])
+     c.px[(distance>=1)&(distance<2)]=tone([144,152,168])
+     stamp(f'pond-15-{y%2*2+x%2}',x,y)
+     mc.blit(c,x*16,y*16);fg.blit(c,x*16,y*16)
+     continue
     if ch=='Q' and 56<=x<65 and 48<=y<55:
      # Practice court perimeter and center stripe use the native stone light tone.
      yy,xx=np.indices((16,16));line=((x==56)&(xx==4))|((x==64)&(xx==11))|((y==48)&(yy==4))|((y==54)&(yy==11))|((x==60)&(xx==7))
@@ -161,11 +171,14 @@ def main(game):
  # Narrow unfinished forest cells stay physically closed, never a shortcut.
  solid[plan=='T']=True
  mc.background_bank=mc.bank.copy();mc.background_idx=mc.idx.copy()
+ for y in range(23,29):
+  for x in range(31,43):
+   c=A[f'pond-15-{y%2*2+x%2}'];mc.background_bank[y*16:y*16+16,x*16:x*16+16]=12;mc.background_idx[y*16:y*16+16,x*16:x*16+16]=c.px
  for x,y in trees:stamp('tree',x,y,True);mc.above[y,x:x+2]=True
- # Whole blossom trees punctuate the campus; all are outside building footprints.
- pink=[(54,36),(54,40),(74,36),(74,40),(54,50),(66,50)]
- for x,y in pink:
-  stamp('blossom',x,y,True);solid[y+1:y+3,x:x+2]=True;mc.above[y,x:x+2]=True
+ # Green campus trees retain footprints. Pink trees are exclusive to Cherrygrove.
+ campus_trees=[(54,36),(54,40),(74,36),(74,40),(54,50),(66,50)]
+ for x,y in campus_trees:
+  stamp('tree',x,y,True);solid[y+1:y+3,x:x+2]=True;mc.above[y,x:x+2]=True
  anchors=[]
  for key,label,x,y,dx,dy in buildings:
   c=A[key];stamp(key,x,y,True);cw,ch=c.w//16,c.h//16
@@ -233,7 +246,7 @@ def main(game):
  gatepath.write_text(json.dumps(m,indent=2)+'\n')
  np.save(S/'plan.npy',plan);np.save(S/'solid.npy',solid);(S/'landmarks.json').write_text(json.dumps(anchors,indent=2)+'\n')
  image=Tileset(game,'violet_city','violet_city').map_image(grid.ravel().tolist(),W);image.save(EV/'native-overview.png')
- report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(pink),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; shared Cherrygrove exact assets; native Emerald rocks','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity')}
+ report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(campus_trees),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; Cherrygrove green trees and buildings with Violet-only edge finishing; native Emerald rocks','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity')}
  # A successful regeneration updates only hashes for this authoring manifest.
  if guard.exists():guard.write_text(json.dumps({p:digest(game/p) for p in json.loads(guard.read_text())},indent=2)+'\n')
  (EV/'assembly.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

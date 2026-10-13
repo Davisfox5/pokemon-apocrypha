@@ -1,17 +1,28 @@
-# Violet City — first native exterior
+# Violet City — native exterior and edge refinement
 
-This is a **first exterior proposal**, not a completed Chapter 2 location or an owner-approved map. It builds on the accepted Route 30 engine source `aa8ea35e`. Native source lives in the expansion fork on `codex/violet-city`; the source commit is recorded in `evidence/preservation.json`.
+The owner broadly accepted the exterior direction on October 13 and requested softer edges and removal of pink trees. This revision is ready for visual review; Chapter 2 interiors and scenes remain incomplete. It builds on the accepted Route 30 engine source `aa8ea35e`. Native source lives in the expansion fork on `codex/violet-city`; the source commit is recorded in `evidence/preservation.json`.
 
 ## What is implemented
 
 - A new 80 × 72 map, `VioletCity`, appended to the existing Cherrygrove map group without renumbering prior maps.
 - HGSS-inspired core geography: northern Sprout Tower, lake with two bridge spans and a central stone landing, old gym, academy, central streets, Center/Mart and homes.
 - The eastern campus extension is a design proposal based on `DESIGN.md` Chapter 2: university, library and practice court. The old gym is labeled as the lecture hall/battle practicum. No new character roles or story events were invented.
-- Accepted Cherrygrove trees, blossom trees, houses, Center and Mart; the Route 30 freshwater family; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
+- Accepted Cherrygrove green trees, houses, Center and Mart with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
 - Five readable signs authored with Poryscript 3.6.1. The existing east gate leads into the city and returns to Route 31 through its unchanged eastern exit.
 - A closed-door exterior for the other buildings. Approaches exist and collision is placed against the buildings; the interiors are not implemented yet.
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
+
+## October 13 edge refinement
+
+- Replaced the lake's thin rectangular outline with repeating grass/bank/shallow-water courses and rounded 12-pixel corners. Water texture and palette remain native; no image scaling or blur is used.
+- Rounded the stone landing corners over actual water backing, with a softer stone bevel. No grass is exposed inside the lake.
+- Eased high-contrast outer building outlines into their existing palettes and clipped single-pixel convex corners. Facade detail, doorway anchors and ground contact shadows are retained.
+- Lightly rounded street corners; the stone street remains clearly legible against grass.
+- Replaced all six Violet blossom trees with the complete accepted green tree. **Pink/blossom trees are exclusive to Cherrygrove City**; this project-wide direction is now in AGENTS.md. This revision changes Violet artwork only, not historical route proposals or shared donor assets.
+- All 5,760 cells retain their collision, elevation, behavior and foreground-layer attributes. Events, warps and connections are byte-identical to the preceding Violet revision. Porymap/native render equality and the headless tour/save checks pass again.
+
+[Before/after detail comparison](evidence/edge-comparison.png) · [Revision checks](evidence/edge-refinement.json)
 
 ## Visuals
 
@@ -27,7 +38,7 @@ The preview uses the engine's existing lighting. No desktop emulator was opened.
 - **Poryscript 3.6.1:** signs compiled to committed `.inc`, with both source and generated script preserved.
 - **porygon 0.1.1:** checked binary Blockdata encode/decode and MCP read/validation. `evidence/porygon.json` reports no script errors. Its single unused-label warning is for the map-script header, which the engine references through map metadata.
 - **Porymap 6.3.1:** original loader and renderer executed offscreen; exported 1280 × 1152 pixels exactly match the independent native decoder. This is renderer evidence, not a desktop editor save round-trip. The test host's bundled giflib required a C++ `bool` compatibility correction for the current macOS SDK, confined to the temporary probe build.
-- **Cloud build job:** [production build and Poryscript freshness job](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38410809920/job/115342327533) passed on `cb814b0ac9`; the workflow summary was still finalizing when recorded. Other upstream multi-target CI is separate.
+- **Cloud build:** the preceding exterior passed the production job on `cb814b0ac9`. The [edge-refinement run](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38420889025) targets `4d086afa28` and was in_progress when this evidence was saved; its latest captured status is in `evidence/ci.json`. The current revision already passes the local native build and runtime checks below.
 - **ROM build:** host tools, serial generated data, then Arm GNU 14.2 parallel build passed. Existing linker warnings remain. ROM hash is recorded in `evidence/build.json`; no ROM is committed.
 - **Headless libmGBA 0.10.5:** 355 ordinary walking steps visit all eight landmark approaches; gate travel in both directions, bridge/island collision, closed doors and all five signs pass. A 128 KiB ordinary save passes cold reload and title-screen Continue. Fixtures only place the player for isolated probes; the tour itself uses directional inputs.
 - **Preservation:** Route 30, Route 31, Cherrygrove, New Bark, and their protected graphics/layout files remain byte-identical to the base. No open walkable map edges lead into unbuilt areas.
@@ -38,7 +49,7 @@ Core geography and landmark silhouettes were surveyed from [Violet City HGSS on 
 
 Tower/school masks are explicit traced polygons. Colors are adapted to GBA RGB555 banks; repeating interior roof courses fit native tile constraints while preserving the outer profiles. School architecture supplies the proposed library wing. Trees and service buildings retain the accepted Cherrygrove asset provenance in `gba/art/cherrygrove-synthesis/`. Freshwater comes from `gba/art/route30-hgss-blocks/`. These changes are native adaptations, not a pixel-exact recreation of the DS town.
 
-The exterior uses **990 of 1,008 scenery tile slots**, with 18 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
+The exterior uses **1,001 of 1,008 scenery tile slots**, with 7 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
 
 ## Next work
 

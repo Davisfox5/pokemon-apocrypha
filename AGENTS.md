@@ -33,6 +33,8 @@
   Automate or perform it. Make routine reversible technical choices independently.
 - Use existing tools, source formats, scripts, and narrow adapters first. Build a
   new editor only when a demonstrated recurring problem justifies it.
+- Pink/blossom trees are exclusive to Cherrygrove City throughout the game.
+  Other cities and routes use their appropriate non-pink vegetation.
 - Do not invent canon or silently change character roles. Label creative proposals.
 - Follow `docs/AGENT_WORKFLOW.md` for the relevant production/validation work.
 

@@ -1,107 +1,99 @@
 {
   "conclusion": "",
-  "headSha": "cb814b0ac94337b4de22ac5a41cda7f375b4ed07",
+  "headSha": "4d086afa28a2c9e51922f8ba5b8619adfc11475c",
   "jobs": [
     {
-      "completedAt": "2026-10-13T14:13:03Z",
-      "conclusion": "success",
-      "databaseId": 115342327533,
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "databaseId": 115377588264,
       "name": "build",
-      "startedAt": "2026-10-13T14:08:34Z",
-      "status": "completed",
+      "startedAt": "2026-10-13T15:18:18Z",
+      "status": "in_progress",
       "steps": [
         {
-          "completedAt": "2026-10-13T14:08:35Z",
+          "completedAt": "2026-10-13T15:18:20Z",
           "conclusion": "success",
           "name": "Set up job",
           "number": 1,
-          "startedAt": "2026-10-13T14:08:35Z",
+          "startedAt": "2026-10-13T15:18:18Z",
           "status": "completed"
         },
         {
-          "completedAt": "2026-10-13T14:08:40Z",
+          "completedAt": "2026-10-13T15:18:24Z",
           "conclusion": "success",
           "name": "Run actions/checkout@v4",
           "number": 2,
-          "startedAt": "2026-10-13T14:08:35Z",
+          "startedAt": "2026-10-13T15:18:20Z",
           "status": "completed"
         },
         {
-          "completedAt": "2026-10-13T14:08:54Z",
+          "completedAt": "2026-10-13T15:18:43Z",
           "conclusion": "success",
           "name": "Install toolchain",
           "number": 3,
-          "startedAt": "2026-10-13T14:08:40Z",
+          "startedAt": "2026-10-13T15:18:24Z",
           "status": "completed"
         },
         {
-          "completedAt": "2026-10-13T14:08:55Z",
+          "completedAt": "2026-10-13T15:18:44Z",
           "conclusion": "success",
           "name": "Cache build tools",
           "number": 4,
-          "startedAt": "2026-10-13T14:08:54Z",
+          "startedAt": "2026-10-13T15:18:43Z",
           "status": "completed"
         },
         {
-          "completedAt": "2026-10-13T14:08:55Z",
+          "completedAt": "2026-10-13T15:18:44Z",
           "conclusion": "success",
           "name": "Validate map and layout JSON",
           "number": 5,
-          "startedAt": "2026-10-13T14:08:55Z",
+          "startedAt": "2026-10-13T15:18:44Z",
           "status": "completed"
         },
         {
-          "completedAt": "2026-10-13T14:12:57Z",
-          "conclusion": "success",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
           "name": "Build",
           "number": 6,
-          "startedAt": "2026-10-13T14:08:55Z",
-          "status": "completed"
+          "startedAt": "2026-10-13T15:18:44Z",
+          "status": "in_progress"
         },
         {
-          "completedAt": "2026-10-13T14:12:58Z",
-          "conclusion": "success",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
           "name": "Committed Poryscript outputs are current",
           "number": 7,
-          "startedAt": "2026-10-13T14:12:57Z",
-          "status": "completed"
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
         },
         {
-          "completedAt": "2026-10-13T14:12:58Z",
-          "conclusion": "success",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
           "name": "Report",
           "number": 8,
-          "startedAt": "2026-10-13T14:12:58Z",
-          "status": "completed"
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
         },
         {
-          "completedAt": "2026-10-13T14:12:59Z",
-          "conclusion": "success",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
           "name": "Post Cache build tools",
           "number": 15,
-          "startedAt": "2026-10-13T14:12:58Z",
-          "status": "completed"
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
         },
         {
-          "completedAt": "2026-10-13T14:12:59Z",
-          "conclusion": "success",
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
           "name": "Post Run actions/checkout@v4",
           "number": 16,
-          "startedAt": "2026-10-13T14:12:59Z",
-          "status": "completed"
-        },
-        {
-          "completedAt": "2026-10-13T14:12:59Z",
-          "conclusion": "success",
-          "name": "Complete job",
-          "number": 17,
-          "startedAt": "2026-10-13T14:12:59Z",
-          "status": "completed"
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
         }
       ],
-      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38410809920/job/115342327533"
+      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38420889025/job/115377588264"
     }
   ],
   "status": "in_progress",
-  "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38410809920"
+  "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38420889025"
 }
