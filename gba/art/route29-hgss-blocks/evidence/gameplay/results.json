@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "9ef43f72dd1cf75752b1ccb6ad93897c43b34015499cfeee9e2932cbc32c40e7",
+  "rom_sha256": "30136f1d86ed99d4d90c6511aea3bf4915daf866ac928ca252505b58071bb026",
   "phases": [
     {
       "phase": "write",
@@ -63,8 +63,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 1,
-          "y": 18,
+          "x": 0,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -76,8 +76,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 2,
-          "y": 18,
+          "x": 1,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -89,8 +89,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 3,
-          "y": 18,
+          "x": 2,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -102,8 +102,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 4,
-          "y": 18,
+          "x": 3,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -115,8 +115,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 5,
-          "y": 18,
+          "x": 4,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -128,8 +128,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 6,
-          "y": 18,
+          "x": 5,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -141,8 +141,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 7,
-          "y": 18,
+          "x": 6,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -154,8 +154,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 8,
-          "y": 18,
+          "x": 7,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -167,8 +167,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 9,
-          "y": 18,
+          "x": 8,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -180,8 +180,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 10,
-          "y": 18,
+          "x": 9,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -193,8 +193,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 11,
-          "y": 18,
+          "x": 10,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -206,8 +206,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 12,
-          "y": 18,
+          "x": 10,
+          "y": 16,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -219,8 +219,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 12,
-          "y": 19,
+          "x": 10,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -232,8 +232,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 12,
-          "y": 20,
+          "x": 11,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -246,7 +246,7 @@
           "group": 80,
           "map": 9,
           "x": 12,
-          "y": 21,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -259,7 +259,7 @@
           "group": 80,
           "map": 9,
           "x": 13,
-          "y": 21,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -272,7 +272,7 @@
           "group": 80,
           "map": 9,
           "x": 14,
-          "y": 21,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -285,7 +285,7 @@
           "group": 80,
           "map": 9,
           "x": 15,
-          "y": 21,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -298,7 +298,7 @@
           "group": 80,
           "map": 9,
           "x": 16,
-          "y": 21,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -310,8 +310,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 17,
-          "y": 21,
+          "x": 16,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -323,8 +323,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 18,
-          "y": 21,
+          "x": 17,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -336,8 +336,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 19,
-          "y": 21,
+          "x": 18,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -350,84 +350,6 @@
           "group": 80,
           "map": 9,
           "x": 19,
-          "y": 20,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-023",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
-          "y": 19,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-024",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
-          "y": 18,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-025",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
-          "y": 17,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-026",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
-          "y": 16,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-027",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
-          "y": 15,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "apricorn-clearing-028",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 19,
           "y": 14,
           "frlg_layout": 0,
           "width": 98,
@@ -436,7 +358,7 @@
           "mapsec": 217
         },
         {
-          "step": "apricorn-clearing-029",
+          "step": "apricorn-clearing-023",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -449,7 +371,7 @@
           "mapsec": 217
         },
         {
-          "step": "apricorn-clearing-030",
+          "step": "apricorn-clearing-024",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -1272,8 +1194,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 20,
+          "x": 54,
+          "y": 19,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1285,8 +1207,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 19,
+          "x": 54,
+          "y": 18,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1298,8 +1220,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 18,
+          "x": 54,
+          "y": 17,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1311,8 +1233,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 17,
+          "x": 54,
+          "y": 16,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1324,8 +1246,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 16,
+          "x": 54,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1337,8 +1259,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 15,
+          "x": 54,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1350,8 +1272,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 14,
+          "x": 54,
+          "y": 13,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1363,8 +1285,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 13,
+          "x": 54,
+          "y": 12,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1597,8 +1519,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 14,
+          "x": 60,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1610,8 +1532,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 13,
+          "x": 60,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -1623,8 +1545,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 12,
+          "x": 60,
+          "y": 13,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2169,8 +2091,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 12,
+          "x": 60,
+          "y": 13,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2182,8 +2104,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 13,
+          "x": 60,
+          "y": 14,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2195,8 +2117,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
-          "y": 14,
+          "x": 60,
+          "y": 15,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2312,8 +2234,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 17,
+          "x": 54,
+          "y": 18,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2325,20 +2247,7 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 18,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "coastal-lookout-033",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 53,
+          "x": 54,
           "y": 19,
           "frlg_layout": 0,
           "width": 98,
@@ -2347,20 +2256,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-034",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 53,
-          "y": 20,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "coastal-lookout-035",
+          "step": "coastal-lookout-033",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2373,7 +2269,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-036",
+          "step": "coastal-lookout-034",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2386,7 +2282,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-037",
+          "step": "coastal-lookout-035",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2399,7 +2295,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-038",
+          "step": "coastal-lookout-036",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2412,7 +2308,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-039",
+          "step": "coastal-lookout-037",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2425,7 +2321,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-040",
+          "step": "coastal-lookout-038",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2438,7 +2334,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-041",
+          "step": "coastal-lookout-039",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2451,7 +2347,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-042",
+          "step": "coastal-lookout-040",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2464,7 +2360,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-043",
+          "step": "coastal-lookout-041",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2477,7 +2373,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-044",
+          "step": "coastal-lookout-042",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2490,7 +2386,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-045",
+          "step": "coastal-lookout-043",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2503,7 +2399,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-046",
+          "step": "coastal-lookout-044",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2516,7 +2412,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-047",
+          "step": "coastal-lookout-045",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2529,7 +2425,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-048",
+          "step": "coastal-lookout-046",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2542,7 +2438,7 @@
           "mapsec": 217
         },
         {
-          "step": "coastal-lookout-049",
+          "step": "coastal-lookout-047",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2754,8 +2650,8 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 20,
+          "x": 54,
+          "y": 19,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -2767,20 +2663,7 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 53,
-          "y": 19,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "new-bark-approach-017",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 53,
+          "x": 54,
           "y": 18,
           "frlg_layout": 0,
           "width": 98,
@@ -2789,20 +2672,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-018",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 53,
-          "y": 17,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "new-bark-approach-019",
+          "step": "new-bark-approach-017",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2815,7 +2685,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-020",
+          "step": "new-bark-approach-018",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2828,7 +2698,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-021",
+          "step": "new-bark-approach-019",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2841,7 +2711,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-022",
+          "step": "new-bark-approach-020",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2854,7 +2724,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-023",
+          "step": "new-bark-approach-021",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2867,7 +2737,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-024",
+          "step": "new-bark-approach-022",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2880,7 +2750,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-025",
+          "step": "new-bark-approach-023",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2893,7 +2763,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-026",
+          "step": "new-bark-approach-024",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2906,11 +2776,24 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-027",
+          "step": "new-bark-approach-025",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
+          "x": 60,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 98,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 217
+        },
+        {
+          "step": "new-bark-approach-026",
+          "region": 2,
+          "group": 80,
+          "map": 9,
+          "x": 60,
           "y": 14,
           "frlg_layout": 0,
           "width": 98,
@@ -2919,11 +2802,11 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-028",
+          "step": "new-bark-approach-027",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 59,
+          "x": 60,
           "y": 13,
           "frlg_layout": 0,
           "width": 98,
@@ -2932,20 +2815,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-029",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 59,
-          "y": 12,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "new-bark-approach-030",
+          "step": "new-bark-approach-028",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2958,7 +2828,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-031",
+          "step": "new-bark-approach-029",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2971,7 +2841,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-032",
+          "step": "new-bark-approach-030",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2984,7 +2854,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-033",
+          "step": "new-bark-approach-031",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -2997,7 +2867,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-034",
+          "step": "new-bark-approach-032",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3010,7 +2880,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-035",
+          "step": "new-bark-approach-033",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3023,7 +2893,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-036",
+          "step": "new-bark-approach-034",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3036,7 +2906,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-037",
+          "step": "new-bark-approach-035",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3049,7 +2919,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-038",
+          "step": "new-bark-approach-036",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3062,7 +2932,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-039",
+          "step": "new-bark-approach-037",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3075,7 +2945,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-040",
+          "step": "new-bark-approach-038",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3088,7 +2958,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-041",
+          "step": "new-bark-approach-039",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3101,7 +2971,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-042",
+          "step": "new-bark-approach-040",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3114,7 +2984,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-043",
+          "step": "new-bark-approach-041",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3127,7 +2997,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-044",
+          "step": "new-bark-approach-042",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3140,7 +3010,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-045",
+          "step": "new-bark-approach-043",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3153,7 +3023,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-046",
+          "step": "new-bark-approach-044",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3166,7 +3036,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-047",
+          "step": "new-bark-approach-045",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3179,7 +3049,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-048",
+          "step": "new-bark-approach-046",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3192,7 +3062,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-049",
+          "step": "new-bark-approach-047",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3205,7 +3075,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-050",
+          "step": "new-bark-approach-048",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3218,7 +3088,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-051",
+          "step": "new-bark-approach-049",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3231,7 +3101,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-052",
+          "step": "new-bark-approach-050",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3244,12 +3114,38 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-053",
+          "step": "new-bark-approach-051",
           "region": 2,
           "group": 80,
           "map": 9,
           "x": 76,
           "y": 19,
+          "frlg_layout": 0,
+          "width": 98,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 217
+        },
+        {
+          "step": "new-bark-approach-052",
+          "region": 2,
+          "group": 80,
+          "map": 9,
+          "x": 76,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 98,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 217
+        },
+        {
+          "step": "new-bark-approach-053",
+          "region": 2,
+          "group": 80,
+          "map": 9,
+          "x": 76,
+          "y": 21,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -3262,7 +3158,7 @@
           "group": 80,
           "map": 9,
           "x": 76,
-          "y": 20,
+          "y": 22,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -3275,7 +3171,7 @@
           "group": 80,
           "map": 9,
           "x": 76,
-          "y": 21,
+          "y": 23,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -3288,32 +3184,6 @@
           "group": 80,
           "map": 9,
           "x": 76,
-          "y": 22,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "new-bark-approach-057",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 76,
-          "y": 23,
-          "frlg_layout": 0,
-          "width": 98,
-          "height": 48,
-          "interaction": 0,
-          "mapsec": 217
-        },
-        {
-          "step": "new-bark-approach-058",
-          "region": 2,
-          "group": 80,
-          "map": 9,
-          "x": 76,
           "y": 25,
           "frlg_layout": 0,
           "width": 98,
@@ -3322,7 +3192,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-059",
+          "step": "new-bark-approach-057",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3335,7 +3205,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-060",
+          "step": "new-bark-approach-058",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3348,7 +3218,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-061",
+          "step": "new-bark-approach-059",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3361,7 +3231,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-062",
+          "step": "new-bark-approach-060",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3374,7 +3244,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-063",
+          "step": "new-bark-approach-061",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3387,7 +3257,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-064",
+          "step": "new-bark-approach-062",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3400,7 +3270,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-065",
+          "step": "new-bark-approach-063",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3413,7 +3283,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-066",
+          "step": "new-bark-approach-064",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3426,7 +3296,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-067",
+          "step": "new-bark-approach-065",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3439,7 +3309,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-068",
+          "step": "new-bark-approach-066",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3452,7 +3322,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-069",
+          "step": "new-bark-approach-067",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3465,7 +3335,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-070",
+          "step": "new-bark-approach-068",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3478,7 +3348,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-071",
+          "step": "new-bark-approach-069",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3491,7 +3361,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-072",
+          "step": "new-bark-approach-070",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3504,7 +3374,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-073",
+          "step": "new-bark-approach-071",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3517,7 +3387,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-074",
+          "step": "new-bark-approach-072",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3530,7 +3400,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-075",
+          "step": "new-bark-approach-073",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3543,7 +3413,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-076",
+          "step": "new-bark-approach-074",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3556,7 +3426,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-077",
+          "step": "new-bark-approach-075",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3569,7 +3439,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-078",
+          "step": "new-bark-approach-076",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3582,7 +3452,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-079",
+          "step": "new-bark-approach-077",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3595,7 +3465,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-080",
+          "step": "new-bark-approach-078",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3608,7 +3478,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-081",
+          "step": "new-bark-approach-079",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3621,7 +3491,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-082",
+          "step": "new-bark-approach-080",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3634,7 +3504,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-083",
+          "step": "new-bark-approach-081",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3647,7 +3517,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-084",
+          "step": "new-bark-approach-082",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3660,7 +3530,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-085",
+          "step": "new-bark-approach-083",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3673,7 +3543,7 @@
           "mapsec": 217
         },
         {
-          "step": "new-bark-approach-086",
+          "step": "new-bark-approach-084",
           "region": 2,
           "group": 80,
           "map": 9,
@@ -3705,6 +3575,32 @@
           "map": 9,
           "x": 97,
           "y": 18,
+          "frlg_layout": 0,
+          "width": 98,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 217
+        },
+        {
+          "step": "gate-left-side-blocked",
+          "region": 2,
+          "group": 80,
+          "map": 9,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 98,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 217
+        },
+        {
+          "step": "gate-right-side-blocked",
+          "region": 2,
+          "group": 80,
+          "map": 9,
+          "x": 54,
+          "y": 12,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -4037,12 +3933,12 @@
           "mapsec": 217
         },
         {
-          "step": "barrier-24-23",
+          "step": "barrier-24-24",
           "region": 2,
           "group": 80,
           "map": 9,
           "x": 24,
-          "y": 22,
+          "y": 23,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -4050,11 +3946,11 @@
           "mapsec": 217
         },
         {
-          "step": "barrier-30-11",
+          "step": "barrier-29-11",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 31,
+          "x": 28,
           "y": 11,
           "frlg_layout": 0,
           "width": 98,
@@ -4076,12 +3972,12 @@
           "mapsec": 217
         },
         {
-          "step": "barrier-51-9",
+          "step": "barrier-48-11",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 50,
-          "y": 9,
+          "x": 47,
+          "y": 11,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,
@@ -4115,11 +4011,11 @@
           "mapsec": 217
         },
         {
-          "step": "barrier-67-29",
+          "step": "barrier-79-29",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 67,
+          "x": 79,
           "y": 28,
           "frlg_layout": 0,
           "width": 98,

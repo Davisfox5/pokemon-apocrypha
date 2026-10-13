@@ -1490,8 +1490,8 @@
       16
     ],
     "fraction": 0.973,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -2493,8 +2493,8 @@
       16
     ],
     "fraction": 0.918,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -3156,8 +3156,8 @@
       16
     ],
     "fraction": 0.938,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -4159,8 +4159,8 @@
       16
     ],
     "fraction": 0.754,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -4176,8 +4176,8 @@
       16
     ],
     "fraction": 0.297,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -4822,7 +4822,7 @@
       16
     ],
     "fraction": 0.906,
-    "native_category": "R",
+    "native_category": "T",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5825,8 +5825,8 @@
       16
     ],
     "fraction": 0.785,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -5842,8 +5842,8 @@
       16
     ],
     "fraction": 0.41,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -5859,7 +5859,7 @@
       16
     ],
     "fraction": 0.0,
-    "native_category": "H",
+    "native_category": ".",
     "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5876,7 +5876,7 @@
       16
     ],
     "fraction": 0.0,
-    "native_category": "H",
+    "native_category": ".",
     "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5893,7 +5893,7 @@
       16
     ],
     "fraction": 0.0,
-    "native_category": "H",
+    "native_category": ".",
     "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5910,7 +5910,7 @@
       16
     ],
     "fraction": 0.0,
-    "native_category": "H",
+    "native_category": ".",
     "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5927,7 +5927,7 @@
       16
     ],
     "fraction": 0.328,
-    "native_category": "H",
+    "native_category": ".",
     "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -5944,8 +5944,8 @@
       16
     ],
     "fraction": 0.957,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -6488,7 +6488,7 @@
       16
     ],
     "fraction": 0.977,
-    "native_category": "R",
+    "native_category": "T",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -7491,7 +7491,7 @@
       16
     ],
     "fraction": 0.898,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -7508,7 +7508,7 @@
       16
     ],
     "fraction": 0.359,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -7526,7 +7526,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -7543,7 +7543,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -7560,7 +7560,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -7577,7 +7577,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -7594,7 +7594,7 @@
     ],
     "fraction": 0.023,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -7610,7 +7610,7 @@
       16
     ],
     "fraction": 0.879,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -9157,7 +9157,7 @@
       16
     ],
     "fraction": 0.746,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -9174,7 +9174,7 @@
       16
     ],
     "fraction": 0.363,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -9192,7 +9192,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -9209,7 +9209,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -9226,7 +9226,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -9243,7 +9243,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -9260,7 +9260,7 @@
     ],
     "fraction": 0.008,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -9276,7 +9276,7 @@
       16
     ],
     "fraction": 0.859,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -9718,7 +9718,7 @@
       16
     ],
     "fraction": 0.867,
-    "native_category": "R",
+    "native_category": "T",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -10823,7 +10823,7 @@
       16
     ],
     "fraction": 0.832,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -10840,7 +10840,7 @@
       16
     ],
     "fraction": 0.453,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -10858,7 +10858,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -10942,7 +10942,7 @@
       16
     ],
     "fraction": 0.965,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -11384,8 +11384,8 @@
       16
     ],
     "fraction": 0.676,
-    "native_category": ".",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -12489,7 +12489,7 @@
       16
     ],
     "fraction": 0.867,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -12506,7 +12506,7 @@
       16
     ],
     "fraction": 0.383,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -12524,7 +12524,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -12608,7 +12608,7 @@
       16
     ],
     "fraction": 0.848,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -12778,8 +12778,8 @@
       16
     ],
     "fraction": 0.484,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -13152,8 +13152,8 @@
       16
     ],
     "fraction": 0.93,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -14155,7 +14155,7 @@
       16
     ],
     "fraction": 0.996,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -14172,7 +14172,7 @@
       16
     ],
     "fraction": 0.293,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -14190,7 +14190,7 @@
     ],
     "fraction": 0.266,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -14274,7 +14274,7 @@
       16
     ],
     "fraction": 0.871,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -14444,8 +14444,8 @@
       16
     ],
     "fraction": 0.645,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -14818,8 +14818,8 @@
       16
     ],
     "fraction": 0.926,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -15481,8 +15481,8 @@
       16
     ],
     "fraction": 0.16,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -15821,8 +15821,8 @@
       16
     ],
     "fraction": 0.402,
-    "native_category": ".",
-    "native_blocked": false,
+    "native_category": "H",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -15838,8 +15838,8 @@
       16
     ],
     "fraction": 0.441,
-    "native_category": ".",
-    "native_blocked": false,
+    "native_category": "H",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -15856,7 +15856,7 @@
     ],
     "fraction": 0.0,
     "native_category": "H",
-    "native_blocked": false,
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -15940,7 +15940,7 @@
       16
     ],
     "fraction": 0.961,
-    "native_category": "T",
+    "native_category": "H",
     "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
@@ -16008,8 +16008,8 @@
       16
     ],
     "fraction": 0.223,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -16484,8 +16484,8 @@
       16
     ],
     "fraction": 0.973,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -17674,8 +17674,8 @@
       16
     ],
     "fraction": 0.688,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -18150,8 +18150,8 @@
       16
     ],
     "fraction": 0.906,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -19272,8 +19272,8 @@
       16
     ],
     "fraction": 0.902,
-    "native_category": "T",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -19340,8 +19340,8 @@
       16
     ],
     "fraction": 0.648,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -19816,8 +19816,8 @@
       16
     ],
     "fraction": 0.938,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21006,8 +21006,8 @@
       16
     ],
     "fraction": 0.613,
-    "native_category": "G",
-    "native_blocked": false,
+    "native_category": "T",
+    "native_blocked": true,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21839,8 +21839,8 @@
       16
     ],
     "fraction": 0.754,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21856,8 +21856,8 @@
       16
     ],
     "fraction": 0.559,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21873,8 +21873,8 @@
       16
     ],
     "fraction": 0.719,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21890,8 +21890,8 @@
       16
     ],
     "fraction": 0.879,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21907,8 +21907,8 @@
       16
     ],
     "fraction": 0.809,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -21924,8 +21924,8 @@
       16
     ],
     "fraction": 0.328,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -23573,8 +23573,8 @@
       16
     ],
     "fraction": 1.0,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -25239,8 +25239,8 @@
       16
     ],
     "fraction": 0.254,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -27585,8 +27585,8 @@
       16
     ],
     "fraction": 0.18,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -29166,8 +29166,8 @@
       16
     ],
     "fraction": 0.375,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -29217,8 +29217,8 @@
       16
     ],
     "fraction": 0.965,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -29251,8 +29251,8 @@
       16
     ],
     "fraction": 0.41,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -32498,8 +32498,8 @@
       16
     ],
     "fraction": 0.184,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -33841,8 +33841,8 @@
       16
     ],
     "fraction": 0.23,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35252,8 +35252,8 @@
       16
     ],
     "fraction": 0.891,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35269,8 +35269,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35286,8 +35286,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35303,8 +35303,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35320,8 +35320,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35337,8 +35337,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35354,8 +35354,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35371,8 +35371,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35388,8 +35388,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35405,8 +35405,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35422,8 +35422,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35439,8 +35439,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35507,8 +35507,8 @@
       16
     ],
     "fraction": 0.918,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -35524,8 +35524,8 @@
       16
     ],
     "fraction": 0.344,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -36136,8 +36136,8 @@
       16
     ],
     "fraction": 0.352,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -37173,8 +37173,8 @@
       16
     ],
     "fraction": 0.754,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -37802,8 +37802,8 @@
       16
     ],
     "fraction": 0.398,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -38839,8 +38839,8 @@
       16
     ],
     "fraction": 0.805,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -38856,8 +38856,8 @@
       16
     ],
     "fraction": 0.363,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39417,8 +39417,8 @@
       16
     ],
     "fraction": 0.785,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39434,8 +39434,8 @@
       16
     ],
     "fraction": 0.91,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39451,8 +39451,8 @@
       16
     ],
     "fraction": 0.785,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39740,8 +39740,8 @@
       16
     ],
     "fraction": 0.961,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39757,8 +39757,8 @@
       16
     ],
     "fraction": 0.758,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -39774,8 +39774,8 @@
       16
     ],
     "fraction": 0.973,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -42749,8 +42749,8 @@
       16
     ],
     "fraction": 0.324,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -42766,8 +42766,8 @@
       16
     ],
     "fraction": 0.176,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -42783,8 +42783,8 @@
       16
     ],
     "fraction": 0.301,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -42953,8 +42953,8 @@
       16
     ],
     "fraction": 0.555,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -42987,8 +42987,8 @@
       16
     ],
     "fraction": 0.609,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -44602,8 +44602,8 @@
       16
     ],
     "fraction": 0.957,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -44619,8 +44619,8 @@
       16
     ],
     "fraction": 0.816,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -44636,8 +44636,8 @@
       16
     ],
     "fraction": 0.973,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -44653,8 +44653,8 @@
       16
     ],
     "fraction": 0.816,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },
@@ -44670,8 +44670,8 @@
       16
     ],
     "fraction": 0.973,
-    "native_category": "R",
-    "native_blocked": true,
+    "native_category": ".",
+    "native_blocked": false,
     "adapted_or_preserved": false,
     "collision_basis": "image-inferred terrain and native footprint adaptations; not DS collision records"
   },

@@ -26,6 +26,14 @@ def path(start,goal):
  steps=[];node=goal
  while parent[node] is not None:prev,key=parent[node];steps.append((key,*node));node=prev
  return steps[::-1]
+# The north road must be disconnected from the route until the gate opens.
+try:
+ path((52,12),(52,3))
+except AssertionError as exc:
+ assert exc.args[0][0]=='Destination blocked'
+else:
+ raise AssertionError('Walkable bypass around gatehouse')
+(E/'gate-footprint.json').write_text(json.dumps({'front':[52,12],'north_road':[52,3],'reachable_around_gate':False,'blocked_full_width':[48,55],'stairs':False},indent=2)+'\n')
 walk=[];legs=[];current=(0,18)
 for name,goal in [('apricorn-clearing',(21,14)),('western-grass',(33,15)),('route46-gate',(52,12)),('northern-grass',(66,12)),('eastern-grass',(70,20)),('coastal-lookout',(62,27)),('new-bark-approach',(97,18))]:
  steps=path(current,goal);legs.append({'name':name,'start':current,'goal':goal,'steps':steps})
@@ -52,6 +60,8 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
 '''+ '\n'.join(walk)+r'''
  step(RIGHT,1);at(28,0,12,"route29-to-new-bark");shot("new-bark-west-seam");step(LEFT,1);at(9,97,18,"new-bark-to-route29");shot("route29-east-seam");
  go(9,94,18);shot("east-crossing-before");for(int i=0;i<5;i++){step(RIGHT,1);char tag[80];sprintf(tag,"east-crossing-%d",i);shot(tag);}
+ go(9,48,12);step(UP,1);at(9,48,12,"gate-left-side-blocked");shot("gate-left-footprint");
+ go(9,54,12);step(UP,1);at(9,54,12,"gate-right-side-blocked");shot("gate-right-footprint");
  go(9,24,15);step(DOWN,1);at(9,24,17,"western-ledge-downhill");step(UP,1);at(9,24,17,"western-ledge-blocks-uphill");shot("western-ledge");
  go(9,60,23);step(DOWN,1);at(9,60,25,"central-ledge-downhill");step(UP,1);at(9,60,25,"central-ledge-blocks-uphill");shot("central-ledge");
  go(9,66,12);for(int i=0;i<10;i++){step(RIGHT,1);at(9,67,12,"grass-right");step(LEFT,1);at(9,66,12,"grass-left");}shot("native-grass-walking");

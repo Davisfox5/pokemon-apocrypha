@@ -1,4 +1,4 @@
-Current Route 29 proposal: [independent HGSS survey, complete-tree forest and native Emerald terrain](../gba/art/route29-hgss-blocks/README.md). Source PR #6 targets `apocrypha`; accepted Route 30 work remains separately on PR #4.
+Current Route 29 proposal: [independent HGSS survey, complete-tree forest and native Emerald terrain](../gba/art/route29-hgss-blocks/README.md). Latest revision replaces the stacked-wall gate, removes entrance steps and restores clearing lawn instead of rock forest fillers. Source PR #6 targets `apocrypha`; accepted Route 30 work remains separately on PR #4.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 

@@ -31,8 +31,9 @@ def arrange(plan,protected,features):
    claimed[y+1:y+3,x:x+2]=True;positions.append((x,y));p[y+1:y+3,x:x+2]='T'
  canvases=np.zeros(p.shape,bool)
  for x,y in positions:canvases[y:y+3,x:x+2]=True
- # Narrow terrain remnants remain physical barriers, using complete native
- # rock tiles rather than a cropped crown or an invisible blocked lawn tile.
+ # Unoccupied forest-edge cells become the same lawn as the neighboring
+ # clearing. Rocks are terrain features, never substitutes for tree crowns.
  remnants=(p=='T')&~canvases&~protected&~reserved
- p[remnants]='R'
- return p,positions,{'whole_trees':len(positions),'open_ground_absorbed':int(np.count_nonzero((plan!='T')&(p=='T'))),'native_rock_boundary_cells':int(remnants.sum()),'partial_tree_fillers':0,'outer_wall_adjustment':'none; expand forests only into spare ground'}
+ p[remnants]='.'
+
+ return p,positions,{'whole_trees':len(positions),'open_ground_absorbed':int(np.count_nonzero((plan!='T')&(p=='T'))),'forest_edge_lawn_cells':int(remnants.sum()),'native_rock_boundary_cells':0,'partial_tree_fillers':0,'outer_wall_adjustment':'none; expand forests only into spare ground'}

@@ -40,6 +40,10 @@ def main():
  report={'Porymap':'6.3.1 project-core export','Porymap_native_pixel_errors':0,'collision_errors':0,'grass_behavior_errors':0,'ledge_behavior_errors':0,'unchanged_maps':unchanged,'preserved_adapter_cells':int(protected.sum()),'connection_checks':reports,'native_footprints_not_raw_DS_collision':True};(E/'validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
  if len(sys.argv)>4:
   runtime=Path(sys.argv[4]);dest=E/'gameplay';dest.mkdir(exist_ok=True)
+  current={file.name for file in runtime.glob('*.png')}
+  # Earlier revision frames remain in Git history, not mixed into this tour.
+  for stale in dest.glob('*.png'):
+   if stale.name not in current:stale.unlink()
   for file in runtime.glob('*.png'):shutil.copyfile(file,dest/file.name)
   for name in ['results.json','write.jsonl','read.jsonl','menu.jsonl']:shutil.copyfile(runtime/name,dest/name)
   names=['apricorn-clearing','route46-gate','native-grass-walking','western-ledge','central-ledge','coastal-lookout','cherrygrove-east-seam','new-bark-west-seam','title-continue'];gallery=Image.new('RGB',(1456,1056),(24,28,34));d=ImageDraw.Draw(gallery)

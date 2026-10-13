@@ -19,6 +19,11 @@ def assemble(game):
    shutil.copytree(game/folder,base/folder)
  old=np.fromfile(base/'data/layouts/CherrygroveRoute29Approach/map.bin','<u2').reshape(H,W);oldsolid=(old&0xc00)!=0;t=Tileset(base,'claude_route29','cherrygrove')
  p=np.full((H,W),'T',dtype='<U1');rows=(S/'blocks.txt').read_text().splitlines();p[2:36]=np.array([list(row) for row in rows]);f=json.loads((S/'structures.json').read_text())
+ # Owner-authorized updated gate spans the entire woodland opening.
+ f['gate']['reference_native_box']=[50,5,5,7]
+ f['gate'].update(x=48,y=6,width=8,height=6)
+ p[p=='H']='.'
+ p[6:12,48:56]='H'
  f['signs'][0]['reference_at']=f['signs'][0]['at'];f['signs'][0]['at']=[12,17];p[17,12]='!'
  protected=np.zeros(p.shape,bool);protected[:,:10]=True;protected[:,88:]=True;protected[29:]=True
  protected[25:29,54:64]=True
@@ -29,6 +34,19 @@ def assemble(game):
  f['walk_cells']=[(x,26) for x in range(29,86)]+[(29,y) for y in range(21,27)]+[(20,y) for y in range(14,23)]+[(21,14)]+[(57,y) for y in range(22,27)]+[(x,22) for x in range(53,58)]+[(53,y) for y in range(12,23)]+[(52,12)]
  f['walk_cells'] += [(x,17) for x in range(53,65)]+[(64,y) for y in range(12,18)]+[(x,12) for x in range(64,73)]+[(72,y) for y in range(12,23)]+[(x,20) for x in range(70,73)]
  p,positions,forest_report=forest.arrange(p,protected,f);cells=np.full((H,W),ground.GRASS,np.int8);cells[p=='P']=ground.PATH;solid=np.isin(p,list('TR#H!AW_'));solid[protected]=oldsolid[protected];beh=np.zeros(p.shape,np.uint8)
+ # Forest-edge lawns can reveal extra town cells. Reserve their original
+ # metatile identities as well as the crossing cache glyphs.
+ route_reach=seams.reachable(solid,(0,18))
+ for name,sec,w,h,ox,oy in [('CherrygroveCity','cherrygrove',80,48,-80,0),('NewBarkTown','new_bark',36,50,98,6)]:
+  ng,ns=seams.read_layout(game,name,w,h)
+  visible=seams.visible_across(route_reach,ns.shape,ox,oy)
+  neighbor=Tileset(game,sec,'cherrygrove')
+  for mid in np.unique(ng[visible]):
+   mid=int(mid)
+   assert t.blocks[int(mid>=512)][mid-512 if mid>=512 else mid]==neighbor.blocks[int(mid>=512)][mid-512 if mid>=512 else mid],('Baseline neighbor metatile differs',name,mid)
+   (reserve if mid>=512 else visible_primary).add(mid)
+ reserved_banks|={en>>12 for mid in reserve for en in t.blocks[1][mid-512] if en}
+ assert not reserved_banks&{6,7,8,12},reserved_banks
  a=assets.create(pals,Tileset(game,'cherrygrove','cherrygrove'),game);mc=native.MapCanvas(W,H);fore=native.MapCanvas(W,H)
  def put(c,x,y):mc.blit(c,x*16,y*16)
  def put_fore(c,x,y):put(c,x,y);fore.blit(c,x*16,y*16)
@@ -41,8 +59,6 @@ def assemble(game):
    elif ch in ['#','R']:put(a['cliff-west-0' if ch=='#' else 'cliff-cap-0'],x,y)
    elif ch=='_':
     kind='left' if x==0 or p[y,x-1]!='_' else 'right' if x+1==W or p[y,x+1]!='_' else 'middle';put(a['ledge-'+kind],x,y);beh[y,x]=59
- # The HGSS gate has a stepped entrance; use native Mossdeep stair glyphs.
- for x,kind in [(51,'left'),(52,'middle'),(53,'right')]:put(a['step-'+kind],x,12)
  for x,y,w,h in f['flower_boxes']:
   for yy in range(y,y+h):
    for xx in range(x,x+w):
@@ -54,7 +70,7 @@ def assemble(game):
    if (x,y)==(xx,yy):continue
    assert x+2<=xx or xx+2<=x or y+3<=yy+1 or yy+3<=y+1,'Illegal tree ground overlap'
   region=silhouette[y*16:y*16+48,x*16:x*16+32];overlap=region&opaque;assert not overlap[16:].any(),'Illegal crown overlap';overlaps+=int(overlap.sum());region|=opaque;put_fore(a['tree'],x,y);mc.above[y,x:x+2]=True
- g=f['gate'];x,y=g['x'],g['y'];put_fore(a['gate'],x,y);solid[y:y+7,x:x+5]=False;solid[y+3:y+7,x+1:x+5]=True;mc.above[y:y+3,x:x+5]=True;mc.above[y:y+7,x]=True
+ g=f['gate'];x,y=g['x'],g['y'];gw,gh=g['width'],g['height'];put_fore(a['gate'],x,y);solid[y:y+gh,x:x+gw]=True;mc.above[y:y+3,x:x+gw]=True
  for sign in f['signs']:
   x,y=sign['at']
   if protected[y,x]:continue
@@ -82,7 +98,7 @@ def assemble(game):
  # Preserve neighbor glyphs cached just outside the visible crossing camera.
  imported_cache_tiles=set()
  for name,sec,w,h,ox,oy in [('CherrygroveCity','cherrygrove',80,48,-80,0),('NewBarkTown','new_bark',36,50,98,6)]:
-  ng,ns=seams.read_layout(game,name,w,h);neighbor=Tileset(game,sec,'cherrygrove');window,_,_=seams.crossing_windows(ns,solid,-ox,-oy)
+  ng,ns=seams.read_layout(game,name,w,h);neighbor=Tileset(game,sec,'cherrygrove');window,_,_=seams.crossing_windows(ns,solid,-ox,-oy);window|=seams.visible_across(route_reach,ns.shape,ox,oy)
   for mid in np.unique(ng[window]):
    for en in neighbor.blocks[int(mid>=512)][int(mid)-512 if mid>=512 else int(mid)]:
     tid=en&1023
