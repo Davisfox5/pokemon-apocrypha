@@ -7,14 +7,15 @@ review. It does not complete Chapter 1 scenes or furnish the provisional interio
 ## Latest corrections
 
 - Route 31's central divider, southern rim and nearby jump ledges now use
-  standard Emerald general 0x075/0x07c/0x076/0x087 in their original colors.
+  standard Emerald general 0x075/0x07c/0x076/0x087 in the approved HGSS browns.
   The east-facing wall uses the real directional tile; the southern rim uses
   the native front face. The existing two-course footprint is preserved.
 - Both stair crossings use original gray Emerald 0x0af/0x0cf, verified in the
   Mossdeep cliff stairway. North/south stairs retain the original orientation;
-  the east/west crossing turns the tread pattern 90 degrees. No rescaling.
+  the east/west crossing turns the tread pattern 90 degrees and is now mirrored
+  left to right as requested. No rescaling.
   Route 30's adjoining rock strip and stair cells match. Route-specific bank 8 preserves
-  exact donor colors without changing Cherrygrove or New Bark palettes.
+  the approved five-color rock palette and native gray stairs.
 - All collision, behavior and ground-cell arrays match `522b72e` exactly.
   The pond position, complete adjacent trees and walkable crossing remain.
 - Moved the pond north one whole tile (16 pixels), including its shoreline,
@@ -64,7 +65,7 @@ Other stairs, Route 30 cliff modules and the plateau bridge are cropped at nativ
 scale from `../claude-routes/references/route29-hgss.png` and `route30-hgss.png`.
 Dark Cave uses `../hgss-connections/references/route31-hgss.png`. The central
 divider and southern rim use standard Emerald directional rock; the crossing/seam
-stairs use Emerald general 0x0af/0x0cf. Both retain original donor colors. Route 114 bridge decking was inspected and rejected
+stairs use Emerald general 0x0af/0x0cf. Rock uses the approved HGSS colors; stairs keep the original gray. Route 114 bridge decking was inspected and rejected
 as the stair donor; the final source is the verified Mossdeep cliff stairway.
 The measured cliff outline/tiers are retained; repeated plateau and straight-face
 materials keep the graphic within the GBA tile budget. Its colors follow the
@@ -104,7 +105,8 @@ empty-party encounter guard; this map build is not a new battle progression test
 - `divider-review.png`: before/after native crossing and southern junction captures.
 - `emerald-rock-baseline.json`: full-map geometry hashes from `522b72e`.
 - `emerald-rock-pixels.json`: 22 packed-tile samples match donor rock/stair pixels
-  and colors exactly, excluding donor lawn intentionally replaced by local ground.
+  after applying the approved palette, excluding donor lawn replaced by local ground.
+  The complete Route 31 render matches the approved preview plus stair flip.
 - `town-rock-baseline.json`: historical geometry hashes before the previous pass.
 - `divider-baseline.json`, `divider-structure.json`: scoped geometry and pixel
   preservation against `5d50fbb`, pond position, cliff/crossing collision and 13
@@ -133,7 +135,7 @@ Mac session, so a fresh Porymap UI reload/save is not claimed.
 Latest verification: all 267 Route 31 boundary/surf cases (25 surf), all ordinary
 travel/door/stair assertions, 1,200 grass steps, save/cold reload/Continue and
 512 animated-water frames pass on ROM
-`541b8e68ccc4f6443accc757d6e1fec77e4c8ec971cef0e26244a5c840244e49`.
+`8121b58445162bfb3467567ce9ed97dbdfcc1f438202bb57c27837a233b3bca6`.
 The boundary rerun is scoped to Route 31 (`verify_extra.py ... --map 29`);
 Dark Cave and other maps remain pixel-identical except Route 30’s matching
 northern rock and stairs. All geometry matches `522b72e`. Both crossing directions, cliff blocking and

@@ -1,3 +1,23 @@
+## Latest: approved HGSS recolor and horizontal stair flip
+
+Owner approved the five-color HGSS preview and asked to reverse the horizontal
+stairs. The current Route 31/30 bank 8 now uses that exact approved rock palette;
+the east-west stair flight is mirrored left to right. North-south gray stairs,
+all geometry/collision/behavior and other map art remain unchanged.
+
+Full decoded Route 31 matches the approved preview with only the horizontal
+stair rectangle mirrored. Twenty-two native samples match the palette-adjusted
+Emerald donor, including unchanged vertical stairs. Background gameplay passes:
+267 Route 31 boundary/surf cases (25 surf), both crossing directions, ordinary
+travel/doors/stairs, cave sign/warps, 1200 grass steps, save/reload/Continue,
+and 512 water frames/eight states. Source patch reproduces 437 files and 108
+warp references. Route 31 remains 911/1008 scenery slots.
+ROM: `8121b58445162bfb3467567ce9ed97dbdfcc1f438202bb57c27837a233b3bca6`.
+
+See gba/art/johto-synthesis/evidence/divider-review.png and route31.png.
+Historical reference-review assets remain intact. No desktop emulator opened;
+no new Porymap UI round trip claimed. Next: owner review of the flipped stairs.
+
 ## Latest: standard Emerald Route 31 rock and stairs
 
 Owner requested standard Emerald tiles across the central Route 31 section.

@@ -42,5 +42,5 @@ report=dict(baseline_commit=before['baseline_commit'],outside_scope_unchanged=Tr
  divider_cells=[33,3,35,30],crossing_cells=[33,16,35,18],
  full_trees_checked=tree_checks,face_direction='east',high_ground='west',
  art_revision_baseline=latest['baseline_commit'],all_geometry_unchanged=True,
- rock_source='Emerald general 0x75/0x7c/0x76/0x87; original colors in bank 8',stairs_source='Emerald general 0x0af/0x0cf; Mossdeep cliff stairs')
+ rock_source='Emerald general 0x75/0x7c/0x76/0x87; approved HGSS colors in bank 8',stairs_source='Emerald general 0x0af/0x0cf; native gray, east-west flight mirrored horizontally')
 (EV/'divider-structure.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

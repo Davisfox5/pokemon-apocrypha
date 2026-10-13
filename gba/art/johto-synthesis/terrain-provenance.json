@@ -77,6 +77,74 @@
     "palette_bank": 8,
     "scope": "Route 31 central divider, southern rim, nearby jump ledges and two stair crossings; Route 30 adjoining northern rock strip and stairs.",
     "geometry": "All map solid/behavior/ground arrays unchanged from 522b72e.",
-    "pixel_verification": "evidence/emerald-rock-pixels.json compares decoded packed metatiles with original donor pixels."
+    "pixel_verification": "evidence/emerald-rock-pixels.json compares decoded packed metatiles with original donor pixels.",
+    "art_superseded_by": "route31_approved_hgss_palette"
+  },
+  "route31_approved_hgss_palette": {
+    "approved_reference": "reference-review/emerald-rock-hgss-palette-comparison.png",
+    "palette_map": [
+      {
+        "emerald": [
+          98,
+          65,
+          82
+        ],
+        "hgss": [
+          104,
+          72,
+          56
+        ]
+      },
+      {
+        "emerald": [
+          131,
+          90,
+          90
+        ],
+        "hgss": [
+          136,
+          96,
+          64
+        ]
+      },
+      {
+        "emerald": [
+          156,
+          115,
+          115
+        ],
+        "hgss": [
+          160,
+          120,
+          80
+        ]
+      },
+      {
+        "emerald": [
+          189,
+          148,
+          139
+        ],
+        "hgss": [
+          184,
+          136,
+          104
+        ]
+      },
+      {
+        "emerald": [
+          222,
+          180,
+          164
+        ],
+        "hgss": [
+          208,
+          160,
+          104
+        ]
+      }
+    ],
+    "adaptation": "Same Emerald native tiles. Apply the five approved HGSS colors in route-specific bank 8. Mirror only the east-west stair flight left to right. North-south gray stairs unchanged.",
+    "verification": "Full decoded Route 31 equals approved preview with only the stair rectangle mirrored. All geometry unchanged."
   }
 }

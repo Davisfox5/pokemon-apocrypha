@@ -22,8 +22,10 @@ to create game artwork. Comparison panels use nearest-neighbor enlargement.
 The preview is a static native decode, not a compiled ROM or emulator capture.
 See `provenance.json` for exact samples, source hash and checks.
 
-Reproduce from the worktree root with the existing ignored donor and current
-Johto engine workbench:
+The owner subsequently approved this palette; the current game includes it and
+a horizontal stair flip. These files retain the original proposal for comparison.
+To reproduce this historical proposal, restore the engine patch from `8099713`
+in an isolated workbench at the generator path, with the existing ignored donor:
 
 ```sh
 python3 tools/gba/maps/johto_synthesis/reference_review.py

@@ -25,6 +25,8 @@ def layout(game, name):
 def render(game, name, secondary, primary='general', recolor=False):
     l, grid = layout(game, name)
     tiles = Tileset(game, secondary, primary)
+    if primary == 'cherrygrove':
+        assert set(original) <= set(tiles.pals[1][8]), 'Historical preview requires the original 8099713 engine patch; do not regenerate from the installed recolor.'
     if recolor:
         # Change palette data only, in memory. Tile indices and maps are untouched.
         colors = tiles.pals[1][8]

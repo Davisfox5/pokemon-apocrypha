@@ -2,7 +2,7 @@ Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synth
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
 
-Current Johto correction: [connected routes, expanded New Bark and terrain cleanup](../gba/art/johto-synthesis/README.md). This supersedes johto-cohesion; retain earlier drafts as references. The latest revision uses standard Emerald directional rock, nearby jump ledges and original gray Mossdeep stairs on Route 31’s divider/southern rim and Route 30 connection. The moved pond and all collision/behavior/ground cells are preserved.
+Current Johto correction: [connected routes, expanded New Bark and terrain cleanup](../gba/art/johto-synthesis/README.md). This supersedes johto-cohesion; retain earlier drafts as references. The latest revision uses standard Emerald directional rock and nearby jump ledges in the approved HGSS browns, plus original gray Mossdeep stairs on Route 31’s divider/southern rim and Route 30 connection. The horizontal stair flight is flipped left to right; vertical stairs, the moved pond and all collision/behavior/ground cells are preserved.
 
 # Read only what the task needs
 

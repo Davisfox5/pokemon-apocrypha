@@ -1,6 +1,9 @@
 {
   "source": "Emerald primary/general",
-  "original_colors": true,
+  "original_colors": false,
+  "approved_hgss_palette": true,
+  "full_route_matches_approved_preview_plus_stair_flip": true,
+  "horizontal_stairs_flipped": true,
   "resized": false,
   "east_west_stairs_rotation_degrees": 90,
   "geometry_baseline": "522b72e838bfc83f4929274d68fbca89fc95911b",
@@ -9,133 +12,133 @@
       "name": "east-facing cliff",
       "x": 33,
       "y": 4,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 33,
       "y": 10,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 33,
       "y": 20,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 33,
       "y": 27,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 34,
       "y": 4,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 34,
       "y": 10,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 34,
       "y": 20,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "east-facing cliff",
       "x": 34,
       "y": 27,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 40,
       "y": 28,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 40,
       "y": 29,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 41,
       "y": 28,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 41,
       "y": 29,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 50,
       "y": 28,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south-facing cliff",
       "x": 50,
       "y": 29,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "inside corner",
       "x": 34,
       "y": 28,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "corner foot",
       "x": 34,
       "y": 29,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "south jump ledge",
       "x": 12,
       "y": 18,
-      "exact_donor_pixels": 118
+      "matching_palette_adjusted_pixels": 118
     },
     {
       "name": "north-south Emerald stairs",
       "x": 37,
       "y": 28,
-      "exact_donor_pixels": 1536
+      "matching_palette_adjusted_pixels": 1536
     },
     {
-      "name": "east-west stairs, quarter turn",
+      "name": "east-west stairs, horizontally flipped",
       "x": 33,
       "y": 16,
-      "exact_donor_pixels": 1024
+      "matching_palette_adjusted_pixels": 1024
     },
     {
       "name": "Route 30 seam stairs",
       "x": 9,
       "y": 0,
-      "exact_donor_pixels": 1536
+      "matching_palette_adjusted_pixels": 1536
     },
     {
       "name": "Route 30 adjoining rock",
       "x": 12,
       "y": 0,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     },
     {
       "name": "Route 30 adjoining rock foot",
       "x": 12,
       "y": 1,
-      "exact_donor_pixels": 256
+      "matching_palette_adjusted_pixels": 256
     }
   ],
   "passed": true

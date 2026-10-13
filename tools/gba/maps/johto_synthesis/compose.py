@@ -1,6 +1,6 @@
 """Reuse approved indexed Cherrygrove assets on the measured Johto plans."""
 from pathlib import Path
-import sys, copy
+import sys, copy, json
 import numpy as np
 from PIL import Image
 HERE=Path(__file__).resolve().parent
@@ -136,13 +136,15 @@ def assets():
   for x in range(left,right):
    phase=(x+y)&1;i=y-204
    c.px[y,x]=ramp[min(i+phase,len(ramp)-1)]
- # Standard Emerald rock and stairs, with their original RGB colors.
+ # Emerald rock in the owner-approved HGSS palette; stairs keep native gray.
  # Bank 8 is unused on these routes and their connected camera windows.
  donor=Tileset(SOURCE);mids=(0x75,0x7c,0x76,0x79,0x7d,0x7a,0x87,0xaf,0xcf)
  pixels={mid:np.asarray(donor.render(mid)) for mid in mids}
  colors=sorted({tuple(map(int,c)) for im in pixels.values() for c in im.reshape(-1,3)
                 if not (int(c[1])>int(c[0])+15 and int(c[1])>int(c[2])+15)})
- ep=Palette(8,colors,[f'c{i}' for i in range(len(colors))])
+ approved=json.loads((OUT/'reference-review/provenance.json').read_text())['palette_map']
+ warm={tuple(v['emerald']):tuple(v['hgss']) for v in approved}
+ ep=Palette(8,[warm.get(c,c) for c in colors],[f'c{i}' for i in range(len(colors))])
  def native(mid):
   rgb=pixels[mid];out=np.zeros((16,16),np.uint8)
   for i,color in enumerate(colors,1):out[(rgb==color).all(-1)]=i
@@ -152,7 +154,7 @@ def assets():
  side=Canvas(32,32,ep);side.px=np.tile(native(0x75).px,(2,2));a['route31_wall']=side
  edge,tread=native(0xaf).px,native(0xcf).px
  north=Canvas(48,32,ep);north.px=np.tile(np.concatenate([edge,tread,tread],axis=1),(2,1));a['stairs_top']=north
- crossing=Canvas(32,32,ep);crossing.px=np.rot90(np.tile(np.concatenate([edge,tread],axis=1),(2,1))).copy();a['divider_steps']=crossing
+ crossing=Canvas(32,32,ep);crossing.px=np.rot90(np.tile(np.concatenate([edge,tread],axis=1),(2,1)))[:,::-1].copy();a['divider_steps']=crossing
  # These rock-bank entries were unused after warm-shadow remapping. They let
  # mixed rock/tree metatiles retain the real local lawn at the foot of the cliff.
  pals[12].colors[7]=pals[0].gba()[2];pals[12].colors[10]=pals[0].gba()[3]
