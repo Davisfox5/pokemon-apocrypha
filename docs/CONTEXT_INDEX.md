@@ -1,3 +1,5 @@
+Current Route 29 proposal: [independent HGSS survey, complete-tree forest and native Emerald terrain](../gba/art/route29-hgss-blocks/README.md). Latest revision recreates the actual HGSS gate in native tiles; the improved map and lawn forest edges are retained. Source PR #6 targets `apocrypha`; accepted Route 30 work remains separately on PR #4.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.

@@ -1,0 +1,22 @@
+{
+  "primary": "general",
+  "metatiles": {
+    "cliff-west-0": "0x76",
+    "cliff-west-1": "0x76",
+    "cliff-east-0": "0x75",
+    "cliff-east-1": "0x75",
+    "cliff-cap-0": "0x7c",
+    "cliff-cap-1": "0x7c",
+    "cliff-face-0": "0x7c",
+    "cliff-face-1": "0x7c",
+    "ledge-left": "0xd5",
+    "ledge-middle": "0x87",
+    "ledge-right": "0xd6",
+    "step-left": "0xaf",
+    "step-middle": "0xcf",
+    "step-right": "0xaf"
+  },
+  "palette_bank": 8,
+  "original_RGB": true,
+  "cuttable_tree": "native OBJ_EVENT_GFX_CUTTABLE_TREE object and EventScript_CutTree"
+}
