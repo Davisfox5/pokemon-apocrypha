@@ -10,6 +10,8 @@ from johto_connections import runtime as r
 G=Path(sys.argv[1]).resolve();OUT=ROOT/'gba/art/route30-hgss-blocks'
 grid=np.fromfile(G/'data/layouts/CherrygroveRoute30Approach/map.bin',dtype='<u2').reshape(86,35)
 t=Tileset(G,'claude_route30','cherrygrove');solid=(grid&0xc00)!=0
+for event in json.loads((G/'data/maps/CherrygroveRoute30Approach/map.json').read_text())['object_events']:
+ if event['graphics_id']=='OBJ_EVENT_GFX_CUTTABLE_TREE':solid[event['y'],event['x']]=True
 beh=np.array([t.attrs[int(v>=512)][v-512 if v>=512 else v]&255 for v in (grid&1023).ravel()]).reshape(grid.shape)
 plan=np.load(OUT/'source/plan.npy')
 def path(start,goal):
@@ -62,6 +64,7 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(10,10,20);step(DOWN,1);at(10,10,22,"ledge-downhill");step(UP,1);at(10,10,22,"ledge-blocks-uphill");
  go(10,20,54);step(RIGHT,1);at(10,20,54,"upper-pond-bank-blocks");shot("upper-pond");
  go(10,20,44);for(int i=0;i<10;i++){step(RIGHT,1);at(10,21,44,"native-grass-right");step(LEFT,1);at(10,20,44,"native-grass-left");}shot("native-grass-walking");
+ go(10,18,6);tap(DOWN);frames(1,A);frames(120,0);need(locked(),"emerald-cut-tree-interaction");shot("emerald-cut-tree-interaction");close_dialog();
  read_sign(10,8,24,"northern-sign");read_sign(10,20,34,"mr-pokemon-direction-sign");read_sign(10,13,58,"southern-sign");
 '''+checks+r'''
  go(10,16,53);shot("save-at-route30");

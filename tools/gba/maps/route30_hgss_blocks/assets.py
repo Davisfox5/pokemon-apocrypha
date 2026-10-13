@@ -27,60 +27,29 @@ def scenery(t,mid,bank,pals):
    y,x=q//2*8,q%2*8;d=c.px[y:y+8,x:x+8];d[a>0]=a[a>0]
  return c
 
-def create(pals,t):
+def create(pals,t,game):
  a={name:indexed(CG/'refined'/(name+'.png'),bank,pals) for name,bank in [('tree',3),('gable',6),('house_mirror',6)]}
- cliff=indexed(CG/'references/C/cliff.idx.png',2,pals)
- for phase in range(2):
-  for kind,rows in [('cap',slice(0,16)),('face',slice(16,32))]:
-   c=Canvas(16,16,pals[2]);c.px=cliff.px[rows,phase*16:phase*16+16].copy();a[f'cliff-{kind}-{phase}']=c
- for side,k in [('west',1),('east',-1)]:
-  for phase in range(2):
-   c=Canvas(16,16,pals[2]);c.px=np.rot90(a[f'cliff-cap-{phase}'].px,k).copy();a[f'cliff-{side}-{phase}']=c
- for phase in range(2):
-  c=Canvas(16,16,pals[2]);c.px[8:]=cliff.px[8:16,phase*16:phase*16+16];a[f'ledge-{phase}']=c
+ # Exact Emerald Expansion general metatiles; donor lawn is transparent.
+ donor=__import__('tiles').Tileset(game)
+ mids={'cliff-west-0':0x76,'cliff-west-1':0x76,'cliff-east-0':0x75,'cliff-east-1':0x75,'cliff-cap-0':0x7c,'cliff-cap-1':0x7c,'cliff-face-0':0x7c,'cliff-face-1':0x7c,'ledge-left':0xd5,'ledge-middle':0x87,'ledge-right':0xd6,'step-left':0xaf,'step-middle':0xcf,'step-right':0xaf}
+ rgb={name:np.asarray(donor.render(mid)) for name,mid in mids.items()}
+ colors=sorted({tuple(map(int,c)) for im in rgb.values() for c in im.reshape(-1,3) if not (int(c[1])>int(c[0])+15 and int(c[1])>int(c[2])+15)})
+ from claude_cherrygrove.pixel import Palette
+ assert len(colors)<=15,colors
+ existing=pals[8].gba();assert all(color in existing for color in colors),('Native palette missing',colors,existing)
+ for name,im in rgb.items():
+  c=Canvas(16,16,pals[8])
+  for i,color in enumerate(colors,1):c.px[np.all(im==color,2)]=existing.index(color)
+  if name=='step-right':c.px=c.px[:,::-1].copy()
+  a[name]=c
  sign=np.asarray(Image.open(CG/'references/C/sign.png').convert('RGBA'))[:,:16];a['sign']=rgba_to_canvas(sign,5,pals)
- deck=np.asarray(Image.open(CG/'references/B/deck.png').convert('RGBA'));a['deck']=rgba_to_canvas(deck,5,pals)
- # Four horizontal tread lines and side posts use the actual CG wood ladder.
- step=a['deck'].px.copy();dark=int(step.min());light=int(step.max())
- for y in [3,7,11,15]:step[y,:]=dark;step[max(0,y-1),1:15]=light
- for side in ['middle','left','right']:
-  c=Canvas(16,16,pals[5]);c.px=step.copy()
-  if side=='left':c.px[:,:3]=dark;c.px[:,1]=light
-  if side=='right':c.px[:,-3:]=dark;c.px[:,-2]=light
-  a['step-'+side]=c
+ (OUT/'source/emerald-assets.json').write_text(json.dumps({'primary':'general','metatiles':{name:hex(mid) for name,mid in mids.items()},'palette_bank':8,'original_RGB':True,'cuttable_tree':'native OBJ_EVENT_GFX_CUTTABLE_TREE object and EventScript_CutTree'},indent=2)+'\n')
  # Small HGSS Apricorn silhouette; keep pixels at native size, clean lawn mask.
  raw=np.asarray(Image.open(OUT/'source/hgss-reference.png').convert('RGBA'))[75:107,339:355].copy()
  lawn=np.asarray([(104,208,152),(104,200,152),(96,192,144),(88,176,136),(96,200,152),(104,216,152)])
  dist=((raw[...,:3].astype(int)[...,None,:]-lawn)**2).sum(3).min(2);raw[...,3][dist<200]=0
  a['apricorn']=rgba_to_canvas(raw,3,pals)
- cut=np.asarray(Image.open(OUT/'source/hgss-reference.png').convert('RGBA'))[100:132,292:316].copy()
- mask=~(np.min(((cut[...,:3].astype(int)[...,None,:]-np.vstack([lawn,[(64,136,104)]]))**2).sum(3),axis=2)<220)
- mask[:4]=False;mask[25:]=False;mask[:8,16:]=False;mask[:,21:]=False
- cut[...,3]=mask*255;a['cut-barrier']=rgba_to_canvas(cut,3,pals)
-
  for i,mid in enumerate([197,198,199,200]):a['flower-'+str(i)]=scenery(t,mid,4,pals)
- # Forest floor makes blocked one-cell edges read as woods rather than lawn.
- # It uses existing tree colors and a sparse leaf litter pattern, not clipped trees.
- pal=np.asarray(pals[3].gba(),int);dark=next(i for i in range(1,16) if tuple(pal[i])==(64,64,40));leaf=int(((pal-np.array([88,112,32]))**2).sum(1).argmin());rim=int(((pal-np.array([64,136,104]))**2).sum(1).argmin())
- # Woodland edge metatiles fill narrow margins as connected foliage rather
- # than clipped tree sprites or rows of tiny objects. Same native CG pixels.
- my,mx=np.indices((16,16))
- for bits in range(16):
-  c=Canvas(16,16,pals[3]);c.px=a['tree'].px[8:24,8:24].copy()
-  for vertical,horizontal in [(1,4),(1,8),(2,4),(2,8)]:
-   if not bits&vertical and not bits&horizontal:
-    ey=my if vertical==1 else 15-my;ex=mx if horizontal==4 else 15-mx;c.px[ey+ex<5]=0
-  a['woodland-margin-'+str(bits)]=c
- for bits in range(16):
-  c=Canvas(16,16,pals[3]);c.px[:]=rim
-  for y,x in [(3,4),(11,2),(8,12),(13,13),(2,10)]:c.px[y,x:x+2]=leaf
-  for side,flag in enumerate([1,2,4,8]):
-   if not bits&flag:
-    if side==0:c.px[:2]=0;c.px[2]=rim
-    elif side==1:c.px[-2:]=0;c.px[-3]=rim
-    elif side==2:c.px[:,:2]=0;c.px[:,2]=rim
-    else:c.px[:,-2:]=0;c.px[:,-3]=rim
-  a['forest-'+str(bits)]=c
  # Native grass edge masks come from the real TEX0 egrass family.
  full=np.asarray(Image.open(REF/'egrass.png').convert('RGBA')).copy();up=np.asarray(Image.open(REF/'egrass_u.png').convert('RGBA'));vertical=np.asarray(Image.open(REF/'egrass_v.png').convert('RGBA'))
  grass_colors=[(32,112,80),(32,120,88),(40,136,80),(56,152,88),(64,168,112),(80,192,120)]

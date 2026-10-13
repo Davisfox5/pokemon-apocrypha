@@ -11,7 +11,7 @@ from tiles import Tileset,palette
 from claude_cherrygrove.pixel import Palette,Canvas
 from claude_cherrygrove import build as native,ground
 from claude_routes import build as packing,seams
-import assets,shared_seams,ground_native,layers
+import assets,shared_seams,ground_native,layers,forest
 ROOT=HERE.parents[3];OUT=ROOT/'gba/art/route30-hgss-blocks';S=OUT/'source';EV=OUT/'evidence';W,H=35,86
 
 def snapshot(game):
@@ -57,7 +57,8 @@ def assemble(game):
     if cg_protected[y:y+3,x:x+2].any():cg_protected[y:y+3,x:x+2]=True
  reserve|={int(v&1023) for v in old[protected] if v&1023>=512};visible_primary|={int(v&1023) for v in old[protected] if v&1023<512}
  reserved_banks={en>>12 for mid in reserve for en in t.blocks[1][mid-512] if en}|{en>>12 for mid in visible_primary for en in t.blocks[0][mid] if en};assert 12 not in reserved_banks,reserved_banks
- a=assets.create(pals,Tileset(game,'cherrygrove','cherrygrove'));mc=native.MapCanvas(W,H);cells=np.full((H,W),ground.GRASS,np.int8);cells[np.isin(p,['P','S'])]=ground.PATH;solid=np.isin(p,list('T#H!AW_K'));beh=np.zeros((H,W),np.uint8)
+ p,whole_positions,forest_report=forest.arrange(p,cg_protected,feature)
+ a=assets.create(pals,Tileset(game,'cherrygrove','cherrygrove'),game);mc=native.MapCanvas(W,H);cells=np.full((H,W),ground.GRASS,np.int8);cells[np.isin(p,['P','S'])]=ground.PATH;solid=np.isin(p,list('TR#H!AW_'));beh=np.zeros((H,W),np.uint8)
  fore=native.MapCanvas(W,H)
  def put(c,x,y):mc.blit(c,x*16,y*16)
  def put_fore(c,x,y,dx=0,dy=0):mc.blit(c,x*16+dx,y*16+dy);fore.blit(c,x*16+dx,y*16+dy)
@@ -72,12 +73,14 @@ def assemble(game):
     c=a['grass-'+neighbors(ch,x,y)]
     put(c,x,y);beh[y,x]=2
    elif ch=='W':put(a['pond-'+str(sum((1<<i)*int(v) for i,v in enumerate(neighbors(ch,x,y))))+'-'+str((y%2)*2+x%2)],x,y);beh[y,x]=16
-   elif ch=='#' or (ch=='H' and under[y,x]=='#'):
+   elif ch in ['#','R'] or (ch=='H' and under[y,x]=='#'):
     if x==15 and 6<=y<28:kind='west'
-    elif (x==3 and y>=36) or (x in [33,34] and y<46):kind='east'
+    elif (x in [3,4] and y>=36) or (x in [33,34] and y<46):kind='east'
     else:kind='face' if y>0 and under[y-1,x]=='#' else 'cap'
     put(a[f'cliff-{kind}-{(x+y)%2}'],x,y)
-   elif ch=='_':put(a['ledge-'+str(x%2)],x,y);beh[y,x]=59
+   elif ch=='_':
+    kind='left' if x==0 or p[y,x-1]!='_' else 'right' if x+1==W or p[y,x+1]!='_' else 'middle'
+    put(a['ledge-'+kind],x,y);beh[y,x]=59
  for stair in feature['stairs']:
   x,y,w,h=stair['rect']
   for yy in range(y,y+h):
@@ -99,17 +102,7 @@ def assemble(game):
   put_fore(clean,x,y)
  # Footprints own 2x2 ground cells; the native 2x3 sprite has a one-row upper
  # canopy. Only that canopy may cover the preceding tree's bottom row.
- occupied=np.zeros((H,W),bool);positions=[];tree_votes=np.load(S/'tree-source-fractions.npy')
- def fits(x,y):
-  return 0<=x and 0<=y and x+2<=W and y+3<=H and (p[y+1:y+3,x:x+2]=='T').all() and all(p[y,xx]=='T' or (y<74 and p[y,xx] in '.G#' and tree_votes[y,xx]>.10) for xx in range(x,x+2)) and not occupied[y+1:y+3,x:x+2].any() and not cg_protected[y:y+3,x:x+2].any()
- def place(x,y):occupied[y+1:y+3,x:x+2]=True;positions.append((int(x),int(y)))
- for y in range(0,H,2):
-  for x in range(0,W,2):
-   if fits(x,y):place(x,y)
- for y,x in zip(*np.nonzero((p=='T')&~occupied)):
-  if occupied[y,x]:continue
-  for yy,xx in [(y-1,x),(y-2,x),(y,x)]:
-   if fits(xx,yy):place(xx,yy);break
+ positions=whole_positions
  silhouette=np.zeros((H*16,W*16),bool);allowed_overlap=0
  for x,y in sorted(positions,key=lambda q:(q[1],q[0])):
   for xx,yy in positions:
@@ -117,13 +110,6 @@ def assemble(game):
    assert x+2<=xx or xx+2<=x or y+3<=yy+1 or yy+3<=y+1,('overlapping tree ground footprints',(x,y),(xx,yy))
   region=silhouette[y*16:y*16+48,x*16:x*16+32];overlap=region&opaque
   assert not overlap[16:].any(),'Overlap outside permitted upper canopy';allowed_overlap+=int(overlap.sum());region|=opaque;tree_fore(a['tree'],x,y);mc.above[y,x:x+2]=True
- tree_canvases=np.zeros((H,W),bool)
- for x,y in positions:tree_canvases[y:y+3,x:x+2]=True
- for y,x in zip(*np.nonzero((p=='T')&~tree_canvases&~cg_protected)):
-  c=a['woodland-margin-'+str(sum((1<<i)*int(v) for i,v in enumerate(neighbors('T',int(x),int(y)))))]
-  if protected[y,x]:
-   c=Canvas(16,16,pals[3]);c.px=a['tree'].px[8:24,8:24].copy()
-  put_fore(c,int(x),int(y));mc.above[y,x]=True
  # The HGSS divider's trunk strip is one cell wide; the western canopy
  # overhang covers a walkable ledge-bypass strip. Reuse complete CG sprites,
  # with reference-measured physical footprints rather than whole-sprite walls.
@@ -140,8 +126,6 @@ def assemble(game):
  for sign in feature['signs']:
   x,y=sign['at'];put_fore(a['sign'],x,y-1);solid[y,x]=True;beh[y,x]=29;mc.above[y-1,x]=True
  for x,y in feature['apricorns']:put_fore(a['apricorn'],x,y-1);solid[y,x]=True;mc.above[y-1,x]=True
- for cut in feature['cut_barriers']:
-  x,y=cut['ground'];dx,dy=cut['native_canvas_offset'];put_fore(a['cut-barrier'],x,y,dx,dy);solid[y,x]=True;mc.above[y-1,x:x+2]=True
  mc.fore_bank=fore.bank;mc.fore_idx=fore.idx
  mc.under_bank=mc.bank.copy();mc.under_idx=mc.idx.copy();comp={'W':W,'H':H,'cells':cells,'solid':solid,'behavior':beh,'canvas':mc,'tag':'independent-HGSS-blocks'}
  class NativePrimary(packing.Primary):
@@ -182,6 +166,6 @@ def assemble(game):
  for bank in np.unique(mc.bank):
   if bank>=0:m=mc.bank==bank;expected[m]=np.asarray(pals[int(bank)].gba(),np.uint8)[mc.idx[m]]
  error=np.any(pix!=expected,2)&check;assert not error.any(),int(error.sum())
- (EV/'assembly.json').write_text(json.dumps({'reference_blocks':2590,'reference_rows':74,'native_width':W,'native_height':H,'integration_adapter_rows':[74,85],'shared_seam_support':shared,'ground_provenance':ground_provenance,'protected_connection_cells':int(protected.sum()),'core_cells_copied_from_previous_Gen3_layout':int(cg_protected[:74].sum()),'northern_palette_adapter_cells':0,'layer_report':layer_report,'reserved_palette_banks':sorted(reserved_banks),'new_tree_positions':positions,'previous_boundary_tree_rectangles':fixed,'exclusive_tree_ground_cells':[2,2],'tree_canvas_cells':[2,3],'permitted_upper_canopy_overlap_pixels':allowed_overlap,'divider_tree_ground_footprints':[q['ground_rect'] for q in feature['divider_trees']],'illegal_ground_footprint_overlaps':0,'scenery_pixel_errors':0,'tiles':nt,'metatiles':nb,'layout_source':'source/blocks.txt, independently surveyed from source/hgss-reference.png; prior Gen 3 blockdata is consulted only to reserve old library IDs for compatibility; it does not supply the reconstructed layout'},indent=2)+'\n')
+ (EV/'assembly.json').write_text(json.dumps({'forest_adjustments':forest_report,'reference_blocks':2590,'reference_rows':74,'native_width':W,'native_height':H,'integration_adapter_rows':[74,85],'shared_seam_support':shared,'ground_provenance':ground_provenance,'protected_connection_cells':int(protected.sum()),'core_cells_copied_from_previous_Gen3_layout':int(cg_protected[:74].sum()),'northern_palette_adapter_cells':0,'layer_report':layer_report,'reserved_palette_banks':sorted(reserved_banks),'new_tree_positions':positions,'previous_boundary_tree_rectangles':fixed,'exclusive_tree_ground_cells':[2,2],'tree_canvas_cells':[2,3],'permitted_upper_canopy_overlap_pixels':allowed_overlap,'divider_tree_ground_footprints':[q['ground_rect'] for q in feature['divider_trees']],'illegal_ground_footprint_overlaps':0,'scenery_pixel_errors':0,'tiles':nt,'metatiles':nb,'layout_source':'source/blocks.txt, independently surveyed from source/hgss-reference.png; prior Gen 3 blockdata is consulted only to reserve old library IDs for compatibility; it does not supply the reconstructed layout'},indent=2)+'\n')
  print('HGSS-block proposal packed',nt,nb,'new trees',len(positions))
 if __name__=='__main__':assemble(Path(sys.argv[1]).resolve())

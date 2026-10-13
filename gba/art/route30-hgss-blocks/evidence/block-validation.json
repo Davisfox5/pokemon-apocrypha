@@ -1,7 +1,8 @@
 {
   "core_blocks": 2590,
-  "source_basis": "registered HGSS overview, inferred collision; not recovered DS block/collision data",
+  "source_basis": "HGSS overview with owner-authorized whole-tree expansion, native Emerald terrain and object-based Cut barrier",
   "collision_disagreements": 0,
+  "cut_barrier": "native object; underlying terrain passable; standard Cut script",
   "grass_behavior_errors": 0,
   "water_behavior_errors": 0,
   "ledge_behavior_errors": 0,
@@ -35,7 +36,7 @@
         0
       ],
       "cached_window_tile_pixel_errors": 0,
-      "offscreen_window_palette_differences": 7,
+      "offscreen_window_palette_differences": 3,
       "camera_margins": {
         "horizontal": 8,
         "up": 5,
