@@ -29,5 +29,11 @@
   "gate_side_bypass": false,
   "forest_rock_fillers": 0,
   "gray_steps": "no detached Emerald stair metatiles; original HGSS entry treads retained",
-  "gate_source": "HGSS overview at 1:1 pixel scale"
+  "gate_source": "HGSS overview at 1:1 pixel scale",
+  "project_CI": {
+    "workflow": "apocrypha build",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38436304044"
+  },
+  "upstream_CI_matrix": "still running at verification"
 }
