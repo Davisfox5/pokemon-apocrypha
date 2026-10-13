@@ -1,3 +1,9 @@
+## Latest: Violet custom-building perspective alignment
+
+Owner likes both custom designs and requested the HGSS imports' viewing angle without an architectural redesign. The university and lecture hall now have parallel main-roof verges, deeper roof planes, narrower wings and projecting eaves/entrance covers. The original clock tower, window bays, copper tile motif, clerestory, warm ribs, blue bands/canopy and colors remain. Door axes and contact baselines stay fixed. Current engine revision is `e7f70254644ea2cfbec8e13ade90c15a93dc040c` on `codex/violet-city`; see `gba/art/violet-city/evidence/preservation.json`.
+
+Exactly 20,912 native pixels change, all within the two building boxes. Twelve collision cells clear along the narrower university sides; twenty roof cells change draw layer for rear overlap. Events, scripts, warps and tile behaviors are unchanged. The roof stays clear of the lake. Native Porymap equality, Porytiles, local ROM, the background 661-step tour plus side/rear wall probes, signs, east gate return and save/cold reload/Continue pass. See `perspective-comparison.png` and `perspective-validation.json` in the evidence directory. Scenery capacity is 983/1,008; no desktop emulator opened. Next: owner visual review. Interiors/scenes and onward Routes 32/36 remain unimplemented; Surf remains unqualified.
+
 ## Latest: Violet imported-art cleanup
 
 Owner flagged clipped homes, background fragments around signs/bridge ornaments and the unfinished islet. Expansion `9ce2004781362fa4a89605a3bce01c48ff5a6177` on `codex/violet-city` restores full house eaves/wall bases, isolates sign/post/Mart sign silhouettes, and restores the HGSS islet's turf and cliff texture. Source masks and lossless palette-index packing are reproducible; capacity is 999/1,008 tiles. See `gba/art/violet-city/evidence/cleanup-comparison.png` and `cleanup-validation.json`.

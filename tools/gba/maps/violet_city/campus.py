@@ -10,25 +10,30 @@ def university():
     colors=[(48,56,64),(80,88,88),(136,128,112),(184,176,152),(216,208,184),(240,232,208),(56,72,104),(72,96,128),(104,128,152),(48,72,88),(80,128,152),(136,184,192),(96,72,56),(192,160,80),(152,72,56)]
     p=Palette(10,colors,names);c=Canvas(352,144,p)
     # Two classroom wings, joined by a projecting central entrance and clock.
-    c.rect(8,72,336,64,'stone');c.rect(8,137,336,5,'shade')
-    for x in range(16,336,32):
+    c.rect(24,72,304,64,'stone');c.rect(24,137,304,5,'shade')
+    for x in (32,56,80,104,144,176,216,240,264,288):
         c.rect(x,76,1,60,'stone_dark');c.rect(x+1,76,2,60,'stone_light')
         for y in (80,108):
             c.rect(x+8,y,16,20,'stone_dark');c.rect(x+9,y,14,18,'trim')
             c.rect(x+10,y+2,12,14,'glass_dark');c.rect(x+11,y+3,10,11,'glass')
             c.rect(x+11,y+3,10,3,'glass_light');c.rect(x+15,y+2,2,14,'trim')
             c.rect(x+8,y+18,16,2,'stone_light')
-    c.rect(8,102,336,3,'stone_light');c.rect(8,105,336,2,'stone_dark')
-    c.rect(8,132,336,4,'stone_dark');c.rect(8,132,336,1,'stone_light')
-    # Repeating slates, clipped at hip ends. Shared roof modules avoid stretched art.
-    for y in range(48,75):
-        inset=max(0,(64-y)//2);l=4+inset;r=348-inset
+    c.rect(24,102,304,3,'stone_light');c.rect(24,105,304,2,'stone_dark')
+    c.rect(24,132,304,4,'stone_dark');c.rect(24,132,304,1,'stone_light')
+    # HGSS parallel projection: deep roof planes with parallel side verges.
+    # Keep the slate module, but remove the converging hip ends and let the
+    # eaves cover the upper wall/window line. The tower remains the same design.
+    for y in range(34,84):
+        l,r=20,332
         c.rect(l,y,r-l,1,'roof')
         if y%4==0:c.rect(l,y,r-l,1,'roof_dark')
         if y%4==1:c.rect(l,y,r-l,1,'roof_light')
-        for x in range(8+(4 if y//4%2 else 0),344,8):
-            if l<=x<r:c.put(x,y,'roof_dark')
-    c.rect(12,46,328,2,'roof_light');c.rect(4,75,344,3,'shade');c.rect(4,78,344,2,'trim')
+        for x in range(24+(4 if y//4%2 else 0),328,8):
+            c.put(x,y,'roof_dark')
+        c.put(l,y,'roof_light');c.put(r-1,y,'roof_dark')
+    c.rect(20,32,312,2,'roof_light')
+    c.rect(20,84,312,3,'roof_dark');c.rect(20,87,312,2,'trim')
+    c.rect(24,89,304,3,'shade')
     # Entry projection: broad limestone pilasters, recessed doors, shallow steps.
     c.rect(144,64,64,73,'stone_light');c.rect(148,66,56,64,'stone')
     c.rect(144,88,64,4,'trim');c.rect(146,93,6,41,'trim');c.rect(200,93,6,41,'trim')
@@ -37,6 +42,9 @@ def university():
     c.rect(163,102,10,11,'glass');c.rect(179,102,10,11,'glass')
     c.rect(172,116,2,5,'brass');c.rect(178,116,2,5,'brass')
     for y in (132,136,140):c.rect(144,y,64,3,'stone_light');c.rect(144,y+3,64,1,'stone_dark')
+    # Projecting lintel casts a short shadow over the recessed upper door.
+    c.rect(142,92,68,9,'stone_light');c.rect(142,101,68,3,'trim')
+    c.rect(144,104,64,6,'shade')
     # A compact clock tower marks a civic institution instead of another house.
     c.rect(152,16,48,70,'stone_light');c.rect(156,20,40,64,'stone')
     for y in range(4,20):
@@ -88,10 +96,10 @@ def lecture_hall():
                  'blue_dark','blue','glass','glass_light','stone','stone_light','cream','wood'])
     c=Canvas(144,112,p)
     # Rectangular lecture wings with tall daylight windows and a deep central entry.
-    c.rect(8,56,128,51,'stone');c.rect(8,105,128,4,'shadow')
-    c.rect(10,62,124,3,'stone_light');c.rect(10,89,124,4,'blue')
-    c.rect(10,89,124,1,'glass_light');c.rect(10,99,124,4,'blue_dark')
-    for x in (16,40,88,112):
+    c.rect(12,56,120,51,'stone');c.rect(12,105,120,4,'shadow')
+    c.rect(14,62,116,3,'stone_light');c.rect(14,89,116,4,'blue')
+    c.rect(14,89,116,1,'glass_light');c.rect(14,99,116,4,'blue_dark')
+    for x in (20,40,88,108):
         c.rect(x,67,16,21,'shadow');c.rect(x+1,68,14,19,'cream')
         c.rect(x+3,70,10,15,'blue_dark');c.rect(x+4,71,8,12,'glass')
         c.rect(x+4,71,8,3,'glass_light');c.rect(x+7,70,2,15,'stone_light')
@@ -106,14 +114,13 @@ def lecture_hall():
             if dy==2 and dx in (0,7):tone='roof'
             if dy==3:tone='roof_dark' if 1<=dx<=6 else 'roof'
             c.put(x,y,tone)
-        # Continuous diagonal hip caps explain the roof slope and its thickness.
+        # Parallel verges retain the roof thickness without perspective taper.
         c.put(left,y,'roof');c.put(left+1,y,'copper')
         c.put(right-2,y,'roof');c.put(right-1,y,'roof_dark')
-    for y in range(28,61):
-        inset=max(0,(48-y)//2);left=2+inset;right=142-inset
-        roof_course(y,left,right,28)
-    c.rect(12,26,120,2,'copper');c.rect(2,61,140,3,'roof_dark')
-    c.rect(4,64,136,2,'shadow');c.rect(8,66,128,1,'cream')
+    for y in range(20,69):
+        roof_course(y,10,134,20)
+    c.rect(10,18,124,2,'copper');c.rect(10,69,124,3,'roof_dark')
+    c.rect(10,72,124,2,'cream');c.rect(12,74,120,3,'shadow')
     # Raised glazed clerestory establishes a new civic-hall silhouette.
     c.rect(48,12,48,30,'roof_dark');c.rect(50,15,44,23,'stone_light')
     for x in (54,66,78):
@@ -123,8 +130,8 @@ def lecture_hall():
         inset=(14-y)//2;roof_course(y,40+inset,104-inset,2)
     c.rect(40,15,64,2,'roof_dark');c.rect(48,38,48,3,'copper')
     # Exposed warm ribs echo the original orange structural accents.
-    for x in (9,49,91,131):
-        c.rect(x,67,4,37,'rib');c.rect(x,67,1,37,'copper')
+    for x in (13,49,91,127):
+        c.rect(x,77,4,27,'rib');c.rect(x,77,1,27,'copper')
         c.rect(x-1,104,6,3,'roof_dark')
     # Recessed central glass doors, kept on the existing world doorway axis.
     c.rect(55,73,34,35,'roof_dark');c.rect(58,76,28,30,'cream')
@@ -134,12 +141,12 @@ def lecture_hall():
         c.rect(x+1,81,6,3,'glass_light')
     c.rect(69,92,2,4,'copper');c.rect(73,92,2,4,'copper')
     # A broad fanlight canopy quotes the old blue projecting entrance.
-    c.ellipse(71.5,72,25,14,'blue_dark');c.rect(47,72,50,7,'blue_dark')
-    c.ellipse(71.5,70,23,12,'blue');c.rect(49,70,46,5,'blue')
-    c.ellipse(71.5,68,21,9,'glass');c.rect(51,69,42,3,'glass')
-    for x in (57,71,85):c.rect(x,64,1,10,'glass_light')
+    c.ellipse(71.5,78,25,14,'blue_dark');c.rect(47,78,50,7,'blue_dark')
+    c.ellipse(71.5,76,23,12,'blue');c.rect(49,76,46,5,'blue')
+    c.ellipse(71.5,74,21,9,'glass');c.rect(51,75,42,3,'glass')
+    for x in (57,71,85):c.rect(x,70,1,10,'glass_light')
     # Open-book crest: new use is legible while the historic colors stay dominant.
-    c.rect(66,62,12,9,'roof_dark');c.rect(67,63,4,6,'cream');c.rect(73,63,4,6,'cream')
-    c.rect(68,66,2,1,'roof');c.rect(74,66,2,1,'roof')
+    c.rect(66,68,12,9,'roof_dark');c.rect(67,69,4,6,'cream');c.rect(73,69,4,6,'cream')
+    c.rect(68,72,2,1,'roof');c.rect(74,72,2,1,'roof')
     for y in (106,109):c.rect(55,y,34,2,'stone_light');c.rect(55,y+2,34,1,'stone')
     return c

@@ -13,7 +13,17 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Imported-art cleanup — current
+## Custom-building perspective — current
+
+The owner approved the two custom designs and requested the same parallel, roof-over-wall projection as the HGSS imports. The university and lecture hall now have deeper main roof planes, parallel side verges, stronger projecting eaves, and entrance covers that obscure the upper doors. The university wings narrow by 16 pixels per side; the lecture hall roof narrows by eight pixels per side. Clock face, tower cap, classroom window bays, banners, limestone details, copper roof tile motif, glazed clerestory, cyan bands, orange ribs and blue fanlight canopy remain the same architectural design and color family.
+
+Door axes, thresholds and ground-contact baselines stay fixed. Exactly 20,912 native pixels change, all within the two building boxes; every other city pixel is unchanged. Twelve collision cells clear along the university's narrower sides. Twenty roof cells change draw layer so the player correctly passes behind the deeper upper eaves. Events, scripts, warps and water behavior are unchanged.
+
+Porytiles pixel checks, independent native decode/Porymap equality, local compilation and the background walking/sign/gate/save checks pass. New probes cover both narrower university side walls and its rear roof overlap. Native captures were visually inspected. Scenery uses **983 / 1,008 tiles**, leaving 25. No desktop emulator opened. Interiors and onward Routes 32/36 are still unimplemented; Surf traversal remains unqualified.
+
+[Perspective before/after](evidence/perspective-comparison.png) · [Full native map](evidence/native-overview.png) · [Native captures](evidence/gameplay-gallery.png) · [Validation](evidence/perspective-validation.json)
+
+## Previous imported-art cleanup
 
 - Recovered the houses' left eave from the source and traced the stepped roof outline. Removed the generic corner trimming, preserving the wall bases, ridge and doorway details.
 - Removed donor paving/grass behind sign boards and posts; removed water/path fragments from bridge finials and roof/facade fragments from the Mart sign. Bridge finials now use their original neutral outline/material colors.
@@ -22,7 +32,7 @@ The former `VioletCityEntrance` stub is preserved as reference. Only the two wes
 
 Native source revision is in `evidence/preservation.json`. Porymap matches the independent native decoder exactly; local ROM compilation and the background 661-step walking tour, signs, gate return, ordinary save/cold reload/Continue pass. Native captures were inspected. Surf traversal remains unqualified; this cleanup changes no water behavior. No desktop emulator opened.
 
-Capacity is **999 / 1,008 scenery tiles**, with nine remaining. Deterministic palette-index alignment shares identical 8x8 patterns without changing RGB pixels, transparency or hardware limits. Reproducible masks and packing live in `tools/gba/maps/violet_city/cleanup.py` and `packing.py`.
+That cleanup used **999 / 1,008 scenery tiles**, with nine remaining. Deterministic palette-index alignment shares identical 8x8 patterns without changing RGB pixels, transparency or hardware limits. Reproducible masks and packing live in `tools/gba/maps/violet_city/cleanup.py` and `packing.py`.
 
 [Before/after cleanup](evidence/cleanup-comparison.png) · [Silhouette review](evidence/cleanup-silhouettes.png) · [Full native map](evidence/native-overview.png) · [Background captures](evidence/gameplay-gallery.png) · [Validation](evidence/cleanup-validation.json)
 

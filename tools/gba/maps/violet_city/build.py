@@ -228,7 +228,11 @@ def main(game):
  for key,label,x,y,dx,dy in buildings:
   c=A[key];stamp(key,x,y,True);cw,ch=c.w//16,c.h//16
   solid[y+(3 if key=='university' else 1):y+ch,x:x+(4 if key=='house' else cw)]=True;mc.above[y,x:x+cw]=True
-  if key=='university':solid[y+1:y+3,x+9:x+13]=True
+  if key=='university':
+   # Narrower parallel roof/walls leave one clear column on either side.
+   solid[y+3:y+ch,x]=False;solid[y+3:y+ch,x+cw-1]=False
+   solid[y+1:y+3,x+9:x+13]=True
+   mc.above[y+2:y+3,x+1:x+cw-1]=True
   # Door threshold remains closed until that building's interior is authored.
   anchors.append({'name':label,'asset':key,'box':[x,y,cw,ch],'door':[x+dx,y+dy],'approach':[x+dx,y+ch]})
  # HGSS bridge/landing finials and small floating lily-pad clusters.

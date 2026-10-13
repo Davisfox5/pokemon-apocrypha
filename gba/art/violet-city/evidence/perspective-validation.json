@@ -1,0 +1,40 @@
+{
+  "base_engine_commit": "9ce2004781362fa4a89605a3bce01c48ff5a6177",
+  "changed_pixels": 20912,
+  "outside_buildings_changed_pixels": 0,
+  "collision_elevation_changed_cells": 12,
+  "collision_change": "Twelve cells clear along the narrowed university sides; doorway anchors unchanged",
+  "attribute_changed_cells": 20,
+  "outside_buildings_changed_cells": 0,
+  "map_events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 983,
+  "architecture_preserved": [
+    "clock tower and face",
+    "eight visible classroom window bays and banners",
+    "limestone entry and steps",
+    "copper overlapping roof tiles",
+    "glazed clerestory",
+    "orange ribs",
+    "cyan bands",
+    "blue fanlight canopy and open-book crest"
+  ],
+  "perspective": [
+    "parallel side verges on main roofs",
+    "deeper visible roof planes",
+    "projecting eaves and entry cover",
+    "narrower wings with original doorway axes"
+  ],
+  "water_behavior_changed": false,
+  "tile_behavior_changes": 0,
+  "rom_sha256": "fcad583758846f9f546993a0a21c1d1a549d7d43b4b47bd39ba49d98842790fc",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "university_side_and_rear_collision_probes_pass": true,
+  "desktop_emulator_opened": false,
+  "engine_commit": "e7f70254644ea2cfbec8e13ade90c15a93dc040c"
+}
