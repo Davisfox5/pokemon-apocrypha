@@ -1,6 +1,6 @@
 # Route 30: independent HGSS block reconstruction
 
-Engine branch `codex/route30-hgss-blocks`, commit `d8270f67372fba07ca1d7c229dc14c4cea9c98cd`, based on production `apocrypha` (`2722eaf`). The previous Route 30 reconstruction remains on `codex/route30-rebuild`; its evidence remains on `codex/route30-review`. This is a new reconstruction proposal, not a declaration of owner visual acceptance.
+Engine branch `codex/route30-hgss-blocks`, commit `b13cfe485ad96d1d5f862009f486b8282fbb14f8`, based on production `apocrypha` (`2722eaf`). The previous Route 30 reconstruction remains on `codex/route30-rebuild`; its evidence remains on `codex/route30-review`. This is a new reconstruction proposal, not a declaration of owner visual acceptance.
 
 ## Review
 
@@ -23,7 +23,7 @@ The large trees and both houses reuse accepted Cherrygrove native art. Ordinary 
 
 Tall grass is derived from the existing decoded real HGSS `egrass`, `egrass_u`, `egrass_v` texture files under `gba/art/johto-cohesion/references`. Six ranked blade shades and sixteen adjacency variants are preserved. Porytiles compiles this isolated family and its decoded output is checked for exact RGB and alpha equality before import into native bank 12. Shared Cherrygrove tilesets are not compiler input. Materials and intermediate source PNGs remain editable.
 
-Two-layer hardware packing sometimes requires an opaque terrain background under a foreground canopy or roof. Palette 7 is reserved for these native composites; four Cherrygrove ground anchors and the ground-shadow shade are pinned. Across 72 background glyphs, 48 pixels undergo native terrain colour cleanup, with maximum channel delta 37. Foreground scenery pixels are unchanged. The cleaned backgrounds are preserved in `source/overhang-backgrounds/`.
+Two-layer hardware packing sometimes requires an opaque terrain background under a foreground canopy or roof. Palette 7 is reserved for these native composites; four Cherrygrove ground anchors and the ground-shadow shade are pinned. Across 55 background glyphs, 21 pixels undergo native terrain colour cleanup, with maximum channel delta 37. Foreground scenery pixels are unchanged. The cleaned backgrounds are preserved in `source/overhang-backgrounds/`.
 
 Route 31 receives only appended shared seam metatiles, unused zero tile-padding storage and its unused palette 7. Existing nonzero graphics, metatile IDs, layout and scripts stay unchanged; decoded Route 31 itself is pixel-identical. Door slots 1008-1023 are reserved. Cherrygrove tilesets/layout, Route 29, New Bark and Violet remain untouched and their Porymap exports are pixel-identical.
 
@@ -46,7 +46,7 @@ python tools/gba/maps/route30_hgss_blocks/assemble.py /path/to/apocrypha-src
 make -C /path/to/apocrypha-src -j1 generated
 make -C /path/to/apocrypha-src -j8
 python tools/gba/maps/route30_hgss_blocks/runtime.py /path/to/apocrypha-src /new/output --toolchain /path/to/arm-toolchain
-python tools/gba/maps/route30_hgss_blocks/review.py /path/to/apocrypha-src /porymap/export /baseline/export
+python tools/gba/maps/route30_hgss_blocks/review.py /path/to/apocrypha-src /porymap/export /baseline/export /runtime/output
 ```
 
 Porytiles native output and source layers are checked in to preserve reproducibility without repacking unrelated native banks. Engine source is committed directly, not stored as patch stacks. ROMs, saves, tools and binaries are excluded.

@@ -11,7 +11,6 @@ from tiles import Tileset,palette
 from claude_cherrygrove.pixel import Palette,Canvas
 from claude_cherrygrove import build as native,ground
 from claude_routes import build as packing,seams
-from johto_polish.build import pack_cells
 import assets,shared_seams,ground_native,layers
 ROOT=HERE.parents[3];OUT=ROOT/'gba/art/route30-hgss-blocks';S=OUT/'source';EV=OUT/'evidence';W,H=35,86
 
@@ -158,6 +157,7 @@ def assemble(game):
       if np.array_equal(candidate,arr):return tid|(hf<<10)|(vf<<11)
    return None
  primary=NativePrimary(game,92,511);packer=packing.RoutePacker(pals,primary);packer.reserve([np.asarray(v,np.uint8).reshape(8,8) for v in t.tiles[1]],t.blocks[1],t.attrs[1],reserve)
+ packer.reserved_metatile_ids=set(reserve)
  for mid in visible_primary:
   for en in t.blocks[0][mid]:
    tid=en&1023

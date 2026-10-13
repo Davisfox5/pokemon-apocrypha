@@ -17,6 +17,12 @@ def main():
  for house in f['houses']:
   x,y=house['x'],house['y'];solid[y:y+5,x:x+5]=under[y:y+5,x:x+5]=='#';solid[y+1:y+5,x+1:x+5]=True
  actual=(grid&0xc00)!=0;errors=int(np.count_nonzero(solid[:74]!=actual[:74]));assert errors==0,errors
+ ledger=json.loads((S/'block-ledger.json').read_text())
+ for q in ledger:
+  q['native_blocked']=bool(actual[q['y'],q['x']]);q['blocked']=q['native_blocked']
+  q['collision_basis']='image inference plus explicit structure footprint; not DS collision data'
+  q['reference_visible_width']=13 if q['x']==34 else 16
+ (S/'block-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
  beh=np.array([t.attrs[int(v>=512)][v-512 if v>=512 else v]&255 for v in (grid&1023).ravel()]).reshape(grid.shape)
  checks={k:int(np.count_nonzero(beh[p==c]!=b)) for k,c,b in [('grass_behavior_errors','G',2),('water_behavior_errors','W',16),('ledge_behavior_errors','_',59)]};assert not any(checks.values()),checks
  unchanged=['CherrygroveCity','CherrygroveRoute29Approach','NewBarkTown','JohtoRoute31','VioletCityEntrance']
@@ -53,5 +59,16 @@ def main():
     offscreen_palette_blocks+=int(not np.array_equal(np.asarray(owner.render(int(mid))),np.asarray(foreign.render(int(mid)))))
   assert cache_errors==0,(name,cache_errors)
   seam_reports.append({'neighbor':name,'camera_visible_palette_and_pixel_mismatches':counts,'cached_window_tile_pixel_errors':cache_errors,'offscreen_window_palette_differences':offscreen_palette_blocks,'camera_margins':{'horizontal':8,'up':5,'down':6}})
+ if len(sys.argv)>4:
+  runtime=Path(sys.argv[4]);dest=E/'gameplay';dest.mkdir(exist_ok=True)
+  for file in runtime.glob('*.png'):shutil.copyfile(file,dest/file.name)
+  for name in ['results.json','write.jsonl','read.jsonl','menu.jsonl']:shutil.copyfile(runtime/name,dest/name)
+  names=['southern-house','native-grass-walking','mr-pokemon-house','original-cut-barrier','ledge-bypass-canopy','upper-pond','route30-south-seam','northern-ledge','title-continue']
+  gallery=Image.new('RGB',(1456,1056),(24,28,34));draw=ImageDraw.Draw(gallery)
+  for i,name in enumerate(names):
+   x=8+i%3*484;y=i//3*352;draw.text((x,y+7),name.replace('-',' '),fill='white');gallery.paste(Image.open(runtime/(name+'.png')).resize((480,320),Image.Resampling.NEAREST),(x,y+26))
+  gallery.save(E/'gameplay-gallery.png')
+  frames=[Image.open(runtime/(name+'.png')).resize((480,320),Image.Resampling.NEAREST) for name in ['north-crossing-before','north-crossing-28','north-crossing-29','north-crossing-00','north-crossing-01','north-crossing-02']]
+  frames[0].save(E/'north-crossing.gif',save_all=True,append_images=frames[1:],duration=650,loop=0)
  report['connection_camera_checks']=seam_reports;(E/'block-validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

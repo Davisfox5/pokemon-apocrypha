@@ -1991,7 +1991,7 @@
   {
     "x": 12,
     "y": 3,
-    "type": "T",
+    "type": "c",
     "reference_box": [
       198,
       52,
@@ -1999,9 +1999,9 @@
       16
     ],
     "source_color_fraction": 0.16,
-    "blocked": true,
+    "blocked": false,
     "source": "HGSS image survey",
-    "native_blocked": true,
+    "native_blocked": false,
     "collision_basis": "image inference plus explicit structure footprint; not DS collision data",
     "reference_visible_width": 16
   },
@@ -2535,7 +2535,7 @@
   {
     "x": 9,
     "y": 4,
-    "type": "P",
+    "type": "_",
     "reference_box": [
       150,
       68,
@@ -2543,16 +2543,16 @@
       16
     ],
     "source_color_fraction": 0.223,
-    "blocked": false,
+    "blocked": true,
     "source": "HGSS image survey",
-    "native_blocked": false,
+    "native_blocked": true,
     "collision_basis": "image inference plus explicit structure footprint; not DS collision data",
     "reference_visible_width": 16
   },
   {
     "x": 10,
     "y": 4,
-    "type": "P",
+    "type": "_",
     "reference_box": [
       166,
       68,
@@ -2560,16 +2560,16 @@
       16
     ],
     "source_color_fraction": 0.562,
-    "blocked": false,
+    "blocked": true,
     "source": "HGSS image survey",
-    "native_blocked": false,
+    "native_blocked": true,
     "collision_basis": "image inference plus explicit structure footprint; not DS collision data",
     "reference_visible_width": 16
   },
   {
     "x": 11,
     "y": 4,
-    "type": "P",
+    "type": "_",
     "reference_box": [
       182,
       68,
@@ -2577,9 +2577,9 @@
       16
     ],
     "source_color_fraction": 0.293,
-    "blocked": false,
+    "blocked": true,
     "source": "HGSS image survey",
-    "native_blocked": false,
+    "native_blocked": true,
     "collision_basis": "image inference plus explicit structure footprint; not DS collision data",
     "reference_visible_width": 16
   },

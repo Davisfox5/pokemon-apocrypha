@@ -18,7 +18,7 @@ FEATURES={
  'houses':[{'name':'MrPokemon','asset':'gable','x':25,'y':1,'width':5,'height':5,'door_front':[27,6],'reference_box_px':[409,34,80,75]},
            {'name':'SouthernHouse','asset':'house_mirror','x':13,'y':48,'width':5,'height':5,'door_front':[16,53],'reference_box_px':[208,787,80,72]}],
  'stairs':[{'name':'north','rect':[9,0,3,2]},{'name':'upper-plateau','rect':[15,6,1,2],'orientation':'east-west'},{'name':'middle','rect':[9,28,3,1]},{'name':'southwest','rect':[6,63,4,1]},{'name':'southeast','rect':[17,63,4,1]}],
- 'ledges':[[7,12,6,1],[8,21,5,1],[8,32,3,1],[6,51,4,1],[5,68,5,1]],
+ 'ledges':[[9,4,3,1],[7,12,6,1],[8,21,5,1],[8,32,3,1],[6,51,4,1],[5,68,5,1]],
  'signs':[{'name':'NorthernRouteSign','at':[8,24]},{'name':'MrPokemonDirection','at':[20,34]},{'name':'Route30','at':[13,58]}],
  'apricorns':[[21,5],[12,52]],
  'flower_boxes':[[22,8,2,2],[26,8,4,2],[12,23,3,3],[22,32,3,2],[12,35,3,3],[11,57,3,2]],
@@ -76,6 +76,8 @@ def trace():
  (S/'terrain.txt').write_text('\n'.join(''.join(row) for row in terrain)+'\n')
  for q in FEATURES['canopy_corridors']:rect(q['rect'],'c')
  grid[7,14]='c'
+ # Lawn passage around the first ledge's eastern end, beneath HGSS canopy.
+ grid[3,12]='c'
  grid[6,18]='c'
  grid[7,18]='K'
  # Cell-level corrections are authored only after reviewing the HGSS survey.

@@ -53,11 +53,17 @@ def synchronize(game,base,grid,primary,packer,solid):
     mapped[key]=found
    result.append((en&0xf000)|((en&0x0c00)^mapped[key]))
   common[mid]=(tuple(result),attr)
- next_mid=max(512+len(t.blocks[1]),max(packer.sec_blocks,default=511)+1);shared_blocks={};relocated={}
+ # A new northern block's pre-mirror definition is disposable if every use
+ # will be redirected here. Reuse these new IDs, never existing RG31 IDs or
+ # any reserved neighbor definition, instead of retaining duplicate drafts.
+ unsafe=set(int(v&1023) for v in grid[~visible])|getattr(packer,'reserved_metatile_ids',set())
+ available=[mid for mid in range(512+len(t.blocks[1]),1024) if mid not in unsafe]
+ shared_blocks={};relocated={};shared_lookup={}
  for mid,block in common.items():
   if mid-512<len(t.blocks[1]) and t.blocks[1][mid-512]==block[0] and t.attrs[1][mid-512]==block[1]:relocated[mid]=mid;continue
-  assert next_mid<1024,'Northern shared metatile storage exhausted'
-  relocated[mid]=next_mid;shared_blocks[next_mid]=block;next_mid+=1
+  if block in shared_lookup:relocated[mid]=shared_lookup[block];continue
+  assert available,('Northern shared metatile storage exhausted',len(common),len(shared_blocks),len(packer.sec_blocks),len(unsafe))
+  target=available.pop(0);relocated[mid]=target;shared_blocks[target]=block;shared_lookup[block]=target
  for mid,new in relocated.items():
   mask=visible&((grid&1023)==mid);grid[mask]=(grid[mask]&0xfc00)|new
  packer.sec_tiles.update(shared_tiles);packer.sec_blocks.update(shared_blocks)

@@ -16,6 +16,9 @@ def pack(comp,packer,pals,grid,source_dir):
    fore=fb[y:y+8,x:x+8];background=bb[y:y+8,x:x+8];background_index=bi[y:y+8,x:x+8]
    keys=set(int(v) for v in np.unique(background) if v>=0)
    if (background<0).any():keys.add(0)
+   # A fully opaque foreground quarter already covers every BG3 pixel.
+   # Its invisible backing need not create another tile/metatile variant.
+   if (fore>=0).all() and (fi[y:y+8,x:x+8]>0).all():continue
    # With no foreground, base and scenery can use their two usual layers.
    if len(keys)>1 and ((fore>=0).any() or mc.above[y//16,x//16]) and keys!={0,12}:
     q=gimg[y:y+8,x:x+8].copy()
@@ -46,6 +49,8 @@ def pack(comp,packer,pals,grid,source_dir):
     bs=set(int(v) for v in np.unique(b) if v>=0)
     if (b<0).any():bs.add(0)
     base=gi[yy:yy+8,xx:xx+8]
+    if fs and (f>=0).all() and (fx>0).all():
+     bottom.append(0);top.append(entry(fs[0],fx.astype(np.uint8)));continue
     if not fs and (xx,yy) in cases:
      c=converted[cases[(xx,yy)]];bottom.append(entry(7,c.px.astype(np.uint8)));top.append(0);continue
     if not fs:

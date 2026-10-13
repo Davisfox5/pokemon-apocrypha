@@ -10,7 +10,7 @@
   "shared_seam_support": {
     "new_shared_tiles": 52,
     "reused_existing_tile_ids": 2,
-    "new_shared_metatiles": 82,
+    "new_shared_metatiles": 84,
     "visible_route_cells": 224,
     "existing_nonzero_graphics_replaced": 0,
     "existing_metatile_ids_changed": 0,
@@ -30,7 +30,7 @@
   "northern_palette_adapter_cells": 0,
   "layer_report": {
     "composited_terrain_palette": 7,
-    "background_assets": 72,
+    "background_assets": 55,
     "background_colour_cleanup": [
       {
         "asset": "background-02-000",
@@ -63,16 +63,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-01-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-02-001",
-        "changed_pixels": 6,
-        "max_channel_delta": 16
-      },
-      {
         "asset": "background-03-001",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -81,16 +71,6 @@
         "asset": "background-04-001",
         "changed_pixels": 0,
         "max_channel_delta": 0
-      },
-      {
-        "asset": "background-05-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-06-001",
-        "changed_pixels": 6,
-        "max_channel_delta": 16
       },
       {
         "asset": "background-07-001",
@@ -103,16 +83,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-09-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-10-001",
-        "changed_pixels": 6,
-        "max_channel_delta": 16
-      },
-      {
         "asset": "background-11-001",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -123,16 +93,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-13-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-14-001",
-        "changed_pixels": 6,
-        "max_channel_delta": 16
-      },
-      {
         "asset": "background-15-001",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -141,16 +101,6 @@
         "asset": "background-26-001",
         "changed_pixels": 6,
         "max_channel_delta": 16
-      },
-      {
-        "asset": "background-27-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-28-001",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
       },
       {
         "asset": "background-29-001",
@@ -188,11 +138,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-27-019",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
         "asset": "background-26-020",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -214,11 +159,6 @@
       },
       {
         "asset": "background-26-023",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-27-023",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -248,11 +188,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-27-027",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
         "asset": "background-26-028",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -274,11 +209,6 @@
       },
       {
         "asset": "background-26-031",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-27-031",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -308,11 +238,6 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-27-035",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
         "asset": "background-26-036",
         "changed_pixels": 0,
         "max_channel_delta": 0
@@ -334,11 +259,6 @@
       },
       {
         "asset": "background-26-039",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-27-039",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -380,11 +300,6 @@
       {
         "asset": "background-27-114",
         "changed_pixels": 5,
-        "max_channel_delta": 37
-      },
-      {
-        "asset": "background-26-115",
-        "changed_pixels": 3,
         "max_channel_delta": 37
       },
       {
@@ -1685,6 +1600,6 @@
   "illegal_ground_footprint_overlaps": 0,
   "scenery_pixel_errors": 0,
   "tiles": 451,
-  "metatiles": 508,
+  "metatiles": 494,
   "layout_source": "source/blocks.txt, independently surveyed from source/hgss-reference.png; prior Gen 3 blockdata is consulted only to reserve old library IDs for compatibility; it does not supply the reconstructed layout"
 }

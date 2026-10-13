@@ -57,6 +57,7 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  step(UP,1);at(29,38,29,"route30-to-route31");shot("route31-south-seam");step(DOWN,1);at(10,10,0,"route31-to-route30");shot("route30-north-seam");
  go(29,38,27);shot("north-crossing-before");step(DOWN,1);shot("north-crossing-28");step(DOWN,1);shot("north-crossing-29");step(DOWN,1);at(10,10,0,"north-crossing-load");shot("north-crossing-00");step(DOWN,1);shot("north-crossing-01");step(DOWN,1);shot("north-crossing-02");
  go(10,18,6);step(DOWN,1);at(10,18,6,"original-cut-barrier-blocks");shot("original-cut-barrier");
+ go(10,10,3);step(DOWN,1);at(10,10,5,"northern-ledge-downhill");step(UP,1);at(10,10,5,"northern-ledge-blocks-uphill");shot("northern-ledge");
  go(10,13,22);step(UP,1);at(10,13,21,"HGSS-ledge-bypass-under-canopy");shot("ledge-bypass-canopy");step(RIGHT,1);at(10,13,21,"divider-trunk-blocks");
  go(10,10,20);step(DOWN,1);at(10,10,22,"ledge-downhill");step(UP,1);at(10,10,22,"ledge-blocks-uphill");
  go(10,20,54);step(RIGHT,1);at(10,20,54,"upper-pond-bank-blocks");shot("upper-pond");
