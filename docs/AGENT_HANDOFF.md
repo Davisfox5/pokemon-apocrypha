@@ -1,3 +1,9 @@
+## Owner correction: redesigned Violet lecture hall architecture
+
+The owner clarified that homage means **original gym colors and accents, not the same building shape**. The trim-only edit below is superseded. Current expansion commit `b652df94907291ac0106b593b49fe0452b5d7d17` on `codex/violet-city` builds an original 9x7 lecture hall with angular copper roofs, a raised glazed clerestory and rectangular wings. Copper/brown roof colors, orange ribs, cyan bands and a curved blue entrance canopy carry forward the gym identity. Lecture hall and Roxanne practicum canon remain unchanged.
+
+Door (31,41) and approach (31,42) stay fixed. The sign moves from (27,42) to (26,42), and 21 collision/elevation cells change within the larger hall/sign footprint. No outside-area visual/collision changes or warp/actor changes. Porytiles compiles the hall too (345 total landmark metatiles, zero decode differences). Native Porymap equality, local ROM build, headless 488-step tour, hall front/side/door probes, signs and ordinary save/reload/Continue pass. Capacity is 965/1,008. Cloud build was in_progress when captured. See `gba/art/violet-city/evidence/hall-redesign-comparison.png` and `hall-redesign-validation.json`. Interiors remain unimplemented. Next: owner visual review. No desktop emulator opened.
+
 ## Violet former gym campus renovation
 
 Owner requested the approved campus trim treatment while paying homage to the original gym. Expansion `88dfc7cceb39f2d014ccf2a3a359c03b71732db6` on `codex/violet-city` preserves the exact silhouette and warm upper roof pixels, with slate blue bands, cream stone entrance supports and an open-book crest on the projecting hood. The sign now also identifies the former Violet Gym. Lecture hall/Roxanne practicum canon is unchanged; interiors are still unimplemented.

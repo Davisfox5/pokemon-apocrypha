@@ -74,33 +74,66 @@ def court():
             c.rect(x+2,y+7,3,1,'ink');c.rect(x+27,y+7,3,1,'ink')
     return c
 
+def lecture_hall():
+    """New auditorium architecture, retaining the HGSS gym's copper/cyan identity.
 
-def renovate_gym(c):
-    """Retain the HGSS gym silhouette/roof; renovate only its campus-facing trim.
-
-    Bank 5 is exclusive to this building. Keep the warm roof/wood and embedded
-    ground shades; map the old cyan and gray facade shades to campus slate/stone.
+    Broad angular roofs and a raised clerestory replace the old oval building.
+    Copper ribs, cyan facade bands and a curved glass entrance recall the gym.
     """
-    replacements={1:(152,184,208),3:(104,128,152),9:(72,96,128),14:(56,72,104),
-                  2:(216,208,184),5:(184,176,152),13:(136,128,112)}
-    for slot,rgb in replacements.items():c.pal.colors[c.pal.by_slot[slot]]=rgb
-    # Reface the existing orange entry supports without changing their outlines.
-    yy,xx=np.indices(c.px.shape)
-    supports=(yy>=58)&(yy<88)&(xx>=16)&(xx<92)&(c.px==10)
-    c.px[supports]=5
-    upright=(yy>=64)&(yy<87)&(((xx>=17)&(xx<28))|((xx>=81)&(xx<92)))
-    c.px[upright & np.isin(c.px,[4,6,10,11,12])]=5
-    # Cream highlights follow the original upright masonry instead of new boxes.
-    for x in (20,21,82,83):
-        for y in range(68,86):
-            if c.px[y,x]==5:c.px[y,x]=2
-    # Open-book university crest on the original projecting blue entrance hood.
-    c.px[52:64,46:66]=3
-    crest=['..gggg....gggg..', '.gppppg..gppppg.', 'gppppppggppppppg', 'gppppppggppppppg',
-           'gpddddpggpddddpg', 'gppppppggppppppg', 'gpddddpggpddddpg', 'gppppppggppppppg',
-           '.ggggggddgggggg.', '...ggggddgggg...']
-    ink={'g':4,'p':2,'d':15}
-    for y,row in enumerate(crest,53):
-        for x,ch in enumerate(row,48):
-            if ch!='.':c.px[y,x]=ink[ch]
+    p=Palette(5,[(64,64,56),(80,72,56),(112,88,56),(136,104,72),
+                 (176,128,80),(200,144,88),(168,88,24),(40,104,152),
+                 (56,120,160),(104,176,216),(136,208,232),(144,144,144),
+                 (176,176,176),(216,208,184),(96,80,56)],
+                ['ink','shadow','roof_dark','roof','roof_light','copper','rib',
+                 'blue_dark','blue','glass','glass_light','stone','stone_light','cream','wood'])
+    c=Canvas(144,112,p)
+    # Rectangular lecture wings with tall daylight windows and a deep central entry.
+    c.rect(8,56,128,51,'stone');c.rect(8,105,128,4,'shadow')
+    c.rect(10,62,124,3,'stone_light');c.rect(10,89,124,4,'blue')
+    c.rect(10,89,124,1,'glass_light');c.rect(10,99,124,4,'blue_dark')
+    for x in (16,40,88,112):
+        c.rect(x,67,16,21,'shadow');c.rect(x+1,68,14,19,'cream')
+        c.rect(x+3,70,10,15,'blue_dark');c.rect(x+4,71,8,12,'glass')
+        c.rect(x+4,71,8,3,'glass_light');c.rect(x+7,70,2,15,'stone_light')
+        c.rect(x-1,87,18,2,'stone_light')
+    # Broad angular copper roofs, standing seams and shaded eaves.
+    for y in range(28,61):
+        inset=max(0,(48-y)//2);left=2+inset;right=142-inset
+        c.rect(left,y,right-left,1,'roof_light')
+        if y%8==0:c.rect(left,y,right-left,1,'roof')
+        if y%8==1:c.rect(left,y,right-left,1,'copper')
+        for x in range(8,140,16):
+            if left<x<right-1:
+                c.rect(x,y,1,1,'roof_dark');c.rect(x+1,y,1,1,'copper')
+    c.rect(12,26,120,2,'copper');c.rect(2,61,140,3,'roof_dark')
+    c.rect(4,64,136,2,'shadow');c.rect(8,66,128,1,'cream')
+    # Raised glazed clerestory establishes a new civic-hall silhouette.
+    c.rect(48,12,48,30,'roof_dark');c.rect(50,15,44,23,'stone_light')
+    for x in (54,66,78):
+        c.rect(x,18,10,15,'blue_dark');c.rect(x+1,19,8,11,'glass')
+        c.rect(x+1,19,8,3,'glass_light');c.rect(x+1,30,8,2,'blue')
+    for y in range(2,15):
+        inset=(14-y)//2;c.rect(40+inset,y,64-inset*2,1,'roof')
+        if y%4==0:c.rect(40+inset,y,64-inset*2,1,'copper')
+    c.rect(40,15,64,2,'roof_dark');c.rect(48,38,48,3,'copper')
+    # Exposed warm ribs echo the original orange structural accents.
+    for x in (9,49,91,131):
+        c.rect(x,67,4,37,'rib');c.rect(x,67,1,37,'copper')
+        c.rect(x-1,104,6,3,'roof_dark')
+    # Recessed central glass doors, kept on the existing world doorway axis.
+    c.rect(55,73,34,35,'roof_dark');c.rect(58,76,28,30,'cream')
+    c.rect(60,78,24,28,'wood')
+    for x in (62,74):
+        c.rect(x,80,8,22,'blue_dark');c.rect(x+1,81,6,16,'glass')
+        c.rect(x+1,81,6,3,'glass_light')
+    c.rect(69,92,2,4,'copper');c.rect(73,92,2,4,'copper')
+    # A broad fanlight canopy quotes the old blue projecting entrance.
+    c.ellipse(71.5,72,25,14,'blue_dark');c.rect(47,72,50,7,'blue_dark')
+    c.ellipse(71.5,70,23,12,'blue');c.rect(49,70,46,5,'blue')
+    c.ellipse(71.5,68,21,9,'glass');c.rect(51,69,42,3,'glass')
+    for x in (57,71,85):c.rect(x,64,1,10,'glass_light')
+    # Open-book crest: new use is legible while the historic colors stay dominant.
+    c.rect(66,62,12,9,'roof_dark');c.rect(67,63,4,6,'cream');c.rect(73,63,4,6,'cream')
+    c.rect(68,66,2,1,'roof');c.rect(74,66,2,1,'roof')
+    for y in (106,109):c.rect(55,y,34,2,'stone_light');c.rect(55,y+2,34,1,'stone')
     return c

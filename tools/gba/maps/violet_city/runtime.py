@@ -20,7 +20,10 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(43,31,26);step(LEFT,1);at(43,31,26,"island-water-blocks");
  go(43,49,56);step(UP,1);at(43,49,56,"center-closed");shot("center-entrance");
  go(43,68,44);step(UP,1);at(43,68,44,"library-sign-blocks");
- read_sign(43,53,43,"university-sign");read_sign(43,35,14,"tower-sign");read_sign(43,68,43,"library-sign");read_sign(43,27,42,"lecture-sign");read_sign(43,70,59,"city-sign");read_sign(43,54,47,"practice-sign");
+ read_sign(43,53,43,"university-sign");read_sign(43,35,14,"tower-sign");read_sign(43,68,43,"library-sign");read_sign(43,26,42,"lecture-sign");read_sign(43,70,59,"city-sign");read_sign(43,54,47,"practice-sign");
+ go(43,31,42);step(UP,1);at(43,31,42,"lecture-door-closed");shot("lecture-hall-front");
+ go(43,28,42);step(UP,1);at(43,28,42,"lecture-front-wall-blocks");
+ go(43,36,39);step(LEFT,1);at(43,36,39,"lecture-side-wall-blocks");
  go(43,57,42);step(UP,1);at(43,57,42,"university-door-closed");shot("university-entrance");
  go(43,61,52);shot("teaching-court");step(UP,3);at(43,61,49,"court-walk");
  go(43,56,53);step(DOWN,1);at(43,56,53,"court-bench-blocks");shot("court-benches");

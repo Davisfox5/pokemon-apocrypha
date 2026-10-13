@@ -1,4 +1,4 @@
-# Violet City — university campus and former gym renovation
+# Violet City — university campus and redesigned lecture hall
 
 The owner approved the softened exterior and requested expanded housing, replacement of the two purple-roofed buildings with a university, and a teaching court. This campus revision is ready for visual review; Chapter 2 interiors and scenes remain incomplete. It builds on the accepted Route 30 engine source `aa8ea35e`. Native source lives in the expansion fork on `codex/violet-city`; the source commit is recorded in `evidence/preservation.json`.
 
@@ -13,7 +13,19 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Former gym campus renovation
+## Lecture hall architectural redesign — current
+
+The owner clarified that the **building should be redesigned**, with the original gym's colors and accent elements retained. The prior trim-only renovation below is superseded.
+
+The current hall is an original 144x112-pixel, 9x7-cell auditorium: rectangular lecture wings, a broad angular copper roof and a raised glazed clerestory. Warm copper-brown roof shades, orange structural ribs, cyan facade bands and a curved blue entrance canopy carry forward the original gym's identity. The palette uses its original RGB555 color family. The university book crest and former-gym sign retain the educational role.
+
+The doorway stays at (31,41), with its approach at (31,42). The larger structure occupies (27,35) through (35,41); the sign moves one cell west to (26,42), clear of the new facade. Collision is updated for the wider building. All visual and collision changes are confined to the hall/sign area; existing warps, actors and surrounding map artwork are preserved. Porytiles now also compiles the new hall, with zero decoded pixel errors; Porymap matches the native decoder.
+
+[Original color reference beside the new hall](evidence/hall-redesign-comparison.png) · [Revision checks](evidence/hall-redesign-validation.json)
+
+Interiors and the lecture/practicum interactions remain unimplemented.
+
+## Superseded trim-only gym renovation
 
 Owner approved a restrained university renovation that pays homage to the original gym. `campus.renovate_gym` keeps the exact silhouette, curved roof, central roof ridge, projecting entrance hood and original warm roof shades. Cyan bands become campus slate blue, gray walls and entrance supports become cream stone, and a small open-book crest replaces the old canopy emblem. The existing sign now also reads **Former VIOLET GYM**. Its lecture hall and Roxanne battle-practicum roles are unchanged.
 
@@ -55,11 +67,11 @@ The preview uses the engine's existing lighting. No desktop emulator was opened.
 
 ## Tools used and evidence
 
-- **Porytiles 2.0.0 legacy compiler:** compiled 282 landmark metatiles; decoded output was compared with the RGB555-normalized source and imported with zero RGB/alpha errors. Editable layer sheets and native compiled files are in `source/porytiles-*`.
+- **Porytiles 2.0.0 legacy compiler:** compiled 345 landmark metatiles; decoded output was compared with the RGB555-normalized source and imported with zero RGB/alpha errors. Editable layer sheets and native compiled files are in `source/porytiles-*`.
 - **Poryscript 3.6.1:** signs compiled to committed `.inc`, with both source and generated script preserved.
 - **porygon 0.1.1:** checked binary Blockdata encode/decode and MCP read/validation. `evidence/porygon.json` reports no script errors. Its single unused-label warning is for the map-script header, which the engine references through map metadata.
 - **Porymap 6.3.1:** original loader and renderer executed offscreen; exported 1280 × 1152 pixels exactly match the independent native decoder. This is renderer evidence, not a desktop editor save round-trip. The test host's bundled giflib required a C++ `bool` compatibility correction for the current macOS SDK, confined to the temporary probe build.
-- **Cloud build:** [gym renovation run](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38439529402) targets `88dfc7cceb` and was in_progress when recorded. Local native build, Porymap and headless runtime checks pass; captured cloud status is in `evidence/ci.json`.
+- **Cloud build:** [lecture-hall redesign](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38446877103) targets `b652df9490` and was in_progress when recorded. Current local native build, Porymap and background runtime checks pass; cloud snapshot is in `evidence/ci.json`.
 - **ROM build:** host tools, serial generated data, then Arm GNU 14.2 parallel build passed. Existing linker warnings remain. ROM hash is recorded in `evidence/build.json`; no ROM is committed.
 - **Headless libmGBA 0.10.5:** 488 ordinary walking steps visit all ten landmark approaches; gate travel in both directions, bridge/island collision, closed doors and all six signs pass. A 128 KiB ordinary save passes cold reload and title-screen Continue. Fixtures only place the player for isolated probes; the tour itself uses directional inputs.
 - **Preservation:** Route 30, Route 31, Cherrygrove, New Bark, and their protected graphics/layout files remain byte-identical to the base. No open walkable map edges lead into unbuilt areas.
@@ -70,7 +82,7 @@ Core geography and landmark silhouettes were surveyed from [Violet City HGSS on 
 
 Tower/school masks are explicit traced polygons. Colors are adapted to GBA RGB555 banks; repeating interior roof courses fit native tile constraints while preserving the outer profiles. The earlier school masks remain reference material; the current university and court are original modular native art in `tools/gba/maps/violet_city/campus.py`. Trees and service buildings retain the accepted Cherrygrove asset provenance in `gba/art/cherrygrove-synthesis/`. Freshwater comes from `gba/art/route30-hgss-blocks/`. These changes are native adaptations, not a pixel-exact recreation of the DS town.
 
-The exterior uses **995 of 1,008 scenery tile slots**, with 13 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
+The exterior uses **965 of 1,008 scenery tile slots**, with 43 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
 
 ## Next work
 

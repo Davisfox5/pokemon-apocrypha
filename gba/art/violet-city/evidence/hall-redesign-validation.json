@@ -1,0 +1,48 @@
+{
+  "base_commit": "88dfc7cceb39f2d014ccf2a3a359c03b71732db6",
+  "architecture": "new 9x7 lecture hall, rectangular wings, broad copper roof, raised clerestory",
+  "inherited_accents": [
+    "warm copper-brown roof",
+    "orange structural ribs",
+    "cyan facade bands",
+    "curved blue entrance canopy"
+  ],
+  "changed_pixels": 12238,
+  "visual_changes_outside_hall_and_sign": 0,
+  "collision_elevation_changed_cells": 21,
+  "changes_outside_hall_and_sign_cells": 0,
+  "door": [
+    31,
+    41
+  ],
+  "approach": [
+    31,
+    42
+  ],
+  "sign_moved_from": [
+    27,
+    42
+  ],
+  "sign_moved_to": [
+    26,
+    42
+  ],
+  "warps_and_actors_unchanged": true,
+  "scenery_tiles": 965,
+  "Porymap_pixel_errors": 0,
+  "rom_sha256": "1f0350f7bcf48ca4be15669d287915abcd0773303d3eb18dc7b82827effe7bd7",
+  "headless_runtime": {
+    "walk_steps": 488,
+    "phases_passed": [
+      "write",
+      "read",
+      "menu"
+    ],
+    "new_probes": [
+      "lecture-door-closed",
+      "lecture-front-wall-blocks",
+      "lecture-side-wall-blocks"
+    ],
+    "desktop_emulator_opened": false
+  }
+}

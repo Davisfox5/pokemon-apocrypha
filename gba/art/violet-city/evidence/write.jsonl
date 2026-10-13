@@ -181,7 +181,7 @@
 {"step":"walk-180","region":2,"group":80,"map":43,"x":28,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-181","region":2,"group":80,"map":43,"x":27,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-182","region":2,"group":80,"map":43,"x":26,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-183","region":2,"group":80,"map":43,"x":26,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"walk-183","region":2,"group":80,"map":43,"x":25,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-184","region":2,"group":80,"map":43,"x":25,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-185","region":2,"group":80,"map":43,"x":24,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-186","region":2,"group":80,"map":43,"x":23,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
@@ -267,7 +267,7 @@
 {"step":"walk-268","region":2,"group":80,"map":43,"x":28,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-269","region":2,"group":80,"map":43,"x":27,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-270","region":2,"group":80,"map":43,"x":26,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
-{"step":"walk-271","region":2,"group":80,"map":43,"x":26,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"walk-271","region":2,"group":80,"map":43,"x":25,"y":43,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-272","region":2,"group":80,"map":43,"x":25,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-273","region":2,"group":80,"map":43,"x":24,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"walk-274","region":2,"group":80,"map":43,"x":23,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
@@ -494,6 +494,9 @@
 {"step":"island-water-blocks","region":2,"group":80,"map":43,"x":31,"y":26,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"center-closed","region":2,"group":80,"map":43,"x":49,"y":56,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"library-sign-blocks","region":2,"group":80,"map":43,"x":68,"y":44,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"lecture-door-closed","region":2,"group":80,"map":43,"x":31,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"lecture-front-wall-blocks","region":2,"group":80,"map":43,"x":28,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
+{"step":"lecture-side-wall-blocks","region":2,"group":80,"map":43,"x":36,"y":39,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"university-door-closed","region":2,"group":80,"map":43,"x":57,"y":42,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"court-walk","region":2,"group":80,"map":43,"x":61,"y":49,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}
 {"step":"court-bench-blocks","region":2,"group":80,"map":43,"x":56,"y":53,"frlg_layout":0,"width":80,"height":72,"interaction":0,"mapsec":221}

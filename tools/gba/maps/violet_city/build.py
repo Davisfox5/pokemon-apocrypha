@@ -52,7 +52,7 @@ def main(game):
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
  for key in ['tower','academy','gym','house','gable','center','mart']:soften_building(A[key])
- campus.renovate_gym(A['gym'])
+ A['gym']=campus.lecture_hall();pals[5]=A['gym'].pal;soften_building(A['gym'])
  # Original modular university facade; its library is planned inside the main hall.
  A['university']=campus.university();pals[10]=A['university'].pal
  A['court']=campus.court();pals[4]=A['court'].pal
@@ -82,7 +82,7 @@ def main(game):
  for name,c in A.items():Image.fromarray(c.to_rgba()).save(material/f'{name}.png')
  psrc=S/'porytiles-landmarks';psrc.mkdir(exist_ok=True)
  atlas=[]
- for key in ['tower','university']:
+ for key in ['tower','university','gym']:
   c=A[key];ar=c.to_rgba()
   for y in range(0,c.h,16):
    for x in range(0,c.w,16):atlas.append((key,x,y,ar[y:y+16,x:x+16]))
@@ -115,7 +115,7 @@ def main(game):
  # Campus court, library garden and a bounded southern/western path reserve.
  rect('.',54,34,22,16);rect('P',51,43,22,4);rect('P',68,43,5,13);rect('.',54,47,14,9);rect('C',55,48,12,7)
  rect('.',21,67,5,5);rect('P',22,67,3,3)
- buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',28,36,3,5),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4),('house','Northwest Residence',10,23,1,4),('gable','West Garden Residence',24,52,2,4),('house','South Garden Residence',55,60,1,4)]
+ buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',27,35,4,6),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,34,1,4),('gable','South Residence',34,57,2,4),('house','Northwest Residence',10,23,1,4),('gable','West Garden Residence',24,52,2,4),('house','South Garden Residence',55,60,1,4)]
  # Three modest residential clearings connect to the existing street spine.
  for box in [(8,22,10,11),(22,50,12,10),(53,59,12,8)]:rect('.',*box)
  for key,label,x,y,dx,dy in buildings:
@@ -204,7 +204,7 @@ def main(game):
  for y in range(28,32):stamp('rock_e',8,y);solid[y,8]=True
  # Campus courts reuse native paving; no trainer content/encounters invented.
  # Stone signs at campus, tower and arrival; their locations remain off the main walk line.
- signs=[(53,43,'University'),(35,14,'Tower'),(68,43,'Library'),(27,42,'Lecture'),(70,59,'City'),(54,47,'Practice')]
+ signs=[(53,43,'University'),(35,14,'Tower'),(68,43,'Library'),(26,42,'Lecture'),(70,59,'City'),(54,47,'Practice')]
  for x,y,label in signs:
   stamp('sign',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  # Gate facade reuses the complete accepted gable module, with its real door anchor.

@@ -6,16 +6,16 @@
   ],
   "tiles": {
     "primary": 512,
-    "secondary": 483
+    "secondary": 453
   },
   "metatiles": {
-    "primary": 468,
+    "primary": 477,
     "secondary": 1
   },
   "complete_trees": 667,
   "layers": {
     "composited_terrain_palette": 1,
-    "background_assets": 33,
+    "background_assets": 29,
     "background_colour_cleanup": [
       {
         "asset": "background-40-080",
@@ -28,32 +28,12 @@
         "max_channel_delta": 0
       },
       {
-        "asset": "background-56-082",
+        "asset": "background-56-083",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
       {
-        "asset": "background-57-082",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-58-082",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-66-082",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-67-082",
-        "changed_pixels": 0,
-        "max_channel_delta": 0
-      },
-      {
-        "asset": "background-68-082",
+        "asset": "background-69-083",
         "changed_pixels": 0,
         "max_channel_delta": 0
       },
@@ -209,10 +189,10 @@
       "name": "Lecture Hall",
       "asset": "gym",
       "box": [
-        28,
-        36,
-        7,
-        6
+        27,
+        35,
+        9,
+        7
       ],
       "door": [
         31,
