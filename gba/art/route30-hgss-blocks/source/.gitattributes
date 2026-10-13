@@ -1,0 +1,2 @@
+# Preserve exact native palette snapshot bytes, including JASC-PAL CRLF.
+*.pal whitespace=cr-at-eol

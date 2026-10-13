@@ -1,0 +1,85 @@
+{
+  "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "expansion_commit": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+  "expansion_branch": "codex/route30-hgss-blocks",
+  "build": "make -j8 TOOLCHAIN=/workspace/deps/root/usr; success",
+  "rom_sha256": "573ef1b59aac0789f808b28de62fdcd9cb7f0928af2c9bfe870bf89d8991031b",
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 251
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "Porymap": "6.3.1 headless project-core export; not a manual GUI edit/save",
+  "Porytiles": "legacy 2.0.0 isolated sixteen-variant grass family; exact RGBA import",
+  "porygon": "MCP write_blockdata and add_bg_event",
+  "visual_status": "Completed reconstruction proposal; owner visual acceptance pending",
+  "foreground_pixel_errors": 0,
+  "engine_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/4",
+  "evidence_pr": "https://github.com/Davisfox5/pokemon-apocrypha/pull/9",
+  "forest_before_source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/8b5810c99bda56107c752f88c3c19d1c95981c2a/gba/art/route30-hgss-blocks/evidence/native-proposal.png",
+  "native_emerald_cut_interaction": "object collision and standard cannot-cut dialogue pass with empty party; successful HM use not tested",
+  "cloud_build": {
+    "expansion_commit": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38334728321/job/115092148759",
+    "steps": [
+      {
+        "name": "Set up job",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Install toolchain",
+        "conclusion": "success"
+      },
+      {
+        "name": "Cache build tools",
+        "conclusion": "success"
+      },
+      {
+        "name": "Validate map and layout JSON",
+        "conclusion": "success"
+      },
+      {
+        "name": "Build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Committed Poryscript outputs are current",
+        "conclusion": "success"
+      },
+      {
+        "name": "Report",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Cache build tools",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "conclusion": "success"
+      }
+    ]
+  }
+}
