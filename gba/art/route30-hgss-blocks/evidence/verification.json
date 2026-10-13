@@ -29,5 +29,57 @@
   "engine_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/4",
   "evidence_pr": "https://github.com/Davisfox5/pokemon-apocrypha/pull/9",
   "forest_before_source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/8b5810c99bda56107c752f88c3c19d1c95981c2a/gba/art/route30-hgss-blocks/evidence/native-proposal.png",
-  "native_emerald_cut_interaction": "object collision and standard cannot-cut dialogue pass with empty party; successful HM use not tested"
+  "native_emerald_cut_interaction": "object collision and standard cannot-cut dialogue pass with empty party; successful HM use not tested",
+  "cloud_build": {
+    "expansion_commit": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38334728321/job/115092148759",
+    "steps": [
+      {
+        "name": "Set up job",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Install toolchain",
+        "conclusion": "success"
+      },
+      {
+        "name": "Cache build tools",
+        "conclusion": "success"
+      },
+      {
+        "name": "Validate map and layout JSON",
+        "conclusion": "success"
+      },
+      {
+        "name": "Build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Committed Poryscript outputs are current",
+        "conclusion": "success"
+      },
+      {
+        "name": "Report",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Cache build tools",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "conclusion": "success"
+      }
+    ]
+  }
 }
