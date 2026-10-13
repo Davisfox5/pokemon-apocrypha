@@ -1,3 +1,9 @@
+## Latest: Violet lecture hall roof-only refinement
+
+Owner approved the architecture but requested a roof that reads as roofing rather than flooring. Expansion `a17d6182e8dbea23836c038d2af6b26aab6475df` on `codex/violet-city` replaces only the copper roof grid with staggered overlapping tiles and shaded lips. Exactly 3,160 roof pixels change; facade, silhouette, all other map pixels, collision/elevation/behavior/layers, events, scripts and warps are unchanged. See `gba/art/violet-city/evidence/roof-comparison.png` and `roof-validation.json`.
+
+Porymap pixel equality, local ROM build and background 488-step tour, hall probes, signs and save/cold reload/Continue pass. Capacity is 961/1,008. Interiors remain unimplemented; next is owner visual review. No desktop emulator opened. Source and evidence are pushed on their respective `codex/violet-city` branches.
+
 ## Owner correction: redesigned Violet lecture hall architecture
 
 The owner clarified that homage means **original gym colors and accents, not the same building shape**. The trim-only edit below is superseded. Current expansion commit `b652df94907291ac0106b593b49fe0452b5d7d17` on `codex/violet-city` builds an original 9x7 lecture hall with angular copper roofs, a raised glazed clerestory and rectangular wings. Copper/brown roof colors, orange ribs, cyan bands and a curved blue entrance canopy carry forward the gym identity. Lecture hall and Roxanne practicum canon remain unchanged.

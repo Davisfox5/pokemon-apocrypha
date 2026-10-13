@@ -96,15 +96,22 @@ def lecture_hall():
         c.rect(x+3,70,10,15,'blue_dark');c.rect(x+4,71,8,12,'glass')
         c.rect(x+4,71,8,3,'glass_light');c.rect(x+7,70,2,15,'stone_light')
         c.rect(x-1,87,18,2,'stone_light')
-    # Broad angular copper roofs, standing seams and shaded eaves.
+    # Short overlapping copper tiles: staggered joints, lit curved faces and
+    # dark lower lips. The old continuous 16x8 grid read as floor paving.
+    def roof_course(y,left,right,origin):
+        row=(y-origin)//4;dy=(y-origin)%4
+        for x in range(left,right):
+            dx=(x+4*(row%2))%8
+            tone=('copper' if 1<=dx<=6 else 'roof') if dy==0 else 'roof_light'
+            if dy==2 and dx in (0,7):tone='roof'
+            if dy==3:tone='roof_dark' if 1<=dx<=6 else 'roof'
+            c.put(x,y,tone)
+        # Continuous diagonal hip caps explain the roof slope and its thickness.
+        c.put(left,y,'roof');c.put(left+1,y,'copper')
+        c.put(right-2,y,'roof');c.put(right-1,y,'roof_dark')
     for y in range(28,61):
         inset=max(0,(48-y)//2);left=2+inset;right=142-inset
-        c.rect(left,y,right-left,1,'roof_light')
-        if y%8==0:c.rect(left,y,right-left,1,'roof')
-        if y%8==1:c.rect(left,y,right-left,1,'copper')
-        for x in range(8,140,16):
-            if left<x<right-1:
-                c.rect(x,y,1,1,'roof_dark');c.rect(x+1,y,1,1,'copper')
+        roof_course(y,left,right,28)
     c.rect(12,26,120,2,'copper');c.rect(2,61,140,3,'roof_dark')
     c.rect(4,64,136,2,'shadow');c.rect(8,66,128,1,'cream')
     # Raised glazed clerestory establishes a new civic-hall silhouette.
@@ -113,8 +120,7 @@ def lecture_hall():
         c.rect(x,18,10,15,'blue_dark');c.rect(x+1,19,8,11,'glass')
         c.rect(x+1,19,8,3,'glass_light');c.rect(x+1,30,8,2,'blue')
     for y in range(2,15):
-        inset=(14-y)//2;c.rect(40+inset,y,64-inset*2,1,'roof')
-        if y%4==0:c.rect(40+inset,y,64-inset*2,1,'copper')
+        inset=(14-y)//2;roof_course(y,40+inset,104-inset,2)
     c.rect(40,15,64,2,'roof_dark');c.rect(48,38,48,3,'copper')
     # Exposed warm ribs echo the original orange structural accents.
     for x in (9,49,91,131):

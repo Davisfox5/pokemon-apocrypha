@@ -13,7 +13,15 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Lecture hall architectural redesign — current
+## Roof-only refinement — current
+
+The square paving-like grid is replaced with short, staggered copper roof tiles, shaded lower lips and diagonal hip caps. Exactly 3,160 roof pixels change; every pixel outside the roof and the complete alpha silhouette remain unchanged. Windows, walls, canopy, trim, doors and map placement are preserved. Collision, elevation, behavior, layers, scripts, events and warps are unchanged.
+
+Engine source: `a17d6182e8dbea23836c038d2af6b26aab6475df`. Native Porymap output matches the decoded map exactly. The local ROM build and background 488-step tour, hall probes, signs, ordinary save/cold reload/Continue pass. Current scenery capacity is **961 / 1,008 tiles**. No desktop emulator opened.
+
+[Roof before/after](evidence/roof-comparison.png) · [Roof-only validation](evidence/roof-validation.json)
+
+## Lecture hall architectural redesign
 
 The owner clarified that the **building should be redesigned**, with the original gym's colors and accent elements retained. The prior trim-only renovation below is superseded.
 
@@ -71,7 +79,7 @@ The preview uses the engine's existing lighting. No desktop emulator was opened.
 - **Poryscript 3.6.1:** signs compiled to committed `.inc`, with both source and generated script preserved.
 - **porygon 0.1.1:** checked binary Blockdata encode/decode and MCP read/validation. `evidence/porygon.json` reports no script errors. Its single unused-label warning is for the map-script header, which the engine references through map metadata.
 - **Porymap 6.3.1:** original loader and renderer executed offscreen; exported 1280 × 1152 pixels exactly match the independent native decoder. This is renderer evidence, not a desktop editor save round-trip. The test host's bundled giflib required a C++ `bool` compatibility correction for the current macOS SDK, confined to the temporary probe build.
-- **Cloud build:** [lecture-hall redesign](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38446877103) targets `b652df9490` and was in_progress when recorded. Current local native build, Porymap and background runtime checks pass; cloud snapshot is in `evidence/ci.json`.
+- **Prior cloud build:** [lecture-hall redesign](https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38446877103) targets `b652df9490` and was in_progress when recorded. Current local native build, Porymap and background runtime checks pass; cloud snapshot is in `evidence/ci.json`.
 - **ROM build:** host tools, serial generated data, then Arm GNU 14.2 parallel build passed. Existing linker warnings remain. ROM hash is recorded in `evidence/build.json`; no ROM is committed.
 - **Headless libmGBA 0.10.5:** 488 ordinary walking steps visit all ten landmark approaches; gate travel in both directions, bridge/island collision, closed doors and all six signs pass. A 128 KiB ordinary save passes cold reload and title-screen Continue. Fixtures only place the player for isolated probes; the tour itself uses directional inputs.
 - **Preservation:** Route 30, Route 31, Cherrygrove, New Bark, and their protected graphics/layout files remain byte-identical to the base. No open walkable map edges lead into unbuilt areas.
@@ -82,7 +90,7 @@ Core geography and landmark silhouettes were surveyed from [Violet City HGSS on 
 
 Tower/school masks are explicit traced polygons. Colors are adapted to GBA RGB555 banks; repeating interior roof courses fit native tile constraints while preserving the outer profiles. The earlier school masks remain reference material; the current university and court are original modular native art in `tools/gba/maps/violet_city/campus.py`. Trees and service buildings retain the accepted Cherrygrove asset provenance in `gba/art/cherrygrove-synthesis/`. Freshwater comes from `gba/art/route30-hgss-blocks/`. These changes are native adaptations, not a pixel-exact recreation of the DS town.
 
-The exterior uses **965 of 1,008 scenery tile slots**, with 43 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
+The exterior uses **961 of 1,008 scenery tile slots**, with 47 remaining; future exterior detail must reuse or simplify modules. Interior maps have separate tile banks.
 
 ## Next work
 
