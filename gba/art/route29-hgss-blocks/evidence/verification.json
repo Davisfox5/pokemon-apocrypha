@@ -1,0 +1,29 @@
+{
+  "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "expansion_commit": "fd1d4bf872b8365e3fe737fdd6e293c6c4f13631",
+  "source_branch": "codex/route29-hgss-blocks",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/6",
+  "rom_sha256": "9ef43f72dd1cf75752b1ccb6ad93897c43b34015499cfeee9e2932cbc32c40e7",
+  "local_build": "success",
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 318
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "Porymap": "6.3.1 project-core export, not a manual desktop UI save",
+  "Porytiles": "accepted Route 30 native family; legacy 2.0.0 output imported with exact RGBA check",
+  "foreground_color_mask_errors": 0,
+  "visual_acceptance": "pending owner review"
+}

@@ -1,3 +1,11 @@
+## Latest: Route 29 independently reconstructed from HGSS
+
+Owner requested Route 29 using the accepted Route 30 method: full Cherrygrove trees, native Emerald terrain and close HGSS topology with deliberate footprint cleanup. Read [route29-hgss-blocks](../gba/art/route29-hgss-blocks/README.md). Engine branch `codex/route29-hgss-blocks`, source commit `fd1d4bf872b8365e3fe737fdd6e293c6c4f13631`, draft [PR #6](https://github.com/Davisfox5/pokeemerald-expansion/pull/6) against `apocrypha` (`2722eaf`). Hub branch `codex/route29-hgss-block-evidence` starts from main; no patch stack.
+
+Independent 98x34 image survey, 317 whole trees, explicit original ground passages, Cherrygrove-style gate and native Emerald entrance steps/walls/ledges. Town adapters, coastal lookout/ridge and hidden Potion event/flag are retained. The western sign moves to (12,17) with existing text. All other maps and primary IDs stay unchanged. Route 30's accepted source remains separately preserved in PR #4 / `aa8ea35e`; this PR does not replace it. Claude's Route 29 draft `4e20e557` is preserved.
+
+Local build, Porymap equality, both camera/cached-glyph seam checks and native ordinary-input traversal, barriers, ledges, signs, grass and save/Continue pass. Native source IDs are Route 29=9, New Bark=28. Visual acceptance remains pending. Collision is image-inferred plus owner-authorized forest footprint adjustments, not recovered DS data. Route 46 gate/interior remain closed/unimplemented; Apricorn harvesting and original NPC/story gates are absent. Read the exact limitations in the README. Next: owner review of full/source comparisons and native gameplay gallery.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

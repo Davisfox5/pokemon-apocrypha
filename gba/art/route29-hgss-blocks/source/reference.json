@@ -1,0 +1,18 @@
+{
+  "source": "existing verified HGSS Route 29 overview",
+  "sha256": "e9562b1e1a1aba6edb1cd024f46b44fd1c44aef78a92e48307c9eae5a39885fb",
+  "origin": [
+    4,
+    5
+  ],
+  "cell_px": 16,
+  "survey_width": 98,
+  "survey_height": 34,
+  "native_offset_y": 2,
+  "policy": "independent reference pixel survey; not prior Gen 3 layout or R29_OPS",
+  "coastal_override_native_rows": [
+    29,
+    47
+  ],
+  "town_connection_adapters": "camera-visible old art only"
+}

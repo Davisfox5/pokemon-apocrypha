@@ -1,0 +1,28 @@
+{
+  "Porymap": "6.3.1 project-core export",
+  "Porymap_native_pixel_errors": 0,
+  "collision_errors": 0,
+  "grass_behavior_errors": 0,
+  "ledge_behavior_errors": 0,
+  "unchanged_maps": [
+    "CherrygroveCity",
+    "CherrygroveRoute30Approach",
+    "NewBarkTown",
+    "JohtoRoute31",
+    "VioletCityEntrance"
+  ],
+  "preserved_adapter_cells": 2482,
+  "connection_checks": [
+    {
+      "neighbor": "CherrygroveCity",
+      "camera_palette_pixel_errors": 0,
+      "cached_glyph_errors": 0
+    },
+    {
+      "neighbor": "NewBarkTown",
+      "camera_palette_pixel_errors": 0,
+      "cached_glyph_errors": 0
+    }
+  ],
+  "native_footprints_not_raw_DS_collision": true
+}
