@@ -36,7 +36,7 @@ python tools/gba/maps/new_bark_adjustments/door.py /path/to/apocrypha-src
 make -C /path/to/apocrypha-src -j1 generated
 make -C /path/to/apocrypha-src -j8
 python tools/gba/maps/new_bark_adjustments/runtime.py /path/to/apocrypha-src /new/output --toolchain /path/to/toolchain
-python tools/gba/maps/new_bark_adjustments/review.py /path/to/apocrypha-src /porymap/export /baseline/export /runtime/output
+python tools/gba/maps/new_bark_adjustments/review.py /path/to/apocrypha-src /porymap/export /baseline/export /runtime/output /accepted/route29/source
 ```
 
 The source-art palettes and indexed graphics derive from accepted Cherrygrove and New Bark native assets. No ROMs, player saves, credentials or tool binaries are committed. There are no changes to story roles, quests, mechanics or save structure.

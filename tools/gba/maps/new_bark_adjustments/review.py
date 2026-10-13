@@ -16,7 +16,8 @@ solid=(g&0xc00)!=0;reach=seams.reachable(solid,(0,12));m=json.loads((G/'data/map
 for d in m['warp_events']:assert reach[d['y']+1,d['x']]
 assert ((g[:6,12:23]&0xc00)!=0).all();assert not reach[:6,10:12].any()
 reports=[]
-for source in [G,Path('/workspace/apocrypha-src')]:
+route_sources=[G]+([Path(sys.argv[5])] if len(sys.argv)>5 else [])
+for source in route_sources:
  r=Tileset(source,'claude_route29','cherrygrove');rg,rs=seams.read_layout(source,'CherrygroveRoute29Approach',98,48);rr=seams.reachable(rs,(97,18));va=seams.visible_across(rr,g.shape,98,6);vb=seams.visible_across(reach,rs.shape,-98,-6);ca,cb,_=seams.crossing_windows(rs,solid,98,6);errors=0;cached=0
  for owner,foreign,data,mask,cache in [(t,r,g&1023,va,cb),(r,t,rg,vb,ca)]:
   for mid in np.unique(data[mask]):errors+=int(not np.array_equal(owner.render(int(mid)),foreign.render(int(mid))))
