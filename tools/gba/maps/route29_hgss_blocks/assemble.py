@@ -19,11 +19,13 @@ def assemble(game):
    shutil.copytree(game/folder,base/folder)
  old=np.fromfile(base/'data/layouts/CherrygroveRoute29Approach/map.bin','<u2').reshape(H,W);oldsolid=(old&0xc00)!=0;t=Tileset(base,'claude_route29','cherrygrove')
  p=np.full((H,W),'T',dtype='<U1');rows=(S/'blocks.txt').read_text().splitlines();p[2:36]=np.array([list(row) for row in rows]);f=json.loads((S/'structures.json').read_text())
- # Owner-authorized updated gate spans the entire woodland opening.
+ # Restore the HGSS gate proportions and original woodland opening.
  f['gate']['reference_native_box']=[50,5,5,7]
- f['gate'].update(x=48,y=6,width=8,height=6)
+ f['gate'].update(x=49,y=4,width=6,height=8)
+ f['gate_flank_trees']=[(x,y) for x in (47,55) for y in (2,4,6,8)]
+ f['fixed_trees']=json.loads((S/'gate-tree-baseline.json').read_text())['trees']
  p[p=='H']='.'
- p[6:12,48:56]='H'
+ p[4:12,49:55]='H'
  f['signs'][0]['reference_at']=f['signs'][0]['at'];f['signs'][0]['at']=[12,17];p[17,12]='!'
  protected=np.zeros(p.shape,bool);protected[:,:10]=True;protected[:,88:]=True;protected[29:]=True
  protected[25:29,54:64]=True

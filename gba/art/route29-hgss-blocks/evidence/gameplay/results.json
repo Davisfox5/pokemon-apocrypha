@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "30136f1d86ed99d4d90c6511aea3bf4915daf866ac928ca252505b58071bb026",
+  "rom_sha256": "3c62cd4cb1cfed79a7b6b34d7a4b334e3f729573abcb964cb724de963d16c54b",
   "phases": [
     {
       "phase": "write",
@@ -3586,7 +3586,7 @@
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 48,
+          "x": 49,
           "y": 12,
           "frlg_layout": 0,
           "width": 98,
@@ -3972,12 +3972,12 @@
           "mapsec": 217
         },
         {
-          "step": "barrier-48-11",
+          "step": "barrier-47-9",
           "region": 2,
           "group": 80,
           "map": 9,
-          "x": 47,
-          "y": 11,
+          "x": 46,
+          "y": 9,
           "frlg_layout": 0,
           "width": 98,
           "height": 48,

@@ -14,6 +14,13 @@ def arrange(plan,protected,features):
  for x,y in features.get('walk_cells',[]):walk[y,x]=True
  p[walk&(p=='T')]='.'
  reserved|=walk
+ # Pin complete trees beside the narrower HGSS gate; do not conceal a
+ # bypass with blocked lawn or widen the building itself.
+ for x,y in features.get('fixed_trees',[])+features.get('gate_flank_trees',[]):
+  assert not protected[y:y+3,x:x+2].any()
+  assert np.isin(p[y+1:y+3,x:x+2],['T','.','G']).all()
+  assert not reserved[y+1:y+3,x:x+2].any()
+  claimed[y+1:y+3,x:x+2]=True;positions.append((x,y));p[y+1:y+3,x:x+2]='T'
  allowed=np.isin(p,['T','.','G'])&~protected&~reserved
  # Two-row ground courses keep front/rear canopy overlaps consistent. Each
  # course is scored as a whole so odd forest strips absorb one lawn column.

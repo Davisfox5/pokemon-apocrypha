@@ -30,6 +30,15 @@ def main():
  for name,lo,hi in [('west',0,33),('central',33,66),('east',66,98)]:
   width=(hi-lo)*16;page=Image.new('RGB',(2*width+36,480),(24,28,34));d=ImageDraw.Draw(page);d.text((12,8),f'HGSS columns {lo}-{hi-1}',fill='white');d.text((width+24,8),'Native reconstruction',fill='white');page.paste(reference.crop((lo*16,0,hi*16,432)),(12,28));page.paste(core.crop((lo*16,0,hi*16,432)),(width+24,28));page.save(E/f'comparison-{name}.png')
  previous=Image.open(ROOT/'gba/art/apoc-route29/route29-overview.png').convert('RGB');board=Image.new('RGB',(1592,1600),(24,28,34));d=ImageDraw.Draw(board);d.text((12,8),'Claude HGSS-slice proposal (preserved)',fill='white');board.paste(previous,(12,28));d.text((12,804),'Independent reconstruction with complete trees and Emerald terrain',fill='white');board.paste(native,(12,828));board.save(E/'claude-before-after.png')
+ # Gate source and native asset at the same nearest-neighbor scale.
+ gate_page=Image.new('RGB',(808,568),(24,28,34));gd=ImageDraw.Draw(gate_page)
+ gd.text((12,8),'Actual HGSS gate: source crop, 1:1 pixels',fill='white')
+ gd.text((412,8),'Native gate: clean mask and 15-color palette',fill='white')
+ source_gate=Image.open(S/'hgss-reference.png').crop((788,40,884,168)).convert('RGB')
+ native_gate=Image.open(S/'materials/gate.png').convert('RGBA')
+ gate_page.paste(source_gate.resize((384,512),Image.Resampling.NEAREST),(12,32))
+ gate_page.paste(native_gate.resize((384,512),Image.Resampling.NEAREST),(412,32),native_gate.resize((384,512),Image.Resampling.NEAREST))
+ gate_page.save(E/'gate-hgss-comparison.png')
  footprints=native.copy();d=ImageDraw.Draw(footprints);assembly=json.loads((E/'assembly.json').read_text())
  for x,y in assembly['trees']:d.rectangle((x*16,y*16,(x+2)*16-1,(y+1)*16-1),outline=(90,190,255));d.rectangle((x*16,(y+1)*16,(x+2)*16-1,(y+3)*16-1),outline=(255,190,50))
  footprints.save(E/'tree-footprints.png')

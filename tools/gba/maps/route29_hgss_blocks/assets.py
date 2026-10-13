@@ -48,35 +48,26 @@ def create(pals,t,game):
  lawn=np.asarray([(104,208,160),(104,200,160),(96,200,152),(96,192,144),(88,184,144),(88,176,136)])
  dist=((raw[...,:3].astype(int)[...,None,:]-lawn)**2).sum(3).min(2);raw[...,3][dist<200]=0
  a['apricorn']=rgba_to_canvas(raw,3,pals)
- # One purpose-built gatehouse: single hip roof, continuous facade and
- # central closed arch. Indexed CG colors; no repeated house/wall courses.
- gate=Canvas(128,96,pals[6]);im=Image.new('L',(128,96));d=ImageDraw.Draw(im)
- d.polygon([(0,34),(21,8),(106,8),(127,34),(127,51),(0,51)],fill=14)
- d.polygon([(3,33),(23,10),(104,10),(124,33),(124,44),(3,44)],fill=7)
- d.polygon([(23,10),(104,10),(100,33),(27,33)],fill=4)
- d.polygon([(3,33),(23,10),(27,33),(27,44),(3,44)],fill=10)
- d.polygon([(104,10),(124,33),(124,44),(100,44),(100,33)],fill=11)
- for yy in range(15,34,6):
-  inset=(34-yy)//2;d.line([(23+inset//3,yy),(104-inset//3,yy)],fill=6)
- for xx in range(32,100,9):d.line([(xx,11),(xx-3,32)],fill=5)
- d.rectangle((2,44,125,48),fill=13);d.line((4,44,123,44),fill=6)
- d.rectangle((4,49,123,93),fill=8);d.rectangle((8,53,119,87),fill=3)
- d.rectangle((8,53,119,57),fill=9);d.line((8,59,119,59),fill=12)
- # Wide centered doorway, stone arch and shutter set within one wall.
- d.polygon([(56,91),(56,69),(61,63),(82,63),(87,69),(87,91)],fill=12)
- d.polygon([(60,91),(60,70),(64,66),(79,66),(83,70),(83,91)],fill=15)
- d.rectangle((62,72,81,90),fill=13)
- for xx in range(64,81,4):d.line((xx,73,xx,89),fill=11)
- d.line((62,80,81,80),fill=12);d.rectangle((77,82,78,84),fill=3)
- for left in (23,96):
-  d.rectangle((left,65,left+16,78),fill=12)
-  d.rectangle((left+2,67,left+14,76),fill=2)
-  d.line((left+3,68,left+11,68),fill=1)
-  d.line((left+8,67,left+8,76),fill=3)
- d.rectangle((4,88,55,93),fill=9);d.rectangle((88,88,123,93),fill=9)
- d.line((4,94,123,94),fill=15)
- gate.px=np.asarray(im).copy()
- a['gate']=gate
+ # Recreate the actual HGSS gate at 1:1 pixel scale. The silhouette is
+ # measured independently of lawn/tree colors, so no background is baked in.
+ gate_rgba=np.asarray(Image.open(OUT/'source/hgss-reference.png').convert('RGBA'))[40:168,788:884].copy()
+ mask=Image.new('L',(96,128));d=ImageDraw.Draw(mask)
+ # Exact stepped outline: upper roof, wall, two wings and entrance.
+ for x0,y0,x1,y1 in [(814,44,864,50),(809,50,869,58),(803,58,876,145),(795,80,811,158),(868,80,883,158),(810,145,868,151),(818,134,861,167)]:
+  d.rectangle((x0-788,y0-40,x1-789,y1-41),fill=255)
+ gate_rgba[...,3]=np.asarray(mask)
+ # Ground shadow belongs to native terrain, not the opaque building layer.
+ for color in [(64,136,104),(104,208,160),(104,200,160),(96,200,152),(96,192,144)]:
+  gate_rgba[...,3][np.all(gate_rgba[...,:3]==color,2)]=0
+ # Keep the glazed blue band, brown wall and gray entrance distinct instead
+ # of allowing a large teal roof to consume the median-cut color budget.
+ from claude_cherrygrove.pixel import Palette
+ colors=[(32,32,32),(8,112,88),(24,128,112),(32,144,136),(48,160,152),(56,176,176),(112,96,64),(128,104,80),(176,160,128),(192,168,144),(112,192,224),(144,216,248),(88,96,88),(136,136,136),(176,176,176)]
+ pals[6]=Palette(6,colors,[f'hgss_gate{i}' for i in range(15)])
+ a['gate']=rgba_to_canvas(gate_rgba,6,pals)
+ Image.fromarray(gate_rgba).save(OUT/'source/materials/gate-hgss-rgba.png')
+ (OUT/'source/gate-provenance.json').write_text(json.dumps({'reference':'hgss-reference.png','crop':[788,40,884,168],'native_size':[96,128],'rescaling':False,'palette_bank':6,'method':'measured silhouette, curated 15-color native palette, no dithering; measured silhouette and ground-shadow removal','entrance':'original HGSS recessed entrance and integrated treads; no detached stair metatiles'},indent=2)+'\n')
+
  for i,mid in enumerate([197,198,199,200]):a['flower-'+str(i)]=scenery(t,mid,4,pals)
  # Native grass edge masks come from the real TEX0 egrass family.
  full=np.asarray(Image.open(REF/'egrass.png').convert('RGBA')).copy();up=np.asarray(Image.open(REF/'egrass_u.png').convert('RGBA'));vertical=np.asarray(Image.open(REF/'egrass_v.png').convert('RGBA'))

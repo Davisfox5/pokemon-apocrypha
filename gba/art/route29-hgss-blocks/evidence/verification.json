@@ -1,9 +1,9 @@
 {
   "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
-  "expansion_commit": "d80d449d50c374e9ad307d272bb71156285c74c6",
+  "expansion_commit": "6f7661e9ee7ded15d603628d7665a068a684df3a",
   "source_branch": "codex/route29-hgss-blocks",
   "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/6",
-  "rom_sha256": "30136f1d86ed99d4d90c6511aea3bf4915daf866ac928ca252505b58071bb026",
+  "rom_sha256": "3c62cd4cb1cfed79a7b6b34d7a4b334e3f729573abcb964cb724de963d16c54b",
   "local_build": "success",
   "runtime_phases": [
     {
@@ -28,5 +28,6 @@
   "visual_acceptance": "pending owner review",
   "gate_side_bypass": false,
   "forest_rock_fillers": 0,
-  "gray_steps": false
+  "gray_steps": "no detached Emerald stair metatiles; original HGSS entry treads retained",
+  "gate_source": "HGSS overview at 1:1 pixel scale"
 }
