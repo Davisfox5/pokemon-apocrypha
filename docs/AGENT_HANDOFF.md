@@ -1,3 +1,9 @@
+## Violet former gym campus renovation
+
+Owner requested the approved campus trim treatment while paying homage to the original gym. Expansion `88dfc7cceb39f2d014ccf2a3a359c03b71732db6` on `codex/violet-city` preserves the exact silhouette and warm upper roof pixels, with slate blue bands, cream stone entrance supports and an open-book crest on the projecting hood. The sign now also identifies the former Violet Gym. Lecture hall/Roxanne practicum canon is unchanged; interiors are still unimplemented.
+
+See `gba/art/violet-city/evidence/gym-comparison.png` and `gym-validation.json`. All visual changes are confined to the gym footprint. Collision, elevation, behavior, layers, events and warps are unchanged. Local build, Porymap pixel equality and the background 488-step tour/sign/save checks pass. Scenery capacity is 995/1,008. Current cloud build was in_progress when recorded. No desktop emulator opened. Next: owner review of the renovation.
+
 ## October 13: Violet university, housing and teaching court
 
 Owner approved the softened exterior and requested three more houses, a university replacing the repeated purple-roofed schools, and a Scarlet/Violet-inspired teaching arena. Expansion commit `ec84227279a606cd4aa26d712e1db208cd6accaf` on `codex/violet-city` implements those exteriors. The main university contains the planned library/classroom entrance; the old gym remains the lecture hall and Roxanne practicum specified in DESIGN.md Chapter 2. The existing outlined court east of the Center is now a colored teaching court with trainer markings, four benches and a sign; the lake landing is unchanged. Three cleared pockets contain accepted Johto house artwork. Pink trees remain exclusive to Cherrygrove.

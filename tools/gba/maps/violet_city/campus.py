@@ -73,3 +73,34 @@ def court():
             c.rect(x,y,32,7,'wood');c.rect(x,y,32,1,'sand');c.rect(x,y+3,32,1,'sand')
             c.rect(x+2,y+7,3,1,'ink');c.rect(x+27,y+7,3,1,'ink')
     return c
+
+
+def renovate_gym(c):
+    """Retain the HGSS gym silhouette/roof; renovate only its campus-facing trim.
+
+    Bank 5 is exclusive to this building. Keep the warm roof/wood and embedded
+    ground shades; map the old cyan and gray facade shades to campus slate/stone.
+    """
+    replacements={1:(152,184,208),3:(104,128,152),9:(72,96,128),14:(56,72,104),
+                  2:(216,208,184),5:(184,176,152),13:(136,128,112)}
+    for slot,rgb in replacements.items():c.pal.colors[c.pal.by_slot[slot]]=rgb
+    # Reface the existing orange entry supports without changing their outlines.
+    yy,xx=np.indices(c.px.shape)
+    supports=(yy>=58)&(yy<88)&(xx>=16)&(xx<92)&(c.px==10)
+    c.px[supports]=5
+    upright=(yy>=64)&(yy<87)&(((xx>=17)&(xx<28))|((xx>=81)&(xx<92)))
+    c.px[upright & np.isin(c.px,[4,6,10,11,12])]=5
+    # Cream highlights follow the original upright masonry instead of new boxes.
+    for x in (20,21,82,83):
+        for y in range(68,86):
+            if c.px[y,x]==5:c.px[y,x]=2
+    # Open-book university crest on the original projecting blue entrance hood.
+    c.px[52:64,46:66]=3
+    crest=['..gggg....gggg..', '.gppppg..gppppg.', 'gppppppggppppppg', 'gppppppggppppppg',
+           'gpddddpggpddddpg', 'gppppppggppppppg', 'gpddddpggpddddpg', 'gppppppggppppppg',
+           '.ggggggddgggggg.', '...ggggddgggg...']
+    ink={'g':4,'p':2,'d':15}
+    for y,row in enumerate(crest,53):
+        for x,ch in enumerate(row,48):
+            if ch!='.':c.px[y,x]=ink[ch]
+    return c

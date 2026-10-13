@@ -1,0 +1,19 @@
+{
+  "base_commit": "ec84227279a606cd4aa26d712e1db208cd6accaf",
+  "changed_pixels": 3153,
+  "changed_pixels_outside_gym": 0,
+  "original_silhouette_preserved": true,
+  "upper_warm_roof_pixels_preserved": 3515,
+  "collision_elevation_behavior_layer_changes": 0,
+  "events_and_warps_unchanged": true,
+  "sign": "LECTURE HALL / BATTLE PRACTICUM / Former VIOLET GYM",
+  "scenery_tiles": 995,
+  "Porymap_pixel_errors": 0,
+  "rom_sha256": "c71244903e0a37e3055fd78d00b596016b88ffc7c9a670a796e1b365c4870c1b",
+  "runtime_phases_passed": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "runtime_walk_steps": 488
+}

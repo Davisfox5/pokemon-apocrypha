@@ -1,4 +1,4 @@
-Violet City university, additional housing and teaching court: [proposal, native evidence and remaining interiors](../gba/art/violet-city/README.md). Built from the approved cloud Route 30 source, using Porytiles, Poryscript, porygon and Porymap.
+Violet City university, teaching court and former gym renovation: [proposal, native evidence and remaining interiors](../gba/art/violet-city/README.md). Built from the approved cloud Route 30 source, using Porytiles, Poryscript, porygon and Porymap.
 
 Current Route 30 reconstruction proposal: [HGSS block survey, whole-tree forest correction and native Emerald terrain review](../gba/art/route30-hgss-blocks/README.md). Engine draft PR #4 targets `apocrypha`; prior drafts remain preserved. This is pending owner visual acceptance.
 

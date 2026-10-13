@@ -52,7 +52,8 @@ def main(game):
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
  for key in ['tower','academy','gym','house','gable','center','mart']:soften_building(A[key])
- # Library is a second wing in the school's existing architectural vocabulary.
+ campus.renovate_gym(A['gym'])
+ # Original modular university facade; its library is planned inside the main hall.
  A['university']=campus.university();pals[10]=A['university'].pal
  A['court']=campus.court();pals[4]=A['court'].pal
  soften_building(A['university'])
@@ -247,7 +248,7 @@ def main(game):
  (game/'data/maps/map_groups.json').write_text(json.dumps(groups,indent=2)+'\n')
  m=json.loads((game/'data/maps/VioletCityEntrance/map.json').read_text());m.update(id='MAP_VIOLET_CITY',name='VioletCity',layout='LAYOUT_VIOLET_CITY',warp_events=[{'x':74,'y':56,'elevation':0,'dest_map':'MAP_VIOLET_EAST_GATE','dest_warp_id':'0'}],bg_events=[{'type':'sign','x':x,'y':y,'elevation':0,'player_facing_dir':'BG_EVENT_PLAYER_FACING_ANY','script':'VioletCity_'+label} for x,y,label in signs])
  mf=game/'data/maps/VioletCity';mf.mkdir(exist_ok=True);(mf/'map.json').write_text(json.dumps(m,indent=2)+'\n')
- (mf/'scripts.pory').write_text('raw `VioletCity_MapScripts::\n    .byte 0\n`\n\n'+''.join('script VioletCity_'+name+' {\n    msgbox("'+text+'", MSGBOX_SIGN)\n    end\n}\n\n' for name,text in [('University','VIOLET UNIVERSITY\\nMain hall, library and classrooms.'),('Tower','SPROUT TOWER'),('Library','LIBRARY AND CLASSROOMS\\nInside the main university hall.'),('Lecture','LECTURE HALL\\nBATTLE PRACTICUM'),('City','VIOLET CITY'),('Practice','UNIVERSITY PRACTICE COURT\\nObserve. Practice. Discuss.')]))
+ (mf/'scripts.pory').write_text('raw `VioletCity_MapScripts::\n    .byte 0\n`\n\n'+''.join('script VioletCity_'+name+' {\n    msgbox("'+text+'", MSGBOX_SIGN)\n    end\n}\n\n' for name,text in [('University','VIOLET UNIVERSITY\\nMain hall, library and classrooms.'),('Tower','SPROUT TOWER'),('Library','LIBRARY AND CLASSROOMS\\nInside the main university hall.'),('Lecture','LECTURE HALL\\nBATTLE PRACTICUM\\nFormer VIOLET GYM'),('City','VIOLET CITY'),('Practice','UNIVERSITY PRACTICE COURT\\nObserve. Practice. Discuss.')]))
  script=mf/'scripts.pory';script.write_text(script.read_text().rstrip()+'\n')
  subprocess.run([str(game/'tools/poryscript/poryscript'),'-i','data/maps/VioletCity/scripts.pory','-o','data/maps/VioletCity/scripts.inc','-fc','tools/poryscript/font_config.json','-cc','tools/poryscript/command_config.json'],cwd=game,check=True)
  ep=game/'data/event_scripts.s';text=ep.read_text();inc='.include "data/maps/VioletCity/scripts.inc"\n'
