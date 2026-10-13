@@ -1,0 +1,46 @@
+{
+  "core_blocks": 2590,
+  "source_basis": "registered HGSS overview, inferred collision; not recovered DS block/collision data",
+  "collision_disagreements": 0,
+  "grass_behavior_errors": 0,
+  "water_behavior_errors": 0,
+  "ledge_behavior_errors": 0,
+  "Porymap_pixel_errors": 0,
+  "unaffected_maps": [
+    "CherrygroveCity",
+    "CherrygroveRoute29Approach",
+    "NewBarkTown",
+    "JohtoRoute31",
+    "VioletCityEntrance"
+  ],
+  "connection_camera_checks": [
+    {
+      "neighbor": "CherrygroveCity",
+      "camera_visible_palette_and_pixel_mismatches": [
+        0,
+        0
+      ],
+      "cached_window_tile_pixel_errors": 0,
+      "offscreen_window_palette_differences": 0,
+      "camera_margins": {
+        "horizontal": 8,
+        "up": 5,
+        "down": 6
+      }
+    },
+    {
+      "neighbor": "JohtoRoute31",
+      "camera_visible_palette_and_pixel_mismatches": [
+        0,
+        0
+      ],
+      "cached_window_tile_pixel_errors": 0,
+      "offscreen_window_palette_differences": 7,
+      "camera_margins": {
+        "horizontal": 8,
+        "up": 5,
+        "down": 6
+      }
+    }
+  ]
+}

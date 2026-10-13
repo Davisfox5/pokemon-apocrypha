@@ -1,3 +1,5 @@
+Current Route 30 reconstruction proposal: [independent HGSS block survey, native art and gameplay review](../gba/art/route30-hgss-blocks/README.md). Engine draft PR #4 targets `apocrypha`; prior drafts remain preserved. This is pending owner visual acceptance.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.

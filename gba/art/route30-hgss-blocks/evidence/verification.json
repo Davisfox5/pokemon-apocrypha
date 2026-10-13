@@ -1,0 +1,29 @@
+{
+  "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "expansion_commit": "d8270f67372fba07ca1d7c229dc14c4cea9c98cd",
+  "expansion_branch": "codex/route30-hgss-blocks",
+  "build": "make -j8 TOOLCHAIN=/workspace/deps/root/usr; success",
+  "rom_sha256": "7bd0daa6b9222a8fab877ff48fe057060d480d7dc74a68907c0e4c0b318065b8",
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 247
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "Porymap": "6.3.1 headless project-core export; not a manual GUI edit/save",
+  "Porytiles": "legacy 2.0.0 isolated sixteen-variant grass family; exact RGBA import",
+  "porygon": "MCP write_blockdata and add_bg_event",
+  "visual_status": "Completed reconstruction proposal; owner visual acceptance pending",
+  "foreground_pixel_errors": 0
+}

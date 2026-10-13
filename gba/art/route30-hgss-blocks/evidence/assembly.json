@@ -1,0 +1,1690 @@
+{
+  "reference_blocks": 2590,
+  "reference_rows": 74,
+  "native_width": 35,
+  "native_height": 86,
+  "integration_adapter_rows": [
+    74,
+    85
+  ],
+  "shared_seam_support": {
+    "new_shared_tiles": 52,
+    "reused_existing_tile_ids": 2,
+    "new_shared_metatiles": 82,
+    "visible_route_cells": 224,
+    "existing_nonzero_graphics_replaced": 0,
+    "existing_metatile_ids_changed": 0,
+    "door_slots_reserved": [
+      1008,
+      1023
+    ],
+    "neighbor_layouts_changed": false
+  },
+  "ground_provenance": {
+    "native_ground_library": "primary/cherrygrove bank 0, existing opaque 8px tiles",
+    "candidate_variants": 517,
+    "layout_input": "independent HGSS survey only"
+  },
+  "protected_connection_cells": 457,
+  "core_cells_copied_from_previous_Gen3_layout": 0,
+  "northern_palette_adapter_cells": 0,
+  "layer_report": {
+    "composited_terrain_palette": 7,
+    "background_assets": 72,
+    "background_colour_cleanup": [
+      {
+        "asset": "background-02-000",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-06-000",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-10-000",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-14-000",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-000",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-00-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-01-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-02-001",
+        "changed_pixels": 6,
+        "max_channel_delta": 16
+      },
+      {
+        "asset": "background-03-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-04-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-05-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-06-001",
+        "changed_pixels": 6,
+        "max_channel_delta": 16
+      },
+      {
+        "asset": "background-07-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-08-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-09-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-10-001",
+        "changed_pixels": 6,
+        "max_channel_delta": 16
+      },
+      {
+        "asset": "background-11-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-12-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-13-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-14-001",
+        "changed_pixels": 6,
+        "max_channel_delta": 16
+      },
+      {
+        "asset": "background-15-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-001",
+        "changed_pixels": 6,
+        "max_channel_delta": 16
+      },
+      {
+        "asset": "background-27-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-28-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-29-001",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-015",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-016",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-017",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-018",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-018",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-019",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-019",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-020",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-021",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-022",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-022",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-023",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-023",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-024",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-025",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-026",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-026",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-027",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-027",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-028",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-029",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-030",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-030",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-031",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-031",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-032",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-033",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-034",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-034",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-035",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-035",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-036",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-037",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-038",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-038",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-039",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-039",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-040",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-041",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-042",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-042",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-043",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-27-043",
+        "changed_pixels": 0,
+        "max_channel_delta": 0
+      },
+      {
+        "asset": "background-26-114",
+        "changed_pixels": 5,
+        "max_channel_delta": 37
+      },
+      {
+        "asset": "background-27-114",
+        "changed_pixels": 5,
+        "max_channel_delta": 37
+      },
+      {
+        "asset": "background-26-115",
+        "changed_pixels": 3,
+        "max_channel_delta": 37
+      },
+      {
+        "asset": "background-27-115",
+        "changed_pixels": 5,
+        "max_channel_delta": 37
+      }
+    ],
+    "ground_colours_pinned": true,
+    "foreground_layers_explicit": true
+  },
+  "reserved_palette_banks": [
+    0,
+    2,
+    3,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11
+  ],
+  "new_tree_positions": [
+    [
+      0,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      16,
+      8
+    ],
+    [
+      18,
+      8
+    ],
+    [
+      30,
+      8
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      16,
+      10
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      16,
+      12
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      2,
+      14
+    ],
+    [
+      16,
+      14
+    ],
+    [
+      22,
+      14
+    ],
+    [
+      24,
+      14
+    ],
+    [
+      26,
+      14
+    ],
+    [
+      0,
+      16
+    ],
+    [
+      2,
+      16
+    ],
+    [
+      16,
+      16
+    ],
+    [
+      22,
+      16
+    ],
+    [
+      24,
+      16
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      2,
+      18
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      22,
+      18
+    ],
+    [
+      24,
+      18
+    ],
+    [
+      0,
+      20
+    ],
+    [
+      2,
+      20
+    ],
+    [
+      4,
+      20
+    ],
+    [
+      6,
+      20
+    ],
+    [
+      20,
+      20
+    ],
+    [
+      22,
+      20
+    ],
+    [
+      24,
+      20
+    ],
+    [
+      0,
+      22
+    ],
+    [
+      2,
+      22
+    ],
+    [
+      4,
+      22
+    ],
+    [
+      6,
+      22
+    ],
+    [
+      20,
+      22
+    ],
+    [
+      22,
+      22
+    ],
+    [
+      30,
+      22
+    ],
+    [
+      0,
+      24
+    ],
+    [
+      2,
+      24
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      6,
+      24
+    ],
+    [
+      30,
+      24
+    ],
+    [
+      0,
+      26
+    ],
+    [
+      2,
+      26
+    ],
+    [
+      4,
+      26
+    ],
+    [
+      6,
+      26
+    ],
+    [
+      16,
+      26
+    ],
+    [
+      28,
+      26
+    ],
+    [
+      30,
+      26
+    ],
+    [
+      0,
+      28
+    ],
+    [
+      2,
+      28
+    ],
+    [
+      4,
+      28
+    ],
+    [
+      6,
+      28
+    ],
+    [
+      12,
+      28
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      28,
+      28
+    ],
+    [
+      30,
+      28
+    ],
+    [
+      0,
+      30
+    ],
+    [
+      2,
+      30
+    ],
+    [
+      4,
+      30
+    ],
+    [
+      6,
+      30
+    ],
+    [
+      14,
+      30
+    ],
+    [
+      16,
+      30
+    ],
+    [
+      18,
+      30
+    ],
+    [
+      28,
+      30
+    ],
+    [
+      30,
+      30
+    ],
+    [
+      0,
+      32
+    ],
+    [
+      2,
+      32
+    ],
+    [
+      16,
+      32
+    ],
+    [
+      28,
+      32
+    ],
+    [
+      30,
+      32
+    ],
+    [
+      0,
+      34
+    ],
+    [
+      28,
+      34
+    ],
+    [
+      30,
+      34
+    ],
+    [
+      0,
+      36
+    ],
+    [
+      4,
+      36
+    ],
+    [
+      28,
+      36
+    ],
+    [
+      30,
+      36
+    ],
+    [
+      0,
+      38
+    ],
+    [
+      4,
+      38
+    ],
+    [
+      28,
+      38
+    ],
+    [
+      30,
+      38
+    ],
+    [
+      0,
+      40
+    ],
+    [
+      4,
+      40
+    ],
+    [
+      10,
+      40
+    ],
+    [
+      26,
+      40
+    ],
+    [
+      28,
+      40
+    ],
+    [
+      30,
+      40
+    ],
+    [
+      0,
+      42
+    ],
+    [
+      4,
+      42
+    ],
+    [
+      10,
+      42
+    ],
+    [
+      24,
+      42
+    ],
+    [
+      26,
+      42
+    ],
+    [
+      28,
+      42
+    ],
+    [
+      30,
+      42
+    ],
+    [
+      0,
+      44
+    ],
+    [
+      4,
+      44
+    ],
+    [
+      10,
+      44
+    ],
+    [
+      12,
+      44
+    ],
+    [
+      14,
+      44
+    ],
+    [
+      16,
+      44
+    ],
+    [
+      24,
+      44
+    ],
+    [
+      26,
+      44
+    ],
+    [
+      28,
+      44
+    ],
+    [
+      30,
+      44
+    ],
+    [
+      0,
+      46
+    ],
+    [
+      4,
+      46
+    ],
+    [
+      10,
+      46
+    ],
+    [
+      28,
+      46
+    ],
+    [
+      30,
+      46
+    ],
+    [
+      32,
+      46
+    ],
+    [
+      0,
+      48
+    ],
+    [
+      4,
+      48
+    ],
+    [
+      10,
+      48
+    ],
+    [
+      28,
+      48
+    ],
+    [
+      30,
+      48
+    ],
+    [
+      32,
+      48
+    ],
+    [
+      0,
+      50
+    ],
+    [
+      4,
+      50
+    ],
+    [
+      28,
+      50
+    ],
+    [
+      30,
+      50
+    ],
+    [
+      32,
+      50
+    ],
+    [
+      0,
+      52
+    ],
+    [
+      4,
+      52
+    ],
+    [
+      28,
+      52
+    ],
+    [
+      30,
+      52
+    ],
+    [
+      32,
+      52
+    ],
+    [
+      0,
+      54
+    ],
+    [
+      4,
+      54
+    ],
+    [
+      28,
+      54
+    ],
+    [
+      30,
+      54
+    ],
+    [
+      32,
+      54
+    ],
+    [
+      0,
+      56
+    ],
+    [
+      4,
+      56
+    ],
+    [
+      28,
+      56
+    ],
+    [
+      30,
+      56
+    ],
+    [
+      32,
+      56
+    ],
+    [
+      0,
+      58
+    ],
+    [
+      4,
+      58
+    ],
+    [
+      28,
+      58
+    ],
+    [
+      30,
+      58
+    ],
+    [
+      32,
+      58
+    ],
+    [
+      0,
+      60
+    ],
+    [
+      4,
+      60
+    ],
+    [
+      0,
+      62
+    ],
+    [
+      0,
+      64
+    ],
+    [
+      26,
+      64
+    ],
+    [
+      28,
+      64
+    ],
+    [
+      30,
+      64
+    ],
+    [
+      32,
+      64
+    ],
+    [
+      0,
+      66
+    ],
+    [
+      26,
+      66
+    ],
+    [
+      28,
+      66
+    ],
+    [
+      30,
+      66
+    ],
+    [
+      32,
+      66
+    ],
+    [
+      0,
+      68
+    ],
+    [
+      22,
+      68
+    ],
+    [
+      0,
+      70
+    ],
+    [
+      12,
+      70
+    ],
+    [
+      14,
+      70
+    ],
+    [
+      16,
+      70
+    ],
+    [
+      18,
+      70
+    ],
+    [
+      20,
+      70
+    ],
+    [
+      22,
+      70
+    ],
+    [
+      0,
+      72
+    ],
+    [
+      12,
+      72
+    ],
+    [
+      14,
+      72
+    ],
+    [
+      16,
+      72
+    ],
+    [
+      18,
+      72
+    ],
+    [
+      20,
+      72
+    ],
+    [
+      22,
+      72
+    ],
+    [
+      0,
+      74
+    ],
+    [
+      2,
+      74
+    ],
+    [
+      4,
+      74
+    ],
+    [
+      12,
+      74
+    ],
+    [
+      14,
+      74
+    ],
+    [
+      16,
+      74
+    ],
+    [
+      18,
+      74
+    ],
+    [
+      20,
+      74
+    ],
+    [
+      22,
+      74
+    ],
+    [
+      20,
+      76
+    ],
+    [
+      22,
+      76
+    ],
+    [
+      24,
+      76
+    ],
+    [
+      26,
+      76
+    ],
+    [
+      28,
+      76
+    ],
+    [
+      30,
+      76
+    ],
+    [
+      32,
+      76
+    ],
+    [
+      20,
+      78
+    ],
+    [
+      22,
+      78
+    ],
+    [
+      24,
+      78
+    ],
+    [
+      26,
+      78
+    ],
+    [
+      28,
+      78
+    ],
+    [
+      30,
+      78
+    ],
+    [
+      32,
+      78
+    ],
+    [
+      20,
+      80
+    ],
+    [
+      22,
+      80
+    ],
+    [
+      24,
+      80
+    ],
+    [
+      26,
+      80
+    ],
+    [
+      28,
+      80
+    ],
+    [
+      30,
+      80
+    ],
+    [
+      32,
+      80
+    ],
+    [
+      13,
+      0
+    ],
+    [
+      13,
+      2
+    ],
+    [
+      16,
+      3
+    ],
+    [
+      18,
+      3
+    ],
+    [
+      31,
+      3
+    ],
+    [
+      19,
+      5
+    ],
+    [
+      31,
+      5
+    ],
+    [
+      28,
+      15
+    ],
+    [
+      20,
+      29
+    ],
+    [
+      22,
+      29
+    ],
+    [
+      21,
+      59
+    ],
+    [
+      23,
+      59
+    ],
+    [
+      25,
+      59
+    ],
+    [
+      21,
+      66
+    ],
+    [
+      33,
+      68
+    ],
+    [
+      33,
+      70
+    ],
+    [
+      33,
+      72
+    ],
+    [
+      10,
+      73
+    ],
+    [
+      33,
+      74
+    ]
+  ],
+  "previous_boundary_tree_rectangles": [
+    [
+      0,
+      32,
+      32,
+      48
+    ],
+    [
+      32,
+      32,
+      32,
+      48
+    ],
+    [
+      64,
+      32,
+      32,
+      48
+    ],
+    [
+      96,
+      32,
+      32,
+      48
+    ],
+    [
+      208,
+      32,
+      32,
+      48
+    ],
+    [
+      256,
+      32,
+      32,
+      48
+    ],
+    [
+      288,
+      32,
+      32,
+      48
+    ],
+    [
+      480,
+      32,
+      32,
+      48
+    ],
+    [
+      0,
+      80,
+      32,
+      48
+    ],
+    [
+      32,
+      80,
+      32,
+      48
+    ],
+    [
+      208,
+      112,
+      32,
+      48
+    ],
+    [
+      32,
+      128,
+      32,
+      48
+    ],
+    [
+      256,
+      128,
+      32,
+      48
+    ],
+    [
+      288,
+      128,
+      32,
+      48
+    ],
+    [
+      16,
+      1232,
+      32,
+      48
+    ],
+    [
+      48,
+      1232,
+      32,
+      48
+    ],
+    [
+      80,
+      1232,
+      32,
+      48
+    ],
+    [
+      176,
+      1232,
+      32,
+      48
+    ],
+    [
+      208,
+      1232,
+      32,
+      48
+    ],
+    [
+      240,
+      1232,
+      32,
+      48
+    ],
+    [
+      272,
+      1232,
+      32,
+      48
+    ],
+    [
+      16,
+      1280,
+      32,
+      48
+    ],
+    [
+      48,
+      1280,
+      32,
+      48
+    ],
+    [
+      80,
+      1280,
+      32,
+      48
+    ],
+    [
+      176,
+      1280,
+      32,
+      48
+    ],
+    [
+      208,
+      1280,
+      32,
+      48
+    ],
+    [
+      240,
+      1280,
+      32,
+      48
+    ],
+    [
+      272,
+      1280,
+      32,
+      48
+    ],
+    [
+      16,
+      1328,
+      32,
+      48
+    ],
+    [
+      48,
+      1328,
+      32,
+      48
+    ],
+    [
+      80,
+      1328,
+      32,
+      48
+    ],
+    [
+      176,
+      1328,
+      32,
+      48
+    ],
+    [
+      208,
+      1328,
+      32,
+      48
+    ],
+    [
+      240,
+      1328,
+      32,
+      48
+    ],
+    [
+      272,
+      1328,
+      32,
+      48
+    ],
+    [
+      304,
+      1328,
+      32,
+      48
+    ],
+    [
+      336,
+      1328,
+      32,
+      48
+    ],
+    [
+      368,
+      1328,
+      32,
+      48
+    ],
+    [
+      400,
+      1328,
+      32,
+      48
+    ],
+    [
+      432,
+      1328,
+      32,
+      48
+    ],
+    [
+      464,
+      1328,
+      32,
+      48
+    ],
+    [
+      496,
+      1328,
+      32,
+      48
+    ],
+    [
+      528,
+      1328,
+      32,
+      48
+    ]
+  ],
+  "exclusive_tree_ground_cells": [
+    2,
+    2
+  ],
+  "tree_canvas_cells": [
+    2,
+    3
+  ],
+  "permitted_upper_canopy_overlap_pixels": 41931,
+  "divider_tree_ground_footprints": [
+    [
+      14,
+      8,
+      1,
+      2
+    ],
+    [
+      14,
+      10,
+      1,
+      2
+    ],
+    [
+      14,
+      12,
+      1,
+      2
+    ],
+    [
+      14,
+      14,
+      1,
+      2
+    ],
+    [
+      14,
+      16,
+      1,
+      2
+    ],
+    [
+      14,
+      18,
+      1,
+      2
+    ],
+    [
+      14,
+      20,
+      1,
+      2
+    ]
+  ],
+  "illegal_ground_footprint_overlaps": 0,
+  "scenery_pixel_errors": 0,
+  "tiles": 451,
+  "metatiles": 508,
+  "layout_source": "source/blocks.txt, independently surveyed from source/hgss-reference.png; prior Gen 3 blockdata is consulted only to reserve old library IDs for compatibility; it does not supply the reconstructed layout"
+}
