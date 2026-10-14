@@ -45,14 +45,19 @@ def university():
     # Projecting lintel casts a short shadow over the recessed upper door.
     c.rect(142,92,68,9,'stone_light');c.rect(142,101,68,3,'trim')
     c.rect(144,104,64,6,'shade')
-    # A compact clock tower marks a civic institution instead of another house.
+    # Clock tower uses the same parallel projection as the classroom wings:
+    # a deeper cap, straight side verges, and a short shadow across the face.
     c.rect(152,16,48,70,'stone_light');c.rect(156,20,40,64,'stone')
-    for y in range(4,20):
-        half=min(32,8+y);c.rect(176-half,y,half*2,1,'roof_dark' if y%4==0 else 'roof')
-    c.rect(144,20,64,3,'shade');c.rect(152,23,48,2,'trim')
-    c.ellipse(175.5,44,14,14,'stone_dark');c.ellipse(175.5,44,12,12,'trim')
-    c.rect(175,34,2,12,'wood');c.rect(175,44,8,2,'wood')
-    for x,y in [(175,33),(175,54),(165,44),(186,44)]:c.rect(x,y,2,2,'brass')
+    for y in range(4,28):
+        c.rect(148,y,56,1,'roof_dark' if y%4==0 else 'roof')
+        if y%4==1:c.rect(148,y,56,1,'roof_light')
+        c.put(148,y,'roof_light');c.put(203,y,'roof_dark')
+    c.rect(148,28,56,2,'roof_dark');c.rect(148,30,56,2,'trim')
+    c.rect(152,32,48,3,'shade')
+    # Preserve the clock/hands while mildly foreshortening the vertical face.
+    c.ellipse(175.5,48,14,12,'stone_dark');c.ellipse(175.5,48,12,10,'trim')
+    c.rect(175,40,2,10,'wood');c.rect(175,48,8,2,'wood')
+    for x,y in [(175,39),(175,56),(165,48),(186,48)]:c.rect(x,y,2,2,'brass')
     c.rect(156,63,40,4,'trim');c.rect(168,72,16,8,'roof_dark');c.rect(172,74,8,4,'brass')
     # Matching faculty banners flank the door, with a simple book-like crest.
     for x in (132,212):
@@ -121,14 +126,15 @@ def lecture_hall():
         roof_course(y,10,134,20)
     c.rect(10,18,124,2,'copper');c.rect(10,69,124,3,'roof_dark')
     c.rect(10,72,124,2,'cream');c.rect(12,74,120,3,'shadow')
-    # Raised glazed clerestory establishes a new civic-hall silhouette.
+    # Upper story follows the main roof's parallel projection and overhang.
+    # Its three original glass bays sit below the deeper copper cap.
     c.rect(48,12,48,30,'roof_dark');c.rect(50,15,44,23,'stone_light')
     for x in (54,66,78):
-        c.rect(x,18,10,15,'blue_dark');c.rect(x+1,19,8,11,'glass')
-        c.rect(x+1,19,8,3,'glass_light');c.rect(x+1,30,8,2,'blue')
-    for y in range(2,15):
-        inset=(14-y)//2;roof_course(y,40+inset,104-inset,2)
-    c.rect(40,15,64,2,'roof_dark');c.rect(48,38,48,3,'copper')
+        c.rect(x,22,10,15,'blue_dark');c.rect(x+1,23,8,11,'glass')
+        c.rect(x+1,23,8,3,'glass_light');c.rect(x+1,34,8,2,'blue')
+    for y in range(2,22):roof_course(y,44,100,2)
+    c.rect(44,22,56,2,'roof_dark');c.rect(44,24,56,1,'cream')
+    c.rect(48,25,48,2,'shadow');c.rect(48,38,48,3,'copper')
     # Exposed warm ribs echo the original orange structural accents.
     for x in (13,49,91,127):
         c.rect(x,77,4,27,'rib');c.rect(x,77,1,27,'copper')

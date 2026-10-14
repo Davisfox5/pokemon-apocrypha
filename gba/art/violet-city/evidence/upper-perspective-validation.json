@@ -1,0 +1,26 @@
+{
+  "base_engine_commit": "e7f70254644ea2cfbec8e13ade90c15a93dc040c",
+  "changed_pixels": 2523,
+  "outside_upper_sections_pixel_changes": 0,
+  "collision_elevation_behavior_layer_changes": 0,
+  "events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 981,
+  "main_roofs_facades_entrances_unchanged": true,
+  "perspective_basis": "Visual comparison to imported HGSS Violet house and Cherrygrove Center; exact camera angle not recovered from raster sprites",
+  "changes": [
+    "parallel and deeper clock-tower roof cap with overhang",
+    "mildly foreshortened clock face retains hands and markers",
+    "parallel and deeper copper upper-story cap",
+    "three upper windows recessed under eave"
+  ],
+  "rom_sha256": "87ae12c31dc9d545abd838627cb1c8e78aa5ce6bae1283f983cd8f446e1db630",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "desktop_emulator_opened": false,
+  "engine_commit": "80d933e0525294e2f56432ff6557a894cce060d2"
+}

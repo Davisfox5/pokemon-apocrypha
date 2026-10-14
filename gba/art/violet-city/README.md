@@ -13,7 +13,17 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Custom-building perspective — current
+## Upper-story perspective completion — current
+
+The owner asked whether the main roofs lean forward too much and pointed out that the clock tower and lecture hall upper story still used the old projection. Visual comparison to the imported HGSS house and Center supports keeping the main roof-over-wall balance; no exact camera angle is inferred from the raster artwork.
+
+Both upper caps now have deeper roof planes, parallel side verges and projecting eaves. The clock face is mildly foreshortened while retaining its hands and markers. The hall keeps all three glass bays, recessed under the copper cap. Exactly 2,523 pixels change, exclusively inside the two upper sections. Main roofs, lower facades, entrances, collision/elevation/behavior/layers, events, scripts and warps are unchanged.
+
+Local ROM, Porytiles, Porymap/native equality and background walking/sign/gate/save checks pass. The new upper-section captures were inspected. Scenery is **981 / 1,008 tiles**, leaving 27. No desktop emulator opened. Existing interior, route and Surf limitations remain.
+
+[Upper sections before/after](evidence/upper-perspective-comparison.png) · [Native gameplay](evidence/upper-perspective-gameplay.png) · [Validation](evidence/upper-perspective-validation.json)
+
+## Previous custom-building perspective
 
 The owner approved the two custom designs and requested the same parallel, roof-over-wall projection as the HGSS imports. The university and lecture hall now have deeper main roof planes, parallel side verges, stronger projecting eaves, and entrance covers that obscure the upper doors. The university wings narrow by 16 pixels per side; the lecture hall roof narrows by eight pixels per side. Clock face, tower cap, classroom window bays, banners, limestone details, copper roof tile motif, glazed clerestory, cyan bands, orange ribs and blue fanlight canopy remain the same architectural design and color family.
 

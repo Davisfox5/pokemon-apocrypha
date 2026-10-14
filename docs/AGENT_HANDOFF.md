@@ -1,3 +1,9 @@
+## Latest: Violet upper-story perspective completion
+
+Owner questioned the forward lean and flagged the unadjusted clock tower and lecture hall upper story. The main roof-over-wall balance was visually compared with the imported HGSS house/Center and retained; exact camera geometry is not recoverable from those raster references. Upper roof caps now have parallel verges, deeper planes and projecting eaves. The clock face is mildly foreshortened; all three upper-story window bays remain. Exactly 2,523 pixels change inside the two upper sections. All other pixels and every collision/elevation/behavior/layer, event, script and warp are unchanged.
+
+Current expansion revision is `80d933e0525294e2f56432ff6557a894cce060d2` on `codex/violet-city`; recorded in `gba/art/violet-city/evidence/preservation.json`. Local ROM, Porytiles, native/Porymap equality and background traversal/sign/gate/save checks pass. See `upper-perspective-comparison.png`, `upper-perspective-gameplay.png` and `upper-perspective-validation.json` in the evidence directory. Capacity 981/1,008; no desktop emulator opened. Next: owner visual review. Existing interior/route/Surf limits remain.
+
 ## Latest: Violet custom-building perspective alignment
 
 Owner likes both custom designs and requested the HGSS imports' viewing angle without an architectural redesign. The university and lecture hall now have parallel main-roof verges, deeper roof planes, narrower wings and projecting eaves/entrance covers. The original clock tower, window bays, copper tile motif, clerestory, warm ribs, blue bands/canopy and colors remain. Door axes and contact baselines stay fixed. Current engine revision is `e7f70254644ea2cfbec8e13ade90c15a93dc040c` on `codex/violet-city`; see `gba/art/violet-city/evidence/preservation.json`.
