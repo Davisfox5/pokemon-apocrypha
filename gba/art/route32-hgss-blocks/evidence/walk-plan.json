@@ -1,0 +1,230 @@
+[
+  {
+    "name": "north-grass",
+    "start": [
+      23,
+      3
+    ],
+    "goal": [
+      27,
+      12
+    ],
+    "steps": 13
+  },
+  {
+    "name": "upper-terrace",
+    "start": [
+      27,
+      12
+    ],
+    "goal": [
+      25,
+      25
+    ],
+    "steps": 17
+  },
+  {
+    "name": "central-grass",
+    "start": [
+      25,
+      25
+    ],
+    "goal": [
+      24,
+      36
+    ],
+    "steps": 16
+  },
+  {
+    "name": "middle-clearing",
+    "start": [
+      24,
+      36
+    ],
+    "goal": [
+      21,
+      42
+    ],
+    "steps": 9
+  },
+  {
+    "name": "western-grass",
+    "start": [
+      21,
+      42
+    ],
+    "goal": [
+      10,
+      47
+    ],
+    "steps": 16
+  },
+  {
+    "name": "cliff-lane",
+    "start": [
+      10,
+      47
+    ],
+    "goal": [
+      7,
+      57
+    ],
+    "steps": 13
+  },
+  {
+    "name": "northern-stairs",
+    "start": [
+      7,
+      57
+    ],
+    "goal": [
+      9,
+      59
+    ],
+    "steps": 4
+  },
+  {
+    "name": "dock-approach",
+    "start": [
+      9,
+      59
+    ],
+    "goal": [
+      19,
+      64
+    ],
+    "steps": 15
+  },
+  {
+    "name": "railway-dock-underpass",
+    "start": [
+      19,
+      64
+    ],
+    "goal": [
+      19,
+      68
+    ],
+    "steps": 4
+  },
+  {
+    "name": "fishing-arm",
+    "start": [
+      19,
+      68
+    ],
+    "goal": [
+      14,
+      75
+    ],
+    "steps": 12
+  },
+  {
+    "name": "dock-bend",
+    "start": [
+      14,
+      75
+    ],
+    "goal": [
+      21,
+      80
+    ],
+    "steps": 12
+  },
+  {
+    "name": "dock-south",
+    "start": [
+      21,
+      80
+    ],
+    "goal": [
+      22,
+      86
+    ],
+    "steps": 7
+  },
+  {
+    "name": "southern-clearing",
+    "start": [
+      22,
+      86
+    ],
+    "goal": [
+      21,
+      92
+    ],
+    "steps": 7
+  },
+  {
+    "name": "center-approach",
+    "start": [
+      21,
+      92
+    ],
+    "goal": [
+      20,
+      109
+    ],
+    "steps": 32
+  },
+  {
+    "name": "union-cave-approach",
+    "start": [
+      20,
+      109
+    ],
+    "goal": [
+      13,
+      117
+    ],
+    "steps": 19
+  },
+  {
+    "name": "railway-land-underpass",
+    "start": [
+      5,
+      65
+    ],
+    "goal": [
+      5,
+      68
+    ],
+    "steps": 3
+  },
+  {
+    "name": "western-fishing-grass",
+    "start": [
+      5,
+      68
+    ],
+    "goal": [
+      8,
+      80
+    ],
+    "steps": 15
+  },
+  {
+    "name": "southern-stairs",
+    "start": [
+      8,
+      80
+    ],
+    "goal": [
+      7,
+      90
+    ],
+    "steps": 11
+  },
+  {
+    "name": "land-route-rejoins",
+    "start": [
+      7,
+      90
+    ],
+    "goal": [
+      15,
+      96
+    ],
+    "steps": 14
+  }
+]

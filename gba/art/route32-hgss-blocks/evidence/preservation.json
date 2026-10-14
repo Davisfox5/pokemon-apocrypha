@@ -1,0 +1,52 @@
+{
+  "base_commit": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "protected_paths": [
+    {
+      "path": "data/layouts/CherrygroveCity",
+      "unchanged": true
+    },
+    {
+      "path": "data/layouts/CherrygroveRoute29Approach",
+      "unchanged": true
+    },
+    {
+      "path": "data/layouts/CherrygroveRoute30Approach",
+      "unchanged": true
+    },
+    {
+      "path": "data/layouts/JohtoRoute31",
+      "unchanged": true
+    },
+    {
+      "path": "data/layouts/NewBarkTown",
+      "unchanged": true
+    },
+    {
+      "path": "data/layouts/VioletCityEntrance",
+      "unchanged": true
+    },
+    {
+      "path": "data/tilesets/primary/cherrygrove",
+      "unchanged": true
+    },
+    {
+      "path": "data/tilesets/secondary/cherrygrove",
+      "unchanged": true
+    },
+    {
+      "path": "data/tilesets/secondary/new_bark",
+      "unchanged": true
+    },
+    {
+      "path": "data/tilesets/secondary/route31",
+      "unchanged": true
+    },
+    {
+      "path": "data/tilesets/secondary/violet_entrance",
+      "unchanged": true
+    }
+  ],
+  "ordinary_saves_and_owner_workbenches_preserved": true,
+  "shared_building_source_engine": "9037554c61833a5f8f7da175d45420b4797bafde",
+  "source_commit": "7bae845d9f6b6eca806444bee5b220f17f6da342"
+}

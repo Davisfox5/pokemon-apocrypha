@@ -1,0 +1,32 @@
+{
+  "owner_direction": "Copy and paste shared Pok\u00e9mon Centers and Pok\u00e9marts; use Violet City Center as canonical.",
+  "engine_source_commit": "9037554c61833a5f8f7da175d45420b4797bafde",
+  "assets": {
+    "pokemon-center.png": {
+      "source": "gba/art/violet-city/source/materials/center.png",
+      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "sha256": "7f0c463cf43e9dae3543697933631ef6ec7979dede73c2379370847639fcd6a6"
+    },
+    "poke-mart.png": {
+      "source": "gba/art/johto-mart/source/building.png",
+      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "sha256": "62054375bd8e8f24caa00433b1afd49c3339eb9c8af9266f40c451276b910d0a"
+    },
+    "poke-mart.indexed.png": {
+      "source": "gba/art/johto-mart/source/building.indexed.png",
+      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "sha256": "3039d2ca6528d3426d4c476aa78da8e004ee55a6950c44479b98bfab41c13809"
+    },
+    "poke-mart.pal": {
+      "source": "gba/art/johto-mart/source/palette.pal",
+      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "sha256": "08d2eefb091eaf42529446b43a3b41c83dc593a299c3039292a2bf6efce93741"
+    },
+    "mart-brandmark.png": {
+      "source": "gba/art/johto-mart/source/brandmark.png",
+      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "sha256": "ea52cd08c593b6e9ade2cbc42f2fd639a0569a78902c0699b4301eb085849037"
+    }
+  },
+  "credits": "Pok\u00e9mon source art: Nintendo, Game Freak, Creatures; native adaptations and cleanup: Apocrypha project."
+}

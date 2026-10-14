@@ -107,3 +107,7 @@ Open it in Porymap: File > Open Project > `apocrypha-src`. Porymap writes
    `apocrypha` checkout and commit directly instead of preserving a patch.
 2. Owner: set the GitHub repository description for `pokemon-apocrypha` (the
    API refuses settings writes from agent sessions).
+
+## Shared building art
+
+Copy approved Pokémon Centers and Pokémarts instead of rebuilding them per map. The owner selected Violet City’s Center as the canonical Center; see [the standing art note](GBA_SHARED_BUILDING_ART.md).
