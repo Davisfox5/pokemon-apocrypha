@@ -19,7 +19,7 @@
     2,
     6
   ],
-  "signage": "Architectural corner tower and fascia wordmark, both integrated in the building; no pole sign",
+  "signage": "Small roof-mounted emblem only; no text, pole sign or tower",
   "placement": "Compile native tile IDs per town. Terrain remains separate. Set roof overlap and wall collision from the destination footprint.",
   "source": "Original indexed artwork in tools/gba/maps/johto_mart/assets.py; sapphire/white Mart identity with new architecture."
 }

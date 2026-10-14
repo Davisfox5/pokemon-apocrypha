@@ -1,4 +1,4 @@
-"""Original Johto retail pavilion: layered sapphire roofs and illuminated glazing."""
+"""Original Johto retail pavilion: one raised sapphire roof and recessed glazing."""
 from claude_cherrygrove.pixel import Canvas,Palette
 
 
@@ -18,75 +18,64 @@ def emblem(c,x,y):
     c.ellipse(x,y,3,3,'white');c.ellipse(x,y,1,1,'gold')
 
 
-def wordmark(c,x,y):
-    glyphs={'M':['10001','11011','10101','10101','10001','10001','10001'],
-            'A':['01110','10001','10001','11111','10001','10001','10001'],
-            'R':['11110','10001','10001','11110','10100','10010','10001'],
-            'T':['11111','00100','00100','00100','00100','00100','00100']}
-    for i,ch in enumerate('MART'):
-        for yy,row in enumerate(glyphs[ch]):
-            for xx,v in enumerate(row):
-                if v=='1':c.put(x+i*6+xx,y+yy,'white')
-
-
 def building(p):
     c=Canvas(112,96,p)
-    # Recessed two-volume storefront: a narrow entrance beside a broad showroom.
-    c.rect(12,42,92,50,'ink');c.rect(14,44,88,46,'stone')
-    c.rect(14,88,88,4,'stone_dark');c.rect(12,92,92,3,'shade')
-    c.rect(28,52,28,40,'shade');c.rect(30,53,24,38,'stone_dark')
-    c.rect(32,60,20,32,'light');c.rect(34,62,16,28,'glass_dark')
-    c.rect(35,63,14,26,'glass');c.rect(35,63,14,3,'glass_light')
-    c.rect(35,78,14,2,'cyan');c.rect(41,63,2,26,'shade')
+    # One rectangular raised volume. The vertical facade sits beneath the
+    # projecting roof, like the neighboring HGSS house and lecture hall.
+    c.rect(10,46,94,46,'ink');c.rect(12,48,88,44,'stone')
+    c.rect(100,50,4,42,'shade');c.rect(12,90,88,3,'stone_dark')
+    c.rect(10,93,94,2,'shade')
+    c.rect(14,54,84,34,'light')
+    # Recessed double doors retain the existing map entrance axis at x=40.
+    c.rect(30,56,24,36,'shade');c.rect(32,58,20,34,'stone_dark')
+    c.rect(34,60,16,30,'glass_dark');c.rect(35,61,14,28,'glass')
+    c.rect(35,61,14,3,'glass_light');c.rect(35,78,14,2,'cyan')
+    c.rect(41,61,2,28,'shade')
     c.rect(39,78,1,5,'gold');c.rect(44,78,1,5,'gold')
     c.rect(32,90,20,3,'white');c.rect(32,93,20,2,'stone')
-    # Three tall glass bays, slim frames, interior shelving and reflected sky.
-    c.rect(54,54,50,35,'glass_dark')
-    for x in (56,72,88):
-        c.rect(x,62,12,23,'glass');c.rect(x,62,12,3,'glass_light')
-        c.rect(x,65,12,2,'cyan');c.rect(x+1,70,10,1,'glass_light')
-        c.rect(x,78,12,1,'shade');c.rect(x,85,12,2,'stone_dark')
+    # Slim repeated glazing, merchandise and reflected sky; no fascia text.
+    for x in (16,56,72,88):
+        c.rect(x-2,58,16,30,'glass_dark')
+        c.rect(x,60,12,25,'glass');c.rect(x,60,12,4,'glass_light')
+        c.rect(x,64,12,3,'cyan');c.rect(x+1,70,10,1,'glass_light')
+        c.rect(x,78,12,1,'shade');c.rect(x,85,12,3,'stone_dark')
         c.rect(x+2,74,3,4,'cyan');c.rect(x+7,75,3,3,'gold')
         c.rect(x+3,72,1,2,'light');c.rect(x+8,74,1,1,'white')
-        c.rect(x+12,61,2,26,'light')
-    c.rect(56,87,46,3,'light');c.rect(56,89,46,1,'white')
-    c.rect(56,54,46,8,'blue_dark')
-    # Main floating roof: a sapphire plane with a pale perimeter and dark soffit.
-    for y in range(14,52):
-        inset=4 if y in (14,51) else 2 if y in (15,50) else 0
-        l,r=40+inset,108-inset
+        c.rect(x+12,58,2,30,'light')
+    c.rect(12,88,18,2,'white');c.rect(54,88,46,2,'white')
+    # Parallel side verges and a single continuous sloping roof plane.
+    # Front eaves project past the walls and occlude the tops of the glazing.
+    for y in range(12,59):
+        inset=4 if y in (12,58) else 2 if y in (13,57) else 0
+        l,r=4+inset,108-inset
         c.rect(l,y,r-l,1,'light')
-        tone='cyan' if y<18 else 'blue_mid' if y<25 else 'blue' if y<43 else 'blue_dark'
+        tone='cyan' if y<16 else 'blue_mid' if y<26 else 'blue' if y<49 else 'blue_dark'
         c.rect(l+2,y,r-l-4,1,tone)
         c.put(r-1,y,'stone_dark')
-    c.rect(42,52,64,2,'white');c.rect(44,54,60,2,'shade')
-    # A raised skylight, framed in steel, breaks the broad roof plane.
-    c.rect(54,23,50,17,'shade');c.rect(54,22,50,16,'light')
-    c.rect(56,24,46,12,'glass_dark')
-    for x in (56,72,88):
-        c.rect(x,25,12,9,'glass');c.rect(x,25,12,2,'glass_light')
-        c.rect(x,27,12,2,'cyan');c.rect(x+12,24,2,12,'stone')
-        c.rect(x+2,30,4,1,'cyan')
-    c.rect(54,38,50,2,'blue_dark')
-    # Lower, projecting entrance canopy; its white rim and shadow show depth.
-    for y in range(48,68):
-        inset=3 if y in (48,67) else 1 if y in (49,66) else 0
-        l,r=24+inset,60-inset
-        c.rect(l,y,r-l,1,'light')
-        c.rect(l+2,y,r-l-4,1,'cyan' if y<52 else 'blue_mid' if y<59 else 'blue')
-        c.put(r-1,y,'stone_dark')
-    c.rect(26,68,32,2,'white');c.rect(28,70,28,3,'shade')
-    # Corner brand tower: architectural stone fin with blue enamel face,
-    # recessed warm lights, and the same medallion on every Johto shop.
-    c.rect(8,10,22,80,'shade');c.rect(8,8,20,80,'light')
-    c.rect(10,6,16,82,'white');c.rect(12,12,12,64,'blue_dark')
-    c.rect(13,13,10,61,'blue');c.rect(13,13,1,61,'cyan')
-    emblem(c,18,27)
-    for y in (44,50,56):
-        c.rect(15,y,7,2,'glass_light');c.rect(15,y+2,7,1,'blue_dark')
-    c.rect(14,66,9,2,'gold');c.rect(10,80,16,2,'stone')
-    c.rect(6,88,24,4,'stone_dark');c.rect(7,88,22,1,'light')
-    wordmark(c,67,55)
+    # Narrow shaded hip faces distinguish the sloping top from the vertical
+    # wall. Their diagonal folds terminate at the same front eave.
+    for y in range(16,56):
+        hip=18-(y-16)//4
+        c.rect(6,y,hip-6,1,'blue')
+        c.put(hip,y,'cyan' if y<26 else 'blue_mid')
+        c.rect(112-hip,y,106-(112-hip),1,'blue_dark')
+        c.put(111-hip,y,'shade')
+    # Standing seams run down the main plane and stop at its folded edges.
+    for x in (16,32,48,64,80,96):
+        for y in range(17,54):
+            hip=18-(y-16)//4
+            if hip+2<x<109-hip:
+                c.put(x,y,'blue_dark')
+                c.put(x+1,y,'cyan' if y<26 else 'blue_mid' if y<49 else 'blue')
+    c.rect(8,59,96,2,'white');c.rect(10,61,92,3,'stone_dark')
+    c.rect(12,64,88,3,'shade');c.rect(14,67,84,2,'glass_dark')
+    c.rect(16,64,12,1,'gold');c.rect(84,64,12,1,'gold')
+    # Small roof-mounted medallion, with a short base and local cast shadow.
+    # Its compact mounting replaces the former full-height sign tower.
+    c.rect(31,31,22,3,'blue_dark')
+    c.rect(30,15,22,17,'stone_dark');c.rect(30,13,20,17,'white')
+    c.rect(32,15,16,13,'blue')
+    emblem(c,40,21)
     return c
 
 
@@ -114,7 +103,7 @@ def export_assets(destination,bank=9):
         'region':'Johto','status':'Original retail pavilion proposal; Violet review installation',
         'palette_bank':bank,'transparent_index':0,'building_pixels':[112,96],
         'brandmark_pixels':[32,32],'building_door_tile':[2,5],'building_approach_tile':[2,6],
-        'signage':'Architectural corner tower and fascia wordmark, both integrated in the building; no pole sign',
+        'signage':'Small roof-mounted emblem only; no text, pole sign or tower',
         'placement':'Compile native tile IDs per town. Terrain remains separate. Set roof overlap and wall collision from the destination footprint.',
         'source':'Original indexed artwork in tools/gba/maps/johto_mart/assets.py; sapphire/white Mart identity with new architecture.'
     },indent=2)+'\n')

@@ -1,4 +1,12 @@
-## Latest: original Johto Mart pavilion
+## Latest: Johto Mart depth and signage correction
+
+Owner liked the original architecture direction but flagged flattened perspective, ambiguous roof heights, text and the oversized sign tower. The Mart now has one continuous sapphire roof with parallel outer verges, shaded hip faces and a projecting eave/soffit over recessed glazing. A small roof-mounted emblem replaces the tower. All lettering, separate entrance canopy and raised skylight are removed. The roof/wall projection was compared visually with the actual Violet house and approved lecture hall.
+
+Engine source `ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3` on `codex/violet-city`. Exactly 5,813 native pixels change within the existing 112×96 Mart box. Every surrounding pixel and all collision/elevation/behavior/layer/event/script/warp values remain unchanged. Door (21,40), approach (21,41). Shared pack: `gba/art/johto-mart`; Violet remains the only review installation.
+
+Local ROM, Porytiles, porygon, Porymap/native/export equality and background 661-step walking tour, Mart collision/clearance, signs, gate return, save/cold reload/title Continue pass. Native capture inspected beside lecture hall. Capacity 987/1,008 tiles. Evidence: `mart-depth-comparison.png`, `mart-depth-gameplay.png`, `mart-depth-validation.json`. No desktop emulator opened. Next: owner visual review. Shop interior and onward routes remain unimplemented.
+
+## Superseded: split-roof Johto Mart pavilion
 
 Owner requested broader creative freedom, including a new footprint and signage. The shared Mart is now a 112×96 original retail pavilion with sapphire roof volumes, skylight, entrance canopy, merchandise glazing, warm accents and an integrated branded corner tower. Violet is the review installation; the shared pack is reusable across Johto. The approved university and lecture hall are pixel-identical. Source/export details: `gba/art/johto-mart/README.md`.
 

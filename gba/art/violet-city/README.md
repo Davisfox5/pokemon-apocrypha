@@ -13,7 +13,17 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Original Johto retail pavilion — current
+## Johto Mart perspective and roof correction — current
+
+The owner liked the creative direction but requested correct depth, no MART text, smaller roof-mounted signage and a legible roof structure. The building now uses one continuous sapphire roof: parallel outer edges, shaded hip faces, subtle standing seams, a projecting pale eave and a dark soffit over the recessed glazing. A small roof-mounted emblem replaces the full-height corner tower; all lettering, the separate entrance canopy and the ambiguous raised skylight are removed. The visible roof/wall projection was compared against the actual Violet house and approved lecture hall sprites.
+
+Exactly **5,813 pixels** change, exclusively within the existing 112×96 shop box. All city collision/elevation/behavior/layer cells, events, scripts, warps, surrounding art and the shop's door (21,40)/approach (21,41) are unchanged. Shared exports remain reusable across Johto; Violet is the only installed example.
+
+Local ROM compilation, Porytiles, porygon, native/Porymap/export pixel equality and background tour/Mart wall/door/clearance/save/reload/Continue checks pass. Native captures were inspected. Capacity is **987/1,008 scenery tiles**. The interior remains unimplemented. No desktop emulator opened.
+
+[Before/after](evidence/mart-depth-comparison.png) · [Native gameplay](evidence/mart-depth-gameplay.png) · [Validation](evidence/mart-depth-validation.json)
+
+## Superseded split-roof Johto pavilion
 
 The owner requested an original, more contemporary building with the creative freedom used for the lecture hall. The Mart is now a larger 112×96 pavilion: layered sapphire roofs, a raised skylight, projecting entrance canopy, glass showroom with small merchandise displays, warm accents, and an architectural corner tower carrying its emblem. The MART wordmark is integrated above the showroom. No detached pole sign remains. The shared Johto source pack supports reuse with different palette-bank assignments.
 

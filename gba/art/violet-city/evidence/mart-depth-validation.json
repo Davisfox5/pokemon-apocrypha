@@ -1,0 +1,47 @@
+{
+  "base_engine_commit": "9037554c61833a5f8f7da175d45420b4797bafde",
+  "changed_pixels": 5813,
+  "outside_mart_pixel_changes": 0,
+  "collision_elevation_changed_cells": 0,
+  "behavior_layer_changed_cells": 0,
+  "events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 987,
+  "scenery_limit": 1008,
+  "door": [
+    21,
+    40
+  ],
+  "approach": [
+    21,
+    41
+  ],
+  "building_box": [
+    19,
+    35,
+    7,
+    6
+  ],
+  "shared_asset_export_pixel_errors": 0,
+  "rollout": "Violet only; shared original Johto pavilion source",
+  "interior": "Not implemented; closed doorway retained",
+  "desktop_emulator_opened": false,
+  "rom_sha256": "b703c2c017a7e8fca81599eb0934a1342c712389aadda0847fb210ff59191e65",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "mart_door_wall_and_clearance_probes_pass": true,
+  "site_adjustment": "Artwork only inside existing shop footprint; surrounding pixels and all physics preserved",
+  "validation_region": {
+    "building": [
+      19,
+      35,
+      7,
+      6
+    ]
+  },
+  "engine_commit": "ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3"
+}
