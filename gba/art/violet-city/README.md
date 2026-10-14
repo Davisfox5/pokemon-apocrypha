@@ -13,7 +13,9 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Johto Mart perspective and roof correction — current
+## Johto Mart exterior — approved October 14, 2026
+
+The owner approved and locked this design: “Perfect. Let’s lock it in.” It is the shared Johto Mart exterior standard. See [approval and pinned assets](../johto-mart/source/approval.json).
 
 The owner liked the creative direction but requested correct depth, no MART text, smaller roof-mounted signage and a legible roof structure. The building now uses one continuous sapphire roof: parallel outer edges, shaded hip faces, subtle standing seams, a projecting pale eave and a dark soffit over the recessed glazing. A small roof-mounted emblem replaces the full-height corner tower; all lettering, the separate entrance canopy and the ambiguous raised skylight are removed. The visible roof/wall projection was compared against the actual Violet house and approved lecture hall sprites.
 

@@ -1,10 +1,16 @@
+## Locked: approved shared Johto Mart exterior — October 14, 2026
+
+Owner approved the latest design: “Perfect. Let's lock it in.” Preserve the single continuous sapphire roof, raised projection/eaves, recessed glazing, small roof-mounted emblem and no lettering. This is the shared Johto Mart design; use it for future Johto placements. The installation is currently Violet only. No further architectural redesign without owner direction.
+
+Approved art `e53f3450498097b13ceb9e1e2a3a2bbaaf677c54`, engine `ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3`. Asset hashes and approval scope are pinned in `gba/art/johto-mart/source/approval.json`. Existing native/runtime evidence remains valid; this approval changes no pixels or gameplay. Mart exterior review is complete. Interiors and future town placement remain separate work.
+
 ## Latest: Johto Mart depth and signage correction
 
 Owner liked the original architecture direction but flagged flattened perspective, ambiguous roof heights, text and the oversized sign tower. The Mart now has one continuous sapphire roof with parallel outer verges, shaded hip faces and a projecting eave/soffit over recessed glazing. A small roof-mounted emblem replaces the tower. All lettering, separate entrance canopy and raised skylight are removed. The roof/wall projection was compared visually with the actual Violet house and approved lecture hall.
 
 Engine source `ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3` on `codex/violet-city`. Exactly 5,813 native pixels change within the existing 112×96 Mart box. Every surrounding pixel and all collision/elevation/behavior/layer/event/script/warp values remain unchanged. Door (21,40), approach (21,41). Shared pack: `gba/art/johto-mart`; Violet remains the only review installation.
 
-Local ROM, Porytiles, porygon, Porymap/native/export equality and background 661-step walking tour, Mart collision/clearance, signs, gate return, save/cold reload/title Continue pass. Native capture inspected beside lecture hall. Capacity 987/1,008 tiles. Evidence: `mart-depth-comparison.png`, `mart-depth-gameplay.png`, `mart-depth-validation.json`. No desktop emulator opened. Next: owner visual review. Shop interior and onward routes remain unimplemented.
+Local ROM, Porytiles, porygon, Porymap/native/export equality and background 661-step walking tour, Mart collision/clearance, signs, gate return, save/cold reload/title Continue pass. Native capture inspected beside lecture hall. Capacity 987/1,008 tiles. Evidence: `mart-depth-comparison.png`, `mart-depth-gameplay.png`, `mart-depth-validation.json`. No desktop emulator opened. Owner subsequently approved this exterior; see the locked design above. Shop interior and onward routes remain unimplemented.
 
 ## Superseded: split-roof Johto Mart pavilion
 

@@ -100,7 +100,7 @@ def export_assets(destination,bank=9):
         image.save(destination/(name+'.indexed.png'),transparency=0)
     (destination/'palette.pal').write_text('JASC-PAL\n0100\n16\n'+'\n'.join(' '.join(map(str,rgb)) for rgb in pal.gba())+'\n')
     (destination/'manifest.json').write_text(json.dumps({
-        'region':'Johto','status':'Original retail pavilion proposal; Violet review installation',
+        'region':'Johto','status':'Owner-approved Johto Mart exterior; installed in Violet City',
         'palette_bank':bank,'transparent_index':0,'building_pixels':[112,96],
         'brandmark_pixels':[32,32],'building_door_tile':[2,5],'building_approach_tile':[2,6],
         'signage':'Small roof-mounted emblem only; no text, pole sign or tower',

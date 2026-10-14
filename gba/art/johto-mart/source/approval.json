@@ -1,0 +1,21 @@
+{
+  "status": "approved",
+  "approved_date": "2026-10-14",
+  "owner_statement": "Perfect. Let's lock it in.",
+  "scope": "Shared Johto Mart exterior design; installed in Violet only; interiors remain unimplemented",
+  "art_revision": "e53f3450498097b13ceb9e1e2a3a2bbaaf677c54",
+  "engine_revision": "ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3",
+  "preserve": [
+    "Single continuous sapphire roof and raised perspective",
+    "Recessed glazed storefront and projecting eaves",
+    "Small roof-mounted emblem",
+    "No lettering or tower sign"
+  ],
+  "assets_sha256": {
+    "building.png": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8",
+    "building.indexed.png": "6f48b5a5e79df8b1ac6b6529fd45e683f8f1ec2b16ac1f70896cc9e8bc81ecb0",
+    "brandmark.png": "ea52cd08c593b6e9ade2cbc42f2fd639a0569a78902c0699b4301eb085849037",
+    "brandmark.indexed.png": "77e2096592196c49be0f5bb0ec3fb749c3c638600b29546bfd1af250b6e68899",
+    "palette.pal": "08d2eefb091eaf42529446b43a3b41c83dc593a299c3039292a2bf6efce93741"
+  }
+}

@@ -1,3 +1,5 @@
+Approved shared Johto Mart exterior: [locked design, reusable assets and exact revision](../gba/art/johto-mart/README.md). Single sapphire roof, raised perspective, small roof emblem, no lettering. Owner approved October 14, 2026.
+
 Violet City university, teaching court and redesigned lecture hall: [proposal, native evidence and remaining interiors](../gba/art/violet-city/README.md). Built from the approved cloud Route 30 source, using Porytiles, Poryscript, porygon and Porymap.
 
 Current Route 30 reconstruction proposal: [HGSS block survey, whole-tree forest correction and native Emerald terrain review](../gba/art/route30-hgss-blocks/README.md). Engine draft PR #4 targets `apocrypha`; prior drafts remain preserved. This is pending owner visual acceptance.
