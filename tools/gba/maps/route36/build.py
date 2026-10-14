@@ -33,9 +33,9 @@ def main(game):
  plan=trace.trace()
  assets.update(architecture.create(pals,materials))
  assets.update(terrain.create(game,pals,materials,S))
- gates=[{'name':'Violet gate','at':[75,13],'flip':False,'door':[75,20],'active':True},
-        {'name':'National Park gate','at':[0,7],'flip':True,'door':[6,14],'active':False},
-        {'name':'Alph gate','at':[56,24],'flip':False,'door':[59,31],'active':False}]
+ gates=[{'name':'Violet gate','at':[75,15],'flip':True,'door':[75,20],'active':True},
+        {'name':'National Park gate','at':[0,9],'flip':False,'door':[6,14],'active':False},
+        {'name':'Alph gate','at':[55,24],'flip':False,'door':[58,31],'active':False}]
  # Keep the reference's eastern flower strip outside the walking line.
  flowers=[(x,17+(x%3==0)) for x in range(53,70,2)]
  signs=[{'at':[23,1],'name':'North','text':'ROUTE 37\\nNorth toward ECRUTEAK CITY.'},
@@ -86,7 +86,11 @@ def main(game):
  # every 2x2 footprint, including odd-width/offset runs, with COMPLETE sprites.
  # Canopy overhang is one row above the collision envelope; no crown fragments.
  forest=plan=='T';forest[6:9,:7]=True;covered=np.zeros((H,W),bool);trees=[]
- trees=[[x,14] for x in range(15,33,2)]
+ trees=[[x,14] for x in range(14,32,2)]
+ trees += [[x,y] for y in (15,17) for x in range(32,44,2)]
+ trees += [[32,11],[33,13]]
+ trees += [[x,22] for x in (38,40,42)]
+ trees += [[x,y] for x in (53,62) for y in (23,25,27,29)]
  for x,y in trees:covered[y+1:y+3,x:x+2]=True
  candidates=[(x,y) for y in range(H-1) for x in range(W-1) if forest[y:y+2,x:x+2].all()]
  # Fill from the southern edge upward so visible trunk edges follow each
@@ -102,20 +106,20 @@ def main(game):
  # Exact graph and screenshot checks below expose any uncovered boundary gaps.
  solid[0,:]=True;solid[-1,:]=True;solid[:,0]=True;solid[:,-1]=True
  for g in gates[:2]:
-  x,y=g['at'];put('gate-side',x,y,True,g['flip']);solid[y+2:y+8,x:x+7]=True;mc.above[y:y+2,x:x+7]=True
+  x,y=g['at'];put('gate-side',x,y,True,g['flip']);solid[y+2:y+6,x:x+7]=True;mc.above[y:y+2,x:x+7]=True
   if g['active']:solid[20,75]=False;beh[20,75]=0x62
- put('gate-front',56,24,True);solid[26:32,56:63]=True;mc.above[24:26,56:63]=True
+ put('gate-front',55,24,True);solid[26:32,55:62]=True;mc.above[24:26,55:62]=True
  for sign in signs:
   x,y=sign['at'];put('sign',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  # Native apricorn silhouette at the original central grassy branch; no harvest script yet.
- put('apricorn',31,9,True);solid[10,31]=True;mc.above[9,31]=True
+ put('apricorn',32,8,True);solid[9,32]=True;mc.above[8,32]=True
  # Trees behind a projecting gate roof belong to the lower hardware layer.
  # This preserves the whole tree outline visible around the roof without
  # mixing two sprite palettes in a hardware tile or cutting foliage away.
  for yy in range(0,H*16,8):
   for xx in range(0,W*16,8):
    q=fg.bank[yy:yy+8,xx:xx+8];idx=fg.idx[yy:yy+8,xx:xx+8]
-   if 3 in q and 9 in q:
+   if 3 in q and (9 in q or 10 in q):
     m=q==3;back=mc.background_bank[yy:yy+8,xx:xx+8];bi=mc.background_idx[yy:yy+8,xx:xx+8]
     back[m]=3;bi[m]=idx[m];q[m]=-1;idx[m]=0
  mc.fore_bank=fg.bank;mc.fore_idx=fg.idx

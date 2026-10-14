@@ -20,6 +20,9 @@ r.MAIN=prefix+r'''
  go(44,31,23);step(RIGHT,2);at(44,33,23,"east-stairs-eastward");step(LEFT,2);at(44,31,23,"east-stairs-westward");
  go(44,13,20);step(RIGHT,1);at(44,13,20,"west-wall-blocks");
  go(44,33,20);step(LEFT,1);at(44,33,20,"east-wall-blocks");
+ go(44,55,25);step(LEFT,1);at(44,55,25,"alph-west-bypass-blocked");shot("alph-west-barrier");
+ go(44,61,25);step(RIGHT,1);at(44,61,25,"alph-east-bypass-blocked");shot("alph-east-barrier");
+ go(44,33,20);step(UP,1);at(44,33,20,"false-cliff-lane-blocked");
  go(44,15,20);step(RIGHT,9);at(44,24,20,"grass-crossing");shot("grass-at-native-scale");
  go(44,19,1);step(UP,1);at(44,19,1,"route37-pending-edge");
  go(44,7,30);step(DOWN,1);at(44,7,30,"route35-pending-edge");

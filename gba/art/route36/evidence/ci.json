@@ -1,19 +1,19 @@
 {
-  "head": "a3aafffd827acce790c7779a0bdb765a5f445412",
+  "head": "162c41c8b5987973480f7a276e63a196dfc1bf07",
   "runs": [
     {
       "conclusion": "skipped",
-      "databaseId": 38623803509,
-      "headSha": "a3aafffd827acce790c7779a0bdb765a5f445412",
+      "databaseId": 38638090591,
+      "headSha": "162c41c8b5987973480f7a276e63a196dfc1bf07",
       "status": "completed",
-      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38623803509"
+      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38638090591"
     },
     {
       "conclusion": "",
-      "databaseId": 38623803521,
-      "headSha": "a3aafffd827acce790c7779a0bdb765a5f445412",
+      "databaseId": 38638090570,
+      "headSha": "162c41c8b5987973480f7a276e63a196dfc1bf07",
       "status": "in_progress",
-      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38623803521"
+      "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38638090570"
     }
   ],
   "previous_draft": {
@@ -66,5 +66,24 @@
     },
     "label": "Previous draft CI (before this refinement); all compilation jobs passed, battle suite failed as on its baseline."
   },
-  "local_result": "ROM build, native map, traversal and persistence checks passed"
+  "local_result": "ROM build, native map, traversal and persistence checks passed",
+  "preceding_revision": {
+    "head": "a3aafffd827acce790c7779a0bdb765a5f445412",
+    "runs": [
+      {
+        "conclusion": "skipped",
+        "databaseId": 38623803509,
+        "headSha": "a3aafffd827acce790c7779a0bdb765a5f445412",
+        "status": "completed",
+        "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38623803509"
+      },
+      {
+        "conclusion": "failure",
+        "databaseId": 38623803521,
+        "headSha": "a3aafffd827acce790c7779a0bdb765a5f445412",
+        "status": "completed",
+        "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38623803521"
+      }
+    ]
+  }
 }

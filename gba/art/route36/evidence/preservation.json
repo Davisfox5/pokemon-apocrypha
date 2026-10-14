@@ -1,7 +1,7 @@
 {
   "engine_repository": "Davisfox5/pokeemerald-expansion",
   "engine_branch": "codex/violet-city",
-  "engine_commit": "a3aafffd827acce790c7779a0bdb765a5f445412",
+  "engine_commit": "162c41c8b5987973480f7a276e63a196dfc1bf07",
   "engine_base": "ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3",
   "source_manifest": "../source/generated-files.json",
   "owner_checkout_preserved": "/Users/davisfox/Documents/GitHub/apocrypha-src",
@@ -15,9 +15,10 @@
     "data/tilesets/primary/johto_route36/metatiles.bin",
     "data/tilesets/primary/johto_route36/palettes/01.pal",
     "data/tilesets/primary/johto_route36/tiles.png",
-    "data/tilesets/secondary/johto_route36/palettes/08.pal",
     "data/tilesets/secondary/johto_route36/palettes/09.pal",
-    "data/tilesets/secondary/johto_route36/palettes/11.pal"
+    "data/tilesets/secondary/johto_route36/palettes/10.pal"
   ],
-  "all_other_maps_events_and_scripts_unchanged": true
+  "all_other_maps_events_and_scripts_unchanged": true,
+  "previous_revision": "a3aafffd827acce790c7779a0bdb765a5f445412",
+  "accepted_front_gate_pixels_preserved": true
 }

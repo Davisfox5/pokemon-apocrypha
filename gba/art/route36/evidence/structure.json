@@ -1,7 +1,7 @@
 {
-  "reachable_cells": 702,
-  "walk_steps": 258,
-  "approaches": 10,
+  "reachable_cells": 732,
+  "walk_steps": 308,
+  "approaches": 15,
   "unexpected_open_edges": 0,
   "violet_changed_pixels": 0,
   "violet_collision_changed_cells": [
@@ -16,7 +16,7 @@
   "terrace_requires_stair_crossing": true,
   "onward_destinations_implemented": false,
   "surveyed_cells": 2624,
-  "tree_count": 398,
+  "tree_count": 405,
   "overlapping_tree_footprints": 0,
   "path_widths": {
     "central_neck": 1,
@@ -24,6 +24,9 @@
     "plateau_south_path": 2,
     "eastern_dirt_path": 3
   },
-  "previous_draft_reachable_cells": 888,
-  "removed_excess_walkable_cells": 186
+  "previous_revision_reachable_cells": 702,
+  "restored_net_walkable_cells": 30,
+  "upper_divider_corridor_restored": true,
+  "false_cliff_lane_closed": true,
+  "alph_gate_side_bypasses_closed": true
 }

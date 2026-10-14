@@ -81,14 +81,26 @@ def trace():
  # Continuous two-cell passage between the north/south tree bands.
  rect('.',44,15,1,8,'HGSS central neck one-tile trunk corridor with canopy overhang')
  rect('.',33,20,12,2,'HGSS lower east-west lane below central forest divider')
+ # Re-audit: the Route37 connector passes ABOVE the forest divider.
+ # The old map blocked that corridor and instead opened a false north/south
+ # lane between the divider's western trees and the terrace cliff.
+ rect('.',33,14,2,2,'HGSS diagonal approach to the upper divider corridor')
+ rect('.',34,15,10,1,'HGSS corridor above central divider, reopened')
+ rect('T',33,16,11,4,'HGSS divider meets the cliff; false western bypass closed')
+ rect('.',35,11,1,5,'HGSS eastern side of the wooded peninsula, reopened')
+ rect('T',32,12,2,2,'HGSS peninsula west face; close shifted shortcut')
+ rect('T',33,14,2,2,'HGSS peninsula tip beside the upper connector')
+ rect('.',38,22,6,1,'HGSS lower clearing extends below divider, reopened')
  # Clear the raster's actor pixels only to their measured underlying terrain.
- rect('.',31,9,2,2,'Apricorn clearing, original tree retained as scenery')
+ rect('.',31,9,2,2,'HGSS lawn south of the Apricorn, restored')
  rect('.',22,0,5,3,'Route 37 sign lawn')
  # Native complete gate footprints replace truncated edge buildings; door
  # centerlines remain at HGSS path heights, south gate extends into padding.
- for box in [(75,13,7,9),(0,7,7,9),(56,24,7,8)]:rect('H',*box,'Whole native gate asset; edge-clipped original expanded')
+ for box in [(75,15,7,7),(0,9,7,7),(55,24,7,8)]:rect('H',*box,'Whole native gate asset; edge-clipped original expanded')
  rect('P',7,14,5,2,'National Park gate approach');rect('P',72,19,3,3,'Violet gate approach')
- rect('P',57,22,5,2,'Alph gate approach')
+ rect('P',56,22,5,2,'Alph gate approach shifted with the accepted building')
+ rect('T',53,24,2,8,'West tree bank abuts the shifted Alph gate')
+ rect('T',62,24,2,8,'New east tree bank closes the former gate bypass')
  # Source reference ends at row29. Remaining rows finish forest/closed exits.
  np.save(S/'survey-plan.npy',plan)
  ledger=[]
