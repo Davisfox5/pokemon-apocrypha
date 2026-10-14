@@ -7,13 +7,23 @@ The owner approved the softened exterior and requested expanded housing, replace
 - A new 80 × 72 map, `VioletCity`, appended to the existing Cherrygrove map group without renumbering prior maps.
 - HGSS-inspired core geography: northern Sprout Tower, lake with two bridge spans and a central stone landing, old gym, university, central streets, Center/Mart and homes.
 - The eastern campus extension is a design proposal based on `DESIGN.md` Chapter 2: university, library and practice court. The old gym is labeled as the lecture hall/battle practicum. No new character roles or story events were invented.
-- Accepted Cherrygrove green trees and Center; original Violet Mart inspired by the HGSS shop and sign; HGSS Violet houses with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
+- Accepted Cherrygrove green trees and Center; shared Johto Mart inspired by the HGSS shop identity; HGSS Violet houses with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
 - Eight readable signs authored with Poryscript 3.6.1. The existing east gate leads into the city and returns to Route 31 through its unchanged eastern exit.
 - A closed-door exterior for the other buildings. Approaches exist and collision is placed against the buildings; the interiors are not implemented yet.
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Original Poké Mart exterior — current
+## Shared Johto Mart revision — current
+
+The owner rejected the tiled roof and requested a completely redone sign suitable for every Johto town. The replacement is a reusable, original native building/sign pair: smooth rounded blue enamel roof, steel/glass storefront, and a clean white-bordered sign bearing a shopping-bag/Poké Ball emblem and MART lettering. The shop and sign share one 15-color palette. No donor sign pixels remain. The exported transparent and indexed asset pack is in `gba/art/johto-mart`; the generator now imports `tools/gba/maps/johto_mart`.
+
+Violet is the installed example; the shared component is ready for other Johto maps. Exactly 4,734 native pixels change inside the shop/sign footprints. All other city pixels and every collision/elevation/behavior/layer, event, script and warp are unchanged. Entrance and closed-interior state are preserved. The approved university and lecture hall remain untouched.
+
+Local compilation, Porymap/native equality, exported asset pixel equality and background tour/sign/gate/save checks pass, including the Mart door/sign-post probes. Scenery uses **976 / 1,008 tiles**. No desktop emulator opened. Owner visual review is pending.
+
+[Before/after](evidence/johto-mart-comparison.png) · [Native gameplay](evidence/johto-mart-gameplay.png) · [Validation](evidence/johto-mart-validation.json) · [Reusable pack](../johto-mart/README.md)
+
+## Rejected first Poké Mart exterior
 
 The owner approved the university/lecture hall designs and requested a new Mart inspired by the original building and sign. This is original native pixel art: a cobalt-blue tiled roof with parallel sides and rounded corners, steel drip edge and fascia, recessed glass entrance and framed merchandise display. It uses the existing HGSS shop palette, with the cleaned projecting HGSS sign preserved pixel-for-pixel. The approved custom buildings are unchanged.
 

@@ -6,11 +6,11 @@
   ],
   "tiles": {
     "primary": 512,
-    "secondary": 459
+    "secondary": 464
   },
   "metatiles": {
     "primary": 512,
-    "secondary": 23
+    "secondary": 27
   },
   "complete_trees": 639,
   "layers": {
@@ -358,7 +358,7 @@
       ]
     }
   ],
-  "source": "HGSS geography reference with east campus extension; HGSS Violet houses and gate; Cherrygrove green trees and HGSS shops; bridge finials and native lily pads",
+  "source": "HGSS geography reference with east campus extension; HGSS Violet houses and gate; Cherrygrove green trees and HGSS Center; shared Johto Mart; bridge finials and native lily pads",
   "interiors": "not implemented; entrances closed except east gate",
   "new_map_id": 43,
   "teaching_court": [

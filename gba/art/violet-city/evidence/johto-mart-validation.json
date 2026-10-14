@@ -1,0 +1,31 @@
+{
+  "base_engine_commit": "4919da5f076523203579c78272b7186b8dbfeb95",
+  "changed_pixels": 4734,
+  "outside_shop_and_sign_pixel_changes": 0,
+  "collision_elevation_behavior_layer_changes": 0,
+  "events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 976,
+  "door": [
+    21,
+    40
+  ],
+  "approach": [
+    21,
+    41
+  ],
+  "source": "Original shared Johto Mart component and sign; no imported donor pixels",
+  "shared_asset_export_pixel_errors": 0,
+  "rollout": "Violet only; reusable source pack ready for other Johto towns",
+  "interior": "Not implemented; existing closed-door exterior retained",
+  "rom_sha256": "018cbb16bc9e6ba370ab0767da97ea3dd1406b3b0f6110a8d825238ee2871d9d",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "mart_door_and_sign_post_probes_pass": true,
+  "desktop_emulator_opened": false,
+  "engine_commit": "969890a2406ec5c06bada63a2af5abaef4b2d673"
+}

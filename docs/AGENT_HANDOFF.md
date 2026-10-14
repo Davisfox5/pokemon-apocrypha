@@ -1,3 +1,9 @@
+## Latest: shared Johto Mart roof and sign correction
+
+Owner rejected the tiled roof and imported sign, requesting a reusable design for all Johto towns. New original artwork uses a smooth blue enamel roof and a clean white-bordered shopping-bag/Poké Ball + MART sign. Shared code is `tools/gba/maps/johto_mart`; indexed/RGBA art, palette and anchors are in `gba/art/johto-mart`. Violet consumes that module directly; no rollout to other cities yet. University and lecture hall are approved and preserved.
+
+Exactly 4,734 native pixels change within shop/sign footprints; all other city pixels and collision/elevation/behavior/layer/events/scripts/warps are unchanged. Current engine revision is `969890a2406ec5c06bada63a2af5abaef4b2d673` on `codex/violet-city`, recorded in `gba/art/violet-city/evidence/preservation.json`. Local ROM, native/Porymap/export equality and background tour/sign/gate/save checks including Mart collision probes pass. See `johto-mart-comparison.png`, `johto-mart-gameplay.png` and `johto-mart-validation.json`. Capacity 976/1,008. No desktop emulator opened. Next: owner review of the shared Johto design. Interiors, onward routes and Surf qualification remain open.
+
 ## Latest: original Violet Poké Mart exterior
 
 Owner approved the university and lecture hall, including the upper-section perspective, then requested a new Poké Mart inspired by the original building/sign. Original native art now provides a blue tiled roof with parallel sides, steel trim, recessed door and display window, using the unchanged HGSS palette and original cleaned projecting sign. The two approved campus buildings are preserved.

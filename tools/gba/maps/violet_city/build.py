@@ -13,7 +13,8 @@ from claude_cherrygrove.pixel import Canvas,Palette
 from route30_hgss_blocks import ground_native,layers
 from tiles import Tileset,palette
 from edges import soften_building,shoreline,rounded_distance
-import campus,exits,cleanup,packing,mart
+import campus,exits,cleanup,packing
+from johto_mart import assets as mart
 OUT=ROOT/'gba/art/violet-city';S=OUT/'source';EV=OUT/'evidence';W,H=80,72
 
 def digest(path):
@@ -30,9 +31,8 @@ def main(game):
  cg=ROOT/'gba/art/cherrygrove-synthesis';t=Tileset(game,'cherrygrove','cherrygrove')
  pals={i:Palette(i,t.pals[i>=6][i][1:],[str(j) for j in range(15)]) for i in range(13)}
  A={}
- for name,b in [('tree',3),('house',6),('gable',6),('center',8),('mart',9)]:
+ for name,b in [('tree',3),('house',6),('gable',6),('center',8)]:
   ar=np.array(Image.open(cg/'refined'/f'{name}.png'));c=Canvas(ar.shape[1],ar.shape[0],pals[b]);c.px=ar;A[name]=c
- sign=np.array(Image.open(cg/'references/B/mart_sign.idx.png'));c=Canvas(sign.shape[1],sign.shape[0],pals[9]);c.px=sign;A['mart_sign']=c
  ref=Image.open(S/'hgss-reference.png').convert('RGBA')
  # Explicit source silhouettes, preserving original pixel scale.
  def cut(name,box,points):
@@ -47,7 +47,6 @@ def main(game):
  housebank=banks.Bank(6,'VIOLET_HOMES_PROPS','secondary').add('house',house_pixels).add('bridge_post',post).keep((89,140,186),(115,166,200),(32,32,32),(136,152,168),(176,168,104),(120,104,24))
  A.update(housebank.build());pals[6]=housebank.palette
  A['gable']=A['house']
- cleanup.mart_sign_mask(A['mart_sign'])
  # Exclude foliage behind the spire before indexing the source silhouette.
  top=special['tower'][:24];top[:,:,3][top[:,:,1].astype(int)>top[:,:,0].astype(int)]=0
  purple=banks.Bank(7,'VIOLET_LANDMARKS','secondary').add('tower',special['tower']).add('academy',special['academy']);A.update(purple.build());pals[7]=purple.palette
@@ -58,8 +57,9 @@ def main(game):
   c=A[key]
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
- for key in ['tower','academy','gym','center','mart']:soften_building(A[key])
- A['mart']=mart.building(pals[9])
+ for key in ['tower','academy','gym','center']:soften_building(A[key])
+ A['mart'],A['mart_sign']=mart.make_assets(9);pals[9]=A['mart'].pal
+ mart.export_assets(ROOT/'gba/art/johto-mart/source',9)
  A['gym']=campus.lecture_hall();pals[5]=A['gym'].pal;soften_building(A['gym'])
  # Original modular university facade; its library is planned inside the main hall.
  A['university']=campus.university();pals[10]=A['university'].pal
@@ -242,7 +242,7 @@ def main(game):
   stamp('bridge_post',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  for x,y in [(27,19),(49,19),(45,29),(28,31),(51,28)]:stamp('lily_pads',x,y,True)
  stamp('lake_islet',47,22,True);beh[23:27,47:51]=0
- # Restore the HGSS projecting Mart sign, with its own narrow post collision.
+ # Reusable Johto Mart sign, with its own narrow post collision.
  stamp('mart_sign',24,38,True);mc.above[38,24:26]=True
  solid[39:42,24]=True
  # West gate has its HGSS east-facing steps. Its interior/Route 36 are next scope.
@@ -318,7 +318,7 @@ def main(game):
  (S/'exits.json').write_text(json.dumps(route_exits,indent=2)+'\n')
  np.save(S/'plan.npy',plan);np.save(S/'solid.npy',solid);(S/'landmarks.json').write_text(json.dumps(anchors,indent=2)+'\n')
  image=Tileset(game,'violet_city','violet_city').map_image(grid.ravel().tolist(),W);image.save(EV/'native-overview.png')
- report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(campus_trees),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; HGSS Violet houses and gate; Cherrygrove green trees and HGSS shops; bridge finials and native lily pads','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity'),'teaching_court':[55,48,12,7]}
+ report={'base':'aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac','size':[W,H],'tiles':{k:len(v) for k,v in packer.tiles.items()},'metatiles':{k:len(v) for k,v in packer.blocks.items()},'complete_trees':len(trees)+len(campus_trees),'layers':result,'buildings':anchors,'source':'HGSS geography reference with east campus extension; HGSS Violet houses and gate; Cherrygrove green trees and HGSS Center; shared Johto Mart; bridge finials and native lily pads','interiors':'not implemented; entrances closed except east gate','new_map_id':group.index('VioletCity'),'teaching_court':[55,48,12,7]}
  # A successful regeneration updates only hashes for this authoring manifest.
  if guard.exists():guard.write_text(json.dumps({p:digest(game/p) for p in json.loads(guard.read_text())},indent=2)+'\n')
  (EV/'assembly.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

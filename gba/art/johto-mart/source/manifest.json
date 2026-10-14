@@ -1,0 +1,42 @@
+{
+  "region": "Johto",
+  "status": "Reusable proposal; installed in Violet for review",
+  "palette_bank": 9,
+  "transparent_index": 0,
+  "building_pixels": [
+    80,
+    64
+  ],
+  "sign_pixels": [
+    32,
+    64
+  ],
+  "building_door_tile": [
+    1,
+    3
+  ],
+  "building_approach_tile": [
+    1,
+    4
+  ],
+  "sign_offset_from_building_tiles": [
+    4,
+    1
+  ],
+  "sign_solid_tiles": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ]
+  ],
+  "placement": "Use native tile packing per town; do not copy Violet tile IDs. Keep terrain on the background layer.",
+  "source": "Original indexed pixel artwork in tools/gba/maps/johto_mart/assets.py; HGSS blue shop identity is the visual reference."
+}
