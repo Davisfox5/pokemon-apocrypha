@@ -1,6 +1,6 @@
 # New Bark Town: mailbox, lab and housing adjustments
 
-Source: `Davisfox5/pokeemerald-expansion`, branch `codex/new-bark-layout-adjustments`, commit `7619eed9992f6458c186f1122960a3d60ad8d858`, [PR #7](https://github.com/Davisfox5/pokeemerald-expansion/pull/7) against `apocrypha` (`2722eaf`). The owner approved the overall existing town and requested only these local changes. Visual review is pending.
+Source: `Davisfox5/pokeemerald-expansion`, branch `codex/new-bark-layout-adjustments`, commit `8d5efde191476ac471f4e8fd9bf1f3c224bf31ed`, [PR #7](https://github.com/Davisfox5/pokeemerald-expansion/pull/7) against `apocrypha` (`2722eaf`). The owner approved the overall existing town and requested only these local changes. Visual review is pending.
 
 - [Updated town](evidence/new-bark.png)
 - [Latest forest correction before/after](evidence/forest-before-after.png)
@@ -22,6 +22,8 @@ The two other central houses, upper house, windmills, flowers, signs, eastern wa
 The owner requested trees behind the lab and identified clipped southern crowns. A three-cell northern border now holds eighteen complete 32x48 trees across the town's full width, behind the lab rather than pasted over its roof. Every new forest cell is blocked. The map is 36x53; all existing town words move down three native rows, preserving their relative/world placement. Object, warp and sign y coordinates move by the same amount. The reciprocal Route 29 connection offsets change from +6/-6 to +3/-3, so the crossing stays in the same physical place. No Route 29 artwork changes.
 
 The prior path cleanup had overwritten crown cells in the first bottom forest course. Restore the original complete source blocks: original rows 42-44 become native rows 45-47. Pixel checks against the previous owner review show no other changes anywhere within the retained town footprint. Buildings, mailboxes and paths remain as last reviewed. Previous artwork and source remain in `e20ef274` and hub `fbc2f97` history; `source/forest-review-before-map.bin` and its render preserve the exact pre-correction map.
+
+All five pink trees now use their exact existing green metatile counterparts. No palettes or graphics change, and collision/elevation bits are identical. Shared route seam checks remain clean. The prior pink render remains in Git history.
 
 ## Native import and verification
 

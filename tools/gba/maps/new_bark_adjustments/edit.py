@@ -113,6 +113,18 @@ g[42:45,6:30]=old[42:45,6:30]
 # Three new northern rows hold full 32x48 trees behind the lab. Existing
 # town content stays pixel-for-pixel in place within its original footprint.
 north=np.tile(old[0:3,6:8],(1,18));g=np.vstack([north,g]);changed=np.vstack([np.ones((3,36),bool),changed])
+# Replace pink foliage with existing exact green counterparts, preserving
+# shared palettes and every collision bit at the route seam.
+green_lookup={}
+for part in (0,1):
+ for index,entries in enumerate(t.blocks[part]):green_lookup.setdefault((tuple(entries),t.attrs[part][index]),part*512+index)
+green_cells=[]
+for y,x in np.argwhere(np.ones(g.shape,bool)):
+ word=int(g[y,x]);mid=word&1023;part=int(mid>=512);entries=blocks[mid-512] if part else t.blocks[0][mid]
+ if not any(e>>12==10 for e in entries):continue
+ desired=tuple((e&4095)|(3<<12) if e>>12==10 else e for e in entries)
+ replacement=green_lookup[(desired,attrs[mid-512] if part else t.attrs[0][mid])]
+ g[y,x]=replacement|(word&0xfc00);changed[y,x]=True;green_cells.append([int(x),int(y)])
 for group in ['warp_events','object_events','coord_events','bg_events']:
  for event in data[group]:event['y']+=3
 for connection in data['connections']:
@@ -131,5 +143,5 @@ mp.write_text(json.dumps(data,indent=2)+'\n');(G/'data/layouts/NewBarkTown/map.b
 folder=G/'data/tilesets/secondary/new_bark';(folder/'metatiles.bin').write_bytes(b''.join(struct.pack('<8H',*b) for b in blocks));(folder/'metatile_attributes.bin').write_bytes(struct.pack('<'+'H'*len(attrs),*attrs));n=(len(tiles)-512+15)//16;sheet=Image.new('P',(128,n*8));sheet.putpalette(Image.open(folder/'tiles.png').getpalette())
 for i,a in enumerate(tiles[512:]):sheet.paste(Image.fromarray(a,'P'),(i%16*8,i//16*8))
 sheet.save(folder/'tiles.png');np.save(S/'edited-cells.npy',changed)
-report={'base':'2722eaf7601ec02dc5a684fa8cdef9206c0dc377','moves':moves,'mailboxes':mailboxes,'roof_colors':{'residence1':'blue','residence4':'purple'},'secondary_tiles':len(tiles)-512,'secondary_metatiles':len(blocks),'original_referenced_tiles_and_metatile_prefixes_preserved':True,'new_glyph_slots':allocated_tiles,'door_scratch_tiles_reserved':[1008,1023],'door_metatile_ids_preserved':True,'north_forest_rows':3,'bottom_forest_course_restored':[42,44],'map_size':[36,53]}
+report={'base':'2722eaf7601ec02dc5a684fa8cdef9206c0dc377','moves':moves,'mailboxes':mailboxes,'roof_colors':{'residence1':'blue','residence4':'purple'},'secondary_tiles':len(tiles)-512,'secondary_metatiles':len(blocks),'original_referenced_tiles_and_metatile_prefixes_preserved':True,'new_glyph_slots':allocated_tiles,'door_scratch_tiles_reserved':[1008,1023],'door_metatile_ids_preserved':True,'north_forest_rows':3,'bottom_forest_course_restored':[42,44],'map_size':[36,53],'pink_tree_cells_changed_to_green':green_cells}
 (E/'edit.json').write_text(json.dumps(report,indent=2)+'\n');Tileset(G,'new_bark','cherrygrove').map_image(g.ravel().tolist(),36).save(E/'new-bark.png');print(report)

@@ -1,9 +1,9 @@
 {
   "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
-  "expansion_commit": "7619eed9992f6458c186f1122960a3d60ad8d858",
+  "expansion_commit": "8d5efde191476ac471f4e8fd9bf1f3c224bf31ed",
   "source_branch": "codex/new-bark-layout-adjustments",
   "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/7",
-  "rom_sha256": "26fe708e3cfde197096002d873d1951cc0dfbee2e67f34fc2a3e7558d0538339",
+  "rom_sha256": "c8564608a8c8e00e6af847da39a21ae09f450a6e86716a924edb5f71c26f702a",
   "local_build": "success",
   "runtime_phases": [
     {
@@ -27,7 +27,7 @@
   "reproducible_source_bytes": true,
   "project_CI": {
     "conclusion": "success",
-    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38481783279"
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38505825949"
   },
   "upstream_CI_matrix": "still running at verification",
   "previous_review_commit": "e20ef274d3bb4e52ce3979818a90dcbdb0e57660",
@@ -37,5 +37,6 @@
     53
   ],
   "bottom_original_tree_course_restored": true,
-  "other_retained_town_pixels_unchanged": true
+  "other_retained_town_pixels_unchanged": true,
+  "five_pink_trees_now_green": true
 }

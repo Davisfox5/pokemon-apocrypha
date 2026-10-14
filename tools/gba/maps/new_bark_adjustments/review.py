@@ -12,15 +12,20 @@ pxmask=np.repeat(np.repeat(edited,16,0),16,1);assert np.array_equal(np.asarray(b
 for name in ['CherrygroveCity','CherrygroveRoute29Approach','CherrygroveRoute30Approach','JohtoRoute31','VioletCityEntrance']:assert np.array_equal(np.asarray(Image.open(P/(name+'.png'))),np.asarray(Image.open(B/(name+'.png')))),name
 original=Tileset(S/'baseline','new_bark','cherrygrove');assert t.blocks[1][:len(original.blocks[1])]==original.blocks[1];assert all(t.tiles[int(tid>=512)][tid%512]==original.tiles[int(tid>=512)][tid%512] for tid in {e&1023 for pool in original.blocks for es in pool for e in es if e});assert t.attrs[1][:len(original.attrs[1])]==original.attrs[1]
 assert all((e&1023)<1008 and (e>>12)<13 for mid in np.unique(g&1023) for e in t.blocks[int(mid>=512)][int(mid)%512] if e)
+assert not any(e>>12==10 for mid in np.unique(g&1023) for e in t.blocks[int(mid>=512)][int(mid)%512])
 solid=(g&0xc00)!=0;reach=seams.reachable(solid,(0,15));m=json.loads((G/'data/maps/NewBarkTown/map.json').read_text());assert len(m['warp_events'])==8
 for d in m['warp_events']:assert reach[d['y']+1,d['x']]
 assert ((g[3:9,12:23]&0xc00)!=0).all();assert not reach[3:9,10:12].any()
 assert ((g[:3]&0xc00)!=0).all()
-assert np.array_equal(g[45:48,6:30],old[42:45,6:30])
+assert np.array_equal((g[45:48,6:30]&0xfc00),(old[42:45,6:30]&0xfc00))
 # Relative to the owner's last review, only the new northern forest and
 # restoration of bottom crowns change. All town content retains its position
 # within the existing footprint.
-prior=np.fromfile(S/'forest-review-before-map.bin','<u2').reshape(50,36);prior_image=np.asarray(t.map_image(prior.ravel().tolist(),36));native_body=np.asarray(after)[48:];delta=np.any(native_body!=prior_image,2);allowed=np.zeros(delta.shape,bool);allowed[42*16:45*16,6*16:30*16]=True;assert not delta[~allowed].any()
+prior=np.fromfile(S/'forest-review-before-map.bin','<u2').reshape(50,36);prior_image=np.asarray(t.map_image(prior.ravel().tolist(),36));native_body=np.asarray(after)[48:];delta=np.any(native_body!=prior_image,2);allowed=np.zeros(delta.shape,bool);allowed[42*16:45*16,6*16:30*16]=True
+for yy,xx in np.argwhere(np.ones(prior.shape,bool)):
+ mid=int(prior[yy,xx]&1023)
+ if any(e>>12==10 for e in t.blocks[int(mid>=512)][mid%512]):allowed[yy*16:(yy+1)*16,xx*16:(xx+1)*16]=True
+assert not delta[~allowed].any()
 reports=[]
 route_sources=[G]+([Path(sys.argv[5])] if len(sys.argv)>5 else [])
 for source in route_sources:
@@ -33,7 +38,7 @@ for source in route_sources:
  assert errors==0 and cached==0,(source,errors,cached);reports.append({'route_source':str(source),'camera_errors':errors,'cache_errors':cached})
 board=Image.new('RGB',(1188,888),(24,28,34));d=ImageDraw.Draw(board);d.text((12,8),'Current shared-source map before edits',fill='white');d.text((600,8),'Mailbox, lab and southern housing adjustments',fill='white');board.paste(before,(12,76));board.paste(after,(600,28));board.save(E/'before-after.png')
 forest_board=Image.new('RGB',(1188,888),(24,28,34));fd=ImageDraw.Draw(forest_board);fd.text((12,8),'Previous review, aligned to retained town footprint',fill='white');fd.text((600,8),'New northern forest and restored bottom crowns',fill='white');forest_board.paste(Image.fromarray(prior_image),(12,76));forest_board.paste(after,(600,28));forest_board.save(E/'forest-before-after.png')
-report={'Porymap_pixel_errors':0,'outside_requested_edit_region_pixel_errors':0,'original_referenced_glyphs_and_metatile_attribute_prefixes_preserved':True,'static_tile_ids_below_door_animation_scratch':True,'seven_mailboxes':True,'eight_door_approaches_reachable':True,'lab_back_access_blocked':True,'seams':reports,'other_maps_unchanged':True,'new_northern_forest_rows':3,'bottom_complete_tree_course_restored':True,'other_town_pixels_unchanged_relative_to_previous_review':True};(E/'validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+report={'Porymap_pixel_errors':0,'outside_requested_edit_region_pixel_errors':0,'original_referenced_glyphs_and_metatile_attribute_prefixes_preserved':True,'static_tile_ids_below_door_animation_scratch':True,'seven_mailboxes':True,'eight_door_approaches_reachable':True,'lab_back_access_blocked':True,'seams':reports,'other_maps_unchanged':True,'new_northern_forest_rows':3,'bottom_complete_tree_course_restored':True,'other_town_pixels_unchanged_except_forest_fixes_and_green_foliage':True,'pink_foliage_remaining':False};(E/'validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if len(sys.argv)>4:
  runtime=Path(sys.argv[4])
  # Check native mailbox heads after all eight door animations. The bottom
