@@ -1,6 +1,6 @@
 {
-  "reachable_cells": 888,
-  "walk_steps": 254,
+  "reachable_cells": 702,
+  "walk_steps": 258,
   "approaches": 10,
   "unexpected_open_edges": 0,
   "violet_changed_pixels": 0,
@@ -14,5 +14,16 @@
   "grass_behavior_errors": 0,
   "warp_pair_source_valid": true,
   "terrace_requires_stair_crossing": true,
-  "onward_destinations_implemented": false
+  "onward_destinations_implemented": false,
+  "surveyed_cells": 2624,
+  "tree_count": 398,
+  "overlapping_tree_footprints": 0,
+  "path_widths": {
+    "central_neck": 1,
+    "route35": 2,
+    "plateau_south_path": 2,
+    "eastern_dirt_path": 3
+  },
+  "previous_draft_reachable_cells": 888,
+  "removed_excess_walkable_cells": 186
 }

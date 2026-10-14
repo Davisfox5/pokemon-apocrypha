@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "f645d68053db303614effbeafba77244f32d68a01792f6b62de438a968a39fc8",
+  "rom_sha256": "3abb982e4631f0ccf898055d7db4e681aa28ca307782ff4afa513300e51402a2",
   "toolchain": "Arm GNU 14.2.rel1",
   "local_build": "gmake -j1 generated; gmake -j8 TOOLCHAIN=ARM",
   "runtime_phases": {

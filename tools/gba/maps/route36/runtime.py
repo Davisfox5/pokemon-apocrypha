@@ -22,7 +22,7 @@ r.MAIN=prefix+r'''
  go(44,33,20);step(LEFT,1);at(44,33,20,"east-wall-blocks");
  go(44,15,20);step(RIGHT,9);at(44,24,20,"grass-crossing");shot("grass-at-native-scale");
  go(44,19,1);step(UP,1);at(44,19,1,"route37-pending-edge");
- go(44,10,30);step(DOWN,1);at(44,10,30,"route35-pending-edge");
+ go(44,7,30);step(DOWN,1);at(44,7,30,"route35-pending-edge");
  go(44,7,14);step(LEFT,1);at(44,7,14,"park-interior-pending");
  read_sign(44,23,1,"route37-sign");read_sign(44,7,12,"park-sign");read_sign(44,70,17,"violet-sign");read_sign(44,55,20,"alph-sign");
  go(44,68,20);shot("save-at-route36");

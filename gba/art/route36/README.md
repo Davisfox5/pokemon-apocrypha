@@ -1,20 +1,21 @@
 # Route 36 — native western connection from Violet
 
-First exterior draft, ready for owner visual review. Reconstructs the [HGSS Route 36 overview](https://bulbapedia.bulbagarden.net/wiki/File:Johto_Route_36_HGSS.png) using the existing Johto art family. It is an 82×32 native map with a working Violet west-gate room and round-trip travel. The approved Violet buildings, including the locked Mart, remain pixel-identical.
+Revised exterior after owner rejection of the sparse first draft; awaiting visual review. Reconstructs the [HGSS Route 36 overview](https://bulbapedia.bulbagarden.net/wiki/File:Johto_Route_36_HGSS.png) using the existing Johto art family. It is an 82×32 native map with a working Violet west-gate room and round-trip travel. The approved Violet buildings, including the locked Mart, remain pixel-identical.
 
-## Layout and artwork
+## Layout and artwork — refined October 14
 
-- Broad flower-lined eastern approach from Violet; southern gate frontage toward Alph.
-- Central wooded passage and diagonal northern branch toward Route 37.
-- Western raised grass terrace, continuous cliff sides and two east/west stair crossings.
-- Western gate frontage toward National Park and southern lane toward Route 35.
-- Complete accepted Cherrygrove green tree sprites, original ground texture library, Route 30's detailed HGSS-derived grass edge family and existing Emerald-derived rock/treads.
-- Violet's teal gate modules are reused, with a central-passage variant for the southern gate. No residential house is substituted for it.
-- Four readable route signs authored with Poryscript. The Apricorn silhouette is scenery only; harvesting is not implemented.
+The old broad rectangle stencil has been replaced by a per-cell HGSS survey. All **2,624 native cells** have a record in [block-ledger.json](source/block-ledger.json), with their source pixel box, sampled terrain, authored interpretation, native block ID, collision and tree footprint. [Survey blocks](evidence/survey-blocks.png), [readable terrain rows](source/survey-blocks.txt), and [relative heights](source/elevation-survey.json) are separate from artwork.
 
-The reference is 1295×470 pixels. The native draft expands to 1312×512 to fit whole 16px blocks, complete tree sprites and bounded approaches. Geometry is surveyed from the raster reference, not recovered DS collision data. Canopy footprints and small forest adjustments are explicitly native adaptations. The original Sudowoodo character/event is not instantiated: the current story contains no Route 36 event specification. No new narrative gate or actor role is invented.
+- **398 whole trees**, versus 343 in the rejected draft. Forest bands, the northwestern island, central divider and southern boundary follow the source more closely. Tree footprints do not overlap; complete crowns can naturally overlap their northern neighbor. Existing Cherrygrove tree pixels are retained. Interior forest shadow uses the existing tree-shadow color, with no cropped crown fillers.
+- **702 reachable cells**, versus 888. The central neck is one movement cell, the Route 35 grass lane is two, the plateau's southern dirt strip is two, and the eastern dirt approach is three. These widths are collision assertions. The path continues beneath the southern canopy row rather than becoming grass there.
+- Route 35 moves west into its HGSS grass corridor. The upper western tree column moves inward to narrow the passage. The original signs, flowering eastern verge and Apricorn silhouette remain.
+- Both side gatehouses now use **Route 29's detailed HGSS gate components**, replacing the flat Violet prototype. Roof ribs, hip faces, eaves, window frieze and turquoise trim come from that source. The side entrance and paired lower bays are native adaptations; the south gate retains the original front-facing entrance. East/west gate stairs now have vertical riser lines.
+- Cliff faces use native Emerald general **0x73 / 0x75 / 0x7c / 0x7b** with the HGSS earth palette. They face away from the high terrace. Cliffs continue into the southern forest and render behind the tree crowns instead of ending against a bare gap.
+- **West flight climbs east; east flight descends east.** The former identical rotated tread strips are replaced by a cleaned HGSS 16×48 side-flight silhouette and its opposite, with neutral stone treads. These are adapted HGSS side stairs, not claimed to be an original Emerald horizontal stair placement. Adjacent wall tiles block crossing.
 
-Stair artwork comes from the existing route-family Emerald general metatiles (0xAF/0xCF), quarter-turned for east/west movement. These are adapted existing treads, not claimed to be a recovered original Emerald east/west placement. They do not apply elevation changes or a special diagonal movement behavior. Both traversal directions and adjacent wall blocking are checked.
+The source is 1295×470 pixels; the native map remains 82×32 (1312×512). Geometry is inferred from the raster, not recovered DS collision data. Whole crowns, full gatehouses replacing edge-clipped buildings, integer-cell boundaries and the final padding rows are explicit native adaptations. The west/east gates keep their working doorway coordinates. The renderer does not rescale the gate components or tree sprites.
+
+Relative height is represented by directional artwork and solid cliff boundaries, using the existing ordinary outdoor movement level. No new movement mechanic, story barrier, Sudowoodo event or actor role is introduced.
 
 ## Playable scope
 
@@ -26,6 +27,7 @@ National Park, Routes 35/37 and Alph are approach frontages only; their destinat
 
 ## Evidence
 
+- [Before / revised route](evidence/revision-comparison.png)
 - [Full native route](evidence/native-overview.png)
 - [Original HGSS / native comparison](evidence/source-comparison.png)
 - [Background gameplay captures](evidence/gameplay-gallery.png)
@@ -34,13 +36,14 @@ National Park, Routes 35/37 and Alph are approach frontages only; their destinat
 - [Porymap comparison](evidence/porymap.json), [porygon](evidence/porygon.json), [Porytiles grass round trip](evidence/porytiles.json)
 - [Background playthrough and ordinary save/reload/Continue](evidence/runtime.json)
 
-The 254-step route tour uses ordinary movement after entering through the gate. Additional probes cover both stairs, walls, tall grass, signs, pending edges and the complete return trip. Porymap's own offscreen render equals the independent native render, including the unchanged Violet exterior. The updated Violet regression harness also passes its 661-step city tour and ordinary save/reload/Continue with the new west gate. No desktop emulator or visible Porymap window was opened.
+The 258-step route tour uses ordinary movement after entering through the gate. Additional probes cover both stairs, walls, tall grass, signs, pending edges and the complete return trip. Porymap's own offscreen render equals the independent native render, including the unchanged Violet exterior. The preceding build passed the 661-step Violet regression; this refinement changes only Route 36 tiles/layout, preserves all Violet art/physics/events byte-for-byte against that build, and repeats the real west-gate round trip. Camera-edge captures also verify the continuous forest border at the two unfinished exits. No desktop emulator or visible Porymap window was opened.
 
 ## Editing and reproduction
 
 Engine source is on `codex/violet-city` in `Davisfox5/pokeemerald-expansion`; exact revision is recorded in `evidence/preservation.json`. Parent source revision begins at `6e50c9ad`; engine baseline is `ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3`.
 
 ```sh
+python tools/gba/maps/route36/trace.py
 python tools/gba/maps/route36/build.py /path/to/engine
 python tools/gba/maps/route36/check.py /path/to/engine
 python tools/gba/maps/route36/porytiles_check.py /path/to/engine
@@ -50,4 +53,8 @@ python tools/gba/maps/route36/runtime.py /path/to/engine /tmp/route36-runtime --
 
 Use the porygon virtual environment for the Python commands. Build the ROM with the project's pinned ARM toolchain before running the emulator checks. `source/generated-files.json` guards against overwriting subsequent edits. The earlier Violet generator intentionally rejects the new west-gate changes; do not bypass its guard or regenerate the city over this connection.
 
-The source overview is a game-derived reference credited to Game Freak/Nintendo/The Pokémon Company, retrieved from Bulbagarden Archives. Reused Johto art retains its provenance in the Cherrygrove synthesis and Route 30 packages. Local original gate adaptations are in the generator. No ROM, save, tool binary or donor source tree is committed.
+The source overview is a game-derived reference credited to Game Freak/Nintendo/The Pokémon Company, retrieved from Bulbagarden Archives. Reused Johto art retains its provenance in the Cherrygrove synthesis and Route 30 packages. Gate component provenance is `claude_routes/art.py::gate()` and `gba/art/claude-routes/references/route29-hgss.png`; the side-facing adaptation is in `architecture.py`. Rock/stair provenance and native conversions are in `terrain.py`. No ROM, save, tool binary or donor source tree is committed.
+
+## Visual review and limits
+
+Native Porymap output and the independent decoder match pixel for pixel. Background gameplay captures are from the built ROM, including both stair crossings and the real gate; they retain the engine's ordinary time-of-day palette. The map overview shows base tileset colors. No desktop emulator is opened. This is the revised exterior for owner review, not an assertion of visual approval. The four onward destinations, encounters and story content remain outside this revision.

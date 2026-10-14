@@ -1,3 +1,11 @@
+## Latest: Route 36 survey and visual refinement after owner rejection
+
+Replaced the sparse draft's broad clearings with a 2,624-cell HGSS survey, ledger and explicit high/low-side records. See `gba/art/route36/README.md`. There are 398 complete trees, 702 reachable cells (previously 343 / 888), and checked 1/2/3-cell corridors. Route35 is correctly a grass lane farther west; the high western passage is narrowed. Detailed Route29 HGSS gate components replace the flat gatehouses, with side-facing entrances and a front-facing Alph gate. Native Emerald directional cliffs use the HGSS earth palette; opposing HGSS side-flight adaptations replace identical rotated stairs. Cliff ends join the forest with rock behind crowns. Ordinary Gen3 exploration behavior is preserved.
+
+Final local ROM, 258-step actual-input route tour, both stair directions, wall/grass/sign probes, gate round trip and save/cold reload/title Continue pass. Porymap/native pixel equality, Porygon and Porytiles checks pass. Camera-edge screenshots were reviewed and repeating trunk-only borders replaced with continuous interior forest. No desktop emulator opened.
+
+Engine commit `a3aafffd827acce790c7779a0bdb765a5f445412`. Source remains on the two `codex/violet-city` worktrees/branches. Exact engine revision and ROM identity are recorded in `gba/art/route36/evidence/preservation.json` and `build.json`. No other engine map, event or script changes in this revision. Owner checkout and approved Violet/Mart artwork are preserved. Per-cell survey is image-derived, not recovered DS collision data; complete gates and native sprite footprints are documented adaptations. Onward destinations/NPCs/encounters remain unimplemented. Next: review this refined exterior; do not regenerate approved Violet from its older generator.
+
 ## Latest: Route 36 exterior and Violet west-gate connection
 
 Owner requested the route west of Violet after approving the shared Mart. Route 36 is now an 82×32 native exterior surveyed from the HGSS reference, with the established trees, ground, detailed grass, Emerald-derived cliffs/stairs and teal gates. New map IDs 44/45 append Route 36 and VioletWestGate. Current engine commit `61a0b2789aff7309e9b2aea26793cb8823244727` on `codex/violet-city`; see `gba/art/route36/README.md` and its evidence directory.

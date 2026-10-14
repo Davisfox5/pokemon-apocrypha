@@ -1,4 +1,4 @@
-Route 36 west of Violet: [native exterior, working west gate, HGSS comparison and gameplay evidence](../gba/art/route36/README.md). First draft; onward park/Alph/Route 35/37 destinations and encounter/story content remain unimplemented.
+Route 36 west of Violet: [native exterior, working west gate, HGSS comparison and gameplay evidence](../gba/art/route36/README.md). Revised after owner feedback: per-cell HGSS survey, denser forests, Route29 gate architecture and corrected opposite stair slopes. Onward destinations and encounter/story content remain unimplemented.
 
 Approved shared Johto Mart exterior: [locked design, reusable assets and exact revision](../gba/art/johto-mart/README.md). Single sapphire roof, raised perspective, small roof emblem, no lettering. Owner approved October 14, 2026.
 

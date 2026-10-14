@@ -29,33 +29,13 @@ def main(game):
   assets[name]=c;Image.fromarray(c.to_rgba()).save(materials/(name+'.png'));return c
  r30=ROOT/'gba/art/route30-hgss-blocks/source/materials'
  for name,bank in [('tree',3),('sign',5),('apricorn',3)]+[(f'flower-{i}',4) for i in range(4)]+[(f'grass-{i:04b}',12) for i in range(16)]+[(f'cliff-{d}-0',8) for d in ['west','east','cap']]+[(f'step-{d}',8) for d in ['left','middle','right']]:import_asset(name,r30/(name+'.png'),bank)
- gate=ROOT/'gba/art/violet-city/source/preserved-west-gate.png';rgba=np.array(Image.open(gate).convert('RGBA'));colors=[tuple(map(int,c)) for c in np.unique(rgba[rgba[:,:,3]>0,:3],axis=0)];colors+= [colors[-1]]*(15-len(colors));pals[9]=Palette(9,colors,[str(i) for i in range(15)]);import_asset('gate',gate,9)
- # Whole-tree clearings and path centerlines transcribed from the HGSS overview.
- plan=np.full((H,W),'T',dtype='<U1')
- def rect(ch,x,y,w,h):plan[y:y+h,x:x+w]=ch
- def poly(ch,points):
-  m=Image.new('1',(W,H));ImageDraw.Draw(m).polygon(points,fill=1);plan[np.array(m,dtype=bool)]=ch
- poly('.',[(16,0),(28,0),(28,4),(30,5),(32,7),(34,10),(35,12),(37,16),(44,17),(44,19),(50,19),(50,16),(81,16),(81,22),(63,22),(62,25),(62,31),(56,31),(56,24),(53,22),(49,22),(48,21),(44,21),(44,23),(33,24),(33,16),(30,15),(16,15)])
- rect('.',0,10,14,15);rect('.',7,23,7,9);rect('.',15,16,18,9)
- rect('T',0,16,8,16);rect('T',12,10,3,12);rect('T',16,11,16,4)
- rect('T',20,5,10,5);rect('T',26,17,6,5)
- rect('.',34,15,11,2);rect('T',34,16,10,3);rect('.',44,16,2,7)
- rect('P',18,0,3,4);rect('P',18,3,9,2)
- rect('P',0,14,12,2);rect('P',9,14,3,10);rect('P',9,22,24,2);rect('P',9,24,3,8)
- rect('P',53,19,28,3);rect('P',57,21,4,10)
- rect('G',15,18,11,4)
- rect('T',16,15,16,3);rect('T',14,24,20,4)
- # Surveyed raised west terrace: continuous wall ends at the stair opening.
- rect('R',14,3,1,19);rect('R',0,4,15,1);rect('R',32,16,1,6)
- rect('S',14,22,1,2);rect('S',32,22,1,2)
- # Complete gate footprints; the right one leads to Violet, other destinations pending.
- gates=[{'name':'Violet gate','at':[75,15],'flip':True,'door':[75,20],'active':True},
-        {'name':'National Park gate','at':[0,9],'flip':False,'door':[6,14],'active':False},
-        {'name':'Alph gate','at':[56,25],'flip':False,'door':[59,30],'active':False}]
- # Alph uses a north-facing gate facade from the accepted regional house family.
- for g in gates[:2]:
-  x,y=g['at'];rect('.',x,y,7,7)
- rect('P',6,14,6,2);rect('P',72,19,4,3)
+ from route36 import trace,architecture,terrain
+ plan=trace.trace()
+ assets.update(architecture.create(pals,materials))
+ assets.update(terrain.create(game,pals,materials,S))
+ gates=[{'name':'Violet gate','at':[75,13],'flip':False,'door':[75,20],'active':True},
+        {'name':'National Park gate','at':[0,7],'flip':True,'door':[6,14],'active':False},
+        {'name':'Alph gate','at':[56,24],'flip':False,'door':[59,31],'active':False}]
  # Keep the reference's eastern flower strip outside the walking line.
  flowers=[(x,17+(x%3==0)) for x in range(53,70,2)]
  signs=[{'at':[23,1],'name':'North','text':'ROUTE 37\\nNorth toward ECRUTEAK CITY.'},
@@ -63,6 +43,9 @@ def main(game):
         {'at':[70,17],'name':'Violet','text':'ROUTE 36\\nEast: VIOLET CITY'},
         {'at':[55,20],'name':'Alph','text':'RUINS OF ALPH\\nSouth through the gate.'}]
  mc=native.MapCanvas(W,H);fg=native.MapCanvas(W,H);solid=np.zeros((H,W),bool);beh=np.zeros((H,W),np.uint8);cells=np.full((H,W),ground.GRASS,np.int8);cells[np.isin(plan,['P','S'])]=ground.PATH
+ # Preserve the path beneath the first southern canopy row; canopy and
+ # ground are independent layers in the HGSS survey.
+ cells[19:22,53:75]=ground.PATH
  def put(name,x,y,front=False,flip=False):
   c=assets[name];mc.blit(c,x*16,y*16,flip=flip)
   if front:fg.blit(c,x*16,y*16,flip=flip)
@@ -72,39 +55,69 @@ def main(game):
    if ch=='G':
     bits=''.join(str(int(0<=xx<W and 0<=yy<H and plan[yy,xx]=='G')) for xx,yy in [(x,y-1),(x,y+1),(x-1,y),(x+1,y)])
     put('grass-'+bits,x,y);beh[y,x]=2
-   elif ch=='R':put('cliff-'+('cap' if y==4 else 'east' if x==14 else 'west')+'-0',x,y);solid[y,x]=True
- # Existing Emerald treads used by the route family, quarter-turned for east/west travel.
- stair=Canvas(16,32,pals[8]);stair.px=np.rot90(np.concatenate([assets['step-left'].px,assets['step-middle'].px],axis=1)).copy();assets['stair']=stair
- for x in [14,32]:
-  put('stair',x,22);put('cliff-'+('east' if x==14 else 'west')+'-0',x,24);solid[24,x]=True
+   elif ch=='R':
+    name='wall-south' if y==4 else 'wall-west' if x in (8,14) else 'wall-east'
+    put(name,x,y);solid[y,x]=True
+ # Opposing flights: the terrace is high on the east of x14 and west of x32.
+ put('corner-sw',14,4)
+ for x,name in [(14,'stair-west'),(32,'stair-east')]:
+  put(name,x,21);cells[21:24,x]=ground.PATH
  for i,(x,y) in enumerate(flowers):put('flower-'+str(i%4),x,y)
+ # Dense forest uses the approved tree's ground-shadow colour underneath
+ # complete crowns, with feathered edges against the ordinary lawn. No leaf
+ # or trunk fragments are added to fill gaps.
+ shadow_rgb=(64,136,104)
+ pals[11]=Palette(11,[shadow_rgb],['shade'])
+ for yy in range(H):
+  for xx in range(W):
+   if plan[yy,xx]!='T':continue
+   if any(plan[ny,nx]!='T' for ny in range(max(0,yy-2),min(H,yy+3)) for nx in range(max(0,xx-2),min(W,xx+3))):continue
+   c=Canvas(16,16,pals[11]);c.px[:]=1
+   for side,(dx,dy) in enumerate([(0,-1),(0,1),(-1,0),(1,0)]):
+    nx,ny=xx+dx,yy+dy
+    if 0<=nx<W and 0<=ny<H and plan[ny,nx]=='T':continue
+    for py in range(16):
+     for px in range(16):
+      distance=[py,15-py,px,15-px][side]
+      if distance<3 or (distance<6 and (px+py)%2):c.px[py,px]=0
+   mc.blit(c,xx*16,yy*16)
  mc.background_bank=mc.bank.copy();mc.background_idx=mc.idx.copy()
- trees=[[x,15] for x in range(15,33,2)]
- for y in range(0,H-2,2):
-  for x in range(0,W-1,2):
-   overlap=any(x<tx+2 and tx<x+2 and y+1<ty+3 and ty+1<y+3 for tx,ty in trees)
-   if not overlap and (plan[y:y+3,x:x+2]=='T').all():trees.append([x,y])
+ # Forest blocks are surveyed independently of the display crowns. Fill
+ # every 2x2 footprint, including odd-width/offset runs, with COMPLETE sprites.
+ # Canopy overhang is one row above the collision envelope; no crown fragments.
+ forest=plan=='T';forest[6:9,:7]=True;covered=np.zeros((H,W),bool);trees=[]
+ trees=[[x,14] for x in range(15,33,2)]
+ for x,y in trees:covered[y+1:y+3,x:x+2]=True
+ candidates=[(x,y) for y in range(H-1) for x in range(W-1) if forest[y:y+2,x:x+2].all()]
+ # Fill from the southern edge upward so visible trunk edges follow each
+ # measured forest boundary. Footprints are exclusive: no split/stacked trees.
+ for x,y in sorted(candidates,key=lambda q:(-q[1],q[0])):
+  if covered[y:y+2,x:x+2].any():continue
+  if y>0 and (np.isin(plan[y-1,x:x+2],['S']).any() or (y==5 and (plan[y-1,x:x+2]=='R').any())):continue
+  trees.append([x,y-1]);covered[y:y+2,x:x+2]=True
  for x,y in sorted(trees,key=lambda v:(v[1],v[0])):
-  put('tree',x,y,True);solid[y+1:y+3,x:x+2]=True;mc.above[y,x:x+2]=True
- # Unfilled slivers become lawn, never invisible forest blockers. Outer edge
- # collision is the boundary of this isolated map, with onward routes pending.
+  put('tree',x,y,True);solid[max(0,y+1):y+3,x:x+2]=True
+  if y>=0:mc.above[y,x:x+2]=True
+ # Only visible tree-covered ground is blocked, never a bare survey cell.
+ # Exact graph and screenshot checks below expose any uncovered boundary gaps.
  solid[0,:]=True;solid[-1,:]=True;solid[:,0]=True;solid[:,-1]=True
  for g in gates[:2]:
-  x,y=g['at'];put('gate',x,y,True,g['flip']);solid[y+1:y+7,x:x+7]=True;mc.above[y,x:x+7]=True
+  x,y=g['at'];put('gate-side',x,y,True,g['flip']);solid[y+2:y+8,x:x+7]=True;mc.above[y:y+2,x:x+7]=True
   if g['active']:solid[20,75]=False;beh[20,75]=0x62
- # North/south gate variant uses the same teal roof and masonry modules,
- # with a central passage rather than a residential gable.
- c=Canvas(80,96,pals[9]);c.px=assets['gate'].px[8:104,8:88].copy()
- colors=np.array(pals[9].gba(),int)
- def tone(rgb):return str(int(((colors[1:]-np.array(rgb))**2).sum(1).argmin()))
- c.rect(28,76,24,20,tone((88,80,56)));c.rect(30,78,20,18,tone((48,80,88)))
- c.rect(32,80,16,16,tone((56,64,48)));c.rect(28,94,24,2,tone((160,168,160)))
- assets['alph_gate']=c;Image.fromarray(c.to_rgba()).save(materials/'alph_gate.png')
- put('alph_gate',57,25,True);solid[26:31,57:62]=True;mc.above[25,57:62]=True
+ put('gate-front',56,24,True);solid[26:32,56:63]=True;mc.above[24:26,56:63]=True
  for sign in signs:
   x,y=sign['at'];put('sign',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  # Native apricorn silhouette at the original central grassy branch; no harvest script yet.
  put('apricorn',31,9,True);solid[10,31]=True;mc.above[9,31]=True
+ # Trees behind a projecting gate roof belong to the lower hardware layer.
+ # This preserves the whole tree outline visible around the roof without
+ # mixing two sprite palettes in a hardware tile or cutting foliage away.
+ for yy in range(0,H*16,8):
+  for xx in range(0,W*16,8):
+   q=fg.bank[yy:yy+8,xx:xx+8];idx=fg.idx[yy:yy+8,xx:xx+8]
+   if 3 in q and 9 in q:
+    m=q==3;back=mc.background_bank[yy:yy+8,xx:xx+8];bi=mc.background_idx[yy:yy+8,xx:xx+8]
+    back[m]=3;bi[m]=idx[m];q[m]=-1;idx[m]=0
  mc.fore_bank=fg.bank;mc.fore_idx=fg.idx
  comp={'W':W,'H':H,'canvas':mc,'cells':cells,'solid':solid,'behavior':beh,'tag':'Route36'}
  ground_native.install(game,pals)
@@ -126,7 +139,7 @@ def main(game):
  for kind,brange in [('primary',range(6)),('secondary',range(6,13))]:native.write_tileset(game,kind,'johto_route36',packer.tiles[kind],packer.blocks[kind],packer.attrs[kind],pals,brange)
  register(game)
  from porygon.core.blockdata import Blockdata
- laydir=game/'data/layouts/JohtoRoute36';laydir.mkdir(exist_ok=True);raw=grid.astype('<u2').tobytes();(laydir/'map.bin').write_bytes(Blockdata.decode(raw,W,H).encode());(laydir/'border.bin').write_bytes(grid[2:4,2:4].astype('<u2').tobytes())
+ laydir=game/'data/layouts/JohtoRoute36';laydir.mkdir(exist_ok=True);raw=grid.astype('<u2').tobytes();(laydir/'map.bin').write_bytes(Blockdata.decode(raw,W,H).encode());(laydir/'border.bin').write_bytes(grid[6:8,60:62].astype('<u2').tobytes())
  lj=game/'data/layouts/layouts.json';layouts=json.loads(lj.read_text())
  layout={'id':'LAYOUT_JOHTO_ROUTE36','name':'JohtoRoute36_Layout','width':W,'height':H,'build_target':'emerald','primary_tileset':'gTileset_JohtoRoute36Primary','secondary_tileset':'gTileset_JohtoRoute36','border_filepath':'data/layouts/JohtoRoute36/border.bin','blockdata_filepath':'data/layouts/JohtoRoute36/map.bin'}
  gate_layout=next(l.copy() for l in layouts['layouts'] if l['id']=='LAYOUT_VIOLET_EAST_GATE');gate_layout.update(id='LAYOUT_VIOLET_WEST_GATE',name='VioletWestGate_Layout')
@@ -165,7 +178,7 @@ def main(game):
  entries=j['map_sections'];entry={'id':'MAPSEC_JOHTO_ROUTE_36','name':'ROUTE 36','x':1,'y':4,'width':1,'height':1}
  if not any(v['id']==entry['id'] for v in entries):entries.append(entry)
  dump(section,j)
- np.save(S/'plan.npy',plan);np.save(S/'solid.npy',solid);(S/'blocks.txt').write_text('\n'.join(''.join(row) for row in plan)+'\n');dump(S/'features.json',{'gates':gates,'signs':signs,'trees':trees,'stairs':[[14,22],[32,22]],'future_exits':[[19,1],[10,30]],'map_id':group.index('JohtoRoute36'),'gate_map_id':group.index('VioletWestGate')})
+ np.save(S/'plan.npy',plan);np.save(S/'solid.npy',solid);(S/'blocks.txt').write_text('\n'.join(''.join(row) for row in plan)+'\n');dump(S/'features.json',{'gates':gates,'signs':signs,'trees':trees,'stairs':[[14,22],[32,22]],'future_exits':[[19,1],[7,30]],'map_id':group.index('JohtoRoute36'),'gate_map_id':group.index('VioletWestGate')})
  image=Tileset(game,'johto_route36','johto_route36').map_image(grid.ravel().tolist(),W);image.save(E/'native-overview.png')
  report.update(size=[W,H],tiles={k:len(v) for k,v in packer.tiles.items()},metatiles={k:len(v) for k,v in packer.blocks.items()},tree_count=len(trees),base=BASE,source='HGSS reference geometry; exact accepted CG trees, ground and Route30 grass; existing Emerald-derived terrain family',pending='Other destination maps, NPCs, encounters, story barriers, apricorn harvest')
  dump(E/'assembly.json',report)

@@ -1,0 +1,22 @@
+{
+  "west_stair": {
+    "at": [
+      14,
+      22
+    ],
+    "high_side": "east",
+    "low_side": "west"
+  },
+  "east_stair": {
+    "at": [
+      32,
+      22
+    ],
+    "high_side": "west",
+    "low_side": "east"
+  },
+  "plateau_level": 1,
+  "low_routes_level": 0,
+  "engine": "ordinary same-surface movement; cliff collisions enforce separation",
+  "source": "HGSS overview inferred relative heights, not DS elevation records"
+}
