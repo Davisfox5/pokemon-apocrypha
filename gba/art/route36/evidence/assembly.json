@@ -1,0 +1,23 @@
+{
+  "composited_terrain_palette": null,
+  "background_assets": 0,
+  "background_colour_cleanup": [],
+  "ground_colours_pinned": true,
+  "foreground_layers_explicit": true,
+  "size": [
+    82,
+    32
+  ],
+  "tiles": {
+    "primary": 179,
+    "secondary": 0
+  },
+  "metatiles": {
+    "primary": 188,
+    "secondary": 1
+  },
+  "tree_count": 343,
+  "base": "ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3",
+  "source": "HGSS reference geometry; exact accepted CG trees, ground and Route30 grass; existing Emerald-derived terrain family",
+  "pending": "Other destination maps, NPCs, encounters, story barriers, apricorn harvest"
+}

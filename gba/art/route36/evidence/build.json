@@ -1,0 +1,11 @@
+{
+  "rom_sha256": "f645d68053db303614effbeafba77244f32d68a01792f6b62de438a968a39fc8",
+  "toolchain": "Arm GNU 14.2.rel1",
+  "local_build": "gmake -j1 generated; gmake -j8 TOOLCHAIN=ARM",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "desktop_emulator_opened": false
+}

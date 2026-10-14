@@ -1,3 +1,11 @@
+## Latest: Route 36 exterior and Violet west-gate connection
+
+Owner requested the route west of Violet after approving the shared Mart. Route 36 is now an 82×32 native exterior surveyed from the HGSS reference, with the established trees, ground, detailed grass, Emerald-derived cliffs/stairs and teal gates. New map IDs 44/45 append Route 36 and VioletWestGate. Current engine commit `61a0b2789aff7309e9b2aea26793cb8823244727` on `codex/violet-city`; see `gba/art/route36/README.md` and its evidence directory.
+
+The west gate is playable both ways through a reused 15×6 gate room. Violet's (5,30) threshold is the only changed collision/behavior cell; one warp is appended, preserving the east warp index. All Violet art (including the approved Mart), other map art/layouts and existing story scripts remain unchanged. The route's region-map name is appended via source JSON. A measured one-tile terrace bypass was closed with complete trees; a graph check now requires one of the two stair crossings.
+
+Local ROM, Porymap/native pixel equality, Porytiles grass round trip, porygon scripts/layout checks, a 254-step ordinary-input tour, both gate directions, stair/wall/grass/sign probes and ordinary save/cold reload/title Continue pass. Native captures inspected; the updated 661-step Violet regression also passes. CI status is recorded in `gba/art/route36/evidence/ci.json`; the parent commit already failed 46 broader battle tests while all compile jobs passed. No desktop emulator or visible Porymap opened. Next: owner review of this first route draft. National Park, Alph, Routes 35/37 destination maps/interiors, NPCs, encounters and event progression remain unbuilt. The current story has no Route 36-specific event: no Sudowoodo or new progression role was invented. Do not rerun the older Violet generator over the new gate wiring; its existing guard correctly refuses those later changes.
+
 ## Locked: approved shared Johto Mart exterior — October 14, 2026
 
 Owner approved the latest design: “Perfect. Let's lock it in.” Preserve the single continuous sapphire roof, raised projection/eaves, recessed glazing, small roof-mounted emblem and no lettering. This is the shared Johto Mart design; use it for future Johto placements. The installation is currently Violet only. No further architectural redesign without owner direction.

@@ -2,6 +2,10 @@
 
 The owner approved the softened exterior and requested expanded housing, replacement of the two purple-roofed buildings with a university, and a teaching court. This campus revision is ready for visual review; Chapter 2 interiors and scenes remain incomplete. It builds on the accepted Route 30 engine source `aa8ea35e`. Native source lives in the expansion fork on `codex/violet-city`; the source commit is recorded in `evidence/preservation.json`.
 
+## Western connection update
+
+Route 36 and the west-gate room are now implemented; see [the route source and evidence](../route36/README.md). The city-side approach is active in both directions. This supersedes the older notes below that call the west gate unbuilt. Route 32 remains unconnected. Violet artwork is unchanged.
+
 ## What is implemented
 
 - A new 80 × 72 map, `VioletCity`, appended to the existing Cherrygrove map group without renumbering prior maps.

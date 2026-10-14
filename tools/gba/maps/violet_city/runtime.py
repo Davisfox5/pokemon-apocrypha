@@ -38,7 +38,7 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(43,11,28);step(UP,1);at(43,11,28,"northwest-house-closed");
  go(43,26,57);step(UP,1);at(43,26,57,"west-garden-house-closed");
  go(43,56,65);step(UP,1);at(43,56,65,"south-garden-house-closed");
- go(43,7,30);step(LEFT,1);at(43,6,30,"west-gate-steps");step(LEFT,1);at(43,6,30,"west-gate-pending-interior");shot("route36-gate");
+ go(43,7,30);step(LEFT,3);frames(360,0);observe("west-gate-interior");need(state[2]==45,"west-gate-interior");shot("route36-gate");go(43,7,30);
  go(43,23,70);step(DOWN,1);at(43,23,71,"route32-city-boundary");step(DOWN,1);at(43,23,71,"route32-unbuilt-destination-blocks");shot("route32-exit");
  go(43,37,26);step(UP,1);at(43,37,26,"landing-finial-blocks");shot("bridge-finials");
  go(43,44,25);shot("lake-island-and-pads");

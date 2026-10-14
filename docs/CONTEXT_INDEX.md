@@ -1,3 +1,5 @@
+Route 36 west of Violet: [native exterior, working west gate, HGSS comparison and gameplay evidence](../gba/art/route36/README.md). First draft; onward park/Alph/Route 35/37 destinations and encounter/story content remain unimplemented.
+
 Approved shared Johto Mart exterior: [locked design, reusable assets and exact revision](../gba/art/johto-mart/README.md). Single sapphire roof, raised perspective, small roof emblem, no lettering. Owner approved October 14, 2026.
 
 Violet City university, teaching court and redesigned lecture hall: [proposal, native evidence and remaining interiors](../gba/art/violet-city/README.md). Built from the approved cloud Route 30 source, using Porytiles, Poryscript, porygon and Porymap.

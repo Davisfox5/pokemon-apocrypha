@@ -1,0 +1,18 @@
+{
+  "reachable_cells": 888,
+  "walk_steps": 254,
+  "approaches": 10,
+  "unexpected_open_edges": 0,
+  "violet_changed_pixels": 0,
+  "violet_collision_changed_cells": [
+    [
+      30,
+      5
+    ]
+  ],
+  "all_other_maps_unchanged": true,
+  "grass_behavior_errors": 0,
+  "warp_pair_source_valid": true,
+  "terrace_requires_stair_crossing": true,
+  "onward_destinations_implemented": false
+}

@@ -1,0 +1,17 @@
+{
+  "get_layout": [
+    "{\n  \"id\": \"LAYOUT_JOHTO_ROUTE36\",\n  \"name\": \"JohtoRoute36_Layout\",\n  \"width\": 82,\n  \"height\": 32,\n  \"primary_tileset\": \"gTileset_JohtoRoute36Primary\",\n  \"secondary_tileset\": \"gTileset_JohtoRoute36\",\n  \"border_filepath\": \"data/layouts/JohtoRoute36/border.bin\",\n  \"blockdata_filepath\": \"data/layouts/JohtoRoute36/map.bin\"\n}"
+  ],
+  "read_blockdata": [
+    "{\n  \"layout\": \"LAYOUT_JOHTO_ROUTE36\",\n  \"width\": 82,\n  \"height\": 32,\n  \"block_count\": 2624,\n  \"unique_metatiles\": 188\n}"
+  ],
+  "validate_scripts": [
+    "{\n  \"map\": \"JohtoRoute36\",\n  \"scripts_file\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/data/maps/JohtoRoute36/scripts.inc\",\n  \"ok\": true,\n  \"error_count\": 0,\n  \"warning_count\": 1,\n  \"defined_labels\": 9,\n  \"event_refs\": 4,\n  \"constants_checked\": 0,\n  \"findings\": [\n    {\n      \"severity\": \"warning\",\n      \"kind\": \"unused_label\",\n      \"message\": \"label 'JohtoRoute36_MapScripts' is defined but never referenced\",\n      \"detail\": null\n    }\n  ]\n}"
+  ],
+  "get_connections": [
+    "{\n  \"connections\": []\n}"
+  ],
+  "poryscript_status": [
+    "{\n  \"available\": true,\n  \"binary\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/poryscript\",\n  \"font_config\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/font_config.json\",\n  \"command_config\": \"/Users/davisfox/Documents/GitHub/apocrypha-violet/tools/poryscript/command_config.json\",\n  \"project_uses_poryscript\": true\n}"
+  ]
+}
