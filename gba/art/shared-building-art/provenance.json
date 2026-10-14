@@ -28,5 +28,12 @@
       "sha256": "ea52cd08c593b6e9ade2cbc42f2fd639a0569a78902c0699b4301eb085849037"
     }
   },
-  "credits": "Pok\u00e9mon source art: Nintendo, Game Freak, Creatures; native adaptations and cleanup: Apocrypha project."
+  "credits": "Pok\u00e9mon source art: Nintendo, Game Freak, Creatures; native adaptations and cleanup: Apocrypha project.",
+  "refinement": {
+    "asset": "pokemon-center.png",
+    "method": "remove the foreign 31-pixel exterior roof-side strip from the same Violet prefab; exact door and interior design preserved",
+    "original_preserved": "pokemon-center-original-violet.png",
+    "sha256": "93ae92dbe8ade6dcc2552d760bc9e00579d9d91fd7b8933509ba207d5ae51c02",
+    "review_status": "owner-requested cleanup; revised map awaiting visual review"
+  }
 }

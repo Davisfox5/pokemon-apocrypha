@@ -1,11 +1,13 @@
 {
-  "source_commit": "7bae845d9f6b6eca806444bee5b220f17f6da342",
-  "rom_sha256": "46a69bf90f95de077d27887d8f6c1b4f54365fec31d2abdcf84646a2c6fde0ab",
-  "generated": "serial passed",
+  "source_commit": "fe8df8b4917f4143ae86ac461c3d970cb4db5f63",
+  "rom_sha256": "04f9255b58e857e0a6dbc48902b98cdea7a74d06c09ec92e16ce04423ab20263",
   "rom_build": "passed",
-  "normal_input_observations": 254,
+  "normal_input_observations": 256,
   "ordinary_flash_bytes": 131072,
   "cold_reload": "passed",
   "title_continue": "passed",
-  "rom_or_save_committed": false
+  "native_stair_axes_both_directions": "passed",
+  "both_cave_entrance_cells": "passed",
+  "prior_7bae845_save_loaded": "passed, same native images after reload/Continue",
+  "ROMs_saves_tools_committed": false
 }

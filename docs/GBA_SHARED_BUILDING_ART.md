@@ -9,3 +9,5 @@ The canonical Pokémon Center is the finished Violet City asset at `gba/art/viol
 Pokémarts follow the same reuse rule: use the established shared Johto Mart asset (`tools/gba/maps/johto_mart/assets.py` and `gba/art/johto-mart/source/` on the Violet source branch), rather than drawing another store. Route 32 has no Pokémart in its HGSS layout.
 
 A later owner-approved revision to either shared building should become the new canonical source. Preserve the source commit and propagate deliberately; do not regenerate owner-edited layouts to update a building.
+
+Route 32 refinement: the active shared Center copy removes the foreign exterior strip along the right roof edge. The original Violet PNG remains beside it as `pokemon-center-original-violet.png`. Roof/facade design, palette, footprint and doorway pixels are preserved; use this cleaned prefab rather than making a map-specific building. The cleanup is part of the owner-requested Route 32 review revision.
