@@ -1,4 +1,12 @@
-## Latest: shared Johto Mart roof and sign correction
+## Latest: original Johto Mart pavilion
+
+Owner requested broader creative freedom, including a new footprint and signage. The shared Mart is now a 112×96 original retail pavilion with sapphire roof volumes, skylight, entrance canopy, merchandise glazing, warm accents and an integrated branded corner tower. Violet is the review installation; the shared pack is reusable across Johto. The approved university and lecture hall are pixel-identical. Source/export details: `gba/art/johto-mart/README.md`.
+
+Engine commit `9037554c61833a5f8f7da175d45420b4797bafde` on `codex/violet-city`; source identity also recorded in `gba/art/violet-city/evidence/preservation.json`. Larger footprint retains door (21,40) and approach (21,41). One overlapping tree and old invisible forest blockers at the shop are cleared. 8,931 pixels, 26 collision/elevation cells and 16 behavior/layer cells change only at the Mart site; all events/scripts/warps are unchanged. Enhanced exact palette-pattern sharing keeps the city within 1,006/1,008 scenery tiles.
+
+Local ROM, Porytiles, porygon, native/Porymap/export pixel equality, 661-step background tour, Mart door/wall/clearance checks, signs, gate return and ordinary save/cold reload/title Continue pass. See `pavilion-comparison.png`, `pavilion-gameplay.png`, `pavilion-validation.json`. No desktop emulator opened. Next: owner visual review of this original architecture. The shop interior and onward route work remain separate unfinished scopes.
+
+## Superseded: conservative shared Johto Mart roof and sign correction
 
 Owner rejected the tiled roof and imported sign, requesting a reusable design for all Johto towns. New original artwork uses a smooth blue enamel roof and a clean white-bordered shopping-bag/Poké Ball + MART sign. Shared code is `tools/gba/maps/johto_mart`; indexed/RGBA art, palette and anchors are in `gba/art/johto-mart`. Violet consumes that module directly; no rollout to other cities yet. University and lecture hall are approved and preserved.
 

@@ -13,7 +13,17 @@ The owner approved the softened exterior and requested expanded housing, replace
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Shared Johto Mart revision — current
+## Original Johto retail pavilion — current
+
+The owner requested an original, more contemporary building with the creative freedom used for the lecture hall. The Mart is now a larger 112×96 pavilion: layered sapphire roofs, a raised skylight, projecting entrance canopy, glass showroom with small merchandise displays, warm accents, and an architectural corner tower carrying its emblem. The MART wordmark is integrated above the showroom. No detached pole sign remains. The shared Johto source pack supports reuse with different palette-bank assignments.
+
+Violet origin changes to (19,35), but door (21,40) and approach (21,41) stay fixed. One overlapping tree is removed for the larger footprint, and legacy forest blockers beside the former sign are cleared to provide a front/east aisle. Exactly 8,931 native pixels change within this shop site; all surrounding city art, including the approved university and lecture hall, is pixel-identical. Collision/elevation changes in 26 cells; behavior/layer attributes change in 16 cells, all confined to the shop site. Events, scripts and warps are unchanged.
+
+Lossless palette-index matching now handles whole-pattern permutations as well as pair swaps. With repeated storefront/skylight modules aligned to 8-pixel boundaries, the full city uses **1,006 / 1,008 scenery tiles**. No hardware budget was raised and no approved surrounding art was reduced. Local ROM compilation, native/Porymap equality, exported asset equality, the 661-step background tour, signs, gate return, new Mart wall/clearance probes, ordinary save, cold reload and title Continue pass. No desktop emulator opened. The shop interior remains unimplemented.
+
+[Before/after](evidence/pavilion-comparison.png) · [Native gameplay](evidence/pavilion-gameplay.png) · [Validation](evidence/pavilion-validation.json) · [Reusable pack](../johto-mart/README.md)
+
+## Rejected conservative shared Johto Mart
 
 The owner rejected the tiled roof and requested a completely redone sign suitable for every Johto town. The replacement is a reusable, original native building/sign pair: smooth rounded blue enamel roof, steel/glass storefront, and a clean white-bordered sign bearing a shopping-bag/Poké Ball emblem and MART lettering. The shop and sign share one 15-color palette. No donor sign pixels remain. The exported transparent and indexed asset pack is in `gba/art/johto-mart`; the generator now imports `tools/gba/maps/johto_mart`.
 

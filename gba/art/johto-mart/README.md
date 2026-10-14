@@ -1,24 +1,27 @@
-# Shared Johto Poké Mart exterior
+# Shared Johto Poké Mart pavilion
 
-Reusable proposal after the owner rejected the Violet tiled roof and imported sign. The shop uses a smooth blue enamel roof with rounded corners, a steel-and-glass storefront and a new blue-and-white shopping-bag / MART sign. HGSS shop color and service-building identity inform the design; every pixel is authored natively in `tools/gba/maps/johto_mart/assets.py`.
+Original architecture following the owner's request for the same creative freedom used on the lecture hall. This replaces the rejected conservative shop and pole sign. Sapphire roofs, pale stone, blue enamel, glazed showroom bays and warm gold accents keep the Mart identity while giving it a new silhouette. A raised skylight, separate entrance canopy, integrated MART fascia and tall branded corner fin make the building recognizable without a detached sign.
 
-Installed for review in Violet City only. The approved university, lecture hall and other cities are preserved. This is ready for reuse across Johto; owner visual approval of this revision is pending.
+Installed for review in Violet City only. Other Johto towns can reuse this source with their own ground treatment and placement. Owner visual approval is pending.
 
-## Contents
+## Assets and placement
 
-- `source/building.png` and `sign.png`: transparent RGBA source/review cutouts.
-- `source/*.indexed.png`: identical artwork with transparent palette index zero.
-- `source/palette.pal`: one native 15-color RGB555 palette plus transparency.
-- `source/manifest.json`: dimensions, placement offsets and entrance/sign anchors.
+- `source/building.png`: transparent 112×96 pavilion (7×6 metatiles).
+- `source/brandmark.png`: separate transparent 32×32 emblem for future applications.
+- `source/*.indexed.png`: identical pixels, transparent palette index zero.
+- `source/palette.pal`: 15 visible RGB555 colors plus transparency.
+- `source/manifest.json`: dimensions, door/approach offsets and provenance.
 
-The building is 80x64 pixels (5x4 metatiles). Door tile is (1,3), approach (1,4); existing Violet interiors remain unimplemented. In this placement the top building row overlaps the player and rows 1–3 are solid. Sign is 32x64, normally offset (4,1) from the building origin; its pole/body occupy sign cells (0,1), (0,2), (0,3), with the upper row above the player. Review collision/layer placement for each destination town.
+Door tile is (2,5); approach is (2,6). Violet origin is (19,35), retaining door (21,40) and approach (21,41). The top row draws above the player; wall rows 1–5 are solid. Its east aisle and front clearance are walkable. There is no separate sign collision. Interiors are still unimplemented; the entrance remains closed.
 
 ## Reuse
 
-`make_assets(bank)` returns independent building/sign canvases sharing a selected scenery palette. Use the returned palette when packing each town. Keep terrain beneath the transparent artwork and compile tile IDs per destination; Violet's numeric tile IDs are not portable.
+`make_assets(bank)` returns the building and standalone brandmark canvases sharing the requested palette bank. The building already contains its emblem and MART wordmark; the standalone emblem does not need placement. Preserve transparent ground, set destination collision/overlap explicitly, and compile tile IDs per town. Violet numeric tile IDs are not portable.
 
 ```sh
 PYTHONPATH=tools/gba/maps python -m johto_mart gba/art/johto-mart/source --bank 9
 ```
 
-Violet's generator imports this module directly. Its native decoded exports match this pack pixel-for-pixel. [Comparison](../violet-city/evidence/johto-mart-comparison.png), [native game captures](../violet-city/evidence/johto-mart-gameplay.png) and [validation](../violet-city/evidence/johto-mart-validation.json) document the installed example. No town-specific name, surrounding terrain or donor background is baked into either component.
+All building/signage pixels are original native artwork in `tools/gba/maps/johto_mart/assets.py`. Windows repeat on the hardware tile grid without losing their shelves, merchandise or reflections. The map packer also shares exact patterns through lossless palette-index permutations. No donor background or town-specific name is embedded.
+
+[Before/after](../violet-city/evidence/pavilion-comparison.png) · [Native gameplay](../violet-city/evidence/pavilion-gameplay.png) · [Validation](../violet-city/evidence/pavilion-validation.json)

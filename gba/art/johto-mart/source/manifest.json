@@ -1,42 +1,25 @@
 {
   "region": "Johto",
-  "status": "Reusable proposal; installed in Violet for review",
+  "status": "Original retail pavilion proposal; Violet review installation",
   "palette_bank": 9,
   "transparent_index": 0,
   "building_pixels": [
-    80,
-    64
+    112,
+    96
   ],
-  "sign_pixels": [
+  "brandmark_pixels": [
     32,
-    64
+    32
   ],
   "building_door_tile": [
-    1,
-    3
+    2,
+    5
   ],
   "building_approach_tile": [
-    1,
-    4
+    2,
+    6
   ],
-  "sign_offset_from_building_tiles": [
-    4,
-    1
-  ],
-  "sign_solid_tiles": [
-    [
-      0,
-      1
-    ],
-    [
-      0,
-      2
-    ],
-    [
-      0,
-      3
-    ]
-  ],
-  "placement": "Use native tile packing per town; do not copy Violet tile IDs. Keep terrain on the background layer.",
-  "source": "Original indexed pixel artwork in tools/gba/maps/johto_mart/assets.py; HGSS blue shop identity is the visual reference."
+  "signage": "Architectural corner tower and fascia wordmark, both integrated in the building; no pole sign",
+  "placement": "Compile native tile IDs per town. Terrain remains separate. Set roof overlap and wall collision from the destination footprint.",
+  "source": "Original indexed artwork in tools/gba/maps/johto_mart/assets.py; sapphire/white Mart identity with new architecture."
 }

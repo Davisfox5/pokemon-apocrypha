@@ -58,7 +58,7 @@ def main(game):
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
  for key in ['tower','academy','gym','center']:soften_building(A[key])
- A['mart'],A['mart_sign']=mart.make_assets(9);pals[9]=A['mart'].pal
+ A['mart'],A['mart_brandmark']=mart.make_assets(9);pals[9]=A['mart'].pal
  mart.export_assets(ROOT/'gba/art/johto-mart/source',9)
  A['gym']=campus.lecture_hall();pals[5]=A['gym'].pal;soften_building(A['gym'])
  # Original modular university facade; its library is planned inside the main hall.
@@ -144,7 +144,7 @@ def main(game):
  rect('.',0,25,12,9);rect('P',6,28,12,4)
  rect('.',18,55,8,17);rect('P',20,55,3,10)
  rect('P',20,64,5,3);rect('P',22,65,3,7)
- buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',27,35,4,6),('university','University and Library',46,33,11,8),('mart','Poke Mart',20,37,1,3),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,33,1,5),('house','South Residence',35,56,1,5),('house','Northwest Residence',10,22,1,5),('house','West Garden Residence',25,51,1,5),('house','South Garden Residence',55,59,1,5)]
+ buildings=[('tower','Sprout Tower',36,1,3,11),('gym','Lecture Hall',27,35,4,6),('university','University and Library',46,33,11,8),('mart','Poke Mart',19,35,2,5),('center','Pokemon Center',46,50,3,5),('house','West Residence',9,33,1,5),('house','South Residence',35,56,1,5),('house','Northwest Residence',10,22,1,5),('house','West Garden Residence',25,51,1,5),('house','South Garden Residence',55,59,1,5)]
  # Three modest residential clearings connect to the existing street spine.
  for box in [(8,22,10,11),(22,50,12,10),(53,59,12,8)]:rect('.',*box)
  for key,label,x,y,dx,dy in buildings:
@@ -152,6 +152,9 @@ def main(game):
   if key=='university':rect('.',x,y+3,c.w//16,c.h//16-3)
   else:rect('.',x,y,c.w//16,c.h//16)
   rect('P',x+dx,y+c.h//16,2,2)
+ # The larger retail pavilion needs a clear east aisle and showroom frontage.
+ # Remove legacy forest blockers from the old sign and narrow gap to the hall.
+ rect('.',26,35,1,7);rect('.',23,41,3,1)
  # Connect each approach to the HGSS road spine, explicit grid geometry.
  rect('P',37,13,5,4);rect('P',20,40,3,5);rect('P',28,41,7,4);rect('P',54,42,6,4);rect('P',47,55,5,4);rect('P',10,39,7,3);rect('P',36,62,7,3)
  rect('P',11,28,7,3);rect('P',26,57,15,3);rect('P',60,59,3,8);rect('P',56,65,7,2)
@@ -242,9 +245,7 @@ def main(game):
   stamp('bridge_post',x,y-1,True);solid[y,x]=True;mc.above[y-1,x]=True
  for x,y in [(27,19),(49,19),(45,29),(28,31),(51,28)]:stamp('lily_pads',x,y,True)
  stamp('lake_islet',47,22,True);beh[23:27,47:51]=0
- # Reusable Johto Mart sign, with its own narrow post collision.
- stamp('mart_sign',24,38,True);mc.above[38,24:26]=True
- solid[39:42,24]=True
+ # Mart signage is integrated in its corner tower; no detached pole blocks the street.
  # West gate has its HGSS east-facing steps. Its interior/Route 36 are next scope.
  stamp('west_gate',0,25,True);solid[26:32,0:6]=True;mc.above[25,0:6]=True
  # Close grass at outer boundaries; only the surveyed Route 32 lane is open.

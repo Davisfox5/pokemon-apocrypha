@@ -1,0 +1,65 @@
+{
+  "base_engine_commit": "969890a2406ec5c06bada63a2af5abaef4b2d673",
+  "changed_pixels": 8931,
+  "outside_mart_pixel_changes": 0,
+  "collision_elevation_changed_cells": 26,
+  "behavior_layer_changed_cells": 16,
+  "events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 1006,
+  "scenery_limit": 1008,
+  "door": [
+    21,
+    40
+  ],
+  "approach": [
+    21,
+    41
+  ],
+  "building_box": [
+    19,
+    35,
+    7,
+    6
+  ],
+  "shared_asset_export_pixel_errors": 0,
+  "rollout": "Violet only; shared original Johto pavilion source",
+  "interior": "Not implemented; closed doorway retained",
+  "desktop_emulator_opened": false,
+  "rom_sha256": "c60eabb41b0e33137e09ddcf067f439b08028efe5674f7c15489f5ef10eec46a",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "mart_door_wall_and_clearance_probes_pass": true,
+  "site_adjustment": "Larger shop plus removal of one overlapping tree and legacy front/east forest blockers; all other pixels preserved",
+  "validation_region": {
+    "building": [
+      19,
+      35,
+      7,
+      6
+    ],
+    "east_aisle": [
+      26,
+      35,
+      1,
+      7
+    ],
+    "front_clearance": [
+      23,
+      41,
+      3,
+      1
+    ],
+    "removed_tree_cap": [
+      20,
+      34,
+      2,
+      1
+    ]
+  },
+  "engine_commit": "9037554c61833a5f8f7da175d45420b4797bafde"
+}
