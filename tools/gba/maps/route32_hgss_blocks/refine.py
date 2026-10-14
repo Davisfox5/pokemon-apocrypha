@@ -70,7 +70,7 @@ def main(game):
    for old,index in [((98,65,82),12),((131,90,90),7),((156,115,115),5),((189,148,139),3),((222,180,164),2),((131,131,139),10)]:
     c.px[np.all(rgb==old,2)&(rgba[...,3]>0)]=index
   return c
- for mid in [0x73,0x75,0x7c,0x85,0x86,0x87,0xd5,0xd6,0xa6,0xa7,0xa8,0x9f]:donor_canvas(mid,2)
+ for mid in [0x73,0x75,0x7c,0x85,0x86,0x87,0xd5,0xd6,0xa6,0xa7,0xa8,0x9f,0xad]:donor_canvas(mid,2)
  donor_canvas(0xaf,10,True);donor_canvas(0xcf,10,True)
  # Clean native rock-top family: real HGSS chunks, three warm shared colors, one-pixel seamless margins.
  best=None
@@ -88,7 +88,7 @@ def main(game):
  for f in (S/'shared-art/materials').glob('grass-*.png'):canvas(f.stem,Image.open(f).convert('RGBA'),12)
  canvas('sign',Image.open(S/'shared-art/materials/sign.png').convert('RGBA'),5)
  # A measured gate silhouette; remove foreign lawn/woods only, not turquoise roofing.
- gate=np.array(Image.open(S/'materials/gate.png').convert('RGBA'));gr=np.array(ref.crop((0,80,96,176)))
+ gate=np.array(ref.crop((0,80,96,192)));gate[:96]=np.array(Image.open(S/'materials/gate.png').convert('RGBA'));gr=np.array(ref.crop((0,80,96,192)))
  rg=gr[...,:3].astype(int);foreign=((rg[...,1]-rg[...,2]>24)&(rg[...,1]>rg[...,0]+35)&(rg[...,0]>55))|((rg[...,1]>rg[...,0])&(rg[...,2]<80));gate[foreign,3]=0;canvas('gate',gate,6)
  for i in range(4):canvas('rail-'+str(i),Image.open(S/f'materials/rail-{i}.png').convert('RGBA'),10)
  # A complete source boulder, not the clipped half from the prior draft. Separate stone from foam.
@@ -96,35 +96,24 @@ def main(game):
  rock=np.array(ref.crop((408,1128,440,1160)));rg=rock[...,:3].astype(int);stone=(np.ptp(rg,axis=2)<25)&(rg[...,0]>65)&(rg[...,0]<210);labels,n=label(stone);counts=np.bincount(labels.ravel());counts[0]=0;body=binary_fill_holes(labels==counts.argmax());ring=binary_dilation(body,iterations=1)&~body
  rock[...,3]=body*255;rock[ring,:3]=[192,216,224];rock[ring,3]=255
  colors=pals[10].gba()[1:];colors[13]=(192,216,224);pals[10]=Palette(10,colors,[f'r{i}' for i in range(15)]);canvas('coastal-rock',rock,10)
- # Build clean, long boards with continuous timber seams and restrained grain.
- pals[9]=Palette(9,[(72,64,40),(104,88,56),(128,112,72),(152,128,88),(168,144,96),(184,160,112),(200,176,128)],[f'w{i}' for i in range(7)])
- boards=Canvas(32,32,pals[9]);boards.px[:]=5
- for y in range(32):
-  if y%8==0:boards.px[y]=3
-  elif y%8==1:boards.px[y]=6
- for x,y,n in [(3,4,5),(18,6,6),(8,13,7),(23,19,4),(2,28,6),(16,30,5)]:boards.px[y,x:x+n]=4
- a['boards']=boards
- # Exact original masks, source grid registration, no inclusive-vertex enlargement.
- traces=json.loads(json.dumps(draft.TRACES))
- # Correct the southern landing's original 10px tracing error against the HGSS reference.
- traces['path'][-1]=[(312,y) if x==340 and y in [1400,1486] else (x,y) for x,y in traces['path'][-1]]
- m={name:raster(poly) for name,poly in traces.items()};p=np.full((H,W),'.',dtype='<U1')
- rgb=raw[...,:3].astype(int);woods=(rgb[...,1]>rgb[...,0])&(rgb[...,2]<80);score=np.zeros((H,W));score[1:126,1:31]=woods[:2000,:480].reshape(125,16,30,16).mean((1,3));score[:,0]=score[:,-1]=1;score[:2]=1;score[-2:]=1
- # Preserve the measured first-draft marine contour, correcting fringe islands at piers.
- old=np.load(S/'revision-baseline/plan.npy');m['water']=np.isin(old,['W','D'])
- for name,ch in [('water','W'),('path','P'),('grass','G'),('cliff','R'),('dock','D')]:p[m[name]]=ch
- # Original small eastern sea outcrops, omitted from the first draft.
- for poly in [[(429,1197),(490,1197),(490,1248),(443,1248),(443,1236),(429,1236)],[(436,1298),(469,1298),(469,1321),(490,1321),(490,1367),(417,1367),(417,1339),(436,1339)]]:
-  p[raster([poly])]='R'
- p[66:70,12:]='W';p[66:70,18:20]='D'
- # Source stairs: east-west 32x48 at the northern descent, north-south 48x32 below.
- p[59:62,9:11]='S';p[59:62,8]='P';p[59:62,11]='G'
- p[87:89,6:9]='S';p[89,6:9]='P';p[86,6:9]='G';p[87:90,5]='R';p[87:90,9]='R'
- # Source paths and terrace ledges; each has a landing, never a texture endpoint against stairs.
- p[27,24:27]='_';p[44:46,21]='P';p[46,21]='_'
- p[104:111,18:24]='P';p[6:12,1:7]='.'
- # Keep Center at its established door coordinate; make a joined dirt forecourt.
- p[103:109,17:24]='.';p[109:111,18:24]='P';p[117:120,12:18]='P';p[125,12:23]='R'
+ # Native panel from an unoccupied original HGSS timber deck, not invented stripes.
+ pals[9]=Palette(9,[(72,64,40),(104,88,56),(152,120,80),(168,136,96),(184,152,112),(192,160,120),(200,176,128)],[f'w{i}' for i in range(7)])
+ wood=np.array(ref.crop((276,1008,300,1032)).convert('RGB'));Image.fromarray(wood).save(S/'hgss-deck-panel-source.png')
+ # Isolate actual grain: no framing, fisherman, rail, or marine pixels in the sample.
+ core=np.array(Image.fromarray(wood).resize((32,32),Image.Resampling.NEAREST))
+ light=core.mean(2);classes=np.digitize(light,[128,144,153]);grain=np.array([3,4,5,6],np.uint8)[classes]
+ grain[:,0]=grain[:,-1]=np.rint((grain[:,0].astype(float)+grain[:,-1])/2).astype(np.uint8)
+ grain[0]=grain[-1]=np.rint((grain[0].astype(float)+grain[-1])/2).astype(np.uint8)
+ boards=Canvas(32,32,pals[9]);boards.px=grain;a['boards']=boards
+ # The checked-in source-cell grid is now the placement authority.
+ rows=(S/'hgss-cell-grid.txt').read_text().splitlines();assert len(rows)==125 and all(len(r)==30 for r in rows)
+ p=np.full((H,W),'.',dtype='<U1');p[1:126,1:31]=np.array([list(r) for r in rows])
+ footprints=json.loads((S/'hgss-tree-footprints.json').read_text())
+ # Continue the clipped source edge into padding; never introduce a lawn strip beside sea.
+ p[:,0]=p[:,1];p[:,-1]=p[:,-2]
+ # Canonical native Center is wider than the HGSS building; preserve its door and forecourt.
+ p[103:109,17:24]='.';p[109:111,18:24]='P';p[6:12,1:7]='.'
+ p[117,14:16]='.';p[118:120,11:18]='P'
  cells=np.full((H,W),ground.GRASS,np.int8);cells[p=='P']=ground.PATH;cells[p=='S']=ground.PATH
  solid=np.isin(p,list('RW_'));beh=np.zeros((H,W),np.uint8);beh[p=='W']=21
  mc=native.MapCanvas(W,H);fore=native.MapCanvas(W,H)
@@ -179,7 +168,11 @@ def main(game):
    if ch=='G':
     bits=''.join(str(int(0<=nx<W and 0<=ny<H and p[ny,nx]=='G')) for ny,nx in [(y-1,x),(y+1,x),(y,x-1),(y,x+1)]);put(a['grass-'+bits],x,y);beh[y,x]=2
    elif ch=='D':
-    c=Canvas(16,16,pals[9]);c.px=boards.px[(y%2)*16:(y%2+1)*16,(x%2)*16:(x%2+1)*16].copy()
+    c=Canvas(16,16,pals[9]);grain=boards.px.T if 73<=y<=76 or 79<=y<=81 else boards.px
+    c.px=grain[((y-63)%2)*16:((y-63)%2+1)*16,((x-17)%2)*16:((x-17)%2+1)*16].copy()
+    if 73<=y<=76 or 79<=y<=81:
+     if (x-13)%2==0:c.px[:,0]=4;c.px[:,1]=7
+    elif (y-63)%2==0:c.px[0]=4;c.px[1]=7
     for side,ny,nx in [('n',y-1,x),('s',y+1,x),('w',y,x-1),('e',y,x+1)]:
      if 0<=ny<H and 0<=nx<W and p[ny,nx]=='D':continue
      if side=='n':c.px[:2]=2;c.px[2]=7
@@ -192,35 +185,42 @@ def main(game):
  # Complete native stair assemblies; original stair pixels, correct direction, mirrored end rail.
  edge=a['emerald-0xaf'].px;step=a['emerald-0xcf'].px
  north=Canvas(48,32,pals[10]);north.px=np.tile(np.concatenate([edge,step,edge[:,::-1]],axis=1),(2,1))
- eaststairs=Canvas(32,48,pals[10]);eaststairs.px=np.rot90(north.px).copy();a['stairs-ns']=north;a['stairs-ew']=eaststairs
- put(eaststairs,9,59);put(north,6,87)
+ eaststairs=Canvas(32,48,pals[10]);treads=np.tile(np.rot90(step),(2,2))
+ # Slant the native tread courses to meet the two original staggered landings.
+ # Both rails follow the flight outline, not a rotated rectangular N/S assembly.
+ for sx in range(32):
+  offset=sx//2;eaststairs.px[offset:offset+32,sx]=treads[:,sx]
+  eaststairs.px[offset:offset+2,sx]=edge[8,0]
+  eaststairs.px[offset+30:offset+32,sx]=edge[8,0]
+ a['stairs-ns']=north;a['stairs-ew']=eaststairs
+ ew_region=np.s_[59*16:62*16,9*16:11*16];ew_back=(mc.bank[ew_region].copy(),mc.idx[ew_region].copy())
+ put(eaststairs,9,59,True);put(north,6,87)
  # Native jambs form a complete 32px doorway, with continuous black opening on the foreground layer.
- for x,mid in [(12,0xa6),(15,0xa8)]:put(a['emerald-'+hex(mid)],x,116)
+ for x,mid in [(13,0xa6),(16,0xa8)]:put(a['emerald-'+hex(mid)],x,117)
  cave_rgb=np.concatenate([np.array(donor.render(0x9f)),np.array(donor.render(0xa7))],axis=0)
  cave_rgb=np.concatenate([cave_rgb[:,:8],np.repeat(cave_rgb[:,7:8],8,1),np.repeat(cave_rgb[:,8:9],8,1),cave_rgb[:,8:]],axis=1)
- canvas('cave-native-frame',np.dstack([cave_rgb,np.full((32,32),255,np.uint8)]),2);put(a['cave-native-frame'],13,115)
- mc.background_bank=mc.bank.copy();mc.background_idx=mc.idx.copy()
- # Whole trees on shared two-row ground courses. Score entire footprints, not isolated color pixels.
- reserved=np.zeros((H,W),bool);reserved[5:12,0:7]=True;reserved[101:111,17:25]=True;reserved[:8,22:26]=True
- for x,y in [(16,8),(22,15),(20,122)]:reserved[y-1:y+2,x:x+1]=True
- roots=np.zeros((H,W),bool);positions=[];absorbed=0
- for y in range(0,H-2,2):
-  candidates=[]
-  for x in range(W-1):
-   area=p[y+1:y+3,x:x+2];target=score[y+1:y+3,x:x+2];canopy=p[y,x:x+2]
-   if not np.all(area=='.') or reserved[y:y+3,x:x+2].any() or not np.all(np.isin(canopy,['.','R'])):continue
-   wanted=int((target>.25).sum())
-   if not wanted:continue
-   candidates.append((-wanted,int((target<.2).sum()),x%2,x))
-  for _,cost,phase,x in sorted(candidates):
-   if roots[y+1:y+3,x:x+2].any():continue
-   roots[y+1:y+3,x:x+2]=True;positions.append((x,y));absorbed+=cost
+ canvas('cave-native-frame',np.dstack([cave_rgb,np.full((32,32),255,np.uint8)]),2);put(a['cave-native-frame'],14,116)
+ mc.background_bank=mc.bank.copy();mc.background_idx=mc.idx.copy();mc.background_bank[ew_region]=ew_back[0];mc.background_idx[ew_region]=ew_back[1]
+ # Literal reviewed anchors, with full non-overlapping 2x2 roots.
+ positions=[(x+1,y+1) for x,y in footprints['anchors'] if y+4<=H and x+3<=W]
+ # Complete padded border courses; keep the original northern exit clear.
+ positions=list(dict.fromkeys(positions));absorbed=0
+ roots=np.zeros((H,W),bool)
+ for x,y in positions:
+  assert not roots[y+1:y+3,x:x+2].any(),('Root overlap',x,y)
+  roots[y+1:y+3,x:x+2]=True
  opaque=tree.px>0;seen=np.zeros((H*16,W*16),bool);overlap_pixels=0
  for x,y in sorted(positions,key=lambda q:(q[1],q[0])):
   target=seen[y*16:y*16+48,x*16:x*16+32];overlap=target&opaque;assert not overlap[16:].any(),('Tree body overlap',x,y);overlap_pixels+=int(overlap.sum());target|=opaque;put(tree,x,y,True);solid[y+1:y+3,x:x+2]=True;mc.above[y,x:x+2]=True
- for x,y in [(16,8),(22,15),(20,122)]:put(a['sign'],x,y-1,True);solid[y,x]=True;beh[y,x]=29;mc.above[y-1,x]=True
+ for sign in footprints['signs']:
+  sx,sy=sign['source_cell'];x,y=sx+1,sy+1;put(a['sign'],x,y-1,True);solid[y,x]=True;beh[y,x]=29;mc.above[y-1,x]=True
+ # Trees behind the building remain on BG3; the roof has its own clean BG1.
+ for xx,yy,ww,hh in [(17,103,7,6),(1,6,6,7)]:
+  region=np.s_[yy*16:(yy+hh)*16,xx*16:(xx+ww)*16]
+  mc.background_bank[region]=mc.bank[region];mc.background_idx[region]=mc.idx[region]
+  fore.bank[region]=-1;fore.idx[region]=0
  put(a['center'],17,103,True);solid[104:109,17:24]=True;solid[108,20]=False;beh[108,20]=105;mc.above[103:107,17:24]=True
- put(a['gate'],1,6,True);solid[7:12,1:7]=True;mc.above[6:9,1:7]=True
+ put(a['gate'],1,6,True);solid[6:13,1:7]=True;mc.above[6:9,1:7]=True
  for y in range(66,70):
   for x in range(W):put(a['rail-'+str(y-66)],x,y,True);mc.above[y,x]=True
  # Use an exact native-scale source support, isolating it from foam/background.
@@ -232,9 +232,11 @@ def main(game):
   x,y=xp//16,yp//16;hh=(yp%16+32+15)//16
   if np.all(p[y:y+hh,x:x+2]=='W'):
    mc.blit(a['coastal-rock'],xp,yp);fore.blit(a['coastal-rock'],xp,yp);solid[y:y+hh,x:x+2]=True;beh[y:y+hh,x:x+2]=0;rocks.append([xp,yp])
+ for prop in footprints['props']:
+  sx,sy=prop['source_cell'];assert not roots[sy+1,sx+1],('Prop overlaps tree footprint',prop);put(a['emerald-0xad'],sx+1,sy+1,True);solid[sy+1,sx+1]=True
  mouth=Canvas(32,32,pals[6]);mouth.px[(cave_rgb.max(2)<80)]=1
- put(mouth,13,115,True);mc.above[115,13:15]=True;a['cave-opening']=mouth
- solid[116,13:15]=False;beh[116,13:15]=97
+ put(mouth,14,116,True);mc.above[116,14:16]=True;a['cave-opening']=mouth
+ solid[117,14:16]=False;beh[117,14:16]=97
  # Marine rims are overlays on animated native water, not frozen ocean rectangles.
  pals[11]=Palette(11,[(104,208,152),(104,200,152),(88,176,136),(96,192,144),(128,120,112),(104,72,56),(184,136,104),(192,216,224),(200,232,224),(152,224,224),(104,192,224),(72,160,224),(216,184,128)],[f's{i}' for i in range(13)])
  marine=np.repeat(np.repeat(p=='W',16,0),16,1);rounded=np.array(Image.fromarray(marine.astype('uint8')*255).filter(ImageFilter.GaussianBlur(2)))>=128
@@ -255,6 +257,16 @@ def main(game):
    if hit is None:return 0 if not arr.any() else None
    tid,hf,vf=hit;return tid|(hf<<10)|(vf<<11)
  class Packer(packing.RoutePacker):
+  def tile(self,bank,arr,pos=None):
+   hit=self.primary.find(bank,arr)
+   if hit is not None:return hit
+   for hf in (0,1):
+    for vf in (0,1):
+     aa=arr[::-1] if vf else arr;aa=aa[:,::-1] if hf else aa
+     hit=self.slookup.get(aa.tobytes())
+     if hit is not None:return (hit&1023)|((hit//1024)<<24)|(hf<<10)|(vf<<11)
+   tid=self.next_tile;self.next_tile+=1;self.sec_tiles[tid]=arr.copy();self.slookup[arr.tobytes()]=tid
+   return (tid&1023)|((tid//1024)<<24)
   def metatile(self,entries,attr):
    key=(tuple(entries),attr)
    if key in self.primary.block_lookup:return self.primary.block_lookup[key]
@@ -266,7 +278,7 @@ def main(game):
   fa=fore.bank[y*16:y*16+16,x*16:x*16+16];ix=fore.idx[y*16:y*16+16,x*16:x*16+16];top=[]
   for q in range(4):
    px=ix[q//2*8:q//2*8+8,q%2*8:q%2*8+8];banks=fa[q//2*8:q//2*8+8,q%2*8:q%2*8+8];bs=[int(v) for v in np.unique(banks) if v>=0];assert len(bs)<=1,(x,y,q,bs);top.append((packer.tile(bs[0],px)|(bs[0]<<12)) if bs and px.any() else 0)
-  attr=int(beh[y,x])|(0 if mc.above[y,x] else 0x1000);grid[y,x]=packer.metatile(list(t.blocks[0][58][:4])+top,attr)|0x1000|(0xc00 if beh[y,x]!=21 and solid[y,x] else 0)
+  attr=int(beh[y,x])|(0 if mc.above[y,x] else 0x1000);grid[y,x]=packer.metatile(list(t.blocks[0][58][:4])+top,attr)|0x1000|(0xc00 if solid[y,x] and (beh[y,x]!=21 or x in [0,W-1] or y in [0,H-1]) else 0)
  # Rounded sea-side cliff corners expose water, not unrelated grass wedges.
  for y,x in zip(*np.where(p=='R')):
   if (fore.bank[y*16:y*16+16,x*16:x*16+16]>=0).any():continue
@@ -277,21 +289,39 @@ def main(game):
   grid[y,x]=packer.metatile(list(t.blocks[0][58][:4])+top,0x1000)|0x3c00
  # Drop temporary land-backed ocean variants before allocating final native IDs.
  logical=grid>>16;used=set(int(v) for v in np.unique(logical) if v);primary_mids=set(int(v&1023) for v in grid.ravel() if not v>>16)
+ def glyph(en):return (en&1023)+((en>>24)*1024)
  referenced=set();fixed=set()
  for mid in used:
-  referenced|={en&1023 for en in packer.sec_blocks[mid][0] if en&1023>=512}
+  referenced|={glyph(en) for en in packer.sec_blocks[mid][0] if glyph(en)>=512}
  for mid in primary_mids:
   glyphs={en&1023 for en in t.blocks[0][mid] if en&1023>=512};referenced|=glyphs;fixed|=glyphs
  assert not any(tid>=1008 for tid in fixed),('Primary uses door scratch tiles',fixed)
- if len(referenced)>496:raise SystemExit(f'Native static glyph budget: {len(referenced)} referenced secondary tiles; need<=496')
- free=iter(tid for tid in range(512,1008) if tid not in fixed);glyphmap={tid:tid for tid in fixed}
- for tid in sorted(referenced-fixed):glyphmap[tid]=next(free)
+ # Route-local primary: preserve every referenced CG glyph and animated slot,
+ # use otherwise unused static slots for this route's additional corner/panel pieces.
+ # No shared Cherrygrove file or other map's IDs are altered.
+ primary_referenced={glyph(en) for mid in used for en in packer.sec_blocks[mid][0] if glyph(en)<512}
+ primary_referenced|={en&1023 for mid in primary_mids for en in t.blocks[0][mid] if en&1023<512}
+ available=iter(tid for tid in range(93,512) if tid not in primary_referenced)
+ overflow=max(0,len(referenced)-496);moved=set(sorted(referenced-fixed)[-overflow:]) if overflow else set()
+ glyphmap={tid:tid for tid in fixed};primary_tiles=[v.copy() for v in primary.tiles]
+ for tid in sorted(moved):
+  slot=next(available);glyphmap[tid]=slot;primary_tiles[slot]=packer.sec_tiles[tid]
+ free=iter(tid for tid in range(512,1008) if tid not in fixed)
+ for tid in sorted(referenced-fixed-moved):glyphmap[tid]=next(free)
+ local=game/'data/tilesets/primary/route32';local.mkdir(parents=True,exist_ok=True)
+ shutil.copytree(game/'data/tilesets/primary/cherrygrove/palettes',local/'palettes',dirs_exist_ok=True)
+ shutil.copytree(game/'data/tilesets/primary/cherrygrove/anim',local/'anim',dirs_exist_ok=True)
+ packing.write_tiles(local/'tiles.png',primary_tiles)
+ # Keep referenced metatile numbers; blank unused catalog entries rather than showing
+ # old buildings assembled from a slot this route has reassigned.
+ (local/'metatiles.bin').write_bytes(b''.join(struct.pack('<8H',*(t.blocks[0][mid] if mid in primary_mids else [0]*8)) for mid in range(512)))
+ (local/'metatile_attributes.bin').write_bytes(struct.pack('<512H',*(t.attrs[0][mid] if mid in primary_mids else 0x1000 for mid in range(512))))
  metamap={mid:512+i for i,mid in enumerate(sorted(used))}
  if len(metamap)>512:raise SystemExit(f'Native metatile budget: {len(metamap)} final secondary entries; need<=512')
  blocks={}
  for mid in used:
-  entries,attr=packer.sec_blocks[mid];entries=tuple((en&~1023)|glyphmap.get(en&1023,en&1023) for en in entries);blocks[metamap[mid]]=(entries,attr)
- packer.sec_blocks=blocks;packer.sec_tiles={glyphmap[tid]:packer.sec_tiles[tid] for tid in referenced}
+  entries,attr=packer.sec_blocks[mid];entries=tuple((en&0xfc00)|glyphmap.get(glyph(en),glyph(en)) for en in entries);blocks[metamap[mid]]=(entries,attr)
+ packer.sec_blocks=blocks;packer.sec_tiles={glyphmap[tid]:packer.sec_tiles[tid] for tid in referenced-moved}
  for y in range(H):
   for x in range(W):
    v=int(grid[y,x]);grid[y,x]=(v&0xfc00)|metamap[v>>16] if v>>16 else v
@@ -302,11 +332,16 @@ def main(game):
  ps=set(positions);bx,by=next((x,y) for x,y in positions if (x,y+2) in ps and (x+2,y) in ps and (x+2,y+2) in ps);(grid[by+2:by+4,bx:bx+2]|0xc00).astype('<u2').tofile(folder/'border.bin')
  for name,c in a.items():Image.fromarray(c.to_rgba()).save(M/f'{name}.png')
  Image.fromarray(cliff.to_rgba()).save(E/'cliff-layer.png');np.save(S/'refined-plan.npy',p);np.save(S/'terrace-heights.npy',heights);np.save(S/'solid.npy',solid)
- report={'reference':'original HGSS Route32','authoring_basis':'owner-authorized refinement of rejected7bae845, not owner edits','native_size':[W,H],'terrace_height_sources':terrace_specs,'tiles':nt,'metatiles':nb,'rock_top_reference_box':[soil_x,soil_y,soil_x+32,soil_y+32],'coastal_rocks_pixels':rocks,'whole_trees':positions,'tree_body_overlap_pixels':0,'permitted_rear_canopy_overlap_pixels':overlap_pixels,'open_lawn_absorbed_by_whole_trees':absorbed,'stairs':[{'at':[9,59],'size':[2,3],'direction':'east-west'},{'at':[6,87],'size':[3,2],'direction':'north-south'}],'center':{'shared_source':'Violet Center','exterior_fringe_pixels_removed':center_removed,'door_pixels_unchanged':True,'forecourt_joined':True},'ground':provenance,'cliff':'continuous landform render, real HGSS top texture, native Emerald directional sides/front/cave/ledges in Cherrygrove palette','layers':layer_report}
- native_image=Tileset(game,'route32','cherrygrove').map_image(grid.ravel().tolist(),W);rgb=np.array(native_image);expected=np.zeros_like(rgb);fg_mask=fore.bank>=0
+ report={'reference':'original HGSS Route32','authoring_basis':'original numbered HGSS cell grid; explicit root footprints; accepted fe8df8b rock material; no prior native geometry used','native_size':[W,H],'terrace_height_sources':terrace_specs,'tiles':nt,'metatiles':nb,'route_local_primary_reused_slots':{str(tid):glyphmap[tid] for tid in sorted(moved)},'shared_primary_unchanged':True,'rock_top_reference_box':[soil_x,soil_y,soil_x+32,soil_y+32],'coastal_rocks_pixels':rocks,'whole_trees':positions,'tree_body_overlap_pixels':0,'permitted_rear_canopy_overlap_pixels':overlap_pixels,'open_lawn_absorbed_by_whole_trees':absorbed,'stairs':[{'at':[9,59],'size':[2,3],'direction':'east-west'},{'at':[6,87],'size':[3,2],'direction':'north-south'}],'center':{'shared_source':'Violet Center','exterior_fringe_pixels_removed':center_removed,'door_pixels_unchanged':True,'forecourt_joined':True},'ground':provenance,'cliff':'continuous landform render, real HGSS top texture, native Emerald directional sides/front/cave/ledges in Cherrygrove palette','layers':layer_report}
+ native_image=Tileset(game,'route32','route32').map_image(grid.ravel().tolist(),W);rgb=np.array(native_image);expected=np.zeros_like(rgb);fg_mask=fore.bank>=0
  for bank in np.unique(fore.bank):
   if bank>=0:
    chosen=fore.bank==bank;expected[chosen]=np.array(pals[int(bank)].gba(),np.uint8)[fore.idx[chosen]]
  errors=int((np.any(rgb!=expected,2)&fg_mask).sum());assert errors==0,('Foreground palette/mask errors',errors);report['foreground_RGB_errors']=errors
- (E/'refinement.json').write_text(json.dumps(report,indent=2)+'\n');Tileset(game,'route32','cherrygrove').map_image(grid.ravel().tolist(),W).save(E/'native-map.png');preservation.record(game,S);print('Refined Route32',nt,nb,len(positions))
+ # The two portal warp cells follow the source-grid doorway in isolated reproduction.
+ event_path=game/'data/maps/JohtoRoute32/map.json';events=json.loads(event_path.read_text())
+ for warp,x in zip(events['warp_events'][1:3],[14,15]):warp['x']=x;warp['y']=117
+ event_text=json.dumps(events,indent=2)+'\n'
+ if event_path.read_text()!=event_text:event_path.write_text(event_text)
+ (E/'refinement.json').write_text(json.dumps(report,indent=2)+'\n');Tileset(game,'route32','route32').map_image(grid.ravel().tolist(),W).save(E/'native-map.png');preservation.record(game,S);print('Refined Route32',nt,nb,len(positions))
 if __name__=='__main__':main(Path(sys.argv[1]).resolve())

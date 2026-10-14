@@ -1,0 +1,216 @@
+{
+  "source_basis": "numbered original HGSS screenshot; visually reviewed terrain and rooted footprints, not DS collision binary",
+  "source_cells_reviewed": 3750,
+  "exact_binary_matches": 3736,
+  "canonical_Center_additional_footprint_cells": [
+    {
+      "source": [
+        16,
+        103
+      ],
+      "native": [
+        17,
+        104
+      ]
+    },
+    {
+      "source": [
+        22,
+        103
+      ],
+      "native": [
+        23,
+        104
+      ]
+    },
+    {
+      "source": [
+        16,
+        104
+      ],
+      "native": [
+        17,
+        105
+      ]
+    },
+    {
+      "source": [
+        22,
+        104
+      ],
+      "native": [
+        23,
+        105
+      ]
+    },
+    {
+      "source": [
+        16,
+        105
+      ],
+      "native": [
+        17,
+        106
+      ]
+    },
+    {
+      "source": [
+        22,
+        105
+      ],
+      "native": [
+        23,
+        106
+      ]
+    },
+    {
+      "source": [
+        16,
+        106
+      ],
+      "native": [
+        17,
+        107
+      ]
+    },
+    {
+      "source": [
+        22,
+        106
+      ],
+      "native": [
+        23,
+        107
+      ]
+    },
+    {
+      "source": [
+        16,
+        107
+      ],
+      "native": [
+        17,
+        108
+      ]
+    },
+    {
+      "source": [
+        17,
+        107
+      ],
+      "native": [
+        18,
+        108
+      ]
+    },
+    {
+      "source": [
+        18,
+        107
+      ],
+      "native": [
+        19,
+        108
+      ]
+    },
+    {
+      "source": [
+        20,
+        107
+      ],
+      "native": [
+        21,
+        108
+      ]
+    },
+    {
+      "source": [
+        21,
+        107
+      ],
+      "native": [
+        22,
+        108
+      ]
+    },
+    {
+      "source": [
+        22,
+        107
+      ],
+      "native": [
+        23,
+        108
+      ]
+    }
+  ],
+  "unexplained_binary_differences": [],
+  "one_way_ledges": [
+    {
+      "source": [
+        23,
+        26
+      ],
+      "native": [
+        24,
+        27
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        24,
+        26
+      ],
+      "native": [
+        25,
+        27
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        25,
+        26
+      ],
+      "native": [
+        26,
+        27
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        19,
+        44
+      ],
+      "native": [
+        20,
+        45
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        20,
+        44
+      ],
+      "native": [
+        21,
+        45
+      ],
+      "direction": "south"
+    }
+  ],
+  "NS_stair_pixels": "unchanged from fe8df8b",
+  "native_static_secondary_glyphs": 496,
+  "animated_primary_slots_reserved": [
+    1,
+    92
+  ],
+  "door_scratch_reserved": [
+    1008,
+    1023
+  ],
+  "source_commit": "5627255b0ace34e80dc76e54c2caf06ce0d53d81"
+}

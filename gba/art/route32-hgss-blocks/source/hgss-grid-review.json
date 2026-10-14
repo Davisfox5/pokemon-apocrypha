@@ -1,0 +1,63 @@
+{
+  "reference": "hgss-reference.png",
+  "source_cells": [
+    30,
+    125
+  ],
+  "cell_pixels": 16,
+  "native_offset": [
+    1,
+    1
+  ],
+  "right_clipped_pixels": 10,
+  "method": "visual square-by-square terrain and rooted-tree tracing; not decoded DS collision",
+  "coast_row_runs": [
+    [
+      59,
+      62,
+      19
+    ],
+    [
+      62,
+      77,
+      10
+    ],
+    [
+      77,
+      86,
+      14
+    ],
+    [
+      86,
+      109,
+      25
+    ],
+    [
+      109,
+      122,
+      28
+    ],
+    [
+      122,
+      125,
+      29
+    ]
+  ],
+  "terrain_characters": {
+    ".": "ordinary grass",
+    "P": "path",
+    "G": "tall grass",
+    "R": "inaccessible rock",
+    "W": "water (Surf)",
+    "D": "wood deck",
+    "S": "stairs",
+    "_": "one-way ledge"
+  },
+  "preserve": "accepted rock material/color; native north-south Emerald placeholder",
+  "adaptations": [
+    "whole 2x3 Cherrygrove trees on reviewed source grid",
+    "112x96 Violet Center preserves established door coordinate; footprint is wider than HGSS building",
+    "western clipped gate remains a visual stub; adjacent maps not wired",
+    "native cave portal moved onto source cell (13,116), native (14,117)"
+  ]
+}

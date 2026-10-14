@@ -22,5 +22,5 @@ def main(game,binary):
     if en&2048:px=px[::-1]
     x,y=bx+q%2*8,by+q//2*8;piece=decoded[y:y+8,x:x+8];mask=px>0;piece[mask,:3]=pal[en>>12][px[mask]];piece[mask,3]=255
  expected=np.array(sheet);mask=expected[...,3]>0;errors=int(np.any((decoded[...,:3]&248)!=(expected[...,:3]&248),2)[mask].sum());alpha=int(np.any(decoded[...,3]!=expected[...,3]).sum());assert errors==alpha==0,(errors,alpha)
- (E/'porytiles.json').write_text(json.dumps({'version':'legacy 2.0.0','compiled_metatiles':len(blocks),'native_5bit_RGB_errors':errors,'alpha_errors':alpha,'scope':'new local gate/rail/dock/boulder family plus reused HGSS grass; current engine primary and metatile IDs never repacked','engine_asset_import':'fixed native palettes and reusable primary glyphs'},indent=2)+'\n');print('Porytiles validated',len(blocks),'metatiles')
+ (E/'porytiles.json').write_text(json.dumps({'version':'legacy 2.0.0','compiled_metatiles':len(blocks),'native_5bit_RGB_errors':errors,'alpha_errors':alpha,'scope':'new local gate/rail/dock/boulder family plus reused HGSS grass; shared Cherrygrove primary and other map IDs unchanged','engine_asset_import':'fixed native palettes, route-local primary spare slots and native secondary'},indent=2)+'\n');print('Porytiles validated',len(blocks),'metatiles')
 if __name__=='__main__':main(Path(sys.argv[1]),Path(sys.argv[2]))

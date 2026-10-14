@@ -3,6 +3,7 @@
   "compiled_metatiles": 128,
   "native_5bit_RGB_errors": 0,
   "alpha_errors": 0,
-  "scope": "new local gate/rail/dock/boulder family plus reused HGSS grass; current engine primary and metatile IDs never repacked",
-  "engine_asset_import": "fixed native palettes and reusable primary glyphs"
+  "scope": "new local gate/rail/dock/rock/grass/stair families; shared Cherrygrove primary and other map IDs unchanged",
+  "engine_asset_import": "fixed native palettes, route-local primary spare slots and native secondary",
+  "source_commit": "5627255b0ace34e80dc76e54c2caf06ce0d53d81"
 }

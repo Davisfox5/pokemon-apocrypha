@@ -1122,3 +1122,11 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+## 2026-10-14 — Route 32 HGSS cell-grid correction
+
+Owner accepted the improved rock material and requested closer original walkability, corrected dock texture and EW Emerald placeholder stairs. Engine work is pushed on `codex/route32-hgss-blocks` at `5627255b0ace34e80dc76e54c2caf06ce0d53d81` ([draft PR #8](https://github.com/Davisfox5/pokeemerald-expansion/pull/8)); evidence/source tools are on `codex/route32-hgss-block-evidence` ([draft PR #12](https://github.com/Davisfox5/pokemon-apocrypha/pull/12)). See [the review and reproduction instructions](../gba/art/route32-hgss-blocks/README.md).
+
+Placement now reads a numbered 30×125 original HGSS source grid and explicit whole-tree/root footprints, not the previous native map or greedy color packing. All 3,750 reviewed source cells are audited against decoded native foot collision. The 14 declared differences are the wider canonical Violet Center footprint; this is a visual trace, not extracted DS collision or proof of original invisible event gates/Surf rules. Dock arms/landings and source wood grain, staggered EW tread assembly and blocked rock corners, west/Center woods, signs, gate base and cave doorway/warps are corrected. No tree root shares the cave boulder footprint; the original open square below it is restored. Accepted rock material and NS stair PNG remain unchanged.
+
+A Route 32-local primary retains referenced Cherrygrove glyphs and animation slots and uses spare slots for local art. Shared art and other maps are unchanged. Native build, actual headless Porymap export (zero pixel differences), Porytiles art checks, both walking branches/stair directions, fixed source barrier probes, both doors/cave cells, fresh flash/cold load/title Continue and a preserved prior proof save pass. No ROM/save/tool binaries are committed and no desktop game is opened. Previous drafts, source, workbenches and owner saves remain preserved; visual acceptance is still with the owner. Violet/Alph external wiring, full Union Cave and campaign events remain separate work.

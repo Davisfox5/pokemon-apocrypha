@@ -21,7 +21,7 @@
       25,
       25
     ],
-    "steps": 17
+    "steps": 15
   },
   {
     "name": "central-grass",
@@ -165,7 +165,7 @@
       20,
       109
     ],
-    "steps": 32
+    "steps": 36
   },
   {
     "name": "union-cave-approach",
@@ -174,8 +174,8 @@
       109
     ],
     "goal": [
-      13,
-      117
+      14,
+      118
     ],
     "steps": 15
   },
@@ -198,22 +198,22 @@
       68
     ],
     "goal": [
-      8,
-      80
+      4,
+      81
     ],
-    "steps": 15
+    "steps": 14
   },
   {
     "name": "southern-stairs",
     "start": [
-      8,
-      80
+      4,
+      81
     ],
     "goal": [
       7,
       90
     ],
-    "steps": 11
+    "steps": 12
   },
   {
     "name": "land-route-rejoins",

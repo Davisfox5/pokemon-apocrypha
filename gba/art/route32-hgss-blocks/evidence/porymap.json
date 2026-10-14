@@ -2,8 +2,11 @@
   "version": "6.3.1",
   "project_opened": true,
   "native_map_pixel_differences": 0,
-  "scope": "refined Route32",
   "method": "headless project-core export",
-  "source_commit": "fe8df8b4917f4143ae86ac461c3d970cb4db5f63",
-  "refinement_base_commit": "7bae845d9f6b6eca806444bee5b220f17f6da342"
+  "source_commit": "5627255b0ace34e80dc76e54c2caf06ce0d53d81",
+  "maps": [
+    "JohtoRoute32",
+    "Route32PokemonCenter",
+    "UnionCaveRoute32Entrance"
+  ]
 }

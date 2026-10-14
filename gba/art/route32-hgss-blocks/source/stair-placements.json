@@ -1,0 +1,61 @@
+{
+  "units": "native 16px squares",
+  "assemblies": [
+    {
+      "asset": "refined-materials/stairs-ew.png",
+      "origin": [
+        9,
+        59
+      ],
+      "size": [
+        2,
+        3
+      ],
+      "walking_axis": "east-west",
+      "tread_source": "Emerald General 0xcf, oriented E/W",
+      "blocked_corners": [
+        [
+          10,
+          59
+        ],
+        [
+          9,
+          61
+        ]
+      ],
+      "landings": [
+        [
+          8,
+          60
+        ],
+        [
+          11,
+          60
+        ]
+      ]
+    },
+    {
+      "asset": "refined-materials/stairs-ns.png",
+      "origin": [
+        6,
+        87
+      ],
+      "size": [
+        3,
+        2
+      ],
+      "walking_axis": "north-south",
+      "tread_source": "Emerald General 0xaf/0xcf, unchanged",
+      "landings": [
+        [
+          7,
+          86
+        ],
+        [
+          7,
+          90
+        ]
+      ]
+    }
+  ]
+}
