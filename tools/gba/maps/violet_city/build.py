@@ -13,7 +13,7 @@ from claude_cherrygrove.pixel import Canvas,Palette
 from route30_hgss_blocks import ground_native,layers
 from tiles import Tileset,palette
 from edges import soften_building,shoreline,rounded_distance
-import campus,exits,cleanup,packing
+import campus,exits,cleanup,packing,mart
 OUT=ROOT/'gba/art/violet-city';S=OUT/'source';EV=OUT/'evidence';W,H=80,72
 
 def digest(path):
@@ -59,6 +59,7 @@ def main(game):
   for x,y,w,h in boxes:
    pattern=c.px[y:y+8,x:x+8].copy();c.px[y:y+h,x:x+w]=np.tile(pattern,(h//8,w//8))
  for key in ['tower','academy','gym','center','mart']:soften_building(A[key])
+ A['mart']=mart.building(pals[9])
  A['gym']=campus.lecture_hall();pals[5]=A['gym'].pal;soften_building(A['gym'])
  # Original modular university facade; its library is planned inside the main hall.
  A['university']=campus.university();pals[10]=A['university'].pal

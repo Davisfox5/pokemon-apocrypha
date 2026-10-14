@@ -1,0 +1,30 @@
+{
+  "base_engine_commit": "80d933e0525294e2f56432ff6557a894cce060d2",
+  "changed_pixels": 3687,
+  "outside_mart_pixel_changes": 0,
+  "original_sign_pixel_changes": 0,
+  "collision_elevation_behavior_layer_changes": 0,
+  "events_scripts_warps_unchanged": true,
+  "porymap_pixel_errors": 0,
+  "scenery_tiles": 971,
+  "door": [
+    21,
+    40
+  ],
+  "approach": [
+    21,
+    41
+  ],
+  "source": "Original native pixel modules, HGSS blue-and-steel shop palette and retained cleaned HGSS projecting sign",
+  "interior": "Not implemented; existing closed-door exterior retained",
+  "rom_sha256": "3fdcfbacb5f9daaaacea4b68dd48913b646761f034a9ddc9f3b5c62835a06888",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "ordinary_walk_steps": 661,
+  "mart_door_and_sign_post_probes_pass": true,
+  "desktop_emulator_opened": false,
+  "engine_commit": "4919da5f076523203579c78272b7186b8dbfeb95"
+}

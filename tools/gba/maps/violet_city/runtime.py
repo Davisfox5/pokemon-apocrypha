@@ -30,6 +30,8 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+r'''
  go(43,48,35);step(DOWN,1);at(43,48,35,"university-rear-wall-blocks");shot("university-roof-overlap");
  go(43,54,34);shot("clock-tower-upper");
  go(43,36,38);shot("lecture-upper-story");
+ go(43,21,41);step(UP,1);at(43,21,41,"mart-door-closed");shot("mart-entrance");
+ go(43,25,40);step(LEFT,1);at(43,25,40,"mart-sign-post-blocks");shot("mart-sign-post");
  go(43,61,52);shot("teaching-court");step(UP,3);at(43,61,49,"court-walk");
  go(43,56,53);step(DOWN,1);at(43,56,53,"court-bench-blocks");shot("court-benches");
  go(43,11,28);step(UP,1);at(43,11,28,"northwest-house-closed");

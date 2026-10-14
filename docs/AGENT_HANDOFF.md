@@ -1,3 +1,9 @@
+## Latest: original Violet Poké Mart exterior
+
+Owner approved the university and lecture hall, including the upper-section perspective, then requested a new Poké Mart inspired by the original building/sign. Original native art now provides a blue tiled roof with parallel sides, steel trim, recessed door and display window, using the unchanged HGSS palette and original cleaned projecting sign. The two approved campus buildings are preserved.
+
+Exactly 3,687 native pixels change within the Mart box; all other pixels and collision/elevation/behavior/layers/events/scripts/warps are unchanged. Door (21,40), approach (21,41), and closed-interior state are preserved. Source is `tools/gba/maps/violet_city/mart.py`; see `mart-comparison.png`, `mart-gameplay.png` and `mart-validation.json` in `gba/art/violet-city/evidence`. Current engine commit is `4919da5f076523203579c78272b7186b8dbfeb95` on `codex/violet-city`, recorded in `preservation.json`. Local ROM, Porymap equality and background traversal/save checks plus Mart door/sign collision probes pass. Capacity 971/1,008; no desktop emulator opened. Next: owner visual review of Mart. Existing interior, route and Surf limits remain.
+
 ## Latest: Violet upper-story perspective completion
 
 Owner questioned the forward lean and flagged the unadjusted clock tower and lecture hall upper story. The main roof-over-wall balance was visually compared with the imported HGSS house/Center and retained; exact camera geometry is not recoverable from those raster references. Upper roof caps now have parallel verges, deeper planes and projecting eaves. The clock face is mildly foreshortened; all three upper-story window bays remain. Exactly 2,523 pixels change inside the two upper sections. All other pixels and every collision/elevation/behavior/layer, event, script and warp are unchanged.

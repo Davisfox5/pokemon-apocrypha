@@ -7,13 +7,23 @@ The owner approved the softened exterior and requested expanded housing, replace
 - A new 80 × 72 map, `VioletCity`, appended to the existing Cherrygrove map group without renumbering prior maps.
 - HGSS-inspired core geography: northern Sprout Tower, lake with two bridge spans and a central stone landing, old gym, university, central streets, Center/Mart and homes.
 - The eastern campus extension is a design proposal based on `DESIGN.md` Chapter 2: university, library and practice court. The old gym is labeled as the lecture hall/battle practicum. No new character roles or story events were invented.
-- Accepted Cherrygrove green trees, Center and Mart; HGSS Violet houses with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
+- Accepted Cherrygrove green trees and Center; original Violet Mart inspired by the HGSS shop and sign; HGSS Violet houses with subtle Violet-only silhouette finishing; the Route 30 freshwater family with a Violet-specific bank; original Emerald boundary rock. New city-specific tile pools leave the accepted shared tilesets unchanged.
 - Eight readable signs authored with Poryscript 3.6.1. The existing east gate leads into the city and returns to Route 31 through its unchanged eastern exit.
 - A closed-door exterior for the other buildings. Approaches exist and collision is placed against the buildings; the interiors are not implemented yet.
 
 The former `VioletCityEntrance` stub is preserved as reference. Only the two western destination fields of `VioletEastGate` change. Its room, eastern Route 31 exits, and all existing map/warp IDs are retained.
 
-## Upper-story perspective completion — current
+## Original Poké Mart exterior — current
+
+The owner approved the university/lecture hall designs and requested a new Mart inspired by the original building and sign. This is original native pixel art: a cobalt-blue tiled roof with parallel sides and rounded corners, steel drip edge and fascia, recessed glass entrance and framed merchandise display. It uses the existing HGSS shop palette, with the cleaned projecting HGSS sign preserved pixel-for-pixel. The approved custom buildings are unchanged.
+
+The shop stays in its 80x64 source box, doorway (21,40), approach (21,41). Exactly 3,687 native pixels change within the Mart footprint. No other city pixels, collision/elevation/behavior/layer cells, scripts, events or warps change. The entrance remains closed pending its interior.
+
+Local ROM, native/Porymap equality and background walking/sign/gate/save checks pass, including explicit Mart doorway and sign-post collision probes. Native captures were inspected. Scenery uses **971 / 1,008 tiles**, leaving 37. No desktop emulator opened.
+
+[Mart before/after](evidence/mart-comparison.png) · [Native gameplay](evidence/mart-gameplay.png) · [Validation](evidence/mart-validation.json)
+
+## Previous upper-story perspective completion
 
 The owner asked whether the main roofs lean forward too much and pointed out that the clock tower and lecture hall upper story still used the old projection. Visual comparison to the imported HGSS house and Center supports keeping the main roof-over-wall balance; no exact camera angle is inferred from the raster artwork.
 

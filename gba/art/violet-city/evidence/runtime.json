@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "87ae12c31dc9d545abd838627cb1c8e78aa5ce6bae1283f983cd8f446e1db630",
+  "rom_sha256": "3fdcfbacb5f9daaaacea4b68dd48913b646761f034a9ddc9f3b5c62835a06888",
   "phases": [
     {
       "phase": "write",
@@ -8788,6 +8788,32 @@
           "map": 43,
           "x": 48,
           "y": 35,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 72,
+          "interaction": 0,
+          "mapsec": 221
+        },
+        {
+          "step": "mart-door-closed",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 21,
+          "y": 41,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 72,
+          "interaction": 0,
+          "mapsec": 221
+        },
+        {
+          "step": "mart-sign-post-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 25,
+          "y": 40,
           "frlg_layout": 0,
           "width": 80,
           "height": 72,
