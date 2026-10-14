@@ -1,0 +1,3 @@
+# Native palette files use JASC CRLF; do not report their format as trailing whitespace.
+gba/art/route32-hgss-blocks/**/*.pal whitespace=cr-at-eol
+gba/art/shared-building-art/*.pal whitespace=cr-at-eol
