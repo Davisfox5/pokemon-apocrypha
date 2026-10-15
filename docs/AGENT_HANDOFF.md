@@ -1,3 +1,7 @@
+## Current review: common Johto Centers and Marts
+
+Owner accepted the gate tree surrounds and asked to move to the other buildings. `gba/art/johto-common-review/service-buildings/` contains native current comparison sheets and a provenance catalog of 19 deduplicated current/historical variants. C01/C02 are the Cherrygrove/Violet Centers; C02 is recommended pending selection. M01 is the already-approved original Johto Mart; M02 is the older Cherrygrove shop. Preserve the existing M01 approval. This turn made no engine edits. Next: owner Center selection/refinements, then scoped integration with the established footprint, layer and collision checks.
+
 ## Latest: Route 36 approved gates, foreground trees and blocked rear gaps
 
 Engine commit `5bea9770ed752a9e7d8c763b64f2adb1c73300a9` on `codex/violet-city`. Approved G01a/G02 artwork is integrated unchanged; seven whole rear trees and six existing foreground crowns use the established Route 36 tree asset. Separate reusable RGBA plates live in `gba/art/route36/gate-surround/source`. The fronts overlap the gate bases; backs draw behind roofs. Forty-three formerly walkable cells at the gates are blocked, while the Violet threshold remains (75,20). All other maps/events/scripts and all pixels outside gate/tree areas are preserved.

@@ -4,7 +4,7 @@
     "G01a",
     "G02"
   ],
-  "status": "Gate artwork approved; Route 36 tree surrounds integrated and validated, awaiting visual review",
+  "status": "Gate artwork and Route 36 tree surrounds approved; proceed to other common buildings",
   "revision": "refinement-4",
   "owner_feedback": {
     "G01a": "Design is good; clean the edges.",
@@ -29,6 +29,7 @@
     "follow_up": "Route 36 is integrated with corrected tree layers and collision footprints. Other Johto maps await category review and scoped rollout. National Park and Alph destination interiors remain unimplemented.",
     "placement_preview": "refinement-4/map-preview/validation.json",
     "engine_commit": "5bea9770ed752a9e7d8c763b64f2adb1c73300a9",
-    "validation": "../../route36/gate-surround/evidence/structure.json"
+    "validation": "../../route36/gate-surround/evidence/structure.json",
+    "owner_review": "Owner accepted the tree surrounds and requested the next building category."
   }
 }

@@ -1,0 +1,450 @@
+{
+  "category": "Shared Johto service buildings",
+  "engine_commit": "5bea9770ed752a9e7d8c763b64f2adb1c73300a9",
+  "art_commit": "e6e31261532f41fa5351698c1421da64fef7d40c",
+  "approval": {
+    "Center": "Awaiting regional selection",
+    "Mart": "M01 already approved; preserve its design"
+  },
+  "coverage": {
+    "New Bark Town": {
+      "centers": [],
+      "marts": [],
+      "note": "No Center or Mart exterior in the scoped map sources."
+    },
+    "Route 29": {
+      "centers": [],
+      "marts": [],
+      "note": "No Center or Mart exterior in the scoped map sources."
+    },
+    "Cherrygrove City": {
+      "centers": [
+        "C01"
+      ],
+      "marts": [
+        "M02"
+      ]
+    },
+    "Route 30": {
+      "centers": [],
+      "marts": [],
+      "note": "No Center or Mart exterior in the scoped map sources."
+    },
+    "Route 31": {
+      "centers": [],
+      "marts": [],
+      "note": "No Center or Mart exterior in the scoped map sources."
+    },
+    "Violet City": {
+      "centers": [
+        "C02"
+      ],
+      "marts": [
+        "M01"
+      ]
+    },
+    "Route 36": {
+      "centers": [],
+      "marts": [],
+      "note": "No Center or Mart exterior in the scoped map sources."
+    }
+  },
+  "method": "Current assets sampled from decoded engine maps with their source alpha; earlier source images are unchanged. Identical tight RGBA images deduplicated with all source aliases recorded. All presentation uses integer nearest-neighbor scaling. No engine files edited. Historical cutouts retain their existing defects.",
+  "current_center_pixel_difference": 1226,
+  "credit": "HGSS-derived assets: Game Freak, Nintendo, Creatures / The Pokemon Company. M01 original project artwork. See source package provenance for older adaptations.",
+  "items": [
+    {
+      "id": "C01",
+      "title": "Cherrygrove Center",
+      "status": "Current",
+      "usage": "Cherrygrove City",
+      "note": "HGSS form with centered doorway.",
+      "sources": [
+        "cherrygrove-synthesis/refined/center.png",
+        "engine:CherrygroveCity [58,4]"
+      ],
+      "native_canvas": [
+        112,
+        96
+      ],
+      "visible_size": [
+        86,
+        83
+      ],
+      "rgba_sha256": "b9ed7f02dd0f1d54d9ab8a33c956da053f481e3d49e79c09390f8ce4ae6f29f5",
+      "asset": "assets/C01.png",
+      "context": "contexts/C01.png"
+    },
+    {
+      "id": "C02",
+      "title": "Violet Center",
+      "status": "Current; recommended",
+      "usage": "Violet City",
+      "note": "Same HGSS form, with softened exterior edges.",
+      "sources": [
+        "violet-city/source/materials/center.png",
+        "engine:VioletCity [46,50]"
+      ],
+      "native_canvas": [
+        112,
+        96
+      ],
+      "visible_size": [
+        86,
+        83
+      ],
+      "rgba_sha256": "f8367f6f85e47f70bd5305b23bb23d54512741922f6f5b75c93c7b43e7c271c4",
+      "asset": "assets/C02.png",
+      "context": "contexts/C02.png"
+    },
+    {
+      "id": "M01",
+      "title": "Shared Johto Mart",
+      "status": "Approved and locked",
+      "usage": "Violet City; approved for Johto reuse",
+      "note": "Original blue pavilion; single roof, small emblem, no lettering.",
+      "sources": [
+        "johto-mart/source/building.png",
+        "engine:VioletCity [19,35]"
+      ],
+      "native_canvas": [
+        112,
+        96
+      ],
+      "visible_size": [
+        104,
+        83
+      ],
+      "rgba_sha256": "27277e0963408e72bc91dfed039c29f3607a8bf12bf92fef87cbe59a98a4c6af",
+      "asset": "assets/M01.png",
+      "context": "contexts/M01.png"
+    },
+    {
+      "id": "M02",
+      "title": "Cherrygrove Mart",
+      "status": "Current older design",
+      "usage": "Cherrygrove City",
+      "note": "HGSS shop and projecting sign; predates the approved M01 pavilion.",
+      "sources": [
+        "cherrygrove-synthesis/refined/mart.png",
+        "cherrygrove-synthesis/references/B/mart_sign.png",
+        "engine:CherrygroveCity [50,6]"
+      ],
+      "native_canvas": [
+        112,
+        64
+      ],
+      "visible_size": [
+        92,
+        61
+      ],
+      "rgba_sha256": "135e35edbc16e951b66d27db2e4b395ee5ed9cfb8ad29160bca79489172fd208",
+      "asset": "assets/M02.png",
+      "context": "contexts/M02.png"
+    },
+    {
+      "id": "C03",
+      "title": "Earlier HGSS adaptation",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "claude-cherrygrove/source/center.png",
+        "cherrygrove-synthesis/references/C/center.png"
+      ],
+      "native_canvas": [
+        96,
+        96
+      ],
+      "visible_size": [
+        83,
+        82
+      ],
+      "rgba_sha256": "dc0be34bd288cdeb352a94cd70842a564d71bcf64a762a9973538c92de490504",
+      "asset": "assets/C03.png"
+    },
+    {
+      "id": "C04",
+      "title": "Cherrygrove reference B",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "cherrygrove-synthesis/references/B/center.png"
+      ],
+      "native_canvas": [
+        96,
+        96
+      ],
+      "visible_size": [
+        83,
+        82
+      ],
+      "rgba_sha256": "41a6ff95c654a39c6ecee61ea40eedd33cd616f229dad49b91b42c69c15e3f78",
+      "asset": "assets/C04.png"
+    },
+    {
+      "id": "C05",
+      "title": "Early Johto v1",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "johto-v1/native/center.png"
+      ],
+      "native_canvas": [
+        64,
+        64
+      ],
+      "visible_size": [
+        64,
+        64
+      ],
+      "rgba_sha256": "f9e720c90a0e0c419f42e73284dd04da7f9570eef642aab0c6c56e87011411d6",
+      "asset": "assets/C05.png"
+    },
+    {
+      "id": "C06",
+      "title": "Johto v2",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "johto-v2/native/center.png",
+        "johto-v3/native/center.png",
+        "johto-restart/native/center.png"
+      ],
+      "native_canvas": [
+        80,
+        80
+      ],
+      "visible_size": [
+        80,
+        78
+      ],
+      "rgba_sha256": "53bf07953fb6a347d44440b8a29133f78bc8c1eca13a9defd204cb2384e3ee39",
+      "asset": "assets/C06.png"
+    },
+    {
+      "id": "C07",
+      "title": "Johto v4 source cutout",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "johto-v4/prepared/center.png"
+      ],
+      "native_canvas": [
+        96,
+        96
+      ],
+      "visible_size": [
+        80,
+        83
+      ],
+      "rgba_sha256": "e7e7f3ba52adb7f9217bfe80205238631b4e38ca655bcee4255c028a61b13719",
+      "asset": "assets/C07.png"
+    },
+    {
+      "id": "C08",
+      "title": "Cherrygrove art study",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "cherrygrove-art-study-v1/native/center.png"
+      ],
+      "native_canvas": [
+        72,
+        64
+      ],
+      "visible_size": [
+        68,
+        61
+      ],
+      "rgba_sha256": "c4f6ec27f65fe589c1a63150d805cf38f353e5aaf6ba34acbb596bdb2d3a08ae",
+      "asset": "assets/C08.png"
+    },
+    {
+      "id": "M03",
+      "title": "Earlier HGSS adaptation",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "claude-cherrygrove/source/mart.png",
+        "cherrygrove-synthesis/references/C/mart.png"
+      ],
+      "native_canvas": [
+        80,
+        64
+      ],
+      "visible_size": [
+        65,
+        62
+      ],
+      "rgba_sha256": "4b1ef17ce12b5ecd0843b193bf2a1d33f8d83ca53202315975f5066811349b71",
+      "asset": "assets/M03.png"
+    },
+    {
+      "id": "M04",
+      "title": "Cherrygrove reference B",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "cherrygrove-synthesis/references/B/mart.png"
+      ],
+      "native_canvas": [
+        80,
+        64
+      ],
+      "visible_size": [
+        65,
+        62
+      ],
+      "rgba_sha256": "e1d80c291c7bd6b10a66f2c058aa61556b12265eb3b3f949b92b06590a7f15ad",
+      "asset": "assets/M04.png"
+    },
+    {
+      "id": "M05",
+      "title": "Johto v4 source cutout",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "johto-v4/prepared/mart.png"
+      ],
+      "native_canvas": [
+        96,
+        80
+      ],
+      "visible_size": [
+        90,
+        64
+      ],
+      "rgba_sha256": "b81a0e80b2149cb72a36ce2ba1ad9072dc405f05f62debce2555b25cb93ed8a1",
+      "asset": "assets/M05.png"
+    },
+    {
+      "id": "M06",
+      "title": "Johto restart",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "johto-restart/native/mart.png"
+      ],
+      "native_canvas": [
+        96,
+        80
+      ],
+      "visible_size": [
+        92,
+        80
+      ],
+      "rgba_sha256": "2c19d6ee8724d382413bbe8ed47ff856d51e9336c83be15ebbd08e23182dc5fe",
+      "asset": "assets/M06.png"
+    },
+    {
+      "id": "M07",
+      "title": "Cherrygrove art study",
+      "status": "Earlier saved artwork",
+      "usage": "Cherrygrove development history",
+      "note": "Reference only; not a new recommendation or approval.",
+      "sources": [
+        "cherrygrove-art-study-v1/native/mart.png"
+      ],
+      "native_canvas": [
+        64,
+        64
+      ],
+      "visible_size": [
+        62,
+        60
+      ],
+      "rgba_sha256": "9a305e6c170fb651a926982723f2f6dfb5fd37d403dd2377124d9e05585a4b4a",
+      "asset": "assets/M07.png"
+    },
+    {
+      "id": "M08",
+      "title": "First Violet shop",
+      "status": "Superseded",
+      "usage": "Violet City development history",
+      "note": "Historical reference only; M01 supersedes this design.",
+      "sources": [
+        "git:007cab4c:gba/art/violet-city/source/materials/mart.png"
+      ],
+      "native_canvas": [
+        80,
+        64
+      ],
+      "visible_size": [
+        65,
+        61
+      ],
+      "rgba_sha256": "925512182e947ef52a2899dff95514b393560843273f722ee47724cd331f62c1",
+      "asset": "assets/M08.png"
+    },
+    {
+      "id": "M09",
+      "title": "Violet tiled-roof shop",
+      "status": "Rejected roof and sign",
+      "usage": "Violet City development history",
+      "note": "Historical reference only; M01 supersedes this design.",
+      "sources": [
+        "git:8d65b407:gba/art/violet-city/source/materials/mart.png"
+      ],
+      "native_canvas": [
+        80,
+        64
+      ],
+      "visible_size": [
+        64,
+        62
+      ],
+      "rgba_sha256": "0116eef26d77231b8e9fc342f362f1c5676689a07b194d4fdf0abad0e9fda243",
+      "asset": "assets/M09.png"
+    },
+    {
+      "id": "M10",
+      "title": "Early shared Mart",
+      "status": "Superseded",
+      "usage": "Violet City development history",
+      "note": "Historical reference only; M01 supersedes this design.",
+      "sources": [
+        "git:3d5cda64:gba/art/violet-city/source/materials/mart.png"
+      ],
+      "native_canvas": [
+        80,
+        64
+      ],
+      "visible_size": [
+        64,
+        61
+      ],
+      "rgba_sha256": "15c022cd6f02522de002339a19d18e7dedfc596e3bd2ddede516d3ce1aae5617",
+      "asset": "assets/M10.png"
+    },
+    {
+      "id": "M11",
+      "title": "Split-roof pavilion",
+      "status": "Rejected depth and tower sign",
+      "usage": "Violet City development history",
+      "note": "Historical reference only; M01 supersedes this design.",
+      "sources": [
+        "git:1c8e61c3:gba/art/violet-city/source/materials/mart.png"
+      ],
+      "native_canvas": [
+        112,
+        96
+      ],
+      "visible_size": [
+        102,
+        89
+      ],
+      "rgba_sha256": "f76fe046090ab823ae501ca981f7233ba42b5cf150ad045de4a38b2e298d73c8",
+      "asset": "assets/M11.png"
+    }
+  ]
+}
