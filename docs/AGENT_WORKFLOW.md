@@ -16,6 +16,11 @@ Keep creative references and proposals separate from approved game assets.
 
 ## Maps
 
+Every model and instance must first read and apply the
+[required map reconstruction workflow](GBA_MAP_RECONSTRUCTION.md). It supplements
+existing Grok rules: trace original materials and traversal separately, square
+by square, and validate the actual rendered native tiles as well as collision.
+
 For each requested location, identify recognizable landmarks, what changed in
 ten years, the reason for each change, and the player's activities. Use approved
 regional architecture, vegetation, terrain, and palette identity. New layouts can
