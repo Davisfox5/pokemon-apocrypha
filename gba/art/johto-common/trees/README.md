@@ -1,6 +1,6 @@
-# Johto trees: transparent master review
+# Johto trees: approved transparent masters
 
-This is the next shared-asset category after the accepted service buildings.
+The owner approved the five-tree sheet after obsolete alternatives were removed.
 **Source artwork only; no map/ROM rollout is claimed.**
 
 Open [the comparison sheet](review/trees-over-terrain.png). Left to right:
@@ -30,7 +30,7 @@ outside this artwork change; no new interactions are implied.
 - `review/*-removed-mask.png`: white pixels mark only the removed ground.
 - `source-inventory.json`: matching aliases and retirement status.
 - `retired-assets.json`: 44 deleted obsolete asset files; the checker forbids restoration.
-- `locked-designs.json`: fixed hashes for the owner-selected large and Cut trees.
+- `locked-designs.json`: fixed hashes for all five owner-approved tree masters.
 - `source/T05-intact.png`: the single intact native Cut frame shown in the catalog.
   `T05.png` remains its complete four-frame native animation sheet, not four designs.
 

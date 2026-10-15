@@ -1,4 +1,4 @@
-## Current: transparent tree master review
+## Current: transparent tree masters approved
 
 Owner approved the service-building ground cleanup and requested the same rule
 for every reusable object over land, then asked to handle all tree types first.
@@ -6,15 +6,17 @@ AGENTS.md and the workflow now require transparent object foregrounds and separa
 terrain. See `gba/art/johto-common/trees/README.md` and `review/trees-over-terrain.png`.
 Owner then clarified that obsolete designs must be deleted, not offered as options.
 The pack now contains only the established Cherrygrove green/pink design, the two
-HGSS apricorn variants, and native Emerald Cut. T01/T02/T05 selections have locked
+HGSS apricorn variants, and native Emerald Cut. All five selections have locked
 hashes. Forty-four obsolete asset files were deleted; the retired-file check rejects
 restoration. Five active large-tree source copies now match the clean shared master.
 The Cut catalog shows the intact frame, with its four-frame animation preserved
 separately. All five masters export exactly to <=15 opaque colors plus transparent
 palette index zero. Source regeneration was updated to avoid alternate large trees.
 No ROM or native map was changed; engine remains
-`6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. Next is reviewing the remaining apricorn
-variants and native installation using independent destination terrain/palettes.
+`6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. The owner approved the complete sheet. Next shared category: jump ledges and their
+ends/joins; native tree installation still needs independent destination terrain
+and palettes. Item-ball source was checked: it already uses native transparent
+index zero and needs no background removal.
 Run `tools/gba/maps/johto_common/check_trees.py` before future tree changes.
 
 ## Latest: approved shared Johto service buildings and terrain layers

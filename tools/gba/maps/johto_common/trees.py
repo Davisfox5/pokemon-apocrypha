@@ -127,7 +127,7 @@ def build(engine):
             status='Already transparent; unchanged pixels',
             usage='Native Cut object used on Route 30 approach')
 
-    manifest=dict(status='Cleaned masters for owner review; maps not recompiled by this tool',
+    manifest=dict(status='Owner-approved tree artwork; native map rollout pending',
         map_scope=['New Bark Town','Route 29','Cherrygrove City','Route 30','Route 31','Violet City','Route 36'],
         engine_revision='6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf',
         credits='Original artwork Game Freak / Nintendo / Creatures; derived from preserved project references and engine sprites.',
