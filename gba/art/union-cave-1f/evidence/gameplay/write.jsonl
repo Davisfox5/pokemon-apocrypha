@@ -1,8 +1,12 @@
 {"step":"new-game","region":2,"group":80,"map":0,"x":40,"y":20,"frlg_layout":0,"width":80,"height":48,"interaction":0,"mapsec":214}
-{"step":"route32-cave-entry","region":2,"group":80,"map":46,"x":28,"y":20,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"route32-cave-entry","region":2,"group":80,"map":46,"x":28,"y":19,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"route32-cave-entry-position","region":2,"group":80,"map":46,"x":28,"y":19,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"route32-entry-floor","region":2,"group":80,"map":46,"x":28,"y":18,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
 {"step":"cave-to-route32","region":3,"group":80,"map":43,"x":14,"y":117,"frlg_layout":0,"width":32,"height":128,"interaction":0,"mapsec":223}
 {"step":"route32-clear-door","region":3,"group":80,"map":43,"x":14,"y":118,"frlg_layout":0,"width":32,"height":128,"interaction":0,"mapsec":223}
-{"step":"second-entrance-cell","region":2,"group":80,"map":46,"x":28,"y":20,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"second-entrance-cell","region":2,"group":80,"map":46,"x":28,"y":19,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"second-entrance-cell-position","region":2,"group":80,"map":46,"x":28,"y":19,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
+{"step":"second-entrance-cell-floor","region":2,"group":80,"map":46,"x":28,"y":18,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
 {"step":"northern-junction","region":2,"group":80,"map":46,"x":27,"y":18,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
 {"step":"northern-junction","region":2,"group":80,"map":46,"x":26,"y":18,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}
 {"step":"northern-junction","region":2,"group":80,"map":46,"x":25,"y":18,"frlg_layout":0,"width":34,"height":60,"interaction":0,"mapsec":224}

@@ -66,7 +66,7 @@ for y in range(60):
   es=[];ts=[]
   for q in range(4):
    i=(y*2+q//2)*68+x*2+q%2;k=keys[i];fk=forekeys[i];es.append(lookup[k]|(k[0]<<12));ts.append(lookup[fk]|(fk[0]<<12))
-  behavior=105 if (x,y)==(28,19) else (16 if plan[y,x]=='W' else 0);blocked=bool(foot_blocked[y,x]);attr=behavior|(0 if heads[y*16:y*16+16,x*16:x*16+16].any() else 0x1000);key=tuple(es+ts)+(attr,)
+  behavior=101 if (x,y)==(28,19) else (16 if plan[y,x]=='W' else 0);blocked=bool(foot_blocked[y,x]);attr=behavior|(0 if heads[y*16:y*16+16,x*16:x*16+16].any() else 0x1000);key=tuple(es+ts)+(attr,)
   if key not in mids:mids[key]=len(entries);entries.append(tuple(es+ts));attrs.append(attr)
   grid[y,x]=mids[key]|(0xc00 if blocked else 0)|0x3000
 print('Metatiles',len(entries));assert len(entries)<=1024

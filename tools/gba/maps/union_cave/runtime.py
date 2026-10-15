@@ -27,9 +27,9 @@ for tag,goal in goals:
 (E/'walk-plan.json').write_text(json.dumps(legs,indent=2)+'\n')
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 r.MAIN=start+r'''
- go(43,14,118);step(UP,1);frames(360,0);observe("route32-cave-entry");need(state[2]==46,"route32-cave-entry");shot("route32-cave-entry");
- go(46,28,18);step(DOWN,1);frames(360,0);at(43,14,117,"cave-to-route32");step(DOWN,1);at(43,14,118,"route32-clear-door");shot("route32-return");
- go(43,15,118);step(UP,1);frames(360,0);observe("second-entrance-cell");need(state[2]==46,"second-entrance-cell");
+ go(43,14,118);step(UP,1);frames(360,0);observe("route32-cave-entry");at(46,28,19,"route32-cave-entry-position");step(UP,1);at(46,28,18,"route32-entry-floor");shot("route32-cave-entry");
+ go(46,28,18);step(DOWN,2);frames(360,0);at(43,14,117,"cave-to-route32");step(DOWN,1);at(43,14,118,"route32-clear-door");shot("route32-return");
+ go(43,15,118);step(UP,1);frames(360,0);observe("second-entrance-cell");at(46,28,19,"second-entrance-cell-position");step(UP,1);at(46,28,18,"second-entrance-cell-floor");
  go(46,28,18);
 '''+ '\n'.join(steps)+r'''
  go(46,22,25);shot("stalagmite-overlap");step(DOWN,1);at(46,22,25,"stalagmite-root-blocks");shot("stalagmite-root-blocks");
