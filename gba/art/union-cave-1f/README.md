@@ -123,7 +123,8 @@ The guard recognizes the exact preserved `6abf7e84` baseline through its Git
 revision and `source/previous-6abf7e84/` fingerprints; the current fingerprint
 describes the committed refined result. `refine.py ENGINE FLOOR --check-only`
 checks owned source without authoring.
-Do not bypass a guard refusal over later owner changes. `compile_porymap_probe.py`
+Do not bypass a guard refusal over later owner changes. Validated glyph-order
+snapshots reproduce the committed tile IDs; new packing uses deterministic ties. `compile_porymap_probe.py`
 links the provided exporter against an already-built Porymap tree. `review_all.py`
 takes the engine and export directories; `check_art.py` takes engine, Porytiles
 binary and floor key. `publish_all.py` ties the final runtime runs to the engine

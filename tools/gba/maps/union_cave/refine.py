@@ -67,12 +67,17 @@ for bank in range(6):
  for k,n in sorted(((k,n) for k,n in counts.items() if k[0]==bank),key=lambda q:-q[1])[:12]:
   if k not in selected:selected.append(k)
 assert len(selected)<=1008
-for k in sorted(set(p2),key=lambda k:-counts[k]):
+for k in sorted(set(p2),key=lambda k:(-counts[k],k[0],k[1])):
  if len(selected)>=960:break
  if k not in selected:selected.append(k)
 for k,n in counts.most_common():
  if len(selected)>=1008:break
  if k not in selected:selected.append(k)
+canonical=S/'native-glyph-order.json'
+if canonical.exists():
+ saved=[(int(bank),bytes.fromhex(px)) for bank,px in json.loads(canonical.read_text())['glyphs']]
+ required=set([black]+fore+p0+p1)
+ if len(saved)==len(set(saved))==1008 and set(saved).issubset(counts) and required.issubset(saved):selected=saved
 lookup={k:i for i,k in enumerate(selected)};approximated=[]
 # Vectorized RGB comparison; exact foreground/boundary glyphs above never enter it.
 for bank in range(6):
