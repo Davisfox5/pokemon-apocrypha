@@ -16,6 +16,18 @@ Keep creative references and proposals separate from approved game assets.
 
 ## Maps
 
+All reusable land objects need transparent foregrounds, including large/small,
+Cut and apricorn trees. Keep grass, dirt, pavement, sand, rock and terrain-colored
+cast shadows outside the object master. Use `gba/art/johto-common/trees/catalog.json`
+for the cleaned tree review pack; it records source pixels, dimensions, anchors,
+frame order and exact indexed exports. These masters are not yet installed in maps.
+Do not reuse older ground-backed tree imports for new placements. Keep the full
+canopy and trunk, preserve Cut animation debris, and leave pink trees exclusive to
+Cherrygrove. Check silhouettes over grass, dirt and rock before compiling. At map
+integration, preserve the destination terrain behind crowns, collision/elevation,
+foreground priority and native object anchors; reserve suitable foliage palettes
+instead of mapping apricorn greens through the large-tree olive palette.
+
 For each requested location, identify recognizable landmarks, what changed in
 ten years, the reason for each change, and the player's activities. Use approved
 regional architecture, vegetation, terrain, and palette identity. New layouts can

@@ -1,0 +1,237 @@
+{
+  "status": "Cleaned masters for owner review; maps not recompiled by this tool",
+  "map_scope": [
+    "New Bark Town",
+    "Route 29",
+    "Cherrygrove City",
+    "Route 30",
+    "Route 31",
+    "Violet City",
+    "Route 36"
+  ],
+  "engine_revision": "6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf",
+  "credits": "Original artwork Game Freak / Nintendo / Creatures; derived from preserved project references and engine sprites.",
+  "rule": "Transparent object foreground over independently authored destination terrain. Palette index zero is transparent; never flatten donor ground into masters.",
+  "assets": [
+    {
+      "id": "T01",
+      "label": "Large green tree",
+      "size": [
+        32,
+        48
+      ],
+      "master": "source/T01.png",
+      "indexed": "source/T01.idx.png",
+      "opaque_colors": 11,
+      "removed_ground_pixels": 197,
+      "retained_pixels": 938,
+      "source_files": [
+        {
+          "path": "gba/art/cherrygrove-synthesis/refined/tree.png",
+          "sha256": "9069036f7fd0274963c7496b9aaf2896fb88967e84af096c96ea9d8feb203808"
+        }
+      ],
+      "cleanup": "Remove only the HGSS ground-shadow color (64,136,104); retain every other source pixel and original 32x48 canvas.",
+      "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a",
+      "restriction": "Johto shared",
+      "anchor": [
+        16,
+        43
+      ]
+    },
+    {
+      "id": "T02",
+      "label": "Pink tree / Cherrygrove only",
+      "size": [
+        32,
+        48
+      ],
+      "master": "source/T02.png",
+      "indexed": "source/T02.idx.png",
+      "opaque_colors": 11,
+      "removed_ground_pixels": 197,
+      "retained_pixels": 938,
+      "source_files": [
+        {
+          "path": "gba/art/cherrygrove-synthesis/refined/blossom.png",
+          "sha256": "c33a4a6817d44b792867cdbe6e01a8d117d1c349a2435ce281287891ba94bffe"
+        }
+      ],
+      "cleanup": "Remove only the HGSS ground-shadow color (64,136,104); retain every other source pixel and original 32x48 canvas.",
+      "sha256": "ec83b02f62d3d99fadb51601c158f05956dd2c72d74684ecfce35bbd0671be0e",
+      "restriction": "Cherrygrove only",
+      "anchor": [
+        16,
+        43
+      ]
+    },
+    {
+      "id": "T03",
+      "label": "Apricorn / green fruit",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/T03.png",
+      "indexed": "source/T03.idx.png",
+      "opaque_colors": 12,
+      "removed_ground_pixels": 62,
+      "retained_pixels": 262,
+      "source_files": [
+        {
+          "path": "gba/art/claude-routes/references/route29-hgss.png",
+          "sha256": "e9562b1e1a1aba6edb1cd024f46b44fd1c44aef78a92e48307c9eae5a39885fb"
+        }
+      ],
+      "cleanup": "Exact foliage, fruit and trunk color mask from original HGSS render; remove cast ground shadow; no resampling or recoloring.",
+      "sha256": "ac07f1640131d8caf4b0541b669bd2c580923af858d92c8fb5934574278ebeba",
+      "source_cells": [
+        20,
+        9,
+        3,
+        4
+      ],
+      "source_grid_origin": [
+        4,
+        5
+      ],
+      "crop_within_cells": [
+        10,
+        24,
+        42,
+        56
+      ],
+      "anchor": [
+        17,
+        25
+      ],
+      "note": "Green-fruit extraction extends the old 48px crop to preserve the bottom of the trunk."
+    },
+    {
+      "id": "T04",
+      "label": "Apricorn / pink fruit",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/T04.png",
+      "indexed": "source/T04.idx.png",
+      "opaque_colors": 12,
+      "removed_ground_pixels": 59,
+      "retained_pixels": 262,
+      "source_files": [
+        {
+          "path": "gba/art/claude-routes/references/route30-hgss.png",
+          "sha256": "af12f1338f8a2a2c33bef7b6c0c3ef27e67715ef79b3e091aae3bbaac096ab1d"
+        }
+      ],
+      "cleanup": "Exact foliage, fruit and trunk color mask from original HGSS render; remove cast ground shadow; no resampling or recoloring.",
+      "sha256": "62e49281dcbe3a71d715c3ea9eb8809877fffb8ac2c242e9f7c51de416a83850",
+      "source_cells": [
+        20,
+        4,
+        3,
+        2
+      ],
+      "source_grid_origin": [
+        6,
+        4
+      ],
+      "crop_within_cells": [
+        8,
+        0,
+        40,
+        32
+      ],
+      "anchor": [
+        17,
+        29
+      ],
+      "note": "Replaces damaged olive-palette conversion; native placement needs separate palette allocation."
+    },
+    {
+      "id": "T05",
+      "label": "Cut tree / Emerald",
+      "size": [
+        64,
+        16
+      ],
+      "master": "source/T05.png",
+      "indexed": "source/T05.idx.png",
+      "opaque_colors": 7,
+      "removed_ground_pixels": 0,
+      "retained_pixels": 419,
+      "source_files": [
+        {
+          "engine_path": "graphics/object_events/pics/misc/cuttable_tree.png",
+          "sha256": "7777b5b630cb9a430d1313e6d9603a6e2e4829c5954f08dc1f11b4a0a4f5eac1"
+        }
+      ],
+      "cleanup": "Preserve existing palette-index-zero transparency and every animation pixel.",
+      "sha256": "737f1a45101cb9dd936fecef9c1d65c83311bd9e73d48bac2682bedcfb3d2a03",
+      "frames": 4,
+      "frame_size": [
+        16,
+        16
+      ],
+      "status": "Already transparent; unchanged pixels",
+      "usage": "Native Cut object used on Route 30 approach"
+    },
+    {
+      "id": "T06",
+      "label": "Small apricorn / engine sprite",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/T06.png",
+      "indexed": "source/T06.idx.png",
+      "opaque_colors": 6,
+      "removed_ground_pixels": 0,
+      "retained_pixels": 194,
+      "source_files": [
+        {
+          "engine_path": "graphics/object_events/pics/misc/apricorn_tree.png",
+          "sha256": "b231bd4dec027304b6b0c7b758e9cc76e76830ab06d6cf1724a789d1a2bfaaa1"
+        }
+      ],
+      "cleanup": "Preserve existing palette-index-zero transparency and every animation pixel.",
+      "sha256": "8c32108c66ceb061168f974934e4c767d151c82db49685781523e43990135c36",
+      "frames": 1,
+      "frame_size": [
+        16,
+        16
+      ],
+      "status": "Already transparent; unchanged pixels",
+      "usage": "Alternative from engine; no Johto placement confirmed"
+    },
+    {
+      "id": "T07",
+      "label": "Cut tree / FRLG alternative",
+      "size": [
+        64,
+        16
+      ],
+      "master": "source/T07.png",
+      "indexed": "source/T07.idx.png",
+      "opaque_colors": 8,
+      "removed_ground_pixels": 0,
+      "retained_pixels": 446,
+      "source_files": [
+        {
+          "engine_path": "graphics/object_events/pics/misc/cuttable_tree_frlg.png",
+          "sha256": "819545f25316a679f4c1c5697339a3bc0dcf2722a612978acd7cc6bd9f2e0dac"
+        }
+      ],
+      "cleanup": "Preserve existing palette-index-zero transparency and every animation pixel.",
+      "sha256": "9eed95d1eb14c68cde4bebe0be09d5a6081c97eef49858b2b471556936e7a061",
+      "frames": 4,
+      "frame_size": [
+        16,
+        16
+      ],
+      "status": "Already transparent; unchanged pixels",
+      "usage": "Alternative from engine; no Johto placement confirmed"
+    }
+  ]
+}

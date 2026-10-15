@@ -33,6 +33,15 @@
   Automate or perform it. Make routine reversible technical choices independently.
 - Use existing tools, source formats, scripts, and narrow adapters first. Build a
   new editor only when a demonstrated recurring problem justifies it.
+- Every reusable object placed over land must have a transparent background at
+  all times in its source artwork and foreground tiles. This applies to buildings,
+  all trees (large, small, cuttable and apricorn), props and other terrain-spanning
+  objects. Never include donor grass, dirt, sand, pavement or rock-face patches in
+  the object. Author terrain beneath it independently and match adjacent materials
+  and transitions. Preserve the object's complete silhouette, trunk and details;
+  keep terrain-colored ground shadows separate from the reusable object. Native
+  foreground transparency must reveal the actual destination terrain. A constrained
+  animation composite must use that same terrain while its source remains transparent.
 - Reuse owner-approved regional building artwork across cities. Use the shared
   master assets and approved modules; do not redraw, recrop, recolor, or invent
   a replacement for each map. Keep local terrain and foreground/background trees

@@ -1,0 +1,189 @@
+[
+  {
+    "file": "gba/art/cherrygrove-synthesis/refined/blossom.png",
+    "aliases": [
+      "gba/art/cherrygrove-synthesis/refined/blossom.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": "T02",
+    "status": "Use cleaned common master for future placement"
+  },
+  {
+    "file": "gba/art/cherrygrove-synthesis/refined/tree.png",
+    "aliases": [
+      "gba/art/cherrygrove-synthesis/refined/tree.png",
+      "gba/art/route30-hgss-blocks/source/materials/tree.png",
+      "gba/art/route36/source/materials/tree.png",
+      "gba/art/violet-city/source/materials/tree.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": "T01",
+    "status": "Use cleaned common master for future placement"
+  },
+  {
+    "file": "gba/art/johto-native-refinement/native/apricorn.png",
+    "aliases": [
+      "gba/art/johto-native-refinement/native/apricorn.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-native-refinement/native/blossom.png",
+    "aliases": [
+      "gba/art/johto-native-refinement/native/blossom.png",
+      "gba/art/johto-native-refinement/native/tree.png",
+      "gba/art/claude-cherrygrove/source/tree.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/route30-hgss-blocks/source/materials/apricorn.png",
+    "aliases": [
+      "gba/art/route30-hgss-blocks/source/materials/apricorn.png",
+      "gba/art/route36/source/materials/apricorn.png"
+    ],
+    "size": [
+      16,
+      32
+    ],
+    "replacement_master": "T04",
+    "status": "Use cleaned common master for future placement"
+  },
+  {
+    "file": "gba/art/johto-polish/native/apricorn-gba.png",
+    "aliases": [
+      "gba/art/johto-polish/native/apricorn-gba.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-polish/native/apricorn-source.png",
+    "aliases": [
+      "gba/art/johto-polish/native/apricorn-source.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-cohesion/native/apricorn.png",
+    "aliases": [
+      "gba/art/johto-cohesion/native/apricorn.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-v1/native/tree.png",
+    "aliases": [
+      "gba/art/johto-v1/native/tree.png",
+      "gba/art/johto-v2/native/tree.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-v3/native/tree.png",
+    "aliases": [
+      "gba/art/johto-v3/native/tree.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/johto-restart/native/tree.png",
+    "aliases": [
+      "gba/art/johto-restart/native/tree.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/claude-cherrygrove/source/blossom.idx.png",
+    "aliases": [
+      "gba/art/claude-cherrygrove/source/blossom.idx.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/claude-cherrygrove/source/blossom.png",
+    "aliases": [
+      "gba/art/claude-cherrygrove/source/blossom.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/claude-cherrygrove/source/tree.idx.png",
+    "aliases": [
+      "gba/art/claude-cherrygrove/source/tree.idx.png"
+    ],
+    "size": [
+      32,
+      48
+    ],
+    "replacement_master": null,
+    "status": "Historical variant; preserved as reference, not a shared master"
+  },
+  {
+    "file": "gba/art/route30-hgss-blocks/source/native-cut-tree.png",
+    "aliases": [
+      "gba/art/route30-hgss-blocks/source/native-cut-tree.png"
+    ],
+    "size": [
+      16,
+      16
+    ],
+    "replacement_master": "T05",
+    "status": "Use cleaned common master for future placement"
+  }
+]

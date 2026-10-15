@@ -1,4 +1,20 @@
-## Current: approved shared Johto service buildings and terrain layers
+## Current: transparent tree master review
+
+Owner approved the service-building ground cleanup and requested the same rule
+for every reusable object over land, then asked to handle all tree types first.
+AGENTS.md and the workflow now require transparent object foregrounds and separate
+terrain. See `gba/art/johto-common/trees/README.md` and `review/trees-over-terrain.png`.
+Seven tree families are collected: shared green/pink, two complete HGSS apricorn
+variants, native small apricorn, Emerald Cut and FRLG Cut (all animation frames).
+Four source masters had terrain-colored shadow pixels removed. Three native sets
+were already transparent. All retain source RGB and export exactly to <=15 opaque
+colors plus transparent palette index zero. No ROM or native map was changed;
+engine remains `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. Next is tree review and
+native installation using independent destination ground and appropriate palettes.
+Do not regenerate maps with their older, ground-backed tree imports. Source donors
+and previous snapshots are preserved as provenance, not new placement masters.
+
+## Latest: approved shared Johto service buildings and terrain layers
 
 Engine `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf` on `codex/violet-city`. Owner selected Center C06 and approved
 reusing the shared Violet Mart in Cherrygrove, then required transparent buildings
