@@ -1,0 +1,58 @@
+{
+  "G01a": {
+    "colors": 15,
+    "size": [
+      112,
+      128
+    ],
+    "changed_pixels": 0,
+    "opaque_pixels_added": 0,
+    "main_roof_preserved": true,
+    "identical_to_refinement_2": true
+  },
+  "G02": {
+    "colors": 15,
+    "size": [
+      112,
+      112
+    ],
+    "changed_pixels": 604,
+    "opaque_pixels_added": 0,
+    "main_roof_preserved": true,
+    "alpha_unchanged": true,
+    "non_stone_pixels_unchanged": true,
+    "geometry_unchanged": true,
+    "stone_palette": [
+      [
+        144,
+        144,
+        144
+      ],
+      [
+        248,
+        248,
+        248
+      ],
+      [
+        248,
+        248,
+        248
+      ]
+    ],
+    "black_stone_pixels_remaining": 0
+  },
+  "native_compile": {
+    "compiler": "Porytiles legacy",
+    "rgba_pixel_errors": 0,
+    "metatiles": 192,
+    "stored_tile_slots": 224,
+    "bank_ids": [
+      0,
+      1,
+      2
+    ],
+    "mirrored_side_gate_verified": true,
+    "game_maps_modified": false,
+    "runtime_tested": false
+  }
+}

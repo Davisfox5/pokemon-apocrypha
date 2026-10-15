@@ -5,21 +5,21 @@
     "G02"
   ],
   "status": "Revised artwork awaiting owner review; not yet a locked regional standard",
-  "revision": "refinement-2",
+  "revision": "refinement-3",
   "owner_feedback": {
     "G01a": "Design is good; clean the edges.",
-    "G02": "Further smooth awning and back; refine top and underside of stairs and eliminate white-space gaps."
+    "G02": "Too much black; use gray and white only for the entrance and stairs."
   },
   "previews": {
-    "revised": "refinement-2/G02-close-up.png",
-    "comparison": "refinement-2/before-after.png",
-    "transparency_check": "refinement-2/background-check.png"
+    "revised": "refinement-3/G02-close-up.png",
+    "comparison": "refinement-3/before-after.png",
+    "transparency_check": "refinement-3/background-check.png"
   },
-  "source_tool": "tools/gba/maps/johto_common_review/refine_gate_finish.py",
-  "native_check": "refinement-2/validation.json",
+  "source_tool": "tools/gba/maps/johto_common_review/refine_gate_grays.py",
+  "native_check": "refinement-3/validation.json",
   "provenance": {
     "front": "Preserved G01a native art with explicit verge and corner repairs. Roof and central facade pixels preserved.",
-    "side": "HGSS Violet source crop (0,416)-(112,528). Lower teal foundation reconstructed from the exposed fragments between foreground crowns. Side canopy and stairs use separate material masks; main native roof pixels preserved. Second pass fills the porch/landing gaps, rebuilds continuous upper and underside stair surfaces, smooths the canopy rim and rear roof/wall corners. Main roof interior and facade remain; G01a is unchanged from refinement-1."
+    "side": "HGSS Violet source crop (0,416)-(112,528). Lower teal foundation reconstructed from the exposed fragments between foreground crowns. Side canopy and stairs use separate material masks; main native roof pixels preserved. Second pass fills the porch/landing gaps, rebuilds continuous upper and underside stair surfaces, smooths the canopy rim and rear roof/wall corners. Main roof interior and facade remain; G01a is unchanged from refinement-1. Third pass replaces the entrance/stair black with neutral gray and white only. Geometry, transparency, awning, main building and G01a are unchanged from refinement-2."
   },
   "integration": {
     "engine_changed": false,
