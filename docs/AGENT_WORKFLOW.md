@@ -30,6 +30,13 @@ integration, preserve the destination terrain behind crowns, collision/elevation
 foreground priority and native object anchors; reserve suitable foliage palettes
 instead of mapping apricorn greens through the large-tree olive palette.
 
+The additional scenery cleanup pack is `gba/art/johto-common/scenery/catalog.json`.
+Use its `source/` foregrounds for approved placements; `inputs/` is before-cleanup
+evidence only. Review ledge ends/joins and grass neighbor masks as assembled patches,
+not just isolated cells. Native item/rock exports retain original animation frames
+and palette indices. Keep their existing object behavior and shared palette binding.
+Run `tools/gba/maps/johto_common/check_scenery.py` after editing those assets.
+
 For each requested location, identify recognizable landmarks, what changed in
 ten years, the reason for each change, and the player's activities. Use approved
 regional architecture, vegetation, terrain, and palette identity. New layouts can

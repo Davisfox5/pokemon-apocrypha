@@ -1,4 +1,23 @@
-## Current: transparent tree masters approved
+## Current: scenery foreground cleanup ready for review
+
+Following approval of all five tree masters, the owner requested background cleanup
+for ledges and other scenery. See `gba/art/johto-common/scenery/README.md` and
+`review.html`: 51 pieces, grouped into ledges, stairs, props, flowers, all 16 tall-grass
+neighbor masks, water scenery and native item/rock sprites. Twenty-eight pieces had
+terrain separated; others were already transparent. Current Cherrygrove/New Bark
+props were decoded directly from pinned engine art rather than older references.
+Removed cyan railing fringes, warm-ledge ground shadows, flat tall-grass backing,
+mailbox neighbor residue and the Cherrygrove sign's gray ground patch. Retained RGB,
+indexed round trips, blade pixels and native animation/index assignments pass.
+Joined module examples and before/after category sheets are included.
+
+No map/ROM changes. Engine remains `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`.
+No emulator opened. Current ledge palette families are shown separately for review;
+no new regional selection is implied. No obsolete props were reintroduced. Next:
+owner review of the cleaned scenery, then native installation with destination
+terrain, collision/elevation, foreground priority and animation checks preserved.
+
+## Latest: transparent tree masters approved
 
 Owner approved the service-building ground cleanup and requested the same rule
 for every reusable object over land, then asked to handle all tree types first.

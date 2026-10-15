@@ -1,0 +1,1278 @@
+{
+  "status": "Source foreground cleanup for review; no native maps or ROM changed",
+  "engine_revision": "6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf",
+  "map_scope": [
+    "New Bark",
+    "Route 29",
+    "Cherrygrove",
+    "Route 30",
+    "Route 31",
+    "Violet",
+    "Route 36"
+  ],
+  "absent_categories": [
+    "No standalone reeds, lamps or bushes confirmed in these current maps; no historical substitutes added."
+  ],
+  "excluded": [
+    "Shoreline and path transitions: terrain modules, not standalone props.",
+    "Structural cliff faces and bridge decking retain their solid surfaces.",
+    "Unused ledge-0/1 draft exports."
+  ],
+  "credits": "Game Freak / Nintendo / Creatures originals; existing project adaptations retained.",
+  "assets": [
+    {
+      "id": "L01",
+      "label": "Emerald ledge / left",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L01.png",
+      "sha256": "0a8bbb9404e7464b678b5ba26b93ba7ebb6099fe777c031bd10e7d7d28420565",
+      "input": "inputs/L01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/ledge-left.png",
+        "sha256": "2bc0294b864c00c8a8c9aa6a96fbd8798421e424dea1feb5e0e593af1cf84c57"
+      },
+      "placement": "Current Route 30 set. Left, middle, right form one continuous ledge."
+    },
+    {
+      "id": "L02",
+      "label": "Emerald ledge / middle",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L02.png",
+      "sha256": "7422c3f6e612af29648975ea3497a7f3d9e5f1782a42e8d8cd3db71aabbada9d",
+      "input": "inputs/L02.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/ledge-middle.png",
+        "sha256": "06b5bbb8a65690450528c7bf02d6116eef1f5558aeb490c50be0c624a2cc1f6a"
+      },
+      "placement": "Current Route 30 set. Left, middle, right form one continuous ledge."
+    },
+    {
+      "id": "L03",
+      "label": "Emerald ledge / right",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L03.png",
+      "sha256": "cd5a8cdf5aeee615f31bcfc13fd4ae8f6bcc80ff769ae7c9c1b2b33a16c7bafa",
+      "input": "inputs/L03.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/ledge-right.png",
+        "sha256": "01b5b5f8e51646510d88daf9d07c4bcabd6be2a54e09060193eac6160292d25b"
+      },
+      "placement": "Current Route 30 set. Left, middle, right form one continuous ledge."
+    },
+    {
+      "id": "L04",
+      "label": "Violet ledge",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L04.png",
+      "sha256": "2762cb19b2a877feab9e37545425e786bd67569194d0d449e6ea94a874a8cdd9",
+      "input": "inputs/L04.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/ledge.png",
+        "sha256": "2762cb19b2a877feab9e37545425e786bd67569194d0d449e6ea94a874a8cdd9"
+      }
+    },
+    {
+      "id": "L11",
+      "label": "Warm Johto ledge / l",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L11.png",
+      "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42",
+      "input": "inputs/L11.png",
+      "removed_background_pixels": 14,
+      "opaque_colors": 4,
+      "method": "Remove the explicit terrain-colored contact shadow; preserve all stone pixels.",
+      "provenance": {
+        "generator": "tools/gba/maps/johto_synthesis/terrain.py",
+        "source_metatile": 213
+      },
+      "placement": "Existing Route 29/31 native Emerald ledge family; selection not standardized yet."
+    },
+    {
+      "id": "L12",
+      "label": "Warm Johto ledge / a",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L12.png",
+      "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f",
+      "input": "inputs/L12.png",
+      "removed_background_pixels": 4,
+      "opaque_colors": 4,
+      "method": "Remove the explicit terrain-colored contact shadow; preserve all stone pixels.",
+      "provenance": {
+        "generator": "tools/gba/maps/johto_synthesis/terrain.py",
+        "source_metatile": 135
+      },
+      "placement": "Existing Route 29/31 native Emerald ledge family; selection not standardized yet."
+    },
+    {
+      "id": "L13",
+      "label": "Warm Johto ledge / r",
+      "category": "ledges",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/L13.png",
+      "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0",
+      "input": "inputs/L13.png",
+      "removed_background_pixels": 14,
+      "opaque_colors": 4,
+      "method": "Remove the explicit terrain-colored contact shadow; preserve all stone pixels.",
+      "provenance": {
+        "generator": "tools/gba/maps/johto_synthesis/terrain.py",
+        "source_metatile": 214
+      },
+      "placement": "Existing Route 29/31 native Emerald ledge family; selection not standardized yet."
+    },
+    {
+      "id": "S01",
+      "label": "North/south steps / left",
+      "category": "stairs",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/S01.png",
+      "sha256": "04913494c6fed12c9ec30ba5c20a559e4f428cc416a10f20cbc7c44b351f3f17",
+      "input": "inputs/S01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/step-left.png",
+        "sha256": "7993fdef7b6d1a69c91b137094e47892f0d99a437e5eedadc096edc5df22b30c"
+      }
+    },
+    {
+      "id": "S02",
+      "label": "North/south steps / middle",
+      "category": "stairs",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/S02.png",
+      "sha256": "9a14fd062cf30b5beb12f67892f2f2f5cb9d369d7ec919843eb7ee7b79b32aeb",
+      "input": "inputs/S02.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 4,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/step-middle.png",
+        "sha256": "12dd72d4164fa6bce170dec585e327cad353e2297708f2560699841f5bb17160"
+      }
+    },
+    {
+      "id": "S03",
+      "label": "North/south steps / right",
+      "category": "stairs",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/S03.png",
+      "sha256": "ae06e1d00c3c0ef9740c83c0d36c6481a58de4d19f831f4ddc4462acd5ac8234",
+      "input": "inputs/S03.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/step-right.png",
+        "sha256": "dbb4ba1c3daa26642e76185d9aee80e4cc925ffa4759bb1454a991b12ce18423"
+      }
+    },
+    {
+      "id": "S04",
+      "label": "East/west stairs / west",
+      "category": "stairs",
+      "size": [
+        16,
+        48
+      ],
+      "master": "source/S04.png",
+      "sha256": "cb60bcbedbc71c0881afd3dd977ec95a6faf1c686ec990e088133755b5cd83df",
+      "input": "inputs/S04.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 14,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route36/source/materials/stair-west.png",
+        "sha256": "cb60bcbedbc71c0881afd3dd977ec95a6faf1c686ec990e088133755b5cd83df"
+      }
+    },
+    {
+      "id": "S05",
+      "label": "East/west stairs / east",
+      "category": "stairs",
+      "size": [
+        16,
+        48
+      ],
+      "master": "source/S05.png",
+      "sha256": "6f94651961bb758cfd0b6c543427afdb10e2692f8810188926be9669e4dc9f5c",
+      "input": "inputs/S05.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 14,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route36/source/materials/stair-east.png",
+        "sha256": "6f94651961bb758cfd0b6c543427afdb10e2692f8810188926be9669e4dc9f5c"
+      }
+    },
+    {
+      "id": "P01",
+      "label": "Violet sign",
+      "category": "props",
+      "size": [
+        16,
+        24
+      ],
+      "master": "source/P01.png",
+      "sha256": "1bb4bf19ea0c5db9994759bc8a7489f4b63b94db99db83ed1cf5ac3a44b3ee9d",
+      "input": "inputs/P01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/sign.png",
+        "sha256": "1bb4bf19ea0c5db9994759bc8a7489f4b63b94db99db83ed1cf5ac3a44b3ee9d"
+      }
+    },
+    {
+      "id": "P02",
+      "label": "Violet bridge post",
+      "category": "props",
+      "size": [
+        16,
+        32
+      ],
+      "master": "source/P02.png",
+      "sha256": "ad6be61ed36e3a131d82663051bba347665f6ac66c1228a9b1cf572066424b58",
+      "input": "inputs/P02.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 4,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/bridge_post.png",
+        "sha256": "ad6be61ed36e3a131d82663051bba347665f6ac66c1228a9b1cf572066424b58"
+      }
+    },
+    {
+      "id": "P03",
+      "label": "Violet rail left",
+      "category": "props",
+      "size": [
+        8,
+        32
+      ],
+      "master": "source/P03.png",
+      "sha256": "d68d34b9392412ea14a46319ff1269d57633062e1414953507d132c43a60484a",
+      "input": "inputs/P03.png",
+      "removed_background_pixels": 10,
+      "opaque_colors": 3,
+      "method": "Remove exact cyan donor-water pixels; keep every neutral stone/metal pixel.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/rail_left.png",
+        "sha256": "74a88927b63957b5423019ace14ba1ae73ccd1c4ee445ced1e095ea7680015ce"
+      }
+    },
+    {
+      "id": "P04",
+      "label": "Violet rail right",
+      "category": "props",
+      "size": [
+        8,
+        32
+      ],
+      "master": "source/P04.png",
+      "sha256": "9355ce1c6e07ee7b8b4c37df8d37483497bae091c2087a26d0375545431334d5",
+      "input": "inputs/P04.png",
+      "removed_background_pixels": 10,
+      "opaque_colors": 3,
+      "method": "Remove exact cyan donor-water pixels; keep every neutral stone/metal pixel.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/rail_right.png",
+        "sha256": "4e8343b561f69627a8bb1486fa028b84d2292c27b0c25d3c4737c7c2613a988d"
+      }
+    },
+    {
+      "id": "P05",
+      "label": "Route sign",
+      "category": "props",
+      "size": [
+        16,
+        32
+      ],
+      "master": "source/P05.png",
+      "sha256": "2163e82f8e516caac4887c72446f513009a226a4de3049162e34cf8fbe6587ce",
+      "input": "inputs/P05.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 3,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/sign.png",
+        "sha256": "d4ec61f3e433dd063165f324ee1fc3c40de12bacdf67c528a7e22652a5ce3f04"
+      }
+    },
+    {
+      "id": "W01",
+      "label": "Violet lily pads",
+      "category": "water",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/W01.png",
+      "sha256": "f84de86e57adf1a5e3d2720a1a68f2dd6a92fd5a95300ed338c7a749a0ea72ba",
+      "input": "inputs/W01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 3,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/violet-city/source/materials/lily_pads.png",
+        "sha256": "f84de86e57adf1a5e3d2720a1a68f2dd6a92fd5a95300ed338c7a749a0ea72ba"
+      }
+    },
+    {
+      "id": "F01",
+      "label": "Route flowers / animation 0",
+      "category": "plants",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/F01.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a",
+      "input": "inputs/F01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/flower-0.png",
+        "sha256": "4aab2c90b1eeb68c177ab3b81a3dc4378c5355f506e256493ee0462190b4a6ec"
+      },
+      "animation_frame": 0,
+      "animation_family": "route flowers"
+    },
+    {
+      "id": "F02",
+      "label": "Route flowers / animation 1",
+      "category": "plants",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/F02.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a",
+      "input": "inputs/F02.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/flower-1.png",
+        "sha256": "4aab2c90b1eeb68c177ab3b81a3dc4378c5355f506e256493ee0462190b4a6ec"
+      },
+      "animation_frame": 1,
+      "animation_family": "route flowers"
+    },
+    {
+      "id": "F03",
+      "label": "Route flowers / animation 2",
+      "category": "plants",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/F03.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a",
+      "input": "inputs/F03.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/flower-2.png",
+        "sha256": "4aab2c90b1eeb68c177ab3b81a3dc4378c5355f506e256493ee0462190b4a6ec"
+      },
+      "animation_frame": 2,
+      "animation_family": "route flowers"
+    },
+    {
+      "id": "F04",
+      "label": "Route flowers / animation 3",
+      "category": "plants",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/F04.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a",
+      "input": "inputs/F04.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Existing foreground already transparent; native pixels retained.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/flower-3.png",
+        "sha256": "4aab2c90b1eeb68c177ab3b81a3dc4378c5355f506e256493ee0462190b4a6ec"
+      },
+      "animation_frame": 3,
+      "animation_family": "route flowers"
+    },
+    {
+      "id": "G00",
+      "label": "Tall grass / 0000",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G00.png",
+      "sha256": "750de97d2592803ee830a621e7c3b3575ff33cbd94feef897c4260a6002a573c",
+      "input": "inputs/G00.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0000.png",
+        "sha256": "54b9ce15c49a7c08bd0e15d934f3e4617bc2c03f8ff39dc3fdcc7b9bf7ed89e7"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0000",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0000.png"
+      ]
+    },
+    {
+      "id": "G01",
+      "label": "Tall grass / 0001",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G01.png",
+      "sha256": "7ebe66e7212a4d9e0d120896559f4c1163c134e264adc3d6e5df7894b568ebba",
+      "input": "inputs/G01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0001.png",
+        "sha256": "c42fc286db669d6b6d2e130e5991b27d27e2fbffcb2819524da86326634d819e"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0001",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0001.png"
+      ]
+    },
+    {
+      "id": "G02",
+      "label": "Tall grass / 0010",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G02.png",
+      "sha256": "b50cd6ffa9cd7443ee410f41ac3d14b94c101518398e9332b88fc85e1abf9f54",
+      "input": "inputs/G02.png",
+      "removed_background_pixels": 1,
+      "opaque_colors": 5,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0010.png",
+        "sha256": "3e3917e3b5dc7214e8548fd1604e1dd8341120825ef2aebd29c290d7079b39f7"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0010",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0010.png"
+      ]
+    },
+    {
+      "id": "G03",
+      "label": "Tall grass / 0011",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G03.png",
+      "sha256": "50cd22b1914ffdb820332c8520769f3e4df59fd1ce0ebca20eb67669f25dedf2",
+      "input": "inputs/G03.png",
+      "removed_background_pixels": 1,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0011.png",
+        "sha256": "81565db65ac6e681b790ba853336e552d57703646ee1fae8d6ab1659fbfe0f1c"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0011",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0011.png"
+      ]
+    },
+    {
+      "id": "G04",
+      "label": "Tall grass / 0100",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G04.png",
+      "sha256": "20d3a8eeea15a5918c43e1416c93f7186438f5e7528a5fee189c62110f04df67",
+      "input": "inputs/G04.png",
+      "removed_background_pixels": 2,
+      "opaque_colors": 5,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0100.png",
+        "sha256": "462c15be4ea64d4ef5c176097224a7c36738429d950a4bd07cbec5de17e56885"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0100",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0100.png"
+      ]
+    },
+    {
+      "id": "G05",
+      "label": "Tall grass / 0101",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G05.png",
+      "sha256": "17f7447427c435d01c5d2d142586f034ad10e4621d02d61c706fc5dddc3762cb",
+      "input": "inputs/G05.png",
+      "removed_background_pixels": 9,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0101.png",
+        "sha256": "1ff615995afe500150152f0c266f6a4173150ee8b01342706c6641d7ccc25b83"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0101",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0101.png"
+      ]
+    },
+    {
+      "id": "G06",
+      "label": "Tall grass / 0110",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G06.png",
+      "sha256": "8b1fdf022d2a96ae5d54b74be3393ca2378a0fcc79672d4b380e0a8cb91328ba",
+      "input": "inputs/G06.png",
+      "removed_background_pixels": 12,
+      "opaque_colors": 5,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0110.png",
+        "sha256": "ab20ae40979b775df2fd09b23973b37607741509306ac0b375deb29664e34456"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0110",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0110.png"
+      ]
+    },
+    {
+      "id": "G07",
+      "label": "Tall grass / 0111",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G07.png",
+      "sha256": "8a386a86b2834466e86746d8c55669eb6364951f4e10db9009ceaccafca64527",
+      "input": "inputs/G07.png",
+      "removed_background_pixels": 19,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-0111.png",
+        "sha256": "49a0a79e2e60e29d103a38c35c625ee927658e1a84cdcdc892b3dedb479991a7"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "0111",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-0111.png"
+      ]
+    },
+    {
+      "id": "G08",
+      "label": "Tall grass / 1000",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G08.png",
+      "sha256": "cdfbba46125b5e9875b5d9c17319e512ec631045ef63a994d9735b9fae514740",
+      "input": "inputs/G08.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1000.png",
+        "sha256": "33939272a195df31440f44d5ce0122dd9577e20d186ade49ad66b617be95e8ca"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1000",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1000.png"
+      ]
+    },
+    {
+      "id": "G09",
+      "label": "Tall grass / 1001",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G09.png",
+      "sha256": "18e698793f836573fccf414f6327274554261dcf60074bcb68daf68caa12b6fb",
+      "input": "inputs/G09.png",
+      "removed_background_pixels": 6,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1001.png",
+        "sha256": "8e32ef4e74363f55787216d2e40dd607a1d3773e118603992732fd3855157707"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1001",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1001.png"
+      ]
+    },
+    {
+      "id": "G10",
+      "label": "Tall grass / 1010",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G10.png",
+      "sha256": "aeedc21d22ae29480b37303fcb04837b5c80e63f2cf0b58e15be1ffcc30a40c8",
+      "input": "inputs/G10.png",
+      "removed_background_pixels": 5,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1010.png",
+        "sha256": "f043dd92b5e8222227c894f6bebfacac47267670e463af7bbcbde16c10311463"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1010",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1010.png"
+      ]
+    },
+    {
+      "id": "G11",
+      "label": "Tall grass / 1011",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G11.png",
+      "sha256": "6147467a7649884f8575cab68a480df430dfc5291dc7b683fef8e4d26b5a53b6",
+      "input": "inputs/G11.png",
+      "removed_background_pixels": 11,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1011.png",
+        "sha256": "7ceebc398a4963a51be2009936ad5f14f921ec2b909ce87eec221a8a7587c84f"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1011",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1011.png"
+      ]
+    },
+    {
+      "id": "G12",
+      "label": "Tall grass / 1100",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G12.png",
+      "sha256": "603177fbc2adf69b125a053433e52578cbeaaedb31540fd74b0acb409ce1ccf3",
+      "input": "inputs/G12.png",
+      "removed_background_pixels": 2,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1100.png",
+        "sha256": "fb0e10f0e91db133c7f0f17336939c052f3c26c8c3288b604e214b30f579296d"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1100",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1100.png"
+      ]
+    },
+    {
+      "id": "G13",
+      "label": "Tall grass / 1101",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G13.png",
+      "sha256": "b81d2ad2c726868c7415b9f22ef2082fb9ced9823144be54f98bc2b9d211bf58",
+      "input": "inputs/G13.png",
+      "removed_background_pixels": 15,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1101.png",
+        "sha256": "196de137ea4aae473ec407b9e40913c8dcf0265ecaf46dba6662e3a83d25887c"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1101",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1101.png"
+      ]
+    },
+    {
+      "id": "G14",
+      "label": "Tall grass / 1110",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G14.png",
+      "sha256": "54113244c7592c7c15d7081aae227b61e26da28c32444dc80efd73b9108b90d5",
+      "input": "inputs/G14.png",
+      "removed_background_pixels": 16,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1110.png",
+        "sha256": "de75b94745e1f44a0e9f6bcabaa1915ce8120fa21cfa331a983cb55963b0656c"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1110",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1110.png"
+      ]
+    },
+    {
+      "id": "G15",
+      "label": "Tall grass / 1111",
+      "category": "grass",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/G15.png",
+      "sha256": "20d6b662ad421000b4e5b6950f4fb050b5a05da5397fe99610a8340281690d54",
+      "input": "inputs/G15.png",
+      "removed_background_pixels": 29,
+      "opaque_colors": 6,
+      "method": "Remove exterior-connected flat dark-green backing outside the original HGSS egrass_u plant silhouette. Preserve the entire shaded plant and all brighter blade pixels.",
+      "provenance": {
+        "path": "gba/art/route30-hgss-blocks/source/materials/grass-1111.png",
+        "sha256": "fa7e7f0b5b10a0f13fde2905a7d451cfd8b1962f5d290c7a42abe7d2f4ee4ba3"
+      },
+      "neighbor_order": "north,south,west,east",
+      "neighbor_bits": "1111",
+      "mask_reference": {
+        "path": "gba/art/johto-cohesion/references/egrass_u.png",
+        "sha256": "b331671d6d648c13776c5cfe711cd38a1a8670206cae33faebf3a60c82155f97"
+      },
+      "aliases": [
+        "gba/art/route36/source/materials/grass-1111.png"
+      ]
+    },
+    {
+      "id": "P06",
+      "label": "Cherrygrove sign",
+      "category": "props",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/P06.png",
+      "sha256": "39c153408a60d5899f826269f1de96f469f321522eae9c4a89e9e167010b8400",
+      "input": "inputs/P06.png",
+      "removed_background_pixels": 46,
+      "opaque_colors": 8,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels. Clear gray donor-ground outside the sign frame.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          800,
+          240,
+          816,
+          256
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "P07",
+      "label": "Cherrygrove bench",
+      "category": "props",
+      "size": [
+        32,
+        16
+      ],
+      "master": "source/P07.png",
+      "sha256": "44c8e0a415f7dfe356b3bd65c65aadbc1d2ee9391930e4b61987615253647f3d",
+      "input": "inputs/P07.png",
+      "removed_background_pixels": 270,
+      "opaque_colors": 9,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          1056,
+          128,
+          1088,
+          144
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "P08",
+      "label": "Cherrygrove fence",
+      "category": "props",
+      "size": [
+        64,
+        16
+      ],
+      "master": "source/P08.png",
+      "sha256": "a10d59eb7d8175f4a9559205369ce98b349a8a14d8ca9d1f5d522c5bfbd62c57",
+      "input": "inputs/P08.png",
+      "removed_background_pixels": 440,
+      "opaque_colors": 5,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          1008,
+          224,
+          1072,
+          240
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "F05",
+      "label": "Cherrygrove flower bed",
+      "category": "plants",
+      "size": [
+        64,
+        32
+      ],
+      "master": "source/F05.png",
+      "sha256": "4687a9fd3928e5ea61e70cb1bfe9681f55567ce4195323956afb4db0dfd5c413",
+      "input": "inputs/F05.png",
+      "removed_background_pixels": 664,
+      "opaque_colors": 5,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          1008,
+          192,
+          1072,
+          224
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "W02",
+      "label": "Cherrygrove water rock",
+      "category": "water",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/W02.png",
+      "sha256": "ff62a8ba09d2fd876c19efbeb33ec60f37885c2a8f70b6ffe7950de33ad0932a",
+      "input": "inputs/W02.png",
+      "removed_background_pixels": 51,
+      "opaque_colors": 6,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          320,
+          224,
+          336,
+          240
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "W03",
+      "label": "Cherrygrove reef",
+      "category": "water",
+      "size": [
+        96,
+        64
+      ],
+      "master": "source/W03.png",
+      "sha256": "fd074ef97c4a92f550dd88dd4bb2d11737ee75d204fccc6bcbd6b307422156ce",
+      "input": "inputs/W03.png",
+      "removed_background_pixels": 3069,
+      "opaque_colors": 13,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "CherrygroveCity",
+        "crop": [
+          160,
+          208,
+          256,
+          272
+        ],
+        "primary": "johto_cherrygrove",
+        "secondary": "johto_cherrygrove"
+      },
+      "allowed_banks": null
+    },
+    {
+      "id": "P09",
+      "label": "New Bark mailbox / north",
+      "category": "props",
+      "size": [
+        16,
+        24
+      ],
+      "master": "source/P09.png",
+      "sha256": "ac97f1356c04966f2f025ed582ec105c5e6f9aa9e82954572e378d8665146e8b",
+      "input": "inputs/P09.png",
+      "removed_background_pixels": 141,
+      "opaque_colors": 6,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "NewBarkTown",
+        "crop": [
+          144,
+          88,
+          160,
+          112
+        ],
+        "primary": "cherrygrove",
+        "secondary": "new_bark"
+      },
+      "allowed_banks": [
+        4
+      ]
+    },
+    {
+      "id": "P10",
+      "label": "New Bark mailbox / house",
+      "category": "props",
+      "size": [
+        16,
+        32
+      ],
+      "master": "source/P10.png",
+      "sha256": "98c32f05ccfec1d1ea821eda11fb4b4855042fa3ca4922af23c96fe09df6c2da",
+      "input": "inputs/P10.png",
+      "removed_background_pixels": 269,
+      "opaque_colors": 6,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "NewBarkTown",
+        "crop": [
+          336,
+          256,
+          352,
+          288
+        ],
+        "primary": "cherrygrove",
+        "secondary": "new_bark"
+      },
+      "allowed_banks": [
+        4
+      ]
+    },
+    {
+      "id": "P11",
+      "label": "New Bark windmill",
+      "category": "props",
+      "size": [
+        32,
+        64
+      ],
+      "master": "source/P11.png",
+      "sha256": "1cc7ab4e5371836d2f6e3fb078822b1f2c187ec9490891c987507ac11582c21a",
+      "input": "inputs/P11.png",
+      "removed_background_pixels": 1670,
+      "opaque_colors": 3,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "NewBarkTown",
+        "crop": [
+          384,
+          48,
+          416,
+          112
+        ],
+        "primary": "cherrygrove",
+        "secondary": "new_bark"
+      },
+      "allowed_banks": [
+        4
+      ]
+    },
+    {
+      "id": "F06",
+      "label": "New Bark flowers",
+      "category": "plants",
+      "size": [
+        64,
+        32
+      ],
+      "master": "source/F06.png",
+      "sha256": "24b432068be7af52019e0b546f7d36015793b48f5a1181fa32246b7c858c7bc5",
+      "input": "inputs/F06.png",
+      "removed_background_pixels": 1728,
+      "opaque_colors": 4,
+      "method": "Decode current native map pixels; remove destination terrain palette pixels.",
+      "provenance": {
+        "engine_map": "NewBarkTown",
+        "crop": [
+          128,
+          288,
+          192,
+          320
+        ],
+        "primary": "cherrygrove",
+        "secondary": "new_bark"
+      },
+      "allowed_banks": [
+        4
+      ]
+    },
+    {
+      "id": "N01",
+      "label": "Item ball",
+      "category": "native",
+      "size": [
+        80,
+        32
+      ],
+      "master": "source/N01.png",
+      "sha256": "5e53a85f2f1eccef23d5b0e0664e11e4496808ca44da7a18ef56d39de8dc5350",
+      "input": "inputs/N01.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 8,
+      "method": "Native palette-index-zero transparency; full original animation sheet preserved.",
+      "provenance": {
+        "engine_path": "graphics/object_events/pics/misc/ball_poke.png",
+        "sha256": "dce66f7670d5cb701816d2171ce8398306ef0dc6530bfda0315b6989e343c136"
+      },
+      "preview_box": [
+        0,
+        0,
+        16,
+        32
+      ],
+      "frame_size": [
+        16,
+        32
+      ],
+      "frames": 5,
+      "native_indices_preserved": true,
+      "native_index_sha256": "858d0a7354650506bf0e6fc7ba438da3ccdf28bd7b1f81dab3b92f109d727f51"
+    },
+    {
+      "id": "N02",
+      "label": "Strength boulder",
+      "category": "native",
+      "size": [
+        16,
+        16
+      ],
+      "master": "source/N02.png",
+      "sha256": "6143fd2d61b433e4b5daa48156a8d529dd17f9268ce0ef41b9594967d4a04ec3",
+      "input": "inputs/N02.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 4,
+      "method": "Native palette-index-zero transparency; full original animation sheet preserved.",
+      "provenance": {
+        "engine_path": "graphics/object_events/pics/misc/pushable_boulder.png",
+        "sha256": "9ff11e929fbc9c221dd5228e342be51a04b19591b7248ad12aa698e60221e663"
+      },
+      "preview_box": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "frame_size": [
+        16,
+        16
+      ],
+      "frames": 1,
+      "native_indices_preserved": true,
+      "native_index_sha256": "cca72d09b28f2701de69c2c87810537e583989fab46af82cb80b1d705b2766ee"
+    },
+    {
+      "id": "N03",
+      "label": "Rock Smash rock",
+      "category": "native",
+      "size": [
+        64,
+        16
+      ],
+      "master": "source/N03.png",
+      "sha256": "1e309296a79470ff52c24dfcd32a05fa383b0a91b8cc84aeab45e58654faf9cd",
+      "input": "inputs/N03.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 4,
+      "method": "Native palette-index-zero transparency; full original animation sheet preserved.",
+      "provenance": {
+        "engine_path": "graphics/object_events/pics/misc/breakable_rock.png",
+        "sha256": "accf417ec0b1958af56e2964eda5dadd1ba97a52def6bbf6057d11f4a02be316"
+      },
+      "preview_box": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "frame_size": [
+        16,
+        16
+      ],
+      "frames": 4,
+      "native_indices_preserved": true,
+      "native_index_sha256": "666b2fe474a9e1b9e728ea80b67566a375910c62dcbde7f739fd22393701956e"
+    }
+  ]
+}
