@@ -16,7 +16,7 @@ class Probe:
     def metatile(self,entries,attr):return 0
 
 
-def optimize(probe):
+def optimize(probe, fixed=()):
     arrays={k:np.array([[a,a[:,::-1],a[::-1],a[::-1,::-1]] for a in v.values()]) for k,v in probe.raw.items()}
     maps={k:np.arange(16,dtype=np.uint8) for k in arrays}
     def keys(k,m):
@@ -26,6 +26,7 @@ def optimize(probe):
     for iteration in range(6):
         changed=False
         for k in sorted(arrays,key=lambda b:len(sets[b])):
+            if k in fixed:continue
             others=set().union(*(s for b,s in sets.items() if b!=k))
             score=len(others|sets[k]);best=maps[k];bestset=sets[k]
             for a in range(1,16):
@@ -50,6 +51,7 @@ def optimize(probe):
     for iteration in range(6):
         changed=False
         for k in sorted(arrays,key=lambda b:len(sets[b])):
+            if k in fixed:continue
             others=set().union(*(s for b,s in sets.items() if b!=k))
             patterns={}
             for raw in others:

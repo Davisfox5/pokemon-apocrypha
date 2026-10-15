@@ -1,6 +1,24 @@
-## Current review: common Johto Centers and Marts
+## Current: approved shared Johto service buildings and terrain layers
 
-Owner accepted the gate tree surrounds and asked to move to the other buildings. `gba/art/johto-common-review/service-buildings/` contains native current comparison sheets and a provenance catalog of 19 deduplicated current/historical variants. C01/C02 are the Cherrygrove/Violet Centers; C02 is recommended pending selection. M01 is the already-approved original Johto Mart; M02 is the older Cherrygrove shop. Preserve the existing M01 approval. This turn made no engine edits. Next: owner Center selection/refinements, then scoped integration with the established footprint, layer and collision checks.
+Engine `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf` on `codex/violet-city`. Owner selected Center C06 and approved
+reusing the shared Violet Mart in Cherrygrove, then required transparent buildings
+with separate, context-aware ground. C06 now appears in both cities; M01 is added
+to Cherrygrove and remains unchanged in Violet. Locked masters retain every opaque
+pixel. Door coordinates, existing interiors, actors and warps remain unchanged.
+
+Old dirt/facade remnants were removed. Cherrygrove's independent HGSS ground layer
+extends the paths under the entrances with matching texture phase and rounded edge
+transitions. Native foreground index zero supplies transparency. The existing
+flattened door animation format samples the actual destination ground exactly.
+Standing rules are recorded in AGENTS/workflow and the approved-building registry.
+
+See `gba/art/johto-common/service-installation/README.md`. Local ROM, zero-error
+Porymap/native/master comparisons and background mGBA entrance/return, collisions,
+roof overlap, existing-house regression, animated pond, save/cold reload/Continue
+all pass. Cherrygrove uses a private tileset pair, preserving original shared map
+assets and sea IDs 1–92. No desktop emulator opened. Violet service interiors
+remain closed. Next: owner review of ground joins, then the remaining house and
+local-building category; preserve these approved service-building masters.
 
 ## Latest: Route 36 approved gates, foreground trees and blocked rear gaps
 

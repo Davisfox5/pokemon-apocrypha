@@ -19,7 +19,20 @@ Keep creative references and proposals separate from approved game assets.
 For each requested location, identify recognizable landmarks, what changed in
 ten years, the reason for each change, and the player's activities. Use approved
 regional architecture, vegetation, terrain, and palette identity. New layouts can
-reuse components. Do not copy old story triggers with a donor map.
+reuse components. Reuse the approved regional building masters from
+`gba/art/johto-common/approved-buildings.json` for Johto. Verify their hashes before
+placement; retain an editable transparent master and separate terrain/tree layers.
+Use native transparency (palette index zero) for gaps around the building; the
+lower metatile layer supplies the destination's grass or dirt. Extend paths under
+entrance silhouettes and match neighboring material, texture phase and transition
+profiles. Do not restore a rectangular footprint with a generic patch, and do not
+bake donor terrain into the shared sprite. Flattened door animation frames must
+sample the current destination terrain exactly so opening a door cannot introduce
+a different ground patch.
+Compile native tiles and palettes for the destination without changing the approved
+silhouette or colors. Record each placement, entrance, footprint and verification.
+City-specific houses and landmarks remain local unless approved for wider reuse.
+Do not copy old story triggers with a donor map.
 
 Keep art, collision/elevation, doors, warps, encounters, and actors consistent.
 Validate connectivity and gated paths. Do not remove barriers, demote artwork,

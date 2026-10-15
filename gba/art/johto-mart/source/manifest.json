@@ -1,6 +1,6 @@
 {
   "region": "Johto",
-  "status": "Owner-approved Johto Mart exterior; installed in Violet City",
+  "status": "Owner-approved Johto Mart exterior; installed in Violet City and Cherrygrove City",
   "palette_bank": 9,
   "transparent_index": 0,
   "building_pixels": [
@@ -21,5 +21,29 @@
   ],
   "signage": "Small roof-mounted emblem only; no text, pole sign or tower",
   "placement": "Compile native tile IDs per town. Terrain remains separate. Set roof overlap and wall collision from the destination footprint.",
-  "source": "Original indexed artwork in tools/gba/maps/johto_mart/assets.py; sapphire/white Mart identity with new architecture."
+  "source": "Original indexed artwork in tools/gba/maps/johto_mart/assets.py; sapphire/white Mart identity with new architecture.",
+  "placements": [
+    {
+      "map": "VioletCity",
+      "origin": [
+        19,
+        35
+      ],
+      "door": [
+        21,
+        40
+      ]
+    },
+    {
+      "map": "CherrygroveCity",
+      "origin": [
+        49,
+        4
+      ],
+      "door": [
+        51,
+        9
+      ]
+    }
+  ]
 }

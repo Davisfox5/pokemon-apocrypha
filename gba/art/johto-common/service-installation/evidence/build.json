@@ -1,0 +1,17 @@
+{
+  "engine_revision": "6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf",
+  "branch": "codex/violet-city",
+  "rom_sha256": "a77d49bed3bb180c4ba3508d4ad60d56e9d16d0f79b0d677b43812e34b47030e",
+  "rom_build": "passed",
+  "native_porymap_pixel_errors": 0,
+  "runtime_phases": [
+    "write",
+    "read",
+    "menu"
+  ],
+  "capacity_tiles": {
+    "CherrygroveCity": 941,
+    "VioletCity": 974
+  },
+  "maximum_tiles": 1008
+}

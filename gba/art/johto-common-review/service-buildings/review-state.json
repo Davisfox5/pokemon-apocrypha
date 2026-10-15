@@ -1,9 +1,10 @@
 {
   "category": "Johto service buildings",
-  "status": "Awaiting Center selection; Mart already approved",
-  "recommended_center": "C02",
+  "status": "C06 and M01 approved and installed in Cherrygrove and Violet",
+  "approved_center": "C06",
   "approved_mart": "M01",
-  "center_selected": null,
-  "regional_rollout": false,
-  "engine_changed": false
+  "center_selected": "C06",
+  "regional_reuse_required": true,
+  "registry": "gba/art/johto-common/approved-buildings.json",
+  "native_and_runtime_verified": true
 }

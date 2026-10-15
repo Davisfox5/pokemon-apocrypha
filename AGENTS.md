@@ -33,6 +33,19 @@
   Automate or perform it. Make routine reversible technical choices independently.
 - Use existing tools, source formats, scripts, and narrow adapters first. Build a
   new editor only when a demonstrated recurring problem justifies it.
+- Reuse owner-approved regional building artwork across cities. Use the shared
+  master assets and approved modules; do not redraw, recrop, recolor, or invent
+  a replacement for each map. Keep local terrain and foreground/background trees
+  separate: reusable buildings use transparent foreground pixels over independent
+  terrain tiles. Never bake donor grass, dirt or road fragments into a building.
+  Terrain beneath each placement must match the neighboring material, texture phase
+  and edge transitions; never cut a road at a rectangular building/import boundary.
+  If a constrained animation frame must be composited, sample that destination's
+  terrain exactly. Adapt door anchors, collision and roof overlap to the destination.
+  Johto uses Center C06 and the approved shared Violet Mart M01. See
+  `gba/art/johto-common/approved-buildings.json`. Local houses and landmarks retain
+  their approved city identity; other regions receive their own approved sets.
+  Architectural changes to a locked shared asset require owner direction.
 - Pink/blossom trees are exclusive to Cherrygrove City throughout the game.
   Other cities and routes use their appropriate non-pink vegetation.
 - Do not invent canon or silently change character roles. Label creative proposals.

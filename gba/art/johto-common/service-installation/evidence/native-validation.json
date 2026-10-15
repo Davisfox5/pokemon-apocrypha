@@ -1,0 +1,28 @@
+{
+  "CherrygroveCity": {
+    "porymap_pixel_errors": 0,
+    "opaque_master_pixel_errors": 0,
+    "pixels_changed_outside_placement_and_entrance_areas": 0
+  },
+  "VioletCity": {
+    "porymap_pixel_errors": 0,
+    "opaque_master_pixel_errors": 0,
+    "pixels_changed_outside_placement_and_entrance_areas": 0
+  },
+  "sea_animation": {
+    "original_tile_ids_1_to_92_preserved": true,
+    "palette_preserved": true,
+    "callback_unchanged": true
+  },
+  "existing_warps_events_and_map_scripts": "unchanged",
+  "runtime": {
+    "phases_passed": [
+      "write",
+      "read",
+      "menu"
+    ],
+    "rom_sha256": "a77d49bed3bb180c4ba3508d4ad60d56e9d16d0f79b0d677b43812e34b47030e",
+    "native_door_frames_inspected": true,
+    "desktop_emulator_opened": false
+  }
+}

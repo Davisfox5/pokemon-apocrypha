@@ -4,7 +4,7 @@ Original retail architecture, refined after the owner flagged flat perspective, 
 
 Roof depth, overhang and wall presentation were visually compared to the actual Violet house and approved lecture hall sprites. This is a raster perspective match, not a measured recovered camera angle. The shop keeps its native footprint, door and collision.
 
-**Owner approved and locked this exterior on October 14, 2026.** It is the shared Johto Mart design, currently installed in Violet City. Reuse this version in other Johto towns with destination-specific ground treatment, collision and placement. Preserve the single roof, raised perspective, blue/white palette, small roof emblem and absence of lettering. Further architectural redesign requires owner direction.
+**Owner approved and locked this exterior on October 14, 2026.** It is the shared Johto Mart design, installed in Violet City and Cherrygrove City. Reuse this version in other Johto towns with destination-specific ground treatment, collision and placement. Preserve the single roof, raised perspective, blue/white palette, small roof emblem and absence of lettering. Further architectural redesign requires owner direction.
 
 The approved art revision is `e53f3450498097b13ceb9e1e2a3a2bbaaf677c54`; the corresponding engine revision is `ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3`. `source/approval.json` pins the exported assets by SHA-256.
 
@@ -16,7 +16,7 @@ The approved art revision is `e53f3450498097b13ceb9e1e2a3a2bbaaf677c54`; the cor
 - `source/palette.pal`: 15 visible RGB555 colors plus transparency.
 - `source/manifest.json`: dimensions, door/approach offsets and provenance.
 
-Door tile is (2,5); approach is (2,6). Violet origin is (19,35), retaining door (21,40) and approach (21,41). The top row draws above the player; wall rows 1–5 are solid. Its east aisle and front clearance are walkable. There is no separate sign collision. Interiors are still unimplemented; the entrance remains closed.
+Door tile is (2,5); approach is (2,6). Violet origin is (19,35), retaining door (21,40) and approach (21,41). The top row draws above the player; wall rows 1–5 are solid. Its east aisle and front clearance are walkable. There is no separate sign collision. Violet’s interior remains unimplemented and closed. Cherrygrove uses its existing functional shop and return warp at (51,9), with origin (49,4).
 
 ## Reuse
 

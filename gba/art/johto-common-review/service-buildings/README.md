@@ -1,13 +1,21 @@
 # Johto shared building review: Centers and Marts
 
-## Simple review
+## Owner selection — October 15, 2026
 
-- **C01:** current Cherrygrove Center.
-- **C02:** current Violet Center; recommended shared Center, with the softer edge treatment.
+**C06 is the approved shared Johto Center. M01 is the approved shared Johto Mart.**
+Both cities now use these exact masters. The old comparison sheets below are
+historical inventory, not the current installed maps. See the
+[approved registry](../../johto-common/approved-buildings.json) and
+[installation evidence](../../johto-common/service-installation/README.md).
+
+## Original review inventory
+
+- **C01:** previous Cherrygrove Center.
+- **C02:** previous Violet Center; earlier recommendation superseded by C06.
 - **M01:** the original shared Johto Mart, already approved October 14. Preserve this design.
-- **M02:** older HGSS shop still used in Cherrygrove; shown to make the rollout difference clear.
+- **M02:** older HGSS shop formerly used in Cherrygrove.
 
-Choose a Center ID or describe changes to it. The Mart does not need approval again. No building is replaced during this comparison step.
+The owner selected C06 from the earlier Center sheet. M01 retains its existing approval.
 
 [Current Centers](centers-current.png) · [Current Marts](marts-current.png) · [Earlier Centers](c-earlier.png) · [Earlier Marts](m-earlier.png)
 

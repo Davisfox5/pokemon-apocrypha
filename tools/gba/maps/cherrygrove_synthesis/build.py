@@ -8,6 +8,7 @@ sys.path.insert(0,str(HERE.parent))
 from tiles import Tileset,palette
 from claude_cherrygrove import build as cb,banks
 ROOT=HERE.parents[3];A=ROOT/'gba/art/cherrygrove-synthesis';G=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT/'tools/vendor/gba/cherrygrove-synthesis-work';S=A/'references/E';EV=A/'evidence';EV.mkdir(exist_ok=True)
+if (A/'shared-buildings-adopted.json').exists():raise SystemExit('Cherrygrove now uses approved shared Johto buildings. Use tools/gba/maps/johto_service_buildings; this older generator would overwrite the approved installation.')
 # All regeneration reads the immutable tracked snapshot, never edited engine output.
 t=Tileset(S,'cherrygrove','cherrygrove')
 layouts=json.loads((S/'data/layouts/layouts.json').read_text())['layouts']
