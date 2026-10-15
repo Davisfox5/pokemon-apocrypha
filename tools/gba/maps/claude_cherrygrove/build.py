@@ -66,11 +66,15 @@ def build_assets():
         if b.assets: assets.update(b.build())
     # Recolours share tiles: blue-roof transplant home (bank 7), blossom trees (bank 10).
     pal_house2 = banks.recolor(B['HOUSE'].palette, 7, lambda c: banks.hue_shift(c, 165, 0.8, 1.0) if c[0] > c[1] + 24 and c[0] > c[2] + 8 else c)
-    pal_blossom = banks.recolor(B['TREE'].palette, 10, lambda c: banks.hue_shift(c, 245, 0.5, 1.35) if c[1] > c[0] and c[1] > c[2] else c)
+    # Cherrygrove's accepted pink tree is a locked master, never a new hue shift.
+    pink = np.array(Image.open(hgss.ROOT / 'gba/art/johto-common/trees/source/T02.png').convert('RGBA'))
+    blossom_bank = banks.Bank(10, 'BLOSSOM', 'secondary').add('blossom', pink)
+    blossom_assets = blossom_bank.build()
+    pal_blossom = blossom_bank.palette
     def clone(cv, pal):
         n = Canvas(cv.w, cv.h, pal); n.px = cv.px.copy(); n.pool = 'secondary'; return n
     assets['house2'] = clone(assets['house'], pal_house2); assets['house_l'] = assets['house']
-    assets['blossom'] = clone(assets['tree'], pal_blossom)
+    assets['blossom'] = blossom_assets['blossom']
     palettes = {b.bank: b.palette for b in B.values()}
     palettes.update({7: pal_house2, 10: pal_blossom})
     return assets, palettes

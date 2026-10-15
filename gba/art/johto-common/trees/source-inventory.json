@@ -9,7 +9,8 @@
       48
     ],
     "replacement_master": "T02",
-    "status": "Use cleaned common master for future placement"
+    "status": "Active source alias of the cleaned Cherrygrove master",
+    "exists": true
   },
   {
     "file": "gba/art/cherrygrove-synthesis/refined/tree.png",
@@ -24,7 +25,8 @@
       48
     ],
     "replacement_master": "T01",
-    "status": "Use cleaned common master for future placement"
+    "status": "Active source alias of the cleaned Cherrygrove master",
+    "exists": true
   },
   {
     "file": "gba/art/johto-native-refinement/native/apricorn.png",
@@ -36,7 +38,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-native-refinement/native/blossom.png",
@@ -50,7 +53,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/route30-hgss-blocks/source/materials/apricorn.png",
@@ -63,7 +67,8 @@
       32
     ],
     "replacement_master": "T04",
-    "status": "Use cleaned common master for future placement"
+    "status": "Existing source reference; use the common master for new placements",
+    "exists": true
   },
   {
     "file": "gba/art/johto-polish/native/apricorn-gba.png",
@@ -75,7 +80,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-polish/native/apricorn-source.png",
@@ -87,7 +93,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-cohesion/native/apricorn.png",
@@ -99,7 +106,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-v1/native/tree.png",
@@ -112,7 +120,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-v3/native/tree.png",
@@ -124,7 +133,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/johto-restart/native/tree.png",
@@ -136,7 +146,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/claude-cherrygrove/source/blossom.idx.png",
@@ -148,7 +159,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/claude-cherrygrove/source/blossom.png",
@@ -160,7 +172,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/claude-cherrygrove/source/tree.idx.png",
@@ -172,7 +185,8 @@
       48
     ],
     "replacement_master": null,
-    "status": "Historical variant; preserved as reference, not a shared master"
+    "status": "Retired; deleted from the working tree at owner direction",
+    "exists": false
   },
   {
     "file": "gba/art/route30-hgss-blocks/source/native-cut-tree.png",
@@ -184,6 +198,7 @@
       16
     ],
     "replacement_master": "T05",
-    "status": "Use cleaned common master for future placement"
+    "status": "Existing source reference; use the common master for new placements",
+    "exists": true
   }
 ]

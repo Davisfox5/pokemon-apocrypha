@@ -213,14 +213,9 @@ TREE_TIP = (0, 0)          # sprite offset of the crown's tip: a tree is placed 
 TREE_PITCH = (32, 24)      # the HGSS lattice: straight columns two cells apart, rows 24 px apart (crowns overlap the row behind)
 
 def tree():
-    """One HGSS Johto tree as rendered, 40x40: the bottom tree of the column beside the Mart, whose crown,
-    trunk and shadow are all unobscured. The crown is 38 px wide and 27 tall (tip on row 0); trunk and shadow
-    reach row 35. Kept on the 8 px tile grid so a tree costs 25 tiles rather than 36."""
-    a = px(624, 58, 40, 40)
-    bgm = _near(a, GROUND_COLORS + SHADOW_COLORS, 12) | (a[..., 2].astype(int) > a[..., 0].astype(int) + 40)   # grass, and the Mart's blue roof corner
-    m = ~bgm; lab, sizes = _components(m); best = max(sizes, key=sizes.get)
-    a[..., 3] = _fill_holes(lab == best) * 255
-    return a
+    """The sole approved Johto large-tree master; never reconstruct older crops."""
+    return np.array(Image.open(ROOT / 'gba/art/johto-common/trees/source/T01.png').convert('RGBA'))
+
 
 def _trim_shadow(a):
     return a

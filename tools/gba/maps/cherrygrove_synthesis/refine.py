@@ -55,6 +55,7 @@ def repair_assets(root, assets, pals):
  trunk_colors=[tuple(map(int,tree_rgb[y,x])) for x,y in [(20,38),(20,40),(20,42)]]
  for bank in [3,10]:pals[bank][12:16]=[(64,136,104)]+trunk_colors
  p=np.array(pals[3][1:],int);ix=(((rgba[...,:3].astype(int)[...,None,:]-p)**2).sum(-1).argmin(-1)+1).astype(np.uint8);ix[rgba[...,3]==0]=0
+ ix[ix==12]=0  # Ground belongs to the destination layer, never the tree.
  assets['tree']=ix;assets['blossom']=ix.copy()
  # Preserve the native ground-shadow colour in both foliage variants.
  pals[10][3]=pals[3][3]

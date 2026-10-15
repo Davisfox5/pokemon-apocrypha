@@ -1,0 +1,188 @@
+{
+  "reason": "Owner directed deletion of superseded Johto tree cutouts and unused Cut alternatives; approved Cherrygrove large-tree design is the sole shared master. Full map/reference images and non-Johto assets are outside this deletion.",
+  "removed": [
+    {
+      "path": "gba/art/cherrygrove-art-study-v1/native/tree.png",
+      "sha256": "2d0af0f0ed0c8b40c89eec999ea5e6dbc8f644210dcad34dbe4677a4bf9ea853"
+    },
+    {
+      "path": "gba/art/cherrygrove-art-study-v1/tree-source.png",
+      "sha256": "aa4e6b5fea37ae19361fa47456865bd951675c610a100a6a0d487bfaf0ee86c9"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/B/blossom.idx.png",
+      "sha256": "2b36001b382b4699d9f2c738bde827fbae93afbe20d55b464c73d6d57c8c342f"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/B/blossom.png",
+      "sha256": "0f2959e08ffd3f64ecfcfc84bd0486a85f2784581d8fc3fcdbbc11ad0bb484c8"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/B/tree.idx.png",
+      "sha256": "31d278b908b3614b8eb92ee9d0593c9cc7d97f9428b4e229eb3bd4297fac6e4b"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/B/tree.png",
+      "sha256": "c719fdee3ca0207f5d59431a6b5c5b33e923a0c058e754935c98e129ee93d75a"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/C/blossom.idx.png",
+      "sha256": "948f2238a443d0fc3105b8551542e0be2db8caf67a3a135a76f639c7d2eefbd5"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/C/blossom.png",
+      "sha256": "f969dd4737ec732231c2999f635ca6012f981c3d1bdecc3e9b5f0b6a901ae4ac"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/C/tree.idx.png",
+      "sha256": "4f248ca6fa59234411c6cfcb7d90b64dd32e24e191b9be0200ce3823e7710fe4"
+    },
+    {
+      "path": "gba/art/cherrygrove-synthesis/references/C/tree.png",
+      "sha256": "cab88c73a745c228dc0ae6725d30102e3f3445b8e948db68101853a550fad50d"
+    },
+    {
+      "path": "gba/art/claude-cherrygrove/source/blossom.idx.png",
+      "sha256": "948f2238a443d0fc3105b8551542e0be2db8caf67a3a135a76f639c7d2eefbd5"
+    },
+    {
+      "path": "gba/art/claude-cherrygrove/source/blossom.png",
+      "sha256": "f969dd4737ec732231c2999f635ca6012f981c3d1bdecc3e9b5f0b6a901ae4ac"
+    },
+    {
+      "path": "gba/art/claude-cherrygrove/source/tree.idx.png",
+      "sha256": "4f248ca6fa59234411c6cfcb7d90b64dd32e24e191b9be0200ce3823e7710fe4"
+    },
+    {
+      "path": "gba/art/claude-cherrygrove/source/tree.png",
+      "sha256": "cab88c73a745c228dc0ae6725d30102e3f3445b8e948db68101853a550fad50d"
+    },
+    {
+      "path": "gba/art/johto-cohesion/native/apricorn.png",
+      "sha256": "0a3255c0f5086079daacee4396ee31ea6a074e1173c3604b8ba7f2972e376c3b"
+    },
+    {
+      "path": "gba/art/johto-common/trees/review/T06-removed-mask.png",
+      "sha256": "565bb6ae9b189dc8d7f8bd6c85be23f65373594d8df0c495f45d1f6301867062"
+    },
+    {
+      "path": "gba/art/johto-common/trees/review/T07-removed-mask.png",
+      "sha256": "d23e04cd2f1b449777d3267a9ab0f5529fb6259f289c59114e63de10683d1d7e"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T06.idx.png",
+      "sha256": "719ad2126705033c07ef82f112a79622c8e4f9907b30bc7794e2d2204963df5d"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T06.png",
+      "sha256": "8c32108c66ceb061168f974934e4c767d151c82db49685781523e43990135c36"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T07.idx.png",
+      "sha256": "85ae121e044802551e8f80ce360d2068240bacd010e5d165e247de51b330c6e5"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T07.png",
+      "sha256": "9eed95d1eb14c68cde4bebe0be09d5a6081c97eef49858b2b471556936e7a061"
+    },
+    {
+      "path": "gba/art/johto-native-refinement/native/apricorn.png",
+      "sha256": "a62b821a5a70e19ffcef465a0c7a62bf9af172cbf98d3b0c8dc2c1705c0fdb9f"
+    },
+    {
+      "path": "gba/art/johto-native-refinement/native/blossom.png",
+      "sha256": "cab88c73a745c228dc0ae6725d30102e3f3445b8e948db68101853a550fad50d"
+    },
+    {
+      "path": "gba/art/johto-native-refinement/native/tree.png",
+      "sha256": "cab88c73a745c228dc0ae6725d30102e3f3445b8e948db68101853a550fad50d"
+    },
+    {
+      "path": "gba/art/johto-polish/native/apricorn-gba.png",
+      "sha256": "203fbdc826df47d419a5cda129d00c97a72633def240cc1c8129bc50151a7d96"
+    },
+    {
+      "path": "gba/art/johto-polish/native/apricorn-source.png",
+      "sha256": "6fb78148eebe735d87cd4d5d3b3d2211da81b00da2a4a0fc1715acbfd0fab73e"
+    },
+    {
+      "path": "gba/art/johto-restart/generated/tree.png",
+      "sha256": "1e7d4da9f6829fc8f2507b4b63c6b5ca2c71a18319c9dd2889bf523f597b0ae8"
+    },
+    {
+      "path": "gba/art/johto-restart/native/tree.png",
+      "sha256": "6fc430a910418d5f19ad7a8819a1a7a11e0c2e6362df42d07c147f0f0ded81dc"
+    },
+    {
+      "path": "gba/art/johto-v1/generated/tree-alpha.png",
+      "sha256": "cf88225feb679047a29dc51ff9dce6bc6e1f1c19319bfe0627a11efbedb39bbb"
+    },
+    {
+      "path": "gba/art/johto-v1/generated/tree.png",
+      "sha256": "4201af639ab9c0f6ad2f9efdebcbefe3fbbab45e2ab3895dc1f4cdbf9554b478"
+    },
+    {
+      "path": "gba/art/johto-v1/native/tree.4bpp",
+      "sha256": "aa3c93c68459970b2551a8001a0123ec7600d897b5c3a3a10c3ab6573db52677"
+    },
+    {
+      "path": "gba/art/johto-v1/native/tree.gbapal",
+      "sha256": "e61658ebe97ac176d484337a1ea189ed0c5e607bdc2be9e0cbfe9c65fbc27d62"
+    },
+    {
+      "path": "gba/art/johto-v1/native/tree.pal",
+      "sha256": "a9b7b02cd772c9539ac8a8124b7f55bd11ca2d0fc7826d4a3df2d2413f68d0c0"
+    },
+    {
+      "path": "gba/art/johto-v1/native/tree.png",
+      "sha256": "a9ebc8d6b2d5372465958b3ac4e51599a5f17ab7cedb64e0298496ae11f66eea"
+    },
+    {
+      "path": "gba/art/johto-v2/native/tree.4bpp",
+      "sha256": "aa3c93c68459970b2551a8001a0123ec7600d897b5c3a3a10c3ab6573db52677"
+    },
+    {
+      "path": "gba/art/johto-v2/native/tree.gbapal",
+      "sha256": "e61658ebe97ac176d484337a1ea189ed0c5e607bdc2be9e0cbfe9c65fbc27d62"
+    },
+    {
+      "path": "gba/art/johto-v2/native/tree.pal",
+      "sha256": "a9b7b02cd772c9539ac8a8124b7f55bd11ca2d0fc7826d4a3df2d2413f68d0c0"
+    },
+    {
+      "path": "gba/art/johto-v2/native/tree.png",
+      "sha256": "a9ebc8d6b2d5372465958b3ac4e51599a5f17ab7cedb64e0298496ae11f66eea"
+    },
+    {
+      "path": "gba/art/johto-v3/generated/tree.png",
+      "sha256": "33e56b086659a35862e1e3086f5f66d715c6c4c63b2c2f6a7bfdb902d9aae2a4"
+    },
+    {
+      "path": "gba/art/johto-v3/native/tree.4bpp",
+      "sha256": "276b4d888bc93f4972da98a2cd89f134d000fd229cf2a2f516c9fa371dd8973a"
+    },
+    {
+      "path": "gba/art/johto-v3/native/tree.png",
+      "sha256": "99bcab6ecc75164e67461614eeb0399ea7dce57ecb14f034b09dfe83934bba40"
+    },
+    {
+      "path": "gba/art/johto-v4/sources/tree01_re.png",
+      "sha256": "3fc2a2afc9e662b139814472bad714eb005d2a4c3563f31ca2cf01c30ab80a89"
+    },
+    {
+      "path": "gba/art/johto-v4/sources/tree01_un.png",
+      "sha256": "8875166c8eb87ffbc1154343915a0c6b55ca2ea93118e78598708a3960d1a4a4"
+    },
+    {
+      "path": "gba/art/johto-v4/sources/tree01gs.png",
+      "sha256": "fbbedd9e80062096cbd463b9e1504a256fb04ade9f337f27e20d435c20778c4f"
+    }
+  ],
+  "active_large_tree_aliases": [
+    "gba/art/cherrygrove-synthesis/refined/tree.png",
+    "gba/art/route30-hgss-blocks/source/materials/tree.png",
+    "gba/art/route36/source/materials/tree.png",
+    "gba/art/violet-city/source/materials/tree.png",
+    "gba/art/cherrygrove-synthesis/refined/blossom.png"
+  ]
+}

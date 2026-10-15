@@ -66,7 +66,8 @@ def build(engine):
         Image.fromarray(after).save(OUT/'source'/f'{key}.png')
         count = indexed(after, OUT/'source'/f'{key}.idx.png')
         mask = np.where((before[...,3]>0) & ~keep,255,0).astype(np.uint8)
-        Image.fromarray(mask).save(OUT/'review'/f'{key}-removed-mask.png')
+        if mask.any() or not (OUT/'review'/f'{key}-removed-mask.png').exists():
+            Image.fromarray(mask).save(OUT/'review'/f'{key}-removed-mask.png')
         records.append(dict(id=key, label=title, size=[after.shape[1],after.shape[0]],
             master=f'source/{key}.png', indexed=f'source/{key}.idx.png',
             opaque_colors=count, removed_ground_pixels=int((mask>0).sum()),
@@ -79,7 +80,7 @@ def build(engine):
         before=rgba(path)
         add(key,title,before,without(before,[(64,136,104)]),
             [{'path':str(path.relative_to(ROOT)), 'sha256':sha(path)}],
-            'Remove only the HGSS ground-shadow color (64,136,104); retain every other source pixel and original 32x48 canvas.',
+            'Approved Cherrygrove design only. Its 197 ground-shadow pixels were removed before this catalog rebuild; source RGB and the original 32x48 canvas are retained.',
             restriction='Cherrygrove only' if key=='T02' else 'Johto shared',
             anchor=[16,43])
 
@@ -116,16 +117,15 @@ def build(engine):
             crop_within_cells=list(box), anchor=[17,25] if route==29 else [17,29],
             note='Green-fruit extraction extends the old 48px crop to preserve the bottom of the trunk.' if route==29 else 'Replaces damaged olive-palette conversion; native placement needs separate palette allocation.')
 
-    for key,name,title in [('T05','cuttable_tree','Cut tree / Emerald'),
-                           ('T06','apricorn_tree','Small apricorn / engine sprite'),
-                           ('T07','cuttable_tree_frlg','Cut tree / FRLG alternative')]:
+    for key,name,title in [('T05','cuttable_tree','Cut tree / native Emerald')]:
         path=engine/f'graphics/object_events/pics/misc/{name}.png'
         a=rgba(path)
+        Image.fromarray(a[:,:16]).save(OUT/'source/T05-intact.png')
         add(key,title,a,a,[{'engine_path':str(path.relative_to(engine)), 'sha256':sha(path)}],
             'Preserve existing palette-index-zero transparency and every animation pixel.',
             frames=a.shape[1]//16, frame_size=[16,16],
             status='Already transparent; unchanged pixels',
-            usage='Alternative from engine; no Johto placement confirmed' if key!='T05' else 'Native Cut object used on Route 30 approach')
+            usage='Native Cut object used on Route 30 approach')
 
     manifest=dict(status='Cleaned masters for owner review; maps not recompiled by this tool',
         map_scope=['New Bark Town','Route 29','Cherrygrove City','Route 30','Route 31','Violet City','Route 36'],
@@ -141,23 +141,24 @@ def build(engine):
 def reviews(records, originals, clean):
     fontpath='/System/Library/Fonts/Supplemental/Arial.ttf'
     font=ImageFont.truetype(fontpath,18);small=ImageFont.truetype(fontpath,14)
-    headers=['Original cutout','Transparent','Grass','Dirt','Rock face']
+    headers=['Transparent','Grass','Dirt','Rock face']
     textures={}
     for name,rel in [('Grass','gba/art/cherrygrove-synthesis/references/HGSS-direct/grass-source.png'),
                      ('Dirt','gba/art/cherrygrove-synthesis/references/HGSS-direct/path-source.png')]:
         textures[name]=Image.open(ROOT/rel).convert('RGBA')
     # Actual Route 30 HGSS wall interior, read from the route reference.
     textures['Rock face']=Image.open(ROOT/'gba/art/claude-routes/references/route30-hgss.png').convert('RGBA').crop((342,20,358,36))
-    width=1100; rowh=186
+    width=884; rowh=186
     sheet=Image.new('RGB',(width,110+rowh*len(records)), '#202833');d=ImageDraw.Draw(sheet)
     d.text((20,15),'JOHTO TREES — terrain-free master review',font=font,fill='white')
-    d.text((20,43),'3x native pixels • source-art previews • Cut rows show all four animation frames',font=small,fill='#bacbd7')
+    d.text((20,43),'3x native pixels • shared Cherrygrove design • native Cut tree shown intact',font=small,fill='#bacbd7')
     for i,h in enumerate(headers):d.text((20+i*216,79),h,font=font,fill='#e8d7a9')
     for row,record in enumerate(records):
         key=record['id'];y=110+row*rowh
         d.text((20,y),key+'  '+record['label'],font=font,fill='white')
         for col,kind in enumerate(headers):
-            a=originals[key] if col==0 else clean[key]
+            a=clean[key]
+            if key=='T05': a=a[:,:16]  # Only intact frame in the object catalog.
             h,w=a.shape[:2];base=Image.new('RGBA',(68,50));pix=base.load()
             for yy in range(50):
                 for xx in range(68):

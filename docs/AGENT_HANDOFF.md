@@ -4,15 +4,18 @@ Owner approved the service-building ground cleanup and requested the same rule
 for every reusable object over land, then asked to handle all tree types first.
 AGENTS.md and the workflow now require transparent object foregrounds and separate
 terrain. See `gba/art/johto-common/trees/README.md` and `review/trees-over-terrain.png`.
-Seven tree families are collected: shared green/pink, two complete HGSS apricorn
-variants, native small apricorn, Emerald Cut and FRLG Cut (all animation frames).
-Four source masters had terrain-colored shadow pixels removed. Three native sets
-were already transparent. All retain source RGB and export exactly to <=15 opaque
-colors plus transparent palette index zero. No ROM or native map was changed;
-engine remains `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. Next is tree review and
-native installation using independent destination ground and appropriate palettes.
-Do not regenerate maps with their older, ground-backed tree imports. Source donors
-and previous snapshots are preserved as provenance, not new placement masters.
+Owner then clarified that obsolete designs must be deleted, not offered as options.
+The pack now contains only the established Cherrygrove green/pink design, the two
+HGSS apricorn variants, and native Emerald Cut. T01/T02/T05 selections have locked
+hashes. Forty-four obsolete asset files were deleted; the retired-file check rejects
+restoration. Five active large-tree source copies now match the clean shared master.
+The Cut catalog shows the intact frame, with its four-frame animation preserved
+separately. All five masters export exactly to <=15 opaque colors plus transparent
+palette index zero. Source regeneration was updated to avoid alternate large trees.
+No ROM or native map was changed; engine remains
+`6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. Next is reviewing the remaining apricorn
+variants and native installation using independent destination terrain/palettes.
+Run `tools/gba/maps/johto_common/check_trees.py` before future tree changes.
 
 ## Latest: approved shared Johto service buildings and terrain layers
 

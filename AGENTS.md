@@ -42,6 +42,12 @@
   keep terrain-colored ground shadows separate from the reusable object. Native
   foreground transparency must reveal the actual destination terrain. A constrained
   animation composite must use that same terrain while its source remains transparent.
+- Johto large trees must use the approved Cherrygrove design: shared master T01,
+  with T02 pink foliage exclusive to Cherrygrove. The native Emerald T05 is the
+  sole Cut-tree choice. See `gba/art/johto-common/trees/catalog.json`. Superseded
+  tree cutouts have been deleted; never restore or substitute them from old
+  snapshots, Git history, generated artifacts or donor crops. Run the tree asset
+  check before adding or replacing tree assets.
 - Reuse owner-approved regional building artwork across cities. Use the shared
   master assets and approved modules; do not redraw, recrop, recolor, or invent
   a replacement for each map. Keep local terrain and foreground/background trees

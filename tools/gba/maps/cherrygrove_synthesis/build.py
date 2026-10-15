@@ -15,7 +15,7 @@ layouts=json.loads((S/'data/layouts/layouts.json').read_text())['layouts']
 layouts=[l for l in layouts if l['name'] in ['CherrygroveCity_Layout','CherrygroveRoute29Approach_Layout','CherrygroveRoute30Approach_Layout']]
 pals={};assets={}
 for name,bank in [('house',6),('gable',6),('house2',7),('center',8),('mart',9),('mart_sign',9),('tree',3),('blossom',10),('cliff',2)]:
- src=A/'references'/('C' if name=='cliff' else 'B')/(name+'.idx.png');im=Image.open(src);assets[name]=np.array(im,dtype=np.uint8);colors=np.array(im.getpalette()[:48]).reshape(16,3);pals[bank]=[tuple(map(int,c)) for c in colors]
+ src=A/'refined'/(name+'.png') if name in ('tree','blossom') else A/'references'/('C' if name=='cliff' else 'B')/(name+'.idx.png');im=Image.open(src);assets[name]=np.array(im,dtype=np.uint8);colors=np.array(im.getpalette()[:48]).reshape(16,3);pals[bank]=[tuple(map(int,c)) for c in colors]
 from refine import repair_assets,terrain,ground_sources
 repair_assets(ROOT,assets,pals)
 # C palette, B sea, E harbor's exact wood and boat color slots.
