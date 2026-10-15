@@ -1287,3 +1287,25 @@ destinations, Strength pushing, water animation and campaign/Surf unlock remain
 pending. Shared main AGENTS cleanup rule and outdoor prompt are published after
 this correction so future instances retain original texture treatment, align
 real stair warps and perform local close-up review. Preserve existing Grok rules.
+
+## Route33 detailed first pass — 2026-10-15
+
+Owner accepted current Union Cave for now and requested the next route with all
+AGENTS rules applied before presenting a draft. Route33 is built in a new source
+worktree/branch `codex/route33-hgss`, head `224ee13c392888780bdcaeb7053487f42a9ab731`,
+engine PR10, dependent on UnionCave PR9/Route32 PR8. Preserve all earlier worktrees.
+Actual HGSS overview is the geography authority, origin0/0 at16px, native34×29.
+Private route art retains original cliff contours/cap texture, accepted Cherrygrove
+full trees/ground, coherent grass, native Emerald directional ledges, two boulders,
+apricorn silhouettes, fitted cave threshold and rain. Separate material/physics
+ledgers and original/native/close-up/gameplay sheets are in gba/art/route33-hgss.
+Only UnionCave's unique south threshold behavior and appended warp3 change there;
+all cave artwork, layout/collision and existing warp pairs remain untouched.
+Native map ID49 is appended. Local build,986-cell Porymap/ledger checks, representative
+Porytiles RGB/alpha, headless travel both ways, directional ledges/barriers/grass,
+normal saves/cold reload/Continue and a copied prior cave save pass.52 source files
+reproduce. No ROM/save/binary commits. CI/visual acceptance remain separate.
+Azalea approach stays closed until the town exists. Apricorn harvest, actors,
+encounters/sign dialogue/campaign are not introduced. Flower decoration simplified;
+eastern inaccessible water framing static. Native source is now the editor authority;
+never replay provenance packers over it. Shared main map rules remain in force.

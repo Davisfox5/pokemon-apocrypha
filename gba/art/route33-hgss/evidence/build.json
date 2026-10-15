@@ -1,0 +1,28 @@
+{
+  "source_commit": "224ee13c392888780bdcaeb7053487f42a9ab731",
+  "source_branch": "codex/route33-hgss",
+  "dependency": "fc1017fecad147879de460fcb9727ff63862598b",
+  "rom_sha256": "4fe4157e9bf123d4406fa57808d7ff681656676a24ede625f9cbeadec9555ef6",
+  "ROM_bytes": 33554432,
+  "toolchain": "Arm GNU 14.2",
+  "Porymap": "6.3.1 offscreen actual project export",
+  "Porytiles": "legacy 2.0.0; standalone representative both-bank round-trip with 13 palette capacity, not an engine primary repack",
+  "mGBA": "libmGBA 0.10.5 headless",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0
+    },
+    {
+      "phase": "read",
+      "exit_code": 0
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0
+    }
+  ],
+  "observations": 24,
+  "CI": "PR draft; no workflow runs returned at publication",
+  "owner_visual_acceptance": "pending"
+}
