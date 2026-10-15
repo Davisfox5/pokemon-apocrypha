@@ -1,0 +1,28 @@
+{
+  "category": "Johto gatehouses",
+  "selected_directions": [
+    "G01a",
+    "G02"
+  ],
+  "status": "Revised artwork awaiting owner review; not yet a locked regional standard",
+  "revision": "refinement-1",
+  "owner_feedback": {
+    "G01a": "Design is good; clean the edges.",
+    "G02": "Reconstruct lower green section hidden by trees; refine stairs and side canopy cleanliness and color."
+  },
+  "previews": {
+    "revised": "refinement-1/revised-gates.png",
+    "comparison": "refinement-1/before-after.png"
+  },
+  "source_tool": "tools/gba/maps/johto_common_review/refine_gates.py",
+  "native_check": "refinement-1/validation.json",
+  "provenance": {
+    "front": "Preserved G01a native art with explicit verge and corner repairs. Roof and central facade pixels preserved.",
+    "side": "HGSS Violet source crop (0,416)-(112,528). Lower teal foundation reconstructed from the exposed fragments between foreground crowns. Side canopy and stairs use separate material masks; main native roof pixels preserved."
+  },
+  "integration": {
+    "engine_changed": false,
+    "regional_rollout": false,
+    "follow_up": "On adoption, adjust side-gate wall footprint for restored base row 6 and recheck doorway/approach/canopy layering. Existing source-edge clipping on the far left is intentional for boundary gate placement; a freestanding full gate would need its opposite entrance completed."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "G01a": {
+    "colors": 15,
+    "size": [
+      112,
+      128
+    ],
+    "changed_pixels": 127,
+    "opaque_pixels_added": 22,
+    "main_roof_preserved": true
+  },
+  "G02": {
+    "colors": 15,
+    "size": [
+      112,
+      112
+    ],
+    "changed_pixels": 2241,
+    "opaque_pixels_added": 958,
+    "main_roof_preserved": true
+  },
+  "native_compile": {
+    "compiler": "Porytiles legacy",
+    "rgba_pixel_errors": 0,
+    "metatiles": 192,
+    "stored_tile_slots": 240,
+    "bank_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "mirrored_side_gate_verified": true,
+    "game_maps_modified": false,
+    "runtime_tested": false
+  }
+}
