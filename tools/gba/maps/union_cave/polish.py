@@ -12,6 +12,7 @@ T=ROOT/'gba/art/union-cave-1f/source/hgss-textures'
 for key,c in FLOORS.items():
  S=ROOT/f'gba/art/union-cave-{key}/source';base=S/'previous-de6922a'
  assert base.exists(),'Preserve previous source before corrections'
+ assert not (S/'native-edit-lock.json').exists(),'Preserve direct native finish edits; see current README reproduction'
  a=np.array(Image.open(base/'clean-terrain.png').convert('RGB'));lab=np.load(base/'hgss-pixel-materials.npy');old=a.copy()
  # Remove single-pixel resampling speckle within the SAME material and shade.
  # Choose an existing RGB sample, never blend the wall with adjacent floor/void.

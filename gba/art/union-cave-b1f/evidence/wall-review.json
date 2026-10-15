@@ -29,5 +29,5 @@
   "stair_art": "original Union Cave d_level01 stone treads; up/down variants; existing native warp behavior 97 retained",
   "lighting": "shared wall palette ramps across ordinary ground and water banks; border-weighted shade reuse within identical material masks",
   "limit": "interior shading uses a finite 1008-tile dictionary; not a pixel-exact screenshot import",
-  "source_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6"
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
 }

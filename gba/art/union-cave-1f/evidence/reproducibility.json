@@ -1,8 +1,11 @@
 {
-  "canonical_geometry_aware_dictionary": true,
-  "repeat_authoring_changed_native_files": [],
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76",
+  "baseline": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6",
+  "method": "direct two-glyph native patch, reproduced in a clean isolated baseline worktree; no packer replay",
   "native_files_checked": 117,
-  "sha256": {
+  "file_content_differences": [],
+  "palette_line_endings_normalized": true,
+  "native_source_sha256": {
     "data/tilesets/primary/union_cave/metatiles.bin": "70c606f3a21c9ae74b66bcc23de7ed91c0401dc4ae2ba033448f9ac4a640b365",
     "data/tilesets/primary/union_cave/tiles.png": "5b9a28319aa03b72bd3fa7793485c5e13cb99a70a48a760dc349e47725dfc35b",
     "data/tilesets/primary/union_cave/metatile_attributes.bin": "7114c44cbc2d734904f9678c3b7f309b58cc88d954db5d204818bbd6049e578e",
@@ -80,7 +83,7 @@
     "data/tilesets/secondary/union_cave/palettes/09.pal": "d9a47234b3e526c0c02213f59c71a9ee9998802a5d8d04e7a9483de80f1ed82b",
     "data/tilesets/secondary/union_cave/palettes/13.pal": "d9a47234b3e526c0c02213f59c71a9ee9998802a5d8d04e7a9483de80f1ed82b",
     "data/tilesets/secondary/union_cave_b1f/metatiles.bin": "62b391a68a3b9d1b82c5e265cbe81475faae235c19f755adc23524885b16449e",
-    "data/tilesets/secondary/union_cave_b1f/tiles.png": "365234316f4f6b364505b8164575cdff7fc61da72467b3445f50a71d1f06a18b",
+    "data/tilesets/secondary/union_cave_b1f/tiles.png": "8cda0a1f2e0ebf11e88bb799b1a8839b811572303daf54925820d03866c9f170",
     "data/tilesets/secondary/union_cave_b1f/metatile_attributes.bin": "ce3947405d6479229e567e0413535c99880442709c096ec0744a4f971d44eb9b",
     "data/tilesets/secondary/union_cave_b1f/palettes/02.pal": "1cba2fa0677a8870a8f71173d4a6c199dac0deff60b355c1316635afb2803145",
     "data/tilesets/secondary/union_cave_b1f/palettes/07.pal": "f53a98b2839f5cc05615aa0db69b48042caa75ea99b49aa4249979ecdb886bfe",
@@ -121,6 +124,5 @@
     "data/layouts/UnionCaveB1F/map.bin": "84a6808c4f5ad7c6a9f89f83e5e0d98ae2f30b9004fd2417d33fe36e268342e8",
     "data/layouts/UnionCaveB2F/map.bin": "1a4d2b143d64660b6c863a23dde88a1d6f2cf44fb9286851a6ee5187c580dcb2"
   },
-  "owner_edit_guard": "current fingerprints or exact preserved baseline only; no replay over owner edits",
-  "source_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6"
+  "owner_edit_protection": "exact baseline and full fingerprint guard; current B1F direct-edit lock blocks packer replay"
 }

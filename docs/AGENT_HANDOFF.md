@@ -1219,3 +1219,36 @@ refine.py on each floor; do not run the old trace/register sequence afterwards.
 Guards reject owner edits. Source native layouts remain the editor authority.
 Route33 exterior, unpictured Alph rooms/two unwired markers, Strength pushing,
 animated water and campaign content/Surf unlock remain separate pending work.
+
+## Basement finish review and shared cleanup rule — 2026-10-15
+
+Owner approved the first-floor entrance as the quality benchmark and requested
+the same visual review for B1F/B2F plus a standing AGENTS.md rule and an outdoor
+refinement prompt. Both floors already had the material/palette cleanup; this
+follow-up adds 20 focused original/before/native corner regions, 2,109 wall-cell
+coverage and 18 fresh controlled native camera sites. Ordinary saves also pass
+in the fresh review. Controlled camera placement is not a traversal claim.
+
+The review found remaining trainer pixels in the B1F corner at cells (23,16) /
+(23,17): the old raw donor touched an actor boundary. Final repair cleans 29
+pixels in unique native glyphs 708/712, preserving the entire face/base ramp.
+Current source `988e0287216410698481d313e73d6cf99f650b76` on codex/union-cave-1f; net change
+from ab04d979 is only the private B1F secondary tiles.png. B2F and first-floor
+source, all layout/collision/elevation entries, palette/metatile IDs and warps
+remain unchanged. Build, actual Porymap equality, native material/physics and
+B1F Porytiles checks pass; the full 405-observation stair/Surf/per-floor-save
+tour was rerun. Three prior proof-save copies still reload/Continue.
+
+Use direct native edits as authority. B1F native-edit-lock blocks replay of the
+packer and polish generator. Reproduction: fix_b1f_junction.py on an isolated
+exact ab04d979 baseline; previous-ab04d979 preserves editable source. Reproduced
+output matches all 117 final native files with palette line endings normalized.
+See the updated cave READMEs, finish-review/ findings and exact source/ROM hashes.
+
+The cleanup standard and outdoor prompt are being published as shared hub main
+rules (AGENTS.md, GBA_MAP_RECONSTRUCTION.md and GBA_OUTDOOR_REFINEMENT_PROMPT.md),
+with the feature branch brought up to date afterward. Preserve existing Grok
+rules and owner layouts. Specifically verify donors are actor/item-free across
+their full bounds, not only at the sampled center. Owner acceptance for basement
+visuals remains pending. Previously documented Route33/Alph/Strength/campaign/
+water-animation limits remain. No ROMs, saves or tool binaries committed.

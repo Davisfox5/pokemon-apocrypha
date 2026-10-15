@@ -1,6 +1,6 @@
 # Union Cave — stone stairs, smooth rock shading and fitted thresholds
 
-Native source **`ab04d9792ea5c36233a3ef2ff0c410b46b6658b6`**, branch `codex/union-cave-1f`,
+Native source **`988e0287216410698481d313e73d6cf99f650b76`**, branch `codex/union-cave-1f`,
 [draft engine PR #9](https://github.com/Davisfox5/pokeemerald-expansion/pull/9).
 This corrects the preceding `de6922a` pass across 1F, B1F and B2F.
 [B1F review](../union-cave-b1f/README.md) · [B2F review](../union-cave-b2f/README.md).
@@ -95,31 +95,49 @@ Water art is static. Campaign actors, items, encounters, Lapras and Surf badge/p
 activation remain separate work. Surf proof setup initializes the existing engine
 state on water; it does not grant a campaign HM or change progression gates.
 
+## Focused basement review after owner approval of the entrance
+
+Both B1F and B2F received a separate close-up review of wall returns, concave and
+convex corners, low shore lips, lake rims, rock/shore overlaps, sprite-removal
+sites and stair approaches. The review found a remaining B1F trainer-outline
+fragment at cells `(23,16)` / `(23,17)`. Two unique native glyphs were cleaned
+within their existing face/base shading plane: **29 visible pixels**, with no
+layout, collision, palette, metatile IDs or footprint change. B2F required no
+additional art edits. First-floor artwork remains unchanged.
+
+[B1F focused review and repair](../union-cave-b1f/README.md) ·
+[B2F focused review](../union-cave-b2f/README.md).
+Both include original / preceding / current corner sheets and fresh gameplay
+camera views. Controlled framing is separate from the full traversal proof.
+Native material/physics checks, Porymap equality and appropriate runtime/save
+checks were rerun after the B1F asset edit. Visual acceptance remains with owner.
+
 ## Editable source and isolated reproduction
 
-Edit committed layouts/assets directly in Porymap. Do not replay provenance tools
-over owner edits. Current fingerprints or an exact preserved baseline are required;
-never bypass a guard refusal. Previous source and evidence are preserved under
-`previous-de6922a/`; the earlier `previous-6abf7e84/` remains intact.
+Edit current native layouts/assets directly. Preserve owner edits, IDs, previous
+source/evidence and saves. The finish uses direct native glyph edits, with no
+repacking. `source/native-edit-lock.json` on B1F blocks replay of the packer or
+pixel-preparation generator over the final native artwork.
 
-For this correction, start with an **isolated, unchanged `de6922a` engine checkout**
-and this hub branch, then run from the hub:
+To reproduce the current small repair, use an **isolated, unchanged engine checkout
+at ab04d9792ea5c36233a3ef2ff0c410b46b6658b6** and this hub branch:
 
 ```sh
-python3 tools/gba/maps/union_cave/polish.py
-python3 tools/gba/maps/union_cave/refine.py /path/to/engine 1f
-python3 tools/gba/maps/union_cave/refine.py /path/to/engine b1f
-python3 tools/gba/maps/union_cave/refine.py /path/to/engine b2f
-make -C /path/to/engine -j8
-python3 tools/gba/maps/union_cave/runtime_all.py /path/to/engine /new/runtime-output --toolchain /path/to/arm-toolchain
-# Separate saves: --save-floor 1f or --save-floor b1f, with new output directories.
+python3 tools/gba/maps/union_cave/fix_b1f_junction.py /path/to/isolated-engine
+make -C /path/to/isolated-engine -j8
+python3 tools/gba/maps/union_cave/runtime_all.py /path/to/isolated-engine /new/runtime-output --toolchain /path/to/arm-toolchain
 ```
 
-`trace.py` / `trace_basements.py` and `register_floors.py` document the preceding
-floor reconstruction; do not run them after this cleanup or replay the old 1F
-`build.py`. `refine.py ENGINE FLOOR --check-only` verifies ownership without writes.
-The canonical dictionary preserves geometry and deterministic tile ordering.
-`compile_porymap_probe.py` links the actual Porymap exporter; `review_all.py`
-takes engine/export paths; `check_art.py` takes engine/Porytiles/floor paths.
-`publish_all.py` records the committed source hash. No ROMs, player saves or tool
-binaries are committed. Visual acceptance remains with the owner.
+The patch verifies exact source identity, clean ownership fingerprints and unique
+uses of both glyphs. Its output was reproduced in an isolated baseline worktree
+and matches all 117 final native files (palette line endings normalized).
+`previous-ab04d979/` preserves the prior editable B1F source. Earlier de6922a and
+6abf snapshots remain. The packed ab04d979 baseline's separate provenance is
+[pinned here](https://github.com/Davisfox5/pokemon-apocrypha/blob/c30f2a3beafd583b6c2458ca3e9cc238fa21afe7/gba/art/union-cave-1f/README.md).
+
+`refine.py ENGINE FLOOR --check-only` checks owned source without writing. Keep
+native finish edits authoritative; do not run historical trace/register/build
+scripts on the final project. `basement_finish_review.py` generates fresh corner
+sheets and controlled headless camera views without editing the engine, followed
+by an ordinary save/cold reload/Continue. Existing build/proof source and ROM
+identities remain recorded. No ROMs, saves or tool binaries are committed.

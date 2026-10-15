@@ -1,7 +1,22 @@
 # Union Cave B1F — original HGSS reconstruction
 
-Native source `ab04d9792ea5c36233a3ef2ff0c410b46b6658b6`, branch
+Native source `988e0287216410698481d313e73d6cf99f650b76`, branch
 `codex/union-cave-1f`. [Shared cave review, checks and reproduction](../union-cave-1f/README.md).
+
+
+## Focused final visual review
+
+- [Corners and joins, page 1](evidence/finish-review/joins-and-corners-1.png)
+- [Corners and joins, page 2](evidence/finish-review/joins-and-corners-2.png)
+- [Fresh native gameplay review](evidence/finish-review/gameplay-review.png)
+- [Review findings and exact source identity](evidence/finish-review/review.json)
+- [Remaining trainer-outline fragment: before / corrected](evidence/finish-review/junction-before-after.png)
+
+A raw donor touched the original trainer boundary, leaving black/skin pixels in
+a wall corner. Two uniquely placed native glyphs now preserve the complete face
+and base ramp while removing 29 stray pixels. No layout, collision, palette or
+metatile IDs changed. The packed baseline and prior source are preserved; use
+the direct guarded patch for reproduction, with no generator replay.
 
 - [Whole original / native map](evidence/comparison.png)
 - [Actual native gameplay](evidence/gameplay-gallery.png)

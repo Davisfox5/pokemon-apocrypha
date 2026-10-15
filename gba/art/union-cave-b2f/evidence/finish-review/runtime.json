@@ -1,0 +1,316 @@
+{
+  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 40,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "b1f-main-stone-stair",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 30,
+          "y": 35,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-main-lake-bank",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 26,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-eastern-rock-gallery",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 26,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-repaired-wall-corner",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 24,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-northern-wall-turn",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 16,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-upper-stair-marker",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 5,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-strength-wall-base",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 7,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-lower-west-stone-stair",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 5,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b1f-lower-east-bank",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 29,
+          "y": 47,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-return-stone-stair",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 5,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-northwest-low-bank",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 6,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-northeast-low-bank",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 27,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-west-peninsula",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 7,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-west-gallery",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 6,
+          "y": 28,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-east-rock-gallery",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 28,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-southern-peninsula",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 24,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-south-lake-bank",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 6,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "b2f-low-shore-rock-roots",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 6,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "finish-review-save",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-reload-finish-review",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 47,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,20 @@
 # Union Cave B2F — original HGSS reconstruction
 
-Native source `ab04d9792ea5c36233a3ef2ff0c410b46b6658b6`, branch
+Native source `988e0287216410698481d313e73d6cf99f650b76`, branch
 `codex/union-cave-1f`. [Shared cave review, checks and reproduction](../union-cave-1f/README.md).
+
+
+## Focused final visual review
+
+- [Corners and joins, page 1](evidence/finish-review/joins-and-corners-1.png)
+- [Corners and joins, page 2](evidence/finish-review/joins-and-corners-2.png)
+- [Fresh native gameplay review](evidence/finish-review/gameplay-review.png)
+- [Review findings and exact source identity](evidence/finish-review/review.json)
+
+The focused review found no additional source defects requiring edits. Existing
+stone stairs, low bank lips, cliff turns, rock layers and water/void boundaries
+were reviewed against the original reference and in native gameplay. B2F source
+art and its collision/elevation remain unchanged by this follow-up.
 
 - [Whole original / native map](evidence/comparison.png)
 - [Actual native gameplay](evidence/gameplay-gallery.png)

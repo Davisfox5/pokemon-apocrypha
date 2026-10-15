@@ -26,6 +26,7 @@ if (G/'data/tilesets/primary'/c['set']).exists():
 else:
  assert not (G/'data/layouts'/c['name']).exists() and not (G/'data/maps'/c['name']).exists(),('Preserve existing floor without private source manifest',c['name'])
 if '--check-only' in sys.argv:print(key,'owned-source guard passed');raise SystemExit(0)
+assert not (S/'native-edit-lock.json').exists(),'Preserve direct native finish edits; use the documented exact-baseline patch, not a repack'
 a=np.array(Image.open(S/'clean-terrain.png').convert('RGB'));lab=np.load(S/'hgss-pixel-materials.npy').copy();plan=np.array([list(row) for row in (S/'hgss-material-grid.txt').read_text().splitlines()]);blocked=np.load(S/'hgss-foot-blocked.npy').copy();props=lab=='O';yy,xx=np.indices(lab.shape)
 # Every foreground rock is a complete source silhouette. Keep palette-separated
 # ground beneath it, rather than allowing palette compression to hollow its center.
