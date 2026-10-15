@@ -1183,3 +1183,39 @@ not pictured in these references (two B1F markers intentionally unwired); Streng
 pushing (barrier retained); water animation; campaign actors/items/Lapras/encounters
 and Surf badge/party activation. Proof Surf setup initializes existing engine state
 on water; it does not grant campaign progression or claim field unlock coverage.
+
+## Union Cave correction — 2026-10-15, southern rim / stone steps
+
+Engine `ab04d9792ea5c36233a3ef2ff0c410b46b6658b6` on `codex/union-cave-1f`, pushed; draft PR9 remains
+against apocrypha with Route32 PR8 as its dependency. Hub evidence stays on
+`codex/union-cave-evidence` / draft PR13; never push map work directly to main.
+See `gba/art/union-cave-1f/README.md` for current renders and exact commands.
+
+Owner rejected a literal north-to-south entrance paste: the local southern rim
+baseline differs by four pixels and the northern west corner turns downward.
+The replacement fits the approved light to the southern baseline and rebuilds
+straight shoulders/full rim, with no copied back wall, hanging pillar or stacked
+border. Northern protected 48x32 threshold artwork stays pixel-identical.
+All eight markers now use actual HGSS Union Cave d_level01 stone-step textures,
+not Emerald wooden ladder art. Original source textures/provenance are retained.
+Rocks/walls receive bounded same-material shading cleanup. Native substitution
+is now constrained by exact material masks and shared wall palette ramps.
+3,448 wall-containing cells have coordinate-labelled reference/native sheets;
+all 23,168 actual background quadrants validate their tile bytes/material masks.
+The 5,792 collision/elevation cells, warp IDs, room layout and shared art stay
+unchanged. Finite interior texture approximation remains explicit.
+
+Local build, Porymap equality, three Porytiles layered round-trips and 405
+native observations pass, including all three stairs both ways, water movement
+and disembark, fitted southern threshold/barrier, and separate 128KiB saves / cold
+reload / Continue on each floor. Three prior proof-save copies reload/Continue;
+originals untouched. Byte-identical repeated packing verified across 117 files.
+No desktop game or ROM/save/tool-binary commits. Visual acceptance remains owner
+review; CI status must be checked separately, not inferred from the local build.
+
+Preserve all `previous-de6922a/` source/evidence snapshots and older 6abf snapshots.
+For isolated reproduction of THIS correction use exact de6922a + polish.py then
+refine.py on each floor; do not run the old trace/register sequence afterwards.
+Guards reject owner edits. Source native layouts remain the editor authority.
+Route33 exterior, unpictured Alph rooms/two unwired markers, Strength pushing,
+animated water and campaign content/Surf unlock remain separate pending work.

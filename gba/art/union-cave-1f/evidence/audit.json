@@ -9,7 +9,7 @@
   "maximum_BG_palette": 5,
   "water_cells": 209,
   "water_contract": "collision=0, elevation=1, MB_POND_WATER; ordinary land elevation=3. Walking is blocked by elevation; Surf and disembark verified in native runtime.",
-  "foreground_geometry": "complete original native-quantized rock silhouettes retained exactly; imported Emerald cave ladder 0x205 at registered actual stair locations",
+  "foreground_geometry": "cleaned complete rock silhouettes in foreground; original HGSS Union Cave d_level01 stone-step texture at registered floor transitions",
   "terrain_classification_limit": "mixed pixels, occlusion and projection remain interpreted; the source grid is not a claim of exact original DS collision",
   "unqualified": [
     "campaign Surf badge/party activation",
@@ -18,5 +18,5 @@
     "Route33 exterior"
   ],
   "water_animation": "static",
-  "source_commit": "de6922a964721aceb11147bcac6acadc477d4538"
+  "source_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6"
 }

@@ -1,6 +1,6 @@
 # Union Cave B2F — original HGSS reconstruction
 
-Native source `de6922a964721aceb11147bcac6acadc477d4538`, branch
+Native source `ab04d9792ea5c36233a3ef2ff0c410b46b6658b6`, branch
 `codex/union-cave-1f`. [Shared cave review, checks and reproduction](../union-cave-1f/README.md).
 
 - [Whole original / native map](evidence/comparison.png)
@@ -31,3 +31,9 @@ Porytiles RGB/alpha checks pass. Native stair travel, walking barriers, controll
 existing-engine Surf movement/disembark and ordinary save/cold reload/Continue are
 verified. Campaign Surf activation/Strength rules and animated water are not
 qualified by these map tests. No ROM/save/tool binaries are committed.
+
+Current correction: bounded rock/wall cleanup, geometry-constrained tile reuse,
+shared wall ramps, and actual HGSS Union Cave stone-step artwork. Collision and
+elevation remain identical to de6922a. [Every wall cell](evidence/wall-cell-review.png)
+and [decoded tile/material audit](evidence/wall-review.json) document the pass.
+Previous source/renders remain under `previous-de6922a/`.

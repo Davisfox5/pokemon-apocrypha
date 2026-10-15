@@ -1,0 +1,142 @@
+{
+  "rom_sha256": "b3010ea99562dab055dfd51cc486716ff0a9041dcf8c04d30348ee3477dcc176",
+  "copied_save_checks": {
+    "previous-1f": {
+      "original_save_sha256": "7c5099284ff7b355ce526edecf24188f99266c26ee0b83c970404581c1e2b10b",
+      "original_untouched": true,
+      "ordinary_flash_bytes": 131072,
+      "phases": [
+        {
+          "phase": "read",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "cold-reload-union-cave",
+              "region": 2,
+              "group": 80,
+              "map": 46,
+              "x": 27,
+              "y": 56,
+              "frlg_layout": 0,
+              "width": 34,
+              "height": 60,
+              "interaction": 0,
+              "mapsec": 224
+            }
+          ]
+        },
+        {
+          "phase": "menu",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "ordinary-title-continue",
+              "region": 2,
+              "group": 80,
+              "map": 46,
+              "x": 27,
+              "y": 56,
+              "frlg_layout": 0,
+              "width": 34,
+              "height": 60,
+              "interaction": 0,
+              "mapsec": 224
+            }
+          ]
+        }
+      ]
+    },
+    "previous-route32": {
+      "original_save_sha256": "0b885b6cc6cdb0464b65fe27673aa3d1e7ebc6a85495453575f272678de3a016",
+      "original_untouched": true,
+      "ordinary_flash_bytes": 131072,
+      "phases": [
+        {
+          "phase": "read",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "cold-reload-route32",
+              "region": 3,
+              "group": 80,
+              "map": 43,
+              "x": 19,
+              "y": 68,
+              "frlg_layout": 0,
+              "width": 32,
+              "height": 128,
+              "interaction": 0,
+              "mapsec": 223
+            }
+          ]
+        },
+        {
+          "phase": "menu",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "ordinary-title-continue",
+              "region": 3,
+              "group": 80,
+              "map": 43,
+              "x": 19,
+              "y": 68,
+              "frlg_layout": 0,
+              "width": 32,
+              "height": 128,
+              "interaction": 0,
+              "mapsec": 223
+            }
+          ]
+        }
+      ]
+    },
+    "previous-all-floors": {
+      "original_save_sha256": "16aafa3522a3a53700f6e441acf6f613c5c7fbe070f40ec587066bcb839a3399",
+      "original_untouched": true,
+      "ordinary_flash_bytes": 131072,
+      "phases": [
+        {
+          "phase": "read",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "cold-reload-b2f",
+              "region": 2,
+              "group": 80,
+              "map": 48,
+              "x": 4,
+              "y": 6,
+              "frlg_layout": 0,
+              "width": 40,
+              "height": 47,
+              "interaction": 0,
+              "mapsec": 224
+            }
+          ]
+        },
+        {
+          "phase": "menu",
+          "exit_code": 0,
+          "observations": [
+            {
+              "step": "ordinary-title-continue",
+              "region": 2,
+              "group": 80,
+              "map": 48,
+              "x": 4,
+              "y": 6,
+              "frlg_layout": 0,
+              "width": 40,
+              "height": 47,
+              "interaction": 0,
+              "mapsec": 224
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "development proof saves; not arbitrary campaign-save qualification",
+  "source_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6"
+}

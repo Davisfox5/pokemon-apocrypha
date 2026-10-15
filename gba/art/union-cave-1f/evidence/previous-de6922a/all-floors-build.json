@@ -1,0 +1,65 @@
+{
+  "source_commit": "de6922a964721aceb11147bcac6acadc477d4538",
+  "base_commit": "6abf7e84e27828356c1bb390b048611c1997d4e4",
+  "rom_sha256": "916655a1ec12b7e6405f9177ed1a365d143d4ed7e91928c6c4de63107aa06593",
+  "floors": [
+    "1f",
+    "b1f",
+    "b2f"
+  ],
+  "runtime_observations": 398,
+  "phases": {
+    "all-floors": [
+      {
+        "phase": "write",
+        "exit_code": 0
+      },
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ],
+    "save-1f": [
+      {
+        "phase": "write",
+        "exit_code": 0
+      },
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ],
+    "save-b1f": [
+      {
+        "phase": "write",
+        "exit_code": 0
+      },
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ]
+  },
+  "ordinary_flash_bytes": 131072,
+  "previous_proof_saves": "both preceding 1F and Route32 copies reload/Continue; originals untouched",
+  "original_DS_warp_graph": "three pictured stair pairs wired bidirectionally; source event records retained",
+  "pending": [
+    "Route33 exterior",
+    "unpictured upper Alph transit rooms",
+    "Strength pushing",
+    "campaign Surf unlock and actors/items/encounters",
+    "animated cave water"
+  ]
+}

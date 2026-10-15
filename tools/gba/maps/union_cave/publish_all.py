@@ -11,9 +11,9 @@ if not old.exists():shutil.copytree(first/'gameplay',old)
 for p in (first/'gameplay').iterdir():
  if p.is_file():p.unlink()
 names={
- '1f':[('1f-route32-entrance','Route32 lighted threshold'),('1f-northern-stairs','Original northern branch / working stair'),('1f-north-boulder','Source beige boulder, solid footprint'),('1f-small-rock-formations','Complete small rock clusters'),('1f-south-boulder','Source southern boulders'),('1f-southern-stairs','Water-separated southern stair')],
- 'b1f':[('b1f-main-entrance','Main 1F / B1F stair'),('b1f-main-lake-land','Surf landing in the upper gallery'),('b1f-north-gallery','Northern cave rock and ground'),('b1f-strength-rock','Original fixed Strength barrier'),('b1f-lower-Surf','Separate lower chamber / Surf'),('b1f-lower-east-bank','B2F stair bank')],
- 'b2f':[('b2f-entrance','B2F entrance / return stair'),('b2f-northeast-pocket','Northern pocket after Surf landing'),('b2f-west-peninsula','Western peninsula'),('b2f-east-gallery','Eastern gallery'),('b2f-south-peninsula','Southern peninsula'),('b2f-southern-lake','Southern lake in native gameplay'),('b2f-southern-lake-land','Southern lake disembark'),('b2f-low-shore','Walkable low bank / water blocks walking')]
+ '1f':[('1f-route32-entrance','Route32 lighted threshold'),('1f-northern-stone-stairs-clear','HGSS stone stairs / northern branch'),('1f-north-boulder','Source beige boulder, solid footprint'),('1f-small-rock-formations','Complete small rock clusters'),('1f-south-boulder','Source southern boulders'),('1f-southern-stairs','Water-separated southern stone stair'),('1f-southern-doorway','Rebuilt southern light and continuous rim')],
+ 'b1f':[('b1f-main-stone-stairs-clear','Main 1F / B1F stone stair'),('b1f-main-lake-land','Surf landing in the upper gallery'),('b1f-north-gallery','Northern cave rock and ground'),('b1f-strength-rock','Original fixed Strength barrier'),('b1f-lower-Surf','Separate lower chamber / Surf'),('b1f-lower-east-bank','B2F stair bank')],
+ 'b2f':[('b2f-stone-stairs-clear','B2F stone stairs / return to B1F'),('b2f-northeast-pocket','Northern pocket after Surf landing'),('b2f-west-peninsula','Western peninsula'),('b2f-east-gallery','Eastern gallery'),('b2f-south-peninsula','Southern peninsula'),('b2f-southern-lake','Southern lake in native gameplay'),('b2f-southern-lake-land','Southern lake disembark'),('b2f-low-shore','Walkable low bank / water blocks walking')]
 }
 for key,c in FLOORS.items():
  E=ROOT/f'gba/art/union-cave-{key}/evidence';d=E/'gameplay';d.mkdir(exist_ok=True)
@@ -23,7 +23,7 @@ for key,c in FLOORS.items():
  for i,(name,title) in enumerate(names[key]):
   x=10+i%2*490;y=10+i//2*346;out.paste(Image.open(R/(name+'.png')).resize((480,320),Image.Resampling.NEAREST),(x,y+20));dr.text((x,y+3),title,fill='white')
  out.save(E/'gameplay-gallery.png')
- for name in ['packing.json','audit.json','porytiles.json']:
+ for name in ['packing.json','audit.json','porytiles.json','wall-review.json']:
   p=E/name;j=json.loads(p.read_text());j['source_commit']=sha;p.write_text(json.dumps(j,indent=2)+'\n')
  report={'source_commit':sha,'rom_sha256':next(iter(hashes)),'floor':key,'ROM_build':'passed','actual_Porymap_export':'6.3.1; zero pixel differences','Porytiles_native_RGB_alpha':'passed','runtime_source':'shared all-floor tour, exact ROM hash','ordinary_flash_save_cold_reload_Continue':'passed separately on each floor','Surf_scope':'proof setup on water uses existing engine Surf; normal water input and disembark tested; campaign unlock not claimed','ROM_save_tool_binaries_committed':False,'desktop_game_opened':False};(E/'build.json').write_text(json.dumps(report,indent=2)+'\n')
 for name,source in [('save-1f',S1),('save-b1f',Sb)]:
