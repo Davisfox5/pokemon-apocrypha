@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[4];sys.path.insert(0,str(ROOT/'tools/gba/maps'))
 from tiles import palette
-E=ROOT/'gba/art/johto-common-review/gates/refinement-1';src=E/'porytiles-source';dst=E/'porytiles-compiled'
+E=Path(sys.argv[2]) if len(sys.argv)>2 else ROOT/'gba/art/johto-common-review/gates/refinement-1';src=E/'porytiles-source';dst=E/'porytiles-compiled'
 src.mkdir(exist_ok=True)
 a=Image.open(E/'G01a.png').convert('RGBA');b=Image.open(E/'G02.png').convert('RGBA');items=[a,b,b.transpose(Image.Transpose.FLIP_LEFT_RIGHT)]
 bottom=Image.new('RGBA',(128,384));middle=bottom.copy()

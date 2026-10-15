@@ -1,0 +1,45 @@
+{
+  "G01a": {
+    "colors": 15,
+    "size": [
+      112,
+      128
+    ],
+    "changed_pixels": 0,
+    "opaque_pixels_added": 0,
+    "main_roof_preserved": true,
+    "identical_to_refinement_1": true
+  },
+  "G02": {
+    "colors": 15,
+    "size": [
+      112,
+      112
+    ],
+    "changed_pixels": 915,
+    "opaque_pixels_added": 197,
+    "main_roof_preserved": false,
+    "main_roof_interior_preserved": true,
+    "closed_gaps": [
+      "porch recess",
+      "upper stair joint",
+      "underside landing joint"
+    ]
+  },
+  "native_compile": {
+    "compiler": "Porytiles legacy",
+    "rgba_pixel_errors": 0,
+    "metatiles": 192,
+    "stored_tile_slots": 224,
+    "bank_ids": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "mirrored_side_gate_verified": true,
+    "game_maps_modified": false,
+    "runtime_tested": false
+  }
+}

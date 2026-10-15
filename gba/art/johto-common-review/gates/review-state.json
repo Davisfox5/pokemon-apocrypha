@@ -5,20 +5,21 @@
     "G02"
   ],
   "status": "Revised artwork awaiting owner review; not yet a locked regional standard",
-  "revision": "refinement-1",
+  "revision": "refinement-2",
   "owner_feedback": {
     "G01a": "Design is good; clean the edges.",
-    "G02": "Reconstruct lower green section hidden by trees; refine stairs and side canopy cleanliness and color."
+    "G02": "Further smooth awning and back; refine top and underside of stairs and eliminate white-space gaps."
   },
   "previews": {
-    "revised": "refinement-1/revised-gates.png",
-    "comparison": "refinement-1/before-after.png"
+    "revised": "refinement-2/G02-close-up.png",
+    "comparison": "refinement-2/before-after.png",
+    "transparency_check": "refinement-2/background-check.png"
   },
-  "source_tool": "tools/gba/maps/johto_common_review/refine_gates.py",
-  "native_check": "refinement-1/validation.json",
+  "source_tool": "tools/gba/maps/johto_common_review/refine_gate_finish.py",
+  "native_check": "refinement-2/validation.json",
   "provenance": {
     "front": "Preserved G01a native art with explicit verge and corner repairs. Roof and central facade pixels preserved.",
-    "side": "HGSS Violet source crop (0,416)-(112,528). Lower teal foundation reconstructed from the exposed fragments between foreground crowns. Side canopy and stairs use separate material masks; main native roof pixels preserved."
+    "side": "HGSS Violet source crop (0,416)-(112,528). Lower teal foundation reconstructed from the exposed fragments between foreground crowns. Side canopy and stairs use separate material masks; main native roof pixels preserved. Second pass fills the porch/landing gaps, rebuilds continuous upper and underside stair surfaces, smooths the canopy rim and rear roof/wall corners. Main roof interior and facade remain; G01a is unchanged from refinement-1."
   },
   "integration": {
     "engine_changed": false,
