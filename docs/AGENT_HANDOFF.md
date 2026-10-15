@@ -1122,3 +1122,13 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+## 2026-10-15 — Union Cave first floor
+
+Owner moved from Route32 to Union Cave. First-floor reconstruction replaces the small entrance proof room, preserving map/layout IDs and the Route32 exterior. Engine `codex/union-cave-1f`, commit `52af264a4736f5b837994f276b3bf2c8e1fd80fa`, depends on Route32 PR #8. Evidence/tooling: `codex/union-cave-evidence`; read [the cave review](../gba/art/union-cave-1f/README.md). Hub main has the required all-model map workflow; this task applies it.
+
+Actual HGSS overview registered at 1:1 to 34x60 cells, separate floor/rock/water/void/foreground and foot collision. Original characters/items removed with context-specific wall/shore repairs. Private five-palette tilesets use 1008 static glyphs and 924 metatiles; no shared art/Route32 edits. Complete connected stalagmites retain dark centers; only base rows block, heads draw above the player. Region-map section appended for Union Cave/Johto; existing named location IDs preserved, generated NONE/COUNT terminal sentinels advance.
+
+Local build, actual Porymap pixel equality, Porytiles representative material round-trip, 214 native runtime observations, Route32 entry through both cells and return, full main passage, blocked rock/water/roots, foreground overlap and fresh save/cold reload/title Continue pass. A copy of the preceding Route32 proof save also reloads/continues. Original saves untouched, no ROM/save/tool binaries committed, no desktop game. Material audit exposes 25 RGB-majority disagreements in mixed shore, shadow, prop, staircase and exit cells; do not claim 2040 exact visual matches. Source is visually traced, not DS collision. Prior room and original reference preserved. Source generators are provenance, protected by owned-file guard; do not replay over owner edits.
+
+Review remains with owner. B1F/B2F, Route33 exterior wiring, encounters/campaign actors, dynamic cave water and campaign Surf/field-move qualifications remain pending. Old proof saves inside the replaced 14x12 cave room are not automatically migrated to the new geometry.

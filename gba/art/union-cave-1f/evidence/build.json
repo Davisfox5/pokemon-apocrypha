@@ -1,0 +1,28 @@
+{
+  "source_commit": "52af264a4736f5b837994f276b3bf2c8e1fd80fa",
+  "base_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
+  "ROM_sha256": "8b0b6fef24a382273429488323f5c5cc243777ea4adec6d474594de5d4e5ab52",
+  "ROM_build": "passed",
+  "runtime_observations": 214,
+  "phases": [
+    {
+      "name": "write",
+      "exit_code": 0
+    },
+    {
+      "name": "read",
+      "exit_code": 0
+    },
+    {
+      "name": "menu",
+      "exit_code": 0
+    }
+  ],
+  "ordinary_flash_bytes": 131072,
+  "Porymap_version": "6.3.1",
+  "Porymap_export_pixel_differences": 0,
+  "mGBA_version": "0.10.5",
+  "desktop_game_opened": false,
+  "ROM_save_tool_binaries_committed": false,
+  "scope": "Union Cave 1F; lower floors and Route33 unwired; static cave water"
+}

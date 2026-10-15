@@ -1,0 +1,250 @@
+{
+  "trace_basis": "original HGSS screenshot registered 1:1 to 34x60 native squares; visual interpretation, not DS collision",
+  "cells": 2040,
+  "material_collision_behavior_errors": [],
+  "native_RGB_majority_disagreements": [
+    {
+      "cell": [
+        7,
+        15
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        6,
+        16
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        19
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        27,
+        19
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        28,
+        19
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        29,
+        19
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        30,
+        19
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        20
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        9,
+        20
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        10,
+        20
+      ],
+      "traced_material": "W",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        21
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        9,
+        21
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        22
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        9,
+        22
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        10,
+        22
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        15,
+        23
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        17,
+        23
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        14,
+        30
+      ],
+      "traced_material": "R",
+      "decoded_RGB_majority": "X",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        29,
+        36
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        29,
+        38
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        47
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        3,
+        49
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        0,
+        56
+      ],
+      "traced_material": "R",
+      "decoded_RGB_majority": "X",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        23,
+        57
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    },
+    {
+      "cell": [
+        28,
+        58
+      ],
+      "traced_material": ".",
+      "decoded_RGB_majority": "R",
+      "scope": "mixed edge/foreground or explicit staircase/exit; inspect source/native panel"
+    }
+  ],
+  "RGB_majority_caveat": "RGB heuristics cannot fully distinguish shadowed walls/stalagmites/floor; all disagreements shown for review, never counted as confirmed matches",
+  "porymap_pixel_differences": 0,
+  "protected_paths_unchanged": [
+    "data/layouts/JohtoRoute32",
+    "data/maps/JohtoRoute32",
+    "data/tilesets/primary/route32",
+    "data/tilesets/secondary/route32",
+    "data/tilesets/primary/cherrygrove",
+    "data/tilesets/secondary/cherrygrove",
+    "src/field_door.c"
+  ],
+  "existing_named_map_section_ids_preserved": true,
+  "features_not_wired": [
+    "Route33 exit exterior",
+    "B1F access at both staircase locations"
+  ],
+  "water": "Surf behavior; water artwork static; Surf campaign access not tested",
+  "validated_engine_commit": "52af264a4736f5b837994f276b3bf2c8e1fd80fa"
+}
