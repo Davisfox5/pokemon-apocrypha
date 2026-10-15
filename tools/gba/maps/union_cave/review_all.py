@@ -20,31 +20,62 @@ for key,c in FLOORS.items():
     if q<4:
      px=np.array(t.tiles[int(tid>=512)][tid-512 if tid>=512 else tid]);transparent+=int((px==0).sum())
    rows.append([x,y,str(plan[y,x]),mid,behavior,blocked,onfoot,elev,attr>>12])
- assert not errors,(key,errors);assert transparent==0 and maxglyph<1008 and maxbank<6
+ assert not errors,(key,errors);assert transparent==0 and maxglyph<1008 and maxbank<=12
  with (S/'cell-ledger.csv').open('w',newline='') as f:
   writer=csv.writer(f,lineterminator='\n');writer.writerow(['native_x','native_y','reviewed_material','metatile','behavior','engine_collision','blocked_on_foot','elevation','BG_layer_type']);writer.writerows(rows)
- # Verify dictionary metadata against actual tile bytes and source geometry.
- dictionary=json.loads((S/'native-glyph-order.json').read_text())['glyphs'];lab=np.load(S/'hgss-pixel-materials.npy').astype('S1');lab[lab==b'O']=b'.'
- for sx,sy in c['ladders']:lab[sy*16:sy*16+16,sx*16:sx*16+16]=b'S'
- shape_bad=[];wall_cells=[];shade=[]
- for y in range(H):
-  for x in range(W):
-   mid=int(g[y,x])&1023;part=int(mid>=512);ix=mid-512 if part else mid
-   if (lab[y*16:y*16+16,x*16:x*16+16]==b'R').any():wall_cells.append((x,y))
-   for q,en in enumerate(t.blocks[part][ix][:4]):
-    tid=en&1023;bank=en>>12;eb,px,mask=dictionary[tid];actual=bytes(t.tiles[int(tid>=512)][tid-512 if tid>=512 else tid]);assert actual==bytes.fromhex(px) and bank==eb,(key,tid,'actual tile/dictionary mismatch')
-    expected=lab[y*16+q//2*8:y*16+q//2*8+8,x*16+q%2*8:x*16+q%2*8+8].tobytes()
-    if bytes.fromhex(mask)!=expected:shape_bad.append([x,y,q])
- assert not shape_bad,(key,'material silhouette mismatch',shape_bad)
- # Number every wall-containing native cell, with a reference/current pair.
+ # Owner-requested original texture restoration: compare actual indexed layer
+ # patterns against the prior native style, excluding explicit local edits only.
+ if (S/'reference-finish.json').exists():
+  import io,struct
+  from collections import Counter
+  def indexed_layers(commit=None):
+   def read(path):return subprocess.check_output(['git','-C',str(G),'show',commit+':'+path]) if commit else (G/path).read_bytes()
+   ts=[];bs=[]
+   for typ in ['primary','secondary']:
+    image=Image.open(io.BytesIO(read(f'data/tilesets/{typ}/{c["set"]}/tiles.png')))
+    ts.extend([np.array(image.crop((xx,yy,xx+8,yy+8)),np.uint8) for yy in range(0,256,8) for xx in range(0,128,8)])
+    bs.extend(list(struct.iter_unpack('<8H',read(f'data/tilesets/{typ}/{c["set"]}/metatiles.bin'))))
+   gg=np.frombuffer(read(f'data/layouts/{c["name"]}/map.bin'),'<u2').reshape(H,W);out=np.zeros((2,H*16,W*16),np.uint8)
+   for yy in range(H):
+    for xx in range(W):
+     for n,en in enumerate(bs[int(gg[yy,xx])&1023]):
+      q=n%4;p=ts[en&1023]
+      if en&1024:p=p[:,::-1]
+      if en&2048:p=p[::-1]
+      out[n//4,yy*16+q//2*8:yy*16+q//2*8+8,xx*16+q%2*8:xx*16+q%2*8+8]=p
+   return out,gg
+  previous,oldgrid=indexed_layers('de6922a964721aceb11147bcac6acadc477d4538');now,_=indexed_layers();allowed=np.zeros((H*16,W*16),bool);finish=json.loads((S/'reference-finish.json').read_text())
+  for edit in finish['local_edits']:
+   if 'remove_floor_marker' in edit:x,y=edit['remove_floor_marker'];allowed[y*16:y*16+16,x*16:x*16+16]=True
+   if 'reference_pixel_box' in edit:x0,y0,x1,y1=edit['reference_pixel_box'];allowed[y0:y1,x0:x1]=True
+   if 'preserved_southern_entrance_cells' in edit:x0,y0,x1,y1=edit['preserved_southern_entrance_cells'];allowed[y0*16:y1*16,x0*16:x1*16]=True
+  if key=='b1f':allowed[264:280,376:384]=True
+  texture_errors=int(np.any(now[:,~allowed]!=previous[:,~allowed],0).sum());assert texture_errors==0,(key,'unexpected original texture change',texture_errors)
+  changed=np.argwhere((oldgrid&0xfc00)!=(g&0xfc00));expected={tuple(pt) for pt in c['ladders']};assert {(int(x),int(y)) for y,x in changed}==expected,(key,'unintended physics change',changed)
+  lab=np.load(S/'previous-de6922a/hgss-pixel-materials.npy').astype('S1');lab[lab==b'O']=b'.';wall_cells=[(x,y) for y in range(H) for x in range(W) if (lab[y*16:y*16+16,x*16:x*16+16]==b'R').any()]
+  wall_report={'floor':key,'wall_containing_cells':len(wall_cells),'native_quadrants_checked':W*H*4,'reference_native_style':'de6922a964721aceb11147bcac6acadc477d4538','unexpected_indexed_texture_changes_outside_declared_local_edits':texture_errors,'wall_ramps':'original textured 14-shade wall palette retained; mixed boundary ramps share exact wall shades using secondary banks 6..9','wired_embedded_stairs':c['ladders'],'removed_floor_markers':[e['remove_floor_marker'] for e in finish['local_edits'] if 'remove_floor_marker' in e],'intentional_physics_changes':[{'cell':[int(x),int(y)],'reason':'existing embedded stair entrance is now the warp; no added floor marker'} for y,x in changed],'collision_unchanged_elsewhere':True,'limits':'Original overview remains projected/interpreted; interior native texture reuse remains; this pass restores the original visual treatment instead of claiming an exact mask conversion'}
+  clean=Image.open(S/'previous-de6922a/clean-terrain.png').convert('RGB')
+ else:
+  dictionary=json.loads((S/'native-glyph-order.json').read_text())['glyphs'];lab=np.load(S/'hgss-pixel-materials.npy').astype('S1');lab[lab==b'O']=b'.'
+  for sx,sy in c['ladders']:lab[sy*16:sy*16+16,sx*16:sx*16+16]=b'S'
+  shape_bad=[];wall_cells=[];shade=[]
+  for y in range(H):
+   for x in range(W):
+    mid=int(g[y,x])&1023;part=int(mid>=512);ix=mid-512 if part else mid
+    if (lab[y*16:y*16+16,x*16:x*16+16]==b'R').any():wall_cells.append((x,y))
+    for q,en in enumerate(t.blocks[part][ix][:4]):
+     tid=en&1023;bank=en>>12;eb,px,mask=dictionary[tid];actual=bytes(t.tiles[int(tid>=512)][tid-512 if tid>=512 else tid]);assert actual==bytes.fromhex(px) and bank==eb,(key,tid,'actual tile/dictionary mismatch')
+     expected=lab[y*16+q//2*8:y*16+q//2*8+8,x*16+q%2*8:x*16+q%2*8+8].tobytes()
+     if bytes.fromhex(mask)!=expected:shape_bad.append([x,y,q])
+  assert not shape_bad,(key,'material silhouette mismatch',shape_bad)
+  clean=Image.open(S/'clean-terrain.png').convert('RGB')
+ # Coordinate-labelled review of all wall-containing cells.
  atlas=Image.new('RGB',(960,((len(wall_cells)+11)//12)*58+30),'#1a2125');ad=ImageDraw.Draw(atlas)
- clean=Image.open(S/'clean-terrain.png').convert('RGB')
  for i,(x,y) in enumerate(wall_cells):
-  ax=i%12*80;ay=30+i//12*58;box=(x*16,y*16,x*16+16,y*16+16)
-  atlas.paste(clean.crop(box).resize((32,32),Image.Resampling.NEAREST),(ax,ay));atlas.paste(im.crop(box).resize((32,32),Image.Resampling.NEAREST),(ax+34,ay));ad.text((ax,ay+34),f'{x},{y}',fill='white')
- ad.text((8,8),key.upper()+': every wall cell; cleaned HGSS source / decoded native',fill='white');atlas.save(E/'wall-cell-review.png')
- wall_report={'floor':key,'wall_containing_cells':len(wall_cells),'native_quadrants_checked':W*H*4,'actual_tile_bytes_match_geometry_dictionary':True,'wall_floor_water_void_silhouette_errors':shape_bad,'stair_coordinates':c['ladders'],'stair_art':'original Union Cave d_level01 stone treads; up/down variants; existing native warp behavior 97 retained','lighting':'shared wall palette ramps across ordinary ground and water banks; border-weighted shade reuse within identical material masks','limit':'interior shading uses a finite 1008-tile dictionary; not a pixel-exact screenshot import'};(E/'wall-review.json').write_text(json.dumps(wall_report,indent=2)+'\n')
- report={'floor':key,'native_cells':W*H,'basis':'visible original HGSS terrain trace; actual DS warp graph registered separately to original branch-end landmarks; not extracted original DS collision','native_physics_errors':errors,'Porymap_pixel_differences':diff,'opaque_background_zero_index_pixels':transparent,'maximum_static_tile':maxglyph,'maximum_BG_palette':maxbank,'water_cells':int(water.sum()),'water_contract':'collision=0, elevation=1, MB_POND_WATER; ordinary land elevation=3. Walking is blocked by elevation; Surf and disembark verified in native runtime.','foreground_geometry':'cleaned complete rock silhouettes in foreground; original HGSS Union Cave d_level01 stone-step texture at registered floor transitions','terrain_classification_limit':'mixed pixels, occlusion and projection remain interpreted; the source grid is not a claim of exact original DS collision','unqualified':['campaign Surf badge/party activation','Strength pushing','off-image upper Alph transit rooms','Route33 exterior'],'water_animation':'static'};(E/'audit.json').write_text(json.dumps(report,indent=2)+'\n');summaries[key]=report
+  ax=i%12*80;ay=30+i//12*58;box=(x*16,y*16,x*16+16,y*16+16);atlas.paste(clean.crop(box).resize((32,32),Image.Resampling.NEAREST),(ax,ay));atlas.paste(im.crop(box).resize((32,32),Image.Resampling.NEAREST),(ax+34,ay));ad.text((ax,ay+34),f'{x},{y}',fill='white')
+ ad.text((8,8),key.upper()+': every wall cell; original terrain / decoded native',fill='white');atlas.save(E/'wall-cell-review.png')
+ (E/'wall-review.json').write_text(json.dumps(wall_report,indent=2)+'\n')
+ report={'floor':key,'native_cells':W*H,'basis':'visible original HGSS terrain trace; actual DS warp graph registered separately to original branch-end landmarks; not extracted original DS collision','native_physics_errors':errors,'Porymap_pixel_differences':diff,'opaque_background_zero_index_pixels':transparent,'maximum_static_tile':maxglyph,'maximum_BG_palette':maxbank,'water_cells':int(water.sum()),'water_contract':'collision=0, elevation=1, MB_POND_WATER; ordinary land elevation=3. Walking is blocked by elevation; Surf and disembark verified in native runtime.','foreground_geometry':'original complete rock silhouettes; embedded HGSS stairwells are the warps, with no extra floor marker squares','terrain_classification_limit':'mixed pixels, occlusion and projection remain interpreted; the source grid is not a claim of exact original DS collision','unqualified':['campaign Surf badge/party activation','Strength pushing','off-image upper Alph transit rooms','Route33 exterior'],'water_animation':'static'};(E/'audit.json').write_text(json.dumps(report,indent=2)+'\n');summaries[key]=report
  out=Image.new('RGB',(W*32+44,H*16+64),'#1a2125');d=ImageDraw.Draw(out);out.paste(ref,(10,32));out.paste(im,(W*16+30,32));d.text((10,10),'HGSS Union Cave '+key.upper(),fill='white');d.text((W*16+30,10),'Native Gen 3 reconstruction',fill='white');out.save(E/'comparison.png')
  # Each numbered half gives a readable source/native comparison at 1x.
  for n,start in enumerate(range(0,H,20),1):

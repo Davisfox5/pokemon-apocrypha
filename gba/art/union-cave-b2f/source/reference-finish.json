@@ -1,0 +1,58 @@
+{
+  "base_native_style": "de6922a964721aceb11147bcac6acadc477d4538",
+  "preserved_prior_finish": "988e0287216410698481d313e73d6cf99f650b76",
+  "operation": "restore original textured walls/caps and palette vocabulary, remove all extra floor stair squares, register existing embedded stairs, repair local heads/joins",
+  "local_edits": [
+    {
+      "remove_floor_marker": [
+        4,
+        5
+      ],
+      "ordinary_floor_donor": [
+        5,
+        5
+      ]
+    },
+    {
+      "embedded_stair_head": [
+        3,
+        5
+      ],
+      "reference_pixel_box": [
+        48,
+        72,
+        64,
+        96
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        72,
+        64,
+        88
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        72,
+        64,
+        88
+      ]
+    }
+  ],
+  "actual_wired_stairs": [
+    [
+      3,
+      5
+    ]
+  ],
+  "visible_unwired_stairs": [],
+  "static_glyphs_used": 974,
+  "no_unrelated_maps_changed": true,
+  "warp_pair_indices_preserved": true
+}

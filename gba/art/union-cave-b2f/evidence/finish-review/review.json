@@ -1,8 +1,8 @@
 {
-  "source_commit": "988e0287216410698481d313e73d6cf99f650b76",
-  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b",
+  "rom_sha256": "375150a2e014cf264c79ff9011be93700b5c3eeaa88cb4455ea7938b12bcfe72",
   "basis": "current native tile decode equals published checked render; original HGSS geography and preserved preceding pass compared",
-  "review_status": "Focused visual review completed; no additional source fixes identified",
+  "review_status": "Reviewed after owner-requested texture restoration, floor-marker removal and embedded stairhead refinement",
   "regions": [
     {
       "label": "Return stair / northwest corner",
@@ -12,7 +12,7 @@
         160,
         160
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Northern plateau concave turn",
@@ -22,7 +22,7 @@
         368,
         176
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Northwest low bank and rock roots",
@@ -32,7 +32,7 @@
         208,
         192
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Northeast low bank / side face",
@@ -42,7 +42,7 @@
         512,
         224
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Western peninsula head and cliff",
@@ -52,7 +52,7 @@
         240,
         352
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Eastern gallery and rock layers",
@@ -62,7 +62,7 @@
         608,
         416
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "South peninsula / inner wall corner",
@@ -72,7 +72,7 @@
         384,
         576
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Lake northern rim / terrace",
@@ -82,7 +82,7 @@
         288,
         640
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Southwest outside turn",
@@ -92,7 +92,7 @@
         208,
         752
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     },
     {
       "label": "Southern lake east/void corner",
@@ -102,7 +102,7 @@
         640,
         752
       ],
-      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
     }
   ],
   "all_wall_cell_sheet": "../wall-cell-review.png",
@@ -112,11 +112,9 @@
     "static water",
     "unwired Alph transit rooms/Route33; Strength pushing and campaign interactions remain pending"
   ],
-  "wall_cells_checked": 1049,
   "reviewed_native_gameplay_positions": 9,
-  "functional_proof": "405-observation all-floor proof, plus fresh controlled camera review and normal save/cold reload/Continue",
-  "changes_this_pass": {
-    "source_changed": false
-  },
-  "owner_visual_acceptance": "pending; owner approved first-floor entrance as benchmark"
+  "wall_cells_reviewed": 1049,
+  "functional_proof": "420 native observations; all real stair pairs both ways, stair/wall collision and unwired entries, Surf/disembark and per-floor ordinary saves",
+  "owner_visual_acceptance": "pending latest visual revision",
+  "changes": "original wall/cap texture restored; no added floor stair markers; actual embedded stair warp entries; local original head/tread joins; B1F actor-removal fix retained"
 }

@@ -1252,3 +1252,38 @@ rules and owner layouts. Specifically verify donors are actor/item-free across
 their full bounds, not only at the sampled center. Owner acceptance for basement
 visuals remains pending. Previously documented Route33/Alph/Strength/campaign/
 water-animation limits remain. No ROMs, saves or tool binaries committed.
+
+## Owner stair and wall/cap correction — 2026-10-15
+
+Latest source `fc1017fecad147879de460fcb9727ff63862598b`, pushed on codex/union-cave-1f / draft PR9.
+The owner rejected the added floor stair squares and the broad simplified
+wall/cap shading. All eight floor markers are now removed; restore ordinary
+ground there. The ORIGINAL embedded stairwells carry the six wired entries:
+1F(4,5) <-> B1F(32,35), 1F(8,57) <-> B1F(3,48), B1F(30,46) <-> B2F(3,5).
+Warp pair IDs/destinations and map/layout IDs are stable. Exactly six formerly
+blocked cells open for the real stair entries; all other collision/elevation
+stays unchanged. Extra represented B1F stairs stay unwired and blocked.
+
+Original textured native HGSS wall/cap appearance is restored from de6922a;
+keep its detail and 14-shade wall ramp instead of broad flattened bands. Mixed
+wall/ground/water edges share exact wall shades in banks 6-9; bank10 preserves
+local original 24x16 upper-tread/head joins. The accepted southern light/rim and
+B1F actor-removal fix remain. All prior source/evidence is retained under
+previous-988e0287 and older snapshots. Direct native source is authoritative;
+never replay the old packers. New guarded isolated provenance is the sequence
+restore_reference_finish.py + blend_reference_caps.py + patch_embedded_stair_heads.py
+from exact 988e0287 with a read-only de6922a reference. Reproduced output matches
+126 owned source files with palette line endings normalized.
+
+Local build, actual Porymap equality, three Porytiles RGB/alpha checks and 420
+native observations pass: all stairs both ways, surrounding blocked walls,
+unwired stairs, Route32, Surf/disembark, southern threshold and per-floor normal
+128KiB save/cold reload/Continue. Three prior proof-save copies still load and
+Continue. Fresh controlled native framing covers 18 basement positions; this
+is separate from traversal proof. See current cave READMEs and source/ROM hashes.
+No desktop game or ROM/save/tool-binary commits. Latest visuals require owner
+review; CI is separate from local verification. Route33, remaining transit
+destinations, Strength pushing, water animation and campaign/Surf unlock remain
+pending. Shared main AGENTS cleanup rule and outdoor prompt are published after
+this correction so future instances retain original texture treatment, align
+real stair warps and perform local close-up review. Preserve existing Grok rules.

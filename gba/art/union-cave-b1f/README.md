@@ -1,53 +1,27 @@
-# Union Cave B1F — original HGSS reconstruction
+# Union Cave B1F — textured HGSS walls and embedded stairs
 
-Native source `988e0287216410698481d313e73d6cf99f650b76`, branch
-`codex/union-cave-1f`. [Shared cave review, checks and reproduction](../union-cave-1f/README.md).
+Source **`fc1017fecad147879de460fcb9727ff63862598b`** on `codex/union-cave-1f`.
+[Shared cave review, checks and reproduction](../union-cave-1f/README.md).
 
+- [Whole original / native comparison](evidence/comparison.png)
+- [Current native gameplay](evidence/gameplay-gallery.png)
+- [Focused corner/head review, page 1](evidence/finish-review/joins-and-corners-1.png)
+- [Focused corner/head review, page 2](evidence/finish-review/joins-and-corners-2.png)
+- [Fresh native camera review](evidence/finish-review/gameplay-review.png)
+- [Findings and scope](evidence/finish-review/review.json)
+- [Every wall-containing cell](evidence/wall-cell-review.png), [native audit](evidence/wall-review.json)
 
-## Focused final visual review
+The added floor stair markers are removed. The original embedded stairways carry
+the wired warps, with their proper directional approach and return. Original wall,
+cap, ground and water textures are restored, with local upper-step/head repairs
+and shared boundary ramps. Current source/native views compare actual HGSS and
+preserved earlier drafts. Collision changes are restricted to the registered
+stair entries; all other original barriers, rock roots and shore lips remain.
 
-- [Corners and joins, page 1](evidence/finish-review/joins-and-corners-1.png)
-- [Corners and joins, page 2](evidence/finish-review/joins-and-corners-2.png)
-- [Fresh native gameplay review](evidence/finish-review/gameplay-review.png)
-- [Review findings and exact source identity](evidence/finish-review/review.json)
-- [Remaining trainer-outline fragment: before / corrected](evidence/finish-review/junction-before-after.png)
+Native build, actual Porymap equality, Porytiles RGB/alpha and headless stair/Surf/
+ordinary-save checks pass. The shared review distinguishes controlled camera
+framing, traversal checks and owner visual acceptance. Original projection,
+finite texture reuse and palette reduction remain documented limitations.
 
-A raw donor touched the original trainer boundary, leaving black/skin pixels in
-a wall corner. Two uniquely placed native glyphs now preserve the complete face
-and base ramp while removing 29 stray pixels. No layout, collision, palette or
-metatile IDs changed. The packed baseline and prior source are preserved; use
-the direct guarded patch for reproduction, with no generator replay.
-
-- [Whole original / native map](evidence/comparison.png)
-- [Actual native gameplay](evidence/gameplay-gallery.png)
-- Original/native detail panels: [north](evidence/material-comparison-1.png),
-  [middle](evidence/material-comparison-2.png), [south](evidence/material-comparison-3.png)
-- [Numbered HGSS reference](evidence/numbered-hgss.png)
-- [Native audit](evidence/audit.json), [packing](evidence/packing.json),
-  [build identity](evidence/build.json)
-
-Grid: 36×52, 16×16 native squares registered to the pictured HGSS scene.
-Original reference, event records and registration are preserved under `source/`.
-This is visual material interpretation plus the actual original warp topology,
-not extracted DS collision. Native rock silhouettes, background/foreground layers,
-base footprints and low shores remain separate editable data. Sprite/item pixels
-are removed with local terrain repairs; campaign actors are not baked into art.
-
-B1F retains both pictured disconnected sections. The main entrance `(31,35)`
-returns to northern 1F `(5,5)`. The lower western bank `(4,48)` returns to the
-water-separated 1F pocket `(7,57)`; Surf across that chamber reaches the lower
-eastern stair `(29,46)`, connected to B2F `(4,5)`. The two upper-left stair markers
-reference Alph transit rooms omitted by the overview; their destinations remain
-unwired. The original fixed Strength rock remains a barrier; pushing is pending.
-
-Porymap export matches native decoding with zero pixel differences. Layered
-Porytiles RGB/alpha checks pass. Native stair travel, walking barriers, controlled
-existing-engine Surf movement/disembark and ordinary save/cold reload/Continue are
-verified. Campaign Surf activation/Strength rules and animated water are not
-qualified by these map tests. No ROM/save/tool binaries are committed.
-
-Current correction: bounded rock/wall cleanup, geometry-constrained tile reuse,
-shared wall ramps, and actual HGSS Union Cave stone-step artwork. Collision and
-elevation remain identical to de6922a. [Every wall cell](evidence/wall-cell-review.png)
-and [decoded tile/material audit](evidence/wall-review.json) document the pass.
-Previous source/renders remain under `previous-de6922a/`.
+Preserve all previous snapshots. Native source is the editing authority; use
+exact-baseline provenance only for isolated reproduction. No ROM/save/tool binaries.

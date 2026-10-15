@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "rom_sha256": "375150a2e014cf264c79ff9011be93700b5c3eeaa88cb4455ea7938b12bcfe72",
   "copied_save_checks": {
     "previous-1f": {
       "original_save_sha256": "7c5099284ff7b355ce526edecf24188f99266c26ee0b83c970404581c1e2b10b",
@@ -138,5 +138,5 @@
     }
   },
   "scope": "development proof saves; not arbitrary campaign-save qualification",
-  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b"
 }

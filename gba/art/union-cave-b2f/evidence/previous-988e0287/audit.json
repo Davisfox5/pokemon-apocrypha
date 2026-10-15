@@ -1,0 +1,22 @@
+{
+  "floor": "b2f",
+  "native_cells": 1880,
+  "basis": "visible original HGSS terrain trace; actual DS warp graph registered separately to original branch-end landmarks; not extracted original DS collision",
+  "native_physics_errors": [],
+  "Porymap_pixel_differences": 0,
+  "opaque_background_zero_index_pixels": 0,
+  "maximum_static_tile": 1007,
+  "maximum_BG_palette": 5,
+  "water_cells": 421,
+  "water_contract": "collision=0, elevation=1, MB_POND_WATER; ordinary land elevation=3. Walking is blocked by elevation; Surf and disembark verified in native runtime.",
+  "foreground_geometry": "cleaned complete rock silhouettes in foreground; original HGSS Union Cave d_level01 stone-step texture at registered floor transitions",
+  "terrain_classification_limit": "mixed pixels, occlusion and projection remain interpreted; the source grid is not a claim of exact original DS collision",
+  "unqualified": [
+    "campaign Surf badge/party activation",
+    "Strength pushing",
+    "off-image upper Alph transit rooms",
+    "Route33 exterior"
+  ],
+  "water_animation": "static",
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+}

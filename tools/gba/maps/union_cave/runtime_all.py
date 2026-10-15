@@ -43,20 +43,24 @@ def leg(key,start,goal,tag,surf=False):
 current=(28,18)
 for tag,goal in [('1f-small-rock-formations',(24,18)),('1f-west-rock-edge',(7,16)),('1f-north-stair-approach',(5,6)),('1f-central-grassless-floor',(20,23)),('1f-main-bend',(29,26)),('1f-south-boulder-approach',(28,38)),('1f-lake-bank',(13,47)),('1f-southern-doorway',(28,57))]:current=leg('1f',current,goal,tag)
 steps.append('step(DOWN,1);at(46,28,58,"southern-threshold-approach");shot("1f-southern-threshold");step(DOWN,1);at(46,28,58,"southern-exterior-still-unwired-blocked");step(UP,1);at(46,28,57,"southern-threshold-clear");')
-steps.append('go(46,5,6);step(UP,1);frames(240,0);at(47,31,35,"north-stairs-descend");shot("b1f-main-entrance");step(LEFT,1);at(47,30,35,"b1f-step-off-stairs");shot("b1f-main-stone-stairs-clear");step(RIGHT,1);frames(240,0);at(46,5,5,"north-stairs-ascend");step(DOWN,1);at(46,5,6,"north-stair-clear");shot("1f-northern-stairs");step(RIGHT,1);at(46,6,6,"northern-stone-stairs-visible");shot("1f-northern-stone-stairs-clear");step(LEFT,1);at(46,5,6,"northern-approach-restored");')
+steps.append('go(46,5,5);step(LEFT,1);frames(240,0);at(47,32,35,"north-stairs-descend");shot("b1f-main-entrance");step(RIGHT,1);at(47,32,35,"main-stair-outside-wall-blocks");step(LEFT,1);at(47,31,35,"b1f-step-off-stairs");shot("b1f-main-stone-stairs-clear");step(RIGHT,1);frames(240,0);at(46,4,5,"north-stairs-ascend");step(LEFT,1);at(46,4,5,"north-stair-outside-wall-blocks");step(RIGHT,1);at(46,5,5,"north-stair-clear");step(DOWN,1);at(46,5,6,"northern-approach-restored");shot("1f-northern-stairs");step(RIGHT,1);at(46,6,6,"northern-stone-stairs-visible");shot("1f-northern-stone-stairs-clear");step(LEFT,1);at(46,5,6,"northern-approach-restored");')
+
 # Water-separated southern 1F pocket -> western B1F lower chamber.
 steps.append('go(46,6,54);need(c->busRead8(c,sym("gPlayerAvatar"))&8,"1f-proof-Surf");shot("1f-Surf-pocket");')
 leg('1f',(6,54),(7,56),'1f-southern-pocket-land',True)
-steps.append('need(!(c->busRead8(c,sym("gPlayerAvatar"))&8),"1f-Surf-disembark");step(DOWN,1);frames(240,0);at(47,4,48,"south-stairs-descend");shot("b1f-lower-west-entry");step(RIGHT,1);at(47,5,48,"lower-west-step-off");shot("b1f-lower-west-stone-stairs-clear");step(LEFT,1);frames(240,0);at(46,7,57,"south-stairs-ascend");step(UP,1);at(46,7,56,"southern-stair-clear");shot("1f-southern-stairs");')
+steps.append('need(!(c->busRead8(c,sym("gPlayerAvatar"))&8),"1f-Surf-disembark");step(DOWN,1);at(46,7,57,"south-stair-landing-floor");step(RIGHT,1);frames(240,0);at(47,3,48,"south-stairs-descend");shot("b1f-lower-west-entry");step(LEFT,1);at(47,3,48,"lower-west-stair-outside-wall-blocks");step(RIGHT,1);at(47,4,48,"lower-west-step-off");shot("b1f-lower-west-stone-stairs-clear");step(LEFT,1);frames(240,0);at(46,8,57,"south-stairs-ascend");step(RIGHT,1);at(46,8,57,"south-stair-outside-wall-blocks");step(LEFT,1);at(46,7,57,"southern-stair-clear");step(UP,1);at(46,7,56,"southern-pocket-clear");shot("1f-southern-stairs");')
+
 # Existing Surf movement across the lower B1F pool, then the real B2F staircase.
 steps.append('go(47,20,47);need(c->busRead8(c,sym("gPlayerAvatar"))&8,"b1f-proof-Surf");shot("b1f-lower-Surf");')
 leg('b1f',(20,47),(29,47),'b1f-lower-east-bank',True)
-steps.append('need(!(c->busRead8(c,sym("gPlayerAvatar"))&8),"b1f-Surf-disembark");step(UP,1);frames(240,0);at(48,4,5,"b1f-to-b2f");shot("b2f-entrance");step(DOWN,1);at(48,4,6,"b2f-step-off-stairs");step(RIGHT,1);at(48,5,6,"b2f-stone-stairs-visible");shot("b2f-stone-stairs-clear");step(LEFT,1);at(48,4,6,"b2f-approach-restored");step(UP,1);frames(240,0);at(47,29,46,"b2f-to-b1f");step(DOWN,1);at(47,29,47,"b1f-clear-b2f-stair");')
+steps.append('need(!(c->busRead8(c,sym("gPlayerAvatar"))&8),"b1f-Surf-disembark");step(UP,1);at(47,29,46,"lower-east-stair-landing");step(RIGHT,1);frames(240,0);at(48,3,5,"b1f-to-b2f");shot("b2f-entrance");step(LEFT,1);at(48,3,5,"b2f-stair-outside-wall-blocks");step(RIGHT,1);at(48,4,5,"b2f-step-off-stairs");step(DOWN,1);at(48,4,6,"b2f-clear-landing");step(RIGHT,1);at(48,5,6,"b2f-stone-stairs-visible");shot("b2f-stone-stairs-clear");step(LEFT,1);at(48,4,6,"b2f-approach-restored");step(UP,1);at(48,4,5,"b2f-return-landing");step(LEFT,1);frames(240,0);at(47,30,46,"b2f-to-b1f");step(RIGHT,1);at(47,30,46,"lower-east-stair-outside-wall-blocks");step(LEFT,1);at(47,29,46,"b1f-clear-b2f-stair");step(DOWN,1);at(47,29,47,"b1f-lower-east-bank");')
+
 # B1F's upper branch genuinely requires Surf from its main entrance region.
 steps.append('go(47,25,29);need(c->busRead8(c,sym("gPlayerAvatar"))&8,"b1f-main-proof-Surf");')
 current=leg('b1f',(25,29),(26,23),'b1f-main-lake-land',True)
 for tag,goal in [('b1f-east-rocks',(26,19)),('b1f-north-gallery',(16,5)),('b1f-upper-unwired-Alph-stair',(5,5))]:current=leg('b1f',current,goal,tag)
 steps.append('go(47,7,12);step(RIGHT,1);at(47,7,12,"original-strength-rock-blocks");shot("b1f-strength-rock");')
+steps.append('go(47,4,5);step(LEFT,1);at(47,4,5,"unwired-upper-Alph-stair-blocked");go(47,4,12);step(LEFT,1);at(47,4,12,"unwired-lower-Alph-stair-blocked");')
 # Qualify each represented B2F landmass by normal Surf input and disembark.
 for tag,goal in [('b2f-north-bank',(6,7)),('b2f-northeast-pocket',(27,8)),('b2f-west-peninsula',(7,19)),('b2f-western-gallery',(6,28)),('b2f-east-gallery',(28,25)),('b2f-south-peninsula',(24,32))]:
  steps.append('go(48,10,15);need(c->busRead8(c,sym("gPlayerAvatar"))&8,"b2f-proof-Surf");')

@@ -1,6 +1,5 @@
 {
-  "reason": "reviewed direct native corner edits follow the packed baseline; never replay the packer over them",
-  "baseline_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6",
-  "reproduction": "fix_b1f_junction.py on exact isolated baseline + previous-ab04d979 source; preserves owner edits",
-  "source": "native glyph pixels are the editing authority"
+  "reason": "owner-requested original-style restoration and direct embedded-stair edits; never replay a scene packer",
+  "source": "current native layout/metatile/glyph files",
+  "provenance": "restore_reference_finish.py guarded at exact preserved baseline"
 }

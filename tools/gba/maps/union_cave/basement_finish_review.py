@@ -26,8 +26,8 @@ regions={
  ('Southwest outside turn',(48,608,208,752)),('Southern lake east/void corner',(464,592,640,752))]
 }
 sites={
-'b1f':[('main-stone-stair',30,35),('main-lake-bank',26,23),('eastern-rock-gallery',26,19),('repaired-wall-corner',24,18),('northern-wall-turn',16,5),('upper-stair-marker',5,5),('strength-wall-base',7,12),('lower-west-stone-stair',5,48),('lower-east-bank',29,47)],
-'b2f':[('return-stone-stair',5,6),('northwest-low-bank',6,7),('northeast-low-bank',27,8),('west-peninsula',7,19),('west-gallery',6,28),('east-rock-gallery',28,25),('southern-peninsula',24,32),('south-lake-bank',6,38),('low-shore-rock-roots',6,8)]
+'b1f':[('main-embedded-stair',31,35),('main-lake-bank',26,23),('eastern-rock-gallery',26,19),('repaired-wall-corner',24,18),('northern-wall-turn',16,5),('unwired-embedded-stair',5,5),('strength-wall-base',7,12),('lower-west-embedded-stair',4,48),('lower-east-bank',29,47)],
+'b2f':[('return-embedded-stair',4,6),('northwest-low-bank',6,7),('northeast-low-bank',27,8),('west-peninsula',7,19),('west-gallery',6,28),('east-rock-gallery',28,25),('southern-peninsula',24,32),('south-lake-bank',6,38),('low-shore-rock-roots',6,8)]
 }
 for key in ['b1f','b2f']:
  c=FLOORS[key];W,H=c['size'];S=ROOT/f'gba/art/union-cave-{key}/source';E=S.parent/'evidence/finish-review';E.mkdir(exist_ok=True)

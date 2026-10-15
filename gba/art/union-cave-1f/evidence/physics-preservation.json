@@ -1,15 +1,49 @@
 {
-  "base": "de6922a964721aceb11147bcac6acadc477d4538",
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b",
+  "base_commit": "988e0287216410698481d313e73d6cf99f650b76",
   "floors": {
-    "UnionCaveRoute32Entrance": {
-      "collision_and_elevation_entries_identical": 2040
+    "1f": {
+      "native_cells": 2040,
+      "intentional_stair_entry_cells": [
+        [
+          4,
+          5
+        ],
+        [
+          8,
+          57
+        ]
+      ],
+      "collision_elevation_identical_elsewhere": true
     },
-    "UnionCaveB1F": {
-      "collision_and_elevation_entries_identical": 1872
+    "b1f": {
+      "native_cells": 1872,
+      "intentional_stair_entry_cells": [
+        [
+          32,
+          35
+        ],
+        [
+          30,
+          46
+        ],
+        [
+          3,
+          48
+        ]
+      ],
+      "collision_elevation_identical_elsewhere": true
     },
-    "UnionCaveB2F": {
-      "collision_and_elevation_entries_identical": 1880
+    "b2f": {
+      "native_cells": 1880,
+      "intentional_stair_entry_cells": [
+        [
+          3,
+          5
+        ]
+      ],
+      "collision_elevation_identical_elsewhere": true
     }
   },
-  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+  "reason": "owner-directed alignment of warps with existing visible stairs; remove surrogate floor markers"
 }

@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "rom_sha256": "375150a2e014cf264c79ff9011be93700b5c3eeaa88cb4455ea7938b12bcfe72",
   "phases": [
     {
       "phase": "write",
@@ -20,11 +20,11 @@
           "mapsec": 214
         },
         {
-          "step": "b1f-main-stone-stair",
+          "step": "b1f-main-embedded-stair",
           "region": 2,
           "group": 80,
           "map": 47,
-          "x": 30,
+          "x": 31,
           "y": 35,
           "frlg_layout": 0,
           "width": 36,
@@ -85,7 +85,7 @@
           "mapsec": 224
         },
         {
-          "step": "b1f-upper-stair-marker",
+          "step": "b1f-unwired-embedded-stair",
           "region": 2,
           "group": 80,
           "map": 47,
@@ -111,11 +111,11 @@
           "mapsec": 224
         },
         {
-          "step": "b1f-lower-west-stone-stair",
+          "step": "b1f-lower-west-embedded-stair",
           "region": 2,
           "group": 80,
           "map": 47,
-          "x": 5,
+          "x": 4,
           "y": 48,
           "frlg_layout": 0,
           "width": 36,
@@ -137,11 +137,11 @@
           "mapsec": 224
         },
         {
-          "step": "b2f-return-stone-stair",
+          "step": "b2f-return-embedded-stair",
           "region": 2,
           "group": 80,
           "map": 48,
-          "x": 5,
+          "x": 4,
           "y": 6,
           "frlg_layout": 0,
           "width": 40,

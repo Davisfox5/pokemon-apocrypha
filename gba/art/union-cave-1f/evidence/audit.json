@@ -6,10 +6,10 @@
   "Porymap_pixel_differences": 0,
   "opaque_background_zero_index_pixels": 0,
   "maximum_static_tile": 1007,
-  "maximum_BG_palette": 5,
+  "maximum_BG_palette": 10,
   "water_cells": 209,
   "water_contract": "collision=0, elevation=1, MB_POND_WATER; ordinary land elevation=3. Walking is blocked by elevation; Surf and disembark verified in native runtime.",
-  "foreground_geometry": "cleaned complete rock silhouettes in foreground; original HGSS Union Cave d_level01 stone-step texture at registered floor transitions",
+  "foreground_geometry": "original complete rock silhouettes; embedded HGSS stairwells are the warps, with no extra floor marker squares",
   "terrain_classification_limit": "mixed pixels, occlusion and projection remain interpreted; the source grid is not a claim of exact original DS collision",
   "unqualified": [
     "campaign Surf badge/party activation",
@@ -18,5 +18,5 @@
     "Route33 exterior"
   ],
   "water_animation": "static",
-  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b"
 }
