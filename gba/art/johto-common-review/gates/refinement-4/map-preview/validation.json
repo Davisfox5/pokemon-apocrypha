@@ -1,0 +1,40 @@
+{
+  "engine_revision": "162c41c8b5987973480f7a276e63a196dfc1bf07",
+  "preview_only": true,
+  "engine_changed": false,
+  "runtime_tested": false,
+  "placements": [
+    {
+      "name": "Violet gate",
+      "asset": "G02",
+      "at": [
+        75,
+        15
+      ],
+      "mirrored": true
+    },
+    {
+      "name": "National Park gate",
+      "asset": "G02",
+      "at": [
+        0,
+        9
+      ],
+      "mirrored": false
+    },
+    {
+      "name": "Alph gate",
+      "asset": "G01a",
+      "at": [
+        55,
+        24
+      ],
+      "mirrored": false
+    }
+  ],
+  "outside_gate_silhouettes_changed_pixels": 0,
+  "approved_gate_pixel_errors": 0,
+  "changed_pixels": 5061,
+  "background": "Reconstructed original Route 36 ground and trees, with gate drawing disabled before packing; existing decoded map preserved outside gate silhouettes",
+  "integration_follow_up": "Restored side foundation row requires collision and doorway checks when adopted in engine."
+}

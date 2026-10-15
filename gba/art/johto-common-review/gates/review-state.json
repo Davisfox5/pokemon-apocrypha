@@ -4,16 +4,18 @@
     "G01a",
     "G02"
   ],
-  "status": "Revised artwork awaiting owner review; not yet a locked regional standard",
+  "status": "Refinement-4 artwork approved; Route 36 placement preview ready for owner review",
   "revision": "refinement-4",
   "owner_feedback": {
     "G01a": "Design is good; clean the edges.",
-    "G02": "Reject white revision; duplicate the HGSS stairs as precisely as possible."
+    "G02": "Refinement-4 approved (Perfect); requested a view on the map."
   },
   "previews": {
     "revised": "refinement-4/G02-close-up.png",
     "comparison": "refinement-4/HGSS-stairs-comparison.png",
-    "full_before_after": "refinement-4/before-after.png"
+    "full_before_after": "refinement-4/before-after.png",
+    "map": "refinement-4/map-preview/route36-full.png",
+    "map_close_ups": "refinement-4/map-preview/gate-close-ups.png"
   },
   "source_tool": "tools/gba/maps/johto_common_review/restore_hgss_gate_stairs.py",
   "native_check": "refinement-4/validation.json",
@@ -24,6 +26,7 @@
   "integration": {
     "engine_changed": false,
     "regional_rollout": false,
-    "follow_up": "On adoption, adjust side-gate wall footprint for restored base row 6 and recheck doorway/approach/canopy layering. Existing source-edge clipping on the far left is intentional for boundary gate placement; a freestanding full gate would need its opposite entrance completed."
+    "follow_up": "On adoption, adjust side-gate wall footprint for restored base row 6 and recheck doorway/approach/canopy layering. Existing source-edge clipping on the far left is intentional for boundary gate placement; a freestanding full gate would need its opposite entrance completed.",
+    "placement_preview": "refinement-4/map-preview/validation.json"
   }
 }
