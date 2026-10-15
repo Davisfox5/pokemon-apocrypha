@@ -65,6 +65,10 @@ Open it in Porymap: File > Open Project > `apocrypha-src`. Porymap writes
 
 ## Working rules on the branch
 
+Before map work, every model and instance must apply
+[the required reconstruction workflow](GBA_MAP_RECONSTRUCTION.md), in addition to
+existing Grok rules and the branch rules below.
+
 1. **One map group area per PR.** Two agents on the same `map.json` or the same
    secondary tileset will conflict. Say in the PR title which maps you touched.
 2. **Never renumber what you did not touch.** Porymap and Porytiles can repack a

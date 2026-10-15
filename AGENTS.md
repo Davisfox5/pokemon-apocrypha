@@ -23,6 +23,20 @@
 - Claude and Gemini follow this file through their root pointer files. Keep one
   shared rule set; do not maintain different policies per model.
 
+## Required workflow for every map-building task
+
+- All models and instances, including Codex, Claude, Grok and Gemini, must read
+  and apply [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
+  before building, rebuilding, extending or refining a map.
+- Compare the original-game reference square by square with native Gen 3 tiles.
+  Match **specific terrain materials and structure as well as traversal**;
+  collision agreement alone does not establish a faithful map.
+- This requirement supplements existing Grok rules and other applicable shared
+  instructions. Preserve those rules; do not replace them with a per-model policy.
+- Inspect actual native renders and headless gameplay, fix visual defects, and
+  publish readable source/native comparisons. Functional tests do not establish
+  owner visual acceptance.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.
