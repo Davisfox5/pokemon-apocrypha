@@ -81,6 +81,73 @@ Use Porymap/native source formats in the production checkout. Preserve owner
 edits, IDs and shared tilesets; do not repack unrelated maps or replay provenance
 generators over committed layouts. Follow the existing source/branch rules.
 
+### Native visual cleanup and final review
+
+Required addition, owner-established after the Union Cave finish, 2026-10-15.
+Apply the same finish to every affected map and floor, including outdoors.
+[Immutable Union Cave example and provenance](https://github.com/Davisfox5/pokemon-apocrypha/blob/013771b80b22774a9458b8b3bb38e0bbb1c0ebe1/gba/art/union-cave-1f/README.md).
+Its art/compiler is local to those maps; transfer the following technique.
+
+1. **Inspect the whole shape and its native squares.** Create coordinate-labelled
+   original/current/before views. Review straight runs, concave/convex turns,
+   narrow barriers, wall tops, front/side faces, water banks, props and transitions.
+   Keep the material/structure ledger separate from collision. Original overview
+   projections and occluded areas require explicit interpretation.
+   For sprite/item removal, verify that the entire donor patch is unobscured.
+   Compare source and native repairs for leftover clothing, skin or black outlines.
+   Reconstruct occluded corners from the surrounding terrain and clean modules.
+2. **Reserve coherent features before spending the tile budget on variations.**
+   Keep complete foreground silhouettes, corners, shore outlines, door/step heads
+   and roots. Reserve small reusable texture cores for ordinary ground, raised
+   tops, grass, water and other local materials. Retain visual texture during
+   palette/tile reduction instead of collapsing a surface to a flat fill.
+3. **Constrain reuse to compatible geometry.** When an asset pipeline substitutes
+   tiles, require matching material masks, structure orientation and layer role.
+   Match edge shading and adjacent surface planes as well as overall RGB error.
+   An independent nearest-color tile match can chop a wall, fill a corner with
+   floor or remove a barrier. Check actual final native entries and pixels.
+   Existing directly authored maps can use equivalent manual/native tile checks;
+   they do not need a new screenshot packer.
+4. **Clean pixels deliberately.** Preserve the original texture and wall/cap
+   shading vocabulary. Review the cap, front/side face and corner as a continuous
+   surface; local cleanup must retain its detail and depth. Use the available
+   native palette budget to align mixed-material ramps without flattening the
+   original texture into uniform or repeated shade bands.
+   Remove isolated resampling speckle within one
+   material/shading plane. Preserve deliberate high-contrast creases and clean
+   outlines; avoid blending background grass/floor/water into foreground art.
+   Coordinate palette ramps where materials cross banks, so the same wall or
+   shoreline does not change hue every quadrant. Keep opaque backgrounds,
+   transparent foreground masks, canopy layering and contact shadows correct.
+5. **Adapt each receiving join.** Measure the local baseline, opening width,
+   rim/wall depth, shoulders, facing, path approach and collision footprint before
+   reusing art. Rebuild the complete join and inspect neighboring cells. Union
+   Cave's southern light required a four-pixel baseline adaptation; the northern
+   corner turned downward and could not be pasted into a straight southern rim.
+   Reusable art remains shared; placement and local joins are reviewed separately.
+   Align warps to the actual stairs/doorways. Remove superseded marker squares,
+   restore the local ground, and inspect the first/last treads and the entire
+   connection to the surrounding rock. Stair/door art and warp registration must
+   describe the same entrance, including directional approaches and return travel.
+6. **Check outdoor specifics.** Align tree footprints and complete canopies with
+   supported overlap; preserve original blocked corridors and approved clearings.
+   Match grass/dirt/ledge/rock/water types square by square. Inspect tall-grass
+   boundaries, coast corners, dock planks and grain, stair axis, building doors,
+   gatehouse bypass gaps, foreground clipping and connections in both directions.
+   Retain accepted Cherrygrove art and the approved shared Center/Mart assets.
+7. **Review the real output and record findings.** Export actual Porymap views;
+   inspect decoded native art plus headless gameplay frames at 1x and enlarged
+   with nearest-neighbor scaling. Review every affected floor/map and transition.
+   Record reviewed coordinates, defects/corrections, uncertain cells, deliberate
+   adaptations and remaining approximation. Functional checks support the work;
+   the owner provides visual acceptance. Use source/ROM hashes to reuse relevant
+   existing proof for unchanged code/art; run new checks after meaningful changes.
+
+Preserve current editable native source, owner modifications, palette/metatile
+IDs on untouched maps, previous drafts and saves. Generators are provenance;
+never replay them over committed owner layouts. Keep changes local, use the
+installed tool workflow, and publish source/evidence through the shared Git lanes.
+
 ## 4. Validate actual output, then inspect it visually
 
 Compare the original material grid against **decoded native map entries, tile
