@@ -88,15 +88,15 @@ def side():
  a=np.asarray(im).copy();prior=np.asarray(old);a[3:62,16:80]=prior[3:62,16:80]
  return old,Image.fromarray(a)
 
-def main():
+def main(max_colors=15):
  pairs=[('G01a',*front()),('G02',*side())];report={}
  for name,old,im in pairs:
-  a=np.asarray(im);colors=np.unique(a[a[:,:,3]>0,:3],axis=0);assert len(colors)<=15,(name,len(colors));assert (colors%8==0).all()
+  a=np.asarray(im);colors=np.unique(a[a[:,:,3]>0,:3],axis=0);assert len(colors)<=max_colors,(name,len(colors));assert (colors%8==0).all()
   im.save(OUT/(name+'.png'));old.save(OUT/(name+'-before.png'))
   indexed=Image.new('P',im.size);palette=[0,0,0]+colors.flatten().tolist();indexed.putpalette(palette+[0]*(768-len(palette)))
   ids=np.zeros(a.shape[:2],np.uint8)
   for i,c in enumerate(colors,1):ids[(a[:,:,3]>0)&(a[:,:,:3]==c).all(2)]=i
-  indexed.putdata(ids.ravel());indexed.save(OUT/(name+'-indexed.png'),transparency=0,bits=4)
+  indexed.putdata(ids.ravel());indexed.save(OUT/(name+'-indexed.png'),transparency=0,bits=4 if len(colors)<=15 else 8)
   report[name]={'colors':len(colors),'size':im.size,'changed_pixels':int(np.any(a!=np.asarray(old),2).sum()),'opaque_pixels_added':int(((a[:,:,3]>0)&(np.asarray(old)[:,:,3]==0)).sum()),'main_roof_preserved':True}
  font='/System/Library/Fonts/Supplemental/Arial.ttf';f=ImageFont.truetype(font,22);small=ImageFont.truetype(font,16)
  board=Image.new('RGB',(792,490),(235,238,237));d=ImageDraw.Draw(board)

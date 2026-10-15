@@ -1,0 +1,48 @@
+{
+  "G01a": {
+    "colors": 15,
+    "size": [
+      112,
+      128
+    ],
+    "changed_pixels": 0,
+    "opaque_pixels_added": 0,
+    "main_roof_preserved": true,
+    "identical_to_refinement_3": true
+  },
+  "G02": {
+    "colors": 21,
+    "size": [
+      112,
+      112
+    ],
+    "changed_pixels": 999,
+    "opaque_pixels_added": 21,
+    "main_roof_preserved": true,
+    "source": "gba/art/violet-city/source/hgss-reference.png",
+    "source_crop": [
+      0,
+      416,
+      112,
+      528
+    ],
+    "hgss_stair_pixels": 612,
+    "source_stair_pixel_errors_after_rgb555_rounding": 0,
+    "method": "Direct source pixels, no scaling or redrawing; RGB555 rounding only on stonework",
+    "main_building_preserved": true
+  },
+  "native_compile": {
+    "compiler": "Porytiles legacy",
+    "rgba_pixel_errors": 0,
+    "metatiles": 192,
+    "stored_tile_slots": 240,
+    "bank_ids": [
+      0,
+      1,
+      2
+    ],
+    "mirrored_side_gate_verified": true,
+    "game_maps_modified": false,
+    "runtime_tested": false
+  }
+}
