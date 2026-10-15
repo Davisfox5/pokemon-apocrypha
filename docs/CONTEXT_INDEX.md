@@ -1,3 +1,5 @@
+Johto shared tileset review — gatehouse pilot: [visual comparison](../gba/art/johto-common-review/gates/gatehouses-overview.png), [catalog and provenance](../gba/art/johto-common-review/gates/catalog.json). Five main families plus earlier variants; no regional selection applied. This is a review inventory, not a new map-production process.
+
 Route 36 west of Violet: [native exterior, working west gate, HGSS comparison and gameplay evidence](../gba/art/route36/README.md). Revised after owner feedback: per-cell HGSS survey, actual HGSS side-facing gates, restored corridors and a sealed Alph frontage. Onward destinations and encounter/story content remain unimplemented.
 
 Approved shared Johto Mart exterior: [locked design, reusable assets and exact revision](../gba/art/johto-mart/README.md). Single sapphire roof, raised perspective, small roof emblem, no lettering. Owner approved October 14, 2026.

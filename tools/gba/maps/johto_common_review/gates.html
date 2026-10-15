@@ -1,0 +1,88 @@
+<div id="johto-gates-review">
+  <style>
+    #johto-gates-review .heading {padding-right:95px}
+    #johto-gates-review .catalog {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px 24px;margin-top:20px}
+    #johto-gates-review .catalog.contexts {grid-template-columns:repeat(auto-fit,minmax(min(100%,448px),1fr))}
+    #johto-gates-review .sample {margin:12px 0;display:flex;justify-content:center;align-items:flex-end;min-height:320px;background:var(--muted)}
+    #johto-gates-review .sample img {image-rendering:pixelated;display:block}
+    #johto-gates-review .entry {min-width:0}
+    #johto-gates-review .entry h3 {margin:0 0 8px;min-height:42px}
+    #johto-gates-review .entry .metadata {margin:8px 0;min-height:42px}
+    #johto-gates-review .entry .note {margin:8px 0}
+    #johto-gates-review .selection {margin:16px 0}
+    #johto-gates-review .family-select {margin-top:0}
+    #johto-gates-review .variant-wrap {height:84px;padding-top:8px;box-sizing:border-box}
+    #johto-gates-review .status {min-height:36px}
+    #johto-gates-review details {margin-top:20px}
+    #johto-gates-review .scale {text-align:center}
+  </style>
+  <div class="heading"><h2>Johto · Gatehouses</h2><span class="text-small">Five main families · three older designs · existing artwork only</span></div>
+  <div class="viz-controls">
+    <label class="form-label">Show
+      <select class="form-select" id="gate-view"><option value="asset">Isolated artwork</option><option value="context">In its map</option></select>
+    </label>
+    <label class="form-label">Set
+      <select class="form-select" id="gate-set"><option value="main">Main comparison</option><option value="archive">Older / rejected designs</option></select>
+    </label>
+  </div>
+  <div class="selection" aria-live="polite" id="gate-selection">Marked for review: none</div>
+  <div id="gate-catalog" class="catalog"></div>
+  <details>
+    <summary>Map coverage and image sources</summary>
+    <table class="table table-sm"><thead><tr><th>Map</th><th>Gate families found</th></tr></thead><tbody>
+      <tr><td>New Bark Town</td><td>No gatehouse exterior</td></tr>
+      <tr><td>Route 29</td><td>G01b/c · G04a/b</td></tr>
+      <tr><td>Cherrygrove City</td><td>No gatehouse exterior</td></tr>
+      <tr><td>Route 30</td><td>No gatehouse exterior</td></tr>
+      <tr><td>Route 31</td><td>G04a/b · G06</td></tr>
+      <tr><td>Violet City</td><td>G03 · G05</td></tr>
+      <tr><td>Route 36</td><td>G01a · G02 · G07 · G08</td></tr>
+    </tbody></table>
+    <div class="text-small">Map views are crops of native renders, not new emulator captures. Artwork is shown without redrawing or smoothing. Repeated uses are grouped; palette variants remain selectable. G02 is mirrored for the opposite gate. Interior rooms are outside this sheet. Source art: HGSS / Game Freak, Nintendo, Creatures; existing project adaptations.</div>
+  </details>
+  <script>
+  (()=>{
+    const root=document.getElementById('johto-gates-review');
+    const data=__GATE_DATA__;
+    const catalog=root.querySelector('#gate-catalog'),view=root.querySelector('#gate-view'),set=root.querySelector('#gate-set'),summary=root.querySelector('#gate-selection');
+    let chosen=[],variants={};
+    const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    let observer;
+    function stateApply(s){
+      const m=s?.modelContent,p=s?.privateContent;
+      chosen=Array.isArray(m?.marked_gate_variants)?m.marked_gate_variants.filter(id=>data.some(d=>d.id===id)):[];
+      variants=p?.variants||{};
+      view.value=p?.view==='context'?'context':'asset';set.value=p?.set==='archive'?'archive':'main';
+    }
+    function save(){
+      const api=window.openai;
+      if(api?.setWidgetState)api.setWidgetState({modelContent:{category:'Johto gatehouses',marked_gate_variants:chosen,meaning:'Review preferences only; no regional standard applied'},privateContent:{view:view.value,set:set.value,variants}}).catch(()=>{});
+    }
+    function updateSummary(){summary.textContent='Marked for review: '+(chosen.length?chosen.join(', '):'none')+' · no game changes';}
+    function render(){
+      observer?.disconnect();catalog.replaceChildren();catalog.classList.toggle('contexts',view.value==='context');
+      const families=[...new Set(data.filter(d=>d.archive===(set.value==='archive')).map(d=>d.family))];
+      families.forEach(family=>{
+        const items=data.filter(d=>d.family===family),d=items.find(v=>v.id===variants[family])||items[0];
+        const section=document.createElement('section');section.className='entry';section.dataset.family=family;
+        section.innerHTML=`<h3>${escape(d.id)} · ${escape(d.title)}</h3><div class="text-small status">${escape(d.orientation)} · ${escape(d.status)}</div>
+          <div class="variant-wrap">${items.length>1?`<label class="form-label family-select">Variant<select class="form-select" aria-label="${escape(family)} variant">${items.map(v=>`<option value="${v.id}" ${d.id===v.id?'selected':''}>${escape(v.id+' · '+v.title)}</option>`).join('')}</select></label>`:''}</div>
+          <div class="sample"><img src="${d[view.value]}" alt="${escape(d.id+' '+d.title+' — '+(view.value==='asset'?'existing isolated artwork':'native map context'))}" width="${view.value==='asset'?288:448}" height="${view.value==='asset'?288:384}"></div>
+          <div class="scale text-small"></div><div class="metadata">${escape(d.usage)}</div><div class="note text-small">${escape(d.note)}</div>
+          <button class="btn" type="button" aria-pressed="${chosen.includes(d.id)}">${chosen.includes(d.id)?'Marked: '+d.id:'Mark '+d.id+' for review'}</button>`;
+        section.querySelector('select')?.addEventListener('change',e=>{variants[family]=e.target.value;save();render();});
+        section.querySelector('button').addEventListener('click',()=>{chosen=chosen.includes(d.id)?chosen.filter(v=>v!==d.id):[...chosen,d.id];save();render();});
+        catalog.append(section);
+      });
+      observer=new ResizeObserver(entries=>entries.forEach(({target,contentRect})=>{
+        const im=target.querySelector('img');const w=view.value==='asset'?144:224,h=view.value==='asset'?144:192;
+        const scale=contentRect.width>=w*2?2:1;im.width=w*scale;im.height=h*scale;target.style.minHeight=(h*scale)+'px';
+        target.parentElement.querySelector('.scale').textContent=scale+'× native pixels · '+(view.value==='asset'?'transparent areas on neutral background':'map-render crop');
+      }));root.querySelectorAll('.sample').forEach(e=>observer.observe(e));updateSummary();
+    }
+    view.addEventListener('change',()=>{save();render();});set.addEventListener('change',()=>{save();render();});
+    stateApply(window.openai?.widgetState);render();
+    window.addEventListener('openai:set_globals',e=>{if(e.detail?.globals?.widgetState){stateApply(e.detail.globals.widgetState);render();}});
+  })();
+  </script>
+</div>

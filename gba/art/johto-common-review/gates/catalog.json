@@ -1,0 +1,266 @@
+{
+  "category": "Gatehouse exteriors",
+  "approval": "Unselected; review only",
+  "engine_commit": "162c41c8b5987973480f7a276e63a196dfc1bf07",
+  "art_commit": "b148f5573a9928e15d345d00ffed8f85badd78cb",
+  "credit": "HGSS-derived art: Game Freak, Nintendo, Creatures / The Pokemon Company. Existing project adaptations only.",
+  "coverage": {
+    "New Bark Town": "No gatehouse exterior found",
+    "Route 29": [
+      "G01b",
+      "G01c",
+      "G04a",
+      "G04b"
+    ],
+    "Cherrygrove City": "No gatehouse exterior found",
+    "Route 30": "No gatehouse exterior found",
+    "Route 31": [
+      "G04a",
+      "G04b",
+      "G06"
+    ],
+    "Violet City": [
+      "G03",
+      "G05"
+    ],
+    "Route 36": [
+      "G01a",
+      "G02",
+      "G07",
+      "G08"
+    ]
+  },
+  "method": "Existing native pixels only. Identical uses deduplicated; meaningful palette variants retained. Isolated assets use existing source alpha. Contexts are map-render crops, not new gameplay screenshots. No game files changed.",
+  "items": [
+    {
+      "id": "G01a",
+      "family": "G01",
+      "title": "HGSS front gate / Route 36",
+      "orientation": "North\u2013south",
+      "status": "Front artwork accepted",
+      "usage": "Route 36 \u2192 Ruins of Alph",
+      "note": "Full teal hip roof, projecting front canopy and stair entrance. Regional standard not yet selected.",
+      "source": [
+        "route36/source/materials/gate-front.png",
+        "route36/evidence/native-overview.png"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        89,
+        121
+      ],
+      "asset_file": "G01a-asset.png",
+      "context_file": "G01a-context.png",
+      "sha256": "c96c5a416da58ae14e9c17f7c9befcc7ff7517770471951553708d5323481a10"
+    },
+    {
+      "id": "G01b",
+      "family": "G01",
+      "title": "HGSS front gate / Claude Route 29",
+      "orientation": "North\u2013south",
+      "status": "Earlier build",
+      "usage": "Route 29 \u2192 Route 46",
+      "note": "Same HGSS donor, different native palette and source cleanup. Compare windows, trim and stair tones.",
+      "source": [
+        "claude-routes/route29-overview.png",
+        "tools/gba/maps/claude_routes/art.py::gate"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        89,
+        121
+      ],
+      "asset_file": "G01b-asset.png",
+      "context_file": "G01b-context.png",
+      "sha256": "e051a5656f822f18747765be454aed585fc4985c5c1e1f63be70eff41e77514c"
+    },
+    {
+      "id": "G01c",
+      "family": "G01",
+      "title": "HGSS front gate / Route 29 slices",
+      "orientation": "North\u2013south",
+      "status": "Alternate Route 29 build",
+      "usage": "Route 29 \u2192 Route 46",
+      "note": "Same HGSS donor, different native palette and source cleanup. Compare windows, trim and stair tones.",
+      "source": [
+        "apoc-route29/route29-overview.png",
+        "tools/gba/maps/claude_routes/art.py::gate"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        89,
+        121
+      ],
+      "asset_file": "G01c-asset.png",
+      "context_file": "G01c-context.png",
+      "sha256": "56f92b2741a0407548e5bfd230ee81dba3498ed37e4726bd1961d1045c5a4534"
+    },
+    {
+      "id": "G02",
+      "family": "G02",
+      "title": "HGSS side gate / Route 36",
+      "orientation": "East\u2013west",
+      "status": "Latest correction; awaiting review",
+      "usage": "Route 36 \u2192 National Park and Violet",
+      "note": "Actual side-facing HGSS architecture; east gate uses a mirrored copy. Window band has no front doorway.",
+      "source": [
+        "route36/source/materials/gate-side.png",
+        "route36/evidence/native-overview.png"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        112,
+        93
+      ],
+      "asset_file": "G02-asset.png",
+      "context_file": "G02-context.png",
+      "sha256": "18adade32e6aae47f4ce2de37be80fb3f70a9215b30a8f92de8a4fd9f61b7d1f"
+    },
+    {
+      "id": "G03",
+      "family": "G03",
+      "title": "Geometric side gate / Violet",
+      "orientation": "East\u2013west",
+      "status": "Present in the Violet build",
+      "usage": "Violet west gate \u2192 Route 36",
+      "note": "Earlier simplified roof and repeated wall modules. The two sides of the same connection currently use G03 and G02.",
+      "source": [
+        "violet-city/source/preserved-west-gate.png",
+        "violet-city/evidence/native-overview.png"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        112,
+        104
+      ],
+      "asset_file": "G03-asset.png",
+      "context_file": "G03-context.png",
+      "sha256": "1be154566f9867ad6c88d1aa240c8ce62aa5b968f29e33fce8b609164bc1125a"
+    },
+    {
+      "id": "G04a",
+      "family": "G04",
+      "title": "Red gable used as a gate",
+      "orientation": "Front entrance",
+      "status": "Present in the route build",
+      "usage": "Route 29 \u2192 Route 46; Route 31 \u2192 Violet",
+      "note": "Cherrygrove house shell serving as a gate. Front entrance does not depict east\u2013west passage.",
+      "source": [
+        "cherrygrove-synthesis/refined/gable.png",
+        "engine:JohtoRoute31 [2,11]"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        67,
+        72
+      ],
+      "asset_file": "G04a-asset.png",
+      "context_file": "G04a-context.png",
+      "sha256": "e938976399c7c256dee6b6deb2f288bb2be1ade4815228dd98a14f403646e084"
+    },
+    {
+      "id": "G04b",
+      "family": "G04",
+      "title": "Red gable / earlier palette",
+      "orientation": "Front entrance",
+      "status": "Earlier build",
+      "usage": "Earlier Route 29 and Route 31 revisions",
+      "note": "Same house family; older wall and door colors.",
+      "source": [
+        "johto-native-refinement/native/gate.png",
+        "johto-native-refinement/route31-overview.png"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        67,
+        72
+      ],
+      "asset_file": "G04b-asset.png",
+      "context_file": "G04b-context.png",
+      "sha256": "666d09a84f9191696dc4061104708f01224480760c0b33b6e8ef5fa626f8b17b"
+    },
+    {
+      "id": "G05",
+      "family": "G05",
+      "title": "Violet purple gable used as a gate",
+      "orientation": "Front entrance",
+      "status": "Present in the Violet build",
+      "usage": "Violet east gate \u2192 Route 31",
+      "note": "Violet house shell used for the gate. Shows a local house identity, not a matching regional gatehouse.",
+      "source": [
+        "violet-city/source/materials/house.png",
+        "engine:VioletCity [73,51]"
+      ],
+      "archive": false,
+      "visible_pixels": [
+        62,
+        83
+      ],
+      "asset_file": "G05-asset.png",
+      "context_file": "G05-context.png",
+      "sha256": "e2df6d80200390a7c16e35c54028c84a487c2fb0e99dfec32df317963ca2e551"
+    },
+    {
+      "id": "G06",
+      "family": "G06",
+      "title": "Clipped HGSS side gate",
+      "orientation": "East\u2013west silhouette",
+      "status": "Superseded",
+      "usage": "Earlier Route 31 \u2192 Violet",
+      "note": "Source crop is cut off on the west and retains ground near the side entrance.",
+      "source": [
+        "johto-polish/native/gate-gba.png",
+        "johto-polish/route31-overview.png"
+      ],
+      "archive": true,
+      "visible_pixels": [
+        89,
+        83
+      ],
+      "asset_file": "G06-asset.png",
+      "context_file": "G06-context.png",
+      "sha256": "8db377ebc55f98488261119946668c9824bc54ee876706c9237900e059a83377"
+    },
+    {
+      "id": "G07",
+      "family": "G07",
+      "title": "Assembled side-door gate",
+      "orientation": "Intended east\u2013west",
+      "status": "Rejected",
+      "usage": "Previous Route 36 revision",
+      "note": "Frontal body with added side door and extra glazed bays; shown only to identify the rejected design.",
+      "source": [
+        "git:3cf4a9b:gba/art/route36/source/materials/gate-side.png"
+      ],
+      "archive": true,
+      "visible_pixels": [
+        96,
+        121
+      ],
+      "asset_file": "G07-asset.png",
+      "context_file": "G07-context.png",
+      "sha256": "6c376caef68eaea65bc8d62b816107ecc3cb62a79ddc5e5bb3e058afd4b3080c"
+    },
+    {
+      "id": "G08",
+      "family": "G08",
+      "title": "Simple front gate",
+      "orientation": "North\u2013south",
+      "status": "Superseded",
+      "usage": "First Route 36 Alph frontage",
+      "note": "Flat roof planes and a minimal front doorway, before the accepted G01a rebuild.",
+      "source": [
+        "route36/source/materials/alph_gate.png",
+        "git:a8a17dae:gba/art/route36/evidence/native-overview.png"
+      ],
+      "archive": true,
+      "visible_pixels": [
+        80,
+        96
+      ],
+      "asset_file": "G08-asset.png",
+      "context_file": "G08-context.png",
+      "sha256": "935f27fa88fdcfa2420e93b5ad5451e3ebae89f56f1d0783bd9a074b0c330f05"
+    }
+  ]
+}
