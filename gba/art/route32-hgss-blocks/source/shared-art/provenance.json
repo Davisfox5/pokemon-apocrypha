@@ -1,0 +1,10 @@
+{
+  "pokemon_center": {
+    "hub_commit": "1c8e61c317a870910ef099af7851144549480b12",
+    "engine_commit": "9037554c61833a5f8f7da175d45420b4797bafde",
+    "source": "gba/art/violet-city/source/materials/center.png",
+    "rule": "Copy approved Violet City Center exactly; no new redraw per map."
+  },
+  "grass": "Accepted Route29 TEX0/Porytiles family, engine6f7661e9",
+  "sign": "Accepted Cherrygrove/Route29 bank5"
+}
