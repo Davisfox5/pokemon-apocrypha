@@ -1,11 +1,21 @@
 {
-  "raw_glyphs": 3237,
+  "raw_glyphs": 3240,
   "static_glyphs": 1008,
-  "metatiles": 924,
-  "critical_boundary_glyphs": 827,
-  "approximated_interior_texture_glyphs": 2229,
-  "quantization": "five private native 15-color palettes; exact retained critical boundaries; nearest reusable native texture glyph for remaining rare interiors",
-  "source": "original HGSS 1F; characters/items removed; no campaign actors invented",
-  "water": "native surfable behavior; static art in this pass",
-  "validated_engine_commit": "6abf7e84e27828356c1bb390b048611c1997d4e4"
+  "metatiles": 906,
+  "exact_feature_and_boundary_glyphs": 695,
+  "approximated_background_texture_glyphs": 2232,
+  "foreground_rock_RGB_errors": 0,
+  "transparent_background_quadrants": 0,
+  "foreground_rock_pixels": 11255,
+  "native_palettes": 6,
+  "foreground_policy": "complete original rock silhouettes in native foreground; collision restricted to explicit base footprints",
+  "exact_regions": [
+    "all foreground formations",
+    "all ladders",
+    "beige boulders",
+    "both lighted exterior entrances",
+    "water and outside-void boundaries"
+  ],
+  "water": "native Surf behavior; static artwork",
+  "source_commit": "de6922a964721aceb11147bcac6acadc477d4538"
 }

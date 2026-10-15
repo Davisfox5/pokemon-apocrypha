@@ -16,7 +16,7 @@ int main(int argc,char **argv){
  if(!projectConfig.load(root)||!userConfig.load(root))return 3;
  Project p;p.setRoot(root);if(!p.load())return 4;
  QJsonArray maps;
- for(QString name:QStringList{"JohtoRoute32","Route32PokemonCenter","UnionCaveRoute32Entrance"}){
+ for(QString name:QStringList{"JohtoRoute32","Route32PokemonCenter","UnionCaveRoute32Entrance","UnionCaveB1F","UnionCaveB2F"}){
   Map *m=p.loadMap(name);if(!m)return 5;
   Layout *l=m->layout();l->render(true);if(l->image.isNull()||!l->image.save(out+"/"+name+".png"))return 6;
   maps.append(QJsonObject{{"map",name},{"width_px",l->image.width()},{"height_px",l->image.height()}});

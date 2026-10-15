@@ -1134,3 +1134,52 @@ Local build, actual Porymap pixel equality, Porytiles representative material ro
 Review remains with owner. B1F/B2F, Route33 exterior wiring, encounters/campaign actors, dynamic cave water and campaign Surf/field-move qualifications remain pending. Old proof saves inside the replaced 14x12 cave room are not automatically migrated to the new geometry.
 
 Union Cave PR #9: exact landing on `(28,19)` and walking onto `(28,18)` are tested through both Route32 doorway cells; interior exit uses the native south-arrow behavior, not an animated house door. Latest native gameplay evidence includes this correction.
+
+## 2026-10-15 — Union Cave detail refinement and both basements
+
+Owner liked the first pass and requested precise entrances, accurate rock shapes,
+wall/ground/water transitions, then both other floors. Engine work is pushed on
+`codex/union-cave-1f` at `de6922a964721aceb11147bcac6acadc477d4538`, draft PR #9;
+evidence remains `codex/union-cave-evidence`, draft PR #13. Read the current
+[shared cave review](../gba/art/union-cave-1f/README.md), with links to B1F/B2F.
+This section supersedes the previous first-floor-only limitations above.
+
+Complete foreground rock silhouettes now retain their dark cores instead of
+being turned into floor or approximate glyphs. Beige boulders, lighted entrances,
+shore/outside boundaries and clean native Emerald ladder art are protected in
+packing. Six private palettes per floor; shared Cherrygrove and Route32 unchanged.
+All native backgrounds remain opaque; layered Porytiles round-trips pass on each
+floor. Background interior texture reuse remains explicit, not pixel-exact art.
+
+Actual original HGSS event records are preserved. The beige formations previously
+mistaken for stairs are boulders. The working native pairs are 1F north `(5,5)` ↔
+B1F main `(31,35)`, 1F water-separated south `(7,57)` ↔ B1F lower west `(4,48)`,
+and B1F lower east `(29,46)` ↔ B2F northwest `(4,5)`. Image scenes are projected and
+cropped: DS world X/Z cannot be pasted into the 16px screenshot grid. Registration
+uses original warp anchors and actor/item/branch-end landmarks; accepted first-floor
+proportions remain. B1F is 36×52; B2F 40×47, with eight bottom padding pixels.
+Existing map/layout/named-section IDs remain; B1F/B2F append as group80 maps47/48.
+
+Native water was corrected to collision0/elevation1 with MB_POND_WATER; ordinary
+land is elevation3. Earlier walking-only proof did not qualify Surf. Two B2F low
+shore lips are walkable banks, preserving actual landing access. 5,792 cells audit
+against the reviewed model with no physics/layer errors; actual Porymap exports
+match all three floors pixel-for-pixel. 398 native observations across nine phases
+cover original walking barriers, all stairs both ways, controlled existing-engine
+Surf movement/disembark, and separate normal 128KiB saves/cold reload/title Continue
+on every floor. Copies of preceding cave and Route32 proof saves also load and
+Continue. Original saves untouched, no desktop game and no ROM/save/tool binaries
+committed. Visual acceptance remains with owner.
+
+Preserve `source/previous-6abf7e84/` and `evidence/previous-6abf7e84/`; current
+commands are `trace.py`, `trace_basements.py`, `refine.py`, `register_floors.py`,
+`runtime_all.py`, `review_all.py`, `publish_all.py`. Old first-pass packer is guarded
+against reverting expanded cave work. Fingerprints protect current owned source;
+exact preserved baseline can be used only for authorized isolated reproduction.
+Do not replay provenance over owner edits.
+
+Still pending: Route33 exterior; upper Alph transit rooms named by DS warps but
+not pictured in these references (two B1F markers intentionally unwired); Strength
+pushing (barrier retained); water animation; campaign actors/items/Lapras/encounters
+and Surf badge/party activation. Proof Surf setup initializes existing engine state
+on water; it does not grant campaign progression or claim field unlock coverage.

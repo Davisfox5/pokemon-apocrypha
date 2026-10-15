@@ -1,0 +1,82 @@
+{
+  "rom_sha256": "916655a1ec12b7e6405f9177ed1a365d143d4ed7e91928c6c4de63107aa06593",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 40,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "save-1f",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 60,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-reload-1f",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 60,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 60,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    }
+  ]
+}

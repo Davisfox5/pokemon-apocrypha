@@ -1,95 +1,132 @@
-# Union Cave — HGSS first-floor reconstruction
+# Union Cave — refined first floor and connected basements
 
-This replaces the 14×12 Route 32 entrance test room with the recognizable
-**34×60 HGSS first floor**. The original screenshot is the geographic/art reference;
-the old Gen 3 room is preserved as comparison evidence, not used as the design.
-Exact engine commit and validation results are recorded in `evidence/build.json`.
+Current source: `de6922a964721aceb11147bcac6acadc477d4538` on
+`codex/union-cave-1f`, [draft engine PR #9](https://github.com/Davisfox5/pokeemerald-expansion/pull/9).
+This refines the owner-liked first pass and adds the pictured HGSS B1F and B2F
+sections. [B1F review](../union-cave-b1f/README.md) · [B2F review](../union-cave-b2f/README.md).
+Exact source/ROM identity and checks are in [all-floors-build.json](evidence/all-floors-build.json).
 
 ## Review
 
-- [Whole original/native comparison](evidence/comparison.png)
-- Materials and terrain: [north](evidence/material-comparison-1.png),
+- [Entrances and rocks: HGSS / previous / refined close-ups](evidence/entrances-rocks-before-after.png)
+- [Whole HGSS / native first floor](evidence/comparison.png)
+- [First-floor gameplay](evidence/gameplay-gallery.png)
+- Original/native terrain panels: [north](evidence/material-comparison-1.png),
   [middle](evidence/material-comparison-2.png), [south](evidence/material-comparison-3.png)
-- [Native gameplay](evidence/gameplay-gallery.png)
-- [Numbered original](evidence/numbered-hgss.png)
-- [Previous entrance test room](evidence/previous-entrance-test-room.png)
+- [Numbered original reference](evidence/numbered-hgss.png)
+- [Preserved preceding pass](evidence/previous-6abf7e84/comparison.png)
 
-## Layout and art
+## Corrections
 
-The 544×962 HGSS image is registered at 1:1 pixel scale to native 16×16 squares,
-with origin (0,0). Two bottom border pixels are omitted. Original floor, rock,
-water and outside void remain distinct. The north branch, central narrow pool,
-western water-separated pockets, winding eastern corridor, large southern lake,
-stalagmites, spiral-stair locations and two exterior doorway locations are retained.
-The Route 32 exterior is unchanged, including both entrance cells and warp IDs.
+Small teal rock formations now retain their complete silhouettes, dark centers,
+shadows and native foreground layers. Beige boulder shapes and both lighted cave
+thresholds retain their source detail instead of using approximate texture glyphs.
+Foreground, ladder, boulder, shoreline and outside-boundary glyphs receive priority;
+only spare interior background texture variants are approximated. Six private
+native palettes and route-local glyph banks leave Cherrygrove/Route32 art unchanged.
+The [packing audit](evidence/packing.json) records zero foreground RGB errors and
+zero transparent background quadrants. Representative Porytiles imports use the
+actual background/foreground layers rather than flattening incompatible palettes.
 
-Clean original cave floor/plateau samples form reusable native textures. Native
-five-bit palette reduction and reusable 8×8 glyphs fit private primary/secondary
-banks; these do not repack shared Cherrygrove or Route 32 art. Critical terrain
-boundary glyphs are retained, while rare interior texture variants use the closest
-reusable native glyph. This is a native conversion, not a pixel-exact screenshot.
-Packing figures are in [packing.json](evidence/packing.json).
+**The beige formations at `(6,16)` and `(29,38)` are boulders, not stairs.**
+Original HGSS event data places the northern 1F stairs at the northern branch end
+and the southern stairs in the water-separated western pocket. The native
+registrations are `(5,5)` and `(7,57)`. Clean Emerald Cave ladder art (`0x205`) is
+used for the native stair markers, with a matching floor/lip. The original overview
+omits those dynamic stair markers; they are registered using its landmarks and the
+actual original warp destinations, not guessed from the beige rock drawings.
 
-Characters/items are removed from terrain artwork. Explicit context repairs retain
-wall behind heads and water/shore beneath the southern trainer. No trainer teams,
-story roles, dialogue, rewards, encounters or quests are invented by this pass.
+The three visible stair pairs work in both directions:
 
-Stalagmites have separate art and movement footprints. Connected formations retain
-their complete dark centers/silhouettes; only their base rows occupy the rock
-footprint. Upper sections use the native foreground layer so the player can pass
-behind them where the original passage permits. Rock behind a formation remains
-blocked. The editable [footprints](source/stalagmite-footprints.json), material grid,
-separate foot mask and overhead pixel mask expose this interpretation.
+| 1F / B1F source | Destination |
+| --- | --- |
+| 1F north `(5,5)` | B1F main section `(31,35)` |
+| 1F southern pocket `(7,57)` | B1F lower western bank `(4,48)` |
+| B1F lower eastern bank `(29,46)` | B2F northwestern entrance `(4,5)` |
 
-The existing cave map/layout ID is retained. A Union Cave region-map section is
-appended and identified as Johto, preserving all existing named location IDs.
-The generated terminal NONE/COUNT sentinels advance with the appended section.
+Route32 warp IDs and both exterior entry cells are preserved. They land at the
+interior threshold `(28,19)` and walk normally onto `(28,18)`; returning uses the
+native south-arrow warp. The southern lighted threshold is aligned to `(28,58)`;
+its Route33 destination remains unwired rather than substituted with another room.
 
-## Validation and interpretation limits
+## Reference and native interpretation
 
-The reference is a **visual interpretation**, not extracted DS terrain or collision.
-The 2,040 source cells are checked against actual map collision and water behavior.
-Actual decoded RGB is checked separately: mixed shores, shadowed wall edges,
-foreground props, spiral stairs and lighted doorway cells can disagree with a
-simple dominant-color label. These disagreements remain explicitly listed in
-[audit.json](evidence/audit.json); they are not counted as confirmed material matches.
-Inspect original/native panels rather than treating a color threshold as authority.
+The accepted 34×60 first-floor proportions remain. The 544×962 overview is mapped
+to 16×16 native squares, omitting two bottom border pixels. These images are
+foreshortened/cropped DS scenes, not raw DS collision grids. Actual DS world X/Z
+coordinates therefore cannot be pasted into the screenshot grid: stair locations
+are registered against original actor/item landmarks and the pictured branch ends.
 
-Porymap 6.3.1 project-core export must match the decoded native map with zero pixel
-differences. A standalone Porytiles 2.0 legacy round-trip validates 128 representative
-material metatiles with exact native RGB/alpha. The headless mGBA tour exercises the
-main walking passage and both staircase approaches, blocked water/rock/stalagmite
-roots, foreground overlap, both Route 32 entry cells and return, plus fresh ordinary
-128 KiB flash save, cold reload and title Continue. Results belong to the exact ROM
-hash in evidence. No desktop game is opened and no ROM/save/tool binary is committed.
+[Original event records](source/hgss-events.json) and
+[registration/provenance](source/warp-registration.json) preserve the exact DS
+warp graph and source revision. Original image URLs, checksum and credits are in
+[reference.json](source/reference.json). Terrain, foreground silhouettes, base
+footprints, low shores and native water planes are editable separate source data.
+Original characters/items are removed from terrain artwork with explicit wall,
+shore and floor repairs; no campaign content is invented or baked into the map.
 
-**Unfinished connections:** B1F/B2F and Route 33 are not built here. Spiral stair and
-southern exterior positions are retained but unwired; this is a first-floor review,
-not a claim that all Union Cave is complete. Cave water currently has static art and
-native Surf behavior; campaign Surf access, encounters, field-move exit state and
-original hidden event rules are not qualified by the walking tour. Prior saves are
-preserved; old saves inside the replaced small test room are not automatically
-relocated or claimed compatible with new geometry.
+## Validation
+
+- Local ROM build; actual Porymap 6.3.1 project export matches every native pixel
+  on all three floors. No desktop game is opened.
+- 5,792 native cells checked against the reviewed material/foot model, actual
+  behavior, collision, elevation, palette and tile entries. This is **not a claim
+  of extracted original DS collision or exact color-majority matches**.
+- Native water uses collision `0`, elevation `1`, and `MB_POND_WATER`; ordinary
+  land is elevation `3`. Walking is blocked by elevation while Surf works.
+  Two B2F low shoreline lips remain walkable banks, not raised rock walls.
+- Porytiles round-trips 128 representative layered material metatiles per floor
+  with zero native RGB/alpha errors.
+- 398 native observations cover original walking barriers, complete rock layers,
+  exact Route32 landings/return, all three stair pairs both ways, existing-engine
+  Surf movement and disembark at the pictured banks, plus ordinary 128 KiB flash
+  saves/cold reload/title Continue separately on every floor.
+- Copies of preceding first-floor and Route32 proof saves also reload/Continue;
+  their originals are untouched. These are proof saves, not a promise about every
+  campaign save. Existing map/layout/named-location IDs remain stable; two maps
+  and layouts append. Shared art and Route32 files are byte-identical.
+
+## Concrete remaining scope
+
+The pictured floor sections and their three internal stair pairs are built.
+Original warp records also name upper Alph transit rooms **outside these overview
+images**; those rooms and their destinations are not invented here. Two B1F stair
+markers remain unwired for that work. Route33 exterior is also pending. The fixed
+Strength boulder preserves its barrier; pushing is not implemented/qualified here.
+Water art is static. Campaign actors, items, encounters, Lapras and Surf badge/party
+activation remain separate work. Surf proof setup initializes the existing engine
+state on water; it does not grant a campaign HM or change progression gates.
 
 ## Editable source and reproduction
 
-Edit committed engine layouts/assets directly in Porymap. `trace.py` and `build.py`
-are reproducible source provenance, not an editor to replay over owner changes.
-The manifest guard refuses changed owned files. In an isolated checkout based on
-Route 32 commit `7049fd5d8b95b3f357056ff53b8b2b3a3e848d74`:
+Edit committed native layouts/assets directly in Porymap. Authoring scripts are
+provenance; do not replay them over owner edits. Owned-file fingerprints refuse
+changed maps/assets. The older `build.py`/`runtime.py`/`review.py` describe the initial
+first-floor proof; use the refined all-floor tools for this revision.
+
+From an isolated copy of the preceding `6abf7e84` engine source:
 
 ```sh
 python3 tools/gba/maps/union_cave/trace.py
-python3 tools/gba/maps/union_cave/build.py /path/to/engine
+python3 tools/gba/maps/union_cave/trace_basements.py
+python3 tools/gba/maps/union_cave/refine.py /path/to/engine 1f
+python3 tools/gba/maps/union_cave/refine.py /path/to/engine b1f
+python3 tools/gba/maps/union_cave/refine.py /path/to/engine b2f
+python3 tools/gba/maps/union_cave/register_floors.py /path/to/engine
 make -C /path/to/engine -j1 generated
 make -C /path/to/engine -j8
-python3 tools/gba/maps/union_cave/check_art.py /path/to/engine /path/to/porytiles-legacy
-python3 tools/gba/maps/union_cave/runtime.py /path/to/engine /new/runtime-dir --toolchain /path/to/arm-toolchain
+python3 tools/gba/maps/union_cave/runtime_all.py /path/to/engine /new/runtime-output --toolchain /path/to/arm-toolchain
+# Separate save proofs: append --save-floor 1f or --save-floor b1f, with new outputs.
 ```
 
-`review.py` renders actual native art, material panels, ledger and preservation
-checks after a real Porymap project export. This session's scratch paths are explicit
-in that narrow evidence adapter; authoring source has no dependency on a prior map
-render. Original image URL, checksum, credits, dimensions, crop, removed occluders
-and scope are in [reference.json](source/reference.json). Nintendo / Game Freak /
-Creatures artwork, reference hosted by Bulbagarden Archives.
+The guard recognizes the exact preserved `6abf7e84` baseline through its Git
+revision and `source/previous-6abf7e84/` fingerprints; the current fingerprint
+describes the committed refined result. `refine.py ENGINE FLOOR --check-only`
+checks owned source without authoring.
+Do not bypass a guard refusal over later owner changes. `compile_porymap_probe.py`
+links the provided exporter against an already-built Porymap tree. `review_all.py`
+takes the engine and export directories; `check_art.py` takes engine, Porytiles
+binary and floor key. `publish_all.py` ties the final runtime runs to the engine
+commit, preserving earlier evidence. No ROMs, player saves or tool binaries are
+committed. Source artwork: Nintendo / Game Freak / Creatures; reference hosted by
+Bulbagarden Archives; event metadata from pret/pokeheartgold.

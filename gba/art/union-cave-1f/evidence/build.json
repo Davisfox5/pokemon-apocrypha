@@ -1,28 +1,13 @@
 {
-  "source_commit": "6abf7e84e27828356c1bb390b048611c1997d4e4",
-  "base_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
-  "ROM_sha256": "d85bc94388fd1b057070357c635dc10424fa8c09d8a66523d0a84f1ffe31e3ca",
+  "source_commit": "de6922a964721aceb11147bcac6acadc477d4538",
+  "rom_sha256": "916655a1ec12b7e6405f9177ed1a365d143d4ed7e91928c6c4de63107aa06593",
+  "floor": "1f",
   "ROM_build": "passed",
-  "runtime_observations": 218,
-  "phases": [
-    {
-      "name": "write",
-      "exit_code": 0
-    },
-    {
-      "name": "read",
-      "exit_code": 0
-    },
-    {
-      "name": "menu",
-      "exit_code": 0
-    }
-  ],
-  "ordinary_flash_bytes": 131072,
-  "Porymap_version": "6.3.1",
-  "Porymap_export_pixel_differences": 0,
-  "mGBA_version": "0.10.5",
-  "desktop_game_opened": false,
+  "actual_Porymap_export": "6.3.1; zero pixel differences",
+  "Porytiles_native_RGB_alpha": "passed",
+  "runtime_source": "shared all-floor tour, exact ROM hash",
+  "ordinary_flash_save_cold_reload_Continue": "passed separately on each floor",
+  "Surf_scope": "proof setup on water uses existing engine Surf; normal water input and disembark tested; campaign unlock not claimed",
   "ROM_save_tool_binaries_committed": false,
-  "scope": "Union Cave 1F; lower floors and Route33 unwired; static cave water"
+  "desktop_game_opened": false
 }

@@ -5,6 +5,7 @@ from collections import Counter
 import numpy as np
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[4];S=ROOT/'gba/art/union-cave-1f/source';E=S.parent/'evidence';G=Path(sys.argv[1]);manifest=S/'generated-files.json'
+if (G/'data/maps/UnionCaveB1F/map.json').exists():raise SystemExit('Historical first-floor packer: preserve expanded cave source; use refine.py / register_floors.py only for authorized authoring.')
 def digest(p):
  b=p.read_bytes();return hashlib.sha256(b.replace(b'\r\n',b'\n') if p.suffix=='.pal' else b).hexdigest()
 if (G/'data/tilesets/primary/union_cave').exists():

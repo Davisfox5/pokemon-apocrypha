@@ -16,6 +16,21 @@
   },
   {
     "source_pixel_box": [
+      112,
+      64,
+      128,
+      81
+    ],
+    "root_cells": [
+      [
+        7,
+        5
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
       128,
       144,
       144,
@@ -25,6 +40,36 @@
       [
         8,
         11
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      96,
+      225,
+      112,
+      241
+    ],
+    "root_cells": [
+      [
+        6,
+        15
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      112,
+      237,
+      128,
+      253
+    ],
+    "root_cells": [
+      [
+        7,
+        15
       ]
     ],
     "overhead_head_rows": "above root row"
@@ -103,6 +148,85 @@
   },
   {
     "source_pixel_box": [
+      208,
+      286,
+      224,
+      302
+    ],
+    "root_cells": [
+      [
+        13,
+        18
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      384,
+      298,
+      416,
+      314
+    ],
+    "root_cells": [
+      [
+        24,
+        19
+      ],
+      [
+        25,
+        19
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      256,
+      299,
+      272,
+      314
+    ],
+    "root_cells": [
+      [
+        16,
+        19
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      240,
+      372,
+      256,
+      388
+    ],
+    "root_cells": [
+      [
+        15,
+        24
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      272,
+      372,
+      288,
+      388
+    ],
+    "root_cells": [
+      [
+        17,
+        24
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
       352,
       402,
       384,
@@ -131,6 +255,21 @@
       [
         30,
         30
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      480,
+      495,
+      496,
+      511
+    ],
+    "root_cells": [
+      [
+        30,
+        31
       ]
     ],
     "overhead_head_rows": "above root row"
@@ -201,6 +340,51 @@
   },
   {
     "source_pixel_box": [
+      96,
+      594,
+      112,
+      610
+    ],
+    "root_cells": [
+      [
+        6,
+        38
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      192,
+      606,
+      208,
+      622
+    ],
+    "root_cells": [
+      [
+        12,
+        38
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      256,
+      606,
+      272,
+      622
+    ],
+    "root_cells": [
+      [
+        16,
+        38
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
       64,
       673,
       80,
@@ -243,6 +427,21 @@
       ],
       [
         6,
+        49
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      112,
+      778,
+      128,
+      794
+    ],
+    "root_cells": [
+      [
+        7,
         49
       ]
     ],
@@ -346,6 +545,36 @@
       [
         22,
         57
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      368,
+      914,
+      384,
+      930
+    ],
+    "root_cells": [
+      [
+        23,
+        58
+      ]
+    ],
+    "overhead_head_rows": "above root row"
+  },
+  {
+    "source_pixel_box": [
+      480,
+      914,
+      496,
+      930
+    ],
+    "root_cells": [
+      [
+        30,
+        58
       ]
     ],
     "overhead_head_rows": "above root row"

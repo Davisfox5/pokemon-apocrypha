@@ -12,8 +12,7 @@ void=(a.max(2)<32);rock=~(floor|water|void)
 label=np.full(a.shape[:2],'R',dtype='<U1');label[floor]='.';label[water]='W';label[void]='X'
 # Teal stalagmites are foreground rock features, not dark ordinary floor.
 from scipy.ndimage import binary_dilation,label as components
-seed=(g-r>=24)&(g-b>=8)&(r<80)&(g<=112)
-cc,n=components(seed);sizes=np.bincount(cc.ravel());keep=(sizes>=20);keep[0]=False;seed=keep[cc]
+seed=(r<=32)&(g>=32)&(g<=112)&(g-r>=24)&(b<=g+8)
 candidate=(g-r>=24)&(g<=112)&(b<=g+8);cc,n=components(candidate);ids=np.unique(cc[seed]);ids=ids[ids>0];props=np.isin(cc,ids);label[props]='O'
 # Character/item pixels occlude actual floor; retain rocks/stalagmites as scenery.
 occluders=[('north-firebreather',(136,80,164,113)),('north-item',(64,192,81,207)),('west-hiker',(92,348,116,380)),('east-hiker',(330,382,354,416)),('south-firebreather',(378,604,404,640)),('south-trainer',(204,740,228,777)),('west-item',(80,596,96,614)),('east-item',(480,660,497,676)),('south-item',(384,914,402,933))]
@@ -72,11 +71,11 @@ for y in range(60):
   else:ch='R'
   plan[y,x]=ch;confidence[y,x]=co[ch]/256
 # Original staircase heads are occluded/rock-colored, recorded as explicit features.
-features={'route32_entrance':[28,18],'route33_exit':[28,57],'north_lower_access':[6,16],'south_lower_access':[29,38]}
+features={'route32_entrance':[28,18],'route33_exit':[28,57],'north_lower_access':[5,5],'south_lower_access':[7,57]}
 for name,(x,y) in features.items():plan[y,x]='.'
 # Foreground heads may overlap the player; only each formation's bottom row
 # occupies its rock footprint. Keep wall behind a head blocked independently.
-blocked=np.isin(plan,['R','W','X']);heads=np.zeros(label.shape,bool);formations=[]
+blocked=np.isin(plan,['R','W','X']);blocked[16,5:7]=True;blocked[38,29:31]=True;heads=np.zeros(label.shape,bool);formations=[]
 cc,n=components(label=='O')
 from scipy.ndimage import find_objects
 for i,box in enumerate(find_objects(cc),1):
@@ -92,7 +91,7 @@ for y,x in zip(*np.where(plan=='O')):
  piece=label[y*16:y*16+16,x*16:x*16+16];blocked[y,x]=int((piece=='R').sum())>=80 or int((piece=='X').sum())>=32
 np.save(S/'hgss-foot-blocked.npy',blocked);np.save(S/'hgss-overhead-rock-heads.npy',heads);(S/'stalagmite-footprints.json').write_text(json.dumps(formations,indent=2)+'\n')
 (S/'hgss-material-grid.txt').write_text('\n'.join(''.join(row) for row in plan)+'\n');np.save(S/'hgss-pixel-materials.npy',label);np.save(S/'hgss-material-confidence.npy',confidence);Image.fromarray(clean).save(S/'clean-terrain.png')
-(S/'reference.json').write_text(json.dumps({'reference':'https://archives.bulbagarden.net/wiki/File:Union_Cave_1F_HGSS.png','image_url':'https://archives.bulbagarden.net/media/upload/6/65/Union_Cave_1F_HGSS.png','credits':'Nintendo / Game Freak / Creatures; overview hosted by Bulbagarden Archives','sha256':hashlib.sha256((S/'hgss-reference.png').read_bytes()).hexdigest(),'dimensions':[544,962],'native_grid':[34,60],'origin':[0,0],'scale':1,'crop':'bottom two border pixels omitted; map remains 34x60','basis':'visual terrain interpretation, not extracted DS collision','occluders_removed':occluders,'features':features,'scope':'1F; Route33 exterior and lower floors not built in this pass'},indent=2)+'\n')
+(S/'reference.json').write_text(json.dumps({'reference':'https://archives.bulbagarden.net/wiki/File:Union_Cave_1F_HGSS.png','image_url':'https://archives.bulbagarden.net/media/upload/6/65/Union_Cave_1F_HGSS.png','credits':'Nintendo / Game Freak / Creatures; overview hosted by Bulbagarden Archives','sha256':hashlib.sha256((S/'hgss-reference.png').read_bytes()).hexdigest(),'dimensions':[544,962],'native_grid':[34,60],'origin':[0,0],'scale':1,'crop':'bottom two border pixels omitted; map remains 34x60','basis':'visual terrain interpretation, not extracted DS collision','occluders_removed':occluders,'features':features,'scope':'1F refinement with corrected branch-end ladders; beige formations are solid boulders; stairs registered from original DS warp topology and image landmarks'},indent=2)+'\n')
 ref=Image.open(S/'hgss-reference.png').convert('RGB');out=Image.new('RGB',(610,1010),'white');out.paste(ref,(45,30));d=ImageDraw.Draw(out)
 for x in range(35):d.line((45+x*16,30,45+x*16,990),fill='#777777');d.text((45+x*16,10),str(x),fill='black')
 for y in range(61):d.line((45,30+y*16,589,30+y*16),fill='#777777');d.text((5,30+y*16),str(y),fill='black')
