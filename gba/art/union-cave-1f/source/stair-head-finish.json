@@ -1,0 +1,20 @@
+{
+  "reference": "unobscured original HGSS terrain, preserved de6922a clean source",
+  "full_head_pixel_boxes": [
+    [
+      56,
+      72,
+      80,
+      88
+    ],
+    [
+      128,
+      904,
+      152,
+      920
+    ]
+  ],
+  "palette_bank": 10,
+  "reason": "retain real upper treads and complete wall/cap join with sufficient native shades; no floor marker tile",
+  "map_collision_or_warp_changes": false
+}

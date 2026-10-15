@@ -1,0 +1,296 @@
+[
+  {
+    "floor": "1f",
+    "from": [
+      28,
+      18
+    ],
+    "to": [
+      24,
+      18
+    ],
+    "tag": "1f-small-rock-formations",
+    "steps": 4,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      24,
+      18
+    ],
+    "to": [
+      7,
+      16
+    ],
+    "tag": "1f-west-rock-edge",
+    "steps": 21,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      7,
+      16
+    ],
+    "to": [
+      5,
+      6
+    ],
+    "tag": "1f-north-stair-approach",
+    "steps": 16,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      5,
+      6
+    ],
+    "to": [
+      20,
+      23
+    ],
+    "tag": "1f-central-grassless-floor",
+    "steps": 32,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      20,
+      23
+    ],
+    "to": [
+      29,
+      26
+    ],
+    "tag": "1f-main-bend",
+    "steps": 12,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      29,
+      26
+    ],
+    "to": [
+      28,
+      38
+    ],
+    "tag": "1f-south-boulder-approach",
+    "steps": 13,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      28,
+      38
+    ],
+    "to": [
+      13,
+      47
+    ],
+    "tag": "1f-lake-bank",
+    "steps": 24,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      13,
+      47
+    ],
+    "to": [
+      28,
+      57
+    ],
+    "tag": "1f-southern-doorway",
+    "steps": 25,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "1f",
+    "from": [
+      6,
+      54
+    ],
+    "to": [
+      7,
+      56
+    ],
+    "tag": "1f-southern-pocket-land",
+    "steps": 3,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b1f",
+    "from": [
+      20,
+      47
+    ],
+    "to": [
+      29,
+      47
+    ],
+    "tag": "b1f-lower-east-bank",
+    "steps": 9,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b1f",
+    "from": [
+      25,
+      29
+    ],
+    "to": [
+      26,
+      23
+    ],
+    "tag": "b1f-main-lake-land",
+    "steps": 7,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b1f",
+    "from": [
+      26,
+      23
+    ],
+    "to": [
+      26,
+      19
+    ],
+    "tag": "b1f-east-rocks",
+    "steps": 4,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "b1f",
+    "from": [
+      26,
+      19
+    ],
+    "to": [
+      16,
+      5
+    ],
+    "tag": "b1f-north-gallery",
+    "steps": 26,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "b1f",
+    "from": [
+      16,
+      5
+    ],
+    "to": [
+      5,
+      5
+    ],
+    "tag": "b1f-upper-unwired-Alph-stair",
+    "steps": 11,
+    "initial_proof_Surf": false
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      6,
+      7
+    ],
+    "tag": "b2f-north-bank",
+    "steps": 12,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      27,
+      8
+    ],
+    "tag": "b2f-northeast-pocket",
+    "steps": 28,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      7,
+      19
+    ],
+    "tag": "b2f-west-peninsula",
+    "steps": 13,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      6,
+      28
+    ],
+    "tag": "b2f-western-gallery",
+    "steps": 31,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      28,
+      25
+    ],
+    "tag": "b2f-east-gallery",
+    "steps": 28,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      10,
+      15
+    ],
+    "to": [
+      24,
+      32
+    ],
+    "tag": "b2f-south-peninsula",
+    "steps": 31,
+    "initial_proof_Surf": true
+  },
+  {
+    "floor": "b2f",
+    "from": [
+      15,
+      40
+    ],
+    "to": [
+      6,
+      38
+    ],
+    "tag": "b2f-southern-lake-land",
+    "steps": 11,
+    "initial_proof_Surf": true
+  }
+]

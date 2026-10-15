@@ -1,0 +1,111 @@
+{
+  "base_native_style": "de6922a964721aceb11147bcac6acadc477d4538",
+  "preserved_prior_finish": "988e0287216410698481d313e73d6cf99f650b76",
+  "operation": "restore original textured walls/caps and palette vocabulary, remove all extra floor stair squares, register existing embedded stairs, repair local heads/joins",
+  "local_edits": [
+    {
+      "remove_floor_marker": [
+        5,
+        5
+      ],
+      "ordinary_floor_donor": [
+        6,
+        5
+      ]
+    },
+    {
+      "remove_floor_marker": [
+        7,
+        57
+      ],
+      "ordinary_floor_donor": [
+        7,
+        56
+      ]
+    },
+    {
+      "preserved_southern_entrance_cells": [
+        25,
+        56,
+        32,
+        60
+      ]
+    },
+    {
+      "embedded_stair_head": [
+        4,
+        5
+      ],
+      "reference_pixel_box": [
+        64,
+        72,
+        80,
+        96
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_stair_head": [
+        8,
+        57
+      ],
+      "reference_pixel_box": [
+        128,
+        904,
+        144,
+        928
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        56,
+        72,
+        80,
+        88
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        128,
+        904,
+        152,
+        920
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        56,
+        72,
+        80,
+        88
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        128,
+        904,
+        152,
+        920
+      ]
+    }
+  ],
+  "actual_wired_stairs": [
+    [
+      4,
+      5
+    ],
+    [
+      8,
+      57
+    ]
+  ],
+  "visible_unwired_stairs": [],
+  "static_glyphs_used": 996,
+  "no_unrelated_maps_changed": true,
+  "warp_pair_indices_preserved": true
+}

@@ -1,0 +1,122 @@
+{
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76",
+  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "basis": "current native tile decode equals published checked render; original HGSS geography and preserved preceding pass compared",
+  "review_status": "Focused visual review completed; no additional source fixes identified",
+  "regions": [
+    {
+      "label": "Return stair / northwest corner",
+      "pixel_box": [
+        16,
+        32,
+        160,
+        160
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Northern plateau concave turn",
+      "pixel_box": [
+        224,
+        32,
+        368,
+        176
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Northwest low bank and rock roots",
+      "pixel_box": [
+        32,
+        96,
+        208,
+        192
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Northeast low bank / side face",
+      "pixel_box": [
+        368,
+        80,
+        512,
+        224
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Western peninsula head and cliff",
+      "pixel_box": [
+        80,
+        224,
+        240,
+        352
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Eastern gallery and rock layers",
+      "pixel_box": [
+        400,
+        288,
+        608,
+        416
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "South peninsula / inner wall corner",
+      "pixel_box": [
+        208,
+        432,
+        384,
+        576
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Lake northern rim / terrace",
+      "pixel_box": [
+        64,
+        544,
+        288,
+        640
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Southwest outside turn",
+      "pixel_box": [
+        48,
+        608,
+        208,
+        752
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Southern lake east/void corner",
+      "pixel_box": [
+        464,
+        592,
+        640,
+        752
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    }
+  ],
+  "all_wall_cell_sheet": "../wall-cell-review.png",
+  "physics_preserved": true,
+  "limitations": [
+    "shared finite interior shading dictionary",
+    "static water",
+    "unwired Alph transit rooms/Route33; Strength pushing and campaign interactions remain pending"
+  ],
+  "wall_cells_checked": 1049,
+  "reviewed_native_gameplay_positions": 9,
+  "functional_proof": "405-observation all-floor proof, plus fresh controlled camera review and normal save/cold reload/Continue",
+  "changes_this_pass": {
+    "source_changed": false
+  },
+  "owner_visual_acceptance": "pending; owner approved first-floor entrance as benchmark"
+}

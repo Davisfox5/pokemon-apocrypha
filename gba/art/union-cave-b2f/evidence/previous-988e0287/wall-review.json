@@ -1,0 +1,17 @@
+{
+  "floor": "b2f",
+  "wall_containing_cells": 1049,
+  "native_quadrants_checked": 7520,
+  "actual_tile_bytes_match_geometry_dictionary": true,
+  "wall_floor_water_void_silhouette_errors": [],
+  "stair_coordinates": [
+    [
+      4,
+      5
+    ]
+  ],
+  "stair_art": "original Union Cave d_level01 stone treads; up/down variants; existing native warp behavior 97 retained",
+  "lighting": "shared wall palette ramps across ordinary ground and water banks; border-weighted shade reuse within identical material masks",
+  "limit": "interior shading uses a finite 1008-tile dictionary; not a pixel-exact screenshot import",
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+}
