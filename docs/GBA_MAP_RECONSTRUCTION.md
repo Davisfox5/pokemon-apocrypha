@@ -57,7 +57,7 @@ rather than claiming an exact original-game reconstruction.
 ## 3. Assemble coherent native art
 
 Reuse accepted Cherrygrove ground, trees, architecture, terrain and palette
-vocabulary wherever suitable. Follow the [shared building-art rule](GBA_SHARED_BUILDING_ART.md):
+vocabulary wherever suitable. Follow the [shared building-art rule](https://github.com/Davisfox5/pokemon-apocrypha/blob/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/docs/GBA_SHARED_BUILDING_ART.md):
 copy the approved Violet Pokémon Center and established Pokémart instead of
 redrawing them for every map. Author only missing local assets, using original
 textures as references and cleaning silhouettes, masks, palette reduction and
