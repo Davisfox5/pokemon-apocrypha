@@ -65,6 +65,8 @@ r.MAIN=r.MAIN[:r.MAIN.index('  // Actual east connection')]+ 'go(43,23,3);shot("
  go(43,7,86);step(DOWN,4);at(43,7,90,"north-south-stairs-down");shot("north-south-stairs");step(UP,4);at(43,7,86,"north-south-stairs-up");
  go(43,15,118);step(UP,1);frames(360,0);observe("cave-right-entry");need(state[2]==46,"cave-right-entry");step(DOWN,1);frames(360,0);at(43,14,117,"cave-right-return");step(DOWN,1);
  go(43,25,26);step(DOWN,1);at(43,25,28,"terrace-downhill-ledge");step(UP,1);at(43,25,28,"terrace-uphill-blocked");shot("native-ledge");
+ go(43,12,118);step(DOWN,1);at(43,12,120,"cave-left-ledge-down");step(UP,1);at(43,12,120,"cave-left-ledge-up-blocked");shot("cave-left-ledge");
+ go(43,16,118);step(DOWN,1);at(43,16,120,"cave-right-ledge-down");step(UP,1);at(43,16,120,"cave-right-ledge-up-blocked");shot("cave-right-ledge");
  go(43,21,119);step(RIGHT,1);at(43,22,119,"floor-below-cave-boulder");shot("cave-boulder-clearance");
  go(43,27,12);step(DOWN,1);step(UP,1);at(43,27,12,"native-grass-walking");shot("grass-walking");
  go(43,19,68);shot("save-under-railway");unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);

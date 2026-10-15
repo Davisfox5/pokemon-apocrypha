@@ -4,10 +4,26 @@ import json
 import numpy as np
 from PIL import Image
 from claude_cherrygrove import ground,banks
-from claude_cherrygrove.pixel import Canvas
+from claude_cherrygrove.pixel import Canvas,Palette
 
 def pack(comp,packer,pals,grid,source_dir):
  mc=comp['canvas'];fb,fi=mc.fore_bank,mc.fore_idx;bb,bi=mc.background_bank,mc.background_idx
+ # Exact local foreground composition for a canopy over a shore boulder.
+ # One hardware quadrant has one palette even when two props share its pixels.
+ fg_cases=[];fg_colors=set()
+ for yy in range(0,fb.shape[0],8):
+  for xx in range(0,fb.shape[1],8):
+   bs=[int(v) for v in np.unique(fb[yy:yy+8,xx:xx+8]) if v>=0]
+   if len(bs)<=1:continue
+   rgb=np.zeros((8,8,3),np.uint8);opaque=fb[yy:yy+8,xx:xx+8]>=0
+   for bank in bs:
+    mask=fb[yy:yy+8,xx:xx+8]==bank;rgb[mask]=np.asarray(pals[bank].gba(),np.uint8)[fi[yy:yy+8,xx:xx+8][mask]]
+   fg_colors|={tuple(int(c) for c in color) for color in rgb[opaque]};fg_cases.append((xx,yy,rgb,opaque))
+ if fg_cases:
+  assert len(fg_colors)<=15,('Foreground composite palette capacity',len(fg_colors))
+  colors=sorted(fg_colors);pals[4]=Palette(4,colors,[f'fg{i}' for i in range(len(colors))]);lookup={c:i+1 for i,c in enumerate(colors)}
+  for xx,yy,rgb,opaque in fg_cases:
+   dst=fi[yy:yy+8,xx:xx+8];dst[opaque]=[lookup[tuple(int(c) for c in color)] for color in rgb[opaque]];fb[yy:yy+8,xx:xx+8][opaque]=4
  gimg,mat=ground.paint(comp['cells']);pal0=np.asarray(pals[0].gba(),int);rgb=gimg[...,:3].astype(int)
  gi=((rgb[...,None,:]-pal0[None,None])**2).sum(3).argmin(2).astype(np.uint8)
  h,w=gi.shape;cases={};mixed=[]
@@ -78,4 +94,4 @@ def pack(comp,packer,pals,grid,source_dir):
     top.append(entry(fs[0],np.where(f==fs[0],fx,0).astype(np.uint8)))
    attr=int(comp['behavior'][y,x])|(0 if mc.above[y,x] else 0x1000)
    grid[y,x]=packer.metatile(bottom+top,attr)|0x3000|(0xc00 if comp['solid'][y,x] else 0)
- return {'composited_terrain_palette':7 if mixed else None,'background_assets':len(mixed),'background_colour_cleanup':errors,'ground_colours_pinned':True,'foreground_layers_explicit':True}
+ return {'exact_foreground_composite_quadrants':len(fg_cases),'composited_terrain_palette':7 if mixed else None,'background_assets':len(mixed),'background_colour_cleanup':errors,'ground_colours_pinned':True,'foreground_layers_explicit':True}

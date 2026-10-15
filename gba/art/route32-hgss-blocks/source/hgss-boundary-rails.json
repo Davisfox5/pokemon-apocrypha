@@ -1,0 +1,53 @@
+{
+  "source_boxes": [
+    [
+      344,
+      48,
+      360,
+      96
+    ],
+    [
+      384,
+      48,
+      400,
+      96
+    ]
+  ],
+  "native_pixel_origins": [
+    [
+      360,
+      64
+    ],
+    [
+      400,
+      64
+    ]
+  ],
+  "blocked_native_cells": [
+    [
+      22,
+      4
+    ],
+    [
+      22,
+      5
+    ],
+    [
+      22,
+      6
+    ],
+    [
+      25,
+      4
+    ],
+    [
+      25,
+      5
+    ],
+    [
+      25,
+      6
+    ]
+  ],
+  "material": "metal boundary railing, five-tone existing native rail palette"
+}

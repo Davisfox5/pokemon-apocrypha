@@ -93,9 +93,9 @@ def main(game):
  for i in range(4):canvas('rail-'+str(i),Image.open(S/f'materials/rail-{i}.png').convert('RGBA'),10)
  # A complete source boulder, not the clipped half from the prior draft. Separate stone from foam.
  from scipy.ndimage import label,binary_fill_holes,binary_dilation
- rock=np.array(ref.crop((408,1128,440,1160)));rg=rock[...,:3].astype(int);stone=(np.ptp(rg,axis=2)<25)&(rg[...,0]>65)&(rg[...,0]<210);labels,n=label(stone);counts=np.bincount(labels.ravel());counts[0]=0;body=binary_fill_holes(labels==counts.argmax());ring=binary_dilation(body,iterations=1)&~body
+ rock=np.array(ref.crop((422,1233,454,1265)));rg=rock[...,:3].astype(int);stone=(np.ptp(rg,axis=2)<25)&(rg[...,0]>65)&(rg[...,0]<210);labels,n=label(stone);counts=np.bincount(labels.ravel());counts[0]=0;body=binary_fill_holes(labels==counts.argmax());ring=binary_dilation(body,iterations=1)&~body
  rock[...,3]=body*255;rock[ring,:3]=[192,216,224];rock[ring,3]=255
- colors=pals[10].gba()[1:];colors[13]=(192,216,224);pals[10]=Palette(10,colors,[f'r{i}' for i in range(15)]);canvas('coastal-rock',rock,10)
+ colors=pals[10].gba()[1:];colors[13]=(192,216,224);pals[10]=Palette(10,colors,[f'r{i}' for i in range(15)]);stone=canvas('coastal-rock',rock,10);stone.px[stone.px==6]=7 # five-tone native stone; free one canopy composite color
  # Native panel from an unoccupied original HGSS timber deck, not invented stripes.
  pals[9]=Palette(9,[(72,64,40),(104,88,56),(152,120,80),(168,136,96),(184,152,112),(192,160,120),(200,176,128)],[f'w{i}' for i in range(7)])
  wood=np.array(ref.crop((276,1008,300,1032)).convert('RGB'));Image.fromarray(wood).save(S/'hgss-deck-panel-source.png')
@@ -106,15 +106,16 @@ def main(game):
  grain[0]=grain[-1]=np.rint((grain[0].astype(float)+grain[-1])/2).astype(np.uint8)
  boards=Canvas(32,32,pals[9]);boards.px=grain;a['boards']=boards
  # The checked-in source-cell grid is now the placement authority.
- rows=(S/'hgss-cell-grid.txt').read_text().splitlines();assert len(rows)==125 and all(len(r)==30 for r in rows)
+ rows=(S/'hgss-material-grid.txt').read_text().splitlines();assert len(rows)==125 and all(len(r)==30 for r in rows)
  p=np.full((H,W),'.',dtype='<U1');p[1:126,1:31]=np.array([list(r) for r in rows])
  footprints=json.loads((S/'hgss-tree-footprints.json').read_text())
  # Continue the clipped source edge into padding; never introduce a lawn strip beside sea.
  p[:,0]=p[:,1];p[:,-1]=p[:,-2]
- # Canonical native Center is wider than the HGSS building; preserve its door and forecourt.
- p[103:109,17:24]='.';p[109:111,18:24]='P';p[6:12,1:7]='.'
- p[117,14:16]='.';p[118:120,11:18]='P'
- cells=np.full((H,W),ground.GRASS,np.int8);cells[p=='P']=ground.PATH;cells[p=='S']=ground.PATH
+ # Keep source ground around the wider prefab and forecourt; never flatten it
+ # into a generic lawn/dirt rectangle. Only the occluded cave threshold is explicit.
+ p[117,14:16]='P'
+ underlay=np.full((H,W),'.',dtype='<U1');underlay[1:126,1:31]=np.array([list(r) for r in (S/'hgss-ground-underlay.txt').read_text().splitlines()])
+ cells=np.full((H,W),ground.GRASS,np.int8);cells[p=='P']=ground.PATH;cells[p=='S']=ground.PATH;cells[(p=='_')&(underlay=='P')]=ground.PATH
  solid=np.isin(p,list('RW_'));beh=np.zeros((H,W),np.uint8);beh[p=='W']=21
  mc=native.MapCanvas(W,H);fore=native.MapCanvas(W,H)
  def put(c,x,y,fg=False):
@@ -161,6 +162,19 @@ def main(game):
  left=mask&(west<10)&~front;right=mask&(east<10)&~front;rockpixels[left]=a['emerald-0x73'].px[yy[left]%16,west[left].clip(0,15)];rockpixels[right]=a['emerald-0x75'].px[yy[right]%16,(15-east[right]).clip(0,15)]
  # A continuous cap separates top plane from face; quarter corners share the same profile.
  rockpixels[mask&(south==15)]=2;rockpixels[mask&(north==0)]=2
+ # Source material roles, not collision/height alone, choose each rock quadrant.
+ qr=np.full((H*2,W*2),'.',dtype='<U1');qr[2:252,2:62]=np.load(S/'hgss-rock-quadrants.npy')
+ role_pixels=np.repeat(np.repeat(qr,8,0),8,1)
+ phase=np.zeros(qr.shape,np.uint8)
+ for qx in range(W*2):
+  start=0
+  for qy in range(H*2):
+   if qy==0 or qr[qy,qx]!=qr[qy-1,qx]:start=qy
+   phase[qy,qx]=((qy-start)%2)*8
+ fy=(yy%8)+np.repeat(np.repeat(phase,8,0),8,1)
+ for role,asset in [('f','emerald-0x7c'),('l','emerald-0x73'),('r','emerald-0x75')]:
+  chosen=mask&(role_pixels==role);rockpixels[chosen]=a[asset].px[fy[chosen],xx[chosen]%16]
+ chosen=mask&(role_pixels=='t');rockpixels[chosen]=a['rock-top'].px[yy[chosen]%32,xx[chosen]%32]
  rockpixels[~mask]=0;cliff=Canvas(W*16,H*16,pals[2]);cliff.px=rockpixels;mc.blit(cliff,0,0)
  for y in range(H):
   for x in range(W):
@@ -227,11 +241,33 @@ def main(game):
  support=Canvas(32,64,pals[10]);support.px[:52,5:27]=11;support.px[:52,8:24]=12;support.px[:52,9:12]=13;support.px[52:58,3:29]=8;support.px[58:62,5:27]=7;support.px[62:,6:26]=6
  put(support,24,70,True);solid[73,24:26]=True;beh[73,24:26]=0;mc.above[70:73,24:26]=True
  rocks=[]
- # The northern boulder fence follows HGSS's 24px vertical spacing at native pixel scale.
- for xp,yp in [(26*16,70*16+i*24) for i in range(4)]+[(25*16,79*16),(25*16,81*16),(27*16,81*16),(26*16,88*16),(27*16,91*16),(25*16,93*16),(25*16,96*16)]:
-  x,y=xp//16,yp//16;hh=(yp%16+32+15)//16
-  if np.all(p[y:y+hh,x:x+2]=='W'):
-   mc.blit(a['coastal-rock'],xp,yp);fore.blit(a['coastal-rock'],xp,yp);solid[y:y+hh,x:x+2]=True;beh[y:y+hh,x:x+2]=0;rocks.append([xp,yp])
+ # Source gray-stone components, kept distinct from brown cliff landforms.
+ # Reuse one clean isolated HGSS boulder, including the missing stones above rail.
+ coast=[(488,1000),(392,1024),(424,1040)]+[(424,1120+i*24) for i in range(4)]+[(440,1208),(408,1224),(408,1248),(440,1248),(424,1320),(440,1352),(408,1360),(408,1376)]
+ for xp,yp in coast:
+  c=Canvas(32,32,pals[10]);c.px=a['coastal-rock'].px.copy()
+  x0,y0=max(0,xp),max(0,yp);x1,y1=min(W*16,xp+32),min(H*16,yp+32)
+  region=np.s_[y0:y1,x0:x1];part=c.px[y0-yp:y1-yp,x0-xp:x1-xp]
+  # Foreground tree crowns stay in front of a stone; roots never move to fit it.
+  part[fore.bank[region]==3]=0
+  if (xp,yp)==(440,1208):part[mc.bank[region]==2]=0 # original stone behind the islet
+  mc.blit(c,xp,yp);fore.blit(c,xp,yp)
+  for cy in range(yp//16,min(H,(yp+47)//16)):
+   for cx in range(xp//16,min(W,(xp+47)//16)):
+    if p[cy,cx] in 'WR':solid[cy,cx]=True;beh[cy,cx]=0
+  rocks.append([xp,yp])
+ # The overhead railway occludes the upper stones, as in HGSS.
+ for ry in range(66,70):
+  for rx in range(W):put(a['rail-'+str(ry-66)],rx,ry,True)
+ # Original north boundary posts are fencing, not a strip of bare grass.
+ for name,box,px in [('north-rail-left',(344,48,360,96),360),('north-rail-right',(384,48,400,96),400)]:
+  rgba=np.array(ref.crop(box));rr=rgba[...,:3].astype(int)
+  keep=(rr[...,2]>=rr[...,1]-8)&(rr[...,0]>=40)&(np.ptp(rr,axis=2)<=64);rgba[...,3]=keep*255
+  post=canvas(name,rgba,10);post.px[np.isin(post.px,[1,2])]=3;post.px[post.px==6]=7;post.px[np.isin(post.px,[10,15])]=9
+  mc.blit(post,px,64);fore.blit(post,px,64)
+ for cx in [22,25]:solid[4:7,cx]=True
+ (S/'hgss-boundary-rails.json').write_text(json.dumps({'source_boxes':[[344,48,360,96],[384,48,400,96]],'native_pixel_origins':[[360,64],[400,64]],'blocked_native_cells':[[cx,cy] for cx in [22,25] for cy in range(4,7)],'material':'metal boundary railing, five-tone existing native rail palette'},indent=2)+'\n')
+ (S/'hgss-coastal-boulders.json').write_text(json.dumps({'reference_crop':[422,1233,454,1265],'native_pixel_origins':coast,'source_gray_components':'original HGSS sea-rock component bounds; snapped to 8px hardware grid','canopy_order':'tree crown above coastal stone','islet_occludes':[440,1208],'lower_stone_adjustment':'8px north to keep the whole Cherrygrove tree root footprint clear'},indent=2)+'\n')
  for prop in footprints['props']:
   sx,sy=prop['source_cell'];assert not roots[sy+1,sx+1],('Prop overlaps tree footprint',prop);put(a['emerald-0xad'],sx+1,sy+1,True);solid[sy+1,sx+1]=True
  mouth=Canvas(32,32,pals[6]);mouth.px[(cave_rgb.max(2)<80)]=1
@@ -312,15 +348,20 @@ def main(game):
  shutil.copytree(game/'data/tilesets/primary/cherrygrove/palettes',local/'palettes',dirs_exist_ok=True)
  shutil.copytree(game/'data/tilesets/primary/cherrygrove/anim',local/'anim',dirs_exist_ok=True)
  packing.write_tiles(local/'tiles.png',primary_tiles)
+ if layer_report.get('exact_foreground_composite_quadrants'):packing.write_pal(local/'palettes/04.pal',pals[4].gba())
  # Keep referenced metatile numbers; blank unused catalog entries rather than showing
  # old buildings assembled from a slot this route has reassigned.
- (local/'metatiles.bin').write_bytes(b''.join(struct.pack('<8H',*(t.blocks[0][mid] if mid in primary_mids else [0]*8)) for mid in range(512)))
- (local/'metatile_attributes.bin').write_bytes(struct.pack('<512H',*(t.attrs[0][mid] if mid in primary_mids else 0x1000 for mid in range(512))))
- metamap={mid:512+i for i,mid in enumerate(sorted(used))}
- if len(metamap)>512:raise SystemExit(f'Native metatile budget: {len(metamap)} final secondary entries; need<=512')
- blocks={}
+ primary_blocks=[list(t.blocks[0][mid]) if mid in primary_mids else [0]*8 for mid in range(512)]
+ primary_attrs=[t.attrs[0][mid] if mid in primary_mids else 0x1000 for mid in range(512)]
+ free_mids=iter(mid for mid in range(1,512) if mid not in primary_mids)
+ metamap={mid:(512+i if i<512 else next(free_mids)) for i,mid in enumerate(sorted(used))}
+ blocks={};local_primary_blocks=0
  for mid in used:
-  entries,attr=packer.sec_blocks[mid];entries=tuple((en&0xfc00)|glyphmap.get(glyph(en),glyph(en)) for en in entries);blocks[metamap[mid]]=(entries,attr)
+  entries,attr=packer.sec_blocks[mid];entries=tuple((en&0xfc00)|glyphmap.get(glyph(en),glyph(en)) for en in entries);dest=metamap[mid]
+  if dest>=512:blocks[dest]=(entries,attr)
+  else:primary_blocks[dest]=entries;primary_attrs[dest]=attr;local_primary_blocks+=1
+ (local/'metatiles.bin').write_bytes(b''.join(struct.pack('<8H',*entries) for entries in primary_blocks))
+ (local/'metatile_attributes.bin').write_bytes(struct.pack('<512H',*primary_attrs))
  packer.sec_blocks=blocks;packer.sec_tiles={glyphmap[tid]:packer.sec_tiles[tid] for tid in referenced-moved}
  for y in range(H):
   for x in range(W):
@@ -332,7 +373,7 @@ def main(game):
  ps=set(positions);bx,by=next((x,y) for x,y in positions if (x,y+2) in ps and (x+2,y) in ps and (x+2,y+2) in ps);(grid[by+2:by+4,bx:bx+2]|0xc00).astype('<u2').tofile(folder/'border.bin')
  for name,c in a.items():Image.fromarray(c.to_rgba()).save(M/f'{name}.png')
  Image.fromarray(cliff.to_rgba()).save(E/'cliff-layer.png');np.save(S/'refined-plan.npy',p);np.save(S/'terrace-heights.npy',heights);np.save(S/'solid.npy',solid)
- report={'reference':'original HGSS Route32','authoring_basis':'original numbered HGSS cell grid; explicit root footprints; accepted fe8df8b rock material; no prior native geometry used','native_size':[W,H],'terrace_height_sources':terrace_specs,'tiles':nt,'metatiles':nb,'route_local_primary_reused_slots':{str(tid):glyphmap[tid] for tid in sorted(moved)},'shared_primary_unchanged':True,'rock_top_reference_box':[soil_x,soil_y,soil_x+32,soil_y+32],'coastal_rocks_pixels':rocks,'whole_trees':positions,'tree_body_overlap_pixels':0,'permitted_rear_canopy_overlap_pixels':overlap_pixels,'open_lawn_absorbed_by_whole_trees':absorbed,'stairs':[{'at':[9,59],'size':[2,3],'direction':'east-west'},{'at':[6,87],'size':[3,2],'direction':'north-south'}],'center':{'shared_source':'Violet Center','exterior_fringe_pixels_removed':center_removed,'door_pixels_unchanged':True,'forecourt_joined':True},'ground':provenance,'cliff':'continuous landform render, real HGSS top texture, native Emerald directional sides/front/cave/ledges in Cherrygrove palette','layers':layer_report}
+ report={'reference':'original HGSS Route32','authoring_basis':'original numbered HGSS cell grid; explicit root footprints; accepted fe8df8b rock material; no prior native geometry used','native_size':[W,H],'terrace_height_sources':terrace_specs,'tiles':nt,'metatiles':nb,'local_primary_metatiles':local_primary_blocks,'material_grid':'source/hgss-material-grid.txt','rock_quadrant_roles':'source/hgss-rock-quadrants.npy','route_local_primary_reused_slots':{str(tid):glyphmap[tid] for tid in sorted(moved)},'shared_primary_unchanged':True,'rock_top_reference_box':[soil_x,soil_y,soil_x+32,soil_y+32],'coastal_rocks_pixels':rocks,'whole_trees':positions,'tree_body_overlap_pixels':0,'permitted_rear_canopy_overlap_pixels':overlap_pixels,'open_lawn_absorbed_by_whole_trees':absorbed,'stairs':[{'at':[9,59],'size':[2,3],'direction':'east-west'},{'at':[6,87],'size':[3,2],'direction':'north-south'}],'center':{'shared_source':'Violet Center','exterior_fringe_pixels_removed':center_removed,'door_pixels_unchanged':True,'forecourt_joined':True},'ground':provenance,'cliff':'continuous landform render, real HGSS top texture, native Emerald directional sides/front/cave/ledges in Cherrygrove palette','layers':layer_report}
  native_image=Tileset(game,'route32','route32').map_image(grid.ravel().tolist(),W);rgb=np.array(native_image);expected=np.zeros_like(rgb);fg_mask=fore.bank>=0
  for bank in np.unique(fore.bank):
   if bank>=0:

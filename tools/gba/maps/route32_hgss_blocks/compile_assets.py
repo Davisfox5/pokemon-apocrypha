@@ -7,6 +7,7 @@ ROOT=Path(__file__).resolve().parents[4];S=ROOT/'gba/art/route32-hgss-blocks/sou
 def main(game,binary):
  input=S/'porytiles-local-input';output=S/'porytiles-local-output';input.mkdir(exist_ok=True);sheet=Image.new('RGBA',(128,256));m=S/'refined-materials'
  sheet.paste(Image.open(m/'gate.png').convert('RGBA'),(0,0));sheet.paste(Image.open(m/'coastal-rock.png').convert('RGBA'),(96,64));sheet.paste(Image.open(m/'boards.png').convert('RGBA'),(0,112))
+ sheet.paste(Image.open(m/'north-rail-left.png').convert('RGBA'),(32,112));sheet.paste(Image.open(m/'north-rail-right.png').convert('RGBA'),(48,112))
  for i in range(4):sheet.paste(Image.open(m/f'rail-{i}.png').convert('RGBA'),(96,i*16))
  for i,p in enumerate(sorted(m.glob('grass-*.png'))):sheet.paste(Image.open(p).convert('RGBA'),(i%8*16,160+i//8*16))
  sheet.paste(Image.open(m/'rock-top.png').convert('RGBA'),(0,208));sheet.paste(Image.open(m/'stairs-ns.png').convert('RGBA'),(48,208));sheet.paste(Image.open(m/'stairs-ew.png').convert('RGBA'),(96,192))

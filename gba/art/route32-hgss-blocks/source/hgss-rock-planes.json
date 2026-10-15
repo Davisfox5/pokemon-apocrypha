@@ -1,0 +1,56 @@
+{
+  "source": "original HGSS cliff-plane boundaries, inspected against 8px palette observations",
+  "existing_exterior_geometry": "accepted continuous cliff edge/side/corner family retained",
+  "planes": [
+    {
+      "name": "western pillar upper drop",
+      "box": [
+        192,
+        712,
+        296,
+        728
+      ],
+      "role": "f"
+    },
+    {
+      "name": "western pillar lower terrace",
+      "box": [
+        192,
+        728,
+        272,
+        760
+      ],
+      "role": "t"
+    },
+    {
+      "name": "western pillar lower drop",
+      "box": [
+        192,
+        760,
+        272,
+        776
+      ],
+      "role": "f"
+    },
+    {
+      "name": "central pillar front",
+      "box": [
+        280,
+        512,
+        352,
+        544
+      ],
+      "role": "f"
+    },
+    {
+      "name": "cave upper shelf front",
+      "box": [
+        176,
+        1832,
+        272,
+        1848
+      ],
+      "role": "f"
+    }
+  ]
+}

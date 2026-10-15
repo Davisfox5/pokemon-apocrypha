@@ -50,7 +50,7 @@ for v in p['protected_paths']:
 p.update(source_commit=sha,refinement_base_commit='fe8df8b4917f4143ae86ac461c3d970cb4db5f63',new_route_local_primary='gTileset_Route32Primary; referenced CG glyphs and animated slots retained; shared primary unchanged',warp_coordinate_correction={'cave_cells':[[14,117],[15,117]]});(E/'preservation.json').write_text(json.dumps(p,indent=2)+'\n')
 build={'source_commit':sha,'rom_sha256':r['rom_sha256'],'rom_build':'passed','runtime_observations':sum(len(p['observations']) for p in r['phases']),'ordinary_flash_bytes':131072,'cold_reload':'passed','title_continue':'passed','native_stair_axes_both_directions':'passed','fixed_HGSS_forest_stair_and_boulder_probes':'passed','both_cave_entrance_cells':'passed','ROMs_saves_tools_committed':False};(E/'build.json').write_text(json.dumps(build,indent=2)+'\n')
 (E/'porymap.json').write_text(json.dumps({'version':'6.3.1','project_opened':True,'native_map_pixel_differences':0,'method':'headless project-core export','source_commit':sha,'maps':['JohtoRoute32','Route32PokemonCenter','UnionCaveRoute32Entrance']},indent=2)+'\n')
-for name in ['refinement.json','grid-audit.json','porytiles.json']:
+for name in ['refinement.json','grid-audit.json','material-audit.json','porytiles.json']:
  p=E/name;j=json.loads(p.read_text());j['source_commit']=sha;p.write_text(json.dumps(j,indent=2)+'\n')
 p=json.loads((E/'refinement.json').read_text());p['refinement_base_commit']='fe8df8b4917f4143ae86ac461c3d970cb4db5f63';(E/'assembly.json').write_text(json.dumps(p,indent=2)+'\n')
 print('Published review evidence for',sha,'observations',build['runtime_observations'])

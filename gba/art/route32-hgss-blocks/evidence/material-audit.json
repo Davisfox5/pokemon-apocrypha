@@ -1,0 +1,11 @@
+{
+  "basis": "original HGSS visible terrain plus reviewed source continuity under occluders; not DS collision",
+  "checked_cell_count": 2282,
+  "feature_or_occlusion_cells": 1468,
+  "material_mismatches": [],
+  "explicit_cliff_quadrants_checked": 130,
+  "cliff_quadrants_partial_or_occluded": 2,
+  "cliff_plane_errors": [],
+  "comparison_method": "actual map.bin/metatile entries/tile graphics/palettes plus behavior; dirt/lawn by rendered ground color; cliff planes by actual native glyph RGB",
+  "source_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74"
+}

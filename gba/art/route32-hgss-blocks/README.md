@@ -1,6 +1,19 @@
-# Route 32 — HGSS cell-grid correction
+# Route 32 — HGSS terrain-type correction
 
-Engine branch `codex/route32-hgss-blocks`, commit `5627255b0ace34e80dc76e54c2caf06ce0d53d81`, [draft PR #8](https://github.com/Davisfox5/pokeemerald-expansion/pull/8). The exact validated engine commit is recorded in [build.json](evidence/build.json). This revises the accepted rock pass `fe8df8b`; visual acceptance remains with the owner.
+Engine branch `codex/route32-hgss-blocks`, commit `7049fd5d8b95b3f357056ff53b8b2b3a3e848d74`, [draft PR #8](https://github.com/Davisfox5/pokeemerald-expansion/pull/8). The exact validated engine commit is recorded in [build.json](evidence/build.json). This revises the accepted rock pass `fe8df8b`; visual acceptance remains with the owner.
+
+## Terrain-type revision, 2026-10-15
+
+The original HGSS image is the placement reference. This revision changes 229 source-grid material assignments, including ordinary lawn versus tall grass, dirt road boundaries, rock versus water and the cave ledges. It restores the western pillar’s lower terrace/front, source dirt continuity beneath the railway, fifteen shoreline gray boulders and two north metal rail panels. Five missing cave-forecourt ledge cells use native Emerald ledges with dirt beneath them. The full-tree adaptation, shared Cherrygrove art, accepted rock textures and NS staircase asset stay unchanged.
+
+- [Original / previous / corrected whole map](evidence/material-before-after.png)
+- [Focused HGSS/native terrain details](evidence/material-details.png)
+- Material comparisons: [north](evidence/material-comparison-1.png), [upper route](evidence/material-comparison-2.png), [railway](evidence/material-comparison-3.png), [coast](evidence/material-comparison-4.png), [Center and cave](evidence/material-comparison-5.png)
+- [Current native gameplay frames](evidence/material-gameplay.png)
+
+`terrain_trace.py` classifies visible original-image materials with scene masks, source-grid registration and explicit reviewed continuity/rock planes; it does not infer materials from the previous native render. Occluded ground retains documented continuity and the accepted complete-tree adaptation. `material_audit.py` checks actual decoded native glyph colors, palettes and behaviors against that trace: **2,282 exposed cells, zero material mismatches; 130 visible cliff quadrants, zero plane errors**. Foreground/occluded cells are excluded, not asserted exact. This is a visual source interpretation, not decoded DS terrain/collision data. The existing wider canonical Center still adds 14 occupied cells relative to the source footprint.
+
+The route-local primary uses spare static glyph/metatile slots and a private composite palette to preserve exact foreground colors where tree crowns overlap shoreline stones. Shared Cherrygrove tiles/palettes and other maps are unchanged. `source/material-revision-baseline/` and `evidence/previous-5627255/` preserve the preceding review. Normal flash save/reload/Continue and a copy of the preceding 5627255 proof save pass; no owner save is modified.
 
 ## Review
 
@@ -40,13 +53,16 @@ python3 tools/gba/maps/route32_hgss_blocks/build.py /path/to/engine
 python3 tools/gba/maps/route32_hgss_blocks/register.py /path/to/engine
 python3 tools/gba/maps/route32_hgss_blocks/trace_grid.py
 python3 tools/gba/maps/route32_hgss_blocks/register_primary.py /path/to/engine
+python3 tools/gba/maps/route32_hgss_blocks/terrain_trace.py
 python3 tools/gba/maps/route32_hgss_blocks/refine.py /path/to/engine
 make -C /path/to/engine -j1 generated
 make -C /path/to/engine -j8
 python3 tools/gba/maps/route32_hgss_blocks/review_grid.py /path/to/engine
+python3 tools/gba/maps/route32_hgss_blocks/material_audit.py /path/to/engine
 python3 tools/gba/maps/route32_hgss_blocks/compile_assets.py /path/to/engine /path/to/porytiles-legacy
 python3 tools/gba/maps/route32_hgss_blocks/runtime.py /path/to/engine /new/runtime-evidence --toolchain /path/to/arm-toolchain
 python3 tools/gba/maps/route32_hgss_blocks/publish_review.py /path/to/engine /new/runtime-evidence /porymap-export-directory
+python3 tools/gba/maps/route32_hgss_blocks/material_review.py
 ```
 
 The headless Porymap probe source is alongside those scripts. Source art: Nintendo, Game Freak, Creatures; HGSS overview hosted by Bulbagarden Archives. Existing reference/shared-asset hashes and original art remain preserved.

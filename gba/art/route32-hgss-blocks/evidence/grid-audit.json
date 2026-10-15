@@ -200,6 +200,61 @@
         45
       ],
       "direction": "south"
+    },
+    {
+      "source": [
+        11,
+        118
+      ],
+      "native": [
+        12,
+        119
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        12,
+        118
+      ],
+      "native": [
+        13,
+        119
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        13,
+        118
+      ],
+      "native": [
+        14,
+        119
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        15,
+        118
+      ],
+      "native": [
+        16,
+        119
+      ],
+      "direction": "south"
+    },
+    {
+      "source": [
+        16,
+        118
+      ],
+      "native": [
+        17,
+        119
+      ],
+      "direction": "south"
     }
   ],
   "NS_stair_pixels": "unchanged from fe8df8b",
@@ -212,5 +267,5 @@
     1008,
     1023
   ],
-  "source_commit": "5627255b0ace34e80dc76e54c2caf06ce0d53d81"
+  "source_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74"
 }
