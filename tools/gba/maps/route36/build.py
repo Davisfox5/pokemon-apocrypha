@@ -14,6 +14,8 @@ BASE='ac6e1ee42257ba3551452a9f193b8d9c3a3fd1e3'
 def dump(p,j):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(j,indent=2)+'\n')
 def digest(p):return hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n') if p.suffix=='.pal' else p.read_bytes()).hexdigest()
 def main(game):
+ if (S/'gate-surround-adopted.json').exists():
+  raise SystemExit('Route 36 has approved gate/tree layers. Use route36/gate_surround/build.py; do not overwrite with the earlier generator.')
  guard=S/'generated-files.json'
  if guard.exists():
   changed=[p for p,h in json.loads(guard.read_text()).items() if not (game/p).exists() or digest(game/p)!=h]

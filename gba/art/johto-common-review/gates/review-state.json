@@ -4,7 +4,7 @@
     "G01a",
     "G02"
   ],
-  "status": "Refinement-4 artwork approved; Route 36 placement preview ready for owner review",
+  "status": "Gate artwork approved; Route 36 tree surrounds integrated and validated, awaiting visual review",
   "revision": "refinement-4",
   "owner_feedback": {
     "G01a": "Design is good; clean the edges.",
@@ -14,8 +14,8 @@
     "revised": "refinement-4/G02-close-up.png",
     "comparison": "refinement-4/HGSS-stairs-comparison.png",
     "full_before_after": "refinement-4/before-after.png",
-    "map": "refinement-4/map-preview/route36-full.png",
-    "map_close_ups": "refinement-4/map-preview/gate-close-ups.png"
+    "map": "../../route36/gate-surround/evidence/native-overview.png",
+    "map_close_ups": "../../route36/gate-surround/evidence/gate-close-ups.png"
   },
   "source_tool": "tools/gba/maps/johto_common_review/restore_hgss_gate_stairs.py",
   "native_check": "refinement-4/validation.json",
@@ -24,9 +24,11 @@
     "side": "HGSS Violet source crop (0,416)-(112,528). Stairs and their upper/lower edges copied directly at source resolution with RGB555 color rounding only. Original side canopy contour restored to meet the copied flight; canopy colors use the existing teal palette. Cleaned main building and reconstructed tree-occluded foundation preserved. G01a unchanged. Earlier black/white redraw proposals superseded. This uses multiple native palette banks to retain source shading rather than limiting the whole building to one bank."
   },
   "integration": {
-    "engine_changed": false,
+    "engine_changed": true,
     "regional_rollout": false,
-    "follow_up": "On adoption, adjust side-gate wall footprint for restored base row 6 and recheck doorway/approach/canopy layering. Existing source-edge clipping on the far left is intentional for boundary gate placement; a freestanding full gate would need its opposite entrance completed.",
-    "placement_preview": "refinement-4/map-preview/validation.json"
+    "follow_up": "Route 36 is integrated with corrected tree layers and collision footprints. Other Johto maps await category review and scoped rollout. National Park and Alph destination interiors remain unimplemented.",
+    "placement_preview": "refinement-4/map-preview/validation.json",
+    "engine_commit": "5bea9770ed752a9e7d8c763b64f2adb1c73300a9",
+    "validation": "../../route36/gate-surround/evidence/structure.json"
   }
 }

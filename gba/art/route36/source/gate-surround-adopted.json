@@ -1,0 +1,5 @@
+{
+  "generator": "tools/gba/maps/route36/gate_surround/build.py",
+  "source": "../gate-surround/source",
+  "reason": "Approved gates, depth-sorted trees and corrected collision footprints supersede the original one-palette gate generator."
+}

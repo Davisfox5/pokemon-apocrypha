@@ -1,3 +1,11 @@
+## Latest: Route 36 approved gates, foreground trees and blocked rear gaps
+
+Engine commit `5bea9770ed752a9e7d8c763b64f2adb1c73300a9` on `codex/violet-city`. Approved G01a/G02 artwork is integrated unchanged; seven whole rear trees and six existing foreground crowns use the established Route 36 tree asset. Separate reusable RGBA plates live in `gba/art/route36/gate-surround/source`. The fronts overlap the gate bases; backs draw behind roofs. Forty-three formerly walkable cells at the gates are blocked, while the Violet threshold remains (75,20). All other maps/events/scripts and all pixels outside gate/tree areas are preserved.
+
+Native and offscreen Porymap pixels match exactly. The pinned-toolchain ROM passed the 308-step tour, 15 approaches, four added front/back collision probes, the Violet gate round trip and ordinary save/cold reload/title Continue in the background emulator. Capacity: 528/1,008 tile slots, 322 metatiles, nine palettes. No desktop emulator was opened. See `gba/art/route36/gate-surround/README.md` and its evidence. Next: owner visual review of the tree surrounds, then continue the common Johto category review. No regional rollout yet.
+
+The old Route 36 generator intentionally refuses this newer authored state. Use `tools/gba/maps/route36/gate_surround/build.py` and its checks for the current composition; do not bypass `source/gate-surround-adopted.json`.
+
 ## Latest: Route 36 actual side gates and traversal corrections
 
 Owner accepted the general route but rejected the assembled east/west gates and flagged traversal mismatches and the Alph bypass. Both side gates now use the actual HGSS side-facing architecture from the Violet reference crop `(0,416)-(112,528)`, cleaned and converted to native palettes. Roof, side canopy, recessed side entrance, perpendicular stairs and uninterrupted window/wall band replace the rejected frontal assembly. The eastern gate mirrors the western gate. The accepted north/south gate pixels are preserved exactly, moved one tile left, with whole trees sealing both sides.

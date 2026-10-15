@@ -1,5 +1,7 @@
 # Route 36 — native western connection from Violet
 
+**Latest (October 15):** [Approved gates with depth-sorted trees and corrected collision](gate-surround/README.md). This supersedes the gate art, tree counts and collision totals below; the rest of this page documents the preceding route build.
+
 Revised exterior after owner rejection of the sparse first draft; awaiting visual review. Reconstructs the [HGSS Route 36 overview](https://bulbapedia.bulbagarden.net/wiki/File:Johto_Route_36_HGSS.png) using the existing Johto art family. It is an 82×32 native map with a working Violet west-gate room and round-trip travel. The approved Violet buildings, including the locked Mart, remain pixel-identical.
 
 ## Layout and artwork — refined October 14

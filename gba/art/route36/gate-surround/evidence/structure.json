@@ -1,0 +1,268 @@
+{
+  "base_engine_commit": "162c41c8b5987973480f7a276e63a196dfc1bf07",
+  "preview_only": false,
+  "native_pixel_errors": 0,
+  "outside_gate_areas_pixel_changes": 0,
+  "approved_gate_source_unchanged": true,
+  "rear_trees_added": [
+    [
+      0,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      75,
+      13
+    ],
+    [
+      77,
+      13
+    ],
+    [
+      79,
+      13
+    ]
+  ],
+  "foreground_trees": [
+    [
+      75,
+      21
+    ],
+    [
+      77,
+      21
+    ],
+    [
+      79,
+      21
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      4,
+      15
+    ]
+  ],
+  "changed_collision_cells_xy": [
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      75,
+      14
+    ],
+    [
+      76,
+      14
+    ],
+    [
+      77,
+      14
+    ],
+    [
+      78,
+      14
+    ],
+    [
+      79,
+      14
+    ],
+    [
+      80,
+      14
+    ],
+    [
+      1,
+      15
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      3,
+      15
+    ],
+    [
+      4,
+      15
+    ],
+    [
+      5,
+      15
+    ],
+    [
+      75,
+      15
+    ],
+    [
+      76,
+      15
+    ],
+    [
+      77,
+      15
+    ],
+    [
+      78,
+      15
+    ],
+    [
+      79,
+      15
+    ],
+    [
+      80,
+      15
+    ],
+    [
+      75,
+      16
+    ],
+    [
+      76,
+      16
+    ],
+    [
+      77,
+      16
+    ],
+    [
+      78,
+      16
+    ],
+    [
+      79,
+      16
+    ],
+    [
+      80,
+      16
+    ],
+    [
+      75,
+      21
+    ],
+    [
+      76,
+      21
+    ],
+    [
+      77,
+      21
+    ],
+    [
+      78,
+      21
+    ],
+    [
+      79,
+      21
+    ],
+    [
+      80,
+      21
+    ]
+  ],
+  "metatiles": 322,
+  "tile_slots": 528,
+  "palette_banks": [
+    0,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "runtime_tested": true,
+  "reachable_cells": 689,
+  "walk_steps": 308,
+  "walk_approaches": 15,
+  "tree_count": 412,
+  "overlapping_tree_footprints": 0,
+  "gate_back_and_front_bypasses_closed": true,
+  "door_behavior_preserved": true,
+  "all_other_maps_events_scripts_unchanged": true,
+  "rom_sha256": "73ab2be0747ebbed28956207ec6d629f06d44cfb3c0e6df0ee0df64b578bf1a3",
+  "runtime_phases": {
+    "write": 0,
+    "read": 0,
+    "menu": 0
+  },
+  "porymap_native_pixel_errors": 0,
+  "desktop_emulator_opened": false,
+  "engine_commit": "5bea9770ed752a9e7d8c763b64f2adb1c73300a9"
+}
