@@ -1,4 +1,27 @@
-## Current: additional HGSS signs and diagonal stairs ready for review
+## Current: rock and mountain comparison ready for owner review
+
+Owner accepted the preceding signs/stairs work and requested comparison of original
+Gen 3 rock, existing Johto conversions and Gen 4 source-map rock families before
+standardization. Start at `gba/art/johto-common/rocks/review/comparison.png`, then
+`review.html` or the category sheets listed in `README.md`. The pack covers 21
+Emerald/FireRed context maps, six current Johto rock sections, twelve existing
+conversion modules, three HGSS map contexts and nineteen Gen 4 family overviews.
+291 source entries represent 265 distinct images across HGSS/Platinum archives.
+The local HGSS archive's later Sinnoh imports are labeled separately. Stable IDs,
+source hashes, actual model palette bindings and exact native metatile IDs are
+recorded. Native source textures remain intact; they are not finished GBA tiles.
+
+Source/asset/link checks and independent Emerald decoding comparisons pass; no
+unresolved palettes. Gallery JavaScript syntax passes; browser rendering remains
+unverified because local file navigation was blocked. Static comparison PNGs were
+visually inspected. Reproduce with `rock_sources.py`, `rock_catalog.py` and
+`check_rocks.py` under `tools/gba/maps/johto_common/`; see README for arguments.
+No engine, map, collision, palette or ROM changed. No emulator opened. Engine stays
+at `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. Next: owner selects face/shape and
+palette direction, then assemble coherent caps, bases, corners, directional faces
+and cave entrances before any map rollout. No regional selection is implied.
+
+## Previous: additional HGSS signs and diagonal stairs ready for review
 
 Owner accepted the fence/mailbox/wooden-sign improvement, then requested additional
 HGSS sign styles and transparent east-west diagonal stairs. Added P13–P16: gray
