@@ -1,4 +1,19 @@
-## Current: revised R02 sample reviewed tile by tile
+## Current: R02 wall/stair/landing corrections
+
+Owner identified incomplete lower wall, mismatched stair height and an unraised
+east path. The new sample at `gba/art/johto-common/rocks/r02-joins/README.md`
+addresses all three: complete HGSS-textured side plane, shared 16px rise, raised
+landing and local path bend. Native diagonal stair behaviors now move the player
+up/down one row. One collision cell and eight behavior cells change accordingly;
+existing tree pixels, IDs, elevation bits, events and warps remain preserved.
+
+Engine `833a9c4355be0b191e676963f5f8d39930560fb6` is pushed on draft PR #12.
+Native/Porymap equality, ROM build, both stair lanes, shoulders/barriers, path bend,
+save/cold reload/Continue pass. 96 cells/384 quadrants inspected. Owner acceptance
+pending; no GitHub CI checks reported. Original engine checkout untouched, no
+desktop emulator opened. Previous candidate superseded after explicit feedback.
+
+## Superseded: first R02 geometry revision
 
 Owner rejected the first pilot and required the new native cell/seam rules from
 origin/main `e3ad8646`. Those AGENTS.md sections and the two map workflow documents

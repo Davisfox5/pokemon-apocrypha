@@ -18,4 +18,4 @@ def main(engine,run,pory):
  (P/'evidence/structure.json').write_text(json.dumps(r,indent=2)+'\n')
  print('Final native/Porymap equality and all runtime phases pass.')
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('engine',type=Path);p.add_argument('runtime',type=Path);p.add_argument('porymap',type=Path);v=p.parse_args();main(v.engine,v.runtime,v.porymap)
+ p=argparse.ArgumentParser();p.add_argument('engine',type=Path);p.add_argument('runtime',type=Path);p.add_argument('porymap',type=Path);p.add_argument('--pack',type=Path);v=p.parse_args();P=v.pack.resolve() if v.pack else P;main(v.engine,v.runtime,v.porymap)

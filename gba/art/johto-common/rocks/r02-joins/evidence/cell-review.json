@@ -1,0 +1,4994 @@
+[
+  {
+    "x": 10,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          10
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          8
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 18,
+    "changed": true,
+    "material": "side wall",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 18,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 19,
+    "changed": true,
+    "material": "side wall",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 19,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          3
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 20,
+    "changed": true,
+    "material": "side wall",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 20,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          10,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 20,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 20,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 20,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 20,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 20,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 21,
+    "changed": true,
+    "material": "stair",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 76,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 21,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 21,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 21,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 21,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 21,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 21,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 2,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          7,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 22,
+    "changed": true,
+    "material": "stair",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 74,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          3
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 22,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 22,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 22,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 22,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 22,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 22,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 23,
+    "changed": true,
+    "material": "stair",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 78,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 23,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 23,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 23,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 23,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 23,
+    "changed": true,
+    "material": "raised landing / grass border",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 23,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          1,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          3,
+          0
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 24,
+    "changed": true,
+    "material": "side wall",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          7
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 24,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          6
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 0,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          1
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 25,
+    "changed": true,
+    "material": "side wall",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          5,
+          1
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          4,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          10
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          8
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          10
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          8
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          10
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          8
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          6
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 25,
+    "changed": false,
+    "material": "retained neighbor",
+    "collision": 3,
+    "elevation": 3,
+    "behavior": 0,
+    "review": "Inspected in cell sheets and full assembly; see visual-review.json",
+    "quadrants": [
+      {
+        "offset": [
+          0,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          5
+        ]
+      },
+      {
+        "offset": [
+          8,
+          0
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          10
+        ]
+      },
+      {
+        "offset": [
+          0,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          2,
+          7
+        ]
+      },
+      {
+        "offset": [
+          8,
+          8
+        ],
+        "opaque_colors_per_layer": [
+          0,
+          6
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "status": "Agent inspection complete; owner acceptance pending",
+  "changed_cells": 28,
+  "reviewed_cells": 96,
+  "reviewed_quadrants": 384,
+  "findings": [
+    {
+      "user_issue": "Missing sections in lower wall",
+      "correction": "Replace color-keyed irregular silhouette with a complete side plane using the unobscured second rock band of HGSS wall01_d; no background-colored holes. Preserve the original tree pixels above it.",
+      "coordinates": "14,18\u201325",
+      "check": "All 2048 wall/stair foreground pixels opaque; zero existing tree pixels changed"
+    },
+    {
+      "user_issue": "Stair height differs too much from rock face",
+      "correction": "Project original slope model with the same 16-pixel rise as the wall. Fit only the opening width to 32 pixels; do not vertically resize the completed projection.",
+      "coordinates": "14,21\u201323",
+      "check": "Both stair lanes climb one row east and descend one row west using existing native side-stair behaviors"
+    },
+    {
+      "user_issue": "Right path stays on lower plane",
+      "correction": "Raise landing from rows22\u201323 to21\u201322, trim tall-grass border to row20, bend path through columns18\u201319 to rejoin existing plateau path.",
+      "coordinates": "15\u201319,20\u201323",
+      "check": "Headless traversal stays on the raised dirt and follows the bend to22,22"
+    }
+  ],
+  "review_method": [
+    "All four original/previous/corrected cell sheets inspected enlarged",
+    "Full comparison inspected at3x",
+    "Actual west approach, step center, east landing and path bend inspected at native1x",
+    "Native/Porymap exact pixel equality"
+  ],
+  "limits": [
+    "Original HGSS tree spacing and tall-grass density remain different from current native map",
+    "The wall is a complete planar adaptation of original texture, not an unmodified DS model silhouette",
+    "Older cliff outside the pilot remains unchanged",
+    "Visual acceptance is pending; local checks pass but no GitHub CI checks are reported"
+  ],
+  "image_sha256": {
+    "review/before-full.png": "d55d95ec9f8f3fdba918d3ca501b7dd34a238afeaeb6458a490f7158c72ab26e",
+    "review/before.png": "0c275f9359bf58c495a9475cabd57f14d347ce842c0f6e8336e22e148a691e30",
+    "review/cells-1.png": "3c799d0ecc33a39d8f1220d8d8ad89ffdf3210d17fa8cc6d2520fd3891b951ec",
+    "review/cells-2.png": "d573f5815ed3b9c8c19c0c356301865d7207e34cf638ff89a8cec7dbd0cccf0b",
+    "review/cells-3.png": "43f1cf81bebdc1f16a5b8713f12fc6edd10bb7bd02ea42a917ffbd12d35c38b2",
+    "review/cells-4.png": "940611de258402a5ad25d3857ea14ee7ea085db2f25e24fe8630381847d9ae2a",
+    "review/comparison.png": "0a030966348143ad04713406f9dbd57e1dafc1bb4dd43247015cf15c0f5c20c6",
+    "review/gameplay.png": "0a69a46a75176bb3be4681dbc3f7181d711cde94a932d08ba011cf8ed9f76e38",
+    "review/grid.png": "8b301ee7e53ad16994b677a31ab7c50790219f0d48db22a8bcb0c1588aa11e91",
+    "review/map.png": "0de174c5629e08576c39cbb2864bff8ceb3b183c5dcde5ddf9bbfb2ce4a29a59",
+    "review/native-full.png": "dcf3d553d24cc1f3779e58c8a272befb9642e56cecc28ecfd8fc493b93477abb",
+    "review/native-target.png": "dcf3d553d24cc1f3779e58c8a272befb9642e56cecc28ecfd8fc493b93477abb",
+    "review/original.png": "a25c729935bbb7c754851037d7e6b275131a2a97888f5e8f33621cab241d35bf",
+    "review/rebuilt.png": "4cdbcf97b144c6ca888793a6f64e255b9b0068dc6da27ea39e37aaaa5c7bf70e"
+  }
+}

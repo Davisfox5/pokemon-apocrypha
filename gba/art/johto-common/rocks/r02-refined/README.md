@@ -1,3 +1,6 @@
+> Superseded after owner feedback on the lower wall, stair rise and landing.
+> See [R02 join corrections](../r02-joins/README.md). Retained as prior evidence.
+
 # R02 revised cliff and stair sample
 
 [Original / rebuilt / Route 36 comparison](review/comparison.png) ·

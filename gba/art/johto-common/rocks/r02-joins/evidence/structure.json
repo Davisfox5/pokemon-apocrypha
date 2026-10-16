@@ -1,0 +1,104 @@
+{
+  "base_engine": "285b577993906c76c8d96ed38eedb5e2c955b714",
+  "shared_rise_pixels": 16,
+  "stair_opening_pixels": 32,
+  "source_wall_band": [
+    0,
+    17,
+    32,
+    31
+  ],
+  "wall_interior_transparent_pixels": 0,
+  "raised_landing": {
+    "x": [
+      15,
+      18
+    ],
+    "y": [
+      21,
+      23
+    ],
+    "path_bend_x": [
+      18,
+      20
+    ]
+  },
+  "attribute_changes": [
+    {
+      "x": 14,
+      "y": 21,
+      "before": 4096,
+      "after": 4172
+    },
+    {
+      "x": 15,
+      "y": 21,
+      "before": 4098,
+      "after": 4096
+    },
+    {
+      "x": 16,
+      "y": 21,
+      "before": 4098,
+      "after": 4096
+    },
+    {
+      "x": 17,
+      "y": 21,
+      "before": 4098,
+      "after": 4096
+    },
+    {
+      "x": 18,
+      "y": 21,
+      "before": 4098,
+      "after": 4096
+    },
+    {
+      "x": 19,
+      "y": 21,
+      "before": 4098,
+      "after": 4096
+    },
+    {
+      "x": 14,
+      "y": 22,
+      "before": 4096,
+      "after": 4170
+    },
+    {
+      "x": 14,
+      "y": 23,
+      "before": 4096,
+      "after": 4174
+    }
+  ],
+  "collision_changes": [
+    {
+      "x": 14,
+      "y": 21,
+      "before": 3,
+      "after": 0
+    }
+  ],
+  "outside_affected_pixel_changes": 0,
+  "installed": true,
+  "runtime_tested": true,
+  "tile_slots": 674,
+  "appended_tiles": 50,
+  "appended_metatiles": 21,
+  "new_palette_banks": [
+    3
+  ],
+  "native_pixel_errors": 0,
+  "collision_elevation_changes": 1,
+  "rom_sha256": "c694ba71002d757fb3099298ce3cc683a38ffffdf7cf14e01ee661ce59f6e4d6",
+  "porymap_native_pixel_errors": 0,
+  "engine_commit": "833a9c4355be0b191e676963f5f8d39930560fb6",
+  "production_installed": false,
+  "review_checkout_installed": true,
+  "desktop_emulator_opened": false,
+  "changed_existing_tree_pixels": 0,
+  "reviewed_cells": 96,
+  "reviewed_quadrants": 384
+}
