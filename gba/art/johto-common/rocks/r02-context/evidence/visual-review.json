@@ -1,0 +1,45 @@
+{
+  "status": "agent inspected; owner approval pending",
+  "cells": 318,
+  "quadrants": 1272,
+  "scope": "changed cells and cardinal neighbors; assembled upper wall, plateau, mirrors and gameplay",
+  "checks": [
+    "irregular road contour restored from pre-smoothing native art",
+    "grass borders selected using actual adjacent behaviors/materials",
+    "complete west and east rock planes; continuous upper corner",
+    "exact reflected face, corner and stair-section references",
+    "native/Porymap equality and headless movement/save/Continue pass"
+  ],
+  "limitations": [
+    "HGSS-inspired front/corner adaptation; not literal DS geometry",
+    "existing east staircase preserved",
+    "isolated review branch; not merged to production"
+  ],
+  "reviewed_sha256": {
+    "review/before-full.png": "3fb0602c992add1e4fb064f6da34c5ecb53064f5b00ce593fba59fcb819742d9",
+    "review/before.png": "3435508d48e3293e17de27262494575fc11eca3a33d23c54ffd0a44c77675d8e",
+    "review/cells-1.png": "311fcbd0edff7930c94e7fcea4dc72d15766e3cdfd3a0b934cddc0643ca98692",
+    "review/cells-10.png": "e8060ecfb7f531c0b70b647422bd1e15e002d5f37d62431b69f2020aabf9ad93",
+    "review/cells-11.png": "b30c83bd9da67371cb38980a7fb3b688194c4397805c7f173f5aaa7856af19f3",
+    "review/cells-12.png": "7e78ad6bf9892df26cb3123b11660b73905743f5d9c0667cc08a44916fd74a6e",
+    "review/cells-13.png": "02ce7b5fbd280943f84c10abaf09a91f068ec6c8f2d389b8591de703e9abac5d",
+    "review/cells-14.png": "ec2c23b76feeabcccbe64131a98e7b8914d9310b26988579f7c49256ac7623e6",
+    "review/cells-2.png": "cac29ca8b2fa3b42f33762f9386f6bbf0f5f788f18bfbd1c5221f1b3fb174f52",
+    "review/cells-3.png": "70a3df80651def950a88a3bf20f166f5095fa55a5913a16b3c3f21f4b7072c4c",
+    "review/cells-4.png": "19c6b26a341e636e9b1ae4b046a2c36d7265a18080aa68072677b2079156d6b7",
+    "review/cells-5.png": "ddff601d7b6ade96a7cdeb9a83de39fa73387d59d82857a926360acfc6f97ed5",
+    "review/cells-6.png": "cb3a3bed6f04b3871cfc52ed1aecf5244ac1d570f5293c3f0daa6ff338b6ad24",
+    "review/cells-7.png": "8bb589684e032630c8b52a1f6481a3f7a4b458fc5b60f94fd8e571cdfbfa06dc",
+    "review/cells-8.png": "5d7c227da414cafa5b671fd657cd63843024dcc1b96b5cf30eb70971cd216454",
+    "review/cells-9.png": "1d7008315fe734af6ab8db4f89efcc9b1253db9386e3b6c24299748e4b032ca2",
+    "review/comparison.png": "ae9efe84f331aad1c98387508837b1751a56eb672ab9ca7fcef925dea401992d",
+    "review/gameplay.png": "2ba647aa985f1572b4c4084676fc02bac1c42c61ae0dccda44e5a99f9f844f24",
+    "review/map.png": "3a043bc1c7d7e15bcd72d20ba4fff5a5a7635d7fd447a23d2159e0a81fac1961",
+    "review/mirrors.png": "95c3507492ccaa7a1f2e48da541632d466ffcf75703ead63308fd5b17fe4d5da",
+    "review/native-full.png": "91fa8f99924c9dfcc9f857330e9f6879e4d6f0e87cc9c23cbedddcba163a71c2",
+    "review/native-target.png": "91fa8f99924c9dfcc9f857330e9f6879e4d6f0e87cc9c23cbedddcba163a71c2",
+    "review/original-full.png": "42d9581a4b7f89e72d147f64ed879b016056db1a6435da4e92836f5388f6550d",
+    "review/original.png": "1e340697038f9475c6fe23b050cafffbc67d29d7678f639a259d757130d64baa",
+    "review/upper-wall.png": "972f986edaa6e7df35f04275a698bcce8c38cb631101bc0a2dc6fb9dc467ca70"
+  }
+}

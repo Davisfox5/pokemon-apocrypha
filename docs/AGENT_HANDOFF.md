@@ -1,4 +1,15 @@
-## Current: R02 terrain transition review
+## Current: R02 contextual borders and continuous rock faces
+
+Owner rejected path smoothing. Start at `gba/art/johto-common/rocks/r02-context/README.md`.
+Irregular prior road contour restored; tall-grass and wall contacts use immediate
+material neighbors. West wall continues through the upper corner/north run; east
+wall uses the matching mirrored face. Transparent exact mirrors are saved for reuse.
+Engine `492da86574614f83e1c9e99c3d5de9686029b8e5` on draft PR12. Build, native/Porymap equality,
+movement and save/Continue pass; 318 cells /1272 quadrants inspected. Owner visual
+approval pending. No mechanics changed; no desktop emulator opened. Isolated review
+checkout only. Capacity: 916 tiles /488 primary metatiles, all 13 banks reused.
+
+## Superseded: R02 flattened transition review
 
 Owner liked the corrected wall/stairs/raised landing and requested terrain-edge
 cleanup. Start at `gba/art/johto-common/rocks/r02-transitions/README.md`.

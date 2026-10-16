@@ -1,0 +1,41 @@
+{
+  "base_engine": "5b14c523c1a0688f3c291b485998bd91fd05dc86",
+  "installed": true,
+  "runtime_tested": true,
+  "existing_tree_pixels_changed": 0,
+  "collision_elevation_changes": 0,
+  "behavior_changes": 0,
+  "outside_affected_pixel_changes": 0,
+  "affected_cells": 207,
+  "mirrors_exact": true,
+  "path_smoothing": false,
+  "wall_runs": {
+    "west": [
+      14,
+      5,
+      25
+    ],
+    "north_front": [
+      0,
+      4,
+      13
+    ],
+    "east": [
+      32,
+      16,
+      25
+    ]
+  },
+  "palette_repacked": false,
+  "tile_slots": 916,
+  "appended_tiles": 100,
+  "appended_metatiles": 61,
+  "new_palette_banks": [],
+  "native_pixel_errors": 0,
+  "rom_sha256": "a920eff03ebf9622413c80e24faae9fe1c14b8c071f7a5ce2ce37982e3bc0739",
+  "porymap_native_pixel_errors": 0,
+  "engine_commit": "492da86574614f83e1c9e99c3d5de9686029b8e5",
+  "production_installed": false,
+  "review_checkout_installed": true,
+  "desktop_emulator_opened": false
+}

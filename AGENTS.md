@@ -118,6 +118,10 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   `gba/art/johto-common/approved-buildings.json`. Local houses and landmarks retain
   their approved city identity; other regions receive their own approved sets.
   Architectural changes to a locked shared asset require owner direction.
+- Transition cleanup must preserve authored irregular terrain contours. Select edges,
+  caps, corners and backing from immediate neighboring materials, orientation and
+  height. Do not globally straighten, round or flatten dirt paths when correcting
+  abrupt seams. Inspect each transition in its assembled neighborhood.
 - Pink/blossom trees are exclusive to Cherrygrove City throughout the game.
   Other cities and routes use their appropriate non-pink vegetation.
 - Do not invent canon or silently change character roles. Label creative proposals.

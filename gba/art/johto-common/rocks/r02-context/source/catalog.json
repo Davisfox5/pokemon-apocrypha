@@ -1,0 +1,48 @@
+{
+  "assets": [
+    {
+      "id": "face-west",
+      "file": "face-west.png",
+      "sha256": "809c4001c0c95408b2274f44e6768a6195202959c3a3137bd0cdfd8fb8ce8f48",
+      "mirror": null
+    },
+    {
+      "id": "face-east",
+      "file": "face-east.png",
+      "sha256": "e379aacbb46cc9ffa25a41e23c9ec254e48c1cd339fb97ca44fe18ef75ecde5a",
+      "mirror": "face-west"
+    },
+    {
+      "id": "front",
+      "file": "front.png",
+      "sha256": "7b3fc0dd4596d0f2af60d9711ff0d7518e2da1c64e6d0beffb22c254ae8e7705",
+      "mirror": null
+    },
+    {
+      "id": "corner-west",
+      "file": "corner-west.png",
+      "sha256": "b1e47fc291a85bb0e9a398979adcdc0da90e7d801d3171ba4b5a83d76bafe1bc",
+      "mirror": null
+    },
+    {
+      "id": "corner-east",
+      "file": "corner-east.png",
+      "sha256": "6671eafce3e02aa23cbd479aec6d57b2dc794d5e6bc83dda38c9470f7efe1817",
+      "mirror": "corner-west"
+    },
+    {
+      "id": "stair-section-west",
+      "file": "stair-section-west.png",
+      "sha256": "2d9ea346c27eab09a698599ebaa67d669c19864ee7a569c4d6491818b4b19585",
+      "mirror": null
+    },
+    {
+      "id": "stair-section-east",
+      "file": "stair-section-east.png",
+      "sha256": "618c23525dabf1c46d95d0746c5d0ccbe191460db4559c281330fddf48d83221",
+      "mirror": "stair-section-west"
+    }
+  ],
+  "foreground_background": "All source assets contain stone/stairs only; destination terrain is separate.",
+  "east_stair_in_map": "Existing gray 16x48 flight preserved; mirrored full assembly saved for later reuse."
+}

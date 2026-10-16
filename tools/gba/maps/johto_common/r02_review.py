@@ -4,9 +4,10 @@ import sys,json,math
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[4];P=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT/'gba/art/johto-common/rocks/r02-refined'
 F='/System/Library/Fonts/Supplemental/Arial.ttf'
-images=[Image.open(P/'review'/f'{n}.png').convert('RGB') for n in ['original','before','map']]
+full=(P/'review/original-full.png').exists()
+images=[Image.open(P/'review'/f'{n}.png').convert('RGB') for n in (['original-full','before-full','native-full'] if full else ['original','before','map'])]
 records=json.loads((P/'evidence/cell-review.json').read_text())
-xmin=min(r['x'] for r in records);ymin=min(r['y'] for r in records)
+xmin=0 if full else min(r['x'] for r in records);ymin=0 if full else min(r['y'] for r in records)
 for page in range(math.ceil(len(records)/24)):
  sheet=Image.new('RGB',(1200,540),'#202d37');d=ImageDraw.Draw(sheet);d.text((12,8),f'R02 / cells {page*24+1}-{min(len(records),page*24+24)} / original | previous candidate | corrected',font=ImageFont.truetype(F,18),fill='white')
  for i,r in enumerate(records[page*24:page*24+24]):
