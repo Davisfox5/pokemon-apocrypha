@@ -1,0 +1,23 @@
+{
+ "engine_branch": "claude/route32-native-cleanup",
+ "source_commit": "48cefd3da180d21329a346407c9be4d0339fa3a0",
+ "baseline_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
+ "engine_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/11",
+ "rom_sha256": "a43d277aba7b3c17b3a539473442d5e39649ba2fa11d06ae1094c0f338ffe2f4",
+ "rom_build": "passed (local, arm-none-eabi-gcc 13.2.1 Ubuntu packages)",
+ "porymap": "6.3.1 source build, headless project-core export, 0 pixel differences vs native decode",
+ "mgba": "libmgba 0.10.2 (Ubuntu libmgba-dev)",
+ "toolchain_for_symbols": "/usr (binutils-arm-none-eabi)",
+ "source_hashes_after": {
+  "data/layouts/JohtoRoute32/map.bin": "7696275832689c0f040b1e8c96e27333d228cddf2cc821cf5842bd856008d4a9",
+  "data/tilesets/primary/route32/tiles.png": "caffbe52cca7ecc0050ab46c2759f5196260a691852ea23ce879041d54903017",
+  "data/tilesets/primary/route32/metatiles.bin": "a2342eb95c2cf33c52591c257190a973592f20ca2d0eea3c6bda58d7cd342c31",
+  "data/tilesets/primary/route32/metatile_attributes.bin": "0c334700a0bccb06dfc472c8926b8fa5c7074c658080aff2bb844ee3d767c840",
+  "data/tilesets/secondary/route32/tiles.png": "b908c06c2c794f86c59b406e06a1c2ac718a8af7c2c02e9b86385fbc5119ad49",
+  "data/tilesets/secondary/route32/metatiles.bin": "8fcdf4856d64e3e0a7dd72e1ffc640e1af8bdfd2f610145ec0f4857846c0df2a",
+  "data/tilesets/secondary/route32/metatile_attributes.bin": "7c803aa1fb6e82899e764a41abd992ad0052d95e5e268b2a0f47707e707cec38"
+ },
+ "glyphs_allocated": 62,
+ "metatiles_allocated": 28,
+ "ROMs_saves_tools_committed": false
+}

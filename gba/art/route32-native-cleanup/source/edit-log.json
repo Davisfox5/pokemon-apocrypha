@@ -1,0 +1,1377 @@
+{
+ "steps": [
+  {
+   "step": "gate_arcs",
+   "finding": "removed 22 stray black arc pixels from gate-shadow metatiles 24f/251/253 (native row 12, x=2,4,6)"
+  },
+  {
+   "step": "cave_speckle",
+   "finding": "cleaned 3 isolated light pixels in cave jamb glyph 161 (metatile 3c8 at native (13,117))"
+  },
+  {
+   "step": "rock_corner_water",
+   "finding": "metatile 312 (native (24,64)): bottom-left quadrant lawn glyph 074 replaced by the water glyph; the green corner under the rock end is gone"
+  },
+  {
+   "step": "ns_stairs",
+   "finding": "native (6-8,89): bare sand landing replaced by a third tread row so the flight spans rows 87-89 as in HGSS; (9,89) rock face continues the right wall"
+  },
+  {
+   "step": "dock_grain",
+   "finding": "native (17-19,73-76): pier planks run vertically through the fishing-arm junction; the arm (13-16) keeps horizontal grain, matching HGSS"
+  },
+  {
+   "step": "west_pillar",
+   "finding": "native (10,70-77) now one continuous right-facing rock wall as in HGSS; the four rock lobes at (11,70/75/76/77) are water again (Surf cells opened to match the original shoreline)"
+  },
+  {
+   "step": "lips",
+   "finding": "45 water squares beside the docks/pillar re-lipped to their actual land edges: (16,64) ->R, (20,64) ->L, (16,65) ->R, (20,65) ->L, (11,70) ->L, (16,70) ->R, (20,70) ->L, (11,71) LT>L, (16,71) ->R, (20,71) ->L, (13,72) ->B, (14,72) ->B, (15,72) ->B, (16,72) ->RB, (20,72) ->L, (12,73) ->R, (20,73) ->L, (11,74) LB>L, (12,74) ->R, (20,74) ->L, (11,75) ->L, (12,75) LR>R, (20,75) ->L, (11,76) ->L, (12,76) LR>R, (20,76) ->L, (11,77) ->L, (16,77) ->RT, (20,77) ->L, (20,78) ->LB, (21,78) ->B, (22,78) ->B, (23,79) ->L, (23,80) ->L, (23,81) ->L, (17,82) ->T, (18,82) ->T, (19,82) ->RT, (23,82) ->L, (19,83) ->R, (19,84) ->R, (23,84) ->L, (19,85) ->R, (19,86) ->R, (23,86) ->L"
+  },
+  {
+   "step": "pylon",
+   "finding": "native (24-25,70-75): Magnet Train pylon redrawn from the HGSS pixels (shaft, collar, orange band, base and foam); rows 70-74 are blocked like the original, row 75 is surfable water with the foam ring on the covered layer. The former flat teal rectangle on surfable water is gone"
+  },
+  {
+   "step": "posts",
+   "finding": "native (8,66-69) and (16,66-69): HGSS bridge support posts added to the railway top layer over the land and water underpass cells (traversal unchanged)"
+  },
+  {
+   "step": "flowers",
+   "finding": "7 lawn squares carry the HGSS flower petals on the covered layer: [(15, 6), (16, 6), (17, 6), (18, 6), (15, 7), (16, 7), (14, 8)]"
+  }
+ ],
+ "edits": [
+  {
+   "glyph": 384,
+   "bank": 6,
+   "note": "gate shadow without arc"
+  },
+  {
+   "cell": [
+    6,
+    89
+   ],
+   "from": "357/0.3",
+   "to": "34c/0.3",
+   "note": "third stair tread row"
+  },
+  {
+   "cell": [
+    7,
+    89
+   ],
+   "from": "0da/0.3",
+   "to": "34d/0.3",
+   "note": "third stair tread row"
+  },
+  {
+   "cell": [
+    8,
+    89
+   ],
+   "from": "2eb/0.3",
+   "to": "34e/0.3",
+   "note": "third stair tread row"
+  },
+  {
+   "cell": [
+    9,
+    89
+   ],
+   "from": "358/3.3",
+   "to": "27c/3.3",
+   "note": "plain rock face beside the lowest tread"
+  },
+  {
+   "cell": [
+    17,
+    73
+   ],
+   "from": "326/0.3",
+   "to": "317/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    18,
+    73
+   ],
+   "from": "327/0.3",
+   "to": "318/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    19,
+    73
+   ],
+   "from": "328/0.3",
+   "to": "319/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    17,
+    74
+   ],
+   "from": "32b/0.3",
+   "to": "30f/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    18,
+    74
+   ],
+   "from": "32a/0.3",
+   "to": "310/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    19,
+    74
+   ],
+   "from": "32c/0.3",
+   "to": "311/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    17,
+    75
+   ],
+   "from": "326/0.3",
+   "to": "317/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    18,
+    75
+   ],
+   "from": "327/0.3",
+   "to": "318/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    19,
+    75
+   ],
+   "from": "328/0.3",
+   "to": "319/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    17,
+    76
+   ],
+   "from": "32b/0.3",
+   "to": "30f/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    18,
+    76
+   ],
+   "from": "32a/0.3",
+   "to": "310/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    19,
+    76
+   ],
+   "from": "32c/0.3",
+   "to": "311/0.3",
+   "note": "pier vertical grain through arm junction"
+  },
+  {
+   "cell": [
+    10,
+    70
+   ],
+   "from": "320/3.3",
+   "to": "04e/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    71
+   ],
+   "from": "04d/3.3",
+   "to": "04d/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    72
+   ],
+   "from": "04e/3.3",
+   "to": "04e/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    73
+   ],
+   "from": "04d/3.3",
+   "to": "04d/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    74
+   ],
+   "from": "04e/3.3",
+   "to": "04e/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    75
+   ],
+   "from": "2ce/3.3",
+   "to": "04d/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    76
+   ],
+   "from": "268/3.3",
+   "to": "04e/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    10,
+    77
+   ],
+   "from": "27c/3.3",
+   "to": "04d/3.3",
+   "note": "straight right face of the west coast pillar"
+  },
+  {
+   "cell": [
+    11,
+    70
+   ],
+   "from": "04c/3.3",
+   "to": "03a/0.1",
+   "note": "HGSS water beside the pillar (was a rock lobe)"
+  },
+  {
+   "cell": [
+    11,
+    75
+   ],
+   "from": "047/3.3",
+   "to": "03a/0.1",
+   "note": "HGSS water beside the pillar (was a rock lobe)"
+  },
+  {
+   "cell": [
+    11,
+    76
+   ],
+   "from": "04a/3.3",
+   "to": "03a/0.1",
+   "note": "HGSS water beside the pillar (was a rock lobe)"
+  },
+  {
+   "cell": [
+    11,
+    77
+   ],
+   "from": "04b/3.3",
+   "to": "03a/0.1",
+   "note": "HGSS water beside the pillar (was a rock lobe)"
+  },
+  {
+   "cell": [
+    16,
+    64
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    64
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    16,
+    65
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    65
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    70
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    16,
+    70
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    70
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    71
+   ],
+   "from": "001/0.1",
+   "to": "3e5/0.1",
+   "note": "lip LT -> L"
+  },
+  {
+   "cell": [
+    16,
+    71
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    71
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    13,
+    72
+   ],
+   "from": "03a/0.1",
+   "to": "02c/0.1",
+   "note": "lip none -> B"
+  },
+  {
+   "cell": [
+    14,
+    72
+   ],
+   "from": "03a/0.1",
+   "to": "02c/0.1",
+   "note": "lip none -> B"
+  },
+  {
+   "cell": [
+    15,
+    72
+   ],
+   "from": "03a/0.1",
+   "to": "02c/0.1",
+   "note": "lip none -> B"
+  },
+  {
+   "metatile": 87,
+   "note": "water lip right+bottom (mirror of 00e)"
+  },
+  {
+   "cell": [
+    16,
+    72
+   ],
+   "from": "03a/0.1",
+   "to": "057/0.1",
+   "note": "lip none -> RB"
+  },
+  {
+   "cell": [
+    20,
+    72
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    12,
+    73
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    73
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    74
+   ],
+   "from": "00e/0.1",
+   "to": "3e5/0.1",
+   "note": "lip LB -> L"
+  },
+  {
+   "cell": [
+    12,
+    74
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    20,
+    74
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    75
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    12,
+    75
+   ],
+   "from": "00f/0.1",
+   "to": "3e4/0.1",
+   "note": "lip LR -> R"
+  },
+  {
+   "cell": [
+    20,
+    75
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    76
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    12,
+    76
+   ],
+   "from": "017/0.1",
+   "to": "3e4/0.1",
+   "note": "lip LR -> R"
+  },
+  {
+   "cell": [
+    20,
+    76
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    11,
+    77
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    16,
+    77
+   ],
+   "from": "03a/0.1",
+   "to": "3e2/0.1",
+   "note": "lip none -> RT"
+  },
+  {
+   "cell": [
+    20,
+    77
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    20,
+    78
+   ],
+   "from": "03a/0.1",
+   "to": "00e/0.1",
+   "note": "lip none -> LB"
+  },
+  {
+   "cell": [
+    21,
+    78
+   ],
+   "from": "03a/0.1",
+   "to": "02c/0.1",
+   "note": "lip none -> B"
+  },
+  {
+   "cell": [
+    22,
+    78
+   ],
+   "from": "03a/0.1",
+   "to": "02c/0.1",
+   "note": "lip none -> B"
+  },
+  {
+   "cell": [
+    23,
+    79
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    23,
+    80
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    23,
+    81
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    17,
+    82
+   ],
+   "from": "03a/0.1",
+   "to": "3e9/0.1",
+   "note": "lip none -> T"
+  },
+  {
+   "cell": [
+    18,
+    82
+   ],
+   "from": "03a/0.1",
+   "to": "3e9/0.1",
+   "note": "lip none -> T"
+  },
+  {
+   "cell": [
+    19,
+    82
+   ],
+   "from": "03a/0.1",
+   "to": "3e2/0.1",
+   "note": "lip none -> RT"
+  },
+  {
+   "cell": [
+    23,
+    82
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    19,
+    83
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    19,
+    84
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    23,
+    84
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "cell": [
+    19,
+    85
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    19,
+    86
+   ],
+   "from": "03a/0.1",
+   "to": "3e4/0.1",
+   "note": "lip none -> R"
+  },
+  {
+   "cell": [
+    23,
+    86
+   ],
+   "from": "03a/0.1",
+   "to": "3e5/0.1",
+   "note": "lip none -> L"
+  },
+  {
+   "glyph": 385,
+   "bank": 10,
+   "note": "pylon r0 c0 q0"
+  },
+  {
+   "glyph": 386,
+   "bank": 10,
+   "note": "pylon r0 c0 q1"
+  },
+  {
+   "glyph": 387,
+   "bank": 10,
+   "note": "pylon r0 c0 q2"
+  },
+  {
+   "metatile": 88,
+   "note": "pylon row 0 col 0 err [15.3, 21.8, 12.8, 18.9]"
+  },
+  {
+   "cell": [
+    24,
+    70
+   ],
+   "from": "3fd/0.1",
+   "to": "058/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 388,
+   "bank": 10,
+   "note": "pylon r0 c1 q1"
+  },
+  {
+   "glyph": 389,
+   "bank": 10,
+   "note": "pylon r0 c1 q2"
+  },
+  {
+   "glyph": 390,
+   "bank": 10,
+   "note": "pylon r0 c1 q3"
+  },
+  {
+   "metatile": 89,
+   "note": "pylon row 0 col 1 err [19.6, 3.5, 18.7, 5.2]"
+  },
+  {
+   "cell": [
+    25,
+    70
+   ],
+   "from": "3fe/0.1",
+   "to": "059/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 391,
+   "bank": 10,
+   "note": "pylon r1 c0 q0"
+  },
+  {
+   "glyph": 392,
+   "bank": 10,
+   "note": "pylon r1 c0 q2"
+  },
+  {
+   "metatile": 90,
+   "note": "pylon row 1 col 0 err [12.5, 22.2, 15.1, 22.2]"
+  },
+  {
+   "cell": [
+    24,
+    71
+   ],
+   "from": "3fd/0.1",
+   "to": "05a/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 393,
+   "bank": 10,
+   "note": "pylon r1 c1 q0"
+  },
+  {
+   "glyph": 394,
+   "bank": 10,
+   "note": "pylon r1 c1 q1"
+  },
+  {
+   "glyph": 395,
+   "bank": 10,
+   "note": "pylon r1 c1 q3"
+  },
+  {
+   "metatile": 91,
+   "note": "pylon row 1 col 1 err [24.0, 10.9, 24.0, 20.0]"
+  },
+  {
+   "cell": [
+    25,
+    71
+   ],
+   "from": "3fe/0.1",
+   "to": "05b/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 396,
+   "bank": 10,
+   "note": "pylon r2 c0 q0"
+  },
+  {
+   "metatile": 92,
+   "note": "pylon row 2 col 0 err [15.6, 22.2, 15.6, 22.2]"
+  },
+  {
+   "cell": [
+    24,
+    72
+   ],
+   "from": "3fd/0.1",
+   "to": "05c/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 397,
+   "bank": 10,
+   "note": "pylon r2 c1 q1"
+  },
+  {
+   "glyph": 398,
+   "bank": 10,
+   "note": "pylon r2 c1 q3"
+  },
+  {
+   "metatile": 93,
+   "note": "pylon row 2 col 1 err [24.0, 17.2, 24.0, 17.5]"
+  },
+  {
+   "cell": [
+    25,
+    72
+   ],
+   "from": "3fe/0.1",
+   "to": "05d/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 400,
+   "bank": 10,
+   "note": "pylon r3 c0 q0"
+  },
+  {
+   "glyph": 401,
+   "bank": 10,
+   "note": "pylon r3 c0 q1"
+  },
+  {
+   "glyph": 402,
+   "bank": 8,
+   "note": "pylon r3 c0 q2"
+  },
+  {
+   "glyph": 403,
+   "bank": 8,
+   "note": "pylon r3 c0 q3"
+  },
+  {
+   "metatile": 94,
+   "note": "pylon row 3 col 0 err [23.1, 25.6, 34.9, 44.9]"
+  },
+  {
+   "cell": [
+    24,
+    73
+   ],
+   "from": "009/3.1",
+   "to": "05e/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 404,
+   "bank": 10,
+   "note": "pylon r3 c1 q0"
+  },
+  {
+   "glyph": 405,
+   "bank": 10,
+   "note": "pylon r3 c1 q1"
+  },
+  {
+   "glyph": 406,
+   "bank": 8,
+   "note": "pylon r3 c1 q2"
+  },
+  {
+   "glyph": 407,
+   "bank": 10,
+   "note": "pylon r3 c1 q3"
+  },
+  {
+   "metatile": 95,
+   "note": "pylon row 3 col 1 err [27.3, 22.0, 45.3, 33.4]"
+  },
+  {
+   "cell": [
+    25,
+    73
+   ],
+   "from": "00a/3.1",
+   "to": "05f/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 408,
+   "bank": 10,
+   "note": "pylon r4 c0 q0"
+  },
+  {
+   "glyph": 409,
+   "bank": 10,
+   "note": "pylon r4 c0 q1"
+  },
+  {
+   "glyph": 410,
+   "bank": 10,
+   "note": "pylon r4 c0 q2"
+  },
+  {
+   "glyph": 411,
+   "bank": 10,
+   "note": "pylon r4 c0 q3"
+  },
+  {
+   "metatile": 96,
+   "note": "pylon row 4 col 0 err [16.7, 16.5, 16.0, 13.4]"
+  },
+  {
+   "cell": [
+    24,
+    74
+   ],
+   "from": "03a/0.1",
+   "to": "060/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 412,
+   "bank": 8,
+   "note": "pylon r4 c1 q0"
+  },
+  {
+   "glyph": 413,
+   "bank": 10,
+   "note": "pylon r4 c1 q1"
+  },
+  {
+   "glyph": 414,
+   "bank": 10,
+   "note": "pylon r4 c1 q2"
+  },
+  {
+   "glyph": 415,
+   "bank": 10,
+   "note": "pylon r4 c1 q3"
+  },
+  {
+   "metatile": 97,
+   "note": "pylon row 4 col 1 err [13.2, 15.7, 14.8, 14.9]"
+  },
+  {
+   "cell": [
+    25,
+    74
+   ],
+   "from": "03a/0.1",
+   "to": "061/3.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 416,
+   "bank": 10,
+   "note": "pylon r5 c0 q0"
+  },
+  {
+   "glyph": 417,
+   "bank": 10,
+   "note": "pylon r5 c0 q1"
+  },
+  {
+   "metatile": 98,
+   "note": "pylon row 5 col 0 err [5.1, 8.0]"
+  },
+  {
+   "cell": [
+    24,
+    75
+   ],
+   "from": "03a/0.1",
+   "to": "062/0.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 418,
+   "bank": 10,
+   "note": "pylon r5 c1 q0"
+  },
+  {
+   "glyph": 420,
+   "bank": 10,
+   "note": "pylon r5 c1 q1"
+  },
+  {
+   "metatile": 99,
+   "note": "pylon row 5 col 1 err [7.8, 2.8]"
+  },
+  {
+   "cell": [
+    25,
+    75
+   ],
+   "from": "03a/0.1",
+   "to": "063/0.1",
+   "note": "pylon from HGSS pixels"
+  },
+  {
+   "glyph": 421,
+   "bank": 10,
+   "note": "rail post row 66"
+  },
+  {
+   "glyph": 422,
+   "bank": 10,
+   "note": "rail post row 66"
+  },
+  {
+   "metatile": 100,
+   "note": "railway 31a with support post"
+  },
+  {
+   "cell": [
+    8,
+    66
+   ],
+   "from": "31a/0.3",
+   "to": "064/0.3",
+   "note": "railway support post"
+  },
+  {
+   "metatile": 101,
+   "note": "railway 3f7 with support post"
+  },
+  {
+   "cell": [
+    16,
+    66
+   ],
+   "from": "3f7/0.1",
+   "to": "065/0.1",
+   "note": "railway support post"
+  },
+  {
+   "glyph": 425,
+   "bank": 10,
+   "note": "rail post row 67"
+  },
+  {
+   "glyph": 429,
+   "bank": 10,
+   "note": "rail post row 67"
+  },
+  {
+   "metatile": 102,
+   "note": "railway 31b with support post"
+  },
+  {
+   "cell": [
+    8,
+    67
+   ],
+   "from": "31b/0.3",
+   "to": "066/0.3",
+   "note": "railway support post"
+  },
+  {
+   "metatile": 103,
+   "note": "railway 3f9 with support post"
+  },
+  {
+   "cell": [
+    16,
+    67
+   ],
+   "from": "3f9/0.1",
+   "to": "067/0.1",
+   "note": "railway support post"
+  },
+  {
+   "glyph": 432,
+   "bank": 10,
+   "note": "rail post row 68"
+  },
+  {
+   "glyph": 433,
+   "bank": 10,
+   "note": "rail post row 68"
+  },
+  {
+   "metatile": 104,
+   "note": "railway 31c with support post"
+  },
+  {
+   "cell": [
+    8,
+    68
+   ],
+   "from": "31c/0.3",
+   "to": "068/0.3",
+   "note": "railway support post"
+  },
+  {
+   "metatile": 105,
+   "note": "railway 3fa with support post"
+  },
+  {
+   "cell": [
+    16,
+    68
+   ],
+   "from": "3fa/0.1",
+   "to": "069/0.1",
+   "note": "railway support post"
+  },
+  {
+   "glyph": 434,
+   "bank": 10,
+   "note": "rail post row 69"
+  },
+  {
+   "glyph": 435,
+   "bank": 10,
+   "note": "rail post row 69"
+  },
+  {
+   "metatile": 106,
+   "note": "railway 31d with support post"
+  },
+  {
+   "cell": [
+    8,
+    69
+   ],
+   "from": "31d/0.3",
+   "to": "06a/0.3",
+   "note": "railway support post"
+  },
+  {
+   "metatile": 107,
+   "note": "railway 3fb with support post"
+  },
+  {
+   "cell": [
+    16,
+    69
+   ],
+   "from": "3fb/0.1",
+   "to": "06b/0.1",
+   "note": "railway support post"
+  },
+  {
+   "glyph": 436,
+   "bank": 8,
+   "note": "flowers (15,6) q0"
+  },
+  {
+   "glyph": 437,
+   "bank": 8,
+   "note": "flowers (15,6) q1"
+  },
+  {
+   "glyph": 438,
+   "bank": 8,
+   "note": "flowers (15,6) q2"
+  },
+  {
+   "glyph": 446,
+   "bank": 8,
+   "note": "flowers (15,6) q3"
+  },
+  {
+   "metatile": 108,
+   "note": "lawn with HGSS flowers (15,6) err [0.2, 3.7, 13.2, 13.8]"
+  },
+  {
+   "cell": [
+    15,
+    6
+   ],
+   "from": "033/0.3",
+   "to": "06c/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "glyph": 447,
+   "bank": 8,
+   "note": "flowers (16,6) q0"
+  },
+  {
+   "glyph": 448,
+   "bank": 8,
+   "note": "flowers (16,6) q1"
+  },
+  {
+   "glyph": 449,
+   "bank": 8,
+   "note": "flowers (16,6) q2"
+  },
+  {
+   "glyph": 450,
+   "bank": 8,
+   "note": "flowers (16,6) q3"
+  },
+  {
+   "metatile": 109,
+   "note": "lawn with HGSS flowers (16,6) err [0.7, 10.0, 6.8, 29.6]"
+  },
+  {
+   "cell": [
+    16,
+    6
+   ],
+   "from": "034/0.3",
+   "to": "06d/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "metatile": 110,
+   "note": "lawn with HGSS flowers (17,6) err [0.2, 3.7, 13.2, 13.8]"
+  },
+  {
+   "cell": [
+    17,
+    6
+   ],
+   "from": "033/0.3",
+   "to": "06e/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "glyph": 451,
+   "bank": 8,
+   "note": "flowers (18,6) q2"
+  },
+  {
+   "metatile": 111,
+   "note": "lawn with HGSS flowers (18,6) err [6.1]"
+  },
+  {
+   "cell": [
+    18,
+    6
+   ],
+   "from": "034/0.3",
+   "to": "06f/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "glyph": 452,
+   "bank": 8,
+   "note": "flowers (15,7) q0"
+  },
+  {
+   "glyph": 453,
+   "bank": 8,
+   "note": "flowers (15,7) q1"
+  },
+  {
+   "glyph": 454,
+   "bank": 8,
+   "note": "flowers (15,7) q2"
+  },
+  {
+   "glyph": 455,
+   "bank": 8,
+   "note": "flowers (15,7) q3"
+  },
+  {
+   "metatile": 112,
+   "note": "lawn with HGSS flowers (15,7) err [1.9, 27.6, 5.7, 3.2]"
+  },
+  {
+   "cell": [
+    15,
+    7
+   ],
+   "from": "027/0.3",
+   "to": "070/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "glyph": 456,
+   "bank": 8,
+   "note": "flowers (16,7) q0"
+  },
+  {
+   "glyph": 457,
+   "bank": 8,
+   "note": "flowers (16,7) q1"
+  },
+  {
+   "glyph": 458,
+   "bank": 8,
+   "note": "flowers (16,7) q2"
+  },
+  {
+   "glyph": 459,
+   "bank": 8,
+   "note": "flowers (16,7) q3"
+  },
+  {
+   "metatile": 113,
+   "note": "lawn with HGSS flowers (16,7) err [2.1, 1.4, 5.2, 1.0]"
+  },
+  {
+   "cell": [
+    16,
+    7
+   ],
+   "from": "028/0.3",
+   "to": "071/0.3",
+   "note": "HGSS flowers on lawn"
+  },
+  {
+   "glyph": 460,
+   "bank": 8,
+   "note": "flowers (14,8) q1"
+  },
+  {
+   "glyph": 461,
+   "bank": 8,
+   "note": "flowers (14,8) q3"
+  },
+  {
+   "metatile": 114,
+   "note": "lawn with HGSS flowers (14,8) err [0.7, 26.5, 4.1]"
+  },
+  {
+   "cell": [
+    14,
+    8
+   ],
+   "from": "034/0.3",
+   "to": "072/0.3",
+   "note": "HGSS flowers on lawn"
+  }
+ ],
+ "after_hashes": {
+  "data/layouts/JohtoRoute32/map.bin": "7696275832689c0f040b1e8c96e27333d228cddf2cc821cf5842bd856008d4a9",
+  "data/tilesets/primary/route32/tiles.png": "caffbe52cca7ecc0050ab46c2759f5196260a691852ea23ce879041d54903017",
+  "data/tilesets/primary/route32/metatiles.bin": "a2342eb95c2cf33c52591c257190a973592f20ca2d0eea3c6bda58d7cd342c31",
+  "data/tilesets/primary/route32/metatile_attributes.bin": "0c334700a0bccb06dfc472c8926b8fa5c7074c658080aff2bb844ee3d767c840",
+  "data/tilesets/secondary/route32/tiles.png": "b908c06c2c794f86c59b406e06a1c2ac718a8af7c2c02e9b86385fbc5119ad49",
+  "data/tilesets/secondary/route32/metatiles.bin": "8fcdf4856d64e3e0a7dd72e1ffc640e1af8bdfd2f610145ec0f4857846c0df2a",
+  "data/tilesets/secondary/route32/metatile_attributes.bin": "7c803aa1fb6e82899e764a41abd992ad0052d95e5e268b2a0f47707e707cec38"
+ }
+}

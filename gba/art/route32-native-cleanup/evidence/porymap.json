@@ -1,0 +1,23 @@
+{
+ "porymap": "6.3.1",
+ "method": "headless project-core export (porymap_probe.cpp linked against the 6.3.1 sources)",
+ "maps_exported": [
+  {
+   "height_px": 2048,
+   "map": "JohtoRoute32",
+   "width_px": 512
+  },
+  {
+   "height_px": 144,
+   "map": "Route32PokemonCenter",
+   "width_px": 224
+  },
+  {
+   "height_px": 192,
+   "map": "UnionCaveRoute32Entrance",
+   "width_px": 224
+  }
+ ],
+ "pixel_differences_vs_native_decode": 0,
+ "differing_cells": []
+}
