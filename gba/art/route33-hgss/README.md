@@ -1,7 +1,7 @@
 # Route33 — original-reference correction
 
 Current engine source: `codex/route33-hgss`,
-`214e38cfb94309965e0cc58d09460e58737e00a6`, [draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
+`89f8899335cd5182e534d8a5c4f9e5e21bb57615`, [draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
 HGSS is the geographic/material authority. The owner rejected a broad terrain
 revision; it was reverted at `515d80c7`. The original mountain contours, wall/cap
 textures, footprints and traversal are restored. No extra cliff caps, extended
@@ -23,13 +23,19 @@ Use the [actual HGSS overview](https://archives.bulbagarden.net/media/upload/8/8
 16px eastern framing and one bottom padding pixel. Material and traversal ledgers
 are independent. Overview interpretation is not claimed as decoded DS collision.
 
-Current changes are bounded: gray residue in the visible original cave opening
-is black; actual original HGSS foam/sea pixels replace the hard coastal join in
-x504:512. Mountain geometry, texture phase, original cap/faces and elevation are
-unchanged. `reference-scope.json` compares decoded native background pixels with
-the restored original: zero changes outside the two named regions, zero collision
-or elevation changes across 986 cells, every backing opaque, warp opening black,
-and all water cells blocked. This is a scope proof alongside the HGSS visual review.
+The seven owner-marked sections are repaired locally. A restores rock footing behind
+northwest crowns; B/E restore clipped original rear edges; F restores the original
+rounded wall corner. C/D align and join the native Emerald ledge arms. G fills the
+missing southeast rock footing while retaining every original tree position.
+A/G use existing native plateau texture where HGSS foliage occludes the reference.
+B/E/F restore actual connected original-source rock pixels. Main mountain textures
+remain intact. Six cells (row21, columns26–31) gain rock collision; none are opened.
+No elevation changes or native background/foreground pixel changes outside the
+seven reviewed bounds and their connected ledge corridor occur.
+
+See [all seven original / before / corrected sections](evidence/marked-sections-comparison.png)
+and [scope proof](evidence/marked-review.json). Older restored-reference and
+reference-correction images document the preceding 214e38cf pass, not this revision.
 
 Foreground uses owner-approved masters from hub commit
 `3d593788873f5e3446e2d032764bc1b43c1ffcbc`: T01 large trees, T03/T04 Apricorns,
@@ -50,32 +56,24 @@ conversion. No master was recolored. No new harvest behavior is introduced.
 
 ## Verification and native editing
 
-Actual Porymap 6.3.1 export equals decoded native RGB for 986 cells. Behavior/collision
-match the separate ledger. Porytiles representative layered round-trip reports
-zero native RGB/alpha errors. Native glyph maximum 987 stays below reserved 1008–1023.
-There are 414 allocated metatiles; superseded private entries are not a new asset catalog.
+Actual Porymap 6.3.1 export equals decoded native RGB for all 986 cells.
+Porytiles representative layered round-trip reports zero RGB/alpha errors.
+Native glyph maximum992 remains below reserved1008–1023; 455 metatiles allocated.
+Arm GNU14.2 builds the ROM. Headless libmGBA0.10.5 passes 29 observations,
+including cave travel both ways, both directional ledges, blocked forest/rock/water,
+and ordinary save, cold reload and title Continue. A copied prior save also loads
+and Continues without modifying the original. A/B close-ups use controlled cameras
+inside blocked terrain and are visual evidence only; C–G frames use reachable land.
 
-Arm GNU 14.2 builds the 32 MiB ROM. Headless libmGBA 0.10.5 checks 25 observations:
-real cave travel both ways, main-route walking, directional ledges and blocked
-returns, forest/cliff/fruit footprints, grass, water boundary and ordinary 128 KiB
-save/cold reload/title Continue. The water-only negative probe uses controlled
-placement and is not a reachable shoreline travel claim. A copied prior 224ee13c
-route save also loads/Continues; its original is unchanged. Exact identities and
-proof are in build.json/runtime.json/prior-route33-save.json/preservation.json.
+The seven changed native files reproduce exactly from baseline214e38cf with
+`repair_marked_sections.py` (palette line endings normalized). This guarded local
+patcher does not replay the original layout generator. Prior source and evidence
+snapshots are preserved under previous-214e38cf; older rejected revisions remain
+historical. Native source is the editor authority.
 
-All 11 current repair files reproduce from the exact 224ee13c native baseline with
-`match_reference_cells.py`; palette line endings are normalized. The original
-broad revision is rejected and is not the authoring path. Native source remains
-the editor authority. Never replay old build/register generators over owner maps.
-The matching tool guards baseline files, composes local native layers and reuses
-freed glyphs; it does not rerun the original map generator. Original snapshots,
-full reference renders and Git history remain preserved.
-
-Useful read/check commands under tools/gba/maps/route33_hgss:
-`check_selected_assets.py`, `review.py ENGINE PORYMAP_EXPORT`,
-`check_art.py ENGINE PORYTILES`, `check_reference_scope.py ENGINE BASELINE_NATIVE`,
-`runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT`, and
-`publish.py ENGINE RUNTIME_OUTPUT`.
+Checks: `review.py ENGINE PORYMAP_EXPORT`, `review_marked_sections.py ENGINE BASELINE_NATIVE`,
+`check_art.py ENGINE PORYTILES`, `check_selected_assets.py`, and
+`runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT`.
 
 ## Limits
 

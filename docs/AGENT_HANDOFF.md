@@ -1,3 +1,14 @@
+## Latest: Route33 seven owner-marked local repairs
+
+Engine `codex/route33-hgss` at `89f8899335cd5182e534d8a5c4f9e5e21bb57615`, draft PR10.
+Read `gba/art/route33-hgss/README.md`. Seven A–G original/before/current comparisons,
+actual Porymap export and headless gameplay are published. Restore clipped source
+rock edges, join native ledges, fill missing southeast rock footing; all original
+tree positions preserved. Six new rock blockers, no openings or elevation changes.
+Local scope and seven-file reproduction pass; 29 runtime observations and prior-save
+compatibility pass. Visual acceptance remains pending. Do not revive rejected broad
+terrain revisions or replay generators over committed layouts.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

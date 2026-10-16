@@ -1,0 +1,113 @@
+{
+  "baseline": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "regions": [
+    [
+      "A",
+      "NW rock footing",
+      [
+        0,
+        32,
+        176,
+        56
+      ]
+    ],
+    [
+      "B",
+      "upper rear edge",
+      [
+        200,
+        32,
+        448,
+        56
+      ]
+    ],
+    [
+      "C",
+      "ledge head",
+      [
+        200,
+        184,
+        232,
+        204
+      ]
+    ],
+    [
+      "D",
+      "ledge corner",
+      [
+        200,
+        240,
+        240,
+        280
+      ]
+    ],
+    [
+      "E",
+      "SE rear edge",
+      [
+        344,
+        176,
+        512,
+        208
+      ]
+    ],
+    [
+      "F",
+      "SE wall corner",
+      [
+        344,
+        248,
+        416,
+        288
+      ]
+    ],
+    [
+      "G",
+      "missing SE rock footing",
+      [
+        400,
+        328,
+        512,
+        368
+      ]
+    ]
+  ],
+  "restored_source_pixels": {
+    "B": 101,
+    "E": 452,
+    "F": 197
+  },
+  "shifted_existing_trees": [],
+  "changed_cells": 52,
+  "allocated_glyphs": 82,
+  "glyph_max": 992,
+  "metatiles": 455,
+  "water_blocked": true,
+  "collision_changes": [
+    [
+      21,
+      26
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      21,
+      29
+    ],
+    [
+      21,
+      30
+    ],
+    [
+      21,
+      31
+    ]
+  ],
+  "method": "original HGSS boundary recovery, two missing rock-footing courses and a fitted native ledge corner; all tree positions retained"
+}

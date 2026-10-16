@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "9a79208988dc48fabfdaa57336e798807473daa1f07891a953a54270089389c3",
+  "rom_sha256": "62c01d72e252156920f9badda3aa8c5b3a2408a4cfcb5a4a6aa431baf6df32a6",
   "phases": [
     {
       "phase": "write",
@@ -286,6 +286,58 @@
           "map": 49,
           "x": 31,
           "y": 13,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 29,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "marked-G-rock-footing-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 49,
+          "x": 25,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 29,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "south-canopy-edge",
+          "region": 3,
+          "group": 80,
+          "map": 49,
+          "x": 31,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 29,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "shore-water-blocked-from-path",
+          "region": 3,
+          "group": 80,
+          "map": 49,
+          "x": 31,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 29,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "southern-forest-roots-block",
+          "region": 3,
+          "group": 80,
+          "map": 49,
+          "x": 31,
+          "y": 22,
           "frlg_layout": 0,
           "width": 34,
           "height": 29,
