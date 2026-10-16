@@ -1,0 +1,4898 @@
+[
+  {
+    "x": 10,
+    "y": 18,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      288,
+      176,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 36,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 36,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 37,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 37,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 18,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      288,
+      192,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 45,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 36,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 36,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 37,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 18,
+    "material": "tree footprint",
+    "source_reference_box": [
+      192,
+      288,
+      208,
+      304
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 34,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 36,
+        "colors": [
+          4,
+          5
+        ]
+      },
+      {
+        "x": 25,
+        "y": 36,
+        "colors": [
+          0,
+          10
+        ]
+      },
+      {
+        "x": 24,
+        "y": 37,
+        "colors": [
+          4,
+          7
+        ]
+      },
+      {
+        "x": 25,
+        "y": 37,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 18,
+    "material": "tree footprint",
+    "source_reference_box": [
+      208,
+      288,
+      224,
+      304
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 36,
+        "colors": [
+          0,
+          8
+        ]
+      },
+      {
+        "x": 27,
+        "y": 36,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 26,
+        "y": 37,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 27,
+        "y": 37,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 18,
+    "material": "west cliff face",
+    "source_reference_box": [
+      224,
+      288,
+      240,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 252,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 36,
+        "colors": [
+          2,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 36,
+        "colors": [
+          1,
+          4
+        ]
+      },
+      {
+        "x": 28,
+        "y": 37,
+        "colors": [
+          3,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 37,
+        "colors": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      240,
+      288,
+      256,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 36,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 30,
+        "y": 37,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      256,
+      288,
+      272,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 36,
+        "colors": [
+          8,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 32,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      272,
+      288,
+      288,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 36,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 34,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      288,
+      288,
+      304,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 36,
+        "colors": [
+          8,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 36,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      304,
+      288,
+      320,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 36,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 38,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      320,
+      288,
+      336,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 36,
+        "colors": [
+          8,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 40,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 18,
+    "material": "tall grass",
+    "source_reference_box": [
+      336,
+      288,
+      352,
+      304
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 36,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 36,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 42,
+        "y": 37,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 37,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 19,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      304,
+      176,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 38,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 38,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 39,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 39,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 19,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      304,
+      192,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 15,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 38,
+        "colors": [
+          1,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 38,
+        "colors": [
+          3,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 39,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 39,
+        "colors": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 19,
+    "material": "tree footprint",
+    "source_reference_box": [
+      192,
+      304,
+      208,
+      320
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 14,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 38,
+        "colors": [
+          5,
+          6
+        ]
+      },
+      {
+        "x": 25,
+        "y": 38,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 24,
+        "y": 39,
+        "colors": [
+          5,
+          5
+        ]
+      },
+      {
+        "x": 25,
+        "y": 39,
+        "colors": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 19,
+    "material": "tree footprint",
+    "source_reference_box": [
+      208,
+      304,
+      224,
+      320
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 38,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 27,
+        "y": 38,
+        "colors": [
+          0,
+          7
+        ]
+      },
+      {
+        "x": 26,
+        "y": 39,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 27,
+        "y": 39,
+        "colors": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 19,
+    "material": "west cliff face",
+    "source_reference_box": [
+      224,
+      304,
+      240,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 246,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 38,
+        "colors": [
+          1,
+          5
+        ]
+      },
+      {
+        "x": 29,
+        "y": 38,
+        "colors": [
+          2,
+          3
+        ]
+      },
+      {
+        "x": 28,
+        "y": 39,
+        "colors": [
+          1,
+          5
+        ]
+      },
+      {
+        "x": 29,
+        "y": 39,
+        "colors": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      240,
+      304,
+      256,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 38,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 30,
+        "y": 39,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      256,
+      304,
+      272,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 32,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      272,
+      304,
+      288,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 34,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      288,
+      304,
+      304,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 36,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      304,
+      304,
+      320,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 38,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      320,
+      304,
+      336,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 40,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 19,
+    "material": "tall grass",
+    "source_reference_box": [
+      336,
+      304,
+      352,
+      320
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 38,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 38,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 42,
+        "y": 39,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 39,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 20,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      320,
+      176,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 40,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 40,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 41,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 41,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 20,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      320,
+      192,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 45,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 40,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 40,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 41,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 20,
+    "material": "tree footprint",
+    "source_reference_box": [
+      192,
+      320,
+      208,
+      336
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 43,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 40,
+        "colors": [
+          4,
+          4
+        ]
+      },
+      {
+        "x": 25,
+        "y": 40,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 24,
+        "y": 41,
+        "colors": [
+          4,
+          1
+        ]
+      },
+      {
+        "x": 25,
+        "y": 41,
+        "colors": [
+          4,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 20,
+    "material": "tree footprint",
+    "source_reference_box": [
+      208,
+      320,
+      224,
+      336
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 14,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 40,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 27,
+        "y": 40,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 26,
+        "y": 41,
+        "colors": [
+          2,
+          3
+        ]
+      },
+      {
+        "x": 27,
+        "y": 41,
+        "colors": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 20,
+    "material": "west cliff face",
+    "source_reference_box": [
+      224,
+      320,
+      240,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 252,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 40,
+        "colors": [
+          2,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 40,
+        "colors": [
+          1,
+          4
+        ]
+      },
+      {
+        "x": 28,
+        "y": 41,
+        "colors": [
+          3,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 41,
+        "colors": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      240,
+      320,
+      256,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 40,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 30,
+        "y": 41,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      256,
+      320,
+      272,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 32,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      272,
+      320,
+      288,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 34,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      288,
+      320,
+      304,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 36,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      304,
+      320,
+      320,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 38,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      320,
+      320,
+      336,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 40,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 20,
+    "material": "tall grass",
+    "source_reference_box": [
+      336,
+      320,
+      352,
+      336
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 40,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 40,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 42,
+        "y": 41,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 41,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 21,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      336,
+      176,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 42,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 42,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 43,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 43,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 21,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      336,
+      192,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 16,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 42,
+        "colors": [
+          1,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 42,
+        "colors": [
+          3,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 43,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 43,
+        "colors": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 21,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      192,
+      336,
+      208,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 123,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 42,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 24,
+        "y": 43,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 43,
+        "colors": [
+          3,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 21,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      208,
+      336,
+      224,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 126,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 42,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 42,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 26,
+        "y": 43,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 43,
+        "colors": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 21,
+    "material": "stair and rock shoulder",
+    "source_reference_box": [
+      224,
+      336,
+      240,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 247,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 42,
+        "colors": [
+          1,
+          6
+        ]
+      },
+      {
+        "x": 29,
+        "y": 42,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 28,
+        "y": 43,
+        "colors": [
+          1,
+          8
+        ]
+      },
+      {
+        "x": 29,
+        "y": 43,
+        "colors": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      240,
+      336,
+      256,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 40,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 42,
+        "colors": [
+          8,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 30,
+        "y": 43,
+        "colors": [
+          10,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 43,
+        "colors": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      256,
+      336,
+      272,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 19,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 32,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 43,
+        "colors": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      272,
+      336,
+      288,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 5,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 34,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 43,
+        "colors": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      288,
+      336,
+      304,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 19,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 36,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 43,
+        "colors": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      304,
+      336,
+      320,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 5,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 38,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 43,
+        "colors": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      320,
+      336,
+      336,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 19,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 40,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 43,
+        "colors": [
+          8,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 21,
+    "material": "tall grass",
+    "source_reference_box": [
+      336,
+      336,
+      352,
+      352
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 2,
+    "changed_pixels": 5,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 42,
+        "colors": [
+          6,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 42,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 42,
+        "y": 43,
+        "colors": [
+          7,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 43,
+        "colors": [
+          6,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      352,
+      176,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 45,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      352,
+      192,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 8,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      192,
+      352,
+      208,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 24,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 45,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      208,
+      352,
+      224,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 33,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 26,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 22,
+    "material": "stair and rock shoulder",
+    "source_reference_box": [
+      224,
+      352,
+      240,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 207,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 44,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 44,
+        "colors": [
+          0,
+          3
+        ]
+      },
+      {
+        "x": 28,
+        "y": 45,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 45,
+        "colors": [
+          0,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      240,
+      352,
+      256,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 33,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 30,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 31,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      256,
+      352,
+      272,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 32,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 33,
+        "y": 45,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      272,
+      352,
+      288,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 33,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 34,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 35,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      288,
+      352,
+      304,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 36,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 37,
+        "y": 45,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      304,
+      352,
+      320,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 33,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 38,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 39,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      320,
+      352,
+      336,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 40,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 41,
+        "y": 45,
+        "colors": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 22,
+    "material": "dirt approach",
+    "source_reference_box": [
+      336,
+      352,
+      352,
+      368
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 33,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 44,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 44,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 42,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 43,
+        "y": 45,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      160,
+      368,
+      176,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 47,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 47,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      176,
+      368,
+      192,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 46,
+        "colors": [
+          1,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      192,
+      368,
+      208,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 47,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 24,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 47,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      208,
+      368,
+      224,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 54,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 46,
+        "colors": [
+          1,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 46,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 26,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 47,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 23,
+    "material": "stair and rock shoulder",
+    "source_reference_box": [
+      224,
+      368,
+      240,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 233,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 46,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 46,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 28,
+        "y": 47,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 29,
+        "y": 47,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      240,
+      368,
+      256,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 46,
+        "colors": [
+          1,
+          1
+        ]
+      },
+      {
+        "x": 31,
+        "y": 46,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 30,
+        "y": 47,
+        "colors": [
+          4,
+          7
+        ]
+      },
+      {
+        "x": 31,
+        "y": 47,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      256,
+      368,
+      272,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 46,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 33,
+        "y": 46,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 32,
+        "y": 47,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 33,
+        "y": 47,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      272,
+      368,
+      288,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 46,
+        "colors": [
+          1,
+          1
+        ]
+      },
+      {
+        "x": 35,
+        "y": 46,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 34,
+        "y": 47,
+        "colors": [
+          4,
+          7
+        ]
+      },
+      {
+        "x": 35,
+        "y": 47,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      288,
+      368,
+      304,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 46,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 37,
+        "y": 46,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 36,
+        "y": 47,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 37,
+        "y": 47,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      304,
+      368,
+      320,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 46,
+        "colors": [
+          1,
+          1
+        ]
+      },
+      {
+        "x": 39,
+        "y": 46,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 38,
+        "y": 47,
+        "colors": [
+          4,
+          7
+        ]
+      },
+      {
+        "x": 39,
+        "y": 47,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      320,
+      368,
+      336,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 46,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 41,
+        "y": 46,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 40,
+        "y": 47,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 41,
+        "y": 47,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 23,
+    "material": "dirt approach",
+    "source_reference_box": [
+      336,
+      368,
+      352,
+      384
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 6,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 46,
+        "colors": [
+          1,
+          1
+        ]
+      },
+      {
+        "x": 43,
+        "y": 46,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 42,
+        "y": 47,
+        "colors": [
+          4,
+          7
+        ]
+      },
+      {
+        "x": 43,
+        "y": 47,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 24,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      160,
+      384,
+      176,
+      400
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 95,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 20,
+        "y": 49,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 21,
+        "y": 49,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 24,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      176,
+      384,
+      192,
+      400
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 67,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 48,
+        "colors": [
+          3,
+          0
+        ]
+      },
+      {
+        "x": 22,
+        "y": 49,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 23,
+        "y": 49,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 24,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      192,
+      384,
+      208,
+      400
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 95,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 24,
+        "y": 49,
+        "colors": [
+          4,
+          0
+        ]
+      },
+      {
+        "x": 25,
+        "y": 49,
+        "colors": [
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 24,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      208,
+      384,
+      224,
+      400
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 67,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 48,
+        "colors": [
+          5,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 48,
+        "colors": [
+          3,
+          0
+        ]
+      },
+      {
+        "x": 26,
+        "y": 49,
+        "colors": [
+          2,
+          0
+        ]
+      },
+      {
+        "x": 27,
+        "y": 49,
+        "colors": [
+          2,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 24,
+    "material": "stair and rock shoulder",
+    "source_reference_box": [
+      224,
+      384,
+      240,
+      400
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 254,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 48,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 29,
+        "y": 48,
+        "colors": [
+          4,
+          5
+        ]
+      },
+      {
+        "x": 28,
+        "y": 49,
+        "colors": [
+          3,
+          4
+        ]
+      },
+      {
+        "x": 29,
+        "y": 49,
+        "colors": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      240,
+      384,
+      256,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 1,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 48,
+        "colors": [
+          5,
+          6
+        ]
+      },
+      {
+        "x": 31,
+        "y": 48,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 30,
+        "y": 49,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 31,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      256,
+      384,
+      272,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 48,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 33,
+        "y": 48,
+        "colors": [
+          0,
+          7
+        ]
+      },
+      {
+        "x": 32,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 33,
+        "y": 49,
+        "colors": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      272,
+      384,
+      288,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 1,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 48,
+        "colors": [
+          5,
+          6
+        ]
+      },
+      {
+        "x": 35,
+        "y": 48,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 34,
+        "y": 49,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 35,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      288,
+      384,
+      304,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 48,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 37,
+        "y": 48,
+        "colors": [
+          0,
+          7
+        ]
+      },
+      {
+        "x": 36,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 37,
+        "y": 49,
+        "colors": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      304,
+      384,
+      320,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 1,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 48,
+        "colors": [
+          5,
+          6
+        ]
+      },
+      {
+        "x": 39,
+        "y": 48,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 38,
+        "y": 49,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 39,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      320,
+      384,
+      336,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 48,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 41,
+        "y": 48,
+        "colors": [
+          0,
+          7
+        ]
+      },
+      {
+        "x": 40,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      },
+      {
+        "x": 41,
+        "y": 49,
+        "colors": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 24,
+    "material": "tree footprint",
+    "source_reference_box": [
+      336,
+      384,
+      352,
+      400
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 1,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 48,
+        "colors": [
+          5,
+          6
+        ]
+      },
+      {
+        "x": 43,
+        "y": 48,
+        "colors": [
+          0,
+          6
+        ]
+      },
+      {
+        "x": 42,
+        "y": 49,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 43,
+        "y": 49,
+        "colors": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "x": 10,
+    "y": 25,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      160,
+      400,
+      176,
+      416
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 20,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 21,
+        "y": 50,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 20,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 21,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 11,
+    "y": 25,
+    "material": "ordinary grass",
+    "source_reference_box": [
+      176,
+      400,
+      192,
+      416
+    ],
+    "source_occlusion": false,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 22,
+        "y": 50,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 23,
+        "y": 50,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 22,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 23,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 12,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      192,
+      400,
+      208,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 24,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 25,
+        "y": 50,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 24,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 25,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 13,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      208,
+      400,
+      224,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 0,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 26,
+        "y": 50,
+        "colors": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 27,
+        "y": 50,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 26,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 27,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 14,
+    "y": 25,
+    "material": "west cliff face",
+    "source_reference_box": [
+      224,
+      400,
+      240,
+      416
+    ],
+    "source_occlusion": false,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 109,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 28,
+        "y": 50,
+        "colors": [
+          4,
+          5
+        ]
+      },
+      {
+        "x": 29,
+        "y": 50,
+        "colors": [
+          6,
+          1
+        ]
+      },
+      {
+        "x": 28,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 29,
+        "y": 51,
+        "colors": [
+          3,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 15,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      240,
+      400,
+      256,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 30,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 31,
+        "y": 50,
+        "colors": [
+          0,
+          10
+        ]
+      },
+      {
+        "x": 30,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 31,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 16,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      256,
+      400,
+      272,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 32,
+        "y": 50,
+        "colors": [
+          0,
+          8
+        ]
+      },
+      {
+        "x": 33,
+        "y": 50,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 32,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 33,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 17,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      272,
+      400,
+      288,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 34,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 35,
+        "y": 50,
+        "colors": [
+          0,
+          10
+        ]
+      },
+      {
+        "x": 34,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 35,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 18,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      288,
+      400,
+      304,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 36,
+        "y": 50,
+        "colors": [
+          0,
+          8
+        ]
+      },
+      {
+        "x": 37,
+        "y": 50,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 36,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 37,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 19,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      304,
+      400,
+      320,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 38,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 39,
+        "y": 50,
+        "colors": [
+          0,
+          10
+        ]
+      },
+      {
+        "x": 38,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 39,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "x": 20,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      320,
+      400,
+      336,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 40,
+        "y": 50,
+        "colors": [
+          0,
+          8
+        ]
+      },
+      {
+        "x": 41,
+        "y": 50,
+        "colors": [
+          2,
+          6
+        ]
+      },
+      {
+        "x": 40,
+        "y": 51,
+        "colors": [
+          0,
+          5
+        ]
+      },
+      {
+        "x": 41,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "x": 21,
+    "y": 25,
+    "material": "tree footprint",
+    "source_reference_box": [
+      336,
+      400,
+      352,
+      416
+    ],
+    "source_occlusion": true,
+    "native_collision": 3,
+    "native_elevation": 3,
+    "behavior": 0,
+    "changed_pixels": 0,
+    "review": "Inspected in numbered cell sheet; see visual-review.json for corrected defects and retained differences",
+    "quadrants": [
+      {
+        "x": 42,
+        "y": 50,
+        "colors": [
+          2,
+          5
+        ]
+      },
+      {
+        "x": 43,
+        "y": 50,
+        "colors": [
+          0,
+          10
+        ]
+      },
+      {
+        "x": 42,
+        "y": 51,
+        "colors": [
+          2,
+          7
+        ]
+      },
+      {
+        "x": 43,
+        "y": 51,
+        "colors": [
+          0,
+          6
+        ]
+      }
+    ]
+  }
+]

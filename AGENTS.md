@@ -23,6 +23,63 @@
 - Claude and Gemini follow this file through their root pointer files. Keep one
   shared rule set; do not maintain different policies per model.
 
+## Required workflow for every map-building task
+
+- All models and instances, including Codex, Claude, Grok and Gemini, must read
+  and apply [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
+  before building, rebuilding, extending or refining a map.
+- Compare the original-game reference square by square with native Gen 3 tiles.
+  Match **specific terrain materials and structure as well as traversal**;
+  collision agreement alone does not establish a faithful map.
+- This requirement supplements existing Grok rules and other applicable shared
+  instructions. Preserve those rules; do not replace them with a per-model policy.
+- Inspect actual native renders and headless gameplay, fix visual defects, and
+  publish readable source/native comparisons. Functional tests do not establish
+  owner visual acceptance.
+
+## Required native visual cleanup — all maps and floors
+
+Owner-established after the Union Cave refinement, 2026-10-15. Apply this to
+outdoors and interiors, in addition to the reconstruction and existing Grok/tool
+rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#native-visual-cleanup-and-final-review).
+
+- Review each map/floor at the same standard. Inspect original/native grids,
+  every wall/terrain boundary and corner, then actual headless gameplay frames.
+  Keep coordinate-labelled review sheets and specific findings; traversal checks
+  alone do not establish visual quality.
+- During tile reuse or compression, match the material/structure silhouette and
+  orientation. Preserve complete outlines, corners, roots and narrow barriers.
+  Give edges, foreground features, doors and stairs priority over spare texture
+  variants; retain compact ground/water/plateau texture families.
+- Preserve the original wall/cap texture and shading treatment. Repair joins
+  locally and inspect the cap, front/side faces and corners as one continuous
+  surface. Retain texture detail during palette reduction.
+- Put stair/door warps on their actual visible entrances. Remove superseded
+  marker squares and restore their ground; inspect the first/last steps and
+  the whole stair-to-wall join.
+- Clean isolated pixel noise within the same material and shading plane. Keep
+  deliberate creases and crisp silhouettes. Maintain consistent palette ramps
+  across neighboring banks; inspect light/dark bands and seams after native
+  palette reduction. Keep foreground art, ground beneath it and collision separate.
+- Confirm sprite/item-removal donors are unobscured across their full bounds.
+  Inspect repaired corners for leftover clothing, skin, outlines and corrupted
+  palette pixels; reconstruct the missing local terrain from clean context.
+- Fit reused art to the receiving location: width, height, baseline, wall depth,
+  shoulders, approach and adjacent corners. Rebuild the complete join when needed.
+  An approved entrance or building still needs local seam/footprint inspection.
+- Use original-game textures and accepted shared art. Preserve tree footprints
+  and complete canopies, coherent grass borders, cliff tops/faces, stair axis,
+  shore lips and dock grain. Reuse the approved Violet Center and shared Pokémart.
+- Validate actual decoded native tiles/palettes/layers and Porymap output, plus
+  relevant headless movement, gates, connections, water, doors/stairs and ordinary
+  saves. Review all affected floors/maps and both sides of transitions. Record
+  exact source/ROM identities, before/after evidence and concrete remaining limits.
+- Keep owner-approved topology and traversal unless a change is authorized.
+  Edit current native sources; preserve owner work, IDs, prior drafts and saves.
+  Adapt the technique to each map's own tilesets and hardware budget. Cave-specific
+  art, palettes and generators stay local to Union Cave. Visual acceptance remains
+  with the owner.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.

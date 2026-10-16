@@ -1,0 +1,24 @@
+{
+  "base_engine": "6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf",
+  "reference_sha256": "886c3c2c77607787eed73d0009a59e29cfea1b248c6f23090b6666628a36773b",
+  "outside_review_rectangle_changes": 0,
+  "map_cells_reviewed": 96,
+  "quadrants_reviewed": 384,
+  "installed": true,
+  "runtime_tested": true,
+  "tile_slots": 609,
+  "appended_tiles": 81,
+  "appended_metatiles": 33,
+  "new_palette_banks": [
+    1,
+    2
+  ],
+  "native_pixel_errors": 0,
+  "collision_elevation_changes": 0,
+  "rom_sha256": "187cb16c51e251d27823e2788cff2c253a6a82321cec7f89c36d0d1c9ba6c966",
+  "porymap_native_pixel_errors": 0,
+  "engine_commit": "285b577993906c76c8d96ed38eedb5e2c955b714",
+  "production_installed": false,
+  "review_checkout_installed": true,
+  "desktop_emulator_opened": false
+}

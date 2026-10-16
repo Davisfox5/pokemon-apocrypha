@@ -1,3 +1,6 @@
+> **Rejected by owner; superseded by [R02 revised sample](../r02-refined/README.md).**
+> Retained only as historical evidence. Do not reuse its screenshot repairs.
+
 # R02 side-cliff pilot
 
 Start with [original / rebuilt / on-map comparison](review/comparison.png).

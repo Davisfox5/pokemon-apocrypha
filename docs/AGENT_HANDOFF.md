@@ -1,4 +1,21 @@
-## Current: R02 side-cliff pilot ready for owner review
+## Current: revised R02 sample reviewed tile by tile
+
+Owner rejected the first pilot and required the new native cell/seam rules from
+origin/main `e3ad8646`. Those AGENTS.md sections and the two map workflow documents
+are now included. Start at `gba/art/johto-common/rocks/r02-refined/README.md`.
+Complete HGSS model geometry replaces the tree-obscured screenshot reconstruction.
+96 cells / 384 quadrants reviewed; stair shoulders, lower join, scalloped ground
+and perimeter palette seam corrected. Final native/Porymap equality, ROM build,
+headless stair/barrier checks and flash save/reload/title Continue pass.
+
+Engine candidate `285b577993906c76c8d96ed38eedb5e2c955b714` is pushed to
+`codex/r02-cliff-review`, draft PR #12, dependent on parent PR #5. Original engine
+checkout at `6fc9e98` remains unchanged. No desktop emulator opened; production
+not installed. Owner art acceptance is pending. Existing tree spacing/tall grass
+and older rock outside the rectangle remain unchanged. Continue only after owner
+feedback; no whole-route or regional cliff-family completion is claimed.
+
+## Rejected: previous R02 side-cliff pilot
 
 Owner chose the R-series original HGSS references as the preferred direction and
 authorized an R02 original/rebuild/map comparison. See

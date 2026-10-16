@@ -1,0 +1,58 @@
+{
+  "status": "Agent visual inspection complete; owner acceptance pending",
+  "scope": "Columns 10\u201321, rows 18\u201325; 96 cells and 384 quadrants",
+  "method": [
+    "Original, rejected pilot and corrected native cells inspected at 4x",
+    "Original/rebuilt/map comparison and coordinate grid inspected",
+    "Final native 1x and 2x headless gameplay frames inspected",
+    "8x8 palette boundaries and complete source silhouettes checked"
+  ],
+  "findings": [
+    {
+      "cells": "14,18\u201320",
+      "defect": "Tree-obscured screenshot reconstruction smeared and clipped the rock face",
+      "correction": "Complete HGSS model geometry and original bound wall textures"
+    },
+    {
+      "cells": "14,21\u201324",
+      "defect": "Stair shoulders clipped; screenshot conversion altered the tread ramp",
+      "correction": "Complete slope and shoulder geometry with original olive stair ramp"
+    },
+    {
+      "cells": "14,24\u201325",
+      "defect": "Source wall turned away below foliage and left a notch in the straight receiving wall",
+      "correction": "Last four source rows replaced by phase-matched complete wall continuation"
+    },
+    {
+      "cells": "11\u201321,21\u201324",
+      "defect": "Whole-tile color matching introduced scalloped terrain edges",
+      "correction": "Material texture cores, two-pixel edge ramp and one-pixel contour variation"
+    },
+    {
+      "cells": "Review rectangle perimeter",
+      "defect": "Slight ground color seam visible in initial gameplay",
+      "correction": "Repaired ground mapped within its material to existing native ground palette; rebuilt and reran native/Porymap/runtime checks"
+    }
+  ],
+  "retained_differences": [
+    "Existing tree spacing and tall grass differ from HGSS; neither is approved by this review",
+    "Older Emerald cliff outside the pilot remains and is visible in the wider north-wall frame",
+    "Plateau corners, other cliff directions and cave mouths are outside this pilot"
+  ],
+  "reviewed_artifact_sha256": {
+    "review/before-full.png": "2e4d3e0a7ac676627625ce194a9edcf87d87b23b6f0c1434c62d6a4ec0cfa0c6",
+    "review/before.png": "65311fb30ee88c13c52374b41cf6deb23f9105d26bfe616f69509bc0e8bcb951",
+    "review/cells-1.png": "2669178e4d4f0f0f578906e5b7d9c2563ba86d75f950b56e9b3d553ae2a98742",
+    "review/cells-2.png": "67e03938ebf73778fb482f001af987d84a825842624c644f565def658da287af",
+    "review/cells-3.png": "9efb43868810740561f9d5deccda6c91638d67cc7a16466d88141f798dd88641",
+    "review/cells-4.png": "cae688117f5fcc18f3f36ecb6eb4c6a37561e6e0efd5873bb87d55dd5a11d979",
+    "review/comparison.png": "b53f55bc6759a755575b50e81da80327085d2a2add50a7719c9604792df8e960",
+    "review/gameplay.png": "06b840d363175ff985c96e0707ceb17e8e33bf7848b5fa57cbc0e62f9507462b",
+    "review/grid.png": "b0382edb24038ff370665805b2da136383aec6861da427a6e0eab10a20cf02ab",
+    "review/map.png": "0c275f9359bf58c495a9475cabd57f14d347ce842c0f6e8336e22e148a691e30",
+    "review/native-full.png": "d55d95ec9f8f3fdba918d3ca501b7dd34a238afeaeb6458a490f7158c72ab26e",
+    "review/native-target.png": "d55d95ec9f8f3fdba918d3ca501b7dd34a238afeaeb6458a490f7158c72ab26e",
+    "review/original.png": "a25c729935bbb7c754851037d7e6b275131a2a97888f5e8f33621cab241d35bf",
+    "review/rebuilt.png": "0f300f58397d8ade0ab495a4f48b893f6c6368b3d26dc47e4e392ba3cbd5a9c1"
+  }
+}
