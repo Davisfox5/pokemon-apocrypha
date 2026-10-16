@@ -1,4 +1,14 @@
-## Current: R02 aligned groves and northern-edge wall
+## Current: R02 owner-marked three-level contours
+
+Read `gba/art/johto-common/rocks/r02-contours/README.md`. Owner markup supersedes
+the prior northern-edge wall request. Two stacked northwest rises; upper boundary
+turns east between tree rows; green northern right run removed; southwest bend
+connected and recolored. Whole tree rows moved at regular pitch. Both stairs still
+rise east. Northern connector restored. Engine c5ef879f46, draft PR12. Build,
+Porymap equality, headless routes/barriers/stairs and save/Continue pass. 399 cells
+reviewed; owner approval pending. No desktop emulator or production merge.
+
+## Superseded: R02 aligned groves and northern-edge wall
 
 Read `gba/art/johto-common/rocks/r02-groves/README.md`. Rebuilt complete tree bands
 rather than individual shifts; no overlap in their trunk footprints or vertical

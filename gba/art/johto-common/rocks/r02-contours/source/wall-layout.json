@@ -1,0 +1,591 @@
+{
+  "lower_boundary": [
+    [
+      0,
+      4
+    ],
+    [
+      14,
+      4
+    ],
+    [
+      14,
+      25
+    ],
+    [
+      8,
+      25
+    ],
+    [
+      8,
+      31
+    ]
+  ],
+  "upper_boundary": [
+    [
+      0,
+      3
+    ],
+    [
+      15,
+      3
+    ],
+    [
+      15,
+      14
+    ],
+    [
+      31,
+      14
+    ],
+    [
+      31,
+      16
+    ],
+    [
+      32,
+      16
+    ],
+    [
+      32,
+      25
+    ]
+  ],
+  "deleted_green": {
+    "x": 32,
+    "y": [
+      0,
+      15
+    ]
+  },
+  "yellow_recolored": {
+    "x": 8,
+    "y": [
+      26,
+      31
+    ]
+  },
+  "levels": [
+    0,
+    1,
+    2
+  ],
+  "source": "owner annotated photo; hand-drawn lines snapped to native 16px cells",
+  "cells": [
+    {
+      "x": 0,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 8,
+      "y": 25,
+      "family": "lower southwest turn"
+    },
+    {
+      "x": 8,
+      "y": 26,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 8,
+      "y": 27,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 8,
+      "y": 28,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 8,
+      "y": 29,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 8,
+      "y": 30,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 8,
+      "y": 31,
+      "family": "lower 0->1 side; yellow color correction"
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 9,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 9,
+      "y": 25,
+      "family": "lower 0->1 rear rim"
+    },
+    {
+      "x": 10,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 10,
+      "y": 25,
+      "family": "lower 0->1 rear rim"
+    },
+    {
+      "x": 11,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 11,
+      "y": 25,
+      "family": "lower 0->1 rear rim"
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 12,
+      "y": 25,
+      "family": "lower 0->1 rear rim"
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "family": "lower 0->1 front"
+    },
+    {
+      "x": 13,
+      "y": 25,
+      "family": "lower 0->1 rear rim"
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "family": "lower 0->1 outer corner"
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 17,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 18,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 19,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 20,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 21,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 22,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 23,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 24,
+      "family": "lower 0->1 side"
+    },
+    {
+      "x": 14,
+      "y": 25,
+      "family": "lower southwest inner turn"
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "family": "upper 1->2 outer corner"
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 15,
+      "y": 14,
+      "family": "upper 1->2 inner corner"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 17,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 18,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 19,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 21,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 22,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 23,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 24,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 25,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 26,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 27,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 28,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 29,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 30,
+      "y": 14,
+      "family": "upper 1->2 front"
+    },
+    {
+      "x": 31,
+      "y": 14,
+      "family": "upper 1->2 outer corner"
+    },
+    {
+      "x": 31,
+      "y": 15,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 31,
+      "y": 16,
+      "family": "upper 1->2 inner step"
+    },
+    {
+      "x": 32,
+      "y": 16,
+      "family": "upper 1->2 outer step"
+    },
+    {
+      "x": 32,
+      "y": 17,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 18,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 19,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 20,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 21,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 22,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 23,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 24,
+      "family": "upper 1->2 side"
+    },
+    {
+      "x": 32,
+      "y": 25,
+      "family": "upper 1->2 side"
+    }
+  ]
+}
