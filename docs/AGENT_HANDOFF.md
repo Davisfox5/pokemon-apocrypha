@@ -1,4 +1,14 @@
-## Current: R02 owner-marked three-level contours
+## Current: R02 second owner markup
+
+Read `gba/art/johto-common/rocks/r02-markup2/README.md`. Exact one-cell orange tree
+shifts, southwest wall shifted east, right wall extended south, green old wall
+removed, yellow corners and gate terrain join repaired. Adjacent forest adjusted
+to prevent trunk/rock overlap and open boundary gaps. Engine 3f94e996f2, draft PR12.
+Build, Porymap equality, background stairs/routes/barriers and save/Continue pass.
+779 cells reviewed; owner visual approval pending. No production merge or desktop
+emulator. Three design levels and both installed stair flights retained.
+
+## Superseded: R02 owner-marked three-level contours
 
 Read `gba/art/johto-common/rocks/r02-contours/README.md`. Owner markup supersedes
 the prior northern-edge wall request. Two stacked northwest rises; upper boundary
