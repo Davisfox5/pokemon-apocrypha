@@ -1,0 +1,42 @@
+{
+  "status": "agent inspected; owner approval pending",
+  "cells": 408,
+  "quadrants": 1632,
+  "scope": "reconstructed bands and neighbors, full vertical wall, native screenshots",
+  "changes": [
+    "Replaced individual shifts with shared two-cell-pitch tree bands",
+    "No overlapping rebuilt 2x2 trunk footprints; no tree/vertical-face overlap",
+    "Full wall to northern edge per explicit user clarification",
+    "Northern approach now follows west rim, tall grass and existing eastward stairs"
+  ],
+  "reference_limits": "HGSS forest boundaries guide the groups; approved 32x48 T01 artwork sets native spacing. Full northern wall is an explicit owner-requested adaptation, not a claim of exact HGSS geography.",
+  "sha256": {
+    "review/cells-16.png": "eb5ec6aaceb3d7ea36e08170c9c2ae40d7d813222f0de56b9fdd32b13649324c",
+    "review/cells-17.png": "cea745d4bcc5c3056b1104e4764f39a17f0163cffff7a79ded0cb189fa8be290",
+    "review/before.png": "38cec508aa93ff08e809030ea4d8e50897cafcb001a854a2f8115dd3e29f662b",
+    "review/native-target.png": "624211ef6926e295859d77ef201941c46d984821ef40bf60ca8744b83f0419e2",
+    "review/cells-15.png": "769e6f2cf7b77c0f868866a80ae895e598546978d0f1ba38fcca49fcf60ffda2",
+    "review/cells-14.png": "29fcb78fb9a1eca922c4057b3f2ac247406030b1a66ba3154b06bc8d74b6d865",
+    "review/cells-10.png": "ad75c080b1475d8326f33a647d4717fdf47799cdd5c3efde36daf4967ef959a6",
+    "review/cells-11.png": "410cb637ff53018ec685115ac4e13a3698d80ecd6fe9764110f9ac80cf185ee1",
+    "review/cells-13.png": "690cb4f8376b157d47d175f0373182be385ac474ebf2d3cc6d9a8cb688f8cccc",
+    "review/original-full.png": "42d9581a4b7f89e72d147f64ed879b016056db1a6435da4e92836f5388f6550d",
+    "review/cells-12.png": "c77824f5be3cf1494c56d61d2f91bbcb6f5c0a49a2fe4bec8a0e048d13c70aa6",
+    "review/native-full.png": "624211ef6926e295859d77ef201941c46d984821ef40bf60ca8744b83f0419e2",
+    "review/map.png": "924a8d56a86abe4375f2afc16f8ccf116f2cd35d77b45213947d690297792802",
+    "review/original.png": "ed24afd31632978621a414c0f934494e3fb16b8ec414c23dd12c4b0fa098e1d7",
+    "review/cells-8.png": "bdd850408902e8c50aaedfda199eeea4128f3d12ff94a6513311f3e8dd9cbceb",
+    "review/comparison.png": "f0cb72639571ba0813f8dff3a54cff305f091690608cbd5c3116befb210cfe0f",
+    "review/cells-9.png": "e46b84dfaf7f6afb74114f2863bb0de81d0a9b9d8ef130c7e0b59aa316fe0c27",
+    "review/gameplay.png": "c09c22ab3ade77164a4740fd3c0720bae875b5b581e226a9258968a0e4c33194",
+    "review/cells-7.png": "c3a145a97632522503d15d322185a7d7a4cc7c621243b1662f7866898b6ba597",
+    "review/cells-6.png": "03b0d2a795c928243ccbcfbd34e9de41774aa2de5e44aeee299990513612b716",
+    "review/cells-4.png": "a07c3201af803c6a9da7972944d84b50ea46ecbd745db5d60bbf11263a3e0313",
+    "review/cells-5.png": "c5295efa681ceaf81cf7eff2ab55b05c2689456dc9d8d0b7879966384e147c4b",
+    "review/cells-1.png": "32c618d90af7b172ef499dab2cf21575b7592bacf37acc84e22de103d400e976",
+    "review/cells-2.png": "fd764b901f756e0c0f0c11838fe7f896ec1ee41d0d469970cc146235b4b2085a",
+    "review/cells-3.png": "2a3cfe072329c99af8a369454f502833e6480409949cf987366d528f8f758271",
+    "review/before-full.png": "86e82fc14953667522354876ea950592d26201cef7e9ce0ec955962c3901653b",
+    "review/north-to-south.png": "47cea88e9f62c6277df3cfb02cee162c2dd572d4a959af9cdf9ce3e6faca9aa5"
+  }
+}

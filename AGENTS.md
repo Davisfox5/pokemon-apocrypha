@@ -122,7 +122,9 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   placement. A right-hand wall is not automatically a mirror of the left wall.
   Install the reviewed stair master, align both landings and movement to its rise,
   and keep complete trees on ground planes with no canopy painted over vertical
-  rock faces. Relocate whole trees and review their collision; never crop them.
+  rock faces. Realign complete neighboring rows and check exclusive 2x2 trunk
+  footprints; never shift an isolated tree into its neighbor or crop a crown.
+  Review the full forest boundary and route access after moving a row.
 - Transition cleanup must preserve authored irregular terrain contours. Select edges,
   caps, corners and backing from immediate neighboring materials, orientation and
   height. Do not globally straighten, round or flatten dirt paths when correcting

@@ -1,4 +1,6 @@
-Current R02 ascent/tree correction: [comparison](../gba/art/johto-common/rocks/r02-elevation/review/comparison.png), [installed stair identity](../gba/art/johto-common/rocks/r02-elevation/review/installed-stair-proof.png), [evidence](../gba/art/johto-common/rocks/r02-elevation/README.md). Both flights rise east; no trees on vertical faces. Native checks pass; owner approval pending.
+Current R02 groves: [full-height comparison](../gba/art/johto-common/rocks/r02-groves/review/north-to-south.png), [full route](../gba/art/johto-common/rocks/r02-groves/review/native-full.png), [evidence](../gba/art/johto-common/rocks/r02-groves/README.md). Rows realigned; right wall reaches northern edge as explicitly requested. Northern access now uses existing stair crossing. Native checks pass; owner visual approval pending.
+
+Rejected R02 tree placement: [comparison](../gba/art/johto-common/rocks/r02-elevation/review/comparison.png), [installed stair identity](../gba/art/johto-common/rocks/r02-elevation/review/installed-stair-proof.png), [evidence](../gba/art/johto-common/rocks/r02-elevation/README.md). Both flights rise east; no trees on vertical faces. Native checks pass; owner approval pending.
 
 Rejected R02 contextual borders: [comparison](../gba/art/johto-common/rocks/r02-context/review/comparison.png), [mirrors](../gba/art/johto-common/rocks/r02-context/review/mirrors.png), [evidence](../gba/art/johto-common/rocks/r02-context/README.md). Irregular path restored, both faces and upper run completed. Native checks pass; owner approval pending.
 

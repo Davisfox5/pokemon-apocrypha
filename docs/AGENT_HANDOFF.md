@@ -1,4 +1,17 @@
-## Current: R02 eastward ascent and tree placement correction
+## Current: R02 aligned groves and northern-edge wall
+
+Read `gba/art/johto-common/rocks/r02-groves/README.md`. Rebuilt complete tree bands
+rather than individual shifts; no overlap in their trunk footprints or vertical
+rock. Owner explicitly requested the right wall continue to the northern edge.
+It now reaches y0. The north clearing connects via the west rim/tall grass/existing
+east stair, not the former northern shortcut. Both installed stair sections and
+directions preserved. Engine `768efc0592eb0d4761a2a8aaa13ad8ce177bf151` on PR12.
+Build, Porymap/native equality, headless north route, stairs/barriers and save/Continue
+pass. 408 cells /1632 quadrants reviewed; owner approval pending. No desktop
+emulator or production merge. Unreferenced secondary tiles reclaimed with full
+native equality; no live IDs repacked. Source tree anchors recorded explicitly.
+
+## Rejected tree placement: R02 eastward ascent correction
 
 Read `gba/art/johto-common/rocks/r02-elevation/README.md`. Owner rejected the prior
 map's stale right stairs, reversed rise, misaligned landing and trees on vertical
