@@ -213,7 +213,7 @@ class Retile:
         for i, (x, y) in enumerate(cells):
             m = n.mid(x, y); attr = n.attr(m)
             lb = self.L[y*16:y*16+16, x*16:x*16+16]; vals, cnt = np.unique(lb, return_counts=True); dom = str(vals[cnt.argmax()])
-            if dom in STRUCTURE or np.isin(lb, ['?', 'H']).sum() > 12: exact.add(keyof(i)); continue
+            if dom in STRUCTURE or (lb == '?').sum() > 64: exact.add(keyof(i)); continue
             groups.setdefault((''.join(sorted(set(lb.ravel().tolist()))), (attr >> 12) & 3, attr & 255), []).append(i)
         distinct = {g: len({keyof(i) for i in idx}) for g, idx in groups.items()}
         total = sum(distinct.values()) + len(exact); self.log['distinct_squares_before_vq'] = total; self.log['exact_structure_squares'] = len(exact)
@@ -257,11 +257,21 @@ class Retile:
         self.rep = {i: k for k, members in keys.items() for i in members}
         if len(distinct) <= budget: return
         # structure glyphs (railway, pylon, gate, docks, boulders, signs, stairs) stay exact; terrain glyphs share the rest
-        exact_keys = {k for k, members in keys.items() if any(self.block_labels[i] in STRUCTURE for i in members)}
+        struct_keys = {k for k, members in keys.items() if any(self.block_labels[i] in ('?', 'S') for i in members)}
+        cap = int(budget*0.4); exact_keys = set(struct_keys)
+        if len(struct_keys) > cap:      # too many structure glyphs: merge them lightly among themselves
+            ks = list(struct_keys); X = np.array([self.q_rgb[keys[k][0]].reshape(-1) for k in ks], float); wts = np.array([len(keys[k]) for k in ks], float)
+            C, a = kmeans(X, cap, 15); exact_keys = set()
+            for j in range(cap):
+                m = np.flatnonzero(a == j)
+                if len(m) == 0: continue
+                d = ((X[m]-C[j]) ** 2).sum(1) / np.sqrt(wts[m]); med = ks[m[d.argmin()]]; exact_keys.add(med)
+                for mi in m:
+                    for i in keys[ks[mi]]: self.rep[i] = med
         budget_terrain = budget - len(exact_keys)
         per_bank = {}
         for k in distinct:
-            if k not in exact_keys: per_bank.setdefault(k[0], []).append(k)
+            if k not in struct_keys: per_bank.setdefault(k[0], []).append(k)
         weights = {b: len(v) ** 0.8 for b, v in per_bank.items()}; tot = sum(weights.values())
         self.log['glyph_vq'] = {'exact_structure_glyphs': len(exact_keys), 'terrain_budget': budget_terrain, 'per_bank': {str(b): [len(v), max(4, int(budget_terrain*weights[b]/tot))] for b, v in per_bank.items()}}
         for b, ks in per_bank.items():
