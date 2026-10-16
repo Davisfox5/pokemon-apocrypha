@@ -1,4 +1,23 @@
-## Current: rock and mountain comparison ready for owner review
+## Current: R02 side-cliff pilot ready for owner review
+
+Owner chose the R-series original HGSS references as the preferred direction and
+authorized an R02 original/rebuild/map comparison. See
+`gba/art/johto-common/rocks/r02-pilot/README.md` and `review/comparison.png`.
+Rebuilt west-facing rock and its stair surround into transparent 16x16 modules,
+with the previous S04 neutral stairs and independent current-route ground. The
+source-tree occlusion repairs and 15-color rock palette reduction are explicit in
+`evidence.json`. The comparison preserves equal scale; its middle panel exposes
+joins without foliage. The right panel comes from native compiled tile decoding.
+
+Porytiles and RGB555 round-trip checks pass with zero pixel errors; outside the
+eight-cell pilot, every map pixel is preserved. Source indexed exports are exact.
+Visually inspected final comparison and transparent modules. Engine remains clean
+at `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. No installation, ROM change or emulator
+run. This is an offline native preview, not runtime proof. Only the west face and
+stair surround are built; plateau corners, other directions and cave mouths remain
+next steps after owner feedback. Reproduce via `johto_common/r02_pilot.py`.
+
+## Previous: rock and mountain comparison ready for owner review
 
 Owner accepted the preceding signs/stairs work and requested comparison of original
 Gen 3 rock, existing Johto conversions and Gen 4 source-map rock families before
