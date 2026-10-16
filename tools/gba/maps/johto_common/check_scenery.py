@@ -16,9 +16,13 @@ def main():
         key=r['id'];assert key not in ids;ids.add(key)
         a=rgba(P/r['input']);b=rgba(P/r['master']);keep=b[...,3]>0
         assert a.shape==b.shape and np.all(a[keep,3]>0),key
-        assert np.array_equal(a[keep,:3],b[keep,:3]), ('Changed source color',key)
+        expected=a.copy()
+        for old,new in r.get('color_repairs',[]):expected[np.all(a[...,:3]==old,axis=2),:3]=new
+        assert np.array_equal(expected[keep,:3],b[keep,:3]), ('Changed source color',key)
         assert set(np.unique(b[...,3]))<={0,255} and np.all(b[~keep]==0),key
-        assert np.array_equal(b,rgba(P/f'source/{key}.idx.png')), ('Native palette round trip',key)
+        native=b.copy()
+        for old,new in r.get('indexed_color_map',[]):native[np.all(b[...,:3]==old,axis=2)&keep,:3]=new
+        assert np.array_equal(native,rgba(P/f'source/{key}.idx.png')), ('Native palette round trip',key)
         assert hashlib.sha256((P/r['master']).read_bytes()).hexdigest()==r['sha256'],key
         count=int(((a[...,3]>0)&~keep).sum());assert count==r['removed_background_pixels'],key
         removed+=count;changed+=count>0
@@ -34,7 +38,15 @@ def main():
             assert not np.any(keep&np.all(b[...,:3]==(56,184,232),axis=2)),key
         if key in ['L11','L12','L13']:
             assert not np.any(keep&np.all(b[...,:3]==(72,152,112),axis=2)),key
-    assert len(ids)==51
-    print(f'PASS: {len(ids)} assets; {changed} terrain masks separated; {removed} background pixels cleared; retained colors, 4bpp exports and native animation sheets exact')
+    assert len(ids)==52
+    for key,top in [('P09',0),('P10',8)]:
+        master=rgba(P/f'source/{key}.png');native=rgba(P/f'source/{key}.idx.png')
+        assert tuple(master[top+12,6,:3])==(136,32,8)
+        assert tuple(native[top+12,6,:3])==(136,32,8), 'Red mailbox front lost'
+        assert np.array_equal(master[:,:,3],native[:,:,3])
+    fence=rgba(P/'source/P08.png');keep=fence[:,:,3]>0
+    assert np.all(fence[keep,1]<=fence[keep,2]), 'Green fence fringe'
+    assert np.all(fence[3:7,:,1]==fence[3:7,:,2])
+    print(f'PASS: {len(ids)} assets; {changed} terrain masks separated; {removed} background pixels cleared; source colors and documented repairs, 4bpp exports and native animation sheets verified')
 
 if __name__=='__main__':main()

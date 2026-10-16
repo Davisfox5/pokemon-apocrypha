@@ -1,4 +1,18 @@
-## Current: scenery foreground cleanup ready for review
+## Current: fence, mailbox and signpost refinements ready for review
+
+Owner accepted most scenery and requested fence-edge cleanup, an accurate mailbox
+and Johto signposts. The scenery catalog now has 52 entries. P08's two cyan metal
+highlight colors are neutral gray, with unchanged silhouette. P09/P10 now use the
+original HGSS red letterbox rather than the native conversion that blackened its
+front. Full RGBA source has 24 colors; indexed output has 15 carefully chosen shades.
+P12 is the traced HGSS wooden signpost, with no path, lawn or ground shadow.
+See `gba/art/johto-common/scenery/review/fence-mailbox-signpost.png` and `README.md`.
+Reproducible extraction, source-color/explicit-remap checks, transparency, indexed
+exports and approved-tree checks pass. Visually inspected on checker, grass and
+dirt, including indexed mailbox output. Source-art review only; no engine, map or
+ROM changed. Owner review remains pending. Engine is still `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`.
+
+## Previous: scenery foreground cleanup ready for review
 
 Following approval of all five tree masters, the owner requested background cleanup
 for ledges and other scenery. See `gba/art/johto-common/scenery/README.md` and

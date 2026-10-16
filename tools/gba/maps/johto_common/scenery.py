@@ -61,13 +61,18 @@ def build(game):
     def add(key,label,category,a,b,provenance,method,**extra):
         assert a.shape==b.shape
         keep=b[...,3]>0
-        assert np.all(a[keep,3]>0) and np.array_equal(a[keep,:3],b[keep,:3])
+        expected=a.copy()
+        for old,new in extra.get('color_repairs',[]):expected[np.all(a[...,:3]==old,axis=2),:3]=new
+        assert np.all(a[keep,3]>0) and np.array_equal(expected[keep,:3],b[keep,:3])
         assert set(np.unique(b[...,3])) <= {0,255}
         removed=int(((a[...,3]>0)&~keep).sum())
         a=a.copy();a[a[...,3]==0]=0;b=b.copy();b[~keep]=0
         Image.fromarray(a).save(OUT/f'inputs/{key}.png')
         Image.fromarray(b).save(OUT/f'source/{key}.png')
-        colors=indexed(b,OUT/f'source/{key}.idx.png')
+        native=b.copy()
+        for old,new in extra.get('indexed_color_map',[]):native[np.all(b[...,:3]==old,axis=2)&keep,:3]=new
+        colors=indexed(native,OUT/f'source/{key}.idx.png')
+        extra['master_opaque_colors']=len(np.unique(b[keep,:3],axis=0))
         if provenance.get('engine_path'):
             # Native OBJ graphics share an engine palette: retain their original
             # index ordering, not merely equivalent decoded RGBA colors.
@@ -140,8 +145,6 @@ def build(game):
             ('W02','Cherrygrove water rock','water',(320,224,336,240),None),
             ('W03','Cherrygrove reef','water',(160,208,256,272),None)]),
         ('NewBarkTown','cherrygrove','new_bark',[
-            ('P09','New Bark mailbox / north','props',(144,88,160,112),[4]),
-            ('P10','New Bark mailbox / house','props',(336,256,352,288),[4]),
             ('P11','New Bark windmill','props',(384,48,416,112),[4]),
             ('F06','New Bark flowers','plants',(128,288,192,320),[4])])]:
         native,banks=decode(game,map_name,primary,secondary)
@@ -150,18 +153,45 @@ def build(game):
             terrain=np.isin(bb,[0,1]) if allowed is None else ~np.isin(bb,allowed)
             out[terrain,3]=0
             if key=='P06':out=clear_color(out,(132,132,132))
-            if key in ('P09','P10'):
-                # Native letterbox silhouette from hgss.mailbox(): 12x19 box,
-                # 4x5 post. Neighboring foliage/water is outside that outline.
-                mask=np.zeros(out.shape[:2],bool);top=0 if key=='P09' else 8
-                mask[top:top+19,4:16]=True;mask[top+19:top+24,8:12]=True
-                # One detached source-ground fleck at the upper right.
-                mask[top,15]=False
-                out[~mask,3]=0
+            repairs=[]
+            if key=='P08':
+                # These two pixels are continuous metal highlights, not turf.
+                # Neutralize their inherited cyan cast; retain fence geometry.
+                repairs=[[[140,189,189],[180,180,180]],[[115,173,189],[160,160,160]]]
+                for old,new in repairs:out[np.all(out[...,:3]==old,axis=2),:3]=new
             assert (out[...,3]>0).any(),key
             add(key,label,cat,a,out,dict(engine_map=map_name,crop=list(box),primary=primary,secondary=secondary),
                 'Decode current native map pixels; remove destination terrain palette pixels.'+(' Clear gray donor-ground outside the sign frame.' if key=='P06' else ''),
-                allowed_banks=allowed)
+                allowed_banks=allowed,color_repairs=repairs)
+    # Restore the letterbox from the actual HGSS render before its colors were
+    # collapsed into the shared native prop palette. Both anchors reuse one box.
+    ref=ROOT/'gba/art/johto-v1/references/cherrygrove-hgss.png'
+    raw=rgba(ref)[191:215,695:707].copy()
+    mask=np.zeros((24,12),bool);mask[:19]=True;mask[0]=False;mask[0,2:9]=True;mask[19:24,4:8]=True
+    # Keep full source RGB in RGBA; only native export merges close shade steps.
+    palette=np.array([(32,32,32),(96,96,96),(112,16,0),(136,32,8),
+        (152,56,32),(192,64,32),(200,72,40),(232,88,48),(232,112,56),
+        (240,120,64),(128,120,120),(152,152,144),(168,168,160),
+        (176,184,168),(184,192,184)],dtype=np.int32)
+    native_map=[]
+    for color in np.unique(raw[mask,:3],axis=0):
+        near=palette[np.argmin(((palette-color.astype(int))**2).sum(axis=1))]
+        if not np.array_equal(color,near):native_map.append([color.tolist(),near.tolist()])
+    for key,top in [('P09',0),('P10',8)]:
+        a=np.zeros((24+top,16,4),np.uint8);a[top:,4:]=raw
+        b=a.copy();b[top:,4:,3]=mask*255
+        add(key,'HGSS red mailbox / '+('north anchor' if top==0 else 'house anchor'),'props',a,b,
+            dict(path=str(ref.relative_to(ROOT)),sha256=sha(ref),crop=[695,191,707,215]),
+            'Trace original red letterbox and complete post; remove grass, cast shadow and neighboring house pixel. Restore original red front and narrow dark slot.',
+            indexed_color_map=native_map,placement='One shared letterbox with two existing canvas anchors. RGBA retains original HGSS colors; indexed export merges similar shade steps into 15 colors.')
+    # Original Johto wooden town sign. Bounds follow board, upper peg and post,
+    # rather than guessing terrain colors that are also used in the timber.
+    a=rgba(ref)[130:162,662:694].copy();b=a.copy();mask=np.zeros((32,32),bool)
+    mask[4:9,5:9]=True;mask[8:19,0:15]=True;mask[19:23,5:9]=True
+    b[~mask,3]=0
+    add('P12','HGSS wooden signpost','props',a,b,
+        dict(path=str(ref.relative_to(ROOT)),sha256=sha(ref),crop=[662,130,694,162]),
+        'Trace complete original wooden board, upper peg and support post. Remove all donor lawn, path and cast ground shadow.',preview_box=[0,0,16,32])
     for key,name,label,h in [('N01','ball_poke','Item ball',32),('N02','pushable_boulder','Strength boulder',16),('N03','breakable_rock','Rock Smash rock',16)]:
         path=game/f'graphics/object_events/pics/misc/{name}.png';a=rgba(path)
         add(key,label,'native',a,a.copy(),dict(engine_path=str(path.relative_to(game)),sha256=sha(path)),
