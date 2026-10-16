@@ -1,0 +1,166 @@
+{
+  "status": "agent reviewed; owner approval pending",
+  "cells": 121,
+  "quadrants": 484,
+  "findings_fixed": [
+    "right flight replaced with exact installed left source",
+    "both flights rise east one row in both lanes",
+    "right dirt landing aligns with upper stair edge",
+    "five whole trees moved off vertical faces; no face/tree overlap"
+  ],
+  "checks": {
+    "base_engine": "492da86574614f83e1c9e99c3d5de9686029b8e5",
+    "installed": true,
+    "runtime_tested": true,
+    "tree_wall_overlap_pixels": 0,
+    "tree_moves": [
+      {
+        "before": [
+          14,
+          14
+        ],
+        "after": [
+          15,
+          14
+        ]
+      },
+      {
+        "before": [
+          32,
+          15
+        ],
+        "after": [
+          33,
+          15
+        ]
+      },
+      {
+        "before": [
+          32,
+          17
+        ],
+        "after": [
+          33,
+          17
+        ]
+      },
+      {
+        "before": [
+          13,
+          25
+        ],
+        "after": [
+          12,
+          25
+        ]
+      },
+      {
+        "before": [
+          31,
+          25
+        ],
+        "after": [
+          30,
+          25
+        ]
+      }
+    ],
+    "stairs_rise": "east on both flights",
+    "attribute_changes": [
+      {
+        "x": 32,
+        "y": 21,
+        "before": 4096,
+        "after": 4172
+      },
+      {
+        "x": 32,
+        "y": 22,
+        "before": 4096,
+        "after": 4170
+      },
+      {
+        "x": 32,
+        "y": 23,
+        "before": 4096,
+        "after": 4174
+      }
+    ],
+    "collision_changes": [
+      {
+        "x": 32,
+        "y": 21,
+        "before": 3,
+        "after": 0
+      }
+    ],
+    "existing_paths_outside_landing_unchanged": true,
+    "affected_cells": 62,
+    "reused_unreferenced_metatiles": [
+      59,
+      60,
+      148,
+      161,
+      177,
+      178,
+      185,
+      193,
+      194,
+      195,
+      196,
+      202,
+      203,
+      204,
+      205,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      250,
+      251,
+      257,
+      258
+    ],
+    "tile_slots": 995,
+    "appended_tiles": 67,
+    "appended_metatiles": 0,
+    "new_palette_banks": [],
+    "native_pixel_errors": 0,
+    "collision_elevation_changes": 1,
+    "rom_sha256": "61b2774c9addef9e7f55805a12df84f08de9d39a1c8533c2b8f07081ba133680",
+    "porymap_native_pixel_errors": 0,
+    "engine_commit": "6f68aaf57b3c2f117c341d13ba485d9f9ed4e9aa",
+    "production_installed": false,
+    "review_checkout_installed": true,
+    "desktop_emulator_opened": false,
+    "installed_stair_sections_exact_source_match": true
+  },
+  "reviewed_sha256": {
+    "review/before.png": "3c3418c3e1fff071be53120854853c13b6fecd9a12312bf4cef831591c25257d",
+    "review/native-target.png": "86e82fc14953667522354876ea950592d26201cef7e9ce0ec955962c3901653b",
+    "review/installed-stair-proof.png": "39fff9bfe679e55542517ecb2bf65bbf0d02e802c96ca6eb5a4f59f549d97749",
+    "review/original-full.png": "42d9581a4b7f89e72d147f64ed879b016056db1a6435da4e92836f5388f6550d",
+    "review/native-full.png": "86e82fc14953667522354876ea950592d26201cef7e9ce0ec955962c3901653b",
+    "review/map.png": "e930b4655132de4a271e5becfb203832990764ab507736a00af42e47a66707fa",
+    "review/original.png": "b864424920d18eb3c45ac84716a9844a17170db45bb4e1f4894267d21f33ed72",
+    "review/comparison.png": "d12591ca86ae5079c5ef09d35ea3698da9edc783d37e1ba4c8de661efa43e089",
+    "review/gameplay.png": "6fb45290722801061a72690080ed7994f29d66cefe6320f2187c9385a2c75f5f",
+    "review/cells-6.png": "b6897b82840412af4dc3073de4f5abf957069c9c2eab58a69508a8db4378af0d",
+    "review/cells-4.png": "aebc0533e02aa7bd854f58123dffba25a99f60ea7ead2a79806412479419e278",
+    "review/cells-5.png": "0e0e7aa42f9bed925fca0653ceff7c64397c90a9eda0282b1d7bff94e8300486",
+    "review/cells-1.png": "d329fb39397e9ed2139064c81f2a2ed25df55d6d1bb1011d69f45a37102db096",
+    "review/cells-2.png": "7e06f01aad7c66936b369f5ae6c1f8e8118152fbe300048116c2fe2ab8c11a93",
+    "review/cells-3.png": "b673596082959c70937ce0c675bdc56720fab5e7938df7629e0fb598d25e4bb1",
+    "review/before-full.png": "91fa8f99924c9dfcc9f857330e9f6879e4d6f0e87cc9c23cbedddcba163a71c2"
+  }
+}

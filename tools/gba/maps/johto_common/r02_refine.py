@@ -85,11 +85,12 @@ def render():
  save(strip,P/'source/assembled-section.png')
  return strip,parts
 
-def append_native(game,layers,affected,grid,attrs):
+def append_native(game,layers,affected,grid,attrs,reusable_ids=None):
  """Append tiles/metatiles and only unused palettes; preserve every existing ID."""
  t=Tileset(game,'johto_route36','johto_route36');folders=[game/'data/tilesets'/k/'johto_route36' for k in ['primary','secondary']]
  tilelist=[np.array(v,np.uint8).reshape(8,8) for v in t.tiles[0]]+[np.array(v,np.uint8).reshape(8,8) for v in t.tiles[1]]
  palettes=[t.pals[i>=6][i] for i in range(13)];used={v>>12 for b in t.blocks[0]+t.blocks[1] for v in b if v&1023};newbanks={};tilecache={a.tobytes():i for i,a in enumerate(tilelist)}
+ free_ids=list(reusable_ids or []);reused_ids=[]
  blocks=list(t.blocks[0]);attrib=list(t.attrs[0]);cache={(b,a):i for i,(b,a) in enumerate(zip(blocks,attrib))};newgrid=grid.copy()
  def tile(a):
   m=a[...,3]>0
@@ -113,7 +114,14 @@ def append_native(game,layers,affected,grid,attrs):
   for layer in layers:
    for q in range(4):entries.append(tile(layer[y*16+q//2*8:y*16+q//2*8+8,x*16+q%2*8:x*16+q%2*8+8]))
   key=(tuple(entries),int(attrs[y,x]));mid=cache.get(key)
-  if mid is None:mid=len(blocks);assert mid<512;blocks.append(key[0]);attrib.append(key[1]);cache[key]=mid
+  if mid is None:
+   if free_ids:
+    mid=free_ids.pop(0);oldkey=(blocks[mid],attrib[mid])
+    if cache.get(oldkey)==mid:cache.pop(oldkey)
+    blocks[mid]=key[0];attrib[mid]=key[1];reused_ids.append(mid)
+   else:mid=len(blocks);assert mid<512;blocks.append(key[0]);attrib.append(key[1])
+   cache[key]=mid
+  elif mid in free_ids:free_ids.remove(mid)
   newgrid[y,x]=int(grid[y,x]&0xfc00)|mid
  for i,folder in enumerate(folders):
   tiles=tilelist[:512] if i==0 else tilelist[512:];h=max(8,(len(tiles)+15)//16*8);a=np.zeros((h,128),np.uint8)
@@ -125,7 +133,7 @@ def append_native(game,layers,affected,grid,attrs):
  assert np.array_equal(grid&0xfc00,newgrid&0xfc00)
  native=Tileset(game,'johto_route36','johto_route36');image=np.array(native.map_image(newgrid.ravel().tolist(),82).convert('RGBA'));target=layers[0].copy();over(target,layers[1]);assert np.array_equal(image[:,:,:3],target[:,:,:3]),'native mismatch'
  save(image,P/'review/native-full.png')
- return dict(tile_slots=len(tilelist),appended_tiles=len(tilelist)-sum(len(v) for v in t.tiles),appended_metatiles=len(blocks)-len(t.blocks[0]),new_palette_banks=sorted(newbanks),native_pixel_errors=0,collision_elevation_changes=0)
+ return dict(reused_unreferenced_metatiles=reused_ids,tile_slots=len(tilelist),appended_tiles=len(tilelist)-sum(len(v) for v in t.tiles),appended_metatiles=len(blocks)-len(t.blocks[0]),new_palette_banks=sorted(newbanks),native_pixel_errors=0,collision_elevation_changes=0)
 
 def main(game,donor,install):
  assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=game,text=True).strip()==BASE

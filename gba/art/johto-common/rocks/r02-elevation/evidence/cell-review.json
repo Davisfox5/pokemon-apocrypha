@@ -1,0 +1,849 @@
+[
+  {
+    "x": 14,
+    "y": 13,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 13,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 16,
+    "y": 13,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 14,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 14,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 14,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 16,
+    "y": 14,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 17,
+    "y": 14,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 14,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 14,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 14,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 15,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 15,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 15,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 16,
+    "y": 15,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 17,
+    "y": 15,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 15,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 15,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 15,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 15,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 15,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 16,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 16,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 16,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 16,
+    "y": 16,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 17,
+    "y": 16,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 16,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 16,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 16,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 16,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 16,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 17,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 17,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 16,
+    "y": 17,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 17,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 17,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 17,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 17,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 17,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 18,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 18,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 18,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 18,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 18,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 19,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 19,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 19,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 19,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 19,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 20,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 20,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 20,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 20,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 20,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 36,
+    "y": 20,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 21,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 21,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 21,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 21,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 21,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 36,
+    "y": 21,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 22,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 22,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 22,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 22,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 22,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 36,
+    "y": 22,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 23,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 23,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 23,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 23,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 23,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 36,
+    "y": 23,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 12,
+    "y": 24,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 24,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 24,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 30,
+    "y": 24,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 24,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 24,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 24,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 24,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 24,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 36,
+    "y": 24,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 11,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 12,
+    "y": 25,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 25,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 25,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 29,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 30,
+    "y": 25,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 25,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 25,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 34,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 35,
+    "y": 25,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 11,
+    "y": 26,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 12,
+    "y": 26,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 26,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 26,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 26,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 29,
+    "y": 26,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 30,
+    "y": 26,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 26,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 26,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 26,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 11,
+    "y": 27,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 12,
+    "y": 27,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 27,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 27,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 15,
+    "y": 27,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 29,
+    "y": 27,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 30,
+    "y": 27,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 27,
+    "changed": true,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 27,
+    "changed": true,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 33,
+    "y": 27,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 12,
+    "y": 28,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 13,
+    "y": 28,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 14,
+    "y": 28,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 30,
+    "y": 28,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 31,
+    "y": 28,
+    "changed": false,
+    "material": "tree/landing/ground",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  },
+  {
+    "x": 32,
+    "y": 28,
+    "changed": false,
+    "material": "stone/stair",
+    "review": "inspected native quadrants, source comparison and assembled neighbors"
+  }
+]

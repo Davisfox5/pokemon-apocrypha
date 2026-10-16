@@ -1,0 +1,137 @@
+{
+  "base_engine": "492da86574614f83e1c9e99c3d5de9686029b8e5",
+  "installed": true,
+  "runtime_tested": true,
+  "tree_wall_overlap_pixels": 0,
+  "tree_moves": [
+    {
+      "before": [
+        14,
+        14
+      ],
+      "after": [
+        15,
+        14
+      ]
+    },
+    {
+      "before": [
+        32,
+        15
+      ],
+      "after": [
+        33,
+        15
+      ]
+    },
+    {
+      "before": [
+        32,
+        17
+      ],
+      "after": [
+        33,
+        17
+      ]
+    },
+    {
+      "before": [
+        13,
+        25
+      ],
+      "after": [
+        12,
+        25
+      ]
+    },
+    {
+      "before": [
+        31,
+        25
+      ],
+      "after": [
+        30,
+        25
+      ]
+    }
+  ],
+  "stairs_rise": "east on both flights",
+  "attribute_changes": [
+    {
+      "x": 32,
+      "y": 21,
+      "before": 4096,
+      "after": 4172
+    },
+    {
+      "x": 32,
+      "y": 22,
+      "before": 4096,
+      "after": 4170
+    },
+    {
+      "x": 32,
+      "y": 23,
+      "before": 4096,
+      "after": 4174
+    }
+  ],
+  "collision_changes": [
+    {
+      "x": 32,
+      "y": 21,
+      "before": 3,
+      "after": 0
+    }
+  ],
+  "existing_paths_outside_landing_unchanged": true,
+  "affected_cells": 62,
+  "reused_unreferenced_metatiles": [
+    59,
+    60,
+    148,
+    161,
+    177,
+    178,
+    185,
+    193,
+    194,
+    195,
+    196,
+    202,
+    203,
+    204,
+    205,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    250,
+    251,
+    257,
+    258
+  ],
+  "tile_slots": 995,
+  "appended_tiles": 67,
+  "appended_metatiles": 0,
+  "new_palette_banks": [],
+  "native_pixel_errors": 0,
+  "collision_elevation_changes": 1,
+  "rom_sha256": "61b2774c9addef9e7f55805a12df84f08de9d39a1c8533c2b8f07081ba133680",
+  "porymap_native_pixel_errors": 0,
+  "engine_commit": "6f68aaf57b3c2f117c341d13ba485d9f9ed4e9aa",
+  "production_installed": false,
+  "review_checkout_installed": true,
+  "desktop_emulator_opened": false,
+  "installed_stair_sections_exact_source_match": true
+}

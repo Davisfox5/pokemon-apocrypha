@@ -1,4 +1,6 @@
-Current R02 contextual borders: [comparison](../gba/art/johto-common/rocks/r02-context/review/comparison.png), [mirrors](../gba/art/johto-common/rocks/r02-context/review/mirrors.png), [evidence](../gba/art/johto-common/rocks/r02-context/README.md). Irregular path restored, both faces and upper run completed. Native checks pass; owner approval pending.
+Current R02 ascent/tree correction: [comparison](../gba/art/johto-common/rocks/r02-elevation/review/comparison.png), [installed stair identity](../gba/art/johto-common/rocks/r02-elevation/review/installed-stair-proof.png), [evidence](../gba/art/johto-common/rocks/r02-elevation/README.md). Both flights rise east; no trees on vertical faces. Native checks pass; owner approval pending.
+
+Rejected R02 contextual borders: [comparison](../gba/art/johto-common/rocks/r02-context/review/comparison.png), [mirrors](../gba/art/johto-common/rocks/r02-context/review/mirrors.png), [evidence](../gba/art/johto-common/rocks/r02-context/README.md). Irregular path restored, both faces and upper run completed. Native checks pass; owner approval pending.
 
 Superseded flattened R02 transitions: [comparison](../gba/art/johto-common/rocks/r02-transitions/review/comparison.png), [gameplay](../gba/art/johto-common/rocks/r02-transitions/review/gameplay.png), [review and evidence](../gba/art/johto-common/rocks/r02-transitions/README.md). Tall-grass edges, path corners and rock contacts refined; accepted wall/stairs/trees and movement preserved. Local native/Porymap/runtime checks pass; owner visual approval pending.
 

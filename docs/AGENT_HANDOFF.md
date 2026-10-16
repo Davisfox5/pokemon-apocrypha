@@ -1,4 +1,16 @@
-## Current: R02 contextual borders and continuous rock faces
+## Current: R02 eastward ascent and tree placement correction
+
+Read `gba/art/johto-common/rocks/r02-elevation/README.md`. Owner rejected the prior
+map's stale right stairs, reversed rise, misaligned landing and trees on vertical
+rock. Both actual flights now equal the shared source and climb east; right dirt
+landing follows the rise. Five whole trees relocated off faces. One collision and
+three behavior cells change. Engine `6f68aaf57b3c2f117c341d13ba485d9f9ed4e9aa` on PR12.
+Build, Porymap/native equality, both stair lanes/directions, shoulders, save/Continue
+pass. 121 cells /484 quadrants inspected. Owner visual approval pending. No desktop
+emulator, no production merge. 995 tile slots /488 metatiles; future tile capacity
+needs attention. Reused only proven unreferenced metatiles in this dedicated set.
+
+## Rejected: R02 contextual borders and continuous rock faces
 
 Owner rejected path smoothing. Start at `gba/art/johto-common/rocks/r02-context/README.md`.
 Irregular prior road contour restored; tall-grass and wall contacts use immediate
