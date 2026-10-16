@@ -1,3 +1,24 @@
+## Latest: Route 32 native visual cleanup (October 16)
+
+First outdoor map finished to the Union Cave cleanup standard. Every row of
+Codex's Route 32 reconstruction (`7049fd5d`) was compared with the registered
+HGSS overview in labelled strips, suspect areas at 4–10x, then the decoded
+glyphs. Macro layout, materials, trees and shared art were sound; ten local
+defects were repaired by scripted edits of the committed source (no generator
+replayed): gate-shadow trunk arcs, cave-mouth speckles, lawn under a rock end
+in open water, a bare sand square instead of the third stair tread, pier grain
+through the fishing-arm junction, a notched west coast pillar, missing deck
+shore lips, a flat placeholder pylon on surfable water, missing railway posts
+and missing flowers. Engine `48cefd3d` on `claude/route32-native-cleanup`
+([expansion PR #11](https://github.com/Davisfox5/pokeemerald-expansion/pull/11),
+stacked on #8); evidence in `gba/art/route32-native-cleanup/README.md`
+(hub PR #15). Porymap 6.3.1 export equals the native decode; the headless tour
+passes with save/reload/Continue. Twelve collision cells change, all Surf-only
+and listed. Left for the owner: the HGSS thin ridge at (24,23–27) that the
+reviewed grid treats as open lawn. Next: the same pass on Route 31 and Route
+30/29 once the owner says which of the competing drafts (#2/#4, #3/#6) is the
+base to refine.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

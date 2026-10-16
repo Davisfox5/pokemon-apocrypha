@@ -13,6 +13,7 @@ optional, never part of routine startup.
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Route 32 native visual cleanup (October 16) / first outdoor map at the Union Cave standard | ../gba/art/route32-native-cleanup/README.md | Engine `48cefd3d` (`claude/route32-native-cleanup`, expansion PR #11 on top of #8); scripted local repairs in `tools/gba/maps/route32_native_cleanup/`; owner visual review pending |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |
 | Edit or review the current Johto maps / shared Git source for Porymap, Poryscript, Porytiles, porygon | GBA_SHARED_SOURCE.md | `Davisfox5/pokeemerald-expansion@apocrypha`; `gba/art/johto-synthesis/README.md` for how the art was generated |
