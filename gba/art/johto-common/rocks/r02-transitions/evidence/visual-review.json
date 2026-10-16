@@ -1,0 +1,58 @@
+{
+  "status": "Agent inspection complete; owner visual acceptance pending",
+  "review_cells": 220,
+  "review_quadrants": 880,
+  "findings": [
+    {
+      "coordinates": "15\u201325,18\u201321",
+      "issue": "Old dirt/lawn fringe and edge masks inconsistent with raised landing",
+      "correction": "Recompose all39 tall-grass cells from approved transparent G-series masters selected by current native grass neighbors; independent destination ground and local root shading"
+    },
+    {
+      "coordinates": "15\u201331,21\u201323",
+      "issue": "Scalloped path borders and abrupt bend corners",
+      "correction": "Two-pixel material ramps and up-to-three-pixel corner rounding, continued across the full plateau path to avoid a mid-path old/new seam"
+    },
+    {
+      "coordinates": "13\u201315,18\u201325",
+      "issue": "Hard rock/lawn and rock/tall-grass contact",
+      "correction": "Two-pixel lower lawn contact shading and one-pixel upper earth lip outside the intact rock plane; stair mouths excluded"
+    }
+  ],
+  "preservation": {
+    "wall_and_stair_pixels_changed": 0,
+    "existing_tree_pixels_changed": 0,
+    "collision_elevation_changes": 0,
+    "metatile_behavior_changes": 0
+  },
+  "visual_review": [
+    "Ten original/previous/current coordinate-labelled sheets inspected at4x",
+    "Assembled comparison at2x",
+    "Actual grass entry/exit, eastern stair approach and lower-wall frames inspected at1x"
+  ],
+  "limits": [
+    "Other cliff families and the older eastern stair artwork remain outside this transition pass",
+    "Original HGSS vegetation spacing and field shape still differ from native layout",
+    "Owner approval remains separate from passing functional checks"
+  ],
+  "artifact_sha256": {
+    "review/before-full.png": "dcf3d553d24cc1f3779e58c8a272befb9642e56cecc28ecfd8fc493b93477abb",
+    "review/before.png": "b5d6538c4516df98066448aae5ab685208bd54c3c2ca46647a318d0aeacc189a",
+    "review/cells-1.png": "84deb6a68b3dbfdf02651dfdb00098818f06881dafee09f7f90084f9e8ff834a",
+    "review/cells-10.png": "ab1c48e84e872a76892bdceafa625296fdb9795df4e06473b07098c87e3e77b7",
+    "review/cells-2.png": "6ce73911a9bbd569dc1e18fd5db6ee2430c8b4ef151bb978af0f57e764e2b6bb",
+    "review/cells-3.png": "4febd2e94bc8e781e99d4cb2b5bd0317e0d7fd4cc40dbec3c2f1098fafc4b212",
+    "review/cells-4.png": "89f803ebcfe84c995f74bb384fccf9196d29a50a0b968a63b31ec4f8b1ac22c5",
+    "review/cells-5.png": "428bda4728eddb89839992374b81de9783d7afc8c59fe56334898625a6eb717d",
+    "review/cells-6.png": "9a72edbad08c501b1c92d5dabda151f99fb4663bc70b9ebb295a783d005c0688",
+    "review/cells-7.png": "848c2dc3f16f511c83e8284aa0bfc7b12ca40edd4fa01a3d386a9b98a06e9ba2",
+    "review/cells-8.png": "b4d559ef5116ab9b7260cc64f8a3b4491714260b2af84832ac703ef35c9b635e",
+    "review/cells-9.png": "0ef0b87255bd9261cf68e84720b5f911cbd9bcc7b5a45864f475b761e2ee17ba",
+    "review/comparison.png": "40c3f88a92fef5978225f2397c0c1cb5f136cad238b4d86e24369f75db00ba1e",
+    "review/gameplay.png": "b2a36bf3186d5c94ed1118df4088abfc9f63602cfe14ad8f847fbc0b4bca716d",
+    "review/map.png": "cf0708a7c16eeca017893e7bd168b6a99dc87d2c018562bcf4289c393cae449d",
+    "review/native-full.png": "3fb0602c992add1e4fb064f6da34c5ecb53064f5b00ce593fba59fcb819742d9",
+    "review/native-target.png": "3fb0602c992add1e4fb064f6da34c5ecb53064f5b00ce593fba59fcb819742d9",
+    "review/original.png": "dcb032fa5771242492fe86750104a2db319191d7785fefe8a11b5f5160c5ce78"
+  }
+}

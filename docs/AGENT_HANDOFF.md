@@ -1,4 +1,19 @@
-## Current: R02 wall/stair/landing corrections
+## Current: R02 terrain transition review
+
+Owner liked the corrected wall/stairs/raised landing and requested terrain-edge
+cleanup. Start at `gba/art/johto-common/rocks/r02-transitions/README.md`.
+Corrected tall-grass neighbor masks and donor-ground fringes, rounded path corners,
+continued the border through the plateau, and added narrow rock contact edges.
+Accepted wall/stair and existing tree pixels, collision/elevation/behavior are
+unchanged. 220 cells / 880 quadrants inspected; actual Porymap/native equality,
+build, grass/path/stair movement and save/Continue pass.
+
+Engine `5b14c523c1a0688f3c291b485998bd91fd05dc86` is on draft PR #12. Original engine checkout
+untouched; no desktop emulator opened. Visual approval remains pending. Existing
+eastern stair art and broader cliff rollout remain outside this pass. All 13 map
+palette banks are occupied; subsequent additions must reuse/consolidate them.
+
+## Previous: R02 wall/stair/landing corrections
 
 Owner identified incomplete lower wall, mismatched stair height and an unraised
 east path. The new sample at `gba/art/johto-common/rocks/r02-joins/README.md`
