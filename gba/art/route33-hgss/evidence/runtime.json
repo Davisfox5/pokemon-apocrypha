@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "4fe4157e9bf123d4406fa57808d7ff681656676a24ede625f9cbeadec9555ef6",
+  "rom_sha256": "9a79208988dc48fabfdaa57336e798807473daa1f07891a953a54270089389c3",
   "phases": [
     {
       "phase": "write",
@@ -273,6 +273,19 @@
           "map": 49,
           "x": 22,
           "y": 20,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 29,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "water-boundary-controlled-block-probe",
+          "region": 3,
+          "group": 80,
+          "map": 49,
+          "x": 31,
+          "y": 13,
           "frlg_layout": 0,
           "width": 34,
           "height": 29,

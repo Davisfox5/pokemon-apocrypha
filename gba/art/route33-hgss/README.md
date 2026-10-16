@@ -1,77 +1,87 @@
-# Route 33 — HGSS grid reconstruction
+# Route33 — original-reference correction
 
-Source: `Davisfox5/pokeemerald-expansion`, `codex/route33-hgss`,
-`224ee13c392888780bdcaeb7053487f42a9ab731`, [engine PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
-Depends on the owner-reviewed Union Cave `fc1017f` / PR9, and Route32 PR8.
-The owner accepted the current cave for now and requested the next route with a
-detailed first pass under all AGENTS.md map rules. This is Route33, south of the cave.
+Current engine source: `codex/route33-hgss`,
+`214e38cfb94309965e0cc58d09460e58737e00a6`, [draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
+HGSS is the geographic/material authority. The owner rejected a broad terrain
+revision; it was reverted at `515d80c7`. The original mountain contours, wall/cap
+textures, footprints and traversal are restored. No extra cliff caps, extended
+walls, new tree rows or procedural shoreline are retained.
 
-## Readable visuals
+## Current visuals
 
 - [Whole native map](evidence/native-map.png)
-- [HGSS / native comparison](evidence/comparison.png)
-- [Close-up terrain and transition review](evidence/detail-review.png)
-- [Native gameplay and cave travel](evidence/gameplay-gallery.png)
-- [Original numbered grid](evidence/reference-grid.png) / [native grid](evidence/native-grid.png)
+- [Original HGSS / restored map / bounded current correction](evidence/restored-reference-comparison.png)
+- [Focused before/current review](evidence/reference-correction-closeups.png)
+- [Actual Porymap/native comparison](evidence/comparison.png)
+- [Native gameplay](evidence/gameplay-gallery.png)
+- [HGSS numbered grid](evidence/reference-grid.png) / [native grid](evidence/native-grid.png)
 
-## Reference and design
+## Tile and object work
 
-[Original HGSS overview](https://archives.bulbagarden.net/media/upload/8/8b/Johto_Route_33_HGSS.png),
-528×463px, Nintendo / Game Freak / Creatures. Register at (0,0), 16px native
-squares and 8px hardware quadrants. Final 34×29 map includes 16px eastern framing
-and a single southern padding pixel. This is an overview reconstruction;
-traversal is interpreted from visible original geography, not decoded DS collision.
+Use the [actual HGSS overview](https://archives.bulbagarden.net/media/upload/8/8b/Johto_Route_33_HGSS.png),
+528×463px, origin (0,0) at 16px native squares with 8px quadrants. Native 34×29 includes
+16px eastern framing and one bottom padding pixel. Material and traversal ledgers
+are independent. Overview interpretation is not claimed as decoded DS collision.
 
-Preserves the original tiered cliff silhouettes, nested upper terrace, cave arch,
-L-shaped one-way ledge, western dirt approach, southern grass block, forest bounds,
-two boulders and two apricorn silhouettes. Complete accepted Cherrygrove trees
-occupy distinct two-by-two root footprints with supported canopy overlap.
-Interstitial gaps behind the upper ridge remain blocked. Ledges reuse Emerald's
-west/south family, with a fitted lower corner. Shared Cherrygrove grass/dirt and
-Route32's coherent HGSS-native grass family retain their palettes. Original cliff
-pixels receive local native palette conversion; geometry is not replaced by
-nearest-color blocks. The mouth retains its original threshold and fitted dirt
-apron. Native rain matches Route33. No houses or campaign content are invented.
+Current changes are bounded: gray residue in the visible original cave opening
+is black; actual original HGSS foam/sea pixels replace the hard coastal join in
+x504:512. Mountain geometry, texture phase, original cap/faces and elevation are
+unchanged. `reference-scope.json` compares decoded native background pixels with
+the restored original: zero changes outside the two named regions, zero collision
+or elevation changes across 986 cells, every backing opaque, warp opening black,
+and all water cells blocked. This is a scope proof alongside the HGSS visual review.
 
-Separate editable material grid, detailed cell ledger, collision/behavior arrays,
-foreground/background art and source registration are in `source/`. The 946
-native glyphs use exact flip deduplication with 1008–1023 reserved. There are 331
-metatiles. The two private tilesets preserve unrelated palettes/metatile IDs.
-The south cave doorway gains appended warp3 and its unique threshold's exit
-behavior; cave artwork, layout/collision and existing warp IDs are unchanged.
+Foreground uses owner-approved masters from hub commit
+`3d593788873f5e3446e2d032764bc1b43c1ffcbc`: T01 large trees, T03/T04 Apricorns,
+and L11/L12/L13 horizontal ledges. Their RGBA files are copied unchanged, with
+hashes and origin pinned in `source/transparent-objects/`. The original full tree
+checker passed in a clean checkout of that commit; the local selected-master
+checker verifies installed inputs. Terrain is beneath the objects. The 197-pixel
+mint ground oval is absent from T01. Apricorn anchors are fitted to their native
+root cells; interaction and collision IDs remain unchanged. The existing vertical
+Emerald ledge remains, with the complete local corner join.
 
-## Validation and reproduction
+The two large land boulders are extracted from this route's actual HGSS source,
+with adjacent tree/trunk and lawn removed. They are separate RGBA foregrounds;
+no matching large land-boulder master was in the supplied scenery catalog.
+Source RGB/alpha masters remain intact. The two Apricorn masters have 19 combined
+native shades; the route's 15-color shared bank merges nearby shades during native
+conversion. No master was recolored. No new harvest behavior is introduced.
 
-Actual Porymap 6.3.1 export equals decoded native RGB across all 986 cells;
-behavior/collision agree with their separate ledger. Review sheets cover the arch,
-cliff shoulder and concave corner, ledge head/return, forest feet, boulders and
-path/grass/canopy junction. Porytiles validates 128 representative layered native
-metatiles with zero RGB/alpha errors. Its standalone validation combines the
-engine's two banks under a 13-palette capacity; it does not repack engine art.
+## Verification and native editing
 
-The local 32MiB ROM builds with Arm GNU14.2. Headless libmGBA checks cover travel
-through the real cave mouth both ways, ordinary walking around the ledge, both
-jump directions and blocked returns, forest/cliff/fruit footprints, tall grass,
-closed Azalea endpoint and an ordinary 128KiB save/cold reload/title Continue.
-A copied prior cave save also loads and Continues; the original is unchanged.
-Exact source/ROM hash, observations and scope are in `evidence/build.json`,
-`runtime.json`, `prior-cave-save.json` and `preservation.json`.
-All 52 owned source files reproduce byte-identically, normalizing palette EOLs.
+Actual Porymap 6.3.1 export equals decoded native RGB for 986 cells. Behavior/collision
+match the separate ledger. Porytiles representative layered round-trip reports
+zero native RGB/alpha errors. Native glyph maximum 987 stays below reserved 1008–1023.
+There are 414 allocated metatiles; superseded private entries are not a new asset catalog.
 
-The scripts in `tools/gba/maps/route33_hgss/` are provenance, not an editor.
-`build.py` then `register.py` reproduce the initial authoring ONLY in an isolated
-checkout of exact `fc1017f`; never replay them over committed/owner native layouts.
-Use the current engine native source and installed Porymap for subsequent edits.
-`review.py ENGINE PORYMAP_EXPORT_DIR`, `check_art.py ENGINE PORYTILES_BINARY`,
-`runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT` and
-`publish.py ENGINE RUNTIME_OUTPUT` perform the documented checks. See the source
-native lock and reproduction report. Preserve earlier working material and saves.
+Arm GNU 14.2 builds the 32 MiB ROM. Headless libmGBA 0.10.5 checks 25 observations:
+real cave travel both ways, main-route walking, directional ledges and blocked
+returns, forest/cliff/fruit footprints, grass, water boundary and ordinary 128 KiB
+save/cold reload/title Continue. The water-only negative probe uses controlled
+placement and is not a reachable shoreline travel claim. A copied prior 224ee13c
+route save also loads/Continues; its original is unchanged. Exact identities and
+proof are in build.json/runtime.json/prior-route33-save.json/preservation.json.
 
-## Concrete limits
+All 11 current repair files reproduce from the exact 224ee13c native baseline with
+`match_reference_cells.py`; palette line endings are normalized. The original
+broad revision is rejected and is not the authoring path. Native source remains
+the editor authority. Never replay old build/register generators over owner maps.
+The matching tool guards baseline files, composes local native layers and reuses
+freed glyphs; it does not rerun the original map generator. Original snapshots,
+full reference renders and Git history remain preserved.
 
-Azalea is not built, so the visible western approach is closed at its boundary.
-Apricorn art has no harvest scripts. Actors, encounters, sign dialogue and campaign
-triggers are outside this map-art pass. Small flower decoration is simplified.
-Some tree shapes and ledge profiles deliberately use the accepted Gen3 vocabulary.
-Water in the inaccessible eastern framing is static. CI is separate from local
-checks; the PR stays draft. Functional checks do not establish owner visual acceptance.
+Useful read/check commands under tools/gba/maps/route33_hgss:
+`check_selected_assets.py`, `review.py ENGINE PORYMAP_EXPORT`,
+`check_art.py ENGINE PORYTILES`, `check_reference_scope.py ENGINE BASELINE_NATIVE`,
+`runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT`, and
+`publish.py ENGINE RUNTIME_OUTPUT`.
+
+## Limits
+
+Azalea is unbuilt and the west endpoint is closed. Encounters, actors, sign
+dialogue and campaign triggers remain outside this map-art pass. Apricorn harvest
+is unwired; small flowers remain simplified. Eastern inaccessible sea framing is
+static. Shared Gen3 tree/ledge shapes and finite native palette conversion are
+explicit adaptations. CI is separate from local checks; owner visual acceptance
+remains pending.

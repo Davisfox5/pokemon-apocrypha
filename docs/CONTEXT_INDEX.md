@@ -13,7 +13,7 @@ optional, never part of routine startup.
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
-| Route33 south of Union Cave / detailed HGSS reconstruction | ../gba/art/route33-hgss/README.md | Engine PR10; private native art, paired south cave doorway, actual Porymap/headless evidence; Azalea pending |
+| Route33 south of Union Cave / detailed HGSS reconstruction | ../gba/art/route33-hgss/README.md | Engine PR10; rejected broad revision rolled back; original HGSS terrain, locked transparent masters from3d593788, bounded mouth/shore repairs; Azalea pending |
 | Union Cave interiors / stone stairs, fitted entrances and wall cleanup | ../gba/art/union-cave-1f/README.md | Original references plus DS warp topology; restored textured wall/cap joins, actual embedded stair warps, fitted southern rim, three stair pairs, native Surf and per-floor saves; Alph transit rooms/Route33 pending |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |

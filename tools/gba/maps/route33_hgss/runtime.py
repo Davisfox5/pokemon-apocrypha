@@ -13,6 +13,7 @@ steps=r'''
  go(49,25,19);step(RIGHT,1);at(49,25,19,"eastern-cliff-barrier");shot("eastern-cliff-corner");
  go(49,8,20);step(RIGHT,5);at(49,13,20,"tall-grass-walk");shot("tall-grass");step(DOWN,1);at(49,13,21,"southern-grass-row");step(DOWN,1);at(49,13,22,"canopy-over-player");step(DOWN,1);at(49,13,22,"southern-root-barrier");shot("southern-woods");
  go(49,22,20);shot("apricorn-clearing");step(DOWN,1);at(49,22,20,"apricorn-footprint");
+ go(49,31,13);step(RIGHT,1);at(49,31,13,"water-boundary-controlled-block-probe");go(49,25,19);shot("shoreline");
  go(49,20,18);shot("save-route33");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(49,20,18').replace('cold-reload-new-bark','cold-reload-route33')

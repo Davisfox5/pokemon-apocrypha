@@ -1,0 +1,16 @@
+{
+  "hub_commit": "3d593788873f5e3446e2d032764bc1b43c1ffcbc",
+  "tree_ids": [
+    "T01",
+    "T03",
+    "T04"
+  ],
+  "ledge_ids": [
+    "L11",
+    "L12",
+    "L13"
+  ],
+  "original_tree_asset_check": "PASS: all five locked masters, active aliases and retired-file exclusion in clean pinned source checkout",
+  "source_directory": "gba/art/johto-common",
+  "retained_custom_objects": "Only two HGSS Route33 land boulders; no matching large land-boulder master in catalog"
+}

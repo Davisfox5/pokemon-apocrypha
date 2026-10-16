@@ -16,6 +16,8 @@
     "Original rainy route uses native WEATHER_RAIN",
     "Eastern 16px boundary framing and one bottom padding pixel"
   ],
-  "source_commit": "224ee13c392888780bdcaeb7053487f42a9ab731",
-  "metatiles": 331
+  "source_commit": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "metatiles": 414,
+  "glyphs_max": 987,
+  "terrain_scope": "Reference-scope proof: original terrain preserved outside mouth/shore; zero collision/elevation changes"
 }

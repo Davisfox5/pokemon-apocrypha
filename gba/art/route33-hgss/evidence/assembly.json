@@ -9,7 +9,7 @@
   ],
   "registration": "source origin (0,0), 16px cells; eastern16px and southern1px complete boundary art",
   "glyphs": 946,
-  "metatiles": 331,
+  "metatiles": 414,
   "trees": [
     [
       0,
@@ -436,5 +436,7 @@
     "apricorn harvest mechanics",
     "weather review"
   ],
-  "method": "Exact native flip deduplication; no nearest-tile replacement"
+  "method": "Exact native flip deduplication; no nearest-tile replacement",
+  "glyph_max": 987,
+  "owner_correction": "Restored original geometry; canonical T01/T03/T04 and L11/L12/L13 foregrounds; no extra trees or cliff extensions"
 }

@@ -1309,3 +1309,32 @@ Azalea approach stays closed until the town exists. Apricorn harvest, actors,
 encounters/sign dialogue/campaign are not introduced. Flower decoration simplified;
 eastern inaccessible water framing static. Native source is now the editor authority;
 never replay provenance packers over it. Shared main map rules remain in force.
+
+## Route33 rejection, rollback and source-matched correction — 2026-10-16
+
+Owner rejected the broad first correction and explicitly directed a return to the
+prior map with tile-by-tile HGSS visual matching. Reverted39cb3e5d/b1c633b9/87934186
+at515d80c7. Current source214e38cfb94309965e0cc58d09460e58737e00a6 on
+codex/route33-hgss / PR10 preserves224ee13c mountain geometry, cap/wall textures,
+collision/elevation and original tree positions. No custom enlarged cap, repeated
+extended wall or extra trees from the rejected revision remain. Do not revive them.
+
+Owner supplied hub3d593788873f5e3446e2d032764bc1b43c1ffcbc. Read its AGENTS object
+rule and gba/art/johto-common/trees/scenery catalogs. Current route inputs are
+unchanged locked T01/T03/T04 and L11/L12/L13 masters from that commit, with local
+terrain beneath; two land boulders are clean HGSS source cutouts. Full tree checks
+passed in the pinned read-only checkout; local selected-master hashes pass.
+Do not restore superseded tree cutouts. RGBA masters remain unchanged;19combined
+Apricorn shades merge to15in the route native bank. Existing interaction IDs stay.
+
+Only BG edits: gray in the visible original arch -> black, and actual source
+coast/foam pixels in x504:512. reference-scope.json verifies zero native background
+changes outside these bounds and zero collision/elevation changes across986cells.
+Actual Porymap/native equality, Porytiles RGB/alpha,25native observations and fresh
+save/cold reload/Continue pass. Prior224ee13c route-save copy loads/Continues;
+original unchanged.11repair files reproduce from224ee13c with guarded
+match_reference_cells.py, not the initial map generator. Maxglyph987;414metatiles.
+See original/restored/current comparison and specific source/native close-ups.
+No ROM/save/tool binaries committed. Azalea, actors/encounters/dialogue/campaign,
+Apricorn harvest, flower detail and animated inaccessible sea remain as documented.
+This is a corrected proposal, not owner visual acceptance or a CI-green claim.
