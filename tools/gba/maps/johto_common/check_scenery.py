@@ -38,12 +38,20 @@ def main():
             assert not np.any(keep&np.all(b[...,:3]==(56,184,232),axis=2)),key
         if key in ['L11','L12','L13']:
             assert not np.any(keep&np.all(b[...,:3]==(72,152,112),axis=2)),key
-    assert len(ids)==52
+    assert len(ids)==56
     for key,top in [('P09',0),('P10',8)]:
         master=rgba(P/f'source/{key}.png');native=rgba(P/f'source/{key}.idx.png')
         assert tuple(master[top+12,6,:3])==(136,32,8)
         assert tuple(native[top+12,6,:3])==(136,32,8), 'Red mailbox front lost'
         assert np.array_equal(master[:,:,3],native[:,:,3])
+    from johto_common.hgss_props import side_stairs,sign_assets
+    _,stairs=side_stairs()
+    assert np.array_equal(rgba(P/'source/S04.png'),stairs)
+    assert np.array_equal(rgba(P/'source/S05.png'),stairs[:,::-1])
+    assert (np.ptp(stairs[:,:,:3][stairs[:,:,3]>0],axis=1)==0).all(), 'Non-neutral stair contamination'
+    for record,expected in sign_assets():
+        assert np.array_equal(rgba(P/f"source/{record['id']}.png"),expected), 'Sign model reproduction differs'
+        assert expected.shape==(32,32,4)
     fence=rgba(P/'source/P08.png');keep=fence[:,:,3]>0
     assert np.all(fence[keep,1]<=fence[keep,2]), 'Green fence fringe'
     assert np.all(fence[3:7,:,1]==fence[3:7,:,2])

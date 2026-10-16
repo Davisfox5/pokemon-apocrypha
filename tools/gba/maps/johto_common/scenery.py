@@ -111,8 +111,16 @@ def build(game):
             placement='Existing Route 29/31 native Emerald ledge family; selection not standardized yet.')
     for i,n in enumerate(['left','middle','right']):
         file(f'S0{i+1}',f'North/south steps / {n}','stairs',material('route30-hgss-blocks','step-'+n))
-    for i,n in enumerate(['west','east']):
-        file(f'S0{i+4}',f'East/west stairs / {n}','stairs',material('route36','stair-'+n))
+    from johto_common.hgss_props import side_stairs,STAIR_COLORS,sign_assets,REF
+    stair_source,stair_clean=side_stairs()
+    for key,direction,flip in [('S04','west',False),('S05','east',True)]:
+        a=stair_source[:,::-1].copy() if flip else stair_source.copy()
+        b=stair_clean[:,::-1].copy() if flip else stair_clean.copy()
+        add(key,'Diagonal side stairs / descend '+direction,'stairs',a,b,
+            dict(path='gba/art/route36/source/hgss-reference.png',crop=[232,346,248,394],mirrored=flip),
+            'Trace actual HGSS stepped treads; remove adjoining rock, trees, lawn and path. Map five tread shades to neutral stone.',
+            color_repairs=[[list(k),list(v)] for k,v in STAIR_COLORS.items()],
+            placement='16x48 canvas, original HGSS diagonal profile. Separate ground and cliff behind it. Art review only; map elevation/collision not installed.')
     for key,label,n in [('P01','Violet sign','sign'),('P02','Violet bridge post','bridge_post')]:
         file(key,label,'props',material('violet-city',n))
     for key,n in [('P03','rail_left'),('P04','rail_right')]:
@@ -192,6 +200,14 @@ def build(game):
     add('P12','HGSS wooden signpost','props',a,b,
         dict(path=str(ref.relative_to(ROOT)),sha256=sha(ref),crop=[662,130,694,162]),
         'Trace complete original wooden board, upper peg and support post. Remove all donor lawn, path and cast ground shadow.',preview_box=[0,0,16,32])
+    for record,a in sign_assets():
+        add(record['id'],record['label'],'props',a,a.copy(),
+            dict(model_id=record['model_id'],donor_path=record['donor_path'],donor_sha256=record['donor_sha256'],
+                 geometry='references/sign-models.json',geometry_sha256=sha(REF/'sign-models.json'),
+                 textures=[dict(path='references/'+n+'.png',sha256=sha(REF/(n+'.png'))) for n in sorted({f['texture'] for f in record['faces']})]),
+            'Orthographic native-scale render of HGSS model geometry and original texture. Omit ground-shadow material; add HGSS-style silhouette outline. RGB555-compatible tones and transparent palette index zero.',
+            placement='32x32 / four 16x16 map cells; baseline at y=30. Sign appearance only; text and interaction remain map scripts.',
+            review_state='New HGSS sign style for owner review')
     for key,name,label,h in [('N01','ball_poke','Item ball',32),('N02','pushable_boulder','Strength boulder',16),('N03','breakable_rock','Rock Smash rock',16)]:
         path=game/f'graphics/object_events/pics/misc/{name}.png';a=rgba(path)
         add(key,label,'native',a,a.copy(),dict(engine_path=str(path.relative_to(game)),sha256=sha(path)),

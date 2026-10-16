@@ -3,7 +3,7 @@
 [Open the interactive catalog](review.html): filter by category, switch between
 checkerboard/grass/dirt/water, and compare original versus cleaned artwork.
 
-**52 pieces collected; 29 have terrain pixels removed or separated.** This is
+**56 pieces collected; 31 have terrain pixels removed or separated.** This is
 source-art cleanup for review. No native map, collision, jump behavior, item
 placement, save or ROM has changed.
 
@@ -12,8 +12,8 @@ placement, save or ROM has changed.
 | Category | Contents | Review |
 |---|---|---|
 | Jump ledges | Current Emerald Route 30 ends/middle, Violet straight ledge, existing warm Route 29/31 palette | [Pieces](review/ledges-1.png), [remaining end](review/ledges-2.png) |
-| Stairs | Native north/south step modules; current east/west flights | [Sheet](review/stairs-1.png) |
-| Signs and props | Current signs, bridge post, railings, Cherrygrove bench/fence, restored HGSS mailboxes, wooden signpost and New Bark windmill | [Sheet 1](review/props-1.png), [sheet 2](review/props-2.png) |
+| Stairs | Native north/south step modules; HGSS diagonal east/west flights | [Sheet](review/stairs-1.png), [diagonal flights](review/diagonal-stairs.png) |
+| Signs and props | Current signs, bridge post, railings, Cherrygrove bench/fence, restored HGSS mailboxes, wooden signpost and New Bark windmill | [Sheet 1](review/props-1.png), [sheet 2](review/props-2.png), [new HGSS sign styles](review/props-3.png) |
 | Flowers | Four route animation variants and current Cherrygrove/New Bark beds | [Sheet](review/plants-1.png) |
 | Tall grass | All 16 neighbor combinations, preserving blade pixels and enclosed shading | [1](review/grass-1.png), [2](review/grass-2.png), [3](review/grass-3.png) |
 | Water scenery | Violet lily pads; current Cherrygrove rock and reef | [Sheet](review/water-1.png) |
@@ -22,6 +22,39 @@ placement, save or ROM has changed.
 [Joined ledges, stairs and grass patch](review/joined-modules.png) show complete
 assemblies. Isolated water objects are also shown on grass for mask inspection;
 this is not a proposal to put foam-edged water rocks on land.
+
+## Additional HGSS signs and diagonal stairs
+
+[Four new signs](review/props-3.png): P13 gray information plaque, P14 green rounded
+sign, P15 gym marker and P16 blue information board. These come from actual HGSS
+`bm_field` models 31–34 and their `board_cd` / `board_ef` textures. Wooden sign model
+29 and mailbox model 30 correspond to existing designs; model 206 repeats the wooden
+board, so those were not added as duplicate catalog choices. This is the common
+sign model family, not a claim that every unique landmark sign has been inventoried.
+
+`references/sign-models.json` records decoded geometry, UVs and donor SHA-256;
+`references/board_*.png` preserve original textures. The renderer uses nearest-neighbor
+orthographic projection at 16 pixels per model tile, map-lighting tone conversion,
+and a one-pixel dark silhouette outline corresponding to HGSS edge marking.
+Ground-shadow material `h_kage` is omitted. These are 32x32 GBA sprites with complete
+posts and transparent gaps, exported exactly to indexed palettes. Names describe
+their appearance, not an automatic assignment to every town or region.
+
+[Diagonal stairs](review/diagonal-stairs.png): S04 descends west, S05 descends east.
+Both retain the HGSS Route 36 stepped geometry. Traced treads replace the previous
+polygon crop, removing the attached cliff skirt, lawn, path and foliage. Five source
+tread tones become neutral stone. The 16x48 canvases and exact mirrored silhouettes
+are preserved; this does not install or change map collision/elevation. A map must
+supply its own cliff and terrain behind these transparent foregrounds.
+
+To refresh the cached model source from an existing HGSS checkout:
+
+```sh
+PYTHONPATH=tools/gba/maps python tools/gba/maps/johto_common/hgss_props.py --extract-signs-from /path/to/pokeheartgold
+```
+
+Normal scenery generation uses the committed decoded snapshots and requires no DS
+checkout. This is asset conversion for the GBA target; the HGSS donor is read-only.
 
 ## Fence, mailbox and signpost revision
 
@@ -50,7 +83,7 @@ this is not a proposal to put foam-edged water rocks on land.
   reference props. The Cherrygrove sign also had a gray donor-ground patch outside
   its frame; it is now transparent. The subsequent mailbox revision restores original HGSS color rather than retaining
   the flawed native palette conversion.
-- Most ledges, flowers, lily pads and stair pieces already had correct alpha.
+- Most ledges, flowers, lily pads and north/south stair pieces already had correct alpha.
   The stairs' actual treads remain opaque. All native item/rock sprite pixels, palette-index assignments and
   frames remain unchanged; the catalog shows only the intact frame.
 

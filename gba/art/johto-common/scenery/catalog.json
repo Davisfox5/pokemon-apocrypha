@@ -228,43 +228,181 @@
     },
     {
       "id": "S04",
-      "label": "East/west stairs / west",
+      "label": "Diagonal side stairs / descend west",
       "category": "stairs",
       "size": [
         16,
         48
       ],
       "master": "source/S04.png",
-      "sha256": "cb60bcbedbc71c0881afd3dd977ec95a6faf1c686ec990e088133755b5cd83df",
+      "sha256": "90fd9afe50ecbc29485328588a6e66e387c17b351f3e1696ea716a33ab5adc46",
       "input": "inputs/S04.png",
-      "removed_background_pixels": 0,
-      "opaque_colors": 14,
-      "method": "Existing foreground already transparent; native pixels retained.",
+      "removed_background_pixels": 317,
+      "opaque_colors": 5,
+      "method": "Trace actual HGSS stepped treads; remove adjoining rock, trees, lawn and path. Map five tread shades to neutral stone.",
       "provenance": {
-        "path": "gba/art/route36/source/materials/stair-west.png",
-        "sha256": "cb60bcbedbc71c0881afd3dd977ec95a6faf1c686ec990e088133755b5cd83df"
+        "path": "gba/art/route36/source/hgss-reference.png",
+        "crop": [
+          232,
+          346,
+          248,
+          394
+        ],
+        "mirrored": false
       },
-      "master_opaque_colors": 14
+      "color_repairs": [
+        [
+          [
+            88,
+            80,
+            48
+          ],
+          [
+            80,
+            80,
+            80
+          ]
+        ],
+        [
+          [
+            112,
+            112,
+            80
+          ],
+          [
+            104,
+            104,
+            104
+          ]
+        ],
+        [
+          [
+            136,
+            144,
+            104
+          ],
+          [
+            136,
+            136,
+            136
+          ]
+        ],
+        [
+          [
+            152,
+            152,
+            120
+          ],
+          [
+            160,
+            160,
+            160
+          ]
+        ],
+        [
+          [
+            176,
+            184,
+            144
+          ],
+          [
+            192,
+            192,
+            192
+          ]
+        ]
+      ],
+      "placement": "16x48 canvas, original HGSS diagonal profile. Separate ground and cliff behind it. Art review only; map elevation/collision not installed.",
+      "master_opaque_colors": 5
     },
     {
       "id": "S05",
-      "label": "East/west stairs / east",
+      "label": "Diagonal side stairs / descend east",
       "category": "stairs",
       "size": [
         16,
         48
       ],
       "master": "source/S05.png",
-      "sha256": "6f94651961bb758cfd0b6c543427afdb10e2692f8810188926be9669e4dc9f5c",
+      "sha256": "c9d4624138b837abacf63cb6d9dda9322c455c6110a22c3f4e4d16f1ded6616f",
       "input": "inputs/S05.png",
-      "removed_background_pixels": 0,
-      "opaque_colors": 14,
-      "method": "Existing foreground already transparent; native pixels retained.",
+      "removed_background_pixels": 317,
+      "opaque_colors": 5,
+      "method": "Trace actual HGSS stepped treads; remove adjoining rock, trees, lawn and path. Map five tread shades to neutral stone.",
       "provenance": {
-        "path": "gba/art/route36/source/materials/stair-east.png",
-        "sha256": "6f94651961bb758cfd0b6c543427afdb10e2692f8810188926be9669e4dc9f5c"
+        "path": "gba/art/route36/source/hgss-reference.png",
+        "crop": [
+          232,
+          346,
+          248,
+          394
+        ],
+        "mirrored": true
       },
-      "master_opaque_colors": 14
+      "color_repairs": [
+        [
+          [
+            88,
+            80,
+            48
+          ],
+          [
+            80,
+            80,
+            80
+          ]
+        ],
+        [
+          [
+            112,
+            112,
+            80
+          ],
+          [
+            104,
+            104,
+            104
+          ]
+        ],
+        [
+          [
+            136,
+            144,
+            104
+          ],
+          [
+            136,
+            136,
+            136
+          ]
+        ],
+        [
+          [
+            152,
+            152,
+            120
+          ],
+          [
+            160,
+            160,
+            160
+          ]
+        ],
+        [
+          [
+            176,
+            184,
+            144
+          ],
+          [
+            192,
+            192,
+            192
+          ]
+        ]
+      ],
+      "placement": "16x48 canvas, original HGSS diagonal profile. Separate ground and cliff behind it. Art review only; map elevation/collision not installed.",
+      "master_opaque_colors": 5
     },
     {
       "id": "P01",
@@ -1504,6 +1642,130 @@
         32
       ],
       "master_opaque_colors": 6
+    },
+    {
+      "id": "P13",
+      "label": "HGSS gray information plaque",
+      "category": "props",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/P13.png",
+      "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c",
+      "input": "inputs/P13.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 5,
+      "method": "Orthographic native-scale render of HGSS model geometry and original texture. Omit ground-shadow material; add HGSS-style silhouette outline. RGB555-compatible tones and transparent palette index zero.",
+      "provenance": {
+        "model_id": 31,
+        "donor_path": "files/fielddata/build_model/bm_field/bm_field_00000031.bin",
+        "donor_sha256": "a12f6a2df635d38260091b34720a5353d3c4db85b4962a0c304adea7f3336731",
+        "geometry": "references/sign-models.json",
+        "geometry_sha256": "16962ad68c4a72a5b2aa4244b19f70c72fc8a5055c0d198852eb16044053c060",
+        "textures": [
+          {
+            "path": "references/board_cd.png",
+            "sha256": "838b5ffde73b23f508deac5585eccdb38b388e74c064592b40c30f2d44f47ba9"
+          }
+        ]
+      },
+      "placement": "32x32 / four 16x16 map cells; baseline at y=30. Sign appearance only; text and interaction remain map scripts.",
+      "review_state": "New HGSS sign style for owner review",
+      "master_opaque_colors": 5
+    },
+    {
+      "id": "P14",
+      "label": "HGSS green rounded sign",
+      "category": "props",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/P14.png",
+      "sha256": "f738448bf45e632435a39f680f855b780e2f4f81d4ab1b8410ee57cf951e03a4",
+      "input": "inputs/P14.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 6,
+      "method": "Orthographic native-scale render of HGSS model geometry and original texture. Omit ground-shadow material; add HGSS-style silhouette outline. RGB555-compatible tones and transparent palette index zero.",
+      "provenance": {
+        "model_id": 32,
+        "donor_path": "files/fielddata/build_model/bm_field/bm_field_00000032.bin",
+        "donor_sha256": "44107a5cc498add2b092b355517bc3fe85af35470b626ab2e6494c308789afad",
+        "geometry": "references/sign-models.json",
+        "geometry_sha256": "16962ad68c4a72a5b2aa4244b19f70c72fc8a5055c0d198852eb16044053c060",
+        "textures": [
+          {
+            "path": "references/board_cd.png",
+            "sha256": "838b5ffde73b23f508deac5585eccdb38b388e74c064592b40c30f2d44f47ba9"
+          }
+        ]
+      },
+      "placement": "32x32 / four 16x16 map cells; baseline at y=30. Sign appearance only; text and interaction remain map scripts.",
+      "review_state": "New HGSS sign style for owner review",
+      "master_opaque_colors": 6
+    },
+    {
+      "id": "P15",
+      "label": "HGSS gym marker",
+      "category": "props",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/P15.png",
+      "sha256": "7ed65bb881f98956d071ffb3ea18225dc6993d6f061e0bcf65b7ba1758251565",
+      "input": "inputs/P15.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 8,
+      "method": "Orthographic native-scale render of HGSS model geometry and original texture. Omit ground-shadow material; add HGSS-style silhouette outline. RGB555-compatible tones and transparent palette index zero.",
+      "provenance": {
+        "model_id": 33,
+        "donor_path": "files/fielddata/build_model/bm_field/bm_field_00000033.bin",
+        "donor_sha256": "43a1fa9b69b544b73de32dd01359cf4671d7831ed1a2c8d1d368b5a82654847f",
+        "geometry": "references/sign-models.json",
+        "geometry_sha256": "16962ad68c4a72a5b2aa4244b19f70c72fc8a5055c0d198852eb16044053c060",
+        "textures": [
+          {
+            "path": "references/board_ef.png",
+            "sha256": "59b5e02f8bff4215584662bf772ecbce42dfa0987104ada670cc8221737354b5"
+          }
+        ]
+      },
+      "placement": "32x32 / four 16x16 map cells; baseline at y=30. Sign appearance only; text and interaction remain map scripts.",
+      "review_state": "New HGSS sign style for owner review",
+      "master_opaque_colors": 8
+    },
+    {
+      "id": "P16",
+      "label": "HGSS blue information board",
+      "category": "props",
+      "size": [
+        32,
+        32
+      ],
+      "master": "source/P16.png",
+      "sha256": "6cee6c7689bc68e5bf4e38437b2d9e6601eb3ced218f8794c90f80de7e841376",
+      "input": "inputs/P16.png",
+      "removed_background_pixels": 0,
+      "opaque_colors": 7,
+      "method": "Orthographic native-scale render of HGSS model geometry and original texture. Omit ground-shadow material; add HGSS-style silhouette outline. RGB555-compatible tones and transparent palette index zero.",
+      "provenance": {
+        "model_id": 34,
+        "donor_path": "files/fielddata/build_model/bm_field/bm_field_00000034.bin",
+        "donor_sha256": "ed708ef9e5fa67873bfd004a7031cdf9192d4a8470c72c2a1b2e50999b0d792a",
+        "geometry": "references/sign-models.json",
+        "geometry_sha256": "16962ad68c4a72a5b2aa4244b19f70c72fc8a5055c0d198852eb16044053c060",
+        "textures": [
+          {
+            "path": "references/board_ef.png",
+            "sha256": "59b5e02f8bff4215584662bf772ecbce42dfa0987104ada670cc8221737354b5"
+          }
+        ]
+      },
+      "placement": "32x32 / four 16x16 map cells; baseline at y=30. Sign appearance only; text and interaction remain map scripts.",
+      "review_state": "New HGSS sign style for owner review",
+      "master_opaque_colors": 7
     },
     {
       "id": "N01",

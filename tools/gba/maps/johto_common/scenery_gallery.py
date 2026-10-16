@@ -17,6 +17,7 @@ def main():
             scale=max(1,min(5,240//im.width,200//im.height))
             ims.append(f'<img class="{folder}" src="{data(im)}" width="{int(im.width*scale)}" height="{int(im.height*scale)}" alt="{html.escape(r["label"])}">')
         status=f'{r["removed_background_pixels"]} terrain pixels separated' if r['removed_background_pixels'] else 'Already transparent / unchanged'
+        if r.get('review_state'):status='New HGSS model conversion / transparent'
         cards.append(f'<article data-cat="{r["category"]}"><h2>{r["id"]} · {html.escape(r["label"])}</h2><div class="swatch">'+''.join(ims)+f'</div><p>{status}</p></article>')
     grass=data(Image.open(ROOT/'gba/art/cherrygrove-synthesis/references/HGSS-direct/grass-source.png'))
     dirt=data(Image.open(ROOT/'gba/art/cherrygrove-synthesis/references/HGSS-direct/path-source.png'))
@@ -79,6 +80,24 @@ const cards=[...document.querySelectorAll('article')];document.querySelectorAll(
             bg.alpha_composite(im,((80-im.width)//2,(48-im.height)//2))
             sheet.paste(bg.resize((240,144),Image.Resampling.NEAREST),(20+col*255,y+30))
     sheet.save(P/'review/fence-mailbox-signpost.png')
+    sheet=Image.new('RGB',(1040,520),'#202833');d=ImageDraw.Draw(sheet)
+    d.text((20,14),'JOHTO / DIAGONAL EAST–WEST STAIRS',font=font,fill='white')
+    d.text((20,46),'HGSS source               Transparent                 On grass                    GBA palette / dirt',font=font,fill='#c2d0d9')
+    for row,key in enumerate(['S04','S05']):
+        y=82+row*210;r=next(r for r in records if r['id']==key)
+        d.text((20,y),key+'  '+r['label'],font=font,fill='white')
+        for col in range(4):
+            file=('inputs/'+key+'.png') if col==0 else ('source/'+key+('.idx.png' if col==3 else '.png'))
+            im=Image.open(P/file).convert('RGBA');bg=Image.new('RGBA',(80,56));pixels=bg.load()
+            for yy in range(56):
+                for xx in range(80):pixels[xx,yy]=(65,78,89,255) if (xx//4+yy//4)%2 else (49,62,73,255)
+            tex=textures[1] if col==2 else textures[2] if col==3 else None
+            if tex:
+                for yy in range(0,56,tex.height):
+                    for xx in range(0,80,tex.width):bg.paste(tex,(xx,yy))
+            bg.alpha_composite(im,((80-im.width)//2,4))
+            sheet.paste(bg.resize((240,168),Image.Resampling.NEAREST),(20+col*255,y+28))
+    sheet.save(P/'review/diagonal-stairs.png')
 
 
 if __name__=='__main__':main()

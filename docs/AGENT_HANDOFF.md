@@ -1,4 +1,24 @@
-## Current: fence, mailbox and signpost refinements ready for review
+## Current: additional HGSS signs and diagonal stairs ready for review
+
+Owner accepted the fence/mailbox/wooden-sign improvement, then requested additional
+HGSS sign styles and transparent east-west diagonal stairs. Added P13–P16: gray
+plaque, green rounded sign, gym marker and blue board, rendered from actual HGSS
+`bm_field` models 31–34 and original textures. Geometry/UV snapshots, source hashes,
+textures and deterministic orthographic renderer are committed. Shadow material is
+omitted; posts and gaps are intact. Each 32x32 image exports exactly to <=15 colors.
+S04/S05 now trace the original HGSS Route 36 stepped treads, removing cliff/lawn/path
+backing and mapping the five tread colors to neutral stone. Exact mirrored 16x48
+foregrounds preserve the west/east descent directions. Source cleanup only; existing
+Route 36 map art, elevation and collision have not been changed.
+
+See `gba/art/johto-common/scenery/review/props-3.png`, `review/diagonal-stairs.png` and
+`README.md`. Catalog: 56 pieces, 31 background masks separated. Visual review on
+checkerboard, grass and dirt, indexed export checks, model reproduction, stair
+mirroring and approved-tree checks pass. All 50 unrelated existing foregrounds and
+indexed exports remain byte-identical. No engine or ROM changed, no emulator opened.
+Engine remains `6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf`. New pieces await owner review.
+
+## Previous: fence, mailbox and signpost refinements ready for review
 
 Owner accepted most scenery and requested fence-edge cleanup, an accurate mailbox
 and Johto signposts. The scenery catalog now has 52 entries. P08's two cyan metal
