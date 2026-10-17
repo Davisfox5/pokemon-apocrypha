@@ -1,4 +1,14 @@
-## Current: Route 36 approved transparent tree installation
+## Current: Route 36 residual tree backing corrected
+
+Read `gba/art/johto-common/trees/route36-ground-repair/README.md`. The owner found
+shadow wedges left by the prior mask-only cleanup. Full tree-bound grass repair
+plus orphan map-edge backing cleanup removes them; zero obsolete shadow-color
+pixels remain across the map. Engine 5b80e625d1, draft PR12. 64 unique cell pairs /
+786 changed cells visually reviewed. Tree placements, walls and per-cell behavior
+unchanged. Native build, Porymap and background runtime evidence in the pack.
+No desktop emulator or production merge. Await owner visual review.
+
+## Superseded: Route 36 initial transparent tree installation
 
 Read `gba/art/johto-common/trees/route36-installation/README.md`. Owner approved
 complete rock tiles and requested backgroundless trees as the remaining change.
