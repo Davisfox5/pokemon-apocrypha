@@ -24,14 +24,5 @@
     "24px mountain bevels/caps and receiving concave joins remain local; shared R02 single-rise family is16px, not falsely stretched to replace24px.",
     "Southern level1 footing is inferred behind original foliage; not claimed as decoded DS geometry.",
     "Tree-free terrain review; owner visual acceptance pending."
-  ],
-  "source_commit": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
-  "local_bevel": "Original native8px bevel silhouettes and texture fitted with one fixed mapping to the current shared stone ramp; no16px face is stretched.",
-  "hidden_backing": "Only fully opaque wall/cap quadrants use canonical native plateau backing; visible pixels are unchanged.",
-  "inspection": [
-    "Whole tree-free map",
-    "HGSS/native north terraces, NW front, summit turn, SE levels and receiving inset",
-    "Actual headless north/SE controlled cameras and accessible cave/ledge/frontage frames"
-  ],
-  "review_stage": "Trees stay removed; invisible reserved forest/fruit barriers retained intentionally."
+  ]
 }
