@@ -1,0 +1,37 @@
+{
+  "status": "agent inspected; owner approval pending",
+  "cells": 250,
+  "quadrants": 1000,
+  "checks": {
+    "stairs_unchanged": true,
+    "collision_and_elevation_unchanged": true,
+    "behavior_unchanged": true,
+    "each_placement_equals_one_complete_master": true
+  },
+  "convex_corners": 5,
+  "concave_corners_preserved": 3,
+  "sha256": {
+    "review/all-corners.png": "35c0942dcdbf04647194df3d9b05a23b6be9b1542666823b5b050d248a9cf36f",
+    "review/before-full.png": "6488caed42f0e8514035f87e1433ce30414e922de2cc866fd7a7b51f4bef0c6f",
+    "review/before.png": "8ac789ae664210cfeebcdce26ba1d1f08e68ad2acc791fdc25bb7d08d5f9c5da",
+    "review/cells-1.png": "b40e6080196fd2e0dfc0bdc524b87691ee638d7e7cce97614599932f7b351361",
+    "review/cells-10.png": "257661318c15df26a7c6dac231898ae8fa32a57af9f29f9f92bb84282529fe58",
+    "review/cells-11.png": "7d96c69559f17e523d757c63bc89cd4b86385474eba9fba9e86ba70edfb4760b",
+    "review/cells-2.png": "f70b282bd117850de6a7c4aca4155a1e4700c252ddd7cac0053a85bcbe2ba413",
+    "review/cells-3.png": "416d7e80063e3d4d00d3f2ad1113dfc35459ef9018a09932997576555ba06968",
+    "review/cells-4.png": "90e12d603a259dee19675a72e6c54461a71db9e8c15927ceaf9c3a448bb201e1",
+    "review/cells-5.png": "789e7e9c64cb0335117ee2c6cd9addf3b11236eb95fcbee124b0b2888dea1483",
+    "review/cells-6.png": "1a049838c4782058bcb630a878f619a1364dc76483b9f1f422d1d079ca5d1bb7",
+    "review/cells-7.png": "4c096e7a4e36341fd48961248b6a8e8a51ba382660d970880cfc03f2db58fda6",
+    "review/cells-8.png": "1dca19006d935aa47c1bdc8951d68657e612fbfecff0dc2db793fdef7d1ecd14",
+    "review/cells-9.png": "3afaaafb4a39c4bfed024a1599ddf594d559eadae43d4a47e7574eda7b792559",
+    "review/comparison.png": "fef5d892b6e0443f09f79025545a7699900c12e628304e30ea53f8465455b861",
+    "review/gameplay.png": "c870bee423dca22d2c628e0a05e528b507c8fa02268fda1494938b7bb42b9e91",
+    "review/map.png": "03b82f41727752b3af2c0aef3c5074c41ae1ccae028f219338ec5a60865b06bb",
+    "review/native-full.png": "09c53a75e6e6bf29169732c7363b6f8acdaa69b4afa7021100d711b836182ebb",
+    "review/native-target.png": "09c53a75e6e6bf29169732c7363b6f8acdaa69b4afa7021100d711b836182ebb",
+    "review/original-full.png": "42d9581a4b7f89e72d147f64ed879b016056db1a6435da4e92836f5388f6550d",
+    "review/original.png": "c27b5ef34a1f840f03e8428feac06a53ee8f5ac1974192ee774420f4bb3fcfcd",
+    "review/shared-tiles.png": "4184d3d4124a20008f67e155c1fdd532ce21f9fb8c2fde8c79b6b438f7cf7a1f"
+  }
+}

@@ -1,4 +1,14 @@
-## Current: R02 reusable grass rims and minimal corner tips
+## Current: R02 complete terrain tiles and full corner audit
+
+Read `gba/art/johto-common/rocks/r02-complete-tiles/README.md`. Use its 17 complete
+rock/grass masters, not separate grass slivers. All 102 wall placements exactly
+match the masters. Five convex tips complete, including previously missed (14,4);
+three concave geometries preserved. Engine bc5612dd84, draft PR12. Build, Porymap
+and background runtime/save checks pass; 250 cells reviewed. Owner approval pending.
+No tree move, production merge or desktop emulator. Await owner's remaining tree-row
+annotation rather than guessing it.
+
+## Superseded: R02 reusable grass rims and minimal corner tips
 
 Read `gba/art/johto-common/rocks/r02-shared-rims/README.md`. Two reusable edge
 profiles, four orientations, three-pixel convex tip mask; 75 native placements.
