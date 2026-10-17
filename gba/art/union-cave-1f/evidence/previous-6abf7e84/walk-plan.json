@@ -1,0 +1,206 @@
+[
+  {
+    "name": "northern-junction",
+    "from": [
+      28,
+      18
+    ],
+    "to": [
+      5,
+      18
+    ],
+    "steps": 25
+  },
+  {
+    "name": "northwest-pocket",
+    "from": [
+      5,
+      18
+    ],
+    "to": [
+      4,
+      12
+    ],
+    "steps": 7
+  },
+  {
+    "name": "north-chamber",
+    "from": [
+      4,
+      12
+    ],
+    "to": [
+      8,
+      5
+    ],
+    "steps": 19
+  },
+  {
+    "name": "northern-staircase",
+    "from": [
+      8,
+      5
+    ],
+    "to": [
+      6,
+      16
+    ],
+    "steps": 15
+  },
+  {
+    "name": "central-pool-bank",
+    "from": [
+      6,
+      16
+    ],
+    "to": [
+      20,
+      23
+    ],
+    "steps": 21
+  },
+  {
+    "name": "east-bend",
+    "from": [
+      20,
+      23
+    ],
+    "to": [
+      29,
+      26
+    ],
+    "steps": 12
+  },
+  {
+    "name": "east-corridor",
+    "from": [
+      29,
+      26
+    ],
+    "to": [
+      29,
+      33
+    ],
+    "steps": 7
+  },
+  {
+    "name": "middle-chamber",
+    "from": [
+      29,
+      33
+    ],
+    "to": [
+      20,
+      35
+    ],
+    "steps": 11
+  },
+  {
+    "name": "southern-staircase",
+    "from": [
+      20,
+      35
+    ],
+    "to": [
+      29,
+      38
+    ],
+    "steps": 12
+  },
+  {
+    "name": "southern-pool-east",
+    "from": [
+      29,
+      38
+    ],
+    "to": [
+      18,
+      41
+    ],
+    "steps": 14
+  },
+  {
+    "name": "southern-lake-bend",
+    "from": [
+      18,
+      41
+    ],
+    "to": [
+      17,
+      44
+    ],
+    "steps": 4
+  },
+  {
+    "name": "southern-lake-bank",
+    "from": [
+      17,
+      44
+    ],
+    "to": [
+      13,
+      47
+    ],
+    "steps": 7
+  },
+  {
+    "name": "southwest-pocket",
+    "from": [
+      13,
+      47
+    ],
+    "to": [
+      4,
+      48
+    ],
+    "steps": 10
+  },
+  {
+    "name": "southern-junction",
+    "from": [
+      4,
+      48
+    ],
+    "to": [
+      23,
+      49
+    ],
+    "steps": 20
+  },
+  {
+    "name": "southeast-chamber",
+    "from": [
+      23,
+      49
+    ],
+    "to": [
+      29,
+      53
+    ],
+    "steps": 10
+  },
+  {
+    "name": "route33-exit-location",
+    "from": [
+      29,
+      53
+    ],
+    "to": [
+      28,
+      57
+    ],
+    "steps": 5
+  },
+  {
+    "name": "cave-save",
+    "from": [
+      28,
+      57
+    ],
+    "to": [
+      27,
+      56
+    ],
+    "steps": 2
+  }
+]

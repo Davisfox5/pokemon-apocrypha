@@ -1,0 +1,26 @@
+{
+  "DS_source_repository": "https://github.com/pret/pokeheartgold",
+  "DS_source_commit": "d2355244ac42b3c6e40d8c36aa3564ee8706dea4",
+  "event_paths": {
+    "1f": "files/fielddata/eventdata/zone_event/096_D25R0101.json",
+    "b1f": "files/fielddata/eventdata/zone_event/148_D25R0102.json",
+    "b2f": "files/fielddata/eventdata/zone_event/149_D25R0103.json"
+  },
+  "registration": "overview pixels are foreshortened/cropped DS scenes; native grid retains accepted first-pass proportions. Use original warp destinations/anchors and register each visible branch end using actor/item X landmarks and projected Z. Do not paste DS world coordinates into image squares.",
+  "correction": "Owner requested removal of extra floor markers; actual embedded original stairwells are the warp entries. Native entries registered by original stair geometry and direction; paired warp IDs/destinations retained.",
+  "visible_stair_pairs": [
+    [
+      "1f (4,5)",
+      "b1f (32,35)"
+    ],
+    [
+      "1f (8,57)",
+      "b1f (3,48)"
+    ],
+    [
+      "b1f (30,46)",
+      "b2f (3,5)"
+    ]
+  ],
+  "excluded": "Unbuilt original transit destinations; two visible B1F stairwells remain unwired and blocked; Route33 exterior pending"
+}

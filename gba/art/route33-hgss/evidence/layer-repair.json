@@ -1,0 +1,11 @@
+{
+  "baseline": "224ee13c",
+  "changed_cells": 439,
+  "allocated_glyphs": 209,
+  "glyph_max": 987,
+  "metatiles": 414,
+  "extra_trees": [],
+  "water_blocked": true,
+  "preserved": "all map/warp IDs, main-path collision, cave interior and unrelated art",
+  "method": "original terrain retained tile for tile; locked foreground masters and bounded source-derived mouth/shore corrections only"
+}

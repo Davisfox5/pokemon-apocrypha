@@ -1,0 +1,33 @@
+{
+  "raw_glyphs": 2215,
+  "static_glyphs": 1008,
+  "metatiles": 579,
+  "required_feature_geometry_and_core_glyphs": 689,
+  "approximated_background_texture_glyphs": 1207,
+  "foreground_rock_RGB_errors": 0,
+  "transparent_background_quadrants": 0,
+  "foreground_rock_pixels": 8412,
+  "native_palettes": 6,
+  "foreground_policy": "complete original rock silhouettes in native foreground; collision restricted to explicit base footprints",
+  "exact_regions": [
+    "all foreground formations",
+    "all HGSS stone steps",
+    "every wall/floor/water/void material silhouette",
+    "beige boulders",
+    "both lighted exterior entrances"
+  ],
+  "material_silhouette_substitution_errors": 0,
+  "wall_cleanup": "bounded same-material pixel cleanup; shape-constrained native packing; border-weighted shade matching",
+  "water": "native Surf behavior; static artwork",
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76",
+  "packing_baseline_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6",
+  "direct_native_finish": {
+    "glyphs": [
+      708,
+      712
+    ],
+    "visible_RGB_pixels_cleaned": 29,
+    "repacking": false,
+    "unchanged": "tile/metatile IDs, palettes, silhouette masks and physics"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "base": "de6922a964721aceb11147bcac6acadc477d4538",
+  "floors": {
+    "UnionCaveRoute32Entrance": {
+      "collision_and_elevation_entries_identical": 2040
+    },
+    "UnionCaveB1F": {
+      "collision_and_elevation_entries_identical": 1872
+    },
+    "UnionCaveB2F": {
+      "collision_and_elevation_entries_identical": 1880
+    }
+  },
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76"
+}

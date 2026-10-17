@@ -1,0 +1,128 @@
+{
+  "source_commit": "988e0287216410698481d313e73d6cf99f650b76",
+  "rom_sha256": "aabc8fb78140cf8b1224e9fdd252cc212315e78235a8bc9eb68c87662f10eb19",
+  "basis": "current native tile decode equals published checked render; original HGSS geography and preserved preceding pass compared",
+  "review_status": "Focused visual review completed; identified B1F corner corrected; no additional fixes identified",
+  "regions": [
+    {
+      "label": "Northwest stair and wall return",
+      "pixel_box": [
+        32,
+        48,
+        160,
+        144
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified",
+      "limitation": "Alph destination remains unwired; no room invented"
+    },
+    {
+      "label": "Northern stepped wall corner",
+      "pixel_box": [
+        240,
+        16,
+        368,
+        112
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Plateau front and small formations",
+      "pixel_box": [
+        32,
+        128,
+        256,
+        224
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Strength barrier and side-wall foot",
+      "pixel_box": [
+        48,
+        176,
+        192,
+        256
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Upper river / inner wall junction",
+      "pixel_box": [
+        304,
+        256,
+        432,
+        368
+      ],
+      "finding": "Remaining actor outline at cells 23,16 / 23,17 removed in two unique native glyphs; complete rock face/base and footprint preserved"
+    },
+    {
+      "label": "Main lake northwest shore",
+      "pixel_box": [
+        144,
+        400,
+        304,
+        496
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Eastern rock/shore overlap",
+      "pixel_box": [
+        416,
+        432,
+        528,
+        560
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Main 1F staircase and rim",
+      "pixel_box": [
+        432,
+        512,
+        576,
+        624
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Lower chamber west staircase",
+      "pixel_box": [
+        16,
+        688,
+        160,
+        832
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    },
+    {
+      "label": "Lower chamber east stair/bank",
+      "pixel_box": [
+        400,
+        688,
+        576,
+        816
+      ],
+      "finding": "Reviewed in original/native context and native framing; no further defect identified"
+    }
+  ],
+  "all_wall_cell_sheet": "../wall-cell-review.png",
+  "physics_preserved": true,
+  "limitations": [
+    "shared finite interior shading dictionary",
+    "static water",
+    "unwired Alph transit rooms/Route33; Strength pushing and campaign interactions remain pending"
+  ],
+  "wall_cells_checked": 1060,
+  "reviewed_native_gameplay_positions": 9,
+  "functional_proof": "405-observation all-floor proof, plus fresh controlled camera review and normal save/cold reload/Continue",
+  "changes_this_pass": {
+    "native_glyphs": [
+      708,
+      712
+    ],
+    "visible_pixels": 29,
+    "source_changed": true
+  },
+  "owner_visual_acceptance": "pending; owner approved first-floor entrance as benchmark"
+}

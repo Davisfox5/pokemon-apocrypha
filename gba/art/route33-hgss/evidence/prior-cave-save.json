@@ -1,0 +1,44 @@
+{
+  "prior_save_source": "fc1017f ordinary 1F proof save; copied, original unmodified",
+  "original_sha256": "a09ceb66250b24467bf80575229120d1474af4b74ff288073f66e2007aca875d",
+  "phases": [
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "cold-reload-route33",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 60,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 34,
+          "height": 60,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    }
+  ]
+}

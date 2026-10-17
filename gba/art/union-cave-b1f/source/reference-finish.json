@@ -1,0 +1,239 @@
+{
+  "base_native_style": "de6922a964721aceb11147bcac6acadc477d4538",
+  "preserved_prior_finish": "988e0287216410698481d313e73d6cf99f650b76",
+  "operation": "restore original textured walls/caps and palette vocabulary, remove all extra floor stair squares, register existing embedded stairs, repair local heads/joins",
+  "local_edits": [
+    {
+      "remove_floor_marker": [
+        31,
+        35
+      ],
+      "ordinary_floor_donor": [
+        30,
+        35
+      ]
+    },
+    {
+      "remove_floor_marker": [
+        4,
+        48
+      ],
+      "ordinary_floor_donor": [
+        5,
+        48
+      ]
+    },
+    {
+      "remove_floor_marker": [
+        29,
+        46
+      ],
+      "ordinary_floor_donor": [
+        29,
+        47
+      ]
+    },
+    {
+      "remove_floor_marker": [
+        4,
+        5
+      ],
+      "ordinary_floor_donor": [
+        5,
+        5
+      ]
+    },
+    {
+      "remove_floor_marker": [
+        4,
+        12
+      ],
+      "ordinary_floor_donor": [
+        5,
+        12
+      ]
+    },
+    {
+      "embedded_stair_head": [
+        32,
+        35
+      ],
+      "reference_pixel_box": [
+        512,
+        552,
+        528,
+        576
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_stair_head": [
+        3,
+        48
+      ],
+      "reference_pixel_box": [
+        48,
+        760,
+        64,
+        784
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_stair_head": [
+        30,
+        46
+      ],
+      "reference_pixel_box": [
+        480,
+        728,
+        496,
+        752
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_stair_head": [
+        3,
+        5
+      ],
+      "reference_pixel_box": [
+        48,
+        72,
+        64,
+        96
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_stair_head": [
+        3,
+        12
+      ],
+      "reference_pixel_box": [
+        48,
+        184,
+        64,
+        208
+      ],
+      "head_policy": "original embedded native stairwell and cap retained; no added floor stair sprite"
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        512,
+        552,
+        536,
+        568
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        760,
+        64,
+        776
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        480,
+        728,
+        504,
+        744
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        72,
+        64,
+        88
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        184,
+        64,
+        200
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        512,
+        552,
+        536,
+        568
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        760,
+        64,
+        776
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        480,
+        728,
+        504,
+        744
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        72,
+        64,
+        88
+      ]
+    },
+    {
+      "embedded_head_join": true,
+      "reference_pixel_box": [
+        40,
+        184,
+        64,
+        200
+      ]
+    }
+  ],
+  "actual_wired_stairs": [
+    [
+      32,
+      35
+    ],
+    [
+      3,
+      48
+    ],
+    [
+      30,
+      46
+    ]
+  ],
+  "visible_unwired_stairs": [
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      12
+    ]
+  ],
+  "static_glyphs_used": 977,
+  "no_unrelated_maps_changed": true,
+  "warp_pair_indices_preserved": true
+}

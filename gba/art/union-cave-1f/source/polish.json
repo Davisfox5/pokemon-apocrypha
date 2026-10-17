@@ -1,0 +1,36 @@
+{
+  "basis": "preserved de6922a source; original HGSS Union Cave stone-step texture d_level01.png",
+  "bounded_cleanup": "same-material neighbourhood only; keep silhouette and high-contrast creases; no blended wall/floor/void edges",
+  "pixels_cleaned": 61764,
+  "north_to_south_entrance_copy": {
+    "light_source": [
+      432,
+      280,
+      480,
+      316
+    ],
+    "light_destination": [
+      432,
+      900,
+      480,
+      936
+    ],
+    "rim_source": [
+      432,
+      312,
+      496,
+      336
+    ],
+    "rim_destination": [
+      400,
+      932,
+      512,
+      956
+    ],
+    "shoulders": "straight 16px modules; omit northern west corner",
+    "baseline_translation_pixels": 620,
+    "adaptation": "fit light to southern rim; replace both shoulders and full rim; no stacked border or copied northern back wall"
+  },
+  "map_layout_collision_or_warp_ids_edited": false,
+  "stairs": "native 16x16 stone treads; no Emerald wooden ladder"
+}

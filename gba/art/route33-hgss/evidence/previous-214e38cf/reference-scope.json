@@ -1,0 +1,16 @@
+{
+  "original_native_reference": "224ee13c392888780bdcaeb7053487f42a9ab731",
+  "native_cells": 986,
+  "unapproved_background_pixel_changes": 0,
+  "collision_cell_changes": 0,
+  "elevation_cell_changes": 0,
+  "opaque_background": true,
+  "warp_opening_black": true,
+  "all_water_cells_blocked": true,
+  "terrain_edit_scope": [
+    "Original arch opening gray residue -> black, within (288,160)-(328,192)",
+    "Actual original HGSS coastal pixels within x504:512; no procedural contour"
+  ],
+  "cliff_changes": "none; original contours, cap texture and wall shading retained",
+  "new_tree_rows_or_expansions": []
+}

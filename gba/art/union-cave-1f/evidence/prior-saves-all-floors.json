@@ -1,0 +1,30 @@
+[
+  {
+    "proof": "previous-1f",
+    "method": "copy of preceding native proof save; original file untouched",
+    "phases": [
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ]
+  },
+  {
+    "proof": "previous-route32",
+    "method": "copy of preceding native proof save; original file untouched",
+    "phases": [
+      {
+        "phase": "read",
+        "exit_code": 0
+      },
+      {
+        "phase": "menu",
+        "exit_code": 0
+      }
+    ]
+  }
+]

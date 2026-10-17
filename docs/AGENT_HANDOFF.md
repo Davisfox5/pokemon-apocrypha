@@ -1,3 +1,19 @@
+## Latest: Route33 shared-master correction; previous marked repair rejected
+
+Engine `codex/route33-hgss` at `6e4d438b705604ca6e2cfc5fb5172377afa52d8e`, draft PR10.
+Use `gba/art/route33-hgss/README.md` and the current shared-sections comparisons.
+The owner rejected89f88993; it is historical. New repair imports exact common
+R02 face/side/corner and scenery ledge masters from hub9fd8c645 (codex/violet-city).
+Caps continue adjacent native top quadrants; no new screenshot tracing or per-map
+master redraw/recolor. Inspect the contextual A–G decisions in the README.
+All trees/other foreground retained. 111 changed cells, 279 cells/1116 quadrants
+reviewed, zero native pixels outside bounds/connected faces, no behavior/elevation
+changes. Twelve rock/under-canopy cells blocked versus214e38cf; no openings.
+Actual Porymap, exact nine-file reproduction, build and27 headless observations
+including ordinary saves pass. Prior local saves were unavailable after reset;
+do not claim old-save compatibility for this ROM. Owner visual acceptance pending.
+Never replay the old rejected repair scripts/generators over current native source.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
@@ -1122,3 +1138,219 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+## 2026-10-15 — Union Cave first floor
+
+Owner moved from Route32 to Union Cave. First-floor reconstruction replaces the small entrance proof room, preserving map/layout IDs and the Route32 exterior. Engine `codex/union-cave-1f`, commit `6abf7e84e27828356c1bb390b048611c1997d4e4`, depends on Route32 PR #8. Evidence/tooling: `codex/union-cave-evidence`; read [the cave review](../gba/art/union-cave-1f/README.md). Hub main has the required all-model map workflow; this task applies it.
+
+Actual HGSS overview registered at 1:1 to 34x60 cells, separate floor/rock/water/void/foreground and foot collision. Original characters/items removed with context-specific wall/shore repairs. Private five-palette tilesets use 1008 static glyphs and 924 metatiles; no shared art/Route32 edits. Complete connected stalagmites retain dark centers; only base rows block, heads draw above the player. Region-map section appended for Union Cave/Johto; existing named location IDs preserved, generated NONE/COUNT terminal sentinels advance.
+
+Local build, actual Porymap pixel equality, Porytiles representative material round-trip, 218 native runtime observations, Route32 entry through both cells and return, full main passage, blocked rock/water/roots, foreground overlap and fresh save/cold reload/title Continue pass. A copy of the preceding Route32 proof save also reloads/continues. Original saves untouched, no ROM/save/tool binaries committed, no desktop game. Material audit exposes 25 RGB-majority disagreements in mixed shore, shadow, prop, staircase and exit cells; do not claim 2040 exact visual matches. Source is visually traced, not DS collision. Prior room and original reference preserved. Source generators are provenance, protected by owned-file guard; do not replay over owner edits.
+
+Review remains with owner. B1F/B2F, Route33 exterior wiring, encounters/campaign actors, dynamic cave water and campaign Surf/field-move qualifications remain pending. Old proof saves inside the replaced 14x12 cave room are not automatically migrated to the new geometry.
+
+Union Cave PR #9: exact landing on `(28,19)` and walking onto `(28,18)` are tested through both Route32 doorway cells; interior exit uses the native south-arrow behavior, not an animated house door. Latest native gameplay evidence includes this correction.
+
+## 2026-10-15 — Union Cave detail refinement and both basements
+
+Owner liked the first pass and requested precise entrances, accurate rock shapes,
+wall/ground/water transitions, then both other floors. Engine work is pushed on
+`codex/union-cave-1f` at `de6922a964721aceb11147bcac6acadc477d4538`, draft PR #9;
+evidence remains `codex/union-cave-evidence`, draft PR #13. Read the current
+[shared cave review](../gba/art/union-cave-1f/README.md), with links to B1F/B2F.
+This section supersedes the previous first-floor-only limitations above.
+
+Complete foreground rock silhouettes now retain their dark cores instead of
+being turned into floor or approximate glyphs. Beige boulders, lighted entrances,
+shore/outside boundaries and clean native Emerald ladder art are protected in
+packing. Six private palettes per floor; shared Cherrygrove and Route32 unchanged.
+All native backgrounds remain opaque; layered Porytiles round-trips pass on each
+floor. Background interior texture reuse remains explicit, not pixel-exact art.
+
+Actual original HGSS event records are preserved. The beige formations previously
+mistaken for stairs are boulders. The working native pairs are 1F north `(5,5)` ↔
+B1F main `(31,35)`, 1F water-separated south `(7,57)` ↔ B1F lower west `(4,48)`,
+and B1F lower east `(29,46)` ↔ B2F northwest `(4,5)`. Image scenes are projected and
+cropped: DS world X/Z cannot be pasted into the 16px screenshot grid. Registration
+uses original warp anchors and actor/item/branch-end landmarks; accepted first-floor
+proportions remain. B1F is 36×52; B2F 40×47, with eight bottom padding pixels.
+Existing map/layout/named-section IDs remain; B1F/B2F append as group80 maps47/48.
+
+Native water was corrected to collision0/elevation1 with MB_POND_WATER; ordinary
+land is elevation3. Earlier walking-only proof did not qualify Surf. Two B2F low
+shore lips are walkable banks, preserving actual landing access. 5,792 cells audit
+against the reviewed model with no physics/layer errors; actual Porymap exports
+match all three floors pixel-for-pixel. 398 native observations across nine phases
+cover original walking barriers, all stairs both ways, controlled existing-engine
+Surf movement/disembark, and separate normal 128KiB saves/cold reload/title Continue
+on every floor. Copies of preceding cave and Route32 proof saves also load and
+Continue. Original saves untouched, no desktop game and no ROM/save/tool binaries
+committed. Visual acceptance remains with owner.
+
+Preserve `source/previous-6abf7e84/` and `evidence/previous-6abf7e84/`; current
+commands are `trace.py`, `trace_basements.py`, `refine.py`, `register_floors.py`,
+`runtime_all.py`, `review_all.py`, `publish_all.py`. Old first-pass packer is guarded
+against reverting expanded cave work. Fingerprints protect current owned source;
+exact preserved baseline can be used only for authorized isolated reproduction.
+Do not replay provenance over owner edits.
+
+Still pending: Route33 exterior; upper Alph transit rooms named by DS warps but
+not pictured in these references (two B1F markers intentionally unwired); Strength
+pushing (barrier retained); water animation; campaign actors/items/Lapras/encounters
+and Surf badge/party activation. Proof Surf setup initializes existing engine state
+on water; it does not grant campaign progression or claim field unlock coverage.
+
+## Union Cave correction — 2026-10-15, southern rim / stone steps
+
+Engine `ab04d9792ea5c36233a3ef2ff0c410b46b6658b6` on `codex/union-cave-1f`, pushed; draft PR9 remains
+against apocrypha with Route32 PR8 as its dependency. Hub evidence stays on
+`codex/union-cave-evidence` / draft PR13; never push map work directly to main.
+See `gba/art/union-cave-1f/README.md` for current renders and exact commands.
+
+Owner rejected a literal north-to-south entrance paste: the local southern rim
+baseline differs by four pixels and the northern west corner turns downward.
+The replacement fits the approved light to the southern baseline and rebuilds
+straight shoulders/full rim, with no copied back wall, hanging pillar or stacked
+border. Northern protected 48x32 threshold artwork stays pixel-identical.
+All eight markers now use actual HGSS Union Cave d_level01 stone-step textures,
+not Emerald wooden ladder art. Original source textures/provenance are retained.
+Rocks/walls receive bounded same-material shading cleanup. Native substitution
+is now constrained by exact material masks and shared wall palette ramps.
+3,448 wall-containing cells have coordinate-labelled reference/native sheets;
+all 23,168 actual background quadrants validate their tile bytes/material masks.
+The 5,792 collision/elevation cells, warp IDs, room layout and shared art stay
+unchanged. Finite interior texture approximation remains explicit.
+
+Local build, Porymap equality, three Porytiles layered round-trips and 405
+native observations pass, including all three stairs both ways, water movement
+and disembark, fitted southern threshold/barrier, and separate 128KiB saves / cold
+reload / Continue on each floor. Three prior proof-save copies reload/Continue;
+originals untouched. Byte-identical repeated packing verified across 117 files.
+No desktop game or ROM/save/tool-binary commits. Visual acceptance remains owner
+review; CI status must be checked separately, not inferred from the local build.
+
+Preserve all `previous-de6922a/` source/evidence snapshots and older 6abf snapshots.
+For isolated reproduction of THIS correction use exact de6922a + polish.py then
+refine.py on each floor; do not run the old trace/register sequence afterwards.
+Guards reject owner edits. Source native layouts remain the editor authority.
+Route33 exterior, unpictured Alph rooms/two unwired markers, Strength pushing,
+animated water and campaign content/Surf unlock remain separate pending work.
+
+## Basement finish review and shared cleanup rule — 2026-10-15
+
+Owner approved the first-floor entrance as the quality benchmark and requested
+the same visual review for B1F/B2F plus a standing AGENTS.md rule and an outdoor
+refinement prompt. Both floors already had the material/palette cleanup; this
+follow-up adds 20 focused original/before/native corner regions, 2,109 wall-cell
+coverage and 18 fresh controlled native camera sites. Ordinary saves also pass
+in the fresh review. Controlled camera placement is not a traversal claim.
+
+The review found remaining trainer pixels in the B1F corner at cells (23,16) /
+(23,17): the old raw donor touched an actor boundary. Final repair cleans 29
+pixels in unique native glyphs 708/712, preserving the entire face/base ramp.
+Current source `988e0287216410698481d313e73d6cf99f650b76` on codex/union-cave-1f; net change
+from ab04d979 is only the private B1F secondary tiles.png. B2F and first-floor
+source, all layout/collision/elevation entries, palette/metatile IDs and warps
+remain unchanged. Build, actual Porymap equality, native material/physics and
+B1F Porytiles checks pass; the full 405-observation stair/Surf/per-floor-save
+tour was rerun. Three prior proof-save copies still reload/Continue.
+
+Use direct native edits as authority. B1F native-edit-lock blocks replay of the
+packer and polish generator. Reproduction: fix_b1f_junction.py on an isolated
+exact ab04d979 baseline; previous-ab04d979 preserves editable source. Reproduced
+output matches all 117 final native files with palette line endings normalized.
+See the updated cave READMEs, finish-review/ findings and exact source/ROM hashes.
+
+The cleanup standard and outdoor prompt are being published as shared hub main
+rules (AGENTS.md, GBA_MAP_RECONSTRUCTION.md and GBA_OUTDOOR_REFINEMENT_PROMPT.md),
+with the feature branch brought up to date afterward. Preserve existing Grok
+rules and owner layouts. Specifically verify donors are actor/item-free across
+their full bounds, not only at the sampled center. Owner acceptance for basement
+visuals remains pending. Previously documented Route33/Alph/Strength/campaign/
+water-animation limits remain. No ROMs, saves or tool binaries committed.
+
+## Owner stair and wall/cap correction — 2026-10-15
+
+Latest source `fc1017fecad147879de460fcb9727ff63862598b`, pushed on codex/union-cave-1f / draft PR9.
+The owner rejected the added floor stair squares and the broad simplified
+wall/cap shading. All eight floor markers are now removed; restore ordinary
+ground there. The ORIGINAL embedded stairwells carry the six wired entries:
+1F(4,5) <-> B1F(32,35), 1F(8,57) <-> B1F(3,48), B1F(30,46) <-> B2F(3,5).
+Warp pair IDs/destinations and map/layout IDs are stable. Exactly six formerly
+blocked cells open for the real stair entries; all other collision/elevation
+stays unchanged. Extra represented B1F stairs stay unwired and blocked.
+
+Original textured native HGSS wall/cap appearance is restored from de6922a;
+keep its detail and 14-shade wall ramp instead of broad flattened bands. Mixed
+wall/ground/water edges share exact wall shades in banks 6-9; bank10 preserves
+local original 24x16 upper-tread/head joins. The accepted southern light/rim and
+B1F actor-removal fix remain. All prior source/evidence is retained under
+previous-988e0287 and older snapshots. Direct native source is authoritative;
+never replay the old packers. New guarded isolated provenance is the sequence
+restore_reference_finish.py + blend_reference_caps.py + patch_embedded_stair_heads.py
+from exact 988e0287 with a read-only de6922a reference. Reproduced output matches
+126 owned source files with palette line endings normalized.
+
+Local build, actual Porymap equality, three Porytiles RGB/alpha checks and 420
+native observations pass: all stairs both ways, surrounding blocked walls,
+unwired stairs, Route32, Surf/disembark, southern threshold and per-floor normal
+128KiB save/cold reload/Continue. Three prior proof-save copies still load and
+Continue. Fresh controlled native framing covers 18 basement positions; this
+is separate from traversal proof. See current cave READMEs and source/ROM hashes.
+No desktop game or ROM/save/tool-binary commits. Latest visuals require owner
+review; CI is separate from local verification. Route33, remaining transit
+destinations, Strength pushing, water animation and campaign/Surf unlock remain
+pending. Shared main AGENTS cleanup rule and outdoor prompt are published after
+this correction so future instances retain original texture treatment, align
+real stair warps and perform local close-up review. Preserve existing Grok rules.
+
+## Route33 detailed first pass — 2026-10-15
+
+Owner accepted current Union Cave for now and requested the next route with all
+AGENTS rules applied before presenting a draft. Route33 is built in a new source
+worktree/branch `codex/route33-hgss`, head `224ee13c392888780bdcaeb7053487f42a9ab731`,
+engine PR10, dependent on UnionCave PR9/Route32 PR8. Preserve all earlier worktrees.
+Actual HGSS overview is the geography authority, origin0/0 at16px, native34×29.
+Private route art retains original cliff contours/cap texture, accepted Cherrygrove
+full trees/ground, coherent grass, native Emerald directional ledges, two boulders,
+apricorn silhouettes, fitted cave threshold and rain. Separate material/physics
+ledgers and original/native/close-up/gameplay sheets are in gba/art/route33-hgss.
+Only UnionCave's unique south threshold behavior and appended warp3 change there;
+all cave artwork, layout/collision and existing warp pairs remain untouched.
+Native map ID49 is appended. Local build,986-cell Porymap/ledger checks, representative
+Porytiles RGB/alpha, headless travel both ways, directional ledges/barriers/grass,
+normal saves/cold reload/Continue and a copied prior cave save pass.52 source files
+reproduce. No ROM/save/binary commits. CI/visual acceptance remain separate.
+Azalea approach stays closed until the town exists. Apricorn harvest, actors,
+encounters/sign dialogue/campaign are not introduced. Flower decoration simplified;
+eastern inaccessible water framing static. Native source is now the editor authority;
+never replay provenance packers over it. Shared main map rules remain in force.
+
+## Route33 rejection, rollback and source-matched correction — 2026-10-16
+
+Owner rejected the broad first correction and explicitly directed a return to the
+prior map with tile-by-tile HGSS visual matching. Reverted39cb3e5d/b1c633b9/87934186
+at515d80c7. Current source214e38cfb94309965e0cc58d09460e58737e00a6 on
+codex/route33-hgss / PR10 preserves224ee13c mountain geometry, cap/wall textures,
+collision/elevation and original tree positions. No custom enlarged cap, repeated
+extended wall or extra trees from the rejected revision remain. Do not revive them.
+
+Owner supplied hub3d593788873f5e3446e2d032764bc1b43c1ffcbc. Read its AGENTS object
+rule and gba/art/johto-common/trees/scenery catalogs. Current route inputs are
+unchanged locked T01/T03/T04 and L11/L12/L13 masters from that commit, with local
+terrain beneath; two land boulders are clean HGSS source cutouts. Full tree checks
+passed in the pinned read-only checkout; local selected-master hashes pass.
+Do not restore superseded tree cutouts. RGBA masters remain unchanged;19combined
+Apricorn shades merge to15in the route native bank. Existing interaction IDs stay.
+
+Only BG edits: gray in the visible original arch -> black, and actual source
+coast/foam pixels in x504:512. reference-scope.json verifies zero native background
+changes outside these bounds and zero collision/elevation changes across986cells.
+Actual Porymap/native equality, Porytiles RGB/alpha,25native observations and fresh
+save/cold reload/Continue pass. Prior224ee13c route-save copy loads/Continues;
+original unchanged.11repair files reproduce from224ee13c with guarded
+match_reference_cells.py, not the initial map generator. Maxglyph987;414metatiles.
+See original/restored/current comparison and specific source/native close-ups.
+No ROM/save/tool binaries committed. Azalea, actors/encounters/dialogue/campaign,
+Apricorn harvest, flower detail and animated inaccessible sea remain as documented.
+This is a corrected proposal, not owner visual acceptance or a CI-green claim.

@@ -1,0 +1,7 @@
+{
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+  "status": "Historical prior-ROM save compatibility was not rerun: old local saves were unavailable after workspace reset.",
+  "historical_proof": "previous-89f88993/prior-route33-save.json",
+  "current_ordinary_save_checks": "runtime.json: write, cold reload, title Continue all pass",
+  "save_schema_changes": false
+}

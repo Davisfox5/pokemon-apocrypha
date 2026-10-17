@@ -1,0 +1,23 @@
+{
+  "source_base": "fc1017fecad147879de460fcb9727ff63862598b",
+  "native_cells": 986,
+  "collision_behavior_errors": [],
+  "porymap_RGB_differences": 0,
+  "glyphs": 946,
+  "reserved_engine_glyphs": "1008\u20131023 unused",
+  "tree_root_overlaps": 0,
+  "reference_method": "original overview trace, not decoded DS collision",
+  "material_review": "coordinate-labelled original/native grids; cliff silhouette preserved from original pixels, accepted grass and native ledge family",
+  "adaptations": [
+    "Complete Cherrygrove crowns with non-overlapping roots",
+    "Emerald west/south one-way ledge placeholders",
+    "Closed western endpoint until Azalea exists",
+    "Apricorn silhouettes only; no harvest scripts",
+    "Original rainy route uses native WEATHER_RAIN",
+    "Eastern 16px boundary framing and one bottom padding pixel"
+  ],
+  "source_commit": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "metatiles": 414,
+  "glyphs_max": 987,
+  "terrain_scope": "Reference-scope proof: original terrain preserved outside mouth/shore; zero collision/elevation changes"
+}
