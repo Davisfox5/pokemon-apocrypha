@@ -1,13 +1,18 @@
-## Latest: Route33 seven owner-marked local repairs
+## Latest: Route33 shared-master correction; previous marked repair rejected
 
-Engine `codex/route33-hgss` at `89f8899335cd5182e534d8a5c4f9e5e21bb57615`, draft PR10.
-Read `gba/art/route33-hgss/README.md`. Seven A–G original/before/current comparisons,
-actual Porymap export and headless gameplay are published. Restore clipped source
-rock edges, join native ledges, fill missing southeast rock footing; all original
-tree positions preserved. Six new rock blockers, no openings or elevation changes.
-Local scope and seven-file reproduction pass; 29 runtime observations and prior-save
-compatibility pass. Visual acceptance remains pending. Do not revive rejected broad
-terrain revisions or replay generators over committed layouts.
+Engine `codex/route33-hgss` at `6e4d438b705604ca6e2cfc5fb5172377afa52d8e`, draft PR10.
+Use `gba/art/route33-hgss/README.md` and the current shared-sections comparisons.
+The owner rejected89f88993; it is historical. New repair imports exact common
+R02 face/side/corner and scenery ledge masters from hub9fd8c645 (codex/violet-city).
+Caps continue adjacent native top quadrants; no new screenshot tracing or per-map
+master redraw/recolor. Inspect the contextual A–G decisions in the README.
+All trees/other foreground retained. 111 changed cells, 279 cells/1116 quadrants
+reviewed, zero native pixels outside bounds/connected faces, no behavior/elevation
+changes. Twelve rock/under-canopy cells blocked versus214e38cf; no openings.
+Actual Porymap, exact nine-file reproduction, build and27 headless observations
+including ordinary saves pass. Prior local saves were unavailable after reset;
+do not claim old-save compatibility for this ROM. Owner visual acceptance pending.
+Never replay the old rejected repair scripts/generators over current native source.
 
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 

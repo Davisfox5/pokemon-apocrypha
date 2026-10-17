@@ -15,7 +15,7 @@ steps=r'''
  go(49,22,20);shot("apricorn-clearing");step(DOWN,1);at(49,22,20,"apricorn-footprint");
  go(49,31,13);step(RIGHT,1);at(49,31,13,"water-boundary-controlled-block-probe");go(49,25,19);shot("shoreline");
  go(49,25,21);step(RIGHT,1);at(49,25,21,"marked-G-rock-footing-blocks");shot("marked-G-footing");
- go(49,25,22);step(RIGHT,6);at(49,31,22,"south-canopy-edge");step(RIGHT,1);at(49,31,22,"shore-water-blocked-from-path");step(DOWN,1);at(49,31,22,"southern-forest-roots-block");shot("marked-G-shore");
+ go(49,25,22);step(RIGHT,1);at(49,25,22,"shared-footing-closes-southern-shore-corridor");shot("marked-G-shore");
  go(49,14,12);shot("marked-C-ledge-head");go(49,14,17);shot("marked-D-ledge-corner");go(49,21,17);shot("marked-F-wall-corner");go(49,21,13);shot("marked-E-rear-edge");
  go(49,6,3);shot("controlled-camera-only-marked-A");go(49,21,3);shot("controlled-camera-only-marked-B");
  go(49,20,18);shot("save-route33");

@@ -8,8 +8,8 @@
     463
   ],
   "registration": "source origin (0,0), 16px cells; eastern16px and southern1px complete boundary art",
-  "glyphs": 946,
-  "metatiles": 455,
+  "glyphs": 877,
+  "metatiles": 414,
   "trees": [
     [
       0,
@@ -437,6 +437,8 @@
     "weather review"
   ],
   "method": "Exact native flip deduplication; no nearest-tile replacement",
-  "glyph_max": 992,
-  "owner_correction": "Seven annotated sections repaired; all tree positions unchanged; six restored rock-footing cells blocked"
+  "glyph_max": 987,
+  "owner_correction": "Use pinned shared wall/ledge/corner masters; classify caps as top terrain; continuous southeast footing with original complete trees",
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+  "glyph_count_definition": "Distinct glyph IDs referenced by current map and border"
 }

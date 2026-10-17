@@ -1,0 +1,519 @@
+{
+  "baseline": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "rejected": "89f8899335cd5182e534d8a5c4f9e5e21bb57615",
+  "shared_source": "9fd8c645a13ecc266ed4df82b64cefef20f3b8da",
+  "placements": [
+    {
+      "master": "front",
+      "x": 0,
+      "y": 32,
+      "width": 32,
+      "height": 16,
+      "role": "A / south-facing wall behind full crowns",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 32,
+      "y": 32,
+      "width": 32,
+      "height": 16,
+      "role": "A / south-facing wall behind full crowns",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 64,
+      "y": 32,
+      "width": 32,
+      "height": 16,
+      "role": "A / south-facing wall behind full crowns",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 96,
+      "y": 32,
+      "width": 32,
+      "height": 16,
+      "role": "A / south-facing wall behind full crowns",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 128,
+      "y": 32,
+      "width": 32,
+      "height": 16,
+      "role": "A / south-facing wall behind full crowns",
+      "layer": 0
+    },
+    {
+      "master": "existing native adjacent cap quadrants",
+      "x": 216,
+      "y": 40,
+      "width": 216,
+      "height": 8,
+      "role": "B / rock-top cap, no exposed rear face",
+      "layer": 0,
+      "donor": [
+        216,
+        48,
+        432,
+        56
+      ]
+    },
+    {
+      "master": "existing native adjacent cap quadrants",
+      "x": 360,
+      "y": 192,
+      "width": 144,
+      "height": 8,
+      "role": "E / separate rock-top cap",
+      "layer": 0,
+      "donor": [
+        360,
+        200,
+        504,
+        208
+      ]
+    },
+    {
+      "master": "face-west upper quadrants + shared NW tip",
+      "x": 360,
+      "y": 192,
+      "width": 16,
+      "height": 8,
+      "role": "E / cap-to-side shoulder",
+      "layer": 0
+    },
+    {
+      "master": "face-east upper quadrants + shared NE tip",
+      "x": 488,
+      "y": 192,
+      "width": 16,
+      "height": 8,
+      "role": "E / cap-to-side shoulder",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 360,
+      "y": 200,
+      "width": 16,
+      "height": 16,
+      "role": "F / west-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 360,
+      "y": 216,
+      "width": 16,
+      "height": 16,
+      "role": "F / west-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 360,
+      "y": 232,
+      "width": 16,
+      "height": 16,
+      "role": "F / west-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 360,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "F / west-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 360,
+      "y": 264,
+      "width": 16,
+      "height": 8,
+      "role": "F / west-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 200,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 216,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 232,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 264,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 280,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 296,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 312,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "face-east",
+      "x": 488,
+      "y": 328,
+      "width": 16,
+      "height": 16,
+      "role": "E\u2013G / east-facing side",
+      "layer": 0
+    },
+    {
+      "master": "corner-east + shared SW tip mask",
+      "x": 360,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "role": "F / convex southwest return",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 376,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "role": "F / south-facing short return",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 392,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "role": "F / south-facing short return",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 408,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "role": "F\u2013G / west-facing lower side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 408,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "role": "F\u2013G / west-facing lower side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 408,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "role": "F\u2013G / west-facing lower side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 408,
+      "y": 320,
+      "width": 16,
+      "height": 16,
+      "role": "F\u2013G / west-facing lower side",
+      "layer": 0
+    },
+    {
+      "master": "face-west",
+      "x": 408,
+      "y": 336,
+      "width": 16,
+      "height": 8,
+      "role": "F\u2013G / west-facing lower side",
+      "layer": 0
+    },
+    {
+      "master": "corner-east + shared SW tip mask",
+      "x": 408,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / southwest footing corner",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 424,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / final south-facing footing",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 440,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / final south-facing footing",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 456,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / final south-facing footing",
+      "layer": 0
+    },
+    {
+      "master": "front",
+      "x": 472,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / final south-facing footing",
+      "layer": 0
+    },
+    {
+      "master": "corner-west + shared SE tip mask",
+      "x": 488,
+      "y": 344,
+      "width": 16,
+      "height": 16,
+      "role": "G / southeast footing corner",
+      "layer": 0
+    },
+    {
+      "master": "L11 / clockwise",
+      "x": 216,
+      "y": 184,
+      "width": 16,
+      "height": 16,
+      "role": "C\u2013D / west-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12 / clockwise",
+      "x": 216,
+      "y": 200,
+      "width": 16,
+      "height": 16,
+      "role": "C\u2013D / west-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12 / clockwise",
+      "x": 216,
+      "y": 216,
+      "width": 16,
+      "height": 16,
+      "role": "C\u2013D / west-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12 / clockwise",
+      "x": 216,
+      "y": 232,
+      "width": 16,
+      "height": 16,
+      "role": "C\u2013D / west-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12 / clockwise",
+      "x": 216,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "role": "D / upright enters horizontal ledge",
+      "layer": 1
+    },
+    {
+      "master": "L11",
+      "x": 216,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12",
+      "x": 232,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12",
+      "x": 248,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12",
+      "x": 264,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12",
+      "x": 280,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L12",
+      "x": 296,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    },
+    {
+      "master": "L13",
+      "x": 312,
+      "y": 248,
+      "width": 16,
+      "height": 16,
+      "role": "D / south-jump ledge",
+      "layer": 1
+    }
+  ],
+  "changed_cells": 111,
+  "collision_changes": [
+    [
+      21,
+      26
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      21,
+      29
+    ],
+    [
+      21,
+      30
+    ],
+    [
+      21,
+      31
+    ],
+    [
+      22,
+      26
+    ],
+    [
+      22,
+      27
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      22,
+      29
+    ],
+    [
+      22,
+      30
+    ],
+    [
+      22,
+      31
+    ]
+  ],
+  "outside_scope_pixels": 0,
+  "palette_approximation_pixels": 0,
+  "new_master_art": false,
+  "installed": true,
+  "glyph_max": 987,
+  "allocated_glyphs": 106,
+  "metatiles": 414,
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e"
+}

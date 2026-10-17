@@ -1,24 +1,66 @@
 {
-  "source_base": "fc1017fecad147879de460fcb9727ff63862598b",
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
   "native_cells": 986,
-  "collision_behavior_errors": [],
-  "porymap_RGB_differences": 0,
-  "glyphs": 946,
-  "reserved_engine_glyphs": "1008\u20131023 unused",
-  "tree_root_overlaps": 0,
-  "reference_method": "original overview trace, not decoded DS collision",
-  "material_review": "coordinate-labelled original/native grids; cliff silhouette preserved from original pixels, accepted grass and native ledge family",
-  "adaptations": [
-    "Complete Cherrygrove crowns with non-overlapping roots",
-    "Emerald west/south one-way ledge placeholders",
-    "Closed western endpoint until Azalea exists",
-    "Apricorn silhouettes only; no harvest scripts",
-    "Original rainy route uses native WEATHER_RAIN",
-    "Eastern 16px boundary framing and one bottom padding pixel"
+  "shared_master_source": "9fd8c645a13ecc266ed4df82b64cefef20f3b8da",
+  "native_review": "shared-asset-review.json",
+  "outside_scope_pixels": [
+    0,
+    0
   ],
-  "source_commit": "89f8899335cd5182e534d8a5c4f9e5e21bb57615",
-  "metatiles": 455,
-  "glyphs_max": 992,
-  "terrain_scope": "Seven owner-marked bounds plus connected native ledge; zero pixels outside those bounds",
-  "collision_adaptation": "Six newly blocked rock-footing cells: row21,columns26..31; no openings"
+  "glyph_max": 987,
+  "metatiles": 414,
+  "shared_master_RGB_errors": 0,
+  "collision_changes": [
+    [
+      21,
+      26
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      21,
+      29
+    ],
+    [
+      21,
+      30
+    ],
+    [
+      21,
+      31
+    ],
+    [
+      22,
+      26
+    ],
+    [
+      22,
+      27
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      22,
+      29
+    ],
+    [
+      22,
+      30
+    ],
+    [
+      22,
+      31
+    ]
+  ],
+  "elevation_changes": 0,
+  "behavior_changes": 0,
+  "owner_visual_acceptance": "pending"
 }

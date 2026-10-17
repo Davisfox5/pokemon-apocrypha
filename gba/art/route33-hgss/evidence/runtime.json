@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "62c01d72e252156920f9badda3aa8c5b3a2408a4cfcb5a4a6aa431baf6df32a6",
+  "rom_sha256": "f65d2bb89e138cc98042fb31cd5508992fd1c66db4aad78619a499df365b80e7",
   "phases": [
     {
       "phase": "write",
@@ -306,37 +306,11 @@
           "mapsec": 225
         },
         {
-          "step": "south-canopy-edge",
+          "step": "shared-footing-closes-southern-shore-corridor",
           "region": 3,
           "group": 80,
           "map": 49,
-          "x": 31,
-          "y": 22,
-          "frlg_layout": 0,
-          "width": 34,
-          "height": 29,
-          "interaction": 0,
-          "mapsec": 225
-        },
-        {
-          "step": "shore-water-blocked-from-path",
-          "region": 3,
-          "group": 80,
-          "map": 49,
-          "x": 31,
-          "y": 22,
-          "frlg_layout": 0,
-          "width": 34,
-          "height": 29,
-          "interaction": 0,
-          "mapsec": 225
-        },
-        {
-          "step": "southern-forest-roots-block",
-          "region": 3,
-          "group": 80,
-          "map": 49,
-          "x": 31,
+          "x": 25,
           "y": 22,
           "frlg_layout": 0,
           "width": 34,
