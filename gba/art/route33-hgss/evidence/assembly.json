@@ -8,7 +8,6 @@
     463
   ],
   "registration": "source origin (0,0), 16px cells; eastern16px and southern1px complete boundary art",
-  "glyphs": 877,
   "metatiles": 414,
   "trees": [
     [
@@ -437,8 +436,10 @@
     "weather review"
   ],
   "method": "Exact native flip deduplication; no nearest-tile replacement",
-  "glyph_max": 987,
-  "owner_correction": "Use pinned shared wall/ledge/corner masters; classify caps as top terrain; continuous southeast footing with original complete trees",
-  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
-  "glyph_count_definition": "Distinct glyph IDs referenced by current map and border"
+  "glyph_max": 937,
+  "owner_correction": "Expose all cliffs; completed R02 masters fromddafe9de with full24px mountain rises and local bevels; keep source forest barriers for review",
+  "source_commit": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
+  "tree_free_review": true,
+  "trees_visible": false,
+  "apricorns_visible": false
 }

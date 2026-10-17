@@ -1,0 +1,1557 @@
+{
+  "baseline_engine": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+  "mountain_native_reference": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "shared_source": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+  "tree_free_review": true,
+  "removed_large_trees": 88,
+  "removed_apricorn_trees": 2,
+  "profiles": [
+    {
+      "name": "northwest exterior front",
+      "high": 1,
+      "low": 0,
+      "cap_top": 16,
+      "face_top": 24,
+      "base": 40,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 0,
+      "x1": 160
+    },
+    {
+      "name": "northern exterior front",
+      "high": 1,
+      "low": 0,
+      "cap_top": 164,
+      "face_top": 172,
+      "base": 188,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 160,
+      "x1": 432
+    },
+    {
+      "name": "middle west return",
+      "high": 2,
+      "low": 1,
+      "cap_top": 120,
+      "face_top": 128,
+      "base": 144,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 168,
+      "x1": 200
+    },
+    {
+      "name": "middle southern front",
+      "high": 2,
+      "low": 1,
+      "cap_top": 142,
+      "face_top": 150,
+      "base": 166,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 200,
+      "x1": 424
+    },
+    {
+      "name": "summit long front",
+      "high": 3,
+      "low": 2,
+      "cap_top": 104,
+      "face_top": 112,
+      "base": 128,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 216,
+      "x1": 344
+    },
+    {
+      "name": "summit short eastern front",
+      "high": 3,
+      "low": 2,
+      "cap_top": 92,
+      "face_top": 100,
+      "base": 116,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 344,
+      "x1": 392
+    },
+    {
+      "name": "southeast short outer return",
+      "high": 1,
+      "low": 0,
+      "cap_top": 264,
+      "face_top": 272,
+      "base": 288,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 360,
+      "x1": 408
+    },
+    {
+      "name": "southeast outer footing, originally occluded",
+      "high": 1,
+      "low": 0,
+      "cap_top": 336,
+      "face_top": 344,
+      "base": 360,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 408,
+      "x1": 504
+    },
+    {
+      "name": "southeast upper short front",
+      "high": 2,
+      "low": 1,
+      "cap_top": 224,
+      "face_top": 232,
+      "base": 248,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 392,
+      "x1": 424
+    },
+    {
+      "name": "southeast upper long front",
+      "high": 2,
+      "low": 1,
+      "cap_top": 296,
+      "face_top": 304,
+      "base": 320,
+      "depth": 24,
+      "bevel": 8,
+      "shared_face": 16,
+      "x0": 424,
+      "x1": 488
+    }
+  ],
+  "placements": [
+    {
+      "tile": "R12",
+      "x": 344,
+      "y": 0,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 344,
+      "y": 16,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 344,
+      "y": 32,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 0,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 16,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 32,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 48,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 64,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 80,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 96,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 112,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 128,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 144,
+      "y": 24,
+      "high": 1,
+      "low": 0,
+      "role": "northwest exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 160,
+      "y": 40,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 160,
+      "y": 56,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 160,
+      "y": 72,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 160,
+      "y": 88,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 160,
+      "y": 104,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 160,
+      "y": 120,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 160,
+      "y": 136,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 160,
+      "y": 152,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 160,
+      "y": 168,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 416,
+      "y": 40,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 416,
+      "y": 56,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 416,
+      "y": 72,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 416,
+      "y": 88,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 416,
+      "y": 104,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 416,
+      "y": 120,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 416,
+      "y": 136,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 416,
+      "y": 152,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 416,
+      "y": 168,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 160,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 176,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 192,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 208,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 224,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 240,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 256,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 272,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 336,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 352,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 368,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 384,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 400,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 416,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "northern exterior front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 160,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "outer southwest front corner",
+      "mirror": true
+    },
+    {
+      "tile": "R10",
+      "x": 416,
+      "y": 172,
+      "high": 1,
+      "low": 0,
+      "role": "outer southeast front corner",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 168,
+      "y": 40,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 168,
+      "y": 56,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 168,
+      "y": 72,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 168,
+      "y": 88,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 168,
+      "y": 104,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 168,
+      "y": 120,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 40,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 408,
+      "y": 56,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 72,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 408,
+      "y": 88,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 104,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 408,
+      "y": 120,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 136,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 168,
+      "y": 128,
+      "high": 2,
+      "low": 1,
+      "role": "middle west return",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 184,
+      "y": 128,
+      "high": 2,
+      "low": 1,
+      "role": "middle west return",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 168,
+      "y": 128,
+      "high": 2,
+      "low": 1,
+      "role": "middle southwest return",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 200,
+      "y": 144,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 200,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 216,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 232,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 248,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 264,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 280,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 296,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 312,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 328,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 344,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 360,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 376,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 392,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 408,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southern front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 200,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southwest corner",
+      "mirror": true
+    },
+    {
+      "tile": "R10",
+      "x": 408,
+      "y": 150,
+      "high": 2,
+      "low": 1,
+      "role": "middle southeast corner",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 216,
+      "y": 48,
+      "high": 3,
+      "low": 2,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 216,
+      "y": 64,
+      "high": 3,
+      "low": 2,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 216,
+      "y": 80,
+      "high": 3,
+      "low": 2,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 216,
+      "y": 96,
+      "high": 3,
+      "low": 2,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 376,
+      "y": 48,
+      "high": 3,
+      "low": 2,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 376,
+      "y": 64,
+      "high": 3,
+      "low": 2,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 376,
+      "y": 80,
+      "high": 3,
+      "low": 2,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 376,
+      "y": 96,
+      "high": 3,
+      "low": 2,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 216,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 232,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 248,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 264,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 280,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 296,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 312,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 328,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit long front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 216,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit southwest corner",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 344,
+      "y": 100,
+      "high": 3,
+      "low": 2,
+      "role": "summit short eastern front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 360,
+      "y": 100,
+      "high": 3,
+      "low": 2,
+      "role": "summit short eastern front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 376,
+      "y": 100,
+      "high": 3,
+      "low": 2,
+      "role": "summit short eastern front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 376,
+      "y": 100,
+      "high": 3,
+      "low": 2,
+      "role": "summit southeast corner",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 328,
+      "y": 112,
+      "high": 3,
+      "low": 2,
+      "role": "summit stepped southeast return",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 360,
+      "y": 192,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 360,
+      "y": 208,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 360,
+      "y": 224,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 360,
+      "y": 240,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 360,
+      "y": 256,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 488,
+      "y": 192,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 488,
+      "y": 208,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 488,
+      "y": 224,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 488,
+      "y": 240,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 488,
+      "y": 256,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 488,
+      "y": 272,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 488,
+      "y": 288,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 488,
+      "y": 304,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 488,
+      "y": 320,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 488,
+      "y": 336,
+      "high": 1,
+      "low": 0,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 360,
+      "y": 272,
+      "high": 1,
+      "low": 0,
+      "role": "southeast short outer return",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 376,
+      "y": 272,
+      "high": 1,
+      "low": 0,
+      "role": "southeast short outer return",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 392,
+      "y": 272,
+      "high": 1,
+      "low": 0,
+      "role": "southeast short outer return",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 360,
+      "y": 272,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer southwest return",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 288,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 408,
+      "y": 304,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 408,
+      "y": 320,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 408,
+      "y": 336,
+      "high": 1,
+      "low": 0,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 408,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 424,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 440,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 456,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 472,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 488,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer footing, originally occluded",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 408,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer southwest corner",
+      "mirror": true
+    },
+    {
+      "tile": "R10",
+      "x": 488,
+      "y": 344,
+      "high": 1,
+      "low": 0,
+      "role": "southeast outer southeast corner",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 392,
+      "y": 192,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 392,
+      "y": 208,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 392,
+      "y": 224,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 480,
+      "y": 192,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 480,
+      "y": 208,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 480,
+      "y": 224,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 480,
+      "y": 240,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 480,
+      "y": 256,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R11",
+      "x": 480,
+      "y": 272,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 480,
+      "y": 288,
+      "high": 2,
+      "low": 1,
+      "role": "east side",
+      "mirror": true
+    },
+    {
+      "tile": "R02",
+      "x": 392,
+      "y": 232,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper short front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 408,
+      "y": 232,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper short front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 392,
+      "y": 232,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper west corner",
+      "mirror": true
+    },
+    {
+      "tile": "R12",
+      "x": 424,
+      "y": 248,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 424,
+      "y": 264,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R12",
+      "x": 424,
+      "y": 280,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R11",
+      "x": 424,
+      "y": 296,
+      "high": 2,
+      "low": 1,
+      "role": "west side",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 424,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 440,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper long front",
+      "mirror": false
+    },
+    {
+      "tile": "R02",
+      "x": 456,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper long front",
+      "mirror": false
+    },
+    {
+      "tile": "R04",
+      "x": 472,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper long front",
+      "mirror": false
+    },
+    {
+      "tile": "R10",
+      "x": 424,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper southwest corner",
+      "mirror": true
+    },
+    {
+      "tile": "R10",
+      "x": 472,
+      "y": 304,
+      "high": 2,
+      "low": 1,
+      "role": "southeast upper southeast corner",
+      "mirror": false
+    }
+  ],
+  "changed_cells": 630,
+  "hidden_backing_quadrants": 574,
+  "collision_changes": [],
+  "behavior_changes": 0,
+  "level_semantics": "Visual design levels, not GBA elevation bits. 24px rise =8px local bevel (shared stone ramp) +16px unmodified complete face.",
+  "occluded_interpretation": "SE level1 footing behind original foliage uses the same 24px rise as other level1 faces.",
+  "installed": true,
+  "glyph_max": 937,
+  "allocated_glyphs": 389,
+  "metatiles": 414,
+  "source_commit": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1"
+}

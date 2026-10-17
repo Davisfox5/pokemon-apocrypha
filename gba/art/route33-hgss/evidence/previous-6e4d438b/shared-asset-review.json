@@ -1,0 +1,195 @@
+{
+  "baseline": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "rejected": "89f8899335cd5182e534d8a5c4f9e5e21bb57615",
+  "shared_source": "9fd8c645a13ecc266ed4df82b64cefef20f3b8da",
+  "outside_scope_native_pixels": [
+    0,
+    0
+  ],
+  "foreground_outside_ledge_changes": 0,
+  "tree_positions_and_pixels": "unchanged",
+  "collision_changes": [
+    [
+      21,
+      26
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      21,
+      29
+    ],
+    [
+      21,
+      30
+    ],
+    [
+      21,
+      31
+    ],
+    [
+      22,
+      26
+    ],
+    [
+      22,
+      27
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      22,
+      29
+    ],
+    [
+      22,
+      30
+    ],
+    [
+      22,
+      31
+    ]
+  ],
+  "elevation_changes": 0,
+  "behavior_changes": 0,
+  "water_blocked": true,
+  "opaque_backing": true,
+  "Porymap_RGB_errors": 0,
+  "shared_master_sha256_verified": true,
+  "palette_approximation_pixels": 0,
+  "reviewed_cells": 276,
+  "changed_cells": 111,
+  "reviewed_quadrants": 1104,
+  "regions": [
+    [
+      "A",
+      "Forest / cliff footing",
+      [
+        0,
+        16,
+        184,
+        88
+      ]
+    ],
+    [
+      "B",
+      "Rear rim and its receiving plateau",
+      [
+        200,
+        16,
+        448,
+        80
+      ]
+    ],
+    [
+      "C",
+      "Ledge head",
+      [
+        192,
+        168,
+        248,
+        224
+      ]
+    ],
+    [
+      "D",
+      "Joined L-shaped ledge",
+      [
+        192,
+        224,
+        344,
+        288
+      ]
+    ],
+    [
+      "E",
+      "Separate cliff rim / clean side joins",
+      [
+        336,
+        160,
+        520,
+        232
+      ]
+    ],
+    [
+      "F",
+      "Convex return / concave continuation",
+      [
+        336,
+        240,
+        448,
+        320
+      ]
+    ],
+    [
+      "G",
+      "Continuous wall footing behind crowns",
+      [
+        384,
+        304,
+        520,
+        400
+      ]
+    ]
+  ],
+  "limits": [
+    "Original HGSS overview is geographic/material authority; DS collision is interpreted, not extracted.",
+    "Rear caps continue adjacent native top quadrants, without invented wall strips; the lower footing extends eight pixels behind complete shared crowns.",
+    "Shared masters unchanged; terrain backing is reused native plateau/lawn. No fresh image tracing.",
+    "Owner visual acceptance pending."
+  ],
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+  "visual_review_completed": {
+    "coordinate_sheets": [
+      "shared-sections/cells-01.png",
+      "shared-sections/cells-02.png",
+      "shared-sections/cells-03.png",
+      "shared-sections/cells-04.png",
+      "shared-sections/cells-05.png",
+      "shared-sections/cells-06.png",
+      "shared-sections/cells-07.png",
+      "shared-sections/cells-08.png",
+      "shared-sections/cells-09.png",
+      "shared-sections/cells-10.png",
+      "shared-sections/cells-11.png",
+      "shared-sections/cells-12.png"
+    ],
+    "assembled_sections": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "native_gameplay": [
+      "marked-C-ledge-head",
+      "marked-D-ledge-corner",
+      "marked-E-rear-edge",
+      "marked-F-wall-corner",
+      "marked-G-footing",
+      "marked-G-shore"
+    ],
+    "controlled_visual_cameras": [
+      "controlled-camera-only-marked-A",
+      "controlled-camera-only-marked-B"
+    ],
+    "findings": [
+      "B/E classify as top caps, not rear wall strips; discarded reflected front preview.",
+      "E upper/lower northern cliffs stay separate; shared upper side quadrants remove mismatched color collars.",
+      "F uses convex master at outside return, continuous side at inside notch.",
+      "G complete front/corner course covers missing footing; no duplicated wall-strip or flat skirt.",
+      "Full unchanged tree crowns occlude the actual receiving rock/lawn, with all original roots retained."
+    ],
+    "source_registration_limits": "Full shared trees and Gen3 module dimensions are adaptations; no perfect original pixel-match claim."
+  }
+}

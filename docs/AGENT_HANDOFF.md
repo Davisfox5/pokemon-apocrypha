@@ -1,18 +1,20 @@
-## Latest: Route33 shared-master correction; previous marked repair rejected
+## Latest: Route33 exposed rock/depth review; trees intentionally removed
 
-Engine `codex/route33-hgss` at `6e4d438b705604ca6e2cfc5fb5172377afa52d8e`, draft PR10.
-Use `gba/art/route33-hgss/README.md` and the current shared-sections comparisons.
-The owner rejected89f88993; it is historical. New repair imports exact common
-R02 face/side/corner and scenery ledge masters from hub9fd8c645 (codex/violet-city).
-Caps continue adjacent native top quadrants; no new screenshot tracing or per-map
-master redraw/recolor. Inspect the contextual A–G decisions in the README.
-All trees/other foreground retained. 111 changed cells, 279 cells/1116 quadrants
-reviewed, zero native pixels outside bounds/connected faces, no behavior/elevation
-changes. Twelve rock/under-canopy cells blocked versus214e38cf; no openings.
-Actual Porymap, exact nine-file reproduction, build and27 headless observations
-including ordinary saves pass. Prior local saves were unavailable after reset;
-do not claim old-save compatibility for this ROM. Owner visual acceptance pending.
-Never replay the old rejected repair scripts/generators over current native source.
+Engine `codex/route33-hgss` at `74e91ff1ea5fa45637ec0d798f0226ced284fcb1`, draft PR10.
+Read `gba/art/route33-hgss/README.md` and the current tree-free reference comparison.
+The owner rejected6e4d438b and explicitly requested removal of trees while fixing
+rock depth/levels with the completed other-thread catalog. All88 large trees and
+both Apricorns plus border repetitions are absent. Collision remains reserved;
+this is a tree-free review build, not a claim that open lawn is traversable.
+New source: ddafe9de common R02 COMPLETE tiles, superseding separate rim pieces.
+156 whole master placements; preserve24px mountain profiles via8px local bevels
+fitted to shared stone ramp plus16px unmodified wall bodies. Northern three fronts
+and southeast two-level formation exposed; no height flattening or scaling.
+Actual Porymap equality, exact nine-file native reproduction,27 headless observations
+and copied6e4d ordinary-save compatibility pass. No native collision, elevation,
+attributes or warp changes. Four foliage-rim pixels removed from boulder silhouettes.
+Native source and source/terrain-depth layers are current; old shared/marked repair
+images/tools are rejected history. Owner visual acceptance and CI remain pending.
 
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 

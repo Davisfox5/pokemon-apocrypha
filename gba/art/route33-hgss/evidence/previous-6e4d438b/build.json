@@ -1,0 +1,28 @@
+{
+  "source_commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+  "source_branch": "codex/route33-hgss",
+  "dependency": "fc1017fecad147879de460fcb9727ff63862598b",
+  "rom_sha256": "f65d2bb89e138cc98042fb31cd5508992fd1c66db4aad78619a499df365b80e7",
+  "ROM_bytes": 33554432,
+  "toolchain": "Debian Arm GNU 14.2.1 (15:14.2.rel1-1), native ROM build",
+  "Porymap": "6.3.1 offscreen actual project export",
+  "Porytiles": "Not rerun in this direct native edit; shared indexed art imported without RGB/alpha approximation. Prior standalone round-trip is historical.",
+  "mGBA": "libmGBA 0.10.5 headless",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0
+    },
+    {
+      "phase": "read",
+      "exit_code": 0
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0
+    }
+  ],
+  "observations": 27,
+  "CI": "PR draft; no workflow runs returned at publication",
+  "owner_visual_acceptance": "pending"
+}

@@ -9,7 +9,8 @@
         88,
         260
       ],
-      "opaque_pixels": 586
+      "original_opaque_pixels": 586,
+      "current_opaque_pixels": 584
     },
     {
       "name": "boulder-east",
@@ -19,7 +20,9 @@
         474,
         184
       ],
-      "opaque_pixels": 586
+      "original_opaque_pixels": 586,
+      "current_opaque_pixels": 584
     }
-  ]
+  ],
+  "tree_free_cleanup": "Remove two source foliage-rim pixels from each boulder silhouette; no stone RGB redrawn."
 }

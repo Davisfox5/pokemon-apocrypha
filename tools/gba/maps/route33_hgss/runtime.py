@@ -18,6 +18,7 @@ steps=r'''
  go(49,25,22);step(RIGHT,1);at(49,25,22,"shared-footing-closes-southern-shore-corridor");shot("marked-G-shore");
  go(49,14,12);shot("marked-C-ledge-head");go(49,14,17);shot("marked-D-ledge-corner");go(49,21,17);shot("marked-F-wall-corner");go(49,21,13);shot("marked-E-rear-edge");
  go(49,6,3);shot("controlled-camera-only-marked-A");go(49,21,3);shot("controlled-camera-only-marked-B");
+ go(49,20,7);shot("controlled-terrain-north-levels");go(49,27,17);shot("controlled-terrain-southeast-levels");
  go(49,20,18);shot("save-route33");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(49,20,18').replace('cold-reload-new-bark','cold-reload-route33')

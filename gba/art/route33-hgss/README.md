@@ -1,108 +1,103 @@
-# Route33 — shared-asset correction of the seven marked sections
+# Route33 — tree-free mountain and depth review
 
-Current engine: `codex/route33-hgss` at
-`6e4d438b705604ca6e2cfc5fb5172377afa52d8e`, [draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
-The owner rejected `89f88993`: tracing gaps again, insufficient seam review and
-fills chosen without terrain context. That revision is history, not accepted art.
-This edit starts from the preserved `214e38cf` native source and installs shared
-assets locally. No initial map generator was replayed.
+Engine `codex/route33-hgss`, `74e91ff1ea5fa45637ec0d798f0226ced284fcb1`,
+[draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
+The owner rejected the earlier foliage-covered repairs and requested that all
+trees be stripped while the rock faces and HGSS levels are corrected.
 
-## Current visual evidence
+**This is intentionally a tree-free terrain review.** All88 large trees and both
+Apricorns are absent, including border repetitions. Original forest/fruit collision
+remains blocked, so this inspection stage contains reserved invisible barriers.
+It is not a claim of a finished playable route or accepted art.
 
-- [Whole native map at2×](evidence/shared-native-map-2x.png) / [native1×](evidence/native-map.png)
-- [Seven enlarged HGSS / rejected / current comparisons](evidence/shared-sections-comparison.png)
-- Individual sections: [A](evidence/shared-sections/A.png), [B](evidence/shared-sections/B.png), [C](evidence/shared-sections/C.png), [D](evidence/shared-sections/D.png), [E](evidence/shared-sections/E.png), [F](evidence/shared-sections/F.png), [G](evidence/shared-sections/G.png)
-- [Actual native gameplay](evidence/gameplay-gallery.png)
-- [Actual Porymap/native comparison](evidence/comparison.png), [native grid](evidence/native-grid.png), [original grid](evidence/reference-grid.png)
-- [Shared source masters](source/shared-masters/provenance.json), [native placement ledger](evidence/shared-asset-repair.json), [independent scope review](evidence/shared-asset-review.json)
+## Current visuals
 
-## Shared assets, not fresh reconstructions
+- [Tree-free whole native map,2×](evidence/tree-free-map-2x.png)
+- [HGSS / tree-free native comparison](evidence/tree-free-reference-comparison.png)
+- [Northern three terrace fronts](evidence/terrain-depth/north-terraces.png)
+- [Northwest exterior face](evidence/terrain-depth/northwest-front.png)
+- [Summit step](evidence/terrain-depth/summit-step.png)
+- [Southeast two-level formation](evidence/terrain-depth/southeast-levels.png)
+- [Southeast receiving inset](evidence/terrain-depth/southeast-inside.png)
+- [Gameplay](evidence/gameplay-gallery.png); [controlled north camera](evidence/gameplay/controlled-terrain-north-levels.png), [controlled southeast camera](evidence/gameplay/controlled-terrain-southeast-levels.png)
+- [Profiles and placements](evidence/terrain-depth.json), [independent native checks](evidence/terrain-depth-review.json)
 
-Source: the newer common library on `codex/violet-city`, hub
-`9fd8c645a13ecc266ed4df82b64cefef20f3b8da`.
-[R02 contextual masters](https://github.com/Davisfox5/pokemon-apocrypha/tree/9fd8c645a13ecc266ed4df82b64cefef20f3b8da/gba/art/johto-common/rocks/r02-context/source)
-provide complete front and east/west faces and corners.
-[R02 shared masks](https://github.com/Davisfox5/pokemon-apocrypha/tree/9fd8c645a13ecc266ed4df82b64cefef20f3b8da/gba/art/johto-common/rocks/r02-shared-rims/source/tiles)
-provide the same minimal convex tips used by that family.
-Common scenery L11/L12/L13 supply the ledges. Imported PNGs are byte-identical to
-those sources, with hashes/paths recorded. No master is redrawn or recolored;
-master RGB and silhouettes are retained with the explicitly selected shared tip masks in native output. Source clipping
-uses native quadrants or the shared tip masks. This does not claim the other
-thread's map proposal has been merged or that the owner accepted this placement.
+## Correct source family and depth
 
-T01/T03/T04 remain byte-identical to the latest common tree masters. All tree
-positions, complete crowns, roots, Apricorns, boulders and other foreground pixels
-outside the ledge are unchanged. Pink fruit is not a pink large tree. The small
-flowers remain simplified; no new props or interactions are introduced.
+The current source is hub `codex/violet-city` at
+`ddafe9de4b923800bc12fc6f54b821469389ae48`, including the **completed** R02 catalog
+introduced by `a20fa293`. It supersedes the separate rim/mask method used in the
+previous rejected pass. The full seventeen-master catalog and hash-pinned PNGs
+are preserved under `source/complete-rocks`; no canonical master is redrawn,
+recolored, height-scaled or assembled from separate grass slivers.
 
-## Contextual decisions by marked area
+The registry limits this family to compatible16px rises and explicitly leaves
+different-height mountain/cave caps local. Route33 therefore uses whole uncapped
+R02/R04 front, R10 corner and R11/R12 side masters for the16px wall bodies, with
+its existing8px mountain bevel above: **24px total per front rise**. One fixed
+palette-ramp mapping fits those local native bevels to the shared stone colors;
+their texture/silhouette remains local. No face is vertically stretched. Flat
+plateau textures remain separate from the wall planes.
 
-| Mark | Terrain role and receiving join |
-| --- | --- |
-| A | Continue the existing raised top to one complete shared south-facing front course behind the forest crowns. Remove the earlier fake padding skirt; do not stack front-face strips. |
-| B | This is a **top cap**, not a visible rear wall. Continue the immediately adjacent native top/shoulder quadrants. A reflected front was tried in preview and discarded because it invented a dark beam. |
-| C | Install complete L11/L12 masters rotated clockwise so the ledge's raised side is east. The cap stays part of the approved master; no pixels are improvised. |
-| D | Join the vertical shared modules to the shared horizontal end/body modules. Retain both original one-way behaviors and collision registration. |
-| E | Keep the four-pixel lawn separation from the northern mountain. Continue the adjacent native top cap, then use matching upper side quadrants and the shared convex-tip masks. No grass lip is painted onto bare raised stone. |
-| F | Use west-facing side modules, a matching southwest convex return and the front course. Continue a side through the concave notch; never put an outside corner into an inside turn. |
-| G | Continue the existing plateau to a complete shared wall footing, rather than ending with a flat stone skirt. Extend the footing eight pixels behind the full existing tree crowns. Block the footprint and the former under-canopy sea corridor; no tree is shifted or cropped. |
+The northern exterior, middle terrace and summit have distinct front baselines:
+188,166 and128px, with the summit's eastern return at116px. The southeast raised
+L has short/long front baselines248/320px, above the outer platform. The platform's
+southern footing is inferred behind the original foliage at360px, using the same
+24px profile. All named source/receiving profiles are in the ledger. These are
+visual interpretations of the registered HGSS overview, not decoded DS z-values
+or new GBA elevation-bit semantics. Parts hidden by original trees remain declared
+interpretations rather than source-confirmed geometry.
 
-The southeast faces are reviewed as one connected receiving surface; isolated
-swatch replacements would leave color/phase collars and broken corners. The
-existing main plateau and northern mountain textures are retained. Native lawn
-and plateau backing come from existing map tiles, not fresh HGSS screenshot cuts.
-Every placement and reused backing is explicit in the repair script/ledger.
+Inside joins retain their local receiving geometry where the catalog's R17 turn
+faces the wrong direction. An incompatible corner is not inserted into the upper
+plane. Complete shared corner/side modules handle exposed turns. The accepted
+48px cave arch/shoulders, black opening, warps, paths and ledges remain intact.
 
-## Validation and reproducibility
+## Tree removal and native review
 
-HGSS geographic/material reference remains the original 528×463 overview,
-[Johto Route33](https://archives.bulbagarden.net/media/upload/8/8b/Johto_Route_33_HGSS.png),
-registered at origin0,0 to 16×16 squares and 8×8 quadrants. Collision is interpreted
-from the overview/topology, not described as decoded DS collision.
+Tree-removal masks use the locked common master silhouettes and original placements.
+Two foliage-rim pixels on each boulder were also removed; all stone RGB is retained,
+with the prior boulder sources preserved. Ground is inspected across the entire
+old object footprint, not just outside its alpha. Foreground foliage pixels are
+zero; border art is plain closed lawn. Boulders, sign and ledges remain separate.
 
-- Actual Porymap6.3.1 export matches decoded native RGB across all986 cells.
-- Independent source/native layer comparison finds zero changes outside the
-  explicit repair bounds and connected southeast faces. Foreground outside the
-  ledge is identical; behavior/elevation are identical. All backings are opaque.
-- 111 changed cells plus neighbors: 279 cells /1116 quadrants in coordinate review
-  sheets. All seven assembled comparisons and actual native gameplay close-ups
-  were inspected. Source hashes and receiving module orientation are checked.
-- Twelve cells gain collision relative to214e38cf: rows21–22, columns26–31.
-  Six were already blocked in the rejected89f88993 draft; six more close the
-  under-canopy corridor. No blocked cells open, and all water remains blocked.
-- Shared artwork uses exact native colors, with zero RGB/alpha approximation.
-  One spare bank contains stone/lawn; three previously unused palette2 indices
-  receive exact ledge shades. All retained map/border palette uses are checked.
-- Nine native files reproduce exactly from214e38cf with
-  `shared_asset_repair.py ENGINE --install`, palette CRLF normalized. Native IDs
-  of untouched cells/border are retained. Only unreferenced storage is reused;
-  maximum glyph987 stays below reserved1008–1023; 414 metatiles allocated.
-- Debian Arm GNU14.2.1 builds the ROM. Headless libmGBA0.10.5 passes27 observations:
-  cave entry/return, both ledge directions and blocked returns, route walking,
-  cliffs/forest/water/footing barriers, ordinary save, cold reload and title Continue.
-  A/B camera captures place the camera inside blocked terrain for visual review;
-  they are not walking claims. C–G frames use reachable ground.
-- Old saves from the previous cloud workspace were unavailable, so historical
-  prior-ROM compatibility evidence is retained separately, not claimed for this
-  ROM. Current ordinary save checks pass; no save schema is changed.
+- Actual Porymap6.3.1 export equals decoded native RGB for all986 cells.
+- 156 whole-master placements,29,799 unoccluded canonical pixels checked with
+  zero RGBA differences. Local bevels and overlapped/prop-covered pixels are
+  accounted for separately. Raw shared PNG hashes are exact.
+- 630 cells change visually. Collision, elevation and decoded attributes are
+  unchanged everywhere. All water stays blocked; tree/fruit barriers remain.
+- Background outside the two mountain regions is unchanged. Fully hidden opaque
+  wall quadrants use a compact existing plateau backing: no visible texture is
+  discarded or replaced by a nearest-match tile. Maximum glyph937 is below
+  reserved1008–1023; 414 metatiles allocated.
+- Nine native files reproduce exactly from6e4d438b with the guarded
+  `terrain_depth.py ENGINE ORIGINAL_NATIVE_BASELINE --install`. The baseline is
+  native214e38cf for the original mountain surfaces; no layout generator executes.
+- Arm GNU14.2.1 builds the ROM. Headless libmGBA0.10.5 checks27 observations,
+  including real cave travel, both ledges, ground/barriers, ordinary save, cold
+  reload and title Continue. A copied6e4d438b save also loads and Continues with
+  its original untouched. Plateau camera placements are controlled visual views,
+  not claims that those blocked heights are walkable.
 
-Read-only checks: `review.py ENGINE PORYMAP_EXPORT`,
-`review_shared_assets.py ENGINE BASELINE_ENGINE PORYMAP_EXPORT`,
-`check_selected_assets.py`. Runtime: `runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT`.
-Build/output identity is in `evidence/build.json`; scope and reproduction are in
-`shared-asset-review.json` and `reproduction.json`. The old Porytiles representative
-round-trip is historical; this direct native edit does not rerun that packer.
+Read-only verification:
+`depth_review.py ENGINE BEFORE_ENGINE PORYMAP_EXPORT`, plus
+`review.py ENGINE PORYMAP_EXPORT`. Runtime:
+`runtime.py ENGINE NEW_OUTPUT --toolchain ARM_ROOT`.
+Current source, ROM and runtime identities are in `evidence/build.json`.
 
-## Preserved history and remaining limits
+## Scope and preserved history
 
-`previous-89f88993` and Git history retain the rejected pass; `previous-214e38cf`
-and older snapshots remain intact. Old marked-repair tools/images document those
-attempts and must not be replayed over current native source. Current native
-source is the editor authority; the guarded patcher is narrow provenance.
+This pass changes only the private Route33 native map/border/tileset source.
+Cave art, events, warps, map IDs, other maps and owner saves are preserved.
+`previous-6e4d438b`, earlier snapshots and Git retain rejected drafts. Current
+editable layers are `source/terrain-depth/background.png` and `foreground.png`;
+current native source is authoritative. Older authoring/repair tools are historical
+and must never be replayed over the current map.
 
-Azalea is unbuilt and the west endpoint remains closed. Apricorn harvest,
-encounters, actors, sign dialogue and campaign triggers remain outside this pass.
-Eastern inaccessible sea framing is static. Native full-tree spacing and the
-half-metatile cap/footing projection remain explicit adaptations. No cave art,
-warps, shared production tilesets, unrelated maps or saves were edited. CI and
-owner visual acceptance are separate from the local checks; the PR remains draft.
+Azalea remains unbuilt; west exit closed. Encounters, sign dialogue, actors,
+harvest mechanics and campaign triggers remain outside scope. Eastern sea framing
+is static. Local tall-mountain caps/inside joins are not falsely advertised as a
+finished universal R02 family. The original reference is the528×463 HGSS overview,
+origin0,0 registered to16px squares and8px quadrants. CI and owner visual acceptance
+remain separate from local verification; the PR stays draft.

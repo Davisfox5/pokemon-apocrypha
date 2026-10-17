@@ -1,0 +1,37 @@
+{
+  "tree_free_review": true,
+  "removed_large_trees": 88,
+  "removed_apricorns": 2,
+  "retained_foreground_tree_green_pixels": 0,
+  "retained_boulder_RGB_errors": 0,
+  "visible_shared_master_pixels": 29799,
+  "visible_master_RGBA_errors": 0,
+  "whole_master_placements": 156,
+  "shared_source": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+  "front_rise_depth": 24,
+  "front_bevel_depth": 8,
+  "complete_face_depth": 16,
+  "collision_changes": 0,
+  "elevation_changes": 0,
+  "behavior_changes": 0,
+  "water_blocked": true,
+  "Porymap_RGB_errors": 0,
+  "changed_cells": 630,
+  "border_tree_free": true,
+  "scope": "Both entire mountain formations and all tree foreground; other terrain/props/warps retained",
+  "limits": [
+    "Forest and Apricorn collision retained as blocked review footprints although trees are intentionally absent.",
+    "24px mountain bevels/caps and receiving concave joins remain local; shared R02 single-rise family is16px, not falsely stretched to replace24px.",
+    "Southern level1 footing is inferred behind original foliage; not claimed as decoded DS geometry.",
+    "Tree-free terrain review; owner visual acceptance pending."
+  ],
+  "source_commit": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
+  "local_bevel": "Original native8px bevel silhouettes and texture fitted with one fixed mapping to the current shared stone ramp; no16px face is stretched.",
+  "hidden_backing": "Only fully opaque wall/cap quadrants use canonical native plateau backing; visible pixels are unchanged.",
+  "inspection": [
+    "Whole tree-free map",
+    "HGSS/native north terraces, NW front, summit turn, SE levels and receiving inset",
+    "Actual headless north/SE controlled cameras and accessible cave/ledge/frontage frames"
+  ],
+  "review_stage": "Trees stay removed; invisible reserved forest/fruit barriers retained intentionally."
+}
