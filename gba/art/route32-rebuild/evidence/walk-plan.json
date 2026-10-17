@@ -1,0 +1,170 @@
+[
+ {
+  "name": "north-lawn",
+  "start": [
+   23,
+   3
+  ],
+  "goal": [
+   20,
+   3
+  ],
+  "steps": 3
+ },
+ {
+  "name": "first-terrace",
+  "start": [
+   20,
+   3
+  ],
+  "goal": [
+   14,
+   22
+  ],
+  "steps": 41
+ },
+ {
+  "name": "terrace-path",
+  "start": [
+   14,
+   22
+  ],
+  "goal": [
+   18,
+   24
+  ],
+  "steps": 6
+ },
+ {
+  "name": "ledge-pocket",
+  "start": [
+   18,
+   24
+  ],
+  "goal": [
+   26,
+   27
+  ],
+  "steps": 13
+ },
+ {
+  "name": "central-grass",
+  "start": [
+   26,
+   27
+  ],
+  "goal": [
+   26,
+   36
+  ],
+  "steps": 11
+ },
+ {
+  "name": "west-clearing",
+  "start": [
+   26,
+   36
+  ],
+  "goal": [
+   9,
+   50
+  ],
+  "steps": 31
+ },
+ {
+  "name": "ew-stairs-top",
+  "start": [
+   9,
+   50
+  ],
+  "goal": [
+   12,
+   58
+  ],
+  "steps": 11
+ },
+ {
+  "name": "tall-grass-shelf",
+  "start": [
+   12,
+   58
+  ],
+  "goal": [
+   10,
+   72
+  ],
+  "steps": 20
+ },
+ {
+  "name": "under-railway-dock",
+  "start": [
+   10,
+   72
+  ],
+  "goal": [
+   18,
+   80
+  ],
+  "steps": 16
+ },
+ {
+  "name": "fishing-arm",
+  "start": [
+   18,
+   80
+  ],
+  "goal": [
+   15,
+   88
+  ],
+  "steps": 11
+ },
+ {
+  "name": "pier-south",
+  "start": [
+   15,
+   88
+  ],
+  "goal": [
+   18,
+   95
+  ],
+  "steps": 10
+ },
+ {
+  "name": "south-clearing",
+  "start": [
+   18,
+   95
+  ],
+  "goal": [
+   8,
+   110
+  ],
+  "steps": 33
+ },
+ {
+  "name": "center-forecourt",
+  "start": [
+   8,
+   110
+  ],
+  "goal": [
+   16,
+   131
+  ],
+  "steps": 29
+ },
+ {
+  "name": "cave-forecourt",
+  "start": [
+   16,
+   131
+  ],
+  "goal": [
+   14,
+   148
+  ],
+  "steps": 23
+ }
+]

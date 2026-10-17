@@ -1,0 +1,30 @@
+{
+ "tol_final": 12.0,
+ "glyphs": 1276,
+ "placed": {
+  "P": 342,
+  "N": 439,
+  "S": 495,
+  "NS": 0
+ },
+ "metatiles": {
+  "primary": 94,
+  "north": 423,
+  "south": 512
+ },
+ "split_row": 78,
+ "door": [
+  18,
+  52
+ ],
+ "cave_warps": [
+  [
+   12,
+   65
+  ],
+  [
+   13,
+   65
+  ]
+ ]
+}
