@@ -72,7 +72,7 @@ def main():
                 blocks.append(T[r0:r0+8, c0:c0+8].reshape(-1, 3)); lb = L[r0:r0+8, c0:c0+8]
                 cells.append((x, z, q))
     blocks = np.array(blocks)
-    free = [b for b in range(16) if b not in CENTER_BANKS]
+    free = [b for b in range(13) if b not in CENTER_BANKS]      # the engine reserves BG palettes 13-15
     # one bank per material group; labels decide membership so lawn, tall grass and path never share a 15-colour ramp
     groups = {'lawn': ['.'], 'tall': ['G'], 'path': ['P', 'S', '_'], 'tree': ['T'], 'tree2': [], 'rock': ['R'], 'rock2': [], 'water': ['W', 'N'], 'deck': ['D'], 'misc': ['B', 'H', '?']}
     lab8 = np.array([str(np.unique(L[z*16+(q//2)*8:z*16+(q//2)*8+8, x*16+(q % 2)*8:x*16+(q % 2)*8+8], return_counts=True)[0][np.unique(L[z*16+(q//2)*8:z*16+(q//2)*8+8, x*16+(q % 2)*8:x*16+(q % 2)*8+8], return_counts=True)[1].argmax()]) for (x, z, q) in cells])
