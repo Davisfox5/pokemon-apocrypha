@@ -38,7 +38,7 @@ def sig(blk):
     return ''.join(s)
 
 def main():
-    p = argparse.ArgumentParser(); p.add_argument('out'); p.add_argument('--tol', type=float, default=9.0); p.add_argument('--phase-free', action='store_true'); a = p.parse_args()
+    p = argparse.ArgumentParser(); p.add_argument('out'); p.add_argument('--tol', type=float, default=9.0); p.add_argument('--phase-free', action='store_true'); p.add_argument('--mean', action='store_true'); a = p.parse_args()
     OUT = Path(a.out); OUT.mkdir(parents=True, exist_ok=True)
     im = Image.open(SRC/'hgss-reference.png').convert('RGB')
     lab = np.load(SRC/'hgss-material-pixel-labels.npy'); labim = Image.fromarray(np.vectorize(ord)(lab).astype(np.uint8))
@@ -111,7 +111,8 @@ def main():
         final[(x, z)] = (ph, best[1]); members.setdefault((ph, best[1]), []).append((x, z))
     # replace each exemplar by the medoid of its members (a real tile, closest to the member mean)
     for key, cells in members.items():
-        px = np.array([tile(x, z) for x, z in cells]); m = px.mean(0); d = np.abs(px-m).mean((1, 2, 3)); exemplars[key[0]][key[1]] = px[d.argmin()]
+        px = np.array([tile(x, z) for x, z in cells]); m = px.mean(0); d = np.abs(px-m).mean((1, 2, 3))
+        exemplars[key[0]][key[1]] = m if (a.mean and len(cells) >= 3) else px[d.argmin()]   # mean denoises the resample when the cluster is large enough
     keys = members; stats = {'exemplars': sum(len(v) for v in exemplars.values()), 'singletons': sum(1 for v in members.values() if len(v) == 1)}
     final = {c: exemplars[k[0]][k[1]] for c, k in final.items()}
     Q = np.zeros_like(T)
