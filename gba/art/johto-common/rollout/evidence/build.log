@@ -1,0 +1,25 @@
+unzip -o -q poryscript-mac.zip 'poryscript-mac/poryscript'
+mv -f poryscript-mac/poryscript poryscript
+rmdir poryscript-mac 2>/dev/null || true
+chmod +x poryscript
+./poryscript -v
+3.6.1
+tools/gbagfx/gbagfx data/tilesets/primary/johto_cherrygrove/tiles.png build/assets/data/tilesets/primary/johto_cherrygrove/tiles.png.4bpp
+tools/gbagfx/gbagfx data/tilesets/secondary/claude_route30/tiles.png build/assets/data/tilesets/secondary/claude_route30/tiles.png.4bpp
+tools/gbagfx/gbagfx data/tilesets/secondary/claude_route29/tiles.png build/assets/data/tilesets/secondary/claude_route29/tiles.png.4bpp
+tools/gbagfx/gbagfx data/tilesets/secondary/johto_cherrygrove/tiles.png build/assets/data/tilesets/secondary/johto_cherrygrove/tiles.png.4bpp
+tools/preproc/preproc -s data/maps.s charmap.txt | arm-none-eabi-cpp -iquote include -Wno-trigraphs -DMODERN=1 -DTESTING=0 -DEMERALD -std=gnu17 -I include - | tools/preproc/preproc -ie data/maps.s charmap.txt | arm-none-eabi-as -mcpu=arm7tdmi -march=armv4t -meabi=5 --defsym MODERN=1 --defsym EMERALD=1 -o build/emerald/data/maps.o
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/primary/johto_cherrygrove/tiles.png.4bpp build/assets/data/tilesets/primary/johto_cherrygrove/tiles.png.4bpp.fastSmol false false false
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/secondary/claude_route29/tiles.png.4bpp build/assets/data/tilesets/secondary/claude_route29/tiles.png.4bpp.fastSmol false false false
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/secondary/claude_route30/tiles.png.4bpp build/assets/data/tilesets/secondary/claude_route30/tiles.png.4bpp.fastSmol false false false
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/secondary/johto_cherrygrove/tiles.png.4bpp build/assets/data/tilesets/secondary/johto_cherrygrove/tiles.png.4bpp.fastSmol false false false
+/Users/davisfox/Documents/GitHub/the-omni-hack/tools/vendor/gba/arm-gnu-toolchain-14.2.rel1-darwin-arm64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/14.2.1/cc1 -quiet <flags> -o build/emerald/src/tilesets.o src/tilesets.c
+arm-none-eabi-ld: warning: ../../pokeemerald.elf has a LOAD segment with RWX permissions
+Memory region         Used Size  Region Size  %age Used
+           EWRAM:      226760 B       256 KB     86.50%
+           IWRAM:       28392 B        32 KB     86.65%
+             ROM:    20124112 B        32 MB     59.97%
+cd build/emerald && arm-none-eabi-ld -Map ../../pokeemerald.map --print-memory-usage --gc-sections -T ../../ld_script_modern.ld -o ../../pokeemerald.elf <objs> <libs> | cat
+tools/gbafix/gbafix pokeemerald.elf -t"POKEMON EMER" -cBPEE -m01 -r0 --silent
+arm-none-eabi-objcopy -O binary pokeemerald.elf pokeemerald.gba
+tools/gbafix/gbafix pokeemerald.gba -p --silent

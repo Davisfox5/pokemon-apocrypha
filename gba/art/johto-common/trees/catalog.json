@@ -1,5 +1,5 @@
 {
-  "status": "Owner-approved tree artwork; native map rollout pending",
+  "status": "Owner-approved masters; native large-tree and apricorn rollout installed across the seven-map scope. Cut animation retained.",
   "map_scope": [
     "New Bark Town",
     "Route 29",
@@ -177,5 +177,6 @@
       "status": "Already transparent; unchanged pixels",
       "usage": "Native Cut object used on Route 30 approach"
     }
-  ]
+  ],
+  "rollout": "gba/art/johto-common/rollout/README.md"
 }

@@ -1,0 +1,655 @@
+{
+  "maps": [
+    {
+      "map": "NewBarkTown",
+      "changed_pixels": 23938,
+      "changed_cells": 584,
+      "collision_elevation_changes": [],
+      "behavior_changes": [],
+      "event_fields_changed": [],
+      "live_graphics": 672,
+      "live_metatiles": 395
+    },
+    {
+      "map": "CherrygroveRoute29Approach",
+      "changed_pixels": 126356,
+      "changed_cells": 1987,
+      "collision_elevation_changes": [
+        {
+          "x": 49,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 50,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 51,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 52,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 53,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 54,
+          "y": 4,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 49,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 50,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 51,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 52,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 53,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 54,
+          "y": 5,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 50,
+          "y": 7,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 51,
+          "y": 7,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 52,
+          "y": 7,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 53,
+          "y": 7,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 54,
+          "y": 7,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 50,
+          "y": 8,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 50,
+          "y": 9,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 50,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 50,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        }
+      ],
+      "behavior_changes": [
+        {
+          "x": 49,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 50,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 51,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 52,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 53,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 54,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 55,
+          "y": 4,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 49,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 50,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 51,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 52,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 53,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 54,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 55,
+          "y": 5,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 51,
+          "y": 7,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 52,
+          "y": 7,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 53,
+          "y": 7,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 50,
+          "y": 8,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 50,
+          "y": 9,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 50,
+          "y": 10,
+          "before": 0,
+          "after": 4096
+        }
+      ],
+      "event_fields_changed": [],
+      "live_graphics": 428,
+      "live_metatiles": 239
+    },
+    {
+      "map": "CherrygroveCity",
+      "changed_pixels": 44447,
+      "changed_cells": 1354,
+      "collision_elevation_changes": [],
+      "behavior_changes": [],
+      "event_fields_changed": [],
+      "live_graphics": 987,
+      "live_metatiles": 596
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "changed_pixels": 46803,
+      "changed_cells": 1886,
+      "collision_elevation_changes": [],
+      "behavior_changes": [],
+      "event_fields_changed": [],
+      "live_graphics": 459,
+      "live_metatiles": 348
+    },
+    {
+      "map": "JohtoRoute31",
+      "changed_pixels": 74387,
+      "changed_cells": 999,
+      "collision_elevation_changes": [
+        {
+          "x": 1,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 4,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 6,
+          "y": 8,
+          "before": 15360,
+          "after": 12288
+        },
+        {
+          "x": 7,
+          "y": 9,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 4,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 5,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 6,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 7,
+          "y": 10,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 5,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 6,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 7,
+          "y": 11,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 7,
+          "y": 12,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 13,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 7,
+          "y": 13,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 14,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 14,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 7,
+          "y": 14,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 1,
+          "y": 15,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 2,
+          "y": 15,
+          "before": 12288,
+          "after": 15360
+        },
+        {
+          "x": 4,
+          "y": 15,
+          "before": 12288,
+          "after": 0
+        },
+        {
+          "x": 7,
+          "y": 15,
+          "before": 12288,
+          "after": 15360
+        }
+      ],
+      "behavior_changes": [
+        {
+          "x": 1,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 4,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 6,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 7,
+          "y": 8,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 4,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 5,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 6,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 7,
+          "y": 9,
+          "before": 4096,
+          "after": 0
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 5,
+          "y": 11,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 2,
+          "y": 14,
+          "before": 0,
+          "after": 4096
+        },
+        {
+          "x": 4,
+          "y": 15,
+          "before": 4201,
+          "after": 4192
+        }
+      ],
+      "event_fields_changed": [],
+      "live_graphics": 665,
+      "live_metatiles": 334
+    },
+    {
+      "map": "VioletCity",
+      "changed_pixels": 53348,
+      "changed_cells": 2712,
+      "collision_elevation_changes": [],
+      "behavior_changes": [],
+      "event_fields_changed": [],
+      "live_graphics": 982,
+      "live_metatiles": 549
+    },
+    {
+      "map": "JohtoRoute36",
+      "changed_pixels": 1306,
+      "changed_cells": 39,
+      "collision_elevation_changes": [],
+      "behavior_changes": [],
+      "event_fields_changed": [],
+      "live_graphics": 714,
+      "live_metatiles": 366
+    }
+  ],
+  "unique_pairs": 416
+}

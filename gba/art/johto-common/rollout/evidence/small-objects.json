@@ -1,0 +1,130 @@
+[
+  {
+    "changed_cells": 4,
+    "native_pixel_errors": 0,
+    "behavior_errors": 0,
+    "collision_elevation_errors": 0,
+    "secondary_metatile_count": 332,
+    "free_graphic_slots": 114,
+    "map": "NewBarkTown",
+    "objects": [
+      {
+        "master": "P10",
+        "old_bounds": [
+          144,
+          80,
+          16,
+          32
+        ],
+        "origin": [
+          144,
+          80
+        ],
+        "background": "grass"
+      },
+      {
+        "master": "P10",
+        "old_bounds": [
+          336,
+          256,
+          16,
+          32
+        ],
+        "origin": [
+          336,
+          256
+        ],
+        "background": "grass"
+      }
+    ]
+  },
+  {
+    "changed_cells": 5,
+    "native_pixel_errors": 0,
+    "behavior_errors": 0,
+    "collision_elevation_errors": 0,
+    "secondary_metatile_count": 161,
+    "free_graphic_slots": 373,
+    "map": "CherrygroveRoute29Approach",
+    "objects": [
+      {
+        "master": "T03",
+        "old_bounds": [
+          320,
+          176,
+          48,
+          48
+        ],
+        "origin": [
+          330,
+          200
+        ],
+        "background": "grass"
+      }
+    ]
+  },
+  {
+    "changed_cells": 12,
+    "native_pixel_errors": 0,
+    "behavior_errors": 0,
+    "collision_elevation_errors": 0,
+    "secondary_metatile_count": 417,
+    "free_graphic_slots": 283,
+    "map": "CherrygroveRoute30Approach",
+    "objects": [
+      {
+        "master": "T04",
+        "old_bounds": [
+          336,
+          64,
+          16,
+          32
+        ],
+        "origin": [
+          327,
+          64
+        ],
+        "background": "grass"
+      },
+      {
+        "master": "T03",
+        "old_bounds": [
+          192,
+          816,
+          16,
+          32
+        ],
+        "origin": [
+          183,
+          820
+        ],
+        "background": "grass"
+      }
+    ]
+  },
+  {
+    "changed_cells": 5,
+    "native_pixel_errors": 0,
+    "behavior_errors": 0,
+    "collision_elevation_errors": 0,
+    "secondary_metatile_count": 417,
+    "free_graphic_slots": 90,
+    "map": "JohtoRoute31",
+    "objects": [
+      {
+        "master": "T03",
+        "old_bounds": [
+          320,
+          192,
+          48,
+          48
+        ],
+        "origin": [
+          330,
+          216
+        ],
+        "background": "path"
+      }
+    ]
+  }
+]

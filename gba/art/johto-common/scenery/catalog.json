@@ -1,5 +1,5 @@
 {
-  "status": "Source foreground cleanup for review; no native maps or ROM changed",
+  "status": "Cleaned shared library; compatible existing placements installed or verified in seven-map rollout. Unplaced sign variants remain library assets.",
   "engine_revision": "6fc9e98e42fcf6c566ced269dca6a76ddf6a7cbf",
   "map_scope": [
     "New Bark",
@@ -1866,5 +1866,6 @@
       "native_indices_preserved": true,
       "native_index_sha256": "666b2fe474a9e1b9e728ea80b67566a375910c62dcbde7f739fd22393701956e"
     }
-  ]
+  ],
+  "rollout": "gba/art/johto-common/rollout/README.md"
 }

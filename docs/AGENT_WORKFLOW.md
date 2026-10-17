@@ -20,7 +20,7 @@ All reusable land objects need transparent foregrounds, including large/small,
 Cut and apricorn trees. Keep grass, dirt, pavement, sand, rock and terrain-colored
 cast shadows outside the object master. Use `gba/art/johto-common/trees/catalog.json`
 for the cleaned tree library; it records source pixels, dimensions, anchors,
-frame order and exact indexed exports. These masters are not yet installed in maps. All five T01–T05 tree masters are owner-approved. Superseded cutouts are deleted; run
+frame order and exact indexed exports. The seven-map rollout is recorded in `gba/art/johto-common/rollout/README.md`. All five T01–T05 tree masters are owner-approved. Superseded cutouts are deleted; run
 `tools/gba/maps/johto_common/check_trees.py` to reject restored alternatives or
 large-tree source copies that differ from the chosen Cherrygrove design.
 Do not reuse older ground-backed tree imports for new placements. Keep the full

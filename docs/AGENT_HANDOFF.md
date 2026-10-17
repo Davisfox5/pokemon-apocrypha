@@ -1,3 +1,22 @@
+## Current: Johto shared-family rollout
+
+Read `gba/art/johto-common/rollout/README.md` and the regional
+`approved-tilesets.json`. Engine **698db52a18** on `codex/johto-common-rollout`;
+draft PR13; seven maps receive compatible trees, scenery and tall-grass cleanup. Routes 29/31
+reuse G01a; Center C06/Mart M01 and all 102 R02 wall placements verified unchanged.
+Zero obsolete tree-shadow-color pixels remain across the seven decoded maps,
+including clipped edge trees. 9,561 changed cells /416 unique before-after pairs
+reviewed. Porymap equality, native build, background ledges/doors/gate return,
+Route 36 stairs/barriers and ordinary save/Continue pass. No desktop emulator opened.
+
+**Not complete:** exact G02 replacements for Violet's gates do not fit the current
+map budget (best tested 1,175 graphics vs 1,008). Existing Violet gates retained;
+failed alternatives never installed. `violet_gate_experiment.py` and its packing
+helpers are experimental, not the production rollout. Resolve this documented
+exception before calling all gates standardized. Water/shoreline and broad ground
+transition families and other cliff/cave geometries still await their own review.
+No production merge. Owner visual acceptance of this broad rollout remains separate.
+
 ## Current: Route 36 residual tree backing corrected
 
 Read `gba/art/johto-common/trees/route36-ground-repair/README.md`. The owner found

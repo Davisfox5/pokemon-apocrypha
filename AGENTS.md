@@ -99,6 +99,13 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   keep terrain-colored ground shadows separate from the reusable object. Native
   foreground transparency must reveal the actual destination terrain. A constrained
   animation composite must use that same terrain while its source remains transparent.
+- Audit destination ground across the entire old object footprint, including
+  clipped map-edge trees and path-adjacent fragments. A transparent master alone
+  does not remove old shadows from the lower terrain layer. Verify the assembled
+  native map, not only the source alpha mask.
+- The common Johto family registry is `gba/art/johto-common/approved-tilesets.json`.
+  Check its rollout coverage and explicit exceptions before claiming a family is
+  installed everywhere. Do not substitute a different-height cliff family blindly.
 - Johto large trees must use the approved Cherrygrove design: shared master T01,
   with T02 pink foliage exclusive to Cherrygrove. The native Emerald T05 is the
   sole Cut-tree choice. See `gba/art/johto-common/trees/catalog.json`. Superseded

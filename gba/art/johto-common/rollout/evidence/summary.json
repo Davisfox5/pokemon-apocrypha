@@ -1,0 +1,23 @@
+{
+  "engine_revision": "698db52a184083687d354452f3bd1c8f2791d23b",
+  "baseline": "5b80e625d1",
+  "rom_sha256": "86adfae5cfeea6877a0b4e77b2b246cb722b1e09d08c993ef0a2ed2ac0cedf23",
+  "changed_cells": 9561,
+  "unique_review_pairs": 416,
+  "obsolete_tree_shadow_pixels": {
+    "NewBarkTown": 0,
+    "CherrygroveRoute29Approach": 0,
+    "CherrygroveCity": 0,
+    "CherrygroveRoute30Approach": 0,
+    "JohtoRoute31": 0,
+    "VioletCity": 0,
+    "JohtoRoute36": 0
+  },
+  "r02_placements_exact": 102,
+  "gameplay_scripts_events_object_graphics_unchanged": true,
+  "build_pass": true,
+  "porymap_maps": 7,
+  "unrelated_shared_primary_previews_unchanged": 3,
+  "review_status": "Agent inspected native overviews, 416 unique before/after pairs and runtime frames; owner visual acceptance remains separate",
+  "exception": "Violet gate replacement uninstalled; exact tested candidate exceeds graphics budget"
+}
