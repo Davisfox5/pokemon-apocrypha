@@ -1,10 +1,20 @@
-## Current: R02 complete terrain tiles and full corner audit
+## Current: Route 36 approved transparent tree installation
+
+Read `gba/art/johto-common/trees/route36-installation/README.md`. Owner approved
+complete rock tiles and requested backgroundless trees as the remaining change.
+Engine e739facc2a, draft PR12: removed old tree backing using approved T01 masks;
+409 existing origins and all other scene pixels preserved. 115 unique tile pairs
+covering 1,242 changed cells inspected. Build, Porymap equality and background
+movement/save/Continue pass. No production merge or desktop emulator. Tree result
+awaits owner review; do not move trees without an explicit placement instruction.
+
+## Approved: R02 complete terrain tiles and full corner audit
 
 Read `gba/art/johto-common/rocks/r02-complete-tiles/README.md`. Use its 17 complete
 rock/grass masters, not separate grass slivers. All 102 wall placements exactly
 match the masters. Five convex tips complete, including previously missed (14,4);
 three concave geometries preserved. Engine bc5612dd84, draft PR12. Build, Porymap
-and background runtime/save checks pass; 250 cells reviewed. Owner approval pending.
+and background runtime/save checks pass; 250 cells reviewed. Owner approved 2026-10-17.
 No tree move, production merge or desktop emulator. Await owner's remaining tree-row
 annotation rather than guessing it.
 
