@@ -1,0 +1,34 @@
+{
+  "status": "agent inspected; owner approval pending",
+  "cells": 226,
+  "quadrants": 904,
+  "checks": {
+    "stairs_unchanged": true,
+    "collision_and_elevation_unchanged": true,
+    "behavior_unchanged": true
+  },
+  "shared_profiles": 2,
+  "corner_tip_mask_pixels": 3,
+  "sha256": {
+    "review/before-full.png": "c6f504692b1d805d8838e64de590223ad73120502d69b7d8afba94ffe432b040",
+    "review/before.png": "f7b2dd172fa61833042a59ff78cc7c98e25d076abaf0c9f6ef81aec823c42fa5",
+    "review/cells-1.png": "1e79b5f38a9b0fd0b0183c88f6b3ef12310374ae9e385f121c4fcc9221635adc",
+    "review/cells-10.png": "b183bd843254f40298d831aee22357af4676aea33f8c3486be69da59c4ac393f",
+    "review/cells-2.png": "2262dc1e6d1a60dbb1dbdf2d680fd2219b96f29aadf92572c6aa8b2074ba99ea",
+    "review/cells-3.png": "e00b1c9ee4cb60a16c6d0de96888a01570dead58e3cdd84543cd1951e2b17f85",
+    "review/cells-4.png": "e9f6588d00e4da3da28d522b34b5629ebe2f40bb274906f40467eeb38a587571",
+    "review/cells-5.png": "30b6e93cd5f96aab99a204a896683bb2019dce464f557ff33ca53d6c02d1a31f",
+    "review/cells-6.png": "a2d31ab8cea9ac34a21a585adaabd68b24940edfa3bf0a77e3c8de2c64f1ff20",
+    "review/cells-7.png": "c085340525be8ade2ff6516dd5da8d0e463524a3c04ff43763689e7cae431def",
+    "review/cells-8.png": "68a24b37f0c97f488c498ce719c51d404182d5a999e089c29717af22f48f1ce8",
+    "review/cells-9.png": "0f0867ee4860b0fa4134cbd3e15f052038ff73136af630c83c119c274c810cc0",
+    "review/comparison.png": "3a782dc4d473a2cc4cedaad0e9e8484aef6a7adfc5989f5cc0541cd60740da1e",
+    "review/gameplay.png": "8f477f933c2f076b68ed1de9a06b08850d33385460839cf79ba34996d9022e22",
+    "review/map.png": "8ac789ae664210cfeebcdce26ba1d1f08e68ad2acc791fdc25bb7d08d5f9c5da",
+    "review/native-full.png": "6488caed42f0e8514035f87e1433ce30414e922de2cc866fd7a7b51f4bef0c6f",
+    "review/native-target.png": "6488caed42f0e8514035f87e1433ce30414e922de2cc866fd7a7b51f4bef0c6f",
+    "review/original-full.png": "42d9581a4b7f89e72d147f64ed879b016056db1a6435da4e92836f5388f6550d",
+    "review/original.png": "c27b5ef34a1f840f03e8428feac06a53ee8f5ac1974192ee774420f4bb3fcfcd",
+    "review/shared-tiles.png": "efe22560b9808675ea526d4154028625b426422723e0888996f752000ab85567"
+  }
+}

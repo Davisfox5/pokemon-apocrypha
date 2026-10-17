@@ -1,0 +1,111 @@
+{
+  "grass-lip-right-0": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 0,
+    "high_side": "right",
+    "max_width_pixels": 2
+  },
+  "grass-lip-top-0": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 0,
+    "high_side": "top",
+    "max_width_pixels": 2
+  },
+  "grass-lip-left-0": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 0,
+    "high_side": "left",
+    "max_width_pixels": 2
+  },
+  "grass-lip-bottom-0": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 0,
+    "high_side": "bottom",
+    "max_width_pixels": 2
+  },
+  "grass-lip-right-1": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 1,
+    "high_side": "right",
+    "max_width_pixels": 2
+  },
+  "grass-lip-top-1": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 1,
+    "high_side": "top",
+    "max_width_pixels": 2
+  },
+  "grass-lip-left-1": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 1,
+    "high_side": "left",
+    "max_width_pixels": 2
+  },
+  "grass-lip-bottom-1": {
+    "type": "transparent grass-to-rock transition",
+    "profile": 1,
+    "high_side": "bottom",
+    "max_width_pixels": 2
+  },
+  "tip-mask-NE": {
+    "type": "outside corner alpha mask",
+    "removed_pixels": 3,
+    "radius_pixels": 2
+  },
+  "tip-mask-NW": {
+    "type": "outside corner alpha mask",
+    "removed_pixels": 3,
+    "radius_pixels": 2
+  },
+  "tip-mask-SE": {
+    "type": "outside corner alpha mask",
+    "removed_pixels": 3,
+    "radius_pixels": 2
+  },
+  "tip-mask-SW": {
+    "type": "outside corner alpha mask",
+    "removed_pixels": 3,
+    "radius_pixels": 2
+  },
+  "face-west-0": {
+    "type": "rock face with reusable grass lip",
+    "phase": 0
+  },
+  "face-south-0": {
+    "type": "rock face with reusable grass lip",
+    "phase": 0
+  },
+  "face-east-0": {
+    "type": "mirrored side reference",
+    "source": "face-west-0"
+  },
+  "face-north-0": {
+    "type": "rear rim reference",
+    "source": "face-south-0"
+  },
+  "face-west-1": {
+    "type": "rock face with reusable grass lip",
+    "phase": 1
+  },
+  "face-south-1": {
+    "type": "rock face with reusable grass lip",
+    "phase": 1
+  },
+  "face-east-1": {
+    "type": "mirrored side reference",
+    "source": "face-west-1"
+  },
+  "face-north-1": {
+    "type": "rear rim reference",
+    "source": "face-south-1"
+  },
+  "outside-corner-NW": {
+    "type": "mirrored shared convex corner",
+    "source": "outside-corner-NE"
+  },
+  "outside-corner-NE": {
+    "type": "shared convex corner",
+    "removed_pixels": 3,
+    "source": "r02-context/source/corner-west.png"
+  }
+}

@@ -1,4 +1,14 @@
-## Current: R02 second owner markup
+## Current: R02 reusable grass rims and minimal corner tips
+
+Read `gba/art/johto-common/rocks/r02-shared-rims/README.md`. Two reusable edge
+profiles, four orientations, three-pixel convex tip mask; 75 native placements.
+All exposed grass-topped rock edges covered. No generated mockup imported.
+Trees/paths/stairs and collision/elevation/behavior unchanged. Engine b905f4cb70,
+draft PR12. Build, Porymap equality, background routes/stairs and save/Continue
+pass. 226 cells reviewed; owner approval pending. Owner will identify one remaining
+tree row later; do not guess that move. No production merge or desktop emulator.
+
+## Superseded: R02 second owner markup
 
 Read `gba/art/johto-common/rocks/r02-markup2/README.md`. Exact one-cell orange tree
 shifts, southwest wall shifted east, right wall extended south, green old wall

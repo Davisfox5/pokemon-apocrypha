@@ -1,4 +1,6 @@
-Current R02 second markup: [full map](../gba/art/johto-common/rocks/r02-markup2/review/native-full.png), [markup comparison](../gba/art/johto-common/rocks/r02-markup2/review/markup-comparison.png), [evidence](../gba/art/johto-common/rocks/r02-markup2/README.md). One-tile tree shifts, southern walls and local joins repaired. Native checks pass; owner approval pending.
+Current R02 shared rims: [tileset](../gba/art/johto-common/rocks/r02-shared-rims/review/shared-tiles.png), [native map](../gba/art/johto-common/rocks/r02-shared-rims/review/native-full.png), [evidence and reuse](../gba/art/johto-common/rocks/r02-shared-rims/README.md). Two shared edge patterns, tiny convex tips, all exposed grass-top edges. Native checks pass; owner approval pending.
+
+Superseded R02 second markup: [full map](../gba/art/johto-common/rocks/r02-markup2/review/native-full.png), [markup comparison](../gba/art/johto-common/rocks/r02-markup2/review/markup-comparison.png), [evidence](../gba/art/johto-common/rocks/r02-markup2/README.md). One-tile tree shifts, southern walls and local joins repaired. Native checks pass; owner approval pending.
 
 Superseded R02 owner contours: [markup comparison](../gba/art/johto-common/rocks/r02-contours/review/markup-comparison.png), [full route](../gba/art/johto-common/rocks/r02-contours/review/native-full.png), [evidence](../gba/art/johto-common/rocks/r02-contours/README.md). Three levels, stacked northwest walls, northern green run removed, southwest bend corrected. Native checks pass; owner approval pending.
 
