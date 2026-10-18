@@ -1,0 +1,23 @@
+{
+  "baseline_engine": "f3022508260da8dbe88277549a39398056a16c9a",
+  "native_cells": 986,
+  "changed_cells": 120,
+  "changed_pixels": 7276,
+  "changes_outside_reviewed_regions": 0,
+  "unchanged_straight_face_pixels": 11600,
+  "straight_face_RGB_errors": 0,
+  "SE_relocated_front_RGB_errors": 0,
+  "Porymap_RGB_errors": 0,
+  "collision_changes": 0,
+  "elevation_changes": 0,
+  "decoded_attribute_changes": 0,
+  "warp_files": "unchanged",
+  "original_levels": "Overview-inferred visual terraces; not decoded DS height or collision data",
+  "limits": [
+    "Trees remain intentionally absent with reserved forest/fruit collision.",
+    "SE hidden lower footing is an earlier interpretation; original foliage obscures its source.",
+    "Taller receiving elbows use existing native mountain modules; the16px shared catalog does not contain those24px joins.",
+    "Sign-obscured approach ground is inferred from adjacent dirt and grass boundaries."
+  ],
+  "source_commit": "eb15d8923401af86bb12670c6627c2bfba1e3d0a"
+}

@@ -1,16 +1,61 @@
-# Route33 — approved faces with blended mountain tops
+# Route33 — terrace joins, fitted cave entrance and approach
 
-Engine `codex/route33-hgss`, `f3022508260da8dbe88277549a39398056a16c9a`,
+Engine `codex/route33-hgss`, `eb15d8923401af86bb12670c6627c2bfba1e3d0a`,
 [draft PR10](https://github.com/Davisfox5/pokeemerald-expansion/pull/10).
-The owner approved the tree-free rock faces at `74e91ff1` and requested better
-blending of the tiles above them. This revision preserves those faces exactly.
+The owner approved the straight shared rock faces, then requested another pass
+on blending, terrace levels, incorrect corners, the entrance and its dirt approach.
+This revision changes receiving joins and two front placements; it retains the
+approved straight texture rather than extending the previous all-face lock.
 
 **This is intentionally a tree-free terrain review.** All88 large trees and both
 Apricorns are absent, including border repetitions. Original forest/fruit collision
 remains blocked, so this inspection stage contains reserved invisible barriers.
 It is not a claim of a finished playable route or accepted art.
 
-## Cap-only refinement, 2026-10-17
+## Current receiving-join refinement, 2026-10-18
+
+- [Whole map](evidence/tree-free-map-2x.png) and [HGSS/native](evidence/tree-free-reference-comparison.png)
+- [North: HGSS / previous / current](evidence/receiving-joins/north-corners.png)
+- [Southeast levels and turns](evidence/receiving-joins/southeast-levels.png)
+- [Cave arch and short bordered approach](evidence/receiving-joins/entrance.png)
+- [Summit step](evidence/receiving-joins/summit-step.png) and [west return](evidence/receiving-joins/west-front.png)
+- [Labelled interpreted planes](evidence/receiving-joins/levels-labelled.png), [receiving profiles](evidence/receiving-join-profiles.json)
+- [Independent native checks](evidence/receiving-joins-review.json), [cell ledger](evidence/receiving-join-cells.json), [reproduction](evidence/join-reproduction.json)
+
+R10 was being reused for southern side-to-front turns despite being a north-facing
+stacked elbow. Fourteen receiving corners now use the already existing native
+mountain modules with the right turn silhouette and plateau backing, fitted to
+existing shared stone/plateau palettes. These24px local joins are outside the16px
+R02 registry contract; the canonical17 shared PNGs are untouched. Hidden lower
+footing corners reuse matching exposed outer turns, not tree-covered source pixels.
+
+The southeast upper fronts now end at252 and324px instead of248/320, matching the
+reference projection more closely. Their straight interiors move four pixels
+without stretching or recoloring. Northern levels and stepped summit stay distinct;
+low bevel pixels receive a small palette fit instead of a solid shade band.
+The arch uses the HGSS opening/rim geometry in the existing native palette, centered
+on the unchanged warp. Its black interior and dark stone threshold replace the
+long offset black cutout. The dirt approach regains the source taper and grass
+border using the existing lawn/path palette. Sign-obscured ground is inferred from
+adjacent path; the ground layer is separate from foreground art.
+
+120 cells /7,276 visible pixels change versus f3022508;125 cells have layer edits.
+All986 native cells match actual Porymap output; collision/elevation and decoded
+attributes remain exact. 11,600 untouched straight-front pixels and the moved
+southeast interiors match their preceding texture exactly. Nine private native
+files reproduce byte-for-byte in a fresh f3022508 worktree using
+`receiving_joins.py ENGINE ORIGINAL_NATIVE_214e38cf --install`; it is guarded edit
+provenance, not a layout generator to replay over committed source.
+`join_review.py ENGINE BEFORE_F3022508 PORYMAP_EXPORT` checks the final native output.
+Arm GNU14.2.1 build and27 headless observations pass, including cave travel both
+ways, ledges, barriers and ordinary save/cold reload/Continue. A copied f3022508
+ordinary save also loads and Continues; its original is unchanged. Current gameplay
+frames are in `evidence/gameplay`; plateau camera placements remain visual probes,
+not claims of traversable heights.
+Current editable layer snapshots are under `source/receiving-joins`; engine source
+remains authoritative. Earlier cap/depth evidence below is historical.
+
+## Earlier cap-only refinement, 2026-10-17 (f3022508)
 
 Existing native HGSS-derived bevel modules now carry the plateau texture into the
 wall, replacing the flat dark transition bands. A dedicated formerly unused
@@ -44,7 +89,7 @@ native pixels, face locks, unchanged map/attributes and actual Porymap output.
 Editable current bevel foreground is `source/cap-blend/foreground.png`; its
 background is the unchanged `source/terrain-depth/background.png`.
 
-## Current visuals
+## Earlier depth-pass visual links (updated whole maps above are current)
 
 - [Tree-free whole native map,2×](evidence/tree-free-map-2x.png)
 - [HGSS / tree-free native comparison](evidence/tree-free-reference-comparison.png)

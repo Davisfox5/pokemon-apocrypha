@@ -1,0 +1,43 @@
+{
+  "baseline": "f3022508260da8dbe88277549a39398056a16c9a",
+  "command": "receiving_joins.py ENGINE ORIGINAL_NATIVE_214e38cf --install",
+  "files": [
+    {
+      "path": "data/layouts/JohtoRoute33/map.bin",
+      "sha256": "62e74be3556c6e6c969cb88587528a16f81fe6cc19fb4167ccf554c6e6312985"
+    },
+    {
+      "path": "data/tilesets/primary/route33/metatile_attributes.bin",
+      "sha256": "b74e8d57e74264671a86463547109f67a78a69da1c4ef0598fda581951e74ca5"
+    },
+    {
+      "path": "data/tilesets/primary/route33/metatiles.bin",
+      "sha256": "9f99b4ce5015253c53d11bb9cd7694c81d6e9a3162fd96ad7744f46511168762"
+    },
+    {
+      "path": "data/tilesets/primary/route33/palettes/05.pal",
+      "sha256": "b2fce2914561c93ceae093ea2f2c2526631beb00ef83a2bc35a52d059f4c5de0"
+    },
+    {
+      "path": "data/tilesets/primary/route33/palettes/10.pal",
+      "sha256": "71870b3b247726791048a9415aa6a489eeeeb1cd12755698adcf3c34186e8071"
+    },
+    {
+      "path": "data/tilesets/primary/route33/tiles.png",
+      "sha256": "64b47b1e52fc7aa7027096b297ec4242ea10caf599ce311249a13241573a75b4"
+    },
+    {
+      "path": "data/tilesets/secondary/route33/palettes/05.pal",
+      "sha256": "b2fce2914561c93ceae093ea2f2c2526631beb00ef83a2bc35a52d059f4c5de0"
+    },
+    {
+      "path": "data/tilesets/secondary/route33/palettes/10.pal",
+      "sha256": "71870b3b247726791048a9415aa6a489eeeeb1cd12755698adcf3c34186e8071"
+    },
+    {
+      "path": "data/tilesets/secondary/route33/tiles.png",
+      "sha256": "d88ef4f82055bab21fb6e3263f5d12fefe504652e4f5a7ce9a11cc9e6f7dd6c5"
+    }
+  ],
+  "all_files_identical": true
+}

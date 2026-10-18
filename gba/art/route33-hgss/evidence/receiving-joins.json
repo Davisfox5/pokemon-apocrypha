@@ -1,0 +1,83 @@
+{
+  "baseline": "f3022508260da8dbe88277549a39398056a16c9a",
+  "corners": [
+    [
+      160,
+      172,
+      "outer southwest"
+    ],
+    [
+      416,
+      172,
+      "outer southeast"
+    ],
+    [
+      168,
+      128,
+      "middle west return"
+    ],
+    [
+      200,
+      150,
+      "middle southwest"
+    ],
+    [
+      408,
+      150,
+      "middle southeast"
+    ],
+    [
+      216,
+      112,
+      "summit southwest"
+    ],
+    [
+      376,
+      100,
+      "summit southeast"
+    ],
+    [
+      328,
+      112,
+      "summit eastern step"
+    ],
+    [
+      360,
+      272,
+      "SE outer southwest"
+    ],
+    [
+      408,
+      344,
+      "SE outer lower southwest"
+    ],
+    [
+      488,
+      344,
+      "SE outer lower southeast"
+    ],
+    [
+      392,
+      236,
+      "SE upper short southwest"
+    ],
+    [
+      424,
+      308,
+      "SE upper long southwest"
+    ],
+    [
+      472,
+      308,
+      "SE upper long southeast"
+    ]
+  ],
+  "SE_front_baselines": [
+    252,
+    324
+  ],
+  "changed_cells": 125,
+  "changed_pixels": 8721,
+  "collision_changes": 0,
+  "installed": true
+}
