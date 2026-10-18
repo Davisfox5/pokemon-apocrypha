@@ -101,3 +101,7 @@ Current native source: `76a8e5f16bdf7c610a1c58db067ec99b6b9696a3` on `codex/azal
 - [House patch checks](evidence/house-cleanup.json)
 
 The guarded direct patch is `tools/gba/maps/azalea_town/house_cleanup.py ENGINE`; it expects the original `a322750485` native inputs and original local masters, preserved in `source/house-cleanup/`. Run this only on that baseline, never over current native edits. Palette 2 consolidates two redundant dark outline shades to restore two violet glass shades; no additional palette bank. The Porymap export matches native decoding exactly. Pixel comparison verifies no changes outside the house regions; collision/elevation bits are unchanged. Headless gameplay, door approaches, save, cold reload and Continue pass. Interiors remain outside this exterior task.
+
+### Kurt eave correction
+
+Native source `8beab42d99def1e39eb37ba076e837d1be13da31` removes the remaining attached log-cutout fragments and smooths the straight right eave and its lower corner. The separate log pile and approved southeast house remain exact. The patch changes 123 foreground pixels in three cells, only the private primary tile PNG; collision and map/metatile IDs remain unchanged. Actual Porymap/native and headless gameplay/save/reload checks pass. [Before/after](evidence/kurt-edge-before-after.png). Reproducible guarded patch: `tools/gba/maps/azalea_town/kurt_edge_cleanup.py`, baseline `76a8e5f16b`; inputs preserved under `source/kurt-edge-cleanup/`.
