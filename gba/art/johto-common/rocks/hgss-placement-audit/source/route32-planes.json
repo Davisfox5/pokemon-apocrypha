@@ -1,0 +1,483 @@
+{
+  "registration": "HGSS source pixels + (16,16) in native map; clipped against native exposed rock and foreground. Rectangles identify continuous planes, not color guesses.",
+  "fronts": [
+    {
+      "name": "northwest massif",
+      "box": [
+        0,
+        384,
+        80,
+        408
+      ]
+    },
+    {
+      "name": "north terrace upper left",
+      "box": [
+        224,
+        288,
+        288,
+        312
+      ]
+    },
+    {
+      "name": "north terrace lower left",
+      "box": [
+        184,
+        304,
+        272,
+        336
+      ]
+    },
+    {
+      "name": "north terrace upper center",
+      "box": [
+        280,
+        312,
+        360,
+        336
+      ]
+    },
+    {
+      "name": "north terrace lower",
+      "box": [
+        264,
+        336,
+        416,
+        360
+      ]
+    },
+    {
+      "name": "central pillar shoulder",
+      "box": [
+        264,
+        504,
+        304,
+        536
+      ]
+    },
+    {
+      "name": "central pillar upper",
+      "box": [
+        304,
+        512,
+        360,
+        536
+      ]
+    },
+    {
+      "name": "central pillar lower",
+      "box": [
+        272,
+        536,
+        368,
+        552
+      ]
+    },
+    {
+      "name": "west pillar upper",
+      "box": [
+        192,
+        712,
+        296,
+        728
+      ]
+    },
+    {
+      "name": "west pillar lower",
+      "box": [
+        184,
+        760,
+        272,
+        776
+      ]
+    },
+    {
+      "name": "east summit",
+      "box": [
+        392,
+        832,
+        472,
+        856
+      ]
+    },
+    {
+      "name": "east middle",
+      "box": [
+        288,
+        856,
+        480,
+        880
+      ]
+    },
+    {
+      "name": "main upper",
+      "box": [
+        128,
+        880,
+        480,
+        904
+      ]
+    },
+    {
+      "name": "main middle",
+      "box": [
+        136,
+        904,
+        480,
+        928
+      ]
+    },
+    {
+      "name": "main lower",
+      "box": [
+        152,
+        928,
+        480,
+        944
+      ]
+    },
+    {
+      "name": "upper coast promontory",
+      "box": [
+        352,
+        992,
+        392,
+        1016
+      ]
+    },
+    {
+      "name": "western shore bottom",
+      "box": [
+        128,
+        1200,
+        168,
+        1232
+      ]
+    },
+    {
+      "name": "east shore shelf",
+      "box": [
+        424,
+        1224,
+        480,
+        1248
+      ]
+    },
+    {
+      "name": "south stairs upper",
+      "box": [
+        128,
+        1384,
+        224,
+        1408
+      ]
+    },
+    {
+      "name": "south stairs lower",
+      "box": [
+        128,
+        1408,
+        216,
+        1424
+      ]
+    },
+    {
+      "name": "lower forest rim",
+      "box": [
+        0,
+        1616,
+        72,
+        1640
+      ]
+    },
+    {
+      "name": "cave upper lip",
+      "box": [
+        152,
+        1832,
+        272,
+        1856
+      ]
+    },
+    {
+      "name": "cave lower lip",
+      "box": [
+        152,
+        1856,
+        272,
+        1880
+      ]
+    },
+    {
+      "name": "southern edge",
+      "box": [
+        0,
+        1984,
+        344,
+        2000
+      ]
+    }
+  ],
+  "sides": [
+    {
+      "name": "northwest east side",
+      "box": [
+        56,
+        280,
+        80,
+        392
+      ],
+      "mirror": true
+    },
+    {
+      "name": "north terrace left upper",
+      "box": [
+        216,
+        256,
+        232,
+        288
+      ],
+      "mirror": false
+    },
+    {
+      "name": "north terrace left lower",
+      "box": [
+        184,
+        288,
+        200,
+        320
+      ],
+      "mirror": false
+    },
+    {
+      "name": "north terrace east",
+      "box": [
+        344,
+        256,
+        368,
+        328
+      ],
+      "mirror": true
+    },
+    {
+      "name": "north terrace outer east",
+      "box": [
+        400,
+        296,
+        416,
+        344
+      ],
+      "mirror": true
+    },
+    {
+      "name": "central pillar west",
+      "box": [
+        264,
+        400,
+        280,
+        520
+      ],
+      "mirror": false
+    },
+    {
+      "name": "central pillar east",
+      "box": [
+        344,
+        400,
+        368,
+        536
+      ],
+      "mirror": true
+    },
+    {
+      "name": "west pillar west",
+      "box": [
+        184,
+        672,
+        200,
+        760
+      ],
+      "mirror": false
+    },
+    {
+      "name": "west pillar east upper",
+      "box": [
+        280,
+        672,
+        304,
+        728
+      ],
+      "mirror": true
+    },
+    {
+      "name": "west pillar east lower",
+      "box": [
+        264,
+        728,
+        288,
+        760
+      ],
+      "mirror": true
+    },
+    {
+      "name": "east summit west",
+      "box": [
+        392,
+        616,
+        408,
+        840
+      ],
+      "mirror": false
+    },
+    {
+      "name": "east summit east",
+      "box": [
+        456,
+        616,
+        480,
+        848
+      ],
+      "mirror": true
+    },
+    {
+      "name": "east massif west",
+      "box": [
+        352,
+        704,
+        376,
+        832
+      ],
+      "mirror": false
+    },
+    {
+      "name": "middle rise",
+      "box": [
+        280,
+        816,
+        304,
+        864
+      ],
+      "mirror": false
+    },
+    {
+      "name": "main western shoulder",
+      "box": [
+        128,
+        856,
+        144,
+        896
+      ],
+      "mirror": false
+    },
+    {
+      "name": "western coastline",
+      "box": [
+        128,
+        944,
+        152,
+        1208
+      ],
+      "mirror": false
+    },
+    {
+      "name": "western shore east",
+      "box": [
+        152,
+        944,
+        168,
+        1208
+      ],
+      "mirror": true
+    },
+    {
+      "name": "small coastal rock west",
+      "box": [
+        352,
+        944,
+        368,
+        1000
+      ],
+      "mirror": false
+    },
+    {
+      "name": "small coastal rock east",
+      "box": [
+        376,
+        944,
+        392,
+        1008
+      ],
+      "mirror": true
+    },
+    {
+      "name": "southern shore wall",
+      "box": [
+        200,
+        1232,
+        224,
+        1392
+      ],
+      "mirror": true
+    },
+    {
+      "name": "east coastal north",
+      "box": [
+        424,
+        1200,
+        448,
+        1232
+      ],
+      "mirror": false
+    },
+    {
+      "name": "east coastal south",
+      "box": [
+        416,
+        1280,
+        440,
+        1328
+      ],
+      "mirror": false
+    },
+    {
+      "name": "south forest side",
+      "box": [
+        56,
+        1408,
+        80,
+        1624
+      ],
+      "mirror": false
+    },
+    {
+      "name": "southern massif east",
+      "box": [
+        104,
+        1712,
+        128,
+        1992
+      ],
+      "mirror": true
+    },
+    {
+      "name": "cave massif east",
+      "box": [
+        248,
+        1760,
+        272,
+        1864
+      ],
+      "mirror": true
+    },
+    {
+      "name": "cave forecourt west",
+      "box": [
+        136,
+        1848,
+        160,
+        1984
+      ],
+      "mirror": false
+    }
+  ]
+}

@@ -2022,5 +2022,157 @@
     "kind": "existing coast bevel with shared 1-3px cap",
     "profile": "R01/R03",
     "existing_top": 6
+  },
+  {
+    "x": 448,
+    "y": 192,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 448,
+    "y": 208,
+    "tile": "R07",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 448,
+    "y": 224,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 448,
+    "y": 240,
+    "tile": "R07",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 208,
+    "y": 288,
+    "tile": "R06",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 208,
+    "y": 304,
+    "tile": "R07",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 208,
+    "y": 320,
+    "tile": "R06",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 832,
+    "y": 320,
+    "tile": "R06",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 832,
+    "y": 336,
+    "tile": "R07",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 832,
+    "y": 352,
+    "tile": "R06",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 832,
+    "y": 368,
+    "tile": "R07",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 832,
+    "y": 384,
+    "tile": "R06",
+    "mirror": false,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 288,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 304,
+    "tile": "R07",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 320,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 336,
+    "tile": "R07",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 352,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 368,
+    "tile": "R07",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
+  },
+  {
+    "x": 1232,
+    "y": 384,
+    "tile": "R06",
+    "mirror": true,
+    "kind": "complete native tile",
+    "preserved_pixels": 0
   }
 ]

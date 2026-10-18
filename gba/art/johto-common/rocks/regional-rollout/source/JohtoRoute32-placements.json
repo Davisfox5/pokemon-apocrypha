@@ -1,16 +1,842 @@
 [
   {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "northwest east side",
+    "box": [
+      56,
+      280,
+      80,
+      392
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2643
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "north terrace left upper",
+    "box": [
+      216,
+      256,
+      232,
+      288
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 109
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "north terrace left lower",
+    "box": [
+      184,
+      288,
+      200,
+      320
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 109
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "north terrace east",
+    "box": [
+      344,
+      256,
+      368,
+      328
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1709
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "north terrace outer east",
+    "box": [
+      400,
+      296,
+      416,
+      344
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 768
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "central pillar west",
+    "box": [
+      264,
+      400,
+      280,
+      520
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1325
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "central pillar east",
+    "box": [
+      344,
+      400,
+      368,
+      536
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3245
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "west pillar west",
+    "box": [
+      184,
+      672,
+      200,
+      760
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 685
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "west pillar east upper",
+    "box": [
+      280,
+      672,
+      304,
+      728
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1325
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "west pillar east lower",
+    "box": [
+      264,
+      728,
+      288,
+      760
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 640
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "east summit west",
+    "box": [
+      392,
+      616,
+      408,
+      840
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3584
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "east summit east",
+    "box": [
+      456,
+      616,
+      480,
+      848
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 5568
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "east massif west",
+    "box": [
+      352,
+      704,
+      376,
+      832
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3072
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "middle rise",
+    "box": [
+      280,
+      816,
+      304,
+      864
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1005
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "main western shoulder",
+    "box": [
+      128,
+      856,
+      144,
+      896
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 0
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "western coastline",
+    "box": [
+      128,
+      944,
+      152,
+      1208
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3079
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "western shore east",
+    "box": [
+      152,
+      944,
+      168,
+      1208
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2029
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "small coastal rock west",
+    "box": [
+      352,
+      944,
+      368,
+      1000
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 0
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "small coastal rock east",
+    "box": [
+      376,
+      944,
+      392,
+      1008
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1024
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "southern shore wall",
+    "box": [
+      200,
+      1232,
+      224,
+      1392
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2669
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "east coastal north",
+    "box": [
+      424,
+      1200,
+      448,
+      1232
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 448
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "east coastal south",
+    "box": [
+      416,
+      1280,
+      440,
+      1328
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 677
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "south forest side",
+    "box": [
+      56,
+      1408,
+      80,
+      1624
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3606
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "southern massif east",
+    "box": [
+      104,
+      1712,
+      128,
+      1992
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 6720
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "cave massif east",
+    "box": [
+      248,
+      1760,
+      272,
+      1864
+    ],
+    "mirror": true,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2477
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "sides",
+    "name": "cave forecourt west",
+    "box": [
+      136,
+      1848,
+      160,
+      1984
+    ],
+    "mirror": false,
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 3264
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "northwest massif",
+    "box": [
+      0,
+      384,
+      80,
+      408
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 535
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "north terrace upper left",
+    "box": [
+      224,
+      288,
+      288,
+      312
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1536
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "north terrace lower left",
+    "box": [
+      184,
+      304,
+      272,
+      336
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2522
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "north terrace upper center",
+    "box": [
+      280,
+      312,
+      360,
+      336
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1920
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "north terrace lower",
+    "box": [
+      264,
+      336,
+      416,
+      360
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2266
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "central pillar shoulder",
+    "box": [
+      264,
+      504,
+      304,
+      536
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1024
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "central pillar upper",
+    "box": [
+      304,
+      512,
+      360,
+      536
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1344
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "central pillar lower",
+    "box": [
+      272,
+      536,
+      368,
+      552
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 730
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "west pillar upper",
+    "box": [
+      192,
+      712,
+      296,
+      728
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1664
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "west pillar lower",
+    "box": [
+      184,
+      760,
+      272,
+      776
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 602
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "east summit",
+    "box": [
+      392,
+      832,
+      472,
+      856
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1920
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "east middle",
+    "box": [
+      288,
+      856,
+      480,
+      880
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 4608
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "main upper",
+    "box": [
+      128,
+      880,
+      480,
+      904
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 8064
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "main middle",
+    "box": [
+      136,
+      904,
+      480,
+      928
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 8064
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "main lower",
+    "box": [
+      152,
+      928,
+      480,
+      944
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 5228
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "upper coast promontory",
+    "box": [
+      352,
+      992,
+      392,
+      1016
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 534
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "western shore bottom",
+    "box": [
+      128,
+      1200,
+      168,
+      1232
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1261
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "east shore shelf",
+    "box": [
+      424,
+      1224,
+      480,
+      1248
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 928
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "south stairs upper",
+    "box": [
+      128,
+      1384,
+      224,
+      1408
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2304
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "south stairs lower",
+    "box": [
+      128,
+      1408,
+      216,
+      1424
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1389
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "lower forest rim",
+    "box": [
+      0,
+      1616,
+      72,
+      1640
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1152
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "cave upper lip",
+    "box": [
+      152,
+      1832,
+      272,
+      1856
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 2740
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "cave lower lip",
+    "box": [
+      152,
+      1856,
+      272,
+      1880
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 1581
+  },
+  {
+    "kind": "registered HGSS plane",
+    "role": "fronts",
+    "name": "southern edge",
+    "box": [
+      0,
+      1984,
+      344,
+      2000
+    ],
+    "native_offset": [
+      16,
+      16
+    ],
+    "pixels": 5462
+  },
+  {
     "kind": "registered native face/side masks",
-    "source": "route32 existing terrain heights and HGSS 8px role ledger",
-    "front_pixels": 46874,
-    "west_pixels": 16952,
-    "east_pixels": 18274,
+    "source": "explicit registered HGSS continuous planes",
+    "front_pixels": 58994,
+    "west_pixels": 20963,
+    "east_pixels": 30817,
     "master": [
       "R02",
       "R04",
       "R11",
       "R12"
     ],
-    "plateau_preserved": true
+    "plateau_treatment": "existing 32px core reused within original rock-top silhouette"
   }
 ]

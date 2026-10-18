@@ -1,3 +1,5 @@
+> Superseded by [the HGSS placement audit](../hgss-placement-audit/README.md). Counts, commits and runtime receipts below describe the initial pass; current images and native-review.json reflect the corrections.
+
 # Route 36 rock family: outdoor rollout
 
 2026-10-17. Native source changes are committed on separate review branches;

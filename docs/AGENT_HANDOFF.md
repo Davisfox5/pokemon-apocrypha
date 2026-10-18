@@ -1,4 +1,18 @@
-## Current: Route 36 rock family on reconciled outdoor sources
+## Current: HGSS rock-placement correction pass
+
+Read `gba/art/johto-common/rocks/hgss-placement-audit/README.md` and its evidence.
+25 registered grid pages /2,075 scoped cells inspected; 1,129 additional cells
+changed from the preceding rollout. Fixed missed Route29 inland walls, Route30
+forest rock fillers / east wall direction, Route31 stair/mountain faces and
+Route32 front/side planes. Native/Porymap equality, unchanged attributes/events,
+four ROM builds and background movement/save/Continue pass. Owner review pending.
+Pushed source: PR14 `0a5e94a246`, PR15 `ca8781c07c`, PR16 `4f01430776`,
+PR17 `4347e68a7a`; not merged. Route32 uses existing 32px plateau core within
+unchanged silhouettes; 27 spare graphics. Full-map terrain fidelity is not
+certified by this bounded rock audit. Preserve ten-year adaptations, owner edits,
+concurrent Route33, approved Route36, and cave interior exclusion.
+
+## Historical: initial Route 36 rock family on reconciled outdoor sources
 
 Read `gba/art/johto-common/rocks/regional-rollout/README.md`. Five maps updated:
 Cherrygrove + Route31 `f5a437d6ff` (PR14), Route29 `880403037e` (PR15),

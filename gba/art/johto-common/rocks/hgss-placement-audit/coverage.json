@@ -1,0 +1,138 @@
+[
+  {
+    "map": "CherrygroveRoute29Approach",
+    "changed_cells_from_previous": 69,
+    "scope_cells": 333,
+    "unchanged_legacy_colored_rock_pixels": 0,
+    "reference": {
+      "file": "gba/art/claude-routes/references/route29-hgss.png",
+      "sha256": "e9562b1e1a1aba6edb1cd024f46b44fd1c44aef78a92e48307c9eae5a39885fb",
+      "origin": [
+        4,
+        5
+      ],
+      "native_pixel_offset": [
+        0,
+        32
+      ],
+      "source_cells": [
+        98,
+        34
+      ]
+    },
+    "pages": [
+      "CherrygroveRoute29Approach-x00-y000.png",
+      "CherrygroveRoute29Approach-x00-y016.png",
+      "CherrygroveRoute29Approach-x32-y016.png",
+      "CherrygroveRoute29Approach-x64-y016.png",
+      "CherrygroveRoute29Approach-x96-y016.png",
+      "CherrygroveRoute29Approach-x00-y032.png",
+      "CherrygroveRoute29Approach-x32-y032.png",
+      "CherrygroveRoute29Approach-x64-y032.png",
+      "CherrygroveRoute29Approach-x96-y032.png"
+    ],
+    "visual_review": "separate findings receipt required"
+  },
+  {
+    "map": "CherrygroveCity",
+    "changed_cells_from_previous": 0,
+    "scope_cells": 114,
+    "unchanged_legacy_colored_rock_pixels": null,
+    "reference": {
+      "note": "Approved expanded Cherrygrove composition; original HGSS is not a coordinate-equivalent map"
+    },
+    "pages": [],
+    "visual_review": "separate findings receipt required"
+  },
+  {
+    "map": "CherrygroveRoute30Approach",
+    "changed_cells_from_previous": 158,
+    "scope_cells": 347,
+    "unchanged_legacy_colored_rock_pixels": 0,
+    "reference": {
+      "file": "gba/art/route30-hgss-blocks/source/hgss-reference.png",
+      "sha256": "4273d277216e5915ebbd663c400d73121ed7470704ae017cb86720b13650c302",
+      "origin": [
+        6,
+        4
+      ],
+      "native_pixel_offset": [
+        0,
+        0
+      ],
+      "source_cells": [
+        35,
+        74
+      ]
+    },
+    "pages": [
+      "CherrygroveRoute30Approach-x00-y000.png",
+      "CherrygroveRoute30Approach-x00-y016.png",
+      "CherrygroveRoute30Approach-x00-y032.png",
+      "CherrygroveRoute30Approach-x00-y048.png",
+      "CherrygroveRoute30Approach-x00-y064.png",
+      "CherrygroveRoute30Approach-x00-y080.png"
+    ],
+    "visual_review": "separate findings receipt required"
+  },
+  {
+    "map": "JohtoRoute31",
+    "changed_cells_from_previous": 126,
+    "scope_cells": 395,
+    "unchanged_legacy_colored_rock_pixels": 0,
+    "reference": {
+      "file": "gba/art/hgss-connections/references/route31-hgss.png",
+      "sha256": "f94c72aec1bab8cc1956ed22abdbb35549b084b69b068025db693a66fa3cd4b9",
+      "origin": [
+        0,
+        0
+      ],
+      "native_pixel_offset": [
+        0,
+        0
+      ],
+      "source_cells": [
+        63,
+        30
+      ]
+    },
+    "pages": [
+      "JohtoRoute31-x32-y000.png",
+      "JohtoRoute31-x00-y016.png",
+      "JohtoRoute31-x32-y016.png"
+    ],
+    "visual_review": "separate findings receipt required"
+  },
+  {
+    "map": "JohtoRoute32",
+    "changed_cells_from_previous": 776,
+    "scope_cells": 886,
+    "unchanged_legacy_colored_rock_pixels": null,
+    "reference": {
+      "file": "gba/art/johto-common/rocks/hgss-placement-audit/source/route32-hgss-blocks/hgss-reference.png",
+      "sha256": "fa619392db7450000b1b6d646c09bdf92296e44a78040b8d76f93604c734a82a",
+      "origin": [
+        0,
+        0
+      ],
+      "native_pixel_offset": [
+        16,
+        16
+      ],
+      "source_cells": [
+        30,
+        125
+      ]
+    },
+    "pages": [
+      "JohtoRoute32-x00-y016.png",
+      "JohtoRoute32-x00-y032.png",
+      "JohtoRoute32-x00-y048.png",
+      "JohtoRoute32-x00-y064.png",
+      "JohtoRoute32-x00-y080.png",
+      "JohtoRoute32-x00-y096.png",
+      "JohtoRoute32-x00-y112.png"
+    ],
+    "visual_review": "separate findings receipt required"
+  }
+]

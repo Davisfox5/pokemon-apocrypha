@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-17",
+  "method": "Visual inspection of every generated scoped HGSS / previous / corrected 16px-grid page, plus per-cell native decode checks. Image registration is not decoded DS collision evidence.",
+  "maps": [
+    {
+      "map": "CherrygroveRoute29Approach",
+      "scope_cells": 333,
+      "changed_from_previous": 69,
+      "pages_reviewed": [
+        "CherrygroveRoute29Approach-x00-y000.png",
+        "CherrygroveRoute29Approach-x00-y016.png",
+        "CherrygroveRoute29Approach-x32-y016.png",
+        "CherrygroveRoute29Approach-x64-y016.png",
+        "CherrygroveRoute29Approach-x96-y016.png",
+        "CherrygroveRoute29Approach-x00-y032.png",
+        "CherrygroveRoute29Approach-x32-y032.png",
+        "CherrygroveRoute29Approach-x64-y032.png",
+        "CherrygroveRoute29Approach-x96-y032.png"
+      ],
+      "finding": "Reviewed all four inland wall runs and nine low-ledge runs against the registered source. Fixed omitted side faces and retained native one-way ledge silhouettes. Existing expanded southern coast retained."
+    },
+    {
+      "map": "CherrygroveCity",
+      "scope_cells": 114,
+      "changed_from_previous": 0,
+      "pages_reviewed": [],
+      "finding": "No additional art change. Approved expanded harbor coast retained; no coordinate-equivalent original HGSS map exists for this authored composition."
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "scope_cells": 347,
+      "changed_from_previous": 158,
+      "pages_reviewed": [
+        "CherrygroveRoute30Approach-x00-y000.png",
+        "CherrygroveRoute30Approach-x00-y016.png",
+        "CherrygroveRoute30Approach-x00-y032.png",
+        "CherrygroveRoute30Approach-x00-y048.png",
+        "CherrygroveRoute30Approach-x00-y064.png",
+        "CherrygroveRoute30Approach-x00-y080.png"
+      ],
+      "finding": "Reviewed divider, east boundary, lower west wall, stair shoulders and forest remnants across all six grid pages. Fixed east-side facing, removed non-reference forest rock filler and retained gray stair treads. Existing packed tree footprints and 12-row adapter retained."
+    },
+    {
+      "map": "JohtoRoute31",
+      "scope_cells": 395,
+      "changed_from_previous": 126,
+      "pages_reviewed": [
+        "JohtoRoute31-x32-y000.png",
+        "JohtoRoute31-x00-y016.png",
+        "JohtoRoute31-x32-y016.png"
+      ],
+      "finding": "Reviewed divider, southern stair wall and five stepped mountain front courses with receiving side planes. Replaced missed rock around stairs and mountain faces. Preserved previously approved pond/cave/sign positions; the cave has a local offset from the unmodified HGSS overview."
+    },
+    {
+      "map": "JohtoRoute32",
+      "scope_cells": 886,
+      "changed_from_previous": 776,
+      "pages_reviewed": [
+        "JohtoRoute32-x00-y016.png",
+        "JohtoRoute32-x00-y032.png",
+        "JohtoRoute32-x00-y048.png",
+        "JohtoRoute32-x00-y064.png",
+        "JohtoRoute32-x00-y080.png",
+        "JohtoRoute32-x00-y096.png",
+        "JohtoRoute32-x00-y112.png"
+      ],
+      "finding": "Reviewed seven grid pages, 24 front planes and 26 side planes registered at +1,+1 native cell. Fixed face/top misclassification and missing stepped courses. Reused existing 32px stone-top texture within unchanged top silhouettes to fit graphics budget; 27 spare graphics remain. Native 16px face courses are not pixel-identical to HGSS 24px-high artwork."
+    }
+  ],
+  "limitations": [
+    "Rock-family placement audit only; unrelated forest, tall-grass, building and shoreline differences are not certified as HGSS-identical.",
+    "Native collision/elevation and behavior preserved, not rederived from DS source.",
+    "Owner visual approval pending; separate source branches not merged into one campaign.",
+    "Route33 concurrent tree-free terrain review, Route36 approved map and all cave interiors preserved."
+  ]
+}

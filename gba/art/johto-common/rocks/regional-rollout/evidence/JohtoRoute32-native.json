@@ -1,13 +1,13 @@
 {
-  "changed_cells": 419,
+  "changed_cells": 877,
   "native_pixel_errors": 0,
   "behavior_errors": 0,
   "collision_elevation_errors": 0,
-  "free_graphic_slots": 4,
+  "free_graphic_slots": 27,
   "animated_glyphs_pinned": 93,
   "palette_optimization": {
-    "unique_tiles_before": 921,
-    "unique_tiles_after": 916,
+    "unique_tiles_before": 898,
+    "unique_tiles_after": 893,
     "saved_tiles": 5,
     "palette_indices": {
       "0": [
@@ -154,6 +154,24 @@
         14,
         15
       ],
+      "11": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
       "2": [
         0,
         15,
@@ -173,24 +191,6 @@
         1
       ],
       "1": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "11": [
         0,
         1,
         2,
@@ -248,10 +248,9 @@
   },
   "source_commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
   "layout_sha256": "083d4f76a052998673254ecccb5ed5a5d83d9dd4518cc73b549677562c97bc50",
-  "changed_pixels": 76832,
+  "changed_pixels": 188442,
   "new_palette_banks": [
-    5,
-    10
+    5
   ],
   "scope": "native cliff art only; collision/elevation/behavior unchanged"
 }

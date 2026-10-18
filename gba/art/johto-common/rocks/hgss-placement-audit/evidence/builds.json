@@ -1,0 +1,75 @@
+[
+  {
+    "group": "faces",
+    "maps": [
+      "CherrygroveCity",
+      "JohtoRoute31"
+    ],
+    "commit": "0a5e94a2461575f1b2b6e05960a2af4bed93f2f3",
+    "branch": "codex/johto-rock-faces",
+    "rom_sha256": "152fd6dc738d893e6b2e2c681ae18823bdf9ef8f303c61eed9244db33921fd05",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/hgss-placement-audit/evidence/faces",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/14"
+  },
+  {
+    "group": "r29",
+    "maps": [
+      "CherrygroveRoute29Approach"
+    ],
+    "commit": "ca8781c07c90a837abf4db3134ceaa7bacedfca1",
+    "branch": "codex/route29-r02-rocks",
+    "rom_sha256": "603205927a9ca78eb9ff939f02778bf2b196202a03b8c61da0b6f6491ba9285c",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/hgss-placement-audit/evidence/r29",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/15"
+  },
+  {
+    "group": "r30",
+    "maps": [
+      "CherrygroveRoute30Approach"
+    ],
+    "commit": "4f01430776f8dbf9369ad0bdebaa89fbc8eb39bc",
+    "branch": "codex/route30-r02-rocks",
+    "rom_sha256": "c7d3b167c86cfa1b5536d05b8831a9b31ed663adfc8e7ee51ccddca59a9d4beb",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/hgss-placement-audit/evidence/r30",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/16"
+  },
+  {
+    "group": "r32",
+    "maps": [
+      "JohtoRoute32"
+    ],
+    "commit": "4347e68a7a996ce4473d1f3e2f74724142829fb1",
+    "branch": "codex/route32-r02-rocks",
+    "rom_sha256": "4a09dec91e4f750500bb77b48097f05be863dfda3526467e415e834b076e2872",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/hgss-placement-audit/evidence/r32",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/17"
+  }
+]

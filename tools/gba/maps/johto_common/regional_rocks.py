@@ -56,16 +56,39 @@ def target(c):
     eligible=m[top+iy]|((banks[sl][top+iy]==0)&(patch[top+iy,:,1]>patch[top+iy,:,0]))
     a[top+iy,eligible]=profile[iy,eligible]
    ledger.append(dict(x=x,y=row-1,kind='existing coast bevel with shared 1-3px cap',profile='R01/R03',existing_top=top))
+  if name=='CherrygroveRoute29Approach':
+   # Four inland side runs were omitted by the coast-only rollout.
+   shape=json.loads((ROOT/'gba/art/johto-common/rocks/hgss-placement-audit/source/route29-hgss-blocks/structures.json').read_text())
+   for (cx,cy,cw,ch),mirror in zip(shape['walls'],[True,False,False,True]):
+    for iy in range(cy,cy+ch):
+     sl=np.s_[iy*16:iy*16+16,cx*16:cx*16+16];m=(banks[sl]==8)&(old[sl][:,:,0]>old[sl][:,:,1])
+     stamp(cx*16,iy*16,'R06' if iy%2==0 else 'R07',mirror,keep=~m)
+   # Low hop ledges keep their original transparent silhouette and behavior.
+   low=np.repeat(np.repeat((attrs&255)==0x3b,16,0),16,1)&(banks==8)
+   recolor(low)
  elif name=='CherrygroveRoute30Approach':
   # Emerald terrain is bank8; gray stairs and one-way ledges are excluded.
-  rock=(banks==8)
+  rock=(banks==8)&(old[:,:,0]>old[:,:,1])
   wallcells=rock.reshape(h//16,16,w//16,16).sum((1,3))>12;wallcells&=~np.isin(attrs&255,[0x3b,0x38,0x39,0x3a,0x49,0x4a,0x4b,0x4c,0x4d,0x4e]);
-  for stair in json.loads((ROOT/'gba/art/route30-hgss-blocks/source/structures.json').read_text())['stairs']:
-   sx,sy,sw,sh=stair['rect'];wallcells[sy:sy+sh,sx:sx+sw]=False
+  # Keep stair treads, but replace the colored rock shoulders in the same cell.
+  plan=np.load(ROOT/'gba/art/route30-hgss-blocks/source/plan.npy')
+  remnants=np.repeat(np.repeat(plan=='R',16,0),16,1)&rock
+  # These cells were explicitly generated as forest fillers, not HGSS cliffs.
+  clean=(banks==0).reshape(h//16,16,w//16,16).all((1,3))
+  candidates=[]
+  for gy,gx in np.argwhere(clean):
+   a=old[gy*16:gy*16+16,gx*16:gx*16+16]
+   if np.all(a[:,:,1]>a[:,:,0]):candidates.append(a)
+  from collections import Counter
+  key=Counter(a.tobytes() for a in candidates).most_common(1)[0][0];grass=np.frombuffer(key,np.uint8).reshape(16,16,4)
+  new[remnants]=grass[yy[remnants]%16,xx[remnants]%16];wallcells[plan=='R']=False
+  ledger.append(dict(kind='remove non-HGSS forest rock fillers',cells=np.argwhere(plan=='R')[:,::-1].tolist(),pixels=int(remnants.sum()),collision='existing forest footprint preserved'))
+  low=np.repeat(np.repeat((attrs&255)==0x3b,16,0),16,1)&(banks==8);recolor(low)
   for cy,cx in np.argwhere(wallcells):
    sl=np.s_[cy*16:cy*16+16,cx*16:cx*16+16];keep=~(rock[sl]|((banks[sl]==0)&(old[sl][:,:,1]>old[sl][:,:,0])))
    if cx==15 and 6<=cy<28:n='R06' if cy%2==0 else 'R07';mirror=False
-   elif cx in (3,4,5) and cy>=36 or cx in (33,34) and cy<46:n=('R06' if cy%2==0 else 'R07') if cx in (3,4,33) else ('R12' if cy%2==0 else 'R11');mirror=True
+   elif cx in (3,4,5) and cy>=36:n=('R06' if cy%2==0 else 'R07') if cx in (3,4) else ('R12' if cy%2==0 else 'R11');mirror=True
+   elif cx in (33,34) and cy<46:n='R06' if cy%2==0 else 'R07';mirror=False
    else:n=('R02' if cx%2==0 else 'R04') if cy>0 and wallcells[cy-1,cx] else ('R01' if cx%2==0 else 'R03');mirror=False
    stamp(cx*16,cy*16,n,mirror,keep)
   # Coherent outside turn from lower separator to southern terrace.
@@ -73,8 +96,8 @@ def target(c):
    if wallcells[cy,cx]:
     sl=np.s_[cy*16:cy*16+16,cx*16:cx*16+16];stamp(cx*16,cy*16,'R16',mir,keep=~(rock[sl]|(banks[sl]==0)))
  elif name=='JohtoRoute31':
-  rock=(banks==8);wc=rock.reshape(h//16,16,w//16,16).sum((1,3))>12;wc&=~np.isin(attrs&255,[0x3b,0x49,0x4a,0x4b,0x4c,0x4d,0x4e])
-  for sx,sy,sw,sh in [(33,16,2,2),(37,28,3,2)]:wc[sy:sy+sh,sx:sx+sw]=False
+  rock=(banks==8)&(old[:,:,0]>old[:,:,1]);wc=rock.reshape(h//16,16,w//16,16).sum((1,3))>12;wc&=~np.isin(attrs&255,[0x3b,0x49,0x4a,0x4b,0x4c,0x4d,0x4e])
+  low=np.repeat(np.repeat((attrs&255)==0x3b,16,0),16,1)&(banks==8);recolor(low)
   for cy,cx in np.argwhere(wc):
    sl=np.s_[cy*16:cy*16+16,cx*16:cx*16+16];keep=~(rock[sl]|((banks[sl]==0)&(old[sl][:,:,1]>old[sl][:,:,0])))
    if cx in (33,34) and cy<28:n=('R06' if cy%2==0 else 'R07') if cx==34 else ('R12' if cy%2==0 else 'R11')
@@ -83,34 +106,32 @@ def target(c):
   mountain=(banks==12)&(old[:,:,0].astype(int)>old[:,:,1]+12)&(old[:,:,1].astype(int)>old[:,:,2]+10)&(xx>=712)&(yy<216)
   # Receiving profiles are measured on the retained HGSS-derived mountain.
   # Never change the black arch, threshold, sign, plateau or tree silhouettes.
-  profiles=[(760,200,1008,216),(840,144,1008,160),(904,120,1008,136)]
+  profiles=[(736,64,784,80),(896,128,1008,144),(848,152,1008,168),(752,176,1008,192),(752,200,1008,216)]
   for x0,y0,x1,y1 in profiles:front_rect(x0,y0,x1,y1,mountain)
-  for box in [(736,40,752,80),(752,80,768,200),(816,16,832,128),(880,0,896,112)]:side_rect(*box,mountain)
+  for box in [(736,24,752,64),(752,80,776,176),(816,16,840,120),(880,0,896,72),(896,96,912,128)]:side_rect(*box,mountain)
   # Preserve the existing stone plateau/bevel, as on Route32.
   # Recoloring those top-plane pixels created an artificial horizontal band.
  elif name=='JohtoRoute32':
-  p=np.load(P/'source/route32/refined-plan.npy');heights=np.load(P/'source/route32/terrace-heights.npy');mask=np.repeat(np.repeat(p=='R',16,0),16,1);hp=np.repeat(np.repeat(heights,16,0),16,1)
-  stone=(banks==2)&mask;west=np.zeros((h,w),int);east=west.copy();south=west.copy()
-  for level in range(1,6):
-   threshold=hp>=level;select=hp==level;wd=xx-np.maximum.accumulate(np.where(~threshold,xx,-1),axis=1)-1;ed=(xx-np.maximum.accumulate(np.where(~threshold[:,::-1],xx,-1),axis=1)-1)[:,::-1];sd=(yy-np.maximum.accumulate(np.where(~threshold[::-1],yy,-1),axis=0)-1)[::-1]
-   for dst,src in [(west,wd),(east,ed),(south,sd)]:dst[select]=src[select]
-  qr=np.full((h//8,w//8),'.',dtype='<U1');qr[2:252,2:62]=np.load(P/'source/route32/hgss-rock-quadrants.npy');roles=np.repeat(np.repeat(qr,8,0),8,1)
-  front=stone&(south<16);left=stone&(west<10)&~front;right=stone&(east<10)&~front
-  for role,dst in [('f',front),('l',left),('r',right)]:dst[stone&(roles==role)]=True
-  top=roles=='t';front&=~top;left&=~top&~front;right&=~top&~front&~left
-  phase=np.zeros(qr.shape,np.uint8)
-  for qx in range(w//8):
-   start=0
-   for qy in range(h//8):
-    if qy==0 or qr[qy,qx]!=qr[qy-1,qx]:start=qy
-    phase[qy,qx]=(qy-start)%2*8
-  fy=yy%8+np.repeat(np.repeat(phase,8,0),8,1);face_y=np.where(roles=='f',fy,15-south).clip(0,15)
-  new[front]=FRONT[face_y[front],xx[front]%32]
-  new[left]=WEST[yy[left]%32,west[left].clip(0,15)]
-  new[right]=WEST[:,::-1][yy[right]%32,(15-east[right]).clip(0,15)]
+  p=np.load(P/'source/route32/refined-plan.npy');mask=np.repeat(np.repeat(p=='R',16,0),16,1)
+  stone=(banks==2)&mask
+  # Explicit continuous source planes replace the incomplete mask-only pass.
+  planes=json.loads((ROOT/'gba/art/johto-common/rocks/hgss-placement-audit/source/route32-planes.json').read_text())
+  front=np.zeros((h,w),bool);left=front.copy();right=front.copy()
+  for role in ['sides','fronts']:
+   for plane in planes[role]:
+    x0,y0,x1,y1=[v+16 for v in plane['box']];region=(xx>=x0)&(xx<x1)&(yy>=y0)&(yy<y1)&stone
+    if role=='fronts':
+     iy=(yy[region]-y0)%16;new[region]=FRONT[iy,xx[region]%32];front|=region
+    else:
+     ix=(xx[region]-x0)%16;module=WEST[:,::-1] if plane['mirror'] else WEST;new[region]=module[yy[region]%32,ix];(right if plane['mirror'] else left)[region]=True
+    ledger.append(dict(kind='registered HGSS plane',role=role,**plane,native_offset=[16,16],pixels=int(region.sum())))
+  # Reuse one existing 32px plateau core on unexposed stone tops.
+  # This reserves native graphics for complete faces and corners.
+  topmask=stone&~(front|left|right);core=old[304:336,16:48];assert (banks[304:336,16:48]==2).all()
+  new[topmask]=core[yy[topmask]%32,xx[topmask]%32]
   # Inferred front/side overlaps are receiving turns, preserve native silhouettes.
   # Only exposed native rock changes; the independent foreground masks stay exact.
-  ledger.append(dict(kind='registered native face/side masks',source='route32 existing terrain heights and HGSS 8px role ledger',front_pixels=int(front.sum()),west_pixels=int(left.sum()),east_pixels=int(right.sum()),master=['R02','R04','R11','R12'],plateau_preserved=True))
+  ledger.append(dict(kind='registered native face/side masks',source='explicit registered HGSS continuous planes',front_pixels=int(front.sum()),west_pixels=int(left.sum()),east_pixels=int(right.sum()),master=['R02','R04','R11','R12'],plateau_treatment='existing 32px core reused within original rock-top silhouette'))
   np.save(P/'source/route32/applied-face-mask.npy',front|left|right)
  else:raise ValueError(name)
  change=np.any(new!=old,2);save(name+'-target.png',new);save(name+'-change-mask.png',(change*255).astype(np.uint8));(P/'source'/(name+'-placements.json')).write_text(json.dumps(ledger,indent=2,default=int)+'\n');print(name,'changed',change.sum(),'cells',change.reshape(h//16,16,w//16,16).any((1,3)).sum(),flush=True)
