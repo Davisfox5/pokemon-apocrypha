@@ -1,0 +1,30 @@
+{
+  "native_source_commit": "eb15d8923401af86bb12670c6627c2bfba1e3d0a",
+  "hub_commit": "41032a733276c6bf1e7940ec9c4daa4d13db08fd",
+  "boulder": {
+    "source": "gba/art/route33-hgss/source/receiving-joins/foreground.png",
+    "sha256": "25867dad8978a9f5e75ffc4177ccdf1217f4a2bdf1f4754b8a86146484ffe2c5",
+    "box": [
+      52,
+      224,
+      88,
+      260
+    ],
+    "native_size": [
+      40,
+      40
+    ],
+    "padding": "transparent only; original native rock pixels unchanged"
+  },
+  "plateau": {
+    "source": "gba/art/route33-hgss/source/terrain-depth/background.png",
+    "sha256": "a0e292966ca6509a2b774af12d045984ba73f3dc5a1d981637a701bca15fad39",
+    "box": [
+      240,
+      64,
+      256,
+      80
+    ],
+    "receiving_role": "small source south-loop outcrop top, fitted to existing native boulder stone shades; not repeated wall faces"
+  }
+}

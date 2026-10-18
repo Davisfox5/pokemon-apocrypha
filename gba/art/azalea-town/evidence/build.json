@@ -1,0 +1,28 @@
+{
+  "source_commit": "a322750485104cf985359309f8983681bda0892d",
+  "source_branch": "codex/azalea-town",
+  "base_engine": "eb15d8923401af86bb12670c6627c2bfba1e3d0a",
+  "ROM_sha256": "f94b8c6c9c4458b4040297842b43c32faba9763206ae3994f97a010ea6b23d7a",
+  "ROM_bytes": 33554432,
+  "toolchain": "Debian Arm GNU14.2.1",
+  "Porymap": "6.3.1 actual offscreen project export",
+  "mGBA": "libmGBA0.10.5 headless",
+  "runtime_observations": 28,
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0
+    },
+    {
+      "phase": "read",
+      "exit_code": 0
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0
+    }
+  ],
+  "CI": "Local build verified; hosted CI not claimed",
+  "owner_visual_acceptance": "pending",
+  "scope": "Exterior; building/well interiors and adjacent-map connections pending"
+}

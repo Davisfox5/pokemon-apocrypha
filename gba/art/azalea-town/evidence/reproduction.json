@@ -1,0 +1,209 @@
+{
+  "base_engine": "eb15d8923401af86bb12670c6627c2bfba1e3d0a",
+  "command": "build.py ENGINE; register.py ENGINE",
+  "source_files": [
+    {
+      "path": "data/layouts/JohtoAzaleaTown/border.bin",
+      "sha256": "037d2b0580931628def5e32ddc8180a6b98418b015dc410ad7b1fd94309d008b"
+    },
+    {
+      "path": "data/layouts/JohtoAzaleaTown/map.bin",
+      "sha256": "067b9d220515eae5e52ccbdd79a7007924cfbed8a7fc93f2021884b54205941e"
+    },
+    {
+      "path": "data/maps/JohtoAzaleaTown/map.json",
+      "sha256": "0c9f478e7db0bd0d3faa36d56a5f4fd26e7c965acda9106a45e4fd5917923162"
+    },
+    {
+      "path": "data/maps/JohtoAzaleaTown/scripts.inc",
+      "sha256": "367f80904061fafefd6ddf77fae95d6765b99f0ea550b50378217bfcbf00b7b0"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/metatile_attributes.bin",
+      "sha256": "ca12af346e05e18f1b211c6b1483f55462cc23bcc0732ea72324fd55a65fb176"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/metatiles.bin",
+      "sha256": "4ca8220020ab128ea3ab45387f9d87c65a7973f7666755aafc876f916f4e2184"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/00.pal",
+      "sha256": "3f1b6478181294317a9e06492964a86c14f61f526046bae35b28b66623e2e1f9"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/01.pal",
+      "sha256": "835bfa31e9275a8a965da70c5cfe0facd6bff4d2f837ef954877e0c742bce9b4"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/02.pal",
+      "sha256": "972a8ff02ab4393c89a9bfc7f78580098ec1d77c7de596eefdab01bf3ffce7eb"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/03.pal",
+      "sha256": "20303610897bcdd94e7339109467ebe49499153d8d92b5b75e897be2e83dd9cb"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/04.pal",
+      "sha256": "cd71074dc7279204511b8caab41a340b9f59b804199e1a058a3258a756c4b073"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/05.pal",
+      "sha256": "2832c45a788db3b4339213a7d44f74557a0db4ae345bbdccbc3743752bf7ea44"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/06.pal",
+      "sha256": "166068e833be315b3774b4ebb79ce4477063376047d240eebfc80b57ce8628c7"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/07.pal",
+      "sha256": "771b0d464707320b68ae4fb8654c0189ecbd0d342ba070a209a800e990d51965"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/08.pal",
+      "sha256": "5c8fd1cd315a0b931b983592d869d68b7842918aca4f127728ff62b43d709e2f"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/09.pal",
+      "sha256": "c926887ced7f3775ec68a678c7387a9b285ae90b6f21dd60af1555472eebce43"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/10.pal",
+      "sha256": "0d6a8637e0c5a1174eb125433ab1ac5392f9c71177bf28837d907159109d84e8"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/11.pal",
+      "sha256": "51c67f6d8e32cf48633eefef7f0faab37837b607a7f2841054391adbec133d08"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/12.pal",
+      "sha256": "48007d3fb4a69884609d559b246620f66fd432392161eb91f8b4d09f3215fd2e"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/azalea/tiles.png",
+      "sha256": "6a2ccc046af0604fac1c9fea104e9c6350fc7c130301c14ba89e13022321b60e"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/metatile_attributes.bin",
+      "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/metatiles.bin",
+      "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/00.pal",
+      "sha256": "3f1b6478181294317a9e06492964a86c14f61f526046bae35b28b66623e2e1f9"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/01.pal",
+      "sha256": "835bfa31e9275a8a965da70c5cfe0facd6bff4d2f837ef954877e0c742bce9b4"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/02.pal",
+      "sha256": "972a8ff02ab4393c89a9bfc7f78580098ec1d77c7de596eefdab01bf3ffce7eb"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/03.pal",
+      "sha256": "20303610897bcdd94e7339109467ebe49499153d8d92b5b75e897be2e83dd9cb"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/04.pal",
+      "sha256": "cd71074dc7279204511b8caab41a340b9f59b804199e1a058a3258a756c4b073"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/05.pal",
+      "sha256": "2832c45a788db3b4339213a7d44f74557a0db4ae345bbdccbc3743752bf7ea44"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/06.pal",
+      "sha256": "166068e833be315b3774b4ebb79ce4477063376047d240eebfc80b57ce8628c7"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/07.pal",
+      "sha256": "771b0d464707320b68ae4fb8654c0189ecbd0d342ba070a209a800e990d51965"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/08.pal",
+      "sha256": "5c8fd1cd315a0b931b983592d869d68b7842918aca4f127728ff62b43d709e2f"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/09.pal",
+      "sha256": "c926887ced7f3775ec68a678c7387a9b285ae90b6f21dd60af1555472eebce43"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/10.pal",
+      "sha256": "0d6a8637e0c5a1174eb125433ab1ac5392f9c71177bf28837d907159109d84e8"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/11.pal",
+      "sha256": "51c67f6d8e32cf48633eefef7f0faab37837b607a7f2841054391adbec133d08"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/12.pal",
+      "sha256": "48007d3fb4a69884609d559b246620f66fd432392161eb91f8b4d09f3215fd2e"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/azalea/tiles.png",
+      "sha256": "ea5ded3c5d778e54dad19d411749db73304ef26d378d95891924c9ec934f0e01"
+    },
+    {
+      "path": "data/event_scripts.s",
+      "sha256": "c2331f8ef91ca2b618749f4eadce65783f5d569a7130fc1168f8b15a93fc05c5"
+    },
+    {
+      "path": "data/layouts/layouts.json",
+      "sha256": "c76a5d7cd8fd899810ec00b63a17105b04ef41cd0cf3132e87719e336f1dc559"
+    },
+    {
+      "path": "data/maps/map_groups.json",
+      "sha256": "4ca52ae3553871f302567911e0114ba80d42d056e78e8f09a9a256176cfa74e4"
+    },
+    {
+      "path": "src/apocrypha_map_proof.c",
+      "sha256": "d14f6464aa37c29b1f28b4ab07b4f6d02e51dd58957f7c932bc3eadcd2e2b2d5"
+    },
+    {
+      "path": "src/data/region_map/region_map_sections.json",
+      "sha256": "b73b398960c5b6ecf69016642c010b1201ada033f37c7cecac32c577acb4ea09"
+    },
+    {
+      "path": "src/data/tilesets/graphics.h",
+      "sha256": "630b4f312424a3ef67f924d3b0b1d2ccfc670403ddece86ea13e9b6900d38ab9"
+    },
+    {
+      "path": "src/data/tilesets/headers.h",
+      "sha256": "b07331d19a24773da2854546f5cfe405c80e5dbe0a95130974e23ea6e50dab09"
+    },
+    {
+      "path": "src/data/tilesets/metatiles.h",
+      "sha256": "f3dffb29a6768bc01596c8f4934f7bfd57d831b6abbfb6dec551932f8785d787"
+    }
+  ],
+  "all_equal": true,
+  "text_line_endings": "LF/CRLF normalized for text verification",
+  "Route33_source_changes": []
+}

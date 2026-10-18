@@ -1122,3 +1122,19 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+
+## Azalea exterior — 2026-10-18
+
+Owner moved this thread to Azalea; leave Route33 refinement to the other thread.
+New exterior engine source: `codex/azalea-town` at `a322750485`, based on
+`eb15d89234`; source/evidence entry: [Azalea](../gba/art/azalea-town/README.md).
+Hub evidence branches from main, without altering Route33 evidence. Map ID50
+appended; no prior IDs or unrelated art changed. HGSS overview registered at
++64,+16; shared Center/Mart/gate/trees/props, native terrain, missing local
+Azalea architecture. Porymap/native2112-cell equality, full tree footprints,
+headless movement/ledges/barriers/closed approaches and ordinary save/reload/
+Continue verified; a copied prior Route33 save remains compatible. Source is
+authoritative: never replay first-authoring tools over the committed map.
+Interiors, Slowpoke Well descent, Ilex/Route33 connections and campaign actors
+remain pending; visual approval stays with the owner.
