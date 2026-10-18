@@ -1,3 +1,5 @@
+Current outdoor rock rollout: [five maps, source commits and checks](../gba/art/johto-common/rocks/regional-rollout/README.md), [native preview](../gba/art/johto-common/rocks/regional-rollout/review/rock-rollout-preview.png). Separate review branches PR14–17; caves unchanged. [Reconciled inventory and ten-year adaptations](../gba/art/johto-common/current-map-review/README.md). Broader HGSS audit still pending.
+
 Current Johto shared-family rollout: [coverage, evidence and open Violet gate limit](../gba/art/johto-common/rollout/README.md), [canonical registry](../gba/art/johto-common/approved-tilesets.json). Seven maps updated; older source-only status notes below are historical.
 
 Current R02 complete terrain tiles: [17-piece set](../gba/art/johto-common/rocks/r02-complete-tiles/review/shared-tiles.png), [full map](../gba/art/johto-common/rocks/r02-complete-tiles/review/native-full.png), [all corners](../gba/art/johto-common/rocks/r02-complete-tiles/review/all-corners.png), [reuse and evidence](../gba/art/johto-common/rocks/r02-complete-tiles/README.md). Complete rock/grass tiles supersede separate slivers. Native checks pass; owner approval pending.

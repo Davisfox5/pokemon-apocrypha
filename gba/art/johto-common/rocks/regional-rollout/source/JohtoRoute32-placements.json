@@ -1,0 +1,16 @@
+[
+  {
+    "kind": "registered native face/side masks",
+    "source": "route32 existing terrain heights and HGSS 8px role ledger",
+    "front_pixels": 46874,
+    "west_pixels": 16952,
+    "east_pixels": 18274,
+    "master": [
+      "R02",
+      "R04",
+      "R11",
+      "R12"
+    ],
+    "plateau_preserved": true
+  }
+]

@@ -1,0 +1,474 @@
+{
+  "verified_date": "2026-10-17",
+  "purpose": "Source reconciliation, not visual approval. Sources remain on separate branches; not merged.",
+  "maps": [
+    {
+      "map": "NewBarkTown",
+      "branch": "codex/new-bark-layout-adjustments",
+      "commit": "8d5efde191476ac471f4e8fd9bf1f3c224bf31ed",
+      "width": 36,
+      "height": 53,
+      "layout": {
+        "id": "LAYOUT_NEW_BARK_TOWN",
+        "name": "NewBarkTown_Layout",
+        "width": 36,
+        "height": 53,
+        "primary_tileset": "gTileset_CherrygrovePrimary",
+        "secondary_tileset": "gTileset_NewBark",
+        "border_filepath": "data/layouts/NewBarkTown/border.bin",
+        "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
+        "build_target": "emerald",
+        "layout_version": "emerald"
+      },
+      "committed_layout_sha256": "3fa11c66659453462eaaefceca07a79a469c063044d2e0b752cfe2048cd1bc40",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "CherrygroveRoute29Approach",
+      "branch": "codex/route29-hgss-blocks",
+      "commit": "6f7661e9ee7ded15d603628d7665a068a684df3a",
+      "width": 98,
+      "height": 48,
+      "layout": {
+        "id": "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH",
+        "name": "CherrygroveRoute29Approach_Layout",
+        "width": 98,
+        "height": 48,
+        "primary_tileset": "gTileset_CherrygrovePrimary",
+        "secondary_tileset": "gTileset_ClaudeRoute29",
+        "border_filepath": "data/layouts/CherrygroveRoute29Approach/border.bin",
+        "blockdata_filepath": "data/layouts/CherrygroveRoute29Approach/map.bin",
+        "build_target": "emerald",
+        "layout_version": "emerald"
+      },
+      "committed_layout_sha256": "542dd18421663089f4164df454c35a48954b9cef862c4893e4c825dc221d66a7",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "CherrygroveCity",
+      "branch": "codex/johto-common-rollout",
+      "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+      "width": 80,
+      "height": 48,
+      "layout": {
+        "id": "LAYOUT_CHERRYGROVE_CITY",
+        "name": "CherrygroveCity_Layout",
+        "width": 80,
+        "height": 48,
+        "primary_tileset": "gTileset_JohtoCherrygrovePrimary",
+        "secondary_tileset": "gTileset_JohtoCherrygrove",
+        "border_filepath": "data/layouts/CherrygroveCity/border.bin",
+        "blockdata_filepath": "data/layouts/CherrygroveCity/map.bin",
+        "build_target": "emerald",
+        "layout_version": "emerald"
+      },
+      "committed_layout_sha256": "a4f0aed733a4708a4c0530e6314ff95679837677fd284a5833e5d83e64567551",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "CherrygroveRoute30Approach",
+      "branch": "codex/route30-hgss-blocks",
+      "commit": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+      "width": 35,
+      "height": 86,
+      "layout": {
+        "id": "LAYOUT_CHERRYGROVE_ROUTE30_APPROACH",
+        "name": "CherrygroveRoute30Approach_Layout",
+        "width": 35,
+        "height": 86,
+        "primary_tileset": "gTileset_CherrygrovePrimary",
+        "secondary_tileset": "gTileset_ClaudeRoute30",
+        "border_filepath": "data/layouts/CherrygroveRoute30Approach/border.bin",
+        "blockdata_filepath": "data/layouts/CherrygroveRoute30Approach/map.bin",
+        "build_target": "emerald",
+        "layout_version": "emerald"
+      },
+      "committed_layout_sha256": "bc9ef3083dbae9cca947933ca0de19c7ff2fbff0671d65a4823902a6e30b075a",
+      "status": "requires tile-by-tile review",
+      "local_layout_sha256": "112f29a7c7af1950e38dfbe0bfc4ec8789672a39ce594c4c458c9adbdc24c981",
+      "local_layout_path": "/Users/davisfox/Documents/GitHub/apocrypha-src/data/layouts/CherrygroveRoute30Approach/map.bin",
+      "local_changed_cells": [
+        {
+          "x": 5,
+          "y": 36,
+          "committed": 15936,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 37,
+          "committed": 15881,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 38,
+          "committed": 16111,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 39,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 40,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 41,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 42,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 43,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 44,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 45,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 46,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 47,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 48,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 49,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 50,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 51,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 52,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 53,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 54,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 55,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 6,
+          "y": 56,
+          "committed": 16186,
+          "local": 16264
+        },
+        {
+          "x": 7,
+          "y": 56,
+          "committed": 12823,
+          "local": 13193
+        },
+        {
+          "x": 8,
+          "y": 56,
+          "committed": 13041,
+          "local": 13168
+        },
+        {
+          "x": 6,
+          "y": 57,
+          "committed": 16188,
+          "local": 16272
+        },
+        {
+          "x": 7,
+          "y": 57,
+          "committed": 12925,
+          "local": 13215
+        },
+        {
+          "x": 9,
+          "y": 57,
+          "committed": 13117,
+          "local": 13180
+        },
+        {
+          "x": 10,
+          "y": 57,
+          "committed": 13118,
+          "local": 13181
+        },
+        {
+          "x": 9,
+          "y": 58,
+          "committed": 13019,
+          "local": 13180
+        },
+        {
+          "x": 10,
+          "y": 58,
+          "committed": 12340,
+          "local": 13181
+        },
+        {
+          "x": 9,
+          "y": 59,
+          "committed": 13111,
+          "local": 13180
+        },
+        {
+          "x": 10,
+          "y": 59,
+          "committed": 13024,
+          "local": 13181
+        },
+        {
+          "x": 5,
+          "y": 61,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 62,
+          "committed": 15965,
+          "local": 15987
+        },
+        {
+          "x": 5,
+          "y": 63,
+          "committed": 15965,
+          "local": 16234
+        }
+      ]
+    },
+    {
+      "map": "JohtoRoute31",
+      "branch": "codex/johto-common-rollout",
+      "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+      "width": 63,
+      "height": 30,
+      "layout": {
+        "id": "LAYOUT_JOHTO_ROUTE31",
+        "name": "JohtoRoute31_Layout",
+        "width": 63,
+        "height": 30,
+        "primary_tileset": "gTileset_CherrygrovePrimary",
+        "secondary_tileset": "gTileset_Route31",
+        "border_filepath": "data/layouts/JohtoRoute31/border.bin",
+        "blockdata_filepath": "data/layouts/JohtoRoute31/map.bin",
+        "build_target": "emerald",
+        "layout_version": "emerald"
+      },
+      "committed_layout_sha256": "1ec9875e0c3a906a0447a6ffc402bf0e2068948ccc5fa71e537aa18714becbba",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "VioletCity",
+      "branch": "codex/johto-common-rollout",
+      "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+      "width": 80,
+      "height": 72,
+      "layout": {
+        "id": "LAYOUT_VIOLET_CITY",
+        "name": "VioletCity_Layout",
+        "width": 80,
+        "height": 72,
+        "build_target": "emerald",
+        "primary_tileset": "gTileset_VioletCityPrimary",
+        "secondary_tileset": "gTileset_VioletCity",
+        "border_filepath": "data/layouts/VioletCity/border.bin",
+        "blockdata_filepath": "data/layouts/VioletCity/map.bin"
+      },
+      "committed_layout_sha256": "ea2dc1f464d6e2e8a9e10a0e66d7240fdbe5cb3581451ec5dcbea5b3656b2fe0",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "JohtoRoute32",
+      "branch": "codex/route32-hgss-blocks",
+      "commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
+      "width": 32,
+      "height": 128,
+      "layout": {
+        "id": "LAYOUT_JOHTO_ROUTE32",
+        "name": "JohtoRoute32_Layout",
+        "width": 32,
+        "height": 128,
+        "border_width": 2,
+        "border_height": 2,
+        "primary_tileset": "gTileset_Route32Primary",
+        "secondary_tileset": "gTileset_Route32",
+        "border_filepath": "data/layouts/JohtoRoute32/border.bin",
+        "blockdata_filepath": "data/layouts/JohtoRoute32/map.bin",
+        "layout_version": "emerald",
+        "build_target": "emerald"
+      },
+      "committed_layout_sha256": "083d4f76a052998673254ecccb5ed5a5d83d9dd4518cc73b549677562c97bc50",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "JohtoRoute33",
+      "branch": "codex/route33-hgss",
+      "commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+      "width": 34,
+      "height": 29,
+      "layout": {
+        "id": "LAYOUT_JOHTO_ROUTE33",
+        "name": "JohtoRoute33_Layout",
+        "width": 34,
+        "height": 29,
+        "border_width": 2,
+        "border_height": 2,
+        "primary_tileset": "gTileset_Route33Primary",
+        "secondary_tileset": "gTileset_Route33",
+        "border_filepath": "data/layouts/JohtoRoute33/border.bin",
+        "blockdata_filepath": "data/layouts/JohtoRoute33/map.bin",
+        "layout_version": "emerald",
+        "build_target": "emerald"
+      },
+      "committed_layout_sha256": "74a423dadcc6ceec7f22edc9c908bdaac1136918a9518463ada2994eaf815a65",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "UnionCaveRoute32Entrance",
+      "branch": "codex/union-cave-1f",
+      "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+      "width": 34,
+      "height": 60,
+      "layout": {
+        "id": "LAYOUT_UNION_CAVE_ROUTE32_ENTRANCE",
+        "name": "UnionCaveRoute32Entrance_Layout",
+        "width": 34,
+        "height": 60,
+        "primary_tileset": "gTileset_UnionCavePrimary",
+        "secondary_tileset": "gTileset_UnionCaveSecondary",
+        "border_filepath": "data/layouts/UnionCaveRoute32Entrance/border.bin",
+        "blockdata_filepath": "data/layouts/UnionCaveRoute32Entrance/map.bin",
+        "layout_version": "emerald",
+        "build_target": "emerald"
+      },
+      "committed_layout_sha256": "499991819055871e54dd61058744d6b645fc171586aa28a2c54e6064cd724de6",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "UnionCaveB1F",
+      "branch": "codex/union-cave-1f",
+      "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+      "width": 36,
+      "height": 52,
+      "layout": {
+        "id": "LAYOUT_UNION_CAVE_B1F",
+        "name": "UnionCaveB1F_Layout",
+        "width": 36,
+        "height": 52,
+        "primary_tileset": "gTileset_UnionCaveB1FPrimary",
+        "secondary_tileset": "gTileset_UnionCaveB1FSecondary",
+        "border_filepath": "data/layouts/UnionCaveB1F/border.bin",
+        "blockdata_filepath": "data/layouts/UnionCaveB1F/map.bin",
+        "layout_version": "emerald",
+        "build_target": "emerald"
+      },
+      "committed_layout_sha256": "9a2fd2703a01f3b24b2c8d9ecb6c0fbab892511413c0493453b19d2be2c3f030",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "UnionCaveB2F",
+      "branch": "codex/union-cave-1f",
+      "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+      "width": 40,
+      "height": 47,
+      "layout": {
+        "id": "LAYOUT_UNION_CAVE_B2F",
+        "name": "UnionCaveB2F_Layout",
+        "width": 40,
+        "height": 47,
+        "primary_tileset": "gTileset_UnionCaveB2FPrimary",
+        "secondary_tileset": "gTileset_UnionCaveB2FSecondary",
+        "border_filepath": "data/layouts/UnionCaveB2F/border.bin",
+        "blockdata_filepath": "data/layouts/UnionCaveB2F/map.bin",
+        "layout_version": "emerald",
+        "build_target": "emerald"
+      },
+      "committed_layout_sha256": "91baaf67a7fe89526c8a4bee02ad961e0419d3629f82cc66459077bfcc6220e0",
+      "status": "requires tile-by-tile review"
+    },
+    {
+      "map": "JohtoRoute36",
+      "branch": "codex/r02-cliff-review",
+      "commit": "5b80e625d1b6fc23b7bdb75616eb4cbee35ff25e",
+      "width": 82,
+      "height": 32,
+      "layout": {
+        "id": "LAYOUT_JOHTO_ROUTE36",
+        "name": "JohtoRoute36_Layout",
+        "width": 82,
+        "height": 32,
+        "build_target": "emerald",
+        "primary_tileset": "gTileset_JohtoRoute36Primary",
+        "secondary_tileset": "gTileset_JohtoRoute36",
+        "border_filepath": "data/layouts/JohtoRoute36/border.bin",
+        "blockdata_filepath": "data/layouts/JohtoRoute36/map.bin"
+      },
+      "committed_layout_sha256": "ae6afea392eefc3061aa2bf2748b4a33a64e1a73778d53dfa9ec6509de2e1fd3",
+      "status": "owner-approved; preserve unchanged"
+    }
+  ],
+  "alternate_route32": {
+    "branch": "claude/route32-native-cleanup",
+    "commit": "48cefd3da180d21329a346407c9be4d0339fa3a0",
+    "pr": 11,
+    "state": "closed without merge; retain for comparison, do not silently adopt"
+  }
+}

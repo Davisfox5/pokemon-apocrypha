@@ -1,0 +1,12 @@
+{
+  "scope": "All changed native cells and receiving contexts inspected; full map HGSS audit remains separate.",
+  "reviewed_unique_pairs": 221,
+  "reviewed_cells": 1280,
+  "corrections": [
+    "Excluded exact stair rectangles before replacing rock pixels",
+    "Replaced light native wall shades as well as dark shades",
+    "Retained mountain plateau/bevel to avoid artificial recolor band",
+    "Extended shared face through lower coastal course"
+  ],
+  "owner_approval": "pending"
+}

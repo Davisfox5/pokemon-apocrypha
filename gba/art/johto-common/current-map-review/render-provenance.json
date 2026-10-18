@@ -1,0 +1,98 @@
+[
+  {
+    "map": "NewBarkTown",
+    "label": "New Bark Town",
+    "commit": "8d5efde191476ac471f4e8fd9bf1f3c224bf31ed",
+    "local_edits_included": false,
+    "layout_sha256": "3fa11c66659453462eaaefceca07a79a469c063044d2e0b752cfe2048cd1bc40",
+    "render_sha256": "7e1f042c7ab9e3585c0040ba44a35de323fe2c17e1de3e94e18d290f47d2fb4a"
+  },
+  {
+    "map": "CherrygroveRoute29Approach",
+    "label": "Route 29",
+    "commit": "6f7661e9ee7ded15d603628d7665a068a684df3a",
+    "local_edits_included": false,
+    "layout_sha256": "542dd18421663089f4164df454c35a48954b9cef862c4893e4c825dc221d66a7",
+    "render_sha256": "f60c6533f6194f4d87f682001e4cdd40bf1e8e64288e16b9d7c365a883f12114"
+  },
+  {
+    "map": "CherrygroveCity",
+    "label": "Cherrygrove City",
+    "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "local_edits_included": false,
+    "layout_sha256": "a4f0aed733a4708a4c0530e6314ff95679837677fd284a5833e5d83e64567551",
+    "render_sha256": "a243474ff530027a01e0b6b4695c7e39815d7788332f701f9cbfe1703ba66380"
+  },
+  {
+    "map": "CherrygroveRoute30Approach",
+    "label": "Route 30 \u2014 local edits included",
+    "commit": "aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac",
+    "local_edits_included": true,
+    "layout_sha256": "112f29a7c7af1950e38dfbe0bfc4ec8789672a39ce594c4c458c9adbdc24c981",
+    "render_sha256": "d7173220dcfe3d2c8fad05b3de4a3dae5d7600dca7b01832c433961921b31c06"
+  },
+  {
+    "map": "JohtoRoute31",
+    "label": "Route 31",
+    "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "local_edits_included": false,
+    "layout_sha256": "1ec9875e0c3a906a0447a6ffc402bf0e2068948ccc5fa71e537aa18714becbba",
+    "render_sha256": "531f9cfdb5f14152b357de1d30242a570d633ef59c1109dff5e1c3becc3018c0"
+  },
+  {
+    "map": "VioletCity",
+    "label": "Violet City",
+    "commit": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "local_edits_included": false,
+    "layout_sha256": "ea2dc1f464d6e2e8a9e10a0e66d7240fdbe5cb3581451ec5dcbea5b3656b2fe0",
+    "render_sha256": "314feaff8e17cef8b314a5edb7bf9ec69f84e52c2195febec85a09c66b4b74d6"
+  },
+  {
+    "map": "JohtoRoute32",
+    "label": "Route 32",
+    "commit": "7049fd5d8b95b3f357056ff53b8b2b3a3e848d74",
+    "local_edits_included": false,
+    "layout_sha256": "083d4f76a052998673254ecccb5ed5a5d83d9dd4518cc73b549677562c97bc50",
+    "render_sha256": "e1f0974940a6a34ff6d16bfa5c589c30725de4ca5f3d4658bc00bb948a463a28"
+  },
+  {
+    "map": "JohtoRoute33",
+    "label": "Route 33",
+    "commit": "6e4d438b705604ca6e2cfc5fb5172377afa52d8e",
+    "local_edits_included": false,
+    "layout_sha256": "74a423dadcc6ceec7f22edc9c908bdaac1136918a9518463ada2994eaf815a65",
+    "render_sha256": "1a97cc108253cb5b7f93dceb030f66661a584e0e864e8a213aca0b56fa7b9c8a"
+  },
+  {
+    "map": "UnionCaveRoute32Entrance",
+    "label": "Union Cave 1F",
+    "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+    "local_edits_included": false,
+    "layout_sha256": "499991819055871e54dd61058744d6b645fc171586aa28a2c54e6064cd724de6",
+    "render_sha256": "ed52223f2a41b51ecb4c798e9e92feb455b9a78493da0c9ad484c3f3207f0f78"
+  },
+  {
+    "map": "UnionCaveB1F",
+    "label": "Union Cave B1F",
+    "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+    "local_edits_included": false,
+    "layout_sha256": "9a2fd2703a01f3b24b2c8d9ecb6c0fbab892511413c0493453b19d2be2c3f030",
+    "render_sha256": "bb415db8c462e3da1657a451a1c6267abdaab01bf46adbcc3b50b3dcd9ddbbe0"
+  },
+  {
+    "map": "UnionCaveB2F",
+    "label": "Union Cave B2F",
+    "commit": "fc1017fecad147879de460fcb9727ff63862598b",
+    "local_edits_included": false,
+    "layout_sha256": "91baaf67a7fe89526c8a4bee02ad961e0419d3629f82cc66459077bfcc6220e0",
+    "render_sha256": "980311566dadfaf2e26a3a840314b8ccab4031cc9e2af11d39c1e64381c214de"
+  },
+  {
+    "map": "JohtoRoute36",
+    "label": "Route 36 \u2014 approved",
+    "commit": "5b80e625d1b6fc23b7bdb75616eb4cbee35ff25e",
+    "local_edits_included": false,
+    "layout_sha256": "ae6afea392eefc3061aa2bf2748b4a33a64e1a73778d53dfa9ec6509de2e1fd3",
+    "render_sha256": "f6bed0baa4bc2084c17f45db44e7fe102502933fef190dd2ff3b7cc3fc3b431c"
+  }
+]

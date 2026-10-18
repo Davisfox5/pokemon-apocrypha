@@ -1,4 +1,22 @@
-## Current: Johto shared-family rollout
+## Current: Route 36 rock family on reconciled outdoor sources
+
+Read `gba/art/johto-common/rocks/regional-rollout/README.md`. Five maps updated:
+Cherrygrove + Route31 `f5a437d6ff` (PR14), Route29 `880403037e` (PR15),
+Route30 `949948be2f` (PR16), Route32 `077f9a3423` (PR17). Separate stacked
+review branches, not merged. 1,280 changed cells /221 unique pairs inspected;
+native/Porymap equality, per-cell attributes/events, four builds and background
+movement/doors/connections/save/Continue pass. Cave interiors untouched.
+Route33 latest `eb15d89234` already uses R02 and is intentionally tree-free for
+terrain review; preserve concurrent work. New Bark/Violet have no equivalent
+exposed cliff faces. Route36 remains owner-approved. Preserve Route30's 34 local
+owner edits, now recorded in `9b7bebc27f`; original owner checkout untouched.
+Cherrygrove uses all 1,008 graphics slots; Route32 has four spare. Owner review
+of this rollout and the broader HGSS tile-by-tile audit remain outstanding.
+Current source reconciliation and ten-year preservation notes are in
+`gba/art/johto-common/current-map-review/README.md`; its Route33 image is now
+historical. Do not replay old layout generators or overwrite authored expansions.
+
+## Historical: initial Johto shared-family rollout
 
 Read `gba/art/johto-common/rollout/README.md` and the regional
 `approved-tilesets.json`. Engine **698db52a18** on `codex/johto-common-rollout`;

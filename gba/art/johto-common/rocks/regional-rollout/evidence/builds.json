@@ -1,0 +1,75 @@
+[
+  {
+    "group": "faces",
+    "maps": [
+      "CherrygroveCity",
+      "JohtoRoute31"
+    ],
+    "commit": "f5a437d6ff9d52604204bbb8882de872276152d2",
+    "branch": "codex/johto-rock-faces",
+    "rom_sha256": "874be6d391231edde84ea4b9f4e4c807196643890ae42f394308c1a99acaf8ae",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/regional-rollout/evidence/faces",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/14"
+  },
+  {
+    "group": "r29",
+    "maps": [
+      "CherrygroveRoute29Approach"
+    ],
+    "commit": "880403037e6f3071acaa166369b73700275a6ad8",
+    "branch": "codex/route29-r02-rocks",
+    "rom_sha256": "bb9467af3e9174cc047590a14e3e6b7769fe7e49d5986ac0235cde2e92fea744",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/regional-rollout/evidence/r29",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/15"
+  },
+  {
+    "group": "r30",
+    "maps": [
+      "CherrygroveRoute30Approach"
+    ],
+    "commit": "949948be2f92df4d3465994d1b749c81ce2f666d",
+    "branch": "codex/route30-r02-rocks",
+    "rom_sha256": "9d655969dc86aa5acfd2772ec94bbb3577953944885dbb716a31f6bc602a250d",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/regional-rollout/evidence/r30",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/16"
+  },
+  {
+    "group": "r32",
+    "maps": [
+      "JohtoRoute32"
+    ],
+    "commit": "077f9a34231d86f6867b34831842d3f7e2854571",
+    "branch": "codex/route32-r02-rocks",
+    "rom_sha256": "ff830039c029cbd094ed45787d543b75ec883305930bb3c0fb4b31e9783f015c",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "evidence": "gba/art/johto-common/rocks/regional-rollout/evidence/r32",
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/17"
+  }
+]
