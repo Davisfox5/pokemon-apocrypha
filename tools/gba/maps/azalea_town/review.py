@@ -17,7 +17,7 @@ for i,p in enumerate(r['placements'],1):
  a=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;images[i]=a;h,w=a.shape[:2];mask=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][mask]=i
 asset_checks=[]
 for i,p in enumerate(r['placements'],1):
- if p['name'] not in ['tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
+ if p['name'] not in ['kurt','house','tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
  a=images[i];h,w=a.shape[:2];visible=owner[p['y']:p['y']+h,p['x']:p['x']+w]==i;assert np.array_equal(now[p['y']:p['y']+h,p['x']:p['x']+w][visible],a[visible,:3]);asset_checks.append(dict(name=p['name'],x=p['x'],y=p['y'],visible_pixels=int(visible.sum()),RGB_errors=0))
 final_rocks={(p['x'],p['y']):p for p in r['rock_placements']}
 for p in final_rocks.values():
