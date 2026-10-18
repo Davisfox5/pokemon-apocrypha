@@ -7,11 +7,16 @@ for rel,expected in m['source_sha256'].items():
  f=a.project/rel
  if not f.exists() or hashlib.sha256(f.read_bytes()).hexdigest()!=expected:errors.append(rel)
 if errors:raise SystemExit('Refusing incompatible tiles/map: '+', '.join(errors[:8]))
-backup=a.project/'.porymap-library-backups'/datetime.datetime.now().strftime('%Y%m%d-%H%M%S');backup.mkdir(parents=True)
+backup=a.project/'.porymap-library-backups'/datetime.datetime.now().strftime('%Y%m%d-%H%M%S-%f');backup.mkdir(parents=True)
 for name in ['prefabs.json','porymap.project.cfg']:
  f=a.project/name
  if f.exists():shutil.copy2(f,backup/name)
-old=json.loads((a.project/'prefabs.json').read_text()) if (a.project/'prefabs.json').exists() else []
+cfg=a.project/'porymap.project.cfg'
+settings=dict(line.split('=',1) for line in cfg.read_text().splitlines() if '=' in line) if cfg.exists() else {}
+existing=Path(settings.get('prefabs_filepath') or 'prefabs.json')
+if not existing.is_absolute():existing=a.project/existing
+if existing.exists():shutil.copy2(existing,backup/'configured-prefabs.json')
+old=json.loads(existing.read_text()) if existing.exists() else []
 new=json.loads((a.package/'prefabs.json').read_text());keys={(v['name'],v['primary_tileset'],v['secondary_tileset']) for v in new}
 merged=new+[v for v in old if (v['name'],v['primary_tileset'],v['secondary_tileset']) not in keys]
 # Separate file avoids altering/replacing the owner's existing prefab collection.
