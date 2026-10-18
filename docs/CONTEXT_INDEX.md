@@ -1,3 +1,5 @@
+Current Porymap editing library: [categorized native prefabs and compatibility limits](../gba/art/johto-common/editor-library/README.md). Route 30 shelf installed in the owner checkout; other revision-specific packages prepared. Native maps/IDs unchanged.
+
 Current Route31/32 rock reconstruction: [complete rebuilt structures and checks](../gba/art/johto-common/rocks/structure-rebuild/README.md). Supersedes rock-placement patching for these two maps; owner visual review pending.
 
 Current outdoor rock rollout: [five maps, source commits and checks](../gba/art/johto-common/rocks/regional-rollout/README.md), [native preview](../gba/art/johto-common/rocks/regional-rollout/review/rock-rollout-preview.png). Separate review branches PR14–17; caves unchanged. [Reconciled inventory and ten-year adaptations](../gba/art/johto-common/current-map-review/README.md). Broader HGSS audit still pending.

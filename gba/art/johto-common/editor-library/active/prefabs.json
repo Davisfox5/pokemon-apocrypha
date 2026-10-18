@@ -1,0 +1,6803 @@
+[
+  {
+    "name": "01 Buildings | MrPokemon",
+    "width": 5,
+    "height": 5,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 874,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 875,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 876,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 877,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "metatile_id": 874,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 885,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "metatile_id": 886,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "metatile_id": 887,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 1,
+        "metatile_id": 888,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 1,
+        "metatile_id": 889,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "metatile_id": 894,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "metatile_id": 895,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "metatile_id": 896,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 2,
+        "metatile_id": 897,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 2,
+        "metatile_id": 898,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 3,
+        "metatile_id": 579,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 3,
+        "metatile_id": 580,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "metatile_id": 581,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "metatile_id": 582,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 3,
+        "metatile_id": 583,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "metatile_id": 598,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 4,
+        "metatile_id": 599,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 4,
+        "metatile_id": 600,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "metatile_id": 601,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 4,
+        "metatile_id": 602,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings | SouthernHouse",
+    "width": 5,
+    "height": 5,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 776,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 777,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 778,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 779,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "metatile_id": 780,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 786,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "metatile_id": 787,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "metatile_id": 788,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 1,
+        "metatile_id": 789,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 1,
+        "metatile_id": 790,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "metatile_id": 797,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "metatile_id": 798,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "metatile_id": 799,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 2,
+        "metatile_id": 800,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 2,
+        "metatile_id": 801,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 3,
+        "metatile_id": 809,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 3,
+        "metatile_id": 810,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "metatile_id": 811,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "metatile_id": 812,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 3,
+        "metatile_id": 813,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "metatile_id": 818,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 4,
+        "metatile_id": 819,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 4,
+        "metatile_id": 820,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "metatile_id": 821,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 4,
+        "metatile_id": 822,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees | Green tree / current ground",
+    "width": 2,
+    "height": 3,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 66,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 67,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 11,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "metatile_id": 12,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "metatile_id": 23,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "metatile_id": 24,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery | MrPokemonDirection",
+    "width": 1,
+    "height": 2,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 720,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 728,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery | NorthernRouteSign",
+    "width": 1,
+    "height": 2,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 699,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 701,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery | Route30",
+    "width": 1,
+    "height": 2,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 833,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 835,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs | middle",
+    "width": 3,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 603,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 518,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs | north",
+    "width": 3,
+    "height": 2,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 603,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 869,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 603,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "metatile_id": 869,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs | southwest",
+    "width": 4,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 603,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 518,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs | upper-plateau",
+    "width": 1,
+    "height": 2,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 915,
+        "collision": 0,
+        "elevation": 3
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "metatile_id": 915,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 1",
+    "width": 3,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 899,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 900,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 901,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 2",
+    "width": 6,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 669,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 670,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "metatile_id": 672,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 3",
+    "width": 5,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 690,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "metatile_id": 691,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 4",
+    "width": 3,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 711,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 712,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 5",
+    "width": 4,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 806,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 807,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges | Joined run 6",
+    "width": 5,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 852,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "metatile_id": 562,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 243",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 579,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 244",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 580,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 245",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 581,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 246",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 582,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 247",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 583,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 256",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 598,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 257",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 599,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 258",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 600,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 259",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 601,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 25A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 602,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 308",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 776,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 309",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 777,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 30A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 778,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 30B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 779,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 30C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 780,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 312",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 786,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 313",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 787,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 314",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 788,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 315",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 789,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 316",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 790,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 31D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 797,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 31E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 798,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 31F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 799,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 320",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 800,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 321",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 801,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 329",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 809,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 32A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 810,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 32B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 811,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 32C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 812,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 32D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 813,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 332",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 818,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 333",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 819,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 334",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 820,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 335",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 821,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 336",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 822,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 36A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 874,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 36B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 875,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 36C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 876,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 36D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 877,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 375",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 885,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 376",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 886,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 377",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 887,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 378",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 888,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 379",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 889,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 37E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 894,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 37F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 895,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 380",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 896,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 381",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 897,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "01 Buildings / tile 382",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 898,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 00B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 11,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 00C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 12,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 017",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 23,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 018",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 24,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 042",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 66,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "02 Trees / tile 043",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 67,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 2BB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 699,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 2BD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 701,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 2D0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 720,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 2D8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 728,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 341",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 833,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "03 Scenery / tile 343",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 835,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs / tile 206",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 518,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs / tile 25B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 603,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs / tile 25C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 604,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs / tile 365",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 869,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "04 Stairs / tile 393",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 915,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 231",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 561,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 232",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 562,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 29D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 669,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 29E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 670,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 29F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 671,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 2A0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 672,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 2B2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 690,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 2B3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 691,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 2C7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 711,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 2C8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 712,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 326",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 806,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 327",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 807,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 354",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 852,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 383",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 899,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 384",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 900,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 385",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 901,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 004",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 4,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 005",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 5,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 010",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 16,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 011",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 17,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 012",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 18,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0B6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 182,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0C3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 195,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 217",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 535,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 218",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 536,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 225",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 549,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 226",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 550,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 227",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 551,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 249",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 585,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 24A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 586,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 24B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 587,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 27D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 637,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 27E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 638,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2AC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 684,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2AD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 685,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2B8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 696,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2B9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 697,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2BA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 698,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2C4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 708,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2C6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 710,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2C9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 713,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2CE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 718,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2D3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 723,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2D5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 725,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2D6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 726,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2DA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 730,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2DC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 732,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2E3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 739,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2EA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 746,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2EC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 748,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2ED",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 749,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2EE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 750,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 753,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 754,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 755,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 757,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 758,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 2F7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 759,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 31C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 796,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 338",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 824,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 33B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 827,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 349",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 841,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 35B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 859,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 361",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 865,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 370",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 880,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 371",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 881,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 37A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 890,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 37B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 891,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 37C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 892,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 38B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 907,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 38C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 908,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 38D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 909,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 396",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 918,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 397",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 919,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 007",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 7,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 00A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 10,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 027",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 39,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 028",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 40,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 033",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 51,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 034",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 52,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 04F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 79,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 060",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 96,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 093",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 147,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 096",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 150,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0A9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 169,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 1E1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 481,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 1FA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 506,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 219",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 537,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 228",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 552,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 235",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 565,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 23D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 573,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 240",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 576,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 241",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 577,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 242",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 578,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 24E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 590,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 24F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 591,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 255",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 597,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 279",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 633,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 299",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 665,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2A3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 675,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2C1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 705,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2CB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 715,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2CC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 716,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2D9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 729,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2DB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 731,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2E0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 736,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2E1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 737,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2E2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 738,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2E9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 745,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2F4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 756,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 2FD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 765,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 300",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 768,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 301",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 769,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 328",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 808,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 330",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 816,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 331",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 817,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 339",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 825,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 34A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 842,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 34F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 847,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 350",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 848,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 35A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 858,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 372",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 882,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 37D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 893,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 388",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 904,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 389",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 905,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 38A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 906,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 38E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 910,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 38F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 911,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 392",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 914,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 398",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 920,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 399",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 921,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 27C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 636,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 28C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 652,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 28D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 653,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 28E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 654,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 294",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 660,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 295",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 661,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 296",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 662,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 297",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 663,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 298",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 664,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 29A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 666,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 29B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 667,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 29C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 668,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 673,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 674,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 676,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 677,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 678,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 679,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 680,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2A9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 681,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2AA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 682,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2AB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 683,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2AF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 687,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2B0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 688,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2B1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 689,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2B6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 694,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2B7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 695,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2C2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 706,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2CF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 719,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2D7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 727,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2DD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 733,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2DE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 734,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2DF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 735,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2F8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 760,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2F9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 761,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2FA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 762,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 2FB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 763,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 302",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 770,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 303",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 771,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 304",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 772,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 305",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 773,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 306",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 774,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 307",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 775,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 30D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 781,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 317",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 791,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 32E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 814,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 34C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 844,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 34D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 845,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 34E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 846,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 351",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 849,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 352",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 850,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 353",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 851,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 355",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 853,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 356",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 854,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 357",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 855,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 358",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 856,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 359",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 857,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 391",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 913,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 395",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 917,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 39D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 925,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 30E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 782,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 30F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 783,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 310",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 784,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 311",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 785,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 318",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 792,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 319",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 793,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 31A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 794,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 31B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 795,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 322",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 802,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 323",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 803,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 324",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 804,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 325",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 805,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 344",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 836,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 345",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 837,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 346",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 838,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 347",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 839,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 35D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 861,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 35E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 862,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 35F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 863,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water / tile 360",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 864,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "09 Entrances / tile 250",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 592,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 00E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 14,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 013",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 19,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 014",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 20,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 01C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 28,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 01D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 29,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 020",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 32,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 207",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 519,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 208",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 520,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 209",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 521,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 20A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 522,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 214",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 532,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 216",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 534,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 21A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 538,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 21B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 539,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 233",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 563,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 234",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 564,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 24C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 588,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 24D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 589,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 251",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 593,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 252",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 594,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 253",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 595,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 25D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 605,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 273",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 627,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 277",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 631,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 27B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 635,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 282",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 642,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 283",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 643,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 285",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 645,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 286",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 646,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 287",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 647,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 288",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 648,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 289",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 649,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 28A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 650,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 28B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 651,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 28F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 655,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 290",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 656,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 292",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 658,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 293",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 659,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2AE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 686,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2B4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 692,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2B5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 693,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2BC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 700,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2BE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 702,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2BF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 703,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2C0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 704,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2C3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 707,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2C5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 709,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2CA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 714,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2CD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 717,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2D1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 721,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2D2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 722,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2D4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 724,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2E4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 740,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2E5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 741,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2E6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 742,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2E7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 743,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2E8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 744,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2EB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 747,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2EF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 751,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2F0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 752,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2FC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 764,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2FE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 766,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 2FF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 767,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 32F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 815,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 337",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 823,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 33C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 828,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 33F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 831,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 340",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 832,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 342",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 834,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 348",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 840,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 34B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 843,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 35C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 860,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 362",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 866,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 363",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 867,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 364",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 868,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 366",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 870,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 367",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 871,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 368",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 872,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 369",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 873,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 36E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 878,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 36F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 879,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 373",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 883,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 374",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 884,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 386",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 902,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 387",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 903,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 390",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 912,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 394",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 916,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 39A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 922,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 39B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 923,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 39C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 924,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 39E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 926,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 39F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 927,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 3A0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_CherrygrovePrimary",
+    "secondary_tileset": "gTileset_ClaudeRoute30",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 928,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  }
+]

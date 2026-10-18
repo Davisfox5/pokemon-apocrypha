@@ -1,0 +1,59 @@
+{
+  "project": "/tmp/johto-prefab-r33",
+  "maps": [
+    {
+      "map": "JohtoRoute33",
+      "objects": 0,
+      "used_tiles": 337,
+      "tilesets": [
+        "route33",
+        "route33"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "data/layouts/JohtoRoute33/map.bin": "62e74be3556c6e6c969cb88587528a16f81fe6cc19fb4167ccf554c6e6312985",
+    "data/layouts/JohtoRoute33/border.bin": "512af84fff05f9fe7e617c89bc43fcbdfd180a8b7b70feb9caf2913b839289f7",
+    "data/tilesets/primary/route33/metatiles.bin": "9f99b4ce5015253c53d11bb9cd7694c81d6e9a3162fd96ad7744f46511168762",
+    "data/tilesets/primary/route33/tiles.png": "64b47b1e52fc7aa7027096b297ec4242ea10caf599ce311249a13241573a75b4",
+    "data/tilesets/primary/route33/metatile_attributes.bin": "b74e8d57e74264671a86463547109f67a78a69da1c4ef0598fda581951e74ca5",
+    "data/tilesets/primary/route33/palettes/03.pal": "9e8f2332018a276aece2fc00d830da4817f087a4670fcac1df26c425bf8e6b19",
+    "data/tilesets/primary/route33/palettes/02.pal": "bd2bae2953ca74faaf31a25fc7ab45ee6c7155a212faab4410d302cf62636a7a",
+    "data/tilesets/primary/route33/palettes/14.pal": "ed93e91d4097ed12fbd4be7ab33b757cd08067b9c35b6eb9929780808dda43af",
+    "data/tilesets/primary/route33/palettes/00.pal": "b7991f80694a04d2773fb439aa3f4c1a1e0ed8ef31c1441f1db67a1bdcf10fdd",
+    "data/tilesets/primary/route33/palettes/01.pal": "0236106479a7bc66106340f42fe51d4da87968012cdec79eb89e5068b9f6d269",
+    "data/tilesets/primary/route33/palettes/15.pal": "08f8a3a140cd235e08cb167307d21159857bb48abf1120ff9d54b246a1876d13",
+    "data/tilesets/primary/route33/palettes/11.pal": "06a0ed175dc89b8fb6743433e2ea3d3883cd5948e59f01167c48eaf2ea101163",
+    "data/tilesets/primary/route33/palettes/05.pal": "2f12bfd88f7d5ee4cbb00278379ef17526116d877a1c4420a4b95bcfe28714b4",
+    "data/tilesets/primary/route33/palettes/04.pal": "02289ca4728c13ea3bf0412f780a0f5afcade9d852d3602f91d1f1a788063c14",
+    "data/tilesets/primary/route33/palettes/10.pal": "ebc319c7ea4633bbb4a6a41a906c26048831cdf2f603f4c4c7f30ac43829d905",
+    "data/tilesets/primary/route33/palettes/06.pal": "5841522cc8ca8432ae2ccf2962ff34ef2d49dd38bf0c56ac300bceae50356211",
+    "data/tilesets/primary/route33/palettes/12.pal": "85a8f43082ec6a258a00f53f577ff31a9a5d12c561f8b21dc60040fab2159e76",
+    "data/tilesets/primary/route33/palettes/13.pal": "c8592280e525a9bc6c2daf8e950a8afdeb724fd820b3c24ccb7a175c17682f3f",
+    "data/tilesets/primary/route33/palettes/07.pal": "ac39f477fa0ba58fa746bb01c37d1780dc4dca19a28bf5261b7ba0b8cf999e2e",
+    "data/tilesets/primary/route33/palettes/09.pal": "51184fa514595c54b49bbc863f8f601cc0a780f7f469eeeeb835f579d1e5721e",
+    "data/tilesets/primary/route33/palettes/08.pal": "dc49bda1100d4558d68caaf06242bec30728733d9438c93f00604086a3187910",
+    "data/tilesets/secondary/route33/metatiles.bin": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+    "data/tilesets/secondary/route33/tiles.png": "d88ef4f82055bab21fb6e3263f5d12fefe504652e4f5a7ce9a11cc9e6f7dd6c5",
+    "data/tilesets/secondary/route33/metatile_attributes.bin": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+    "data/tilesets/secondary/route33/palettes/03.pal": "9e8f2332018a276aece2fc00d830da4817f087a4670fcac1df26c425bf8e6b19",
+    "data/tilesets/secondary/route33/palettes/02.pal": "bd2bae2953ca74faaf31a25fc7ab45ee6c7155a212faab4410d302cf62636a7a",
+    "data/tilesets/secondary/route33/palettes/14.pal": "ed93e91d4097ed12fbd4be7ab33b757cd08067b9c35b6eb9929780808dda43af",
+    "data/tilesets/secondary/route33/palettes/00.pal": "b7991f80694a04d2773fb439aa3f4c1a1e0ed8ef31c1441f1db67a1bdcf10fdd",
+    "data/tilesets/secondary/route33/palettes/01.pal": "0236106479a7bc66106340f42fe51d4da87968012cdec79eb89e5068b9f6d269",
+    "data/tilesets/secondary/route33/palettes/15.pal": "08f8a3a140cd235e08cb167307d21159857bb48abf1120ff9d54b246a1876d13",
+    "data/tilesets/secondary/route33/palettes/11.pal": "06a0ed175dc89b8fb6743433e2ea3d3883cd5948e59f01167c48eaf2ea101163",
+    "data/tilesets/secondary/route33/palettes/05.pal": "2f12bfd88f7d5ee4cbb00278379ef17526116d877a1c4420a4b95bcfe28714b4",
+    "data/tilesets/secondary/route33/palettes/04.pal": "02289ca4728c13ea3bf0412f780a0f5afcade9d852d3602f91d1f1a788063c14",
+    "data/tilesets/secondary/route33/palettes/10.pal": "ebc319c7ea4633bbb4a6a41a906c26048831cdf2f603f4c4c7f30ac43829d905",
+    "data/tilesets/secondary/route33/palettes/06.pal": "5841522cc8ca8432ae2ccf2962ff34ef2d49dd38bf0c56ac300bceae50356211",
+    "data/tilesets/secondary/route33/palettes/12.pal": "85a8f43082ec6a258a00f53f577ff31a9a5d12c561f8b21dc60040fab2159e76",
+    "data/tilesets/secondary/route33/palettes/13.pal": "c8592280e525a9bc6c2daf8e950a8afdeb724fd820b3c24ccb7a175c17682f3f",
+    "data/tilesets/secondary/route33/palettes/07.pal": "ac39f477fa0ba58fa746bb01c37d1780dc4dca19a28bf5261b7ba0b8cf999e2e",
+    "data/tilesets/secondary/route33/palettes/09.pal": "51184fa514595c54b49bbc863f8f601cc0a780f7f469eeeeb835f579d1e5721e",
+    "data/tilesets/secondary/route33/palettes/08.pal": "dc49bda1100d4558d68caaf06242bec30728733d9438c93f00604086a3187910"
+  },
+  "objects": [],
+  "source_revision": "eb15d8923401af86bb12670c6627c2bfba1e3d0a",
+  "owner_changes": false
+}

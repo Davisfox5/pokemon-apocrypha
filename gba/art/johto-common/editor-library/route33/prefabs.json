@@ -1,0 +1,5394 @@
+[
+  {
+    "name": "05 Ledges / tile 02A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 42,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 08C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 140,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0A6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 166,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0AF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 175,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0B8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 184,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0C0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 192,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0C1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 193,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0C2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 194,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "05 Ledges / tile 0C4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 196,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 000",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 0,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 001",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 1,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 002",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 2,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 009",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 9,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 10,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 11,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 12,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 13,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 14,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 00F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 15,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 010",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 16,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 011",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 17,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 012",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 18,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 01D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 29,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 01E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 30,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 01F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 31,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 020",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 32,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 021",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 33,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 022",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 34,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 02F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 47,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 030",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 48,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 032",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 50,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 033",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 51,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 035",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 53,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 036",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 54,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 037",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 55,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 03D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 61,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 03F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 63,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 040",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 64,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 041",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 65,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 042",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 66,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 043",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 67,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 045",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 69,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 04A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 74,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 04C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 76,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 04D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 77,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 04E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 78,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 04F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 79,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 050",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 80,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 051",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 81,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 052",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 82,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 053",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 83,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 054",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 84,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 058",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 88,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 059",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 89,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 05C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 92,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 05D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 93,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 05E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 94,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 05F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 95,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 060",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 96,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 061",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 97,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 062",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 98,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 063",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 99,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 065",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 101,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 066",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 102,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 06A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 106,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 06C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 108,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 06D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 109,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 076",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 118,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 07A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 122,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 07C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 124,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 07D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 125,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 07E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 126,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 07F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 127,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 080",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 128,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 081",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 129,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 082",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 130,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 083",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 131,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 084",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 132,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 085",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 133,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 086",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 134,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 08E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 142,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 08F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 143,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 092",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 146,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 093",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 147,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 098",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 152,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 099",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 153,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 09B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 155,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 09D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 157,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 09E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 158,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 09F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 159,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0B4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 180,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0B6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 182,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0B7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 183,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0BA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 186,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0BB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 187,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0BF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 191,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0C8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 200,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0CB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 203,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0D1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 209,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0D8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 216,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0DB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 219,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0DC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 220,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0DD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 221,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0DE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 222,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0DF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 223,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0E3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 227,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0E4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 228,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0E6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 230,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0E8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 232,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0E9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 233,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0EA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 234,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0EE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 238,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0F6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 246,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0F7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 247,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0FA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 250,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0FB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 251,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 0FD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 253,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 102",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 258,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 105",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 261,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 106",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 262,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 107",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 263,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 108",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 264,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 112",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 274,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 117",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 279,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 118",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 280,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 11B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 283,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 11C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 284,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 11D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 285,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 125",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 293,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 132",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 306,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 133",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 307,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 135",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 309,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 13B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 315,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 13C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 316,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 13D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 317,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "06 Rock or path surface / tile 13E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 318,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 005",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 5,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 006",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 6,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 015",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 21,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 029",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 41,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 02B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 43,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 02D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 45,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 03A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 58,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 049",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 73,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 057",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 87,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 069",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 105,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 078",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 120,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 08A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 138,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 097",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 151,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0A7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 167,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0C3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 195,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0C5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 197,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0C6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 198,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0CE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 206,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0D0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 208,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0D4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 212,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0E2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 226,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0F1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 241,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0F2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 242,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0F3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 243,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 0F4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 244,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 111",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 273,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 11E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 286,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Grass and vegetation / tile 17A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 378,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 126",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 294,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 127",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 295,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 128",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 296,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 129",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 297,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 298,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 299,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 300,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 301,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 302,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 12F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 303,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 130",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 304,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 137",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 311,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 138",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 312,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 139",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 313,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 144",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 324,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 145",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 325,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 146",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 326,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "07 Tall grass / tile 147",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 327,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water and shoreline / tile 008",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 8,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "08 Water and shoreline / tile 018",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 24,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "09 Entrances / tile 0D2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 210,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 003",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 3,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 004",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 4,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 007",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 7,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 013",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 19,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 014",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 20,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 016",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 22,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 017",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 23,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 019",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 25,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 01A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 26,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 01B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 27,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 01C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 28,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 023",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 35,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 024",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 36,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 025",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 37,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 026",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 38,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 027",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 39,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 028",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 40,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 02C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 44,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 02E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 46,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 031",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 49,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 034",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 52,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 038",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 56,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 039",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 57,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 03B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 59,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 03C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 60,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 03E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 62,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 044",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 68,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 046",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 70,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 047",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 71,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 048",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 72,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 04B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 75,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 055",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 85,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 056",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 86,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 05A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 90,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 05B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 91,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 064",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 100,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 067",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 103,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 068",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 104,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 06B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 107,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 06E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 110,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 06F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 111,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 070",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 112,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 071",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 113,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 072",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 114,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 073",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 115,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 074",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 116,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 075",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 117,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 077",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 119,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 079",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 121,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 07B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 123,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 087",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 135,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 088",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 136,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 089",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 137,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 08B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 139,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 08D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 141,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 090",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 144,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 091",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 145,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 094",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 148,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 095",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 149,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 096",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 150,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 09A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 154,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 09C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 156,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 160,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 161,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 162,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 163,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A4",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 164,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 165,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 168,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0A9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 169,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0AA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 170,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0AB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 171,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0AC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 172,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0AD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 173,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0AE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 174,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 176,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 177,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B2",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 178,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 179,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 181,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0B9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 185,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0BC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 188,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0BD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 189,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0BE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 190,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0C7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 199,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0C9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 201,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0CA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 202,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0CC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 204,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0CD",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 205,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0CF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 207,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0D3",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 211,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0D5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 213,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0D6",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 214,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0D7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 215,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0D9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 217,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0DA",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 218,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0E0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 224,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0E1",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 225,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0E5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 229,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0E7",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 231,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0EB",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 235,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0EC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 236,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0ED",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 237,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0EF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 239,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0F0",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 240,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0F5",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 245,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0F8",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 248,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0F9",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 249,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0FC",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 252,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0FE",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 254,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 0FF",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 255,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 100",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 256,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 101",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 257,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 103",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 259,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 104",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 260,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 109",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 265,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 266,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 267,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10C",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 268,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10D",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 269,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10E",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 270,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 10F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 271,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 110",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 272,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 113",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 275,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 114",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 276,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 115",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 277,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 116",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 278,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 119",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 281,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 11A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 282,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 11F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 287,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 120",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 288,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 121",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 289,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 122",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 290,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 123",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 291,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 124",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 292,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 131",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 305,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 134",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 308,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 136",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 310,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 13A",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 314,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 13F",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 319,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 140",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 320,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 141",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 321,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 142",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 322,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 143",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 323,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 169",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 361,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 170",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 368,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 171",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 369,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 178",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 376,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 179",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 377,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 17B",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 379,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 184",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 388,
+        "collision": 3,
+        "elevation": 3
+      }
+    ]
+  },
+  {
+    "name": "10 Ground and structural transitions / tile 185",
+    "width": 1,
+    "height": 1,
+    "primary_tileset": "gTileset_Route33Primary",
+    "secondary_tileset": "gTileset_Route33",
+    "metatiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "metatile_id": 389,
+        "collision": 0,
+        "elevation": 3
+      }
+    ]
+  }
+]

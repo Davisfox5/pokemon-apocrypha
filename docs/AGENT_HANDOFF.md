@@ -1,3 +1,5 @@
+Current Porymap editing library: [categorized native prefabs and compatibility limits](../gba/art/johto-common/editor-library/README.md). Route 30 shelf installed in the owner checkout; other revision-specific packages prepared. Native maps/IDs unchanged.
+
 ## Current: Routes 31/32 complete rock reconstruction
 
 Owner rejected the placement patch and requested complete rebuilds. Read
