@@ -1,0 +1,19 @@
+{
+  "baseline_engine": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
+  "checked_cells": 986,
+  "changed_cells": 90,
+  "changed_pixels": 7587,
+  "approved_face_pixels": 31154,
+  "approved_face_RGB_errors": 0,
+  "changes_outside_cap_mask": 0,
+  "Porymap_RGB_errors": 0,
+  "native_layout_entries_changed": 0,
+  "decoded_attribute_changes": 0,
+  "source_files_changed": [
+    "data/tilesets/primary/route33/metatiles.bin",
+    "data/tilesets/primary/route33/palettes/04.pal",
+    "data/tilesets/primary/route33/tiles.png",
+    "data/tilesets/secondary/route33/palettes/04.pal"
+  ],
+  "owner_status": "Faces accepted; blended local bevels awaiting visual review. Trees intentionally remain absent; reserved forest barriers retained."
+}

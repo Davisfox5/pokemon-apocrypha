@@ -33,6 +33,20 @@
   collision agreement alone does not establish a faithful map.
 - This requirement supplements existing Grok rules and other applicable shared
   instructions. Preserve those rules; do not replace them with a per-model policy.
+- Before authoring map artwork, locate the latest owner-approved shared asset
+  catalogs and source commits, including active project branches. Reuse those
+  masters and native modules directly; do not retrace them from map screenshots
+  or make per-map replacements. Record source paths/hashes and receiving roles.
+  For gaps, inspect adjacent material, raised side, surface plane, contour and
+  foreground footprint before selecting a piece. A cap is not a wall, and a
+  concave turn is not a convex corner. Identify a genuinely missing module before
+  authoring one; preserve source masters and inspect the complete receiving join.
+- Compare the complete original rise (bevel/cap, wall body and base) with the
+  selected family. Never flatten a taller mountain into a single shorter wall.
+  The completed R02 registry explicitly limits its16px family to compatible
+  geometry; preserve and fit local mountain caps when the source rise is taller.
+  Inspect exposed terrain without foliage when requested; do not hide incomplete
+  joins with trees. Keep reserved forest collision explicit in a tree-free review.
 - Inspect actual native renders and headless gameplay, fix visual defects, and
   publish readable source/native comparisons. Functional tests do not establish
   owner visual acceptance.

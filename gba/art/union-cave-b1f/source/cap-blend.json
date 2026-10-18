@@ -1,0 +1,16 @@
+{
+  "method": "retain original 14-shade wall bank and all indexed texture patterns; share its exact shades with mixed floor/water boundaries using additional native palette banks",
+  "palette_banks": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "changed_metatile_quadrants": {
+    "8": 142,
+    "7": 19,
+    "9": 89
+  },
+  "glyph_shape_or_collision_edits": false,
+  "no_global_smoothing_or_flat_fill": true
+}

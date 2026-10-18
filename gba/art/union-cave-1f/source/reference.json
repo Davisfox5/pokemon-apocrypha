@@ -1,0 +1,123 @@
+{
+  "reference": "https://archives.bulbagarden.net/wiki/File:Union_Cave_1F_HGSS.png",
+  "image_url": "https://archives.bulbagarden.net/media/upload/6/65/Union_Cave_1F_HGSS.png",
+  "credits": "Nintendo / Game Freak / Creatures; overview hosted by Bulbagarden Archives",
+  "sha256": "f9e398988f5ca120807160893252d8d61fe899cbe0b5656adc5f3368c4562fbf",
+  "dimensions": [
+    544,
+    962
+  ],
+  "native_grid": [
+    34,
+    60
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "scale": 1,
+  "crop": "bottom two border pixels omitted; map remains 34x60",
+  "basis": "visual terrain interpretation, not extracted DS collision",
+  "occluders_removed": [
+    [
+      "north-firebreather",
+      [
+        136,
+        80,
+        164,
+        113
+      ]
+    ],
+    [
+      "north-item",
+      [
+        64,
+        192,
+        81,
+        207
+      ]
+    ],
+    [
+      "west-hiker",
+      [
+        92,
+        348,
+        116,
+        380
+      ]
+    ],
+    [
+      "east-hiker",
+      [
+        330,
+        382,
+        354,
+        416
+      ]
+    ],
+    [
+      "south-firebreather",
+      [
+        378,
+        604,
+        404,
+        640
+      ]
+    ],
+    [
+      "south-trainer",
+      [
+        204,
+        740,
+        228,
+        777
+      ]
+    ],
+    [
+      "west-item",
+      [
+        80,
+        596,
+        96,
+        614
+      ]
+    ],
+    [
+      "east-item",
+      [
+        480,
+        660,
+        497,
+        676
+      ]
+    ],
+    [
+      "south-item",
+      [
+        384,
+        914,
+        402,
+        933
+      ]
+    ]
+  ],
+  "features": {
+    "route32_entrance": [
+      28,
+      18
+    ],
+    "route33_exit": [
+      28,
+      57
+    ],
+    "north_lower_access": [
+      5,
+      5
+    ],
+    "south_lower_access": [
+      7,
+      57
+    ]
+  },
+  "scope": "1F refinement with corrected branch-end ladders; beige formations are solid boulders; stairs registered from original DS warp topology and image landmarks"
+}

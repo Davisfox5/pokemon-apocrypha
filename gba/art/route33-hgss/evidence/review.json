@@ -1,0 +1,55 @@
+{
+  "native_cells": 986,
+  "Porymap_RGB_errors": 0,
+  "behavior_collision_errors": [],
+  "regions": [
+    [
+      "Cave arch, threshold and ledge head",
+      [
+        192,
+        128,
+        352,
+        224
+      ]
+    ],
+    [
+      "Cliff shoulders and lower concave corner",
+      [
+        336,
+        176,
+        512,
+        352
+      ]
+    ],
+    [
+      "Tall-grass/dirt/canopy junction",
+      [
+        0,
+        256,
+        192,
+        400
+      ]
+    ],
+    [
+      "Ledge return and clearing",
+      [
+        192,
+        224,
+        400,
+        352
+      ]
+    ],
+    [
+      "Western boulder and forest feet",
+      [
+        16,
+        160,
+        176,
+        288
+      ]
+    ]
+  ],
+  "pixel_review": "Whole map, cliff caps/faces/corners, embedded arch, ledge head/return, tall grass borders, full tree crowns/roots, boulders, sign, apricorn silhouettes",
+  "original_collision": "Interpreted from reference topology, not decoded DS collision; inspect actual runtime separately",
+  "owner_visual_acceptance": "pending"
+}

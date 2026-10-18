@@ -1,0 +1,13 @@
+{
+  "source_commit": "de6922a964721aceb11147bcac6acadc477d4538",
+  "rom_sha256": "916655a1ec12b7e6405f9177ed1a365d143d4ed7e91928c6c4de63107aa06593",
+  "floor": "b1f",
+  "ROM_build": "passed",
+  "actual_Porymap_export": "6.3.1; zero pixel differences",
+  "Porytiles_native_RGB_alpha": "passed",
+  "runtime_source": "shared all-floor tour, exact ROM hash",
+  "ordinary_flash_save_cold_reload_Continue": "passed separately on each floor",
+  "Surf_scope": "proof setup on water uses existing engine Surf; normal water input and disembark tested; campaign unlock not claimed",
+  "ROM_save_tool_binaries_committed": false,
+  "desktop_game_opened": false
+}

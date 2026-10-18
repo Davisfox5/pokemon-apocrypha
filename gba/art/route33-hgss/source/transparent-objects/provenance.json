@@ -1,0 +1,28 @@
+{
+  "approved_tree_masters": "T01/T03/T04 from pinned hub 3d593788; do not regenerate or substitute",
+  "objects": [
+    {
+      "name": "boulder-west",
+      "source_box": [
+        52,
+        224,
+        88,
+        260
+      ],
+      "original_opaque_pixels": 586,
+      "current_opaque_pixels": 584
+    },
+    {
+      "name": "boulder-east",
+      "source_box": [
+        438,
+        148,
+        474,
+        184
+      ],
+      "original_opaque_pixels": 586,
+      "current_opaque_pixels": 584
+    }
+  ],
+  "tree_free_cleanup": "Remove two source foliage-rim pixels from each boulder silhouette; no stone RGB redrawn."
+}

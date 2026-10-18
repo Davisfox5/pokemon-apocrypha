@@ -1,0 +1,26 @@
+{
+  "DS_source_repository": "https://github.com/pret/pokeheartgold",
+  "DS_source_commit": "d2355244ac42b3c6e40d8c36aa3564ee8706dea4",
+  "event_paths": {
+    "1f": "files/fielddata/eventdata/zone_event/096_D25R0101.json",
+    "b1f": "files/fielddata/eventdata/zone_event/148_D25R0102.json",
+    "b2f": "files/fielddata/eventdata/zone_event/149_D25R0103.json"
+  },
+  "registration": "overview pixels are foreshortened/cropped DS scenes; native grid retains accepted first-pass proportions. Use original warp destinations/anchors and register each visible branch end using actor/item X landmarks and projected Z. Do not paste DS world coordinates into image squares.",
+  "correction": "beige formations at native (6,16) and (29,38) are boulders. North 1F stairs are at (5,5); southern stairs are in the water-separated western pocket at (7,57).",
+  "visible_stair_pairs": [
+    [
+      "1f (5,5)",
+      "b1f (31,35)"
+    ],
+    [
+      "1f (7,57)",
+      "b1f (4,48)"
+    ],
+    [
+      "b1f (29,46)",
+      "b2f (4,5)"
+    ]
+  ],
+  "excluded": "unpictured upper Alph transit rooms referenced by extra DS warps; Route33 exterior not built"
+}

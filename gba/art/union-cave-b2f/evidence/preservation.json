@@ -1,0 +1,10 @@
+{
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b",
+  "correction_base_commit": "de6922a964721aceb11147bcac6acadc477d4538",
+  "existing_map_layout_warp_ids_preserved": true,
+  "collision_elevation_cells_preserved": "all except six explicitly documented real stair entries",
+  "previous_source_evidence_preserved": "previous-de6922a/ and older snapshots",
+  "shared_tilesets_and_Route32_unchanged": true,
+  "latest_native_finish": "original textured walls/caps, removed floor markers and actual embedded stair warp entries",
+  "warp_coordinates": "six entries moved onto existing original embedded stairs; pair indices/destinations stable"
+}

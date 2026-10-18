@@ -1,0 +1,24 @@
+{
+  "baseline": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
+  "command": "blend_caps.py ENGINE ORIGINAL_NATIVE_214e38cf --install",
+  "files": [
+    {
+      "path": "data/tilesets/primary/route33/metatiles.bin",
+      "sha256": "d613805c0b788f4298a1904d01044c0e2889f7d35394a590d4017808624b9b4f"
+    },
+    {
+      "path": "data/tilesets/primary/route33/palettes/04.pal",
+      "sha256": "8da41dac41d02bb2bb0257eeb8370d8d0e0f658f4a02feb1336d849a6032106b"
+    },
+    {
+      "path": "data/tilesets/primary/route33/tiles.png",
+      "sha256": "f8a7334ad3a949048bf558f387ae562f11e00bf2df54ae6c3f35b85bcddbe63d"
+    },
+    {
+      "path": "data/tilesets/secondary/route33/palettes/04.pal",
+      "sha256": "8da41dac41d02bb2bb0257eeb8370d8d0e0f658f4a02feb1336d849a6032106b"
+    }
+  ],
+  "all_files_identical": true,
+  "text_guard": "LF/CRLF normalized; generated mapjson includes excluded"
+}

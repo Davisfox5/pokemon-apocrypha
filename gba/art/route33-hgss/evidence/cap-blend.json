@@ -1,0 +1,91 @@
+{
+  "baseline_engine": "74e91ff1ea5fa45637ec0d798f0226ced284fcb1",
+  "native_cap_reference": "214e38cfb94309965e0cc58d09460e58737e00a6",
+  "shared_master_source": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+  "changed_pixels": 7587,
+  "changed_cells": 90,
+  "approved_face_pixels_locked": 31154,
+  "approved_face_errors": 0,
+  "background_pixel_changes": 0,
+  "collision_changes": 0,
+  "geometry_changes": 0,
+  "palette4": [
+    [
+      80,
+      56,
+      64
+    ],
+    [
+      88,
+      80,
+      72
+    ],
+    [
+      96,
+      64,
+      48
+    ],
+    [
+      104,
+      72,
+      56
+    ],
+    [
+      104,
+      96,
+      88
+    ],
+    [
+      120,
+      88,
+      64
+    ],
+    [
+      128,
+      96,
+      80
+    ],
+    [
+      136,
+      96,
+      96
+    ],
+    [
+      136,
+      104,
+      80
+    ],
+    [
+      160,
+      120,
+      96
+    ],
+    [
+      232,
+      184,
+      128
+    ],
+    [
+      208,
+      160,
+      112
+    ],
+    [
+      192,
+      144,
+      104
+    ],
+    [
+      168,
+      128,
+      96
+    ],
+    [
+      144,
+      104,
+      80
+    ]
+  ],
+  "method": "Existing local native 8px bevel tiles, unchanged silhouette; palette bridges five existing plateau highlights to ten exact shared face shades. Full canonical faces immutable.",
+  "installed": true
+}

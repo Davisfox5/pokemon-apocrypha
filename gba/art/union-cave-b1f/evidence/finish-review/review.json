@@ -1,0 +1,120 @@
+{
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b",
+  "rom_sha256": "375150a2e014cf264c79ff9011be93700b5c3eeaa88cb4455ea7938b12bcfe72",
+  "basis": "current native tile decode equals published checked render; original HGSS geography and preserved preceding pass compared",
+  "review_status": "Reviewed after owner-requested texture restoration, floor-marker removal and embedded stairhead refinement",
+  "regions": [
+    {
+      "label": "Northwest stair and wall return",
+      "pixel_box": [
+        32,
+        48,
+        160,
+        144
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Northern stepped wall corner",
+      "pixel_box": [
+        240,
+        16,
+        368,
+        112
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Plateau front and small formations",
+      "pixel_box": [
+        32,
+        128,
+        256,
+        224
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Strength barrier and side-wall foot",
+      "pixel_box": [
+        48,
+        176,
+        192,
+        256
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Upper river / inner wall junction",
+      "pixel_box": [
+        304,
+        256,
+        432,
+        368
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Main lake northwest shore",
+      "pixel_box": [
+        144,
+        400,
+        304,
+        496
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Eastern rock/shore overlap",
+      "pixel_box": [
+        416,
+        432,
+        528,
+        560
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Main 1F staircase and rim",
+      "pixel_box": [
+        432,
+        512,
+        576,
+        624
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Lower chamber west staircase",
+      "pixel_box": [
+        16,
+        688,
+        160,
+        832
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    },
+    {
+      "label": "Lower chamber east stair/bank",
+      "pixel_box": [
+        400,
+        688,
+        576,
+        816
+      ],
+      "finding": "Original/native detail and native camera view reviewed after texture/stair corrections"
+    }
+  ],
+  "all_wall_cell_sheet": "../wall-cell-review.png",
+  "physics_preserved": true,
+  "limitations": [
+    "shared finite interior shading dictionary",
+    "static water",
+    "unwired Alph transit rooms/Route33; Strength pushing and campaign interactions remain pending"
+  ],
+  "reviewed_native_gameplay_positions": 9,
+  "wall_cells_reviewed": 1062,
+  "functional_proof": "420 native observations; all real stair pairs both ways, stair/wall collision and unwired entries, Surf/disembark and per-floor ordinary saves",
+  "owner_visual_acceptance": "pending latest visual revision",
+  "changes": "original wall/cap texture restored; no added floor stair markers; actual embedded stair warp entries; local original head/tread joins; B1F actor-removal fix retained"
+}

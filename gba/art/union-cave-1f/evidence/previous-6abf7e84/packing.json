@@ -1,0 +1,11 @@
+{
+  "raw_glyphs": 3237,
+  "static_glyphs": 1008,
+  "metatiles": 924,
+  "critical_boundary_glyphs": 827,
+  "approximated_interior_texture_glyphs": 2229,
+  "quantization": "five private native 15-color palettes; exact retained critical boundaries; nearest reusable native texture glyph for remaining rare interiors",
+  "source": "original HGSS 1F; characters/items removed; no campaign actors invented",
+  "water": "native surfable behavior; static art in this pass",
+  "validated_engine_commit": "6abf7e84e27828356c1bb390b048611c1997d4e4"
+}

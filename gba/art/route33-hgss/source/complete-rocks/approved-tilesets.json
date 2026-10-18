@@ -1,0 +1,595 @@
+{
+  "region": "Johto",
+  "status": "Shared selected families installed where compatible; Violet gate replacement remains open",
+  "building_registry": "gba/art/johto-common/approved-buildings.json",
+  "families": [
+    {
+      "id": "trees",
+      "catalog": "gba/art/johto-common/trees/catalog.json",
+      "scope": "Reusable foregrounds"
+    },
+    {
+      "id": "scenery",
+      "catalog": "gba/art/johto-common/scenery/catalog.json",
+      "scope": "Reusable foregrounds"
+    },
+    {
+      "id": "r02_complete_terrain",
+      "catalog": "gba/art/johto-common/rocks/r02-complete-tiles/source/catalog.json",
+      "scope": "Complete rock/grass terrain tiles; compatible R02 geometry only"
+    }
+  ],
+  "masters": [
+    {
+      "path": "gba/art/johto-common/trees/source/T02.png",
+      "sha256": "ec83b02f62d3d99fadb51601c158f05956dd2c72d74684ecfce35bbd0671be0e"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T03.png",
+      "sha256": "ac07f1640131d8caf4b0541b669bd2c580923af858d92c8fb5934574278ebeba"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T01.png",
+      "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T04.png",
+      "sha256": "62e49281dcbe3a71d715c3ea9eb8809877fffb8ac2c242e9f7c51de416a83850"
+    },
+    {
+      "path": "gba/art/johto-common/trees/source/T05.png",
+      "sha256": "737f1a45101cb9dd936fecef9c1d65c83311bd9e73d48bac2682bedcfb3d2a03"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L03.idx.png",
+      "sha256": "61a3cb433976908a3fcf3d16bdbd112f5925e559c7c68dc8b4f0f56d2cf2fd3b"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L13.idx.png",
+      "sha256": "5e6cd05b677bb6207dfc293fc83515e138afc238b5f97648edeaa0a7af3fa25f"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P12.png",
+      "sha256": "2bae513033cc365be954cd9afb203fd3f8430f96eca935bb52f6fe994c72fd4d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P06.png",
+      "sha256": "39c153408a60d5899f826269f1de96f469f321522eae9c4a89e9e167010b8400"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G02.idx.png",
+      "sha256": "cd73ab8829a61e896f7ce3db487ec98bdc5514730a68ebfa22378eca8a24f3b6"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G12.idx.png",
+      "sha256": "5a0faf263d7435aa6785a2d30a00382cf813a5ccb73ff9854e05011586e35ada"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P07.png",
+      "sha256": "44c8e0a415f7dfe356b3bd65c65aadbc1d2ee9391930e4b61987615253647f3d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P13.png",
+      "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S01.idx.png",
+      "sha256": "3572db3036abe7f2ee909639bfb54e4f932d4674537a1b5963fbc33b2e435ea7"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P05.png",
+      "sha256": "2163e82f8e516caac4887c72446f513009a226a4de3049162e34cf8fbe6587ce"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P11.png",
+      "sha256": "1cc7ab4e5371836d2f6e3fb078822b1f2c187ec9490891c987507ac11582c21a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G08.png",
+      "sha256": "cdfbba46125b5e9875b5d9c17319e512ec631045ef63a994d9735b9fae514740"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P15.idx.png",
+      "sha256": "bc88e2063612f1be779d60abe8255cb9c302a02f8a9bf041d508592af6846045"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P05.idx.png",
+      "sha256": "412988bffaab71f8f332e56b068ee841f0936f358bce1e7ac61e305c3e0db515"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F01.idx.png",
+      "sha256": "aed1b84523531a45a27aa2f60e124bff423bf543c24c93b87f80175fa7ee1f5a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G09.png",
+      "sha256": "18e698793f836573fccf414f6327274554261dcf60074bcb68daf68caa12b6fb"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P10.png",
+      "sha256": "049693b513a548ce38c2699ca137f73a15f6c1d706d83f35d469e0037154ff6d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P04.png",
+      "sha256": "9355ce1c6e07ee7b8b4c37df8d37483497bae091c2087a26d0375545431334d5"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P04.idx.png",
+      "sha256": "e2302f1273373fc0aa28a5c6fac5744bb84e3e48490042e00a7388f461ba60a7"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P14.idx.png",
+      "sha256": "811a9403fc83302288724d669712684292221097dc0d7124ff84311ae5462b27"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P14.png",
+      "sha256": "f738448bf45e632435a39f680f855b780e2f4f81d4ab1b8410ee57cf951e03a4"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P15.png",
+      "sha256": "7ed65bb881f98956d071ffb3ea18225dc6993d6f061e0bcf65b7ba1758251565"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P01.png",
+      "sha256": "1bb4bf19ea0c5db9994759bc8a7489f4b63b94db99db83ed1cf5ac3a44b3ee9d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L12.idx.png",
+      "sha256": "6334302fac133753a2a999036abac320263ba993c85781bd0d02b83419671204"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L02.idx.png",
+      "sha256": "d68d9784ee0f51aff05d6aa08e0b140fb65e9fd9bb53f70826707b91b3fe7c31"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P03.png",
+      "sha256": "d68d34b9392412ea14a46319ff1269d57633062e1414953507d132c43a60484a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P02.png",
+      "sha256": "ad6be61ed36e3a131d82663051bba347665f6ac66c1228a9b1cf572066424b58"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P16.png",
+      "sha256": "6cee6c7689bc68e5bf4e38437b2d9e6601eb3ced218f8794c90f80de7e841376"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G13.idx.png",
+      "sha256": "9fd00f0ccba34accfa7af1dece984d1f6ce781f7928b521fb5e4e1084ace3618"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G03.idx.png",
+      "sha256": "e09988235c5832611ff3156bf760b0137d89e48a926c558c2a15926bb0e35ff2"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P16.idx.png",
+      "sha256": "27810e64b84377b5f173e00e871ceee8853905381a3867709cafda6afd16be2d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P06.idx.png",
+      "sha256": "ae6b57ee88183409003b9719bdfce5a8d58462e2a413806739bd90ea644b1d25"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N01.png",
+      "sha256": "5e53a85f2f1eccef23d5b0e0664e11e4496808ca44da7a18ef56d39de8dc5350"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W03.png",
+      "sha256": "fd074ef97c4a92f550dd88dd4bb2d11737ee75d204fccc6bcbd6b307422156ce"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L03.png",
+      "sha256": "cd5a8cdf5aeee615f31bcfc13fd4ae8f6bcc80ff769ae7c9c1b2b33a16c7bafa"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S02.idx.png",
+      "sha256": "d5baab0dcc0085bc66a05ba5e5fdc85cbaf082fafd6cd46ce5ab98fc93ef95e5"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L02.png",
+      "sha256": "7422c3f6e612af29648975ea3497a7f3d9e5f1782a42e8d8cd3db71aabbada9d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W02.png",
+      "sha256": "ff62a8ba09d2fd876c19efbeb33ec60f37885c2a8f70b6ffe7950de33ad0932a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G08.idx.png",
+      "sha256": "70f765ab239c55e2a76319e9917b600d4cb9800844724a8af20cc4e47c1b8cc3"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F02.idx.png",
+      "sha256": "aed1b84523531a45a27aa2f60e124bff423bf543c24c93b87f80175fa7ee1f5a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S04.png",
+      "sha256": "90fd9afe50ecbc29485328588a6e66e387c17b351f3e1696ea716a33ab5adc46"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N02.png",
+      "sha256": "6143fd2d61b433e4b5daa48156a8d529dd17f9268ce0ef41b9594967d4a04ec3"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L01.png",
+      "sha256": "0a8bbb9404e7464b678b5ba26b93ba7ebb6099fe777c031bd10e7d7d28420565"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W01.png",
+      "sha256": "f84de86e57adf1a5e3d2720a1a68f2dd6a92fd5a95300ed338c7a749a0ea72ba"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N03.png",
+      "sha256": "1e309296a79470ff52c24dfcd32a05fa383b0a91b8cc84aeab45e58654faf9cd"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S05.png",
+      "sha256": "c9d4624138b837abacf63cb6d9dda9322c455c6110a22c3f4e4d16f1ded6616f"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G01.idx.png",
+      "sha256": "5cd51984f0bbc1728849c1478f1f54a6db44e1c3e4a4dd09014616da58ae0946"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G11.idx.png",
+      "sha256": "0c785468e87e2b4932f5879ef7710011207a0d6545fc9d99a6270400ce417434"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S01.png",
+      "sha256": "04913494c6fed12c9ec30ba5c20a559e4f428cc416a10f20cbc7c44b351f3f17"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L11.idx.png",
+      "sha256": "0f81dcb004d3e5926d4aafc9d746b50664b714833409e553784192d90ff1bd32"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L01.idx.png",
+      "sha256": "bfdfe404c869b54767fe8959d38aa3d2aaf60417ab422142ba6a7d973ec8ca51"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L11.png",
+      "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L04.png",
+      "sha256": "2762cb19b2a877feab9e37545425e786bd67569194d0d449e6ea94a874a8cdd9"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G10.idx.png",
+      "sha256": "4753454aa31a562a124aa36afdcf1869addcf37efae6b7335d5ecb4f58807178"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G00.idx.png",
+      "sha256": "cbf65d00544e0284ff69dfc8fe3d9a3aa4df106878618196689ef1a1ecdf9dbf"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S02.png",
+      "sha256": "9a14fd062cf30b5beb12f67892f2f2f5cb9d369d7ec919843eb7ee7b79b32aeb"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P07.idx.png",
+      "sha256": "cab3cb00fd30bc715f6025afc6a7747a0d601084d67f227bbd4824b0839dd29e"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S03.idx.png",
+      "sha256": "cf555718d101fcc3d6f5adbc467da9c4323fef7490b9372e747b14e2bf4c8c0f"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L12.png",
+      "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G09.idx.png",
+      "sha256": "814d1be2b23884b2127b3ad5745a8b452556a5cac1f868a05b6166fd0b959d23"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L13.png",
+      "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S03.png",
+      "sha256": "ae06e1d00c3c0ef9740c83c0d36c6481a58de4d19f831f4ddc4462acd5ac8234"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F03.idx.png",
+      "sha256": "aed1b84523531a45a27aa2f60e124bff423bf543c24c93b87f80175fa7ee1f5a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F01.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F06.idx.png",
+      "sha256": "1ddd5af083de955f74c9d059ab47d99fab5b37faf2ac66fd89f0f22efdd0a8dc"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N03.idx.png",
+      "sha256": "ea64ca86227ff65fc5350551e585c3e5e44aeb258c9b7fa6d454b1e6dcee9dac"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P12.idx.png",
+      "sha256": "f165038873ac06c50aaf02199463eba967f407732fea39b616c7f3dacaf29398"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P02.idx.png",
+      "sha256": "dd4d7954d2ac7065191f03816d3090f186b6b64916cada350fdfdc5d6ea2015b"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F02.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G05.idx.png",
+      "sha256": "d972139e030e170f22a76c9cec764ac26606497f630dedf90da217d9656db704"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G15.idx.png",
+      "sha256": "702c2dcda67957f874677db9ba7bb758c27472cb24f6078fe58a379f93153e58"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/L04.idx.png",
+      "sha256": "a51d37bfcbbfe02f0b8175f8fc8c5a4e2574b0343d518c13ccd79aa8d5c9065d"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F03.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G14.idx.png",
+      "sha256": "64764e24b4e4ac7f5661f528db41d2cdcec7d2f916fcf4b466e4ba40abd626f7"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G04.idx.png",
+      "sha256": "61e32fa379c7de89f9f201534fc7b8e2b194c01c4484f6d4f1796500baacf5c4"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F06.png",
+      "sha256": "24b432068be7af52019e0b546f7d36015793b48f5a1181fa32246b7c858c7bc5"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W01.idx.png",
+      "sha256": "35a389bb0a2e942d74a8d0f9ff971bef5700082c9877d10075c31f428e6eca21"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F04.png",
+      "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P03.idx.png",
+      "sha256": "33d5c08b6e8edf353ce3fc7d94c1f47c4485b1b580173b6b367c2b7374105f2b"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P13.idx.png",
+      "sha256": "79b70c64802cba147af836e427329cb38e00d3a4200d375e2958ed8571c936a6"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N02.idx.png",
+      "sha256": "b6e71cf53c471033671f82289763b07d7fa7f2d09614b2f4b2c1fa589fe7468a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F05.png",
+      "sha256": "4687a9fd3928e5ea61e70cb1bfe9681f55567ce4195323956afb4db0dfd5c413"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G06.idx.png",
+      "sha256": "7f72456f2950febd2eddff457bf062543e23efe2a4728473d6c4b1c407d8c7c0"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G02.png",
+      "sha256": "b50cd6ffa9cd7443ee410f41ac3d14b94c101518398e9332b88fc85e1abf9f54"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P08.idx.png",
+      "sha256": "9754627cbdfe6081dfeefc70f8a045dbe7f5cf3a519f5c25954849c59f5601a1"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G03.png",
+      "sha256": "50cd22b1914ffdb820332c8520769f3e4df59fd1ce0ebca20eb67669f25dedf2"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F05.idx.png",
+      "sha256": "417199fffbcff9d586d3d4465e91e7c804d97f5321fab887a94d79907ecc0dfa"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G15.png",
+      "sha256": "20d6b662ad421000b4e5b6950f4fb050b5a05da5397fe99610a8340281690d54"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G01.png",
+      "sha256": "7ebe66e7212a4d9e0d120896559f4c1163c134e264adc3d6e5df7894b568ebba"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W03.idx.png",
+      "sha256": "df5bd31fc34d0a299dbea2992193024d568930470afdbe787cb8be666ea872f9"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G00.png",
+      "sha256": "750de97d2592803ee830a621e7c3b3575ff33cbd94feef897c4260a6002a573c"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G14.png",
+      "sha256": "54113244c7592c7c15d7081aae227b61e26da28c32444dc80efd73b9108b90d5"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S05.idx.png",
+      "sha256": "cc34937077674d89a1114a210b163f68dbe854632719e1bf035f5de26a90000a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P11.idx.png",
+      "sha256": "a45a1d3618e4815897d227a25569d226d491460996e2a1ef5ba2e5f11e78e2d8"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P01.idx.png",
+      "sha256": "0bc5264994006054114447ea25417bf2b8d4db9899d19b29203e4e3a68762bd6"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/F04.idx.png",
+      "sha256": "aed1b84523531a45a27aa2f60e124bff423bf543c24c93b87f80175fa7ee1f5a"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/W02.idx.png",
+      "sha256": "cae0bdf688eb2f1eaecc4d2168dd1a8ad44dda244dc259714ca93a72047ac611"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P09.png",
+      "sha256": "49cad56429edd993ef7cf4722bb7d337f5102a15cf74964b7920d2926d42a58b"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G10.png",
+      "sha256": "aeedc21d22ae29480b37303fcb04837b5c80e63f2cf0b58e15be1ffcc30a40c8"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G04.png",
+      "sha256": "20d3a8eeea15a5918c43e1416c93f7186438f5e7528a5fee189c62110f04df67"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/S04.idx.png",
+      "sha256": "c8d301ff0f990032925149d948a009e89d268fec556dff4a1bb34f0f39476e63"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G05.png",
+      "sha256": "17f7447427c435d01c5d2d142586f034ad10e4621d02d61c706fc5dddc3762cb"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G11.png",
+      "sha256": "6147467a7649884f8575cab68a480df430dfc5291dc7b683fef8e4d26b5a53b6"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P08.png",
+      "sha256": "3341cb3207d51e1ecb7f256ac504dedb2980f6b4171547940bc9b39dc4e4ef04"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/N01.idx.png",
+      "sha256": "ed71c9acbbda1bb15f7709d2e45cfe55d0fde5869a8ec04b73d017b954705314"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P10.idx.png",
+      "sha256": "43b3f84dfa2db2f009b14b786d33c36a5772b1f8ead4961e78b9c08745966bdf"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G07.idx.png",
+      "sha256": "51c8714bf5dcb56a50d6df504855562638787cb496f10695def58a3bdeb2b7f4"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G07.png",
+      "sha256": "8a386a86b2834466e86746d8c55669eb6364951f4e10db9009ceaccafca64527"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G13.png",
+      "sha256": "b81d2ad2c726868c7415b9f22ef2082fb9ced9823144be54f98bc2b9d211bf58"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G12.png",
+      "sha256": "603177fbc2adf69b125a053433e52578cbeaaedb31540fd74b0acb409ce1ccf3"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/G06.png",
+      "sha256": "8b1fdf022d2a96ae5d54b74be3393ca2378a0fcc79672d4b380e0a8cb91328ba"
+    },
+    {
+      "path": "gba/art/johto-common/scenery/source/P09.idx.png",
+      "sha256": "bf227703200279a023e44dd0aa22f89c6e7bdbd692c1ab282ff7ec83cd912b20"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R10.png",
+      "sha256": "3122cb63f7019b827c819361b838a8322b567ec18502f0f1d50bd4d883e651c8"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R04.png",
+      "sha256": "95bc6530aa79222fe8550af62fedf7d20aea3b426decda49f9df0644fd38e59c"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R05.png",
+      "sha256": "e8c32d82d100fa3b238047dfae452f68eb7f6c1b386f46775b34f1301db64367"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R11.png",
+      "sha256": "a024a78ca63d09c381e77e7ef2f6479fe6bcea0932660df08b909339054b2ba7"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R07.png",
+      "sha256": "c36c443e05de5df4dee56adb9521c95c2b8a32dbc8f1c9e1d1bcc1119c9cd822"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R13.png",
+      "sha256": "8e32e4bf8949ccb60faf1caf98225f6ed2fad33b52ec68d6e65ce9d002805c64"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R12.png",
+      "sha256": "cc08ae1763f054268ba9c753c3b40610efdb4bd8dfa707fd469a99a3e041310a"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R06.png",
+      "sha256": "5a2f2c578d6ecd16b52c6e049f49a9439c69dd76d82f5696c553ca0f9b6c5c9a"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R02.png",
+      "sha256": "13e22a3e226900dbcf274e5a40293882af15ff9c8e14616a5776d7edccc95e12"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R16.png",
+      "sha256": "e2d1a80017752c0c4c2547ae1f175dacba37bd74623bec3eb66891bd6605d2a8"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R17.png",
+      "sha256": "8f8d42c83d9e3587aecd55cd35f868f67c72e6003d5f4710d89dbe35f2eea66d"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R03.png",
+      "sha256": "595972fa4eca4620a1c672bbd02e0abd5c68927bf3d0e9179323d6b31c2bb91d"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R15.png",
+      "sha256": "ed35370835150298129b5c21db5acc0a074e56b05abb9eadeeff24681498e2f6"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R01.png",
+      "sha256": "911b04ff4b357a5a7be221f2c0b527d7d330d136431c0b711f521ee5f3def57d"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R14.png",
+      "sha256": "ff7265c1866dba354945a4f15b35415765e28c397f24dd77507572caf7a16553"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R08.png",
+      "sha256": "24e43c9885f58678ba29df6348efea1851d7463b1e6cfb2acd71d86e0098ff35"
+    },
+    {
+      "path": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R09.png",
+      "sha256": "af7c3497707cb5f36db9137fd158d5256f95146123ec5272f9f57f1d62d127a0"
+    },
+    {
+      "path": "gba/art/johto-common-review/gates/refinement-4/G01a.png",
+      "sha256": "01b1d6c8a3f391d7e2c688c74ea34d47ceaebc443c15dcc5e84830e8d7858201"
+    },
+    {
+      "path": "gba/art/johto-common-review/gates/refinement-4/G02.png",
+      "sha256": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6"
+    },
+    {
+      "path": "gba/art/johto-center/source/building.png",
+      "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+    },
+    {
+      "path": "gba/art/johto-mart/source/building.png",
+      "sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8"
+    }
+  ],
+  "rules": [
+    "Reuse canonical transparent foreground masters; native palette indices may differ but preserve visible RGB.",
+    "Reconstruct destination ground across the complete old object footprint; do not only apply an alpha mask.",
+    "Pink T02 trees are exclusive to Cherrygrove.",
+    "Use all sixteen G00-G15 tall-grass neighbor masks; preserve encounter behavior.",
+    "Keep low Emerald jump ledges separate from R02 structural walls. Preserve jump direction.",
+    "Use complete R02 rock/grass tiles and their orientation-specific corners, not separate grass slivers.",
+    "Fit the gate opening, collision, warp, approach and surrounding tree layers together.",
+    "City-specific houses, landmarks and different-height mountain/cave families stay local."
+  ],
+  "not_yet_standardized": [
+    "Water and shoreline terrain families",
+    "Regular ground and path transition families",
+    "Mountain/cave caps and non-R02 cliff heights"
+  ],
+  "native_rollout": "gba/art/johto-common/rollout/README.md",
+  "exceptions": [
+    "Violet G02 gate replacement not installed: smallest exact candidate uses 1175 graphics against the 1008 limit. Existing Violet gates retained."
+  ]
+}

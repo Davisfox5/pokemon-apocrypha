@@ -1,0 +1,25 @@
+{
+  "approved_tree_masters": "T01/T03/T04 from pinned hub 3d593788; do not regenerate or substitute",
+  "objects": [
+    {
+      "name": "boulder-west",
+      "source_box": [
+        52,
+        224,
+        88,
+        260
+      ],
+      "opaque_pixels": 586
+    },
+    {
+      "name": "boulder-east",
+      "source_box": [
+        438,
+        148,
+        474,
+        184
+      ],
+      "opaque_pixels": 586
+    }
+  ]
+}

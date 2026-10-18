@@ -1,0 +1,47 @@
+{
+  "base_commit": "ab04d9792ea5c36233a3ef2ff0c410b46b6658b6",
+  "cause": "raw terrain donor overlapped the original trainer boundary, leaving black/skin pixels in a cliff corner",
+  "repair": "two unique native glyphs cleaned within their rock face/base plane using the unobscured same-row ramp; preserve complete corner",
+  "native_edits": [
+    {
+      "cell": [
+        23,
+        16
+      ],
+      "metatile": 245,
+      "quadrant": 3,
+      "native_glyph": 712,
+      "changed_columns": [
+        5,
+        6,
+        7
+      ],
+      "donor": "unobscured same-row column 4; preserve full face and base ramp"
+    },
+    {
+      "cell": [
+        23,
+        17
+      ],
+      "metatile": 259,
+      "quadrant": 1,
+      "native_glyph": 708,
+      "changed_columns": [
+        5,
+        6,
+        7
+      ],
+      "donor": "unobscured same-row column 4; preserve full face and base ramp"
+    }
+  ],
+  "changed_native_RGB_pixels": 29,
+  "changed_native_bounds": [
+    381,
+    264,
+    384,
+    280
+  ],
+  "map_collision_elevation_warp_definitions_changed": false,
+  "untouched_1f_b2f_and_shared_tilesets": true,
+  "new_glyphs_or_repacking": false
+}

@@ -1,0 +1,70 @@
+{
+  "floor": "b1f",
+  "wall_containing_cells": 1062,
+  "native_quadrants_checked": 7488,
+  "reference_native_style": "de6922a964721aceb11147bcac6acadc477d4538",
+  "unexpected_indexed_texture_changes_outside_declared_local_edits": 0,
+  "wall_ramps": "original textured 14-shade wall palette retained; mixed boundary ramps share exact wall shades using secondary banks 6..9",
+  "wired_embedded_stairs": [
+    [
+      32,
+      35
+    ],
+    [
+      3,
+      48
+    ],
+    [
+      30,
+      46
+    ]
+  ],
+  "removed_floor_markers": [
+    [
+      31,
+      35
+    ],
+    [
+      4,
+      48
+    ],
+    [
+      29,
+      46
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      12
+    ]
+  ],
+  "intentional_physics_changes": [
+    {
+      "cell": [
+        32,
+        35
+      ],
+      "reason": "existing embedded stair entrance is now the warp; no added floor marker"
+    },
+    {
+      "cell": [
+        30,
+        46
+      ],
+      "reason": "existing embedded stair entrance is now the warp; no added floor marker"
+    },
+    {
+      "cell": [
+        3,
+        48
+      ],
+      "reason": "existing embedded stair entrance is now the warp; no added floor marker"
+    }
+  ],
+  "collision_unchanged_elsewhere": true,
+  "limits": "Original overview remains projected/interpreted; interior native texture reuse remains; this pass restores the original visual treatment instead of claiming an exact mask conversion",
+  "source_commit": "fc1017fecad147879de460fcb9727ff63862598b"
+}

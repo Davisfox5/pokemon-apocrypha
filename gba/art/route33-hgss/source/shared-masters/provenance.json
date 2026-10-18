@@ -1,0 +1,68 @@
+{
+  "repository": "Davisfox5/pokemon-apocrypha",
+  "branch": "codex/violet-city",
+  "commit": "9fd8c645a13ecc266ed4df82b64cefef20f3b8da",
+  "files": [
+    {
+      "file": "front.png",
+      "source": "gba/art/johto-common/rocks/r02-context/source/front.png",
+      "sha256": "7b3fc0dd4596d0f2af60d9711ff0d7518e2da1c64e6d0beffb22c254ae8e7705"
+    },
+    {
+      "file": "face-west.png",
+      "source": "gba/art/johto-common/rocks/r02-context/source/face-west.png",
+      "sha256": "809c4001c0c95408b2274f44e6768a6195202959c3a3137bd0cdfd8fb8ce8f48"
+    },
+    {
+      "file": "face-east.png",
+      "source": "gba/art/johto-common/rocks/r02-context/source/face-east.png",
+      "sha256": "e379aacbb46cc9ffa25a41e23c9ec254e48c1cd339fb97ca44fe18ef75ecde5a"
+    },
+    {
+      "file": "corner-west.png",
+      "source": "gba/art/johto-common/rocks/r02-context/source/corner-west.png",
+      "sha256": "b1e47fc291a85bb0e9a398979adcdc0da90e7d801d3171ba4b5a83d76bafe1bc"
+    },
+    {
+      "file": "corner-east.png",
+      "source": "gba/art/johto-common/rocks/r02-context/source/corner-east.png",
+      "sha256": "6671eafce3e02aa23cbd479aec6d57b2dc794d5e6bc83dda38c9470f7efe1817"
+    },
+    {
+      "file": "L11.png",
+      "source": "gba/art/johto-common/scenery/source/L11.png",
+      "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+    },
+    {
+      "file": "L12.png",
+      "source": "gba/art/johto-common/scenery/source/L12.png",
+      "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+    },
+    {
+      "file": "L13.png",
+      "source": "gba/art/johto-common/scenery/source/L13.png",
+      "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+    },
+    {
+      "file": "tip-mask-NE.png",
+      "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/tip-mask-NE.png",
+      "sha256": "b05a150784de5d99290a8c213a4c5edc0995905a34b7616b1a7ae4b93172d992"
+    },
+    {
+      "file": "tip-mask-NW.png",
+      "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/tip-mask-NW.png",
+      "sha256": "3c50a2f58a6c09d1584a8e36d6fa5e57166b4af064f6a21fb3e550863f3de4f4"
+    },
+    {
+      "file": "tip-mask-SE.png",
+      "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/tip-mask-SE.png",
+      "sha256": "74f9308a357c2570b2dfa968214afb445079495be5f7b70c0cf4d36c29bbc9a6"
+    },
+    {
+      "file": "tip-mask-SW.png",
+      "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/tip-mask-SW.png",
+      "sha256": "44ab0546e5927ef646cc7e8e776b270044197363a03346e7bfa048a48da4b150"
+    }
+  ],
+  "policy": "Unmodified shared master bytes; native quadrants and reflections only. No map screenshot extraction, per-map redraw or master recoloring."
+}

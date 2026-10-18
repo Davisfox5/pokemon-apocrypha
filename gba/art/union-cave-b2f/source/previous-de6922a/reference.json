@@ -1,0 +1,60 @@
+{
+  "page": "https://archives.bulbagarden.net/wiki/File:Union_Cave_B2F_HGSS.png",
+  "image_url": "https://archives.bulbagarden.net/media/upload/b/bb/Union_Cave_B2F_HGSS.png",
+  "credits": "Nintendo / Game Freak / Creatures; Bulbagarden Archives",
+  "native_grid": [
+    40,
+    47
+  ],
+  "original_dimensions": [
+    640,
+    744
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "scale": 1,
+  "padding": "B2F bottom eight pixels padded with void",
+  "basis": "original visible-material trace; original DS warp graph separately registered to pictured branch ends",
+  "removed_sprite_boxes": [
+    [
+      124,
+      292,
+      148,
+      326
+    ],
+    [
+      412,
+      488,
+      436,
+      526
+    ],
+    [
+      92,
+      560,
+      112,
+      598
+    ],
+    [
+      432,
+      80,
+      448,
+      96
+    ],
+    [
+      304,
+      440,
+      320,
+      456
+    ],
+    [
+      328,
+      624,
+      360,
+      656
+    ]
+  ],
+  "scope": "pictured HGSS sections; off-image upper Alph transit chambers excluded",
+  "sha256": "c2dda5378e06a1d3209e5044d4a410e8997e01e61a3499c1c4746d5e69ea13fe"
+}
