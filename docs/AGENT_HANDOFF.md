@@ -1,4 +1,16 @@
-## Current: HGSS rock-placement correction pass
+## Current: Routes 31/32 complete rock reconstruction
+
+Owner rejected the placement patch and requested complete rebuilds. Read
+`gba/art/johto-common/rocks/structure-rebuild/README.md`. New HGSS contours,
+complete native tops/sides/fronts, independent foreground and stair/cave joins.
+347 Route31 /1,029 Route32 art cells changed; 7 /32 intentional collision/behavior
+cells follow the new silhouettes. Native/Porymap equality, two ROM builds and
+headless movement/stairs/doors/connections/save/Continue pass. Nine registered
+grid pages inspected. Pushed PR14 `1643f58a48`, PR17 `6a5fbb19cf`; not merged.
+Owner visual acceptance pending. Six graphics slots remain on Route32; retain
+compact source textures and preserve full silhouettes. Other maps/caves unchanged.
+
+## Superseded: HGSS rock-placement correction pass
 
 Read `gba/art/johto-common/rocks/hgss-placement-audit/README.md` and its evidence.
 25 registered grid pages /2,075 scoped cells inspected; 1,129 additional cells

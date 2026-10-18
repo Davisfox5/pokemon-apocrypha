@@ -1,0 +1,25 @@
+{
+  "reviewed_grid_pages": [
+    "JohtoRoute31-grid-x32-y0.png",
+    "JohtoRoute31-grid-x32-y16.png",
+    "JohtoRoute32-grid-x0-y16.png",
+    "JohtoRoute32-grid-x0-y32.png",
+    "JohtoRoute32-grid-x0-y48.png",
+    "JohtoRoute32-grid-x0-y64.png",
+    "JohtoRoute32-grid-x0-y80.png",
+    "JohtoRoute32-grid-x0-y96.png",
+    "JohtoRoute32-grid-x0-y112.png"
+  ],
+  "findings": [
+    "Complete mountain top/front/side continuity reviewed on both routes.",
+    "Removed repeated vertical course artifacts by resizing each whole face to one measured drop.",
+    "Corrected Route32 northeast contour from an incomplete y704 start to original y560/592/608 upper rises.",
+    "Kept explicit independent stairs, railway and cave mouths; verified those frames in headless gameplay.",
+    "Clearance restored where former rock extended past the new outline; newly drawn solid rock receives matching collision."
+  ],
+  "owner_visual_acceptance": "pending",
+  "limits": [
+    "Source geometry is manually registered from HGSS imagery.",
+    "Native 16px texture and square footprint adaptation; unrelated tree/path fidelity is not certified."
+  ]
+}

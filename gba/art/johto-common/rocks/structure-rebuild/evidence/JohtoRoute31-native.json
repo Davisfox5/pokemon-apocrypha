@@ -1,0 +1,16 @@
+{
+  "changed_cells": 347,
+  "native_pixel_errors": 0,
+  "behavior_errors": 0,
+  "collision_elevation_errors": 0,
+  "secondary_metatile_count": 417,
+  "free_graphic_slots": 171,
+  "source_commit": "0a5e94a2461575f1b2b6e05960a2af4bed93f2f3",
+  "layout_sha256": "f0c333e5c1971786183969f1d0e3d961dc9fa6ae9b84d562f3eaba3f3946623c",
+  "changed_pixels": 64553,
+  "new_palette_banks": [
+    8
+  ],
+  "scope": "complete rock structure reconstruction; intended collision/behavior edits recorded separately",
+  "intentional_collision_behavior_cells": 7
+}

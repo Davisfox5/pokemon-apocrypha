@@ -1,0 +1,30 @@
+[
+  {
+    "group": "faces",
+    "commit": "1643f58a48f0d98c1179d68a6223994f69db7ae0",
+    "branch": "codex/johto-rock-faces",
+    "rom_sha256": "e444f2fc820b0abc8658be6d9378c34a8765b184b4b21092c339b5ab3b4d09a3",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/14"
+  },
+  {
+    "group": "r32",
+    "commit": "6a5fbb19cfc8330a33983d8e7f55bf6edb61deff",
+    "branch": "codex/route32-r02-rocks",
+    "rom_sha256": "48782cb7dfafd78266ea98143b845bcd43919a41385cac04ef136e171e8c9e18",
+    "rom_bytes": 33554432,
+    "build": "passed",
+    "runtime_phases": {
+      "write": 0,
+      "read": 0,
+      "menu": 0
+    },
+    "pull_request": "https://github.com/Davisfox5/pokeemerald-expansion/pull/17"
+  }
+]

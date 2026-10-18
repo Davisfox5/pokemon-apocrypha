@@ -1,0 +1,35 @@
+[
+  {
+    "map": "JohtoRoute31",
+    "changed_art_cells": 347,
+    "collision_behavior_changes": 7,
+    "native_target_errors": 0,
+    "porymap_errors": 0,
+    "event_changes": 0,
+    "reference": "gba/art/hgss-connections/references/route31-hgss.png",
+    "reference_sha256": "f94c72aec1bab8cc1956ed22abdbb35549b084b69b068025db693a66fa3cd4b9",
+    "grid_pages": [
+      "JohtoRoute31-grid-x32-y0.png",
+      "JohtoRoute31-grid-x32-y16.png"
+    ]
+  },
+  {
+    "map": "JohtoRoute32",
+    "changed_art_cells": 1029,
+    "collision_behavior_changes": 32,
+    "native_target_errors": 0,
+    "porymap_errors": 0,
+    "event_changes": 0,
+    "reference": "gba/art/johto-common/rocks/hgss-placement-audit/source/route32-hgss-blocks/hgss-reference.png",
+    "reference_sha256": "fa619392db7450000b1b6d646c09bdf92296e44a78040b8d76f93604c734a82a",
+    "grid_pages": [
+      "JohtoRoute32-grid-x0-y16.png",
+      "JohtoRoute32-grid-x0-y32.png",
+      "JohtoRoute32-grid-x0-y48.png",
+      "JohtoRoute32-grid-x0-y64.png",
+      "JohtoRoute32-grid-x0-y80.png",
+      "JohtoRoute32-grid-x0-y96.png",
+      "JohtoRoute32-grid-x0-y112.png"
+    ]
+  }
+]
