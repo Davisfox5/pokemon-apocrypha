@@ -2,21 +2,25 @@
 
 Owner requested the next town using HGSS geography and the shared native cleanup
 standard. Read `gba/art/goldenrod-city/README.md`. Engine source is
-`f439df15cc6f4c95df2846da353c9e4e2549fcd2` on `codex/goldenrod-city`,
+`bb54d528df4f26d457b3b1c5f43bf4de41b3b50f` on `codex/goldenrod-city`,
 [draft PR #20](https://github.com/Davisfox5/pokeemerald-expansion/pull/20),
 based on pending Azalea `d8223066`. The 525-file area delta preserves earlier
 maps/assets and IDs. Do not replay first-authoring generators over native source.
 
 84×56 HGSS-based exterior, twelve connected Porymap sections, coherent material
-ramps, approved Center and 46 full shared trees. A local volatile glyph cache
+ramps, approved Center and 49 full shared trees. A local volatile glyph cache
 preserves detailed native camera views; its source guard catches stale adapters.
 The southern cap/pillars, northern pickets/gate and directional camera margins
 were reviewed and corrected. Build, actual Porymap parity over 4,704 cells,
-movement/closed entrances/barriers, save/cold reload/Continue and 74 exact BG
+movement/closed entrances/barriers, save/cold reload/Continue and 75 exact BG
 comparisons pass. Source/ROM hashes and reproduction evidence are retained.
 
 GitHub Actions is disabled; dispatch returned HTTP 422. Hosted CI is blocked,
-not green. The PR stays draft; owner visual approval remains pending. Interiors,
+not green. The owner accepted the first pass and requested building texture/tree refinement.
+That revision is complete: 39 individual reference/before/after views, shared tidy
+gold roof material, low-contrast speckle cleanup, southeast native tree/fence/ground
+repair and cliff-fragment removal. See `evidence/refinement/README.md` in the area.
+The PR stays draft; revised visual approval remains pending. Interiors,
 train/minigames/shops, adjacent routes, campaign actors and water animation remain
 unwired. Existing saves were not supplied or altered. Local checkouts are
 `/workspace/pokemon-apocrypha` and `/workspace/apocrypha-src`; ignored native ROM

@@ -1,6 +1,6 @@
 {
-  "frames": 74,
-  "pixels": 2841600,
+  "frames": 75,
+  "pixels": 2880000,
   "RGB_errors": 0,
   "frames_detail": [
     {
@@ -708,6 +708,16 @@
       "world": [
         80,
         27
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "southeast-native-trees",
+      "world": [
+        77,
+        52
       ],
       "camera_delta_y": 0,
       "pixels": 38400,

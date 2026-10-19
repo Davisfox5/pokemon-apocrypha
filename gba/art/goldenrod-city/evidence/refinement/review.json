@@ -1,0 +1,528 @@
+{
+  "baseline": "f439df15cc6f4c95df2846da353c9e4e2549fcd2",
+  "palette_fitted_layer_pixels": [
+    126,
+    114
+  ],
+  "buildings": [
+    {
+      "name": "Radio Tower",
+      "reference_box": [
+        168,
+        128,
+        320,
+        400
+      ],
+      "changed_layer_pixels": 82,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Station annex",
+      "reference_box": [
+        608,
+        248,
+        736,
+        416
+      ],
+      "changed_layer_pixels": 23,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Magnet Train station",
+      "reference_box": [
+        728,
+        280,
+        864,
+        416
+      ],
+      "changed_layer_pixels": 22,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "North gate",
+      "reference_box": [
+        896,
+        0,
+        976,
+        128
+      ],
+      "changed_layer_pixels": 6,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Goldenrod Gym",
+      "reference_box": [
+        992,
+        144,
+        1112,
+        232
+      ],
+      "changed_layer_pixels": 44,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Flower Shop",
+      "reference_box": [
+        1112,
+        48,
+        1192,
+        208
+      ],
+      "changed_layer_pixels": 1675,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Northeast highrise",
+      "reference_box": [
+        1192,
+        48,
+        1272,
+        192
+      ],
+      "changed_layer_pixels": 1608,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "North house west",
+      "reference_box": [
+        1184,
+        128,
+        1240,
+        224
+      ],
+      "changed_layer_pixels": 2,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "North house east",
+      "reference_box": [
+        1240,
+        128,
+        1304,
+        208
+      ],
+      "changed_layer_pixels": 6,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "North orange house",
+      "reference_box": [
+        1192,
+        184,
+        1248,
+        248
+      ],
+      "changed_layer_pixels": 0,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Northwest highrise",
+      "reference_box": [
+        632,
+        128,
+        712,
+        296
+      ],
+      "changed_layer_pixels": 3145,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "Underground north",
+      "reference_box": [
+        728,
+        168,
+        800,
+        232
+      ],
+      "changed_layer_pixels": 39,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Name Rater",
+      "reference_box": [
+        792,
+        152,
+        864,
+        232
+      ],
+      "changed_layer_pixels": 42,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Game Corner",
+      "reference_box": [
+        760,
+        472,
+        872,
+        560
+      ],
+      "changed_layer_pixels": 6,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "West apartment north",
+      "reference_box": [
+        632,
+        472,
+        696,
+        552
+      ],
+      "changed_layer_pixels": 0,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "West apartment east",
+      "reference_box": [
+        696,
+        472,
+        760,
+        552
+      ],
+      "changed_layer_pixels": 8,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "West orange house",
+      "reference_box": [
+        632,
+        544,
+        696,
+        632
+      ],
+      "changed_layer_pixels": 12,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Bill family house",
+      "reference_box": [
+        728,
+        576,
+        792,
+        664
+      ],
+      "changed_layer_pixels": 8,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Underground south",
+      "reference_box": [
+        728,
+        648,
+        792,
+        728
+      ],
+      "changed_layer_pixels": 4,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Southwest house",
+      "reference_box": [
+        584,
+        648,
+        648,
+        736
+      ],
+      "changed_layer_pixels": 8,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Southwest tower",
+      "reference_box": [
+        600,
+        680,
+        680,
+        776
+      ],
+      "changed_layer_pixels": 1860,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "Southwest tower south",
+      "reference_box": [
+        648,
+        728,
+        728,
+        832
+      ],
+      "changed_layer_pixels": 1630,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "South house west",
+      "reference_box": [
+        728,
+        736,
+        792,
+        816
+      ],
+      "changed_layer_pixels": 10,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "South house east",
+      "reference_box": [
+        792,
+        736,
+        856,
+        816
+      ],
+      "changed_layer_pixels": 10,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Department Store",
+      "reference_box": [
+        992,
+        480,
+        1080,
+        656
+      ],
+      "changed_layer_pixels": 2,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Department annex",
+      "reference_box": [
+        1080,
+        584,
+        1160,
+        680
+      ],
+      "changed_layer_pixels": 1713,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Bike Shop",
+      "reference_box": [
+        1080,
+        640,
+        1160,
+        728
+      ],
+      "changed_layer_pixels": 4,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "East apartments",
+      "reference_box": [
+        1112,
+        464,
+        1184,
+        544
+      ],
+      "changed_layer_pixels": 16,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "East orange house",
+      "reference_box": [
+        1144,
+        520,
+        1216,
+        584
+      ],
+      "changed_layer_pixels": 10,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "East railway highrise",
+      "reference_box": [
+        1176,
+        376,
+        1256,
+        496
+      ],
+      "changed_layer_pixels": 1722,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "East tower upper",
+      "reference_box": [
+        1224,
+        496,
+        1304,
+        600
+      ],
+      "changed_layer_pixels": 1518,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "East house",
+      "reference_box": [
+        1240,
+        584,
+        1304,
+        664
+      ],
+      "changed_layer_pixels": 12,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "East tower middle",
+      "reference_box": [
+        1224,
+        632,
+        1304,
+        712
+      ],
+      "changed_layer_pixels": 2068,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "East tower lower",
+      "reference_box": [
+        1224,
+        696,
+        1304,
+        784
+      ],
+      "changed_layer_pixels": 1420,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "Southeast house",
+      "reference_box": [
+        1224,
+        752,
+        1304,
+        832
+      ],
+      "changed_layer_pixels": 10,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Southeast tower",
+      "reference_box": [
+        1144,
+        728,
+        1224,
+        832
+      ],
+      "changed_layer_pixels": 1818,
+      "review": "Roof rim, vent, side face, facade, baseline and adjacent ground compared with registered HGSS crop. Canonical Center preserved."
+    },
+    {
+      "name": "Southeast apartments upper",
+      "reference_box": [
+        1016,
+        704,
+        1080,
+        776
+      ],
+      "changed_layer_pixels": 0,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    },
+    {
+      "name": "Southeast apartments lower",
+      "reference_box": [
+        1016,
+        744,
+        1080,
+        816
+      ],
+      "changed_layer_pixels": 10,
+      "review": "Silhouette, roof/wall join, windows, door, side face and ground compared; isolated low-contrast speckle only."
+    }
+  ],
+  "sections": [
+    {
+      "map": "GoldenrodCity01",
+      "changed_metatiles": 30,
+      "glyphs": [
+        512,
+        368
+      ]
+    },
+    {
+      "map": "GoldenrodCity02",
+      "changed_metatiles": 14,
+      "glyphs": [
+        512,
+        368
+      ]
+    },
+    {
+      "map": "GoldenrodCity03",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        16
+      ]
+    },
+    {
+      "map": "GoldenrodCity04",
+      "changed_metatiles": 20,
+      "glyphs": [
+        512,
+        400
+      ]
+    },
+    {
+      "map": "GoldenrodCity05",
+      "changed_metatiles": 24,
+      "glyphs": [
+        512,
+        160
+      ]
+    },
+    {
+      "map": "GoldenrodCity06",
+      "changed_metatiles": 16,
+      "glyphs": [
+        512,
+        320
+      ]
+    },
+    {
+      "map": "GoldenrodCity07",
+      "changed_metatiles": 45,
+      "glyphs": [
+        512,
+        272
+      ]
+    },
+    {
+      "map": "GoldenrodCity08",
+      "changed_metatiles": 14,
+      "glyphs": [
+        512,
+        224
+      ]
+    },
+    {
+      "map": "GoldenrodCity09",
+      "changed_metatiles": 8,
+      "glyphs": [
+        512,
+        384
+      ]
+    },
+    {
+      "map": "GoldenrodCity10",
+      "changed_metatiles": 23,
+      "glyphs": [
+        512,
+        384
+      ]
+    },
+    {
+      "map": "GoldenrodCity11",
+      "changed_metatiles": 60,
+      "glyphs": [
+        512,
+        496
+      ]
+    },
+    {
+      "map": "GoldenrodCity12",
+      "changed_metatiles": 84,
+      "glyphs": [
+        512,
+        384
+      ]
+    }
+  ],
+  "tree_repair": "Removed clipped HGSS tree strip and solitary native placement; same-phase unobscured fence/lawn donor, four complete native32x48trees at1184,1216,1248,1280 y848. Preserved boundary barriers.",
+  "palette_policy": "Existing13banks unchanged; no color interpolation.",
+  "scope": "Exterior art only; no campaign or service changes."
+}
