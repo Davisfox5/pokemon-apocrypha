@@ -102,3 +102,5 @@ Use an exact file or narrowly scoped directory, not `rg --no-ignore` at root.
 
 Approved means chosen; verified means tested. See GBA_BASELINE.md for which
 checks actually exist. Do not turn a design target into a completion claim.
+
+- [City production playbook and Goldenrod retrospective](GBA_CITY_BUILDING_PLAYBOOK.md): required city exemplar; reconstruction, individual building polish, transparent asset/context repairs, approved boardwalk redesign and validation.

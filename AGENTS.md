@@ -37,6 +37,8 @@
   publish readable source/native comparisons. Functional tests do not establish
   owner visual acceptance.
 
+- For city production, also apply the owner-accepted [Goldenrod city playbook](docs/GBA_CITY_BUILDING_PLAYBOOK.md): full reconstruction, building-by-building polish, receiving-context repairs and approved additions.
+
 ## Required native visual cleanup — all maps and floors
 
 Owner-established after the Union Cave refinement, 2026-10-15. Apply this to
