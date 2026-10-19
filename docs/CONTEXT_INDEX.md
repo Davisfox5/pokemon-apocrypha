@@ -1,5 +1,5 @@
-Current Olivine work: [HGSS exterior reconstruction](../gba/art/olivine-city/README.md),
-with native source, comparison grids and real gameplay evidence; owner review pending.
+Current Olivine work: [rock courses and stair rebuild after rejection](../gba/art/olivine-city/evidence/terrain-rebuild/README.md).
+Native Route36 wall family, three lighthouse courses, complete returns and seated stairs; owner review pending.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 

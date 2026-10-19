@@ -1,3 +1,13 @@
+# Current revision: rock courses and stair rebuild
+
+The first terrain pass below was rejected. **[Review the rebuilt walls, course guide,
+stair joins and actual gameplay here](evidence/terrain-rebuild/README.md).**
+Native source `601d1b073e4e4723066a3dc88c679c21d317991b` is pushed to the existing
+[PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21).
+Only the wall/stair scope changes; owner visual review is pending.
+
+---
+
 # Olivine City — HGSS-based native exterior
 
 [Native source PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21),

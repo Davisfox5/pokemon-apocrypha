@@ -1,0 +1,76 @@
+{
+  "owner_request": "Reject all prior walls/ledges; rebuild from scratch with established Johto wall tiles, correct depth/courses, continuous caps/corners/ends, and seated stairs.",
+  "rejected_baseline": "c26b9b21d095ca6e0f8a7e5a46a091bc82701e52",
+  "reviewed_regions": [
+    {
+      "name": "western-wall",
+      "native_crop": [
+        112,
+        144,
+        416,
+        512
+      ]
+    },
+    {
+      "name": "northern-branches",
+      "native_crop": [
+        496,
+        16,
+        768,
+        416
+      ]
+    },
+    {
+      "name": "upper-stair",
+      "native_crop": [
+        584,
+        304,
+        760,
+        416
+      ]
+    },
+    {
+      "name": "lighthouse-courses",
+      "native_crop": [
+        664,
+        528,
+        952,
+        680
+      ]
+    },
+    {
+      "name": "timber-ramp",
+      "native_crop": [
+        648,
+        512,
+        824,
+        648
+      ]
+    },
+    {
+      "name": "eastern-shore",
+      "native_crop": [
+        864,
+        208,
+        1152,
+        672
+      ]
+    }
+  ],
+  "changes": [
+    "Removed the complete rejected wall paint footprint, including minority 8px fragments missed by its cell-majority material labels.",
+    "Rebuilt the northwest one-course forest return with a connected south lip, long east face and beach corner.",
+    "Separated the northern long retaining face, upper residential terrace, forest course and short inner spur; corners and termination roles are recorded individually.",
+    "Rebuilt the lighthouse as three separately traced 24px-pitch courses, with separate rocky shoulders, stepped east outline, full west/east returns and shoreline toes.",
+    "Traced all three eastern shoreline courses through their inward steps and lower returns, rather than one broad repeated face.",
+    "Corrected the concave corner orientation where the upper south-facing terrace joins the west-facing lighthouse retaining wall.",
+    "Rebuilt the upper stair opening as an opaque 48x24 native seat with complete timber treads and side shoulders; no paving inside the opening.",
+    "Retained the east/west timber slope direction and seated it over continuous retaining stone; removed the rejected grey rectangle beneath it."
+  ],
+  "native_art": "Route36 cap/face/toe/corner masks from 698db52a, Route31 plateau donor from 1643f58a. Unscaled 8px cap plus 16px face/toe assembly gives the observed 24px course pitch. Five face shades and two plateau shades preserve native texture while fitting 13 BG banks.",
+  "limits": [
+    "Course counts and occluded connections are visual interpretations of HGSS overview geometry, not extracted DS height/collision data.",
+    "Tree footprints, architecture, existing district fades, static water, closed interiors and unwired neighboring routes/shipping remain as before.",
+    "Owner visual acceptance remains pending; build and traversal checks do not establish it."
+  ]
+}

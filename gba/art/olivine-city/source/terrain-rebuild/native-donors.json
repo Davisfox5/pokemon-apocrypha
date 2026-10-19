@@ -1,0 +1,73 @@
+[
+  {
+    "name": "front",
+    "engine": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "map": "JohtoRoute36",
+    "original_native_box": [
+      64,
+      48,
+      96,
+      80
+    ],
+    "adaptation": "unscaled native 8px cap plus complete 16px face/toe for the original 24px terrace pitch"
+  },
+  {
+    "name": "east",
+    "engine": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "map": "JohtoRoute36",
+    "original_native_box": [
+      224,
+      128,
+      256,
+      160
+    ],
+    "adaptation": "unscaled native 8px cap plus complete 16px face/toe for the original 24px terrace pitch"
+  },
+  {
+    "name": "convex-ne",
+    "engine": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "map": "JohtoRoute36",
+    "original_native_box": [
+      224,
+      48,
+      256,
+      80
+    ],
+    "adaptation": "unscaled native 8px cap plus complete 16px face/toe for the original 24px terrace pitch"
+  },
+  {
+    "name": "inner",
+    "engine": "698db52a184083687d354452f3bd1c8f2791d23b",
+    "map": "JohtoRoute36",
+    "original_native_box": [
+      224,
+      224,
+      256,
+      256
+    ],
+    "adaptation": "unscaled native 8px cap plus complete 16px face/toe for the original 24px terrace pitch"
+  },
+  {
+    "names": [
+      "west",
+      "convex-nw"
+    ],
+    "adaptation": "mirrored corresponding native east-facing modules"
+  },
+  {
+    "name": "inner-mirror",
+    "adaptation": "Mirrored native concave corner; joins the upper south-facing course into the descending west-facing lighthouse wall."
+  },
+  {
+    "name": "plateau-native",
+    "engine": "1643f58a48f0d98c1179d68a6223994f69db7ae0",
+    "map": "JohtoRoute31",
+    "pixel_box": [
+      784,
+      48,
+      800,
+      64
+    ],
+    "adaptation": "Unscaled plateau grain, reduced into two neighboring top-plane shades; distinct from wall faces."
+  }
+]

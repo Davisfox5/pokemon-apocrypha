@@ -17,7 +17,7 @@ steps=r'''
  go(54,36,6);shot("Poke-Mart");step(UP,1);at(54,36,6,"Mart-interior-pending");
  go(54,42,9);shot("lighthouse-ramp-west");step(RIGHT,6);at(54,48,9,"ramp-eastward-crossing");shot("lighthouse-terrace");step(LEFT,6);at(54,42,9,"ramp-westward-return");
  go(54,50,8);shot("lighthouse-door");step(UP,1);at(54,50,8,"lighthouse-interior-pending");
- go(54,43,3);step(RIGHT,1);at(54,43,3,"lighthouse-cliff-side-blocks");shot("east-stair-lane");
+ go(54,42,3);step(RIGHT,1);at(54,42,3,"lighthouse-cliff-side-blocks");shot("east-stair-lane");
  go(54,14,13);shot("quay-furniture");step(UP,1);at(54,14,13,"bench-footprint-blocks");
  go(54,18,13);step(DOWN,1);at(54,18,13,"quayside-railing-blocks");shot("sailboat-and-railing");
  go(54,31,16);step(RIGHT,1);at(54,31,16,"pier-water-blocks-foot-travel");shot("pier-water-edge");
@@ -26,6 +26,11 @@ steps=r'''
  go(55,26,9);step(LEFT,1);at(55,26,9,"terminal-platform-sea-barrier");step(DOWN,2);at(55,26,10,"southern-exit-unwired");shot("southern-pier");
  go(53,28,1);step(UP,1);at(53,28,1,"Route39-unwired-boundary");shot("Route39-approach");
  go(54,1,7);step(LEFT,1);at(54,1,7,"Route40-unwired-boundary");shot("Route40-beach");
+ go(53,32,14);step(RIGHT,1);at(53,32,14,"north-retaining-wall-blocks");shot("north-retaining-wall");
+ go(53,11,20);step(LEFT,1);at(53,11,20,"western-retaining-wall-blocks");shot("western-retaining-wall");
+ go(54,50,10);step(DOWN,1);at(54,50,10,"highest-headland-course-blocks");shot("headland-three-courses");
+ go(54,54,9);step(RIGHT,1);at(54,54,9,"headland-eastern-shoulder-blocks");shot("headland-eastern-turn");
+ go(54,9,5);step(UP,1);at(54,9,5,"rounded-west-beach-return-blocks");shot("beach-wall-return");
  go(54,28,8);shot("save-Olivine");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(54,28,8').replace('cold-reload-new-bark','cold-reload-Olivine')

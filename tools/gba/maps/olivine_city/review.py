@@ -4,7 +4,7 @@ import sys,json,hashlib,subprocess
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[4];sys.path.insert(0,str(ROOT/'tools/gba/maps'));from tiles import Tileset
-G,P=map(Path,sys.argv[1:3]);S=ROOT/'gba/art/olivine-city/source';E=S.parent/'evidence';r=json.loads((E/'assembly.json').read_text());W,H=r['size'];solid=np.load(S/'solid.npy');beh=np.load(S/'behaviors.npy');mat=np.load(S/'material-grid.npy');ground=np.load(S/'ground-material-grid.npy');ims=[];ledger=[];usage=[]
+G,P=map(Path,sys.argv[1:3]);BASE=ROOT/'gba/art/olivine-city/source';S=BASE/'terrain-rebuild';E=BASE.parent/'evidence/terrain-rebuild';r=json.loads((E/'assembly.json').read_text());W,H=r['size'];solid=np.load(S/'solid.npy');beh=np.load(S/'behaviors.npy');mat=np.load(S/'material-grid.npy');ground=np.load(S/'ground-material-grid.npy');ims=[];ledger=[];usage=[]
 for district in r['districts']:
  name,bank,h,y0=district['map'],district['tileset'],district['height'],district['global_y'];t=Tileset(G,bank,bank);g=np.fromfile(G/'data/layouts'/name/'map.bin','<u2').reshape(h,W);im=np.array(t.map_image(g.ravel().tolist(),W));assert np.array_equal(im,np.array(Image.open(P/(name+'.png')).convert('RGB')))
  ids=set();pals=set()
@@ -24,8 +24,8 @@ assert roots.max()==1 and np.all(solid[roots>0])
 # Shared canonical pixels are tested only where visible after later placements.
 owner=np.zeros((H*16,W*16),np.uint16);masters={}
 for i,p in enumerate(r['placements'],1):
- a=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;masters[i]=a;h,w=a.shape[:2];m=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][m]=i
-shared={v['name'] for v in json.loads((S/'shared-provenance.json').read_text())};checks=[]
+ a=np.array(Image.open(BASE/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;masters[i]=a;h,w=a.shape[:2];m=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][m]=i
+shared={v['name'] for v in json.loads((BASE/'shared-provenance.json').read_text())};checks=[]
 for i,p in enumerate(r['placements'],1):
  if p['name'] not in shared:continue
  a=masters[i];h,w=a.shape[:2];visible=owner[p['y']:p['y']+h,p['x']:p['x']+w]==i
@@ -40,7 +40,7 @@ for x,y in todo:
 points={f'{n}@{sx},{sy}':tuple(p) for n,sx,sy,p in r['buildings']}
 assert all(p in seen for p in points.values()),{k:p for k,p in points.items() if p not in seen}
 (E/'cell-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n');(E/'shared-art-review.json').write_text(json.dumps(checks,indent=2)+'\n')
-native=Image.fromarray(now);native.save(E/'native-map.png');native.resize((W*32,H*32),Image.Resampling.NEAREST).save(E/'native-map-2x.png');ref=Image.open(S/'hgss-reference.png').convert('RGB');registered=Image.new('RGB',(W*16,H*16),'#223039');registered.paste(ref,(64,16))
+native=Image.fromarray(now);native.save(E/'native-map.png');native.resize((W*32,H*32),Image.Resampling.NEAREST).save(E/'native-map-2x.png');ref=Image.open(BASE/'hgss-reference.png').convert('RGB');registered=Image.new('RGB',(W*16,H*16),'#223039');registered.paste(ref,(64,16))
 font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',18)
 sheet=Image.new('RGB',(W*32+32,H*16+64),'#223039');d=ImageDraw.Draw(sheet)
 for x,label,im in [(8,'HGSS original, registered +64,+16; dark border is native extension',registered),(W*16+24,'Decoded Gen 3 exterior; shared Center/Mart; complete native trees and harbor landmarks',native)]:d.text((x,8),label,font=font,fill='white');sheet.paste(im,(x,40))
@@ -50,7 +50,7 @@ for name,im in [('reference',registered),('native',native)]:
  for x in range(W+1):d.line((32+x*16,32,32+x*16,H*16+32),fill='#697279');d.text((32+x*16,12),str(x),fill='white')
  for y in range(H+1):d.line((32,32+y*16,W*16+32,32+y*16),fill='#697279');d.text((4,32+y*16),str(y),fill='white')
  sh.save(E/(name+'-grid.png'))
-for name,box in [('civic-hall',(224,144,416,304)),('lighthouse',(680,336,944,680)),('residences',(320,192,768,416)),('quay',(160,544,752,704)),('terminal',(320,688,560,880)),('service-buildings',(192,400,672,544))]:
+for name,box in [('northern-courses',(496,16,768,416)),('western-course',(112,144,400,512)),('eastern-courses',(864,208,1152,672)),('civic-hall',(224,144,416,304)),('lighthouse',(680,336,944,680)),('residences',(320,192,768,416)),('quay',(160,544,752,704)),('terminal',(320,688,560,880)),('service-buildings',(192,400,672,544))]:
  w,h=box[2]-box[0],box[3]-box[1];sh=Image.new('RGB',(w*4+32,h*2+40),'#223039');d=ImageDraw.Draw(sh)
  for i,(label,im) in enumerate([('HGSS',registered),('Native',native)]):x=8+i*(w*2+16);d.text((x,6),label,font=font,fill='white');sh.paste(im.crop(box).resize((w*2,h*2),Image.Resampling.NEAREST),(x,32))
  sh.save(E/(name+'-comparison.png'))

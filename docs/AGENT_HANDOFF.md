@@ -1,3 +1,16 @@
+## Latest: Olivine rock courses and stair joins rebuilt after rejection
+
+The original terrain pass was rejected. Native source `601d1b07` on existing
+engine PR #21 replaces the complete rock layer with traced courses, native
+Route36 caps/faces/corners, separate rocky shoulders, complete returns and seated
+stairs. The lighthouse headland has three visible courses; both stair axes are
+retained and the grey backing beneath the timber slope is removed. Actual
+Porymap/native parity, headless movement/barriers and ordinary save/cold Continue
+pass. Only city/quay native tilesets/layouts change; Harbor and all other IDs,
+registries, source areas and shared foreground pixels are preserved.
+[Current visual review](../gba/art/olivine-city/evidence/terrain-rebuild/README.md).
+Owner visual review remains pending; earlier pass/evidence is historical.
+
 ## Latest: Olivine City exterior proposal
 
 HGSS-registered streets, lighthouse headland, quay and ferry terminal are in native

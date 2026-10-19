@@ -1,0 +1,755 @@
+{
+  "source_reference": "HGSS Olivine 1035x858, native offset +64,+16, no scaling",
+  "interpretation": "Observed face courses and occluded connections, not extracted HGSS z data.",
+  "course_pitch": 24,
+  "runs": [
+    {
+      "label": "NW forest east return",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        288,
+        -16,
+        312,
+        152
+      ]
+    },
+    {
+      "label": "NW forest south lip",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        80,
+        152,
+        288,
+        176
+      ]
+    },
+    {
+      "label": "NW forest outer corner",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        288,
+        152,
+        312,
+        176
+      ]
+    },
+    {
+      "label": "west city retaining wall",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        80,
+        176,
+        104,
+        448
+      ]
+    },
+    {
+      "label": "NW city recess",
+      "level": 1,
+      "role": "complete inner native elbow",
+      "source_box": [
+        80,
+        152,
+        104,
+        176
+      ]
+    },
+    {
+      "label": "west beach upper lip",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        -64,
+        448,
+        80,
+        472
+      ]
+    },
+    {
+      "label": "west beach rounded return",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        80,
+        448,
+        104,
+        472
+      ]
+    },
+    {
+      "label": "main north-to-city retaining face",
+      "level": 1,
+      "role": "west cap / face / contact",
+      "source_box": [
+        464,
+        -16,
+        488,
+        384
+      ]
+    },
+    {
+      "label": "main northern wall foot",
+      "level": 1,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        464,
+        384,
+        488,
+        408
+      ]
+    },
+    {
+      "label": "boulder court south lip",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        488,
+        384,
+        544,
+        408
+      ]
+    },
+    {
+      "label": "boulder court corner",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        544,
+        384,
+        568,
+        408
+      ]
+    },
+    {
+      "label": "boulder court east return",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        544,
+        336,
+        568,
+        384
+      ]
+    },
+    {
+      "label": "west stair shoulder",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        544,
+        312,
+        568,
+        336
+      ]
+    },
+    {
+      "label": "west stair seat",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        568,
+        312,
+        576,
+        336
+      ]
+    },
+    {
+      "label": "upper residential terrace west face",
+      "level": 2,
+      "role": "west cap / face / contact",
+      "source_box": [
+        504,
+        -16,
+        528,
+        176
+      ]
+    },
+    {
+      "label": "upper residential terrace west turn",
+      "level": 2,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        504,
+        176,
+        528,
+        200
+      ]
+    },
+    {
+      "label": "upper residential terrace south course",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        528,
+        176,
+        640,
+        200
+      ]
+    },
+    {
+      "label": "upper terrace east recess",
+      "level": 2,
+      "role": "complete inner-mirror native elbow",
+      "source_box": [
+        640,
+        176,
+        664,
+        200
+      ]
+    },
+    {
+      "label": "east stair seat",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        624,
+        312,
+        632,
+        336
+      ]
+    },
+    {
+      "label": "east stair full retaining shoulder",
+      "level": 1,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        632,
+        312,
+        656,
+        336
+      ]
+    },
+    {
+      "label": "north forest upper course",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        528,
+        72,
+        1088,
+        96
+      ]
+    },
+    {
+      "label": "north forest western cap",
+      "level": 3,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        504,
+        72,
+        528,
+        96
+      ]
+    },
+    {
+      "label": "Route39 inner high spur",
+      "level": 3,
+      "role": "west cap / face / contact",
+      "source_box": [
+        488,
+        -16,
+        512,
+        120
+      ]
+    },
+    {
+      "label": "Route39 high spur rounded end",
+      "level": 3,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        488,
+        120,
+        512,
+        144
+      ]
+    },
+    {
+      "label": "lighthouse highest west face",
+      "level": 3,
+      "role": "west cap / face / contact",
+      "source_box": [
+        656,
+        192,
+        680,
+        576
+      ]
+    },
+    {
+      "label": "lighthouse highest SW turn",
+      "level": 3,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        656,
+        576,
+        680,
+        600
+      ]
+    },
+    {
+      "label": "lighthouse top south course",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        680,
+        576,
+        792,
+        600
+      ]
+    },
+    {
+      "label": "lighthouse upper outline step A",
+      "level": 3,
+      "role": "east cap / face / contact",
+      "source_box": [
+        792,
+        568,
+        816,
+        576
+      ]
+    },
+    {
+      "label": "lighthouse top east step A",
+      "level": 3,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        792,
+        576,
+        816,
+        600
+      ]
+    },
+    {
+      "label": "lighthouse top raised shoulder",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        792,
+        568,
+        816,
+        592
+      ]
+    },
+    {
+      "label": "lighthouse top east step B",
+      "level": 3,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        816,
+        568,
+        840,
+        592
+      ]
+    },
+    {
+      "label": "lighthouse upper outline step B",
+      "level": 3,
+      "role": "east cap / face / contact",
+      "source_box": [
+        816,
+        552,
+        840,
+        568
+      ]
+    },
+    {
+      "label": "lighthouse top northeast shoulder",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        816,
+        552,
+        832,
+        576
+      ]
+    },
+    {
+      "label": "lighthouse highest SE return",
+      "level": 3,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        832,
+        552,
+        856,
+        576
+      ]
+    },
+    {
+      "label": "lighthouse middle west face",
+      "level": 2,
+      "role": "west cap / face / contact",
+      "source_box": [
+        632,
+        336,
+        656,
+        600
+      ]
+    },
+    {
+      "label": "lighthouse middle SW turn",
+      "level": 2,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        632,
+        600,
+        656,
+        624
+      ]
+    },
+    {
+      "label": "lighthouse middle south course",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        656,
+        600,
+        832,
+        624
+      ]
+    },
+    {
+      "label": "lighthouse middle east shoulder",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        832,
+        592,
+        848,
+        616
+      ]
+    },
+    {
+      "label": "lighthouse middle SE turn",
+      "level": 2,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        848,
+        592,
+        872,
+        616
+      ]
+    },
+    {
+      "label": "shore course west return",
+      "level": 1,
+      "role": "west cap / face / contact",
+      "source_box": [
+        632,
+        600,
+        656,
+        624
+      ]
+    },
+    {
+      "label": "headland shoreline SW turn",
+      "level": 1,
+      "role": "complete convex-nw native elbow",
+      "source_box": [
+        632,
+        624,
+        656,
+        648
+      ]
+    },
+    {
+      "label": "headland lowest shore course",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        656,
+        624,
+        848,
+        648
+      ]
+    },
+    {
+      "label": "headland shoreline SE turn",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        848,
+        624,
+        872,
+        648
+      ]
+    },
+    {
+      "label": "headland lowest east return",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        848,
+        592,
+        872,
+        624
+      ]
+    },
+    {
+      "label": "east coast highest northern course",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        880,
+        224,
+        1088,
+        248
+      ]
+    },
+    {
+      "label": "east coast upper inward turn",
+      "level": 3,
+      "role": "complete inner native elbow",
+      "source_box": [
+        856,
+        224,
+        880,
+        248
+      ]
+    },
+    {
+      "label": "east coast highest upper face",
+      "level": 3,
+      "role": "east cap / face / contact",
+      "source_box": [
+        856,
+        248,
+        880,
+        336
+      ]
+    },
+    {
+      "label": "east coast highest shelf",
+      "level": 3,
+      "role": "south cap / face / toe",
+      "source_box": [
+        832,
+        336,
+        856,
+        360
+      ]
+    },
+    {
+      "label": "east coast upper shelf end",
+      "level": 3,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        856,
+        336,
+        880,
+        360
+      ]
+    },
+    {
+      "label": "lighthouse east high face",
+      "level": 3,
+      "role": "east cap / face / contact",
+      "source_box": [
+        832,
+        360,
+        856,
+        552
+      ]
+    },
+    {
+      "label": "east coast middle northern course",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        904,
+        248,
+        1088,
+        272
+      ]
+    },
+    {
+      "label": "east coast middle inward turn",
+      "level": 2,
+      "role": "complete inner native elbow",
+      "source_box": [
+        880,
+        248,
+        904,
+        272
+      ]
+    },
+    {
+      "label": "east coast middle upper face",
+      "level": 2,
+      "role": "east cap / face / contact",
+      "source_box": [
+        880,
+        272,
+        904,
+        360
+      ]
+    },
+    {
+      "label": "east coast middle shelf",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        856,
+        360,
+        880,
+        384
+      ]
+    },
+    {
+      "label": "east coast middle shelf end",
+      "level": 2,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        880,
+        360,
+        904,
+        384
+      ]
+    },
+    {
+      "label": "east coast middle lower face",
+      "level": 2,
+      "role": "east cap / face / contact",
+      "source_box": [
+        856,
+        384,
+        880,
+        544
+      ]
+    },
+    {
+      "label": "east coast middle lower shelf",
+      "level": 2,
+      "role": "south cap / face / toe",
+      "source_box": [
+        848,
+        544,
+        856,
+        568
+      ]
+    },
+    {
+      "label": "east coast middle lower elbow",
+      "level": 2,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        856,
+        544,
+        880,
+        568
+      ]
+    },
+    {
+      "label": "east coast middle bottom return",
+      "level": 2,
+      "role": "east cap / face / contact",
+      "source_box": [
+        848,
+        568,
+        872,
+        592
+      ]
+    },
+    {
+      "label": "east coast lowest northern course",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        928,
+        272,
+        1088,
+        296
+      ]
+    },
+    {
+      "label": "east coast lowest inward turn",
+      "level": 1,
+      "role": "complete inner native elbow",
+      "source_box": [
+        904,
+        272,
+        928,
+        296
+      ]
+    },
+    {
+      "label": "east coast lowest upper face",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        904,
+        296,
+        928,
+        328
+      ]
+    },
+    {
+      "label": "east coast lowest shelf",
+      "level": 1,
+      "role": "south cap / face / toe",
+      "source_box": [
+        880,
+        328,
+        904,
+        352
+      ]
+    },
+    {
+      "label": "east coast lowest shelf end",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        904,
+        328,
+        928,
+        352
+      ]
+    },
+    {
+      "label": "east coast beach head return",
+      "level": 1,
+      "role": "east cap / face / contact",
+      "source_box": [
+        880,
+        352,
+        904,
+        376
+      ]
+    },
+    {
+      "label": "east coast beach head rounded foot",
+      "level": 1,
+      "role": "complete convex-ne native elbow",
+      "source_box": [
+        880,
+        376,
+        904,
+        400
+      ]
+    }
+  ],
+  "stairs": [
+    {
+      "source_box": [
+        576,
+        312,
+        624,
+        336
+      ],
+      "axis": "north/south",
+      "repair": "opaque complete tread/shoulder footprint"
+    },
+    {
+      "source_box": [
+        624,
+        528,
+        688,
+        592
+      ],
+      "axis": "east/west",
+      "repair": "same visible slope, continuous retaining-wall backing"
+    }
+  ]
+}
