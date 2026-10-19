@@ -1,0 +1,747 @@
+{
+  "frames": 74,
+  "pixels": 2841600,
+  "RGB_errors": 0,
+  "frames_detail": [
+    {
+      "frame": "Radio-plaza",
+      "world": [
+        16,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-20",
+      "world": [
+        20,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-21",
+      "world": [
+        21,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-28",
+      "world": [
+        28,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-40",
+      "world": [
+        40,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-41",
+      "world": [
+        41,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-42",
+      "world": [
+        42,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-48",
+      "world": [
+        48,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-56",
+      "world": [
+        56,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-62",
+      "world": [
+        62,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-63",
+      "world": [
+        63,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-east-70",
+      "world": [
+        70,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-63",
+      "world": [
+        63,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-62",
+      "world": [
+        62,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-42",
+      "world": [
+        42,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-41",
+      "world": [
+        41,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-21",
+      "world": [
+        21,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-20",
+      "world": [
+        20,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-west-16",
+      "world": [
+        16,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "south-arrival",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-43",
+      "world": [
+        58,
+        43
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-42",
+      "world": [
+        58,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-41",
+      "world": [
+        58,
+        41
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-36",
+      "world": [
+        58,
+        36
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-29",
+      "world": [
+        58,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-28",
+      "world": [
+        58,
+        28
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-27",
+      "world": [
+        58,
+        27
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-24",
+      "world": [
+        58,
+        24
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-23",
+      "world": [
+        58,
+        23
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-22",
+      "world": [
+        58,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-21",
+      "world": [
+        58,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-20",
+      "world": [
+        58,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-19",
+      "world": [
+        58,
+        19
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-15",
+      "world": [
+        58,
+        15
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-14",
+      "world": [
+        58,
+        14
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-13",
+      "world": [
+        58,
+        13
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-10",
+      "world": [
+        58,
+        10
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-north-8",
+      "world": [
+        58,
+        8
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-14",
+      "world": [
+        58,
+        14
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-20",
+      "world": [
+        58,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-23",
+      "world": [
+        58,
+        23
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-28",
+      "world": [
+        58,
+        28
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-42",
+      "world": [
+        58,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "avenue-south-48",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "northern-fence",
+      "world": [
+        62,
+        4
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-gate-side",
+      "world": [
+        61,
+        4
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north",
+      "world": [
+        58,
+        47
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-south-48",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-south-49",
+      "world": [
+        58,
+        49
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-south-50",
+      "world": [
+        58,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-south-51",
+      "world": [
+        58,
+        51
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-south-52",
+      "world": [
+        58,
+        52
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north-51",
+      "world": [
+        58,
+        51
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north-50",
+      "world": [
+        58,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north-49",
+      "world": [
+        58,
+        49
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north-48",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-north-47",
+      "world": [
+        58,
+        47
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-west-pillar",
+      "world": [
+        56,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "arch-east-pillar",
+      "world": [
+        60,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Radio-door",
+      "world": [
+        16,
+        25
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "station-door",
+      "world": [
+        47,
+        26
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Gym-door",
+      "world": [
+        66,
+        15
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "flower-shop",
+      "world": [
+        71,
+        13
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Game-Corner",
+      "world": [
+        51,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "department-store",
+      "world": [
+        65,
+        41
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "bike-shop",
+      "world": [
+        70,
+        46
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Center",
+      "world": [
+        52,
+        41
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-underground",
+      "world": [
+        47,
+        15
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "south-underground",
+      "world": [
+        47,
+        46
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "seawall",
+      "world": [
+        8,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "eastern-cliff",
+      "world": [
+        80,
+        27
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "save-Goldenrod",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "cold-reload",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "title-continue",
+      "world": [
+        58,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    }
+  ]
+}

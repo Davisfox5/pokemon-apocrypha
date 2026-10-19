@@ -1,0 +1,46 @@
+{
+  "engine_commit": "f439df15cc6f4c95df2846da353c9e4e2549fcd2",
+  "engine_base": "d822306675e15abe67c85235d9faf8d6e676d449",
+  "source_files_changed": 525,
+  "rom_sha256": "8041e27769e85eee2aae0fa1a4a230ca6149e77e08f082a22410305c73bfe662",
+  "ROM_bytes": 33554432,
+  "native_build": "passed",
+  "memory": [
+    [
+      "EWRAM",
+      "226772",
+      "256 KB     86.51%"
+    ],
+    [
+      "IWRAM",
+      "28392",
+      "32 KB     86.65%"
+    ],
+    [
+      "ROM",
+      "20915752",
+      "32 MB     62.33%"
+    ]
+  ],
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 72
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "build_command": "make -j8 TOOLCHAIN=/workspace/deps/root/usr CFLAGS='-isystem /workspace/deps/root/usr/include/newlib'",
+  "source_tree_matches_tested_build": true,
+  "hosted_CI": "Blocked: GitHub API422 says Actions has been disabled for this repository. Local checks passed; PR remains draft.",
+  "known_linker_warning": "Existing RWX LOAD segment warning; no warning-free release claim."
+}

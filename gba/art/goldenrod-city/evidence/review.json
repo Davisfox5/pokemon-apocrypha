@@ -1,0 +1,65 @@
+{
+  "native_cells": 4704,
+  "native_sections": 12,
+  "Porymap_version": "6.3.1",
+  "Porymap_pixel_errors": 0,
+  "authoring_to_decoded_pixel_errors": 0,
+  "native_collision_and_layer_errors": 0,
+  "complete_shared_trees": 46,
+  "overlapping_tree_roots": 0,
+  "Center_exact_RGB5_pixels": 5679,
+  "reachable_ground_cells": 1893,
+  "connected_approaches": {
+    "Radio Tower": [
+      16,
+      25
+    ],
+    "Magnet station": [
+      47,
+      26
+    ],
+    "Gym": [
+      66,
+      15
+    ],
+    "Flower Shop": [
+      71,
+      13
+    ],
+    "Game Corner": [
+      51,
+      35
+    ],
+    "Department Store": [
+      65,
+      41
+    ],
+    "Bike Shop": [
+      70,
+      46
+    ],
+    "Center": [
+      52,
+      41
+    ],
+    "north Underground": [
+      47,
+      15
+    ],
+    "south Underground": [
+      47,
+      46
+    ],
+    "north gate": [
+      58,
+      8
+    ],
+    "south arrival": [
+      58,
+      48
+    ]
+  },
+  "original_collision": "Independent visual interpretation; not decoded DS data.",
+  "audit_scope": "Every native cell/layer/palette decoded; original-reference material comparison is visible whole/grid/detail evidence, not an invented exact categorical score.",
+  "owner_visual_acceptance": "pending"
+}

@@ -1,0 +1,99 @@
+{
+  "baseline": "200ffd16fe13379600fcc8cb939d3e7de7ddf835",
+  "upper_layer_cells": [
+    [
+      55,
+      48
+    ],
+    [
+      56,
+      48
+    ],
+    [
+      57,
+      48
+    ],
+    [
+      58,
+      48
+    ],
+    [
+      59,
+      48
+    ],
+    [
+      60,
+      48
+    ],
+    [
+      61,
+      48
+    ],
+    [
+      55,
+      49
+    ],
+    [
+      56,
+      49
+    ],
+    [
+      57,
+      49
+    ],
+    [
+      58,
+      49
+    ],
+    [
+      59,
+      49
+    ],
+    [
+      60,
+      49
+    ],
+    [
+      61,
+      49
+    ],
+    [
+      55,
+      50
+    ],
+    [
+      61,
+      50
+    ]
+  ],
+  "pillar_cells": [
+    [
+      55,
+      49
+    ],
+    [
+      55,
+      50
+    ],
+    [
+      55,
+      51
+    ],
+    [
+      61,
+      49
+    ],
+    [
+      61,
+      50
+    ],
+    [
+      61,
+      51
+    ]
+  ],
+  "unchanged_static_RGB": "Cap duplicates the existing native lower-layer pixels; only sprite occlusion changes.",
+  "native_glyphs": 888,
+  "metatiles": 273,
+  "scope": "Southern arch only. Other map IDs/metatile IDs and prior map sources preserved."
+}

@@ -1,0 +1,5 @@
+{
+  "unchanged_source": 0,
+  "edited_native_source_rejected": 1,
+  "diagnostic": "Goldenrod native source changed without regenerating its view atlas:\n  native\nRun tools/gba/maps/goldenrod_city/stream.py ENGINE from the Pokemon Apocrypha hub, then commit native source and generated atlas together.\n"
+}

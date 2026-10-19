@@ -1,0 +1,69 @@
+{
+  "ROM_sha256": "8041e27769e85eee2aae0fa1a4a230ca6149e77e08f082a22410305c73bfe662",
+  "exit_code": 0,
+  "observations": [
+    {
+      "step": "avenue-seam-end",
+      "region": 3,
+      "group": 80,
+      "map": 59,
+      "x": 5,
+      "y": 0,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 227
+    },
+    {
+      "step": "railway-underpass-end",
+      "region": 3,
+      "group": 80,
+      "map": 56,
+      "x": 16,
+      "y": 1,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 227
+    },
+    {
+      "step": "southern-arch-end",
+      "region": 3,
+      "group": 80,
+      "map": 60,
+      "x": 16,
+      "y": 12,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 227
+    }
+  ],
+  "clips": [
+    {
+      "clip": "avenue-seam",
+      "input_frames": 128,
+      "captured_frames": 32,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "railway-underpass",
+      "input_frames": 240,
+      "captured_frames": 60,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "southern-arch",
+      "input_frames": 112,
+      "captured_frames": 28,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    }
+  ],
+  "cache_overflows": 0
+}

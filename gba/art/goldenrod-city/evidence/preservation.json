@@ -1,0 +1,38 @@
+{
+  "engine_base": "d822306675e15abe67c85235d9faf8d6e676d449",
+  "prior_native_maps_tilesets_unchanged": true,
+  "persistent_structures_flags_items_not_edited": true,
+  "stable_identifiers": {
+    "data/maps/map_groups.json": {
+      "existing_entries": 51,
+      "appended": 12,
+      "existing_prefix_exact": true
+    },
+    "data/layouts/layouts.json": {
+      "existing_entries": 808,
+      "appended": 12,
+      "existing_prefix_exact": true
+    },
+    "src/data/region_map/region_map_sections.json": {
+      "existing_entries": 227,
+      "appended": 1,
+      "existing_prefix_exact": true
+    }
+  },
+  "existing_tracked_file_changes": [
+    "Makefile",
+    "data/event_scripts.s",
+    "data/layouts/layouts.json",
+    "data/maps/map_groups.json",
+    "src/apocrypha_map_proof.c",
+    "src/data/region_map/region_map_sections.json",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h",
+    "src/field_camera.c",
+    "src/malloc.c",
+    "src/overworld.c"
+  ],
+  "original_player_saves": "No existing player saves were supplied or modified; current-build ordinary save/cold reload/Continue tested.",
+  "engine_commit": "f439df15cc6f4c95df2846da353c9e4e2549fcd2"
+}
