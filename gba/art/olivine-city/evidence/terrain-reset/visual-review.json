@@ -1,0 +1,83 @@
+{
+  "owner_request": "Scrap the rejected terrain and try again from scratch.",
+  "rejected_baseline": "601d1b073e4e4723066a3dc88c679c21d317991b",
+  "reviewed_regions": [
+    {
+      "name": "western-wall",
+      "native_crop": [
+        112,
+        144,
+        416,
+        512
+      ]
+    },
+    {
+      "name": "northern-branches",
+      "native_crop": [
+        496,
+        16,
+        768,
+        432
+      ]
+    },
+    {
+      "name": "upper-stair",
+      "native_crop": [
+        592,
+        304,
+        760,
+        416
+      ]
+    },
+    {
+      "name": "lighthouse-courses",
+      "native_crop": [
+        680,
+        528,
+        960,
+        680
+      ]
+    },
+    {
+      "name": "timber-ramp",
+      "native_crop": [
+        648,
+        512,
+        824,
+        648
+      ]
+    },
+    {
+      "name": "eastern-shore",
+      "native_crop": [
+        880,
+        208,
+        1152,
+        672
+      ]
+    },
+    {
+      "name": "western-rock-spur",
+      "native_crop": [
+        64,
+        528,
+        240,
+        688
+      ]
+    }
+  ],
+  "method": "Fresh original-reference contours and explicit same-facing repeated native runs. Native edge templates preserve contacts/corners/components and move their contour by at most one pixel. Stone texture medoids are restricted to the same face orientation; full accepted foreground remains exact.",
+  "corrections": [
+    "Restored southwest plateau/outcrop missing in both rejected versions.",
+    "Restored actual narrow shelves, recessed steps, round tips and all three connected lighthouse courses.",
+    "Retained purple/neutral rock shadows, removing false green cracks between rock courses.",
+    "Completed exposed upper residential shelf end where the native tree differs from the source crown.",
+    "Removed detached original tree-root/prop fragments from the rock layer.",
+    "Rebuilt both timber openings with opaque source treads/rails and proper receiving ground; no grey patch beneath the ramp."
+  ],
+  "limits": [
+    "Visible source contours and height interpretation, not extracted DS heights/collision.",
+    "Existing native architecture/tree footprints, ordinary district fades, static water and unwired interiors/Routes39/40/shipping remain.",
+    "Owner acceptance is pending; functional checks do not establish visual acceptance."
+  ]
+}

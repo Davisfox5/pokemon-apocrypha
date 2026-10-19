@@ -1,3 +1,91 @@
+## Latest: Olivine full local asset cleanup
+
+Native source `506860f6a88ba96833f8bec256ebbda110b1113f`, existing draft PR #21,
+supersedes the local art in `8eb23f67`. The owner rejected the cleanliness of the
+extracted elements and requested every asset/tile be checked against HGSS and
+independently. Fourteen local masters were cleaned/redrawn, converted to native
+palettes, and fitted to their existing footprints. This includes the Harbor
+terminal and all maritime props. The lighthouse has explicit repeated parapet
+modules and matched windows. Ground beneath foreground art is restored by
+material; the pier-adjacent sea-rock needed a pixel-level water correction.
+
+[Current whole map, every asset comparison, native tile pages and gameplay](../gba/art/olivine-city/evidence/asset-cleanup/README.md).
+All 19 placed foreground families, 319 distinct placements (320 records because
+of a retained duplicate lighthouse stamp), five material cores and 1,289 used
+metatiles have review evidence. Actual Porymap/native parity, all 4,032 cells,
+every visible placed master pixel, 237 complete roots, building approaches and
+39 headless observations pass, including save/cold Continue. Collision, elevation,
+IDs, 45 row counts, timber crossing pixels and shared Center/Mart/sign pixels are
+preserved. Changed source is confined to 98 files in the three Olivine districts.
+
+City uses 998/1008 glyphs, Quay 1005/1008 and Harbor 394/1008. Quay required direct
+exact palette assignment after the heuristic candidate cover exceeded 13 banks;
+the solver does not alter RGB colors. Future art must budget the three remaining
+Quay glyphs carefully. Input atlas, edited image-tool output, explicit crop/native
+registration, local masters and narrow guarded authoring tools are retained.
+Never replay this pass or an old generator over later edits. Visual acceptance
+remains pending; overview/footprint adaptations, static water, fading districts
+and unwired interiors, routes and shipping remain explicit limits.
+
+## Historical: Olivine groves and terrain beneath them
+
+Native source `8eb23f6774fd937f3018d413f1fab5b6dc8d05c8` is on the existing
+`codex/olivine-city` branch / draft PR #21. The owner liked the improved depth and
+then the groves, but specifically rejected the remaining tree-shaped grass holes.
+The current pass counts 45 rows, uses 237 complete broad crowns, and reconstructs
+the receiving surfaces independently of the original tree silhouettes. Fresh HGSS
+close-ups revealed the omitted outer face of the eastern planted shelf; that
+whole shelf, its retaining faces, the northern caps and correct receiving
+materials are now authored. Inspect the trees-hidden evidence as well as the
+actual native composite. Two rocks are reseated and local house palettes aligned;
+shared Center/Mart/sign art, architecture geometry, timber entrances, Harbor,
+other maps and IDs remain preserved.
+
+[Current comparisons, row ledger, trees-hidden review and gameplay](../gba/art/olivine-city/evidence/forest-refinement/README.md).
+Actual Porymap/native parity and all 4,032 cell checks pass. Headless movement,
+new grove-root barriers, both timber crossings and ordinary save/cold Continue
+pass. The full revised terrain still awaits owner visual review; do not turn the
+positive grove/depth feedback into blanket acceptance. The original/rejected
+snapshots remain history. Future edits start from current native source, never
+by replaying guarded old authoring scripts or a whole-map generator.
+
+## Historical: Olivine depth revision before forest/receiving-surface cleanup
+
+The owner requested a complete restart. Native source `116ea801` on existing
+PR #21 uses fresh HGSS contours/texture cores, restored southwest rock spur,
+connected lighthouse faces/shelves, rounded returns and complete stair openings.
+The former `601d1b07` wall assembly is explicitly rejected and preserved as history.
+Actual Porymap/native parity, all 4,032 cell checks, 235 complete trees, 37 headless
+observations and ordinary save/cold Continue pass. The source delta is confined to
+55 City/Quay files; Harbor and map/layout/event/warp IDs remain unchanged.
+[Current comparisons and gameplay](../gba/art/olivine-city/evidence/terrain-reset/README.md).
+Owner visual acceptance is pending. No hosted CI run was returned; PRs remain draft.
+The new authoring record refuses replay on the committed layout; future edits
+must begin from current native source and preserve owner changes.
+
+## Historical: rejected Olivine wall-strip rebuild
+
+The original terrain pass was rejected. Native source `601d1b07` on existing
+engine PR #21 replaces the complete rock layer with traced courses, native
+Route36 caps/faces/corners, separate rocky shoulders, complete returns and seated
+stairs. The lighthouse headland has three visible courses; both stair axes are
+retained and the grey backing beneath the timber slope is removed. Actual
+Porymap/native parity, headless movement/barriers and ordinary save/cold Continue
+pass. Only city/quay native tilesets/layouts change; Harbor and all other IDs,
+registries, source areas and shared foreground pixels are preserved.
+[Current visual review](../gba/art/olivine-city/evidence/terrain-rebuild/README.md).
+This version was subsequently rejected; use the fresh terrain revision above.
+
+## Historical: first Olivine City exterior proposal
+
+HGSS-registered streets, lighthouse headland, quay and ferry terminal are in native
+source PR #21 on `codex/olivine-city`, based on Ecruteak. Local build, actual
+Porymap exports, headless walking/barriers/stairs/ramp/district travel and ordinary
+save/cold Continue pass. The PR remains draft: no hosted CI run was returned and
+owner visual review is pending. Read [Olivine evidence](../gba/art/olivine-city/README.md).
+Interiors, Routes 39/40, actors, shops and shipping services remain unwired; the
+three exterior districts use ordinary fades and static water.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
@@ -1122,3 +1210,31 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+
+## Azalea exterior — 2026-10-18
+
+Owner moved this thread to Azalea; leave Route33 refinement to the other thread.
+New exterior engine source: `codex/azalea-town` at `a322750485`, based on
+`eb15d89234`; source/evidence entry: [Azalea](../gba/art/azalea-town/README.md).
+Hub evidence branches from main, without altering Route33 evidence. Map ID50
+appended; no prior IDs or unrelated art changed. HGSS overview registered at
++64,+16; shared Center/Mart/gate/trees/props, native terrain, missing local
+Azalea architecture. Porymap/native2112-cell equality, full tree footprints,
+headless movement/ledges/barriers/closed approaches and ordinary save/reload/
+Continue verified; a copied prior Route33 save remains compatible. Source is
+authoritative: never replay first-authoring tools over the committed map.
+Interiors, Slowpoke Well descent, Ilex/Route33 connections and campaign actors
+remain pending; visual approval stays with the owner.
+
+### Azalea individual house cleanup, 2026-10-18
+
+Engine `codex/azalea-town` commit `76a8e5f16b` refines Kurt’s house and the southeast house separately. Evidence and full commit are in `gba/art/azalea-town/README.md`; per-house before/after images are under its evidence directory. The guarded `tools/gba/maps/azalea_town/house_cleanup.py` is a narrow direct native patch against the preserved a322750485 baseline, not a layout generator. Two redundant house outline shades were consolidated to restore violet window glass without spending another palette. Southeast vents, chimney and stray cutout edges are corrected. Porymap/native RGB match, unchanged collision/elevation, zero changed pixels outside the two house regions, and headless walking/save/cold-reload/Continue pass. Route33 and shared building/tree art are untouched. Exterior only; interiors and adjacent-map integration remain pending.
+
+Kurt-only eave follow-up: `8beab42d99def1e39eb37ba076e837d1be13da31` on codex/azalea-town. Attached log fragments removed and side smoothed; separate logs and owner-approved regular house untouched. See azalea-town/evidence/kurt-edge-before-after.png and guarded kurt_edge_cleanup.py. Native/Porymap and headless save/reload pass.
+
+Kurt structure follow-up: engine `0c0d2cff899438dcf0663762c2b2675e8d6cea5c` restores clipped upper roof and full left column/stone footing. Current comparison: `gba/art/azalea-town/evidence/kurt-structure-original-current.png`. Narrow guarded native patch `kurt_structure_cleanup.py`; no collision or visible outside-house changes. Porymap/native and headless save/reload pass. Regular house remains approved and untouched.
+
+Kurt roof correction supersedes rejected structure patch: `e365b1821260897eea1463485fdadea741658510`. User rejected the additive yellow extension over the old outline. `kurt_roof_rebuild.py` replaces the whole upper section using clean HGSS same-plane thatch donors, excluding canopy colors; retains central ridge and a single outside border. Current comparison `gba/art/azalea-town/evidence/kurt-roof-original-current.png`; owner visual acceptance pending. No visible changes outside the upper roof; Porymap/native and headless save/reload pass.
+
+Kurt texture/contrast pass: engine `d822306675e15abe67c85235d9faf8d6e676d449`. Same roof silhouette, isolated thatch speckle cleanup, original crossed-log gray facets restored with existing native charcoal palette and separated native layers. Source/previous/current close-up `gba/art/azalea-town/evidence/kurt-texture-detail.png`; guarded patch `kurt_roof_texture.py`, baseline e365b18212. No changed palette, collision or visible pixels outside the roof. Porymap/native plus headless save/reload pass. Owner visual approval pending.

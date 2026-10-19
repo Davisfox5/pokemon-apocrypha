@@ -1,0 +1,84 @@
+{
+  "exit_code": 0,
+  "command": "PATH=ARM_BIN:$PATH make -j5",
+  "ROM_sha256": "a2ef506256da83a3eb2d9978b8233bf056d45116c13d2b1d94f2c520dc9724c8",
+  "ROM_bytes": 33554432,
+  "toolchain": "Arm GNU 14.2.1",
+  "compiler": "Porytiles legacy 2.0.0 with exact RGB5 palette covering",
+  "palette_solver": "OR-Tools candidate set cover; every assigned quadrant checked without nearest-tile substitutions",
+  "Porymap": "6.3.1 actual project exports",
+  "mGBA": "0.10.5 headless",
+  "runtime_observations": 35,
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0
+    },
+    {
+      "phase": "read",
+      "exit_code": 0
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0
+    }
+  ],
+  "district_usage": [
+    {
+      "map": "JohtoOlivineCity",
+      "unique_glyph_IDs": 769,
+      "highest_glyph_ID": 768,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "metatiles": 424,
+      "Porymap_pixel_errors": 0
+    },
+    {
+      "map": "JohtoOlivineQuay",
+      "unique_glyph_IDs": 910,
+      "highest_glyph_ID": 909,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "metatiles": 421,
+      "Porymap_pixel_errors": 0
+    },
+    {
+      "map": "JohtoOlivineHarbor",
+      "unique_glyph_IDs": 312,
+      "highest_glyph_ID": 311,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "metatiles": 149,
+      "Porymap_pixel_errors": 0
+    }
+  ]
+}

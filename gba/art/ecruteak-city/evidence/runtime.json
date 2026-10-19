@@ -1,0 +1,316 @@
+{
+  "rom_sha256": "60457d7c63722e74fbb6ea069cd7ee96b449152e6fcdf12842ba6fabc2d30e30",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "new-game",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 40,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "northbound-city-avenue",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 1,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "temple-district-entry",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 41,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "city-return",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 1,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Burned-Tower-stair-axis",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 25,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "tower-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 25,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "tower-stair-return",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 25,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "tower-south-court",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 24,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "terrace-fence-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 22,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Bell-Tower-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 41,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "pond-blocks-foot-travel",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 44,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "theater-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 47,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Gym-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 26,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Center-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 46,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Mart-interior-pending",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 56,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "southern-torii-passage",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "torii-opening-left",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 40,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "torii-left-post-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 40,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "west-forest-edge",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 18,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "west-forest-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 18,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-reload-Ecruteak",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ]
+    }
+  ]
+}

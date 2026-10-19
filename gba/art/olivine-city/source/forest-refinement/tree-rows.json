@@ -1,0 +1,713 @@
+[
+  {
+    "name": "NW cropped back row completed",
+    "source_apex_y": -8,
+    "source_centers_x": [
+      4,
+      36,
+      68,
+      100,
+      132,
+      164,
+      196,
+      228,
+      260
+    ],
+    "reference_count": 9,
+    "native_reference_count": 9,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 10
+  },
+  {
+    "name": "NW separated middle row",
+    "source_apex_y": 24,
+    "source_centers_x": [
+      52,
+      84,
+      116,
+      148,
+      180,
+      212,
+      244,
+      276
+    ],
+    "reference_count": 8,
+    "native_reference_count": 8,
+    "padding_centers_x": [],
+    "native_total": 8
+  },
+  {
+    "name": "NW upper dense row",
+    "source_apex_y": 72,
+    "source_centers_x": [
+      36,
+      68,
+      100,
+      132,
+      164,
+      196,
+      228,
+      260,
+      292
+    ],
+    "reference_count": 9,
+    "native_reference_count": 9,
+    "padding_centers_x": [],
+    "native_total": 9
+  },
+  {
+    "name": "NW lower dense row",
+    "source_apex_y": 96,
+    "source_centers_x": [
+      36,
+      68,
+      100,
+      132,
+      164,
+      196,
+      228,
+      260,
+      292
+    ],
+    "reference_count": 9,
+    "native_reference_count": 9,
+    "padding_centers_x": [],
+    "native_total": 9
+  },
+  {
+    "name": "west border upper",
+    "source_apex_y": 24,
+    "source_centers_x": [
+      4
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 2
+  },
+  {
+    "name": "west border upper join",
+    "source_apex_y": 48,
+    "source_centers_x": [
+      4
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 2
+  },
+  {
+    "name": "west border north join",
+    "source_apex_y": 72,
+    "source_centers_x": [
+      4
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 2
+  },
+  {
+    "name": "west border dense join",
+    "source_apex_y": 96,
+    "source_centers_x": [
+      4
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 2
+  },
+  {
+    "name": "west border 01",
+    "source_apex_y": 120,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 02",
+    "source_apex_y": 144,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 03",
+    "source_apex_y": 168,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 04",
+    "source_apex_y": 200,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 05",
+    "source_apex_y": 224,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 06",
+    "source_apex_y": 248,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 07",
+    "source_apex_y": 272,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 08",
+    "source_apex_y": 296,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 09",
+    "source_apex_y": 320,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 10",
+    "source_apex_y": 344,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 11",
+    "source_apex_y": 368,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "west border 12",
+    "source_apex_y": 392,
+    "source_centers_x": [
+      4,
+      36,
+      68
+    ],
+    "reference_count": 3,
+    "native_reference_count": 3,
+    "padding_centers_x": [
+      -28
+    ],
+    "native_total": 4
+  },
+  {
+    "name": "Route 39 west sentinel",
+    "source_apex_y": -8,
+    "source_centers_x": [
+      324
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "NE cropped back row completed",
+    "source_apex_y": -8,
+    "source_centers_x": [
+      548,
+      580,
+      612,
+      644,
+      676,
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 16,
+    "native_reference_count": 16,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 17
+  },
+  {
+    "name": "NE high terrace front",
+    "source_apex_y": 16,
+    "source_centers_x": [
+      548,
+      580,
+      612,
+      644,
+      676,
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 16,
+    "native_reference_count": 16,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 17
+  },
+  {
+    "name": "NE lower terrace back",
+    "source_apex_y": 80,
+    "source_centers_x": [
+      548,
+      580,
+      612,
+      644,
+      676,
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 16,
+    "native_reference_count": 16,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 17
+  },
+  {
+    "name": "NE lower terrace front",
+    "source_apex_y": 104,
+    "source_centers_x": [
+      580,
+      612,
+      644,
+      676,
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 15,
+    "native_reference_count": 15,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 16
+  },
+  {
+    "name": "residential west sentinel",
+    "source_apex_y": 128,
+    "source_centers_x": [
+      532
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "residential shelf pair",
+    "source_apex_y": 152,
+    "source_centers_x": [
+      628,
+      660
+    ],
+    "reference_count": 2,
+    "native_reference_count": 2,
+    "padding_centers_x": [],
+    "native_total": 2
+  },
+  {
+    "name": "east forest broad 1",
+    "source_apex_y": 128,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 11,
+    "native_reference_count": 11,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 12
+  },
+  {
+    "name": "east forest broad 2",
+    "source_apex_y": 152,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 11,
+    "native_reference_count": 11,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 12
+  },
+  {
+    "name": "east forest broad 3",
+    "source_apex_y": 176,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804,
+      836,
+      868,
+      900,
+      932,
+      964,
+      996,
+      1028
+    ],
+    "reference_count": 11,
+    "native_reference_count": 11,
+    "padding_centers_x": [
+      1060
+    ],
+    "native_total": 12
+  },
+  {
+    "name": "east forest shoulder",
+    "source_apex_y": 200,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804,
+      836
+    ],
+    "reference_count": 5,
+    "native_reference_count": 5,
+    "padding_centers_x": [],
+    "native_total": 5
+  },
+  {
+    "name": "lighthouse grove 1",
+    "source_apex_y": 224,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "lighthouse grove 2",
+    "source_apex_y": 248,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "lighthouse grove 3",
+    "source_apex_y": 272,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "lighthouse grove 4",
+    "source_apex_y": 296,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "lighthouse grove 5",
+    "source_apex_y": 320,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "lighthouse grove 6",
+    "source_apex_y": 344,
+    "source_centers_x": [
+      708,
+      740,
+      772,
+      804
+    ],
+    "reference_count": 4,
+    "native_reference_count": 4,
+    "padding_centers_x": [],
+    "native_total": 4
+  },
+  {
+    "name": "stair courtyard pair",
+    "source_apex_y": 296,
+    "source_centers_x": [
+      500,
+      532
+    ],
+    "reference_count": 2,
+    "native_reference_count": 2,
+    "padding_centers_x": [],
+    "native_total": 2
+  },
+  {
+    "name": "stair courtyard middle",
+    "source_apex_y": 320,
+    "source_centers_x": [
+      500
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "stair courtyard front",
+    "source_apex_y": 344,
+    "source_centers_x": [
+      500
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "east shore upper",
+    "source_apex_y": 224,
+    "source_centers_x": [
+      884
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "east shore outer",
+    "source_apex_y": 272,
+    "source_centers_x": [
+      900
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "east shore inner",
+    "source_apex_y": 288,
+    "source_centers_x": [
+      852
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "east shore south back",
+    "source_apex_y": 440,
+    "source_centers_x": [
+      868
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  },
+  {
+    "name": "east shore south front",
+    "source_apex_y": 464,
+    "source_centers_x": [
+      868
+    ],
+    "reference_count": 1,
+    "native_reference_count": 1,
+    "padding_centers_x": [],
+    "native_total": 1
+  }
+]

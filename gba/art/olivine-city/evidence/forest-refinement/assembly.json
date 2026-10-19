@@ -1,0 +1,6687 @@
+{
+  "size": [
+    72,
+    56
+  ],
+  "reference_size": [
+    1035,
+    858
+  ],
+  "registration_offset": [
+    64,
+    16
+  ],
+  "districts": [
+    {
+      "map": "JohtoOlivineCity",
+      "tileset": "olivine_city",
+      "width": 72,
+      "height": 26,
+      "global_y": 0,
+      "metatiles": 626,
+      "command": [
+        "/workspace/porytiles/build/legacy/tools/driver/porytiles-legacy",
+        "compile-primary",
+        "-dual-layer",
+        "-tiles-primary-override=1008",
+        "-tiles-total-override=1024",
+        "-metatiles-primary-override=1024",
+        "-pals-primary-override=13",
+        "-o",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/evidence/forest-refinement/olivine_city-compiled",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/source/forest-refinement/olivine_city",
+        "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+      ]
+    },
+    {
+      "map": "JohtoOlivineQuay",
+      "tileset": "olivine_quay",
+      "width": 72,
+      "height": 18,
+      "global_y": 26,
+      "metatiles": 525,
+      "command": [
+        "/workspace/porytiles/build/legacy/tools/driver/porytiles-legacy",
+        "compile-primary",
+        "-dual-layer",
+        "-tiles-primary-override=1008",
+        "-tiles-total-override=1024",
+        "-metatiles-primary-override=1024",
+        "-pals-primary-override=13",
+        "-o",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/evidence/forest-refinement/olivine_quay-compiled",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/source/forest-refinement/olivine_quay",
+        "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+      ]
+    },
+    {
+      "map": "JohtoOlivineHarbor",
+      "tileset": "olivine_harbor",
+      "width": 72,
+      "height": 12,
+      "global_y": 44,
+      "metatiles": 149,
+      "compiler": "Porytiles legacy 2.0.0",
+      "command": [
+        "/workspace/porytiles/build/legacy/tools/driver/porytiles-legacy",
+        "compile-primary",
+        "-dual-layer",
+        "-tiles-primary-override=1008",
+        "-tiles-total-override=1024",
+        "-metatiles-primary-override=1024",
+        "-pals-primary-override=13",
+        "-o",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/evidence/olivine_harbor-compiled",
+        "/workspace/pokemon-apocrypha/gba/art/olivine-city/source/olivine_harbor",
+        "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+      ]
+    }
+  ],
+  "trees": [
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 0,
+      "root_box": [
+        1,
+        3,
+        3,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 0,
+      "root_box": [
+        3,
+        3,
+        5,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 0,
+      "root_box": [
+        5,
+        3,
+        7,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 0,
+      "root_box": [
+        7,
+        3,
+        9,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 140,
+      "pixel_y": 0,
+      "root_box": [
+        9,
+        3,
+        11,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 172,
+      "pixel_y": 0,
+      "root_box": [
+        11,
+        3,
+        13,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 204,
+      "pixel_y": 0,
+      "root_box": [
+        13,
+        3,
+        15,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 236,
+      "pixel_y": 0,
+      "root_box": [
+        15,
+        3,
+        17,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 268,
+      "pixel_y": 0,
+      "root_box": [
+        17,
+        3,
+        19,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 300,
+      "pixel_y": 0,
+      "root_box": [
+        19,
+        3,
+        21,
+        4
+      ],
+      "row": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 364,
+      "pixel_y": 0,
+      "root_box": [
+        23,
+        3,
+        25,
+        4
+      ],
+      "row": "Route 39 west sentinel",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 588,
+      "pixel_y": 0,
+      "root_box": [
+        37,
+        3,
+        39,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 620,
+      "pixel_y": 0,
+      "root_box": [
+        39,
+        3,
+        41,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 652,
+      "pixel_y": 0,
+      "root_box": [
+        41,
+        3,
+        43,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 684,
+      "pixel_y": 0,
+      "root_box": [
+        43,
+        3,
+        45,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 716,
+      "pixel_y": 0,
+      "root_box": [
+        45,
+        3,
+        47,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 0,
+      "root_box": [
+        47,
+        3,
+        49,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 0,
+      "root_box": [
+        49,
+        3,
+        51,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 0,
+      "root_box": [
+        51,
+        3,
+        53,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 0,
+      "root_box": [
+        53,
+        3,
+        55,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 0,
+      "root_box": [
+        55,
+        3,
+        57,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 0,
+      "root_box": [
+        57,
+        3,
+        59,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 0,
+      "root_box": [
+        59,
+        3,
+        61,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 0,
+      "root_box": [
+        61,
+        3,
+        63,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 0,
+      "root_box": [
+        63,
+        3,
+        65,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 0,
+      "root_box": [
+        65,
+        3,
+        67,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 0,
+      "root_box": [
+        67,
+        3,
+        69,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 0,
+      "root_box": [
+        69,
+        3,
+        71,
+        4
+      ],
+      "row": "NE cropped back row completed",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 588,
+      "pixel_y": 24,
+      "root_box": [
+        37,
+        4,
+        39,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 620,
+      "pixel_y": 24,
+      "root_box": [
+        39,
+        4,
+        41,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 652,
+      "pixel_y": 24,
+      "root_box": [
+        41,
+        4,
+        43,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 684,
+      "pixel_y": 24,
+      "root_box": [
+        43,
+        4,
+        45,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 716,
+      "pixel_y": 24,
+      "root_box": [
+        45,
+        4,
+        47,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 24,
+      "root_box": [
+        47,
+        4,
+        49,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 24,
+      "root_box": [
+        49,
+        4,
+        51,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 24,
+      "root_box": [
+        51,
+        4,
+        53,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 24,
+      "root_box": [
+        53,
+        4,
+        55,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 24,
+      "root_box": [
+        55,
+        4,
+        57,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 24,
+      "root_box": [
+        57,
+        4,
+        59,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 24,
+      "root_box": [
+        59,
+        4,
+        61,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 24,
+      "root_box": [
+        61,
+        4,
+        63,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 24,
+      "root_box": [
+        63,
+        4,
+        65,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 24,
+      "root_box": [
+        65,
+        4,
+        67,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 24,
+      "root_box": [
+        67,
+        4,
+        69,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 24,
+      "root_box": [
+        69,
+        4,
+        71,
+        5
+      ],
+      "row": "NE high terrace front",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 32,
+      "root_box": [
+        1,
+        5,
+        3,
+        6
+      ],
+      "row": "west border upper",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 32,
+      "root_box": [
+        3,
+        5,
+        5,
+        6
+      ],
+      "row": "west border upper",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 92,
+      "pixel_y": 32,
+      "root_box": [
+        6,
+        5,
+        8,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 124,
+      "pixel_y": 32,
+      "root_box": [
+        8,
+        5,
+        10,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 156,
+      "pixel_y": 32,
+      "root_box": [
+        10,
+        5,
+        12,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 188,
+      "pixel_y": 32,
+      "root_box": [
+        12,
+        5,
+        14,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 220,
+      "pixel_y": 32,
+      "root_box": [
+        14,
+        5,
+        16,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 252,
+      "pixel_y": 32,
+      "root_box": [
+        16,
+        5,
+        18,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 284,
+      "pixel_y": 32,
+      "root_box": [
+        18,
+        5,
+        20,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 316,
+      "pixel_y": 32,
+      "root_box": [
+        20,
+        5,
+        22,
+        6
+      ],
+      "row": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 56,
+      "root_box": [
+        1,
+        6,
+        3,
+        7
+      ],
+      "row": "west border upper join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 56,
+      "root_box": [
+        3,
+        6,
+        5,
+        7
+      ],
+      "row": "west border upper join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 80,
+      "root_box": [
+        1,
+        8,
+        3,
+        9
+      ],
+      "row": "west border north join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 80,
+      "root_box": [
+        3,
+        8,
+        5,
+        9
+      ],
+      "row": "west border north join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 80,
+      "root_box": [
+        5,
+        8,
+        7,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 80,
+      "root_box": [
+        7,
+        8,
+        9,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 140,
+      "pixel_y": 80,
+      "root_box": [
+        9,
+        8,
+        11,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 172,
+      "pixel_y": 80,
+      "root_box": [
+        11,
+        8,
+        13,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 204,
+      "pixel_y": 80,
+      "root_box": [
+        13,
+        8,
+        15,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 236,
+      "pixel_y": 80,
+      "root_box": [
+        15,
+        8,
+        17,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 268,
+      "pixel_y": 80,
+      "root_box": [
+        17,
+        8,
+        19,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 300,
+      "pixel_y": 80,
+      "root_box": [
+        19,
+        8,
+        21,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 332,
+      "pixel_y": 80,
+      "root_box": [
+        21,
+        8,
+        23,
+        9
+      ],
+      "row": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 588,
+      "pixel_y": 88,
+      "root_box": [
+        37,
+        8,
+        39,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 620,
+      "pixel_y": 88,
+      "root_box": [
+        39,
+        8,
+        41,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 652,
+      "pixel_y": 88,
+      "root_box": [
+        41,
+        8,
+        43,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 684,
+      "pixel_y": 88,
+      "root_box": [
+        43,
+        8,
+        45,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 716,
+      "pixel_y": 88,
+      "root_box": [
+        45,
+        8,
+        47,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 88,
+      "root_box": [
+        47,
+        8,
+        49,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 88,
+      "root_box": [
+        49,
+        8,
+        51,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 88,
+      "root_box": [
+        51,
+        8,
+        53,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 88,
+      "root_box": [
+        53,
+        8,
+        55,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 88,
+      "root_box": [
+        55,
+        8,
+        57,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 88,
+      "root_box": [
+        57,
+        8,
+        59,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 88,
+      "root_box": [
+        59,
+        8,
+        61,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 88,
+      "root_box": [
+        61,
+        8,
+        63,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 88,
+      "root_box": [
+        63,
+        8,
+        65,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 88,
+      "root_box": [
+        65,
+        8,
+        67,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 88,
+      "root_box": [
+        67,
+        8,
+        69,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 88,
+      "root_box": [
+        69,
+        8,
+        71,
+        9
+      ],
+      "row": "NE lower terrace back",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 104,
+      "root_box": [
+        1,
+        9,
+        3,
+        10
+      ],
+      "row": "west border dense join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 104,
+      "root_box": [
+        3,
+        9,
+        5,
+        10
+      ],
+      "row": "west border dense join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 104,
+      "root_box": [
+        5,
+        9,
+        7,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 104,
+      "root_box": [
+        7,
+        9,
+        9,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 140,
+      "pixel_y": 104,
+      "root_box": [
+        9,
+        9,
+        11,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 172,
+      "pixel_y": 104,
+      "root_box": [
+        11,
+        9,
+        13,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 204,
+      "pixel_y": 104,
+      "root_box": [
+        13,
+        9,
+        15,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 236,
+      "pixel_y": 104,
+      "root_box": [
+        15,
+        9,
+        17,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 268,
+      "pixel_y": 104,
+      "root_box": [
+        17,
+        9,
+        19,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 300,
+      "pixel_y": 104,
+      "root_box": [
+        19,
+        9,
+        21,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 332,
+      "pixel_y": 104,
+      "root_box": [
+        21,
+        9,
+        23,
+        10
+      ],
+      "row": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 620,
+      "pixel_y": 112,
+      "root_box": [
+        39,
+        10,
+        41,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 652,
+      "pixel_y": 112,
+      "root_box": [
+        41,
+        10,
+        43,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 684,
+      "pixel_y": 112,
+      "root_box": [
+        43,
+        10,
+        45,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 716,
+      "pixel_y": 112,
+      "root_box": [
+        45,
+        10,
+        47,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 112,
+      "root_box": [
+        47,
+        10,
+        49,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 112,
+      "root_box": [
+        49,
+        10,
+        51,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 112,
+      "root_box": [
+        51,
+        10,
+        53,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 112,
+      "root_box": [
+        53,
+        10,
+        55,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 112,
+      "root_box": [
+        55,
+        10,
+        57,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 112,
+      "root_box": [
+        57,
+        10,
+        59,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 112,
+      "root_box": [
+        59,
+        10,
+        61,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 112,
+      "root_box": [
+        61,
+        10,
+        63,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 112,
+      "root_box": [
+        63,
+        10,
+        65,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 112,
+      "root_box": [
+        65,
+        10,
+        67,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 112,
+      "root_box": [
+        67,
+        10,
+        69,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 112,
+      "root_box": [
+        69,
+        10,
+        71,
+        11
+      ],
+      "row": "NE lower terrace front",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 128,
+      "root_box": [
+        1,
+        11,
+        3,
+        12
+      ],
+      "row": "west border 01",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 128,
+      "root_box": [
+        3,
+        11,
+        5,
+        12
+      ],
+      "row": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 128,
+      "root_box": [
+        5,
+        11,
+        7,
+        12
+      ],
+      "row": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 128,
+      "root_box": [
+        7,
+        11,
+        9,
+        12
+      ],
+      "row": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 572,
+      "pixel_y": 136,
+      "root_box": [
+        36,
+        11,
+        38,
+        12
+      ],
+      "row": "residential west sentinel",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 136,
+      "root_box": [
+        47,
+        11,
+        49,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 136,
+      "root_box": [
+        49,
+        11,
+        51,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 136,
+      "root_box": [
+        51,
+        11,
+        53,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 136,
+      "root_box": [
+        53,
+        11,
+        55,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 136,
+      "root_box": [
+        55,
+        11,
+        57,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 136,
+      "root_box": [
+        57,
+        11,
+        59,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 136,
+      "root_box": [
+        59,
+        11,
+        61,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 136,
+      "root_box": [
+        61,
+        11,
+        63,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 136,
+      "root_box": [
+        63,
+        11,
+        65,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 136,
+      "root_box": [
+        65,
+        11,
+        67,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 136,
+      "root_box": [
+        67,
+        11,
+        69,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 136,
+      "root_box": [
+        69,
+        11,
+        71,
+        12
+      ],
+      "row": "east forest broad 1",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 152,
+      "root_box": [
+        1,
+        12,
+        3,
+        13
+      ],
+      "row": "west border 02",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 152,
+      "root_box": [
+        3,
+        12,
+        5,
+        13
+      ],
+      "row": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 152,
+      "root_box": [
+        5,
+        12,
+        7,
+        13
+      ],
+      "row": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 152,
+      "root_box": [
+        7,
+        12,
+        9,
+        13
+      ],
+      "row": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 668,
+      "pixel_y": 160,
+      "root_box": [
+        42,
+        13,
+        44,
+        14
+      ],
+      "row": "residential shelf pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 700,
+      "pixel_y": 160,
+      "root_box": [
+        44,
+        13,
+        46,
+        14
+      ],
+      "row": "residential shelf pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 160,
+      "root_box": [
+        47,
+        13,
+        49,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 160,
+      "root_box": [
+        49,
+        13,
+        51,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 160,
+      "root_box": [
+        51,
+        13,
+        53,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 160,
+      "root_box": [
+        53,
+        13,
+        55,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 160,
+      "root_box": [
+        55,
+        13,
+        57,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 160,
+      "root_box": [
+        57,
+        13,
+        59,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 160,
+      "root_box": [
+        59,
+        13,
+        61,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 160,
+      "root_box": [
+        61,
+        13,
+        63,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 160,
+      "root_box": [
+        63,
+        13,
+        65,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 160,
+      "root_box": [
+        65,
+        13,
+        67,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 160,
+      "root_box": [
+        67,
+        13,
+        69,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 160,
+      "root_box": [
+        69,
+        13,
+        71,
+        14
+      ],
+      "row": "east forest broad 2",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 176,
+      "root_box": [
+        1,
+        14,
+        3,
+        15
+      ],
+      "row": "west border 03",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 176,
+      "root_box": [
+        3,
+        14,
+        5,
+        15
+      ],
+      "row": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 176,
+      "root_box": [
+        5,
+        14,
+        7,
+        15
+      ],
+      "row": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 176,
+      "root_box": [
+        7,
+        14,
+        9,
+        15
+      ],
+      "row": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 184,
+      "root_box": [
+        47,
+        14,
+        49,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 184,
+      "root_box": [
+        49,
+        14,
+        51,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 184,
+      "root_box": [
+        51,
+        14,
+        53,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 184,
+      "root_box": [
+        53,
+        14,
+        55,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 184,
+      "root_box": [
+        55,
+        14,
+        57,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 184,
+      "root_box": [
+        57,
+        14,
+        59,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 184,
+      "root_box": [
+        59,
+        14,
+        61,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 972,
+      "pixel_y": 184,
+      "root_box": [
+        61,
+        14,
+        63,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1004,
+      "pixel_y": 184,
+      "root_box": [
+        63,
+        14,
+        65,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1036,
+      "pixel_y": 184,
+      "root_box": [
+        65,
+        14,
+        67,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1068,
+      "pixel_y": 184,
+      "root_box": [
+        67,
+        14,
+        69,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 1100,
+      "pixel_y": 184,
+      "root_box": [
+        69,
+        14,
+        71,
+        15
+      ],
+      "row": "east forest broad 3",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 208,
+      "root_box": [
+        1,
+        16,
+        3,
+        17
+      ],
+      "row": "west border 04",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 208,
+      "root_box": [
+        3,
+        16,
+        5,
+        17
+      ],
+      "row": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 208,
+      "root_box": [
+        5,
+        16,
+        7,
+        17
+      ],
+      "row": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 208,
+      "root_box": [
+        7,
+        16,
+        9,
+        17
+      ],
+      "row": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 208,
+      "root_box": [
+        47,
+        16,
+        49,
+        17
+      ],
+      "row": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 208,
+      "root_box": [
+        49,
+        16,
+        51,
+        17
+      ],
+      "row": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 208,
+      "root_box": [
+        51,
+        16,
+        53,
+        17
+      ],
+      "row": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 208,
+      "root_box": [
+        53,
+        16,
+        55,
+        17
+      ],
+      "row": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 876,
+      "pixel_y": 208,
+      "root_box": [
+        55,
+        16,
+        57,
+        17
+      ],
+      "row": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 232,
+      "root_box": [
+        1,
+        17,
+        3,
+        18
+      ],
+      "row": "west border 05",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 232,
+      "root_box": [
+        3,
+        17,
+        5,
+        18
+      ],
+      "row": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 232,
+      "root_box": [
+        5,
+        17,
+        7,
+        18
+      ],
+      "row": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 232,
+      "root_box": [
+        7,
+        17,
+        9,
+        18
+      ],
+      "row": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 232,
+      "root_box": [
+        47,
+        17,
+        49,
+        18
+      ],
+      "row": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 232,
+      "root_box": [
+        49,
+        17,
+        51,
+        18
+      ],
+      "row": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 232,
+      "root_box": [
+        51,
+        17,
+        53,
+        18
+      ],
+      "row": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 232,
+      "root_box": [
+        53,
+        17,
+        55,
+        18
+      ],
+      "row": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 924,
+      "pixel_y": 232,
+      "root_box": [
+        58,
+        17,
+        60,
+        18
+      ],
+      "row": "east shore upper",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 256,
+      "root_box": [
+        1,
+        19,
+        3,
+        20
+      ],
+      "row": "west border 06",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 256,
+      "root_box": [
+        3,
+        19,
+        5,
+        20
+      ],
+      "row": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 256,
+      "root_box": [
+        5,
+        19,
+        7,
+        20
+      ],
+      "row": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 256,
+      "root_box": [
+        7,
+        19,
+        9,
+        20
+      ],
+      "row": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 256,
+      "root_box": [
+        47,
+        19,
+        49,
+        20
+      ],
+      "row": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 256,
+      "root_box": [
+        49,
+        19,
+        51,
+        20
+      ],
+      "row": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 256,
+      "root_box": [
+        51,
+        19,
+        53,
+        20
+      ],
+      "row": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 256,
+      "root_box": [
+        53,
+        19,
+        55,
+        20
+      ],
+      "row": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 280,
+      "root_box": [
+        1,
+        20,
+        3,
+        21
+      ],
+      "row": "west border 07",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 280,
+      "root_box": [
+        3,
+        20,
+        5,
+        21
+      ],
+      "row": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 280,
+      "root_box": [
+        5,
+        20,
+        7,
+        21
+      ],
+      "row": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 280,
+      "root_box": [
+        7,
+        20,
+        9,
+        21
+      ],
+      "row": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 280,
+      "root_box": [
+        47,
+        20,
+        49,
+        21
+      ],
+      "row": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 280,
+      "root_box": [
+        49,
+        20,
+        51,
+        21
+      ],
+      "row": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 280,
+      "root_box": [
+        51,
+        20,
+        53,
+        21
+      ],
+      "row": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 280,
+      "root_box": [
+        53,
+        20,
+        55,
+        21
+      ],
+      "row": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 940,
+      "pixel_y": 280,
+      "root_box": [
+        59,
+        20,
+        61,
+        21
+      ],
+      "row": "east shore outer",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 892,
+      "pixel_y": 296,
+      "root_box": [
+        56,
+        21,
+        58,
+        22
+      ],
+      "row": "east shore inner",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 304,
+      "root_box": [
+        1,
+        22,
+        3,
+        23
+      ],
+      "row": "west border 08",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 304,
+      "root_box": [
+        3,
+        22,
+        5,
+        23
+      ],
+      "row": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 304,
+      "root_box": [
+        5,
+        22,
+        7,
+        23
+      ],
+      "row": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 304,
+      "root_box": [
+        7,
+        22,
+        9,
+        23
+      ],
+      "row": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 540,
+      "pixel_y": 304,
+      "root_box": [
+        34,
+        22,
+        36,
+        23
+      ],
+      "row": "stair courtyard pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 572,
+      "pixel_y": 304,
+      "root_box": [
+        36,
+        22,
+        38,
+        23
+      ],
+      "row": "stair courtyard pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 304,
+      "root_box": [
+        47,
+        22,
+        49,
+        23
+      ],
+      "row": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 304,
+      "root_box": [
+        49,
+        22,
+        51,
+        23
+      ],
+      "row": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 304,
+      "root_box": [
+        51,
+        22,
+        53,
+        23
+      ],
+      "row": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 304,
+      "root_box": [
+        53,
+        22,
+        55,
+        23
+      ],
+      "row": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 328,
+      "root_box": [
+        1,
+        23,
+        3,
+        24
+      ],
+      "row": "west border 09",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 328,
+      "root_box": [
+        3,
+        23,
+        5,
+        24
+      ],
+      "row": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 328,
+      "root_box": [
+        5,
+        23,
+        7,
+        24
+      ],
+      "row": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 328,
+      "root_box": [
+        7,
+        23,
+        9,
+        24
+      ],
+      "row": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 540,
+      "pixel_y": 328,
+      "root_box": [
+        34,
+        23,
+        36,
+        24
+      ],
+      "row": "stair courtyard middle",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 328,
+      "root_box": [
+        47,
+        23,
+        49,
+        24
+      ],
+      "row": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 328,
+      "root_box": [
+        49,
+        23,
+        51,
+        24
+      ],
+      "row": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 328,
+      "root_box": [
+        51,
+        23,
+        53,
+        24
+      ],
+      "row": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 328,
+      "root_box": [
+        53,
+        23,
+        55,
+        24
+      ],
+      "row": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 352,
+      "root_box": [
+        1,
+        25,
+        3,
+        26
+      ],
+      "row": "west border 10",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 352,
+      "root_box": [
+        3,
+        25,
+        5,
+        26
+      ],
+      "row": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 352,
+      "root_box": [
+        5,
+        25,
+        7,
+        26
+      ],
+      "row": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 352,
+      "root_box": [
+        7,
+        25,
+        9,
+        26
+      ],
+      "row": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 540,
+      "pixel_y": 352,
+      "root_box": [
+        34,
+        25,
+        36,
+        26
+      ],
+      "row": "stair courtyard front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 748,
+      "pixel_y": 352,
+      "root_box": [
+        47,
+        25,
+        49,
+        26
+      ],
+      "row": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 780,
+      "pixel_y": 352,
+      "root_box": [
+        49,
+        25,
+        51,
+        26
+      ],
+      "row": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 812,
+      "pixel_y": 352,
+      "root_box": [
+        51,
+        25,
+        53,
+        26
+      ],
+      "row": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 844,
+      "pixel_y": 352,
+      "root_box": [
+        53,
+        25,
+        55,
+        26
+      ],
+      "row": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 376,
+      "root_box": [
+        1,
+        26,
+        3,
+        27
+      ],
+      "row": "west border 11",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 376,
+      "root_box": [
+        3,
+        26,
+        5,
+        27
+      ],
+      "row": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 376,
+      "root_box": [
+        5,
+        26,
+        7,
+        27
+      ],
+      "row": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 376,
+      "root_box": [
+        7,
+        26,
+        9,
+        27
+      ],
+      "row": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 12,
+      "pixel_y": 400,
+      "root_box": [
+        1,
+        28,
+        3,
+        29
+      ],
+      "row": "west border 12",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 44,
+      "pixel_y": 400,
+      "root_box": [
+        3,
+        28,
+        5,
+        29
+      ],
+      "row": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 76,
+      "pixel_y": 400,
+      "root_box": [
+        5,
+        28,
+        7,
+        29
+      ],
+      "row": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 108,
+      "pixel_y": 400,
+      "root_box": [
+        7,
+        28,
+        9,
+        29
+      ],
+      "row": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 448,
+      "root_box": [
+        57,
+        31,
+        59,
+        32
+      ],
+      "row": "east shore south back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "pixel_x": 908,
+      "pixel_y": 472,
+      "root_box": [
+        57,
+        32,
+        59,
+        33
+      ],
+      "row": "east shore south front",
+      "padding": false
+    }
+  ],
+  "buildings": [
+    [
+      "civic-hall",
+      176,
+      144,
+      [
+        19,
+        17
+      ]
+    ],
+    [
+      "house",
+      272,
+      272,
+      [
+        23,
+        24
+      ]
+    ],
+    [
+      "house-pair",
+      496,
+      176,
+      [
+        37,
+        18
+      ]
+    ],
+    [
+      "house-pair",
+      576,
+      176,
+      [
+        42,
+        18
+      ]
+    ],
+    [
+      "cafe",
+      144,
+      400,
+      [
+        15,
+        31
+      ]
+    ],
+    [
+      "center",
+      224,
+      400,
+      [
+        20,
+        31
+      ]
+    ],
+    [
+      "mart",
+      464,
+      400,
+      [
+        36,
+        32
+      ]
+    ],
+    [
+      "lighthouse",
+      688,
+      336,
+      [
+        50,
+        34
+      ]
+    ],
+    [
+      "terminal",
+      304,
+      688,
+      [
+        29,
+        51
+      ]
+    ]
+  ],
+  "placements": [
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 0,
+      "source_xy": [
+        -52,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 0,
+      "source_xy": [
+        -20,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 0,
+      "source_xy": [
+        12,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 0,
+      "source_xy": [
+        44,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 140,
+      "y": 0,
+      "source_xy": [
+        76,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 172,
+      "y": 0,
+      "source_xy": [
+        108,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 204,
+      "y": 0,
+      "source_xy": [
+        140,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 236,
+      "y": 0,
+      "source_xy": [
+        172,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 268,
+      "y": 0,
+      "source_xy": [
+        204,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 300,
+      "y": 0,
+      "source_xy": [
+        236,
+        -16
+      ],
+      "role": "NW cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 364,
+      "y": 0,
+      "source_xy": [
+        300,
+        -16
+      ],
+      "role": "Route 39 west sentinel",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 588,
+      "y": 0,
+      "source_xy": [
+        524,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 620,
+      "y": 0,
+      "source_xy": [
+        556,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 652,
+      "y": 0,
+      "source_xy": [
+        588,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 684,
+      "y": 0,
+      "source_xy": [
+        620,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 716,
+      "y": 0,
+      "source_xy": [
+        652,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 0,
+      "source_xy": [
+        684,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 0,
+      "source_xy": [
+        716,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 0,
+      "source_xy": [
+        748,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 0,
+      "source_xy": [
+        780,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 0,
+      "source_xy": [
+        812,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 0,
+      "source_xy": [
+        844,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 0,
+      "source_xy": [
+        876,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 0,
+      "source_xy": [
+        908,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 0,
+      "source_xy": [
+        940,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 0,
+      "source_xy": [
+        972,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 0,
+      "source_xy": [
+        1004,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 0,
+      "source_xy": [
+        1036,
+        -16
+      ],
+      "role": "NE cropped back row completed",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 588,
+      "y": 24,
+      "source_xy": [
+        524,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 620,
+      "y": 24,
+      "source_xy": [
+        556,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 652,
+      "y": 24,
+      "source_xy": [
+        588,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 684,
+      "y": 24,
+      "source_xy": [
+        620,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 716,
+      "y": 24,
+      "source_xy": [
+        652,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 24,
+      "source_xy": [
+        684,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 24,
+      "source_xy": [
+        716,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 24,
+      "source_xy": [
+        748,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 24,
+      "source_xy": [
+        780,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 24,
+      "source_xy": [
+        812,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 24,
+      "source_xy": [
+        844,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 24,
+      "source_xy": [
+        876,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 24,
+      "source_xy": [
+        908,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 24,
+      "source_xy": [
+        940,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 24,
+      "source_xy": [
+        972,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 24,
+      "source_xy": [
+        1004,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 24,
+      "source_xy": [
+        1036,
+        8
+      ],
+      "role": "NE high terrace front",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 32,
+      "source_xy": [
+        -52,
+        16
+      ],
+      "role": "west border upper",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 32,
+      "source_xy": [
+        -20,
+        16
+      ],
+      "role": "west border upper",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 92,
+      "y": 32,
+      "source_xy": [
+        28,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 124,
+      "y": 32,
+      "source_xy": [
+        60,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 156,
+      "y": 32,
+      "source_xy": [
+        92,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 188,
+      "y": 32,
+      "source_xy": [
+        124,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 220,
+      "y": 32,
+      "source_xy": [
+        156,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 252,
+      "y": 32,
+      "source_xy": [
+        188,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 284,
+      "y": 32,
+      "source_xy": [
+        220,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 316,
+      "y": 32,
+      "source_xy": [
+        252,
+        16
+      ],
+      "role": "NW separated middle row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 56,
+      "source_xy": [
+        -52,
+        40
+      ],
+      "role": "west border upper join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 56,
+      "source_xy": [
+        -20,
+        40
+      ],
+      "role": "west border upper join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 80,
+      "source_xy": [
+        -52,
+        64
+      ],
+      "role": "west border north join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 80,
+      "source_xy": [
+        -20,
+        64
+      ],
+      "role": "west border north join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 80,
+      "source_xy": [
+        12,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 80,
+      "source_xy": [
+        44,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 140,
+      "y": 80,
+      "source_xy": [
+        76,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 172,
+      "y": 80,
+      "source_xy": [
+        108,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 204,
+      "y": 80,
+      "source_xy": [
+        140,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 236,
+      "y": 80,
+      "source_xy": [
+        172,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 268,
+      "y": 80,
+      "source_xy": [
+        204,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 300,
+      "y": 80,
+      "source_xy": [
+        236,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 332,
+      "y": 80,
+      "source_xy": [
+        268,
+        64
+      ],
+      "role": "NW upper dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 588,
+      "y": 88,
+      "source_xy": [
+        524,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 620,
+      "y": 88,
+      "source_xy": [
+        556,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 652,
+      "y": 88,
+      "source_xy": [
+        588,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 684,
+      "y": 88,
+      "source_xy": [
+        620,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 716,
+      "y": 88,
+      "source_xy": [
+        652,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 88,
+      "source_xy": [
+        684,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 88,
+      "source_xy": [
+        716,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 88,
+      "source_xy": [
+        748,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 88,
+      "source_xy": [
+        780,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 88,
+      "source_xy": [
+        812,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 88,
+      "source_xy": [
+        844,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 88,
+      "source_xy": [
+        876,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 88,
+      "source_xy": [
+        908,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 88,
+      "source_xy": [
+        940,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 88,
+      "source_xy": [
+        972,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 88,
+      "source_xy": [
+        1004,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 88,
+      "source_xy": [
+        1036,
+        72
+      ],
+      "role": "NE lower terrace back",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 104,
+      "source_xy": [
+        -52,
+        88
+      ],
+      "role": "west border dense join",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 104,
+      "source_xy": [
+        -20,
+        88
+      ],
+      "role": "west border dense join",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 104,
+      "source_xy": [
+        12,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 104,
+      "source_xy": [
+        44,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 140,
+      "y": 104,
+      "source_xy": [
+        76,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 172,
+      "y": 104,
+      "source_xy": [
+        108,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 204,
+      "y": 104,
+      "source_xy": [
+        140,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 236,
+      "y": 104,
+      "source_xy": [
+        172,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 268,
+      "y": 104,
+      "source_xy": [
+        204,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 300,
+      "y": 104,
+      "source_xy": [
+        236,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 332,
+      "y": 104,
+      "source_xy": [
+        268,
+        88
+      ],
+      "role": "NW lower dense row",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 620,
+      "y": 112,
+      "source_xy": [
+        556,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 652,
+      "y": 112,
+      "source_xy": [
+        588,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 684,
+      "y": 112,
+      "source_xy": [
+        620,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 716,
+      "y": 112,
+      "source_xy": [
+        652,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 112,
+      "source_xy": [
+        684,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 112,
+      "source_xy": [
+        716,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 112,
+      "source_xy": [
+        748,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 112,
+      "source_xy": [
+        780,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 112,
+      "source_xy": [
+        812,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 112,
+      "source_xy": [
+        844,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 112,
+      "source_xy": [
+        876,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 112,
+      "source_xy": [
+        908,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 112,
+      "source_xy": [
+        940,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 112,
+      "source_xy": [
+        972,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 112,
+      "source_xy": [
+        1004,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 112,
+      "source_xy": [
+        1036,
+        96
+      ],
+      "role": "NE lower terrace front",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 128,
+      "source_xy": [
+        -52,
+        112
+      ],
+      "role": "west border 01",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 128,
+      "source_xy": [
+        -20,
+        112
+      ],
+      "role": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 128,
+      "source_xy": [
+        12,
+        112
+      ],
+      "role": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 128,
+      "source_xy": [
+        44,
+        112
+      ],
+      "role": "west border 01",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 572,
+      "y": 136,
+      "source_xy": [
+        508,
+        120
+      ],
+      "role": "residential west sentinel",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 136,
+      "source_xy": [
+        684,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 136,
+      "source_xy": [
+        716,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 136,
+      "source_xy": [
+        748,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 136,
+      "source_xy": [
+        780,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 136,
+      "source_xy": [
+        812,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 136,
+      "source_xy": [
+        844,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 136,
+      "source_xy": [
+        876,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 136,
+      "source_xy": [
+        908,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 136,
+      "source_xy": [
+        940,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 136,
+      "source_xy": [
+        972,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 136,
+      "source_xy": [
+        1004,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 136,
+      "source_xy": [
+        1036,
+        120
+      ],
+      "role": "east forest broad 1",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 152,
+      "source_xy": [
+        -52,
+        136
+      ],
+      "role": "west border 02",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 152,
+      "source_xy": [
+        -20,
+        136
+      ],
+      "role": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 152,
+      "source_xy": [
+        12,
+        136
+      ],
+      "role": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 152,
+      "source_xy": [
+        44,
+        136
+      ],
+      "role": "west border 02",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 668,
+      "y": 160,
+      "source_xy": [
+        604,
+        144
+      ],
+      "role": "residential shelf pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 700,
+      "y": 160,
+      "source_xy": [
+        636,
+        144
+      ],
+      "role": "residential shelf pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 160,
+      "source_xy": [
+        684,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 160,
+      "source_xy": [
+        716,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 160,
+      "source_xy": [
+        748,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 160,
+      "source_xy": [
+        780,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 160,
+      "source_xy": [
+        812,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 160,
+      "source_xy": [
+        844,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 160,
+      "source_xy": [
+        876,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 160,
+      "source_xy": [
+        908,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 160,
+      "source_xy": [
+        940,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 160,
+      "source_xy": [
+        972,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 160,
+      "source_xy": [
+        1004,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 160,
+      "source_xy": [
+        1036,
+        144
+      ],
+      "role": "east forest broad 2",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 176,
+      "source_xy": [
+        -52,
+        160
+      ],
+      "role": "west border 03",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 176,
+      "source_xy": [
+        -20,
+        160
+      ],
+      "role": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 176,
+      "source_xy": [
+        12,
+        160
+      ],
+      "role": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 176,
+      "source_xy": [
+        44,
+        160
+      ],
+      "role": "west border 03",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 184,
+      "source_xy": [
+        684,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 184,
+      "source_xy": [
+        716,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 184,
+      "source_xy": [
+        748,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 184,
+      "source_xy": [
+        780,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 184,
+      "source_xy": [
+        812,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 184,
+      "source_xy": [
+        844,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 184,
+      "source_xy": [
+        876,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 972,
+      "y": 184,
+      "source_xy": [
+        908,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1004,
+      "y": 184,
+      "source_xy": [
+        940,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1036,
+      "y": 184,
+      "source_xy": [
+        972,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1068,
+      "y": 184,
+      "source_xy": [
+        1004,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 1100,
+      "y": 184,
+      "source_xy": [
+        1036,
+        168
+      ],
+      "role": "east forest broad 3",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 208,
+      "source_xy": [
+        -52,
+        192
+      ],
+      "role": "west border 04",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 208,
+      "source_xy": [
+        -20,
+        192
+      ],
+      "role": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 208,
+      "source_xy": [
+        12,
+        192
+      ],
+      "role": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 208,
+      "source_xy": [
+        44,
+        192
+      ],
+      "role": "west border 04",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 208,
+      "source_xy": [
+        684,
+        192
+      ],
+      "role": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 208,
+      "source_xy": [
+        716,
+        192
+      ],
+      "role": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 208,
+      "source_xy": [
+        748,
+        192
+      ],
+      "role": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 208,
+      "source_xy": [
+        780,
+        192
+      ],
+      "role": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 876,
+      "y": 208,
+      "source_xy": [
+        812,
+        192
+      ],
+      "role": "east forest shoulder",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 232,
+      "source_xy": [
+        -52,
+        216
+      ],
+      "role": "west border 05",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 232,
+      "source_xy": [
+        -20,
+        216
+      ],
+      "role": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 232,
+      "source_xy": [
+        12,
+        216
+      ],
+      "role": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 232,
+      "source_xy": [
+        44,
+        216
+      ],
+      "role": "west border 05",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 232,
+      "source_xy": [
+        684,
+        216
+      ],
+      "role": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 232,
+      "source_xy": [
+        716,
+        216
+      ],
+      "role": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 232,
+      "source_xy": [
+        748,
+        216
+      ],
+      "role": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 232,
+      "source_xy": [
+        780,
+        216
+      ],
+      "role": "lighthouse grove 1",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 924,
+      "y": 232,
+      "source_xy": [
+        860,
+        216
+      ],
+      "role": "east shore upper",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 256,
+      "source_xy": [
+        -52,
+        240
+      ],
+      "role": "west border 06",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 256,
+      "source_xy": [
+        -20,
+        240
+      ],
+      "role": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 256,
+      "source_xy": [
+        12,
+        240
+      ],
+      "role": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 256,
+      "source_xy": [
+        44,
+        240
+      ],
+      "role": "west border 06",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 256,
+      "source_xy": [
+        684,
+        240
+      ],
+      "role": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 256,
+      "source_xy": [
+        716,
+        240
+      ],
+      "role": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 256,
+      "source_xy": [
+        748,
+        240
+      ],
+      "role": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 256,
+      "source_xy": [
+        780,
+        240
+      ],
+      "role": "lighthouse grove 2",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 280,
+      "source_xy": [
+        -52,
+        264
+      ],
+      "role": "west border 07",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 280,
+      "source_xy": [
+        -20,
+        264
+      ],
+      "role": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 280,
+      "source_xy": [
+        12,
+        264
+      ],
+      "role": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 280,
+      "source_xy": [
+        44,
+        264
+      ],
+      "role": "west border 07",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 280,
+      "source_xy": [
+        684,
+        264
+      ],
+      "role": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 280,
+      "source_xy": [
+        716,
+        264
+      ],
+      "role": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 280,
+      "source_xy": [
+        748,
+        264
+      ],
+      "role": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 280,
+      "source_xy": [
+        780,
+        264
+      ],
+      "role": "lighthouse grove 3",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 940,
+      "y": 280,
+      "source_xy": [
+        876,
+        264
+      ],
+      "role": "east shore outer",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 892,
+      "y": 296,
+      "source_xy": [
+        828,
+        280
+      ],
+      "role": "east shore inner",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 304,
+      "source_xy": [
+        -52,
+        288
+      ],
+      "role": "west border 08",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 304,
+      "source_xy": [
+        -20,
+        288
+      ],
+      "role": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 304,
+      "source_xy": [
+        12,
+        288
+      ],
+      "role": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 304,
+      "source_xy": [
+        44,
+        288
+      ],
+      "role": "west border 08",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 540,
+      "y": 304,
+      "source_xy": [
+        476,
+        288
+      ],
+      "role": "stair courtyard pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 572,
+      "y": 304,
+      "source_xy": [
+        508,
+        288
+      ],
+      "role": "stair courtyard pair",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 304,
+      "source_xy": [
+        684,
+        288
+      ],
+      "role": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 304,
+      "source_xy": [
+        716,
+        288
+      ],
+      "role": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 304,
+      "source_xy": [
+        748,
+        288
+      ],
+      "role": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 304,
+      "source_xy": [
+        780,
+        288
+      ],
+      "role": "lighthouse grove 4",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 328,
+      "source_xy": [
+        -52,
+        312
+      ],
+      "role": "west border 09",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 328,
+      "source_xy": [
+        -20,
+        312
+      ],
+      "role": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 328,
+      "source_xy": [
+        12,
+        312
+      ],
+      "role": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 328,
+      "source_xy": [
+        44,
+        312
+      ],
+      "role": "west border 09",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 540,
+      "y": 328,
+      "source_xy": [
+        476,
+        312
+      ],
+      "role": "stair courtyard middle",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 328,
+      "source_xy": [
+        684,
+        312
+      ],
+      "role": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 328,
+      "source_xy": [
+        716,
+        312
+      ],
+      "role": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 328,
+      "source_xy": [
+        748,
+        312
+      ],
+      "role": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 328,
+      "source_xy": [
+        780,
+        312
+      ],
+      "role": "lighthouse grove 5",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 352,
+      "source_xy": [
+        -52,
+        336
+      ],
+      "role": "west border 10",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 352,
+      "source_xy": [
+        -20,
+        336
+      ],
+      "role": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 352,
+      "source_xy": [
+        12,
+        336
+      ],
+      "role": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 352,
+      "source_xy": [
+        44,
+        336
+      ],
+      "role": "west border 10",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 540,
+      "y": 352,
+      "source_xy": [
+        476,
+        336
+      ],
+      "role": "stair courtyard front",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 748,
+      "y": 352,
+      "source_xy": [
+        684,
+        336
+      ],
+      "role": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 780,
+      "y": 352,
+      "source_xy": [
+        716,
+        336
+      ],
+      "role": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 812,
+      "y": 352,
+      "source_xy": [
+        748,
+        336
+      ],
+      "role": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 844,
+      "y": 352,
+      "source_xy": [
+        780,
+        336
+      ],
+      "role": "lighthouse grove 6",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 376,
+      "source_xy": [
+        -52,
+        360
+      ],
+      "role": "west border 11",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 376,
+      "source_xy": [
+        -20,
+        360
+      ],
+      "role": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 376,
+      "source_xy": [
+        12,
+        360
+      ],
+      "role": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 376,
+      "source_xy": [
+        44,
+        360
+      ],
+      "role": "west border 11",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 12,
+      "y": 400,
+      "source_xy": [
+        -52,
+        384
+      ],
+      "role": "west border 12",
+      "padding": true
+    },
+    {
+      "name": "olivine-tree",
+      "x": 44,
+      "y": 400,
+      "source_xy": [
+        -20,
+        384
+      ],
+      "role": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 76,
+      "y": 400,
+      "source_xy": [
+        12,
+        384
+      ],
+      "role": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 108,
+      "y": 400,
+      "source_xy": [
+        44,
+        384
+      ],
+      "role": "west border 12",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 448,
+      "source_xy": [
+        844,
+        432
+      ],
+      "role": "east shore south back",
+      "padding": false
+    },
+    {
+      "name": "olivine-tree",
+      "x": 908,
+      "y": 472,
+      "source_xy": [
+        844,
+        456
+      ],
+      "role": "east shore south front",
+      "padding": false
+    },
+    {
+      "name": "stairs",
+      "x": 640,
+      "y": 328,
+      "source_xy": [
+        576,
+        312
+      ],
+      "role": "original south-facing stair, complete first/last treads"
+    },
+    {
+      "name": "ramp",
+      "x": 688,
+      "y": 544,
+      "source_xy": [
+        624,
+        528
+      ],
+      "role": "lighthouse original diagonal timber ramp; native east-west axis"
+    },
+    {
+      "name": "civic-hall",
+      "x": 240,
+      "y": 160,
+      "source_xy": [
+        176,
+        144
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "house",
+      "x": 336,
+      "y": 288,
+      "source_xy": [
+        272,
+        272
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "house-pair",
+      "x": 560,
+      "y": 192,
+      "source_xy": [
+        496,
+        176
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "house-pair",
+      "x": 640,
+      "y": 192,
+      "source_xy": [
+        576,
+        176
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "cafe",
+      "x": 208,
+      "y": 416,
+      "source_xy": [
+        144,
+        400
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "center",
+      "x": 288,
+      "y": 416,
+      "source_xy": [
+        224,
+        400
+      ],
+      "role": "approved shared service art"
+    },
+    {
+      "name": "mart",
+      "x": 528,
+      "y": 416,
+      "source_xy": [
+        464,
+        400
+      ],
+      "role": "approved shared service art"
+    },
+    {
+      "name": "lighthouse",
+      "x": 752,
+      "y": 352,
+      "source_xy": [
+        688,
+        336
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "terminal",
+      "x": 368,
+      "y": 704,
+      "source_xy": [
+        304,
+        688
+      ],
+      "role": "original local architecture; footprint registered"
+    },
+    {
+      "name": "lighthouse",
+      "x": 752,
+      "y": 352,
+      "source_xy": [
+        688,
+        336
+      ],
+      "role": "local lighthouse in front of complete northern grove crowns"
+    },
+    {
+      "name": "rail",
+      "x": 168,
+      "y": 640,
+      "source_xy": [
+        104,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 200,
+      "y": 640,
+      "source_xy": [
+        136,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 232,
+      "y": 640,
+      "source_xy": [
+        168,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 264,
+      "y": 640,
+      "source_xy": [
+        200,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 296,
+      "y": 640,
+      "source_xy": [
+        232,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 392,
+      "y": 640,
+      "source_xy": [
+        328,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 520,
+      "y": 640,
+      "source_xy": [
+        456,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 616,
+      "y": 640,
+      "source_xy": [
+        552,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 648,
+      "y": 640,
+      "source_xy": [
+        584,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "rail",
+      "x": 680,
+      "y": 640,
+      "source_xy": [
+        616,
+        624
+      ],
+      "role": "continuous quayside railing"
+    },
+    {
+      "name": "bench",
+      "x": 192,
+      "y": 592,
+      "source_xy": [
+        128,
+        576
+      ],
+      "role": "original quay bench, full feet and contact"
+    },
+    {
+      "name": "umbrella",
+      "x": 200,
+      "y": 560,
+      "source_xy": [
+        136,
+        544
+      ],
+      "role": "original blue parasol over independent deck"
+    },
+    {
+      "name": "bench",
+      "x": 304,
+      "y": 592,
+      "source_xy": [
+        240,
+        576
+      ],
+      "role": "original quay bench, full feet and contact"
+    },
+    {
+      "name": "umbrella",
+      "x": 312,
+      "y": 560,
+      "source_xy": [
+        248,
+        544
+      ],
+      "role": "original blue parasol over independent deck"
+    },
+    {
+      "name": "bench",
+      "x": 544,
+      "y": 592,
+      "source_xy": [
+        480,
+        576
+      ],
+      "role": "original quay bench, full feet and contact"
+    },
+    {
+      "name": "umbrella",
+      "x": 552,
+      "y": 560,
+      "source_xy": [
+        488,
+        544
+      ],
+      "role": "original blue parasol over independent deck"
+    },
+    {
+      "name": "boat",
+      "x": 312,
+      "y": 624,
+      "source_xy": [
+        248,
+        608
+      ],
+      "role": "original sailboat; entire mast/sail/hull silhouette; marine foreground"
+    },
+    {
+      "name": "boat",
+      "x": 536,
+      "y": 624,
+      "source_xy": [
+        472,
+        608
+      ],
+      "role": "original sailboat; entire mast/sail/hull silhouette; marine foreground"
+    },
+    {
+      "name": "bunting",
+      "x": 168,
+      "y": 288,
+      "source_xy": [
+        104,
+        272
+      ],
+      "role": "original maritime street bunting; open below suspended flags"
+    },
+    {
+      "name": "bunting",
+      "x": 392,
+      "y": 400,
+      "source_xy": [
+        328,
+        384
+      ],
+      "role": "original maritime street bunting; open below suspended flags"
+    },
+    {
+      "name": "bunting",
+      "x": 392,
+      "y": 16,
+      "source_xy": [
+        328,
+        0
+      ],
+      "role": "original maritime street bunting; open below suspended flags"
+    },
+    {
+      "name": "P12",
+      "x": 224,
+      "y": 224,
+      "source_xy": [
+        160,
+        208
+      ],
+      "role": "shared sign on original sign footprint"
+    },
+    {
+      "name": "P12",
+      "x": 448,
+      "y": 344,
+      "source_xy": [
+        384,
+        328
+      ],
+      "role": "shared sign on original sign footprint"
+    },
+    {
+      "name": "P12",
+      "x": 824,
+      "y": 528,
+      "source_xy": [
+        760,
+        512
+      ],
+      "role": "shared sign on original sign footprint"
+    },
+    {
+      "name": "P12",
+      "x": 456,
+      "y": 576,
+      "source_xy": [
+        392,
+        560
+      ],
+      "role": "shared sign on original sign footprint"
+    },
+    {
+      "name": "land-rock",
+      "x": 584,
+      "y": 352,
+      "source_xy": [
+        520,
+        336
+      ],
+      "role": "complete local outcrop over independent ground"
+    },
+    {
+      "name": "land-rock",
+      "x": 896,
+      "y": 272,
+      "source_xy": [
+        832,
+        256
+      ],
+      "role": "shore boulder reseated at HGSS rock socket; clears full tree crown"
+    },
+    {
+      "name": "land-rock",
+      "x": 912,
+      "y": 432,
+      "source_xy": [
+        848,
+        416
+      ],
+      "role": "shore boulder reseated at HGSS rock socket; clears full tree crown"
+    },
+    {
+      "name": "land-rock",
+      "x": 912,
+      "y": 528,
+      "source_xy": [
+        848,
+        512
+      ],
+      "role": "complete local outcrop over independent ground"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1016,
+      "y": 320,
+      "source_xy": [
+        952,
+        304
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1032,
+      "y": 368,
+      "source_xy": [
+        968,
+        352
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 968,
+      "y": 392,
+      "source_xy": [
+        904,
+        376
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1008,
+      "y": 400,
+      "source_xy": [
+        944,
+        384
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1000,
+      "y": 424,
+      "source_xy": [
+        936,
+        408
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1000,
+      "y": 448,
+      "source_xy": [
+        936,
+        432
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1000,
+      "y": 472,
+      "source_xy": [
+        936,
+        456
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1008,
+      "y": 496,
+      "source_xy": [
+        944,
+        480
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1016,
+      "y": 520,
+      "source_xy": [
+        952,
+        504
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1032,
+      "y": 544,
+      "source_xy": [
+        968,
+        528
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1032,
+      "y": 568,
+      "source_xy": [
+        968,
+        552
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1032,
+      "y": 592,
+      "source_xy": [
+        968,
+        576
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1048,
+      "y": 616,
+      "source_xy": [
+        984,
+        600
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1064,
+      "y": 640,
+      "source_xy": [
+        1000,
+        624
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1080,
+      "y": 664,
+      "source_xy": [
+        1016,
+        648
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1064,
+      "y": 688,
+      "source_xy": [
+        1000,
+        672
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1032,
+      "y": 696,
+      "source_xy": [
+        968,
+        680
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 1000,
+      "y": 696,
+      "source_xy": [
+        936,
+        680
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 968,
+      "y": 696,
+      "source_xy": [
+        904,
+        680
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 936,
+      "y": 696,
+      "source_xy": [
+        872,
+        680
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 904,
+      "y": 704,
+      "source_xy": [
+        840,
+        688
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 872,
+      "y": 712,
+      "source_xy": [
+        808,
+        696
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 840,
+      "y": 720,
+      "source_xy": [
+        776,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 808,
+      "y": 720,
+      "source_xy": [
+        744,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 776,
+      "y": 720,
+      "source_xy": [
+        712,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 744,
+      "y": 720,
+      "source_xy": [
+        680,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 712,
+      "y": 720,
+      "source_xy": [
+        648,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 680,
+      "y": 720,
+      "source_xy": [
+        616,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 648,
+      "y": 720,
+      "source_xy": [
+        584,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 616,
+      "y": 720,
+      "source_xy": [
+        552,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 584,
+      "y": 720,
+      "source_xy": [
+        520,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 552,
+      "y": 720,
+      "source_xy": [
+        488,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 312,
+      "y": 744,
+      "source_xy": [
+        248,
+        728
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 280,
+      "y": 744,
+      "source_xy": [
+        216,
+        728
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 248,
+      "y": 728,
+      "source_xy": [
+        184,
+        712
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 216,
+      "y": 720,
+      "source_xy": [
+        152,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 184,
+      "y": 720,
+      "source_xy": [
+        120,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 152,
+      "y": 720,
+      "source_xy": [
+        88,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 120,
+      "y": 720,
+      "source_xy": [
+        56,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 88,
+      "y": 720,
+      "source_xy": [
+        24,
+        704
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 152,
+      "y": 656,
+      "source_xy": [
+        88,
+        640
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    },
+    {
+      "name": "sea-rock",
+      "x": 152,
+      "y": 688,
+      "source_xy": [
+        88,
+        672
+      ],
+      "role": "individual original breakwater boulder; independent surf water"
+    }
+  ],
+  "tree_master_directory": "forest-refinement/masters",
+  "tree_row_ledger": "tree-rows.json"
+}

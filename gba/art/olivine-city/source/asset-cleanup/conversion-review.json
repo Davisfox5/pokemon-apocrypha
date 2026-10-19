@@ -1,0 +1,72 @@
+{
+  "base": "8eb23f6774fd937f3018d413f1fab5b6dc8d05c8",
+  "placements": 320,
+  "stone_native_glyphs_reviewed": 426,
+  "stone_noise_pixels_removed": 112,
+  "wall_contour_changes": 0,
+  "interior_vocabulary": [
+    {
+      "district": "City",
+      "facing": "east",
+      "before": 26,
+      "after": 20,
+      "mixed_edges_changed": 0
+    },
+    {
+      "district": "City",
+      "facing": "west",
+      "before": 22,
+      "after": 16,
+      "mixed_edges_changed": 0
+    },
+    {
+      "district": "City",
+      "facing": "front",
+      "before": 46,
+      "after": 32,
+      "mixed_edges_changed": 0
+    },
+    {
+      "district": "Quay",
+      "facing": "west",
+      "before": 16,
+      "after": 10,
+      "mixed_edges_changed": 0
+    },
+    {
+      "district": "Quay",
+      "facing": "east",
+      "before": 24,
+      "after": 12,
+      "mixed_edges_changed": 0
+    },
+    {
+      "district": "Quay",
+      "facing": "front",
+      "before": 32,
+      "after": 20,
+      "mixed_edges_changed": 0
+    }
+  ],
+  "hidden_background_reuse": [
+    {
+      "rows": [
+        0,
+        26
+      ],
+      "glyphs_before": 565,
+      "glyphs_after": 450,
+      "visible_pixel_changes": 0
+    },
+    {
+      "rows": [
+        26,
+        44
+      ],
+      "glyphs_before": 440,
+      "glyphs_after": 330,
+      "visible_pixel_changes": 0
+    }
+  ],
+  "collision_changes": 0
+}

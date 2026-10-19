@@ -1,0 +1,338 @@
+[
+  {
+    "name": "NW upper east face",
+    "target": [
+      288,
+      -16,
+      312,
+      48
+    ],
+    "donor": [
+      288,
+      16,
+      312,
+      48
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "NW lower east face",
+    "target": [
+      304,
+      80,
+      328,
+      144
+    ],
+    "donor": [
+      304,
+      96,
+      328,
+      128
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "NW forest south face",
+    "target": [
+      112,
+      152,
+      288,
+      176
+    ],
+    "donor": [
+      112,
+      152,
+      144,
+      176
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "western retaining east face",
+    "target": [
+      88,
+      184,
+      112,
+      440
+    ],
+    "donor": [
+      88,
+      208,
+      112,
+      240
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "western beach south lip",
+    "target": [
+      -64,
+      448,
+      80,
+      472
+    ],
+    "donor": [
+      16,
+      448,
+      48,
+      472
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "north main west face",
+    "target": [
+      464,
+      160,
+      488,
+      384
+    ],
+    "donor": [
+      464,
+      208,
+      488,
+      240
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "north main upper west face",
+    "target": [
+      464,
+      64,
+      488,
+      120
+    ],
+    "donor": [
+      464,
+      208,
+      488,
+      240
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "north inner spur",
+    "target": [
+      488,
+      -16,
+      512,
+      112
+    ],
+    "donor": [
+      488,
+      48,
+      512,
+      80
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "north highest west face",
+    "target": [
+      504,
+      -16,
+      536,
+      64
+    ],
+    "donor": [
+      504,
+      16,
+      536,
+      48
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "north forest south course",
+    "target": [
+      552,
+      72,
+      1088,
+      96
+    ],
+    "donor": [
+      704,
+      576,
+      736,
+      600
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "residential lower south lip",
+    "target": [
+      536,
+      176,
+      624,
+      200
+    ],
+    "donor": [
+      560,
+      176,
+      592,
+      200
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "residential upper south lip",
+    "target": [
+      568,
+      152,
+      616,
+      176
+    ],
+    "donor": [
+      568,
+      152,
+      600,
+      176
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "lighthouse upper west face",
+    "target": [
+      656,
+      232,
+      696,
+      296
+    ],
+    "donor": [
+      656,
+      240,
+      696,
+      272
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "lighthouse upper west inset",
+    "target": [
+      672,
+      328,
+      696,
+      392
+    ],
+    "donor": [
+      672,
+      336,
+      696,
+      368
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "lighthouse middle west face",
+    "target": [
+      624,
+      344,
+      664,
+      520
+    ],
+    "donor": [
+      624,
+      416,
+      664,
+      448
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "lighthouse lower west inset",
+    "target": [
+      656,
+      424,
+      680,
+      520
+    ],
+    "donor": [
+      656,
+      448,
+      680,
+      480
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "headland three south courses",
+    "target": [
+      696,
+      576,
+      784,
+      648
+    ],
+    "donor": [
+      704,
+      576,
+      736,
+      648
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "headland lower two courses",
+    "target": [
+      784,
+      600,
+      832,
+      648
+    ],
+    "donor": [
+      704,
+      600,
+      736,
+      648
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "east three north-facing courses",
+    "target": [
+      944,
+      224,
+      1088,
+      304
+    ],
+    "donor": [
+      976,
+      224,
+      1008,
+      304
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "east high wall lower run",
+    "target": [
+      824,
+      456,
+      856,
+      552
+    ],
+    "donor": [
+      824,
+      480,
+      856,
+      512
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  },
+  {
+    "name": "east high wall upper run",
+    "target": [
+      824,
+      368,
+      856,
+      408
+    ],
+    "donor": [
+      824,
+      376,
+      856,
+      408
+    ],
+    "policy": "same-facing original face; bends/endpoints excluded, no scaling"
+  }
+]

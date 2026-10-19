@@ -1,0 +1,64 @@
+{
+  "reviewed": [
+    "Whole original/native registered views",
+    "All 4,032 native cells with material/collision audit",
+    "All cliff orientations, north terrace corners and lighthouse front/side contact",
+    "House ridges, eaves, full foundations, Center/Mart joins and visible door approaches",
+    "All shared crowns including the restored lighthouse grove; complete bounds and distinct roots re-audited",
+    "Full sailboat masts/sails/hulls, deck plank grain, rail posts, parasols, bench feet",
+    "Source and native stair first/last treads, east-west timber ramp and adjacent wall shoulders",
+    "All gameplay captures at native size and nearest-neighbor enlargement",
+    "District entry/return views and normal cold Continue"
+  ],
+  "corrections": [
+    {
+      "area": "East stair head, native x40..42/y20..21",
+      "defect": "Top source treads remained on solid cliff cells.",
+      "repair": "Open the actual visible stair head and foot; verify walking in both directions."
+    },
+    {
+      "area": "Lighthouse door x50/y34 and sign x51/y34",
+      "defect": "The first sign placement obstructed the visible doorway approach.",
+      "repair": "Move shared sign to original offset-right lot; door approach stays reachable and unobstructed."
+    },
+    {
+      "area": "Lighthouse south/west wall shoulder",
+      "defect": "Grass sliver below the ramp and along the toe.",
+      "repair": "Rebuild complete local side/front/shore contact with the cliff family, preserve timber slope."
+    },
+    {
+      "area": "West beach shore",
+      "defect": "An eight-pixel grass fringe and flat reduced sand.",
+      "repair": "Continue sand to the shore, preserve original donor grain, align the final sand/foam contact."
+    },
+    {
+      "area": "Lighthouse northern grove",
+      "defect": "A rectangular building-footprint exclusion cleared too many original trees.",
+      "repair": "Retain complete grove crowns behind the actual lighthouse silhouette and render architecture in front."
+    },
+    {
+      "area": "City district south camera border",
+      "defect": "A sand border filled the lower camera view behind the central house.",
+      "repair": "Use local native civic paving; inspect the actual camera capture after the correction."
+    },
+    {
+      "area": "Shared Center doorway x20/y31",
+      "defect": "Initial capture/test point was beside the doorway.",
+      "repair": "Register and inspect the actual center doorway approach; retain accepted master unchanged."
+    }
+  ],
+  "adaptations": [
+    "72x56 native registration with source offset +64,+16 and perimeter padding.",
+    "Shared native Center/Mart footprints, complete tree grid, cliff modules and mixed-square corners require receiving joins.",
+    "Ground palette uses 7 rock shades and 4 cobble shades; local prop palette reduction preserves complete silhouettes and texture.",
+    "Three ordinary-fade districts (global rows 0..25,26..43,44..55); no seamless scrolling claim.",
+    "Original Gym emblem removed; civic maritime crest is a proposal following no-active-Gym canon.",
+    "Diagonal timber ramp uses native east-west traversal."
+  ],
+  "limits": [
+    "Overview projection does not prove DS terrain heights, original collision or hidden ground.",
+    "Exterior only: interiors, Routes 39/40, shipping services, actors, shops, dialogue and campaign progression remain unwired.",
+    "Static water texture; no animated ocean callback.",
+    "No owner visual acceptance, preexisting-save compatibility, desktop emulator or interactive Porymap UI save is claimed."
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "source_commit": "8eb23f6774fd937f3018d413f1fab5b6dc8d05c8",
+  "baseline": "116ea8011c958d10bf5d61daf2d879cca9e8a184",
+  "source_PR": "https://github.com/Davisfox5/pokeemerald-expansion/pull/21",
+  "source_manifest": [
+    {
+      "path": "data/layouts/JohtoOlivineCity/border.bin",
+      "git_blob": "83c4c881bbdd7a3c0b982430dcd4aabd6da86e9f",
+      "sha256": "103d0c50b6f392c60d54705aeefae8833aef321a7e34771d40c7c020c36ae225"
+    },
+    {
+      "path": "data/layouts/JohtoOlivineCity/map.bin",
+      "git_blob": "fb417673c60e392684cc28234f9413b5dd6a5676",
+      "sha256": "0de632b5dd08284ac220a98a15712f27fb484cf84ae8d9ebad3399ce9e3ebc36"
+    },
+    {
+      "path": "data/layouts/JohtoOlivineQuay/map.bin",
+      "git_blob": "e5c50ed58353e98022c502ba6954bd0eda26ddb4",
+      "sha256": "284e6936994d28e5e7a9732c8918569879a5739056320994a004d4a2d1896f20"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/metatile_attributes.bin",
+      "git_blob": "f9f9604d84ee6b9521f30a071d6f1f3bb6a140b8",
+      "sha256": "054951c7edcff33925fb43802c4acd7b25b0dd834a1316817ccfa1ecf137a3d3"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/metatiles.bin",
+      "git_blob": "7acb5543a712d156b78943a8f82d21e058cb8b02",
+      "sha256": "a8f9ecf61d34b79fec3521f16bac92949743a81938438e34046b9278bb494df5"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/02.pal",
+      "git_blob": "8b95f6554a3189df3a2efaa37e438c70d1ddaaaf",
+      "sha256": "a79c644b20c283050c59cdb683257fdaaf9684cce7c304764461680cad51176b"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/03.pal",
+      "git_blob": "377cd1fc06a294c2f80b7a8addf28a409ff632b9",
+      "sha256": "5747501a11d021bd0a8c91902caa3c6fadbe9b3835698746081c7374d9f000e6"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/04.pal",
+      "git_blob": "8feef7a9ab2c89700aa29265f17d80cc9467a6f5",
+      "sha256": "e0f6798b1f264ad6c6f3429c6bfa7661d612e85960e16416705316de05cd7aad"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/05.pal",
+      "git_blob": "8fc734f1c232b57ec9e009b9548d686baff15aaa",
+      "sha256": "d7156020d329320a84b0558343312f0d860c4996bee78e6c6b666720a6cd4be9"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/06.pal",
+      "git_blob": "9f94041c6d327f5f34f05bd53357527700d67cc3",
+      "sha256": "a5af68875210b6bf5247a27d1111cea6e022cb6fe39dcda4a104172aea6539dd"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/07.pal",
+      "git_blob": "ac1d628b6046c6cf51323e20c866258f7ea668ba",
+      "sha256": "5c903c669ca47970c6821716f8a36b88870a06e890ab89dce8c08f7cff44fa76"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/08.pal",
+      "git_blob": "2250b6c76be631fbd25db361de0d01f73b7d9f66",
+      "sha256": "0fb6d732733f1889b754703640db7dfa45cbaa4b756514235c58162644de05b2"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/09.pal",
+      "git_blob": "14e04e2143778cfed05101b65e46acbf927cd5e0",
+      "sha256": "f7135a354185b57900cd9d015442859d43e2938a2ef654e2f91aeec4270beff7"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/10.pal",
+      "git_blob": "5a973763f66b16d16303797de57aa4594e6eb7b0",
+      "sha256": "9f1458d64c332fdec9af147a569d56487e29d5c418a4352315b3189998fa46ee"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/11.pal",
+      "git_blob": "9f301869e9b334f64c04acf71459126e5f6034e7",
+      "sha256": "2b6a9c80c6351924e650150b02b76d11d5cee3a61baab9dc7805e1bd9be77fb5"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/palettes/12.pal",
+      "git_blob": "a44243a1051fe0694356886e71feb6d03f592932",
+      "sha256": "d95198ffc2f4c7ad79933c648650863625866dd41f8059c09e30a3774c4f59f7"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_city/tiles.png",
+      "git_blob": "5c70978464735b777c54741c8d4e10e9b420492e",
+      "sha256": "247a9809fc2b16ba1eabb599a3f3be4e055946ee680ec1b8320c1a50664bca6b"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/metatile_attributes.bin",
+      "git_blob": "122f151fc2d0e837eabf0ae33d431435d402f38e",
+      "sha256": "c592b29092c1bbdb7d89310b34002edd0cb10f32fe80ea9d7b4927741c2ada8f"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/metatiles.bin",
+      "git_blob": "7f8d880b85f857e9c3929f0d18f7953e959c7a16",
+      "sha256": "a68d89366124f57f6c019d8bf4d7ff07c3f1705444e8f18159cb541c8e5663f3"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/04.pal",
+      "git_blob": "fa715ee7479a38ca90b0851271cf958545b80c75",
+      "sha256": "d68fbab0f4603e1fcde0051dca12dd09e0df1166cb61cce3a55b16fa8ac78725"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/05.pal",
+      "git_blob": "e9b0361a5a1f2551ccbb5164ca9e6add864d9a1e",
+      "sha256": "e645e0fc6d1ea13f4621e7937a3b0320157643d7496de7679a7b5791aebfaa8a"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/06.pal",
+      "git_blob": "11106c93d6ce6c821b96da8b1d584881acdf31ae",
+      "sha256": "5590dc5fff44ec28079098bc8d7562be125466115bdf400a0396dd042aeffbee"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/07.pal",
+      "git_blob": "e628ba8cb98f775326db07bf70e1b0e6d43303b3",
+      "sha256": "c8dbfc481945188e45fc3b383ca3036e54ccaf25417ae864e0f67769832e8a89"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/08.pal",
+      "git_blob": "c1d7969012c44adb618aa5df4e8d68eabcaef59b",
+      "sha256": "a21f8fc5533ffcc3e0a10e2665a4e6e0192789d7b243e87d69b4d9e73e48e020"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/10.pal",
+      "git_blob": "1c0541866b7ebc81bc3f1c2adfeb7dcd2aedeca7",
+      "sha256": "29c853ec9e81e7a46e133befbfc63209762a1e4e3a968ced033cc90ac3616f75"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/11.pal",
+      "git_blob": "c7437f103ae2cc55505e8b99b7ea6b1a6a7fff26",
+      "sha256": "5242e6aa0d672840262fd9cb22c591487160f612f6305c4a2f8a1ad6c835a2da"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/palettes/12.pal",
+      "git_blob": "743ad05a726d9e47b23129065498ebcf9ec8d8e4",
+      "sha256": "0b3b424f4c5692c613a498691b97b391579bab69a1a2a45a60f518e5504719fc"
+    },
+    {
+      "path": "data/tilesets/primary/olivine_quay/tiles.png",
+      "git_blob": "80a235102cf146e3dac6d25f238ab77d733ad2c0",
+      "sha256": "2c5bed78435ae59cba66cd1105e4328a4e493513e175b7ac3a7e781bcc46d4d8"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/metatile_attributes.bin",
+      "git_blob": "ad0fc134089361bcac4acf24975178776a18c2da",
+      "sha256": "45f30d8e3aa39df1b9bd08c55f0b3577195b443818647e800ba1ad616a7db250"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/metatiles.bin",
+      "git_blob": "302cf02673d4ff5d59d0c0ede9b758cf092f9f59",
+      "sha256": "dfe8850948707896128b3f9408117f8e997fa55b56a9116c77abb4690bdc8854"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/02.pal",
+      "git_blob": "8b95f6554a3189df3a2efaa37e438c70d1ddaaaf",
+      "sha256": "a79c644b20c283050c59cdb683257fdaaf9684cce7c304764461680cad51176b"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/03.pal",
+      "git_blob": "377cd1fc06a294c2f80b7a8addf28a409ff632b9",
+      "sha256": "5747501a11d021bd0a8c91902caa3c6fadbe9b3835698746081c7374d9f000e6"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/04.pal",
+      "git_blob": "8feef7a9ab2c89700aa29265f17d80cc9467a6f5",
+      "sha256": "e0f6798b1f264ad6c6f3429c6bfa7661d612e85960e16416705316de05cd7aad"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/05.pal",
+      "git_blob": "8fc734f1c232b57ec9e009b9548d686baff15aaa",
+      "sha256": "d7156020d329320a84b0558343312f0d860c4996bee78e6c6b666720a6cd4be9"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/06.pal",
+      "git_blob": "9f94041c6d327f5f34f05bd53357527700d67cc3",
+      "sha256": "a5af68875210b6bf5247a27d1111cea6e022cb6fe39dcda4a104172aea6539dd"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/07.pal",
+      "git_blob": "ac1d628b6046c6cf51323e20c866258f7ea668ba",
+      "sha256": "5c903c669ca47970c6821716f8a36b88870a06e890ab89dce8c08f7cff44fa76"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/08.pal",
+      "git_blob": "2250b6c76be631fbd25db361de0d01f73b7d9f66",
+      "sha256": "0fb6d732733f1889b754703640db7dfa45cbaa4b756514235c58162644de05b2"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/09.pal",
+      "git_blob": "14e04e2143778cfed05101b65e46acbf927cd5e0",
+      "sha256": "f7135a354185b57900cd9d015442859d43e2938a2ef654e2f91aeec4270beff7"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/10.pal",
+      "git_blob": "5a973763f66b16d16303797de57aa4594e6eb7b0",
+      "sha256": "9f1458d64c332fdec9af147a569d56487e29d5c418a4352315b3189998fa46ee"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/11.pal",
+      "git_blob": "9f301869e9b334f64c04acf71459126e5f6034e7",
+      "sha256": "2b6a9c80c6351924e650150b02b76d11d5cee3a61baab9dc7805e1bd9be77fb5"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/palettes/12.pal",
+      "git_blob": "a44243a1051fe0694356886e71feb6d03f592932",
+      "sha256": "d95198ffc2f4c7ad79933c648650863625866dd41f8059c09e30a3774c4f59f7"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_city/tiles.png",
+      "git_blob": "fdf584954b00dd8eb851ccd319d61a451bb0b2b3",
+      "sha256": "6033169be0aa89f0579ba54beb155d4ab66c74350d809cf06ead5c18b62462ed"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/metatile_attributes.bin",
+      "git_blob": "f3f2457a5b89925b69d6dff1ff984c44cd1dcdf2",
+      "sha256": "82559be11ddc53855e44938e6bd907a86628e292c1ae4a0101d1dc685c78cc06"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/metatiles.bin",
+      "git_blob": "41488d1bae509f3825d2480577723f6dda947b15",
+      "sha256": "17855a8ae0b47dab83172a900ba4358d142794372d9f4ff1cdfb7de788d447f7"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/04.pal",
+      "git_blob": "fa715ee7479a38ca90b0851271cf958545b80c75",
+      "sha256": "d68fbab0f4603e1fcde0051dca12dd09e0df1166cb61cce3a55b16fa8ac78725"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/05.pal",
+      "git_blob": "e9b0361a5a1f2551ccbb5164ca9e6add864d9a1e",
+      "sha256": "e645e0fc6d1ea13f4621e7937a3b0320157643d7496de7679a7b5791aebfaa8a"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/06.pal",
+      "git_blob": "11106c93d6ce6c821b96da8b1d584881acdf31ae",
+      "sha256": "5590dc5fff44ec28079098bc8d7562be125466115bdf400a0396dd042aeffbee"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/07.pal",
+      "git_blob": "e628ba8cb98f775326db07bf70e1b0e6d43303b3",
+      "sha256": "c8dbfc481945188e45fc3b383ca3036e54ccaf25417ae864e0f67769832e8a89"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/08.pal",
+      "git_blob": "c1d7969012c44adb618aa5df4e8d68eabcaef59b",
+      "sha256": "a21f8fc5533ffcc3e0a10e2665a4e6e0192789d7b243e87d69b4d9e73e48e020"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/10.pal",
+      "git_blob": "1c0541866b7ebc81bc3f1c2adfeb7dcd2aedeca7",
+      "sha256": "29c853ec9e81e7a46e133befbfc63209762a1e4e3a968ced033cc90ac3616f75"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/11.pal",
+      "git_blob": "c7437f103ae2cc55505e8b99b7ea6b1a6a7fff26",
+      "sha256": "5242e6aa0d672840262fd9cb22c591487160f612f6305c4a2f8a1ad6c835a2da"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/palettes/12.pal",
+      "git_blob": "743ad05a726d9e47b23129065498ebcf9ec8d8e4",
+      "sha256": "0b3b424f4c5692c613a498691b97b391579bab69a1a2a45a60f518e5504719fc"
+    },
+    {
+      "path": "data/tilesets/secondary/olivine_quay/tiles.png",
+      "git_blob": "01b7f38b73645b8c374915dc4272d25a9ba8a28b",
+      "sha256": "47390e985371e206bbf9b9230018c87d5660f4b9a434941421d7b3c413746675"
+    }
+  ],
+  "ROM_sha256": "f4238572c716d63af671aece82065bc4007151b4efe978e86d9ea483c3ad80e6",
+  "ROM_bytes": 33554432,
+  "changed_visible_pixels": 262513,
+  "outside_declared_scope_pixel_changes": 0,
+  "stair_and_ramp_foreground_pixel_changes": 0,
+  "unchanged": "Harbor source; other maps; map/layout/event/warp IDs and registries; shared Center/Mart/sign art; building geometry; timber stair/ramp pixels and traversal axes.",
+  "local_changes": "237 broad native crowns and explicit rows; completed occluded receiving surfaces and coastal shelf; two reseated land rocks; local house palette aligned with the two residences; same-face interior texture joins.",
+  "owner_visual_acceptance": "Groves and elevation direction received positive feedback; full revised terrain review remains pending."
+}

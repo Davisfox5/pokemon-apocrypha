@@ -1,0 +1,42 @@
+{
+  "native_face_colors": [
+    [
+      80,
+      56,
+      64
+    ],
+    [
+      104,
+      72,
+      56
+    ],
+    [
+      120,
+      88,
+      64
+    ],
+    [
+      136,
+      104,
+      80
+    ],
+    [
+      160,
+      120,
+      96
+    ]
+  ],
+  "top_colors": [
+    [
+      192,
+      152,
+      96
+    ],
+    [
+      216,
+      184,
+      120
+    ]
+  ],
+  "policy": "Unscaled Route36 cap/face/toe masks and texture; five native face shades plus two separate plateau shades; no nearest-tile substitution."
+}

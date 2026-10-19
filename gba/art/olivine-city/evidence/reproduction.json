@@ -1,0 +1,24 @@
+{
+  "source_commit": "c26b9b21d095ca6e0f8a7e5a46a091bc82701e52",
+  "base_engine": "dbf53f6f3975eb20179c26badd6ba48169857ad1",
+  "first_authoring": [
+    "assets.py",
+    "build.py ENGINE PORYTILES_LEGACY",
+    "register.py ENGINE"
+  ],
+  "review": "review.py ENGINE ACTUAL_PORYMAP_EXPORT_DIRECTORY",
+  "runtime": "runtime.py ENGINE NEW_OUTPUT_DIRECTORY --toolchain ARM_PREFIX",
+  "publish": "publish.py ENGINE VERIFIED_RUNTIME_DIRECTORY",
+  "dependencies": [
+    "Pillow",
+    "numpy",
+    "scipy",
+    "z3-solver",
+    "Porytiles legacy",
+    "Porymap 6.3.1",
+    "Arm GNU toolchain",
+    "libpng development files",
+    "libmGBA development files"
+  ],
+  "authority": "Native committed layouts/tilesets after first authoring; new builds refuse committed Olivine maps."
+}

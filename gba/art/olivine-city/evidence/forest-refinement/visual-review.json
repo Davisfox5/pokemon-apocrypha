@@ -1,0 +1,104 @@
+{
+  "owner_request": "Keep the good groves and improved depth; eliminate cookie-cutter grass holes and reliance on the rejected terrain design.",
+  "reviewed_regions": [
+    {
+      "name": "northwest-rows",
+      "native_crop": [
+        0,
+        0,
+        416,
+        224
+      ]
+    },
+    {
+      "name": "western-rows",
+      "native_crop": [
+        0,
+        192,
+        192,
+        512
+      ]
+    },
+    {
+      "name": "northern-shelves",
+      "native_crop": [
+        496,
+        16,
+        792,
+        288
+      ]
+    },
+    {
+      "name": "lighthouse-grove",
+      "native_crop": [
+        736,
+        128,
+        952,
+        432
+      ]
+    },
+    {
+      "name": "upper-coast",
+      "native_crop": [
+        864,
+        208,
+        1040,
+        432
+      ]
+    },
+    {
+      "name": "planted-coastal-shelf",
+      "native_crop": [
+        864,
+        384,
+        1008,
+        624
+      ]
+    }
+  ],
+  "tree_rows": 45,
+  "trees": 237,
+  "perimeter_trees": 24,
+  "method": "Explicit HGSS row counts; unscaled broad native crown. Inspect full receiving surfaces with foliage removed. Reconstruct the eastern planted shelf from fresh reference crops, including its previously omitted outer face; complete northern courses and caps. Same-facing interior glyph selection includes neighboring joins.",
+  "texture_join_report": {
+    "method": "Existing same-face glyphs; source-tone and neighboring edge-gradient objective; fixed wall mask and face brightness",
+    "before": {
+      "reference_tone_error": 120249.0,
+      "join_gradient_error": 27229.0,
+      "combined": 229165.0
+    },
+    "after": {
+      "reference_tone_error": 102456.0,
+      "join_gradient_error": 21821.0,
+      "combined": 189740.0
+    },
+    "texture_vocabulary_before": {
+      "(False, 'east')": 28,
+      "(False, 'west')": 21,
+      "(False, 'front')": 50,
+      "(True, 'west')": 16,
+      "(True, 'east')": 34,
+      "(True, 'front')": 32,
+      "(True, 'plateau')": 8
+    },
+    "texture_vocabulary_after": {
+      "(False, 'east')": 28,
+      "(False, 'west')": 21,
+      "(False, 'front')": 50,
+      "(True, 'west')": 16,
+      "(True, 'east')": 24,
+      "(True, 'front')": 32,
+      "(True, 'plateau')": 8
+    },
+    "changed_stone_pixels": 13188,
+    "contour_changes": 0,
+    "new_colors": 0,
+    "new_texture_glyphs": 0
+  },
+  "limits": [
+    "HGSS visible geography and inferred hidden surfaces, not extracted DS elevation/collision.",
+    "Trees-hidden sheet is the complete authoring receiving plane before invisible-background packing; actual native composites separately pass Porymap parity.",
+    "Interiors, Routes39/40 and shipping remain unwired; water is static and districts use ordinary fades.",
+    "Visual acceptance belongs to the owner."
+  ]
+}
