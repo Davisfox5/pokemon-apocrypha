@@ -1,3 +1,15 @@
+## Owner correction: Route 30 complete trees and Emerald terrain
+
+Partial crown fillers are removed. Whole forest strips expand into spare lawn with explicit outer-wall adjustments; paths, doors and essential landings stay clear. Stairs/walls/ledges use native Emerald Expansion general metatiles; the Cut barrier uses the native cuttable-tree object/script. The Route 30 README and before/after comparison document the liberties. Headless traversal, barriers, Cut interaction, connections and ordinary save/Continue pass. Successful HM use has not been separately tested. New source revision: `aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac` on the same Route 30 branch / PR #4. Earlier commit b13cfe48 and its review images remain in history. Next: owner visual review of the revised forest and native terrain.
+
+## Latest: Route 30 reconstructed independently from HGSS blocks
+
+Owner rejected the mixed prior Gen 3/HGSS design and authorized a new block-by-block reconstruction from the actual HGSS reference. Review source and evidence in [route30-hgss-blocks](../gba/art/route30-hgss-blocks/README.md). Engine branch `codex/route30-hgss-blocks`, commit `aa8ea35eea378b5d69c58b5f5c0c2f566689c6ac`, draft [PR #4](https://github.com/Davisfox5/pokeemerald-expansion/pull/4) against `apocrypha` (`2722eaf`). Hub evidence branch `codex/route30-hgss-block-evidence` starts from `main`. Previous engine/hub Route 30 draft branches are preserved.
+
+35x74 reference blocks are independently surveyed; no core block copies the earlier Gen 3 layout. Twelve southern rows are an explicit compatibility adapter. Native foreground/shadow packing, exclusive tree footprints, grass from decoded HGSS textures/Porytiles and source/native comparison boards are preserved. Route 31 receives unused shared seam storage only; its own render and all other maps are unchanged. Do not run the provenance reconstruction over production edits routinely.
+
+Local and production CI builds, Porymap decoded equality, actual-input headless traversal/barriers/connections and ordinary save/title Continue pass. Owner visual acceptance is pending. HGSS collision is inferred from an overview, not recovered DS records. Interiors and original NPC/story gates remain unimplemented. Cut now uses Expansion's native object/script. See the README for adapter, source crop and offscreen bank-12 limits. Next: review the posted whole-map comparisons and native gameplay gallery with the owner.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
