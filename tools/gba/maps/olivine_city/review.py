@@ -19,12 +19,25 @@ for district in r['districts']:
 now=np.concatenate([v for _,v in sorted(ims)]);bg=np.array(Image.open(S/'background.png'));fg=np.array(Image.open(S/'foreground.png'));expected=bg.copy();m=fg[...,3]>0;expected[m]=fg[m];assert np.array_equal(now,expected[...,:3])
 roots=np.zeros((H,W),np.uint8)
 for p in r['trees']:
- x,y=p['x'],p['y'];roots[y+1:y+3,x:x+2]+=1;assert 0<=x*16 and x*16+32<=W*16 and 0<=y*16 and y*16+48<=H*16
+ if 'root_box' in p:
+  x0,y0,x1,y1=p['root_box'];roots[y0:y1,x0:x1]+=1
+  a=Image.open(S/'masters'/(p['name']+'.png'));x,y=p['pixel_x'],p['pixel_y'];assert 0<=x and x+a.width<=W*16 and 0<=y and y+a.height<=H*16
+ else:
+  x,y=p['x'],p['y'];roots[y+1:y+3,x:x+2]+=1;assert 0<=x*16 and x*16+32<=W*16 and 0<=y*16 and y*16+48<=H*16
 assert roots.max()==1 and np.all(solid[roots>0])
+if r.get('tree_row_ledger'):
+ rows=json.loads((S/r['tree_row_ledger']).read_text())
+ for row in rows:
+  placed=[p for p in r['trees'] if p['row']==row['name']]
+  assert len(placed)==row['native_total']
+  assert sum(not p['padding'] for p in placed)==row['reference_count']
+ assert sum(row['native_total'] for row in rows)==len(r['trees'])
 # Shared canonical pixels are tested only where visible after later placements.
 owner=np.zeros((H*16,W*16),np.uint16);masters={}
 for i,p in enumerate(r['placements'],1):
- a=np.array(Image.open(BASE/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;masters[i]=a;h,w=a.shape[:2];m=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][m]=i
+ master=S/'masters'/(p['name']+'.png')
+ if not master.exists():master=BASE/'masters'/(p['name']+'.png')
+ a=np.array(Image.open(master).convert('RGBA'));a[...,:3]&=248;masters[i]=a;h,w=a.shape[:2];m=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][m]=i
 shared={v['name'] for v in json.loads((BASE/'shared-provenance.json').read_text())};checks=[]
 for i,p in enumerate(r['placements'],1):
  if p['name'] not in shared:continue

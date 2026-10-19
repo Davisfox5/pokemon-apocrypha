@@ -1,0 +1,427 @@
+[
+  {
+    "name": "north high lip behind first lower row",
+    "box": [
+      528,
+      80,
+      560,
+      96
+    ],
+    "texture_donor": [
+      704,
+      584,
+      736,
+      600
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "residential shelf top",
+    "box": [
+      512,
+      144,
+      624,
+      152
+    ],
+    "material": "grass",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "continuous capped residential upper face",
+    "box": [
+      512,
+      152,
+      624,
+      176
+    ],
+    "texture_donor": [
+      560,
+      152,
+      592,
+      176
+    ],
+    "material": "stone front with turf lip and rounded end returns",
+    "authority": "HGSS unobscured same-facing course, rebuilt across original canopy occlusion",
+    "geometric_scaling": false
+  },
+  {
+    "name": "continuous capped residential lower face",
+    "box": [
+      512,
+      176,
+      624,
+      200
+    ],
+    "texture_donor": [
+      560,
+      176,
+      592,
+      200
+    ],
+    "material": "stone front with turf lip and rounded end returns",
+    "authority": "HGSS unobscured same-facing course, rebuilt across original canopy occlusion",
+    "geometric_scaling": false
+  },
+  {
+    "name": "upper coastal landing",
+    "box": [
+      840,
+      240,
+      904,
+      280
+    ],
+    "material": "grass",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "lower coastal landing",
+    "box": [
+      840,
+      280,
+      928,
+      336
+    ],
+    "material": "grass",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "high east face behind both coastal shelves",
+    "box": [
+      824,
+      256,
+      840,
+      384
+    ],
+    "texture_donor": [
+      832,
+      480,
+      848,
+      512
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "rounded upper end of high east face",
+    "box": [
+      824,
+      248,
+      840,
+      264
+    ],
+    "texture_donor": [
+      832,
+      480,
+      848,
+      512
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": [
+      [
+        824,
+        256
+      ],
+      [
+        827,
+        252
+      ],
+      [
+        832,
+        250
+      ],
+      [
+        836,
+        252
+      ],
+      [
+        839,
+        256
+      ],
+      [
+        839,
+        263
+      ],
+      [
+        824,
+        263
+      ]
+    ],
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "upper landing capped front",
+    "box": [
+      848,
+      280,
+      904,
+      304
+    ],
+    "texture_donor": [
+      704,
+      576,
+      736,
+      600
+    ],
+    "material": "stone front with turf lip and rounded end returns",
+    "authority": "HGSS unobscured same-facing course, rebuilt across original canopy occlusion",
+    "geometric_scaling": false
+  },
+  {
+    "name": "outer three-course face completion",
+    "box": [
+      904,
+      280,
+      936,
+      304
+    ],
+    "texture_donor": [
+      976,
+      280,
+      1008,
+      304
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "lower outer landing east face",
+    "box": [
+      928,
+      304,
+      936,
+      344
+    ],
+    "texture_donor": [
+      888,
+      336,
+      896,
+      352
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "lower outer landing front",
+    "box": [
+      864,
+      328,
+      928,
+      352
+    ],
+    "texture_donor": [
+      704,
+      584,
+      736,
+      608
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": [
+      [
+        864,
+        328
+      ],
+      [
+        927,
+        328
+      ],
+      [
+        927,
+        347
+      ],
+      [
+        923,
+        351
+      ],
+      [
+        864,
+        351
+      ]
+    ],
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "inner landing front",
+    "box": [
+      840,
+      336,
+      864,
+      352
+    ],
+    "texture_donor": [
+      704,
+      584,
+      736,
+      600
+    ],
+    "donor_kind": "existing native same-facing stone",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "retire complete former lower coast assembly",
+    "box": [
+      832,
+      384,
+      904,
+      576
+    ],
+    "material": "water",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "continuous high eastern face",
+    "box": [
+      832,
+      384,
+      848,
+      576
+    ],
+    "texture_donor": [
+      832,
+      400,
+      848,
+      416
+    ],
+    "donor_kind": "unobscured HGSS face converted directly to RGB5",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "northern sand pocket",
+    "box": [
+      848,
+      384,
+      888,
+      416
+    ],
+    "material": "sand",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "complete planted coastal shelf",
+    "box": [
+      848,
+      416,
+      888,
+      552
+    ],
+    "material": "grass",
+    "authority": "complete connected receiving shelf; not a crown-shaped replacement"
+  },
+  {
+    "name": "planted shelf rounded east return",
+    "box": [
+      888,
+      416,
+      904,
+      568
+    ],
+    "texture_donor": [
+      888,
+      424,
+      904,
+      448
+    ],
+    "donor_kind": "unobscured HGSS face converted directly to RGB5",
+    "outline": [
+      [
+        888,
+        416
+      ],
+      [
+        899,
+        416
+      ],
+      [
+        903,
+        420
+      ],
+      [
+        903,
+        559
+      ],
+      [
+        899,
+        567
+      ],
+      [
+        888,
+        567
+      ]
+    ],
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "planted shelf full south cap and face",
+    "box": [
+      848,
+      552,
+      888,
+      568
+    ],
+    "texture_donor": [
+      856,
+      552,
+      888,
+      568
+    ],
+    "donor_kind": "unobscured HGSS face converted directly to RGB5",
+    "outline": null,
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  },
+  {
+    "name": "planted shelf rounded shore toe",
+    "box": [
+      848,
+      568,
+      904,
+      576
+    ],
+    "texture_donor": [
+      856,
+      568,
+      888,
+      576
+    ],
+    "donor_kind": "unobscured HGSS face converted directly to RGB5",
+    "outline": [
+      [
+        848,
+        568
+      ],
+      [
+        899,
+        568
+      ],
+      [
+        899,
+        571
+      ],
+      [
+        895,
+        575
+      ],
+      [
+        848,
+        575
+      ]
+    ],
+    "material": "same-facing stone",
+    "authority": "straight continuation between HGSS-visible face anchors; original tree silhouette discarded"
+  }
+]

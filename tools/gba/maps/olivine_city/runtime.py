@@ -33,6 +33,9 @@ steps=r'''
  go(54,9,4);step(UP,1);at(54,9,4,"rounded-west-beach-return-blocks");shot("beach-wall-return");
  go(54,11,13);step(LEFT,1);at(54,11,13,"western-rock-spur-east-face-blocks");shot("western-rock-spur");
  go(54,8,8);step(DOWN,1);at(54,8,8,"western-rock-spur-north-face-blocks");shot("western-rock-spur-head");
+ go(53,36,25);step(LEFT,1);at(53,36,25,"stair-courtyard-tree-root-blocks");shot("stair-courtyard-grove");
+ go(54,58,7);step(UP,1);at(54,58,7,"coastal-shelf-tree-root-blocks");shot("coastal-planted-shelf");
+ go(53,25,4);shot("northwest-forest-rows");
  go(54,28,8);shot("save-Olivine");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(54,28,8').replace('cold-reload-new-bark','cold-reload-Olivine')

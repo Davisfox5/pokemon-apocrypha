@@ -1,4 +1,26 @@
-## Latest: Olivine terrain restarted after both versions were rejected
+## Latest: Olivine groves and terrain beneath them completed
+
+Native source `8eb23f6774fd937f3018d413f1fab5b6dc8d05c8` is on the existing
+`codex/olivine-city` branch / draft PR #21. The owner liked the improved depth and
+then the groves, but specifically rejected the remaining tree-shaped grass holes.
+The current pass counts 45 rows, uses 237 complete broad crowns, and reconstructs
+the receiving surfaces independently of the original tree silhouettes. Fresh HGSS
+close-ups revealed the omitted outer face of the eastern planted shelf; that
+whole shelf, its retaining faces, the northern caps and correct receiving
+materials are now authored. Inspect the trees-hidden evidence as well as the
+actual native composite. Two rocks are reseated and local house palettes aligned;
+shared Center/Mart/sign art, architecture geometry, timber entrances, Harbor,
+other maps and IDs remain preserved.
+
+[Current comparisons, row ledger, trees-hidden review and gameplay](../gba/art/olivine-city/evidence/forest-refinement/README.md).
+Actual Porymap/native parity and all 4,032 cell checks pass. Headless movement,
+new grove-root barriers, both timber crossings and ordinary save/cold Continue
+pass. The full revised terrain still awaits owner visual review; do not turn the
+positive grove/depth feedback into blanket acceptance. The original/rejected
+snapshots remain history. Future edits start from current native source, never
+by replaying guarded old authoring scripts or a whole-map generator.
+
+## Historical: Olivine depth revision before forest/receiving-surface cleanup
 
 The owner requested a complete restart. Native source `116ea801` on existing
 PR #21 uses fresh HGSS contours/texture cores, restored southwest rock spur,
@@ -25,7 +47,7 @@ registries, source areas and shared foreground pixels are preserved.
 [Current visual review](../gba/art/olivine-city/evidence/terrain-rebuild/README.md).
 This version was subsequently rejected; use the fresh terrain revision above.
 
-## Latest: Olivine City exterior proposal
+## Historical: first Olivine City exterior proposal
 
 HGSS-registered streets, lighthouse headland, quay and ferry terminal are in native
 source PR #21 on `codex/olivine-city`, based on Ecruteak. Local build, actual

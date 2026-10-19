@@ -1,5 +1,5 @@
-Current Olivine work: [fresh terrain after both rejected attempts](../gba/art/olivine-city/evidence/terrain-reset/README.md).
-Source `116ea801`: fresh HGSS contours, restored southwest outcrop, continuous lighthouse courses, rebuilt stairs; visual approval pending.
+Current Olivine work: [counted groves and complete terrain beneath them](../gba/art/olivine-city/evidence/forest-refinement/README.md).
+Source `8eb23f67`: 45 explicit tree rows, broad native crowns, rebuilt northern courses and full eastern planted shelf; groves/depth received positive feedback, completed revision awaits visual review.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 

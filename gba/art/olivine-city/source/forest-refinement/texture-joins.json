@@ -1,0 +1,35 @@
+{
+  "method": "Existing same-face glyphs; source-tone and neighboring edge-gradient objective; fixed wall mask and face brightness",
+  "before": {
+    "reference_tone_error": 120249.0,
+    "join_gradient_error": 27229.0,
+    "combined": 229165.0
+  },
+  "after": {
+    "reference_tone_error": 102456.0,
+    "join_gradient_error": 21821.0,
+    "combined": 189740.0
+  },
+  "texture_vocabulary_before": {
+    "(False, 'east')": 28,
+    "(False, 'west')": 21,
+    "(False, 'front')": 50,
+    "(True, 'west')": 16,
+    "(True, 'east')": 34,
+    "(True, 'front')": 32,
+    "(True, 'plateau')": 8
+  },
+  "texture_vocabulary_after": {
+    "(False, 'east')": 28,
+    "(False, 'west')": 21,
+    "(False, 'front')": 50,
+    "(True, 'west')": 16,
+    "(True, 'east')": 24,
+    "(True, 'front')": 32,
+    "(True, 'plateau')": 8
+  },
+  "changed_stone_pixels": 13188,
+  "contour_changes": 0,
+  "new_colors": 0,
+  "new_texture_glyphs": 0
+}

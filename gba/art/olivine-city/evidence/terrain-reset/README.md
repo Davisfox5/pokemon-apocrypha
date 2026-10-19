@@ -1,3 +1,5 @@
+> Historical depth revision. The owner liked the improved depth but rejected the remaining tree-shaped terrain gaps. Use the [counted groves and completed receiving surfaces](../forest-refinement/README.md) for current review.
+
 # Olivine — fresh terrain after both rejected attempts
 
 The owner rejected `601d1b07` and requested a fresh start. This version discards

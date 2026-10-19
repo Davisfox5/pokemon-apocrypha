@@ -1,10 +1,12 @@
-# Current revision: fresh terrain after both rejected attempts
+# Current revision: counted groves and complete receiving surfaces
 
-Both earlier terrain versions were rejected. **[Review the fresh HGSS trace,
-native terrain and actual gameplay](evidence/terrain-reset/README.md).**
-Native source `116ea8011c958d10bf5d61daf2d879cca9e8a184` is on existing
-[PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21).
-Visual acceptance is pending. Earlier images below are historical.
+**[Review the native map, before/after comparisons, row counts and trees-hidden terrain](evidence/forest-refinement/README.md).**
+Native source `8eb23f6774fd937f3018d413f1fab5b6dc8d05c8` is on existing
+[draft PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21).
+The owner liked the groves and improved depth; the remaining tree-shaped gaps
+prompted reconstruction of the receiving surfaces and eastern planted shelf.
+Acceptance of this completed revision remains pending. Earlier images below
+are historical.
 
 ---
 

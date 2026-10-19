@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np,json
 from PIL import Image
 from ortools.sat.python import cp_model
-def cover(inp,source,mods):
+def cover(inp,source,mods,seed_directories=()):
  sets=set()
  for n in ['bottom','middle']:
   a=np.array(Image.open(inp/f'{n}.png').convert('RGBA'))
@@ -45,7 +45,9 @@ def cover(inp,source,mods):
  for n in ['cliff-front','cliff-side','cliff-top','cliff-toe','cliff-left']:
   oldstone |= colors(n)
  newstone=stone|topcols
- for f in (source.parent/'evidence'/(inp.name+'-compiled')/'palettes').glob('*.pal'):
+ seed_files=list((source.parent/'evidence'/(inp.name+'-compiled')/'palettes').glob('*.pal'))
+ for folder in seed_directories:seed_files.extend(Path(folder).glob('*.pal'))
+ for f in seed_files:
   p=set(palette(f)[1:])&set(cs);groups.append(p);replaced=(p-oldstone)|newstone
   if len(replaced)<=15:groups.append(replaced)
  seeds=bits+[sum(1<<ci[c] for c in p) for p in groups if p and len(p)<=15]

@@ -1,0 +1,114 @@
+{
+  "native_cells": 4032,
+  "source_grid": "16px at source(+64,+16), no geometric scaling",
+  "Porymap_RGB_errors": 0,
+  "decoded_material_pixels_vs_authoring_errors": 0,
+  "decoded_collision_behavior_errors": 0,
+  "tree_count": 237,
+  "partial_trees": 0,
+  "overlapping_root_cells": 0,
+  "visible_shared_pixels_checked": 14674,
+  "reachable_cells": 1118,
+  "reachable_approaches": {
+    "civic-hall@176,144": [
+      19,
+      17
+    ],
+    "house@272,272": [
+      23,
+      24
+    ],
+    "house-pair@496,176": [
+      37,
+      18
+    ],
+    "house-pair@576,176": [
+      42,
+      18
+    ],
+    "cafe@144,400": [
+      15,
+      31
+    ],
+    "center@224,400": [
+      20,
+      31
+    ],
+    "mart@464,400": [
+      36,
+      32
+    ],
+    "lighthouse@688,336": [
+      50,
+      34
+    ],
+    "terminal@304,688": [
+      29,
+      51
+    ]
+  },
+  "district_usage": [
+    {
+      "map": "JohtoOlivineCity",
+      "unique_glyph_IDs": 971,
+      "highest_glyph_ID": 970,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "metatiles": 626,
+      "Porymap_pixel_errors": 0
+    },
+    {
+      "map": "JohtoOlivineQuay",
+      "unique_glyph_IDs": 1001,
+      "highest_glyph_ID": 1000,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "metatiles": 525,
+      "Porymap_pixel_errors": 0
+    },
+    {
+      "map": "JohtoOlivineHarbor",
+      "unique_glyph_IDs": 312,
+      "highest_glyph_ID": 311,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "metatiles": 149,
+      "Porymap_pixel_errors": 0
+    }
+  ],
+  "owner_visual_acceptance": "pending",
+  "limits": [
+    "Overview-derived geography, not extracted DS collision or hidden ground.",
+    "Native building footprints, complete tree alignment and gate padding are adaptations.",
+    "Three rendering districts use short ordinary fades on the avenue; adjoining Routes 39/40, interiors and shipping services remain unwired."
+  ]
+}
