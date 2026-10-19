@@ -656,14 +656,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 24,3,"384,48,400,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
 25,3,"400,48,416,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
 26,3,"416,48,432,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
-27,3,"432,48,448,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
-28,3,"448,48,464,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
-29,3,"464,48,480,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
-30,3,"480,48,496,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
-31,3,"496,48,512,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
-32,3,"512,48,528,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
-33,3,"528,48,544,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
-34,3,"544,48,560,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
+27,3,"432,48,448,64",Ferris wheel / deck,0,1,GoldenrodCity02,288,0,owner-approved ten-year addition
+28,3,"448,48,464,64",Ferris wheel / deck,0,1,GoldenrodCity02,289,0,owner-approved ten-year addition
+29,3,"464,48,480,64",Ferris wheel / deck,0,1,GoldenrodCity02,290,0,owner-approved ten-year addition
+30,3,"480,48,496,64",Ferris wheel / deck,0,1,GoldenrodCity02,291,0,owner-approved ten-year addition
+31,3,"496,48,512,64",Ferris wheel / deck,0,1,GoldenrodCity02,292,0,owner-approved ten-year addition
+32,3,"512,48,528,64",Ferris wheel / deck,0,1,GoldenrodCity02,293,0,owner-approved ten-year addition
+33,3,"528,48,544,64",Ferris wheel / deck,0,1,GoldenrodCity02,294,0,owner-approved ten-year addition
+34,3,"544,48,560,64",Ferris wheel / deck,0,1,GoldenrodCity02,295,0,owner-approved ten-year addition
 35,3,"560,48,576,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
 36,3,"576,48,592,64",paving,0,0,GoldenrodCity02,7,0,overview interpretation; not decoded DS collision
 37,3,"592,48,608,64",paving,0,0,GoldenrodCity02,6,0,overview interpretation; not decoded DS collision
@@ -677,14 +677,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 24,4,"384,64,400,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
 25,4,"400,64,416,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
 26,4,"416,64,432,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,4,"432,64,448,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-28,4,"448,64,464,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,4,"464,64,480,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,4,"480,64,496,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,4,"496,64,512,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,4,"512,64,528,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-33,4,"528,64,544,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,4,"544,64,560,80",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
+27,4,"432,64,448,80",Ferris wheel / deck,1,1,GoldenrodCity02,296,0,owner-approved ten-year addition
+28,4,"448,64,464,80",Ferris wheel / deck,1,1,GoldenrodCity02,297,0,owner-approved ten-year addition
+29,4,"464,64,480,80",Ferris wheel / deck,1,1,GoldenrodCity02,298,0,owner-approved ten-year addition
+30,4,"480,64,496,80",Ferris wheel / deck,1,1,GoldenrodCity02,299,0,owner-approved ten-year addition
+31,4,"496,64,512,80",Ferris wheel / deck,1,1,GoldenrodCity02,300,0,owner-approved ten-year addition
+32,4,"512,64,528,80",Ferris wheel / deck,1,1,GoldenrodCity02,301,0,owner-approved ten-year addition
+33,4,"528,64,544,80",Ferris wheel / deck,1,1,GoldenrodCity02,302,0,owner-approved ten-year addition
+34,4,"544,64,560,80",Ferris wheel / deck,1,1,GoldenrodCity02,303,0,owner-approved ten-year addition
 35,4,"560,64,576,80",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
 36,4,"576,64,592,80",water/shore,1,0,GoldenrodCity02,12,0,overview interpretation; not decoded DS collision
 37,4,"592,64,608,80",water/shore,1,0,GoldenrodCity02,13,0,overview interpretation; not decoded DS collision
@@ -698,14 +698,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 24,5,"384,80,400,96",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
 25,5,"400,80,416,96",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
 26,5,"416,80,432,96",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-27,5,"432,80,448,96",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,5,"448,80,464,96",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-29,5,"464,80,480,96",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,5,"480,80,496,96",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,5,"496,80,512,96",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,5,"512,80,528,96",water/shore,1,0,GoldenrodCity02,18,0,overview interpretation; not decoded DS collision
-33,5,"528,80,544,96",water/shore,1,0,GoldenrodCity02,19,0,overview interpretation; not decoded DS collision
-34,5,"544,80,560,96",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
+27,5,"432,80,448,96",Ferris wheel / deck,1,1,GoldenrodCity02,304,0,owner-approved ten-year addition
+28,5,"448,80,464,96",Ferris wheel / deck,1,1,GoldenrodCity02,305,0,owner-approved ten-year addition
+29,5,"464,80,480,96",Ferris wheel / deck,1,1,GoldenrodCity02,306,0,owner-approved ten-year addition
+30,5,"480,80,496,96",Ferris wheel / deck,1,1,GoldenrodCity02,307,0,owner-approved ten-year addition
+31,5,"496,80,512,96",Ferris wheel / deck,1,1,GoldenrodCity02,308,0,owner-approved ten-year addition
+32,5,"512,80,528,96",Ferris wheel / deck,1,1,GoldenrodCity02,309,0,owner-approved ten-year addition
+33,5,"528,80,544,96",Ferris wheel / deck,1,1,GoldenrodCity02,310,0,owner-approved ten-year addition
+34,5,"544,80,560,96",Ferris wheel / deck,1,1,GoldenrodCity02,311,0,owner-approved ten-year addition
 35,5,"560,80,576,96",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
 36,5,"576,80,592,96",water/shore,1,0,GoldenrodCity02,20,0,overview interpretation; not decoded DS collision
 37,5,"592,80,608,96",water/shore,1,0,GoldenrodCity02,21,0,overview interpretation; not decoded DS collision
@@ -714,255 +714,255 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 40,5,"640,80,656,96",forest roots,1,1,GoldenrodCity02,24,0,roof/foreground; hidden ground not scored
 41,5,"656,80,672,96",forest roots,1,1,GoldenrodCity02,25,0,roof/foreground; hidden ground not scored
 21,6,"336,96,352,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,6,"352,96,368,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-23,6,"368,96,384,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-24,6,"384,96,400,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,6,"400,96,416,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,6,"416,96,432,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,6,"432,96,448,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-28,6,"448,96,464,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,6,"464,96,480,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,6,"480,96,496,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,6,"496,96,512,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,6,"512,96,528,112",water/shore,1,0,GoldenrodCity02,26,0,overview interpretation; not decoded DS collision
-33,6,"528,96,544,112",water/shore,1,0,GoldenrodCity02,27,0,overview interpretation; not decoded DS collision
-34,6,"544,96,560,112",water/shore,1,0,GoldenrodCity02,28,0,overview interpretation; not decoded DS collision
-35,6,"560,96,576,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-36,6,"576,96,592,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-37,6,"592,96,608,112",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-38,6,"608,96,624,112",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
+22,6,"352,96,368,112",boardwalk railing,1,0,GoldenrodCity02,312,0,owner-approved ten-year addition
+23,6,"368,96,384,112",boardwalk railing,1,0,GoldenrodCity02,313,0,owner-approved ten-year addition
+24,6,"384,96,400,112",boardwalk railing,1,0,GoldenrodCity02,314,0,owner-approved ten-year addition
+25,6,"400,96,416,112",boardwalk railing,1,0,GoldenrodCity02,315,0,owner-approved ten-year addition
+26,6,"416,96,432,112",boardwalk railing,1,0,GoldenrodCity02,316,0,owner-approved ten-year addition
+27,6,"432,96,448,112",Ferris wheel / deck,1,1,GoldenrodCity02,317,0,owner-approved ten-year addition
+28,6,"448,96,464,112",Ferris wheel / deck,1,1,GoldenrodCity02,318,0,owner-approved ten-year addition
+29,6,"464,96,480,112",Ferris wheel / deck,1,1,GoldenrodCity02,319,0,owner-approved ten-year addition
+30,6,"480,96,496,112",Ferris wheel / deck,1,1,GoldenrodCity02,320,0,owner-approved ten-year addition
+31,6,"496,96,512,112",Ferris wheel / deck,1,1,GoldenrodCity02,321,0,owner-approved ten-year addition
+32,6,"512,96,528,112",Ferris wheel / deck,1,1,GoldenrodCity02,322,0,owner-approved ten-year addition
+33,6,"528,96,544,112",Ferris wheel / deck,1,1,GoldenrodCity02,323,0,owner-approved ten-year addition
+34,6,"544,96,560,112",Ferris wheel / deck,1,1,GoldenrodCity02,324,0,owner-approved ten-year addition
+35,6,"560,96,576,112",boardwalk railing,1,0,GoldenrodCity02,325,0,owner-approved ten-year addition
+36,6,"576,96,592,112",boardwalk railing,1,0,GoldenrodCity02,326,0,owner-approved ten-year addition
+37,6,"592,96,608,112",boardwalk railing,1,0,GoldenrodCity02,327,0,owner-approved ten-year addition
+38,6,"608,96,624,112",boardwalk railing,1,0,GoldenrodCity02,328,0,owner-approved ten-year addition
 39,6,"624,96,640,112",paving,0,0,GoldenrodCity02,29,0,overview interpretation; not decoded DS collision
 40,6,"640,96,656,112",forest roots,1,0,GoldenrodCity02,3,0,roof/foreground; hidden ground not scored
 41,6,"656,96,672,112",forest roots,1,0,GoldenrodCity02,2,0,roof/foreground; hidden ground not scored
 21,7,"336,112,352,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,7,"352,112,368,128",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-23,7,"368,112,384,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-24,7,"384,112,400,128",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-25,7,"400,112,416,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,7,"416,112,432,128",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-27,7,"432,112,448,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,7,"448,112,464,128",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-29,7,"464,112,480,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,7,"480,112,496,128",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,7,"496,112,512,128",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,7,"512,112,528,128",water/shore,1,0,GoldenrodCity02,30,0,overview interpretation; not decoded DS collision
-33,7,"528,112,544,128",water/shore,1,0,GoldenrodCity02,31,0,overview interpretation; not decoded DS collision
-34,7,"544,112,560,128",water/shore,1,0,GoldenrodCity02,32,0,overview interpretation; not decoded DS collision
-35,7,"560,112,576,128",water/shore,1,0,GoldenrodCity02,33,0,overview interpretation; not decoded DS collision
-36,7,"576,112,592,128",water/shore,1,0,GoldenrodCity02,34,0,overview interpretation; not decoded DS collision
-37,7,"592,112,608,128",water/shore,1,0,GoldenrodCity02,35,0,overview interpretation; not decoded DS collision
-38,7,"608,112,624,128",water/shore,1,0,GoldenrodCity02,36,0,overview interpretation; not decoded DS collision
+22,7,"352,112,368,128",boardwalk railing,1,0,GoldenrodCity02,329,0,owner-approved ten-year addition
+23,7,"368,112,384,128",timber boardwalk,0,0,GoldenrodCity02,330,0,owner-approved ten-year addition
+24,7,"384,112,400,128",timber boardwalk,0,0,GoldenrodCity02,331,0,owner-approved ten-year addition
+25,7,"400,112,416,128",timber boardwalk,0,0,GoldenrodCity02,332,0,owner-approved ten-year addition
+26,7,"416,112,432,128",timber boardwalk,0,0,GoldenrodCity02,333,0,owner-approved ten-year addition
+27,7,"432,112,448,128",Ferris wheel / deck,0,1,GoldenrodCity02,334,0,owner-approved ten-year addition
+28,7,"448,112,464,128",Ferris wheel / deck,0,1,GoldenrodCity02,335,0,owner-approved ten-year addition
+29,7,"464,112,480,128",Ferris wheel / deck,0,1,GoldenrodCity02,336,0,owner-approved ten-year addition
+30,7,"480,112,496,128",Ferris wheel / deck,0,1,GoldenrodCity02,337,0,owner-approved ten-year addition
+31,7,"496,112,512,128",Ferris wheel / deck,0,1,GoldenrodCity02,338,0,owner-approved ten-year addition
+32,7,"512,112,528,128",Ferris wheel / deck,0,1,GoldenrodCity02,339,0,owner-approved ten-year addition
+33,7,"528,112,544,128",Ferris wheel / deck,0,1,GoldenrodCity02,340,0,owner-approved ten-year addition
+34,7,"544,112,560,128",Ferris wheel / deck,0,1,GoldenrodCity02,341,0,owner-approved ten-year addition
+35,7,"560,112,576,128",timber boardwalk,0,0,GoldenrodCity02,342,0,owner-approved ten-year addition
+36,7,"576,112,592,128",timber boardwalk,0,0,GoldenrodCity02,343,0,owner-approved ten-year addition
+37,7,"592,112,608,128",timber boardwalk,0,0,GoldenrodCity02,344,0,owner-approved ten-year addition
+38,7,"608,112,624,128",boardwalk railing,1,0,GoldenrodCity02,345,0,owner-approved ten-year addition
 39,7,"624,112,640,128",paving,0,0,GoldenrodCity02,37,0,overview interpretation; not decoded DS collision
 40,7,"640,112,656,128",forest roots,1,0,GoldenrodCity02,5,0,roof/foreground; hidden ground not scored
 41,7,"656,112,672,128",forest roots,1,0,GoldenrodCity02,4,0,roof/foreground; hidden ground not scored
 21,8,"336,128,352,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,8,"352,128,368,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-23,8,"368,128,384,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-24,8,"384,128,400,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,8,"400,128,416,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,8,"416,128,432,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,8,"432,128,448,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-28,8,"448,128,464,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,8,"464,128,480,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,8,"480,128,496,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,8,"496,128,512,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,8,"512,128,528,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-33,8,"528,128,544,144",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,8,"544,128,560,144",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,8,"560,128,576,144",paving,0,0,GoldenrodCity02,38,0,overview interpretation; not decoded DS collision
-36,8,"576,128,592,144",paving,0,0,GoldenrodCity02,39,0,overview interpretation; not decoded DS collision
-37,8,"592,128,608,144",paving,0,0,GoldenrodCity02,40,0,overview interpretation; not decoded DS collision
-38,8,"608,128,624,144",paving,0,0,GoldenrodCity02,41,0,overview interpretation; not decoded DS collision
-39,8,"624,128,640,144",building,0,1,GoldenrodCity02,42,0,roof/foreground; hidden ground not scored
+22,8,"352,128,368,144",boardwalk railing,1,0,GoldenrodCity02,346,0,owner-approved ten-year addition
+23,8,"368,128,384,144",market awning/counter,0,1,GoldenrodCity02,347,0,owner-approved ten-year addition
+24,8,"384,128,400,144",market awning/counter,0,1,GoldenrodCity02,348,0,owner-approved ten-year addition
+25,8,"400,128,416,144",market awning/counter,0,1,GoldenrodCity02,349,0,owner-approved ten-year addition
+26,8,"416,128,432,144",timber boardwalk,0,0,GoldenrodCity02,350,0,owner-approved ten-year addition
+27,8,"432,128,448,144",Ferris wheel / deck,0,1,GoldenrodCity02,351,0,owner-approved ten-year addition
+28,8,"448,128,464,144",Ferris wheel / deck,0,1,GoldenrodCity02,352,0,owner-approved ten-year addition
+29,8,"464,128,480,144",Ferris wheel / deck,0,1,GoldenrodCity02,353,0,owner-approved ten-year addition
+30,8,"480,128,496,144",Ferris wheel / deck,0,1,GoldenrodCity02,354,0,owner-approved ten-year addition
+31,8,"496,128,512,144",Ferris wheel / deck,0,1,GoldenrodCity02,355,0,owner-approved ten-year addition
+32,8,"512,128,528,144",Ferris wheel / deck,0,1,GoldenrodCity02,356,0,owner-approved ten-year addition
+33,8,"528,128,544,144",Ferris wheel / deck,0,1,GoldenrodCity02,357,0,owner-approved ten-year addition
+34,8,"544,128,560,144",Ferris wheel / deck,0,1,GoldenrodCity02,358,0,owner-approved ten-year addition
+35,8,"560,128,576,144",timber boardwalk,0,0,GoldenrodCity02,359,0,owner-approved ten-year addition
+36,8,"576,128,592,144",timber boardwalk,0,0,GoldenrodCity02,360,0,owner-approved ten-year addition
+37,8,"592,128,608,144",timber boardwalk,0,0,GoldenrodCity02,361,0,owner-approved ten-year addition
+38,8,"608,128,624,144",boardwalk railing,1,0,GoldenrodCity02,362,0,owner-approved ten-year addition
+39,8,"624,128,640,144",building,0,1,GoldenrodCity02,363,0,roof/foreground; hidden ground not scored
 40,8,"640,128,656,144",building,0,1,GoldenrodCity02,43,0,roof/foreground; hidden ground not scored
 41,8,"656,128,672,144",building,0,1,GoldenrodCity02,44,0,roof/foreground; hidden ground not scored
 21,9,"336,144,352,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,9,"352,144,368,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-23,9,"368,144,384,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-24,9,"384,144,400,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-25,9,"400,144,416,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,9,"416,144,432,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-27,9,"432,144,448,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,9,"448,144,464,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-29,9,"464,144,480,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,9,"480,144,496,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,9,"496,144,512,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,9,"512,144,528,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-33,9,"528,144,544,160",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,9,"544,144,560,160",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,9,"560,144,576,160",paving,0,0,GoldenrodCity02,45,0,overview interpretation; not decoded DS collision
-36,9,"576,144,592,160",paving,0,0,GoldenrodCity02,46,0,overview interpretation; not decoded DS collision
-37,9,"592,144,608,160",paving,0,0,GoldenrodCity02,47,0,overview interpretation; not decoded DS collision
-38,9,"608,144,624,160",paving,0,0,GoldenrodCity02,48,0,overview interpretation; not decoded DS collision
-39,9,"624,144,640,160",building,0,1,GoldenrodCity02,274,0,roof/foreground; hidden ground not scored
+22,9,"352,144,368,160",boardwalk railing,1,0,GoldenrodCity02,364,0,owner-approved ten-year addition
+23,9,"368,144,384,160",market awning/counter,0,1,GoldenrodCity02,365,0,owner-approved ten-year addition
+24,9,"384,144,400,160",market awning/counter,0,1,GoldenrodCity02,366,0,owner-approved ten-year addition
+25,9,"400,144,416,160",market awning/counter,0,1,GoldenrodCity02,367,0,owner-approved ten-year addition
+26,9,"416,144,432,160",timber boardwalk,0,0,GoldenrodCity02,368,0,owner-approved ten-year addition
+27,9,"432,144,448,160",Ferris wheel / deck,0,1,GoldenrodCity02,369,0,owner-approved ten-year addition
+28,9,"448,144,464,160",Ferris wheel / deck,0,1,GoldenrodCity02,370,0,owner-approved ten-year addition
+29,9,"464,144,480,160",Ferris wheel / deck,0,1,GoldenrodCity02,371,0,owner-approved ten-year addition
+30,9,"480,144,496,160",Ferris wheel / deck,0,1,GoldenrodCity02,372,0,owner-approved ten-year addition
+31,9,"496,144,512,160",Ferris wheel / deck,0,1,GoldenrodCity02,373,0,owner-approved ten-year addition
+32,9,"512,144,528,160",Ferris wheel / deck,0,1,GoldenrodCity02,374,0,owner-approved ten-year addition
+33,9,"528,144,544,160",Ferris wheel / deck,0,1,GoldenrodCity02,375,0,owner-approved ten-year addition
+34,9,"544,144,560,160",Ferris wheel / deck,0,1,GoldenrodCity02,376,0,owner-approved ten-year addition
+35,9,"560,144,576,160",timber boardwalk,0,0,GoldenrodCity02,377,0,owner-approved ten-year addition
+36,9,"576,144,592,160",timber boardwalk,0,0,GoldenrodCity02,378,0,owner-approved ten-year addition
+37,9,"592,144,608,160",timber boardwalk,0,0,GoldenrodCity02,379,0,owner-approved ten-year addition
+38,9,"608,144,624,160",boardwalk railing,1,0,GoldenrodCity02,380,0,owner-approved ten-year addition
+39,9,"624,144,640,160",building,0,1,GoldenrodCity02,381,0,roof/foreground; hidden ground not scored
 40,9,"640,144,656,160",building,0,1,GoldenrodCity02,50,0,roof/foreground; hidden ground not scored
 41,9,"656,144,672,160",building,0,1,GoldenrodCity02,275,0,roof/foreground; hidden ground not scored
 21,10,"336,160,352,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,10,"352,160,368,176",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-23,10,"368,160,384,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-24,10,"384,160,400,176",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,10,"400,160,416,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,10,"416,160,432,176",water/shore,1,0,GoldenrodCity02,52,0,overview interpretation; not decoded DS collision
-27,10,"432,160,448,176",water/shore,1,0,GoldenrodCity02,53,0,overview interpretation; not decoded DS collision
-28,10,"448,160,464,176",water/shore,1,0,GoldenrodCity02,54,0,overview interpretation; not decoded DS collision
-29,10,"464,160,480,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,10,"480,160,496,176",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,10,"496,160,512,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,10,"512,160,528,176",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-33,10,"528,160,544,176",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,10,"544,160,560,176",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,10,"560,160,576,176",paving,0,0,GoldenrodCity02,55,0,overview interpretation; not decoded DS collision
-36,10,"576,160,592,176",paving,0,0,GoldenrodCity02,56,0,overview interpretation; not decoded DS collision
-37,10,"592,160,608,176",paving,0,0,GoldenrodCity02,57,0,overview interpretation; not decoded DS collision
-38,10,"608,160,624,176",paving,0,0,GoldenrodCity02,58,0,overview interpretation; not decoded DS collision
-39,10,"624,160,640,176",building,0,1,GoldenrodCity02,276,0,roof/foreground; hidden ground not scored
+22,10,"352,160,368,176",boardwalk railing,1,0,GoldenrodCity02,382,0,owner-approved ten-year addition
+23,10,"368,160,384,176",market awning/counter,1,1,GoldenrodCity02,383,0,owner-approved ten-year addition
+24,10,"384,160,400,176",market awning/counter,1,1,GoldenrodCity02,384,0,owner-approved ten-year addition
+25,10,"400,160,416,176",market awning/counter,1,1,GoldenrodCity02,385,0,owner-approved ten-year addition
+26,10,"416,160,432,176",timber boardwalk,0,0,GoldenrodCity02,386,0,owner-approved ten-year addition
+27,10,"432,160,448,176",Ferris wheel / deck,0,1,GoldenrodCity02,387,0,owner-approved ten-year addition
+28,10,"448,160,464,176",wheel supports,1,1,GoldenrodCity02,388,0,owner-approved ten-year addition
+29,10,"464,160,480,176",wheel supports,1,1,GoldenrodCity02,389,0,owner-approved ten-year addition
+30,10,"480,160,496,176",wheel supports,1,1,GoldenrodCity02,390,0,owner-approved ten-year addition
+31,10,"496,160,512,176",wheel supports,1,1,GoldenrodCity02,391,0,owner-approved ten-year addition
+32,10,"512,160,528,176",wheel supports,1,1,GoldenrodCity02,392,0,owner-approved ten-year addition
+33,10,"528,160,544,176",wheel supports,1,1,GoldenrodCity02,393,0,owner-approved ten-year addition
+34,10,"544,160,560,176",market awning/counter,0,1,GoldenrodCity02,394,0,owner-approved ten-year addition
+35,10,"560,160,576,176",market awning/counter,0,1,GoldenrodCity02,395,0,owner-approved ten-year addition
+36,10,"576,160,592,176",market awning/counter,0,1,GoldenrodCity02,396,0,owner-approved ten-year addition
+37,10,"592,160,608,176",timber boardwalk,0,0,GoldenrodCity02,397,0,owner-approved ten-year addition
+38,10,"608,160,624,176",boardwalk railing,1,0,GoldenrodCity02,398,0,owner-approved ten-year addition
+39,10,"624,160,640,176",building,0,1,GoldenrodCity02,399,0,roof/foreground; hidden ground not scored
 40,10,"640,160,656,176",building,0,1,GoldenrodCity02,277,0,roof/foreground; hidden ground not scored
 41,10,"656,160,672,176",building,0,1,GoldenrodCity02,278,0,roof/foreground; hidden ground not scored
 21,11,"336,176,352,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,11,"352,176,368,192",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-23,11,"368,176,384,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-24,11,"384,176,400,192",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-25,11,"400,176,416,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,11,"416,176,432,192",water/shore,1,0,GoldenrodCity02,62,0,overview interpretation; not decoded DS collision
-27,11,"432,176,448,192",water/shore,1,0,GoldenrodCity02,63,0,overview interpretation; not decoded DS collision
-28,11,"448,176,464,192",water/shore,1,0,GoldenrodCity02,64,0,overview interpretation; not decoded DS collision
-29,11,"464,176,480,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,11,"480,176,496,192",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,11,"496,176,512,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,11,"512,176,528,192",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-33,11,"528,176,544,192",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,11,"544,176,560,192",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,11,"560,176,576,192",paving,0,0,GoldenrodCity02,65,0,overview interpretation; not decoded DS collision
-36,11,"576,176,592,192",paving,0,0,GoldenrodCity02,66,0,overview interpretation; not decoded DS collision
-37,11,"592,176,608,192",paving,0,0,GoldenrodCity02,67,0,overview interpretation; not decoded DS collision
-38,11,"608,176,624,192",paving,0,0,GoldenrodCity02,68,0,overview interpretation; not decoded DS collision
-39,11,"624,176,640,192",building,0,1,GoldenrodCity02,69,0,roof/foreground; hidden ground not scored
+22,11,"352,176,368,192",boardwalk railing,1,0,GoldenrodCity02,400,0,owner-approved ten-year addition
+23,11,"368,176,384,192",timber boardwalk,0,0,GoldenrodCity02,401,0,owner-approved ten-year addition
+24,11,"384,176,400,192",timber boardwalk,0,0,GoldenrodCity02,402,0,owner-approved ten-year addition
+25,11,"400,176,416,192",timber boardwalk,0,0,GoldenrodCity02,403,0,owner-approved ten-year addition
+26,11,"416,176,432,192",market awning/counter,0,1,GoldenrodCity02,404,0,owner-approved ten-year addition
+27,11,"432,176,448,192",market awning/counter,0,1,GoldenrodCity02,405,0,owner-approved ten-year addition
+28,11,"448,176,464,192",market awning/counter,1,1,GoldenrodCity02,406,0,owner-approved ten-year addition
+29,11,"464,176,480,192",wheel supports,1,1,GoldenrodCity02,407,0,owner-approved ten-year addition
+30,11,"480,176,496,192",wheel supports,1,1,GoldenrodCity02,408,0,owner-approved ten-year addition
+31,11,"496,176,512,192",wheel supports,1,1,GoldenrodCity02,409,0,owner-approved ten-year addition
+32,11,"512,176,528,192",wheel supports,1,1,GoldenrodCity02,410,0,owner-approved ten-year addition
+33,11,"528,176,544,192",wheel supports,1,1,GoldenrodCity02,411,0,owner-approved ten-year addition
+34,11,"544,176,560,192",market awning/counter,0,1,GoldenrodCity02,412,0,owner-approved ten-year addition
+35,11,"560,176,576,192",market awning/counter,0,1,GoldenrodCity02,413,0,owner-approved ten-year addition
+36,11,"576,176,592,192",market awning/counter,0,1,GoldenrodCity02,414,0,owner-approved ten-year addition
+37,11,"592,176,608,192",timber boardwalk,0,0,GoldenrodCity02,415,0,owner-approved ten-year addition
+38,11,"608,176,624,192",boardwalk railing,1,0,GoldenrodCity02,416,0,owner-approved ten-year addition
+39,11,"624,176,640,192",building,0,1,GoldenrodCity02,417,0,roof/foreground; hidden ground not scored
 40,11,"640,176,656,192",building,0,1,GoldenrodCity02,70,0,roof/foreground; hidden ground not scored
 41,11,"656,176,672,192",building,0,1,GoldenrodCity02,71,0,roof/foreground; hidden ground not scored
 21,12,"336,192,352,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,12,"352,192,368,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-23,12,"368,192,384,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-24,12,"384,192,400,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,12,"400,192,416,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,12,"416,192,432,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,12,"432,192,448,208",water/shore,1,0,GoldenrodCity02,72,0,overview interpretation; not decoded DS collision
-28,12,"448,192,464,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,12,"464,192,480,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,12,"480,192,496,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,12,"496,192,512,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,12,"512,192,528,208",water/shore,1,0,GoldenrodCity02,73,0,overview interpretation; not decoded DS collision
-33,12,"528,192,544,208",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,12,"544,192,560,208",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,12,"560,192,576,208",paving,0,0,GoldenrodCity02,74,0,overview interpretation; not decoded DS collision
-36,12,"576,192,592,208",paving,0,0,GoldenrodCity02,75,0,overview interpretation; not decoded DS collision
-37,12,"592,192,608,208",paving,0,0,GoldenrodCity02,76,0,overview interpretation; not decoded DS collision
-38,12,"608,192,624,208",paving,0,0,GoldenrodCity02,77,0,overview interpretation; not decoded DS collision
-39,12,"624,192,640,208",building,0,1,GoldenrodCity02,279,0,roof/foreground; hidden ground not scored
+22,12,"352,192,368,208",boardwalk railing,1,0,GoldenrodCity02,418,0,owner-approved ten-year addition
+23,12,"368,192,384,208",timber boardwalk,0,0,GoldenrodCity02,419,0,owner-approved ten-year addition
+24,12,"384,192,400,208",timber boardwalk,0,0,GoldenrodCity02,420,0,owner-approved ten-year addition
+25,12,"400,192,416,208",timber boardwalk,0,0,GoldenrodCity02,421,0,owner-approved ten-year addition
+26,12,"416,192,432,208",market awning/counter,0,1,GoldenrodCity02,422,0,owner-approved ten-year addition
+27,12,"432,192,448,208",market awning/counter,0,1,GoldenrodCity02,423,0,owner-approved ten-year addition
+28,12,"448,192,464,208",market awning/counter,0,1,GoldenrodCity02,424,0,owner-approved ten-year addition
+29,12,"464,192,480,208",timber boardwalk,0,0,GoldenrodCity02,425,0,owner-approved ten-year addition
+30,12,"480,192,496,208",timber boardwalk,0,0,GoldenrodCity02,426,0,owner-approved ten-year addition
+31,12,"496,192,512,208",timber boardwalk,0,0,GoldenrodCity02,427,0,owner-approved ten-year addition
+32,12,"512,192,528,208",timber boardwalk,0,0,GoldenrodCity02,428,0,owner-approved ten-year addition
+33,12,"528,192,544,208",timber boardwalk,0,0,GoldenrodCity02,429,0,owner-approved ten-year addition
+34,12,"544,192,560,208",market awning/counter,1,1,GoldenrodCity02,430,0,owner-approved ten-year addition
+35,12,"560,192,576,208",market awning/counter,1,1,GoldenrodCity02,431,0,owner-approved ten-year addition
+36,12,"576,192,592,208",market awning/counter,1,1,GoldenrodCity02,432,0,owner-approved ten-year addition
+37,12,"592,192,608,208",timber boardwalk,0,0,GoldenrodCity02,433,0,owner-approved ten-year addition
+38,12,"608,192,624,208",boardwalk railing,1,0,GoldenrodCity02,434,0,owner-approved ten-year addition
+39,12,"624,192,640,208",building,0,1,GoldenrodCity02,435,0,roof/foreground; hidden ground not scored
 40,12,"640,192,656,208",building,0,1,GoldenrodCity02,280,0,roof/foreground; hidden ground not scored
 41,12,"656,192,672,208",building,0,1,GoldenrodCity02,281,0,roof/foreground; hidden ground not scored
 21,13,"336,208,352,224",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,13,"352,208,368,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-23,13,"368,208,384,224",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-24,13,"384,208,400,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-25,13,"400,208,416,224",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,13,"416,208,432,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-27,13,"432,208,448,224",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,13,"448,208,464,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-29,13,"464,208,480,224",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,13,"480,208,496,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,13,"496,208,512,224",water/shore,1,0,GoldenrodCity02,81,0,overview interpretation; not decoded DS collision
-32,13,"512,208,528,224",water/shore,1,0,GoldenrodCity02,82,0,overview interpretation; not decoded DS collision
-33,13,"528,208,544,224",water/shore,1,0,GoldenrodCity02,83,0,overview interpretation; not decoded DS collision
-34,13,"544,208,560,224",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,13,"560,208,576,224",paving,0,0,GoldenrodCity02,84,0,overview interpretation; not decoded DS collision
-36,13,"576,208,592,224",paving,0,0,GoldenrodCity02,85,0,overview interpretation; not decoded DS collision
-37,13,"592,208,608,224",paving,0,0,GoldenrodCity02,86,0,overview interpretation; not decoded DS collision
-38,13,"608,208,624,224",paving,0,0,GoldenrodCity02,87,0,overview interpretation; not decoded DS collision
-39,13,"624,208,640,224",building,0,1,GoldenrodCity02,282,0,roof/foreground; hidden ground not scored
+22,13,"352,208,368,224",boardwalk railing,1,1,GoldenrodCity02,436,0,owner-approved ten-year addition
+23,13,"368,208,384,224",timber boardwalk,0,0,GoldenrodCity02,437,0,owner-approved ten-year addition
+24,13,"384,208,400,224",timber boardwalk,0,0,GoldenrodCity02,438,0,owner-approved ten-year addition
+25,13,"400,208,416,224",timber boardwalk,0,0,GoldenrodCity02,439,0,owner-approved ten-year addition
+26,13,"416,208,432,224",market awning/counter,1,1,GoldenrodCity02,440,0,owner-approved ten-year addition
+27,13,"432,208,448,224",market awning/counter,1,1,GoldenrodCity02,441,0,owner-approved ten-year addition
+28,13,"448,208,464,224",market awning/counter,1,1,GoldenrodCity02,442,0,owner-approved ten-year addition
+29,13,"464,208,480,224",timber boardwalk,0,0,GoldenrodCity02,443,0,owner-approved ten-year addition
+30,13,"480,208,496,224",timber boardwalk,0,0,GoldenrodCity02,444,0,owner-approved ten-year addition
+31,13,"496,208,512,224",timber boardwalk,0,0,GoldenrodCity02,445,0,owner-approved ten-year addition
+32,13,"512,208,528,224",timber boardwalk,0,0,GoldenrodCity02,446,0,owner-approved ten-year addition
+33,13,"528,208,544,224",timber boardwalk,0,0,GoldenrodCity02,447,0,owner-approved ten-year addition
+34,13,"544,208,560,224",timber boardwalk,0,0,GoldenrodCity02,448,0,owner-approved ten-year addition
+35,13,"560,208,576,224",timber boardwalk,0,0,GoldenrodCity02,449,0,owner-approved ten-year addition
+36,13,"576,208,592,224",timber boardwalk,0,0,GoldenrodCity02,450,0,owner-approved ten-year addition
+37,13,"592,208,608,224",timber boardwalk,0,0,GoldenrodCity02,451,0,owner-approved ten-year addition
+38,13,"608,208,624,224",boardwalk railing,1,0,GoldenrodCity02,452,0,owner-approved ten-year addition
+39,13,"624,208,640,224",building,0,1,GoldenrodCity02,453,0,roof/foreground; hidden ground not scored
 40,13,"640,208,656,224",building,0,1,GoldenrodCity02,283,0,roof/foreground; hidden ground not scored
 41,13,"656,208,672,224",building,0,1,GoldenrodCity02,284,0,roof/foreground; hidden ground not scored
 21,14,"336,224,352,240",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,14,"352,224,368,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-23,14,"368,224,384,240",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-24,14,"384,224,400,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,14,"400,224,416,240",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,14,"416,224,432,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,14,"432,224,448,240",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-28,14,"448,224,464,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,14,"464,224,480,240",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,14,"480,224,496,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,14,"496,224,512,240",water/shore,1,0,GoldenrodCity02,91,0,overview interpretation; not decoded DS collision
-32,14,"512,224,528,240",water/shore,1,0,GoldenrodCity02,92,0,overview interpretation; not decoded DS collision
-33,14,"528,224,544,240",water/shore,1,0,GoldenrodCity02,93,0,overview interpretation; not decoded DS collision
-34,14,"544,224,560,240",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,14,"560,224,576,240",paving,0,0,GoldenrodCity02,94,0,overview interpretation; not decoded DS collision
-36,14,"576,224,592,240",paving,0,0,GoldenrodCity02,95,0,overview interpretation; not decoded DS collision
-37,14,"592,224,608,240",paving,0,0,GoldenrodCity02,96,0,overview interpretation; not decoded DS collision
-38,14,"608,224,624,240",paving,0,0,GoldenrodCity02,97,0,overview interpretation; not decoded DS collision
-39,14,"624,224,640,240",building,0,1,GoldenrodCity02,98,0,roof/foreground; hidden ground not scored
+22,14,"352,224,368,240",boardwalk railing,1,1,GoldenrodCity02,454,0,owner-approved ten-year addition
+23,14,"368,224,384,240",timber boardwalk,0,0,GoldenrodCity02,455,0,owner-approved ten-year addition
+24,14,"384,224,400,240",timber boardwalk,0,0,GoldenrodCity02,456,0,owner-approved ten-year addition
+25,14,"400,224,416,240",timber boardwalk,0,0,GoldenrodCity02,457,0,owner-approved ten-year addition
+26,14,"416,224,432,240",timber boardwalk,0,0,GoldenrodCity02,458,0,owner-approved ten-year addition
+27,14,"432,224,448,240",timber boardwalk,0,0,GoldenrodCity02,459,0,owner-approved ten-year addition
+28,14,"448,224,464,240",timber boardwalk,0,0,GoldenrodCity02,460,0,owner-approved ten-year addition
+29,14,"464,224,480,240",timber boardwalk,0,0,GoldenrodCity02,461,0,owner-approved ten-year addition
+30,14,"480,224,496,240",timber boardwalk,0,0,GoldenrodCity02,462,0,owner-approved ten-year addition
+31,14,"496,224,512,240",timber boardwalk,0,0,GoldenrodCity02,463,0,owner-approved ten-year addition
+32,14,"512,224,528,240",timber boardwalk,0,0,GoldenrodCity02,464,0,owner-approved ten-year addition
+33,14,"528,224,544,240",timber boardwalk,0,0,GoldenrodCity02,465,0,owner-approved ten-year addition
+34,14,"544,224,560,240",timber boardwalk,0,0,GoldenrodCity02,466,0,owner-approved ten-year addition
+35,14,"560,224,576,240",timber boardwalk,0,0,GoldenrodCity02,467,0,owner-approved ten-year addition
+36,14,"576,224,592,240",timber boardwalk,0,0,GoldenrodCity02,468,0,owner-approved ten-year addition
+37,14,"592,224,608,240",timber boardwalk,0,0,GoldenrodCity02,469,0,owner-approved ten-year addition
+38,14,"608,224,624,240",boardwalk railing,1,0,GoldenrodCity02,470,0,owner-approved ten-year addition
+39,14,"624,224,640,240",building,0,1,GoldenrodCity02,471,0,roof/foreground; hidden ground not scored
 40,14,"640,224,656,240",building,0,1,GoldenrodCity02,99,0,roof/foreground; hidden ground not scored
 41,14,"656,224,672,240",building,0,1,GoldenrodCity02,100,0,roof/foreground; hidden ground not scored
 21,15,"336,240,352,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,15,"352,240,368,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-23,15,"368,240,384,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-24,15,"384,240,400,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-25,15,"400,240,416,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,15,"416,240,432,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-27,15,"432,240,448,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,15,"448,240,464,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-29,15,"464,240,480,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,15,"480,240,496,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-31,15,"496,240,512,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,15,"512,240,528,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-33,15,"528,240,544,256",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,15,"544,240,560,256",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,15,"560,240,576,256",paving,0,0,GoldenrodCity02,101,0,overview interpretation; not decoded DS collision
-36,15,"576,240,592,256",paving,0,0,GoldenrodCity02,102,0,overview interpretation; not decoded DS collision
-37,15,"592,240,608,256",paving,0,0,GoldenrodCity02,103,0,overview interpretation; not decoded DS collision
-38,15,"608,240,624,256",building,0,1,GoldenrodCity02,104,0,roof/foreground; hidden ground not scored
-39,15,"624,240,640,256",building,0,1,GoldenrodCity02,285,0,roof/foreground; hidden ground not scored
+22,15,"352,240,368,256",boardwalk railing,1,0,GoldenrodCity02,472,0,owner-approved ten-year addition
+23,15,"368,240,384,256",boardwalk railing,1,0,GoldenrodCity02,473,0,owner-approved ten-year addition
+24,15,"384,240,400,256",boardwalk railing,1,0,GoldenrodCity02,474,0,owner-approved ten-year addition
+25,15,"400,240,416,256",boardwalk railing,1,0,GoldenrodCity02,475,0,owner-approved ten-year addition
+26,15,"416,240,432,256",boardwalk railing,1,0,GoldenrodCity02,476,0,owner-approved ten-year addition
+27,15,"432,240,448,256",boardwalk railing,1,0,GoldenrodCity02,477,0,owner-approved ten-year addition
+28,15,"448,240,464,256",boardwalk railing,1,0,GoldenrodCity02,478,0,owner-approved ten-year addition
+29,15,"464,240,480,256",boardwalk railing,1,0,GoldenrodCity02,479,0,owner-approved ten-year addition
+30,15,"480,240,496,256",boardwalk railing,1,0,GoldenrodCity02,480,0,owner-approved ten-year addition
+31,15,"496,240,512,256",boardwalk railing,1,0,GoldenrodCity02,481,0,owner-approved ten-year addition
+32,15,"512,240,528,256",boardwalk railing,1,0,GoldenrodCity02,482,0,owner-approved ten-year addition
+33,15,"528,240,544,256",boardwalk railing,1,0,GoldenrodCity02,483,0,owner-approved ten-year addition
+34,15,"544,240,560,256",timber boardwalk,0,0,GoldenrodCity02,484,0,owner-approved ten-year addition
+35,15,"560,240,576,256",timber boardwalk,0,0,GoldenrodCity02,485,0,owner-approved ten-year addition
+36,15,"576,240,592,256",timber boardwalk,0,0,GoldenrodCity02,486,0,owner-approved ten-year addition
+37,15,"592,240,608,256",boardwalk railing,1,0,GoldenrodCity02,487,0,owner-approved ten-year addition
+38,15,"608,240,624,256",building,0,1,GoldenrodCity02,488,0,roof/foreground; hidden ground not scored
+39,15,"624,240,640,256",building,0,1,GoldenrodCity02,489,0,roof/foreground; hidden ground not scored
 40,15,"640,240,656,256",building,0,1,GoldenrodCity02,106,0,roof/foreground; hidden ground not scored
 41,15,"656,240,672,256",building,0,1,GoldenrodCity02,107,0,roof/foreground; hidden ground not scored
 21,16,"336,256,352,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-22,16,"352,256,368,272",water/shore,1,0,GoldenrodCity02,108,0,overview interpretation; not decoded DS collision
-23,16,"368,256,384,272",water/shore,1,0,GoldenrodCity02,109,0,overview interpretation; not decoded DS collision
-24,16,"384,256,400,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-25,16,"400,256,416,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-26,16,"416,256,432,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-27,16,"432,256,448,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-28,16,"448,256,464,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-29,16,"464,256,480,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-30,16,"480,256,496,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-31,16,"496,256,512,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-32,16,"512,256,528,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-33,16,"528,256,544,272",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,16,"544,256,560,272",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,16,"560,256,576,272",paving,0,0,GoldenrodCity02,110,0,overview interpretation; not decoded DS collision
-36,16,"576,256,592,272",paving,0,0,GoldenrodCity02,111,0,overview interpretation; not decoded DS collision
-37,16,"592,256,608,272",paving,0,0,GoldenrodCity02,112,0,overview interpretation; not decoded DS collision
-38,16,"608,256,624,272",building,0,1,GoldenrodCity02,286,0,roof/foreground; hidden ground not scored
-39,16,"624,256,640,272",building,1,0,GoldenrodCity02,114,0,roof/foreground; hidden ground not scored
+22,16,"352,256,368,272",water/shore,1,0,GoldenrodCity02,490,0,overview interpretation; not decoded DS collision
+23,16,"368,256,384,272",water/shore,1,0,GoldenrodCity02,491,0,overview interpretation; not decoded DS collision
+24,16,"384,256,400,272",water/shore,1,0,GoldenrodCity02,492,0,overview interpretation; not decoded DS collision
+25,16,"400,256,416,272",water/shore,1,0,GoldenrodCity02,493,0,overview interpretation; not decoded DS collision
+26,16,"416,256,432,272",water/shore,1,0,GoldenrodCity02,494,0,overview interpretation; not decoded DS collision
+27,16,"432,256,448,272",water/shore,1,0,GoldenrodCity02,495,0,overview interpretation; not decoded DS collision
+28,16,"448,256,464,272",water/shore,1,0,GoldenrodCity02,496,0,overview interpretation; not decoded DS collision
+29,16,"464,256,480,272",water/shore,1,0,GoldenrodCity02,497,0,overview interpretation; not decoded DS collision
+30,16,"480,256,496,272",water/shore,1,0,GoldenrodCity02,498,0,overview interpretation; not decoded DS collision
+31,16,"496,256,512,272",water/shore,1,0,GoldenrodCity02,499,0,overview interpretation; not decoded DS collision
+32,16,"512,256,528,272",water/shore,1,0,GoldenrodCity02,500,0,overview interpretation; not decoded DS collision
+33,16,"528,256,544,272",water/shore,1,0,GoldenrodCity02,501,0,overview interpretation; not decoded DS collision
+34,16,"544,256,560,272",boardwalk railing,1,0,GoldenrodCity02,502,0,owner-approved ten-year addition
+35,16,"560,256,576,272",timber boardwalk,0,0,GoldenrodCity02,503,0,owner-approved ten-year addition
+36,16,"576,256,592,272",timber boardwalk,0,0,GoldenrodCity02,504,0,owner-approved ten-year addition
+37,16,"592,256,608,272",boardwalk railing,1,0,GoldenrodCity02,505,0,owner-approved ten-year addition
+38,16,"608,256,624,272",building,0,1,GoldenrodCity02,506,0,roof/foreground; hidden ground not scored
+39,16,"624,256,640,272",building,1,0,GoldenrodCity02,507,0,roof/foreground; hidden ground not scored
 40,16,"640,256,656,272",building,1,0,GoldenrodCity02,115,0,roof/foreground; hidden ground not scored
 41,16,"656,256,672,272",building,1,0,GoldenrodCity02,116,0,roof/foreground; hidden ground not scored
 21,17,"336,272,352,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-22,17,"352,272,368,288",water/shore,1,0,GoldenrodCity02,117,0,overview interpretation; not decoded DS collision
-23,17,"368,272,384,288",water/shore,1,0,GoldenrodCity02,118,0,overview interpretation; not decoded DS collision
-24,17,"384,272,400,288",water/shore,1,0,GoldenrodCity02,119,0,overview interpretation; not decoded DS collision
+22,17,"352,272,368,288",water/shore,1,0,GoldenrodCity02,508,0,overview interpretation; not decoded DS collision
+23,17,"368,272,384,288",water/shore,1,0,GoldenrodCity02,509,0,overview interpretation; not decoded DS collision
+24,17,"384,272,400,288",water/shore,1,0,GoldenrodCity02,510,0,overview interpretation; not decoded DS collision
 25,17,"400,272,416,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-26,17,"416,272,432,288",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
+26,17,"416,272,432,288",water/shore,1,0,GoldenrodCity02,511,0,overview interpretation; not decoded DS collision
 27,17,"432,272,448,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-28,17,"448,272,464,288",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
+28,17,"448,272,464,288",water/shore,1,0,GoldenrodCity02,513,0,overview interpretation; not decoded DS collision
 29,17,"464,272,480,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-30,17,"480,272,496,288",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
+30,17,"480,272,496,288",water/shore,1,0,GoldenrodCity02,514,0,overview interpretation; not decoded DS collision
 31,17,"496,272,512,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-32,17,"512,272,528,288",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
+32,17,"512,272,528,288",water/shore,1,0,GoldenrodCity02,515,0,overview interpretation; not decoded DS collision
 33,17,"528,272,544,288",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,17,"544,272,560,288",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,17,"560,272,576,288",paving,0,0,GoldenrodCity02,120,0,overview interpretation; not decoded DS collision
-36,17,"576,272,592,288",paving,0,0,GoldenrodCity02,121,0,overview interpretation; not decoded DS collision
-37,17,"592,272,608,288",paving,0,0,GoldenrodCity02,122,0,overview interpretation; not decoded DS collision
-38,17,"608,272,624,288",building,0,1,GoldenrodCity02,123,0,roof/foreground; hidden ground not scored
-39,17,"624,272,640,288",building,1,0,GoldenrodCity02,124,0,roof/foreground; hidden ground not scored
+34,17,"544,272,560,288",boardwalk railing,1,0,GoldenrodCity02,516,0,owner-approved ten-year addition
+35,17,"560,272,576,288",timber boardwalk,0,0,GoldenrodCity02,517,0,owner-approved ten-year addition
+36,17,"576,272,592,288",timber boardwalk,0,0,GoldenrodCity02,518,0,owner-approved ten-year addition
+37,17,"592,272,608,288",boardwalk railing,1,0,GoldenrodCity02,519,0,owner-approved ten-year addition
+38,17,"608,272,624,288",building,0,1,GoldenrodCity02,520,0,roof/foreground; hidden ground not scored
+39,17,"624,272,640,288",building,1,0,GoldenrodCity02,521,0,roof/foreground; hidden ground not scored
 40,17,"640,272,656,288",building,1,0,GoldenrodCity02,125,0,roof/foreground; hidden ground not scored
 41,17,"656,272,672,288",building,1,0,GoldenrodCity02,126,0,roof/foreground; hidden ground not scored
 21,18,"336,288,352,304",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
@@ -978,10 +978,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,18,"496,288,512,304",water/shore,1,0,GoldenrodCity02,130,0,overview interpretation; not decoded DS collision
 32,18,"512,288,528,304",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
 33,18,"528,288,544,304",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,18,"544,288,560,304",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,18,"560,288,576,304",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-36,18,"576,288,592,304",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-37,18,"592,288,608,304",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
+34,18,"544,288,560,304",boardwalk railing,1,0,GoldenrodCity02,522,0,owner-approved ten-year addition
+35,18,"560,288,576,304",timber boardwalk,0,0,GoldenrodCity02,523,0,owner-approved ten-year addition
+36,18,"576,288,592,304",timber boardwalk,0,0,GoldenrodCity02,524,0,owner-approved ten-year addition
+37,18,"592,288,608,304",boardwalk railing,1,0,GoldenrodCity02,525,0,owner-approved ten-year addition
 38,18,"608,288,624,304",building,1,1,GoldenrodCity02,131,0,roof/foreground; hidden ground not scored
 39,18,"624,288,640,304",building,1,0,GoldenrodCity02,132,0,roof/foreground; hidden ground not scored
 40,18,"640,288,656,304",building,1,0,GoldenrodCity02,133,0,roof/foreground; hidden ground not scored
@@ -999,10 +999,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,19,"496,304,512,320",water/shore,1,0,GoldenrodCity02,140,0,overview interpretation; not decoded DS collision
 32,19,"512,304,528,320",water/shore,1,0,GoldenrodCity02,141,0,overview interpretation; not decoded DS collision
 33,19,"528,304,544,320",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,19,"544,304,560,320",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,19,"560,304,576,320",water/shore,1,0,GoldenrodCity02,142,0,overview interpretation; not decoded DS collision
-36,19,"576,304,592,320",water/shore,1,0,GoldenrodCity02,143,0,overview interpretation; not decoded DS collision
-37,19,"592,304,608,320",water/shore,1,0,GoldenrodCity02,144,0,overview interpretation; not decoded DS collision
+34,19,"544,304,560,320",boardwalk railing,1,0,GoldenrodCity02,526,0,owner-approved ten-year addition
+35,19,"560,304,576,320",timber boardwalk,0,0,GoldenrodCity02,527,0,owner-approved ten-year addition
+36,19,"576,304,592,320",timber boardwalk,0,0,GoldenrodCity02,528,0,owner-approved ten-year addition
+37,19,"592,304,608,320",boardwalk railing,1,0,GoldenrodCity02,529,0,owner-approved ten-year addition
 38,19,"608,304,624,320",building,1,1,GoldenrodCity02,145,0,roof/foreground; hidden ground not scored
 39,19,"624,304,640,320",building,0,1,GoldenrodCity02,146,0,roof/foreground; hidden ground not scored
 40,19,"640,304,656,320",building,0,1,GoldenrodCity02,147,0,roof/foreground; hidden ground not scored
@@ -1020,10 +1020,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,20,"496,320,512,336",water/shore,1,0,GoldenrodCity02,154,0,overview interpretation; not decoded DS collision
 32,20,"512,320,528,336",water/shore,1,0,GoldenrodCity02,155,0,overview interpretation; not decoded DS collision
 33,20,"528,320,544,336",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,20,"544,320,560,336",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,20,"560,320,576,336",wall/railing,1,0,GoldenrodCity02,156,0,overview interpretation; not decoded DS collision
-36,20,"576,320,592,336",paving,0,0,GoldenrodCity02,157,0,overview interpretation; not decoded DS collision
-37,20,"592,320,608,336",paving,0,0,GoldenrodCity02,158,0,overview interpretation; not decoded DS collision
+34,20,"544,320,560,336",boardwalk railing,1,0,GoldenrodCity02,530,0,owner-approved ten-year addition
+35,20,"560,320,576,336",timber boardwalk,0,0,GoldenrodCity02,531,0,owner-approved ten-year addition
+36,20,"576,320,592,336",timber boardwalk,0,0,GoldenrodCity02,532,0,owner-approved ten-year addition
+37,20,"592,320,608,336",boardwalk railing,1,1,GoldenrodCity02,533,0,owner-approved ten-year addition
 38,20,"608,320,624,336",building,0,1,GoldenrodCity02,159,0,roof/foreground; hidden ground not scored
 39,20,"624,320,640,336",building,0,1,GoldenrodCity02,160,0,roof/foreground; hidden ground not scored
 40,20,"640,320,656,336",building,0,1,GoldenrodCity02,161,0,roof/foreground; hidden ground not scored
@@ -1041,10 +1041,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,21,"496,336,512,352",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
 32,21,"512,336,528,352",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
 33,21,"528,336,544,352",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,21,"544,336,560,352",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,21,"560,336,576,352",wall/railing,1,0,GoldenrodCity02,170,0,overview interpretation; not decoded DS collision
-36,21,"576,336,592,352",paving,0,0,GoldenrodCity02,171,0,overview interpretation; not decoded DS collision
-37,21,"592,336,608,352",paving,0,0,GoldenrodCity02,172,0,overview interpretation; not decoded DS collision
+34,21,"544,336,560,352",boardwalk railing,1,0,GoldenrodCity02,534,0,owner-approved ten-year addition
+35,21,"560,336,576,352",timber boardwalk,0,0,GoldenrodCity02,535,0,owner-approved ten-year addition
+36,21,"576,336,592,352",timber boardwalk,0,0,GoldenrodCity02,536,0,owner-approved ten-year addition
+37,21,"592,336,608,352",boardwalk railing,1,1,GoldenrodCity02,537,0,owner-approved ten-year addition
 38,21,"608,336,624,352",building,0,1,GoldenrodCity02,173,0,roof/foreground; hidden ground not scored
 39,21,"624,336,640,352",building,0,1,GoldenrodCity02,174,0,roof/foreground; hidden ground not scored
 40,21,"640,336,656,352",building,0,1,GoldenrodCity02,175,0,roof/foreground; hidden ground not scored
@@ -1062,10 +1062,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,22,"496,352,512,368",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
 32,22,"512,352,528,368",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
 33,22,"528,352,544,368",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
-34,22,"544,352,560,368",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-35,22,"560,352,576,368",wall/railing,1,0,GoldenrodCity02,184,0,overview interpretation; not decoded DS collision
-36,22,"576,352,592,368",paving,0,0,GoldenrodCity02,185,0,overview interpretation; not decoded DS collision
-37,22,"592,352,608,368",paving,0,0,GoldenrodCity02,186,0,overview interpretation; not decoded DS collision
+34,22,"544,352,560,368",boardwalk railing,1,0,GoldenrodCity02,538,0,owner-approved ten-year addition
+35,22,"560,352,576,368",timber boardwalk,0,0,GoldenrodCity02,539,0,owner-approved ten-year addition
+36,22,"576,352,592,368",timber boardwalk,0,0,GoldenrodCity02,540,0,owner-approved ten-year addition
+37,22,"592,352,608,368",boardwalk railing,1,0,GoldenrodCity02,541,0,owner-approved ten-year addition
 38,22,"608,352,624,368",building,0,1,GoldenrodCity02,187,0,roof/foreground; hidden ground not scored
 39,22,"624,352,640,368",building,0,1,GoldenrodCity02,188,0,roof/foreground; hidden ground not scored
 40,22,"640,352,656,368",building,0,1,GoldenrodCity02,189,0,roof/foreground; hidden ground not scored
@@ -1083,10 +1083,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 31,23,"496,368,512,384",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
 32,23,"512,368,528,384",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
 33,23,"528,368,544,384",water/shore,1,0,GoldenrodCity02,16,0,overview interpretation; not decoded DS collision
-34,23,"544,368,560,384",water/shore,1,0,GoldenrodCity02,17,0,overview interpretation; not decoded DS collision
-35,23,"560,368,576,384",wall/railing,1,0,GoldenrodCity02,195,0,overview interpretation; not decoded DS collision
-36,23,"576,368,592,384",paving,0,0,GoldenrodCity02,196,0,overview interpretation; not decoded DS collision
-37,23,"592,368,608,384",paving,0,0,GoldenrodCity02,197,0,overview interpretation; not decoded DS collision
+34,23,"544,368,560,384",boardwalk railing,1,0,GoldenrodCity02,542,0,owner-approved ten-year addition
+35,23,"560,368,576,384",timber boardwalk,0,0,GoldenrodCity02,543,0,owner-approved ten-year addition
+36,23,"576,368,592,384",timber boardwalk,0,0,GoldenrodCity02,544,0,owner-approved ten-year addition
+37,23,"592,368,608,384",boardwalk railing,1,0,GoldenrodCity02,545,0,owner-approved ten-year addition
 38,23,"608,368,624,384",building,0,1,GoldenrodCity02,198,0,roof/foreground; hidden ground not scored
 39,23,"624,368,640,384",building,0,1,GoldenrodCity02,199,0,roof/foreground; hidden ground not scored
 40,23,"640,368,656,384",building,0,1,GoldenrodCity02,200,0,roof/foreground; hidden ground not scored
@@ -1103,11 +1103,11 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 30,24,"480,384,496,400",water/shore,1,0,GoldenrodCity02,207,0,overview interpretation; not decoded DS collision
 31,24,"496,384,512,400",water/shore,1,0,GoldenrodCity02,10,0,overview interpretation; not decoded DS collision
 32,24,"512,384,528,400",water/shore,1,0,GoldenrodCity02,11,0,overview interpretation; not decoded DS collision
-33,24,"528,384,544,400",water/shore,1,0,GoldenrodCity02,206,0,overview interpretation; not decoded DS collision
-34,24,"544,384,560,400",water/shore,1,0,GoldenrodCity02,207,0,overview interpretation; not decoded DS collision
-35,24,"560,384,576,400",wall/railing,1,0,GoldenrodCity02,208,0,overview interpretation; not decoded DS collision
-36,24,"576,384,592,400",paving,0,0,GoldenrodCity02,209,0,overview interpretation; not decoded DS collision
-37,24,"592,384,608,400",paving,0,0,GoldenrodCity02,210,0,overview interpretation; not decoded DS collision
+33,24,"528,384,544,400",water/shore,1,0,GoldenrodCity02,546,0,overview interpretation; not decoded DS collision
+34,24,"544,384,560,400",boardwalk railing,1,1,GoldenrodCity02,547,0,owner-approved ten-year addition
+35,24,"560,384,576,400",timber boardwalk,0,0,GoldenrodCity02,548,0,owner-approved ten-year addition
+36,24,"576,384,592,400",timber boardwalk,0,0,GoldenrodCity02,549,0,owner-approved ten-year addition
+37,24,"592,384,608,400",boardwalk railing,1,1,GoldenrodCity02,550,0,owner-approved ten-year addition
 38,24,"608,384,624,400",building,1,0,GoldenrodCity02,211,0,roof/foreground; hidden ground not scored
 39,24,"624,384,640,400",building,1,0,GoldenrodCity02,212,0,roof/foreground; hidden ground not scored
 40,24,"640,384,656,400",building,1,0,GoldenrodCity02,213,0,roof/foreground; hidden ground not scored
@@ -1124,11 +1124,11 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 30,25,"480,400,496,416",water/shore,1,0,GoldenrodCity02,224,0,overview interpretation; not decoded DS collision
 31,25,"496,400,512,416",water/shore,1,0,GoldenrodCity02,225,0,overview interpretation; not decoded DS collision
 32,25,"512,400,528,416",water/shore,1,0,GoldenrodCity02,226,0,overview interpretation; not decoded DS collision
-33,25,"528,400,544,416",water/shore,1,0,GoldenrodCity02,227,0,overview interpretation; not decoded DS collision
-34,25,"544,400,560,416",water/shore,1,0,GoldenrodCity02,224,0,overview interpretation; not decoded DS collision
-35,25,"560,400,576,416",wall/railing,1,0,GoldenrodCity02,228,0,overview interpretation; not decoded DS collision
-36,25,"576,400,592,416",paving,0,0,GoldenrodCity02,229,0,overview interpretation; not decoded DS collision
-37,25,"592,400,608,416",paving,0,0,GoldenrodCity02,230,0,overview interpretation; not decoded DS collision
+33,25,"528,400,544,416",water/shore,1,0,GoldenrodCity02,551,0,overview interpretation; not decoded DS collision
+34,25,"544,400,560,416",boardwalk railing,1,1,GoldenrodCity02,552,0,owner-approved ten-year addition
+35,25,"560,400,576,416",timber boardwalk,0,0,GoldenrodCity02,553,0,owner-approved ten-year addition
+36,25,"576,400,592,416",timber boardwalk,0,0,GoldenrodCity02,554,0,owner-approved ten-year addition
+37,25,"592,400,608,416",boardwalk railing,1,1,GoldenrodCity02,555,0,owner-approved ten-year addition
 38,25,"608,400,624,416",building,1,0,GoldenrodCity02,231,0,roof/foreground; hidden ground not scored
 39,25,"624,400,640,416",building,1,0,GoldenrodCity02,232,0,roof/foreground; hidden ground not scored
 40,25,"640,400,656,416",building,1,0,GoldenrodCity02,233,0,roof/foreground; hidden ground not scored
@@ -1145,11 +1145,11 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 30,26,"480,416,496,432",paving,0,0,GoldenrodCity02,244,0,overview interpretation; not decoded DS collision
 31,26,"496,416,512,432",paving,0,0,GoldenrodCity02,242,0,overview interpretation; not decoded DS collision
 32,26,"512,416,528,432",paving,0,0,GoldenrodCity02,245,0,overview interpretation; not decoded DS collision
-33,26,"528,416,544,432",paving,0,0,GoldenrodCity02,246,0,overview interpretation; not decoded DS collision
-34,26,"544,416,560,432",paving,0,0,GoldenrodCity02,247,0,overview interpretation; not decoded DS collision
-35,26,"560,416,576,432",wall/railing,1,0,GoldenrodCity02,248,0,overview interpretation; not decoded DS collision
-36,26,"576,416,592,432",paving,0,0,GoldenrodCity02,249,0,overview interpretation; not decoded DS collision
-37,26,"592,416,608,432",paving,0,0,GoldenrodCity02,250,0,overview interpretation; not decoded DS collision
+33,26,"528,416,544,432",paving,0,0,GoldenrodCity02,556,0,overview interpretation; not decoded DS collision
+34,26,"544,416,560,432",paving,0,0,GoldenrodCity02,557,0,overview interpretation; not decoded DS collision
+35,26,"560,416,576,432",timber boardwalk,0,0,GoldenrodCity02,558,0,owner-approved ten-year addition
+36,26,"576,416,592,432",timber boardwalk,0,0,GoldenrodCity02,559,0,owner-approved ten-year addition
+37,26,"592,416,608,432",paving,0,0,GoldenrodCity02,560,0,overview interpretation; not decoded DS collision
 38,26,"608,416,624,432",paving,0,0,GoldenrodCity02,251,0,overview interpretation; not decoded DS collision
 39,26,"624,416,640,432",prop,1,0,GoldenrodCity02,252,0,overview interpretation; not decoded DS collision
 40,26,"640,416,656,432",paving,0,0,GoldenrodCity02,253,0,overview interpretation; not decoded DS collision
@@ -1331,14 +1331,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 6,35,"96,560,112,576",water/shore,1,0,GoldenrodCity03,15,0,overview interpretation; not decoded DS collision
 7,35,"112,560,128,576",wall/railing,1,0,GoldenrodCity03,97,0,overview interpretation; not decoded DS collision
 8,35,"128,560,144,576",paving,0,0,GoldenrodCity03,98,0,overview interpretation; not decoded DS collision
-9,35,"144,560,160,576",paving,0,0,GoldenrodCity03,99,0,overview interpretation; not decoded DS collision
-10,35,"160,560,176,576",paving,0,0,GoldenrodCity03,100,0,overview interpretation; not decoded DS collision
+9,35,"144,560,160,576",planter/fence,0,1,GoldenrodCity03,146,0,owner-approved ten-year addition
+10,35,"160,560,176,576",planter/fence,0,1,GoldenrodCity03,147,0,owner-approved ten-year addition
 11,35,"176,560,192,576",paving,0,0,GoldenrodCity03,101,0,overview interpretation; not decoded DS collision
 12,35,"192,560,208,576",paving,0,0,GoldenrodCity03,102,0,overview interpretation; not decoded DS collision
 13,35,"208,560,224,576",paving,0,0,GoldenrodCity03,103,0,overview interpretation; not decoded DS collision
 14,35,"224,560,240,576",paving,0,0,GoldenrodCity03,104,0,overview interpretation; not decoded DS collision
-15,35,"240,560,256,576",paving,0,0,GoldenrodCity03,105,0,overview interpretation; not decoded DS collision
-16,35,"256,560,272,576",paving,0,0,GoldenrodCity03,106,0,overview interpretation; not decoded DS collision
+15,35,"240,560,256,576",bench,1,0,GoldenrodCity03,148,0,owner-approved ten-year addition
+16,35,"256,560,272,576",bench,1,0,GoldenrodCity03,149,0,owner-approved ten-year addition
 17,35,"272,560,288,576",paving,0,0,GoldenrodCity03,101,0,overview interpretation; not decoded DS collision
 18,35,"288,560,304,576",paving,0,0,GoldenrodCity03,102,0,overview interpretation; not decoded DS collision
 19,35,"304,560,320,576",paving,0,0,GoldenrodCity03,107,0,overview interpretation; not decoded DS collision
@@ -1352,8 +1352,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 6,36,"96,576,112,592",water/shore,1,0,GoldenrodCity03,0,0,overview interpretation; not decoded DS collision
 7,36,"112,576,128,592",wall/railing,1,0,GoldenrodCity03,109,0,overview interpretation; not decoded DS collision
 8,36,"128,576,144,592",wall/railing,1,0,GoldenrodCity03,110,0,overview interpretation; not decoded DS collision
-9,36,"144,576,160,592",wall/railing,1,0,GoldenrodCity03,111,0,overview interpretation; not decoded DS collision
-10,36,"160,576,176,592",wall/railing,1,0,GoldenrodCity03,112,0,overview interpretation; not decoded DS collision
+9,36,"144,576,160,592",planter/fence,1,1,GoldenrodCity03,150,0,owner-approved ten-year addition
+10,36,"160,576,176,592",planter/fence,1,1,GoldenrodCity03,151,0,owner-approved ten-year addition
 11,36,"176,576,192,592",wall/railing,1,0,GoldenrodCity03,113,0,overview interpretation; not decoded DS collision
 12,36,"192,576,208,592",wall/railing,1,0,GoldenrodCity03,114,0,overview interpretation; not decoded DS collision
 13,36,"208,576,224,592",wall/railing,1,0,GoldenrodCity03,115,0,overview interpretation; not decoded DS collision
@@ -1373,8 +1373,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 6,37,"96,592,112,608",water/shore,1,0,GoldenrodCity03,15,0,overview interpretation; not decoded DS collision
 7,37,"112,592,128,608",wall/railing,1,0,GoldenrodCity03,118,0,overview interpretation; not decoded DS collision
 8,37,"128,592,144,608",wall/railing,1,0,GoldenrodCity03,119,0,overview interpretation; not decoded DS collision
-9,37,"144,592,160,608",wall/railing,1,0,GoldenrodCity03,120,0,overview interpretation; not decoded DS collision
-10,37,"160,592,176,608",wall/railing,1,0,GoldenrodCity03,121,0,overview interpretation; not decoded DS collision
+9,37,"144,592,160,608",planter/fence,1,1,GoldenrodCity03,152,0,owner-approved ten-year addition
+10,37,"160,592,176,608",planter/fence,1,1,GoldenrodCity03,153,0,owner-approved ten-year addition
 11,37,"176,592,192,608",wall/railing,1,0,GoldenrodCity03,120,0,overview interpretation; not decoded DS collision
 12,37,"192,592,208,608",wall/railing,1,0,GoldenrodCity03,122,0,overview interpretation; not decoded DS collision
 13,37,"208,592,224,608",wall/railing,1,0,GoldenrodCity03,123,0,overview interpretation; not decoded DS collision
@@ -1784,7 +1784,7 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 39,28,"624,448,640,464",stone street,0,0,GoldenrodCity04,8,0,overview interpretation; not decoded DS collision
 40,28,"640,448,656,464",stone street,0,0,GoldenrodCity04,7,0,overview interpretation; not decoded DS collision
 41,28,"656,448,672,464",stone street,0,0,GoldenrodCity04,8,0,overview interpretation; not decoded DS collision
-21,29,"336,464,352,480",paving,0,0,GoldenrodCity04,9,0,overview interpretation; not decoded DS collision
+21,29,"336,464,352,480",paving,0,1,GoldenrodCity04,305,0,overview interpretation; not decoded DS collision
 22,29,"352,464,368,480",paving,0,0,GoldenrodCity04,10,0,overview interpretation; not decoded DS collision
 23,29,"368,464,384,480",paving,0,0,GoldenrodCity04,11,0,overview interpretation; not decoded DS collision
 24,29,"384,464,400,480",paving,0,0,GoldenrodCity04,12,0,overview interpretation; not decoded DS collision
@@ -1805,7 +1805,7 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 39,29,"624,464,640,480",building,0,1,GoldenrodCity04,18,0,roof/foreground; hidden ground not scored
 40,29,"640,464,656,480",building,0,1,GoldenrodCity04,19,0,roof/foreground; hidden ground not scored
 41,29,"656,464,672,480",building,0,1,GoldenrodCity04,20,0,roof/foreground; hidden ground not scored
-21,30,"336,480,352,496",paving,0,0,GoldenrodCity04,21,0,overview interpretation; not decoded DS collision
+21,30,"336,480,352,496",broadcast display,1,1,GoldenrodCity04,306,0,owner-approved ten-year addition
 22,30,"352,480,368,496",paving,0,0,GoldenrodCity04,22,0,overview interpretation; not decoded DS collision
 23,30,"368,480,384,496",paving,0,0,GoldenrodCity04,23,0,overview interpretation; not decoded DS collision
 24,30,"384,480,400,496",paving,0,0,GoldenrodCity04,24,0,overview interpretation; not decoded DS collision
@@ -1910,8 +1910,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 39,34,"624,544,640,560",building,1,1,GoldenrodCity04,285,0,roof/foreground; hidden ground not scored
 40,34,"640,544,656,560",building,1,1,GoldenrodCity04,102,0,roof/foreground; hidden ground not scored
 41,34,"656,544,672,560",building,1,1,GoldenrodCity04,103,0,roof/foreground; hidden ground not scored
-21,35,"336,560,352,576",paving,0,0,GoldenrodCity04,104,0,overview interpretation; not decoded DS collision
-22,35,"352,560,368,576",paving,0,0,GoldenrodCity04,105,0,overview interpretation; not decoded DS collision
+21,35,"336,560,352,576",planter/fence,0,1,GoldenrodCity04,307,0,owner-approved ten-year addition
+22,35,"352,560,368,576",planter/fence,0,1,GoldenrodCity04,308,0,owner-approved ten-year addition
 23,35,"368,560,384,576",paving,0,0,GoldenrodCity04,106,0,overview interpretation; not decoded DS collision
 24,35,"384,560,400,576",wall/railing,1,0,GoldenrodCity04,107,0,overview interpretation; not decoded DS collision
 25,35,"400,560,416,576",water/shore,1,0,GoldenrodCity04,108,0,overview interpretation; not decoded DS collision
@@ -1931,8 +1931,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 39,35,"624,560,640,576",building,0,1,GoldenrodCity04,286,0,roof/foreground; hidden ground not scored
 40,35,"640,560,656,576",building,0,1,GoldenrodCity04,119,0,roof/foreground; hidden ground not scored
 41,35,"656,560,672,576",building,0,1,GoldenrodCity04,120,0,roof/foreground; hidden ground not scored
-21,36,"336,576,352,592",wall/railing,1,0,GoldenrodCity04,121,0,overview interpretation; not decoded DS collision
-22,36,"352,576,368,592",wall/railing,1,0,GoldenrodCity04,122,0,overview interpretation; not decoded DS collision
+21,36,"336,576,352,592",planter/fence,1,1,GoldenrodCity04,309,0,owner-approved ten-year addition
+22,36,"352,576,368,592",planter/fence,1,1,GoldenrodCity04,310,0,owner-approved ten-year addition
 23,36,"368,576,384,592",wall/railing,1,0,GoldenrodCity04,123,0,overview interpretation; not decoded DS collision
 24,36,"384,576,400,592",wall/railing,1,0,GoldenrodCity04,124,0,overview interpretation; not decoded DS collision
 25,36,"400,576,416,592",water/shore,1,0,GoldenrodCity04,91,0,overview interpretation; not decoded DS collision
@@ -1952,8 +1952,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 39,36,"624,576,640,592",building,0,1,GoldenrodCity04,133,0,roof/foreground; hidden ground not scored
 40,36,"640,576,656,592",building,0,1,GoldenrodCity04,134,0,roof/foreground; hidden ground not scored
 41,36,"656,576,672,592",building,0,1,GoldenrodCity04,135,0,roof/foreground; hidden ground not scored
-21,37,"336,592,352,608",wall/railing,1,0,GoldenrodCity04,136,0,overview interpretation; not decoded DS collision
-22,37,"352,592,368,608",wall/railing,1,0,GoldenrodCity04,137,0,overview interpretation; not decoded DS collision
+21,37,"336,592,352,608",planter/fence,1,1,GoldenrodCity04,311,0,owner-approved ten-year addition
+22,37,"352,592,368,608",planter/fence,1,1,GoldenrodCity04,312,0,owner-approved ten-year addition
 23,37,"368,592,384,608",wall/railing,1,0,GoldenrodCity04,138,0,overview interpretation; not decoded DS collision
 24,37,"384,592,400,608",wall/railing,1,0,GoldenrodCity04,139,0,overview interpretation; not decoded DS collision
 25,37,"400,592,416,608",water/shore,1,0,GoldenrodCity04,108,0,overview interpretation; not decoded DS collision
@@ -2840,10 +2840,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,23,"720,368,736,384",building,0,1,GoldenrodCity06,274,0,roof/foreground; hidden ground not scored
 46,23,"736,368,752,384",building,0,1,GoldenrodCity06,173,0,roof/foreground; hidden ground not scored
 47,23,"752,368,768,384",building,0,1,GoldenrodCity06,174,0,roof/foreground; hidden ground not scored
-48,23,"768,368,784,384",building,0,1,GoldenrodCity06,175,0,roof/foreground; hidden ground not scored
-49,23,"784,368,800,384",building,0,1,GoldenrodCity06,176,0,roof/foreground; hidden ground not scored
-50,23,"800,368,816,384",building,0,1,GoldenrodCity06,177,0,roof/foreground; hidden ground not scored
-51,23,"816,368,832,384",building,0,1,GoldenrodCity06,178,0,roof/foreground; hidden ground not scored
+48,23,"768,368,784,384",building,0,1,GoldenrodCity06,275,0,roof/foreground; hidden ground not scored
+49,23,"784,368,800,384",building,0,1,GoldenrodCity06,276,0,roof/foreground; hidden ground not scored
+50,23,"800,368,816,384",building,0,1,GoldenrodCity06,277,0,roof/foreground; hidden ground not scored
+51,23,"816,368,832,384",building,0,1,GoldenrodCity06,278,0,roof/foreground; hidden ground not scored
 52,23,"832,368,848,384",building,0,1,GoldenrodCity06,179,0,roof/foreground; hidden ground not scored
 53,23,"848,368,864,384",building,0,1,GoldenrodCity06,180,0,roof/foreground; hidden ground not scored
 54,23,"864,368,880,384",rail viaduct,0,1,GoldenrodCity06,181,0,roof/foreground; hidden ground not scored
@@ -2861,10 +2861,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,24,"720,384,736,400",building,1,1,GoldenrodCity06,186,0,roof/foreground; hidden ground not scored
 46,24,"736,384,752,400",building,1,0,GoldenrodCity06,187,0,roof/foreground; hidden ground not scored
 47,24,"752,384,768,400",building,1,0,GoldenrodCity06,188,0,roof/foreground; hidden ground not scored
-48,24,"768,384,784,400",building,1,0,GoldenrodCity06,189,0,roof/foreground; hidden ground not scored
-49,24,"784,384,800,400",building,1,0,GoldenrodCity06,190,0,roof/foreground; hidden ground not scored
-50,24,"800,384,816,400",building,1,0,GoldenrodCity06,191,0,roof/foreground; hidden ground not scored
-51,24,"816,384,832,400",building,1,0,GoldenrodCity06,192,0,roof/foreground; hidden ground not scored
+48,24,"768,384,784,400",building,1,1,GoldenrodCity06,279,0,roof/foreground; hidden ground not scored
+49,24,"784,384,800,400",building,1,1,GoldenrodCity06,280,0,roof/foreground; hidden ground not scored
+50,24,"800,384,816,400",building,1,1,GoldenrodCity06,281,0,roof/foreground; hidden ground not scored
+51,24,"816,384,832,400",building,1,1,GoldenrodCity06,282,0,roof/foreground; hidden ground not scored
 52,24,"832,384,848,400",building,1,0,GoldenrodCity06,193,0,roof/foreground; hidden ground not scored
 53,24,"848,384,864,400",building,1,0,GoldenrodCity06,194,0,roof/foreground; hidden ground not scored
 54,24,"864,384,880,400",paving,1,0,GoldenrodCity06,195,0,overview interpretation; not decoded DS collision
@@ -2887,7 +2887,7 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 50,25,"800,400,816,416",building,1,0,GoldenrodCity06,210,0,roof/foreground; hidden ground not scored
 51,25,"816,400,832,416",building,1,0,GoldenrodCity06,211,0,roof/foreground; hidden ground not scored
 52,25,"832,400,848,416",building,1,0,GoldenrodCity06,212,0,roof/foreground; hidden ground not scored
-53,25,"848,400,864,416",building,1,0,GoldenrodCity06,213,0,roof/foreground; hidden ground not scored
+53,25,"848,400,864,416",building,1,1,GoldenrodCity06,283,0,roof/foreground; hidden ground not scored
 54,25,"864,400,880,416",paving,1,0,GoldenrodCity06,214,0,overview interpretation; not decoded DS collision
 55,25,"880,400,896,416",paving,1,0,GoldenrodCity06,215,0,overview interpretation; not decoded DS collision
 56,25,"896,400,912,416",stone street,0,0,GoldenrodCity06,216,0,overview interpretation; not decoded DS collision
@@ -2908,7 +2908,7 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 50,26,"800,416,816,432",prop,1,0,GoldenrodCity06,229,0,overview interpretation; not decoded DS collision
 51,26,"816,416,832,432",paving,0,0,GoldenrodCity06,227,0,overview interpretation; not decoded DS collision
 52,26,"832,416,848,432",paving,0,0,GoldenrodCity06,230,0,overview interpretation; not decoded DS collision
-53,26,"848,416,864,432",paving,0,0,GoldenrodCity06,231,0,overview interpretation; not decoded DS collision
+53,26,"848,416,864,432",ticket kiosk,1,1,GoldenrodCity06,284,0,owner-approved ten-year addition
 54,26,"864,416,880,432",wall/railing,1,0,GoldenrodCity06,232,0,overview interpretation; not decoded DS collision
 55,26,"880,416,896,432",wall/railing,1,0,GoldenrodCity06,233,0,overview interpretation; not decoded DS collision
 56,26,"896,416,912,432",stone street,0,0,GoldenrodCity06,234,0,overview interpretation; not decoded DS collision
@@ -4642,14 +4642,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 83,52,"1328,832,1330,848",wall/railing,1,0,GoldenrodCity12,225,0,padding adaptation
 63,53,"1008,848,1024,864",paving,0,0,GoldenrodCity12,226,0,overview interpretation; not decoded DS collision
 64,53,"1024,848,1040,864",paving,0,0,GoldenrodCity12,227,0,overview interpretation; not decoded DS collision
-65,53,"1040,848,1056,864",paving,0,0,GoldenrodCity12,228,0,overview interpretation; not decoded DS collision
-66,53,"1056,848,1072,864",paving,0,0,GoldenrodCity12,229,0,overview interpretation; not decoded DS collision
-67,53,"1072,848,1088,864",paving,0,0,GoldenrodCity12,227,0,overview interpretation; not decoded DS collision
+65,53,"1040,848,1056,864",planter/fence,0,1,GoldenrodCity12,347,0,owner-approved ten-year addition
+66,53,"1056,848,1072,864",planter/fence,0,1,GoldenrodCity12,348,0,owner-approved ten-year addition
+67,53,"1072,848,1088,864",planter/fence,0,1,GoldenrodCity12,349,0,owner-approved ten-year addition
 68,53,"1088,848,1104,864",paving,0,0,GoldenrodCity12,228,0,overview interpretation; not decoded DS collision
 69,53,"1104,848,1120,864",paving,0,0,GoldenrodCity12,229,0,overview interpretation; not decoded DS collision
-70,53,"1120,848,1136,864",paving,0,0,GoldenrodCity12,227,0,overview interpretation; not decoded DS collision
-71,53,"1136,848,1152,864",paving,0,0,GoldenrodCity12,228,0,overview interpretation; not decoded DS collision
-72,53,"1152,848,1168,864",paving,0,0,GoldenrodCity12,229,0,overview interpretation; not decoded DS collision
+70,53,"1120,848,1136,864",planter/fence,0,1,GoldenrodCity12,350,0,owner-approved ten-year addition
+71,53,"1136,848,1152,864",planter/fence,0,1,GoldenrodCity12,351,0,owner-approved ten-year addition
+72,53,"1152,848,1168,864",planter/fence,0,1,GoldenrodCity12,352,0,owner-approved ten-year addition
 73,53,"1168,848,1184,864",paving,0,0,GoldenrodCity12,227,0,overview interpretation; not decoded DS collision
 74,53,"1184,848,1200,864",paving,0,1,GoldenrodCity12,320,0,overview interpretation; not decoded DS collision
 75,53,"1200,848,1216,864",paving,0,1,GoldenrodCity12,321,0,overview interpretation; not decoded DS collision
@@ -4663,14 +4663,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 83,53,"1328,848,1330,864",wall/railing,1,0,GoldenrodCity12,238,0,padding adaptation
 63,54,"1008,864,1024,880",paving,0,0,GoldenrodCity12,239,0,overview interpretation; not decoded DS collision
 64,54,"1024,864,1040,880",paving,0,0,GoldenrodCity12,240,0,overview interpretation; not decoded DS collision
-65,54,"1040,864,1056,880",paving,0,0,GoldenrodCity12,241,0,overview interpretation; not decoded DS collision
-66,54,"1056,864,1072,880",paving,0,0,GoldenrodCity12,242,0,overview interpretation; not decoded DS collision
-67,54,"1072,864,1088,880",paving,0,0,GoldenrodCity12,243,0,overview interpretation; not decoded DS collision
+65,54,"1040,864,1056,880",planter/fence,1,1,GoldenrodCity12,353,0,owner-approved ten-year addition
+66,54,"1056,864,1072,880",planter/fence,1,1,GoldenrodCity12,354,0,owner-approved ten-year addition
+67,54,"1072,864,1088,880",planter/fence,1,1,GoldenrodCity12,355,0,owner-approved ten-year addition
 68,54,"1088,864,1104,880",paving,0,0,GoldenrodCity12,244,0,overview interpretation; not decoded DS collision
 69,54,"1104,864,1120,880",paving,0,0,GoldenrodCity12,245,0,overview interpretation; not decoded DS collision
-70,54,"1120,864,1136,880",paving,0,0,GoldenrodCity12,240,0,overview interpretation; not decoded DS collision
-71,54,"1136,864,1152,880",paving,0,0,GoldenrodCity12,241,0,overview interpretation; not decoded DS collision
-72,54,"1152,864,1168,880",paving,0,0,GoldenrodCity12,242,0,overview interpretation; not decoded DS collision
+70,54,"1120,864,1136,880",planter/fence,1,1,GoldenrodCity12,356,0,owner-approved ten-year addition
+71,54,"1136,864,1152,880",planter/fence,1,1,GoldenrodCity12,357,0,owner-approved ten-year addition
+72,54,"1152,864,1168,880",planter/fence,1,1,GoldenrodCity12,358,0,owner-approved ten-year addition
 73,54,"1168,864,1184,880",paving,0,0,GoldenrodCity12,246,0,overview interpretation; not decoded DS collision
 74,54,"1184,864,1200,880",forest roots,1,0,GoldenrodCity12,329,0,roof/foreground; hidden ground not scored
 75,54,"1200,864,1216,880",forest roots,1,0,GoldenrodCity12,330,0,roof/foreground; hidden ground not scored
@@ -4684,14 +4684,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 83,54,"1328,864,1330,880",wall/railing,1,0,GoldenrodCity12,225,0,padding adaptation
 63,55,"1008,880,1024,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
 64,55,"1024,880,1040,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-65,55,"1040,880,1056,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-66,55,"1056,880,1072,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-67,55,"1072,880,1088,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
+65,55,"1040,880,1056,885",planter/fence,1,1,GoldenrodCity12,359,0,owner-approved ten-year addition
+66,55,"1056,880,1072,885",planter/fence,1,1,GoldenrodCity12,360,0,owner-approved ten-year addition
+67,55,"1072,880,1088,885",planter/fence,1,1,GoldenrodCity12,361,0,owner-approved ten-year addition
 68,55,"1088,880,1104,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
 69,55,"1104,880,1120,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-70,55,"1120,880,1136,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-71,55,"1136,880,1152,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
-72,55,"1152,880,1168,885",paving,1,0,GoldenrodCity12,255,0,padding adaptation
+70,55,"1120,880,1136,885",planter/fence,1,1,GoldenrodCity12,362,0,owner-approved ten-year addition
+71,55,"1136,880,1152,885",planter/fence,1,1,GoldenrodCity12,363,0,owner-approved ten-year addition
+72,55,"1152,880,1168,885",planter/fence,1,1,GoldenrodCity12,364,0,owner-approved ten-year addition
 73,55,"1168,880,1184,885",paving,1,0,GoldenrodCity12,256,0,padding adaptation
 74,55,"1184,880,1200,885",forest roots,1,0,GoldenrodCity12,338,0,padding adaptation
 75,55,"1200,880,1216,885",forest roots,1,0,GoldenrodCity12,339,0,padding adaptation

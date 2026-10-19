@@ -1,0 +1,125 @@
+{
+  "deck_rectangles": [
+    [
+      352,
+      96,
+      624,
+      240
+    ],
+    [
+      352,
+      240,
+      608,
+      256
+    ],
+    [
+      544,
+      240,
+      608,
+      416
+    ],
+    [
+      560,
+      416,
+      592,
+      432
+    ]
+  ],
+  "wheel": {
+    "art": "wheel.png",
+    "box": [
+      432,
+      48,
+      560,
+      192
+    ],
+    "physical_supports_metatiles": [
+      28,
+      10,
+      34,
+      12
+    ],
+    "boarding_approach": [
+      30,
+      12
+    ],
+    "full_camera_view": [
+      29,
+      7
+    ]
+  },
+  "stalls": [
+    {
+      "art": "snacks.png",
+      "origin": [
+        368,
+        128
+      ],
+      "counter_last16px": true
+    },
+    {
+      "art": "prizes.png",
+      "origin": [
+        416,
+        176
+      ],
+      "counter_last16px": true
+    },
+    {
+      "art": "souvenirs.png",
+      "origin": [
+        544,
+        160
+      ],
+      "counter_last16px": true
+    }
+  ],
+  "station": [
+    {
+      "art": "departures.png",
+      "origin": [
+        768,
+        376
+      ]
+    },
+    {
+      "art": "ticket-kiosk.png",
+      "origin": [
+        848,
+        400
+      ]
+    }
+  ],
+  "planters": [
+    {
+      "art": "planter.png",
+      "origin": [
+        144,
+        568
+      ]
+    },
+    {
+      "art": "planter.png",
+      "origin": [
+        336,
+        568
+      ]
+    },
+    {
+      "art": "retaining-planter.png",
+      "origin": [
+        1040,
+        856
+      ]
+    },
+    {
+      "art": "retaining-planter.png",
+      "origin": [
+        1120,
+        856
+      ]
+    }
+  ],
+  "native_source": "Current editable Porymap files in engine. These recorded adaptation bounds are review metadata, never an authority to regenerate current maps.",
+  "scope": "Owner-approved exterior artwork and walkable boardwalk. Static wheel, read-only signs, no vendors/trading/ride operation."
+}

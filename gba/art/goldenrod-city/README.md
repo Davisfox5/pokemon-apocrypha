@@ -2,11 +2,13 @@
 
 Goldenrod’s streets, waterfront and landmarks are built in editable Gen 3 native
 source on engine `codex/goldenrod-city`, commit
-`fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7`.
+`eb63c24cb7e28c7de1eddd7db0b693a6510b29d4`.
 [Engine draft PR #20](https://github.com/Davisfox5/pokeemerald-expansion/pull/20).
 This area starts from pending Azalea source `d822306675e15abe67c85235d9faf8d6e676d449`;
 previous maps, artwork, map/layout ID prefixes and persistent data are preserved.
-Owner accepted the first pass and building/tree refinement. The requested Radio Tower and Center placement fixes are now ready for review.
+Owner accepted the exterior refinements and approved the carnival concept. The native boardwalk, station upgrade and integrated planting beds are now built for review.
+
+[**Latest: native carnival boardwalk and gameplay**](evidence/boardwalk/README.md).
 
 [**Latest: Radio equipment and Center before/after**](evidence/center-radio/README.md).
 
@@ -66,7 +68,7 @@ The city is twelve connected ordinary Porymap sections, listed in
 [evidence/sections.json](evidence/sections.json). A Goldenrod-only glyph cache
 keeps their camera views continuous while preserving detailed native artwork.
 It reads an atlas generated **from the actual native source**, not an alternate
-screenshot layout. Thirteen coherent BG palette banks, a maximum of 926 glyphs
+screenshot layout. Thirteen coherent BG palette banks, a maximum of 904 glyphs
 in any 16×16 buffered view, and 1,008 available slots fit the hardware budget.
 The top sixteen slots remain reserved. The roughly 25 KB allocation is volatile;
 it is released outside Goldenrod and invalidated on heap reset.
@@ -94,8 +96,8 @@ completion, padding and camera margins are explicit adaptations.
   arch pillars, internal crossings and return travel pass in headless mGBA.
 - Ordinary flash save, fresh-process reload and title Continue pass.
   [Runtime phases](evidence/runtime.json).
-- All 78 audited BG views match the decoded native source and directional
-  margins across 2,995,200 pixels, with zero RGB errors and cache overflows.
+- All 91 audited BG views match the decoded native source and directional
+  margins across 3,494,400 pixels, with zero RGB errors and cache overflows.
   [Actual VRAM/palette/scroll comparison](evidence/gameplay-background-parity.json).
 - Native atlas regeneration is byte-exact; the direct arch and boundary edits
   reproduce from their named immutable baselines. A fresh checkout verifies all
@@ -120,7 +122,7 @@ prevent a Porymap edit from silently leaving the runtime atlas stale. Preserve
 coherent palette banks across sections.
 
 `author.py` and `register.py` record first authoring; **do not replay them over
-committed maps**. The newest `finish.py` correction expects `bb54d528` and is recorded in `evidence/center-radio/`. The one-shot `refine.py` building/tree cleanup expects `f439df15` and reads immutable first-pass metadata; never replay it over later edits. Its native/atlas reproduction is recorded in `evidence/refinement/`. The direct `arch.py` repair expects `200ffd16`; `borders.py`
+committed maps**. The newest `boardwalk.py` development expects `fdaf387b` and is recorded in `evidence/boardwalk/`. Do not replay it over current maps. The earlier `finish.py` correction expects `bb54d528` and is recorded in `evidence/center-radio/`. The one-shot `refine.py` building/tree cleanup expects `f439df15` and reads immutable first-pass metadata; never replay it over later edits. Its native/atlas reproduction is recorded in `evidence/refinement/`. The direct `arch.py` repair expects `200ffd16`; `borders.py`
 expects `fed2667c`. Their guards preserve later native edits. The runtime renderer
 is hand-authored engine C. `review.py`, the actual Porymap exporter, `runtime.py`,
 `verify_frames.py` and `publish.py` retain the inspection/qualification workflow.

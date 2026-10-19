@@ -1,32 +1,36 @@
-## Latest: Goldenrod City exterior — 2026-10-19
+## Latest: Goldenrod carnival boardwalk — 2026-10-19
 
-Owner accepted the first pass and building/tree refinement, then requested Radio
-Tower equipment cleanup and a fix for the Center overwriting neighboring art.
-Read `gba/art/goldenrod-city/evidence/center-radio/README.md`. Current engine is
-`fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7` on `codex/goldenrod-city`,
+Owner approved the Coney Island-style map concept and authorized native building.
+Read `gba/art/goldenrod-city/evidence/boardwalk/README.md`. Engine source is
+`eb63c24cb7e28c7de1eddd7db0b693a6510b29d4` on `codex/goldenrod-city`,
 [draft PR #20](https://github.com/Davisfox5/pokeemerald-expansion/pull/20),
-based on pending Azalea `d8223066`. The 525-file area delta preserves earlier maps,
-assets and stable IDs. Do not replay first-authoring generators over native maps.
+based on pending Azalea `d8223066`. The area delta remains 525 files; this update
+changes 59 Goldenrod native/script/derived files. Previous areas and stable IDs
+remain intact. Do not replay guarded one-shot authors over current native maps.
 
-Latest fix: three clean transparent dish instances and a thin straight antenna;
-Center's rectangular pavement overwrite removed, west building/lamp restored,
-unchanged transparent Center fitted at `(792,576)`. All 5,679 canonical opaque
-pixels and all new equipment pixels are exact after native conversion. Only
-sections 01/09 and their derived atlas changed (15 engine files); native pixels
-outside the two correction regions are unchanged. The revised visible footprint
-and lamp base have correct collision; Center front/side movement passes.
+Built: timber carnival pier northwest of the black-roofed station annex, complete
+Ferris wheel, three stalls, continuous two-cell gangway, railings/piles/lamps,
+station departures/kiosk, broadcast sign/bench and structurally joined planting
+beds. No bikes or Department Store enlargement. The rear aisle is deep enough
+for a full-wheel view at normal game zoom. Native map extent and twelve sections
+are unchanged. Four unused foliage-palette entries are extended; all existing
+used colors, 49 tree contexts, canonical Center and Radio equipment are unchanged.
 
-Build, actual Porymap parity over 4,704 cells, 78 exact captured BG comparisons,
-movement/barriers, ordinary save/cold reload/Continue, separate-worktree correction
-reproduction and fresh-checkout hashes pass. Maps remain 84×56 across twelve
-continuous sections, with 49 complete native trees and unchanged global palettes.
+Scenery/traversal pass only: six readable attraction/counter descriptions, static
+wheel, no ride operation, vendors, trading or train service. Local build, Porymap
+parity over 4,704 cells, independent traversal, actual walking/barriers/messages,
+ordinary save/cold reload/Continue, previous-build proof-save load, 91 exact BG
+comparisons and separate-worktree native/atlas reproduction pass. Buffered views
+use at most 904 of 1,008 slots. Fresh-checkout hashes pass; source/ROM identities and
+five walking clips are retained. Latest visual acceptance remains with the owner.
 
-Latest visual review remains with the owner. GitHub Actions remains disabled;
-hosted CI is blocked. Interiors, services, routes, actors and water animation are
-unwired. No owner save was supplied or changed. `finish.py` is a guarded one-shot
-for `bb54d528`, not an authoring generator for current source. Preserve prior
-refinement and evidence. Local source is `/workspace/apocrypha-src`; hub is
-`/workspace/pokemon-apocrypha`; ignored ROM and headless captures stay local.
+`boardwalk.py` expects clean engine `fdaf387b` plus immutable hub `bcfb58b5` metadata;
+use a separate baseline worktree for reproduction. `boardwalk_art.py --reproduce`
+checks master hashes first. Future Porymap edits require only `stream.py` adapter
+regeneration. Preserve prior refinements and saves. GitHub Actions is disabled;
+hosted CI is blocked. Broader interiors/services/route/campaign work remains
+unwired. No original owner save was provided or modified. Source checkouts remain
+`/workspace/apocrypha-src` and `/workspace/pokemon-apocrypha`.
 
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 

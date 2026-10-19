@@ -41,6 +41,24 @@ for name,x,y,dx,dy in [('arch-west-pillar',56,50,-1,0),('arch-east-pillar',60,50
 steps.append(go(77,52)+'shot("southeast-native-trees");')
 steps.append(go(51,42)+'shot("Center-left-building-join");step(RIGHT,3);'+at(54,42,'Center-front-clear')+'shot("Center-lamp-join");step(UP,1);'+at(54,41,'Center-east-approach')+'step(RIGHT,1);'+at(54,41,'restored-lamp-base-blocks'))
 steps.append(go(17,16)+'shot("Radio-equipment-close");')
+# Native boardwalk approach, both lane columns, counters and safety barriers.
+steps.append(go(36,29)+'step(UP,3);'+at(36,26,'boardwalk-city-entry')+'shot("boardwalk-entry");')
+for y in [22,18,16,14]:
+ prev=26 if y==22 else {18:22,16:18,14:16}[y]
+ steps.append(f'step(UP,{prev-y});'+at(36,y,f'boardwalk-spine-{y}')+f'shot("boardwalk-spine-{y}");')
+steps.append('step(LEFT,6);'+at(30,14,'market-central-lane')+'step(UP,2);'+at(30,12,'wheel-boarding-approach')+'shot("wheel-boarding");step(UP,1);'+at(30,12,'wheel-supports-block'))
+steps.append('step(LEFT,3);step(UP,1);step(LEFT,3);'+at(24,11,'snack-counter-approach')+'shot("market-snacks");step(UP,1);'+at(24,11,'snack-counter-blocks'))
+steps.append('step(RIGHT,3);step(DOWN,1);step(RIGHT,3);step(DOWN,2);step(LEFT,3);'+at(27,14,'prize-counter-approach')+'shot("market-prizes");step(UP,1);'+at(27,14,'prize-counter-blocks'))
+steps.append('step(RIGHT,3);step(UP,1);step(RIGHT,5);'+at(35,13,'souvenir-counter-approach')+'shot("market-souvenirs");step(UP,1);'+at(35,13,'souvenir-counter-blocks'))
+steps.append('step(DOWN,7);'+at(35,20,'boardwalk-west-edge-approach')+'step(LEFT,1);'+at(35,20,'boardwalk-west-rail-blocks')+'step(RIGHT,1);'+at(36,20,'two-tile-access-width')+'step(RIGHT,1);'+at(36,20,'boardwalk-east-rail-blocks')+'step(DOWN,6);'+at(36,26,'boardwalk-city-return')+'shot("boardwalk-return");')
+steps.append(go(29,7)+'step(UP,1);'+at(29,7,'boardwalk-north-rail-blocks')+'shot("wheel-and-railing");')
+steps.append(go(10,35)+'step(DOWN,1);'+at(10,35,'radio-planter-wall-blocks')+'shot("radio-railing-planters");')
+steps.append(go(15,34)+'step(DOWN,1);'+at(15,34,'plaza-bench-blocks'))
+steps.append(go(66,53)+'step(DOWN,1);'+at(66,53,'south-planter-retaining-wall')+'shot("south-railing-planters");')
+# Read-only sign messages: assertions test open/close; UI views are separate from
+# the unobscured background parity captures above.
+for x,y,tag in [(24,10,'snacks'),(27,13,'prizes'),(35,12,'souvenirs'),(30,11,'wheel'),(21,30,'broadcast'),(53,26,'terminal')]:
+ num,lx,ly=section(x,y);steps.append(f'read_sign({num},{lx},{ly},"{tag}-dialogue");')
 steps.append('go(50,20,18);shot("Azalea-regression");'+go(58,48)+at(58,48,'return-to-Goldenrod')+'shot("save-Goldenrod");')
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 main=(start+'\n'.join(steps)+end).replace('at(11,27,18', 'at(%d,%d,%d'%section(58,48)).replace('cold-reload-new-bark','cold-reload-Goldenrod')

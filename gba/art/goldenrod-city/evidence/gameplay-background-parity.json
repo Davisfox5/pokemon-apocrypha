@@ -1,6 +1,6 @@
 {
-  "frames": 78,
-  "pixels": 2995200,
+  "frames": 91,
+  "pixels": 3494400,
   "RGB_errors": 0,
   "frames_detail": [
     {
@@ -748,6 +748,136 @@
       "world": [
         17,
         16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-entry",
+      "world": [
+        36,
+        26
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-spine-22",
+      "world": [
+        36,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-spine-18",
+      "world": [
+        36,
+        18
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-spine-16",
+      "world": [
+        36,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-spine-14",
+      "world": [
+        36,
+        14
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "wheel-boarding",
+      "world": [
+        30,
+        12
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "market-snacks",
+      "world": [
+        24,
+        11
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "market-prizes",
+      "world": [
+        27,
+        14
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "market-souvenirs",
+      "world": [
+        35,
+        13
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "boardwalk-return",
+      "world": [
+        36,
+        26
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "wheel-and-railing",
+      "world": [
+        29,
+        7
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "radio-railing-planters",
+      "world": [
+        10,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "south-railing-planters",
+      "world": [
+        66,
+        53
       ],
       "camera_delta_y": 0,
       "pixels": 38400,

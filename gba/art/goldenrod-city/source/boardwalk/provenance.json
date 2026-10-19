@@ -1,0 +1,26 @@
+{
+  "owner_approved_concept": "approved-concept.png",
+  "reference": "HGSS city + approved ten-year boardwalk concept; new shoreline is owner-authorized adaptation.",
+  "generated_art": "wheel-original.png, created with image generation from approved concept; resized to128x144, thresholded alpha, fitted to existing bank11 and star hub cleaned.",
+  "hand_authored_assets": "boardwalk_art.py: separate native deck, rails, awnings/counters, lamps, benches, display/kiosk and integrated planter masters.",
+  "hashes": {
+    "planter.png": "df418e350682b482e2d2c78485f555474cd5acc3ee35e7a37324baf6a46d04f9",
+    "rail-E.png": "21240b53a000c62221da6e6544a2e8be588ec8c99c927b5ffeda2e2c6b7779c6",
+    "rail-N.png": "830a10ca62ea6fcd7a09d15425fc467ff1d31dc4dbb0500b8fff0a4873fdfdad",
+    "prizes.png": "b1e6ddd126921529027fcfe1b7ecf458ff89d1afeb708a39e0209e157087c09d",
+    "approved-concept.png": "5ffd51fce94a3b60ab2c40e776ee68242c468f0a57ecc7a248c6ef6595bd6f65",
+    "bench.png": "e79914cc20c50b07dfacd9347d72f0b252c985d6e0fe2bcc9d516f911e1a6caf",
+    "lantern.png": "83f5dffabcb14daaa7263a2a37f6a7f991bc9fbddc9345d57126ec5481d7b1b8",
+    "deck.png": "53bed64c4804f68b4d6a046e534eb186ae13aa94f69528bd9785ad9c5e160492",
+    "wheel.png": "f5728bb34184984ae21a1ab6e8495ed4ff6f9b94a78da36514f30c8e6756c6fe",
+    "rail-S.png": "830a10ca62ea6fcd7a09d15425fc467ff1d31dc4dbb0500b8fff0a4873fdfdad",
+    "retaining-planter.png": "7fa02b2b0b90253d2fb7f9dd95a73ceefd0df15a61ee447c2abd46b96436cabe",
+    "departures.png": "73d264463dca35c1189f55b0dd37892c10aabd2db1f45e44fa9c8aac5fe5ec34",
+    "rail-W.png": "3664c8305c1e048da381f54e3c5a688d18687511554cfba86ab5af0342281cd5",
+    "souvenirs.png": "ab717b880dfb66e7e7f336d740bdf9a364c91d2b74cc51cf77eb0b8dc1696324",
+    "snacks.png": "2f096184a527fd190bb5e62dfc3f50b97378d3c411612305f9827991791ffa80",
+    "wheel-original.png": "a69627f4a130408314454430a520b038205411c9ea4a1eb04b6ae1afcfea6d61",
+    "ticket-kiosk.png": "d79bc864c5d763d295c68e75152a6596aa2b42dc2dbf1bd0fd1ad0e54ea6c5d2",
+    "broadcast.png": "4e98e656095d1bbd9e3f684fccb8b54e2064b0e60954c662ecfb3781de44cb5c"
+  }
+}

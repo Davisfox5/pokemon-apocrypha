@@ -1,0 +1,23 @@
+{
+  "previous_engine": "fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7",
+  "previous_ROM": "ae56d14f6ba94a3e9560fb797bc36234ea25f80d45e66f452f0b8e3359e6f090",
+  "save_sha256": "ee9a955003cab7ced822542e10cac10589cf00de667a37f4db68c1187b57396f",
+  "exit_code": 0,
+  "observation": [
+    {
+      "step": "cold-reload-Goldenrod",
+      "region": 3,
+      "group": 80,
+      "map": 60,
+      "x": 16,
+      "y": 6,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 227
+    }
+  ],
+  "scope": "Previous Codex ordinary proof save at world58,48; original preserved, copied flash only. No owner save supplied.",
+  "new_ROM_sha256": "3c7e08e044312dce6af766fc44a58bd00216b806b3c50fbfe240fe2ecb4e5324"
+}

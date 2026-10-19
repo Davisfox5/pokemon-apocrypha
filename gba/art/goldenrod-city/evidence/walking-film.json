@@ -1,5 +1,5 @@
 {
-  "ROM_sha256": "ae56d14f6ba94a3e9560fb797bc36234ea25f80d45e66f452f0b8e3359e6f090",
+  "ROM_sha256": "3c7e08e044312dce6af766fc44a58bd00216b806b3c50fbfe240fe2ecb4e5324",
   "exit_code": 0,
   "observations": [
     {
@@ -40,6 +40,32 @@
       "height": 14,
       "interaction": 0,
       "mapsec": 227
+    },
+    {
+      "step": "boardwalk-arrival-end",
+      "region": 3,
+      "group": 80,
+      "map": 52,
+      "x": 15,
+      "y": 13,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 28,
+      "interaction": 0,
+      "mapsec": 227
+    },
+    {
+      "step": "boardwalk-market-end",
+      "region": 3,
+      "group": 80,
+      "map": 52,
+      "x": 5,
+      "y": 14,
+      "frlg_layout": 0,
+      "width": 21,
+      "height": 28,
+      "interaction": 0,
+      "mapsec": 227
     }
   ],
   "clips": [
@@ -61,6 +87,20 @@
       "clip": "southern-arch",
       "input_frames": 112,
       "captured_frames": 28,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "boardwalk-arrival",
+      "input_frames": 240,
+      "captured_frames": 60,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "boardwalk-market",
+      "input_frames": 160,
+      "captured_frames": 40,
       "sampling": "1/4 native60Hzframes; GIF67ms",
       "save_file_written": false
     }
