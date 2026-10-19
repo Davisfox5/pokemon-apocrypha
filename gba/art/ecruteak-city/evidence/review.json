@@ -1,0 +1,110 @@
+{
+  "native_cells": 3744,
+  "source_grid": "16px at source(+64,+16), no geometric scaling",
+  "Porymap_RGB_errors": 0,
+  "decoded_material_pixels_vs_authoring_errors": 0,
+  "decoded_collision_behavior_errors": 0,
+  "tree_count": 447,
+  "partial_trees": 0,
+  "overlapping_root_cells": 0,
+  "visible_shared_pixels_checked": 339198,
+  "reachable_cells": 1525,
+  "reachable_approaches": {
+    "Burned Tower stair foot": [
+      25,
+      18
+    ],
+    "Burned Tower door": [
+      25,
+      14
+    ],
+    "Bell Tower entrance": [
+      41,
+      18
+    ],
+    "northwest house": [
+      25,
+      26
+    ],
+    "northeast house": [
+      35,
+      26
+    ],
+    "west house": [
+      25,
+      34
+    ],
+    "Dance Theater": [
+      47,
+      34
+    ],
+    "Gym": [
+      26,
+      41
+    ],
+    "Center": [
+      46,
+      41
+    ],
+    "Mart": [
+      56,
+      35
+    ],
+    "south torii": [
+      41,
+      46
+    ]
+  },
+  "district_usage": [
+    {
+      "map": "JohtoEcruteakTempleDistrict",
+      "unique_glyph_IDs": 994,
+      "highest_glyph_ID": 993,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "metatiles": 362,
+      "Porymap_pixel_errors": 0
+    },
+    {
+      "map": "JohtoEcruteakCity",
+      "unique_glyph_IDs": 925,
+      "highest_glyph_ID": 924,
+      "palette_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "metatiles": 398,
+      "Porymap_pixel_errors": 0
+    }
+  ],
+  "owner_visual_acceptance": "pending",
+  "limits": [
+    "Overview-derived geography, not extracted DS collision or hidden ground.",
+    "Native building footprints, complete tree alignment and gate padding are adaptations.",
+    "Two rendering districts use short ordinary fades on the avenue; adjacent routes and interiors remain closed."
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "base_engine": "d822306675e15abe67c85235d9faf8d6e676d449",
+  "first_authoring": [
+    "assets.py",
+    "build.py ENGINE PORYTILES_LEGACY",
+    "register.py ENGINE"
+  ],
+  "authority": "Native committed map/art files after first authoring; generators refuse committed map sources.",
+  "review": "review.py ENGINE ACTUAL_PORYMAP_EXPORT_DIRECTORY",
+  "runtime": "runtime.py ENGINE NEW_OUTPUT_DIRECTORY --toolchain ARM_PREFIX",
+  "publish": "publish.py ENGINE VERIFIED_RUNTIME_DIRECTORY",
+  "source_commit": "dbf53f6f3975eb20179c26badd6ba48169857ad1",
+  "source_manifest": [
+    {
+      "path": "data/event_scripts.s",
+      "sha256": "f8ae1dc1c8bfc9a733b8f9673c6e15526936d81bc55aef0f8d71c3ed74b396b0"
+    },
+    {
+      "path": "data/layouts/JohtoEcruteakCity/border.bin",
+      "sha256": "a7699ee2009491dab46e24e1a75eeeb6d6ffe0506bce1443c223f936a2d60fb7"
+    },
+    {
+      "path": "data/layouts/JohtoEcruteakCity/map.bin",
+      "sha256": "f2d4cd470b91ef7c1d3d17e0f5332c04a27da9904b23428b6d71b750f378bf73"
+    },
+    {
+      "path": "data/layouts/JohtoEcruteakTempleDistrict/border.bin",
+      "sha256": "c5d46df79bfac2ce8f99dc00c375a5afeb5c07d02ae0c067579d7177dd4ef3af"
+    },
+    {
+      "path": "data/layouts/JohtoEcruteakTempleDistrict/map.bin",
+      "sha256": "48e129a3ca5897a52e7428930b8d1c41e16123bd026a4c1539fe2c5291ba4ab8"
+    },
+    {
+      "path": "data/layouts/layouts.json",
+      "sha256": "0fba8cbd28f8c06d0fb20f22779bafe7adf67971b2b94f0f011d99940bced0dd"
+    },
+    {
+      "path": "data/maps/JohtoEcruteakCity/map.json",
+      "sha256": "70d1492e34e155df14ab48b9b28089ca9c34f8b14198f83360bec72326946804"
+    },
+    {
+      "path": "data/maps/JohtoEcruteakCity/scripts.inc",
+      "sha256": "e10276ce9b3bfe2a5ac1ebdc52233c2a62e552490e1c0babc33771c36aa0175a"
+    },
+    {
+      "path": "data/maps/JohtoEcruteakTempleDistrict/map.json",
+      "sha256": "b3f7c55a92a1c7ac03ff55e7a904fc063aa467281faa56e3615810bf4c65b635"
+    },
+    {
+      "path": "data/maps/JohtoEcruteakTempleDistrict/scripts.inc",
+      "sha256": "4ede0a163d3f59d96afb33e6e41fa57da6f6cf85f4ec2048836bb8807e8d6881"
+    },
+    {
+      "path": "data/maps/map_groups.json",
+      "sha256": "785e49e95b22cf63b48e651c51b29613633d1dc4263e7568cd99538eabbe8bb5"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/metatile_attributes.bin",
+      "sha256": "dcaed6d261d46292ab12639644832da41700da66809c6649d47676099e07cb52"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/metatiles.bin",
+      "sha256": "097deecd44eef924043a526baa51ac24430f0afc6dbefdf402590af0f44418c6"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/00.pal",
+      "sha256": "6ace615b6fc3069d79ee07a81491720bee3c8e465b0c8a350c2322ef5f2d8706"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/01.pal",
+      "sha256": "9a1ed898f9f4c9049822f0bd5355495241af0ea658128250d6e71e04492a91c4"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/02.pal",
+      "sha256": "882a147615d16bdc6db577497f3a1cadfa79174ce83df6286ecadf0a8bc645ee"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/03.pal",
+      "sha256": "4173d453ab3e02564e804a96c19c0d45fa79664a39b4d755316019aa759d39b3"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/04.pal",
+      "sha256": "fef0c5cf338a4ac77b256f6f5c251f235d0a608530349c88a6547483a619f6db"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/05.pal",
+      "sha256": "90f5f81f8c5360ef2dd55c71bca0ac867a12258268234f30be55bd5a828c3d1d"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/06.pal",
+      "sha256": "4cc4d1dea068dfd31989ed4f51f37121a9fa04f8c38820079f00df9263c72880"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/07.pal",
+      "sha256": "7bcbe174e76a8ee92c4ccd5c258e5466ab012bbd6793ee0bd8fa614ed07990e1"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/08.pal",
+      "sha256": "5e64e84946eb5e985767a08bda3b58bbf86317b77862981292aa94ec8b417cd9"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/09.pal",
+      "sha256": "cfdd060b3cd93223a99f30b3819ecb273cebe6288011e0097d16c0ee047e6081"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/10.pal",
+      "sha256": "904143507a85794b9ba7ec71251075f64ef46351a217f9b1fbd28f5858c641d3"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/11.pal",
+      "sha256": "822b7fc328fba7c9d5a9121b85f0925ce772b097372769b5cb5d58dfd01f2592"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/12.pal",
+      "sha256": "c60a7d3539cea22a2cd8c57781f4957e208c00e3fe138162401fe71afd64e4b9"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/tiles.png",
+      "sha256": "d3977768b9128193f537e087cc5115066eddffd1f7596e4587ffd9e8d476fe7a"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/metatile_attributes.bin",
+      "sha256": "de8c978bfe55b85f66950cec46de53d7db9f2df4c9a884816c31f22620df9b12"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/metatiles.bin",
+      "sha256": "e6e6dded8f0ff10af8c1728089111e3fca5875d99fa33d5666e2d48065386019"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/00.pal",
+      "sha256": "5903cf396a8e0984e0b7d3894a7223e9eea7551081eb6e423605d874c0ad1b26"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/01.pal",
+      "sha256": "be54c67c8dbc63f5d7ffda854375061ec365ad3ff29abbed26213c3bd64edfc2"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/02.pal",
+      "sha256": "3d972888828a991c35f158137c657a477098cac676e5c9853bbb0b18187610c0"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/03.pal",
+      "sha256": "90a91b6d9da070ee655c0cd48ebe7932cf7fdd148eb478cc3d365adf22fb7bb1"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/04.pal",
+      "sha256": "ebd90cd8b33e259799e7920c918c0af923f5317317ea70ce203ba1efa621c4d1"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/05.pal",
+      "sha256": "c204a2ade9cd46b2df4b228df8459f73c5a4dbfbf6262136113066be000615a1"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/06.pal",
+      "sha256": "e209fb6b370742dd0a17436bf08a5259901cba8d87dea6b4a896f3a44b3e708e"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/07.pal",
+      "sha256": "6d02b1b485095b1293cb62b99d69254d087741dd3f5c6a4a411377cff8f7a76c"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/08.pal",
+      "sha256": "a265c8408b8f838e47dc748c01b689d913af202a4476f414750f245a98d0e814"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/09.pal",
+      "sha256": "4704b8d3583799599c3a97ffa487c3d04713e26f1f24b8b8fce26119e187f5c9"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/10.pal",
+      "sha256": "e0bb4957779c7313204c0fac29c033baee3628f918b8a606334d2d2c59903c74"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/11.pal",
+      "sha256": "d26dbdb948ef93456d9a554cc886e7c8c6e7f5cfab3db298de4c796e1edf4d1e"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/12.pal",
+      "sha256": "fbd2d2e7c7b2230d3108eefc86c57d21e43c9bfc0f9aa47a197e88aba12de66a"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/tiles.png",
+      "sha256": "bad8bb0b3312e8f8c70aa4caa69b6bd001e2227f0a8b24bf184581d66eebc4b5"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/metatile_attributes.bin",
+      "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/metatiles.bin",
+      "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/00.pal",
+      "sha256": "6ace615b6fc3069d79ee07a81491720bee3c8e465b0c8a350c2322ef5f2d8706"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/01.pal",
+      "sha256": "9a1ed898f9f4c9049822f0bd5355495241af0ea658128250d6e71e04492a91c4"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/02.pal",
+      "sha256": "882a147615d16bdc6db577497f3a1cadfa79174ce83df6286ecadf0a8bc645ee"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/03.pal",
+      "sha256": "4173d453ab3e02564e804a96c19c0d45fa79664a39b4d755316019aa759d39b3"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/04.pal",
+      "sha256": "fef0c5cf338a4ac77b256f6f5c251f235d0a608530349c88a6547483a619f6db"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/05.pal",
+      "sha256": "90f5f81f8c5360ef2dd55c71bca0ac867a12258268234f30be55bd5a828c3d1d"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/06.pal",
+      "sha256": "4cc4d1dea068dfd31989ed4f51f37121a9fa04f8c38820079f00df9263c72880"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/07.pal",
+      "sha256": "7bcbe174e76a8ee92c4ccd5c258e5466ab012bbd6793ee0bd8fa614ed07990e1"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/08.pal",
+      "sha256": "5e64e84946eb5e985767a08bda3b58bbf86317b77862981292aa94ec8b417cd9"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/09.pal",
+      "sha256": "cfdd060b3cd93223a99f30b3819ecb273cebe6288011e0097d16c0ee047e6081"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/10.pal",
+      "sha256": "904143507a85794b9ba7ec71251075f64ef46351a217f9b1fbd28f5858c641d3"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/11.pal",
+      "sha256": "822b7fc328fba7c9d5a9121b85f0925ce772b097372769b5cb5d58dfd01f2592"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/12.pal",
+      "sha256": "c60a7d3539cea22a2cd8c57781f4957e208c00e3fe138162401fe71afd64e4b9"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/tiles.png",
+      "sha256": "2dec8fe0ad66921775fba5fca89d96142c3b4fe702774360669f9c39a27eb13d"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/metatile_attributes.bin",
+      "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/metatiles.bin",
+      "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/00.pal",
+      "sha256": "5903cf396a8e0984e0b7d3894a7223e9eea7551081eb6e423605d874c0ad1b26"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/01.pal",
+      "sha256": "be54c67c8dbc63f5d7ffda854375061ec365ad3ff29abbed26213c3bd64edfc2"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/02.pal",
+      "sha256": "3d972888828a991c35f158137c657a477098cac676e5c9853bbb0b18187610c0"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/03.pal",
+      "sha256": "90a91b6d9da070ee655c0cd48ebe7932cf7fdd148eb478cc3d365adf22fb7bb1"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/04.pal",
+      "sha256": "ebd90cd8b33e259799e7920c918c0af923f5317317ea70ce203ba1efa621c4d1"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/05.pal",
+      "sha256": "c204a2ade9cd46b2df4b228df8459f73c5a4dbfbf6262136113066be000615a1"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/06.pal",
+      "sha256": "e209fb6b370742dd0a17436bf08a5259901cba8d87dea6b4a896f3a44b3e708e"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/07.pal",
+      "sha256": "6d02b1b485095b1293cb62b99d69254d087741dd3f5c6a4a411377cff8f7a76c"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/08.pal",
+      "sha256": "a265c8408b8f838e47dc748c01b689d913af202a4476f414750f245a98d0e814"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/09.pal",
+      "sha256": "4704b8d3583799599c3a97ffa487c3d04713e26f1f24b8b8fce26119e187f5c9"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/10.pal",
+      "sha256": "e0bb4957779c7313204c0fac29c033baee3628f918b8a606334d2d2c59903c74"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/11.pal",
+      "sha256": "d26dbdb948ef93456d9a554cc886e7c8c6e7f5cfab3db298de4c796e1edf4d1e"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/12.pal",
+      "sha256": "fbd2d2e7c7b2230d3108eefc86c57d21e43c9bfc0f9aa47a197e88aba12de66a"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/13.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/14.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/15.pal",
+      "sha256": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/tiles.png",
+      "sha256": "63e999953fb153bce031aef2831f71266b5d39fbfe56942cbe6b885ec23b6d82"
+    },
+    {
+      "path": "src/apocrypha_map_proof.c",
+      "sha256": "ad322b3b5507674c0155c1da29a2949c81192366df1eaa4e6c87d4e7da7d87cc"
+    },
+    {
+      "path": "src/data/region_map/region_map_sections.json",
+      "sha256": "42c337b3f39ed450ce324a2f826eeb888c8fa3eaea0240cdb21123ee62c2e719"
+    },
+    {
+      "path": "src/data/tilesets/graphics.h",
+      "sha256": "22e2ad9aeca0484294eb92358fbd3dd59c1ccdc671152ab08ddf4458a0410e2a"
+    },
+    {
+      "path": "src/data/tilesets/headers.h",
+      "sha256": "5b3ec033f11ecc50ba19849a58062ef36fd61bc9a767c758b86d727f43a967e7"
+    },
+    {
+      "path": "src/data/tilesets/metatiles.h",
+      "sha256": "89bee23a9caa5edc986cbf832beccc7c6a83d216db7eb0272567b5046526bb69"
+    }
+  ]
+}
