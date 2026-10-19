@@ -1,3 +1,5 @@
+Current New Bark adjustment proposal: [mailboxes, lab placement and staggered southern housing](../gba/art/new-bark-adjustments/README.md), engine PR #7. Latest correction adds a three-row forest behind the lab and restores complete bottom tree crowns; the retained town footprint and neighboring artwork remain intact.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
