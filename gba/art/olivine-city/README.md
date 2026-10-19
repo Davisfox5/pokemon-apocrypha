@@ -1,10 +1,10 @@
-# Current revision: rock courses and stair rebuild
+# Current revision: fresh terrain after both rejected attempts
 
-The first terrain pass below was rejected. **[Review the rebuilt walls, course guide,
-stair joins and actual gameplay here](evidence/terrain-rebuild/README.md).**
-Native source `601d1b073e4e4723066a3dc88c679c21d317991b` is pushed to the existing
+Both earlier terrain versions were rejected. **[Review the fresh HGSS trace,
+native terrain and actual gameplay](evidence/terrain-reset/README.md).**
+Native source `116ea8011c958d10bf5d61daf2d879cca9e8a184` is on existing
 [PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21).
-Only the wall/stair scope changes; owner visual review is pending.
+Visual acceptance is pending. Earlier images below are historical.
 
 ---
 

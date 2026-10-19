@@ -1,0 +1,39 @@
+[
+  {
+    "native_rows": [
+      0,
+      26
+    ],
+    "edge_templates": 180,
+    "mixed_material_modules": 246,
+    "texture_modules": {
+      "east": 16,
+      "west": 16,
+      "front": 32
+    },
+    "contour_pixels_adjusted": 397,
+    "maximum_contour_displacement": 1,
+    "maximum_changed_pixels_per_8px_tile": 5,
+    "topology": "same component counts, corner occupancy and touched edges",
+    "foreground_changes": 0
+  },
+  {
+    "native_rows": [
+      26,
+      44
+    ],
+    "edge_templates": 93,
+    "mixed_material_modules": 140,
+    "texture_modules": {
+      "west": 16,
+      "east": 16,
+      "front": 32,
+      "plateau": 8
+    },
+    "contour_pixels_adjusted": 447,
+    "maximum_contour_displacement": 1,
+    "maximum_changed_pixels_per_8px_tile": 8,
+    "topology": "same component counts, corner occupancy and touched edges",
+    "foreground_changes": 0
+  }
+]

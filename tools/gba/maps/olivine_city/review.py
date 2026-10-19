@@ -4,7 +4,7 @@ import sys,json,hashlib,subprocess
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[4];sys.path.insert(0,str(ROOT/'tools/gba/maps'));from tiles import Tileset
-G,P=map(Path,sys.argv[1:3]);BASE=ROOT/'gba/art/olivine-city/source';S=BASE/'terrain-rebuild';E=BASE.parent/'evidence/terrain-rebuild';r=json.loads((E/'assembly.json').read_text());W,H=r['size'];solid=np.load(S/'solid.npy');beh=np.load(S/'behaviors.npy');mat=np.load(S/'material-grid.npy');ground=np.load(S/'ground-material-grid.npy');ims=[];ledger=[];usage=[]
+G,P=map(Path,sys.argv[1:3]);BASE=ROOT/'gba/art/olivine-city/source';revision=sys.argv[3] if len(sys.argv)>3 else 'terrain-rebuild';S=BASE/revision;E=BASE.parent/'evidence'/revision;r=json.loads((E/'assembly.json').read_text());W,H=r['size'];solid=np.load(S/'solid.npy');beh=np.load(S/'behaviors.npy');mat=np.load(S/'material-grid.npy');ground=np.load(S/'ground-material-grid.npy');ims=[];ledger=[];usage=[]
 for district in r['districts']:
  name,bank,h,y0=district['map'],district['tileset'],district['height'],district['global_y'];t=Tileset(G,bank,bank);g=np.fromfile(G/'data/layouts'/name/'map.bin','<u2').reshape(h,W);im=np.array(t.map_image(g.ravel().tolist(),W));assert np.array_equal(im,np.array(Image.open(P/(name+'.png')).convert('RGB')))
  ids=set();pals=set()

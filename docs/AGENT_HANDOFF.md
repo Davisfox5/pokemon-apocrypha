@@ -1,4 +1,18 @@
-## Latest: Olivine rock courses and stair joins rebuilt after rejection
+## Latest: Olivine terrain restarted after both versions were rejected
+
+The owner requested a complete restart. Native source `116ea801` on existing
+PR #21 uses fresh HGSS contours/texture cores, restored southwest rock spur,
+connected lighthouse faces/shelves, rounded returns and complete stair openings.
+The former `601d1b07` wall assembly is explicitly rejected and preserved as history.
+Actual Porymap/native parity, all 4,032 cell checks, 235 complete trees, 37 headless
+observations and ordinary save/cold Continue pass. The source delta is confined to
+55 City/Quay files; Harbor and map/layout/event/warp IDs remain unchanged.
+[Current comparisons and gameplay](../gba/art/olivine-city/evidence/terrain-reset/README.md).
+Owner visual acceptance is pending. No hosted CI run was returned; PRs remain draft.
+The new authoring record refuses replay on the committed layout; future edits
+must begin from current native source and preserve owner changes.
+
+## Historical: rejected Olivine wall-strip rebuild
 
 The original terrain pass was rejected. Native source `601d1b07` on existing
 engine PR #21 replaces the complete rock layer with traced courses, native
@@ -9,7 +23,7 @@ Porymap/native parity, headless movement/barriers and ordinary save/cold Continu
 pass. Only city/quay native tilesets/layouts change; Harbor and all other IDs,
 registries, source areas and shared foreground pixels are preserved.
 [Current visual review](../gba/art/olivine-city/evidence/terrain-rebuild/README.md).
-Owner visual review remains pending; earlier pass/evidence is historical.
+This version was subsequently rejected; use the fresh terrain revision above.
 
 ## Latest: Olivine City exterior proposal
 

@@ -30,7 +30,9 @@ steps=r'''
  go(53,11,20);step(LEFT,1);at(53,11,20,"western-retaining-wall-blocks");shot("western-retaining-wall");
  go(54,50,10);step(DOWN,1);at(54,50,10,"highest-headland-course-blocks");shot("headland-three-courses");
  go(54,54,9);step(RIGHT,1);at(54,54,9,"headland-eastern-shoulder-blocks");shot("headland-eastern-turn");
- go(54,9,5);step(UP,1);at(54,9,5,"rounded-west-beach-return-blocks");shot("beach-wall-return");
+ go(54,9,4);step(UP,1);at(54,9,4,"rounded-west-beach-return-blocks");shot("beach-wall-return");
+ go(54,11,13);step(LEFT,1);at(54,11,13,"western-rock-spur-east-face-blocks");shot("western-rock-spur");
+ go(54,8,8);step(DOWN,1);at(54,8,8,"western-rock-spur-north-face-blocks");shot("western-rock-spur-head");
  go(54,28,8);shot("save-Olivine");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(54,28,8').replace('cold-reload-new-bark','cold-reload-Olivine')

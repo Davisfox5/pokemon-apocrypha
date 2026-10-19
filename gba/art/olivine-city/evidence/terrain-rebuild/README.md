@@ -1,3 +1,6 @@
+> **Rejected by the owner.** Preserved for comparison only.
+> [Current fresh terrain and gameplay review](../terrain-reset/README.md).
+
 # Olivine rock courses and stair rebuild
 
 The first terrain pass was rejected. This revision removes its complete rock
@@ -7,7 +10,7 @@ traced wall courses and the established native Johto wall vocabulary.
 **Native source:** [PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21),
 commit `601d1b073e4e4723066a3dc88c679c21d317991b`.
 [Terrain-only source diff](https://github.com/Davisfox5/pokeemerald-expansion/compare/c26b9b21d095ca6e0f8a7e5a46a091bc82701e52...601d1b073e4e4723066a3dc88c679c21d317991b).
-Owner visual acceptance remains pending.
+The owner rejected this version.
 
 ## Review the actual change
 
