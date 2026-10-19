@@ -1,11 +1,26 @@
-# Ecruteak City — court, fixture and stone-wall refinement
+# Ecruteak City — closer tower groves and sealed gate flanks
 
 [Native source PR #19](https://github.com/Davisfox5/pokeemerald-expansion/pull/19).
-Engine `c8a8267606411bd62a6274ed0e5f430b1b2f7e80`, stacked on Azalea
+Engine `d5405cdcbddf65a0f9b5e19130cbd29db66cefe0`, stacked on Azalea
 `d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review;
 local checks pass. The source PR remains draft pending hosted CI and visual acceptance.
 
-## Current review
+## Current tree review
+
+The complete trees now sit closer to Burned Tower and the Bell Tower entrance.
+The west/east gateways meet their surrounding forest, and both southern torii
+flanks are filled. Side gateways remain closed; the torii center stays open in
+both directions. Native collision and a flood-fill check rule out a route around
+the barriers. All approved master artwork and building placements are preserved.
+This is the owner's requested placement refinement of the HGSS interpretation.
+
+- [Whole-map before/after](evidence/tree-closure/whole-map.png)
+- [Burned grove](evidence/tree-closure/burned-grove.png), [Bell grove](evidence/tree-closure/bell-grove.png)
+- [West gate](evidence/tree-closure/west-gate.png), [east gate](evidence/tree-closure/east-gate.png), [southern torii](evidence/tree-closure/southern-torii.png)
+- [Collision and preservation proof](evidence/tree-closure/review.json), [visual findings](evidence/tree-closure/visual-review.json), [layer-priority audit](evidence/tree-closure/layer-priority.json)
+- [Current native map](evidence/native-map.png), [actual gameplay](evidence/gameplay-gallery.png)
+
+## Previous approved court review
 
 Every sheet shows the original HGSS reference, previous c8f961 source and current
 **decoded native map**. Coordinates identify native 16px cells.
@@ -67,9 +82,10 @@ Original: [HGSS Ecruteak overview](https://archives.bulbagarden.net/media/upload
 1032×785. Original (0,0) registers at native (64,16), without geometric scaling.
 The map occupies 72×52 16px squares with outward padding for complete trees/gates.
 This is a source-image reconstruction, not decoded DS collision or hidden terrain.
-All 447 tree anchors and distinct 2×2 roots remain unchanged in this pass.
+There are 494 complete trees: 47 added and 64 shifted at the gate shoulders.
+Their distinct 2×2 root footprints do not overlap.
 
-Temple uses 838 glyphs / 330 metatiles; city uses 960 / 415. Both use thirteen BG
+Temple uses 917 glyphs / 335 metatiles; city uses 988 / 422. Both use thirteen BG
 banks and reserve sixteen glyph slots. The split at global row 27 uses a short
 map fade. Interiors, Bell Tower path, neighboring Routes 37/38/42, campaign actors,
 encounters, shops and Gym mechanics remain unwired. Closed entrances are tested as
@@ -81,14 +97,25 @@ Visible master pixels, all complete trees, receiving approaches and directional
 wall placements pass. Headless libmGBA checks cover stairs, barriers, restored
 lantern bases, the open central plot, adjusted courts and both district transitions.
 Ordinary save, cold reload and title Continue pass. A **copy** of the preceding
-c8f961 proof save also reloads/continues; its original file remains unchanged.
+c8a826 proof save also reloads/continues; its original file remains unchanged.
 These checks support review; owner visual acceptance remains pending.
 
-Records: [current audit](evidence/court-refinement/audit.json), [native review](evidence/review.json),
-[build](evidence/build.json), [runtime](evidence/runtime.json), [copied prior-save test](evidence/court-refinement/prior-save-compatibility.json),
+Records: [tree audit](evidence/tree-closure/review.json), [native review](evidence/review.json),
+[build](evidence/build.json), [runtime](evidence/runtime.json), [copied prior-save test](evidence/tree-closure/prior-save-compatibility.json),
 [preservation](evidence/preservation.json), [reproduction](evidence/reproduction.json), [hosted CI](evidence/hosted-ci.json).
 
+The previous court sheets retain the approved c8a826 result as history. The tree
+sheets compare that exact baseline to the current decoded native map.
+
 ## Editable source and preservation
+
+`tree_closure.py` is a narrow one-time patch requiring clean c8a826 native source.
+Its baseline and placement ledger are in `source/tree-closure/`. `tree_cover.py`
+solves exact thirteen-bank color covers, allowing layer repacking at blocked
+joins. `tree_layers.py` independently checks every cover against actual patches
+and preserves visible RGB. Open foreground masks and all exposed normal-layer
+foreground edges retain their masks and colors; the native layer audit checks all 26 such edge cells.
+The tree masters are neither recolored nor resized.
 
 Current committed native maps are authoritative. IDs stay at group 80, 51–52;
 shared masters and unrelated map art are untouched. Before-state art, layers,
@@ -103,7 +130,7 @@ town generators over committed maps. `compile_refinement.py` encodes edited priv
 layers with Porytiles 2.0, exact palette covering and the engine's 512-tile split.
 The exact cover uses OR-Tools CP-SAT 9.10.4067 (`python3 -m pip install ortools==9.10.4067`);
 legacy first-authoring uses Z3. Cached banks are reused only if every current patch
-fits without color changes. Run actual Porymap export + `review.py`, `court_review.py`,
+fits without color changes. Run actual Porymap export + `review.py`, `tree_review.py`,
 a ROM build, `runtime.py`, then `publish.py` for verification. No nearest-tile art
 replacement or invisible color loss is permitted.
 

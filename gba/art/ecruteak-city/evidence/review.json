@@ -4,12 +4,12 @@
   "Porymap_RGB_errors": 0,
   "decoded_material_pixels_vs_authoring_errors": 0,
   "decoded_collision_behavior_errors": 0,
-  "tree_count": 447,
+  "tree_count": 494,
   "partial_trees": 0,
   "overlapping_root_cells": 0,
-  "visible_master_pixels_checked": 488662,
-  "visible_shared_pixels_checked": 35383,
-  "reachable_cells": 1530,
+  "visible_master_pixels_checked": 526305,
+  "visible_shared_pixels_checked": 35182,
+  "reachable_cells": 1322,
   "reachable_approaches": {
     "Burned Tower stair foot": [
       25,
@@ -59,8 +59,8 @@
   "district_usage": [
     {
       "map": "JohtoEcruteakTempleDistrict",
-      "unique_glyph_IDs": 838,
-      "highest_glyph_ID": 837,
+      "unique_glyph_IDs": 917,
+      "highest_glyph_ID": 916,
       "palette_banks": [
         0,
         1,
@@ -76,13 +76,13 @@
         11,
         12
       ],
-      "metatiles": 330,
+      "metatiles": 335,
       "Porymap_pixel_errors": 0
     },
     {
       "map": "JohtoEcruteakCity",
-      "unique_glyph_IDs": 960,
-      "highest_glyph_ID": 959,
+      "unique_glyph_IDs": 988,
+      "highest_glyph_ID": 987,
       "palette_banks": [
         0,
         1,
@@ -98,7 +98,7 @@
         11,
         12
       ],
-      "metatiles": 415,
+      "metatiles": 422,
       "Porymap_pixel_errors": 0
     }
   ],

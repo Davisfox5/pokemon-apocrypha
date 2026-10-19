@@ -1,13 +1,8 @@
 {
-  "source_commit": "c8a8267606411bd62a6274ed0e5f430b1b2f7e80",
-  "observed_at_UTC": "2026-10-19T16:30:21.794636+00:00",
-  "actions": {
-    "total_count": 0,
-    "runs": []
-  },
-  "checks": {
-    "total_count": 0,
-    "runs": []
-  },
-  "policy": "Draft pending hosted CI and owner visual review."
+  "source_commit": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "actions_runs": 0,
+  "check_runs": 0,
+  "combined_state": "pending",
+  "statuses": 0,
+  "decision": "Draft retained. Local validation passed; no hosted CI results observed on this exact head."
 }
