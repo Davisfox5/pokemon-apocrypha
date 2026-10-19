@@ -14,11 +14,14 @@ def cover(inp,source,mods,seed_directories=()):
  ss=sorted([v for v in sets if not any(v<w for w in sets)],key=lambda v:(-len(v),sorted(v)));cs=sorted(set.union(*(set(v) for v in ss)));ci={c:i for i,c in enumerate(cs)};B=13
  m=cp_model.CpModel();vs=[[m.new_bool_var(f'b{b}c{i}') for i in range(len(cs))] for b in range(B)];assign=[]
  for row in vs:m.add(sum(row)<=15)
+ def master(n):
+  local=inp.parent/'masters'/f'{n}.png'
+  return local if local.exists() else source/'masters'/f'{n}.png'
  def colors(n):
-  q=np.array(Image.open(source/'masters'/f'{n}.png').convert('RGBA'));return set(map(tuple,q[q[...,3]>0,:3]&248))&set(cs)
+  q=np.array(Image.open(master(n)).convert('RGBA'));return set(map(tuple,q[q[...,3]>0,:3]&248))&set(cs)
  def split(n):
   import z3
-  q=np.array(Image.open(source/'masters'/f'{n}.png').convert('RGBA'));parts=[]
+  q=np.array(Image.open(master(n)).convert('RGBA'));parts=[]
   for y in range(0,len(q),8):
    for x in range(0,q.shape[1],8):
     p=q[y:y+8,x:x+8];parts.append(set(map(tuple,p[p[...,3]>0,:3]&248)))
@@ -71,10 +74,33 @@ def cover(inp,source,mods,seed_directories=()):
   if not any(cov&c==cov for c,_ in keep):keep.append((cov,bank))
  model=cp_model.CpModel();choose=[model.new_bool_var(f'palette{i}') for i in range(len(keep))]
  for i in range(len(bits)):model.add(sum(v for v,(cov,_) in zip(choose,keep) if cov>>i&1)>=1)
- model.add(sum(choose)<=13);model.minimize(sum(choose));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=60;solver.parameters.num_search_workers=5;status=solver.solve(model)
+ model.minimize(sum(choose));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=60;solver.parameters.num_search_workers=5;status=solver.solve(model)
  print(inp.name,'colors',len(cs),'patches',len(ss),'candidates',len(keep),solver.status_name(status),flush=True)
  assert status in (cp_model.OPTIMAL,cp_model.FEASIBLE),'No exact bank cover; revise local joins instead of flattening terrain.'
- banks=[b for v,(_,b) in zip(choose,keep) if solver.value(v)];out=inp/'palette-overrides';out.mkdir(exist_ok=True);pals=[]
+ print('minimum candidate banks',sum(solver.value(v) for v in choose),flush=True)
+ banks=[b for v,(_,b) in zip(choose,keep) if solver.value(v)]
+ solver_name='OR-Tools exact candidate set cover'
+ if len(banks)>13:
+  # A finite greedy candidate vocabulary is not a proof that thirteen banks
+  # cannot cover the actual colors. Solve the exact color assignment before
+  # asking an artist to discard detail or change a material ramp.
+  direct=cp_model.CpModel();cv=[[direct.new_bool_var(f'color{b}_{i}') for i in range(len(cs))] for b in range(13)]
+  for row in cv:direct.add(sum(row)<=15)
+  av=[]
+  for i,p in enumerate(ss):
+   row=[direct.new_bool_var(f'patch{i}_{b}') for b in range(13)];av.append(row);direct.add(sum(row)==1)
+   for b in range(13):
+    for c in p:direct.add_implication(row[b],cv[b][ci[c]])
+  direct.add(av[0][0]==1)
+  # Break interchangeable bank labels by first assigned patch.
+  for i,row in enumerate(av):
+   for b in range(1,13):direct.add(row[b]<=sum(av[j][b-1] for j in range(i)))
+  ds=cp_model.CpSolver();ds.parameters.max_time_in_seconds=60;ds.parameters.num_search_workers=5
+  st=ds.solve(direct);print('exact color assignment',ds.status_name(st),flush=True)
+  assert st in (cp_model.OPTIMAL,cp_model.FEASIBLE),'Exact assignment did not fit thirteen banks; revise local material ramps.'
+  banks=[sum(1<<i for i,v in enumerate(row) if ds.value(v)) for row in cv]
+  solver_name='OR-Tools direct exact color assignment; candidate cover exceeded native budget'
+ out=inp/'palette-overrides';out.mkdir(exist_ok=True);pals=[]
  for i in range(13):
   bit=banks[i] if i<len(banks) else 0;pal=[c for j,c in enumerate(cs) if bit>>j&1];pal=pal or [(0,0,0)];pals.append(pal);lines=['-']+[' '.join(map(str,c)) for c in pal]+['-']*(15-len(pal));(out/f'{i:02}.pal').write_text('JASC-PAL\n0100\n16\n'+'\n'.join(lines)+'\n')
- (inp/'exact-palette-cover.json').write_text(json.dumps(dict(solver='OR-Tools exact candidate set cover',maximal_patches=len(ss),colors=len(cs),candidate_count=len(keep),banks=[[list(map(int,c)) for c in p] for p in pals]),indent=2)+'\n')
+ (inp/'exact-palette-cover.json').write_text(json.dumps(dict(solver=solver_name,maximal_patches=len(ss),colors=len(cs),candidate_count=len(keep),banks=[[list(map(int,c)) for c in p] for p in pals]),indent=2)+'\n')

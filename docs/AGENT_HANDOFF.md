@@ -1,4 +1,33 @@
-## Latest: Olivine groves and terrain beneath them completed
+## Latest: Olivine full local asset cleanup
+
+Native source `506860f6a88ba96833f8bec256ebbda110b1113f`, existing draft PR #21,
+supersedes the local art in `8eb23f67`. The owner rejected the cleanliness of the
+extracted elements and requested every asset/tile be checked against HGSS and
+independently. Fourteen local masters were cleaned/redrawn, converted to native
+palettes, and fitted to their existing footprints. This includes the Harbor
+terminal and all maritime props. The lighthouse has explicit repeated parapet
+modules and matched windows. Ground beneath foreground art is restored by
+material; the pier-adjacent sea-rock needed a pixel-level water correction.
+
+[Current whole map, every asset comparison, native tile pages and gameplay](../gba/art/olivine-city/evidence/asset-cleanup/README.md).
+All 19 placed foreground families, 319 distinct placements (320 records because
+of a retained duplicate lighthouse stamp), five material cores and 1,289 used
+metatiles have review evidence. Actual Porymap/native parity, all 4,032 cells,
+every visible placed master pixel, 237 complete roots, building approaches and
+39 headless observations pass, including save/cold Continue. Collision, elevation,
+IDs, 45 row counts, timber crossing pixels and shared Center/Mart/sign pixels are
+preserved. Changed source is confined to 98 files in the three Olivine districts.
+
+City uses 998/1008 glyphs, Quay 1005/1008 and Harbor 394/1008. Quay required direct
+exact palette assignment after the heuristic candidate cover exceeded 13 banks;
+the solver does not alter RGB colors. Future art must budget the three remaining
+Quay glyphs carefully. Input atlas, edited image-tool output, explicit crop/native
+registration, local masters and narrow guarded authoring tools are retained.
+Never replay this pass or an old generator over later edits. Visual acceptance
+remains pending; overview/footprint adaptations, static water, fading districts
+and unwired interiors, routes and shipping remain explicit limits.
+
+## Historical: Olivine groves and terrain beneath them
 
 Native source `8eb23f6774fd937f3018d413f1fab5b6dc8d05c8` is on the existing
 `codex/olivine-city` branch / draft PR #21. The owner liked the improved depth and

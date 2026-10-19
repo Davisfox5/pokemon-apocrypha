@@ -1,0 +1,336 @@
+[
+  {
+    "name": "P12",
+    "placement_records": 4,
+    "native_canvas": [
+      32,
+      32
+    ],
+    "reference_box": [
+      160,
+      208,
+      192,
+      240
+    ],
+    "master_changed": false,
+    "review_sheet": "P12-asset-review.png"
+  },
+  {
+    "name": "bench",
+    "placement_records": 3,
+    "native_canvas": [
+      80,
+      32
+    ],
+    "reference_box": [
+      128,
+      576,
+      208,
+      608
+    ],
+    "master_changed": true,
+    "review_sheet": "bench-asset-review.png"
+  },
+  {
+    "name": "boat",
+    "placement_records": 2,
+    "native_canvas": [
+      88,
+      80
+    ],
+    "reference_box": [
+      248,
+      608,
+      336,
+      688
+    ],
+    "master_changed": true,
+    "review_sheet": "boat-asset-review.png"
+  },
+  {
+    "name": "bunting",
+    "placement_records": 3,
+    "native_canvas": [
+      152,
+      56
+    ],
+    "reference_box": [
+      104,
+      272,
+      256,
+      328
+    ],
+    "master_changed": true,
+    "review_sheet": "bunting-asset-review.png"
+  },
+  {
+    "name": "cafe",
+    "placement_records": 1,
+    "native_canvas": [
+      80,
+      80
+    ],
+    "reference_box": [
+      144,
+      400,
+      224,
+      480
+    ],
+    "master_changed": true,
+    "review_sheet": "cafe-asset-review.png"
+  },
+  {
+    "name": "center",
+    "placement_records": 1,
+    "native_canvas": [
+      80,
+      80
+    ],
+    "reference_box": [
+      224,
+      400,
+      304,
+      480
+    ],
+    "master_changed": false,
+    "review_sheet": "center-asset-review.png"
+  },
+  {
+    "name": "civic-hall",
+    "placement_records": 1,
+    "native_canvas": [
+      128,
+      112
+    ],
+    "reference_box": [
+      176,
+      144,
+      304,
+      256
+    ],
+    "master_changed": true,
+    "review_sheet": "civic-hall-asset-review.png"
+  },
+  {
+    "name": "house",
+    "placement_records": 1,
+    "native_canvas": [
+      80,
+      96
+    ],
+    "reference_box": [
+      272,
+      272,
+      352,
+      368
+    ],
+    "master_changed": true,
+    "review_sheet": "house-asset-review.png"
+  },
+  {
+    "name": "house-pair",
+    "placement_records": 2,
+    "native_canvas": [
+      80,
+      104
+    ],
+    "reference_box": [
+      496,
+      176,
+      576,
+      280
+    ],
+    "master_changed": true,
+    "review_sheet": "house-pair-asset-review.png"
+  },
+  {
+    "name": "land-rock",
+    "placement_records": 4,
+    "native_canvas": [
+      32,
+      32
+    ],
+    "reference_box": [
+      520,
+      336,
+      552,
+      368
+    ],
+    "master_changed": true,
+    "review_sheet": "land-rock-asset-review.png"
+  },
+  {
+    "name": "lighthouse",
+    "placement_records": 2,
+    "native_canvas": [
+      128,
+      192
+    ],
+    "reference_box": [
+      688,
+      336,
+      816,
+      528
+    ],
+    "master_changed": true,
+    "review_sheet": "lighthouse-asset-review.png"
+  },
+  {
+    "name": "mart",
+    "placement_records": 1,
+    "native_canvas": [
+      112,
+      96
+    ],
+    "reference_box": [
+      464,
+      400,
+      576,
+      496
+    ],
+    "master_changed": false,
+    "review_sheet": "mart-asset-review.png"
+  },
+  {
+    "name": "olivine-tree",
+    "placement_records": 237,
+    "native_canvas": [
+      48,
+      64
+    ],
+    "reference_box": [
+      876,
+      264,
+      924,
+      328
+    ],
+    "master_changed": true,
+    "review_sheet": "olivine-tree-asset-review.png"
+  },
+  {
+    "name": "rail",
+    "placement_records": 10,
+    "native_canvas": [
+      32,
+      24
+    ],
+    "reference_box": [
+      144,
+      624,
+      176,
+      648
+    ],
+    "master_changed": true,
+    "review_sheet": "rail-asset-review.png"
+  },
+  {
+    "name": "ramp",
+    "placement_records": 1,
+    "native_canvas": [
+      64,
+      65
+    ],
+    "reference_box": [
+      624,
+      527,
+      688,
+      592
+    ],
+    "master_changed": false,
+    "review_sheet": "ramp-asset-review.png"
+  },
+  {
+    "name": "sea-rock",
+    "placement_records": 42,
+    "native_canvas": [
+      32,
+      32
+    ],
+    "reference_box": [
+      952,
+      304,
+      984,
+      336
+    ],
+    "master_changed": true,
+    "review_sheet": "sea-rock-asset-review.png"
+  },
+  {
+    "name": "stairs",
+    "placement_records": 1,
+    "native_canvas": [
+      48,
+      24
+    ],
+    "reference_box": [
+      576,
+      312,
+      624,
+      336
+    ],
+    "master_changed": false,
+    "review_sheet": "stairs-asset-review.png"
+  },
+  {
+    "name": "terminal",
+    "placement_records": 1,
+    "native_canvas": [
+      176,
+      128
+    ],
+    "reference_box": [
+      304,
+      688,
+      480,
+      816
+    ],
+    "master_changed": true,
+    "review_sheet": "terminal-asset-review.png"
+  },
+  {
+    "name": "umbrella",
+    "placement_records": 3,
+    "native_canvas": [
+      64,
+      48
+    ],
+    "reference_box": [
+      136,
+      544,
+      200,
+      592
+    ],
+    "master_changed": true,
+    "review_sheet": "umbrella-asset-review.png"
+  },
+  {
+    "name": "grass",
+    "role": "receiving material",
+    "retained": true,
+    "review_sheet": "grass-surface-review.png"
+  },
+  {
+    "name": "sand",
+    "role": "receiving material",
+    "retained": true,
+    "review_sheet": "sand-surface-review.png"
+  },
+  {
+    "name": "paving",
+    "role": "receiving material",
+    "retained": true,
+    "review_sheet": "paving-surface-review.png"
+  },
+  {
+    "name": "deck",
+    "role": "receiving material",
+    "retained": true,
+    "review_sheet": "deck-surface-review.png"
+  },
+  {
+    "name": "water",
+    "role": "receiving material",
+    "retained": true,
+    "review_sheet": "water-surface-review.png"
+  }
+]

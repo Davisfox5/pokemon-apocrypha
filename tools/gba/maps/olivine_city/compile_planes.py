@@ -4,11 +4,11 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-def compile_planes(G,PT,S,T,E,assembly,bg,fg,above,solid,beh,mods):
+def compile_planes(G,PT,S,T,E,assembly,bg,fg,above,solid,beh,mods,include_harbor=False):
  W=72;stats=[];staged=[]
  for dist in assembly['districts']:
   name,bank,y0,y1=dist['map'],dist['tileset'],dist['global_y'],dist['global_y']+dist['height']
-  if bank=='olivine_harbor':stats.append(dist);continue
+  if bank=='olivine_harbor' and not include_harbor:stats.append(dist);continue
   inp=T/bank;out=E/(bank+'-compiled');inp.mkdir(exist_ok=True);out.mkdir(exist_ok=True);unique={};cells=[];pairs=[]
   for y in range(y0,y1):
    for x in range(W):

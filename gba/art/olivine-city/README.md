@@ -1,4 +1,16 @@
-# Current revision: counted groves and complete receiving surfaces
+# Current revision: full local asset cleanup
+
+**[Review the native map, every asset comparison, all used tiles and gameplay](evidence/asset-cleanup/README.md).**
+Native source `506860f6a88ba96833f8bec256ebbda110b1113f` is on existing
+[draft PR #21](https://github.com/Davisfox5/pokeemerald-expansion/pull/21).
+Fourteen local masters are cleaned across City, Quay and Harbor, with complete
+receiving ground, native palette/trim work and per-placement checks. Established
+grove counts, hill geometry and traversal are preserved. This supersedes the
+earlier cutout artwork below; owner visual acceptance remains pending.
+
+---
+
+# Historical revision: counted groves and complete receiving surfaces
 
 **[Review the native map, before/after comparisons, row counts and trees-hidden terrain](evidence/forest-refinement/README.md).**
 Native source `8eb23f6774fd937f3018d413f1fab5b6dc8d05c8` is on existing
