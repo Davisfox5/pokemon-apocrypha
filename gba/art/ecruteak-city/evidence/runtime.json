@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "60457d7c63722e74fbb6ea069cd7ee96b449152e6fcdf12842ba6fabc2d30e30",
+  "rom_sha256": "3ab494370f32d0e354a0633080c48f1615d32959527fa6befaf47c24c33866e8",
   "phases": [
     {
       "phase": "write",
@@ -124,6 +124,32 @@
           "mapsec": 227
         },
         {
+          "step": "tower-west-apron-face-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 19,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "tower-west-apron-walks",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 19,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
           "step": "Bell-Tower-interior-pending",
           "region": 3,
           "group": 80,
@@ -180,7 +206,7 @@
           "region": 3,
           "group": 80,
           "map": 51,
-          "x": 46,
+          "x": 47,
           "y": 14,
           "frlg_layout": 0,
           "width": 72,
@@ -194,7 +220,7 @@
           "group": 80,
           "map": 51,
           "x": 56,
-          "y": 8,
+          "y": 7,
           "frlg_layout": 0,
           "width": 72,
           "height": 25,

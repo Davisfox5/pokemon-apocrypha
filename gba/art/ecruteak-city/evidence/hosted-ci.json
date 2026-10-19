@@ -1,6 +1,13 @@
 {
-  "checked_at": "2026-10-19T13:46:15.963934+00:00",
-  "source_commit": "dbf53f6f3975eb20179c26badd6ba48169857ad1",
-  "check_runs": [],
-  "state": "No hosted workflow or check run observed; local build passed. PR remains draft pending hosted CI."
+  "source_commit": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "observed_at_UTC": "2026-10-19T15:43:24.514345+00:00",
+  "actions": {
+    "total_count": 0,
+    "runs": []
+  },
+  "checks": {
+    "total_count": 0,
+    "runs": []
+  },
+  "policy": "Draft remains pending hosted CI and owner visual acceptance."
 }

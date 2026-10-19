@@ -27,9 +27,8 @@ for i,p in enumerate(r['placements'],1):
  a=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;masters[i]=a;h,w=a.shape[:2];m=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][m]=i
 shared={v['name'] for v in json.loads((S/'shared-provenance.json').read_text())};checks=[]
 for i,p in enumerate(r['placements'],1):
- if p['name'] not in shared:continue
  a=masters[i];h,w=a.shape[:2];visible=owner[p['y']:p['y']+h,p['x']:p['x']+w]==i
- assert np.array_equal(now[p['y']:p['y']+h,p['x']:p['x']+w][visible],a[visible,:3]);checks.append(dict(name=p['name'],x=p['x'],y=p['y'],visible_pixels=int(visible.sum()),RGB_errors=0))
+ assert np.array_equal(now[p['y']:p['y']+h,p['x']:p['x']+w][visible],a[visible,:3]),p;checks.append(dict(name=p['name'],kind='shared' if p['name'] in shared else 'local',x=p['x'],y=p['y'],visible_pixels=int(visible.sum()),RGB_errors=0))
 # Material and traversal are deliberately separate. The overview does not prove
 # hidden original collision; this BFS qualifies the authored exterior only.
 seen={(41,35)};todo=list(seen)
@@ -37,7 +36,7 @@ for x,y in todo:
  for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
   nx,ny=x+dx,y+dy
   if 0<=nx<W and 0<=ny<H and not solid[ny,nx] and (nx,ny) not in seen:seen.add((nx,ny));todo.append((nx,ny))
-points={'Burned Tower stair foot':(25,18),'Burned Tower door':(25,14),'Bell Tower entrance':(41,18),'northwest house':(25,26),'northeast house':(35,26),'west house':(25,34),'Dance Theater':(47,34),'Gym':(26,41),'Center':(46,41),'Mart':(56,35),'south torii':(41,46)}
+points={'Burned Tower stair foot':(25,18),'Burned Tower door':(25,14),'Bell Tower entrance':(41,18),'northwest house':(25,26),'northeast house':(35,26),'west house':(25,34),'Dance Theater':(47,34),'Gym':(26,41),'Center':(47,41),'Mart':(56,34),'south torii':(41,46)}
 assert all(p in seen for p in points.values()),{k:p for k,p in points.items() if p not in seen}
 (E/'cell-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n');(E/'shared-art-review.json').write_text(json.dumps(checks,indent=2)+'\n')
 native=Image.fromarray(now);native.save(E/'native-map.png');native.resize((W*32,H*32),Image.Resampling.NEAREST).save(E/'native-map-2x.png');ref=Image.open(S/'hgss-reference.png').convert('RGB');registered=Image.new('RGB',(W*16,H*16),'#223039');registered.paste(ref,(64,16))
@@ -54,5 +53,5 @@ for name,box in [('Burned-Tower',(304,96,512,304)),('temple-pond',(536,176,912,4
  w,h=box[2]-box[0],box[3]-box[1];sh=Image.new('RGB',(w*4+32,h*2+40),'#223039');d=ImageDraw.Draw(sh)
  for i,(label,im) in enumerate([('HGSS',registered),('Native',native)]):x=8+i*(w*2+16);d.text((x,6),label,font=font,fill='white');sh.paste(im.crop(box).resize((w*2,h*2),Image.Resampling.NEAREST),(x,32))
  sh.save(E/(name+'-comparison.png'))
-report=dict(native_cells=W*H,source_grid='16px at source(+64,+16), no geometric scaling',Porymap_RGB_errors=0,decoded_material_pixels_vs_authoring_errors=0,decoded_collision_behavior_errors=0,tree_count=len(r['trees']),partial_trees=0,overlapping_root_cells=0,visible_shared_pixels_checked=sum(v['visible_pixels'] for v in checks),reachable_cells=len(seen),reachable_approaches={k:list(v) for k,v in points.items()},district_usage=usage,owner_visual_acceptance='pending',limits=['Overview-derived geography, not extracted DS collision or hidden ground.','Native building footprints, complete tree alignment and gate padding are adaptations.','Two rendering districts use short ordinary fades on the avenue; adjacent routes and interiors remain closed.'])
+report=dict(native_cells=W*H,source_grid='16px at source(+64,+16), no geometric scaling',Porymap_RGB_errors=0,decoded_material_pixels_vs_authoring_errors=0,decoded_collision_behavior_errors=0,tree_count=len(r['trees']),partial_trees=0,overlapping_root_cells=0,visible_master_pixels_checked=sum(v['visible_pixels'] for v in checks),visible_shared_pixels_checked=sum(v['visible_pixels'] for v in checks if v['kind']=='shared'),reachable_cells=len(seen),reachable_approaches={k:list(v) for k,v in points.items()},district_usage=usage,owner_visual_acceptance='pending',limits=['Overview-derived geography, not extracted DS collision or hidden ground.','Native building footprints, complete tree alignment and gate padding are adaptations.','Two rendering districts use short ordinary fades on the avenue; adjacent routes and interiors remain closed.'])
 (E/'review.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

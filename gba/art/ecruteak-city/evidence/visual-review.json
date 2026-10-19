@@ -1,21 +1,19 @@
 {
-  "source_commit": "dbf53f6f3975eb20179c26badd6ba48169857ad1",
-  "review_method": "Registered original/native coordinate sheets, decoded 1x output, actual Porymap 6.3.1 project exports and native headless gameplay frames",
-  "coordinate_system": "Global native 16px cells; source pixel origin registers at (64,16)",
+  "source_commit": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "owner_visual_acceptance": "pending",
+  "reviewed": [
+    "Native Porymap composite, tree masters and canopy-free rock joins",
+    "Individual original/first-pass/current building comparisons",
+    "Native gameplay Bell entrance, Burned Tower and Mart approaches"
+  ],
   "findings": [
-    {"area": "Burned Tower, global x19..31/y6..18", "corrections": "Preserved original front/side courses instead of repeating face tiles across the apron; restored full building footing and central base step; cleared the true stair foot and kept the sign to the right.", "runtime": "Walk up/down the actual stair axis; door remains closed; fence blocks from below."},
-    {"area": "Temple and spring pond, global x34..55/y12..24", "corrections": "Separate courtyard, temple masks, boulder, spring, shore lip and water; retain the angular concave pond corner and full roof/eave silhouette.", "runtime": "Entrance approach and west water bank inspected; water blocks foot travel."},
-    {"area": "Western grove outcrop, global x13..17/y16..18", "corrections": "Restored the original small stone foreground without replacing it with tree roots or a large terrain square; separate grass backing and complete neighboring crowns."},
-    {"area": "Residential courts, global x22..39/y22..42", "corrections": "Four native house fronts preserve violet glazing, green sliding-door variants and their individual lower-wall proportions. Complete paired trees use distinct roots; pavement/earth curbs are continuous.", "evidence": "house-material-before-after.png and residential-courts-comparison.png"},
-    {"area": "Gym and Theater, global x22..51/y28..42", "corrections": "Restored opaque wooden central Gym roof spine; preserved both roof wings, Theater ridges/eaves and signs over independent courtyard ground.", "runtime": "Actual closed entrance approaches inspected."},
-    {"area": "Center and Mart, global x44..61/y29..42", "corrections": "Reuse canonical shared masters, adapt receiving courts and keep front approaches open; preserve every visible approved shared pixel through hardware conversion."},
-    {"area": "Southern torii and forest, global x38..46/y43..50", "corrections": "Keep lintel overhead, both posts solid and central passage clear. Preserve complete forest crowns and distinct roots.", "runtime": "Ordinary movement through the opening and blocking at the left post pass."},
-    {"area": "Central avenue district transition, global y25..29", "corrections": "Replace the initial forest border across the avenue with paving. The short map fade remains an explicit adaptation, rather than a false seamless connection with incompatible tilesets.", "runtime": "Northbound travel and southbound return pass."}
+    "Complete R02 rock faces and corner modules replace custom rock formations; hidden faces remain interpreted.",
+    "HGSS tree silhouettes replace first-pass T01 crowns; all 447 positions and full roots preserved.",
+    "Timber grain and colored glazing restored; native palette consolidations are recorded explicitly.",
+    "Center and Mart receiving courts rebuilt with their placement changes; Theater notch and placard cleaned."
   ],
-  "uncertainties": [
-    "Original ground and collision under roofs and forest canopies are not extracted from this overview. They are interpreted from surrounding materials and corridor continuity.",
-    "Clipped outer gates and trees require padding and native-grid alignment. These extensions are proposals, not original visible source squares.",
-    "Shared service-building sizes, compact texture cores, local material ramps and the district fade are declared adaptations."
-  ],
-  "acceptance": "Owner visual acceptance pending; no claim of interior or campaign completion."
+  "limits": [
+    "No new interiors or routes; same two-district fade.",
+    "Owner visual acceptance remains pending."
+  ]
 }
