@@ -521,7 +521,7 @@
     "name": "tree",
     "x": 320,
     "y": 64,
-    "visible_pixels": 838,
+    "visible_pixels": 938,
     "RGB_errors": 0
   },
   {
@@ -708,13 +708,6 @@
   },
   {
     "name": "tree",
-    "x": 320,
-    "y": 96,
-    "visible_pixels": 937,
-    "RGB_errors": 0
-  },
-  {
-    "name": "tree",
     "x": 352,
     "y": 96,
     "visible_pixels": 937,
@@ -823,13 +816,6 @@
     "x": 128,
     "y": 128,
     "visible_pixels": 838,
-    "RGB_errors": 0
-  },
-  {
-    "name": "tree",
-    "x": 304,
-    "y": 128,
-    "visible_pixels": 938,
     "RGB_errors": 0
   },
   {
@@ -1936,6 +1922,20 @@
     "x": 992,
     "y": 480,
     "visible_pixels": 938,
+    "RGB_errors": 0
+  },
+  {
+    "name": "kurt-firewood",
+    "x": 272,
+    "y": 112,
+    "visible_pixels": 1316,
+    "RGB_errors": 0
+  },
+  {
+    "name": "kurt-kiln",
+    "x": 256,
+    "y": 128,
+    "visible_pixels": 2119,
     "RGB_errors": 0
   },
   {

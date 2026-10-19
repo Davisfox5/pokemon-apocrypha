@@ -117,3 +117,21 @@ Owner rejected the preceding roof extension because it retained a clipped bounda
 ### Roof texture and crossed-ridge contrast
 
 Current engine `d822306675e15abe67c85235d9faf8d6e676d449` preserves the accepted roof silhouette and cleans isolated single-pixel same-plane quantization speckles on both slopes. The central crossed timber now retains the original source-defined recessed/body/end-face value groups using the existing native charcoal palette (24/40/48); it no longer collapses into a uniform warm outline shade. No palette colors were changed. Native hardware layers separate gray logs from warm thatch; the hidden background beneath logs continues the corresponding roof plane. [Original/previous/current detail](evidence/kurt-texture-detail.png), [original/current full house](evidence/kurt-texture-original-current.png). Eight isolated speckles and 238 ridge pixels were corrected, with 246 visible RGB pixel changes total. Alpha/silhouette is exact, no visible changes outside the roof, and collision, regular house and separate log pile remain unchanged. Porymap/native match and headless walking, save, cold reload and Continue pass. Owner visual approval pending. Guarded `tools/gba/maps/azalea_town/kurt_roof_texture.py` expects baseline `e365b18212`; original inputs/master preserved in `source/kurt-roof-texture/`.
+
+### Kurt’s ten-year property expansion — kiln proposal
+
+Current engine `38200410b559a842e4b4c7ef17e5dc8e77164f9a` on `codex/azalea-town` adds an attached masonry kiln with a complete flue/chimney, curved shoulders and arched unlit firebox. The original timber-and-thatch house is retained pixel-for-pixel, with a short timber link joining the new structure. A broad rear stack shows **23 tightly packed cut log ends** rather than long side faces. Exactly two full trees at native origins (304,128) and (320,96) were removed; underlying rear-tree trunks were restored from intact shared masters. The remaining 275 tree footprints do not overlap. A narrow rounded path connects the original front approach and new side yard. The first lower-thatched-wing proposal is preserved under `source/kurt-extension/earlier-thatch-proposal/`; the owner requested this kiln design instead.
+
+- [Current property](evidence/kurt-property-current.png)
+- [Previous/current property](evidence/kurt-property-before-after.png)
+- [Gameplay property](evidence/gameplay/Kurt-expanded-property.png)
+- [Gameplay firewood yard](evidence/gameplay/Kurt-firewood-yard.png)
+- [Native/source checks](evidence/kurt-extension.json)
+- [Detached baseline reproduction](evidence/kurt-extension-reproduction.json)
+- [Previous ordinary save compatibility](evidence/kurt-previous-save.json)
+
+This is an owner-authorized exterior design proposal. There are no new interiors, dialogue, quests or kiln mechanics. Existing house entrance remains closed as before; the kiln mouth is scenery with collision, not a new warp. The regular house and all non-Kurt visible art are unchanged. Route33 remains untouched.
+
+Editable masters are `kurt-kiln.png` and `kurt-firewood.png`. `kurt_extension_art.py` authors only the local proposed objects and a preview from preserved baseline layers. `kurt_extension.py ENGINE` is a guarded direct native patch against `d822306675`; it never replays the town generator. The original layout, placement ledger, masks, source layers and prior proposal are preserved under `source/kurt-extension/`. Reproduction on a detached baseline matches all 40 native Azalea files after palette line-ending normalization.
+
+Native limits: 995/1008 usable glyph slots, 412 metatiles, 13 unchanged palette banks. The patch modifies 33 cells and changes collision in 16 cells for the two cleared trees, rear pile and kiln walls. Actual Porymap6.3.1/native RGB match, original house visible-pixel errors zero, no visible changes outside Kurt’s property. Headless walking verifies the side yard, kiln front/east walls, woodpile barrier and retained forest barrier; normal save, cold reload and ordinary Continue pass. An existing pre-expansion save is tested using a copy. Hosted CI is not claimed; owner visual acceptance remains pending.

@@ -6069,7 +6069,7 @@
       96
     ],
     "material": "T",
-    "native_metatile": 4,
+    "native_metatile": 8,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -6084,7 +6084,7 @@
       96
     ],
     "material": "T",
-    "native_metatile": 5,
+    "native_metatile": 9,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -6983,9 +6983,9 @@
       224,
       112
     ],
-    "material": ".",
-    "native_metatile": 17,
-    "collision": 0,
+    "material": "O",
+    "native_metatile": 30,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -6998,9 +6998,9 @@
       240,
       112
     ],
-    "material": ".",
-    "native_metatile": 12,
-    "collision": 0,
+    "material": "O",
+    "native_metatile": 31,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7013,9 +7013,9 @@
       256,
       112
     ],
-    "material": ".",
-    "native_metatile": 11,
-    "collision": 0,
+    "material": "O",
+    "native_metatile": 48,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7028,8 +7028,8 @@
       272,
       112
     ],
-    "material": "T",
-    "native_metatile": 2,
+    "material": "O",
+    "native_metatile": 49,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -7043,9 +7043,9 @@
       288,
       112
     ],
-    "material": "T",
-    "native_metatile": 3,
-    "collision": 3,
+    "material": ".",
+    "native_metatile": 11,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7943,9 +7943,9 @@
       224,
       128
     ],
-    "material": "B",
-    "native_metatile": 79,
-    "collision": 0,
+    "material": "O",
+    "native_metatile": 65,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7958,9 +7958,9 @@
       240,
       128
     ],
-    "material": ".",
-    "native_metatile": 30,
-    "collision": 0,
+    "material": "B",
+    "native_metatile": 66,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7973,9 +7973,9 @@
       256,
       128
     ],
-    "material": ".",
-    "native_metatile": 31,
-    "collision": 0,
+    "material": "B",
+    "native_metatile": 67,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -7988,8 +7988,8 @@
       272,
       128
     ],
-    "material": "T",
-    "native_metatile": 32,
+    "material": "O",
+    "native_metatile": 79,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -8003,9 +8003,9 @@
       288,
       128
     ],
-    "material": "T",
-    "native_metatile": 33,
-    "collision": 3,
+    "material": ".",
+    "native_metatile": 83,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -8904,7 +8904,7 @@
       144
     ],
     "material": "B",
-    "native_metatile": 48,
+    "native_metatile": 103,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -8918,9 +8918,9 @@
       240,
       144
     ],
-    "material": "O",
-    "native_metatile": 49,
-    "collision": 3,
+    "material": "B",
+    "native_metatile": 104,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -8933,9 +8933,9 @@
       256,
       144
     ],
-    "material": "T",
-    "native_metatile": 50,
-    "collision": 3,
+    "material": "B",
+    "native_metatile": 336,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -8948,9 +8948,9 @@
       272,
       144
     ],
-    "material": "T",
-    "native_metatile": 51,
-    "collision": 3,
+    "material": "P",
+    "native_metatile": 397,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -9849,7 +9849,7 @@
       160
     ],
     "material": "B",
-    "native_metatile": 65,
+    "native_metatile": 398,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -9864,8 +9864,8 @@
       160
     ],
     "material": "B",
-    "native_metatile": 66,
-    "collision": 0,
+    "native_metatile": 399,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -9878,8 +9878,8 @@
       240,
       160
     ],
-    "material": "O",
-    "native_metatile": 67,
+    "material": "B",
+    "native_metatile": 400,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -9893,8 +9893,8 @@
       256,
       160
     ],
-    "material": "T",
-    "native_metatile": 68,
+    "material": "B",
+    "native_metatile": 401,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -9908,9 +9908,9 @@
       272,
       160
     ],
-    "material": "T",
-    "native_metatile": 69,
-    "collision": 3,
+    "material": "P",
+    "native_metatile": 402,
+    "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -10809,7 +10809,7 @@
       176
     ],
     "material": "B",
-    "native_metatile": 83,
+    "native_metatile": 403,
     "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -10823,9 +10823,9 @@
       224,
       176
     ],
-    "material": ".",
-    "native_metatile": 11,
-    "collision": 0,
+    "material": "B",
+    "native_metatile": 404,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -10838,9 +10838,9 @@
       240,
       176
     ],
-    "material": ".",
-    "native_metatile": 10,
-    "collision": 0,
+    "material": "B",
+    "native_metatile": 405,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -10853,9 +10853,9 @@
       256,
       176
     ],
-    "material": ".",
-    "native_metatile": 11,
-    "collision": 0,
+    "material": "B",
+    "native_metatile": 406,
+    "collision": 3,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
   },
@@ -10868,8 +10868,8 @@
       272,
       176
     ],
-    "material": ".",
-    "native_metatile": 10,
+    "material": "P",
+    "native_metatile": 407,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11739,7 +11739,7 @@
       192
     ],
     "material": "P",
-    "native_metatile": 103,
+    "native_metatile": 408,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11753,8 +11753,8 @@
       192,
       192
     ],
-    "material": ".",
-    "native_metatile": 104,
+    "material": "P",
+    "native_metatile": 409,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11768,8 +11768,8 @@
       208,
       192
     ],
-    "material": ".",
-    "native_metatile": 22,
+    "material": "P",
+    "native_metatile": 410,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11783,8 +11783,8 @@
       224,
       192
     ],
-    "material": ".",
-    "native_metatile": 23,
+    "material": "P",
+    "native_metatile": 409,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11798,8 +11798,8 @@
       240,
       192
     ],
-    "material": ".",
-    "native_metatile": 22,
+    "material": "P",
+    "native_metatile": 410,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11813,8 +11813,8 @@
       256,
       192
     ],
-    "material": ".",
-    "native_metatile": 23,
+    "material": "P",
+    "native_metatile": 409,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."
@@ -11828,8 +11828,8 @@
       272,
       192
     ],
-    "material": ".",
-    "native_metatile": 22,
+    "material": "P",
+    "native_metatile": 411,
     "collision": 0,
     "behavior": 0,
     "reference_limits": "Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately."

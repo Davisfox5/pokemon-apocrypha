@@ -417,10 +417,6 @@
       6
     ],
     [
-      20,
-      6
-    ],
-    [
       22,
       6
     ],
@@ -482,10 +478,6 @@
     ],
     [
       8,
-      8
-    ],
-    [
-      19,
       8
     ],
     [
@@ -1121,7 +1113,7 @@
       30
     ]
   ],
-  "tree_count": 277,
+  "tree_count": 275,
   "overlapping_tree_roots": 0,
   "placements": [
     {
@@ -1732,12 +1724,6 @@
     },
     {
       "name": "tree",
-      "x": 320,
-      "y": 96,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 352,
       "y": 96,
       "role": "aligned shared forest"
@@ -1829,12 +1815,6 @@
     {
       "name": "tree",
       "x": 128,
-      "y": 128,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 304,
       "y": 128,
       "role": "aligned shared forest"
     },
@@ -2787,6 +2767,18 @@
       "role": "aligned shared forest"
     },
     {
+      "name": "kurt-firewood",
+      "x": 272,
+      "y": 112,
+      "role": "Owner proposal: large rear firewood stack"
+    },
+    {
+      "name": "kurt-kiln",
+      "x": 256,
+      "y": 128,
+      "role": "Owner proposal: attached masonry kiln and chimney"
+    },
+    {
       "name": "kurt",
       "x": 192,
       "y": 104,
@@ -2827,12 +2819,6 @@
       "x": 736,
       "y": 192,
       "role": "Azalea local architecture"
-    },
-    {
-      "name": "logs",
-      "x": 280,
-      "y": 128,
-      "role": "HGSS woodpiles beside Kurt"
     },
     {
       "name": "boulder",
@@ -3452,11 +3438,12 @@
     "small-boulder": 0
   },
   "palettes": 13,
-  "glyphs": 932,
-  "metatiles": 397,
+  "glyphs": 995,
+  "metatiles": 412,
   "limits": [
     "Exterior only; no building/well interiors or campaign NPCs invented.",
     "Route33/Ilex connections remain closed for separate integration; Route33 source untouched.",
     "Source occluded ground is inferred from adjacent materials."
-  ]
+  ],
+  "owner_adaptation": "Proposed ten-year Kurt property growth: attached kiln and chimney, tight end-on rear firewood stack, exactly two removed complete trees and connected side-yard path."
 }

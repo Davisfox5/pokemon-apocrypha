@@ -2,13 +2,13 @@
   "native_cells": 2112,
   "Porymap_RGB_errors": 0,
   "decoded_physics_errors": 0,
-  "tree_count": 277,
+  "tree_count": 275,
   "partial_tree_sprites": 0,
   "overlapping_root_cells": 0,
-  "visible_shared_pixels_checked": 278177,
+  "visible_shared_pixels_checked": 279837,
   "shared_RGB_errors": 0,
   "complete_rock_cells": 53,
-  "reachable_ground_cells": 771,
+  "reachable_ground_cells": 765,
   "reachable_approaches": {
     "Kurt": [
       14,
@@ -45,11 +45,19 @@
     "well outer corridor": [
       52,
       12
+    ],
+    "Kurt side yard": [
+      20,
+      9
+    ],
+    "Kurt addition front": [
+      18,
+      12
     ]
   },
-  "glyphs": 932,
+  "glyphs": 995,
   "palettes": 13,
-  "metatiles": 397,
+  "metatiles": 412,
   "owner_visual_acceptance": "pending",
   "scope": "Exterior design only; doors, well descent and adjacent-map connections remain closed pending their separate area implementation."
 }

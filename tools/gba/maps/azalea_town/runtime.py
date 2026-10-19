@@ -5,6 +5,9 @@ HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent));from jo
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 steps=r'''
  go(50,20,18);shot("main-street");step(LEFT,6);at(50,14,18,"main-street-to-Kurt-spur");step(UP,6);at(50,14,12,"Kurt-door-approach");shot("Kurt-house");step(UP,1);at(50,14,12,"Kurt-interior-not-wired");
+ step(RIGHT,6);at(50,20,12,"Kurt-yard-path-entry");step(UP,3);at(50,20,9,"Kurt-rear-firewood-approach");shot("Kurt-firewood-yard");step(UP,1);at(50,20,9,"Kurt-firewood-blocks");step(RIGHT,1);at(50,20,9,"Kurt-retained-east-forest-blocks");
+ step(DOWN,1);step(LEFT,1);at(50,20,10,"Kurt-kiln-east-wall-blocks");shot("Kurt-kiln-east");step(DOWN,2);step(LEFT,2);at(50,18,12,"Kurt-kiln-front-approach");shot("Kurt-kiln-front");step(UP,1);at(50,18,12,"Kurt-kiln-front-blocks");
+ go(50,16,12);shot("Kurt-expanded-property");go(50,14,12);
  step(DOWN,6);step(RIGHT,11);step(UP,2);at(50,25,16,"Center-door-approach");shot("pokemon-center");step(UP,1);at(50,25,16,"Center-interior-not-wired");
  step(DOWN,2);step(RIGHT,9);step(UP,4);at(50,34,14,"Mart-door-approach");shot("poke-mart");step(UP,1);at(50,34,14,"Mart-interior-not-wired");
  go(50,14,18);step(DOWN,9);step(RIGHT,14);at(50,28,27,"southern-loop");shot("southern-loop");step(UP,3);at(50,28,24,"eastern-Gym-loop");step(LEFT,3);at(50,26,24,"Gym-lawn-edge");shot("gym-east");
