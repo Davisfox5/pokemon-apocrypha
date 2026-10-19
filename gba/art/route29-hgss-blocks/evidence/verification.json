@@ -1,0 +1,39 @@
+{
+  "expansion_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "expansion_commit": "6f7661e9ee7ded15d603628d7665a068a684df3a",
+  "source_branch": "codex/route29-hgss-blocks",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/6",
+  "rom_sha256": "3c62cd4cb1cfed79a7b6b34d7a4b334e3f729573abcb964cb724de963d16c54b",
+  "local_build": "success",
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "observations": 310
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": 1
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": 1
+    }
+  ],
+  "Porymap": "6.3.1 project-core export, not a manual desktop UI save",
+  "Porytiles": "accepted Route 30 native family; legacy 2.0.0 output imported with exact RGBA check",
+  "foreground_color_mask_errors": 0,
+  "visual_acceptance": "pending owner review",
+  "gate_side_bypass": false,
+  "forest_rock_fillers": 0,
+  "gray_steps": "no detached Emerald stair metatiles; original HGSS entry treads retained",
+  "gate_source": "HGSS overview at 1:1 pixel scale",
+  "project_CI": {
+    "workflow": "apocrypha build",
+    "conclusion": "success",
+    "url": "https://github.com/Davisfox5/pokeemerald-expansion/actions/runs/38436304044"
+  },
+  "upstream_CI_matrix": "still running at verification"
+}

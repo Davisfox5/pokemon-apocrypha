@@ -1,3 +1,11 @@
+## Latest: Route 29 independently reconstructed from HGSS
+
+Owner requested Route 29 using the accepted Route 30 method: full Cherrygrove trees, native Emerald terrain and close HGSS topology with deliberate footprint cleanup. Read [route29-hgss-blocks](../gba/art/route29-hgss-blocks/README.md). Engine branch `codex/route29-hgss-blocks`, source commit `6f7661e9ee7ded15d603628d7665a068a684df3a`, draft [PR #6](https://github.com/Davisfox5/pokeemerald-expansion/pull/6) against `apocrypha` (`2722eaf`). Hub branch `codex/route29-hgss-block-evidence` starts from main; no patch stack.
+
+Owner rejected both custom gates; this revision restores the HGSS gate itself, with clean native silhouette/palette and complete flank trees. The previously corrected lawn forest edges and lack of detached gray stair tiles remain. Independent 98x34 image survey, 314 whole trees, explicit original ground passages, the actual HGSS gate recreated at original pixel scale with teal roof, blue window band, side wings and recessed entrance, lawn forest edges and native Emerald walls/ledges. Town adapters, coastal lookout/ridge and hidden Potion event/flag are retained. The western sign moves to (12,17) with existing text. All other maps and primary IDs stay unchanged. Route 30's accepted source remains separately preserved in PR #4 / `aa8ea35e`; this PR does not replace it. Claude's Route 29 draft `4e20e557` is preserved.
+
+Local build, Porymap equality, both camera/cached-glyph seam checks and native ordinary-input traversal, both gate ends/no bypass, barriers, ledges, signs, grass and save/Continue pass. Native source IDs are Route 29=9, New Bark=28. Visual acceptance remains pending. Collision is image-inferred plus owner-authorized forest footprint adjustments, not recovered DS data. Route 46 gate/interior remain closed/unimplemented; Apricorn harvesting and original NPC/story gates are absent. Read the exact limitations in the README. Next: owner review of full/source comparisons and native gameplay gallery.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

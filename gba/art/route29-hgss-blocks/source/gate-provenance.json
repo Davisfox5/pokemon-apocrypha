@@ -1,0 +1,17 @@
+{
+  "reference": "hgss-reference.png",
+  "crop": [
+    788,
+    40,
+    884,
+    168
+  ],
+  "native_size": [
+    96,
+    128
+  ],
+  "rescaling": false,
+  "palette_bank": 6,
+  "method": "measured silhouette, curated 15-color native palette, no dithering; measured silhouette and ground-shadow removal",
+  "entrance": "original HGSS recessed entrance and integrated treads; no detached stair metatiles"
+}
