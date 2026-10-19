@@ -1,3 +1,13 @@
+## Latest: Olivine City exterior proposal
+
+HGSS-registered streets, lighthouse headland, quay and ferry terminal are in native
+source PR #21 on `codex/olivine-city`, based on Ecruteak. Local build, actual
+Porymap exports, headless walking/barriers/stairs/ramp/district travel and ordinary
+save/cold Continue pass. The PR remains draft: no hosted CI run was returned and
+owner visual review is pending. Read [Olivine evidence](../gba/art/olivine-city/README.md).
+Interiors, Routes 39/40, actors, shops and shipping services remain unwired; the
+three exterior districts use ordinary fades and static water.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
