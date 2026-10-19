@@ -1,0 +1,134 @@
+[
+  {
+    "name": "GoldenrodCity01",
+    "box": [
+      0,
+      0,
+      21,
+      28
+    ],
+    "glyphs": 876,
+    "metatiles": 255
+  },
+  {
+    "name": "GoldenrodCity02",
+    "box": [
+      21,
+      0,
+      42,
+      28
+    ],
+    "glyphs": 872,
+    "metatiles": 274
+  },
+  {
+    "name": "GoldenrodCity03",
+    "box": [
+      0,
+      28,
+      21,
+      56
+    ],
+    "glyphs": 466,
+    "metatiles": 146
+  },
+  {
+    "name": "GoldenrodCity04",
+    "box": [
+      21,
+      28,
+      42,
+      56
+    ],
+    "glyphs": 912,
+    "metatiles": 285
+  },
+  {
+    "name": "GoldenrodCity05",
+    "box": [
+      42,
+      0,
+      63,
+      14
+    ],
+    "glyphs": 659,
+    "metatiles": 198
+  },
+  {
+    "name": "GoldenrodCity06",
+    "box": [
+      42,
+      14,
+      63,
+      28
+    ],
+    "glyphs": 828,
+    "metatiles": 259
+  },
+  {
+    "name": "GoldenrodCity07",
+    "box": [
+      63,
+      0,
+      84,
+      14
+    ],
+    "glyphs": 770,
+    "metatiles": 231
+  },
+  {
+    "name": "GoldenrodCity08",
+    "box": [
+      63,
+      14,
+      84,
+      28
+    ],
+    "glyphs": 724,
+    "metatiles": 214
+  },
+  {
+    "name": "GoldenrodCity09",
+    "box": [
+      42,
+      28,
+      63,
+      42
+    ],
+    "glyphs": 883,
+    "metatiles": 269
+  },
+  {
+    "name": "GoldenrodCity10",
+    "box": [
+      42,
+      42,
+      63,
+      56
+    ],
+    "glyphs": 847,
+    "metatiles": 257
+  },
+  {
+    "name": "GoldenrodCity11",
+    "box": [
+      63,
+      28,
+      84,
+      42
+    ],
+    "glyphs": 997,
+    "metatiles": 288
+  },
+  {
+    "name": "GoldenrodCity12",
+    "box": [
+      63,
+      42,
+      84,
+      56
+    ],
+    "glyphs": 889,
+    "metatiles": 263
+  }
+]

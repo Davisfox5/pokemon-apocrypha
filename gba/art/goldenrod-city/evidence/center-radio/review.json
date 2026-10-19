@@ -1,0 +1,122 @@
+{
+  "baseline": "bb54d528df4f26d457b3b1c5f43bf4de41b3b50f",
+  "sections": [
+    {
+      "map": "GoldenrodCity01",
+      "changed_metatiles": 26,
+      "glyphs": [
+        512,
+        398
+      ]
+    },
+    {
+      "map": "GoldenrodCity02",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        368
+      ]
+    },
+    {
+      "map": "GoldenrodCity03",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        16
+      ]
+    },
+    {
+      "map": "GoldenrodCity04",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        400
+      ]
+    },
+    {
+      "map": "GoldenrodCity05",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        160
+      ]
+    },
+    {
+      "map": "GoldenrodCity06",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        320
+      ]
+    },
+    {
+      "map": "GoldenrodCity07",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        272
+      ]
+    },
+    {
+      "map": "GoldenrodCity08",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        224
+      ]
+    },
+    {
+      "map": "GoldenrodCity09",
+      "changed_metatiles": 56,
+      "glyphs": [
+        512,
+        403
+      ]
+    },
+    {
+      "map": "GoldenrodCity10",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        384
+      ]
+    },
+    {
+      "map": "GoldenrodCity11",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        496
+      ]
+    },
+    {
+      "map": "GoldenrodCity12",
+      "changed_metatiles": 0,
+      "glyphs": [
+        512,
+        384
+      ]
+    }
+  ],
+  "palette_fitted_layer_pixels": [
+    4473,
+    249
+  ],
+  "Center_opaque_pixels_exact": 5679,
+  "Center_origin": [
+    792,
+    576
+  ],
+  "ground_donor": [
+    800,
+    560,
+    816,
+    568
+  ],
+  "neighbors_restored_from_registered_HGSS": true,
+  "dishes": "Three copies of one transparent24x30native dish master, one mirrored; roof deck restored separately.",
+  "antenna": "Straight3pxmetal mast; old7pxbar removed and water restored.",
+  "scope": "Radio rooftop equipment and Center placement/neighbor context only; existing palette banks unchanged.",
+  "unrelated_native_pixels_changed": 0,
+  "all_equipment_opaque_pixels_exact": true
+}

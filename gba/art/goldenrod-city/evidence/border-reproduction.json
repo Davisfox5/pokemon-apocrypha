@@ -1,0 +1,15 @@
+{
+  "baseline": "fed2667cecb075aa6dcca84f0f380821f58c1584",
+  "native_files": 7,
+  "byte_errors": 0,
+  "files": {
+    "data/goldenrod/source-hashes.json": "24731297513406ec59983c3e79216041c8aadca78a774636cdfda111ea24cb6d",
+    "data/layouts/GoldenrodCity02/map.bin": "e009c78e59d4125909aa9c20f1128f214e5006b8eb99065abc7dbcbf68c5ea4d",
+    "data/layouts/GoldenrodCity05/map.bin": "a707e38d4b646e9f9158c729e86146d03331ec1466c74858b96ce59a232acbea",
+    "data/layouts/GoldenrodCity07/map.bin": "d6a1f7815cb8c1400fc9a02f01c37614b11f765acc94ac56f8f35ee4dfebf8f0",
+    "data/layouts/GoldenrodCity08/map.bin": "a013637b50ef49489b680db199e45bfa29b60d4cf7b580cbc3c287209dac618c",
+    "data/layouts/GoldenrodCity11/map.bin": "8f123eb718850774b6c779d156459ceef850eac603fad761024a39bf44c35786",
+    "data/layouts/GoldenrodCity12/map.bin": "c973a0a49efb5d7c4328990e204af4d5c49e0503e2309954fb52fba16f88d0e0"
+  },
+  "runtime_renderer": "Directional border policy is hand-authored C in the engine; it reads the existing native cells."
+}

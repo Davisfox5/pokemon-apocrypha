@@ -1,0 +1,750 @@
+[
+  {
+    "name": "Radio Tower",
+    "reference_box": [
+      168,
+      128,
+      320,
+      400
+    ],
+    "facade": [
+      176,
+      368,
+      304,
+      400
+    ],
+    "door_approach": [
+      16,
+      25
+    ]
+  },
+  {
+    "name": "Station annex",
+    "reference_box": [
+      608,
+      248,
+      736,
+      416
+    ],
+    "facade": [
+      608,
+      384,
+      736,
+      416
+    ],
+    "door_approach": [
+      42,
+      26
+    ]
+  },
+  {
+    "name": "Magnet Train station",
+    "reference_box": [
+      728,
+      280,
+      864,
+      416
+    ],
+    "facade": [
+      736,
+      384,
+      864,
+      416
+    ],
+    "door_approach": [
+      47,
+      26
+    ]
+  },
+  {
+    "name": "North gate",
+    "reference_box": [
+      896,
+      0,
+      976,
+      128
+    ],
+    "facade": [
+      896,
+      96,
+      976,
+      128
+    ],
+    "door_approach": [
+      58,
+      8
+    ]
+  },
+  {
+    "name": "Goldenrod Gym",
+    "reference_box": [
+      992,
+      144,
+      1112,
+      232
+    ],
+    "facade": [
+      1000,
+      208,
+      1104,
+      232
+    ],
+    "door_approach": [
+      66,
+      15
+    ]
+  },
+  {
+    "name": "Flower Shop",
+    "reference_box": [
+      1112,
+      48,
+      1192,
+      208
+    ],
+    "facade": [
+      1112,
+      176,
+      1192,
+      208
+    ],
+    "door_approach": [
+      71,
+      13
+    ]
+  },
+  {
+    "name": "Northeast highrise",
+    "reference_box": [
+      1192,
+      48,
+      1272,
+      192
+    ],
+    "facade": [
+      1192,
+      160,
+      1272,
+      192
+    ],
+    "door_approach": [
+      77,
+      12
+    ]
+  },
+  {
+    "name": "North house west",
+    "reference_box": [
+      1184,
+      128,
+      1240,
+      224
+    ],
+    "facade": [
+      1184,
+      192,
+      1240,
+      224
+    ],
+    "door_approach": [
+      75,
+      14
+    ]
+  },
+  {
+    "name": "North house east",
+    "reference_box": [
+      1240,
+      128,
+      1304,
+      208
+    ],
+    "facade": [
+      1240,
+      176,
+      1304,
+      208
+    ],
+    "door_approach": [
+      79,
+      13
+    ]
+  },
+  {
+    "name": "North orange house",
+    "reference_box": [
+      1192,
+      184,
+      1248,
+      248
+    ],
+    "facade": [
+      1192,
+      224,
+      1248,
+      248
+    ],
+    "door_approach": [
+      76,
+      16
+    ]
+  },
+  {
+    "name": "Northwest highrise",
+    "reference_box": [
+      632,
+      128,
+      712,
+      296
+    ],
+    "facade": [
+      632,
+      264,
+      712,
+      296
+    ],
+    "door_approach": [
+      42,
+      19
+    ]
+  },
+  {
+    "name": "Underground north",
+    "reference_box": [
+      728,
+      168,
+      800,
+      232
+    ],
+    "facade": [
+      728,
+      208,
+      800,
+      232
+    ],
+    "door_approach": [
+      47,
+      15
+    ]
+  },
+  {
+    "name": "Name Rater",
+    "reference_box": [
+      792,
+      152,
+      864,
+      232
+    ],
+    "facade": [
+      792,
+      208,
+      864,
+      232
+    ],
+    "door_approach": [
+      52,
+      15
+    ]
+  },
+  {
+    "name": "Game Corner",
+    "reference_box": [
+      760,
+      472,
+      872,
+      560
+    ],
+    "facade": [
+      768,
+      528,
+      864,
+      560
+    ],
+    "door_approach": [
+      51,
+      35
+    ]
+  },
+  {
+    "name": "West apartment north",
+    "reference_box": [
+      632,
+      472,
+      696,
+      552
+    ],
+    "facade": [
+      632,
+      528,
+      696,
+      552
+    ],
+    "door_approach": [
+      41,
+      35
+    ]
+  },
+  {
+    "name": "West apartment east",
+    "reference_box": [
+      696,
+      472,
+      760,
+      552
+    ],
+    "facade": [
+      696,
+      528,
+      760,
+      552
+    ],
+    "door_approach": [
+      45,
+      35
+    ]
+  },
+  {
+    "name": "West orange house",
+    "reference_box": [
+      632,
+      544,
+      696,
+      632
+    ],
+    "facade": [
+      632,
+      600,
+      696,
+      632
+    ],
+    "door_approach": [
+      41,
+      40
+    ]
+  },
+  {
+    "name": "Bill family house",
+    "reference_box": [
+      728,
+      576,
+      792,
+      664
+    ],
+    "facade": [
+      728,
+      632,
+      792,
+      664
+    ],
+    "door_approach": [
+      47,
+      42
+    ]
+  },
+  {
+    "name": "Underground south",
+    "reference_box": [
+      728,
+      648,
+      792,
+      728
+    ],
+    "facade": [
+      728,
+      696,
+      792,
+      728
+    ],
+    "door_approach": [
+      47,
+      46
+    ]
+  },
+  {
+    "name": "Southwest house",
+    "reference_box": [
+      584,
+      648,
+      648,
+      736
+    ],
+    "facade": [
+      584,
+      704,
+      648,
+      736
+    ],
+    "door_approach": [
+      38,
+      47
+    ]
+  },
+  {
+    "name": "Southwest tower",
+    "reference_box": [
+      600,
+      680,
+      680,
+      776
+    ],
+    "facade": [
+      600,
+      744,
+      680,
+      776
+    ],
+    "door_approach": [
+      40,
+      49
+    ]
+  },
+  {
+    "name": "Southwest tower south",
+    "reference_box": [
+      648,
+      728,
+      728,
+      832
+    ],
+    "facade": [
+      648,
+      800,
+      728,
+      832
+    ],
+    "door_approach": [
+      43,
+      52
+    ]
+  },
+  {
+    "name": "South house west",
+    "reference_box": [
+      728,
+      736,
+      792,
+      816
+    ],
+    "facade": [
+      728,
+      784,
+      792,
+      816
+    ],
+    "door_approach": [
+      47,
+      51
+    ]
+  },
+  {
+    "name": "South house east",
+    "reference_box": [
+      792,
+      736,
+      856,
+      816
+    ],
+    "facade": [
+      792,
+      784,
+      856,
+      816
+    ],
+    "door_approach": [
+      51,
+      51
+    ]
+  },
+  {
+    "name": "Department Store",
+    "reference_box": [
+      992,
+      480,
+      1080,
+      656
+    ],
+    "facade": [
+      1000,
+      624,
+      1072,
+      656
+    ],
+    "door_approach": [
+      65,
+      41
+    ]
+  },
+  {
+    "name": "Department annex",
+    "reference_box": [
+      1080,
+      584,
+      1160,
+      680
+    ],
+    "facade": [
+      1080,
+      648,
+      1160,
+      680
+    ],
+    "door_approach": [
+      69,
+      43
+    ]
+  },
+  {
+    "name": "Bike Shop",
+    "reference_box": [
+      1080,
+      640,
+      1160,
+      728
+    ],
+    "facade": [
+      1080,
+      696,
+      1160,
+      728
+    ],
+    "door_approach": [
+      70,
+      46
+    ]
+  },
+  {
+    "name": "East apartments",
+    "reference_box": [
+      1112,
+      464,
+      1184,
+      544
+    ],
+    "facade": [
+      1112,
+      512,
+      1184,
+      544
+    ],
+    "door_approach": [
+      72,
+      35
+    ]
+  },
+  {
+    "name": "East orange house",
+    "reference_box": [
+      1144,
+      520,
+      1216,
+      584
+    ],
+    "facade": [
+      1144,
+      552,
+      1216,
+      584
+    ],
+    "door_approach": [
+      74,
+      37
+    ]
+  },
+  {
+    "name": "East railway highrise",
+    "reference_box": [
+      1176,
+      376,
+      1256,
+      496
+    ],
+    "facade": [
+      1176,
+      464,
+      1256,
+      496
+    ],
+    "door_approach": [
+      76,
+      32
+    ]
+  },
+  {
+    "name": "East tower upper",
+    "reference_box": [
+      1224,
+      496,
+      1304,
+      600
+    ],
+    "facade": [
+      1224,
+      568,
+      1304,
+      600
+    ],
+    "door_approach": [
+      79,
+      38
+    ]
+  },
+  {
+    "name": "East house",
+    "reference_box": [
+      1240,
+      584,
+      1304,
+      664
+    ],
+    "facade": [
+      1240,
+      632,
+      1304,
+      664
+    ],
+    "door_approach": [
+      79,
+      42
+    ]
+  },
+  {
+    "name": "East tower middle",
+    "reference_box": [
+      1224,
+      632,
+      1304,
+      712
+    ],
+    "facade": [
+      1224,
+      680,
+      1304,
+      712
+    ],
+    "door_approach": [
+      79,
+      45
+    ]
+  },
+  {
+    "name": "East tower lower",
+    "reference_box": [
+      1224,
+      696,
+      1304,
+      784
+    ],
+    "facade": [
+      1224,
+      752,
+      1304,
+      784
+    ],
+    "door_approach": [
+      79,
+      49
+    ]
+  },
+  {
+    "name": "Southeast house",
+    "reference_box": [
+      1224,
+      752,
+      1304,
+      832
+    ],
+    "facade": [
+      1224,
+      800,
+      1304,
+      832
+    ],
+    "door_approach": [
+      79,
+      53
+    ]
+  },
+  {
+    "name": "Southeast tower",
+    "reference_box": [
+      1144,
+      728,
+      1224,
+      832
+    ],
+    "facade": [
+      1144,
+      800,
+      1224,
+      832
+    ],
+    "door_approach": [
+      74,
+      53
+    ]
+  },
+  {
+    "name": "Southeast apartments upper",
+    "reference_box": [
+      1016,
+      704,
+      1080,
+      776
+    ],
+    "facade": [
+      1016,
+      744,
+      1080,
+      776
+    ],
+    "door_approach": [
+      65,
+      49
+    ]
+  },
+  {
+    "name": "Southeast apartments lower",
+    "reference_box": [
+      1016,
+      744,
+      1080,
+      816
+    ],
+    "facade": [
+      1016,
+      784,
+      1080,
+      816
+    ],
+    "door_approach": [
+      65,
+      51
+    ]
+  },
+  {
+    "name": "approved Violet Pokemon Center",
+    "reference_box": [
+      789,
+      574,
+      873,
+      656
+    ],
+    "native_box": [
+      792,
+      576,
+      872,
+      656
+    ],
+    "facade": [
+      792,
+      624,
+      872,
+      656
+    ],
+    "door_approach": [
+      52,
+      41
+    ],
+    "adaptation": "Unchanged transparent canonical prefab fitted8pxleft; original neighbor/lamp restored independently, no rectangular pad attached."
+  }
+]

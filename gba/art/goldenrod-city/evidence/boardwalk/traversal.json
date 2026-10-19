@@ -1,0 +1,49 @@
+{
+  "approaches": {
+    "entry-left": [
+      35,
+      26
+    ],
+    "entry-right": [
+      36,
+      26
+    ],
+    "wheel": [
+      30,
+      12
+    ],
+    "snacks": [
+      24,
+      11
+    ],
+    "prizes": [
+      27,
+      14
+    ],
+    "souvenirs": [
+      35,
+      13
+    ],
+    "whole-wheel-view": [
+      29,
+      7
+    ],
+    "terminal": [
+      53,
+      27
+    ],
+    "broadcast": [
+      21,
+      31
+    ]
+  },
+  "all_approaches_reachable": true,
+  "full_two_tile_access_rows": [
+    14,
+    26
+  ],
+  "water_opened_only_inside_authorized_deck_and_landing": true,
+  "reachable_ground_cells": 1948,
+  "new_walkable_cells": 92,
+  "boardwalk_open_cells": 126
+}
