@@ -68,5 +68,8 @@
 {"step":"south-underground-closed-or-barrier","region":3,"group":80,"map":60,"x":5,"y":4,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
 {"step":"seawall-closed-or-barrier","region":3,"group":80,"map":53,"x":8,"y":7,"frlg_layout":0,"width":21,"height":28,"interaction":0,"mapsec":227}
 {"step":"eastern-cliff-closed-or-barrier","region":3,"group":80,"map":58,"x":17,"y":13,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
+{"step":"Center-front-clear","region":3,"group":80,"map":60,"x":12,"y":0,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
+{"step":"Center-east-approach","region":3,"group":80,"map":59,"x":12,"y":13,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
+{"step":"restored-lamp-base-blocks","region":3,"group":80,"map":59,"x":12,"y":13,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
 {"step":"return-to-Goldenrod","region":3,"group":80,"map":60,"x":16,"y":6,"frlg_layout":0,"width":21,"height":14,"interaction":0,"mapsec":227}
 {"save_status":1,"flash_bytes":131072}

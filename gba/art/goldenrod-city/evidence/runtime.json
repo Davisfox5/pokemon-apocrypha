@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "44c057152703ca9ce9e5901ffcb47676c3c3624063af3334981cadf2caa81619",
+  "rom_sha256": "ae56d14f6ba94a3e9560fb797bc36234ea25f80d45e66f452f0b8e3359e6f090",
   "phases": [
     {
       "phase": "write",
@@ -909,6 +909,45 @@
           "group": 80,
           "map": 58,
           "x": 17,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 21,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Center-front-clear",
+          "region": 3,
+          "group": 80,
+          "map": 60,
+          "x": 12,
+          "y": 0,
+          "frlg_layout": 0,
+          "width": 21,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Center-east-approach",
+          "region": 3,
+          "group": 80,
+          "map": 59,
+          "x": 12,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 21,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "restored-lamp-base-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 59,
+          "x": 12,
           "y": 13,
           "frlg_layout": 0,
           "width": 21,

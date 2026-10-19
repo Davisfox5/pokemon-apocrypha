@@ -182,8 +182,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 12,8,"192,128,208,144",building,1,1,GoldenrodCity01,14,0,roof/foreground; hidden ground not scored
 13,8,"208,128,224,144",building,1,1,GoldenrodCity01,15,0,roof/foreground; hidden ground not scored
 14,8,"224,128,240,144",building,1,1,GoldenrodCity01,16,0,roof/foreground; hidden ground not scored
-15,8,"240,128,256,144",building,1,1,GoldenrodCity01,17,0,roof/foreground; hidden ground not scored
-16,8,"256,128,272,144",building,1,1,GoldenrodCity01,18,0,roof/foreground; hidden ground not scored
+15,8,"240,128,256,144",building,1,1,GoldenrodCity01,285,0,roof/foreground; hidden ground not scored
+16,8,"256,128,272,144",building,1,1,GoldenrodCity01,286,0,roof/foreground; hidden ground not scored
 17,8,"272,128,288,144",building,1,1,GoldenrodCity01,13,0,roof/foreground; hidden ground not scored
 18,8,"288,128,304,144",building,1,1,GoldenrodCity01,14,0,roof/foreground; hidden ground not scored
 19,8,"304,128,320,144",building,1,1,GoldenrodCity01,15,0,roof/foreground; hidden ground not scored
@@ -203,8 +203,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 12,9,"192,144,208,160",building,1,1,GoldenrodCity01,21,0,roof/foreground; hidden ground not scored
 13,9,"208,144,224,160",building,1,1,GoldenrodCity01,257,0,roof/foreground; hidden ground not scored
 14,9,"224,144,240,160",building,1,1,GoldenrodCity01,258,0,roof/foreground; hidden ground not scored
-15,9,"240,144,256,160",building,1,1,GoldenrodCity01,259,0,roof/foreground; hidden ground not scored
-16,9,"256,144,272,160",building,1,1,GoldenrodCity01,260,0,roof/foreground; hidden ground not scored
+15,9,"240,144,256,160",building,1,1,GoldenrodCity01,287,0,roof/foreground; hidden ground not scored
+16,9,"256,144,272,160",building,1,1,GoldenrodCity01,288,0,roof/foreground; hidden ground not scored
 17,9,"272,144,288,160",building,1,1,GoldenrodCity01,261,0,roof/foreground; hidden ground not scored
 18,9,"288,144,304,160",building,1,1,GoldenrodCity01,21,0,roof/foreground; hidden ground not scored
 19,9,"304,144,320,160",building,1,1,GoldenrodCity01,262,0,roof/foreground; hidden ground not scored
@@ -224,8 +224,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 12,10,"192,160,208,176",building,1,1,GoldenrodCity01,264,0,roof/foreground; hidden ground not scored
 13,10,"208,160,224,176",building,1,1,GoldenrodCity01,27,0,roof/foreground; hidden ground not scored
 14,10,"224,160,240,176",building,1,1,GoldenrodCity01,265,0,roof/foreground; hidden ground not scored
-15,10,"240,160,256,176",building,1,1,GoldenrodCity01,29,0,roof/foreground; hidden ground not scored
-16,10,"256,160,272,176",building,1,1,GoldenrodCity01,266,0,roof/foreground; hidden ground not scored
+15,10,"240,160,256,176",building,1,1,GoldenrodCity01,289,0,roof/foreground; hidden ground not scored
+16,10,"256,160,272,176",building,1,1,GoldenrodCity01,290,0,roof/foreground; hidden ground not scored
 17,10,"272,160,288,176",building,1,1,GoldenrodCity01,27,0,roof/foreground; hidden ground not scored
 18,10,"288,160,304,176",building,1,1,GoldenrodCity01,267,0,roof/foreground; hidden ground not scored
 19,10,"304,160,320,176",building,1,1,GoldenrodCity01,27,0,roof/foreground; hidden ground not scored
@@ -245,8 +245,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 12,11,"192,176,208,192",building,1,1,GoldenrodCity01,33,0,roof/foreground; hidden ground not scored
 13,11,"208,176,224,192",building,1,1,GoldenrodCity01,269,0,roof/foreground; hidden ground not scored
 14,11,"224,176,240,192",building,1,1,GoldenrodCity01,35,0,roof/foreground; hidden ground not scored
-15,11,"240,176,256,192",building,1,1,GoldenrodCity01,36,0,roof/foreground; hidden ground not scored
-16,11,"256,176,272,192",building,1,1,GoldenrodCity01,37,0,roof/foreground; hidden ground not scored
+15,11,"240,176,256,192",building,1,1,GoldenrodCity01,291,0,roof/foreground; hidden ground not scored
+16,11,"256,176,272,192",building,1,1,GoldenrodCity01,292,0,roof/foreground; hidden ground not scored
 17,11,"272,176,288,192",building,1,1,GoldenrodCity01,270,0,roof/foreground; hidden ground not scored
 18,11,"288,176,304,192",building,1,1,GoldenrodCity01,33,0,roof/foreground; hidden ground not scored
 19,11,"304,176,320,192",building,1,1,GoldenrodCity01,271,0,roof/foreground; hidden ground not scored
@@ -286,10 +286,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 11,13,"176,208,192,224",building,1,1,GoldenrodCity01,46,0,roof/foreground; hidden ground not scored
 12,13,"192,208,208,224",building,1,1,GoldenrodCity01,47,0,roof/foreground; hidden ground not scored
 13,13,"208,208,224,224",building,1,1,GoldenrodCity01,48,0,roof/foreground; hidden ground not scored
-14,13,"224,208,240,224",building,1,1,GoldenrodCity01,49,0,roof/foreground; hidden ground not scored
-15,13,"240,208,256,224",building,1,1,GoldenrodCity01,50,0,roof/foreground; hidden ground not scored
-16,13,"256,208,272,224",building,1,1,GoldenrodCity01,51,0,roof/foreground; hidden ground not scored
-17,13,"272,208,288,224",building,1,1,GoldenrodCity01,52,0,roof/foreground; hidden ground not scored
+14,13,"224,208,240,224",building,1,1,GoldenrodCity01,293,0,roof/foreground; hidden ground not scored
+15,13,"240,208,256,224",building,1,1,GoldenrodCity01,294,0,roof/foreground; hidden ground not scored
+16,13,"256,208,272,224",building,1,1,GoldenrodCity01,295,0,roof/foreground; hidden ground not scored
+17,13,"272,208,288,224",building,1,1,GoldenrodCity01,296,0,roof/foreground; hidden ground not scored
 18,13,"288,208,304,224",building,1,1,GoldenrodCity01,53,0,roof/foreground; hidden ground not scored
 19,13,"304,208,320,224",building,1,1,GoldenrodCity01,54,0,roof/foreground; hidden ground not scored
 20,13,"320,208,336,224",water/shore,1,0,GoldenrodCity01,4,0,overview interpretation; not decoded DS collision
@@ -307,10 +307,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 11,14,"176,224,192,240",building,1,1,GoldenrodCity01,276,0,roof/foreground; hidden ground not scored
 12,14,"192,224,208,240",building,1,1,GoldenrodCity01,57,0,roof/foreground; hidden ground not scored
 13,14,"208,224,224,240",building,1,1,GoldenrodCity01,58,0,roof/foreground; hidden ground not scored
-14,14,"224,224,240,240",building,1,1,GoldenrodCity01,59,0,roof/foreground; hidden ground not scored
-15,14,"240,224,256,240",building,1,1,GoldenrodCity01,277,0,roof/foreground; hidden ground not scored
-16,14,"256,224,272,240",building,1,1,GoldenrodCity01,61,0,roof/foreground; hidden ground not scored
-17,14,"272,224,288,240",building,1,1,GoldenrodCity01,62,0,roof/foreground; hidden ground not scored
+14,14,"224,224,240,240",building,1,1,GoldenrodCity01,297,0,roof/foreground; hidden ground not scored
+15,14,"240,224,256,240",building,1,1,GoldenrodCity01,298,0,roof/foreground; hidden ground not scored
+16,14,"256,224,272,240",building,1,1,GoldenrodCity01,299,0,roof/foreground; hidden ground not scored
+17,14,"272,224,288,240",building,1,1,GoldenrodCity01,300,0,roof/foreground; hidden ground not scored
 18,14,"288,224,304,240",building,1,1,GoldenrodCity01,63,0,roof/foreground; hidden ground not scored
 19,14,"304,224,320,240",building,1,1,GoldenrodCity01,278,0,roof/foreground; hidden ground not scored
 20,14,"320,224,336,240",water/shore,1,0,GoldenrodCity01,0,0,overview interpretation; not decoded DS collision
@@ -328,10 +328,10 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 11,15,"176,240,192,256",building,1,1,GoldenrodCity01,65,0,roof/foreground; hidden ground not scored
 12,15,"192,240,208,256",building,1,1,GoldenrodCity01,66,0,roof/foreground; hidden ground not scored
 13,15,"208,240,224,256",building,1,1,GoldenrodCity01,67,0,roof/foreground; hidden ground not scored
-14,15,"224,240,240,256",building,1,1,GoldenrodCity01,68,0,roof/foreground; hidden ground not scored
-15,15,"240,240,256,256",building,1,1,GoldenrodCity01,69,0,roof/foreground; hidden ground not scored
-16,15,"256,240,272,256",building,1,1,GoldenrodCity01,70,0,roof/foreground; hidden ground not scored
-17,15,"272,240,288,256",building,1,1,GoldenrodCity01,71,0,roof/foreground; hidden ground not scored
+14,15,"224,240,240,256",building,1,1,GoldenrodCity01,301,0,roof/foreground; hidden ground not scored
+15,15,"240,240,256,256",building,1,1,GoldenrodCity01,302,0,roof/foreground; hidden ground not scored
+16,15,"256,240,272,256",building,1,1,GoldenrodCity01,303,0,roof/foreground; hidden ground not scored
+17,15,"272,240,288,256",building,1,1,GoldenrodCity01,304,0,roof/foreground; hidden ground not scored
 18,15,"288,240,304,256",building,1,1,GoldenrodCity01,72,0,roof/foreground; hidden ground not scored
 19,15,"304,240,320,256",building,1,1,GoldenrodCity01,73,0,roof/foreground; hidden ground not scored
 20,15,"320,240,336,256",water/shore,1,0,GoldenrodCity01,4,0,overview interpretation; not decoded DS collision
@@ -367,8 +367,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 8,17,"128,272,144,288",water/shore,1,0,GoldenrodCity01,88,0,overview interpretation; not decoded DS collision
 9,17,"144,272,160,288",water/shore,1,0,GoldenrodCity01,89,0,overview interpretation; not decoded DS collision
 10,17,"160,272,176,288",building,1,1,GoldenrodCity01,90,0,roof/foreground; hidden ground not scored
-11,17,"176,272,192,288",building,1,1,GoldenrodCity01,91,0,roof/foreground; hidden ground not scored
-12,17,"192,272,208,288",building,1,1,GoldenrodCity01,92,0,roof/foreground; hidden ground not scored
+11,17,"176,272,192,288",building,1,1,GoldenrodCity01,305,0,roof/foreground; hidden ground not scored
+12,17,"192,272,208,288",building,1,1,GoldenrodCity01,306,0,roof/foreground; hidden ground not scored
 13,17,"208,272,224,288",building,1,1,GoldenrodCity01,93,0,roof/foreground; hidden ground not scored
 14,17,"224,272,240,288",building,1,1,GoldenrodCity01,94,0,roof/foreground; hidden ground not scored
 15,17,"240,272,256,288",building,1,1,GoldenrodCity01,95,0,roof/foreground; hidden ground not scored
@@ -388,8 +388,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 8,18,"128,288,144,304",water/shore,1,0,GoldenrodCity01,101,0,overview interpretation; not decoded DS collision
 9,18,"144,288,160,304",water/shore,1,0,GoldenrodCity01,102,0,overview interpretation; not decoded DS collision
 10,18,"160,288,176,304",building,1,1,GoldenrodCity01,103,0,roof/foreground; hidden ground not scored
-11,18,"176,288,192,304",building,1,1,GoldenrodCity01,104,0,roof/foreground; hidden ground not scored
-12,18,"192,288,208,304",building,1,1,GoldenrodCity01,105,0,roof/foreground; hidden ground not scored
+11,18,"176,288,192,304",building,1,1,GoldenrodCity01,307,0,roof/foreground; hidden ground not scored
+12,18,"192,288,208,304",building,1,1,GoldenrodCity01,308,0,roof/foreground; hidden ground not scored
 13,18,"208,288,224,304",building,1,1,GoldenrodCity01,106,0,roof/foreground; hidden ground not scored
 14,18,"224,288,240,304",building,1,1,GoldenrodCity01,107,0,roof/foreground; hidden ground not scored
 15,18,"240,288,256,304",building,1,1,GoldenrodCity01,108,0,roof/foreground; hidden ground not scored
@@ -409,8 +409,8 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 8,19,"128,304,144,320",paving,0,0,GoldenrodCity01,114,0,overview interpretation; not decoded DS collision
 9,19,"144,304,160,320",paving,0,0,GoldenrodCity01,115,0,overview interpretation; not decoded DS collision
 10,19,"160,304,176,320",building,0,1,GoldenrodCity01,282,0,roof/foreground; hidden ground not scored
-11,19,"176,304,192,320",building,0,1,GoldenrodCity01,117,0,roof/foreground; hidden ground not scored
-12,19,"192,304,208,320",building,0,1,GoldenrodCity01,118,0,roof/foreground; hidden ground not scored
+11,19,"176,304,192,320",building,0,1,GoldenrodCity01,309,0,roof/foreground; hidden ground not scored
+12,19,"192,304,208,320",building,0,1,GoldenrodCity01,310,0,roof/foreground; hidden ground not scored
 13,19,"208,304,224,320",building,0,1,GoldenrodCity01,119,0,roof/foreground; hidden ground not scored
 14,19,"224,304,240,320",building,0,1,GoldenrodCity01,120,0,roof/foreground; hidden ground not scored
 15,19,"240,304,256,320",building,0,1,GoldenrodCity01,121,0,roof/foreground; hidden ground not scored
@@ -3680,14 +3680,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,35,"720,560,736,576",paving,0,0,GoldenrodCity09,137,0,overview interpretation; not decoded DS collision
 46,35,"736,560,752,576",paving,0,0,GoldenrodCity09,138,0,overview interpretation; not decoded DS collision
 47,35,"752,560,768,576",paving,0,0,GoldenrodCity09,139,0,overview interpretation; not decoded DS collision
-48,35,"768,560,784,576",paving,0,0,GoldenrodCity09,140,0,overview interpretation; not decoded DS collision
-49,35,"784,560,800,576",paving,0,0,GoldenrodCity09,141,0,overview interpretation; not decoded DS collision
-50,35,"800,560,816,576",paving,0,0,GoldenrodCity09,142,0,overview interpretation; not decoded DS collision
-51,35,"816,560,832,576",paving,0,0,GoldenrodCity09,143,0,overview interpretation; not decoded DS collision
-52,35,"832,560,848,576",paving,0,0,GoldenrodCity09,144,0,overview interpretation; not decoded DS collision
-53,35,"848,560,864,576",paving,0,0,GoldenrodCity09,145,0,overview interpretation; not decoded DS collision
-54,35,"864,560,880,576",paving,0,0,GoldenrodCity09,143,0,overview interpretation; not decoded DS collision
-55,35,"880,560,896,576",wall/railing,1,0,GoldenrodCity09,146,0,overview interpretation; not decoded DS collision
+48,35,"768,560,784,576",paving,0,0,GoldenrodCity09,277,0,overview interpretation; not decoded DS collision
+49,35,"784,560,800,576",paving,0,0,GoldenrodCity09,278,0,overview interpretation; not decoded DS collision
+50,35,"800,560,816,576",paving,0,0,GoldenrodCity09,279,0,overview interpretation; not decoded DS collision
+51,35,"816,560,832,576",paving,0,0,GoldenrodCity09,280,0,overview interpretation; not decoded DS collision
+52,35,"832,560,848,576",paving,0,0,GoldenrodCity09,281,0,overview interpretation; not decoded DS collision
+53,35,"848,560,864,576",paving,0,0,GoldenrodCity09,282,0,overview interpretation; not decoded DS collision
+54,35,"864,560,880,576",paving,0,0,GoldenrodCity09,283,0,overview interpretation; not decoded DS collision
+55,35,"880,560,896,576",wall/railing,1,0,GoldenrodCity09,284,0,overview interpretation; not decoded DS collision
 56,35,"896,560,912,576",stone street,0,0,GoldenrodCity09,147,0,overview interpretation; not decoded DS collision
 57,35,"912,560,928,576",stone street,0,0,GoldenrodCity09,148,0,overview interpretation; not decoded DS collision
 58,35,"928,560,944,576",stone street,0,0,GoldenrodCity09,149,0,overview interpretation; not decoded DS collision
@@ -3701,14 +3701,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,36,"720,576,736,592",building,0,1,GoldenrodCity09,156,0,roof/foreground; hidden ground not scored
 46,36,"736,576,752,592",building,0,1,GoldenrodCity09,157,0,roof/foreground; hidden ground not scored
 47,36,"752,576,768,592",building,0,1,GoldenrodCity09,158,0,roof/foreground; hidden ground not scored
-48,36,"768,576,784,592",building,0,1,GoldenrodCity09,159,0,roof/foreground; hidden ground not scored
-49,36,"784,576,800,592",paving,0,0,GoldenrodCity09,160,0,overview interpretation; not decoded DS collision
-50,36,"800,576,816,592",shared Center,0,1,GoldenrodCity09,161,0,roof/foreground; hidden ground not scored
-51,36,"816,576,832,592",shared Center,0,1,GoldenrodCity09,162,0,roof/foreground; hidden ground not scored
-52,36,"832,576,848,592",shared Center,0,1,GoldenrodCity09,163,0,roof/foreground; hidden ground not scored
-53,36,"848,576,864,592",shared Center,0,1,GoldenrodCity09,164,0,roof/foreground; hidden ground not scored
-54,36,"864,576,880,592",shared Center,0,1,GoldenrodCity09,165,0,roof/foreground; hidden ground not scored
-55,36,"880,576,896,592",wall/railing,1,0,GoldenrodCity09,166,0,overview interpretation; not decoded DS collision
+48,36,"768,576,784,592",building,0,1,GoldenrodCity09,285,0,roof/foreground; hidden ground not scored
+49,36,"784,576,800,592",shared Center,0,1,GoldenrodCity09,286,0,roof/foreground; hidden ground not scored
+50,36,"800,576,816,592",shared Center,0,1,GoldenrodCity09,287,0,roof/foreground; hidden ground not scored
+51,36,"816,576,832,592",shared Center,0,1,GoldenrodCity09,288,0,roof/foreground; hidden ground not scored
+52,36,"832,576,848,592",shared Center,0,1,GoldenrodCity09,289,0,roof/foreground; hidden ground not scored
+53,36,"848,576,864,592",shared Center,0,1,GoldenrodCity09,290,0,roof/foreground; hidden ground not scored
+54,36,"864,576,880,592",shared Center,0,1,GoldenrodCity09,291,0,roof/foreground; hidden ground not scored
+55,36,"880,576,896,592",wall/railing,1,0,GoldenrodCity09,292,0,overview interpretation; not decoded DS collision
 56,36,"896,576,912,592",stone street,0,0,GoldenrodCity09,167,0,overview interpretation; not decoded DS collision
 57,36,"912,576,928,592",stone street,0,0,GoldenrodCity09,168,0,overview interpretation; not decoded DS collision
 58,36,"928,576,944,592",stone street,0,0,GoldenrodCity09,169,0,overview interpretation; not decoded DS collision
@@ -3722,14 +3722,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,37,"720,592,736,608",building,0,1,GoldenrodCity09,176,0,roof/foreground; hidden ground not scored
 46,37,"736,592,752,608",building,0,1,GoldenrodCity09,177,0,roof/foreground; hidden ground not scored
 47,37,"752,592,768,608",building,0,1,GoldenrodCity09,178,0,roof/foreground; hidden ground not scored
-48,37,"768,592,784,608",building,0,1,GoldenrodCity09,179,0,roof/foreground; hidden ground not scored
-49,37,"784,592,800,608",paving,0,0,GoldenrodCity09,160,0,overview interpretation; not decoded DS collision
-50,37,"800,592,816,608",shared Center,0,1,GoldenrodCity09,180,0,roof/foreground; hidden ground not scored
-51,37,"816,592,832,608",shared Center,0,1,GoldenrodCity09,181,0,roof/foreground; hidden ground not scored
-52,37,"832,592,848,608",shared Center,0,1,GoldenrodCity09,182,0,roof/foreground; hidden ground not scored
-53,37,"848,592,864,608",shared Center,0,1,GoldenrodCity09,183,0,roof/foreground; hidden ground not scored
-54,37,"864,592,880,608",shared Center,0,1,GoldenrodCity09,184,0,roof/foreground; hidden ground not scored
-55,37,"880,592,896,608",wall/railing,1,0,GoldenrodCity09,185,0,overview interpretation; not decoded DS collision
+48,37,"768,592,784,608",building,0,1,GoldenrodCity09,293,0,roof/foreground; hidden ground not scored
+49,37,"784,592,800,608",shared Center,0,1,GoldenrodCity09,294,0,roof/foreground; hidden ground not scored
+50,37,"800,592,816,608",shared Center,0,1,GoldenrodCity09,295,0,roof/foreground; hidden ground not scored
+51,37,"816,592,832,608",shared Center,0,1,GoldenrodCity09,296,0,roof/foreground; hidden ground not scored
+52,37,"832,592,848,608",shared Center,0,1,GoldenrodCity09,297,0,roof/foreground; hidden ground not scored
+53,37,"848,592,864,608",shared Center,0,1,GoldenrodCity09,298,0,roof/foreground; hidden ground not scored
+54,37,"864,592,880,608",shared Center,0,1,GoldenrodCity09,299,0,roof/foreground; hidden ground not scored
+55,37,"880,592,896,608",wall/railing,1,0,GoldenrodCity09,300,0,overview interpretation; not decoded DS collision
 56,37,"896,592,912,608",stone street,0,0,GoldenrodCity09,186,0,overview interpretation; not decoded DS collision
 57,37,"912,592,928,608",stone street,0,0,GoldenrodCity09,187,0,overview interpretation; not decoded DS collision
 58,37,"928,592,944,608",stone street,0,0,GoldenrodCity09,188,0,overview interpretation; not decoded DS collision
@@ -3743,14 +3743,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,38,"720,608,736,624",building,0,1,GoldenrodCity09,195,0,roof/foreground; hidden ground not scored
 46,38,"736,608,752,624",building,0,1,GoldenrodCity09,196,0,roof/foreground; hidden ground not scored
 47,38,"752,608,768,624",building,0,1,GoldenrodCity09,197,0,roof/foreground; hidden ground not scored
-48,38,"768,608,784,624",building,0,1,GoldenrodCity09,198,0,roof/foreground; hidden ground not scored
-49,38,"784,608,800,624",paving,0,0,GoldenrodCity09,160,0,overview interpretation; not decoded DS collision
-50,38,"800,608,816,624",shared Center,0,1,GoldenrodCity09,199,0,roof/foreground; hidden ground not scored
-51,38,"816,608,832,624",shared Center,0,1,GoldenrodCity09,200,0,roof/foreground; hidden ground not scored
-52,38,"832,608,848,624",shared Center,0,1,GoldenrodCity09,201,0,roof/foreground; hidden ground not scored
-53,38,"848,608,864,624",shared Center,0,1,GoldenrodCity09,202,0,roof/foreground; hidden ground not scored
-54,38,"864,608,880,624",shared Center,0,1,GoldenrodCity09,203,0,roof/foreground; hidden ground not scored
-55,38,"880,608,896,624",wall/railing,1,0,GoldenrodCity09,204,0,overview interpretation; not decoded DS collision
+48,38,"768,608,784,624",building,0,1,GoldenrodCity09,301,0,roof/foreground; hidden ground not scored
+49,38,"784,608,800,624",shared Center,0,1,GoldenrodCity09,302,0,roof/foreground; hidden ground not scored
+50,38,"800,608,816,624",shared Center,0,1,GoldenrodCity09,303,0,roof/foreground; hidden ground not scored
+51,38,"816,608,832,624",shared Center,0,1,GoldenrodCity09,304,0,roof/foreground; hidden ground not scored
+52,38,"832,608,848,624",shared Center,0,1,GoldenrodCity09,305,0,roof/foreground; hidden ground not scored
+53,38,"848,608,864,624",shared Center,0,1,GoldenrodCity09,306,0,roof/foreground; hidden ground not scored
+54,38,"864,608,880,624",shared Center,0,1,GoldenrodCity09,307,0,roof/foreground; hidden ground not scored
+55,38,"880,608,896,624",wall/railing,1,0,GoldenrodCity09,308,0,overview interpretation; not decoded DS collision
 56,38,"896,608,912,624",stone street,0,0,GoldenrodCity09,205,0,overview interpretation; not decoded DS collision
 57,38,"912,608,928,624",stone street,0,0,GoldenrodCity09,206,0,overview interpretation; not decoded DS collision
 58,38,"928,608,944,624",stone street,0,0,GoldenrodCity09,207,0,overview interpretation; not decoded DS collision
@@ -3764,14 +3764,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,39,"720,624,736,640",building,1,0,GoldenrodCity09,214,0,roof/foreground; hidden ground not scored
 46,39,"736,624,752,640",building,1,0,GoldenrodCity09,215,0,roof/foreground; hidden ground not scored
 47,39,"752,624,768,640",building,1,0,GoldenrodCity09,216,0,roof/foreground; hidden ground not scored
-48,39,"768,624,784,640",building,1,0,GoldenrodCity09,217,0,roof/foreground; hidden ground not scored
-49,39,"784,624,800,640",paving,0,0,GoldenrodCity09,160,0,overview interpretation; not decoded DS collision
-50,39,"800,624,816,640",shared Center,1,0,GoldenrodCity09,218,0,roof/foreground; hidden ground not scored
-51,39,"816,624,832,640",shared Center,1,0,GoldenrodCity09,219,0,roof/foreground; hidden ground not scored
-52,39,"832,624,848,640",shared Center,1,0,GoldenrodCity09,220,0,roof/foreground; hidden ground not scored
-53,39,"848,624,864,640",shared Center,1,0,GoldenrodCity09,221,0,roof/foreground; hidden ground not scored
-54,39,"864,624,880,640",shared Center,1,0,GoldenrodCity09,222,0,roof/foreground; hidden ground not scored
-55,39,"880,624,896,640",wall/railing,1,0,GoldenrodCity09,223,0,overview interpretation; not decoded DS collision
+48,39,"768,624,784,640",building,1,0,GoldenrodCity09,309,0,roof/foreground; hidden ground not scored
+49,39,"784,624,800,640",shared Center,1,0,GoldenrodCity09,310,0,roof/foreground; hidden ground not scored
+50,39,"800,624,816,640",shared Center,1,0,GoldenrodCity09,311,0,roof/foreground; hidden ground not scored
+51,39,"816,624,832,640",shared Center,1,0,GoldenrodCity09,312,0,roof/foreground; hidden ground not scored
+52,39,"832,624,848,640",shared Center,1,0,GoldenrodCity09,313,0,roof/foreground; hidden ground not scored
+53,39,"848,624,864,640",shared Center,1,0,GoldenrodCity09,314,0,roof/foreground; hidden ground not scored
+54,39,"864,624,880,640",shared Center,1,1,GoldenrodCity09,315,0,roof/foreground; hidden ground not scored
+55,39,"880,624,896,640",wall/railing,1,1,GoldenrodCity09,316,0,overview interpretation; not decoded DS collision
 56,39,"896,624,912,640",stone street,0,0,GoldenrodCity09,224,0,overview interpretation; not decoded DS collision
 57,39,"912,624,928,640",stone street,0,0,GoldenrodCity09,225,0,overview interpretation; not decoded DS collision
 58,39,"928,624,944,640",stone street,0,0,GoldenrodCity09,226,0,overview interpretation; not decoded DS collision
@@ -3785,14 +3785,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,40,"720,640,736,656",building,1,1,GoldenrodCity09,233,0,roof/foreground; hidden ground not scored
 46,40,"736,640,752,656",building,1,1,GoldenrodCity09,234,0,roof/foreground; hidden ground not scored
 47,40,"752,640,768,656",building,1,1,GoldenrodCity09,235,0,roof/foreground; hidden ground not scored
-48,40,"768,640,784,656",building,1,1,GoldenrodCity09,236,0,roof/foreground; hidden ground not scored
-49,40,"784,640,800,656",paving,0,0,GoldenrodCity09,160,0,overview interpretation; not decoded DS collision
-50,40,"800,640,816,656",shared Center,1,0,GoldenrodCity09,237,0,roof/foreground; hidden ground not scored
-51,40,"816,640,832,656",shared Center,1,0,GoldenrodCity09,238,0,roof/foreground; hidden ground not scored
-52,40,"832,640,848,656",shared Center,1,0,GoldenrodCity09,239,0,roof/foreground; hidden ground not scored
-53,40,"848,640,864,656",shared Center,1,0,GoldenrodCity09,240,0,roof/foreground; hidden ground not scored
-54,40,"864,640,880,656",shared Center,1,0,GoldenrodCity09,241,0,roof/foreground; hidden ground not scored
-55,40,"880,640,896,656",wall/railing,1,0,GoldenrodCity09,242,0,overview interpretation; not decoded DS collision
+48,40,"768,640,784,656",building,1,1,GoldenrodCity09,317,0,roof/foreground; hidden ground not scored
+49,40,"784,640,800,656",shared Center,1,0,GoldenrodCity09,318,0,roof/foreground; hidden ground not scored
+50,40,"800,640,816,656",shared Center,1,0,GoldenrodCity09,319,0,roof/foreground; hidden ground not scored
+51,40,"816,640,832,656",shared Center,1,0,GoldenrodCity09,320,0,roof/foreground; hidden ground not scored
+52,40,"832,640,848,656",shared Center,1,0,GoldenrodCity09,321,0,roof/foreground; hidden ground not scored
+53,40,"848,640,864,656",shared Center,1,0,GoldenrodCity09,322,0,roof/foreground; hidden ground not scored
+54,40,"864,640,880,656",shared Center,1,0,GoldenrodCity09,323,0,roof/foreground; hidden ground not scored
+55,40,"880,640,896,656",wall/railing,1,1,GoldenrodCity09,324,0,overview interpretation; not decoded DS collision
 56,40,"896,640,912,656",stone street,0,0,GoldenrodCity09,243,0,overview interpretation; not decoded DS collision
 57,40,"912,640,928,656",stone street,0,0,GoldenrodCity09,244,0,overview interpretation; not decoded DS collision
 58,40,"928,640,944,656",stone street,0,0,GoldenrodCity09,245,0,overview interpretation; not decoded DS collision
@@ -3806,14 +3806,14 @@ x,y,reference_box,visible_material_structure,blocked,above_player,map,native_met
 45,41,"720,656,736,672",building,1,1,GoldenrodCity09,275,0,roof/foreground; hidden ground not scored
 46,41,"736,656,752,672",building,1,1,GoldenrodCity09,253,0,roof/foreground; hidden ground not scored
 47,41,"752,656,768,672",building,1,1,GoldenrodCity09,254,0,roof/foreground; hidden ground not scored
-48,41,"768,656,784,672",building,1,1,GoldenrodCity09,276,0,roof/foreground; hidden ground not scored
-49,41,"784,656,800,672",paving,0,0,GoldenrodCity09,256,0,overview interpretation; not decoded DS collision
-50,41,"800,656,816,672",paving,0,0,GoldenrodCity09,257,0,overview interpretation; not decoded DS collision
-51,41,"816,656,832,672",paving,0,0,GoldenrodCity09,258,0,overview interpretation; not decoded DS collision
-52,41,"832,656,848,672",paving,0,0,GoldenrodCity09,259,0,overview interpretation; not decoded DS collision
-53,41,"848,656,864,672",paving,0,0,GoldenrodCity09,260,0,overview interpretation; not decoded DS collision
-54,41,"864,656,880,672",paving,0,0,GoldenrodCity09,261,0,overview interpretation; not decoded DS collision
-55,41,"880,656,896,672",wall/railing,1,0,GoldenrodCity09,262,0,overview interpretation; not decoded DS collision
+48,41,"768,656,784,672",building,1,1,GoldenrodCity09,325,0,roof/foreground; hidden ground not scored
+49,41,"784,656,800,672",paving,0,0,GoldenrodCity09,326,0,overview interpretation; not decoded DS collision
+50,41,"800,656,816,672",paving,0,0,GoldenrodCity09,327,0,overview interpretation; not decoded DS collision
+51,41,"816,656,832,672",paving,0,0,GoldenrodCity09,328,0,overview interpretation; not decoded DS collision
+52,41,"832,656,848,672",paving,0,0,GoldenrodCity09,329,0,overview interpretation; not decoded DS collision
+53,41,"848,656,864,672",paving,0,0,GoldenrodCity09,330,0,overview interpretation; not decoded DS collision
+54,41,"864,656,880,672",paving,0,0,GoldenrodCity09,331,0,overview interpretation; not decoded DS collision
+55,41,"880,656,896,672",prop,1,0,GoldenrodCity09,332,0,overview interpretation; not decoded DS collision
 56,41,"896,656,912,672",stone street,0,0,GoldenrodCity09,263,0,overview interpretation; not decoded DS collision
 57,41,"912,656,928,672",stone street,0,0,GoldenrodCity09,264,0,overview interpretation; not decoded DS collision
 58,41,"928,656,944,672",stone street,0,0,GoldenrodCity09,265,0,overview interpretation; not decoded DS collision

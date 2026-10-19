@@ -2,11 +2,13 @@
 
 Goldenrod’s streets, waterfront and landmarks are built in editable Gen 3 native
 source on engine `codex/goldenrod-city`, commit
-`bb54d528df4f26d457b3b1c5f43bf4de41b3b50f`.
+`fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7`.
 [Engine draft PR #20](https://github.com/Davisfox5/pokeemerald-expansion/pull/20).
 This area starts from pending Azalea source `d822306675e15abe67c85235d9faf8d6e676d449`;
 previous maps, artwork, map/layout ID prefixes and persistent data are preserved.
-Owner accepted the first pass. The requested building/tree refinement is now ready for review.
+Owner accepted the first pass and building/tree refinement. The requested Radio Tower and Center placement fixes are now ready for review.
+
+[**Latest: Radio equipment and Center before/after**](evidence/center-radio/README.md).
 
 [**Building-by-building refinement and southeast before/after**](evidence/refinement/README.md).
 
@@ -51,8 +53,9 @@ use coherent ramps instead of independent palette choices that produced vent
 and window seams. No nearest-metatile substitution discards a silhouette.
 
 The approved 80×80 Violet Center and complete 32×48 shared trees are reused.
-The Center’s pad is restored and its native origin is `(800,576)`, placing its
-16-pixel doorway and approach on the grid at `(52,41)`. Forty-nine shared trees
+The Center’s pad is restored and its native origin is `(792,576)`, fitted between the restored western building and lamp.
+Its doorway approach remains `(52,41)`; the building silhouette and local ground are
+independent, with no rectangular pavement patch attached. Forty-nine shared trees
 have complete masters and distinct 2×2 root footprints. Their original forest
 zones are adapted to these full footprints; clipped overview foliage, residual
 trunks/shadows and the roof spire touching the cleanup were reviewed separately.
@@ -91,8 +94,8 @@ completion, padding and camera margins are explicit adaptations.
   arch pillars, internal crossings and return travel pass in headless mGBA.
 - Ordinary flash save, fresh-process reload and title Continue pass.
   [Runtime phases](evidence/runtime.json).
-- All 75 audited BG views match the decoded native source and directional
-  margins across 2,880,000 pixels, with zero RGB errors and cache overflows.
+- All 78 audited BG views match the decoded native source and directional
+  margins across 2,995,200 pixels, with zero RGB errors and cache overflows.
   [Actual VRAM/palette/scroll comparison](evidence/gameplay-background-parity.json).
 - Native atlas regeneration is byte-exact; the direct arch and boundary edits
   reproduce from their named immutable baselines. A fresh checkout verifies all
@@ -117,7 +120,7 @@ prevent a Porymap edit from silently leaving the runtime atlas stale. Preserve
 coherent palette banks across sections.
 
 `author.py` and `register.py` record first authoring; **do not replay them over
-committed maps**. The one-shot `refine.py` building/tree cleanup expects `f439df15` and reads immutable first-pass metadata; never replay it over later edits. Its native/atlas reproduction is recorded in `evidence/refinement/`. The direct `arch.py` repair expects `200ffd16`; `borders.py`
+committed maps**. The newest `finish.py` correction expects `bb54d528` and is recorded in `evidence/center-radio/`. The one-shot `refine.py` building/tree cleanup expects `f439df15` and reads immutable first-pass metadata; never replay it over later edits. Its native/atlas reproduction is recorded in `evidence/refinement/`. The direct `arch.py` repair expects `200ffd16`; `borders.py`
 expects `fed2667c`. Their guards preserve later native edits. The runtime renderer
 is hand-authored engine C. `review.py`, the actual Porymap exporter, `runtime.py`,
 `verify_frames.py` and `publish.py` retain the inspection/qualification workflow.

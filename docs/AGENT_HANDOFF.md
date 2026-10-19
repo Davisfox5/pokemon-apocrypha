@@ -1,30 +1,32 @@
 ## Latest: Goldenrod City exterior — 2026-10-19
 
-Owner requested the next town using HGSS geography and the shared native cleanup
-standard. Read `gba/art/goldenrod-city/README.md`. Engine source is
-`bb54d528df4f26d457b3b1c5f43bf4de41b3b50f` on `codex/goldenrod-city`,
+Owner accepted the first pass and building/tree refinement, then requested Radio
+Tower equipment cleanup and a fix for the Center overwriting neighboring art.
+Read `gba/art/goldenrod-city/evidence/center-radio/README.md`. Current engine is
+`fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7` on `codex/goldenrod-city`,
 [draft PR #20](https://github.com/Davisfox5/pokeemerald-expansion/pull/20),
-based on pending Azalea `d8223066`. The 525-file area delta preserves earlier
-maps/assets and IDs. Do not replay first-authoring generators over native source.
+based on pending Azalea `d8223066`. The 525-file area delta preserves earlier maps,
+assets and stable IDs. Do not replay first-authoring generators over native maps.
 
-84×56 HGSS-based exterior, twelve connected Porymap sections, coherent material
-ramps, approved Center and 49 full shared trees. A local volatile glyph cache
-preserves detailed native camera views; its source guard catches stale adapters.
-The southern cap/pillars, northern pickets/gate and directional camera margins
-were reviewed and corrected. Build, actual Porymap parity over 4,704 cells,
-movement/closed entrances/barriers, save/cold reload/Continue and 75 exact BG
-comparisons pass. Source/ROM hashes and reproduction evidence are retained.
+Latest fix: three clean transparent dish instances and a thin straight antenna;
+Center's rectangular pavement overwrite removed, west building/lamp restored,
+unchanged transparent Center fitted at `(792,576)`. All 5,679 canonical opaque
+pixels and all new equipment pixels are exact after native conversion. Only
+sections 01/09 and their derived atlas changed (15 engine files); native pixels
+outside the two correction regions are unchanged. The revised visible footprint
+and lamp base have correct collision; Center front/side movement passes.
 
-GitHub Actions is disabled; dispatch returned HTTP 422. Hosted CI is blocked,
-not green. The owner accepted the first pass and requested building texture/tree refinement.
-That revision is complete: 39 individual reference/before/after views, shared tidy
-gold roof material, low-contrast speckle cleanup, southeast native tree/fence/ground
-repair and cliff-fragment removal. See `evidence/refinement/README.md` in the area.
-The PR stays draft; revised visual approval remains pending. Interiors,
-train/minigames/shops, adjacent routes, campaign actors and water animation remain
-unwired. Existing saves were not supplied or altered. Local checkouts are
-`/workspace/pokemon-apocrypha` and `/workspace/apocrypha-src`; ignored native ROM
-and headless evidence remain locally in the engine and `/workspace/scratch/`.
+Build, actual Porymap parity over 4,704 cells, 78 exact captured BG comparisons,
+movement/barriers, ordinary save/cold reload/Continue, separate-worktree correction
+reproduction and fresh-checkout hashes pass. Maps remain 84×56 across twelve
+continuous sections, with 49 complete native trees and unchanged global palettes.
+
+Latest visual review remains with the owner. GitHub Actions remains disabled;
+hosted CI is blocked. Interiors, services, routes, actors and water animation are
+unwired. No owner save was supplied or changed. `finish.py` is a guarded one-shot
+for `bb54d528`, not an authoring generator for current source. Preserve prior
+refinement and evidence. Local source is `/workspace/apocrypha-src`; hub is
+`/workspace/pokemon-apocrypha`; ignored ROM and headless captures stay local.
 
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 

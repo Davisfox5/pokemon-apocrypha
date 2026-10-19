@@ -23,7 +23,7 @@ for x,y in trees:
  # Later canopies have supported overlap, so compare only final visible master
  # pixels. Every sprite still has its complete native32x48source silhouette.
 assert roots.max()==1 and np.all(solid[roots>0]);assert np.array_equal(roots,np.load(S/'tree-roots.npy'))
-center=np.array(Image.open(S/'masters/center.png').convert('RGBA'));center[...,:3]&=248;cm=center[...,3]>0;assert np.array_equal(native[576:656,800:880][cm],center[cm,:3])
+center=np.array(Image.open(S/'masters/center.png').convert('RGBA'));center[...,:3]&=248;cm=center[...,3]>0;placement=json.loads((S/'center-placement.json').read_text());cx,cy=placement['origin'];assert np.array_equal(native[cy:cy+80,cx:cx+80][cm],center[cm,:3])
 seen={(58,48)};todo=list(seen)
 for x,y in todo:
  for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:

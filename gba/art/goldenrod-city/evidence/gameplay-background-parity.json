@@ -1,6 +1,6 @@
 {
-  "frames": 75,
-  "pixels": 2880000,
+  "frames": 78,
+  "pixels": 2995200,
   "RGB_errors": 0,
   "frames_detail": [
     {
@@ -718,6 +718,36 @@
       "world": [
         77,
         52
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Center-left-building-join",
+      "world": [
+        51,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Center-lamp-join",
+      "world": [
+        54,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "Radio-equipment-close",
+      "world": [
+        17,
+        16
       ],
       "camera_delta_y": 0,
       "pixels": 38400,

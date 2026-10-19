@@ -1,8 +1,8 @@
 {
-  "engine_commit": "bb54d528df4f26d457b3b1c5f43bf4de41b3b50f",
+  "engine_commit": "fdaf387b1ef1b0704e4f6a2f4ac0c24444d900a7",
   "engine_base": "d822306675e15abe67c85235d9faf8d6e676d449",
   "source_files_changed": 525,
-  "rom_sha256": "44c057152703ca9ce9e5901ffcb47676c3c3624063af3334981cadf2caa81619",
+  "rom_sha256": "ae56d14f6ba94a3e9560fb797bc36234ea25f80d45e66f452f0b8e3359e6f090",
   "ROM_bytes": 33554432,
   "native_build": "passed",
   "memory": [
@@ -18,15 +18,15 @@
     ],
     [
       "ROM",
-      "20916248",
-      "32 MB 62.34%"
+      "20920824",
+      "32 MB 62.35%"
     ]
   ],
   "runtime_phases": [
     {
       "phase": "write",
       "exit_code": 0,
-      "observations": 72
+      "observations": 75
     },
     {
       "phase": "read",

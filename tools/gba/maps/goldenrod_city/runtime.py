@@ -39,6 +39,8 @@ for name,x,y,dx,dy in [('arch-west-pillar',56,50,-1,0),('arch-east-pillar',60,50
  steps.append(go(x,y)+f'shot("{name}");step({key},1);'+at(x,y,name+'-closed-or-barrier'))
 # Cache lifecycle: leave the city, then return through an ordinary map load.
 steps.append(go(77,52)+'shot("southeast-native-trees");')
+steps.append(go(51,42)+'shot("Center-left-building-join");step(RIGHT,3);'+at(54,42,'Center-front-clear')+'shot("Center-lamp-join");step(UP,1);'+at(54,41,'Center-east-approach')+'step(RIGHT,1);'+at(54,41,'restored-lamp-base-blocks'))
+steps.append(go(17,16)+'shot("Radio-equipment-close");')
 steps.append('go(50,20,18);shot("Azalea-regression");'+go(58,48)+at(58,48,'return-to-Goldenrod')+'shot("save-Goldenrod");')
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 main=(start+'\n'.join(steps)+end).replace('at(11,27,18', 'at(%d,%d,%d'%section(58,48)).replace('cold-reload-new-bark','cold-reload-Goldenrod')
