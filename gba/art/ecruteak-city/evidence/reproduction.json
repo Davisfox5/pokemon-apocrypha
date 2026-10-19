@@ -9,7 +9,7 @@
   "review": "review.py ENGINE ACTUAL_PORYMAP_EXPORT_DIRECTORY",
   "runtime": "runtime.py ENGINE NEW_OUTPUT_DIRECTORY --toolchain ARM_PREFIX",
   "publish": "publish.py ENGINE VERIFIED_RUNTIME_DIRECTORY",
-  "source_commit": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "source_commit": "c8a8267606411bd62a6274ed0e5f430b1b2f7e80",
   "source_manifest": [
     {
       "path": "data/event_scripts.s",
@@ -21,15 +21,15 @@
     },
     {
       "path": "data/layouts/JohtoEcruteakCity/map.bin",
-      "sha256": "37e2fa26f89099a4ae9a4ac2df887a184d4ce560e02e774c68709e75a01f9e99"
+      "sha256": "8495cfc43c600cc60488b5fae95f7e64927d0bd36d88d5c02c752f02cd8c0b69"
     },
     {
       "path": "data/layouts/JohtoEcruteakTempleDistrict/border.bin",
-      "sha256": "29e20b5f2ba4f8202bf81b0c3190e85330312e51b56351b74b10f4dec07fbb2f"
+      "sha256": "65471dd7a0fd28cac2142ad9842ee37a1202913fc6db12c3ebb1605b5d7ba586"
     },
     {
       "path": "data/layouts/JohtoEcruteakTempleDistrict/map.bin",
-      "sha256": "63aa5b3341dce0acccc6bd7cff22e22be309e2c0c502463c42b6812fa3041937"
+      "sha256": "5838d9a72fa94b55744bd22e308f86670a4096b4442d2c35286103a72ff183cd"
     },
     {
       "path": "data/layouts/layouts.json",
@@ -57,63 +57,63 @@
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/metatile_attributes.bin",
-      "sha256": "1328711ce41b66507d2652fd669a00418f6fc590547549898c82bcedde1d0e9e"
+      "sha256": "aa9e7b4aa9039452773bf85167e49d6d55dac0f31e204ea86b04c655c1b926ed"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/metatiles.bin",
-      "sha256": "e0e08c7dee06ee1cfe9212f272ea30286e7db11e28da61ad1f88a03969e9fe18"
+      "sha256": "abfe967405f05b7d941b421cf9ea8305d164c40a239a82b60c0b14ef8b7d6afb"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/00.pal",
-      "sha256": "86a7746f50a73f19a234145e9cc698f7ed4ecbde43204cc496641e52f7251ead"
+      "sha256": "fb861f63505ccd29c11eea68ce0bc960ca15624de2a30c3b2da066e4785ae9bc"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/01.pal",
-      "sha256": "764ade2a566f37c64f3bb5b46f960f5d402526f116ce466248bf53ce7f5ec651"
+      "sha256": "8e6888a186837f3b5a4e73fb42e7a17dcbc10e0dc4e3baf5089d0d0f37a38096"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/02.pal",
-      "sha256": "882a147615d16bdc6db577497f3a1cadfa79174ce83df6286ecadf0a8bc645ee"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/03.pal",
-      "sha256": "4173d453ab3e02564e804a96c19c0d45fa79664a39b4d755316019aa759d39b3"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/04.pal",
       "sha256": "fef0c5cf338a4ac77b256f6f5c251f235d0a608530349c88a6547483a619f6db"
     },
     {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/05.pal",
-      "sha256": "4aa50a05cbac7415b1272a803f8bf5eea08b591a4ef8fa0b51f8fb23aed3d97e"
+      "path": "data/tilesets/primary/ecruteak_city/palettes/03.pal",
+      "sha256": "c5caee988be3112a913a097a70a742e9461e49c4148aa6332b6c8df5e6c9d9fc"
     },
     {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/06.pal",
-      "sha256": "01d3a89e0cb4fc69e56c3521d0f52b20d0ae29e9ce7d69ee7c85543c0bf4021a"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/07.pal",
+      "path": "data/tilesets/primary/ecruteak_city/palettes/04.pal",
       "sha256": "4cc4d1dea068dfd31989ed4f51f37121a9fa04f8c38820079f00df9263c72880"
     },
     {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/08.pal",
-      "sha256": "cb153b7892042c1e72bb978711a33c96a1d5dce1834c081dddbbdec21c3416f8"
+      "path": "data/tilesets/primary/ecruteak_city/palettes/05.pal",
+      "sha256": "a6928a060f8c0d93228a404ba7660d98fadd9c0c36d618543750bc598d4236b7"
     },
     {
-      "path": "data/tilesets/primary/ecruteak_city/palettes/09.pal",
+      "path": "data/tilesets/primary/ecruteak_city/palettes/06.pal",
       "sha256": "5e64e84946eb5e985767a08bda3b58bbf86317b77862981292aa94ec8b417cd9"
     },
     {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/07.pal",
+      "sha256": "46d2156b95f42c79cdb555eb6a6c788468058f2df1a5c91b5f50f5d8cdc8f0fc"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/08.pal",
+      "sha256": "9eae3d993d470b2f82b5a308af9450f85369a30c46670156701ef391da5b7cbc"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_city/palettes/09.pal",
+      "sha256": "1466f77a00aa6fc4f17fba4494607e233b87cad384e1407c2ee6807404878f3c"
+    },
+    {
       "path": "data/tilesets/primary/ecruteak_city/palettes/10.pal",
-      "sha256": "bce8c843e06680441086cdf1dcf2ce523d42945567df13d3bc8e097fd2641800"
+      "sha256": "c49be0062eec89ed2cdcedaab22dfaf3204642981f57327d26889c5f2691cfe8"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/11.pal",
-      "sha256": "8a5873d9b98e7fa932290536b32dd626db6af990c82aa97e1bc439ee9f8ca77c"
+      "sha256": "e46feaf19798d3cc9d01bc4e853c5f5147a63a91de479aedacd7f7d10ac6ae5c"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/12.pal",
-      "sha256": "dd1de3347edc3ab6195239077e0a9390734e58f1d5634a21f8ec435cf494d755"
+      "sha256": "b7cba3f2f86bed0d476fc8278abcbd0ef6d122c304e1ccc34db394a6ed6528f6"
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/palettes/13.pal",
@@ -129,67 +129,67 @@
     },
     {
       "path": "data/tilesets/primary/ecruteak_city/tiles.png",
-      "sha256": "5cd91e2b08d6c60b3749065c3dcd581192f4fd15e6e97b0ef543b0ff145eff7c"
+      "sha256": "5718ccf5e3e5bb2b3a53b3494fbeb4139008fee906c2393820d24f983410b227"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/metatile_attributes.bin",
-      "sha256": "e375a5bbabeb9060e4017f5101578f45b1545feb5c2bf4f126583d3b69cad3ae"
+      "sha256": "239f1cd8f83361eff6a63e8dd9801aa3f53219bf91ed47c56839c4af2f2ac865"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/metatiles.bin",
-      "sha256": "f1ace03e30902d4106575d9afbfdc473268515cf762eb07f3723fdec0f7206f7"
+      "sha256": "5b0940a97cb59739824182dd7b97fd4e56f0be3d0ee9bada09ddbc793f525a22"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/00.pal",
-      "sha256": "5afdf28a2b61b0a44a684a51ad1c252c703d55aabc00d5dce62ee9d28039c12b"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_temple/palettes/01.pal",
-      "sha256": "7540688e7c22788d021fcd35b5c97746901cf7865bd2233edb078479f89d17e1"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_temple/palettes/02.pal",
-      "sha256": "3f26c3d4734f92c55b8b5e2b7ace10abcbc93adffbffa21b9697f23d3ab312b5"
-    },
-    {
-      "path": "data/tilesets/primary/ecruteak_temple/palettes/03.pal",
       "sha256": "67f75e1708dfcd4bba778ee388553e2d9f5dfe0f01668d3e8a529082a21980e9"
     },
     {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/01.pal",
+      "sha256": "6637d6b02fa52e859e72ea880e07621711ebd6e03b91829f32e245da7dbd41ba"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/02.pal",
+      "sha256": "505041c81393eb1e7decda5d344ce5a7a0870d05f515b45fc92bfe65f5ca98e9"
+    },
+    {
+      "path": "data/tilesets/primary/ecruteak_temple/palettes/03.pal",
+      "sha256": "a265c8408b8f838e47dc748c01b689d913af202a4476f414750f245a98d0e814"
+    },
+    {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/04.pal",
-      "sha256": "810fd73d78100eabd4592e1d99cfff9f14368819ac878c143b1ee195143650de"
+      "sha256": "7b17f43e50b74e72fa834977bde358c2f62e1ca340ee84b25462ff59e7a1a619"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/05.pal",
-      "sha256": "23a0cd5c1fd3c63f70fad6652f3197115b74215a9bdffc436239e5e2603527fa"
+      "sha256": "bc239b7dbd5560f64bf4e89277900c532493c8734a1e7f6c56e52b83c8477803"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/06.pal",
-      "sha256": "d1f0117539b0274cba4189bfc8e1bbee79b6f89e4cf2985dc4b1d57fa132e3c8"
+      "sha256": "cb58f2891ac0dc60009942b76ff64acb1f03eade78070c901a9f455e5cd56fab"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/07.pal",
-      "sha256": "6be7b38df1bf2bcb585df3b867076761ec802174faabba0d49e130419938c5f0"
+      "sha256": "c49be0062eec89ed2cdcedaab22dfaf3204642981f57327d26889c5f2691cfe8"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/08.pal",
-      "sha256": "c1d252b0bcaebcabcac4c41fb7e90e0b9ed3987f52882177ffb38c1ac13ecd7b"
+      "sha256": "d93dbe05e9cb0680105ae43cd0a716d98fd4d220282f36e726d31ff0290ad1c6"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/09.pal",
-      "sha256": "f736e2509404b4ef3da3b5cdf4b8eca58f50396f700eefede49fa12911cbfc66"
+      "sha256": "69abc214c8bf6845fbb21dcb9428720c87335256979f83c52a14d9970b25617e"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/10.pal",
-      "sha256": "a4e2248b63e23e725f51cfd46ab4457f29edb0ec518c1533c5fe66be94be4088"
+      "sha256": "7fd2e80a0efe09ac40a009c16c83e85dd2fa2d64cd507fb04f4ade4259ac27db"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/11.pal",
-      "sha256": "9cddee8003487252c9d2b5211a4c12f0eb31220e3d2b73ba833950cf4a80e407"
+      "sha256": "ab0dfd1917b73a092c140d125c1dd7f9fe3d06c3945915f18f96d71ee5b843bf"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/12.pal",
-      "sha256": "9e7ef7df7a5ee0ee136d20fbd6e53fc0bbec0fc4b161b32527eade113862d50e"
+      "sha256": "831a4e7937c81bd339abe28469cf6828fd244fe3a73fd5cb8f1a5d9730c5f9a7"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/13.pal",
@@ -205,7 +205,7 @@
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/tiles.png",
-      "sha256": "12b6cdf0bf29bce3da86051348e30aa1aba7da9ffd504f2532882c8aee82db4f"
+      "sha256": "0f8089d0842035b24941c430a69812b7b601dedb19a2cc4d8f291e92e4a138b0"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/metatile_attributes.bin",
@@ -217,55 +217,55 @@
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/00.pal",
-      "sha256": "86a7746f50a73f19a234145e9cc698f7ed4ecbde43204cc496641e52f7251ead"
+      "sha256": "fb861f63505ccd29c11eea68ce0bc960ca15624de2a30c3b2da066e4785ae9bc"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/01.pal",
-      "sha256": "764ade2a566f37c64f3bb5b46f960f5d402526f116ce466248bf53ce7f5ec651"
+      "sha256": "8e6888a186837f3b5a4e73fb42e7a17dcbc10e0dc4e3baf5089d0d0f37a38096"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/02.pal",
-      "sha256": "882a147615d16bdc6db577497f3a1cadfa79174ce83df6286ecadf0a8bc645ee"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/03.pal",
-      "sha256": "4173d453ab3e02564e804a96c19c0d45fa79664a39b4d755316019aa759d39b3"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/04.pal",
       "sha256": "fef0c5cf338a4ac77b256f6f5c251f235d0a608530349c88a6547483a619f6db"
     },
     {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/05.pal",
-      "sha256": "4aa50a05cbac7415b1272a803f8bf5eea08b591a4ef8fa0b51f8fb23aed3d97e"
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/03.pal",
+      "sha256": "c5caee988be3112a913a097a70a742e9461e49c4148aa6332b6c8df5e6c9d9fc"
     },
     {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/06.pal",
-      "sha256": "01d3a89e0cb4fc69e56c3521d0f52b20d0ae29e9ce7d69ee7c85543c0bf4021a"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/07.pal",
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/04.pal",
       "sha256": "4cc4d1dea068dfd31989ed4f51f37121a9fa04f8c38820079f00df9263c72880"
     },
     {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/08.pal",
-      "sha256": "cb153b7892042c1e72bb978711a33c96a1d5dce1834c081dddbbdec21c3416f8"
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/05.pal",
+      "sha256": "a6928a060f8c0d93228a404ba7660d98fadd9c0c36d618543750bc598d4236b7"
     },
     {
-      "path": "data/tilesets/secondary/ecruteak_city/palettes/09.pal",
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/06.pal",
       "sha256": "5e64e84946eb5e985767a08bda3b58bbf86317b77862981292aa94ec8b417cd9"
     },
     {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/07.pal",
+      "sha256": "46d2156b95f42c79cdb555eb6a6c788468058f2df1a5c91b5f50f5d8cdc8f0fc"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/08.pal",
+      "sha256": "9eae3d993d470b2f82b5a308af9450f85369a30c46670156701ef391da5b7cbc"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_city/palettes/09.pal",
+      "sha256": "1466f77a00aa6fc4f17fba4494607e233b87cad384e1407c2ee6807404878f3c"
+    },
+    {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/10.pal",
-      "sha256": "bce8c843e06680441086cdf1dcf2ce523d42945567df13d3bc8e097fd2641800"
+      "sha256": "c49be0062eec89ed2cdcedaab22dfaf3204642981f57327d26889c5f2691cfe8"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/11.pal",
-      "sha256": "8a5873d9b98e7fa932290536b32dd626db6af990c82aa97e1bc439ee9f8ca77c"
+      "sha256": "e46feaf19798d3cc9d01bc4e853c5f5147a63a91de479aedacd7f7d10ac6ae5c"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/12.pal",
-      "sha256": "dd1de3347edc3ab6195239077e0a9390734e58f1d5634a21f8ec435cf494d755"
+      "sha256": "b7cba3f2f86bed0d476fc8278abcbd0ef6d122c304e1ccc34db394a6ed6528f6"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/palettes/13.pal",
@@ -281,7 +281,7 @@
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/tiles.png",
-      "sha256": "1e02f07ff9c6f799a880b6636db33a1b91e934767d41064a402435cf7a6ecf4a"
+      "sha256": "4f50d3cd25bb3a44b268113dcf38b17bb0d8060b9be9f18cfc0ce0d78fbd2a53"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/metatile_attributes.bin",
@@ -293,55 +293,55 @@
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/00.pal",
-      "sha256": "5afdf28a2b61b0a44a684a51ad1c252c703d55aabc00d5dce62ee9d28039c12b"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_temple/palettes/01.pal",
-      "sha256": "7540688e7c22788d021fcd35b5c97746901cf7865bd2233edb078479f89d17e1"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_temple/palettes/02.pal",
-      "sha256": "3f26c3d4734f92c55b8b5e2b7ace10abcbc93adffbffa21b9697f23d3ab312b5"
-    },
-    {
-      "path": "data/tilesets/secondary/ecruteak_temple/palettes/03.pal",
       "sha256": "67f75e1708dfcd4bba778ee388553e2d9f5dfe0f01668d3e8a529082a21980e9"
     },
     {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/01.pal",
+      "sha256": "6637d6b02fa52e859e72ea880e07621711ebd6e03b91829f32e245da7dbd41ba"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/02.pal",
+      "sha256": "505041c81393eb1e7decda5d344ce5a7a0870d05f515b45fc92bfe65f5ca98e9"
+    },
+    {
+      "path": "data/tilesets/secondary/ecruteak_temple/palettes/03.pal",
+      "sha256": "a265c8408b8f838e47dc748c01b689d913af202a4476f414750f245a98d0e814"
+    },
+    {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/04.pal",
-      "sha256": "810fd73d78100eabd4592e1d99cfff9f14368819ac878c143b1ee195143650de"
+      "sha256": "7b17f43e50b74e72fa834977bde358c2f62e1ca340ee84b25462ff59e7a1a619"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/05.pal",
-      "sha256": "23a0cd5c1fd3c63f70fad6652f3197115b74215a9bdffc436239e5e2603527fa"
+      "sha256": "bc239b7dbd5560f64bf4e89277900c532493c8734a1e7f6c56e52b83c8477803"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/06.pal",
-      "sha256": "d1f0117539b0274cba4189bfc8e1bbee79b6f89e4cf2985dc4b1d57fa132e3c8"
+      "sha256": "cb58f2891ac0dc60009942b76ff64acb1f03eade78070c901a9f455e5cd56fab"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/07.pal",
-      "sha256": "6be7b38df1bf2bcb585df3b867076761ec802174faabba0d49e130419938c5f0"
+      "sha256": "c49be0062eec89ed2cdcedaab22dfaf3204642981f57327d26889c5f2691cfe8"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/08.pal",
-      "sha256": "c1d252b0bcaebcabcac4c41fb7e90e0b9ed3987f52882177ffb38c1ac13ecd7b"
+      "sha256": "d93dbe05e9cb0680105ae43cd0a716d98fd4d220282f36e726d31ff0290ad1c6"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/09.pal",
-      "sha256": "f736e2509404b4ef3da3b5cdf4b8eca58f50396f700eefede49fa12911cbfc66"
+      "sha256": "69abc214c8bf6845fbb21dcb9428720c87335256979f83c52a14d9970b25617e"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/10.pal",
-      "sha256": "a4e2248b63e23e725f51cfd46ab4457f29edb0ec518c1533c5fe66be94be4088"
+      "sha256": "7fd2e80a0efe09ac40a009c16c83e85dd2fa2d64cd507fb04f4ade4259ac27db"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/11.pal",
-      "sha256": "9cddee8003487252c9d2b5211a4c12f0eb31220e3d2b73ba833950cf4a80e407"
+      "sha256": "ab0dfd1917b73a092c140d125c1dd7f9fe3d06c3945915f18f96d71ee5b843bf"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/12.pal",
-      "sha256": "9e7ef7df7a5ee0ee136d20fbd6e53fc0bbec0fc4b161b32527eade113862d50e"
+      "sha256": "831a4e7937c81bd339abe28469cf6828fd244fe3a73fd5cb8f1a5d9730c5f9a7"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/palettes/13.pal",
@@ -357,7 +357,7 @@
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/tiles.png",
-      "sha256": "b0eb9b729d1fd4c586c20bcbdec4425b5c38083a683560e6fcb97f2a916a9478"
+      "sha256": "f23e27f47c2eec3bf14c0668472bdcf503771969c37d9788a483c38836f119ce"
     },
     {
       "path": "src/apocrypha_map_proof.c",
@@ -381,8 +381,9 @@
     }
   ],
   "refinement": {
-    "authoring": "refine.py ENGINE (guarded first-pass baseline only)",
-    "encoding": "compile_refinement.py ENGINE PORYTILES_LEGACY",
-    "comparison": "refinement_evidence.py"
+    "authoring": "court_cleanup.py ENGINE PORYTILES_LEGACY (clean c8f961 one-time patch), then court_finish.py (clean d7a478 one-time follow-up)",
+    "exact_palette_dependency": "ortools==9.10.4067",
+    "encoding": "compile_refinement.py with exact cached-bank proof or CP-SAT cover",
+    "comparison": "court_review.py after review.py and actual Porymap export"
   }
 }

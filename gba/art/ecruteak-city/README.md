@@ -1,87 +1,111 @@
-# Ecruteak City — refined HGSS exterior
+# Ecruteak City — court, fixture and stone-wall refinement
 
 [Native source PR #19](https://github.com/Davisfox5/pokeemerald-expansion/pull/19).
-Source `c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29`, stacked on Azalea
-`d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review.
-The PR remains draft pending hosted CI and visual acceptance; local checks pass.
+Engine `c8a8267606411bd62a6274ed0e5f430b1b2f7e80`, stacked on Azalea
+`d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review;
+local checks pass. The source PR remains draft pending hosted CI and visual acceptance.
 
-## Review this refinement
+## Current review
 
-- [First pass/current whole map](evidence/refinement/whole-map.png), [current native map](evidence/native-map.png)
-- [HGSS rocks with canopies removed](evidence/refinement/rocks-without-canopies.png)
-- [Original and recreated tree families](evidence/refinement/tree-masters.png)
-- [Burned Tower](evidence/refinement/burned-tower.png), [Bell entrance and annex](evidence/refinement/bell-entrance.png)
-- [Timber house](evidence/refinement/house-entry.png), [green house](evidence/refinement/house-green.png)
-- [Northwest house](evidence/refinement/house-1.png), [northeast house](evidence/refinement/house-2.png), [southeast house](evidence/refinement/house-southeast.png)
-- [Theater](evidence/refinement/dance-theater.png), [Gym](evidence/refinement/gym.png)
-- [Center](evidence/refinement/center.png), [Mart](evidence/refinement/mart.png)
-- [South torii](evidence/refinement/south-gate.png), [west gate](evidence/refinement/gate-1.png), [east gate](evidence/refinement/gate-2.png)
-- [Actual gameplay](evidence/gameplay-gallery.png), [individual captures](evidence/gameplay/)
-- [Reference grid](evidence/reference-grid.png), [native grid](evidence/native-grid.png)
-- [Cell ledger](evidence/cell-ledger.json), [native checks](evidence/review.json), [material audit](evidence/refinement/native-material-audit.json)
+Every sheet shows the original HGSS reference, previous c8f961 source and current
+**decoded native map**. Coordinates identify native 16px cells.
 
-## What changed
+- [Whole map](evidence/court-refinement/whole-map.png), [current native map](evidence/native-map.png)
+- [Northwest court](evidence/court-refinement/northwest-court.png), [northeast court](evidence/court-refinement/northeast-court.png)
+- [West house and lantern](evidence/court-refinement/west-house-court.png)
+- [Gym](evidence/court-refinement/gym-court.png), [southwest house](evidence/court-refinement/southwest-house-court.png), [southeast house](evidence/court-refinement/southeast-court.png)
+- [Center approach](evidence/court-refinement/center-court.png), [Mart approach](evidence/court-refinement/mart-court.png), [Theater approach](evidence/court-refinement/theater-court.png)
+- [Central plot](evidence/court-refinement/central-plot.png)
+- [Burned Tower](evidence/court-refinement/burned-tower.png), [wall courses without canopies](evidence/court-refinement/tower-without-canopies.png), [temple](evidence/court-refinement/temple.png)
+- [West gateway lanterns](evidence/court-refinement/west-gateway-lanterns.png), [east gateway lanterns](evidence/court-refinement/east-gateway-lanterns.png)
+- [Actual native gameplay](evidence/gameplay-gallery.png), [individual frames](evidence/gameplay/)
+- [Reference grid](evidence/reference-grid.png), [native grid](evidence/native-grid.png), [cell/material ledger](evidence/cell-ledger.json)
 
-Burned Tower's terraces and the western outcrop now use complete approved R02-family
-rock modules. All 48 placements match their masters after RGB5 conversion. Caps,
-faces and corners remain whole; canopy-free review exposes the joins. The pond
-boulder reuses existing Azalea art. The stairs retain their geometry with a coherent
-shared stone ramp. Hidden HGSS faces are interpreted, not claimed as extracted data.
+## Corrections
 
-Recreated HGSS tiered conifers and the broad temple maple replace the first-pass
-crowns. Green, amber and autumn variants preserve trunks and shading. All 447 tree
-positions and distinct 2×2 roots remain; none are partial or overlap another root.
-Explicit original masks and recolor provenance live under `source/refinement/`.
+All ten receiving courts now have one continuous shaded moss-paver rim. The rim
+turns around both shoulders and the head of each recessed approach; it is no
+longer a cut through an unrelated rectangular border. The lower house approaches
+return to their main facade axes. The southeast plain-front house keeps the
+straight rim shown in HGSS, without an invented entrance recess. Recess depth follows each building baseline.
+The Center and Mart keep their earlier grid-aligned placements and unchanged shared
+masters; their receiving courts have been checked against their actual door centers.
 
-Each building has an original/first-pass/current comparison. Golden sliding-door
-panels regain vertical timber grain; Bell entrance/annex glazing is violet and
-Burned Tower glazing green. Roof grain, footings, masks and receiving ground were
-refined locally. Fully opaque blocked wall quadrants use two native layers to retain
-both gold timber and neutral framing exactly. The palette report records the few
-close-shade consolidations needed for the fifteen-color hardware limit.
+Five complete house-front lanterns and both four-lantern gateway rows are restored
+from explicit HGSS masks. Heads, lights, stems and bases remain complete, with
+foreground ground kept separate. Three previously open base cells are now blocked;
+all other collision/elevation and behavior entries remain unchanged. The tower's
+fence posts have complete masks and continuous wood shading.
 
-Center, Mart and shared gate masters remain unchanged. The Center moved 16 source
-pixels east and the Mart 8 north; their courts, curb recesses and door approaches
-were rebuilt together. Theater's notch and placard were cleaned. The obsolete rock
-apron collision was removed; 26 collision edits are individually recorded.
+The Gym now retains cyan glazing, violet bands, warm orange trim and the distinct
+horizontal shading on its central roof spine. Its source sign fragment is removed
+from the wall mask and the occluded wall repaired from the unobscured symmetric
+side; a complete separate sign remains. Burned Tower's orange window timber is
+restored beside its green glazing and charred roof. House roof ridges regain gold
+shading; existing roof grain, timber panels and violet glazing remain distinct.
+The Theater and temple annex regain their gold ridge accents. The Theater has
+one complete freestanding sign; its clipped source-board fragment is removed
+and the covered wall repaired by symmetry. Three close blue/edge shades were
+consolidated to reserve the gold ramp, recorded in
+[source finishing notes](source/court-refinement/finish-report.json). Native RGB5
+colors approximate the source palette; the overview does not provide hidden pixels.
 
-## Reference and native scope
+Burned Tower's two stone courses and the western shelf now use the **Route 32
+stone vocabulary**: original Emerald directional side/front pixels in the accepted
+Cherrygrove ramp. Complete corner masters join the original native 8px quadrants;
+half-side donors are not treated as whole corners. Flat receiving earth remains
+separate from the faces. All 46 placements are audited where visible. This
+supersedes the previous R02 wall arrangement, preserved in the baseline and history.
+[Route32 donor provenance](source/court-refinement/route32-provenance.json).
+
+**The central earth plot is also empty in HGSS, with just a sign.** No building was
+omitted there. It stays open; no new monument or campaign feature is invented.
+
+## Native scope and validation
 
 Original: [HGSS Ecruteak overview](https://archives.bulbagarden.net/media/upload/7/77/Ecruteak_City_HGSS.png),
-1032×785. Original (0,0) registers to native (64,16), without geometric scaling.
-The complete exterior occupies 72×52 native 16px squares. Outward padding completes
-tree crowns and clipped side gates. This is an overview reconstruction, not extracted
-DS collision, height data or hidden terrain. Material and traversal ledgers are separate.
+1032×785. Original (0,0) registers at native (64,16), without geometric scaling.
+The map occupies 72×52 16px squares with outward padding for complete trees/gates.
+This is a source-image reconstruction, not decoded DS collision or hidden terrain.
+All 447 tree anchors and distinct 2×2 roots remain unchanged in this pass.
 
-Two rendering districts preserve room for landmark art: temple uses 845 glyphs /
-339 metatiles; city uses 976 / 420. Each uses thirteen BG banks with sixteen glyph
-slots reserved. The split at global row 27 (source y416) uses a short map fade.
-Interiors, adjoining Routes 37/38/42, Bell Tower path, campaign actors, encounters,
-shops and Gym mechanics remain unwired. Closed doors are tested as closed approaches.
+Temple uses 838 glyphs / 330 metatiles; city uses 960 / 415. Both use thirteen BG
+banks and reserve sixteen glyph slots. The split at global row 27 uses a short
+map fade. Interiors, Bell Tower path, neighboring Routes 37/38/42, campaign actors,
+encounters, shops and Gym mechanics remain unwired. Closed entrances are tested as
+closed approaches.
 
-## Validation and preservation
+The full ROM builds. Actual Porymap 6.3.1 exports equal decoded native output across
+all 3,744 cells, with zero visible authoring, collision or behavior mismatches.
+Visible master pixels, all complete trees, receiving approaches and directional
+wall placements pass. Headless libmGBA checks cover stairs, barriers, restored
+lantern bases, the open central plot, adjusted courts and both district transitions.
+Ordinary save, cold reload and title Continue pass. A **copy** of the preceding
+c8f961 proof save also reloads/continues; its original file remains unchanged.
+These checks support review; owner visual acceptance remains pending.
 
-Actual Porymap 6.3.1 exports equal decoded native output for all 3,744 cells, with
-zero visible authoring, collision or behavior errors. All visible master pixels
-(488,020), complete tree frames and landmark approaches pass review. The full ROM
-build passes. Headless libmGBA tests cover stairs, forest/fence/pond/post barriers,
-both district transitions, adjusted doors and the corrected western apron. Ordinary
-save, cold reload and title Continue pass. A copy of the first-pass save also loads
-and continues on the refined ROM; its original file was left unchanged. See
-[prior-save results](evidence/refinement/prior-save-compatibility.json).
+Records: [current audit](evidence/court-refinement/audit.json), [native review](evidence/review.json),
+[build](evidence/build.json), [runtime](evidence/runtime.json), [copied prior-save test](evidence/court-refinement/prior-save-compatibility.json),
+[preservation](evidence/preservation.json), [reproduction](evidence/reproduction.json), [hosted CI](evidence/hosted-ci.json).
 
-Exact identities: [build](evidence/build.json), [runtime](evidence/runtime.json),
-[preservation](evidence/preservation.json), [reproduction](evidence/reproduction.json).
-Existing IDs and unrelated map art are preserved. Ecruteak uses group 80 IDs 51–52.
-Original first-pass material remains in `source/refinement/baseline/` and Git history.
+## Editable source and preservation
 
-Committed native maps remain authoritative. `refine.py` is a guarded, one-time
-refinement of the first-pass commit; `compile_refinement.py` encodes edited layers
-without regenerating geography. Do not replay first-authoring generators over
-committed layouts. Review actual Porymap exports, build the ROM, then run `runtime.py`
-and `publish.py` for subsequent edits. Porytiles 2.0 uses exact palette covering and
-the engine's stable 512 primary/secondary split.
+Current committed native maps are authoritative. IDs stay at group 80, 51–52;
+shared masters and unrelated map art are untouched. Before-state art, layers,
+ledgers and native render are in `source/court-refinement/baseline/`. Previous
+R02/tree material evidence remains under `evidence/refinement/` as historical work.
 
-Original geography/art: Game Freak / Nintendo / Creatures. Shared artwork provenance
-is in `source/shared-provenance.json` and `source/refinement/shared-rock-provenance.json`.
-No ROMs, saves, credentials or tool executables are committed.
+`court_cleanup.py` is a one-time local patch requiring **clean c8f961 native source**.
+It refuses other heads and uncommitted native edits. `court_finish.py` applies
+the subsequent southeast-rim/sign/ridge corrections to clean d7a478 native source;
+it preserves the background architecture under overlapping canopies. Do not replay first-authoring
+town generators over committed maps. `compile_refinement.py` encodes edited private
+layers with Porytiles 2.0, exact palette covering and the engine's 512-tile split.
+The exact cover uses OR-Tools CP-SAT 9.10.4067 (`python3 -m pip install ortools==9.10.4067`);
+legacy first-authoring uses Z3. Cached banks are reused only if every current patch
+fits without color changes. Run actual Porymap export + `review.py`, `court_review.py`,
+a ROM build, `runtime.py`, then `publish.py` for verification. No nearest-tile art
+replacement or invisible color loss is permitted.
+
+Original geography/art: Game Freak / Nintendo / Creatures. Shared artwork origins
+are recorded under `source/`. No ROMs, saves, credentials or tool binaries are committed.

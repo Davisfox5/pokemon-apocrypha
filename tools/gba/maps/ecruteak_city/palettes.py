@@ -11,6 +11,16 @@ def cover(inp,refinement=False):
    for x in range(0,a.shape[1],8):
     q=a[y:y+8,x:x+8];sets.add(frozenset(map(tuple,q[q[...,3]>0,:3])))
  ss=sorted([v for v in sets if not any(v<w for w in sets)],key=lambda v:(-len(v),sorted(v)))
+ # Reuse a previously verified exact cover only when it covers every current
+ # patch. This is a color-set proof, not a nearest-color approximation.
+ cache=inp/'exact-palette-cover.json'
+ if refinement and cache.exists():
+  prior=json.loads(cache.read_text());banks=[set(map(tuple,b)) for b in prior['banks']]
+  if len(banks)==13 and all(len(b)<=15 for b in banks) and all(any(s<=b for b in banks) for s in ss):
+   prior['maximal_patches']=len(ss);prior['colors']=len(set.union(*(set(v) for v in ss)));cache.write_text(json.dumps(prior,indent=2)+'\n');print(inp.name,'cached exact cover',flush=True);return
+ if refinement and (inp.parent/'court-refinement').exists():
+  from court_palettes import solve
+  solve(inp,ss);return
  cs=sorted(set.union(*(set(v) for v in ss)));ci={c:i for i,c in enumerate(cs)}
  sol=z3.Solver();sol.set(timeout=180000 if refinement else 60000)
  vs=[[z3.Bool(f'b{b}c{i}') for i in range(len(cs))] for b in range(13)]
@@ -25,9 +35,14 @@ def cover(inp,refinement=False):
  autumn=colors('maple-amber')|colors('maple-autumn') if refinement else colors('tree-amber')|colors('tree-autumn')
  burned=colors('burned-tower');bell=colors('bell-entrance')
  if refinement:
+  if len(burned)>15:burned-={(88,40,8),(128,56,8),(168,72,8)}
   if len(burned)>15:burned-={(24,56,40),(40,80,48)}
   if len(bell)>15:bell-={(72,64,112),(128,120,176),(88,24,8),(120,40,16),(152,56,32),(176,80,40),(208,112,64)}
  groups=([green,autumn,burned,bell,colors('house')] if 'temple' in inp.name else [green]+[colors(n) for n in ['house','gym','dance-theater','south-gate','mart']])
+ if refinement:
+  groups=[p for p in groups if len(p)<=15]
+ if refinement and (inp.parent/'court-refinement').exists():
+  groups=groups[:2] if 'temple' in inp.name else groups[:4]
  # The approved gate/Center masters use two banks each, kept exact.
  for name in (['gate'] if 'temple' in inp.name else ['gate','center']):
   a=np.array(Image.open(M/f'{name}.png').convert('RGBA'));pieces=[]

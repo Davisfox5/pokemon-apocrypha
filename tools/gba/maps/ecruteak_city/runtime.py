@@ -21,6 +21,11 @@ steps=r'''
  go(51,56,7);shot("Poke-Mart");step(UP,1);at(51,56,7,"Mart-interior-pending");
  go(51,41,16);step(DOWN,3);at(51,41,19,"southern-torii-passage");shot("southern-torii");step(LEFT,1);at(51,40,19,"torii-opening-left");step(LEFT,1);at(51,40,19,"torii-left-post-blocks");
  go(51,19,10);step(LEFT,1);at(51,18,10,"west-forest-edge");step(LEFT,1);at(51,18,10,"west-forest-blocks");shot("western-woodland");
+ go(52,21,25);step(RIGHT,1);at(52,21,25,"north-house-lantern-base-blocks");shot("house-lantern-north");
+ go(51,21,5);step(RIGHT,1);at(51,21,5,"west-house-lantern-base-blocks");shot("house-lantern-west");
+ go(52,18,24);shot("gateway-lanterns");
+ go(51,35,4);step(DOWN,1);step(LEFT,2);at(51,33,5,"central-empty-plot-open");shot("central-plot");
+ go(51,36,14);shot("southern-house-court");
  go(51,41,8);shot("save-Ecruteak");
 '''
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(51,41,8').replace('cold-reload-new-bark','cold-reload-Ecruteak')

@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "3ab494370f32d0e354a0633080c48f1615d32959527fa6befaf47c24c33866e8",
+  "rom_sha256": "c8b86a59f19f986331317efb729adc5e90ef04c68f9d2e0a2356779464337572",
   "phases": [
     {
       "phase": "write",
@@ -286,6 +286,45 @@
           "map": 51,
           "x": 18,
           "y": 10,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "north-house-lantern-base-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 21,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "west-house-lantern-base-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 21,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "central-empty-plot-open",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 33,
+          "y": 5,
           "frlg_layout": 0,
           "width": 72,
           "height": 25,
