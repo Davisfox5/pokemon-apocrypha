@@ -104,3 +104,5 @@ Approved means chosen; verified means tested. See GBA_BASELINE.md for which
 checks actually exist. Do not turn a design target into a completion claim.
 
 - [City production playbook and Goldenrod retrospective](GBA_CITY_BUILDING_PLAYBOOK.md): required city exemplar; reconstruction, individual building polish, transparent asset/context repairs, approved boardwalk redesign and validation.
+
+- [Olivine native exterior review pass](../gba/art/olivine-city/README.md): HGSS layout, individual building contexts, actual gameplay, source identity and preserved pre-existing remote branch.

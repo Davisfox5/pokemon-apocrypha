@@ -1,0 +1,42 @@
+{
+  "reference": "https://archives.bulbagarden.net/media/upload/f/f6/Olivine_City_HGSS.png",
+  "reference_size": [
+    1035,
+    858
+  ],
+  "native_size": [
+    65,
+    54
+  ],
+  "scale": 1,
+  "origin": [
+    0,
+    0
+  ],
+  "padding": [
+    5,
+    6
+  ],
+  "source": "HGSS overview interpretation, not extracted DS collision",
+  "limits": [
+    "Exterior only; closed doors, no interiors, ferry or Lighthouse floors.",
+    "Route39 and Route40 exits closed pending separately scoped routes.",
+    "Static water, flags and boats.",
+    "Tightly framed isolated source trees retained beside cliff corners."
+  ],
+  "edge_adaptation": {
+    "right_strip": [
+      1032,
+      0,
+      1040,
+      864
+    ],
+    "bottom_strip": [
+      0,
+      856,
+      1040,
+      864
+    ],
+    "method": "Last3 reference columns and last2 reference rows extended across final8px native strips; includes padding plus edge overlap."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "ROM_sha256": "48e52dffd193ed7619a428c3ecc5ec4da5a84121f9f52486ecdc5374de1ce1b0",
+  "exit_code": 0,
+  "observations": [
+    {
+      "step": "main-avenue-end",
+      "region": 3,
+      "group": 80,
+      "map": 65,
+      "x": 8,
+      "y": 10,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "harbor-promenade-end",
+      "region": 3,
+      "group": 80,
+      "map": 72,
+      "x": 3,
+      "y": 7,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "lighthouse-ramp-end",
+      "region": 3,
+      "group": 80,
+      "map": 74,
+      "x": 2,
+      "y": 8,
+      "frlg_layout": 0,
+      "width": 17,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "ferry-pier-end",
+      "region": 3,
+      "group": 80,
+      "map": 69,
+      "x": 8,
+      "y": 7,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 228
+    }
+  ],
+  "clips": [
+    {
+      "clip": "main-avenue",
+      "input_frames": 224,
+      "captured_frames": 56,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "harbor-promenade",
+      "input_frames": 240,
+      "captured_frames": 60,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "lighthouse-ramp",
+      "input_frames": 192,
+      "captured_frames": 48,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "ferry-pier",
+      "input_frames": 160,
+      "captured_frames": 40,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    }
+  ],
+  "cache_overflows": 0
+}

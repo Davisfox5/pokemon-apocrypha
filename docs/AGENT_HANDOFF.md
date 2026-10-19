@@ -1,3 +1,42 @@
+## Latest: city playbook and separate Olivine review pass — 2026-10-19
+
+The owner accepted Goldenrod's carnival result and requested a full retrospective
+as the template for every city, then an Olivine pass. Read
+[GBA_CITY_BUILDING_PLAYBOOK.md](GBA_CITY_BUILDING_PLAYBOOK.md), now linked from
+AGENTS, the context index and reconstruction workflow. It covers initial HGSS
+registration, native hardware/layers, all building/tree/equipment revisions,
+transparent Center receiving-context diagnosis, concept iterations, carnival
+modules, owner constraints and independent validation.
+
+Olivine exterior evidence: `gba/art/olivine-city/README.md`. This work is on
+`codex/olivine-goldenrod-playbook-20261019` in both repos. Engine source
+`c996146b286add8b16f434346a4eed376e6c2b6e`,
+[draft PR #23](https://github.com/Davisfox5/pokeemerald-expansion/pull/23), stacked
+on Goldenrod `eb63c24c`. Thirteen new native sections append map IDs63–75.
+All prior native maps/layout IDs remain exact relative to that baseline.
+
+Important: publication discovered a PRE-EXISTING remote `codex/olivine-city`
+branch, head `506860f6`, containing later Ecruteak/Olivine work. It was preserved
+unchanged. The local pass was published under the distinct name above. Do not
+merge or replay either onto the other without reconciling geography, IDs, engine
+adapters and owner review history. This pass does not supersede that work.
+PR22 was an accidental branch-target mismatch, closed without a merge.
+
+The Olivine pass retains HGSS geography, canonical transparent Center/Mart,
+126 complete shared trees plus isolated original cliff-pocket trees, coherent
+native material palettes, nine building context comparisons, actual Porymap
+parity over3,510 cells and118 exact gameplay BG views (4,531,200 pixels).
+Continuous walking found a private-metatile/diagonal-void overlay bug; only
+Olivine camera transitions skip stale `MoveMapViewToBackup` after InitMap.
+Goldenrod transition behavior is preserved. Production build, movement/barriers,
+ordinary save/cold reload/Continue, prior Goldenrod save, exact Goldenrod return
+scenery, four walking clips and independent clean-source hash/atlas checks pass.
+ROM `48e52dffd193ed7619a428c3ecc5ec4da5a84121f9f52486ecdc5374de1ce1b0`.
+Fresh worktree source equality is verified; no separate fresh compilation claimed.
+Hosted Actions remains disabled. Owner visual review of this pass is pending.
+No interiors, services, NPCs, operational ferry or route exits are implemented.
+Native maps are authoritative; never replay first-authoring helpers over them.
+
 ## Latest: Goldenrod carnival boardwalk — 2026-10-19
 
 Owner approved the Coney Island-style map concept and authorized native building.
