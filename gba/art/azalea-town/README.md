@@ -135,3 +135,27 @@ This is an owner-authorized exterior design proposal. There are no new interiors
 Editable masters are `kurt-kiln.png` and `kurt-firewood.png`. `kurt_extension_art.py` authors only the local proposed objects and a preview from preserved baseline layers. `kurt_extension.py ENGINE` is a guarded direct native patch against `d822306675`; it never replays the town generator. The original layout, placement ledger, masks, source layers and prior proposal are preserved under `source/kurt-extension/`. Reproduction on a detached baseline matches all 40 native Azalea files after palette line-ending normalization.
 
 Native limits: 995/1008 usable glyph slots, 412 metatiles, 13 unchanged palette banks. The patch modifies 33 cells and changes collision in 16 cells for the two cleared trees, rear pile and kiln walls. Actual Porymap6.3.1/native RGB match, original house visible-pixel errors zero, no visible changes outside Kurt’s property. Headless walking verifies the side yard, kiln front/east walls, woodpile barrier and retained forest barrier; normal save, cold reload and ordinary Continue pass. An existing pre-expansion save is tested using a copy. Hosted CI is not claimed; owner visual acceptance remains pending.
+
+### Slowpoke Well terrace depth and gate closures
+
+Current engine `d41fc5718c2205cc284792d7c2a5849549ecd73e` on `codex/azalea-town` repairs the exterior well terrain and closes both ways around the Ilex gate. HGSS is registered at +64,+16. The outer cliff is one continuous 24px drop; the lower northern ramp tapers separately through 16/12/8px faces; the inner court uses a single 16px drop and a matched return corner. Shared complete R02 faces/corners from `82b98516` supply the structure. The exposed side-cap orientations now agree with the north corners. A complete west-descending flight and a two-tile north/south flight use the shared stair silhouettes with the existing neutral palette. The lower southern return is a down-only ledge. Native tile landings are explicit adaptations of the traced overview, not claims of decoded HGSS height or collision data.
+
+Five whole, aligned trees extend the forest behind the gate roof, without roots in its wall footprint. A short shared rail closes the southern seam. The gate’s visible front wall now has matching collision; no reachable path passes its north or south side. Its existing eastern approach remains reachable. The gate and well interiors remain closed. No warps, campaigns or other maps changed. Kurt’s house, kiln and firewood are untouched.
+
+- [Well: original, before, updated](evidence/well-repair-comparison.png)
+- [Gate: original, before, updated](evidence/gate-repair-comparison.png)
+- [Current well detail](evidence/well-repair-current.png)
+- [Current gate detail](evidence/gate-repair-current.png)
+- [Current whole map](evidence/native-map-2x.png)
+- [Gameplay side stairs](evidence/gameplay/well-west-stairs.png)
+- [Gameplay south steps](evidence/gameplay/well-south-stairs.png)
+- [Gameplay gate closure](evidence/gameplay/gate-closed-seams.png)
+- [Repair checks](evidence/well-gate-repair.json)
+- [Detached baseline reproduction](evidence/well-gate-reproduction.json)
+- [Copied previous-save compatibility](evidence/well-gate-previous-save.json)
+
+`well_gate_art.py` assembles only these local repairs from the preserved baseline and shared assets. `well_gate_install.py ENGINE` is a guarded direct native patch against `38200410b5`, with map/scripts/layout/tileset locks. It does not replay the town generator. Editable modules, full background/foreground targets, segment geometry and original masks/layout/placement snapshots are preserved in `source/well-gate-repair/`. Native layer factoring preserves visible object RGB and source silhouettes; compatible tile reuse changes only already-occluded BG pixels, so whole authored modules remain available independently. The original boulder’s background was reconstructed under its real alpha instead of extending its old grass mask across the new rock.
+
+Porymap6.3.1 and native RGB agree across all 2112 cells. Native wall/stair/foreground/physics checks pass, with no overlapping tree roots and no visible changes outside the two repairs. Headless tests cover both stair axes/directions and landings, cliff barriers, one-way ledges, both gate bypasses, approach, normal saves, cold reload and ordinary Continue. A copy of the prior save also passes. All40 native files reproduce from a detached baseline. No ROM, save or tools are committed. Owner visual acceptance remains pending; hosted CI is not claimed.
+
+**Capacity limitation:** this static exterior uses 1024/1024 graphics and 435 metatiles, with all13 palette banks unchanged. Engine loading supports all1024 tiles, both Azalea tileset callbacks are NULL, and the map has no events/warps. The upper16 slots also serve animated doors in `field_door.c`: **repack below1008 before wiring animated interiors**. The installer guards the static/no-events assumption. No engine-wide capacity settings were changed.

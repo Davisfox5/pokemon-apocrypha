@@ -17,11 +17,16 @@ for i,p in enumerate(r['placements'],1):
  a=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;images[i]=a;h,w=a.shape[:2];mask=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][mask]=i
 asset_checks=[]
 for i,p in enumerate(r['placements'],1):
- if p['name'] not in ['kurt-kiln','kurt-firewood','kurt','house','tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
+ if p['name'] not in ['well','gym','small-boulder','well-S01','well-S03','well-S04','gate-P04','kurt-kiln','kurt-firewood','kurt','house','tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
  a=images[i];h,w=a.shape[:2];visible=owner[p['y']:p['y']+h,p['x']:p['x']+w]==i;assert np.array_equal(now[p['y']:p['y']+h,p['x']:p['x']+w][visible],a[visible,:3]);asset_checks.append(dict(name=p['name'],x=p['x'],y=p['y'],visible_pixels=int(visible.sum()),RGB_errors=0))
 final_rocks={(p['x'],p['y']):p for p in r['rock_placements']}
 for p in final_rocks.values():
- a=np.array(Image.open(S/'masters'/(p['tile']+'.png')).convert('RGBA'));a=a[:,::-1] if p['mirror'] else a;x,y=p['x']*16,p['y']*16;mask=a[...,3]>0;assert np.array_equal(bg[y:y+16,x:x+16][mask],a[mask])
+ a=np.array(Image.open(S/'masters'/(p['tile']+'.png')).convert('RGBA'));a=a[:,::-1] if p['mirror'] else a;x,y=p['x']*16,p['y']*16;mask=a[...,3]>0
+ if p['tile'].startswith('well-'):
+  # Authoring modules remain complete. Native encoding may reuse occluded BG
+  # pixels, while foreground objects and every visible terrain pixel stay exact.
+  authored=np.array(Image.open(S/'well-gate-repair/target-background.png').convert('RGBA'));assert np.array_equal(authored[y:y+16,x:x+16][mask],a[mask]);visible=mask&(fg[y:y+16,x:x+16,3]==0);assert np.array_equal(now[y:y+16,x:x+16][visible],a[visible,:3])
+ else:assert np.array_equal(bg[y:y+16,x:x+16][mask],a[mask])
 # Static reachability from central street, including directional ledges. This is
 # authored topology interpreted from the overview, not extracted DS collision.
 seen={(20,18)};todo=list(seen)
@@ -33,8 +38,9 @@ for x,y in todo:
    if dy==1 and beh[ny,nx]==59:ny+=1
    else:continue
   if ny<33 and not solid[ny,nx] and (nx,ny) not in seen:seen.add((nx,ny));todo.append((nx,ny))
-points={'Kurt':(14,12),'Center':(25,16),'Mart':(34,14),'Gym':(20,25),'house':(34,22),'well':(48,16),'Ilex gate':(8,18),'east road':(61,24),'well outer corridor':(52,12),'Kurt side yard':(20,9),'Kurt addition front':(18,12)}
-assert all(p in seen for p in points.values())
+points={'Kurt':(14,12),'Center':(25,16),'Mart':(34,14),'Gym':(20,25),'house':(34,22),'well':(48,16),'Ilex gate':(8,18),'east road':(61,24),'well outer corridor':(52,12),'Kurt side yard':(20,9),'Kurt addition front':(18,12),'well stair west':(43,10),'well stair east':(45,10),'well south stair head':(49,16),'well south stair foot':(49,17)}
+assert all(p in seen for p in points.values()),{k:p for k,p in points.items() if p not in seen}
+assert not any(x<8 for x,y in seen),'Gate bypass remains reachable'
 mat=np.load(S/'material-grid.npy');ledger=[]
 for y,x in np.ndindex(33,64):ledger.append(dict(x=x,y=y,reference_pixel_box=[x*16-64,y*16-16,x*16-48,y*16],material=mat[y,x],native_metatile=int(g[y,x]&1023),collision=int(g[y,x]>>10&3),behavior=int(beh[y,x]),reference_limits='Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately.'))
 (E/'cell-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n');(E/'shared-art-review.json').write_text(json.dumps(asset_checks,indent=2)+'\n')

@@ -1111,11 +1111,37 @@
     [
       62,
       30
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      4,
+      12
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      6,
+      14
     ]
   ],
-  "tree_count": 275,
+  "tree_count": 280,
   "overlapping_tree_roots": 0,
   "placements": [
+    {
+      "name": "gate-P04",
+      "x": 112,
+      "y": 304,
+      "role": "Short shared rail joins gate base to the southern forest"
+    },
     {
       "name": "tree",
       "x": 0,
@@ -2767,6 +2793,36 @@
       "role": "aligned shared forest"
     },
     {
+      "name": "tree",
+      "x": 0,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 32,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 64,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 96,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 96,
+      "y": 224,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
       "name": "kurt-firewood",
       "x": 272,
       "y": 112,
@@ -3005,350 +3061,320 @@
       "x": 864,
       "y": 320,
       "role": "south ledge"
+    },
+    {
+      "name": "well-S04",
+      "x": 704,
+      "y": 144,
+      "role": "Complete shared side stairs, descend west; east/west traversal"
+    },
+    {
+      "name": "well-S01",
+      "x": 768,
+      "y": 256,
+      "role": "North/south stair flight, left edge"
+    },
+    {
+      "name": "well-S03",
+      "x": 784,
+      "y": 256,
+      "role": "North/south stair flight, right edge"
+    },
+    {
+      "name": "L11",
+      "x": 800,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L12",
+      "x": 816,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L12",
+      "x": 832,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L13",
+      "x": 848,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
     }
   ],
   "rock_placements": [
     {
-      "tile": "R02",
-      "x": 43,
-      "y": 7,
+      "tile": "well-R05",
+      "x": 42,
+      "y": 8,
       "mirror": false
     },
     {
-      "tile": "R04",
-      "x": 44,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 45,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 46,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 47,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 48,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 49,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 50,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 51,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 52,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 53,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R05",
-      "x": 43,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R10",
-      "x": 53,
-      "y": 7,
-      "mirror": false
-    },
-    {
-      "tile": "R12",
+      "tile": "well-R02",
       "x": 43,
       "y": 8,
       "mirror": false
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
+      "x": 42,
+      "y": 9,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 10,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 11,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 12,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 13,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 14,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 15,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
       "x": 53,
       "y": 8,
-      "mirror": true
+      "mirror": false
     },
     {
-      "tile": "R11",
-      "x": 43,
+      "tile": "well-R06",
+      "x": 53,
       "y": 9,
       "mirror": false
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 53,
-      "y": 9,
-      "mirror": true
-    },
-    {
-      "tile": "R12",
-      "x": 43,
       "y": 10,
       "mirror": false
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 53,
-      "y": 10,
-      "mirror": true
-    },
-    {
-      "tile": "R11",
-      "x": 43,
       "y": 11,
       "mirror": false
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 53,
-      "y": 11,
-      "mirror": true
-    },
-    {
-      "tile": "R12",
-      "x": 43,
       "y": 12,
       "mirror": false
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 53,
-      "y": 12,
-      "mirror": true
-    },
-    {
-      "tile": "R11",
-      "x": 43,
       "y": 13,
       "mirror": false
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 53,
-      "y": 13,
-      "mirror": true
-    },
-    {
-      "tile": "R12",
-      "x": 43,
       "y": 14,
       "mirror": false
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 53,
-      "y": 14,
-      "mirror": true
-    },
-    {
-      "tile": "R11",
-      "x": 43,
       "y": 15,
       "mirror": false
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 53,
-      "y": 15,
-      "mirror": true
+      "y": 16,
+      "mirror": false
     },
     {
-      "tile": "R04",
+      "tile": "well-R06",
+      "x": 53,
+      "y": 17,
+      "mirror": false
+    },
+    {
+      "tile": "well-R05",
       "x": 44,
       "y": 8,
       "mirror": false
     },
     {
-      "tile": "R02",
+      "tile": "well-R02",
       "x": 45,
       "y": 8,
       "mirror": false
     },
     {
-      "tile": "R04",
+      "tile": "well-R02",
       "x": 46,
       "y": 8,
       "mirror": false
     },
     {
-      "tile": "R02",
+      "tile": "well-R02",
       "x": 47,
       "y": 8,
       "mirror": false
     },
     {
-      "tile": "R04",
+      "tile": "well-R01",
+      "x": 46,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
       "x": 48,
-      "y": 8,
+      "y": 11,
       "mirror": false
     },
     {
-      "tile": "R02",
+      "tile": "well-R01",
       "x": 49,
-      "y": 8,
+      "y": 11,
       "mirror": false
     },
     {
-      "tile": "R04",
+      "tile": "well-R01",
       "x": 50,
-      "y": 8,
+      "y": 11,
       "mirror": false
     },
     {
-      "tile": "R02",
+      "tile": "well-R16",
       "x": 51,
-      "y": 8,
+      "y": 11,
       "mirror": false
     },
     {
-      "tile": "R05",
-      "x": 44,
-      "y": 8,
+      "tile": "well-R06",
+      "x": 51,
+      "y": 12,
       "mirror": false
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
+      "x": 51,
+      "y": 13,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 14,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 15,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
       "x": 44,
       "y": 9,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 44,
       "y": 10,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 44,
       "y": 11,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 44,
       "y": 12,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 44,
       "y": 13,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R12",
+      "tile": "well-R06",
       "x": 44,
       "y": 14,
-      "mirror": false
+      "mirror": true
     },
     {
-      "tile": "R11",
+      "tile": "well-R06",
       "x": 44,
       "y": 15,
+      "mirror": true
+    },
+    {
+      "tile": "well-R15",
+      "x": 44,
+      "y": 16,
       "mirror": false
     },
     {
-      "tile": "R04",
+      "tile": "well-R01",
+      "x": 45,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
       "x": 46,
-      "y": 10,
+      "y": 16,
       "mirror": false
     },
     {
-      "tile": "R02",
+      "tile": "well-R01",
       "x": 47,
-      "y": 10,
+      "y": 16,
       "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 48,
-      "y": 10,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 49,
-      "y": 10,
-      "mirror": false
-    },
-    {
-      "tile": "R04",
-      "x": 50,
-      "y": 10,
-      "mirror": false
-    },
-    {
-      "tile": "R02",
-      "x": 51,
-      "y": 10,
-      "mirror": false
-    },
-    {
-      "tile": "R10",
-      "x": 51,
-      "y": 10,
-      "mirror": false
-    },
-    {
-      "tile": "R11",
-      "x": 51,
-      "y": 11,
-      "mirror": true
-    },
-    {
-      "tile": "R12",
-      "x": 51,
-      "y": 12,
-      "mirror": true
-    },
-    {
-      "tile": "R11",
-      "x": 51,
-      "y": 13,
-      "mirror": true
-    },
-    {
-      "tile": "R12",
-      "x": 51,
-      "y": 14,
-      "mirror": true
-    },
-    {
-      "tile": "R11",
-      "x": 51,
-      "y": 15,
-      "mirror": true
     }
   ],
   "buildings": [
@@ -3438,12 +3464,13 @@
     "small-boulder": 0
   },
   "palettes": 13,
-  "glyphs": 995,
-  "metatiles": 412,
+  "glyphs": 1024,
+  "metatiles": 435,
   "limits": [
     "Exterior only; no building/well interiors or campaign NPCs invented.",
     "Route33/Ilex connections remain closed for separate integration; Route33 source untouched.",
     "Source occluded ground is inferred from adjacent materials."
   ],
-  "owner_adaptation": "Proposed ten-year Kurt property growth: attached kiln and chimney, tight end-on rear firewood stack, exactly two removed complete trees and connected side-yard path."
+  "owner_adaptation": "Proposed ten-year Kurt property growth: attached kiln and chimney, tight end-on rear firewood stack, exactly two removed complete trees and connected side-yard path.",
+  "well_geometry": "source/well-gate-repair/geometry.json"
 }

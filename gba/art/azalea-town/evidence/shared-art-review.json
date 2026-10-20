@@ -1,5 +1,12 @@
 [
   {
+    "name": "gate-P04",
+    "x": 112,
+    "y": 304,
+    "visible_pixels": 139,
+    "RGB_errors": 0
+  },
+  {
     "name": "tree",
     "x": 0,
     "y": 0,
@@ -899,28 +906,28 @@
     "name": "tree",
     "x": 0,
     "y": 160,
-    "visible_pixels": 938,
+    "visible_pixels": 838,
     "RGB_errors": 0
   },
   {
     "name": "tree",
     "x": 32,
     "y": 160,
-    "visible_pixels": 938,
+    "visible_pixels": 838,
     "RGB_errors": 0
   },
   {
     "name": "tree",
     "x": 64,
     "y": 160,
-    "visible_pixels": 938,
+    "visible_pixels": 838,
     "RGB_errors": 0
   },
   {
     "name": "tree",
     "x": 96,
     "y": 160,
-    "visible_pixels": 938,
+    "visible_pixels": 838,
     "RGB_errors": 0
   },
   {
@@ -1925,6 +1932,41 @@
     "RGB_errors": 0
   },
   {
+    "name": "tree",
+    "x": 0,
+    "y": 192,
+    "visible_pixels": 849,
+    "RGB_errors": 0
+  },
+  {
+    "name": "tree",
+    "x": 32,
+    "y": 192,
+    "visible_pixels": 386,
+    "RGB_errors": 0
+  },
+  {
+    "name": "tree",
+    "x": 64,
+    "y": 192,
+    "visible_pixels": 387,
+    "RGB_errors": 0
+  },
+  {
+    "name": "tree",
+    "x": 96,
+    "y": 192,
+    "visible_pixels": 774,
+    "RGB_errors": 0
+  },
+  {
+    "name": "tree",
+    "x": 96,
+    "y": 224,
+    "visible_pixels": 370,
+    "RGB_errors": 0
+  },
+  {
     "name": "kurt-firewood",
     "x": 272,
     "y": 112,
@@ -1960,6 +2002,13 @@
     "RGB_errors": 0
   },
   {
+    "name": "gym",
+    "x": 256,
+    "y": 304,
+    "visible_pixels": 8201,
+    "RGB_errors": 0
+  },
+  {
     "name": "house",
     "x": 512,
     "y": 264,
@@ -1974,6 +2023,13 @@
     "RGB_errors": 0
   },
   {
+    "name": "well",
+    "x": 736,
+    "y": 192,
+    "visible_pixels": 1718,
+    "RGB_errors": 0
+  },
+  {
     "name": "boulder",
     "x": 136,
     "y": 192,
@@ -1985,6 +2041,13 @@
     "x": 648,
     "y": 216,
     "visible_pixels": 584,
+    "RGB_errors": 0
+  },
+  {
+    "name": "small-boulder",
+    "x": 728,
+    "y": 240,
+    "visible_pixels": 218,
     "RGB_errors": 0
   },
   {
@@ -2180,6 +2243,55 @@
     "name": "L13",
     "x": 864,
     "y": 320,
+    "visible_pixels": 96,
+    "RGB_errors": 0
+  },
+  {
+    "name": "well-S04",
+    "x": 704,
+    "y": 144,
+    "visible_pixels": 451,
+    "RGB_errors": 0
+  },
+  {
+    "name": "well-S01",
+    "x": 768,
+    "y": 256,
+    "visible_pixels": 256,
+    "RGB_errors": 0
+  },
+  {
+    "name": "well-S03",
+    "x": 784,
+    "y": 256,
+    "visible_pixels": 256,
+    "RGB_errors": 0
+  },
+  {
+    "name": "L11",
+    "x": 800,
+    "y": 272,
+    "visible_pixels": 96,
+    "RGB_errors": 0
+  },
+  {
+    "name": "L12",
+    "x": 816,
+    "y": 272,
+    "visible_pixels": 114,
+    "RGB_errors": 0
+  },
+  {
+    "name": "L12",
+    "x": 832,
+    "y": 272,
+    "visible_pixels": 114,
+    "RGB_errors": 0
+  },
+  {
+    "name": "L13",
+    "x": 848,
+    "y": 272,
     "visible_pixels": 96,
     "RGB_errors": 0
   }
