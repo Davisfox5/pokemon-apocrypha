@@ -37,6 +37,10 @@ for order,(name,x,y) in enumerate(placements):
  for nn,xx,yy in placements[order+1:]:
   other=np.array(Image.open(S/'masters'/(nn+'.png')).convert('RGBA'));hh,ww=other.shape[:2];left=max(x,xx);top=max(y,yy);right=min(x+w,xx+ww);bottom=min(y+h,yy+hh)
   if left<right and top<bottom:m[top-y:bottom-y,left-x:right-x]&=other[top-yy:bottom-yy,left-xx:right-xx,3]==0
+ if name=='tree' and (S/'rebuilt/placements.json').is_file():
+  for nn,xx,yy,bank,facade in json.loads((S/'rebuilt/placements.json').read_text())['buildings']:
+   other=np.array(Image.open(S/'rebuilt/masters'/(nn+'-native.png')).convert('RGBA'));hh,ww=other.shape[:2];left=max(x,xx);top=max(y,yy);right=min(x+w,xx+ww);bottom=min(y+h,yy+hh)
+   if left<right and top<bottom:m[top-y:bottom-y,left-x:right-x]&=other[top-yy:bottom-yy,left-xx:right-xx,3]==0
  err=int(np.any(a[y:y+h,x:x+w,:][m]!=master[...,:3][m],1).sum());assert not err,(name,x,y,err);shared.append(dict(name=name,origin=[x,y],opaque_pixels=int(m.sum()),RGB_errors=err))
 # Grid/collision views retain readable source underneath overlays.
 for label,base in [('reference-grid',ref),('native-grid',native),('collision-review',native)]:

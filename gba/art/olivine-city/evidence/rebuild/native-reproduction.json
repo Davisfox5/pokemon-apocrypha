@@ -1,0 +1,8 @@
+{
+  "engine_baseline": "c996146b286add8b16f434346a4eed376e6c2b6e",
+  "hub_baseline": "8fb82f736003228dc10db49d0a071fca0589842e",
+  "source_commit": "81697bbe0f9582ca30567604c748f22d0166a458",
+  "files": 340,
+  "mismatches": 0,
+  "method": "Guarded independent-asset assembly in clean baseline worktree; compare all changed native and atlas files to production. Runtime code fixes verified separately."
+}

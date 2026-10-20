@@ -16,7 +16,7 @@ FILMS
  need(c->busRead32(c,sym("gOlivineCacheOverflows"))==0,"continuous-walk-no-overflows");c->deinit(c);return 0;
 }
 '''
-clips=[('main-avenue',24,23,'UP',224),('harbor-promenade',20,34,'RIGHT',240),('lighthouse-ramp',38,35,'RIGHT',192),('ferry-pier',24,38,'DOWN',160)];parts=[]
+clips=[('festival-gate',13,23,'UP',224),('harbor-promenade',20,34,'RIGHT',240),('lighthouse-ramp',38,35,'RIGHT',192),('ferry-pier',24,38,'DOWN',160)];parts=[]
 for name,x,y,key,n in clips:
  parts.append(r.go(x,y)+f'for(int i=0;i<{n};i++){{frames(1,{key});if(i%4==0){{char t[80];sprintf(t,"{name}-%03d",i);shot(t);}}}}frames(32,0);observe("{name}-end");')
 (O/'film.c').write_text(prefix+body.replace('FILMS','\n'.join(parts)));subprocess.run(['cc',str(O/'film.c'),*shlex.split(os.environ.get('MGBA_FLAGS','-lmgba')),'-o',str(O/'film')],check=True)

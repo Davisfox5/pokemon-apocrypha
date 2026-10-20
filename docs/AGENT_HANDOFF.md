@@ -1,3 +1,39 @@
+## Latest: Olivine independent-asset reconstruction — 2026-10-20
+
+The owner rejected the overview-based first pass as prefabs pasted over the
+original map. They authorized reconstruction from individual assets. Read
+`gba/art/olivine-city/evidence/rebuild/README.md` and the owner correction in
+`docs/GBA_CITY_BUILDING_PLAYBOOK.md`. AGENTS now explicitly disallows treating
+full-overview palette conversion as a completed city-art reconstruction.
+
+Current engine `81697bbe0f9582ca30567604c748f22d0166a458`, same distinct branch
+`codex/olivine-goldenrod-playbook-20261019`, draft PR23. All architecture except
+canonical service prefabs is newly prepared standalone art. Terrain and props
+are independently drawn modules; no overview raster is sampled by the assembler.
+All original conifers are replaced with144 complete shared trees. Blue glass,
+cliff caps/faces, fan paving, yellow/blue flags, prop spacing, forest/roof palette
+overlap, source festival-gate opening and upper stair joins received local review.
+
+Same section IDs/dimensions, previous native cities intact. Twenty-four cells
+repair the rejected trace's cliff/railing bypasses, stair shoulders and moved
+lamp/sign footprints. Elevation and save schema are unchanged. Source-cache
+restoration and queued static tile DMA on fast Return/Continue are bypassed only
+for the static Olivine exterior; player state remains intact.
+
+Local build, actual Porymap parity over3510 cells, all building approaches,
+continuous walking/barriers, ordinary view-snapshot save/cold reload/Continue,
+old Olivine save with new physical lamp check, old Goldenrod save and exact
+Goldenrod return scenery pass.134 BG views /5,145,600 pixels have zero errors;
+there are four walking clips. Clean source hash/atlas guards and guarded art
+reproduction over340 native/derived files pass. No second clean compilation or
+hosted CI success claimed. ROM20f7acf35a45e6dd611cc172b352369d49db5dd481cd0d902a5b6cf88cae1a77.
+
+Owner visual acceptance is pending. Exterior only; no services/interiors/ferry
+operation/routes. The pre-existing remote Olivine/Ecruteak branch remains
+preserved and requires reconciliation before merging. Never replay `author.py`;
+it is rejected historical provenance. `rebuild.py` is a guarded c996146b/8fb82f73
+baseline patch only, not an editor for current native work.
+
 ## Latest: city playbook and separate Olivine review pass — 2026-10-19
 
 The owner accepted Goldenrod's carnival result and requested a full retrospective

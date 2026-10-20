@@ -151,7 +151,7 @@
       "reachable": true
     }
   ],
-  "reachable_cells": 1013,
+  "reachable_cells": 997,
   "shared": [
     {
       "name": "center",
@@ -1059,7 +1059,7 @@
         680,
         304
       ],
-      "opaque_pixels": 938,
+      "opaque_pixels": 838,
       "RGB_errors": 0
     },
     {
@@ -1068,7 +1068,7 @@
         712,
         304
       ],
-      "opaque_pixels": 938,
+      "opaque_pixels": 838,
       "RGB_errors": 0
     },
     {
@@ -1077,7 +1077,7 @@
         744,
         304
       ],
-      "opaque_pixels": 938,
+      "opaque_pixels": 838,
       "RGB_errors": 0
     },
     {
@@ -1086,7 +1086,7 @@
         776,
         304
       ],
-      "opaque_pixels": 938,
+      "opaque_pixels": 838,
       "RGB_errors": 0
     },
     {
@@ -1301,6 +1301,168 @@
       "origin": [
         984,
         176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        528,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        560,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        592,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        624,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        528,
+        112
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        560,
+        112
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        592,
+        112
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        624,
+        112
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        824,
+        224
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        880,
+        240
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        832,
+        288
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        880,
+        288
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        848,
+        432
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        848,
+        480
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        336
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        336
+      ],
+      "opaque_pixels": 652,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        336
+      ],
+      "opaque_pixels": 468,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        336
       ],
       "opaque_pixels": 938,
       "RGB_errors": 0

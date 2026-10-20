@@ -1,0 +1,1401 @@
+{
+  "cells": 3510,
+  "native_RGB_errors": 0,
+  "porymap": [
+    {
+      "name": "OlivineCity01",
+      "pixels": 110592,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity02",
+      "pixels": 53248,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity03",
+      "pixels": 57344,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity04",
+      "pixels": 53248,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity05",
+      "pixels": 57344,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity06",
+      "pixels": 53248,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity07",
+      "pixels": 57344,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity08",
+      "pixels": 110592,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity09",
+      "pixels": 117504,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity10",
+      "pixels": 53248,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity11",
+      "pixels": 57344,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity12",
+      "pixels": 56576,
+      "RGB_errors": 0
+    },
+    {
+      "name": "OlivineCity13",
+      "pixels": 60928,
+      "RGB_errors": 0
+    }
+  ],
+  "approaches": [
+    {
+      "name": "Olivine Gym",
+      "approach": [
+        15,
+        16
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "West residence",
+      "approach": [
+        19,
+        22
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "North residence west",
+      "approach": [
+        33,
+        17
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "North residence east",
+      "approach": [
+        38,
+        17
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "Olivine Cafe",
+      "approach": [
+        11,
+        30
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "Lighthouse",
+      "approach": [
+        46,
+        33
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "Port terminal",
+      "approach": [
+        24,
+        50
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "approved Violet Pokemon Center",
+      "approach": [
+        17,
+        30
+      ],
+      "open": true,
+      "reachable": true
+    },
+    {
+      "name": "approved shared Pokemart",
+      "approach": [
+        31,
+        30
+      ],
+      "open": true,
+      "reachable": true
+    }
+  ],
+  "reachable_cells": 1013,
+  "shared": [
+    {
+      "name": "center",
+      "origin": [
+        240,
+        400
+      ],
+      "opaque_pixels": 5679,
+      "RGB_errors": 0
+    },
+    {
+      "name": "mart",
+      "origin": [
+        464,
+        416
+      ],
+      "opaque_pixels": 3765,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        64,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        96,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        128,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        160,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        192,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        224,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        256,
+        0
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        64,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        96,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        128,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        160,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        192,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        224,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        256,
+        32
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        64,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        96,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        128,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        160,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        192,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        224,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        256,
+        64
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        96
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        96
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        64,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        96,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        128,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        160,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        192,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        224,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        256,
+        96
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        128
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        128
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        160
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        160
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        192
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        192
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        224
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        224
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        256
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        256
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        288
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        288
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        320
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        320
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        352
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        352
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        0,
+        384
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        32,
+        384
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        528,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        560,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        592,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        624,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        656,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        688,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        720,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        752,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        784,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        816,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        848,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        880,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        912,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        944,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        976,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        1008,
+        0
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        176
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        176
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        176
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        176
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        208
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        208
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        208
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        208
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        240
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        240
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        240
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        240
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        272
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        272
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        272
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        272
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        680,
+        304
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        712,
+        304
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        744,
+        304
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        776,
+        304
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        824,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        856,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        888,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        920,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        952,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        984,
+        80
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        824,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        856,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        888,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        920,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        952,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        984,
+        112
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        824,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        856,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        888,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        920,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        952,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        984,
+        144
+      ],
+      "opaque_pixels": 838,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        824,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        856,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        888,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        920,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        952,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    },
+    {
+      "name": "tree",
+      "origin": [
+        984,
+        176
+      ],
+      "opaque_pixels": 938,
+      "RGB_errors": 0
+    }
+  ],
+  "contexts": [
+    {
+      "name": "Olivine Gym",
+      "box": [
+        152,
+        128,
+        328,
+        276
+      ],
+      "evidence": "building-contexts/01.png"
+    },
+    {
+      "name": "West residence",
+      "box": [
+        240,
+        248,
+        376,
+        384
+      ],
+      "evidence": "building-contexts/02.png"
+    },
+    {
+      "name": "North residence west",
+      "box": [
+        464,
+        160,
+        600,
+        304
+      ],
+      "evidence": "building-contexts/03.png"
+    },
+    {
+      "name": "North residence east",
+      "box": [
+        544,
+        160,
+        680,
+        304
+      ],
+      "evidence": "building-contexts/04.png"
+    },
+    {
+      "name": "Olivine Cafe",
+      "box": [
+        112,
+        376,
+        248,
+        512
+      ],
+      "evidence": "building-contexts/05.png"
+    },
+    {
+      "name": "Lighthouse",
+      "box": [
+        656,
+        320,
+        840,
+        552
+      ],
+      "evidence": "building-contexts/06.png"
+    },
+    {
+      "name": "Port terminal",
+      "box": [
+        288,
+        672,
+        504,
+        840
+      ],
+      "evidence": "building-contexts/07.png"
+    },
+    {
+      "name": "approved Violet Pokemon Center",
+      "box": [
+        208,
+        376,
+        352,
+        512
+      ],
+      "evidence": "building-contexts/08.png"
+    },
+    {
+      "name": "approved shared Pokemart",
+      "box": [
+        432,
+        392,
+        576,
+        512
+      ],
+      "evidence": "building-contexts/09.png"
+    }
+  ]
+}

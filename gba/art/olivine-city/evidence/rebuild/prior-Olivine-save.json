@@ -1,0 +1,61 @@
+{
+  "source_commit": "c996146b286add8b16f434346a4eed376e6c2b6e",
+  "save_sha256": "89169bbbfd4e410e9892a5662ed770cc32204b2846b7587ba5ad777fa317ae09",
+  "save_bytes": 131072,
+  "read_exit_code": 0,
+  "RGB_errors": 0,
+  "observations": [
+    {
+      "step": "cold-reload-Olivine",
+      "region": 3,
+      "group": 80,
+      "map": 68,
+      "x": 8,
+      "y": 5,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "cold-lamp-approach",
+      "region": 3,
+      "group": 80,
+      "map": 68,
+      "x": 12,
+      "y": 1,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "cold-new-lamp-blocks",
+      "region": 3,
+      "group": 80,
+      "map": 68,
+      "x": 12,
+      "y": 1,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "cold-old-post-cleared",
+      "region": 3,
+      "group": 80,
+      "map": 65,
+      "x": 13,
+      "y": 12,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 228
+    }
+  ]
+}

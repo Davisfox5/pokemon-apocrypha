@@ -1,6 +1,6 @@
 {
-  "frames": 118,
-  "pixels": 4531200,
+  "frames": 134,
+  "pixels": 5145600,
   "RGB_errors": 0,
   "frames_detail": [
     {
@@ -26,8 +26,8 @@
     {
       "frame": "building-01-walk-6",
       "world": [
-        20,
-        29
+        17,
+        32
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -36,8 +36,8 @@
     {
       "frame": "building-01-walk-12",
       "world": [
-        16,
-        27
+        14,
+        29
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -46,8 +46,8 @@
     {
       "frame": "building-01-walk-18",
       "world": [
-        16,
-        21
+        14,
+        23
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -56,8 +56,8 @@
     {
       "frame": "building-01-walk-24",
       "world": [
-        15,
-        16
+        14,
+        17
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -76,7 +76,7 @@
     {
       "frame": "building-02-walk-0",
       "world": [
-        16,
+        14,
         16
       ],
       "camera_delta_y": 0,
@@ -86,8 +86,8 @@
     {
       "frame": "building-02-walk-6",
       "world": [
-        16,
-        22
+        15,
+        21
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -116,8 +116,8 @@
     {
       "frame": "building-03-walk-6",
       "world": [
-        24,
-        20
+        25,
+        23
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -126,8 +126,8 @@
     {
       "frame": "building-03-walk-12",
       "world": [
-        30,
-        20
+        29,
+        25
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -135,6 +135,16 @@
     },
     {
       "frame": "building-03-walk-18",
+      "world": [
+        31,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-24",
       "world": [
         33,
         17
@@ -196,8 +206,8 @@
     {
       "frame": "building-05-walk-12",
       "world": [
-        28,
-        20
+        30,
+        22
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -206,8 +216,8 @@
     {
       "frame": "building-05-walk-18",
       "world": [
-        22,
-        20
+        27,
+        25
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -216,8 +226,8 @@
     {
       "frame": "building-05-walk-24",
       "world": [
-        18,
-        22
+        22,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -226,8 +236,8 @@
     {
       "frame": "building-05-walk-30",
       "world": [
-        14,
-        24
+        20,
+        30
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -544,7 +554,7 @@
       "RGB_errors": 0
     },
     {
-      "frame": "north-route-boundary-walk-0",
+      "frame": "upper-avenue-rail-walk-0",
       "world": [
         30,
         30
@@ -554,7 +564,7 @@
       "RGB_errors": 0
     },
     {
-      "frame": "north-route-boundary-walk-6",
+      "frame": "upper-avenue-rail-walk-6",
       "world": [
         26,
         28
@@ -564,7 +574,7 @@
       "RGB_errors": 0
     },
     {
-      "frame": "north-route-boundary-walk-12",
+      "frame": "upper-avenue-rail-walk-12",
       "world": [
         26,
         22
@@ -574,10 +584,100 @@
       "RGB_errors": 0
     },
     {
+      "frame": "upper-avenue-rail",
+      "world": [
+        26,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-rail-walk-0",
+      "world": [
+        26,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-rail-walk-6",
+      "world": [
+        21,
+        23
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-rail-walk-12",
+      "world": [
+        15,
+        23
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-rail-walk-18",
+      "world": [
+        10,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-rail",
+      "world": [
+        10,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-0",
+      "world": [
+        11,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-6",
+      "world": [
+        14,
+        18
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-12",
+      "world": [
+        18,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
       "frame": "north-route-boundary-walk-18",
       "world": [
         24,
-        18
+        16
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -587,7 +687,7 @@
       "frame": "north-route-boundary-walk-24",
       "world": [
         24,
-        12
+        10
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -597,7 +697,7 @@
       "frame": "north-route-boundary-walk-30",
       "world": [
         24,
-        6
+        4
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -646,8 +746,8 @@
     {
       "frame": "west-route-boundary-walk-18",
       "world": [
-        15,
-        11
+        18,
+        14
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -656,8 +756,8 @@
     {
       "frame": "west-route-boundary-walk-24",
       "world": [
-        9,
-        11
+        14,
+        16
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -666,8 +766,8 @@
     {
       "frame": "west-route-boundary-walk-30",
       "world": [
-        8,
-        16
+        12,
+        20
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -886,7 +986,7 @@
     {
       "frame": "lighthouse-sign",
       "world": [
-        47,
+        48,
         34
       ],
       "camera_delta_y": 0,
@@ -896,7 +996,7 @@
     {
       "frame": "promenade-table-walk-0",
       "world": [
-        46,
+        47,
         34
       ],
       "camera_delta_y": 0,
@@ -906,7 +1006,7 @@
     {
       "frame": "promenade-table-walk-6",
       "world": [
-        40,
+        41,
         34
       ],
       "camera_delta_y": 0,
@@ -916,7 +1016,7 @@
     {
       "frame": "promenade-table-walk-12",
       "world": [
-        34,
+        35,
         34
       ],
       "camera_delta_y": 0,
@@ -926,7 +1026,7 @@
     {
       "frame": "promenade-table-walk-18",
       "world": [
-        28,
+        29,
         34
       ],
       "camera_delta_y": 0,
@@ -936,7 +1036,7 @@
     {
       "frame": "promenade-table-walk-24",
       "world": [
-        22,
+        23,
         34
       ],
       "camera_delta_y": 0,
@@ -946,7 +1046,7 @@
     {
       "frame": "promenade-table-walk-30",
       "world": [
-        16,
+        17,
         34
       ],
       "camera_delta_y": 0,
@@ -957,7 +1057,7 @@
       "frame": "promenade-table-walk-36",
       "world": [
         13,
-        37
+        36
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -974,7 +1074,7 @@
       "RGB_errors": 0
     },
     {
-      "frame": "lighthouse-back-walk-0",
+      "frame": "festival-gate-walk-0",
       "world": [
         11,
         38
@@ -984,10 +1084,60 @@
       "RGB_errors": 0
     },
     {
+      "frame": "festival-gate-walk-6",
+      "world": [
+        14,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate-walk-12",
+      "world": [
+        14,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate-walk-18",
+      "world": [
+        13,
+        24
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate",
+      "world": [
+        13,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-0",
+      "world": [
+        14,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
       "frame": "lighthouse-back-walk-6",
       "world": [
-        17,
-        38
+        18,
+        22
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -997,7 +1147,7 @@
       "frame": "lighthouse-back-walk-12",
       "world": [
         23,
-        38
+        23
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1006,8 +1156,8 @@
     {
       "frame": "lighthouse-back-walk-18",
       "world": [
-        29,
-        38
+        28,
+        24
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1016,8 +1166,8 @@
     {
       "frame": "lighthouse-back-walk-24",
       "world": [
-        35,
-        38
+        32,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1026,8 +1176,8 @@
     {
       "frame": "lighthouse-back-walk-30",
       "world": [
-        39,
-        36
+        38,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1036,8 +1186,8 @@
     {
       "frame": "lighthouse-back-walk-36",
       "world": [
-        44,
-        35
+        39,
+        31
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1046,8 +1196,8 @@
     {
       "frame": "lighthouse-back-walk-42",
       "world": [
-        50,
-        35
+        42,
+        34
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1056,8 +1206,18 @@
     {
       "frame": "lighthouse-back-walk-48",
       "world": [
+        48,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-54",
+      "world": [
         50,
-        29
+        30
       ],
       "camera_delta_y": 0,
       "pixels": 38400,

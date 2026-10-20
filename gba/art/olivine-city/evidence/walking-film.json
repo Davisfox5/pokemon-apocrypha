@@ -1,17 +1,17 @@
 {
-  "ROM_sha256": "48e52dffd193ed7619a428c3ecc5ec4da5a84121f9f52486ecdc5374de1ce1b0",
+  "ROM_sha256": "20f7acf35a45e6dd611cc172b352369d49db5dd481cd0d902a5b6cf88cae1a77",
   "exit_code": 0,
   "observations": [
     {
-      "step": "main-avenue-end",
+      "step": "festival-gate-end",
       "region": 3,
       "group": 80,
-      "map": 65,
-      "x": 8,
-      "y": 10,
+      "map": 63,
+      "x": 13,
+      "y": 16,
       "frlg_layout": 0,
       "width": 16,
-      "height": 14,
+      "height": 27,
       "interaction": 0,
       "mapsec": 228
     },
@@ -57,7 +57,7 @@
   ],
   "clips": [
     {
-      "clip": "main-avenue",
+      "clip": "festival-gate",
       "input_frames": 224,
       "captured_frames": 56,
       "sampling": "1/4 native60Hzframes; GIF67ms",

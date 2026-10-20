@@ -1,4 +1,7 @@
-"""Olivine first authoring only. Native source is authoritative after commit."""
+"""REJECTED overview-based first pass; retained historical provenance only.
+Does not meet the 2026-10-20 owner city-art requirement. Never replay or use as
+a new-city template. See rebuild.py for the independent-component reconstruction.
+"""
 from pathlib import Path
 import sys,json,hashlib,struct,subprocess,shutil
 import numpy as np

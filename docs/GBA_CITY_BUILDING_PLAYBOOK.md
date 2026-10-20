@@ -6,6 +6,43 @@ boardwalk. Their instruction is to carry this quality and process into every
 city. This document complements [the required reconstruction workflow](GBA_MAP_RECONSTRUCTION.md),
 not a replacement for it. Native engine sources remain authoritative.
 
+## Owner correction after the first Olivine pass — 2026-10-20
+
+The owner rejected the appearance of the first Olivine pass: it reused most of
+the actual HGSS overview imagery with palette conversion and shared prefabs on
+top. Its native build, source parity and walking results were technically valid,
+but **those tests did not demonstrate reconstructed artwork or visual quality**.
+The agent acknowledged this and the owner authorized a proper asset rebuild.
+Do not repeat that shortcut or use the rejected pass as a city template.
+
+Use HGSS for placement, scale, silhouettes and material character. Create missing
+architecture as isolated transparent masters, create repeatable material and
+edge modules, then rebuild the ground and structures from those assets. Preserve
+accepted canonical Center/Mart/tree artwork. Keep source artwork, palette fitting,
+foreground, receiving ground and physical footprint independently reviewable.
+Do not reclassify a screenshot raster as a tile library merely by encoding it.
+
+The rebuilt Olivine example is in `gba/art/olivine-city/evidence/rebuild/`.
+It retains separate Gym, residence, café, lighthouse, terminal and boat masters;
+new fan paving, rock faces/caps, lawn, sand, water, docks, rails, stairs, ramp,
+lamps, flags, signs, rocks and parasols. The new renderer atlas derives from the
+assembled native files, with no overview raster input. One residence master is
+reused three times. All old overview foliage is replaced with complete native
+trees. Per-building/terrain comparisons show the actual native result.
+
+Asset joins still require diagnosis: blue glass needs protected palette ramps;
+cliff faces must stay distinct from flat tops; small flags need their intended
+colors; a new entrance can require a sign to move; a lamp must not overlap a Mart
+roof. Mixed tree/roof palette quadrants can use separate background/foreground
+planes to preserve visible canonical pixels. Review material/collision agreement
+square by square: the rejected trace had open cliff squares and a walk-through
+railing. Respect the actual HGSS festival gate, rebuild stair heads and complete
+partial native path/shore cells instead of carrying those defects forward.
+For a static reconstructed exterior, discard the disposable saved viewport cache
+on load so old metatile IDs cannot reinstate obsolete collision. Preserve the
+player, inventory, campaign state, map IDs and save format. Revisit this choice if
+mutable map tiles are introduced later.
+
 ## What made the result work
 
 Geography came from the actual HeartGold/SoulSilver map. Art was reconstructed

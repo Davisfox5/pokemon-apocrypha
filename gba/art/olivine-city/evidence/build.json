@@ -1,8 +1,8 @@
 {
-  "source_commit": "c996146b286add8b16f434346a4eed376e6c2b6e",
+  "source_commit": "81697bbe0f9582ca30567604c748f22d0166a458",
   "baseline": "eb63c24cb7e28c7de1eddd7db0b693a6510b29d4",
   "branch": "codex/olivine-goldenrod-playbook-20261019",
-  "ROM_sha256": "48e52dffd193ed7619a428c3ecc5ec4da5a84121f9f52486ecdc5374de1ce1b0",
+  "ROM_sha256": "20f7acf35a45e6dd611cc172b352369d49db5dd481cd0d902a5b6cf88cae1a77",
   "ROM_bytes": 33554432,
   "local_build_exit_code": 0,
   "toolchain": "Arm GNU14.2.1 / newlib",
@@ -14,9 +14,11 @@
   "hosted_CI": "Disabled on repository; no hosted run claimed",
   "limits": "Exterior review pass; no services, floors, NPCs or route/destination warps. Owner visual review pending.",
   "engine_PR": "https://github.com/Davisfox5/pokeemerald-expansion/pull/23",
-  "preserved_remote_branch": {
-    "branch": "codex/olivine-city",
-    "head": "506860f6a88ba96833f8bec256ebbda110b1113f",
-    "action": "Preserved unchanged; independent review pass published, reconciliation required before merging."
-  }
+  "art_method": "Independent architecture masters, independently drawn material/prop modules, approved canonical prefabs; no overview raster in assembly.",
+  "art_baseline": "c996146b286add8b16f434346a4eed376e6c2b6e",
+  "background_views": 134,
+  "background_pixels": 5145600,
+  "background_RGB_errors": 0,
+  "scope": "Exterior reconstruction; owner visual review pending",
+  "preserved_remote_branch": "codex/olivine-city at506860f6, unchanged"
 }

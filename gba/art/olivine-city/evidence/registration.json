@@ -24,7 +24,7 @@
     "Static water, flags and boats.",
     "Tightly framed isolated source trees retained beside cliff corners."
   ],
-  "edge_adaptation": {
+  "rejected_pass_edge_adaptation": {
     "right_strip": [
       1032,
       0,
@@ -38,5 +38,12 @@
       864
     ],
     "method": "Last3 reference columns and last2 reference rows extended across final8px native strips; includes padding plus edge overlap."
-  }
+  },
+  "current_assembly": "Native component assembly at the existing0,0 registration; original pixels not stretched or sampled.",
+  "native_contour_adaptations": [
+    "House-terrace east lip moved8px to complete native lawn cell40.",
+    "Lower path and quay east edges completed to x640 from x632.",
+    "Upper stair at576,304 is two32px-deep native columns; adjacent old bypass closed.",
+    "Avenue wall steps from x448 to464 at y320, matching whole road cells."
+  ]
 }

@@ -41,13 +41,19 @@ features=json.loads((R/'gba/art/olivine-city/source/features.json').read_text())
 for i,f in enumerate(features):
  target=tuple(f['door_approach']);tag=f'building-{i+1:02}'
  route(target,tag);steps.append('step(UP,1);'+at(*target,tag+'-door-closed'))
-for x,y,key,tag in [(24,1,'UP','north-route-boundary'),(1,31,'LEFT','west-route-boundary'),(7,38,'DOWN','quay-railing'),(22,42,'LEFT','pier-water'),(46,35,'DOWN','lighthouse-retaining-wall'),(47,34,'UP','lighthouse-sign'),(10,38,'UP','promenade-table')]:
+for x,y,key,tag in [(26,21,'UP','upper-avenue-rail'),(10,21,'UP','west-rail'),(24,1,'UP','north-route-boundary'),(1,31,'LEFT','west-route-boundary'),(7,38,'DOWN','quay-railing'),(22,42,'LEFT','pier-water'),(46,35,'DOWN','lighthouse-retaining-wall'),(48,34,'UP','lighthouse-sign'),(10,38,'UP','promenade-table')]:
  route((x,y),tag);steps.append(f'step({key},1);'+at(x,y,tag+'-blocks'))
+route((13,21),'festival-gate');steps.append('step(UP,1);'+at(13,20,'festival-gate-open'));position=(13,20)
 route((50,25),'lighthouse-back');route((24,32),'return-to-city')
 # Renderer lifecycle through prior accepted maps; return for an ordinary save.
 steps.append('go(60,16,6);shot("Goldenrod-regression");go(50,20,18);shot("Azalea-regression");'+go(24,32)+at(24,32,'return-to-Olivine')+'shot("save-Olivine");')
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 main=(start+'\n'.join(steps)+end).replace('at(11,27,18', 'at(%d,%d,%d'%section(24,32)).replace('cold-reload-new-bark','cold-reload-Olivine')
+# Save the same native viewport snapshot that the ordinary save menu records.
+main=main.replace('unsigned status=call("TrySavingData",0);','call("SaveMapView",0);unsigned status=call("TrySavingData",0);')
+# On cold reload, physically verify the new lamp base and cleared old post area.
+read_checks='step(UP,4);step(RIGHT,4);'+at(28,28,'cold-lamp-approach')+'step(UP,1);'+at(28,28,'cold-new-lamp-blocks')+'step(LEFT,1);step(UP,3);step(RIGHT,2);'+at(29,25,'cold-old-post-cleared')
+main=main.replace('shot("cold-reload");','shot("cold-reload");'+read_checks)
 # Check runtime VRAM references and atlas identity in every actually visible frame.
 # Dump native BG/VRAM separately from sprites for exact source comparison.
 extra=r'''
@@ -69,7 +75,7 @@ if __name__=='__main__':
  (O/'runtime.c').write_text(prefix+extra+main)
  subprocess.run(['cc',str(O/'runtime.c'),*shlex.split(os.environ.get('MGBA_FLAGS','-lmgba')),'-o',str(O/'runtime')],check=True)
  raw=subprocess.check_output([str(a.toolchain.resolve()/'bin/arm-none-eabi-nm'),str(G/'pokeemerald.elf')],text=True)
- wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','LoadGameSave','ArePlayerFieldControlsLocked','gMain','CB2_Overworld','gSaveBlock2Ptr','gSaveBlock1Ptr','gPlayerAvatar','gObjectEvents','gOlivineCacheOverflows','gGoldenrodCacheOverflows','sGpuRegBuffer'}
+ wanted={'MapProof_Boot','MapProof_Enter','MapProof_ReadState','MapProof_Resume','gMapProofState','TrySavingData','SaveMapView','LoadGameSave','ArePlayerFieldControlsLocked','gMain','CB2_Overworld','gSaveBlock2Ptr','gSaveBlock1Ptr','gPlayerAvatar','gObjectEvents','gOlivineCacheOverflows','gGoldenrodCacheOverflows','sGpuRegBuffer'}
  symbols={r[2]:r[0] for line in raw.splitlines() if len(r:=line.split())==3 and r[2] in wanted};assert symbols.keys()==wanted
  (O/'symbols.txt').write_text(''.join(f'{k} {v}\n' for k,v in symbols.items()));results=[]
  for phase in ['write','read','menu']:
