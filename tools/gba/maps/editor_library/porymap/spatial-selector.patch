@@ -1,0 +1,170 @@
+diff --git a/include/ui/metatileselector.h b/include/ui/metatileselector.h
+index fc927e2..1204615 100644
+--- a/include/ui/metatileselector.h
++++ b/include/ui/metatileselector.h
+@@ -75,7 +75,10 @@ protected:
+     void hoverLeaveEvent(QGraphicsSceneHoverEvent*) override;
+     void drawSelection() override;
+ private:
+-    const int numMetatilesWide;
++    int numMetatilesWide;
++    int defaultSelectorWidth = 0;
++    QVector<int> organizedTiles;
++    QMap<int, QPoint> organizedPositions;
+     QPixmap basePixmap;
+     bool externalSelection;
+     bool prefabSelection;
+diff --git a/src/ui/metatileselector.cpp b/src/ui/metatileselector.cpp
+index 00725b9..82a6eae 100644
+--- a/src/ui/metatileselector.cpp
++++ b/src/ui/metatileselector.cpp
+@@ -2,6 +2,12 @@
+ #include "metatileselector.h"
+ #include "project.h"
+ #include <QPainter>
++#include <QFile>
++#include <QJsonDocument>
++#include <QJsonArray>
++#include <QJsonObject>
++#include <QCryptographicHash>
++#include "config.h"
+ 
+ QSize MetatileSelector::getSelectionDimensions() const {
+     if (this->prefabSelection || this->externalSelection)
+@@ -16,6 +22,69 @@ int MetatileSelector::numPrimaryMetatilesRounded() const {
+ }
+ 
+ void MetatileSelector::updateBasePixmap() {
++    if (!defaultSelectorWidth) defaultSelectorWidth = numMetatilesWide;
++    numMetatilesWide = defaultSelectorWidth;
++    organizedTiles.clear();
++    organizedPositions.clear();
++    // This is display order only. Native IDs, maps, animations and scripts stay intact.
++    QFile file(projectConfig.projectDir() + "/porymap.selector.json");
++    if (layout && file.open(QIODevice::ReadOnly)) {
++        const auto root = QJsonDocument::fromJson(file.readAll()).object();
++        const auto spec = root.value("layouts").toObject().value(layout->id).toObject();
++        const int width = spec.value("width").toInt();
++        const auto cells = spec.value("cells").toArray();
++        bool valid = root.value("version").toInt() == 1 && width >= 4 && width <= 32
++            && !cells.isEmpty() && cells.size() <= 32768 && cells.size() % width == 0
++            && spec.value("primary").toString() == layout->tileset_primary_label
++            && spec.value("secondary").toString() == layout->tileset_secondary_label;
++        // A catalog for another native revision must never point at the wrong art.
++        const auto hashes = spec.value("sources").toObject();
++        if (hashes.isEmpty()) valid = false;
++        for (auto it = hashes.begin(); valid && it != hashes.end(); ++it) {
++            QFile source(projectConfig.projectDir() + "/" + it.key());
++            valid = source.open(QIODevice::ReadOnly) &&
++                QCryptographicHash::hash(source.readAll(), QCryptographicHash::Sha256).toHex()
++                    == it.value().toString().toLatin1();
++        }
++        for (const auto &cell : cells) {
++            const int id = cell.toInt(-1);
++            if (id < -1 || (id >= 0 && (id > 1023 || !layout->metatileIsValid(id)))) valid = false;
++        }
++        if (valid) {
++            numMetatilesWide = width;
++            QImage image(width * 16, cells.size() / width * 16, QImage::Format_ARGB32);
++            image.fill(QColor(38, 44, 50));
++            QPainter painter(&image);
++            for (int i = 0; i < cells.size(); ++i) {
++                const int id = cells[i].toInt(-1);
++                organizedTiles.append(id);
++                if (id < 0) continue;
++                const QPoint pos(i % width, i / width);
++                if (!organizedPositions.contains(id)) organizedPositions.insert(id, pos);
++                painter.drawImage(pos * 16, getMetatileImage(id, layout));
++            }
++            QFont font = painter.font(); font.setPixelSize(10); painter.setFont(font);
++            for (const auto &value : spec.value("headings").toArray()) {
++                auto header = value.toObject(); int row = header.value("row").toInt(-1);
++                if (row < 0 || row >= cells.size() / width) continue;
++                painter.fillRect(0, row * 16, width * 16, 16, QColor(55, 71, 81));
++                painter.setPen(QColor(235, 243, 247));
++                painter.drawText(QRect(4, row * 16, width * 16 - 8, 16), Qt::AlignVCenter,
++                                 header.value("title").toString());
++            }
++            for (const auto &value : spec.value("labels").toArray()) {
++                auto label = value.toObject();
++                QRect rect(label.value("column").toInt() * 16 + 1,
++                           label.value("row").toInt() * 16, label.value("width").toInt() * 16 - 2, 16);
++                painter.setPen(QColor(183, 216, 232));
++                painter.drawText(rect, Qt::AlignVCenter,
++                    QFontMetrics(font).elidedText(label.value("title").toString(), Qt::ElideRight, rect.width()));
++            }
++            painter.end();
++            basePixmap = QPixmap::fromImage(image);
++            return;
++        }
++    }
+     this->basePixmap = QPixmap::fromImage(getMetatileSheetImage(this->layout, this->numMetatilesWide));
+ }
+ 
+@@ -58,12 +127,12 @@ void MetatileSelector::selectFromMap(uint16_t metatileId, uint16_t collision, ui
+ 
+ void MetatileSelector::setLayout(Layout *layout) {
+     this->layout = layout;
++    updateBasePixmap();
+     if (this->externalSelection)
+         this->updateExternalSelectedMetatiles();
+     else
+         this->updateSelectedMetatiles();
+ 
+-    updateBasePixmap();
+     draw();
+ }
+ 
+@@ -177,8 +246,9 @@ void MetatileSelector::updateSelectedMetatiles() {
+     QPoint origin = this->getSelectionStart();
+     for (int j = 0; j < this->selection.dimensions.height(); j++) {
+         for (int i = 0; i < this->selection.dimensions.width(); i++) {
+-            uint16_t metatileId = posToMetatileId(origin.x() + i, origin.y() + j);
+-            this->selection.metatileItems.append(MetatileSelectionItem{true, metatileId});
++            bool enabled = false;
++            uint16_t metatileId = posToMetatileId(origin.x() + i, origin.y() + j, &enabled);
++            this->selection.metatileItems.append(MetatileSelectionItem{enabled, metatileId});
+         }
+     }
+     emit selectedMetatilesChanged();
+@@ -201,6 +271,13 @@ uint16_t MetatileSelector::posToMetatileId(const QPoint &pos, bool *ok) const {
+ }
+ 
+ uint16_t MetatileSelector::posToMetatileId(int x, int y, bool *ok) const {
++    if (!organizedTiles.isEmpty()) {
++        const int index = y * numMetatilesWide + x;
++        const bool valid = x >= 0 && x < numMetatilesWide && y >= 0
++            && index < organizedTiles.size() && organizedTiles[index] >= 0;
++        if (ok) *ok = valid;
++        return valid ? organizedTiles[index] : 0;
++    }
+     if (ok) *ok = true;
+     int index = y * this->numMetatilesWide + x;
+     uint16_t metatileId = static_cast<uint16_t>(index);
+@@ -224,6 +301,10 @@ uint16_t MetatileSelector::posToMetatileId(int x, int y, bool *ok) const {
+ }
+ 
+ QPoint MetatileSelector::metatileIdToPos(uint16_t metatileId, bool *ok) const {
++    if (!organizedTiles.isEmpty()) {
++        if (ok) *ok = organizedPositions.contains(metatileId);
++        return organizedPositions.value(metatileId, QPoint(-1, -1));
++    }
+     if (primaryTileset() && primaryTileset()->containsMetatileId(metatileId)) {
+         if (ok) *ok = true;
+         int index = metatileId;
+diff --git a/src/vendor/QtGifImage/3rdParty/giflib/gif_lib.h b/src/vendor/QtGifImage/3rdParty/giflib/gif_lib.h
+index 6624cbe..67cd6d5 100644
+--- a/src/vendor/QtGifImage/3rdParty/giflib/gif_lib.h
++++ b/src/vendor/QtGifImage/3rdParty/giflib/gif_lib.h
+@@ -25,7 +25,11 @@ extern "C" {
+ #define FALSE 0
+ #else
+ #include <stdbool.h>
++#ifdef __cplusplus
++#define BOOL bool
++#else
+ #define BOOL _Bool
++#endif
+ #define TRUE 1
+ #define FALSE 0
+ #endif
