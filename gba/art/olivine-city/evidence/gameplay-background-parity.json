@@ -1,6 +1,6 @@
 {
-  "frames": 134,
-  "pixels": 5145600,
+  "frames": 142,
+  "pixels": 5452800,
   "RGB_errors": 0,
   "frames_detail": [
     {
@@ -26,8 +26,8 @@
     {
       "frame": "building-01-walk-6",
       "world": [
-        17,
-        32
+        23,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -36,8 +36,8 @@
     {
       "frame": "building-01-walk-12",
       "world": [
-        14,
-        29
+        18,
+        25
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -46,8 +46,8 @@
     {
       "frame": "building-01-walk-18",
       "world": [
-        14,
-        23
+        13,
+        24
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -57,7 +57,7 @@
       "frame": "building-01-walk-24",
       "world": [
         14,
-        17
+        19
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -86,8 +86,18 @@
     {
       "frame": "building-02-walk-6",
       "world": [
-        15,
+        13,
         21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-02-walk-12",
+      "world": [
+        18,
+        22
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -136,8 +146,8 @@
     {
       "frame": "building-03-walk-18",
       "world": [
-        31,
-        21
+        34,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -146,8 +156,18 @@
     {
       "frame": "building-03-walk-24",
       "world": [
-        33,
-        17
+        36,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-30",
+      "world": [
+        34,
+        18
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -196,8 +216,8 @@
     {
       "frame": "building-05-walk-6",
       "world": [
-        31,
-        17
+        36,
+        22
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -206,8 +226,8 @@
     {
       "frame": "building-05-walk-12",
       "world": [
-        30,
-        22
+        34,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -216,8 +236,8 @@
     {
       "frame": "building-05-walk-18",
       "world": [
-        27,
-        25
+        28,
+        26
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -226,8 +246,8 @@
     {
       "frame": "building-05-walk-24",
       "world": [
-        22,
-        26
+        23,
+        27
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -316,8 +336,8 @@
     {
       "frame": "building-06-walk-30",
       "world": [
-        39,
-        33
+        38,
+        34
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -596,8 +616,8 @@
     {
       "frame": "west-rail-walk-0",
       "world": [
-        26,
-        22
+        25,
+        21
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -606,8 +626,8 @@
     {
       "frame": "west-rail-walk-6",
       "world": [
-        21,
-        23
+        20,
+        22
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -616,17 +636,7 @@
     {
       "frame": "west-rail-walk-12",
       "world": [
-        15,
-        23
-      ],
-      "camera_delta_y": 0,
-      "pixels": 38400,
-      "RGB_errors": 0
-    },
-    {
-      "frame": "west-rail-walk-18",
-      "world": [
-        10,
+        14,
         22
       ],
       "camera_delta_y": 0,
@@ -656,8 +666,8 @@
     {
       "frame": "north-route-boundary-walk-6",
       "world": [
-        14,
-        18
+        15,
+        19
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -666,8 +676,8 @@
     {
       "frame": "north-route-boundary-walk-12",
       "world": [
-        18,
-        16
+        19,
+        17
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -726,8 +736,8 @@
     {
       "frame": "west-route-boundary-walk-6",
       "world": [
-        21,
-        5
+        22,
+        6
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -736,8 +746,8 @@
     {
       "frame": "west-route-boundary-walk-12",
       "world": [
-        20,
-        10
+        22,
+        12
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -766,8 +776,8 @@
     {
       "frame": "west-route-boundary-walk-30",
       "world": [
-        12,
-        20
+        13,
+        21
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -776,7 +786,7 @@
     {
       "frame": "west-route-boundary-walk-36",
       "world": [
-        8,
+        18,
         22
       ],
       "camera_delta_y": 0,
@@ -786,8 +796,8 @@
     {
       "frame": "west-route-boundary-walk-42",
       "world": [
-        8,
-        28
+        23,
+        23
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -796,8 +806,48 @@
     {
       "frame": "west-route-boundary-walk-48",
       "world": [
-        4,
+        23,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-54",
+      "world": [
+        18,
         30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-60",
+      "world": [
+        12,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-66",
+      "world": [
+        6,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-72",
+      "world": [
+        1,
+        31
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1086,8 +1136,8 @@
     {
       "frame": "festival-gate-walk-6",
       "world": [
-        14,
-        35
+        17,
+        38
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1096,8 +1146,8 @@
     {
       "frame": "festival-gate-walk-12",
       "world": [
-        14,
-        29
+        23,
+        38
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1105,6 +1155,36 @@
     },
     {
       "frame": "festival-gate-walk-18",
+      "world": [
+        23,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate-walk-24",
+      "world": [
+        23,
+        26
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate-walk-30",
+      "world": [
+        18,
+        25
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "festival-gate-walk-36",
       "world": [
         13,
         24
@@ -1126,8 +1206,8 @@
     {
       "frame": "lighthouse-back-walk-0",
       "world": [
-        14,
-        20
+        13,
+        21
       ],
       "camera_delta_y": 0,
       "pixels": 38400,
@@ -1186,8 +1266,8 @@
     {
       "frame": "lighthouse-back-walk-36",
       "world": [
-        39,
-        31
+        38,
+        32
       ],
       "camera_delta_y": 0,
       "pixels": 38400,

@@ -1,0 +1,1699 @@
+{
+  "baseline": "dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41",
+  "sections": [
+    {
+      "map": "OlivineCity01",
+      "glyphs": 985,
+      "changed_cells": 71
+    },
+    {
+      "map": "OlivineCity02",
+      "glyphs": 732,
+      "changed_cells": 43
+    },
+    {
+      "map": "OlivineCity03",
+      "glyphs": 803,
+      "changed_cells": 65
+    },
+    {
+      "map": "OlivineCity04",
+      "glyphs": 711,
+      "changed_cells": 19
+    },
+    {
+      "map": "OlivineCity06",
+      "glyphs": 700,
+      "changed_cells": 23
+    },
+    {
+      "map": "OlivineCity07",
+      "glyphs": 728,
+      "changed_cells": 9
+    },
+    {
+      "map": "OlivineCity08",
+      "glyphs": 1006,
+      "changed_cells": 56
+    },
+    {
+      "map": "OlivineCity09",
+      "glyphs": 812,
+      "changed_cells": 2
+    },
+    {
+      "map": "OlivineCity10",
+      "glyphs": 660,
+      "changed_cells": 41
+    },
+    {
+      "map": "OlivineCity12",
+      "glyphs": 721,
+      "changed_cells": 7
+    }
+  ],
+  "collision_changes": [
+    {
+      "cell": [
+        28,
+        3
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        21,
+        5
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        21,
+        6
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        21,
+        7
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        21,
+        8
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        21,
+        9
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        21,
+        10
+      ],
+      "before": false,
+      "after": true,
+      "reason": "north approach left fence"
+    },
+    {
+      "cell": [
+        7,
+        11
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        11
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        7,
+        12
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        9,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        11,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        12,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        13,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        14,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        15,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        16,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        17,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        18,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        19,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        20,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        21,
+        12
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym rear fence"
+    },
+    {
+      "cell": [
+        7,
+        13
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        10,
+        13
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        11,
+        13
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        12,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        13,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        14,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        15,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        16,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        17,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Gym solid footprint"
+    },
+    {
+      "cell": [
+        31,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        32,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        33,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        34,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        35,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        36,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        37,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        38,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        39,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        40,
+        13
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        7,
+        14
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        10,
+        14
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        11,
+        14
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        31,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        32,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        33,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        34,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        35,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North west residence solid footprint"
+    },
+    {
+      "cell": [
+        36,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        37,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        38,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        39,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        40,
+        14
+      ],
+      "before": false,
+      "after": true,
+      "reason": "North east residence solid footprint"
+    },
+    {
+      "cell": [
+        7,
+        15
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        15
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        7,
+        16
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        16
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        7,
+        17
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        17
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        15,
+        17
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        7,
+        18
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        15,
+        18
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        17,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        18,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        19,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        20,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        21,
+        18
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        7,
+        19
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        15,
+        19
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        17,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        18,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        19,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        20,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        21,
+        19
+      ],
+      "before": false,
+      "after": true,
+      "reason": "West residence solid footprint"
+    },
+    {
+      "cell": [
+        14,
+        20
+      ],
+      "before": false,
+      "after": true,
+      "reason": "lamp base west-right"
+    },
+    {
+      "cell": [
+        7,
+        21
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        21
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        24,
+        21
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        25,
+        21
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        30,
+        21
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        31,
+        21
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        32,
+        21
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace right tree trunk"
+    },
+    {
+      "cell": [
+        33,
+        21
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace right tree trunk"
+    },
+    {
+      "cell": [
+        7,
+        22
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        22
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        30,
+        22
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        31,
+        22
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        7,
+        23
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        23
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        30,
+        23
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        31,
+        23
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        7,
+        24
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        24
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        21,
+        24
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        29,
+        24
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        30,
+        24
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        31,
+        24
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        7,
+        25
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        25
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        21,
+        25
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        30,
+        25
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        31,
+        25
+      ],
+      "before": false,
+      "after": true,
+      "reason": "terrace tree grove trunks and dense floor"
+    },
+    {
+      "cell": [
+        7,
+        26
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        21,
+        26
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind elevated lamp"
+    },
+    {
+      "cell": [
+        22,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        43,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        44,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        45,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        46,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        47,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        48,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        49,
+        26
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        7,
+        27
+      ],
+      "before": true,
+      "after": false,
+      "reason": "western street outside fence"
+    },
+    {
+      "cell": [
+        8,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        9,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Cafe solid footprint"
+    },
+    {
+      "cell": [
+        10,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Cafe solid footprint"
+    },
+    {
+      "cell": [
+        11,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Cafe solid footprint"
+    },
+    {
+      "cell": [
+        12,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Cafe solid footprint"
+    },
+    {
+      "cell": [
+        13,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Cafe solid footprint"
+    },
+    {
+      "cell": [
+        14,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        15,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Center solid footprint"
+    },
+    {
+      "cell": [
+        16,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Center solid footprint"
+    },
+    {
+      "cell": [
+        17,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Center solid footprint"
+    },
+    {
+      "cell": [
+        18,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Center solid footprint"
+    },
+    {
+      "cell": [
+        19,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Center solid footprint"
+    },
+    {
+      "cell": [
+        20,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "lamp base central-left"
+    },
+    {
+      "cell": [
+        22,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        28,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "lamp base central-right"
+    },
+    {
+      "cell": [
+        30,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Mart solid footprint"
+    },
+    {
+      "cell": [
+        31,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Mart solid footprint"
+    },
+    {
+      "cell": [
+        32,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Mart solid footprint"
+    },
+    {
+      "cell": [
+        33,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Mart solid footprint"
+    },
+    {
+      "cell": [
+        34,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        35,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        43,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        44,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        45,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        46,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        47,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        48,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        49,
+        27
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        8,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        22,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        35,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        43,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        44,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        45,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        46,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        47,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        48,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        49,
+        28
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        8,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "western vertical fence"
+    },
+    {
+      "cell": [
+        22,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        35,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "service yard fence"
+    },
+    {
+      "cell": [
+        43,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        44,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        45,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        46,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        47,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        48,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        49,
+        29
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Lighthouse solid footprint"
+    },
+    {
+      "cell": [
+        39,
+        33
+      ],
+      "before": false,
+      "after": true,
+      "reason": "harbor ramp north guard"
+    },
+    {
+      "cell": [
+        25,
+        35
+      ],
+      "before": true,
+      "after": false,
+      "reason": "ground behind sign board"
+    },
+    {
+      "cell": [
+        26,
+        36
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Promenade information board base"
+    },
+    {
+      "cell": [
+        39,
+        36
+      ],
+      "before": false,
+      "after": true,
+      "reason": "harbor ramp south guard"
+    },
+    {
+      "cell": [
+        20,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        21,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        22,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        23,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        24,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        25,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        26,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        27,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    },
+    {
+      "cell": [
+        28,
+        47
+      ],
+      "before": false,
+      "after": true,
+      "reason": "Terminal solid footprint"
+    }
+  ],
+  "objects": 26,
+  "cells": 3510,
+  "elevation_changes": 0,
+  "palettes_changed": false
+}

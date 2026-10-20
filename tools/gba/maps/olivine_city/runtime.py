@@ -52,7 +52,7 @@ main=(start+'\n'.join(steps)+end).replace('at(11,27,18', 'at(%d,%d,%d'%section(2
 # Save the same native viewport snapshot that the ordinary save menu records.
 main=main.replace('unsigned status=call("TrySavingData",0);','call("SaveMapView",0);unsigned status=call("TrySavingData",0);')
 # On cold reload, physically verify the new lamp base and cleared old post area.
-read_checks='step(UP,5);step(RIGHT,4);'+at(28,27,'cold-lamp-approach')+'step(RIGHT,1);'+at(28,27,'cold-retained-lamp-blocks')+'step(UP,2);step(RIGHT,1);'+at(29,25,'cold-post-stem-clear')
+read_checks='step(UP,5);step(RIGHT,3);'+at(27,27,'cold-lamp-base-approach')+'step(RIGHT,1);'+at(27,27,'cold-lamp-base-blocks')+'step(UP,2);step(RIGHT,2);'+at(29,25,'cold-lamp-upper-projection-clear')
 main=main.replace('shot("cold-reload");','shot("cold-reload");'+read_checks)
 # Check runtime VRAM references and atlas identity in every actually visible frame.
 # Dump native BG/VRAM separately from sprites for exact source comparison.

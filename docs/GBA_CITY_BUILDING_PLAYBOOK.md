@@ -316,3 +316,50 @@ refuse unexpected baselines. `stream.py` derives the adapter from native files;
 `review.py`, `runtime.py`, `verify_frames.py`, `film.py` and the Porymap exporter
 provide distinct evidence. The next city needs its own reference registration,
 geography, budgets, borders and review ledger. Preserve those distinctions.
+
+## Whole-city foreground and physical audit — Olivine follow-up
+
+The owner's next request exposed a distinct finishing phase: every tile needs a
+physical interpretation and a foreground check, even after the map looks good.
+See [Olivine's complete audit](../gba/art/olivine-city/evidence/interaction-audit/README.md)
+for source, cutouts, exhaustive movement, real sprite poses and a recorded tour.
+
+1. Keep ground, visible overhang, physical base and native layer assignment
+   independent. A whole building image is neither wholly solid nor wholly an
+   overhead canopy. Audit floors, side/rear walls, roof projections and approaches.
+2. Review transparent objects on checkerboard. Remove all attached terrain and
+   repair receiving ground separately. Reuse one cleaned master where appropriate.
+   Olivine's three maritime flag strings reuse a new native master; its three
+   parasols reuse a source-native cloth silhouette. Transparent gaps matter as
+   much as opaque cloth. Preserve existing lamps and reconstruct adjoining rails.
+3. Give every cell a material and physical owner. Check trunks versus crowns,
+   post bases versus heads, table legs versus umbrella cloth, sign supports versus
+   boards, fence pickets versus adjacent walkway and water versus pier edges.
+   Overview projection can put an object's apparent base in a different native
+   cell from its head. Do not retain ghost collision at the head.
+4. Align thin ramps and railings with the approved native passage. Rebuild the
+   exposed terrain where old projected guards were removed; keep both approaches
+   clear. Preserve route structure, IDs, palettes and elevations.
+5. Walk every reachable cell and attempt all four directions, checking actual
+   coordinates against the authored ledger. Separately identify and qualify
+   isolated decorative floor; never describe helper placement as normal walking.
+   Review blocked cells visually too: movement agreement cannot justify a bad
+   footprint or a wrongly classified material.
+6. At actual player poses, compare normal frames with an independently isolated
+   OBJ frame and native foreground masks. Check both coverage and visible negative
+   space. Restore diagnostic changes before walking or recording. Account for
+   semitransparent shadows using actual OAM and blend registers; do not mislabel
+   the shadow's expected color change as an overlay defect.
+7. Inspect real scrolling, not only final standing views. Olivine's final view fit
+   the glyph budget but still overflowed temporarily because outgoing stripe cells
+   held references while replacements allocated. Releasing the complete outgoing
+   stripe before allocation preserved the artwork. Verify exact native BG parity
+   during movement in both directions, plus zero cache overflows.
+8. Record an ordinary continuous tour with chapters and coordinate/input logs.
+   Keep diagnostic frames separate from normal footage. Publish clean cutouts,
+   native grids, physical ledger, sprite examples, source/ROM identity and known
+   limits. Save/reload, old saves and earlier-city regression remain required.
+
+A test passing against the authored masks proves that the engine renders those
+masks correctly; checkerboard and native visual inspection establish whether the
+masks themselves are clean. Both are required. Owner visual acceptance is separate.

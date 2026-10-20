@@ -1,0 +1,344 @@
+[
+  {
+    "name": "Gym",
+    "kind": "building",
+    "physical_box": [
+      12,
+      12,
+      18,
+      16
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "West residence",
+    "kind": "building",
+    "physical_box": [
+      17,
+      18,
+      22,
+      22
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "North west residence",
+    "kind": "building",
+    "physical_box": [
+      31,
+      13,
+      36,
+      17
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "North east residence",
+    "kind": "building",
+    "physical_box": [
+      36,
+      13,
+      41,
+      17
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "Cafe",
+    "kind": "building",
+    "physical_box": [
+      9,
+      27,
+      14,
+      30
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "Center",
+    "kind": "building",
+    "physical_box": [
+      15,
+      27,
+      20,
+      30
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "Mart",
+    "kind": "building",
+    "physical_box": [
+      29,
+      27,
+      34,
+      30
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "Lighthouse",
+    "kind": "building",
+    "physical_box": [
+      43,
+      26,
+      50,
+      33
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "Terminal",
+    "kind": "building",
+    "physical_box": [
+      20,
+      47,
+      29,
+      50
+    ],
+    "upper_roof": "existing transparent native foreground"
+  },
+  {
+    "name": "west-left",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        7,
+        20
+      ]
+    ],
+    "foreground_until_y": 320
+  },
+  {
+    "name": "west-right",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        14,
+        20
+      ],
+      [
+        15,
+        20
+      ]
+    ],
+    "foreground_until_y": 320
+  },
+  {
+    "name": "central-left",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        20,
+        27
+      ],
+      [
+        21,
+        27
+      ]
+    ],
+    "foreground_until_y": 432
+  },
+  {
+    "name": "central-right",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        28,
+        27
+      ],
+      [
+        29,
+        27
+      ]
+    ],
+    "foreground_until_y": 432
+  },
+  {
+    "name": "north-left",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        20,
+        4
+      ],
+      [
+        21,
+        4
+      ]
+    ],
+    "foreground_until_y": 64
+  },
+  {
+    "name": "north-right",
+    "kind": "lamp",
+    "base_cells": [
+      [
+        28,
+        4
+      ],
+      [
+        29,
+        4
+      ]
+    ],
+    "foreground_until_y": 64
+  },
+  {
+    "name": "Gym sign",
+    "kind": "sign",
+    "foreground_box": [
+      168,
+      220,
+      184,
+      236
+    ],
+    "physical_box": [
+      10,
+      15,
+      12,
+      16
+    ]
+  },
+  {
+    "name": "Residence sign",
+    "kind": "sign",
+    "foreground_box": [
+      392,
+      338,
+      408,
+      352
+    ],
+    "physical_box": [
+      24,
+      22,
+      26,
+      23
+    ]
+  },
+  {
+    "name": "Promenade information board",
+    "kind": "sign",
+    "foreground_box": [
+      408,
+      568,
+      426,
+      576
+    ],
+    "physical_box": [
+      25,
+      36,
+      27,
+      37
+    ]
+  },
+  {
+    "name": "Lighthouse sign",
+    "kind": "sign",
+    "foreground_box": [
+      768,
+      520,
+      784,
+      528
+    ],
+    "physical_box": [
+      48,
+      33,
+      49,
+      34
+    ]
+  },
+  {
+    "name": "west parasol",
+    "kind": "parasol",
+    "canopy_origin": [
+      136,
+      544
+    ],
+    "physical_box": [
+      8,
+      36,
+      13,
+      38
+    ],
+    "foreground_mask": "assets/parasol-canopy.png"
+  },
+  {
+    "name": "middle parasol",
+    "kind": "parasol",
+    "canopy_origin": [
+      248,
+      544
+    ],
+    "physical_box": [
+      15,
+      36,
+      20,
+      38
+    ],
+    "foreground_mask": "assets/parasol-canopy.png"
+  },
+  {
+    "name": "east parasol",
+    "kind": "parasol",
+    "canopy_origin": [
+      488,
+      544
+    ],
+    "physical_box": [
+      30,
+      36,
+      35,
+      38
+    ],
+    "foreground_mask": "assets/parasol-canopy.png"
+  },
+  {
+    "name": "harbor ramp",
+    "kind": "rectified ramp",
+    "deck_box": [
+      39,
+      34,
+      43,
+      36
+    ],
+    "guard_rows": [
+      33,
+      36
+    ],
+    "method": "Native wood grain retained; projected corners restored; axis aligned to existing crossing"
+  },
+  {
+    "name": "west bunting",
+    "kind": "suspended flags",
+    "origin": [
+      116,
+      278
+    ],
+    "palette": 6,
+    "asset": "assets/bunting-native.png",
+    "physical": "none; lamp bases separate"
+  },
+  {
+    "name": "central bunting",
+    "kind": "suspended flags",
+    "origin": [
+      340,
+      390
+    ],
+    "palette": 6,
+    "asset": "assets/bunting-native.png",
+    "physical": "none; lamp bases separate"
+  },
+  {
+    "name": "north bunting",
+    "kind": "suspended flags",
+    "origin": [
+      340,
+      22
+    ],
+    "palette": 6,
+    "asset": "assets/bunting-native.png",
+    "physical": "none; lamp bases separate"
+  }
+]

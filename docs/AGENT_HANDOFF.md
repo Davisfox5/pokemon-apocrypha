@@ -1,4 +1,30 @@
-## Latest: flag alpha backgrounds corrected — 2026-10-20
+## Latest: full Olivine collision and foreground audit — 2026-10-20
+
+Owner authorized redesigned flags and every-tile collision/overlay inspection.
+Engine `c1363f3f147e4b61028da9f8a86f9ababda10280`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/interaction-audit/README.md` for the current
+map, 4:19 continuous recording, clean cutouts and full cell/physical ledger.
+All three strings use new maritime bunting; all three parasols have transparent
+cloth overlays and solid tables. Building floors, fences, posts, signs, terrace
+trunks and ramp guards have explicit footprints; 182 collision cells corrected.
+HGSS terrain and shared architecture remain, with local receiving repairs.
+
+All 877 open cells /3,508 directional attempts pass; 868 ordinary reachable and
+nine separately qualified decorative west pavement cells. 877 standing BG and
+actual sprite-layer comparisons have zero errors, including semitransparent OBJ
+shadows. Another1,012 mid-scroll samples are pixel exact. A real scrolling cache
+overflow was caught and fixed by releasing the complete outgoing stripe before
+allocating replacements; final peak1,005/1,008. Local build, actual Porymap,
+save/reload/Continue, prior Olivine/Goldenrod saves and clean source/atlas guards
+pass. 47 generated native/atlas files reproduce exactly. No second clean build
+or hosted CI success claimed; previous7,459 native files unchanged.
+
+`city_interactions.py` requires clean engine dc3c5bf1 and hub c82106e source
+layers; never rerun on current art. Exterior services/interiors/routes remain
+unwired; owner visual review remains pending. Preserve the independent remote
+Olivine/Ecruteak branch. Earlier flag passes below are historical.
+
+## Historical: flag alpha backgrounds corrected — 2026-10-20
 
 Owner found that the prior foreground masks still contained grass/pavement.
 Current engine `dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41` fixes the actual alpha, restores local receiving

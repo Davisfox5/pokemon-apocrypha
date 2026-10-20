@@ -4,7 +4,7 @@ The owner clarified the target after two rejected passes: keep the detailed HGSS
 terrain and polished buildings, but remove superseded objects completely and
 reconstruct everything hidden behind them before placing replacements.
 
-[Updated walking tour: clean transparent flag masks](evidence/flag-alpha-cleanup/README.md).
+[Current city-wide collision/foreground audit and recorded walk](evidence/interaction-audit/README.md).
 
 ![Actual native city](evidence/native-map.png)
 
@@ -35,8 +35,8 @@ Thirteen Porymap sections retain IDs63–75 and their dimensions. Previous citie
 and their native source remain untouched. `source/rebuilt/` holds generated
 original architecture, converted native masters, independently drawn modules,
 placement contours and provenance. The assembly is native tile art, not a
-runtime screenshot. Its derived atlas uses 8,085 glyphs; the largest buffered
-16×16 view needs959 of1,008 slots, with a24,300-byte cache.
+runtime screenshot. Its derived atlas uses 8,138 glyphs; the largest buffered
+16×16 view needs1,005 of1,008 slots, with a24,406-byte cache.
 
 `evidence/rebuild/` retains the rejected before image, isolated native asset sheet,
 reference/before/after building and terrain contexts and historical source/build

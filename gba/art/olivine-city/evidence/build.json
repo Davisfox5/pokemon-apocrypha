@@ -1,8 +1,8 @@
 {
-  "source_commit": "dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41",
+  "source_commit": "c1363f3f147e4b61028da9f8a86f9ababda10280",
   "baseline": "eb63c24cb7e28c7de1eddd7db0b693a6510b29d4",
   "branch": "codex/olivine-goldenrod-playbook-20261019",
-  "ROM_sha256": "1213137539a637ef24bbaa4644f36f8673c738c40d1512d7c41495d78c1e19e0",
+  "ROM_sha256": "8f6a9a3d305ac0dd7f7c3196ef6b4cfbe7fad183e824b44dbd1f4b9bbcdaf255",
   "ROM_bytes": 33554432,
   "local_build_exit_code": 0,
   "toolchain": "Arm GNU14.2.1 / newlib",
@@ -11,8 +11,8 @@
   "build_command": "make -j8 TOOLCHAIN=/workspace/deps/root/usr CFLAGS='-isystem /workspace/deps/root/usr/include/newlib'",
   "native_cells": 3510,
   "background_parity": 0,
+  "exhaustive_walkable_cells": 877,
+  "directed_movement_edges": 3508,
   "hosted_CI": "Disabled on repository; no hosted run claimed",
-  "limits": "Exterior review pass; no services, floors, NPCs or route/destination warps. Owner visual review pending.",
-  "owner_visual_acceptance": "Pending",
-  "flag_alpha": "Ground contamination removed; checkerboard and four positive/negative sprite occlusion poses verified"
+  "limits": "Exterior review pass; no services, floors, NPCs or route/destination warps. Owner visual review pending."
 }

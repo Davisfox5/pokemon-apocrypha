@@ -1,0 +1,43 @@
+{
+  "source_commit": "c1363f3f147e4b61028da9f8a86f9ababda10280",
+  "reviewed_cells": 3510,
+  "reference": "Retained accepted HGSS-based native terrain with local receiving repairs",
+  "sheets": [
+    "../native-grid.png",
+    "../collision-review.png",
+    "../building-review.png",
+    "foreground-cutouts.png",
+    "sprite-layer-gallery.png"
+  ],
+  "findings": [
+    {
+      "area": "north entrance and west/central streets",
+      "resolved": "Three clean maritime bunting strings; floor restored separately; retained supports and actual bases checked."
+    },
+    {
+      "area": "Gym, residence and service yards",
+      "resolved": "Rear/side floors, narrow fence caps, full barriers and front approaches checked."
+    },
+    {
+      "area": "terrace grove",
+      "resolved": "Canopy projections and blocked trunk/dense grove cells separated; stair approaches retained."
+    },
+    {
+      "area": "promenade",
+      "resolved": "All three native parasol canopies isolated, clear lateral edges, solid tables/legs and information-board base."
+    },
+    {
+      "area": "lighthouse and harbor ramp",
+      "resolved": "Footprint, sign, cliff boundaries and two-row guarded passage reviewed."
+    },
+    {
+      "area": "shore, forest and terminal",
+      "resolved": "Continuous barriers, roof overhangs, retained rear passage and closed exits checked."
+    }
+  ],
+  "limits": [
+    "Visual acceptance remains with owner.",
+    "Nine west outer-pavement cells are decorative and isolated, separately runtime qualified.",
+    "No interior/service/route integration in this exterior pass."
+  ]
+}
