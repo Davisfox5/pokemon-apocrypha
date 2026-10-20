@@ -1,29 +1,29 @@
-# Olivine City — rebuilt from independent assets
+# Olivine City — HGSS terrain with repaired receiving contexts
 
-The owner rejected the earlier full-overview palette conversion with prefabs.
-This pass replaces that approach: HGSS supplies geography and design references;
-the actual map is assembled from independent architecture, terrain and props.
-See [the complete rebuild record](evidence/rebuild/README.md) and the
-[city playbook correction](../../../docs/GBA_CITY_BUILDING_PLAYBOOK.md#owner-correction-after-the-first-olivine-pass--2026-10-20).
+The owner clarified the target after two rejected passes: keep the detailed HGSS
+terrain and polished buildings, but remove superseded objects completely and
+reconstruct everything hidden behind them before placing replacements.
 
-![Actual native rebuilt city](evidence/native-map.png)
+![Actual native city](evidence/native-map.png)
 
-## What is reconstructed
+The retained HGSS streets, cliffs, groves and shoreline provide the city's material
+character. Transparent Gym, residence, café, lighthouse, terminal and boat masters
+are retained from the architecture pass; the shared Center and Mart are exact.
+This is a carefully repaired HGSS-based background, not wholly independently
+drawn terrain. Original groves are retained; the rejected 144-tree layout is gone.
 
-New transparent Gym, reusable residence (three placements), café, lighthouse,
-ferry terminal and sailboat masters. Independent native modules provide fan-cut
-stone paving, cliff caps/faces, lawn, sand, water, wood decks, curbs, pickets,
-lamps, flags, signs, parasol tables, shore rocks, stairs and the lighthouse ramp.
-The accepted Center, Mart and tree masters remain protected. All original
-screenshot foliage is gone; there are 144 complete shared trees with distinct
-roots. No original overview raster is read by the rebuild assembler.
+Receiving repairs include full hidden west-house and service-building fences,
+the Gym rear railing, quay rails behind both boats, old building contact shadows,
+lighthouse lawn/sign spacing, terminal deck versus water, path shoulders and the
+original Mart-side lamp. The Mart moves five pixels right to clear that lamp.
+Ground, transparent architecture, roof coverage and collision remain separate.
+Matching original forest/paving courses are reused inside compatible surfaces to
+fit native tile limits; their contours and surrounding boundaries are retained.
 
-Terrain, transparent buildings, roof coverage and collision remain separate.
-Receiving joins include the Mart/lamp clearance, lighthouse/sign spacing,
-forest/roof palette overlap, upper stairs and actual festival gate. The old
-trace's visible cliff/fence bypasses are corrected and recorded by coordinate.
-Partial native path and quay edges are completed to whole cells, including the
-8px east edge adaptation at x640 and the central pier at x448.
+See [source / clean ground / native comparisons](evidence/middle-ground/README.md),
+[the full cleaned background](source/middle-ground/cleaned-ground.png), and
+[the updated city playbook](../../../docs/GBA_CITY_BUILDING_PLAYBOOK.md).
+Earlier `evidence/rebuild/` records rejected terrain history, not current artwork.
 
 ## Source and evidence
 
@@ -33,12 +33,13 @@ Thirteen Porymap sections retain IDs63–75 and their dimensions. Previous citie
 and their native source remain untouched. `source/rebuilt/` holds generated
 original architecture, converted native masters, independently drawn modules,
 placement contours and provenance. The assembly is native tile art, not a
-runtime screenshot. Its derived atlas uses 1,270 glyphs; the largest buffered
-16×16 view needs376 of1,008 slots, with a10,670-byte cache.
+runtime screenshot. Its derived atlas uses 8,088 glyphs; the largest buffered
+16×16 view needs973 of1,008 slots, with a24,306-byte cache.
 
 `evidence/rebuild/` retains the rejected before image, isolated native asset sheet,
-reference/before/after building and terrain contexts, native edit/collision
-records, reproduction checks and latest source/build identities. The main evidence
+reference/before/after building and terrain contexts and historical source/build
+identities. Current repair records are in `source/middle-ground/repairs.json`;
+current verification is in the main evidence folder. The main evidence
 folder contains numbered grids, a cell ledger, actual Porymap exports, gameplay,
 walking clips and ordinary-save tests. Native/functional success does not imply
 owner visual acceptance.
@@ -59,10 +60,11 @@ native grid and documented. Hosted Actions remains disabled; verification is loc
 ## Editing and reproduction
 
 Current native source is authoritative. Never replay the rejected `author.py`
-or first registration over committed maps. `rebuild.py` is a guarded reconstruction
+or first registration over committed maps. `middle_ground.py` is a guarded receiving-context edit from engine `81697bbe`;
+run it only in an isolated clean baseline worktree. `rebuild.py` is a historical guarded reconstruction
 patch from engine `c996146b` and hub `8fb82f73`, meant for an isolated baseline
-worktree only. It uses the retained new component library, not the original
-map raster. Current ordinary edits must preserve the newer native work.
+worktree only. It records the rejected generic terrain pass. Current ordinary edits must
+preserve the newer native work.
 
 After native edits:
 

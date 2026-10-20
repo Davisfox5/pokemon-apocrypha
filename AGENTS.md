@@ -39,12 +39,16 @@
 
 - For city production, also apply the owner-accepted [Goldenrod city playbook](docs/GBA_CITY_BUILDING_PLAYBOOK.md): full reconstruction, building-by-building polish, receiving-context repairs and approved additions.
 
-Owner correction, 2026-10-20: a palette-converted full HGSS overview with shared
-prefabs pasted on top is not a completed city reconstruction. Use that overview
-to establish geography and architectural/material references; build independent
-terrain modules, complete building masters and props, then assemble their joins.
-Show isolated assets and receiving-context comparisons as well as the whole map.
-Native conversion and pixel-parity tests do not establish that artwork was rebuilt.
+Owner clarification, 2026-10-20: retain the HGSS terrain textures that worked in
+Goldenrod, together with polished transparent building masters. Cleanly remove
+superseded objects, including outlines, shadows and attached floor patches.
+Reconstruct everything they obscured—fences, ground, curbs, cliff faces and
+corners—before fitting the replacement. Preserve intact terrain and woodland.
+Show the clean receiving ground and repaired continuations separately from the
+final building placement. Do not stamp over unresolved source objects, and do
+not replace detailed terrain wholesale with generic modules. Goldenrod retained
+and refined HGSS terrain; do not describe it as entirely independent artwork.
+Native conversion and pixel-parity tests do not establish visual acceptance.
 
 ## Required native visual cleanup — all maps and floors
 

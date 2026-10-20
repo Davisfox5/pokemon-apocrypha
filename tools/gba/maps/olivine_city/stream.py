@@ -16,8 +16,26 @@ for s in sections:
   mid=int(g[cy,cx]&1023);es=t.blocks[mid>=512][mid%512];layers[y+cy,x+cx]=t.attrs[mid>=512][mid%512]>>12&3
   for i,e in enumerate(es):
    tid=e&1023;pixels=np.array(t.tiles[tid>=512][tid%512],np.uint8).reshape(-1);raw=bytes(pixels[::2]|pixels[1::2]<<4)
-   if raw not in lookup:lookup[raw]=len(atlas);atlas.append(raw)
-   entries[y+cy,x+cx,i]=lookup[raw]|((e&0xfc00)<<6)
+   if raw not in lookup:
+    tile_id=len(atlas);atlas.append(raw);square=pixels.reshape(8,8)
+    for h in range(2):
+     for v in range(2):
+      variant=square[::-1 if v else 1,::-1 if h else 1].reshape(-1);key=bytes(variant[::2]|variant[1::2]<<4)
+      lookup.setdefault(key,tile_id|h<<16|v<<17)
+   # Compose source flips with the canonical atlas orientation. This shares
+   # mirrored glyphs across private section banks without changing any pixel.
+   entries[y+cy,x+cx,i]=lookup[raw]^((e&0xfc00)<<6)
+# Prove orientation sharing preserves every decoded source quadrant, including
+# mirrored variants introduced by different private section banks.
+for section in sections:
+ n=section['name'];ts=Tileset(G,n.lower(),n.lower());x0,y0,x1,y1=section['box'];grid=np.fromfile(G/f'data/layouts/{n}/map.bin','<u2').reshape(y1-y0,x1-x0)
+ for cy,cx in np.ndindex(grid.shape):
+  mid=int(grid[cy,cx]&1023)
+  for i,e in enumerate(ts.blocks[mid>=512][mid%512]):
+   tid=e&1023;source=np.array(ts.tiles[tid>=512][tid%512],np.uint8).reshape(8,8)[::-1 if e&2048 else 1,::-1 if e&1024 else 1]
+   ae=int(entries[y0+cy,x0+cx,i]);packed=np.frombuffer(atlas[ae&65535],np.uint8);decoded=np.empty(64,np.uint8);decoded[::2]=packed&15;decoded[1::2]=packed>>4;decoded=decoded.reshape(8,8)[::-1 if ae&(1<<17) else 1,::-1 if ae&(1<<16) else 1]
+   assert np.array_equal(source,decoded),(n,cx,cy,i)
+   assert e>>12==ae>>18
 P=G/'data/olivine';P.mkdir(exist_ok=True);(P/'glyphs.4bpp').write_bytes(b''.join(atlas));entries.tofile(P/'entries.bin');layers.tofile(P/'layers.bin')
 assert len(atlas)<65536
 def border_cell(x,y):

@@ -29,7 +29,7 @@ for i,f in enumerate(features):
  x0,y0,x1,y1=f['reference_box'];box=(max(0,x0-32),max(0,y0-24),min(W*16,x1+32),min(H*16,y1+32));w,h=box[2]-box[0],box[3]-box[1];sheet=Image.new('RGB',(w*4,h*2+28),(24,32,40));d=ImageDraw.Draw(sheet);d.text((4,6),f'{f["name"]} — HGSS | native; world px {box}',fill='white');sheet.paste(ref.crop(box).resize((w*2,h*2),Image.Resampling.NEAREST),(0,28));sheet.paste(native.crop(box).resize((w*2,h*2),Image.Resampling.NEAREST),(w*2,28));p=E/'building-contexts';p.mkdir(exist_ok=True);sheet.save(p/f'{i+1:02}.png');contexts.append(dict(name=f['name'],box=box,evidence=f'building-contexts/{i+1:02}.png'))
 # Shared art exactness is checked at actual placements, not just input hashes.
 shared=[]
-placements=[('center',240,400),('mart',464,416)]+[('tree',x,y) for x,y in json.loads((S/'trees.json').read_text())]
+placements=[('center',240,400),('mart',469,416)]+[('tree',x,y) for x,y in json.loads((S/'trees.json').read_text())]
 for order,(name,x,y) in enumerate(placements):
  master=np.array(Image.open(S/'masters'/(name+'.png')).convert('RGBA'));master[...,:3]&=248;h,w=master.shape[:2];m=master[...,3]>0
  # Check only visible pixels; neighboring complete canopies may overlap, while

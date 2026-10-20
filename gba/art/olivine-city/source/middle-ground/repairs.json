@@ -1,0 +1,1383 @@
+{
+  "baseline": "81697bbe0f9582ca30567604c748f22d0166a458",
+  "donors": {
+    "lawn": [
+      144,
+      208,
+      160,
+      224
+    ],
+    "paving": [
+      352,
+      496,
+      384,
+      528
+    ],
+    "dock": [
+      360,
+      648,
+      392,
+      680
+    ],
+    "water": [
+      8,
+      656,
+      40,
+      688
+    ],
+    "north-cliff": [
+      560,
+      160,
+      576,
+      192
+    ],
+    "forest": [
+      688,
+      344,
+      720,
+      392
+    ],
+    "fence": [
+      352,
+      300,
+      368,
+      332
+    ],
+    "quay-rail": [
+      136,
+      616,
+      152,
+      648
+    ]
+  },
+  "repairs": [
+    {
+      "material": "HGSS forest",
+      "reason": "Matching source grove-column reuse inside woodland; boundaries and vertical phase retained",
+      "bounds": [
+        96,
+        0,
+        256,
+        144
+      ],
+      "donor": [
+        128,
+        0,
+        160,
+        144
+      ]
+    },
+    {
+      "material": "HGSS forest",
+      "reason": "Matching source grove-column reuse inside woodland; boundaries and vertical phase retained",
+      "bounds": [
+        704,
+        80,
+        800,
+        304
+      ],
+      "donor": [
+        736,
+        80,
+        768,
+        304
+      ]
+    },
+    {
+      "material": "HGSS forest",
+      "reason": "Matching source grove-column reuse inside woodland; boundaries and vertical phase retained",
+      "bounds": [
+        544,
+        0,
+        1008,
+        64
+      ],
+      "donor": [
+        672,
+        0,
+        704,
+        64
+      ]
+    },
+    {
+      "material": "HGSS forest",
+      "reason": "Complete western grove courses reused at original 48px vertical phase; cliff and bottom crowns retained",
+      "bounds": [
+        0,
+        176,
+        88,
+        400
+      ],
+      "donor": [
+        0,
+        176,
+        88,
+        224
+      ]
+    },
+    {
+      "material": "HGSS forest",
+      "reason": "Same-phase complete interior tree courses; grove outline retained",
+      "bounds": [
+        704,
+        112,
+        800,
+        304
+      ],
+      "donor": [
+        736,
+        112,
+        768,
+        160
+      ]
+    },
+    {
+      "material": "north-cliff",
+      "reason": "Gym removed: restore cliff behind roof",
+      "bounds": [
+        189,
+        152,
+        291,
+        176
+      ],
+      "pixels": 1921,
+      "donor": [
+        560,
+        160,
+        576,
+        192
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Gym removed: restore rear pavement",
+      "bounds": [
+        182,
+        176,
+        297,
+        200
+      ],
+      "pixels": 2684,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Gym removed: restore front lawn",
+      "bounds": [
+        182,
+        200,
+        298,
+        245
+      ],
+      "pixels": 4911,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "west house removed: restore upper street plane",
+      "bounds": [
+        270,
+        270,
+        347,
+        324
+      ],
+      "pixels": 3327,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "west house removed: restore actual plinth lawn",
+      "bounds": [
+        271,
+        324,
+        347,
+        355
+      ],
+      "pixels": 2307,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "north-cliff",
+      "reason": "north house west removed: restore upper ledge",
+      "bounds": [
+        516,
+        184,
+        549,
+        192
+      ],
+      "pixels": 183,
+      "donor": [
+        560,
+        160,
+        576,
+        192
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "north house west removed: restore terrace ground",
+      "bounds": [
+        494,
+        192,
+        571,
+        275
+      ],
+      "pixels": 5716,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "north-cliff",
+      "reason": "north house east removed: restore upper ledge",
+      "bounds": [
+        596,
+        184,
+        629,
+        192
+      ],
+      "pixels": 183,
+      "donor": [
+        560,
+        160,
+        576,
+        192
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "north house east removed: restore terrace ground",
+      "bounds": [
+        574,
+        192,
+        651,
+        275
+      ],
+      "pixels": 5716,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Cafe removed: restore upper street plane",
+      "bounds": [
+        142,
+        398,
+        219,
+        448
+      ],
+      "pixels": 3370,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Cafe removed: restore actual plinth lawn",
+      "bounds": [
+        142,
+        448,
+        219,
+        483
+      ],
+      "pixels": 2695,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Center removed: restore upper street plane",
+      "bounds": [
+        242,
+        400,
+        331,
+        448
+      ],
+      "pixels": 4197,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Center removed: restore actual plinth lawn",
+      "bounds": [
+        242,
+        448,
+        331,
+        483
+      ],
+      "pixels": 3115,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Mart removed: restore upper street plane",
+      "bounds": [
+        470,
+        408,
+        563,
+        448
+      ],
+      "pixels": 3528,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Mart flag removed beyond lawn edge",
+      "bounds": [
+        548,
+        448,
+        563,
+        458
+      ],
+      "pixels": 94,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Mart removed: restore actual plinth lawn",
+      "bounds": [
+        470,
+        448,
+        548,
+        483
+      ],
+      "pixels": 2705,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        200,
+        200,
+        300,
+        256
+      ],
+      "pixels": 5600,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        274,
+        324,
+        352,
+        360
+      ],
+      "pixels": 2808,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        496,
+        224,
+        576,
+        280
+      ],
+      "pixels": 4480,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        576,
+        224,
+        656,
+        280
+      ],
+      "pixels": 4480,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        142,
+        448,
+        224,
+        484
+      ],
+      "pixels": 2952,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        242,
+        448,
+        336,
+        484
+      ],
+      "pixels": 3384,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Complete superseded building contact shadow and support cleanup",
+      "bounds": [
+        468,
+        448,
+        548,
+        484
+      ],
+      "pixels": 2880,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Remove remaining cafe roof finial and outline",
+      "bounds": [
+        142,
+        398,
+        216,
+        420
+      ],
+      "pixels": 1628,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        248,
+        300,
+        264,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        264,
+        300,
+        280,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        280,
+        300,
+        296,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        296,
+        300,
+        312,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        312,
+        300,
+        328,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        328,
+        300,
+        344,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        344,
+        300,
+        360,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        360,
+        300,
+        376,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        376,
+        300,
+        392,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        392,
+        300,
+        408,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        408,
+        300,
+        424,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        424,
+        300,
+        440,
+        332
+      ],
+      "pixels": 512,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete fence and ground hidden by old west-house roof",
+      "bounds": [
+        440,
+        300,
+        448,
+        332
+      ],
+      "pixels": 256,
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Matching fan-paving course reuse on open street, preserving all receiving edges",
+      "bounds": [
+        136,
+        336,
+        240,
+        400
+      ],
+      "donor": [
+        136,
+        336,
+        200,
+        400
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Same-phase original avenue fan courses reused inside street, curbs untouched",
+      "bounds": [
+        352,
+        104,
+        448,
+        304
+      ],
+      "donor": [
+        352,
+        104,
+        416,
+        304
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Rebuild lawn immediately below hidden service-building rear fence",
+      "bounds": [
+        136,
+        432,
+        336,
+        448
+      ],
+      "pixels": 3200,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Full service-building rear fence, pickets aligned to existing visible ends",
+      "bounds": [
+        136,
+        411,
+        336,
+        443
+      ],
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Rebuild lawn immediately below hidden service-building rear fence",
+      "bounds": [
+        472,
+        432,
+        548,
+        448
+      ],
+      "pixels": 1216,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Full service-building rear fence, pickets aligned to existing visible ends",
+      "bounds": [
+        472,
+        411,
+        548,
+        443
+      ],
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "fence",
+      "reason": "Complete hidden Gym rear railing, left/right receiving planes rebuilt first",
+      "bounds": [
+        192,
+        176,
+        296,
+        200
+      ],
+      "donor": [
+        352,
+        300,
+        368,
+        332
+      ]
+    },
+    {
+      "material": "forest",
+      "reason": "Remove old lantern/tower; reconstruct forest crowns at identical vertical phase",
+      "bounds": [
+        688,
+        344,
+        824,
+        392
+      ],
+      "pixels": 6528,
+      "donor": [
+        688,
+        344,
+        720,
+        392
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Remove old roof/facade; restore lighthouse lawn",
+      "bounds": [
+        688,
+        392,
+        824,
+        532
+      ],
+      "pixels": 19040,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "lawn",
+      "reason": "Remove complete old sign, post and shadow; rebuild ground around new doorway",
+      "bounds": [
+        752,
+        512,
+        776,
+        544
+      ],
+      "pixels": 768,
+      "donor": [
+        144,
+        208,
+        160,
+        224
+      ]
+    },
+    {
+      "material": "dock",
+      "reason": "Remove old terminal/marker: complete underlying pier deck",
+      "bounds": [
+        310,
+        686,
+        464,
+        816
+      ],
+      "pixels": 17120,
+      "donor": [
+        360,
+        648,
+        392,
+        680
+      ]
+    },
+    {
+      "material": "water",
+      "reason": "Remove old roof overhang: restore surrounding water",
+      "bounds": [
+        310,
+        686,
+        480,
+        816
+      ],
+      "pixels": 4980,
+      "donor": [
+        8,
+        656,
+        40,
+        688
+      ]
+    },
+    {
+      "material": "dock",
+      "reason": "Complete existing native pier east half-cell, matching deck grain",
+      "bounds": [
+        440,
+        640,
+        448,
+        736
+      ],
+      "pixels": 768,
+      "donor": [
+        360,
+        648,
+        392,
+        680
+      ]
+    },
+    {
+      "material": "dock",
+      "reason": "Complete old sailboat mast, rigging and hull silhouette removal",
+      "bounds": [
+        246,
+        608,
+        334,
+        648
+      ],
+      "pixels": 3520,
+      "donor": [
+        360,
+        648,
+        392,
+        680
+      ]
+    },
+    {
+      "material": "water",
+      "reason": "Complete old hull/shadow removed with unobscured same-height water donor",
+      "bounds": [
+        246,
+        648,
+        334,
+        686
+      ],
+      "donor": [
+        150,
+        648,
+        238,
+        686
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        240,
+        616,
+        256,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        256,
+        616,
+        272,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        272,
+        616,
+        288,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        288,
+        616,
+        304,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        304,
+        616,
+        320,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        320,
+        616,
+        336,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "dock",
+      "reason": "Complete old sailboat mast, rigging and hull silhouette removal",
+      "bounds": [
+        462,
+        608,
+        550,
+        648
+      ],
+      "pixels": 3520,
+      "donor": [
+        360,
+        648,
+        392,
+        680
+      ]
+    },
+    {
+      "material": "water",
+      "reason": "Complete old hull/shadow removed with unobscured same-height water donor",
+      "bounds": [
+        462,
+        648,
+        550,
+        686
+      ],
+      "donor": [
+        142,
+        648,
+        230,
+        686
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        456,
+        616,
+        472,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        472,
+        616,
+        488,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        488,
+        616,
+        504,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        504,
+        616,
+        520,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        520,
+        616,
+        536,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "quay-rail",
+      "reason": "Rebuild full rail/pickets/feet behind removed boat; do not leave a fence gap",
+      "bounds": [
+        536,
+        616,
+        552,
+        648
+      ],
+      "pixels": 512,
+      "donor": [
+        136,
+        616,
+        152,
+        648
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Restore narrow avenue shoulder beside preserved cliff face",
+      "bounds": [
+        448,
+        320,
+        464,
+        400
+      ],
+      "pixels": 1280,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "paving",
+      "reason": "Complete east path shoulder; original wall retained to its right",
+      "bounds": [
+        632,
+        336,
+        640,
+        544
+      ],
+      "pixels": 1664,
+      "donor": [
+        352,
+        496,
+        384,
+        528
+      ]
+    },
+    {
+      "material": "dock",
+      "reason": "Complete original quay shoulder beside retaining wall",
+      "bounds": [
+        632,
+        576,
+        640,
+        624
+      ],
+      "pixels": 384,
+      "donor": [
+        360,
+        648,
+        392,
+        680
+      ]
+    }
+  ],
+  "placements": [
+    [
+      "gym",
+      184,
+      148,
+      4,
+      224
+    ],
+    [
+      "house",
+      272,
+      264,
+      5,
+      328
+    ],
+    [
+      "house",
+      496,
+      184,
+      5,
+      248
+    ],
+    [
+      "house",
+      576,
+      184,
+      5,
+      248
+    ],
+    [
+      "cafe",
+      144,
+      400,
+      12,
+      448
+    ],
+    [
+      "lighthouse",
+      688,
+      344,
+      6,
+      480
+    ],
+    [
+      "terminal",
+      320,
+      688,
+      6,
+      776
+    ],
+    [
+      "center",
+      240,
+      400,
+      9,
+      448
+    ],
+    [
+      "mart",
+      469,
+      416,
+      11,
+      448
+    ],
+    [
+      "sailboat",
+      248,
+      608,
+      6,
+      684
+    ],
+    [
+      "sailboat",
+      464,
+      608,
+      6,
+      684
+    ]
+  ],
+  "protected_source_pixels": 655637,
+  "protected_source_RGB_errors": 0,
+  "preserved_groves": "Intact HGSS terrain; not erased or doubled with prefab trees."
+}

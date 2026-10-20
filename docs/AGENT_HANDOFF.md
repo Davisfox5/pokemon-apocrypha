@@ -1,4 +1,37 @@
-## Latest: Olivine independent-asset reconstruction — 2026-10-20
+## Latest: Olivine HGSS receiving-context repair — 2026-10-20
+
+The owner clarified the desired middle ground: keep Goldenrod's HGSS terrain
+character and the polished Olivine buildings; completely remove superseded
+objects and rebuild all hidden fences/ground before fitting replacements.
+The independent generic terrain pass below was rejected. AGENTS and the city
+playbook now reflect the clarification. Do not return to generic wholesale
+terrain replacement or unresolved prefab stamping.
+
+Current engine `86b1e47e0305596bb76fd1a1ff94f3b47947e47d`, branch
+`codex/olivine-goldenrod-playbook-20261019`, draft PR23. Read
+`gba/art/olivine-city/evidence/middle-ground/README.md`. The current native map
+retains repaired HGSS terrain, groves and shoreline with polished transparent
+architecture. No144-tree layout. Full old contact shadows and small support/
+window remnants were removed. Hidden west-house/service/Gym/quay fences are
+complete before placement. The Mart shifts5px right to clear the original lamp;
+only two lamp collision cells change from81697. Native table padding fixes
+neighbor attribute lookups during section crossings; mirrored atlas sharing
+preserves every decoded native quadrant. Section IDs/topology stay fixed.
+
+Local ROM build, actual Porymap3510-cell parity, all approaches, continuous
+walking/barriers, SaveMapView/cold reload/title Continue, prior Olivine and
+Goldenrod saves pass.134 BG captures /5,145,600 pixels have zero errors. Four
+walking clips and source/clean-ground/final contexts are published. Clean source
+and both atlas guards pass; guarded native reproduction hashes agree. Previous
+7459 native files remain unchanged. No second clean compilation or hosted CI
+success claimed. ROM SHA256 `d5aa20b933f2040c7bd3b52a576fa3ec76234b150dcb99eb4f3c729ef170eb97`.
+
+Owner visual acceptance remains pending. Exterior only; services/interiors/ferry/
+routes remain unwired. Preserve the independent remote Olivine/Ecruteak branch.
+Never replay old author/rebuild tools over current source. `middle_ground.py`
+is an isolated clean81697-baseline provenance edit, not a general current editor.
+
+## Historical rejected generic-terrain pass: Olivine independent-asset reconstruction — 2026-10-20
 
 The owner rejected the overview-based first pass as prefabs pasted over the
 original map. They authorized reconstruction from individual assets. Read

@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "20f7acf35a45e6dd611cc172b352369d49db5dd481cd0d902a5b6cf88cae1a77",
+  "rom_sha256": "d5aa20b933f2040c7bd3b52a576fa3ec76234b150dcb99eb4f3c729ef170eb97",
   "phases": [
     {
       "phase": "write",
@@ -8018,7 +8018,7 @@
           "group": 80,
           "map": 68,
           "x": 12,
-          "y": 1,
+          "y": 0,
           "frlg_layout": 0,
           "width": 16,
           "height": 13,
@@ -8026,12 +8026,12 @@
           "mapsec": 228
         },
         {
-          "step": "cold-new-lamp-blocks",
+          "step": "cold-retained-lamp-blocks",
           "region": 3,
           "group": 80,
           "map": 68,
           "x": 12,
-          "y": 1,
+          "y": 0,
           "frlg_layout": 0,
           "width": 16,
           "height": 13,
@@ -8039,7 +8039,7 @@
           "mapsec": 228
         },
         {
-          "step": "cold-old-post-cleared",
+          "step": "cold-post-stem-clear",
           "region": 3,
           "group": 80,
           "map": 65,

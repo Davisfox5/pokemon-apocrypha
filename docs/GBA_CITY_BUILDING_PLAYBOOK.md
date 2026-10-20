@@ -6,42 +6,37 @@ boardwalk. Their instruction is to carry this quality and process into every
 city. This document complements [the required reconstruction workflow](GBA_MAP_RECONSTRUCTION.md),
 not a replacement for it. Native engine sources remain authoritative.
 
-## Owner correction after the first Olivine pass — 2026-10-20
+## Current owner clarification — 2026-10-20
 
-The owner rejected the appearance of the first Olivine pass: it reused most of
-the actual HGSS overview imagery with palette conversion and shared prefabs on
-top. Its native build, source parity and walking results were technically valid,
-but **those tests did not demonstrate reconstructed artwork or visual quality**.
-The agent acknowledged this and the owner authorized a proper asset rebuild.
-Do not repeat that shortcut or use the rejected pass as a city template.
+The owner liked Goldenrod's retained HGSS terrain texture and Olivine's polished
+building masters. The first Olivine pass failed to clean and reconstruct the
+receiving context; the subsequent generic terrain rebuild also failed visually.
+Neither rejected result is a production template. The desired middle ground is
+**detailed HGSS terrain, fully repaired receiving areas, transparent polished assets**.
 
-Use HGSS for placement, scale, silhouettes and material character. Create missing
-architecture as isolated transparent masters, create repeatable material and
-edge modules, then rebuild the ground and structures from those assets. Preserve
-accepted canonical Center/Mart/tree artwork. Keep source artwork, palette fitting,
-foreground, receiving ground and physical footprint independently reviewable.
-Do not reclassify a screenshot raster as a tile library merely by encoding it.
+1. Establish each original object's complete silhouette, including outlines,
+   shadows, signs and any attached background. Identify every material behind it.
+2. Remove it cleanly. Reconstruct the underlying ground independently: pavement,
+   lawn, cliff, water and deck remain distinct planes.
+3. Rebuild obscured structures completely. A tree or roof removed from a fence
+   requires the full hidden pickets, rails, feet and ground seam. Restore corners
+   and edges before placing the new object, even if the replacement hides them.
+4. Retain approved transparent masters. Fit their baseline, approach and physical
+   footprint; move locally to clear a preserved lamp or neighboring building.
+   Floor tiles belong to the map, never the building cutout.
+5. Preserve intact terrain and grove boundaries. Where hardware needs reuse,
+   share complete matching source texture courses inside a material plane;
+   preserve silhouettes, corners, phase and transitions. Record the adaptation.
+6. Review source / cleaned receiving ground / final native context side by side,
+   then actual Porymap and emulator output. Tests support, but cannot supply,
+   the owner's visual acceptance.
 
-The rebuilt Olivine example is in `gba/art/olivine-city/evidence/rebuild/`.
-It retains separate Gym, residence, café, lighthouse, terminal and boat masters;
-new fan paving, rock faces/caps, lawn, sand, water, docks, rails, stairs, ramp,
-lamps, flags, signs, rocks and parasols. The new renderer atlas derives from the
-assembled native files, with no overview raster input. One residence master is
-reused three times. All old overview foliage is replaced with complete native
-trees. Per-building/terrain comparisons show the actual native result.
-
-Asset joins still require diagnosis: blue glass needs protected palette ramps;
-cliff faces must stay distinct from flat tops; small flags need their intended
-colors; a new entrance can require a sign to move; a lamp must not overlap a Mart
-roof. Mixed tree/roof palette quadrants can use separate background/foreground
-planes to preserve visible canonical pixels. Review material/collision agreement
-square by square: the rejected trace had open cliff squares and a walk-through
-railing. Respect the actual HGSS festival gate, rebuild stair heads and complete
-partial native path/shore cells instead of carrying those defects forward.
-For a static reconstructed exterior, discard the disposable saved viewport cache
-on load so old metatile IDs cannot reinstate obsolete collision. Preserve the
-player, inventory, campaign state, map IDs and save format. Revisit this choice if
-mutable map tiles are introduced later.
+Goldenrod used retained and refined HGSS terrain with rebuilt architecture and
+local repairs. Do not claim its entire background was independently redrawn.
+The current Olivine receiving-context pass is documented in
+`gba/art/olivine-city/evidence/middle-ground/`. Earlier `rebuild/` artifacts record
+rejected history; their independently drawn terrain and 144-tree arrangement
+are superseded. The polished standalone architecture from that pass is retained.
 
 ## What made the result work
 
