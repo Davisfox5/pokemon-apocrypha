@@ -1,0 +1,73 @@
+{
+  "engine_commit": "d41fc5718c2205cc284792d7c2a5849549ecd73e",
+  "baseline": "38200410b559a842e4b4c7ef17e5dc8e77164f9a",
+  "shared_commit": "82b98516aa17eeb538a0cd9adf373df8b3c7d3cb",
+  "assets": [
+    {
+      "asset": "R01",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R01.png",
+      "source_sha256": "911b04ff4b357a5a7be221f2c0b527d7d330d136431c0b711f521ee5f3def57d",
+      "native_sha256": "e9e5d275256913accf8d0e4bc11ce6303779a2716ea96319170add05be8f0068"
+    },
+    {
+      "asset": "R02",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R02.png",
+      "source_sha256": "13e22a3e226900dbcf274e5a40293882af15ff9c8e14616a5776d7edccc95e12",
+      "native_sha256": "9910a93df552fd422f7837fa597be6e9f7bd403ad465e96e94dda9b828d86c46"
+    },
+    {
+      "asset": "R05",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R05.png",
+      "source_sha256": "e8c32d82d100fa3b238047dfae452f68eb7f6c1b386f46775b34f1301db64367",
+      "native_sha256": "0c48c96254a44e11e990164f54e244ac23f6df628860d12ba44e5984664f15f6"
+    },
+    {
+      "asset": "R06",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R06.png",
+      "source_sha256": "5a2f2c578d6ecd16b52c6e049f49a9439c69dd76d82f5696c553ca0f9b6c5c9a",
+      "native_sha256": "08a23a06d9f11dc39b0399d6a73ceeae20766094b7ae97e33464ded3c8a51541"
+    },
+    {
+      "asset": "R15",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R15.png",
+      "source_sha256": "ed35370835150298129b5c21db5acc0a074e56b05abb9eadeeff24681498e2f6",
+      "native_sha256": "694e8cd7572ee5bff22bf52dcbaacf842f60fb558c64e0e16f05efb34fc03d7b"
+    },
+    {
+      "asset": "R16",
+      "upstream": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R16.png",
+      "source_sha256": "e2d1a80017752c0c4c2547ae1f175dacba37bd74623bec3eb66891bd6605d2a8",
+      "native_sha256": "48fa4d6686e59a13b9566a0720c32a7930a8abb0c96a927bc1d701a6157b0674"
+    },
+    {
+      "asset": "S01",
+      "upstream": "gba/art/johto-common/scenery/source/S01.png",
+      "source_sha256": "04913494c6fed12c9ec30ba5c20a559e4f428cc416a10f20cbc7c44b351f3f17",
+      "native_sha256": "b6b28570aa4a50ebe29dd1081f4d3e6172b727f60c24a01ada5633b8286e0753"
+    },
+    {
+      "asset": "S03",
+      "upstream": "gba/art/johto-common/scenery/source/S03.png",
+      "source_sha256": "ae06e1d00c3c0ef9740c83c0d36c6481a58de4d19f831f4ddc4462acd5ac8234",
+      "native_sha256": "55bb102802cb322114a7a0161e6cd89ad0a199c3af32169650a05c63d0f5a0c9"
+    },
+    {
+      "asset": "S04",
+      "upstream": "gba/art/johto-common/scenery/source/S04.png",
+      "source_sha256": "90fd9afe50ecbc29485328588a6e66e387c17b351f3e1696ea716a33ab5adc46",
+      "native_sha256": "57ed8c7e17bddc95bfa51bdc2bb9130789185263044de2ea58bda4a5a4277a9b"
+    },
+    {
+      "asset": "P04",
+      "upstream": "gba/art/johto-common/scenery/source/P04.png",
+      "source_sha256": "9355ce1c6e07ee7b8b4c37df8d37483497bae091c2087a26d0375545431334d5",
+      "native_sha256": "83c490d7a1a815d74fce3ba27987d2c5f64688e8376b96e13e7666a6ca0e0b7b"
+    }
+  ],
+  "terrain_method": "Continuous contour segments from complete R02 modules. The 24px drop uses the complete face cap, a compatible 8px middle core, and the complete toe; it never repeats the bottom shadow as another level.",
+  "corner_method": "Convex north corners mirror the shared NE module; exposed side grass caps remain on the outside. The southwest return uses the shared inside corner.",
+  "native_variants": "One grass shade maps to existing bank8; stair values map by rank to five existing neutral shades. Three central S04 rail-shading pixels align to the adjoining intact section; all alpha/endpoint silhouettes remain exact.",
+  "objects": "Boulder receives new underlying cliff through its actual alpha; its original native grass backing is not retained over rock. Gate, well, houses and shared masters remain exact.",
+  "static_capacity": "1024 slots, both tileset callbacks NULL, empty map events/warps. The top 16 slots also serve door animations on maps with doors: repack to <=1008 before adding animated interiors.",
+  "native_packing": "Only already-occluded background pixels can reuse compatible existing material tiles. Full authoring background and modules remain in target-background.png and geometry.json."
+}

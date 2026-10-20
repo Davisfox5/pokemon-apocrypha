@@ -1,0 +1,411 @@
+{
+  "assets": [
+    {
+      "name": "kurt",
+      "reference_box": [
+        120,
+        80,
+        224,
+        176
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            160,
+            91
+          ],
+          [
+            210,
+            111
+          ],
+          [
+            210,
+            151
+          ],
+          [
+            202,
+            154
+          ],
+          [
+            202,
+            172
+          ],
+          [
+            139,
+            172
+          ],
+          [
+            139,
+            153
+          ],
+          [
+            126,
+            150
+          ],
+          [
+            126,
+            116
+          ]
+        ]
+      ],
+      "opaque_pixels": 4726,
+      "native_RGB5_colors": 15,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    },
+    {
+      "name": "house",
+      "reference_box": [
+        440,
+        248,
+        536,
+        352
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            456,
+            280
+          ],
+          [
+            511,
+            280
+          ],
+          [
+            523,
+            287
+          ],
+          [
+            523,
+            314
+          ],
+          [
+            517,
+            317
+          ],
+          [
+            517,
+            340
+          ],
+          [
+            456,
+            340
+          ],
+          [
+            456,
+            317
+          ],
+          [
+            449,
+            312
+          ],
+          [
+            449,
+            289
+          ]
+        ],
+        [
+          [
+            504,
+            259
+          ],
+          [
+            515,
+            259
+          ],
+          [
+            515,
+            280
+          ],
+          [
+            504,
+            280
+          ]
+        ]
+      ],
+      "opaque_pixels": 4102,
+      "native_RGB5_colors": 14,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    },
+    {
+      "name": "gym",
+      "reference_box": [
+        192,
+        288,
+        320,
+        384
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            239,
+            291
+          ],
+          [
+            269,
+            291
+          ],
+          [
+            305,
+            307
+          ],
+          [
+            313,
+            329
+          ],
+          [
+            313,
+            352
+          ],
+          [
+            305,
+            365
+          ],
+          [
+            275,
+            373
+          ],
+          [
+            230,
+            373
+          ],
+          [
+            206,
+            367
+          ],
+          [
+            198,
+            355
+          ],
+          [
+            198,
+            320
+          ],
+          [
+            207,
+            306
+          ]
+        ]
+      ],
+      "opaque_pixels": 8201,
+      "native_RGB5_colors": 15,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    },
+    {
+      "name": "well",
+      "reference_box": [
+        672,
+        176,
+        736,
+        240
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            697,
+            181
+          ],
+          [
+            710,
+            181
+          ],
+          [
+            718,
+            187
+          ],
+          [
+            720,
+            201
+          ],
+          [
+            716,
+            214
+          ],
+          [
+            711,
+            218
+          ],
+          [
+            711,
+            225
+          ],
+          [
+            695,
+            225
+          ],
+          [
+            695,
+            216
+          ],
+          [
+            688,
+            209
+          ],
+          [
+            686,
+            197
+          ],
+          [
+            689,
+            187
+          ]
+        ],
+        [
+          [
+            680,
+            180
+          ],
+          [
+            686,
+            180
+          ],
+          [
+            686,
+            221
+          ],
+          [
+            680,
+            221
+          ]
+        ],
+        [
+          [
+            722,
+            180
+          ],
+          [
+            728,
+            180
+          ],
+          [
+            728,
+            221
+          ],
+          [
+            722,
+            221
+          ]
+        ]
+      ],
+      "opaque_pixels": 1718,
+      "native_RGB5_colors": 15,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    },
+    {
+      "name": "logs",
+      "reference_box": [
+        208,
+        104,
+        240,
+        152
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            217,
+            114
+          ],
+          [
+            225,
+            117
+          ],
+          [
+            228,
+            126
+          ],
+          [
+            221,
+            132
+          ],
+          [
+            212,
+            129
+          ],
+          [
+            210,
+            121
+          ]
+        ],
+        [
+          [
+            216,
+            135
+          ],
+          [
+            225,
+            138
+          ],
+          [
+            228,
+            146
+          ],
+          [
+            218,
+            151
+          ],
+          [
+            210,
+            146
+          ],
+          [
+            210,
+            141
+          ]
+        ]
+      ],
+      "opaque_pixels": 270,
+      "native_RGB5_colors": 15,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    },
+    {
+      "name": "small-boulder",
+      "reference_box": [
+        664,
+        224,
+        688,
+        248
+      ],
+      "silhouette_polygons": [
+        [
+          [
+            671,
+            225
+          ],
+          [
+            679,
+            226
+          ],
+          [
+            684,
+            233
+          ],
+          [
+            682,
+            240
+          ],
+          [
+            674,
+            243
+          ],
+          [
+            668,
+            239
+          ],
+          [
+            666,
+            233
+          ]
+        ]
+      ],
+      "opaque_pixels": 218,
+      "native_RGB5_colors": 15,
+      "source": "HGSS reference, missing local architecture; grass, flowers, characters and shadows outside silhouette excluded"
+    }
+  ],
+  "native_cleanup": [
+    "Kurt and ordinary house share a15-color local straw/wood ramp.",
+    "Well is fitted to exact existing P12/P13/P15 stone/wood shades.",
+    "House chimney retains a gray stone ramp.",
+    "Gym emblem is opaque green architectural art, not removed as lawn.",
+    "Woodpiles use Kurt house shades and contain no forest background."
+  ]
+}

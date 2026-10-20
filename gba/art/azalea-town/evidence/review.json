@@ -1,0 +1,79 @@
+{
+  "native_cells": 2112,
+  "Porymap_RGB_errors": 0,
+  "decoded_physics_errors": 0,
+  "tree_count": 280,
+  "partial_tree_sprites": 0,
+  "overlapping_root_cells": 0,
+  "visible_shared_pixels_checked": 293862,
+  "shared_RGB_errors": 0,
+  "complete_rock_cells": 60,
+  "reachable_ground_cells": 713,
+  "reachable_approaches": {
+    "Kurt": [
+      14,
+      12
+    ],
+    "Center": [
+      25,
+      16
+    ],
+    "Mart": [
+      34,
+      14
+    ],
+    "Gym": [
+      20,
+      25
+    ],
+    "house": [
+      34,
+      22
+    ],
+    "well": [
+      48,
+      16
+    ],
+    "Ilex gate": [
+      8,
+      18
+    ],
+    "east road": [
+      61,
+      24
+    ],
+    "well outer corridor": [
+      52,
+      12
+    ],
+    "Kurt side yard": [
+      20,
+      9
+    ],
+    "Kurt addition front": [
+      18,
+      12
+    ],
+    "well stair west": [
+      43,
+      10
+    ],
+    "well stair east": [
+      45,
+      10
+    ],
+    "well south stair head": [
+      49,
+      16
+    ],
+    "well south stair foot": [
+      49,
+      17
+    ]
+  },
+  "glyphs": 987,
+  "palettes": 13,
+  "metatiles": 435,
+  "owner_visual_acceptance": "pending",
+  "scope": "Exterior design only; doors, well descent and adjacent-map connections remain closed pending their separate area implementation."
+}

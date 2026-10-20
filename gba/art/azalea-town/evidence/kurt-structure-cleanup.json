@@ -1,0 +1,12 @@
+{
+  "changed_pixels": 504,
+  "changed_cells": 13,
+  "collision_changes": 0,
+  "regular_house_changes": 0,
+  "separate_log_pile_changes": 0,
+  "method": "Restore upper roof envelope and full left column from HGSS reference; continue obscured thatch locally.",
+  "baseline": "8beab42d99",
+  "visible_RGB_pixels_changed": 498,
+  "visible_RGB_changes_outside_Kurt": 0,
+  "layer_note": "Unchanged neighboring canopy pixels move to the background hardware layer only where an 8px quadrant requires separate palettes; their visible RGB stays exact."
+}
