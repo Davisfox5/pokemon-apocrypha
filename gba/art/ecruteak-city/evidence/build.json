@@ -1,15 +1,15 @@
 {
-  "source_commit": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
+  "source_commit": "103874452f101ba3f597cafcca73c1aa1e32998d",
   "source_branch": "codex/ecruteak-city",
   "source_PR": "https://github.com/Davisfox5/pokeemerald-expansion/pull/19",
   "base_engine": "d822306675e15abe67c85235d9faf8d6e676d449",
-  "ROM_sha256": "7f0843d6abc0879a3eaf53fcd6014c611ce739dbbed42ac6e2940c6921e5c0db",
+  "ROM_sha256": "4d5ef2683d9552e254820519b36b706033032955652f8bcfec9d6e1f22e00670",
   "ROM_bytes": 33554432,
   "toolchain": "Debian Arm GNU 14.2.1 (20241119)",
   "Porytiles": "2.0.0 legacy native compiler with exact color-set palette covering (Z3 / OR-Tools CP-SAT)",
   "Porymap": "6.3.1 actual offscreen project exports",
   "mGBA": "libmGBA 0.10.5 headless",
-  "runtime_observations": 41,
+  "runtime_observations": 50,
   "phases": [
     {
       "phase": "write",
@@ -49,8 +49,8 @@
     },
     {
       "map": "JohtoEcruteakCity",
-      "unique_glyph_IDs": 988,
-      "highest_glyph_ID": 987,
+      "unique_glyph_IDs": 997,
+      "highest_glyph_ID": 996,
       "palette_banks": [
         0,
         1,
@@ -66,7 +66,7 @@
         11,
         12
       ],
-      "metatiles": 422,
+      "metatiles": 423,
       "Porymap_pixel_errors": 0
     }
   ],

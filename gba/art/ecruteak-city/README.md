@@ -1,11 +1,30 @@
-# Ecruteak City — final landmark cleanup
+# Ecruteak City — aligned southern gate
 
 [Native source PR #19](https://github.com/Davisfox5/pokeemerald-expansion/pull/19).
-Engine `b89ae5d5f14878b0b759ba04a495d50a676b6e6b`, stacked on Azalea
+Engine `103874452f101ba3f597cafcca73c1aa1e32998d`, stacked on Azalea
 `d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review;
 local checks pass. The source PR remains draft pending hosted CI and visual acceptance.
 
-## Final landmark corrections
+## Southern gate and collision review
+
+The southern gate moves exactly one native tile east. Its two-tile passage stays
+open in both directions; post collision joins the unchanged trees on both sides.
+Only three collision cells change: the old phantom upper block is removed and
+the two new left-post cells become solid. No other tree or building moves, and
+native RGB pixels outside the gate rectangle are unchanged.
+
+- [HGSS / approved / aligned comparison](evidence/gate-alignment/gate-comparison.png)
+- [Complete native collision audit](evidence/gate-alignment/review.json)
+- [In-game boundary sweep](evidence/gate-alignment/runtime.json)
+- [Previous save / Continue compatibility](evidence/gate-alignment/prior-save-compatibility.json)
+
+All 3,744 map cells are checked; all 1,321 walkable cells are connected. The
+531 reachable movement interfaces against solid terrain are exercised in-game.
+The ordinary gameplay sequences also cover posts, both passage lanes, woodland
+flanks, stairs, lanterns, district transitions, saving and title-screen Continue.
+Earlier correction evidence below records its historical source version.
+
+## Approved landmark corrections
 
 The tree overlapping the fence east of Burned Tower is removed, revealing the
 complete existing fence posts. The Bell entrance no longer includes source leaf
@@ -19,7 +38,7 @@ and every other tree/building placement is unchanged.
 - [Exact native layers and preservation audit](evidence/landmark-finish/review.json)
 - [Current native map](evidence/native-map.png), [in-game views](evidence/gameplay-gallery.png)
 
-Collision, behavior, gates and the open torii passage are unchanged. The owner
+At that historical correction, collision, behavior and gates were unchanged. The owner
 approved the area with these two remaining corrections; the final correction
 images are available for review.
 

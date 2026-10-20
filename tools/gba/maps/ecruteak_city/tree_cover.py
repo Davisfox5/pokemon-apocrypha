@@ -19,7 +19,7 @@ for y in range(y0,y1,8):
    q=aa.copy();q[bb[...,3]>0]=bb[bb[...,3]>0];flex.add(frozenset(tuple(map(int,c)) for c in q[...,:3].reshape(-1,3)))
   else:
    for q in [aa,bb]:hard.add(frozenset(tuple(map(int,c)) for c in q[q[...,3]>0,:3]))
-hard=sorted([p for p in hard if not any(p<t for t in hard)],key=lambda p:(-len(p),sorted(p)));flex=sorted([p for p in flex if not any(p<t for t in flex)],key=lambda p:(-len(p),sorted(p)));cs=sorted(set(c for p in hard+flex for c in p));ci={c:i for i,c in enumerate(cs)};old=[set(map(tuple,b)) for b in json.loads((S/bank/'exact-palette-cover.json').read_text())['banks']];m=cp_model.CpModel();vs=[[m.NewBoolVar(f'b{b}c{i}') for i in range(len(cs))] for b in range(13)]
+hard=sorted([p for p in hard if not any(p<t for t in hard)],key=lambda p:(-len(p),sorted(p)));flex=sorted([p for p in flex if not any(p<t for t in flex)],key=lambda p:(-len(p),sorted(p)));cs=sorted(set(c for p in hard+flex for c in p));ci={c:i for i,c in enumerate(cs)};reference=Path(sys.argv[sys.argv.index('--reference-cover')+1]) if '--reference-cover' in sys.argv else S/bank/'exact-palette-cover.json';old=[set(map(tuple,b)) for b in json.loads(reference.read_text())['banks']];m=cp_model.CpModel();vs=[[m.NewBoolVar(f'b{b}c{i}') for i in range(len(cs))] for b in range(13)]
 for row in vs:m.Add(sum(row)<=15)
 used=set()
 for j,p in enumerate(hard):
@@ -38,7 +38,8 @@ for j,p in enumerate(flex):
   m.AddHint(row[i],int(i==best))
 for b in range(13):
  for c,i in ci.items():m.AddHint(vs[b][i],int(c in old[b]))
+if '--minimize-new-colors' in sys.argv:m.Minimize(sum(vs[b][i] for b in range(13) for c,i in ci.items() if c not in old[b]))
 s=cp_model.CpSolver();s.parameters.max_time_in_seconds=180;s.parameters.num_search_workers=8;s.parameters.random_seed=19
 print(bank,'hard',len(hard),'flex',len(flex),'anchors',used,flush=True);status=s.Solve(m);print(s.StatusName(status),flush=True)
 assert status in [cp_model.OPTIMAL,cp_model.FEASIBLE]
-banks=[[c for c,v in zip(cs,row) if s.Value(v)] for row in vs];(out/'exact-palette-cover.json').write_text(json.dumps(dict(banks=banks,solver='Exact flexible blocked-join layer packing',hard_patches=len(hard),flexible_patches=len(flex),allow_all_blocked='--all-blocked' in sys.argv,protect_exposed=True),indent=2)+'\n')
+banks=[[c for c,v in zip(cs,row) if s.Value(v)] for row in vs];(out/'exact-palette-cover.json').write_text(json.dumps(dict(banks=banks,solver='Exact flexible blocked-join layer packing',hard_patches=len(hard),flexible_patches=len(flex),allow_all_blocked='--all-blocked' in sys.argv,protect_exposed=True,new_membership_objective=s.ObjectiveValue() if '--minimize-new-colors' in sys.argv else None),indent=2)+'\n')

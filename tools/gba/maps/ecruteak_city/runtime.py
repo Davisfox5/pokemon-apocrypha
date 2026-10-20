@@ -21,7 +21,7 @@ steps=r'''
  go(51,26,14);shot("Ecruteak-Gym");step(UP,1);at(51,26,14,"Gym-interior-pending");
  go(51,47,14);shot("Pokemon-Center");step(UP,1);at(51,47,14,"Center-interior-pending");
  go(51,56,7);shot("Poke-Mart");step(UP,1);at(51,56,7,"Mart-interior-pending");
- go(51,41,16);step(DOWN,3);at(51,41,19,"southern-torii-passage");shot("southern-torii");step(LEFT,1);at(51,40,19,"torii-opening-left");step(LEFT,1);at(51,40,19,"torii-left-post-blocks");
+ go(51,41,16);step(DOWN,3);at(51,41,19,"southern-torii-passage");shot("southern-torii");step(LEFT,1);at(51,41,19,"torii-left-post-blocks");step(RIGHT,1);at(51,42,19,"torii-opening-right");step(RIGHT,1);at(51,42,19,"torii-right-post-blocks");
  go(51,19,10);step(LEFT,1);at(51,18,10,"west-forest-edge");step(LEFT,1);at(51,18,10,"west-forest-blocks");shot("western-woodland");
  go(52,21,25);step(RIGHT,1);at(52,21,25,"north-house-lantern-base-blocks");shot("house-lantern-north");
  go(51,21,5);step(RIGHT,1);at(51,21,5,"west-house-lantern-base-blocks");shot("house-lantern-west");
@@ -35,6 +35,12 @@ steps=r'''
  go(51,64,10);step(DOWN,1);at(51,64,10,"east-gate-south-bypass-blocks");
  go(51,38,17);step(DOWN,1);at(51,38,17,"torii-west-bypass-blocks");
  go(51,44,17);step(DOWN,1);at(51,44,17,"torii-east-bypass-blocks");
+ go(51,39,16);step(DOWN,1);at(51,39,17,"old-gate-ghost-collision-cleared");step(DOWN,1);at(51,39,17,"left-tree-root-stays-blocked");
+ go(51,40,17);step(DOWN,1);at(51,40,17,"moved-left-post-north-blocks");
+ go(51,43,17);step(DOWN,1);at(51,43,17,"moved-right-post-north-blocks");
+ go(51,40,20);step(UP,1);at(51,40,20,"moved-left-post-south-blocks");
+ go(51,43,20);step(UP,1);at(51,43,20,"moved-right-post-south-blocks");
+ go(51,42,16);step(DOWN,6);at(51,42,22,"torii-right-lane-southbound");step(UP,6);at(51,42,16,"torii-right-lane-northbound");
  go(51,41,16);step(DOWN,6);at(51,41,22,"torii-center-southbound-open");shot("torii-woodland-closure");step(UP,6);at(51,41,16,"torii-center-northbound-open");
  go(51,41,8);shot("save-Ecruteak");
 '''

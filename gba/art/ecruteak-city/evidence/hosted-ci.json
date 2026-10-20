@@ -1,8 +1,1 @@
-{
-  "source_commit": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
-  "actions_runs": 0,
-  "check_runs": 0,
-  "combined_state": "pending",
-  "statuses": 0,
-  "decision": "Draft retained. Local build/native/gameplay/save checks passed; no hosted CI results observed on this exact head."
-}
+{"source_commit":"103874452f101ba3f597cafcca73c1aa1e32998d","workflow_runs":0,"check_runs":0,"statuses":0,"state":"pending","decision":"Keep draft; no hosted checks reported."}

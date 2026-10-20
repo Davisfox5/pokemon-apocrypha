@@ -9,16 +9,18 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-def encode(S,bg,fg,solid,areas):
+def encode(S,bg,fg,solid,areas,bank_names=None,covers_dir=None,preserve_existing=False):
+ selected=set(bank_names or ["ecruteak_temple","ecruteak_city"]);covers_dir=covers_dir or S/"tree-closure"
  mask=np.zeros(bg.shape[:2],bool)
  for x,y,xx,yy in areas:mask[y:yy,x:xx]=True
  changes=[];above=np.load(S/'tree-closure/above.npy')
  # Covered pixels never reveal their background, even beside a player.
  for y,x in np.ndindex(52,72):
-  if solid[y,x]:
+  if not preserve_existing and solid[y,x] and ("ecruteak_temple" if y<27 else "ecruteak_city") in selected:
    a=bg[y*16:y*16+16,x*16:x*16+16];b=fg[y*16:y*16+16,x*16:x*16+16];a[b[...,3]>0]=0
  for bank,y0,y1,short in [('ecruteak_temple',0,432,'temple'),('ecruteak_city',432,832,'city')]:
-  cover=json.loads((S/'tree-closure'/(short+'-flexible-cover.json')).read_text());pals=[set(map(tuple,p)) for p in cover['banks']]
+  if bank not in selected:continue
+  cover=json.loads((covers_dir/(short+'-flexible-cover.json')).read_text());pals=[set(map(tuple,p)) for p in cover['banks']]
   assert len(pals)==13 and all(len(p)<=15 for p in pals)
   for y in range(y0,y1,8):
    for x in range(0,1152,8):
@@ -40,15 +42,18 @@ def encode(S,bg,fg,solid,areas):
    lines=['-']+[' '.join(map(str,c)) for c in sorted(p)]+['-']*(15-len(p));(out/f'{i:02}.pal').write_text('JASC-PAL\n0100\n16\n'+'\n'.join(lines)+'\n')
  return changes
 
-def finish(S,bg,fg,solid):
+def finish(S,bg,fg,solid,bank_names=None):
  """Deduplicate blocked background glyphs without changing visible pixels."""
+ selected=set(bank_names or ['ecruteak_temple','ecruteak_city'])
  hidden=[];single=[];above=np.load(S/'tree-closure/above.npy')
  for y in range(0,832,8):
+  if ('ecruteak_temple' if y<432 else 'ecruteak_city') not in selected:continue
   for x in range(0,1152,8):
    if solid[y//16,x//16] and (fg[y:y+8,x:x+8,3]>0).all():bg[y:y+8,x:x+8]=0;hidden.append([x,y])
  banks={n:[set(map(tuple,p)) for p in json.loads((S/n/'exact-palette-cover.json').read_text())['banks']] for n in ['ecruteak_temple','ecruteak_city']}
  baseline=np.array(Image.open(S/'tree-closure/baseline/background.png'));restored=[]
  for y in range(0,832,8):
+  if ('ecruteak_temple' if y<432 else 'ecruteak_city') not in selected:continue
   pals=banks['ecruteak_temple' if y<432 else 'ecruteak_city']
   for x in range(0,1152,8):
    if not solid[y//16,x//16]:continue
@@ -60,6 +65,7 @@ def finish(S,bg,fg,solid):
     colors=set(map(tuple,a[m,:3]))
     if len(colors)==1:a[~m]=list(next(iter(colors)))+[255];restored.append([x,y])
  for y in range(0,832,8):
+  if ('ecruteak_temple' if y<432 else 'ecruteak_city') not in selected:continue
   pals=banks['ecruteak_temple' if y<432 else 'ecruteak_city']
   for x in range(0,1152,8):
    if not solid[y//16,x//16] or (above[y//16,x//16] and y//16<51 and not solid[y//16+1,x//16]):continue

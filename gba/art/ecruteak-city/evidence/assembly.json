@@ -4500,10 +4500,10 @@
     },
     {
       "name": "south-gate",
-      "x": 624,
+      "x": 640,
       "y": 688,
       "source_xy": [
-        560,
+        576,
         672
       ],
       "role": "Ecruteak local architecture"
@@ -8019,7 +8019,7 @@
       "width": 72,
       "height": 25,
       "global_y": 27,
-      "metatiles": 422,
+      "metatiles": 423,
       "compiler": "porytiles-legacy 2.0.0",
       "command": [
         "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
