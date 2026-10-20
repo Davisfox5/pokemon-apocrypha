@@ -8,6 +8,8 @@ G,P=map(Path,sys.argv[1:3]);S=ROOT/'gba/art/azalea-town/source';E=S.parent/'evid
 solid=np.load(S/'solid.npy');beh=np.load(S/'behaviors.npy');assert np.array_equal((g&0xc00)!=0,solid)
 for y,x in np.ndindex(33,64):
  mid=int(g[y,x]&1023);a=t.attrs[int(mid>=512)][mid%512];assert a&255==beh[y,x]
+assert all(not any(tile) for tile in t.tiles[1][496:512]), 'Door reserve not empty'
+assert all((int(e)&1023)<1008 for part in t.blocks for block in part for e in block), 'Door tile reserve used by static art'
 r=json.loads((E/'assembly.json').read_text());roots=np.zeros((33,64),np.uint8)
 for x,y in r['trees']:roots[y+1:y+3,x:x+2]+=1
 assert roots.max()==1 and np.all(solid[roots>0]);assert all(0<=x*16 and x*16+32<=1024 and y*16+48<=528 for x,y in r['trees'])
@@ -25,8 +27,9 @@ for p in final_rocks.values():
  if p['tile'].startswith('well-'):
   # Authoring modules remain complete. Native encoding may reuse occluded BG
   # pixels, while foreground objects and every visible terrain pixel stay exact.
-  authored=np.array(Image.open(S/'well-gate-repair/target-background.png').convert('RGBA'));assert np.array_equal(authored[y:y+16,x:x+16][mask],a[mask]);visible=mask&(fg[y:y+16,x:x+16,3]==0);assert np.array_equal(now[y:y+16,x:x+16][visible],a[visible,:3])
- else:assert np.array_equal(bg[y:y+16,x:x+16][mask],a[mask])
+  authored=np.array(Image.open(S/'well-elevation-rebuild/target-background.png').convert('RGBA'));assert np.array_equal(authored[y:y+16,x:x+16][mask],a[mask]);visible=mask&(fg[y:y+16,x:x+16,3]==0);assert np.array_equal(now[y:y+16,x:x+16][visible],a[visible,:3])
+ else:
+  visible=mask&(fg[y:y+16,x:x+16,3]==0);assert np.array_equal(now[y:y+16,x:x+16][visible],a[visible,:3])
 # Static reachability from central street, including directional ledges. This is
 # authored topology interpreted from the overview, not extracted DS collision.
 seen={(20,18)};todo=list(seen)

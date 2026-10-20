@@ -3065,316 +3065,459 @@
     {
       "name": "well-S04",
       "x": 704,
-      "y": 144,
-      "role": "Complete shared side stairs, descend west; east/west traversal"
+      "y": 144
     },
     {
       "name": "well-S01",
       "x": 768,
-      "y": 256,
-      "role": "North/south stair flight, left edge"
+      "y": 256
     },
     {
       "name": "well-S03",
       "x": 784,
-      "y": 256,
-      "role": "North/south stair flight, right edge"
+      "y": 256
     },
     {
       "name": "L11",
       "x": 800,
-      "y": 272,
-      "role": "Lower southern terrace return / down-only ledge"
+      "y": 272
     },
     {
       "name": "L12",
       "x": 816,
-      "y": 272,
-      "role": "Lower southern terrace return / down-only ledge"
+      "y": 272
     },
     {
       "name": "L12",
       "x": 832,
-      "y": 272,
-      "role": "Lower southern terrace return / down-only ledge"
+      "y": 272
     },
     {
       "name": "L13",
       "x": 848,
-      "y": 272,
-      "role": "Lower southern terrace return / down-only ledge"
+      "y": 272
     }
   ],
   "rock_placements": [
     {
+      "tile": "well-R01",
+      "x": 44,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 45,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 48,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 49,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 50,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 51,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 52,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R16",
+      "x": 43,
+      "y": 7,
+      "mirror": true,
+      "boundary": "northwest return"
+    },
+    {
+      "tile": "well-R16",
+      "x": 53,
+      "y": 7,
+      "mirror": false,
+      "boundary": "northeast return"
+    },
+    {
       "tile": "well-R05",
       "x": 42,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "offset northwest join"
     },
     {
       "tile": "well-R02",
       "x": 43,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "northwest stacked face"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 9,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 10,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 11,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 12,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 13,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 14,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 42,
       "y": 15,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 9,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 10,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 11,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 12,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 13,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 14,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 15,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 16,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R06",
       "x": 53,
       "y": 17,
-      "mirror": false
+      "mirror": false,
+      "boundary": "east outside return"
     },
     {
       "tile": "well-R05",
       "x": 44,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "northwest lower return"
     },
     {
       "tile": "well-R02",
       "x": 45,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
       "tile": "well-R02",
       "x": 46,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
       "tile": "well-R02",
       "x": 47,
       "y": 8,
-      "mirror": false
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
-      "tile": "well-R01",
-      "x": 46,
-      "y": 11,
-      "mirror": false
-    },
-    {
-      "tile": "well-R01",
-      "x": 47,
-      "y": 11,
-      "mirror": false
-    },
-    {
-      "tile": "well-R01",
+      "tile": "well-R02",
       "x": 48,
-      "y": 11,
-      "mirror": false
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
-      "tile": "well-R01",
+      "tile": "well-R02",
       "x": 49,
-      "y": 11,
-      "mirror": false
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
-      "tile": "well-R01",
+      "tile": "well-R02",
       "x": 50,
-      "y": 11,
-      "mirror": false
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
     },
     {
-      "tile": "well-R16",
+      "tile": "well-R10",
       "x": 51,
-      "y": 11,
-      "mirror": false
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 12,
-      "mirror": false
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 13,
-      "mirror": false
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 14,
-      "mirror": false
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 15,
-      "mirror": false
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 16,
-      "mirror": false
+      "y": 8,
+      "mirror": false,
+      "boundary": "lower course east return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 9,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 10,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 11,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 12,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 13,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 14,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
     },
     {
       "tile": "well-R06",
       "x": 44,
       "y": 15,
-      "mirror": true
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 48,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 49,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 50,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R16",
+      "x": 51,
+      "y": 11,
+      "mirror": false,
+      "boundary": "court northeast return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 12,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 13,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 14,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 15,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R15",
+      "x": 51,
+      "y": 16,
+      "mirror": false,
+      "boundary": "court southeast foot"
     },
     {
       "tile": "well-R15",
       "x": 44,
       "y": 16,
-      "mirror": false
+      "mirror": false,
+      "boundary": "court southwest foot"
     },
     {
       "tile": "well-R01",
       "x": 45,
       "y": 16,
-      "mirror": false
+      "mirror": false,
+      "boundary": "well court / town"
     },
     {
       "tile": "well-R01",
       "x": 46,
       "y": 16,
-      "mirror": false
+      "mirror": false,
+      "boundary": "well court / town"
     },
     {
       "tile": "well-R01",
       "x": 47,
       "y": 16,
-      "mirror": false
+      "mirror": false,
+      "boundary": "well court / town"
     }
   ],
   "buildings": [
@@ -3464,7 +3607,7 @@
     "small-boulder": 0
   },
   "palettes": 13,
-  "glyphs": 1024,
+  "glyphs": 987,
   "metatiles": 435,
   "limits": [
     "Exterior only; no building/well interiors or campaign NPCs invented.",
@@ -3472,5 +3615,5 @@
     "Source occluded ground is inferred from adjacent materials."
   ],
   "owner_adaptation": "Proposed ten-year Kurt property growth: attached kiln and chimney, tight end-on rear firewood stack, exactly two removed complete trees and connected side-yard path.",
-  "well_geometry": "source/well-gate-repair/geometry.json"
+  "well_geometry": "source/well-elevation-rebuild/geometry.json"
 }

@@ -1,0 +1,37 @@
+{
+  "source_save_engine": "d41fc5718c2205cc284792d7c2a5849549ecd73e",
+  "original_save_unchanged": true,
+  "original_save_sha256": "774dbc63806ae5d960a94d8b3e794be5d9dffa5e264918de4cdce75a6ae391c2",
+  "observations": {
+    "read": [
+      {
+        "step": "cold-reload-Azalea",
+        "region": 3,
+        "group": 80,
+        "map": 50,
+        "x": 20,
+        "y": 18,
+        "frlg_layout": 0,
+        "width": 64,
+        "height": 33,
+        "interaction": 0,
+        "mapsec": 226
+      }
+    ],
+    "menu": [
+      {
+        "step": "ordinary-title-continue",
+        "region": 3,
+        "group": 80,
+        "map": 50,
+        "x": 20,
+        "y": 18,
+        "frlg_layout": 0,
+        "width": 64,
+        "height": 33,
+        "interaction": 0,
+        "mapsec": 226
+      }
+    ]
+  }
+}
