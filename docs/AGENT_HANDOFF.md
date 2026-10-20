@@ -1,3 +1,14 @@
+## Latest review: recorded Olivine walk — 2026-10-20
+
+Owner requested a recorded collision/layering review before sending annotated art
+corrections. `gba/art/olivine-city/evidence/walking-tour/` contains a continuous
+2:32 real mGBA recording, flag preview, input/coordinate logs and timestamps.
+Current engine/ROM remain unchanged from the receiving-context pass below.
+Both flag spans permit movement but the player draws OVER the flags. Foreground
+mask/layer repair remains outstanding; do not claim underpass occlusion works.
+The west support, fences, lamp and waterfront barriers block as expected.
+Owner may provide an annotated diagram next. Preserve this before-repair recording.
+
 ## Latest: Olivine HGSS receiving-context repair — 2026-10-20
 
 The owner clarified the desired middle ground: keep Goldenrod's HGSS terrain
