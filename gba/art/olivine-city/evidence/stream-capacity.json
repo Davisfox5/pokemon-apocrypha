@@ -1,12 +1,12 @@
 {
-  "glyphs": 8088,
-  "ROM_art_bytes": 374646,
-  "maximum_16x16_ring_glyphs": 973,
+  "glyphs": 8152,
+  "ROM_art_bytes": 376694,
+  "maximum_16x16_ring_glyphs": 999,
   "peak_origin": [
     10,
     10
   ],
   "VRAM_slots": 1008,
-  "volatile_cache_bytes": 24306,
+  "volatile_cache_bytes": 24434,
   "source": "Actual native tiles, palettes, metatiles and map entries; no authoring screenshot dependency."
 }

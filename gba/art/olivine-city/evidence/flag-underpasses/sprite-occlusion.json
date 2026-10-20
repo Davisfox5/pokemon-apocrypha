@@ -1,0 +1,24 @@
+[
+  {
+    "span": "central",
+    "world": [
+      24,
+      25
+    ],
+    "foreground_pixels": 1568,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 86,
+    "sprite_touches_flag_edge": true
+  },
+  {
+    "span": "west",
+    "world": [
+      13,
+      18
+    ],
+    "foreground_pixels": 1568,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 136,
+    "sprite_touches_flag_edge": true
+  }
+]

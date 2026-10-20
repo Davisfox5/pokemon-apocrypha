@@ -1,0 +1,598 @@
+{"chapter":"Central flags - northbound","frame":60}
+{"input":"UP","frame":60}
+{"step":"Central flags - northbound-0","region":3,"group":80,"map":68,"x":8,"y":4,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":92}
+{"step":"Central flags - northbound-1","region":3,"group":80,"map":68,"x":8,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":116}
+{"step":"Central flags - northbound-2","region":3,"group":80,"map":68,"x":8,"y":2,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":140}
+{"step":"Central flags - northbound-3","region":3,"group":80,"map":68,"x":8,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":164}
+{"step":"Central flags - northbound-4","region":3,"group":80,"map":68,"x":8,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":188}
+{"step":"Central flags - northbound-5","region":3,"group":80,"map":65,"x":8,"y":13,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":212}
+{"step":"Central flags - northbound-6","region":3,"group":80,"map":65,"x":8,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":236}
+{"step":"Central flags - northbound-7","region":3,"group":80,"map":65,"x":8,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":260}
+{"step":"Central flags - northbound-8","region":3,"group":80,"map":65,"x":8,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"chapter":"Walk to west festival gate","frame":324}
+{"input":"LEFT","frame":324}
+{"step":"Walk to west festival gate-0","region":3,"group":80,"map":65,"x":7,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":356}
+{"step":"Walk to west festival gate-1","region":3,"group":80,"map":65,"x":6,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":380}
+{"step":"Walk to west festival gate-2","region":3,"group":80,"map":65,"x":5,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":404}
+{"step":"Walk to west festival gate-3","region":3,"group":80,"map":65,"x":4,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":428}
+{"step":"Walk to west festival gate-4","region":3,"group":80,"map":65,"x":3,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":452}
+{"step":"Walk to west festival gate-5","region":3,"group":80,"map":65,"x":2,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":476}
+{"step":"Walk to west festival gate-6","region":3,"group":80,"map":65,"x":1,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":500}
+{"step":"Walk to west festival gate-7","region":3,"group":80,"map":65,"x":0,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":524}
+{"step":"Walk to west festival gate-8","region":3,"group":80,"map":63,"x":15,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":548}
+{"step":"Walk to west festival gate-9","region":3,"group":80,"map":63,"x":14,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":572}
+{"step":"Walk to west festival gate-10","region":3,"group":80,"map":63,"x":13,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"West flags - northbound","frame":636}
+{"input":"UP","frame":636}
+{"step":"West flags - northbound-0","region":3,"group":80,"map":63,"x":13,"y":22,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":668}
+{"step":"West flags - northbound-1","region":3,"group":80,"map":63,"x":13,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":692}
+{"step":"West flags - northbound-2","region":3,"group":80,"map":63,"x":13,"y":20,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":716}
+{"step":"West flags - northbound-3","region":3,"group":80,"map":63,"x":13,"y":19,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":740}
+{"step":"West flags - northbound-4","region":3,"group":80,"map":63,"x":13,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":764}
+{"step":"West flags - northbound-5","region":3,"group":80,"map":63,"x":13,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":788}
+{"step":"West flags - northbound-6","region":3,"group":80,"map":63,"x":13,"y":16,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"West flags - southbound","frame":852}
+{"input":"DOWN","frame":852}
+{"step":"West flags - southbound-0","region":3,"group":80,"map":63,"x":13,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":884}
+{"step":"West flags - southbound-1","region":3,"group":80,"map":63,"x":13,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":908}
+{"step":"West flags - southbound-2","region":3,"group":80,"map":63,"x":13,"y":19,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":932}
+{"step":"West flags - southbound-3","region":3,"group":80,"map":63,"x":13,"y":20,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":956}
+{"step":"West flags - southbound-4","region":3,"group":80,"map":63,"x":13,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":980}
+{"step":"West flags - southbound-5","region":3,"group":80,"map":63,"x":13,"y":22,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":1004}
+{"step":"West flags - southbound-6","region":3,"group":80,"map":63,"x":13,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"West fence approach","frame":1068}
+{"input":"LEFT","frame":1068}
+{"step":"West fence approach-0","region":3,"group":80,"map":63,"x":12,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":1100}
+{"step":"West fence approach-1","region":3,"group":80,"map":63,"x":11,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":1124}
+{"step":"West fence approach-2","region":3,"group":80,"map":63,"x":10,"y":23,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1148}
+{"step":"West fence approach-3","region":3,"group":80,"map":63,"x":10,"y":22,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1180}
+{"step":"West fence approach-4","region":3,"group":80,"map":63,"x":10,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"West fence blocks","frame":1244}
+{"step":"West fence blocks","region":3,"group":80,"map":63,"x":10,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"West flag support approach","frame":1369}
+{"input":"RIGHT","frame":1369}
+{"step":"West flag support approach-0","region":3,"group":80,"map":63,"x":11,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":1401}
+{"step":"West flag support approach-1","region":3,"group":80,"map":63,"x":12,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":1425}
+{"step":"West flag support approach-2","region":3,"group":80,"map":63,"x":13,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":1449}
+{"step":"West flag support approach-3","region":3,"group":80,"map":63,"x":14,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1473}
+{"step":"West flag support approach-4","region":3,"group":80,"map":63,"x":14,"y":20,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1505}
+{"step":"West flag support approach-5","region":3,"group":80,"map":63,"x":14,"y":19,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1529}
+{"step":"West flag support approach-6","region":3,"group":80,"map":63,"x":14,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"Flag support blocks","frame":1593}
+{"step":"Flag support blocks","region":3,"group":80,"map":63,"x":14,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"Gym approach","frame":1718}
+{"input":"UP","frame":1718}
+{"step":"Gym approach-0","region":3,"group":80,"map":63,"x":14,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":1750}
+{"step":"Gym approach-1","region":3,"group":80,"map":63,"x":14,"y":16,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":1774}
+{"step":"Gym approach-2","region":3,"group":80,"map":63,"x":15,"y":16,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"Gym entrance currently closed","frame":1846}
+{"step":"Gym entrance currently closed","region":3,"group":80,"map":63,"x":15,"y":16,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"North residence west","frame":1971}
+{"input":"LEFT","frame":1971}
+{"step":"North residence west-0","region":3,"group":80,"map":63,"x":14,"y":16,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2003}
+{"step":"North residence west-1","region":3,"group":80,"map":63,"x":14,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2035}
+{"step":"North residence west-2","region":3,"group":80,"map":63,"x":14,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2059}
+{"step":"North residence west-3","region":3,"group":80,"map":63,"x":14,"y":19,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2083}
+{"step":"North residence west-4","region":3,"group":80,"map":63,"x":14,"y":20,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2107}
+{"step":"North residence west-5","region":3,"group":80,"map":63,"x":14,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2131}
+{"step":"North residence west-6","region":3,"group":80,"map":63,"x":15,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2163}
+{"step":"North residence west-7","region":3,"group":80,"map":65,"x":0,"y":8,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2187}
+{"step":"North residence west-8","region":3,"group":80,"map":65,"x":0,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2219}
+{"step":"North residence west-9","region":3,"group":80,"map":65,"x":1,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2251}
+{"step":"North residence west-10","region":3,"group":80,"map":65,"x":2,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2275}
+{"step":"North residence west-11","region":3,"group":80,"map":65,"x":3,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2299}
+{"step":"North residence west-12","region":3,"group":80,"map":65,"x":4,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2323}
+{"step":"North residence west-13","region":3,"group":80,"map":65,"x":5,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2347}
+{"step":"North residence west-14","region":3,"group":80,"map":65,"x":6,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2371}
+{"step":"North residence west-15","region":3,"group":80,"map":65,"x":7,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2395}
+{"step":"North residence west-16","region":3,"group":80,"map":65,"x":7,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2427}
+{"step":"North residence west-17","region":3,"group":80,"map":65,"x":8,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2459}
+{"step":"North residence west-18","region":3,"group":80,"map":65,"x":9,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2483}
+{"step":"North residence west-19","region":3,"group":80,"map":65,"x":10,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2507}
+{"step":"North residence west-20","region":3,"group":80,"map":65,"x":11,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2531}
+{"step":"North residence west-21","region":3,"group":80,"map":65,"x":12,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2555}
+{"step":"North residence west-22","region":3,"group":80,"map":65,"x":12,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":2587}
+{"step":"North residence west-23","region":3,"group":80,"map":65,"x":12,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2611}
+{"step":"North residence west-24","region":3,"group":80,"map":65,"x":13,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2643}
+{"step":"North residence west-25","region":3,"group":80,"map":65,"x":14,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2667}
+{"step":"North residence west-26","region":3,"group":80,"map":65,"x":15,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2691}
+{"step":"North residence west-27","region":3,"group":80,"map":65,"x":15,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2723}
+{"step":"North residence west-28","region":3,"group":80,"map":65,"x":15,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2747}
+{"step":"North residence west-29","region":3,"group":80,"map":65,"x":15,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2771}
+{"step":"North residence west-30","region":3,"group":80,"map":65,"x":15,"y":8,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2795}
+{"step":"North residence west-31","region":3,"group":80,"map":70,"x":0,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":2827}
+{"step":"North residence west-32","region":3,"group":80,"map":70,"x":1,"y":21,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2851}
+{"step":"North residence west-33","region":3,"group":80,"map":70,"x":1,"y":20,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2883}
+{"step":"North residence west-34","region":3,"group":80,"map":70,"x":1,"y":19,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2907}
+{"step":"North residence west-35","region":3,"group":80,"map":70,"x":1,"y":18,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"UP","frame":2931}
+{"step":"North residence west-36","region":3,"group":80,"map":70,"x":1,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"North residence east","frame":2995}
+{"input":"RIGHT","frame":2995}
+{"step":"North residence east-0","region":3,"group":80,"map":70,"x":2,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":3027}
+{"step":"North residence east-1","region":3,"group":80,"map":70,"x":3,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":3051}
+{"step":"North residence east-2","region":3,"group":80,"map":70,"x":4,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":3075}
+{"step":"North residence east-3","region":3,"group":80,"map":70,"x":5,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":3099}
+{"step":"North residence east-4","region":3,"group":80,"map":70,"x":6,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"chapter":"Return to central flags","frame":3163}
+{"input":"LEFT","frame":3163}
+{"step":"Return to central flags-0","region":3,"group":80,"map":70,"x":5,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3195}
+{"step":"Return to central flags-1","region":3,"group":80,"map":70,"x":4,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3219}
+{"step":"Return to central flags-2","region":3,"group":80,"map":70,"x":3,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3243}
+{"step":"Return to central flags-3","region":3,"group":80,"map":70,"x":2,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3267}
+{"step":"Return to central flags-4","region":3,"group":80,"map":70,"x":1,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3291}
+{"step":"Return to central flags-5","region":3,"group":80,"map":70,"x":0,"y":17,"frlg_layout":0,"width":16,"height":27,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3315}
+{"step":"Return to central flags-6","region":3,"group":80,"map":65,"x":15,"y":4,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3339}
+{"step":"Return to central flags-7","region":3,"group":80,"map":65,"x":14,"y":4,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3363}
+{"step":"Return to central flags-8","region":3,"group":80,"map":65,"x":14,"y":5,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3395}
+{"step":"Return to central flags-9","region":3,"group":80,"map":65,"x":14,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3419}
+{"step":"Return to central flags-10","region":3,"group":80,"map":65,"x":14,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3443}
+{"step":"Return to central flags-11","region":3,"group":80,"map":65,"x":14,"y":8,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3467}
+{"step":"Return to central flags-12","region":3,"group":80,"map":65,"x":14,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3491}
+{"step":"Return to central flags-13","region":3,"group":80,"map":65,"x":14,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3515}
+{"step":"Return to central flags-14","region":3,"group":80,"map":65,"x":14,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3539}
+{"step":"Return to central flags-15","region":3,"group":80,"map":65,"x":14,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3563}
+{"step":"Return to central flags-16","region":3,"group":80,"map":65,"x":13,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3595}
+{"step":"Return to central flags-17","region":3,"group":80,"map":65,"x":12,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3619}
+{"step":"Return to central flags-18","region":3,"group":80,"map":65,"x":11,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3643}
+{"step":"Return to central flags-19","region":3,"group":80,"map":65,"x":10,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3667}
+{"step":"Return to central flags-20","region":3,"group":80,"map":65,"x":9,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":3691}
+{"step":"Return to central flags-21","region":3,"group":80,"map":65,"x":8,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":3715}
+{"step":"Return to central flags-22","region":3,"group":80,"map":65,"x":8,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":3747}
+{"step":"Return to central flags-23","region":3,"group":80,"map":65,"x":8,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"chapter":"Central flags - southbound","frame":3811}
+{"input":"DOWN","frame":3811}
+{"step":"Central flags - southbound-0","region":3,"group":80,"map":65,"x":8,"y":11,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3843}
+{"step":"Central flags - southbound-1","region":3,"group":80,"map":65,"x":8,"y":12,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3867}
+{"step":"Central flags - southbound-2","region":3,"group":80,"map":65,"x":8,"y":13,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3891}
+{"step":"Central flags - southbound-3","region":3,"group":80,"map":68,"x":8,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3915}
+{"step":"Central flags - southbound-4","region":3,"group":80,"map":68,"x":8,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3939}
+{"step":"Central flags - southbound-5","region":3,"group":80,"map":68,"x":8,"y":2,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":3963}
+{"step":"Central flags - southbound-6","region":3,"group":80,"map":68,"x":8,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Mart-side lamp approach","frame":4027}
+{"input":"RIGHT","frame":4027}
+{"step":"Mart-side lamp approach-0","region":3,"group":80,"map":68,"x":9,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":4059}
+{"step":"Mart-side lamp approach-1","region":3,"group":80,"map":68,"x":10,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":4083}
+{"step":"Mart-side lamp approach-2","region":3,"group":80,"map":68,"x":11,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":4107}
+{"step":"Mart-side lamp approach-3","region":3,"group":80,"map":68,"x":12,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":4131}
+{"step":"Mart-side lamp approach-4","region":3,"group":80,"map":68,"x":12,"y":2,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":4163}
+{"step":"Mart-side lamp approach-5","region":3,"group":80,"map":68,"x":12,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":4187}
+{"step":"Mart-side lamp approach-6","region":3,"group":80,"map":68,"x":12,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Retained lamp blocks","frame":4251}
+{"step":"Retained lamp blocks","region":3,"group":80,"map":68,"x":12,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Pokemon Center approach","frame":4376}
+{"input":"LEFT","frame":4376}
+{"step":"Pokemon Center approach-0","region":3,"group":80,"map":68,"x":11,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4408}
+{"step":"Pokemon Center approach-1","region":3,"group":80,"map":68,"x":10,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4432}
+{"step":"Pokemon Center approach-2","region":3,"group":80,"map":68,"x":9,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4456}
+{"step":"Pokemon Center approach-3","region":3,"group":80,"map":68,"x":8,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4480}
+{"step":"Pokemon Center approach-4","region":3,"group":80,"map":68,"x":7,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4504}
+{"step":"Pokemon Center approach-5","region":3,"group":80,"map":68,"x":6,"y":0,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":4528}
+{"step":"Pokemon Center approach-6","region":3,"group":80,"map":68,"x":6,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4560}
+{"step":"Pokemon Center approach-7","region":3,"group":80,"map":68,"x":5,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4592}
+{"step":"Pokemon Center approach-8","region":3,"group":80,"map":68,"x":4,"y":1,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":4616}
+{"step":"Pokemon Center approach-9","region":3,"group":80,"map":68,"x":4,"y":2,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":4648}
+{"step":"Pokemon Center approach-10","region":3,"group":80,"map":68,"x":4,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4672}
+{"step":"Pokemon Center approach-11","region":3,"group":80,"map":68,"x":3,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4704}
+{"step":"Pokemon Center approach-12","region":3,"group":80,"map":68,"x":2,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4728}
+{"step":"Pokemon Center approach-13","region":3,"group":80,"map":68,"x":1,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Cafe approach","frame":4792}
+{"input":"LEFT","frame":4792}
+{"step":"Cafe approach-0","region":3,"group":80,"map":68,"x":0,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4816}
+{"step":"Cafe approach-1","region":3,"group":80,"map":66,"x":15,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4840}
+{"step":"Cafe approach-2","region":3,"group":80,"map":66,"x":14,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4864}
+{"step":"Cafe approach-3","region":3,"group":80,"map":66,"x":13,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4888}
+{"step":"Cafe approach-4","region":3,"group":80,"map":66,"x":12,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":4912}
+{"step":"Cafe approach-5","region":3,"group":80,"map":66,"x":11,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Quay railing approach","frame":4976}
+{"input":"LEFT","frame":4976}
+{"step":"Quay railing approach-0","region":3,"group":80,"map":66,"x":10,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":5000}
+{"step":"Quay railing approach-1","region":3,"group":80,"map":66,"x":9,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":5024}
+{"step":"Quay railing approach-2","region":3,"group":80,"map":66,"x":8,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":5048}
+{"step":"Quay railing approach-3","region":3,"group":80,"map":66,"x":7,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5072}
+{"step":"Quay railing approach-4","region":3,"group":80,"map":66,"x":7,"y":4,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5104}
+{"step":"Quay railing approach-5","region":3,"group":80,"map":66,"x":7,"y":5,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5128}
+{"step":"Quay railing approach-6","region":3,"group":80,"map":66,"x":7,"y":6,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5152}
+{"step":"Quay railing approach-7","region":3,"group":80,"map":66,"x":7,"y":7,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5176}
+{"step":"Quay railing approach-8","region":3,"group":80,"map":66,"x":7,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5200}
+{"step":"Quay railing approach-9","region":3,"group":80,"map":66,"x":7,"y":9,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5224}
+{"step":"Quay railing approach-10","region":3,"group":80,"map":66,"x":7,"y":10,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5248}
+{"step":"Quay railing approach-11","region":3,"group":80,"map":66,"x":7,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Quay railing blocks","frame":5312}
+{"step":"Quay railing blocks","region":3,"group":80,"map":66,"x":7,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Harbor promenade and boats","frame":5437}
+{"input":"RIGHT","frame":5437}
+{"step":"Harbor promenade and boats-0","region":3,"group":80,"map":66,"x":8,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5469}
+{"step":"Harbor promenade and boats-1","region":3,"group":80,"map":66,"x":9,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5493}
+{"step":"Harbor promenade and boats-2","region":3,"group":80,"map":66,"x":10,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5517}
+{"step":"Harbor promenade and boats-3","region":3,"group":80,"map":66,"x":11,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5541}
+{"step":"Harbor promenade and boats-4","region":3,"group":80,"map":66,"x":12,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5565}
+{"step":"Harbor promenade and boats-5","region":3,"group":80,"map":66,"x":13,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5589}
+{"step":"Harbor promenade and boats-6","region":3,"group":80,"map":66,"x":14,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5613}
+{"step":"Harbor promenade and boats-7","region":3,"group":80,"map":66,"x":15,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5637}
+{"step":"Harbor promenade and boats-8","region":3,"group":80,"map":68,"x":0,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5661}
+{"step":"Harbor promenade and boats-9","region":3,"group":80,"map":68,"x":1,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5685}
+{"step":"Harbor promenade and boats-10","region":3,"group":80,"map":68,"x":2,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5709}
+{"step":"Harbor promenade and boats-11","region":3,"group":80,"map":68,"x":3,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5733}
+{"step":"Harbor promenade and boats-12","region":3,"group":80,"map":68,"x":4,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5757}
+{"step":"Harbor promenade and boats-13","region":3,"group":80,"map":68,"x":5,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5781}
+{"step":"Harbor promenade and boats-14","region":3,"group":80,"map":68,"x":6,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5805}
+{"step":"Harbor promenade and boats-15","region":3,"group":80,"map":68,"x":7,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":5829}
+{"step":"Harbor promenade and boats-16","region":3,"group":80,"map":68,"x":8,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Ferry pier and terminal","frame":5893}
+{"input":"LEFT","frame":5893}
+{"step":"Ferry pier and terminal-0","region":3,"group":80,"map":68,"x":7,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":5925}
+{"step":"Ferry pier and terminal-1","region":3,"group":80,"map":68,"x":6,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5949}
+{"step":"Ferry pier and terminal-2","region":3,"group":80,"map":68,"x":6,"y":12,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":5981}
+{"step":"Ferry pier and terminal-3","region":3,"group":80,"map":69,"x":6,"y":0,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6005}
+{"step":"Ferry pier and terminal-4","region":3,"group":80,"map":69,"x":6,"y":1,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6029}
+{"step":"Ferry pier and terminal-5","region":3,"group":80,"map":69,"x":6,"y":2,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6053}
+{"step":"Ferry pier and terminal-6","region":3,"group":80,"map":69,"x":6,"y":3,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6077}
+{"step":"Ferry pier and terminal-7","region":3,"group":80,"map":69,"x":6,"y":4,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6101}
+{"step":"Ferry pier and terminal-8","region":3,"group":80,"map":69,"x":6,"y":5,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6125}
+{"step":"Ferry pier and terminal-9","region":3,"group":80,"map":69,"x":6,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6149}
+{"step":"Ferry pier and terminal-10","region":3,"group":80,"map":69,"x":5,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6181}
+{"step":"Ferry pier and terminal-11","region":3,"group":80,"map":69,"x":4,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6205}
+{"step":"Ferry pier and terminal-12","region":3,"group":80,"map":69,"x":3,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6229}
+{"step":"Ferry pier and terminal-13","region":3,"group":80,"map":69,"x":3,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6261}
+{"step":"Ferry pier and terminal-14","region":3,"group":80,"map":69,"x":3,"y":8,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6285}
+{"step":"Ferry pier and terminal-15","region":3,"group":80,"map":69,"x":3,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":6309}
+{"step":"Ferry pier and terminal-16","region":3,"group":80,"map":69,"x":3,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6333}
+{"step":"Ferry pier and terminal-17","region":3,"group":80,"map":69,"x":4,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6365}
+{"step":"Ferry pier and terminal-18","region":3,"group":80,"map":69,"x":5,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6389}
+{"step":"Ferry pier and terminal-19","region":3,"group":80,"map":69,"x":6,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6413}
+{"step":"Ferry pier and terminal-20","region":3,"group":80,"map":69,"x":7,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6437}
+{"step":"Ferry pier and terminal-21","region":3,"group":80,"map":69,"x":8,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"chapter":"Terminal currently closed","frame":6501}
+{"step":"Terminal currently closed","region":3,"group":80,"map":69,"x":8,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"chapter":"Walk to lighthouse","frame":6626}
+{"input":"LEFT","frame":6626}
+{"step":"Walk to lighthouse-0","region":3,"group":80,"map":69,"x":7,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6658}
+{"step":"Walk to lighthouse-1","region":3,"group":80,"map":69,"x":6,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6682}
+{"step":"Walk to lighthouse-2","region":3,"group":80,"map":69,"x":5,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6706}
+{"step":"Walk to lighthouse-3","region":3,"group":80,"map":69,"x":4,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":6730}
+{"step":"Walk to lighthouse-4","region":3,"group":80,"map":69,"x":3,"y":10,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":6754}
+{"step":"Walk to lighthouse-5","region":3,"group":80,"map":69,"x":3,"y":9,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":6786}
+{"step":"Walk to lighthouse-6","region":3,"group":80,"map":69,"x":3,"y":8,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":6810}
+{"step":"Walk to lighthouse-7","region":3,"group":80,"map":69,"x":3,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6834}
+{"step":"Walk to lighthouse-8","region":3,"group":80,"map":69,"x":4,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6866}
+{"step":"Walk to lighthouse-9","region":3,"group":80,"map":69,"x":5,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6890}
+{"step":"Walk to lighthouse-10","region":3,"group":80,"map":69,"x":6,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6914}
+{"step":"Walk to lighthouse-11","region":3,"group":80,"map":69,"x":7,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6938}
+{"step":"Walk to lighthouse-12","region":3,"group":80,"map":69,"x":8,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6962}
+{"step":"Walk to lighthouse-13","region":3,"group":80,"map":69,"x":9,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":6986}
+{"step":"Walk to lighthouse-14","region":3,"group":80,"map":69,"x":10,"y":7,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7010}
+{"step":"Walk to lighthouse-15","region":3,"group":80,"map":69,"x":10,"y":6,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7042}
+{"step":"Walk to lighthouse-16","region":3,"group":80,"map":69,"x":10,"y":5,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7066}
+{"step":"Walk to lighthouse-17","region":3,"group":80,"map":69,"x":10,"y":4,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7090}
+{"step":"Walk to lighthouse-18","region":3,"group":80,"map":69,"x":10,"y":3,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7114}
+{"step":"Walk to lighthouse-19","region":3,"group":80,"map":69,"x":10,"y":2,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7138}
+{"step":"Walk to lighthouse-20","region":3,"group":80,"map":69,"x":10,"y":1,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7162}
+{"step":"Walk to lighthouse-21","region":3,"group":80,"map":69,"x":10,"y":0,"frlg_layout":0,"width":16,"height":14,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7186}
+{"step":"Walk to lighthouse-22","region":3,"group":80,"map":68,"x":10,"y":12,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7210}
+{"step":"Walk to lighthouse-23","region":3,"group":80,"map":68,"x":10,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7234}
+{"step":"Walk to lighthouse-24","region":3,"group":80,"map":68,"x":11,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7266}
+{"step":"Walk to lighthouse-25","region":3,"group":80,"map":68,"x":12,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7290}
+{"step":"Walk to lighthouse-26","region":3,"group":80,"map":68,"x":13,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7314}
+{"step":"Walk to lighthouse-27","region":3,"group":80,"map":68,"x":14,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7338}
+{"step":"Walk to lighthouse-28","region":3,"group":80,"map":68,"x":15,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7362}
+{"step":"Walk to lighthouse-29","region":3,"group":80,"map":72,"x":0,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7386}
+{"step":"Walk to lighthouse-30","region":3,"group":80,"map":72,"x":1,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7410}
+{"step":"Walk to lighthouse-31","region":3,"group":80,"map":72,"x":2,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7434}
+{"step":"Walk to lighthouse-32","region":3,"group":80,"map":72,"x":3,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7458}
+{"step":"Walk to lighthouse-33","region":3,"group":80,"map":72,"x":4,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7482}
+{"step":"Walk to lighthouse-34","region":3,"group":80,"map":72,"x":5,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7506}
+{"step":"Walk to lighthouse-35","region":3,"group":80,"map":72,"x":6,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7530}
+{"step":"Walk to lighthouse-36","region":3,"group":80,"map":72,"x":7,"y":11,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7554}
+{"step":"Walk to lighthouse-37","region":3,"group":80,"map":72,"x":7,"y":10,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7586}
+{"step":"Walk to lighthouse-38","region":3,"group":80,"map":72,"x":7,"y":9,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7610}
+{"step":"Walk to lighthouse-39","region":3,"group":80,"map":72,"x":7,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7634}
+{"step":"Walk to lighthouse-40","region":3,"group":80,"map":72,"x":8,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7666}
+{"step":"Walk to lighthouse-41","region":3,"group":80,"map":72,"x":9,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7690}
+{"step":"Walk to lighthouse-42","region":3,"group":80,"map":72,"x":10,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7714}
+{"step":"Walk to lighthouse-43","region":3,"group":80,"map":72,"x":11,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7738}
+{"step":"Walk to lighthouse-44","region":3,"group":80,"map":72,"x":12,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7762}
+{"step":"Walk to lighthouse-45","region":3,"group":80,"map":72,"x":13,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"RIGHT","frame":7786}
+{"step":"Walk to lighthouse-46","region":3,"group":80,"map":72,"x":14,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7810}
+{"step":"Walk to lighthouse-47","region":3,"group":80,"map":72,"x":14,"y":7,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":7842}
+{"step":"Walk to lighthouse-48","region":3,"group":80,"map":72,"x":14,"y":6,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Lighthouse currently closed","frame":7906}
+{"step":"Lighthouse currently closed","region":3,"group":80,"map":72,"x":14,"y":6,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Lighthouse retaining wall","frame":8031}
+{"input":"DOWN","frame":8031}
+{"step":"Lighthouse retaining wall-0","region":3,"group":80,"map":72,"x":14,"y":7,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":8063}
+{"step":"Lighthouse retaining wall-1","region":3,"group":80,"map":72,"x":14,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Retaining wall blocks","frame":8127}
+{"step":"Retaining wall blocks","region":3,"group":80,"map":72,"x":14,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Mart approach","frame":8252}
+{"input":"LEFT","frame":8252}
+{"step":"Mart approach-0","region":3,"group":80,"map":72,"x":13,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8284}
+{"step":"Mart approach-1","region":3,"group":80,"map":72,"x":12,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8308}
+{"step":"Mart approach-2","region":3,"group":80,"map":72,"x":11,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8332}
+{"step":"Mart approach-3","region":3,"group":80,"map":72,"x":10,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8356}
+{"step":"Mart approach-4","region":3,"group":80,"map":72,"x":9,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8380}
+{"step":"Mart approach-5","region":3,"group":80,"map":72,"x":8,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8404}
+{"step":"Mart approach-6","region":3,"group":80,"map":72,"x":7,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8428}
+{"step":"Mart approach-7","region":3,"group":80,"map":72,"x":6,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8452}
+{"step":"Mart approach-8","region":3,"group":80,"map":72,"x":5,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8476}
+{"step":"Mart approach-9","region":3,"group":80,"map":72,"x":4,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8500}
+{"step":"Mart approach-10","region":3,"group":80,"map":72,"x":3,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8524}
+{"step":"Mart approach-11","region":3,"group":80,"map":72,"x":2,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8548}
+{"step":"Mart approach-12","region":3,"group":80,"map":72,"x":1,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8572}
+{"step":"Mart approach-13","region":3,"group":80,"map":72,"x":0,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8596}
+{"step":"Mart approach-14","region":3,"group":80,"map":68,"x":15,"y":8,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":8620}
+{"step":"Mart approach-15","region":3,"group":80,"map":68,"x":15,"y":7,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":8652}
+{"step":"Mart approach-16","region":3,"group":80,"map":68,"x":15,"y":6,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":8676}
+{"step":"Mart approach-17","region":3,"group":80,"map":68,"x":15,"y":5,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":8700}
+{"step":"Mart approach-18","region":3,"group":80,"map":68,"x":15,"y":4,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"UP","frame":8724}
+{"step":"Mart approach-19","region":3,"group":80,"map":68,"x":15,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"chapter":"Return to city center","frame":8788}
+{"input":"LEFT","frame":8788}
+{"step":"Return to city center-0","region":3,"group":80,"map":68,"x":14,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8820}
+{"step":"Return to city center-1","region":3,"group":80,"map":68,"x":13,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8844}
+{"step":"Return to city center-2","region":3,"group":80,"map":68,"x":12,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8868}
+{"step":"Return to city center-3","region":3,"group":80,"map":68,"x":11,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8892}
+{"step":"Return to city center-4","region":3,"group":80,"map":68,"x":10,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8916}
+{"step":"Return to city center-5","region":3,"group":80,"map":68,"x":9,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"LEFT","frame":8940}
+{"step":"Return to city center-6","region":3,"group":80,"map":68,"x":8,"y":3,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":8964}
+{"step":"Return to city center-7","region":3,"group":80,"map":68,"x":8,"y":4,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"input":"DOWN","frame":8996}
+{"step":"Return to city center-8","region":3,"group":80,"map":68,"x":8,"y":5,"frlg_layout":0,"width":16,"height":13,"interaction":0,"mapsec":228}
+{"recorded_frames":9060}

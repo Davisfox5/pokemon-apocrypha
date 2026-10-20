@@ -1,8 +1,8 @@
 {
-  "source_commit": "86b1e47e0305596bb76fd1a1ff94f3b47947e47d",
+  "source_commit": "83936f1b20920137a816535dd900e7429928a79f",
   "baseline": "eb63c24cb7e28c7de1eddd7db0b693a6510b29d4",
   "branch": "codex/olivine-goldenrod-playbook-20261019",
-  "ROM_sha256": "d5aa20b933f2040c7bd3b52a576fa3ec76234b150dcb99eb4f3c729ef170eb97",
+  "ROM_sha256": "116734626aa9fc4e9a3335f632dac9f3b84efc8bcb456b962c94ef0d28168ad2",
   "ROM_bytes": 33554432,
   "local_build_exit_code": 0,
   "toolchain": "Arm GNU14.2.1 / newlib",
@@ -13,7 +13,6 @@
   "background_parity": 0,
   "hosted_CI": "Disabled on repository; no hosted run claimed",
   "limits": "Exterior review pass; no services, floors, NPCs or route/destination warps. Owner visual review pending.",
-  "native_reproduction_files": 249,
-  "terrain": "Retained HGSS material textures with explicit old-object removal and receiving repairs; polished transparent masters",
-  "owner_visual_acceptance": "Pending"
+  "owner_visual_acceptance": "Pending",
+  "flag_underpasses": "Both spans verified with real sprite overlaps and same continuous walking tour; no collision changes"
 }

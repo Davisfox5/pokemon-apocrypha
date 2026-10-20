@@ -1,4 +1,24 @@
-## Latest review: recorded Olivine walk — 2026-10-20
+## Latest: Olivine flag underpasses fixed — 2026-10-20
+
+Owner authorized the repair after the recorded review. Current engine `83936f1b20920137a816535dd900e7429928a79f`
+on the same branch/PR23. Read `gba/art/olivine-city/evidence/flag-underpasses/README.md`.
+Both hanging flag spans now use exact transparent cloth/rope masks on the native
+split foreground layer. No collision, elevation, palette, geography or renderer
+code changes. Town composite stays pixel-identical; source background remains
+below the foreground mask. Atlas generation omits only fully hidden background
+quadrants (all64 foreground pixels opaque), preserving ordinary native source.
+Peak cache999/1,008 slots. Guarded `flags.py` is an86b1e47e-baseline provenance edit,
+not a current-map editor. Do not replay it over newer source.
+
+Same2:32 recorded route now passes under both flag strings, both directions.
+Physical barriers still block. Exact real-sprite occlusion checks pass for both
+spans; player pixels remain visible outside the masks. Full Porymap/native parity,
+134 BG frames, save/reload/Continue and previous Olivine/Goldenrod saves pass.
+New video and before/after GIF are preserved beside the unchanged old recording.
+No second clean compilation or hosted CI success claimed. Owner may provide an
+annotated diagram for further art cleanup; do not expand this fix's scope.
+
+## Historical before-repair review: recorded Olivine walk — 2026-10-20
 
 Owner requested a recorded collision/layering review before sending annotated art
 corrections. `gba/art/olivine-city/evidence/walking-tour/` contains a continuous

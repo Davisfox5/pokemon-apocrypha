@@ -38,6 +38,16 @@ The current Olivine receiving-context pass is documented in
 rejected history; their independently drawn terrain and 144-tree arrangement
 are superseded. The polished standalone architecture from that pass is retained.
 
+## Hanging flags and overhead props
+
+Walk beneath every suspended flag/string/arch in both directions. A correct
+background overview does not prove player occlusion. Use a transparent foreground
+mask following the actual cloth/rope silhouette; keep walkable ground and solid
+support footprints separate. Never lift a full opaque pavement rectangle above
+the player. Verify real sprite overlaps, visible player pixels outside the mask,
+post collision and normal save/Continue. Preserve a before/after gameplay clip.
+The Olivine example is `gba/art/olivine-city/evidence/flag-underpasses/`.
+
 ## What made the result work
 
 Geography came from the actual HeartGold/SoulSilver map. Art was reconstructed
