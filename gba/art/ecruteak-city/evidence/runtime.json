@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "122858fdc48fa5be3484c9e152f76b0856a2e0fc37f4e23ae3544ccd14614ece",
+  "rom_sha256": "7f0843d6abc0879a3eaf53fcd6014c611ce739dbbed42ac6e2940c6921e5c0db",
   "phases": [
     {
       "phase": "write",
@@ -143,6 +143,19 @@
           "map": 52,
           "x": 45,
           "y": 13,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 27,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "restored-east-terrace-fence-blocks",
+          "region": 3,
+          "group": 80,
+          "map": 52,
+          "x": 32,
+          "y": 19,
           "frlg_layout": 0,
           "width": 72,
           "height": 27,

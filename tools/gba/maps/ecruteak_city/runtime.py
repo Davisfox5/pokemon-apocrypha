@@ -14,6 +14,7 @@ steps=r'''
  go(52,22,19);step(UP,1);at(52,22,19,"terrace-fence-blocks");
  go(52,17,15);step(RIGHT,1);at(52,17,15,"Burned-Tower-west-grove-blocks");shot("tower-west-apron");
  go(52,45,13);step(UP,1);at(52,45,13,"Bell-entrance-back-grove-blocks");shot("Bell-entrance-grove");
+ go(52,32,19);step(UP,1);at(52,32,19,"restored-east-terrace-fence-blocks");shot("restored-terrace-fence");
  go(52,41,18);shot("Bell-Tower-entrance");step(UP,1);at(52,41,18,"Bell-Tower-interior-pending");
  go(52,44,20);shot("pond-west-bank");step(RIGHT,1);at(52,44,20,"pond-blocks-foot-travel");
  go(51,47,7);shot("Dance-Theater");step(UP,1);at(51,47,7,"theater-interior-pending");

@@ -1,11 +1,29 @@
-# Ecruteak City — closer tower groves and sealed gate flanks
+# Ecruteak City — final landmark cleanup
 
 [Native source PR #19](https://github.com/Davisfox5/pokeemerald-expansion/pull/19).
-Engine `d5405cdcbddf65a0f9b5e19130cbd29db66cefe0`, stacked on Azalea
+Engine `b89ae5d5f14878b0b759ba04a495d50a676b6e6b`, stacked on Azalea
 `d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review;
 local checks pass. The source PR remains draft pending hosted CI and visual acceptance.
 
-## Current tree review
+## Final landmark corrections
+
+The tree overlapping the fence east of Burned Tower is removed, revealing the
+complete existing fence posts. The Bell entrance no longer includes source leaf
+fragments in its foreground roof mask. Its original dark ridge outline and gold
+annex rail remain; a small leaf-occluded timber edge is recovered from the same
+vertical grain eight pixels below. Complete trees remain behind the building,
+and every other tree/building placement is unchanged.
+
+- [Fence: HGSS / approved / corrected](evidence/landmark-finish/fence.png)
+- [Entrance: HGSS / approved / corrected](evidence/landmark-finish/entrance.png)
+- [Exact native layers and preservation audit](evidence/landmark-finish/review.json)
+- [Current native map](evidence/native-map.png), [in-game views](evidence/gameplay-gallery.png)
+
+Collision, behavior, gates and the open torii passage are unchanged. The owner
+approved the area with these two remaining corrections; the final correction
+images are available for review.
+
+## Approved tree-spacing review
 
 The complete trees now sit closer to Burned Tower and the Bell Tower entrance.
 The west/east gateways meet their surrounding forest, and both southern torii
@@ -82,10 +100,11 @@ Original: [HGSS Ecruteak overview](https://archives.bulbagarden.net/media/upload
 1032×785. Original (0,0) registers at native (64,16), without geometric scaling.
 The map occupies 72×52 16px squares with outward padding for complete trees/gates.
 This is a source-image reconstruction, not decoded DS collision or hidden terrain.
-There are 494 complete trees: 47 added and 64 shifted at the gate shoulders.
+There are 493 complete trees after removing the fence overlap. The preceding
+spacing pass added 47 and shifted 64 at the gate shoulders.
 Their distinct 2×2 root footprints do not overlap.
 
-Temple uses 917 glyphs / 335 metatiles; city uses 988 / 422. Both use thirteen BG
+Temple uses 910 glyphs / 333 metatiles; city uses 988 / 422. Both use thirteen BG
 banks and reserve sixteen glyph slots. The split at global row 27 uses a short
 map fade. Interiors, Bell Tower path, neighboring Routes 37/38/42, campaign actors,
 encounters, shops and Gym mechanics remain unwired. Closed entrances are tested as
@@ -97,17 +116,24 @@ Visible master pixels, all complete trees, receiving approaches and directional
 wall placements pass. Headless libmGBA checks cover stairs, barriers, restored
 lantern bases, the open central plot, adjusted courts and both district transitions.
 Ordinary save, cold reload and title Continue pass. A **copy** of the preceding
-c8a826 proof save also reloads/continues; its original file remains unchanged.
+d5405cdc proof save also reloads/continues; its original file remains unchanged.
 These checks support review; owner visual acceptance remains pending.
 
-Records: [tree audit](evidence/tree-closure/review.json), [native review](evidence/review.json),
-[build](evidence/build.json), [runtime](evidence/runtime.json), [copied prior-save test](evidence/tree-closure/prior-save-compatibility.json),
+Records: [current landmark audit](evidence/landmark-finish/review.json), [native review](evidence/review.json),
+[build](evidence/build.json), [runtime](evidence/runtime.json), [copied prior-save test](evidence/landmark-finish/prior-save-compatibility.json),
 [preservation](evidence/preservation.json), [reproduction](evidence/reproduction.json), [hosted CI](evidence/hosted-ci.json).
 
 The previous court sheets retain the approved c8a826 result as history. The tree
 sheets compare that exact baseline to the current decoded native map.
 
 ## Editable source and preservation
+
+`landmark_finish.py` applies only the fence rectangle and two Bell roof-mask joins
+to clean d5405cdc native source. Its immutable baseline, original master and donor
+coordinates are retained in `source/landmark-finish/`. `landmark_review.py` decodes
+both native layers, transparency and attributes, verifies unchanged collision and
+all placements except the one removed tree, and compares only the three local
+rectangles. Previous tree-spacing and court evidence stays historical.
 
 `tree_closure.py` is a narrow one-time patch requiring clean c8a826 native source.
 Its baseline and placement ledger are in `source/tree-closure/`. `tree_cover.py`

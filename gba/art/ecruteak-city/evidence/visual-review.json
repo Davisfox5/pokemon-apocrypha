@@ -1,21 +1,19 @@
 {
-  "source_commit": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
-  "owner_visual_acceptance": "pending",
-  "previous_c8a826_visual_pass_accepted_by_owner": true,
+  "source_commit": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
+  "owner_visual_acceptance": "Final small corrections pending review; owner approved the area apart from these two joins.",
   "reviewed_native_views": [
-    "HGSS / approved / current coordinate-labelled Burned and Bell groves",
-    "Both side gateways and southern torii before/after",
-    "Final native gameplay at Burned Tower, Bell entrance, both gateways, southern torii and Gym front"
+    "Coordinate-labelled HGSS / d5405cdc / corrected fence and Bell roof",
+    "Final native gameplay at restored fence and Bell entrance"
   ],
   "findings": [
-    "Complete shared trees close the tower clearings without changing approved buildings or stone walls.",
-    "Forests meet both side gateways; closed walls and tree roots seal north/south bypasses.",
-    "Both southern torii flanks are wooded; only center columns 40-42 cross the woodland belt.",
-    "Exact native foreground decode preserves all 26 exposed normal-layer masks and colors, including the Gym front and gate step.",
-    "No visible RGB changes outside the five tree neighborhoods; all master artwork and building placements are unchanged."
+    "The single maple at native anchor (32,16) is removed; the complete fence is visible.",
+    "Two leaf-fragment rows above the dark roof ridge are excluded from the building foreground mask.",
+    "A small leaf-occluded timber edge uses its unchanged vertical grain eight pixels below; the gold annex rail and ridge outline are preserved.",
+    "All other tree/building placements and all collision/behavior cells are unchanged.",
+    "Native foreground/background pixels, alpha masks and layer attributes match the intended local correction."
   ],
   "limits": [
-    "Owner-requested tree placement adaptation of the HGSS geography.",
-    "Side gates and interiors remain unwired; southern torii remains open."
+    "The source overview did not show the timber behind the leaf tuft; the nearby same-surface donor is explicit.",
+    "Interiors and adjoining routes remain unwired."
   ]
 }

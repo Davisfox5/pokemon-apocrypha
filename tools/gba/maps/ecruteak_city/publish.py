@@ -8,7 +8,7 @@ head=subprocess.check_output(['git','-C',str(G),'rev-parse','HEAD'],text=True).s
 assert not subprocess.check_output(['git','-C',str(G),'status','--porcelain'],text=True).strip()
 shutil.copyfile(R/'results.json',E/'runtime.json');D=E/'gameplay';D.mkdir(exist_ok=True)
 for p in R.glob('*.png'):shutil.copyfile(p,D/p.name)
-names=['west-gate-closure','east-gate-closure','torii-woodland-closure','Bell-entrance-grove','Burned-Tower','Bell-Tower-entrance','pond-west-bank','Dance-Theater','Ecruteak-Gym','Pokemon-Center','Poke-Mart','central-avenue','northern-avenue','city-district-return','house-lantern-north','house-lantern-west','gateway-lanterns','central-plot','southern-house-court','southern-torii','western-woodland','cold-reload','title-continue']
+names=['restored-terrace-fence','west-gate-closure','east-gate-closure','torii-woodland-closure','Bell-entrance-grove','Burned-Tower','Bell-Tower-entrance','pond-west-bank','Dance-Theater','Ecruteak-Gym','Pokemon-Center','Poke-Mart','central-avenue','northern-avenue','city-district-return','house-lantern-north','house-lantern-west','gateway-lanterns','central-plot','southern-house-court','southern-torii','western-woodland','cold-reload','title-continue']
 sheet=Image.new('RGB',(980,((len(names)+1)//2)*350),'#223039');d=ImageDraw.Draw(sheet)
 for i,n in enumerate(names):
  x=i%2*490;y=i//2*350;d.text((x+5,y+5),n,fill='white');sheet.paste(Image.open(D/(n+'.png')).resize((480,320),Image.Resampling.NEAREST),(x+5,y+25))

@@ -1,5 +1,5 @@
 {
-  "source_commit": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "source_commit": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
   "authority": "Committed native source is the editor. Do not replay first-authoring tools over it.",
   "files": [
     {
@@ -16,11 +16,11 @@
     },
     {
       "path": "data/layouts/JohtoEcruteakTempleDistrict/border.bin",
-      "sha256": "a90f920d4b25cc7d3ecfeb497e3c434d130daf84451fcf11be3edbcffbc87e30"
+      "sha256": "5473753b5777b3181f08eb58146f5c9ccf17fb3df4fec50104a830688ca4da9e"
     },
     {
       "path": "data/layouts/JohtoEcruteakTempleDistrict/map.bin",
-      "sha256": "d309fa578fb86967e07a24f28ec73a2c2715a5972821debe30577fc742ee4d1b"
+      "sha256": "c49050e8673d3c0e06ee250ae93a56b1426b17e344214a14d34d14c8a68e5aa9"
     },
     {
       "path": "data/layouts/layouts.json",
@@ -124,11 +124,11 @@
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/metatile_attributes.bin",
-      "sha256": "02fc359da9248fe945143630cd66368784d4aa847c71a457b0e68641039054ad"
+      "sha256": "a8906346297bf9816b82b5a726aad96b74f9380af3e645a034ec010bf354e2b2"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/metatiles.bin",
-      "sha256": "56321e59a30615d16ca2554c431bcd3127eb39425c03bfe0638ad5a471bc6b59"
+      "sha256": "702d5c543bae1de865ece26c855a4dc3c0a8ada6ec88795211baa3fcf03540c3"
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/palettes/00.pal",
@@ -196,7 +196,7 @@
     },
     {
       "path": "data/tilesets/primary/ecruteak_temple/tiles.png",
-      "sha256": "8e0c4145b9890308d891db70acd7972971b2870e78e253c9846d5f8533312541"
+      "sha256": "7964aa9395e6df275a54eaac08dd8c374b9e581fada5eed94c35585a5c94aca6"
     },
     {
       "path": "data/tilesets/secondary/ecruteak_city/metatile_attributes.bin",
@@ -348,7 +348,7 @@
     },
     {
       "path": "data/tilesets/secondary/ecruteak_temple/tiles.png",
-      "sha256": "ce352458de4ec3ee8bf5781134f335141ba045c7723f47d2b8ed3cb186b00350"
+      "sha256": "9a3ad82eeb58ccb07128bfb622f716f78faf43fd00bf056957824fe903c3e623"
     },
     {
       "path": "src/apocrypha_map_proof.c",
