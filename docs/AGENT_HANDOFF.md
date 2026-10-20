@@ -1,4 +1,24 @@
-## Latest: Olivine flag underpasses fixed — 2026-10-20
+## Latest: flag alpha backgrounds corrected — 2026-10-20
+
+Owner found that the prior foreground masks still contained grass/pavement.
+Current engine `dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41` fixes the actual alpha, restores local receiving
+street/lawn and preserves post heads/shafts exactly. Read
+`gba/art/olivine-city/evidence/flag-alpha-cleanup/README.md`.1,367 terrain pixels
+removed from masks;1,769 cloth/rope pixels retained. No collision/elevation,
+palette, map ID or renderer code changes. Two local native sections edited.
+
+The updated2:41 continuous recording adds direct passes beneath both orange
+emblems. Four real sprite poses verify both retained flags and visible player
+pixels through removed backing. Checkerboard cutouts and post preservation
+proofs are included. Full Porymap/native,134 BG capture, save/reload/Continue,
+previous Olivine/Goldenrod saves, clean source/atlas guards and guarded native
+reproduction pass. Peak959/1,008 slots. No hosted CI or second clean compilation
+claimed. Owner may still provide diagram-based art cleanup; do not expand scope.
+
+Earlier flag-layering proofs are historical: they did not detect bad alpha.
+`refine_flag_alpha.py` is an isolated83936f1b baseline patch, not a current editor.
+
+## Historical first layering pass — alpha was incomplete — 2026-10-20
 
 Owner authorized the repair after the recorded review. Current engine `83936f1b20920137a816535dd900e7429928a79f`
 on the same branch/PR23. Read `gba/art/olivine-city/evidence/flag-underpasses/README.md`.

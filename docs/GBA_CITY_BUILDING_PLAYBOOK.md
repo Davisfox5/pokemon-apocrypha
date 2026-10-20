@@ -42,7 +42,10 @@ are superseded. The polished standalone architecture from that pass is retained.
 
 Walk beneath every suspended flag/string/arch in both directions. A correct
 background overview does not prove player occlusion. Use a transparent foreground
-mask following the actual cloth/rope silhouette; keep walkable ground and solid
+mask following the actual cloth/rope silhouette. Inspect it on a contrasting
+checkerboard to catch captured grass/pavement. Verify player pixels remain
+visible through removed backing as well as flag pixels covering the sprite.
+Keep walkable ground and solid
 support footprints separate. Never lift a full opaque pavement rectangle above
 the player. Verify real sprite overlaps, visible player pixels outside the mask,
 post collision and normal save/Continue. Preserve a before/after gameplay clip.

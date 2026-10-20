@@ -1,0 +1,50 @@
+[
+  {
+    "span": "central",
+    "world": [
+      24,
+      25
+    ],
+    "foreground_pixels": 851,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 190,
+    "sprite_touches_flag_edge": true,
+    "player_pixels_through_cleared_background": 104
+  },
+  {
+    "span": "west",
+    "world": [
+      10,
+      18
+    ],
+    "foreground_pixels": 918,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 179,
+    "sprite_touches_flag_edge": true,
+    "player_pixels_through_cleared_background": 93
+  },
+  {
+    "span": "west-right",
+    "world": [
+      14,
+      18
+    ],
+    "foreground_pixels": 918,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 190,
+    "sprite_touches_flag_edge": true,
+    "player_pixels_through_cleared_background": 74
+  },
+  {
+    "span": "west-pennant",
+    "world": [
+      13,
+      18
+    ],
+    "foreground_pixels": 918,
+    "foreground_RGB_errors": 0,
+    "visible_player_pixels": 165,
+    "sprite_touches_flag_edge": true,
+    "player_pixels_through_cleared_background": 29
+  }
+]
