@@ -84,7 +84,8 @@ preview avatar; this work places no story characters.
 Committed native map/tileset/object sources remain authoritative. Do not replay
 first-authoring generators. The heritage patch is pinned to clean engine
 `103874452f101ba3f597cafcca73c1aa1e32998d`; it preserves that source, masters and
-prior renders under `source/heritage/baseline/`. Its provenance sequence is:
+prior renders under `source/heritage/baseline/`. Its asset-input command is `heritage.py ENGINE APPROVED_ASSET_SHEET APPROVED_CONCEPT`;
+the retained PNGs live in `source/heritage/`. Its provenance sequence is:
 `heritage.py`, `heritage_fixtures.py`, `heritage_backing.py`,
 `heritage_shadows.py`, `heritage_arch.py`, `heritage_pack.py`,
 `heritage_hidden.py`, `heritage_objects.py`, `heritage_finish.py`,

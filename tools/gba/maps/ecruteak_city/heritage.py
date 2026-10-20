@@ -11,12 +11,15 @@ ROOT=Path(__file__).resolve().parents[4];S=ROOT/'gba/art/ecruteak-city/source';E
 assert subprocess.check_output(['git','-C',str(G),'rev-parse','HEAD'],text=True).strip()==BASE
 assert not subprocess.check_output(['git','-C',str(G),'status','--porcelain'],text=True).strip(),'Preserve native edits.'
 assert not B.exists(),'One-time source patch already prepared; preserve its baseline.'
+approved_asset=Path(sys.argv[2]);approved_concept=Path(sys.argv[3]) if len(sys.argv)>3 else approved_asset.with_name('approved-concept.png')
+assert approved_asset.is_file() and approved_concept.is_file(),'Supply the retained approved asset sheet and concept PNG.'
 D.mkdir(exist_ok=True);B.mkdir();shutil.copytree(M,B/'masters')
 for n in ['background.png','foreground.png','solid.npy','behaviors.npy','material-grid.npy','ground-material-grid.npy','tree-footprints.npy']:shutil.copyfile(S/n,B/n)
 for n in ['assembly.json','native-map.png']:shutil.copyfile(E/n,B/n)
 shutil.copyfile(S/'tree-closure/above.npy',B/'above.npy')
 for bank in ['ecruteak_city','ecruteak_temple']:shutil.copyfile(S/bank/'exact-palette-cover.json',B/(bank+'-cover.json'))
-shutil.copyfile(sys.argv[2],D/'approved-assets.png');shutil.copyfile('/workspace/generated_images/exec-a6984221-5f35-405a-981f-90492b9efb5d.png',D/'approved-concept.png')
+for src,dst in [(approved_asset,D/'approved-assets.png'),(approved_concept,D/'approved-concept.png')]:
+ if src.resolve()!=dst.resolve():shutil.copyfile(src,dst)
 art={p.stem:np.array(Image.open(p).convert('RGBA')) for p in M.glob('*.png')};bg=np.array(Image.open(B/'background.png'));fg=np.array(Image.open(B/'foreground.png'));solid=np.load(B/'solid.npy');ground=np.load(B/'ground-material-grid.npy');mat=np.load(B/'material-grid.npy');above=np.load(B/'above.npy');r=json.loads((B/'assembly.json').read_text());oldps=r['placements'];oldart={k:v.copy() for k,v in art.items()};Y,X=np.indices(bg.shape[:2]);regions=[]
 def save(n,a):art[n]=a;Image.fromarray(a).save(M/(n+'.png'))
 def nearest(a,pal):
