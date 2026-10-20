@@ -1,0 +1,10 @@
+{
+  "exposed_normal_cells_checked": 26,
+  "native_foreground_mask_errors": 0,
+  "native_foreground_RGB_errors": 0,
+  "layer_attribute_errors": 0,
+  "all_native_cell_elevations": 3,
+  "packing_rule": "Preserve exposed normal BG1 masks. Flexible blocked covered BG2/BG3 remain below elevation-3 actors; normal joins are repacked only when the next player cell south is blocked.",
+  "source_commit": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "ROM_SHA256": "122858fdc48fa5be3484c9e152f76b0856a2e0fc37f4e23ae3544ccd14614ece"
+}

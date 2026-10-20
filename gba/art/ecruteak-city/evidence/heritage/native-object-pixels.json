@@ -1,0 +1,25 @@
+{
+  "rom_sha256": "49434fec42d73bac0ce9f681bf6669bbf5616da10c4206f89b7e9844130f4d25",
+  "frame": "heritage-overview.png",
+  "proof": [
+    {
+      "master": "heritage-shrine",
+      "full_visible_opaque_pixels": 2486,
+      "RGB5_errors": 0,
+      "screen_position": [
+        48,
+        24
+      ]
+    },
+    {
+      "master": "offering-counter",
+      "full_visible_opaque_pixels": 434,
+      "RGB5_errors": 0,
+      "screen_position": [
+        24,
+        88
+      ]
+    }
+  ],
+  "source_commit": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3"
+}
