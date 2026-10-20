@@ -1,17 +1,27 @@
 {
-  "source_commit": "103874452f101ba3f597cafcca73c1aa1e32998d",
-  "owner_visual_acceptance": "Owner approved previous map; requested one-tile southern gate correction now available for review.",
+  "source_commit": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3",
+  "owner_visual_acceptance": "Owner approved the simplified concept for implementation; finished native architecture pending visual review.",
   "reviewed_native_views": [
-    "Coordinate-labelled HGSS / b89ae5d5 / gate +1 cell east",
-    "Actual native Porymap exports",
-    "In-game southern torii and woodland closure"
+    "Full decoded native map and coordinate grids",
+    "Actual native Porymap backgrounds",
+    "Burned Tower scaffold and restoration reading",
+    "Central static shrine/counter: 2,920 complete opaque RGB5 pixels checked against game frame",
+    "Pond shrine court and shoreline",
+    "Red lanterns at houses, gates and theater",
+    "Centered arch with intact tree shoulders",
+    "All public reading captures and previous-save title Continue"
   ],
   "findings": [
-    "Gate shifts exactly 16 pixels east.",
-    "Both passage tiles are clear; post cells connect to unchanged tree barriers.",
-    "All other placement and visible RGB outside gate rectangle are preserved."
+    "All autumn/amber trees share the accepted green alpha and foliage geometry.",
+    "Four complete pond-side trees clear a compact shrine court and approach.",
+    "One red lantern style throughout; original building masters and Route32 rock art retained.",
+    "No new characters, flower beds or statues.",
+    "Native warp pairs resolve blocked arrivals; sideways border walking stays in-district.",
+    "Old preview Continue restores the two appended static objects, without save reset or duplication."
   ],
   "limits": [
-    "Interiors and adjoining routes remain unwired."
+    "Existing building interiors and adjoining routes remain unwired.",
+    "Offering counter is inspection only; merchant/story character placement is deferred to the owner.",
+    "Two rendering districts retain a short native fade."
   ]
 }

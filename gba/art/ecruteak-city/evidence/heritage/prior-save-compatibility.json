@@ -1,0 +1,91 @@
+{
+  "rom_sha256": "49434fec42d73bac0ce9f681bf6669bbf5616da10c4206f89b7e9844130f4d25",
+  "prior_source": "103874452f101ba3f597cafcca73c1aa1e32998d",
+  "prior_save_sha256": "b92a7940f1ab71a5b2aacb984f9445dd2ec4b99a04f860cae79879583163fa8d",
+  "copied_save_only": true,
+  "original_save_unchanged": true,
+  "phases": [
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "cold-reload-Ecruteak",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "reload-exactly-two-fixtures",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "Continue-exactly-two-fixtures",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ]
+    }
+  ],
+  "restored_native_shrine_body_matches": {
+    "cold-reload": [
+      [
+        0,
+        8
+      ]
+    ],
+    "title-continue": [
+      [
+        0,
+        8
+      ]
+    ]
+  },
+  "counter_edge_RGB_errors": 0,
+  "save_layout_changed": false,
+  "flags_reset": false,
+  "source_commit": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3"
+}

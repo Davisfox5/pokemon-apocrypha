@@ -8,7 +8,7 @@ head=subprocess.check_output(['git','-C',str(G),'rev-parse','HEAD'],text=True).s
 assert not subprocess.check_output(['git','-C',str(G),'status','--porcelain'],text=True).strip()
 shutil.copyfile(R/'results.json',E/'runtime.json');D=E/'gameplay';D.mkdir(exist_ok=True)
 for p in R.glob('*.png'):shutil.copyfile(p,D/p.name)
-names=['restored-terrace-fence','west-gate-closure','east-gate-closure','torii-woodland-closure','Bell-entrance-grove','Burned-Tower','Bell-Tower-entrance','pond-west-bank','Dance-Theater','Ecruteak-Gym','Pokemon-Center','Poke-Mart','central-avenue','northern-avenue','city-district-return','house-lantern-north','house-lantern-west','gateway-lanterns','central-plot','southern-house-court','southern-torii','western-woodland','cold-reload','title-continue']
+names=['heritage-overview','restoration-scaffold','pond-shrine','offering-counter','read-Restoration','read-WaysideShrine','read-PondShrine','read-OfferingCounter','read-Archive','restored-terrace-fence','west-gate-closure','east-gate-closure','torii-woodland-closure','Bell-entrance-grove','Burned-Tower','Bell-Tower-entrance','pond-west-bank','Dance-Theater','Ecruteak-Gym','Pokemon-Center','Poke-Mart','central-avenue','northern-avenue','city-district-return','house-lantern-north','house-lantern-west','gateway-lanterns','central-plot','southern-house-court','southern-torii','western-woodland','cold-reload','title-continue']
 sheet=Image.new('RGB',(980,((len(names)+1)//2)*350),'#223039');d=ImageDraw.Draw(sheet)
 for i,n in enumerate(names):
  x=i%2*490;y=i//2*350;d.text((x+5,y+5),n,fill='white');sheet.paste(Image.open(D/(n+'.png')).resize((480,320),Image.Resampling.NEAREST),(x+5,y+25))
@@ -20,7 +20,7 @@ for row,(label,box) in enumerate([('Violet glazing / distinct source front',(352
   x=col*784+8;y=row*310;d.text((x,y+8),label+' — '+name,fill='white');crop=im.crop(box);sh.paste(crop.resize((crop.width*2,crop.height*2),Image.Resampling.NEAREST),(x,y+32))
 sh.save(E/'house-material-before-after.png')
 files=subprocess.check_output(['git','-C',str(G),'diff','--name-only',base,'HEAD'],text=True).splitlines()
-allowed=['data/layouts/JohtoEcruteak','data/maps/JohtoEcruteak','data/tilesets/primary/ecruteak_','data/tilesets/secondary/ecruteak_'];registry={'data/event_scripts.s','data/layouts/layouts.json','data/maps/map_groups.json','src/apocrypha_map_proof.c','src/data/region_map/region_map_sections.json','src/data/tilesets/graphics.h','src/data/tilesets/headers.h','src/data/tilesets/metatiles.h'}
+allowed=['data/layouts/JohtoEcruteak','data/maps/JohtoEcruteak','data/tilesets/primary/ecruteak_','data/tilesets/secondary/ecruteak_','graphics/object_events/pics/ecruteak/'];registry={'include/constants/event_objects.h','graphics/object_events/palettes/ecruteak_heritage.pal','src/event_object_movement.c','src/data/object_events/object_event_graphics.h','src/data/object_events/object_event_graphics_info.h','src/data/object_events/object_event_graphics_info_pointers.h','src/data/object_events/object_event_pic_tables.h','data/event_scripts.s','data/layouts/layouts.json','data/maps/map_groups.json','src/apocrypha_map_proof.c','src/data/region_map/region_map_sections.json','src/data/tilesets/graphics.h','src/data/tilesets/headers.h','src/data/tilesets/metatiles.h'}
 assert all(f in registry or any(f.startswith(p) for p in allowed) for f in files)
 manifest=[]
 for f in files:

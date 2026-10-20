@@ -1,28 +1,98 @@
-# Ecruteak City — aligned southern gate
+# Ecruteak City — ten-year heritage architecture
 
 [Native source PR #19](https://github.com/Davisfox5/pokeemerald-expansion/pull/19).
-Engine `103874452f101ba3f597cafcca73c1aa1e32998d`, stacked on Azalea
-`d822306675e15abe67c85235d9faf8d6e676d449`. Exterior proposal for owner visual review;
-local checks pass. The source PR remains draft pending hosted CI and visual acceptance.
+Engine `2d7689a9c420e1af075d6c29c0d069d1aaa04fe3`, stacked on Azalea `d822306675e15abe67c85235d9faf8d6e676d449`.
+The simplified concept was approved for native implementation; this finished
+native revision remains available for owner visual review. PRs remain draft
+while hosted CI is unreported.
 
-## Southern gate and collision review
+## Current native architecture
 
-The southern gate moves exactly one native tile east. Its two-tile passage stays
-open in both directions; post collision joins the unchanged trees on both sides.
-Only three collision cells change: the old phantom upper block is removed and
-the two new left-post cells become solid. No other tree or building moves, and
-native RGB pixels outside the gate rectangle are unchanged.
+- All 489 remaining trees use the approved green tree's exact silhouette and
+  foliage geometry. Amber and autumn variants change colors only. Eleven trees
+  tucked behind the tower roofs use the receiving roof's dark ramp on their
+  bottom eight pixels; geometry and texture shade ordering are retained.
+- Burned Tower retains its ruin and existing Route 32 stonework. Repeating timber
+  scaffold courses and a readable restoration notice identify active rebuilding.
+  The bounded worksite pockets behind the scaffold remain closed to walking.
+- The central court has a compact traditional shrine, an unattended offering
+  counter and a heritage notice. No flowers, statues or new characters are added.
+- Four complete trees east of the pond are cleared for a small shrine court,
+  paired red lanterns and a stone approach from the south bank. Water and shore
+  geometry remain intact. The archive gains a traditional hanging scroll.
+- All seventeen lantern placements use one sharp red master. The southern arch
+  sits on an eight-pixel visual offset, centered between the forest shoulders;
+  its two native walking lanes remain clear and both post flanks remain sealed.
 
-- [HGSS / approved / aligned comparison](evidence/gate-alignment/gate-comparison.png)
-- [Complete native collision audit](evidence/gate-alignment/review.json)
-- [In-game boundary sweep](evidence/gate-alignment/runtime.json)
-- [Previous save / Continue compatibility](evidence/gate-alignment/prior-save-compatibility.json)
+[Full native map](evidence/native-map.png) ·
+[Real gameplay gallery](evidence/gameplay-gallery.png) ·
+[Central fixtures in-game](evidence/gameplay/heritage-overview.png) ·
+[Pond shrine](evidence/gameplay/pond-shrine.png)
 
-All 3,744 map cells are checked; all 1,321 walkable cells are connected. The
-531 reachable movement interfaces against solid terrain are exercised in-game.
-The ordinary gameplay sequences also cover posts, both passage lanes, woodland
-flanks, stairs, lanterns, district transitions, saving and title-screen Continue.
-Earlier correction evidence below records its historical source version.
+Focused native comparisons: [restoration](evidence/heritage/restoration.png),
+[pond](evidence/heritage/pond-shrine.png),
+[heritage court](evidence/heritage/heritage-court.png),
+[lanterns](evidence/heritage/lanterns.png),
+[arch](evidence/heritage/centered-arch.png),
+[tree geometry](evidence/heritage/tree-geometry.png).
+
+## Interactions and movement
+
+Ten public readings cover the restoration project, archive, Bell approach,
+central shrine, heritage notice, offering counter, pond shrine/notice, Will's
+Gym and the Dance Theater. The counter has no seller or transaction; inspection
+explains that its wrapped offerings should remain there. Both counter columns
+are tested, and shrine inspection can be repeated. Every dialogue returns control.
+Lanterns and scaffold timbers are ordinary solid scenery.
+
+The two larger central fixtures use standard native inanimate object graphics,
+with their solid bodies in the map grid. They are architecture, not NPCs. Two
+appended graphics IDs and one palette tag preserve every earlier ID. The game
+frame matches all 2,920 visible opaque fixture pixels exactly in RGB5.
+
+The prior coordinate-trigger district transfer could land on blocked house/tree
+cells. It is replaced by 53 paired native directional warps between matching
+clear edge tiles. North/south travel is tested at every pair; sideways walking
+stays in the current district. Four northern tree-root approaches stay blocked.
+Existing older preview saves restore only the two appended static fixtures on
+return to field. Continue shows both immediately without a reset; menu return
+and repeated Continue retain exactly one of each.
+
+## Verification
+
+- Full local ROM build; actual Porymap backgrounds and decoded native RGB match.
+  The full overview adds the exact committed native static-object graphics.
+- All 3,744 native cells checked for collision, behavior and layer attributes;
+  all 1,314 public walkable cells are connected; complete distinct tree roots.
+- All 559 reachable open-to-solid boundaries exercised with real game input;
+  all 53 district pairs crossed both ways; signs, posts, stairs, water edges,
+  fixture bodies and ordinary save/reload/Continue pass.
+- Temple: 952 glyphs; city: 996 glyphs; thirteen scenery banks each. Native
+  object graphics preserve the central fixtures within the tile budget.
+- [Native geometry/layers/interactions](evidence/heritage/review.json),
+  [boundary gameplay](evidence/heritage/boundary-runtime.json),
+  [all crossings](evidence/heritage/crossing-runtime.json),
+  [exact fixture pixels](evidence/heritage/native-object-pixels.json),
+  [older-save compatibility](evidence/heritage/prior-save-compatibility.json).
+
+Existing building interiors, adjoining routes, commerce and story actors remain
+unwired. District travel retains a short fade. The supplied player is the normal
+preview avatar; this work places no story characters.
+
+## Editable source and one-time patch
+
+Committed native map/tileset/object sources remain authoritative. Do not replay
+first-authoring generators. The heritage patch is pinned to clean engine
+`103874452f101ba3f597cafcca73c1aa1e32998d`; it preserves that source, masters and
+prior renders under `source/heritage/baseline/`. Its provenance sequence is:
+`heritage.py`, `heritage_fixtures.py`, `heritage_backing.py`,
+`heritage_shadows.py`, `heritage_arch.py`, `heritage_pack.py`,
+`heritage_hidden.py`, `heritage_objects.py`, `heritage_finish.py`,
+`heritage_crossings.py`, `heritage_resume.py`, then `heritage_compile.py`.
+The verified exact covers are retained in `source/heritage/`; the packer validates
+them against actual patches. Hidden-glyph reuse changes no visible RGBA or
+foreground priority. Asset origins are recorded separately from original donors.
+Earlier comparisons below retain their historical source identities.
 
 ## Approved landmark corrections
 

@@ -7,8 +7,8 @@ start=r.MAIN[:r.MAIN.index('  // Actual east connection')]
 end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 steps=r'''
  go(51,41,8);shot("central-avenue");
- step(UP,7);at(51,41,1,"northbound-city-avenue");step(UP,1);frames(300,0);at(52,41,25,"temple-district-entry");shot("northern-avenue");
- step(DOWN,1);frames(300,0);at(51,41,1,"city-return");shot("city-district-return");
+ step(UP,7);at(51,41,1,"northbound-city-avenue");step(UP,1);at(51,41,0,"north-edge-tile");step(UP,1);frames(300,0);at(52,41,26,"temple-district-entry");shot("northern-avenue");
+ step(DOWN,1);frames(300,0);at(51,41,0,"city-return");step(DOWN,1);at(51,41,1,"city-avenue-return");shot("city-district-return");
  go(52,25,18);step(UP,4);at(52,25,14,"Burned-Tower-stair-axis");shot("Burned-Tower");step(UP,1);at(52,25,14,"tower-interior-pending");
  step(DOWN,4);at(52,25,18,"tower-stair-return");step(LEFT,1);at(52,24,18,"tower-south-court");
  go(52,22,19);step(UP,1);at(52,22,19,"terrace-fence-blocks");
@@ -26,7 +26,7 @@ steps=r'''
  go(52,21,25);step(RIGHT,1);at(52,21,25,"north-house-lantern-base-blocks");shot("house-lantern-north");
  go(51,21,5);step(RIGHT,1);at(51,21,5,"west-house-lantern-base-blocks");shot("house-lantern-west");
  go(52,18,24);shot("gateway-lanterns");
- go(51,35,4);step(DOWN,1);step(LEFT,2);at(51,33,5,"central-empty-plot-open");shot("central-plot");
+ go(51,38,5);shot("heritage-overview");go(51,35,6);shot("central-plot");step(UP,1);at(51,35,6,"central-shrine-body-blocks");
  go(51,36,14);shot("southern-house-court");
  go(52,8,25);step(LEFT,1);at(52,7,25,"west-gate-approach");step(LEFT,1);at(52,7,25,"west-gate-wall-blocks");step(UP,1);at(52,7,25,"west-gate-north-bypass-blocks");shot("west-gate-closure");
  go(51,8,3);step(LEFT,1);at(51,8,3,"west-gate-south-bypass-blocks");
@@ -42,7 +42,20 @@ steps=r'''
  go(51,43,20);step(UP,1);at(51,43,20,"moved-right-post-south-blocks");
  go(51,42,16);step(DOWN,6);at(51,42,22,"torii-right-lane-southbound");step(UP,6);at(51,42,16,"torii-right-lane-northbound");
  go(51,41,16);step(DOWN,6);at(51,41,22,"torii-center-southbound-open");shot("torii-woodland-closure");step(UP,6);at(51,41,16,"torii-center-northbound-open");
+ go(52,59,19);shot("pond-shrine");step(UP,1);at(52,59,19,"pond-shrine-body-blocks");step(DOWN,4);at(52,59,23,"pond-shrine-path-open");
+ go(51,32,7);step(UP,1);at(51,32,7,"offering-counter-blocks");shot("offering-counter");
+ go(52,21,14);step(UP,1);at(52,21,14,"scaffold-west-base-blocks");shot("restoration-scaffold");
+ go(52,27,18);shot("restoration-approach");
  go(51,41,8);shot("save-Ecruteak");
 '''
+import json
+entries=json.loads((HERE.parents[3]/'gba/art/ecruteak-city/source/heritage/interactions.json').read_text())
+readings=[]
+for i in entries:
+ a=i['approach'];readings.append(' go(%d,%d,%d);tap(%s);frames(1,A);frames(360,0);need(locked(),"read-%s");shot("read-%s");close_dialog();at(%d,%d,%d,"closed-%s");'%(a['map'],a['x'],a['y'],a['facing'],i['name'],i['name'],a['map'],a['x'],a['y'],i['name']))
+readings.append(' go(51,33,7);tap(UP);frames(1,A);frames(360,0);need(locked(),"counter-right-object-read");shot("read-CounterObject");close_dialog();at(51,33,7,"counter-object-read-closed");')
+readings.append(' go(52,59,19);tap(UP);frames(1,A);frames(360,0);need(locked(),"shrine-repeat-read");close_dialog();at(52,59,19,"shrine-repeat-read-closed");')
+readings='\n'.join(readings)
+steps=steps.replace(' go(51,41,8);shot("save-Ecruteak");',readings+'\n go(51,41,8);shot("save-Ecruteak");')
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(51,41,8').replace('cold-reload-new-bark','cold-reload-Ecruteak')
 if __name__=='__main__':r.main()

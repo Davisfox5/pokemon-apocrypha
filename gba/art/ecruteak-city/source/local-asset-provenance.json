@@ -1240,5 +1240,42 @@
   {
     "name": "pond-boulder",
     "adaptation": "native neighboring terrace material ramp; original silhouette and internal geometry preserved"
+  },
+  {
+    "name": "heritage-shrine",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      48,
+      64
+    ]
+  },
+  {
+    "name": "red-lantern",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      16,
+      32
+    ]
+  },
+  {
+    "name": "offering-counter",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      32,
+      16
+    ]
+  },
+  {
+    "name": "tree-amber",
+    "source": "Exact tree-hgss alpha and texture geometry; foliage colors replaced shade-for-shade",
+    "geometry_unchanged": true
+  },
+  {
+    "name": "tree-autumn",
+    "source": "Exact tree-hgss alpha and texture geometry; foliage colors replaced shade-for-shade",
+    "geometry_unchanged": true
   }
 ]

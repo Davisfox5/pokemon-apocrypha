@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Restoration",
+    "map": 52,
+    "x": 27,
+    "y": 17,
+    "text": "BURNED TOWER RESTORATION\\nThe city and the tower sages are\\lrepairing the old timberwork.\\pThe surviving beams are being\\nreinforced before rebuilding.\\lPlease keep clear of the scaffold.",
+    "approach": {
+      "map": 52,
+      "x": 27,
+      "y": 18,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "BellRecords",
+    "map": 52,
+    "x": 44,
+    "y": 17,
+    "text": "BELL TOWER APPROACH\\nThe sages preserve the city's\\lrecords and sacred traditions.\\pVisitors seeking historical texts\\nshould ask at the archive.",
+    "approach": {
+      "map": 52,
+      "x": 44,
+      "y": 18,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "Archive",
+    "map": 52,
+    "x": 35,
+    "y": 25,
+    "text": "ECRUTEAK HISTORICAL ARCHIVE\\nRecords of the towers and the\\lcity's traditions are kept here.\\pVisits to the reading room are\\narranged with the tower sages.",
+    "approach": {
+      "map": 52,
+      "x": 35,
+      "y": 26,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "WaysideShrine",
+    "map": 51,
+    "x": 35,
+    "y": 5,
+    "text": "A small shrine tended by the city.\\nIts wooden panel depicts the\\ltwo towers above ECRUTEAK.\\pA place to pause and remember\\nthose who cared for them.",
+    "approach": {
+      "map": 51,
+      "x": 35,
+      "y": 6,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "OfferingCounter",
+    "map": 51,
+    "x": 32,
+    "y": 6,
+    "text": "Neatly wrapped shrine offerings\\nrest on the wooden counter.\\pThe stall is unattended.\\nPlease leave the parcels here.",
+    "approach": {
+      "map": 51,
+      "x": 32,
+      "y": 7,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "HeritageBoard",
+    "map": 51,
+    "x": 38,
+    "y": 6,
+    "text": "ECRUTEAK HERITAGE COURT\\nThe shrine and offering stall\\lkeep local traditions close\\lto everyday city life.",
+    "approach": {
+      "map": 51,
+      "x": 38,
+      "y": 7,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "PondShrine",
+    "map": 52,
+    "x": 59,
+    "y": 18,
+    "text": "A quiet shrine beside the spring.\\nWater glimmers beneath its\\lweathered offering shelf.\\pThe path and lanterns have been\\nrenewed by the city's caretakers.",
+    "approach": {
+      "map": 52,
+      "x": 59,
+      "y": 19,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "PondBoard",
+    "map": 52,
+    "x": 61,
+    "y": 22,
+    "text": "SPRING SHRINE\\nA quiet place for reflection.\\pPlease stay on the stone approach\\nand keep the spring clear.",
+    "approach": {
+      "map": 52,
+      "x": 61,
+      "y": 23,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "Gym",
+    "map": 51,
+    "x": 27,
+    "y": 14,
+    "text": "ECRUTEAK CITY GYM\\nLEADER: WILL\\lA student of Psychic discipline\\land spiritual meditation.",
+    "approach": {
+      "map": 51,
+      "x": 27,
+      "y": 15,
+      "facing": "UP"
+    }
+  },
+  {
+    "name": "Theater",
+    "map": 51,
+    "x": 45,
+    "y": 6,
+    "text": "ECRUTEAK DANCE THEATER\\nTraditional dance and music\\lcontinue here, passed from\\lone generation to the next.",
+    "approach": {
+      "map": 51,
+      "x": 45,
+      "y": 7,
+      "facing": "UP"
+    }
+  }
+]

@@ -17,6 +17,11 @@ for district in r['districts']:
  usage.append(dict(map=name,unique_glyph_IDs=len(ids),highest_glyph_ID=max(ids),palette_banks=sorted(pals),metatiles=district['metatiles'],Porymap_pixel_errors=0))
  ims.append((y0,im))
 now=np.concatenate([v for _,v in sorted(ims)]);bg=np.array(Image.open(S/'background.png'));fg=np.array(Image.open(S/'foreground.png'));expected=bg.copy();m=fg[...,3]>0;expected[m]=fg[m];assert np.array_equal(now,expected[...,:3])
+# Inanimate architecture uses native OBJ graphics; Porymap background comparison
+# above remains exact. Decode the committed indexed assets for the full overview.
+Image.fromarray(now).save(E/'native-background.png')
+for p in r.get('object_placements',[]):
+ a=np.array(Image.open(G/p['graphics_path']).convert('RGBA'));px,py=p['native_padding'];master=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));h,w=master.shape[:2];a=a[py:py+h,px:px+w];assert np.array_equal(a,master),p['name'];m=a[...,3]>0;now[p['y']:p['y']+h,p['x']:p['x']+w][m]=a[m,:3]
 roots=np.zeros((H,W),np.uint8)
 for p in r['trees']:
  x,y=p['x'],p['y'];roots[y+1:y+3,x:x+2]+=1;assert 0<=x*16 and x*16+32<=W*16 and 0<=y*16 and y*16+48<=H*16
