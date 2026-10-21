@@ -3,265 +3,137 @@
   "native_RGB_errors": 0,
   "porymap": [
     {
-      "name": "OlivineCity01",
+      "map": "OlivineCity01",
       "pixels": 110592,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity02",
+      "map": "OlivineCity02",
       "pixels": 53248,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity03",
+      "map": "OlivineCity03",
       "pixels": 57344,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity04",
+      "map": "OlivineCity04",
       "pixels": 53248,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity05",
+      "map": "OlivineCity05",
       "pixels": 57344,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity06",
+      "map": "OlivineCity06",
       "pixels": 53248,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity07",
+      "map": "OlivineCity07",
       "pixels": 57344,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity08",
+      "map": "OlivineCity08",
       "pixels": 110592,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity09",
+      "map": "OlivineCity09",
       "pixels": 117504,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity10",
+      "map": "OlivineCity10",
       "pixels": 53248,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity11",
+      "map": "OlivineCity11",
       "pixels": 57344,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity12",
+      "map": "OlivineCity12",
       "pixels": 56576,
       "RGB_errors": 0
     },
     {
-      "name": "OlivineCity13",
+      "map": "OlivineCity13",
       "pixels": 60928,
       "RGB_errors": 0
     }
   ],
-  "approaches": [
+  "components": [
     {
-      "name": "Olivine Gym",
-      "approach": [
-        15,
-        16
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "West residence",
-      "approach": [
-        19,
-        22
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "North residence west",
-      "approach": [
-        33,
-        17
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "North residence east",
-      "approach": [
-        38,
-        17
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "Olivine Cafe",
-      "approach": [
-        11,
-        30
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "Lighthouse",
-      "approach": [
-        46,
-        33
-      ],
-      "open": true,
-      "reachable": true
-    },
-    {
-      "name": "Port terminal",
-      "approach": [
+      "start": [
         24,
-        50
+        32
       ],
-      "open": true,
-      "reachable": true
+      "cells": 1090,
+      "city_component": true
     },
     {
-      "name": "approved Violet Pokemon Center",
-      "approach": [
-        17,
-        30
+      "start": [
+        1,
+        1
       ],
-      "open": true,
-      "reachable": true
+      "cells": 234,
+      "city_component": false
     },
     {
-      "name": "approved shared Pokemart",
-      "approach": [
-        31,
-        30
+      "start": [
+        30,
+        1
       ],
-      "open": true,
-      "reachable": true
+      "cells": 157,
+      "city_component": false
+    },
+    {
+      "start": [
+        32,
+        1
+      ],
+      "cells": 427,
+      "city_component": false
+    },
+    {
+      "start": [
+        34,
+        1
+      ],
+      "cells": 120,
+      "city_component": false
+    },
+    {
+      "start": [
+        55,
+        15
+      ],
+      "cells": 29,
+      "city_component": false
+    },
+    {
+      "start": [
+        58,
+        17
+      ],
+      "cells": 6,
+      "city_component": false
+    },
+    {
+      "start": [
+        53,
+        28
+      ],
+      "cells": 14,
+      "city_component": false
     }
   ],
-  "reachable_cells": 868,
-  "shared": [
-    {
-      "name": "center",
-      "origin": [
-        240,
-        400
-      ],
-      "opaque_pixels": 5679,
-      "RGB_errors": 0
-    },
-    {
-      "name": "mart",
-      "origin": [
-        469,
-        416
-      ],
-      "opaque_pixels": 3765,
-      "RGB_errors": 0
-    }
-  ],
-  "contexts": [
-    {
-      "name": "Olivine Gym",
-      "box": [
-        152,
-        128,
-        328,
-        276
-      ],
-      "evidence": "building-contexts/01.png"
-    },
-    {
-      "name": "West residence",
-      "box": [
-        240,
-        248,
-        376,
-        384
-      ],
-      "evidence": "building-contexts/02.png"
-    },
-    {
-      "name": "North residence west",
-      "box": [
-        464,
-        160,
-        600,
-        304
-      ],
-      "evidence": "building-contexts/03.png"
-    },
-    {
-      "name": "North residence east",
-      "box": [
-        544,
-        160,
-        680,
-        304
-      ],
-      "evidence": "building-contexts/04.png"
-    },
-    {
-      "name": "Olivine Cafe",
-      "box": [
-        112,
-        376,
-        248,
-        512
-      ],
-      "evidence": "building-contexts/05.png"
-    },
-    {
-      "name": "Lighthouse",
-      "box": [
-        656,
-        320,
-        840,
-        552
-      ],
-      "evidence": "building-contexts/06.png"
-    },
-    {
-      "name": "Port terminal",
-      "box": [
-        288,
-        672,
-        504,
-        840
-      ],
-      "evidence": "building-contexts/07.png"
-    },
-    {
-      "name": "approved Violet Pokemon Center",
-      "box": [
-        208,
-        376,
-        352,
-        512
-      ],
-      "evidence": "building-contexts/08.png"
-    },
-    {
-      "name": "approved shared Pokemart",
-      "box": [
-        432,
-        392,
-        576,
-        512
-      ],
-      "evidence": "building-contexts/09.png"
-    }
-  ]
+  "stairs": 0,
+  "foreground_objects": 0
 }

@@ -1,3 +1,33 @@
+## Latest: Olivine native terrain foundation / directional cliffs — 2026-10-21
+
+Current engine `df08620e053e1a437557370399cac39667bbd2a4`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/base-terrain/README.md` first. The owner removed
+all trees, buildings, fences, flags, parasols, boats and stairs, then corrected
+the cliff methodology: derive levels from HGSS and use matching directional
+Gen 3 faces/corners. Generated concept contours and undirected border textures
+are superseded. Original HGSS overview is the geometry authority; relative
+height interpretation and 16px adaptations are explicit, not extracted DS data.
+
+Actual native terrain has 220 reusable metatiles /471 glyphs, 351 directional
+cliff cells, 3,510 native cells, zero stairs/foreground objects. All 2,077 open
+cells /8,308 directional attempts pass, with pixel-exact backgrounds/sprite
+composites. The 1,090-cell city/pier component is ordinary reachable; stairless
+terraces require separate test placements. There is a 2:04 continuous city walk.
+Save/reload/Continue, prior Olivine/Goldenrod saves, Porymap, local build and
+7,459 protected native files pass. Native atlas peak268/1008. No hosted CI claim.
+
+Opening the cleared ground exposed a T-junction incoming-map bug: inclusive end
+selected the preceding section one row out of bounds. Olivine alone now uses
+exclusive end bounds. Its native camera border also continues each terrain
+course. Preserve those corrections and the previous stripe-release renderer fix.
+
+Engine map/tileset files are current editing authority. `elevation.py` records
+relative planes and directional donors; `base_terrain.py` is guarded baseline
+installation provenance, not a replay tool over current native edits. Old
+features/building metadata and earlier runtime/overlay proof are historical.
+Next: owner review of this base; apply requested local fixes without reintroducing
+objects or stairs. Do not merge, add services/routes, or expand the design.
+
 ## Latest: full Olivine collision and foreground audit — 2026-10-20
 
 Owner authorized redesigned flags and every-tile collision/overlay inspection.

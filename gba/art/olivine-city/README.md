@@ -1,4 +1,18 @@
-# Olivine City — HGSS terrain with repaired receiving contexts
+# Olivine City — current native terrain foundation
+
+Current pass: [cleared terrain, directional cliff levels, native walking proof](evidence/base-terrain/README.md).
+Engine `df08620e053e1a437557370399cac39667bbd2a4`, same branch and draft PR23.
+The owner requested removal of all structures/props and stairs, followed by an
+HGSS-based rebuild using correctly oriented Gen 3 cliff faces and corners.
+This is the current editable native exterior; visual acceptance remains pending.
+
+![Current native terrain](evidence/base-terrain/native-map.png)
+
+[Two-minute recorded walk](evidence/base-terrain/olivine-walking-tour.mp4).
+Prior architecture masters and city passes remain historical references below.
+Do not replay their object-placement generators over this terrain foundation.
+
+## Historical object-filled exterior — receiving-context repairs
 
 The owner clarified the target after two rejected passes: keep the detailed HGSS
 terrain and polished buildings, but remove superseded objects completely and
@@ -6,7 +20,7 @@ reconstruct everything hidden behind them before placing replacements.
 
 [Current city-wide collision/foreground audit and recorded walk](evidence/interaction-audit/README.md).
 
-![Actual native city](evidence/native-map.png)
+![Historical object-filled native city](evidence/interaction-audit/after.png)
 
 The retained HGSS streets, cliffs, groves and shoreline provide the city's material
 character. Transparent Gym, residence, café, lighthouse, terminal and boat masters

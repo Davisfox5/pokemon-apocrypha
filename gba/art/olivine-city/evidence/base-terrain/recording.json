@@ -1,0 +1,112 @@
+{
+  "source_commit": "df08620e053e1a437557370399cac39667bbd2a4",
+  "ROM_sha256": "f38d7f7805be2924e8ae2ea3022d8b2d201be7b69ea6cc70ef35be27225eb24e",
+  "frames": 7425,
+  "fps": 59.7275,
+  "duration_seconds": 124.3145954543552,
+  "chapters": [
+    {
+      "chapter": "Northern entrance - facing cliffs",
+      "frame": 60
+    },
+    {
+      "chapter": "Eastern entrance wall",
+      "frame": 780
+    },
+    {
+      "chapter": "Cliff face blocks",
+      "frame": 924
+    },
+    {
+      "chapter": "Western entrance wall",
+      "frame": 1049
+    },
+    {
+      "chapter": "Opposite cliff face blocks",
+      "frame": 1393
+    },
+    {
+      "chapter": "Western raised ground",
+      "frame": 1518
+    },
+    {
+      "chapter": "Western terrace blocks",
+      "frame": 2038
+    },
+    {
+      "chapter": "Cleared gym lawn",
+      "frame": 2163
+    },
+    {
+      "chapter": "Cleared central lawn",
+      "frame": 2459
+    },
+    {
+      "chapter": "Residential west face",
+      "frame": 2779
+    },
+    {
+      "chapter": "Residential height change blocks",
+      "frame": 3171
+    },
+    {
+      "chapter": "Upper staircase removed",
+      "frame": 3296
+    },
+    {
+      "chapter": "Continuous residential south face",
+      "frame": 3888
+    },
+    {
+      "chapter": "Lighthouse western rock courses",
+      "frame": 4013
+    },
+    {
+      "chapter": "Raised lighthouse remains blocked",
+      "frame": 4381
+    },
+    {
+      "chapter": "Lower staircase removed",
+      "frame": 4506
+    },
+    {
+      "chapter": "Continuous lower cliff course",
+      "frame": 4626
+    },
+    {
+      "chapter": "Cleared waterfront",
+      "frame": 4751
+    },
+    {
+      "chapter": "Quay edge",
+      "frame": 5495
+    },
+    {
+      "chapter": "Water blocks",
+      "frame": 5639
+    },
+    {
+      "chapter": "Cleared terminal pier",
+      "frame": 5764
+    },
+    {
+      "chapter": "Terminal edge",
+      "frame": 6396
+    },
+    {
+      "chapter": "Water blocks",
+      "frame": 6644
+    },
+    {
+      "chapter": "Return to city",
+      "frame": 6769
+    }
+  ],
+  "continuous_walking": true,
+  "initial_position_helper_only": true,
+  "save_written": false,
+  "ROM_or_map_modified": false,
+  "audio": false,
+  "all_coordinate_assertions_passed": true,
+  "source_identity_note": "Recorded from the final working tree subsequently committed unchanged at this revision."
+}

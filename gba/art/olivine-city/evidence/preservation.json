@@ -1,11 +1,9 @@
 {
   "baseline": "eb63c24cb7e28c7de1eddd7db0b693a6510b29d4",
-  "source_commit": "c1363f3f147e4b61028da9f8a86f9ababda10280",
   "protected_previous_native_files": 7459,
   "changed_previous_native_files": 0,
-  "existing_map_groups_prefix_exact": true,
-  "existing_layouts_prefix_exact": true,
-  "new_map_ids": [
+  "map_group_prefix_unchanged": true,
+  "map_ids": [
     63,
     64,
     65,
@@ -20,5 +18,7 @@
     74,
     75
   ],
-  "save_schema_changed": false
+  "save_schema_changed": false,
+  "source_commit": "df08620e053e1a437557370399cac39667bbd2a4",
+  "layout_prefix_unchanged": true
 }

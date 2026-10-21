@@ -48,15 +48,7 @@ for section in sections:
    assert e>>12==ae>>18
 P=G/'data/olivine';P.mkdir(exist_ok=True);(P/'glyphs.4bpp').write_bytes(b''.join(atlas));entries.tofile(P/'entries.bin');layers.tofile(P/'layers.bin')
 assert len(atlas)<65536
-def border_cell(x,y):
- # Native whole-tree core across the north/west forest. Open ocean east/south.
- if x<0:
-  if y<28:return x%2,y%2+2
-  if y<34:return 0,31
-  return 2+x%2,42+y%2
- if y<0:return 2+x%2,2+y%2
- if x>=65 or y>=54:return 2+x%2,42+y%2
- return x,y
+from border import border_cell
 # Actual16x16ring windows include directional native camera borders. They use
 # complete existing texture/tree cores, never black or static-tileset aliases.
 padded=np.zeros((H+30,W+30,8),np.uint32)

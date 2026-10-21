@@ -67,6 +67,12 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
 - Preserve the original wall/cap texture and shading treatment. Repair joins
   locally and inspect the cap, front/side faces and corners as one continuous
   surface. Retain texture detail during palette reduction.
+- Derive connected terrain levels from the original-game reference before choosing
+  rock tiles. Record which side of every face is high and low. Opposite sides of
+  the same raised surface must rise toward its interior; match directional side
+  faces, fronts, convex and concave corners. An undirected border texture or a
+  vertically flipped face cannot substitute for a correctly oriented cliff.
+  Collision checks alone do not prove coherent visual elevation.
 - Put stair/door warps on their actual visible entrances. Remove superseded
   marker squares and restore their ground; inspect the first/last steps and
   the whole stair-to-wall join.

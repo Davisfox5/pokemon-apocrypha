@@ -1,0 +1,30 @@
+{
+  "baseline": "c1363f3f147e4b61028da9f8a86f9ababda10280",
+  "cells": 3510,
+  "metatiles": 220,
+  "glyphs": 471,
+  "reused_cells": 3445,
+  "unique_cell_metatiles": 65,
+  "whole_map_image_import": false,
+  "stairs": 0,
+  "foreground_objects": 0,
+  "preserved_map_ids": [
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "geometry_authority": "Original HGSS overview; connected relative planes, not generated concept contours.",
+  "texture_provenance": "Reusable small grass/paving/water/dock/sand/shore-rock cores retained from the preceding cleared-terrain study. Cliffs use unscaled Emerald primary/general directional silhouettes recolored through one warm Johto ramp.",
+  "native_cliff_donor": "Engine data/tilesets/primary/general, reference in tools/gba/maps/olivine_city/elevation.py",
+  "reproduction": "Guarded base_terrain.py requires clean c1363f3f. Current native source is edited directly after installation; never replay over later owner edits."
+}

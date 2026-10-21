@@ -1,7 +1,7 @@
 {
-  "source_commit": "c1363f3f147e4b61028da9f8a86f9ababda10280",
+  "source_commit": "df08620e053e1a437557370399cac39667bbd2a4",
   "files": 567,
   "hash_errors": 0,
-  "atlas_guards": "Olivine and Goldenrod pass from clean detached checkout",
-  "method": "Independent clean worktree source equality; local production build in primary checkout, not a second clean-worktree compilation."
+  "atlas_guards": "Olivine and Goldenrod pass in independent clean detached worktree.",
+  "second_clean_build": false
 }
