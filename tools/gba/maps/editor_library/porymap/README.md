@@ -1,8 +1,11 @@
 # Spatial metatile selector — work in progress
 
-Status 2026-10-20: compiled and headlessly tested; NOT installed in the owner's
-Porymap. The Mac was locked. Do not replace/reload the open application before
-inspecting and preserving its unsaved edits.
+Status 2026-10-20: compiled, headlessly tested, and now installed separately at
+`~/Applications/Porymap Johto.app`. Route 30 selector activated in the owner's
+`apocrypha-src` checkout and desktop-verified, including selection of a complete
+2x3 tree. All 86 owner-edited cells are preserved. This remains an older-art
+prototype; approved-art consolidation and other map catalogs are unfinished.
+See `gba/art/johto-common/selector-cleanup/active/installation.json`.
 
 This narrow Porymap patch presents complete objects in a rectangular arrangement,
 with category headings, repeated native IDs and disabled separator cells. It
@@ -49,7 +52,7 @@ stale-catalog fallback passed. These tests do not establish desktop UI usability
 
 ## Remaining work before delivery
 
-1. Unlock Mac; inspect active Porymap unsaved state and preserve owner edits.
+1. Completed: owner closed Porymap; saved edits backed up and verified unchanged.
 2. Reconcile active aa8ea35eea Route 30 checkout with approved later revisions.
 3. Review per-map terrain categories and all object crops. The active prototype
    still contains context composites; hiding fragments is not asset cleanup.
@@ -57,8 +60,8 @@ stale-catalog fallback passed. These tests do not establish desktop UI usability
    are not native compositing brushes: ordinary painting replaces the whole
    metatile, including its lower layer. Never present these context stamps as
    terrain-independent foregrounds.
-5. Activate in a separate persistent app path, retain stock app, and verify native
-   selector UI and painting in a disposable map before opening the owner project.
+5. Completed: separate persistent app installed, stock app retained. Native
+   paint/undo tested headlessly in disposable project; owner UI selector verified.
 
 Current active prototype: 16 object groups, 182 unique visible IDs, 189 used
 unclassified IDs hidden. Hidden IDs remain intact in engine data. This is not

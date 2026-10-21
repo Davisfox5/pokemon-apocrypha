@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-20",
+  "app": "/Users/davisfox/Applications/Porymap Johto.app",
+  "project": "/Users/davisfox/Documents/GitHub/apocrypha-src",
+  "backup": "/Users/davisfox/Documents/GitHub/apocrypha-src/.porymap-library-backups/selector-20261020-210519",
+  "map": "CherrygroveRoute30Approach",
+  "preserved_owner_changed_cells": 86,
+  "native_files_unchanged": {
+    "data/layouts/CherrygroveRoute30Approach/map.bin": true,
+    "data/layouts/layouts.json": true,
+    "data/maps/CherrygroveRoute30Approach/map.json": true,
+    "data/maps/JohtoRoute31/map.json": true,
+    "src/data/region_map/region_map_sections.json": true
+  },
+  "ui_verified": [
+    "organized Metatiles pane visible",
+    "complete 2x3 tree selected as brush",
+    "no unsaved-map indicator"
+  ],
+  "scope": "Route30 selector prototype only; newer art consolidation and other maps pending owner project choice"
+}
