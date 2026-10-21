@@ -1,0 +1,283 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/086_T30.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0941_T30.s",
+      "files/msgdata/msg/msg_0629_T30.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 20,
+        "z": 4,
+        "land_data": 104
+      },
+      {
+        "x": 21,
+        "z": 4,
+        "land_data": 105
+      },
+      {
+        "x": 20,
+        "z": 5,
+        "land_data": 106
+      },
+      {
+        "x": 21,
+        "z": 5,
+        "land_data": 107
+      }
+    ],
+    "origin": [
+      640,
+      128
+    ],
+    "size": [
+      64,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [
+        46
+      ],
+      "east": [],
+      "north": [],
+      "south": [
+        47
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        57,
+        16
+      ],
+      "dest": "MAP_ICE_PATH_1F",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        28,
+        23
+      ],
+      "dest": "MAP_BLACKTHORN_GYM",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        32,
+        4
+      ],
+      "dest": "MAP_DRAGONS_DEN_ENTRANCE",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        20,
+        37
+      ],
+      "dest": "MAP_BLACKTHORN_WEST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        44,
+        40
+      ],
+      "dest": "MAP_BLACKTHORN_EAST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        27,
+        48
+      ],
+      "dest": "MAP_BLACKTHORN_POKEMART",
+      "anchor": 0
+    },
+    {
+      "index": 6,
+      "cell": [
+        34,
+        48
+      ],
+      "dest": "MAP_BLACKTHORN_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 7,
+      "cell": [
+        18,
+        48
+      ],
+      "dest": "MAP_BLACKTHORN_MOVE_TUTOR_HOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        52,
+        42
+      ],
+      "script": "scr_seq_T30_008",
+      "text": "Blackthorn City A Quiet Mountain Retreat"
+    },
+    {
+      "cell": [
+        26,
+        25
+      ],
+      "script": "scr_seq_T30_009",
+      "text": "Blackthorn City Pokémon Gym Leader: Clair The Blessed User of Dragon Pokémon"
+    },
+    {
+      "cell": [
+        21,
+        48
+      ],
+      "script": "scr_seq_T30_010",
+      "text": "Move Deleter and Move Tutor House A Mysterious House Where You Can Make Pokémon Forget and Remember Moves"
+    },
+    {
+      "cell": [
+        31,
+        6
+      ],
+      "script": "scr_seq_T30_011",
+      "text": "Dragon’s Den Ahead"
+    },
+    {
+      "cell": [
+        13,
+        43
+      ],
+      "script": "scr_seq_T30_012",
+      "text": "Trainer Tips Wild Pokémon will appear regularly if you don’t run, but walk quietly in the tall grass. If your party Pokémon are tired, it is better to avoid running, and go straight to a Pokémon Center."
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T30_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        28,
+        24
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_BLACKTHORN_GYM_GUARD_INFRONT"
+    },
+    {
+      "id": "obj_T30_gsoldman1",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        32,
+        5
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_BLACKTHORN_DEN_GUARD_INFRONT"
+    },
+    {
+      "id": "obj_T30_gsfighter",
+      "sprite": "SPRITE_GSFIGHTER",
+      "cell": [
+        35,
+        53
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T30_gswoman3",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        24,
+        48
+      ],
+      "facing": 1,
+      "movement": 4,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T30_gsboy1",
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        21,
+        27
+      ],
+      "facing": 0,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T30_gswoman3_2",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        56,
+        29
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T30_gsman1_2",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        29,
+        24
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_BLACKTHORN_GYM_GUARD_ASIDE"
+    },
+    {
+      "id": "obj_T30_gsoldman1_2",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        33,
+        5
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_BLACKTHRON_DEN_GUARD_ASIDE"
+    },
+    {
+      "id": "obj_T30_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        34,
+        35
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_204"
+    },
+    {
+      "id": "obj_T30_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        44,
+        47
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    }
+  ]
+}
