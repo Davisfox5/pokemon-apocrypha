@@ -30,7 +30,7 @@ for name in ['native-grid','collision-review']:
  for y in range(0,55,4):d.line((0,y*16,1040,y*16),fill=(240,240,255,110));d.text((0,y*16+1),str(y),fill='black')
  Image.alpha_composite(im,over).convert('RGB').save(O/(name+'.png'));Image.alpha_composite(im,over).convert('RGB').save(E/(name+'.png'))
 with (O/'cell-ledger.csv').open('w') as f:
- w=csv.writer(f);w.writerow(['x','y','metatile','material','solid','city_reachable'])
+ w=csv.writer(f,lineterminator="\n");w.writerow(['x','y','metatile','material','solid','city_reachable'])
  for y,x in np.ndindex(54,65):w.writerow([x,y,int(ids[y,x]),str(mat[y,x]),int(solid[y,x]),int((x,y) in reachable)])
 report=dict(cells=3510,native_RGB_errors=0,porymap=rows,components=components,stairs=0,foreground_objects=0)
 (O/'review.json').write_text(json.dumps(report,indent=2)+'\n');(E/'review.json').write_text(json.dumps(report,indent=2)+'\n');print(report)

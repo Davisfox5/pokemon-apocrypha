@@ -115,7 +115,7 @@ Image.fromarray(native).save(O/'native-map.png');Image.fromarray(native).save(A/
 # Publish a concrete metatile catalog, including usage count and sample location.
 counts=np.bincount(indices.ravel(),minlength=len(blocks));sheet=Image.new('RGB',(16*48,((len(blocks)+15)//16)*48),'#182028');d=ImageDraw.Draw(sheet)
 with (A/'metatile-catalog.csv').open('w') as f:
- w=csv.writer(f);w.writerow(['id','material','uses','sample_x','sample_y'])
+ w=csv.writer(f,lineterminator="\n");w.writerow(['id','material','uses','sample_x','sample_y'])
  for i,tile in enumerate(rendered):
   x=i%16*48;y=i//16*48;sheet.paste(Image.fromarray(tile).resize((32,32),Image.Resampling.NEAREST),(x,y));d.text((x,y+32),str(i),fill='white');w.writerow([i,labels[i],int(counts[i]),*positions[i]])
 sheet.save(O/'metatile-catalog.png')

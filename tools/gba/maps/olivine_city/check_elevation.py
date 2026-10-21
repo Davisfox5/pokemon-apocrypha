@@ -30,7 +30,7 @@ for y,x in np.ndindex(height.shape):
   xx,yy=x+dx,y+dy
   if 0<=xx<65 and 0<=yy<54 and not solid[yy,xx]:assert height[y,x]==height[yy,xx],(x,y,xx,yy,'unprotected level change')
 with (O/'cliff-directions.csv').open('w') as f:
- w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+ w=csv.DictWriter(f,fieldnames=rows[0].keys(),lineterminator="\n");w.writeheader();w.writerows(rows)
 # The review sheet uses actual decoded native output, no generated concept.
 boxes=[('North entrance',(280,0,704,208)),('Residential return',(448,272,688,432)),('Lighthouse west and coastal south',(608,480,896,656)),('Eastern coast corners',(816,224,944,576))]
 width=max((b[2]-b[0])*4 for _,b in boxes);sheet=Image.new('RGB',(width,sum((b[3]-b[1])*2+30 for _,b in boxes)),'#182028');d=ImageDraw.Draw(sheet);yy=0
