@@ -1,3 +1,5 @@
+Current terrain review: [Routes38/39 between Olivine and Ecruteak](../gba/art/route38-39-terrain/README.md). Native terrain-only maps on `codex/route38-39-terrain`, source `fee08659`; all dressing/jump ledges/tall grass cleared, rock walls and stairs retained. City endpoints pending. Ecruteak was broadly approved and preserved.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.

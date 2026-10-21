@@ -1,0 +1,46 @@
+{
+  "routes": [
+    {
+      "route": 38,
+      "width": 68,
+      "height": 33,
+      "cliff_cells": 97,
+      "stair_cells": 0,
+      "walkable_cells": 1958,
+      "native_elevations": [
+        3,
+        5
+      ]
+    },
+    {
+      "route": 39,
+      "width": 38,
+      "height": 56,
+      "cliff_cells": 205,
+      "stair_cells": 12,
+      "walkable_cells": 1748,
+      "native_elevations": [
+        0,
+        1,
+        3,
+        5
+      ]
+    }
+  ],
+  "metatiles": 258,
+  "glyphs": 480,
+  "palette_banks": 13,
+  "command": [
+    "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+    "compile-primary",
+    "-dual-layer",
+    "-tiles-primary-override=1008",
+    "-tiles-total-override=1024",
+    "-metatiles-primary-override=1024",
+    "-pals-primary-override=13",
+    "-o",
+    "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/evidence/compiled",
+    "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/source/porytiles",
+    "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+  ]
+}

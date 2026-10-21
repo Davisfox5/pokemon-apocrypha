@@ -1,0 +1,46 @@
+[
+  {
+    "asset": "grass",
+    "source": "gba/art/azalea-town/source/masters/grass.png",
+    "sha256": "3f16202efeb133f5a68b5ef873314f8c8f029fc0d4ff06e3e0b323af9cf3d919"
+  },
+  {
+    "asset": "path",
+    "source": "gba/art/azalea-town/source/masters/path.png",
+    "sha256": "33b8e0bed4bd5ee8b90d156e6555d4c26a0135cda06eb3a4fa4f0527d073ba98"
+  },
+  {
+    "asset": "R02",
+    "source": "gba/art/azalea-town/source/masters/R02.png",
+    "sha256": "13e22a3e226900dbcf274e5a40293882af15ff9c8e14616a5776d7edccc95e12"
+  },
+  {
+    "asset": "R04",
+    "source": "gba/art/azalea-town/source/masters/R04.png",
+    "sha256": "95bc6530aa79222fe8550af62fedf7d20aea3b426decda49f9df0644fd38e59c"
+  },
+  {
+    "asset": "R05",
+    "source": "gba/art/azalea-town/source/masters/R05.png",
+    "sha256": "e8c32d82d100fa3b238047dfae452f68eb7f6c1b386f46775b34f1301db64367"
+  },
+  {
+    "asset": "R10",
+    "source": "gba/art/azalea-town/source/masters/R10.png",
+    "sha256": "3122cb63f7019b827c819361b838a8322b567ec18502f0f1d50bd4d883e651c8"
+  },
+  {
+    "asset": "R11",
+    "source": "gba/art/azalea-town/source/masters/R11.png",
+    "sha256": "a024a78ca63d09c381e77e7ef2f6479fe6bcea0932660df08b909339054b2ba7"
+  },
+  {
+    "asset": "R12",
+    "source": "gba/art/azalea-town/source/masters/R12.png",
+    "sha256": "cc08ae1763f054268ba9c753c3b40610efdb4bd8dfa707fd469a99a3e041310a"
+  },
+  {
+    "asset": "stairs",
+    "source": "unchanged Emerald general metatiles 0xaf / 0xcf; local lawn replaces green transparent donor ground"
+  }
+]
