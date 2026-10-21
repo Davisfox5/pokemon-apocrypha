@@ -1,0 +1,150 @@
+{
+  "engine_repository": "Davisfox5/pokeemerald-expansion",
+  "branch": "codex/cianwood-city-hgss",
+  "base_commit": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "source_commit": "4e3b27c1a15ed52a81ee1f28285cf8cebcbf294c",
+  "source_tree": "9f8b16495cbede73a1097c071f8719191887115b",
+  "engine_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/25",
+  "rom_sha256": "b9593ef67ed7294c1e2e3b07f7a469b3eb2338477e4b6fb9619367ce7c5941d3",
+  "source_file_sha256": {
+    "data/event_scripts.s": "3e4fdec936f6d8e98da4e92b01fe9ed0caa45b424fcfd9ad2bf6e49a12b9545a",
+    "data/layouts/CianwoodCity/border.bin": "b9ec64778ed148734a77fd4673df4c4650227e671060f54ab59eadabe458d4df",
+    "data/layouts/CianwoodCity/map.bin": "fa808bf8d1b728474420d77cbff7de589d2ee42866b88bd8f6034502f9de8781",
+    "data/layouts/layouts.json": "51bcdf81eec1afd51b357689eddc0aead6f851a060a4fd8ce6021b55fe317b9f",
+    "data/maps/CianwoodCenterUpstairs/map.json": "3500005c2c1ab3eef49210437ecfa8a47ef882eb8439cf6f0f14474ebab0fcf9",
+    "data/maps/CianwoodCenterUpstairs/scripts.inc": "174c6a4fb3cf9c798219a8573ad753b9aabcaf0901dd248f0a8c297c21e4b38b",
+    "data/maps/CianwoodCity/map.json": "20057f0077cd1f24bed1eb6ef8df0b14027d11cf4d8f3eed857c96198a4dfb9b",
+    "data/maps/CianwoodCity/scripts.inc": "d074b1219d258cd0d30dcfeeb893ae3d2e5daad69b79abf71ffbe155c5d1dad7",
+    "data/maps/CianwoodPokemonCenter/map.json": "94bdb2ffbe985ba4e7f91090405207b533968ffa293a7d33326e617a9717a367",
+    "data/maps/CianwoodPokemonCenter/scripts.inc": "fb90e83f42ad123913664323ba55ed3d0a685d84e2d16335978dbd587c818aad",
+    "data/maps/map_groups.json": "2eed800ae38d575488827599d6dea391a77c55ab469374709e0e21f0fcd3d018",
+    "data/tilesets/primary/cianwood/metatile_attributes.bin": "428527bc2f53d26b11d5420270578841c86912c71a1978e1c6cecc4ff8ce46da",
+    "data/tilesets/primary/cianwood/metatiles.bin": "a1df6c4b6f72f7514d8dca9d75c42c69757474d8f50122cff294c62b2277fc9e",
+    "data/tilesets/primary/cianwood/palettes/00.pal": "e08f7b7768c17f07a1ec454ff80f309288b5ef63909256ed939c4351aba30180",
+    "data/tilesets/primary/cianwood/palettes/01.pal": "921edcd23d9730debee27bc5e9d89791f6582e52d07e9f79785baec7867ba09a",
+    "data/tilesets/primary/cianwood/palettes/02.pal": "ebfaab6532e5061ebe93ccab112d76c5efd8466725277f14749a24c57cb8b531",
+    "data/tilesets/primary/cianwood/palettes/03.pal": "539db266c5ec05f5f27cf15c8ced6f6d4704ac8c5a6882181ec680212fc4acb0",
+    "data/tilesets/primary/cianwood/palettes/04.pal": "6274734116fc37fb2a9dc33d1770217bc3b36139f9fe611607e9747f32ee36a9",
+    "data/tilesets/primary/cianwood/palettes/05.pal": "74d1419de65d9ecb6c1f156ae7703a09e6afe3d82ecf78b63300dd4cd563b3ee",
+    "data/tilesets/primary/cianwood/palettes/06.pal": "3050b1fdb8392f08bcbf456a946316290436f748603ca936a922dc0523b15c90",
+    "data/tilesets/primary/cianwood/palettes/07.pal": "a57250e8af34013bc3cc8780b35d5152fda33dbed51367b48ae903d2d8c7d684",
+    "data/tilesets/primary/cianwood/palettes/08.pal": "a3dc3742a017136fe7cbec02d740f9d1b4ce1bea9c9bee21791ba480168d0afb",
+    "data/tilesets/primary/cianwood/palettes/09.pal": "59543bec81fc4187ed101f1ae0effcab27f7d5a3d6f80e8683846bde57ab789c",
+    "data/tilesets/primary/cianwood/palettes/10.pal": "145c5a1161d638804c6a4e07c3e4d049d59e26388117788ad6c96015d6cb6cd0",
+    "data/tilesets/primary/cianwood/palettes/11.pal": "a3a13bfe72f73d00d608ecb06d1d00a4d34946ab26edfffaf5b26798e5254ea6",
+    "data/tilesets/primary/cianwood/palettes/12.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/primary/cianwood/palettes/13.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/primary/cianwood/palettes/14.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/primary/cianwood/palettes/15.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/primary/cianwood/tiles.png": "548c8d5f0e1da131179a155a8ae6d8811bcecf93f1419af48d5cfdb5d32013dc",
+    "data/tilesets/secondary/cianwood/metatile_attributes.bin": "0298d122906dcfc10892cb53a73992fc5b9f493ea4c9badb27b791b4127a7fe7",
+    "data/tilesets/secondary/cianwood/metatiles.bin": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+    "data/tilesets/secondary/cianwood/palettes/00.pal": "e08f7b7768c17f07a1ec454ff80f309288b5ef63909256ed939c4351aba30180",
+    "data/tilesets/secondary/cianwood/palettes/01.pal": "921edcd23d9730debee27bc5e9d89791f6582e52d07e9f79785baec7867ba09a",
+    "data/tilesets/secondary/cianwood/palettes/02.pal": "ebfaab6532e5061ebe93ccab112d76c5efd8466725277f14749a24c57cb8b531",
+    "data/tilesets/secondary/cianwood/palettes/03.pal": "539db266c5ec05f5f27cf15c8ced6f6d4704ac8c5a6882181ec680212fc4acb0",
+    "data/tilesets/secondary/cianwood/palettes/04.pal": "6274734116fc37fb2a9dc33d1770217bc3b36139f9fe611607e9747f32ee36a9",
+    "data/tilesets/secondary/cianwood/palettes/05.pal": "74d1419de65d9ecb6c1f156ae7703a09e6afe3d82ecf78b63300dd4cd563b3ee",
+    "data/tilesets/secondary/cianwood/palettes/06.pal": "3050b1fdb8392f08bcbf456a946316290436f748603ca936a922dc0523b15c90",
+    "data/tilesets/secondary/cianwood/palettes/07.pal": "a57250e8af34013bc3cc8780b35d5152fda33dbed51367b48ae903d2d8c7d684",
+    "data/tilesets/secondary/cianwood/palettes/08.pal": "a3dc3742a017136fe7cbec02d740f9d1b4ce1bea9c9bee21791ba480168d0afb",
+    "data/tilesets/secondary/cianwood/palettes/09.pal": "59543bec81fc4187ed101f1ae0effcab27f7d5a3d6f80e8683846bde57ab789c",
+    "data/tilesets/secondary/cianwood/palettes/10.pal": "145c5a1161d638804c6a4e07c3e4d049d59e26388117788ad6c96015d6cb6cd0",
+    "data/tilesets/secondary/cianwood/palettes/11.pal": "a3a13bfe72f73d00d608ecb06d1d00a4d34946ab26edfffaf5b26798e5254ea6",
+    "data/tilesets/secondary/cianwood/palettes/12.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/secondary/cianwood/palettes/13.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/secondary/cianwood/palettes/14.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/secondary/cianwood/palettes/15.pal": "226f0ddc9a6d3b26b78e138333dfde67d39aa7ac95a257e9e53c766fb6035675",
+    "data/tilesets/secondary/cianwood/tiles.png": "434b2c26cd3d9755e7f6ec9970b3b079557046e99e0f98b58352af6fa5f21846",
+    "include/regions.h": "894bff6d8d1e7ecd2f79b6beb277faed4996cf0fc07594d2864df3e8896a8920",
+    "porymap.project.cfg": "457e757d85470216b2303b831cc2a5448c1b1096b7b478051cc870d905c2191c",
+    "src/apocrypha_map_proof.c": "30b4e0812617c662b379e4a846ee63ff307d79dcca50df1c5e5782addb21257f",
+    "src/data/region_map/region_map_sections.json": "1cf5b78ed3b8eaa7dfcebfe99628fef39d197ae881c9c6786b517820e9832fc1",
+    "src/data/tilesets/graphics.h": "d4c5dbe46e56e49fe246e5f58ba0ba3e22dde6a70e0ae95047173df38299740c",
+    "src/data/tilesets/headers.h": "e2fb83041d29ac7d0651efaf7a666c7d90c10f78537b035022504c0470ebd9ad",
+    "src/data/tilesets/metatiles.h": "4b6a6e3cefcc111254a2a83869fab5780fb9449b0005fcafd478043db1dc1cfd"
+  },
+  "reference": {
+    "url": "https://archives.bulbagarden.net/media/upload/8/8a/Cianwood_City_HGSS.png",
+    "sha256": "90d704336f51f868b0b5103bb4a66bc45a305e7a3e7ff163c5a72c50c205d8e1",
+    "dimensions": [
+      550,
+      671
+    ],
+    "registration": {
+      "origin": [
+        0,
+        0
+      ],
+      "scale": 1,
+      "native_cell_size": 16,
+      "padding_right": 10,
+      "padding_bottom": 1
+    },
+    "kind": "overview trace, not extracted original collision"
+  },
+  "accepted_center_sha256": "8dcffc7d314703ab0b85dfc8f5d8699f65cb42bc420015f877561925139d64c6",
+  "porymap": {
+    "version": "6.3.1",
+    "source_commit": "139eda92b3b06a5fd675a9825a07ac62e98c1566",
+    "qt": "5.15.15",
+    "mode": "offscreen project open and layout export; read-only main.cpp harness",
+    "exports": [
+      {
+        "map": "CianwoodCenterUpstairs",
+        "dimensions": [
+          224,
+          160
+        ],
+        "sha256": "4d48fb8bbaa314e3c012c0ad162225db1ef5487fe0899faa41a420845861fdbb"
+      },
+      {
+        "map": "CianwoodCity",
+        "dimensions": [
+          560,
+          672
+        ],
+        "sha256": "b77156657736c09f3839f412e8c8d23b0375fb1a31d7db34dbb1e9cf4557f32c"
+      },
+      {
+        "map": "CianwoodPokemonCenter",
+        "dimensions": [
+          224,
+          144
+        ],
+        "sha256": "31b23adfa6be5b6a24ee0e3077513c1ec42e6d40baeb88a3c04dad401c1d7ade"
+      }
+    ],
+    "decoder_pixel_equality": true,
+    "ui_save_roundtrip": false
+  },
+  "build": {
+    "exit_code": 0,
+    "compiler": "arm-none-eabi-gcc 14.2.1 20241119 (Debian 15:14.2.rel1-1)",
+    "newlib": "4.5.0.20241231-1",
+    "poryscript": "3.6.1",
+    "mgba": "0.10.5"
+  },
+  "runtime_phases": [
+    {
+      "phase": "write",
+      "exit_code": 0
+    },
+    {
+      "phase": "read",
+      "exit_code": 0
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0
+    }
+  ],
+  "owner_visual_acceptance": "pending",
+  "ci": "No GitHub Actions run observed; PR remains draft",
+  "unimplemented": [
+    "non-Center interiors and their gameplay",
+    "Route 41 connection",
+    "western continuation"
+  ],
+  "original_collision_data_available": false
+}

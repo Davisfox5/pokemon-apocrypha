@@ -1,3 +1,5 @@
+Current Cianwood work: [first native HGSS-based exterior](../gba/art/cianwood-city/README.md), engine PR #25. Exterior and shared Center verified; other interiors/connections and owner acceptance remain pending.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
