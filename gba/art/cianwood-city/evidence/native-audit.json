@@ -1,0 +1,57 @@
+{
+  "cells_audited": 1470,
+  "graphics_patterns": 993,
+  "highest_tile": 992,
+  "palette_banks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "reachable_foot_cells": 455,
+  "reachable_approaches": [
+    [
+      7,
+      10
+    ],
+    [
+      10,
+      27
+    ],
+    [
+      20,
+      25
+    ],
+    [
+      21,
+      31
+    ],
+    [
+      10,
+      35
+    ],
+    [
+      17,
+      37
+    ],
+    [
+      25,
+      37
+    ],
+    [
+      9,
+      18
+    ]
+  ],
+  "approved_center_pixels_exact": 6238,
+  "existing_ids_preserved": true,
+  "existing_map_and_art_sources_unchanged": true
+}

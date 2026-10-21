@@ -1,3 +1,7 @@
+## Latest: Cianwood native exterior (October 21)
+
+Engine PR #25 against `apocrypha` adds the HGSS-based Cianwood exterior and shared Center. Read `gba/art/cianwood-city/README.md` for exact source/ROM identities, reference adaptations, grids, Porymap exports and headless save/movement evidence. Final source: `4e3b27c1a15ed52a81ee1f28285cf8cebcbf294c`. Existing IDs/maps/art preserved. Other interiors and Route 41/western connections are unwired. Owner visual review remains pending; no CI run was available, so the PR is a draft. Edit native source; do not replay generators over owner changes.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
