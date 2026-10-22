@@ -1,4 +1,7 @@
-"""Blackthorn City exterior: HGSS land_data render -> native Gen 3 tiles, palettes and cells.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Blackthorn City exterior: HGSS land_data render -> native Gen 3 tiles, palettes and cells.
 
 First authoring only. install.py refuses to overwrite an existing Blackthorn map.
 
@@ -30,7 +33,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/blackthorn-city'
-SRC, EV = ART / 'source', ART / 'evidence'
+SRC, EV = ART / 'source', ART / 'evidence/sections-draft'
 W = H = 64
 PX = 16
 TILE_LIMIT = 1008                       # NUM_TILES_TOTAL minus the 16 door-animation slots

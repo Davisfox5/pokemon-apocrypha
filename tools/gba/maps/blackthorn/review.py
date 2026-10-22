@@ -1,8 +1,11 @@
-"""Review images for Blackthorn: HGSS reference versus installed native art.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Review images for Blackthorn: HGSS reference versus installed native art.
 
     python3 tools/gba/maps/blackthorn/review.py ENGINE_CHECKOUT
 
-Writes into gba/art/blackthorn-city/evidence/:
+Writes into gba/art/blackthorn-city/evidence/sections-draft/:
     original-native.png   whole city, HGSS land_data render (true heights) | decoded native sections
     reference-grid.png    HGSS render at 2x, numbered cells, decoded HGSS permissions overlaid
     camera-margin.png     native city with the city view's camera margin, as the camera can see it
@@ -18,7 +21,7 @@ from PIL import Image, ImageDraw
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/blackthorn-city'
-EV, SRC = ART / 'evidence', ART / 'source'
+EV, SRC = ART / 'evidence/sections-draft', ART / 'source'
 REGIONS = {'north-den-pond': (288, 0, 672, 256), 'gym': (288, 192, 672, 448), 'northeast-ice-path': (640, 160, 1024, 416),
            'northwest-cliffs': (0, 160, 384, 416), 'west-town': (96, 416, 480, 672), 'central-town': (320, 560, 704, 816),
            'east-terraces': (640, 416, 1024, 672), 'southwest-bridge': (96, 736, 480, 992), 'southeast-river': (608, 640, 992, 896)}

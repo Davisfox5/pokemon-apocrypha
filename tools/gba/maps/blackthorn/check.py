@@ -1,4 +1,7 @@
-"""Audit the installed native Blackthorn source: decoded art, traversal, reachability, preservation.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Audit the installed native Blackthorn source: decoded art, traversal, reachability, preservation.
 
 Reads only the engine's native files (map.bin, metatiles, attributes, tiles.png, palettes)
 and compares them with the build ledger and the HGSS-derived composition.

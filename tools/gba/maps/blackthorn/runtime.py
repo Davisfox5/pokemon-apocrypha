@@ -1,4 +1,7 @@
-"""Headless mGBA checks for Blackthorn City: movement, section crossings, doors, signs, saves.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Headless mGBA checks for Blackthorn City: movement, section crossings, doors, signs, saves.
 
 Each phase is a fresh emulator process:
     write  new game; walk the town, cross both section lines in both directions, jump a ledge
@@ -138,7 +141,7 @@ static void shot(const char*t){screenshot(out,t);vram(t);char o[128];snprintf(o,
 
 def expected_city(game):
     """The decoded native city padded with the view's own camera-margin tables."""
-    img = np.array(Image.open(ROOT / 'gba/art/blackthorn-city/evidence/native.png').convert('RGB')).astype(np.int32) >> 3
+    img = np.array(Image.open(ROOT / 'gba/art/blackthorn-city/evidence/sections-draft/native.png').convert('RGB')).astype(np.int32) >> 3
     d = game / 'data/city_views/blackthorn'
     t = {k: np.frombuffer((d / f'margin-{k}.bin').read_bytes(), np.uint8) for k in ('north', 'south', 'west', 'east')}
     rock = tuple(int(v) for v in re.search(r'\.rockX = (\d+), \.rockY = (\d+)', (game / 'src/data/city_views/blackthorn.h').read_text()).groups())

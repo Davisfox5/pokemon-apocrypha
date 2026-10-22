@@ -1,4 +1,7 @@
-"""Derive Blackthorn's city-view tables from its native Porymap sections.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Derive Blackthorn's city-view tables from its native Porymap sections.
 
 Safe after ordinary native edits: this reads map.bin, metatiles, attributes, tiles and
 palettes and never writes a layout or tileset. Run it after editing any Blackthorn
@@ -142,7 +145,7 @@ def main(g):
                   worst_window_origin=at, streaming_slots=SLOTS - 1, margin_rock_block=list(rock),
                   margin_edges_using_open_rock={k: sum(1 for v in t if v is None) for k, t in (('north', north), ('south', south), ('west', west), ('east', east))}, cache_heap_bytes=4 + 256 * 8 * 2 + SLOTS * 4 + 2 + len(glyphs) * 2,
                   source='native tiles, palettes, metatiles, attributes and map entries of the three sections')
-    ev = ROOT / 'gba/art/blackthorn-city/evidence'
+    ev = ROOT / 'gba/art/blackthorn-city/evidence/sections-draft'
     ev.mkdir(parents=True, exist_ok=True)
     (ev / 'stream-capacity.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))

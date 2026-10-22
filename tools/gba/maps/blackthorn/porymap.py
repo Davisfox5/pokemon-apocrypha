@@ -1,13 +1,12 @@
 """Porymap round trip for Blackthorn: open, export, save, diff.
 
-    python3 tools/gba/maps/blackthorn/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY
+    python3 tools/gba/maps/blackthorn/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY [STYLE]   # STYLE C by default
 
 Works on a fresh `git clone` of ENGINE_CHECKOUT's current branch in a temporary
-directory, never on the checkout itself. Under Xvfb it opens each Blackthorn map in
-Porymap, exports Porymap's own map image, saves the three sections' tilesets from the
-tileset editor, saves every map (File > Save), exports the stitched city from
-BlackthornCity01, then reports what Porymap rewrote and how its images compare with
-evidence/native.png (run check.py first).
+directory, never on the checkout itself. Under Xvfb it opens BlackthornCity and its
+three interiors in Porymap, exports Porymap's own map image of each, saves the city's
+tilesets from the tileset editor, saves every map (File > Save), then reports what
+Porymap rewrote and how its city image compares with evidence/elements/native-STYLE.png.
 
 Needs Xvfb, xdotool and ImageMagick `import`. Menu coordinates are Porymap 6.3.1's
 Fusion layout with the main window at 1920x1050; keyboard shortcuts do not reach
@@ -23,7 +22,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 EV = ROOT / 'gba/art/blackthorn-city/evidence'
-SECTIONS = [('BlackthornCity01', 0), ('BlackthornCity02', 24), ('BlackthornCity03', 44)]
+CITY = 'BlackthornCity'
 INTERIORS = ['BlackthornPokemonCenter', 'BlackthornCenterUpstairs', 'BlackthornMart']
 DISPLAY = ':99'
 ENV = dict(os.environ, DISPLAY=DISPLAY)
@@ -57,14 +56,14 @@ def launch(binary, project, cfg, m):
     return p
 
 def export(item_y, out):
-    click(19, 8); click(100, item_y, 3)                     # File > Export Map Image / Map Stitch Image
+    click(19, 8); click(100, item_y, 3)                     # File > Export Map Image
     geo = dict(l.split('=') for l in sh('xdotool', 'getwindowgeometry', '--shell', window('^Export Map')).splitlines())
     click(int(geo['X']) + 756, int(geo['Y']) + 524, 3)      # Save
     sh('xdotool', 'key', 'ctrl+a'); sh('xdotool', 'type', '--delay', '5', str(out)); sh('xdotool', 'key', 'Return')
     time.sleep(4)
 
-def main(engine, binary):
-    native = np.array(Image.open(EV / 'native.png').convert('RGB'))
+def main(engine, binary, style):
+    native = np.array(Image.open(EV / 'elements' / f'native-{style}.png').convert('RGB'))
     out = EV / 'porymap'
     out.mkdir(exist_ok=True)
     work = Path(tempfile.mkdtemp())
@@ -78,31 +77,26 @@ def main(engine, binary):
     started = time.time()
     xvfb = subprocess.Popen(['Xvfb', DISPLAY, '-screen', '0', '1920x1080x24'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(2)
-    images, results = {}, {}
     try:
-        for m in [s for s, _ in SECTIONS] + INTERIORS:
+        for m in [CITY] + INTERIORS:
             p = launch(binary, project, cfg, m)
-            if m in dict(SECTIONS):
-                shot(out / f'{m}-porymap.png')
+            shot(out / f'{m}-porymap.png')
             export(314, work / f'{m}.png')
-            images[m] = work / f'{m}.png'
-            if m in dict(SECTIONS):
+            if m == CITY:
                 click(137, 8); click(180, 171, 5)           # Tools > Tileset Editor
                 t = window('^Tileset Editor')
                 sh('xdotool', 'windowmove', t, '0', '0'); time.sleep(1)
+                shot(out / 'tileset-editor.png')
                 click(19, 8); click(60, 31, 5)              # File > Save Tileset
                 sh('xdotool', 'windowmove', t, '900', '600'); time.sleep(1)
             click(19, 8); click(49, 125, 4)                 # File > Save
-            if m == 'BlackthornCity01':
-                export(337, work / 'stitched.png')
             p.terminate(); p.wait(10)
     finally:
         xvfb.terminate()
-    for m, y0 in SECTIONS + [('stitched', 0)]:
-        e = np.array(Image.open(work / f'{m}.png').convert('RGB'))
-        ref = native[y0 * 16:y0 * 16 + e.shape[0], :e.shape[1]]
-        results[m] = dict(size=list(e.shape[1::-1]), differing_pixels=int((e != ref).any(axis=2).sum()))
-    shutil.copy(work / 'stitched.png', out / 'stitched-export.png')
+    e = np.array(Image.open(work / f'{CITY}.png').convert('RGB'))
+    ref = native[:e.shape[0], :e.shape[1]]
+    city = dict(size=list(e.shape[1::-1]), differing_pixels=int((e != ref).any(axis=2).sum()))
+    shutil.copy(work / f'{CITY}.png', out / f'{CITY}-export.png')
     diff = sh('git', '-C', str(project), 'diff', '-U0')
     changed_lines = [l for l in diff.splitlines() if l[:1] in ('+', '-') and not l.startswith(('+++', '---'))]
     rewritten = [str(p.relative_to(project)) for p in project.rglob('*') if p.is_file() and '.git' not in p.parts
@@ -110,7 +104,7 @@ def main(engine, binary):
     log_text = log.read_text(errors='replace')[log_start:] if log.exists() else ''
     report = dict(
         porymap=next((l.split('] ', 1)[1] for l in log_text.splitlines() if 'Launching Porymap' in l), 'unknown'),
-        engine_commit=head, exports_vs_native=results,
+        engine_commit=head, style=style, city_export_vs_native=city,
         blackthorn_files_rewritten=sorted(r for r in rewritten if 'lackthorn' in r),
         blackthorn_files_changed=sorted(f for f in sh('git', '-C', str(project), 'diff', '--name-only').splitlines() if 'lackthorn' in f),
         files_changed_by_save=sh('git', '-C', str(project), 'diff', '--name-only').splitlines(),
@@ -118,11 +112,11 @@ def main(engine, binary):
         changed_lines=changed_lines,
         log_errors=[l for l in log_text.splitlines() if '[ERROR]' in l],
         log_warnings=sorted({l.split('] ', 1)[1] for l in log_text.splitlines() if '[WARN]' in l}),
-        note='Exports are Porymap\'s own renders, compared with the native decode. Lines changed by save that do not '
+        note='The export is Porymap\'s own render, compared with the native decode. Lines changed by save that do not '
              'mention Blackthorn are Porymap normalising entries that predate it (key order, \\u escapes).')
     (out / 'results.json').write_text(json.dumps(report, indent=2) + '\n')
     shutil.rmtree(work)
-    print(json.dumps(report, indent=2))
+    print(json.dumps({k: v for k, v in report.items() if k != 'changed_lines'}, indent=2))
 
 if __name__ == '__main__':
-    main(Path(sys.argv[1]).resolve(), str(Path(sys.argv[2]).resolve()))
+    main(Path(sys.argv[1]).resolve(), str(Path(sys.argv[2]).resolve()), sys.argv[3] if len(sys.argv) > 3 else 'C')

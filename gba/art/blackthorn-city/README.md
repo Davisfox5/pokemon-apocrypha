@@ -1,153 +1,164 @@
-# Blackthorn City: first native exterior
+# Blackthorn City: native exterior built from Gen 3 elements
 
-Native Gen 3 Blackthorn built from HeartGold/SoulSilver's own map data, not an
-overview screenshot. Editable source is in
-[engine PR #26](https://github.com/Davisfox5/pokeemerald-expansion/pull/26)
-against `apocrypha`, commit `019d56eb7bdd6b467ba2960d1508f174b3e99b39`.
-Owner visual acceptance is pending.
+Blackthorn as one native Gen 3 map, laid out cell for cell from HeartGold/SoulSilver's
+own map data but drawn with Gen 3 pieces: each HGSS element (rock terraces, ground,
+water, ledges, props, buildings) is replaced by a Gen 3 element that does the same job,
+styled with Blackthorn's HGSS colours. Editable source is in
+[engine PR #26](https://github.com/Davisfox5/pokeemerald-expansion/pull/26) against
+`apocrypha`, branch `claude/blackthorn-city`. Owner visual acceptance is pending.
 
-![HGSS render and decoded native sections](evidence/original-native.png)
+![HGSS render and the installed native map](evidence/elements/original-native.png)
+
+## The map
+
+| | |
+| --- | --- |
+| Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
+| Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
+| Secondary | `gTileset_BlackthornCity`: 467 of 496 tiles (16 kept for door animation), 377 of 512 metatiles |
+| Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
 
-`tools/gba/maps/blackthorn/hgss_render.py` reads pret/pokeheartgold's packed
-archives (revision `9d8b7591`, hashes in `source/hgss/hgss-render.json`):
+`tools/gba/maps/blackthorn/hgss_render.py` reads pret/pokeheartgold's packed archives
+(revision `9d8b7591`, hashes in `source/hgss/hgss-render.json`): land_data chunks
+104-107 (terrain model, 32x32 permission grids, building placements), area data bank 9,
+the map and building textures, and zone events T30 (`source/hgss-events.json`). Its 1:1
+render at true heights (`source/hgss/hgss-reference-true-heights.png`) is the review
+reference. Collision, water, ledges and doors are the decoded HGSS permissions, cell for
+cell. HGSS behaviour codes match Emerald's: `0x10` pond, `0x15` ocean, `0x3B` jump south,
+`0x69` door, `0x6E` deep south warp.
 
-| Data | Archive | Use |
+## Element ledger
+
+`elements.py` labels every cell from a flat top-down HGSS height map and the
+permissions (`source/elements/ledger.json`, `ledger.png`): rock top or face (with its
+downhill direction), ledge, boulder, other blocked, water, open, plus the ground under
+it. A rock cell's terrace level is its HGSS peak height minus the town floor, so each
+HGSS layer becomes one Gen 3 terrace and each face one metatile.
+
+## Rock: three treatments
+
+HGSS's Blackthorn cliff layers are about 1.5 tiles tall. Three ways of turning them
+into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.png`,
+`rock-compare.png`, `rock-detail.png`):
+
+| Style | Rock pieces | Secondary tiles |
 | --- | --- | --- |
-| land_data chunks 104-107 (map matrix cells x 20-21, z 4-5) | `a/0/6/5` | terrain NSBMD, 32x32 permission grids, 20 building placements |
-| area data bank 9 | `a/0/4/2` | map texture set 9, building texture set 8 |
-| map textures | `a/0/4/4` | terrain NSBTX |
-| exterior building models | `a/0/4/0` | Gym, houses, signs, gate trees, rock (textures embedded) |
-| zone events T30 | `zone_event/086_T30.json` | doors, signs and NPC cells (`source/hgss-events.json`) |
+| A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 581: over the 496 budget, render only |
+| B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 448 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 467 |
 
-It software-renders the four chunks 1:1 at 16 px per tile. Ground faces land on
-their own cells (so they register with the permission grid); cliff and ledge
-fronts rise from their base; buildings rise from theirs. Every HGSS door, sign
-and warp lands on its decoded event cell. `source/hgss/hgss-reference-true-heights.png`
-is the review reference; `hgss-render.png` is the build input.
+Style C uses FRLG's nine-slice (corners, rims, sides, front face) and its four inner
+corners. Each 8x8 quadrant of a rock cell takes the piece its two edges call for, so any
+terrace outline gets matching corners. As in FRLG the rock is a top-layer overlay over
+plain ground: clear pixels show what lies past the edge (the lower terrace's top, or the
+flattest primary block of that ground), and the cast shadow is Cherrygrove's border
+grey, so cliff tiles don't multiply with the ground texture. Terrain rising toward the
+south faces away from the Gen 3 camera, so those steps show as rims, the way FRLG draws
+the far side of a mountain.
 
-Collision, water, ledges and doors are the **decoded HGSS permissions**, cell for
-cell (`evidence/reference-grid.png`). HGSS behaviour codes match Emerald's:
-`0x10` pond, `0x15` ocean, `0x3B` jump south, `0x69` door, `0x6E` deep south warp.
+## Other elements
+
+- **Ground and water**: Cherrygrove's own tiles, chosen per 8-neighbour configuration and
+  texture phase (the accepted Johto vocabulary, animated sea included). Grass-water edges
+  use Route 30's accepted pond rim (`source/elements/route30-native.png`, decoded from the
+  engine at `apocrypha`). Ledges are Route 31's accepted jump ledge in Blackthorn's ramp.
+- **Caves**: FRLG's cave mouth on the Dragon's Den and Ice Path warp cells; Ice Path's arch
+  is rimmed with frost and a snow drift spills onto the grass in front.
+- **Props and buildings**, redrawn as Gen 3 sprites (`sprites.py`, `source/elements/sprites.png`):
+  the Gym (plank barrel roof with a dark spine, beams that rise above it and splay to the
+  hall's foot, banded drum hall, red emblem panel, glass doors), the three thatched houses,
+  the two dead-trunk gate posts (16 px wide, inside their own cell column), the standing
+  stone. HGSS's boulder is kept as a 2x2 prop. The bridge and stairs are element pieces.
+- **Walk-behind**: props and rock sit on the top layer. The packer gives every walkable
+  cell with top-layer art the normal layer type (drawn above the player) and every blocked
+  cell the covered type, so the player walks behind a gate post, a house's roof, the stone
+  and the Gym's roof (by Surf) and stays visible around them.
+- **Shared buildings**: the approved Violet Center and Johto Mart, on the HGSS warps (34,48)
+  and (27,48). All 13,958 shared pixels keep their exact colours.
 
 ## Deliberate adaptations
 
-- **Cliff and ledge fronts** are stretched to whole 8 px rows (HGSS bands are 14.4 px,
-  ledges 5.7 px), so every band edge sits on a tile boundary the way Gen 3 cliffs do.
-  Compare `hgss-reference-true-heights.png` with `hgss-render.png`.
-- **Shared buildings.** The approved Violet Center and Johto Mart replace HGSS's own.
-  Their doors sit on the HGSS warps (34,48) and (27,48). Ground beneath is the real
-  HGSS terrain, since HGSS's Center and Mart were never rendered into it. The shared
-  Mart is wider than HGSS's, so it closes the one-cell passage between the two
-  buildings (x 30-31, y 44-48); the town stays connected around them. All 13,958
-  shared pixels keep their exact colours; the Center keeps Cherrygrove's bank-8 palette.
-- **Unbuilt destinations are solid**: the Gym, three houses, Ice Path (57,16) and
-  Dragon's Den (32,4). The ledger marks each one.
-- **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name
-  on the Gym sign. The tutor-house and trainer-tips signs stay unscripted props.
-- **Palette.** HGSS uses about 258 distinct colours here; Gen 3 gives 150 learned
-  slots (13 banks, three of them fixed for the Center, Mart and the five tiles where
-  they touch). Terrain and buildings get separate bank sets, and the fit is chosen
-  for the most even loss across materials. 97.5% of pixels are within one 5-bit
-  level of HGSS, 99.6% within two; the worst pixel is 10 levels off. Small materials
-  (bridge planks, slopes, boulders) lose the most. No tile was merged or approximated.
-
-## Why three sections
-
-The HGSS art at 1:1 needs 1,884 distinct 8x8 tiles; one tileset pair holds 1,008.
-Merging tiles to fit was tried and rejected: it moved sand flecks into a grid,
-lightened blocks of river and cross-hatched cliff faces. Instead the city is three
-ordinary Porymap maps, each with a private tileset pair inside the hardware limits
-and all sharing one palette set:
-
-| Section | Rows | Tiles | Metatiles |
-| --- | --- | --- | --- |
-| BlackthornCity01 | 0-23 (Dragon's Den, pond, Gym, Ice Path mouth) | 779 / 1008 | 294 / 1024 |
-| BlackthornCity02 | 24-43 (Gym lawn, west and east houses, central rocks) | 749 / 1008 | 306 / 1024 |
-| BlackthornCity03 | 44-63 (Center, Mart, tutor house, river, bridge) | 891 / 1008 | 379 / 1024 |
-
-The engine's new `apocrypha_city_view.c` streams each section's own native tiles as
-the camera moves, so neighbouring sections draw with their own art across the
-connections. The worst camera window needs 469 of 1,007 streaming slots; the cache
-uses 11.9 KB of heap. The camera margin beyond the city continues open rock, and the
-river and bridge where they run off the edge (`evidence/camera-margin.png`). This
-follows Goldenrod's approach but is data-driven, so other sectioned cities can
-register in the same table. Section moves do not reopen the name banner.
+- **Unbuilt destinations are solid**: the Gym door, three house doors, Ice Path (57,16) and
+  Dragon's Den (32,4). The bridge reaches the south edge with no connection.
+- The shared Mart is wider than HGSS's and closes the one-cell passage between the two
+  buildings (x 30-31, y 44-48); the town stays connected around them.
+- Rock-labelled slivers beside the bridge deck are its railing posts; the Gym's island is
+  water under the roof and grass under the hall's foot.
+- **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
+  Gym sign. The tutor-house and trainer-tips signs are unscripted props.
+- **Colour**: the native map holds 98.7% of the composed element art's pixels exactly in
+  5-bit colour and 99.6% within one level (`evidence/elements/pack-C.json`).
 
 ## Verification
 
-- **Native audit** (`check.py`, `evidence/native-audit.json`): installed sections decode
-  identically to the build; all 4,096 cells match the ledger's behaviour, collision,
-  elevation and layer type; all 876 open cells are reachable (868 on foot, 8 by Surf:
-  the Dragon's Den ledge, as in HGSS); existing map ids unchanged; changed files within
-  scope.
-- **Headless mGBA 0.10.2** (`runtime.py`, `evidence/gameplay/results.json`): both section
-  lines crossed both ways; two ledges jumped and not climbed; Mart body, cliffs, pond
-  edge and both cave mouths block; three signs read; Center in, upstairs, back and out;
-  Mart in and out; ordinary flash save, cold reload in a new process, title Continue.
-- **Rendering parity**: for all 40 captures, including a Cherrygrove regression check and
-  the return trip, the map layers BG1-BG3 were rebuilt from dumped VRAM, palettes and BG
-  registers and match the decoded native image pixel for pixel (`gameplay/bg-*.png`).
-  Zero cache overflows.
-- The engine's own `make` runs `tools/city_view/check.py`, which fails if a section is
-  edited without regenerating the view tables. A fresh clone of the branch passes it.
-- **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source with
-  Ubuntu's Qt 6.4.2 and driven under Xvfb on a fresh clone: all six maps open with no
-  errors. Porymap's own map export of each section, and its stitched export of the whole
-  city through the section connections, match the native decode pixel for pixel. Saving
-  each map and each section's tilesets from the tileset editor rewrote 102 Blackthorn
-  files, all byte-identical. The only lines a save changes are older entries Blackthorn
-  never touched: key order in a Route 110 layout and three `\u00e9` escapes in Kanto
-  MAPSEC names.
+- **Native audit** (`check_elements.py`, `evidence/elements/native-audit.json`): the installed
+  files decode identically to the packer; all 4,096 cells match the traversal ledger's
+  behaviour, collision, elevation and layer type; all 876 open cells are reachable (868 on
+  foot, 8 by Surf: the Dragon's Den ledge, as in HGSS); every walkable cell with top-layer
+  art draws above the player and no blocked cell does; Center bank 8 and Mart bank 9
+  palettes identical to the shared sources; existing map ids unchanged; changed files
+  within scope. Coordinate grid: `evidence/elements/native-grid.png`.
+- **Headless mGBA 0.10.2** (`runtime_elements.py`, `evidence/elements/gameplay/results.json`):
+  views across the town; standing behind both gate posts, the west house and the stone;
+  two ledges jumped and not climbed; Mart body, cliffs, pond edge and both cave mouths
+  block; three signs read; Center in, upstairs, back and out; Mart in and out; Cherrygrove
+  and back; ordinary flash save, cold reload in a new process, title Continue.
+- **Rendering parity**: for all 33 captures the map layers BG1-BG3 rebuilt from dumped VRAM,
+  palettes and BG registers match the decoded native image pixel for pixel, apart from
+  CherrygrovePrimary's animated sea tiles. In the walk-behind captures BG1 covers the
+  player's own cell (81 px at each gate post, 201 at the house roof, 23 at the stone).
+- **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source and run
+  under Xvfb on a fresh clone: the city and its three interiors open with no errors;
+  Porymap's export of the city matches the native decode pixel for pixel; saving the maps
+  and the city's tilesets rewrote 21 Blackthorn files, all byte-identical. The only lines a
+  save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
+  escapes in Kanto MAPSEC names.
 
-Local ROM SHA-256 `f2e6c8d097592dabfe1086a26960d98ce5f74eafbe34ec0897eb883a24b4d2e8`
-(Ubuntu Arm GNU 13.2.1). Provenance: `evidence/preservation.json`. No ROM, save,
-toolchain or emulator binary is committed.
+Engine commit `b166fa1d8689ae53918b5dd52fe5194757e273cc`, local ROM SHA-256
+`5d5c163c60c7e07fcd2f8c797c07cee04d2d2f9581c27811ea594bd5550988b8` (Ubuntu Arm GNU 13.2.1).
+No ROM, save, toolchain or emulator binary is committed.
 
-![Section crossing, Gym forecourt, town centre, Ice Path mouth](evidence/gameplay/cross-32-2.png)
+![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)
 
-Region pairs for close review: `evidence/review/`. Coordinate grids:
-`evidence/reference-grid.png` (HGSS with permissions) and `evidence/native-grid.png`.
+Region pairs for close review: `evidence/elements/review/`.
 
 ## Not verified or not built
 
-- No interiors for the Gym or houses; no Ice Path, Dragon's Den or Route 45. The bridge
-  reaches the south edge with no connection.
-- No sectioned city connects to an ordinary map yet; such a connection would also need
-  primary tiles, palettes and BG buffers reloaded (`tools/city_view/README.md` in the engine).
-- Center nurse and Mart shop scripts are Cherrygrove's copies, not exercised. The Mart
-  stock is Cherrygrove's placeholder list. Music is a placeholder (`MUS_FALLARBOR`).
+- No interiors for the Gym or houses; no Ice Path, Dragon's Den or Route 45 connection.
+- Center nurse and Mart shop scripts are Cherrygrove's copies, not exercised. The Mart stock
+  is Cherrygrove's placeholder list. Music is a placeholder (`MUS_FALLARBOR`).
 - No NPCs, trainers, encounters or story events.
 
 ## Editing and reproduction
 
-Edit the three sections natively in Porymap. Porymap previews a connected map with the
-current map's tiles, as vanilla Gen 3 would draw it, so the six-row strip of the
-neighbouring section above or below looks scrambled in the editor
-(`evidence/porymap/BlackthornCity02-porymap.png`). The game's city view and Porymap's
-stitched export (File > Export Map Stitch Image) show the real join. Then regenerate only
-the view tables from this hub and commit both together:
-
-```sh
-python3 tools/gba/maps/blackthorn/stream.py /path/to/engine
-```
-
-First-authoring provenance (never replay over owner edits; `install.py` refuses):
+Edit `BlackthornCity` natively in Porymap; it is an ordinary single map. First-authoring
+provenance (never replay over owner edits; `install_elements.py` refuses if the maps exist):
 
 ```sh
 python3 tools/gba/maps/blackthorn/hgss_render.py /path/to/pokeheartgold gba/art/blackthorn-city/source/hgss
-python3 tools/gba/maps/blackthorn/build.py /path/to/engine
-python3 tools/gba/maps/blackthorn/install.py /path/to/engine
-python3 tools/gba/maps/blackthorn/stream.py /path/to/engine
+python3 tools/gba/maps/blackthorn/sprites.py
+python3 tools/gba/maps/blackthorn/elements.py /path/to/engine /path/to/pokeheartgold
+python3 tools/gba/maps/blackthorn/pack.py /path/to/engine C
+python3 tools/gba/maps/blackthorn/install_elements.py /path/to/engine C
 # after make:
-python3 tools/gba/maps/blackthorn/check.py /path/to/engine
-python3 tools/gba/maps/blackthorn/runtime.py /path/to/engine /tmp/blackthorn-run
-python3 tools/gba/maps/blackthorn/review.py /path/to/engine
-python3 tools/gba/maps/blackthorn/porymap.py /path/to/engine /path/to/porymap
+python3 tools/gba/maps/blackthorn/check_elements.py /path/to/engine C
+python3 tools/gba/maps/blackthorn/runtime_elements.py /path/to/engine /tmp/blackthorn-run C
+python3 tools/gba/maps/blackthorn/review_elements.py C
+python3 tools/gba/maps/blackthorn/porymap.py /path/to/engine /path/to/porymap C
 ```
 
 `MGBA_FLAGS` and `ARM_NM` select a non-system libmgba or toolchain.
 
+## Prior draft
+
+The first build rendered HGSS 1:1 and needed about 1,900 tiles, so it split the city into
+three connected sections and streamed their tiles with an engine city view. It is
+superseded by this one and kept for reference: its tools (`build.py`, `install.py`,
+`stream.py`, `check.py`, `runtime.py`, `review.py`) and evidence (`evidence/sections-draft/`),
+and its engine commits on the branch before `b166fa1d`.
+
 Original map geography, models and textures: Game Freak / Nintendo / Creatures
-(HeartGold/SoulSilver), read-only derivation under the repository's existing asset practice.
+(HeartGold/SoulSilver); FRLG mountain pieces from the engine's `general_frlg` tileset.
+Read-only derivation under the repository's existing asset practice.

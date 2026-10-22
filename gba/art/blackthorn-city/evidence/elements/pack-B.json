@@ -1,0 +1,23 @@
+{
+  "style": "B",
+  "secondary_tiles": 448,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 343,
+  "metatile_limit": 512,
+  "primary_metatiles_reused": 878,
+  "tile_positions": {
+    "primary": 5213,
+    "fixed_exact": 198,
+    "learned": 357
+  },
+  "junction_colours": 10,
+  "learned_bank_error": 3.0333663061769824,
+  "colour_rgb5": {
+    "exact": 1032220,
+    "within_1": 1044150,
+    "within_2": 1047292,
+    "total": 1048576,
+    "worst": 6
+  },
+  "shared_building_pixels_exact": true
+}

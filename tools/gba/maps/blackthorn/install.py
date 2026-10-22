@@ -1,4 +1,7 @@
-"""Install the new Blackthorn City exterior and its Center and Mart into an engine checkout.
+"""Prior three-section draft, kept for reference; superseded by the element build (elements.py, pack.py,
+install_elements.py). Its evidence lives in evidence/sections-draft/.
+
+Install the new Blackthorn City exterior and its Center and Mart into an engine checkout.
 
 First authoring only: refuses to run if any Blackthorn map already exists, so it can
 never replay over owner edits. Existing map, layout and tileset IDs are untouched;
