@@ -1,0 +1,48 @@
+{
+  "sections": [
+    {
+      "section": "BlackthornCity01",
+      "rows": [
+        0,
+        24
+      ],
+      "tiles": 779,
+      "primary_tiles": 512,
+      "secondary_tiles": 267,
+      "metatiles": 294
+    },
+    {
+      "section": "BlackthornCity02",
+      "rows": [
+        24,
+        44
+      ],
+      "tiles": 749,
+      "primary_tiles": 512,
+      "secondary_tiles": 237,
+      "metatiles": 306
+    },
+    {
+      "section": "BlackthornCity03",
+      "rows": [
+        44,
+        64
+      ],
+      "tiles": 891,
+      "primary_tiles": 512,
+      "secondary_tiles": 379,
+      "metatiles": 379
+    }
+  ],
+  "tile_limit": 1008,
+  "metatile_limit": 1024,
+  "palette_banks": 13,
+  "map_ids": {
+    "BlackthornCity01": 43,
+    "BlackthornCity02": 44,
+    "BlackthornCity03": 45,
+    "BlackthornPokemonCenter": 46,
+    "BlackthornCenterUpstairs": 47,
+    "BlackthornMart": 48
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "cells_audited": 4096,
+  "installed_matches_build_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 868,
+  "open_cells": 876,
+  "unreachable_open_cells": [],
+  "open_cells_reached_only_by_surf": 8,
+  "approaches_needing_surf": [
+    "dragons_den",
+    "den_sign"
+  ],
+  "approaches": {
+    "center": [
+      34,
+      49
+    ],
+    "mart": [
+      27,
+      49
+    ],
+    "gym": [
+      28,
+      24
+    ],
+    "dragons_den": [
+      32,
+      5
+    ],
+    "ice_path": [
+      57,
+      17
+    ],
+    "bridge_south": [
+      23,
+      63
+    ],
+    "city_sign": [
+      52,
+      43
+    ],
+    "gym_sign": [
+      26,
+      26
+    ],
+    "den_sign": [
+      31,
+      7
+    ],
+    "west_house": [
+      20,
+      38
+    ],
+    "east_house": [
+      44,
+      41
+    ],
+    "tutor_house": [
+      18,
+      49
+    ]
+  },
+  "shared_building_pixels_exact": 13958,
+  "center_bank8_palette_identical_to_cherrygrove": true,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

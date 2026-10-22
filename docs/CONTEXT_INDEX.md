@@ -1,3 +1,5 @@
+Current Blackthorn work: [native exterior from HGSS map data](../gba/art/blackthorn-city/README.md), engine PR #26. Three sections plus the sectioned city view; Gym, houses and connections unbuilt; owner acceptance pending.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
@@ -14,6 +16,7 @@ optional, never part of routine startup.
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
+| Blackthorn City / sectioned cities and the city view (October 22) | ../gba/art/blackthorn-city/README.md | PR #26 on `apocrypha` (`claude/blackthorn-city`); generators in `tools/gba/maps/blackthorn/`; engine notes `tools/city_view/README.md` |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |
 | Edit or review the current Johto maps / shared Git source for Porymap, Poryscript, Porytiles, porygon | GBA_SHARED_SOURCE.md | `Davisfox5/pokeemerald-expansion@apocrypha`; `gba/art/johto-synthesis/README.md` for how the art was generated |
 | October 9 New Bark / Route 31 art rebuild after rejection | ../gba/art/johto-polish/README.md | Measured silhouettes, complete props, layered cliffs, exact scenery packing; previous previews retained |

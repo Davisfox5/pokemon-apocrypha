@@ -1,0 +1,22 @@
+{
+  "glyphs": 1884,
+  "rom_bytes": 195456,
+  "worst_16x16_window_glyphs": 469,
+  "worst_window_origin": [
+    17,
+    10
+  ],
+  "streaming_slots": 1007,
+  "margin_rock_block": [
+    0,
+    0
+  ],
+  "margin_edges_using_open_rock": {
+    "north": 64,
+    "south": 59,
+    "west": 64,
+    "east": 62
+  },
+  "cache_heap_bytes": 11902,
+  "source": "native tiles, palettes, metatiles, attributes and map entries of the three sections"
+}

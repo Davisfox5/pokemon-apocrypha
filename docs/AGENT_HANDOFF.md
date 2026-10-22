@@ -1,3 +1,7 @@
+## Latest: Blackthorn City from HGSS map data (October 22)
+
+Engine PR #26 against `apocrypha` adds Blackthorn as three connected native sections (`BlackthornCity01`-`03`) with the shared Center and Mart, rendered from HGSS's own land_data, textures and building models and with collision from the decoded HGSS permissions. A new data-driven engine view (`src/apocrypha_city_view.c`) streams each section's native tiles so the camera crosses section lines seamlessly; `make` fails on stale view tables. Read `gba/art/blackthorn-city/README.md` for adaptations, budgets, audit, headless and VRAM-parity evidence. Source `aab405c5c90c38b47954c2cdca7b517d77005cd3`, local ROM `f2e6c8d0`. Gym, houses, Ice Path, Dragon's Den and Route 45 are unbuilt (solid). Porymap not run. Owner visual review pending. After native edits run only `stream.py`; never replay the generators.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
