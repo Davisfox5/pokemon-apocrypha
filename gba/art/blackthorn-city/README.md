@@ -3,7 +3,7 @@
 Native Gen 3 Blackthorn built from HeartGold/SoulSilver's own map data, not an
 overview screenshot. Editable source is in
 [engine PR #26](https://github.com/Davisfox5/pokeemerald-expansion/pull/26)
-against `apocrypha`, commit `aab405c5c90c38b47954c2cdca7b517d77005cd3`.
+against `apocrypha`, commit `019d56eb7bdd6b467ba2960d1508f174b3e99b39`.
 Owner visual acceptance is pending.
 
 ![HGSS render and decoded native sections](evidence/original-native.png)
@@ -92,6 +92,14 @@ register in the same table. Section moves do not reopen the name banner.
   Zero cache overflows.
 - The engine's own `make` runs `tools/city_view/check.py`, which fails if a section is
   edited without regenerating the view tables. A fresh clone of the branch passes it.
+- **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source with
+  Ubuntu's Qt 6.4.2 and driven under Xvfb on a fresh clone: all six maps open with no
+  errors. Porymap's own map export of each section, and its stitched export of the whole
+  city through the section connections, match the native decode pixel for pixel. Saving
+  each map and each section's tilesets from the tileset editor rewrote 102 Blackthorn
+  files, all byte-identical. The only lines a save changes are older entries Blackthorn
+  never touched: key order in a Route 110 layout and three `\u00e9` escapes in Kanto
+  MAPSEC names.
 
 Local ROM SHA-256 `f2e6c8d097592dabfe1086a26960d98ce5f74eafbe34ec0897eb883a24b4d2e8`
 (Ubuntu Arm GNU 13.2.1). Provenance: `evidence/preservation.json`. No ROM, save,
@@ -104,7 +112,6 @@ Region pairs for close review: `evidence/review/`. Coordinate grids:
 
 ## Not verified or not built
 
-- Porymap was not available in this session: no open, export or save round trip.
 - No interiors for the Gym or houses; no Ice Path, Dragon's Den or Route 45. The bridge
   reaches the south edge with no connection.
 - No sectioned city connects to an ordinary map yet; such a connection would also need
@@ -115,8 +122,12 @@ Region pairs for close review: `evidence/review/`. Coordinate grids:
 
 ## Editing and reproduction
 
-Edit the three sections natively in Porymap. Then regenerate only the view tables from
-this hub and commit both together:
+Edit the three sections natively in Porymap. Porymap previews a connected map with the
+current map's tiles, as vanilla Gen 3 would draw it, so the six-row strip of the
+neighbouring section above or below looks scrambled in the editor
+(`evidence/porymap/BlackthornCity02-porymap.png`). The game's city view and Porymap's
+stitched export (File > Export Map Stitch Image) show the real join. Then regenerate only
+the view tables from this hub and commit both together:
 
 ```sh
 python3 tools/gba/maps/blackthorn/stream.py /path/to/engine
@@ -133,6 +144,7 @@ python3 tools/gba/maps/blackthorn/stream.py /path/to/engine
 python3 tools/gba/maps/blackthorn/check.py /path/to/engine
 python3 tools/gba/maps/blackthorn/runtime.py /path/to/engine /tmp/blackthorn-run
 python3 tools/gba/maps/blackthorn/review.py /path/to/engine
+python3 tools/gba/maps/blackthorn/porymap.py /path/to/engine /path/to/porymap
 ```
 
 `MGBA_FLAGS` and `ARM_NM` select a non-system libmgba or toolchain.

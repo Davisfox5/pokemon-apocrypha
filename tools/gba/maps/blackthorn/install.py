@@ -164,6 +164,9 @@ def main(g):
         for w in m['warp_events']:
             if w['dest_map'] == city_map:
                 w['dest_warp_id'] = '0' if new == 'BlackthornPokemonCenter' else '1'
+        # Porymap writes custom header fields last, sorted; match it so a first save is a no-op.
+        for k in sorted(k for k in ('region', 'build_target') if k in m):
+            m[k] = m.pop(k)
         write(g / f'data/maps/{new}/map.json', m)
         s = (g / f'data/maps/{old}/scripts.inc').read_text().replace(old, new)
         (g / f'data/maps/{new}/scripts.inc').write_text(s)
