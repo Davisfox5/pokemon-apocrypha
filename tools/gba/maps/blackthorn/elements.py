@@ -16,8 +16,9 @@ back rim toward a lower north, corners where two meet). Three rock styles share 
        8x8 quadrant so any terrace outline gets matching corners; its cast shadow
        darkens the ground it falls on, and its cave mouth is FRLG's
 
-Ground reuses the accepted Cherrygrove vocabulary (grass, sand, water, grass border,
-pond rim) and Route 31's jump ledge. Bridge, stairs, cave mouths and boulders are
+Ground reuses the accepted Cherrygrove vocabulary (grass, sand, water, grass border) and
+Route 30's pond rim; styles A and B use Route 31's jump ledge, style C FRLG's, joined
+into the cliffs it meets. Bridge, stairs, cave mouths and boulders are
 element pieces drawn here. Output is a bottom layer (opaque), a top layer (RGBA,
 drawn above the player) and per-cell element labels for the packer:
 
@@ -131,6 +132,8 @@ def ledger(phg):
     for y in range(y0, y1):
         for x in range(x0, x1):
             cells[y][x]['floor'] = 'grass' if y >= y1 - 2 else 'water'
+            if cells[y][x]['lab'] in ROCK:                    # the Gym's own slopes, not terrain
+                cells[y][x]['lab'] = 'X'
     # Rock-labelled slivers beside the bridge deck over water are the railing's end posts.
     bx = sorted({x for y in range(H) for x in range(W) if cells[y][x]['floor'] == 'bridge'})
     for y in range(H - 1):
@@ -389,6 +392,15 @@ def layers(cells):
         for x in range(W):
             c = cells[y][x]
             d[y, x] = max(1, round(c['peak']) - FLOOR_HEIGHT) if rock[y, x] else min(0, round(c['level']) - FLOOR_HEIGHT)
+    # A boulder lying on the plateau is not a terrace of its own: its cells take the level
+    # of the rock around it (the boulder's peak would otherwise raise a 2x2 mound).
+    for y in range(H):
+        for x in range(W):
+            if rock[y, x] and cells[y][x].get('boulder'):
+                ring = [int(d[yy, xx]) for yy in range(max(0, y - 1), min(H, y + 2)) for xx in range(max(0, x - 1), min(W, x + 2))
+                        if rock[yy, xx] and not cells[yy][xx].get('boulder')]
+                if ring:
+                    d[y, x] = max(set(ring), key=ring.count)
     pad = np.pad(d, 1, mode='edge')
     lower = np.zeros((H, W), bool)
     for dy in (-1, 0, 1):
@@ -455,7 +467,11 @@ def rock(cells, base, sw):
 FRLG_RAMP = {9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 6}
 FRLG_NINE = {('N', 'W'): 0x68, ('N', 'M'): 0x69, ('N', 'E'): 0x6A, ('M', 'W'): 0x70, ('M', 'M'): 0x71,
              ('M', 'E'): 0x72, ('S', 'W'): 0x78, ('S', 'M'): 0x79, ('S', 'E'): 0x7A}
-FRLG_INNER = dict(se=0xB2, sw=0xB3, ne=0xBA, nw=0xBB)
+FRLG_NINE_OVER_ROCK = {('N', 'W'): 0x6B, ('N', 'M'): 0x6C, ('N', 'E'): 0x6D, ('M', 'W'): 0x73, ('M', 'M'): 0x71,
+                       ('M', 'E'): 0x75, ('S', 'W'): 0x7B, ('S', 'M'): 0x7C, ('S', 'E'): 0x7D}   # an edge onto lower rock
+FRLG_INNER = dict(se=0xB2, sw=0xB3, ne=0xBA, nw=0xBB)          # whole-cell inner corners
+FRLG_LEDGE = dict(mid=0x87, left=0xB0, right=0xB1)             # jump ledge and its rounded ends
+FRLG_JOIN = dict(w=0x1F1, e=0x1F2)       # a mountain side with a ledge running into its foot from the west / east
 FRLG_CAVE = 0xA9
 CLEAR, SHADOW, CAVE_DARK, CAVE_SILL = -1, -2, -3, -4
 
@@ -479,28 +495,35 @@ def frlg_pieces(engine):
                 if v:
                     sub[yy, xx] = FRLG_RAMP.get(int(v), {5: CAVE_DARK, 8: CAVE_SILL}.get(int(v), SHADOW))
         return out
-    return dict(nine={k: piece(v) for k, v in FRLG_NINE.items()}, inner={k: piece(v) for k, v in FRLG_INNER.items()},
+    return dict(nine={k: piece(v) for k, v in FRLG_NINE.items()}, rock={k: piece(v) for k, v in FRLG_NINE_OVER_ROCK.items()},
+                inner={k: piece(v) for k, v in FRLG_INNER.items()}, ledge={k: piece(v) for k, v in FRLG_LEDGE.items()},
+                join={k: piece(v) for k, v in FRLG_JOIN.items()},
                 cave=piece(FRLG_CAVE))
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0), water=(16, 0))   # flattest 8x8 block of each Cherrygrove texture
 
 def rock_frlg(cells, base, pieces, tex):
-    """Blob autotiling from FRLG's set: each 8x8 quadrant takes the nine-slice piece its
-    two edges call for, or an inner corner where only the diagonal is lower. As in FRLG,
-    the rock is a top-layer overlay: its clear pixels show the bottom layer, which carries
-    what lies beyond that edge (the lower terrace's top, or the plainest 8x8 block of
-    that ground, a primary tile), and its cast shadow is Cherrygrove's border grey, so
-    edge tiles and cells never pick up the ground texture's phase. Under a fully opaque
-    quadrant the bottom is the rock top itself, so solid rock is one metatile."""
+    """Blob autotiling from FRLG's set. A cell whose only lower neighbours are diagonal
+    takes FRLG's whole inner-corner piece (two of them split down the middle when both
+    lower diagonals are on one side), which joins the face and the side as one L. Every
+    other cell is composed per 8x8 quadrant from the nine-slice piece its two edges call
+    for, using FRLG's over-rock pieces where the quadrant faces a lower terrace and its
+    over-ground pieces where it faces ground. As in FRLG, the rock is a top-layer overlay:
+    its clear pixels show the bottom layer, which carries what lies beyond that edge (the
+    lower terrace's top, or the plainest 8x8 block of that ground, a primary tile), and
+    its cast shadow is Cherrygrove's border grey, so edge tiles and cells never pick up
+    the ground texture's phase. Under a fully opaque quadrant the bottom is the rock top
+    itself, so solid rock is one metatile."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
-    nine, inner = pieces['nine'], pieces['inner']
+    nine, nine_rock, inner, join = pieces['nine'], pieces['rock'], pieces['inner'], pieces['join']
+    ledge_mid = pieces['ledge']['mid']
+    is_ledge = lambda x, y: 0 <= x < W and cells[y][x]['lab'] == 'L'
     clamp = lambda x, y: (min(max(x, 0), W - 1), min(max(y, 0), H - 1))
     lvl = lambda x, y: d[clamp(x, y)[1], clamp(x, y)[0]]
     fill = np.array([BLACKTHORN_RAMP[i] for i in nine[('M', 'M')].ravel()], np.uint8).reshape(16, 16, 3)
-    ys, xs = np.mgrid[0:16, 0:16]
-    def beyond(x, y, X0, Y0):
+    def beyond(x, y):
         """(pixels, ground class) of what lies past an edge toward cell (x, y)."""
         cx, cy = clamp(x, y)
         if isrock[cy, cx]:
@@ -523,17 +546,35 @@ def rock_frlg(cells, base, pieces, tex):
             lo = {k: lvl(x + dx, y + dy) < me for k, (dx, dy) in DIRS.items()}
             X0, Y0 = x * 16, y * 16
             cell, ov = out[Y0:Y0 + 16, X0:X0 + 16], over[Y0:Y0 + 16, X0:X0 + 16]
+            diag = [k for k in ('ne', 'se', 'sw', 'nw') if lo[k]]
+            whole = None
+            if not any(lo[k] for k in 'nesw') and diag:
+                if len(diag) == 1:
+                    whole = inner[diag[0]]
+                elif sorted(diag) in (['se', 'sw'], ['ne', 'nw']):
+                    r, l = ('se', 'sw') if 'se' in diag else ('ne', 'nw')
+                    whole = np.concatenate([inner[l][:, :8], inner[r][:, 8:]], 1)
             for qy in (0, 1):
                 v = ('N', 'S')[qy] if lo['n'] and lo['s'] else 'N' if lo['n'] else 'S' if lo['s'] else 'M'
                 for qx in (0, 1):
                     h = ('W', 'E')[qx] if lo['w'] and lo['e'] else 'W' if lo['w'] else 'E' if lo['e'] else 'M'
                     sl = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
                     vk, hk = 'ns'[qy], 'we'[qx]
-                    ix = nine[(v, h)][sl]
-                    if lo[vk + hk] and not lo[vk] and not lo[hk]:
-                        ix = inner[vk + hk][sl]
                     toward = next((DIRS[k] for k in (vk, hk, vk + hk) if lo[k]), None)
-                    bg, kind = beyond(x + toward[0], y + toward[1], X0, Y0) if toward else (fill, 'rock')
+                    bg, kind = beyond(x + toward[0], y + toward[1]) if toward else (fill, 'rock')
+                    if whole is not None:
+                        ix = whole[sl]
+                    elif lo[vk + hk] and not lo[vk] and not lo[hk]:
+                        ix = inner[vk + hk][sl]
+                    else:
+                        ix = (nine_rock if kind == 'rock' else nine)[(v, h)][sl]
+                    if qy == 1 and is_ledge(x + (1 if qx else -1), y):
+                        # A ledge runs into this cliff's foot: FRLG's join piece on a plain side,
+                        # otherwise the ledge carried on under the rock's clear and shadow pixels.
+                        if (v, h) == ('M', 'W' if qx == 0 else 'E'):
+                            ix = join['w' if qx == 0 else 'e'][sl]
+                        else:
+                            ix = np.where((ix < 0) & (ledge_mid[sl] >= 0), ledge_mid[sl], ix)
                     cell[sl] = bg[sl]
                     q = ov[sl]
                     for (yy, xx), k in np.ndenumerate(ix):
@@ -579,7 +620,8 @@ def caves_frlg(out, over, cells, cave):
                 out[py, px] = ICE[1] if edge else ICE[2] if r < 2 else ICE[0] if (px * 5 + r * 3) % 11 else ICE[1]
 
 # --------------------------------------------------------------------------- elements
-WOOD = [(66, 49, 33), (107, 82, 57), (132, 99, 66), (165, 123, 74), (189, 148, 90), (214, 173, 107)]
+# Bridge and stair wood: CherrygrovePrimary's own wood ramp (bank 2), so plain wood tiles need no secondary palette.
+WOOD = [(88, 64, 64), (120, 80, 56), (136, 96, 64), (160, 120, 88), (184, 136, 96), (200, 168, 112)]
 
 def bridge(out, cells, water):
     """North-south plank bridge: boards across, beams along both sides; the blocked
@@ -645,10 +687,16 @@ def caves(out, cells, band):
                 sl = out[(y + 1) * 16:(y + 1) * 16 + 6, fx * 16:fx * 16 + 16]
                 sl[:] = (sl.astype(int) * 0.4 + np.array((236, 240, 244)) * 0.6).astype(np.uint8)
 
-def boulders(out, cells, rock01):
+def boulders(out, cells, rock01, ramp=None):
     """HGSS's boulder (already clean pixel art) as a 2x2 prop, into an RGB bottom layer
-    or an RGBA top layer."""
+    or an RGBA top layer; with ramp, its shades are snapped to that ramp by brightness."""
     a = rock01[..., 3] > 0
+    rock01 = rock01.copy()
+    if ramp is not None:
+        light = sorted(ramp, key=sum)
+        lum = rock01[..., :3].astype(int).sum(-1)
+        levels = np.quantile(lum[a], np.linspace(0, 1, len(light) + 1)[1:-1])
+        rock01[..., :3] = np.array(light, np.uint8)[np.searchsorted(levels, lum)]
     px = rock01 if out.shape[2] == 4 else rock01[..., :3]
     done = set()
     for y in range(H):
@@ -659,6 +707,30 @@ def boulders(out, cells, rock01):
                 X0, Y0 = b[0] * 16, b[1] * 16
                 sl = out[Y0:Y0 + 32, X0:X0 + 32]
                 sl[a] = px[a]
+
+def ledges_frlg(cells, pieces):
+    """FRLG's jump ledge in Blackthorn's ramp on the top layer: rounded ends where the
+    ledge stops on open ground, the plain strip where it runs into a cliff (the cliff's
+    own join piece carries it on), Cherrygrove's border grey for its shadow."""
+    top = np.zeros((H * 16, W * 16, 4), np.uint8)
+    lp = pieces['ledge']
+    lab = lambda x, y: cells[y][x]['lab'] if 0 <= x < W else 'T'
+    for y in range(H):
+        for x in range(W):
+            if lab(x, y) != 'L':
+                continue
+            free = lambda n: lab(n, y) not in ROCK and lab(n, y) != 'L'
+            ix = lp['mid'].copy()
+            if free(x - 1):
+                ix[:, :8] = lp['left'][:, :8]
+            if free(x + 1):
+                ix[:, 8:] = lp['right'][:, 8:]
+            for (yy, xx), k in np.ndenumerate(ix):
+                if k >= 0:
+                    top[y * 16 + yy, x * 16 + xx] = BLACKTHORN_RAMP[k] + (255,)
+                elif k == SHADOW:
+                    top[y * 16 + yy, x * 16 + xx] = BORDER_GRAY + (255,)
+    return top
 
 def ledges(cells, strip):
     top = np.zeros((H * 16, W * 16, 4), np.uint8)
@@ -750,8 +822,14 @@ def compose(engine, phg, style, cells):
         bottom, level, piece = rock(cells, bottom, sw)
         caves(bottom, cells, sw['band'])
         top = np.zeros(bottom.shape[:2] + (4,), np.uint8)
-    boulders(top if style == 'C' else bottom, cells, hgss_texture(phg, 'rock01', 'rock01'))
-    lg = ledges(cells, route31_ledge(engine))
+    if style == 'C':                       # a boulder on plain rock top: the top stays in the bottom layer, so
+        for y in range(H):                 # every boulder shares the same top-layer tiles
+            for x in range(W):
+                if cells[y][x].get('boulder') and piece[y, x] == '' and cells[y][x]['lab'] in ROCK:
+                    top[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = 0
+    boulders(top if style == 'C' else bottom, cells, hgss_texture(phg, 'rock01', 'rock01'),
+             BLACKTHORN_RAMP if style == 'C' else None)
+    lg = ledges_frlg(cells, sw) if style == 'C' else ledges(cells, route31_ledge(engine))
     a = lg[..., 3] > 0
     top[a] = lg[a]
     owner, shared, shared_src = place(bottom, top, cells, tex)

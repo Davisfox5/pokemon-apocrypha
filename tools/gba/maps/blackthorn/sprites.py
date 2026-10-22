@@ -79,58 +79,97 @@ def tiled(src, w, h, ox=0, oy=0):
     ys, xs = np.mgrid[0:h, 0:w]
     return src[(ys + oy) % src.shape[0], (xs + ox) % src.shape[1]]
 
+GREY = [(52, 52, 60), (88, 88, 96), (124, 124, 132), (160, 160, 168), (196, 196, 204)]   # stone and Gym frames
+
 # --------------------------------------------------------------------------- thatched hut
+STRAW = [(240, 212, 140), (224, 192, 120), (204, 168, 100), (180, 144, 84), (150, 114, 64), (116, 84, 48)]
+STRAW_LINE = (84, 58, 32)
+HUT_PALETTE = STRAW + [STRAW_LINE, (36, 30, 32), (200, 150, 72), (132, 92, 48), (8, 90, 41), (16, 120, 60),
+                       (206, 206, 231), (255, 255, 255)]                      # 15 colours: one bank
+
+def snap(img, palette):
+    """Snap every opaque pixel to its nearest palette colour (keeps a sprite's ramp small)."""
+    a = img[..., 3] > 0
+    p = np.array(palette, float)
+    c = img[a][:, :3].astype(float)
+    img[a, :3] = p[((c[:, None] - p[None]) ** 2).sum(-1).argmin(1)].astype(np.uint8)
+
 def hut():
-    """Blackthorn house: straw dome with a dormer over a plank front, green door, window.
-    64 x 80 (four cells); the dome's crown rises into the row above the footprint."""
-    t = tex('fu_h01')
-    straw = t[0:45, 0:24]                       # one wrap of straw: light crown to dark eave
+    """Blackthorn house, shaped from HGSS's own house model seen through Blackthorn's field
+    camera (camera type 0, 48.7 degrees): a small rounded crown sitting on a wide,
+    low-pitched thatch skirt that overhangs the walls, straw strands running down the
+    slope, a dormer on the skirt below the crown, a ragged eave; under it a plank front
+    with dark corner posts, a green door and a window. 64 x 80 (four cells); the crown
+    rises into the row above the footprint. Mirror-symmetric above the eave, so the two
+    roof halves share tiles."""
     img = canvas(64, 80)
     ys, xs = np.mgrid[0:80, 0:64]
-    cx, cy, rx, ry, eave = 31.5, 42.0, 31.0, 41.0, 55
-    dome = (((xs - cx) / rx) ** 2 + ((ys - cy) / ry) ** 2 <= 1.0) & (ys <= eave)
-    v = np.clip(((ys - 1) / (eave - 1) * 41).astype(int), 0, 41)          # straw courses by height
-    u = xs % 8                                   # the straw repeats every 8 px
-    fill = straw[v, u]
-    img[dome] = fill[dome]
-    shade_sym(img, dome, cx, 30, 32, 40, 0.35)
-    posterize(img, dome, 5)
-    # ragged eave: the strip's own scalloped fringe
-    fringe = straw[41:45]
+    dx = np.abs(xs - 31.5)
+    # silhouettes: the crown is a rounded cap; the skirt's shoulder curves out from under
+    # it to the full width, then falls almost straight to a low eave that bows forward
+    shoulder = 13 + 16 * (1 - np.sqrt(np.clip(1 - ((dx - 16) / 16.5) ** 2, 0, 1)))
+    skirt_top = np.where(dx <= 16, 13, shoulder)
+    eave = 54 + np.floor(2.5 * np.sqrt(np.clip(1 - (dx / 32) ** 2, 0, 1)))
+    half = np.where(ys < 44, 32.0, 32 - (ys - 44) * 0.3)
+    skirt = (ys >= skirt_top) & (ys <= eave) & (dx <= half)
+    crown = ((dx / 18) ** 2 + ((ys - 14) / 13) ** 2 <= 1) & (ys <= 22)
+    # straw: strands run down the slope, two pixels wide, broken into uneven lengths
+    ang = np.arctan2(xs - 31.5, ys + 30)
+    strand = np.floor(np.abs(ang) * 34).astype(int)
+    phase = (strand * 7) % 11
+    brk = ((ys + phase) % 11 < 2)
+    tone = (strand % 2) + brk
+    roof = skirt | crown
+    k = np.zeros(ys.shape, int)
+    k[skirt] = 1 + tone[skirt] + (ys[skirt] > 34) + (ys[skirt] > eave[skirt] - 5)
+    k[skirt & (dx >= 27)] += 1                                  # rounding away at the sides
+    k[crown] = tone[crown] + (ys[crown] > 9)
+    k[crown & (dx >= 14)] += 1
+    k = np.clip(k, 0, 5)
+    for i, c in enumerate(STRAW):
+        img[roof & (k == i)] = c + (255,)
+    # the crown's ragged lip where it overhangs the skirt
+    rim = crown & ~((dx / 18) ** 2 + ((ys - 13) / 13) ** 2 <= 1)
+    img[rim] = STRAW[4] + (255,)
+    for x in range(14, 50):
+        r = int(np.ceil(14 + 13 * np.sqrt(max(0.0, 1 - ((x - 31.5) / 18) ** 2))))
+        if r <= 22 and (x * 5) % 3 == 0:
+            img[min(r, 23), x] = STRAW[5] + (255,)
+    # dormer on the skirt, just under the crown's lip
+    rect(img, 24, 24, 40, 37, (96, 64, 38)); rect(img, 26, 26, 38, 37, (36, 32, 44))
+    rect(img, 26, 26, 38, 28, (140, 96, 52)); rect(img, 23, 36, 41, 38, (96, 64, 38))
+    # ragged eave: straw tips hanging below the skirt's edge
     for x in range(1, 63):
-        for k in range(4):
-            if fringe[k, x % 24, 3] and dome[eave, x]:
-                img[eave + 1 + k - 1, x] = fringe[k, x % 24]
-    # dormer
-    rect(img, 23, 17, 41, 34, (96, 64, 38))
-    rect(img, 25, 19, 39, 34, (36, 32, 44))
-    rect(img, 25, 19, 39, 21, (140, 96, 52))
-    rect(img, 22, 33, 42, 35, (96, 64, 38))
-    # front wall: golden planks between dark corner posts
-    rect(img, 6, 58, 58, 78, (200, 150, 72))
-    for y in range(61, 78, 4):
-        rect(img, 6, y, 58, y + 1, (164, 118, 58))
-    rect(img, 6, 58, 58, 59, (228, 182, 98))
-    for x0 in (4, 54):
-        rect(img, x0, 54, x0 + 6, 78, (78, 52, 32)); rect(img, x0 + 1, 54, x0 + 2, 78, (128, 88, 50))
-    # door (second cell) from fu_door1, window (third cell) from h_mado
+        e = int(eave[0, x])
+        if dx[0, x] <= half[e, x]:
+            for t in range(1 + (x * 7 % 5 == 0) + (x % 3 == 0)):
+                img[e + 1 + t, x] = (STRAW[4] if t == 0 else STRAW[5]) + (255,)
+    img[:56, 32:] = img[:56, :32][:, ::-1]                    # mirror the roof
+    # front wall: golden planks between dark corner posts, shadowed under the eave
+    top = 55
+    rect(img, 5, top, 59, 77, (200, 150, 72))
+    for y in range(top + 4, 77, 4):
+        rect(img, 5, y, 59, y + 1, (164, 118, 58))
+    rect(img, 5, top, 59, top + 3, (132, 92, 48))
+    for x0 in (3, 55):
+        rect(img, x0, top - 1, x0 + 6, 77, (78, 52, 32)); rect(img, x0 + 1, top + 2, x0 + 2, 77, (128, 88, 50))
     door = tex('fu_door1')[0:28, 0:24]
-    dimg = np.array(Image.fromarray(door).resize((14, 18), Image.Resampling.NEAREST))
-    rect(img, 15, 59, 31, 78, (40, 30, 24)); paste(img, dimg, 16, 60)
+    dimg = np.array(Image.fromarray(door).resize((14, 17), Image.Resampling.NEAREST))
+    rect(img, 15, top + 2, 31, 77, (40, 30, 24)); paste(img, dimg, 16, top + 3)
     win = tex('h_mado')
-    rect(img, 35, 60, 51, 71, (78, 52, 32))
-    paste(img, np.array(Image.fromarray(win).resize((14, 9), Image.Resampling.NEAREST)), 36, 61)
-    rect(img, 42, 61, 43, 70, (110, 74, 44)); rect(img, 36, 65, 50, 66, (110, 74, 44))
-    rect(img, 34, 72, 52, 75, (128, 128, 136)); rect(img, 34, 74, 52, 75, (92, 92, 100))
-    outline(img, (64, 44, 26))
+    rect(img, 35, top + 3, 51, top + 13, (78, 52, 32))
+    paste(img, np.array(Image.fromarray(win).resize((14, 8), Image.Resampling.NEAREST)), 36, top + 4)
+    rect(img, 42, top + 4, 43, top + 12, (110, 74, 44)); rect(img, 36, top + 8, 50, top + 9, (110, 74, 44))
+    rect(img, 34, top + 14, 52, top + 17, (132, 92, 48)); rect(img, 34, top + 16, 52, top + 17, STRAW_LINE)   # window box
+    rect(img, 3, 77, 61, 78, (96, 72, 44))                      # sill along the ground
+    outline(img, STRAW_LINE)
     img[78:] = 0
-    # the dome, dormer and eave are mirror-symmetric (shared tiles through flips)
-    img[:56, 32:] = img[:56, :32][:, ::-1]
+    snap(img, HUT_PALETTE)
     return img
 
 # --------------------------------------------------------------------------- gate post
-POST = {'o': (56, 40, 24), 'd': (104, 76, 48), 'm': (148, 112, 72), 'l': (188, 152, 104), 'h': (216, 184, 128),
-        'p': (120, 108, 48), 's': (88, 76, 32)}
+POST = {'o': (88, 64, 64), 'd': (104, 72, 48), 'm': (136, 96, 72), 'l': (184, 136, 104), 'h': (200, 168, 112),
+        'p': (96, 88, 72), 's': (104, 88, 88)}            # CherrygrovePrimary's wood ramp (bank 2)
 POST_ART = [            # 16 x 40: a dead trunk with a split crown, two stubs and a root flare
     '..oo.....oo.....',
     '.ohdo...oldo....',
@@ -203,7 +242,8 @@ def standing_stone():
             yy, xx = y0 + i, x0 + (i * dx) // 2
             if body[yy, xx]:
                 img[yy, xx] = (70, 70, 78, 255)
-    outline(img, (52, 52, 60))
+    outline(img, GREY[0])
+    snap(img, GREY)
     return img
 
 # --------------------------------------------------------------------------- gym
@@ -211,7 +251,7 @@ GYM = dict(line=(56, 40, 48), wood=[(208, 168, 120), (176, 136, 96), (144, 104, 
            beam=[(248, 184, 104), (232, 128, 48), (192, 88, 32), (144, 56, 24)],
            hall=[(236, 228, 244), (204, 196, 222), (170, 162, 196)], band=[(168, 128, 216), (124, 84, 180)],
            red=[(208, 72, 56), (160, 44, 36), (112, 28, 28)], glass=[(176, 220, 248), (104, 164, 220)],
-           frame=(112, 112, 128))
+           frame=GREY[2])
 
 def gym():
     """Blackthorn Gym, redrawn in Gen 3 terms: a plank barrel roof (planks running front

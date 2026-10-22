@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "5d5c163c60c7e07fcd2f8c797c07cee04d2d2f9581c27811ea594bd5550988b8",
+  "rom_sha256": "56dc14a057440adcba2ec7e397641a20790f7ea9c3ed31f78658427c2ee455d3",
   "phases": [
     {
       "phase": "write",
@@ -850,7 +850,7 @@
         208,
         456
       ],
-      "bg1_pixels_over_player_cell": 201
+      "bg1_pixels_over_player_cell": 199
     },
     {
       "frame": "bridge",
@@ -966,7 +966,7 @@
       "frame": "gym-forecourt",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 7616,
-      "animated_water_pixels_differing_from_frame_0": 3132,
+      "animated_water_pixels_differing_from_frame_0": 3140,
       "camera_origin_px": [
         336,
         328
@@ -975,8 +975,8 @@
     {
       "frame": "gym-lawn-west",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8768,
-      "animated_water_pixels_differing_from_frame_0": 3392,
+      "pixels_on_animated_water": 8832,
+      "animated_water_pixels_differing_from_frame_0": 3460,
       "camera_origin_px": [
         240,
         312

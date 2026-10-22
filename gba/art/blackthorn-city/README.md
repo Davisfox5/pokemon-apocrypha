@@ -15,7 +15,7 @@ styled with Blackthorn's HGSS colours. Editable source is in
 | --- | --- |
 | Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
-| Secondary | `gTileset_BlackthornCity`: 467 of 496 tiles (16 kept for door animation), 377 of 512 metatiles |
+| Secondary | `gTileset_BlackthornCity`: 480 of 496 tiles (16 kept for door animation), 379 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
@@ -45,13 +45,17 @@ into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.
 
 | Style | Rock pieces | Secondary tiles |
 | --- | --- | --- |
-| A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 581: over the 496 budget, render only |
-| B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 448 |
-| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 467 |
+| A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 575: over the 496 budget, render only |
+| B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 453 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 480 |
 
-Style C uses FRLG's nine-slice (corners, rims, sides, front face) and its four inner
-corners. Each 8x8 quadrant of a rock cell takes the piece its two edges call for, so any
-terrace outline gets matching corners. As in FRLG the rock is a top-layer overlay over
+Style C uses FRLG's nine-slice (corners, rims, sides, front face) in both of FRLG's
+versions, one for an edge over ground and one for an edge over a lower terrace, plus its
+four inner corners. A cell whose only lower neighbour is diagonal takes the whole
+inner-corner piece, which turns the face into the side as one continuous L; every other
+cell is composed per 8x8 quadrant from the piece its two edges call for, using the
+over-rock version where that quadrant faces a lower terrace, so stacked terraces run as
+unbroken bands. As in FRLG the rock is a top-layer overlay over
 plain ground: clear pixels show what lies past the edge (the lower terrace's top, or the
 flattest primary block of that ground), and the cast shadow is Cherrygrove's border
 grey, so cliff tiles don't multiply with the ground texture. Terrain rising toward the
@@ -63,14 +67,27 @@ the far side of a mountain.
 - **Ground and water**: Cherrygrove's own tiles, chosen per 8-neighbour configuration and
   texture phase (the accepted Johto vocabulary, animated sea included). Grass-water edges
   use Route 30's accepted pond rim (`source/elements/route30-native.png`, decoded from the
-  engine at `apocrypha`). Ledges are Route 31's accepted jump ledge in Blackthorn's ramp.
+  engine at `apocrypha`).
+- **Ledges**: FRLG's jump ledge in Blackthorn's ramp, with rounded ends where it stops on
+  open ground. Where a ledge meets a cliff it runs straight into it: FRLG's join piece (a
+  mountain side with the ledge built into its foot) on a plain side, and the ledge carried
+  on under the rock's clear and shadow pixels where it meets a corner.
 - **Caves**: FRLG's cave mouth on the Dragon's Den and Ice Path warp cells; Ice Path's arch
   is rimmed with frost and a snow drift spills onto the grass in front.
 - **Props and buildings**, redrawn as Gen 3 sprites (`sprites.py`, `source/elements/sprites.png`):
   the Gym (plank barrel roof with a dark spine, beams that rise above it and splay to the
   hall's foot, banded drum hall, red emblem panel, glass doors), the three thatched houses,
   the two dead-trunk gate posts (16 px wide, inside their own cell column), the standing
-  stone. HGSS's boulder is kept as a 2x2 prop. The bridge and stairs are element pieces.
+  stone. HGSS's boulder is kept as a 2x2 prop in Blackthorn's rock ramp. The bridge and
+  stairs are element pieces; bridge, stairs and gate posts use CherrygrovePrimary's own
+  wood ramp (bank 2), which keeps the secondary palettes free for the rest.
+- **Houses**: shaped from HGSS's own house model (132) drawn through Blackthorn's field
+  camera, read from pokeheartgold (camera type 0: 48.7 degrees, near-orthographic;
+  `hgss_camera.py`, `evidence/elements/house-reference.png`): a small rounded crown on a
+  wide, low-pitched skirt that overhangs the walls, straw strands running down the slope,
+  the dormer under the crown, a ragged eave. Bulbapedia and other screenshot sites are
+  blocked by this environment's network policy, so the game's own model and camera stand
+  in for a screenshot.
 - **Walk-behind**: props and rock sit on the top layer. The packer gives every walkable
   cell with top-layer art the normal layer type (drawn above the player) and every blocked
   cell the covered type, so the player walks behind a gate post, a house's roof, the stone
@@ -88,8 +105,8 @@ the far side of a mountain.
   water under the roof and grass under the hall's foot.
 - **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
   Gym sign. The tutor-house and trainer-tips signs are unscripted props.
-- **Colour**: the native map holds 98.7% of the composed element art's pixels exactly in
-  5-bit colour and 99.6% within one level (`evidence/elements/pack-C.json`).
+- **Colour**: the native map holds 99.4% of the composed element art's pixels exactly in
+  5-bit colour and 99.9% within one level (`evidence/elements/pack-C.json`).
 
 ## Verification
 
@@ -108,7 +125,7 @@ the far side of a mountain.
 - **Rendering parity**: for all 33 captures the map layers BG1-BG3 rebuilt from dumped VRAM,
   palettes and BG registers match the decoded native image pixel for pixel, apart from
   CherrygrovePrimary's animated sea tiles. In the walk-behind captures BG1 covers the
-  player's own cell (81 px at each gate post, 201 at the house roof, 23 at the stone).
+  player's own cell (81 px at each gate post, 199 at the house roof, 23 at the stone).
 - **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source and run
   under Xvfb on a fresh clone: the city and its three interiors open with no errors;
   Porymap's export of the city matches the native decode pixel for pixel; saving the maps
@@ -116,8 +133,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `b166fa1d8689ae53918b5dd52fe5194757e273cc`, local ROM SHA-256
-`5d5c163c60c7e07fcd2f8c797c07cee04d2d2f9581c27811ea594bd5550988b8` (Ubuntu Arm GNU 13.2.1).
+Engine commit `c02f56d9a2caca3d2175962dad83d07a72696429`, local ROM SHA-256
+`56dc14a057440adcba2ec7e397641a20790f7ea9c3ed31f78658427c2ee455d3` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)
@@ -138,6 +155,7 @@ provenance (never replay over owner edits; `install_elements.py` refuses if the 
 
 ```sh
 python3 tools/gba/maps/blackthorn/hgss_render.py /path/to/pokeheartgold gba/art/blackthorn-city/source/hgss
+python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-house-camera.png
 python3 tools/gba/maps/blackthorn/sprites.py
 python3 tools/gba/maps/blackthorn/elements.py /path/to/engine /path/to/pokeheartgold
 python3 tools/gba/maps/blackthorn/pack.py /path/to/engine C

@@ -1,23 +1,23 @@
 {
   "style": "B",
-  "secondary_tiles": 448,
+  "secondary_tiles": 453,
   "secondary_tile_limit": 496,
-  "secondary_metatiles": 343,
+  "secondary_metatiles": 342,
   "metatile_limit": 512,
-  "primary_metatiles_reused": 878,
+  "primary_metatiles_reused": 877,
   "tile_positions": {
-    "primary": 5213,
-    "fixed_exact": 198,
-    "learned": 357
+    "primary": 5245,
+    "fixed_exact": 225,
+    "learned": 335
   },
   "junction_colours": 10,
-  "learned_bank_error": 3.0333663061769824,
+  "learned_bank_error": 3.217549846491718,
   "colour_rgb5": {
-    "exact": 1032220,
-    "within_1": 1044150,
-    "within_2": 1047292,
+    "exact": 1040307,
+    "within_1": 1046044,
+    "within_2": 1046626,
     "total": 1048576,
-    "worst": 6
+    "worst": 7
   },
   "shared_building_pixels_exact": true
 }
