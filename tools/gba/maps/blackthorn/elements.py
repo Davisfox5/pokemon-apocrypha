@@ -589,7 +589,9 @@ def rock_frlg(cells, base, pieces, tex):
             piece[y, x] = ''.join(k for k in DIRS if lo[k])
     return out, over, d, piece
 
-ICE = [(238, 246, 246), (205, 222, 238), (172, 189, 205), (123, 148, 180)]
+# Frost and snow in CherrygrovePrimary bank 0's whites, which share a bank with its grass,
+# so the snow drift's tiles need no secondary palette.
+ICE = [(240, 240, 200), (224, 224, 184), (208, 208, 168), (128, 136, 120)]
 
 def caves_frlg(out, over, cells, cave):
     """FRLG's cave mouth on each warp cell (a south face), on the rock's top layer. Ice
@@ -597,9 +599,9 @@ def caves_frlg(out, over, cells, cave):
     for (x, y), kind in CAVE_WARPS.items():
         X0, Y0 = x * 16, y * 16
         sl = over[Y0:Y0 + 16, X0:X0 + 16]
-        dark = (16, 16, 24) if kind == 'dragons_den' else (24, 32, 56)
+        dark = (36, 30, 32) if kind == 'dragons_den' else (56, 56, 72)        # shared with the houses' and Gym's darks
         sill = BLACKTHORN_RAMP[0] if kind == 'dragons_den' else ICE[2]
-        floor = (88, 176, 136) if cells[y][x]['floor'] == 'grass' else (184, 168, 128)
+        floor = BORDER_GRAY                                 # the rock's own cast-shadow grey
         for (yy, xx), k in np.ndenumerate(cave):
             sl[yy, xx] = (BLACKTHORN_RAMP[k] if k >= 0 else dark if k == CAVE_DARK else sill if k == CAVE_SILL
                           else floor) + (255,)
@@ -625,9 +627,10 @@ def caves_frlg(out, over, cells, cave):
 # Bridge and stair wood: CherrygrovePrimary's own wood ramp (bank 2), so plain wood tiles need no secondary palette.
 WOOD = [(88, 64, 64), (120, 80, 56), (136, 96, 64), (160, 120, 88), (184, 136, 96), (200, 168, 112)]
 
-def bridge(out, cells, water):
+def bridge(out, cells, water, rails=None):
     """North-south plank bridge: boards across, beams along both sides; the blocked
-    cells either side of the deck carry its railing over the water."""
+    cells either side of the deck carry its railing over the water. With rails (an RGBA
+    top layer), the railing goes there over plain water, so no tile mixes wood and water."""
     xs = sorted({x for y in range(H) for x in range(W) if cells[y][x]['floor'] == 'bridge'})
     ys = sorted({y for y in range(H) for x in range(W) if cells[y][x]['floor'] == 'bridge'})
     x0, x1, y0, y1 = xs[0] * 16, xs[-1] * 16 + 16, ys[0] * 16, ys[-1] * 16 + 16
@@ -638,11 +641,12 @@ def bridge(out, cells, water):
                 continue
             X0, Y0 = rx * 16, y * 16
             out[Y0:Y0 + 16, X0:X0 + 16] = water[yy[Y0:Y0 + 16, X0:X0 + 16] % 32, xx[Y0:Y0 + 16, X0:X0 + 16] % 32]
+            dst, a = (out, ()) if rails is None else (rails, (255,))
             c0 = X0 + 11 if side < 0 else X0
-            out[Y0:Y0 + 16, c0:c0 + 5] = WOOD[2]
-            out[Y0:Y0 + 16, c0 + (0 if side < 0 else 4)] = WOOD[0]
-            out[Y0:Y0 + 16, c0 + (4 if side < 0 else 0)] = WOOD[1]
-            out[Y0 + 6:Y0 + 10, c0:c0 + 5] = WOOD[1]
+            dst[Y0:Y0 + 16, c0:c0 + 5] = WOOD[2] + a
+            dst[Y0:Y0 + 16, c0 + (0 if side < 0 else 4)] = WOOD[0] + a
+            dst[Y0:Y0 + 16, c0 + (4 if side < 0 else 0)] = WOOD[1] + a
+            dst[Y0 + 6:Y0 + 10, c0:c0 + 5] = WOOD[1] + a
     for py in range(y0, y1):
         r = (py - y0) % 8
         row = WOOD[4] if r in (0, 1) else WOOD[3] if r in (2, 3, 4) else WOOD[2] if r in (5, 6) else WOOD[1]
@@ -815,10 +819,13 @@ def compose(engine, phg, style, cells):
     tex = cherry_textures()
     sw = rock_swatches(style, engine, phg)
     bottom = ground(cells, tex)
-    bridge(bottom, cells, tex['water'])
+    rails = np.zeros(bottom.shape[:2] + (4,), np.uint8) if style == 'C' else None
+    bridge(bottom, cells, tex['water'], rails)
     stairs(bottom, cells)
     if style == 'C':
         bottom, top, level, piece = rock_frlg(cells, bottom, sw, tex)
+        a = rails[..., 3] > 0
+        top[a] = rails[a]
         caves_frlg(bottom, top, cells, sw['cave'])
     else:
         bottom, level, piece = rock(cells, bottom, sw)

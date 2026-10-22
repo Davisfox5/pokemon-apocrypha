@@ -79,11 +79,13 @@ def tiled(src, w, h, ox=0, oy=0):
     ys, xs = np.mgrid[0:h, 0:w]
     return src[(ys + oy) % src.shape[0], (xs + ox) % src.shape[1]]
 
-GREY = [(56, 54, 52), (96, 92, 86), (128, 124, 116), (160, 156, 146), (192, 188, 176)]   # warm stone grey; Gym frames
+# Stone grey: the grey ramp of Cherrygrove's Center palette (bank 8, loaded for the shared
+# Center), so stone tiles need no learned palette; Gym frames use it too.
+GREY = [(56, 56, 72), (96, 104, 96), (120, 120, 112), (168, 168, 160), (216, 216, 208)]
 
 # --------------------------------------------------------------------------- thatched hut
 STRAW = [(240, 212, 140), (224, 192, 120), (204, 168, 100), (180, 144, 84), (150, 114, 64), (116, 84, 48)]
-STRAW_LINE = (84, 58, 32)
+STRAW_LINE = (82, 58, 52)                                   # Blackthorn's rock outline, shared
 HUT_PALETTE = STRAW + [STRAW_LINE, (36, 30, 32), (200, 150, 72), (132, 92, 48), (8, 90, 41), (16, 120, 60),
                        (206, 206, 231), (255, 255, 255)]                      # 15 colours: one bank
 
@@ -228,7 +230,7 @@ def gate_post(mirror=False):
 def standing_stone():
     """The standing stone beside the west house, from HGSS's stone model (235) seen through
     Blackthorn's field camera: a tall rounded stone leaning slightly, a smaller lobe at its
-    lower left, lit from the upper left in four bands of warm grey, a few etched cracks;
+    lower left, lit from the upper left in four bands of grey, a few etched cracks;
     sized against the house by that same camera view (about 0.6 of its height).
     32 x 56, its base on the bottom of its lowest blocked cell."""
     img = canvas(32, 56)
@@ -269,11 +271,11 @@ def standing_stone():
     return img
 
 # --------------------------------------------------------------------------- gym
-GYM = dict(line=(56, 40, 48), wood=[(208, 168, 120), (176, 136, 96), (144, 104, 72), (112, 80, 56)],
-           beam=[(248, 184, 104), (232, 128, 48), (192, 88, 32), (144, 56, 24)],
+GYM = dict(line=GREY[0], wood=[STRAW[2], STRAW[3], STRAW[3], STRAW[5]],   # 15 colours in all: one palette bank
+           beam=[(248, 184, 104), (232, 128, 48), (192, 88, 32)],
            hall=[(236, 228, 244), (204, 196, 222), (170, 162, 196)], band=[(168, 128, 216), (124, 84, 180)],
-           red=[(208, 72, 56), (160, 44, 36), (112, 28, 28)], glass=[(176, 220, 248), (104, 164, 220)],
-           frame=GREY[2])
+           red=[(208, 72, 56), (160, 44, 36), (112, 28, 28)], glass=[(236, 228, 244), (104, 164, 220)],
+           frame=(170, 162, 196))
 
 def gym():
     """Blackthorn Gym, redrawn in Gen 3 terms: a plank barrel roof (planks running front
@@ -321,19 +323,19 @@ def gym():
     # corner posts
     for x0 in (2,):
         rect(img, x0, 66, x0 + 9, 117, C['beam'][1]); rect(img, x0 + 1, 66, x0 + 3, 117, C['beam'][0])
-        rect(img, x0 + 7, 66, x0 + 9, 117, C['beam'][2]); rect(img, x0, 64, x0 + 9, 67, C['beam'][3])
+        rect(img, x0 + 7, 66, x0 + 9, 117, C['beam'][2]); rect(img, x0, 64, x0 + 9, 67, C['red'][2])
     # windows
     for x0 in (16, 26):
         rect(img, x0 - 1, 83, x0 + 8, 93, C['frame'])
         rect(img, x0, 84, x0 + 7, 92, C['glass'][1]); rect(img, x0 + 1, 85, x0 + 3, 91, C['glass'][0])
         rect(img, x0 + 3, 84, x0 + 4, 92, C['frame'])
     # red emblem panel with the Gym emblem
-    rect(img, 42, 62, 56, 86, C['red'][1]); rect(img, 42, 62, 56, 64, C['red'][0]); rect(img, 42, 84, 56, 86, C['red'][2])
+    rect(img, 42, 62, 56, 86, C['red'][1]); rect(img, 42, 84, 56, 86, C['red'][2])
     emblem = tex('fu_gym_w')[19:30, 0:16]
     e = emblem[..., 3] > 0
     for (yy, xx) in zip(*np.nonzero(e[:, :8])):
         lum = int(emblem[yy, xx, :3].astype(int).sum())
-        img[67 + yy, 48 + xx] = (248, 248, 248, 255) if lum > 500 else tuple(C['red'][2]) + (255,)
+        img[67 + yy, 48 + xx] = tuple(C['hall'][0]) + (255,) if lum > 500 else tuple(C['red'][2]) + (255,)
     # glass doors
     rect(img, 45, 92, 56, 118, C['frame'])
     rect(img, 47, 94, 56, 118, C['glass'][1]); rect(img, 48, 95, 51, 117, C['glass'][0])

@@ -41,6 +41,51 @@ def read_pal(p):
     v = list(map(int, p.read_text().split()[3:51]))
     return [tuple(v[i * 3:i * 3 + 3]) for i in range(16)]
 
+def exact_banks(jobs, nbanks, size=15, tries=400):
+    """Give tiles their exact 5-bit colours where the banks allow it. Colour sets go in
+    most-used first, each into the bank needing the fewest new colours; sets that found
+    no room go first on the next try, and the packing that leaves the fewest tile uses
+    unplaced wins. Tiles that fit nowhere (rare mixes) are quantized into the bank that
+    suits them, so their loss stays local instead of shifting a shared colour across the
+    map. pack.py keeps this fit or the k-means one, whichever loses less visibly."""
+    sets = [frozenset(map(tuple, j['px'][j['mask'] > 0].astype(int).tolist())) for j in jobs]
+    use = [j['weight'] * len(c) for j, c in zip(jobs, sets)]
+    rng = np.random.default_rng(0)
+    first = set()                     # sets that failed before go first next time
+    best = None
+    for t in range(tries):
+        jitter = (lambda i: rng.random() * 0.6) if t else (lambda i: 0.0)
+        order = sorted(range(len(jobs)), key=lambda i: (i not in first, -use[i] * (1 + jitter(i)), -len(sets[i])))
+        banks, assign, left = [set() for _ in range(nbanks)], [0] * len(jobs), []
+        for i in order:
+            c = sets[i]
+            fits = [(len(c - b), -len(c & b), k) for k, b in enumerate(banks) if len(b | c) <= size]
+            if not fits:
+                left.append(i)
+                continue
+            k = min(fits)[2]
+            banks[k] |= c
+            assign[i] = k
+        first |= set(left)
+        lost = sum(jobs[i]['weight'] for i in left)
+        if best is None or lost < best[0]:
+            best = (lost, [set(b) for b in banks], assign[:], left[:])
+        if not lost:
+            break
+    _, banks, assign, left = best
+    pals = []
+    for b in banks:
+        cols = sorted(b) or [(0, 0, 0)]
+        pals.append(cols + [cols[-1]] * (size - len(cols)))
+    px = np.stack([j['px'] for j in jobs]).astype(float)
+    mask = np.stack([j['mask'] for j in jobs]).astype(float)
+    errs = np.stack([B.tile_error(px, mask, np.array(p, float)) for p in pals], 1)
+    for i in left:
+        assign[i] = int(errs[i].argmin())
+    w = np.array([j['weight'] for j in jobs], float)
+    err = errs[np.arange(len(jobs)), assign]
+    return pals, np.array(assign), float((err * w).sum() / (mask.sum(1) * w).sum())
+
 def primary(engine):
     d = engine / 'data/tilesets/primary/cherrygrove'
     a = np.array(Image.open(d / 'tiles.png')) & 15
@@ -175,7 +220,11 @@ def main(engine, style):
     learned = [j for j in jobs.values() if j['bank'] is None]
     stats['fixed_exact'] = sum(1 for j in jobs.values() if j['bank'] is not None)
     stats['learned'] = len(learned)
-    pals_l, assign, err = B.best_banks(learned, len(LEARNED_BANKS), ('flat', 'sqrt', 'log'), seeds=range(6))
+    fits = [exact_banks(learned, len(LEARNED_BANKS)),
+            B.best_banks(learned, len(LEARNED_BANKS), ('flat', 'sqrt', 'log'), seeds=range(6))]
+    loss = [B.visible_loss(learned, f[0], f[1]) for f in fits]
+    pals_l, assign, err = fits[int(np.argmin(loss))]
+    stats['learned_fit'] = ('exact where possible', 'k-means')[int(np.argmin(loss))]
     for j, a in zip(learned, assign):
         j['bank'] = LEARNED_BANKS[a]
     for b, p in zip(LEARNED_BANKS, pals_l):

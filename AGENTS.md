@@ -103,8 +103,9 @@ the worked example is `gba/art/blackthorn-city/README.md` with tools in
   own field camera (`hgss_camera.py`) when no screenshot is available. Walkable cells
   with top-layer art get the normal layer type (walk-behind); blocked cells get covered.
 - Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, shared
-  Center and Mart) and the primary's own palette colours where they fit, so tiles and
-  palettes stay inside one tileset pair. Measure per-element tile and colour cost
+  Center and Mart) and colours the loaded palettes already hold (the primary's banks, the
+  Center's bank 8), so tiles and palettes stay inside one tileset pair. Keep each other
+  colour family to 15 colours and check every element's decoded colours after packing. Measure per-element tile and colour cost
   (`budget.py`) before cutting anything.
 - Every round: compose, pack, install, build, audit (decode, traversal, reachability,
   walk-behind, palettes, budgets, ids, file scope), headless mGBA with VRAM parity,

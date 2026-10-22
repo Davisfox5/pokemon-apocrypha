@@ -15,7 +15,7 @@ styled with Blackthorn's HGSS colours. Editable source is in
 | --- | --- |
 | Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
-| Secondary | `gTileset_BlackthornCity`: 478 of 496 tiles (16 kept for door animation), 371 of 512 metatiles |
+| Secondary | `gTileset_BlackthornCity`: 469 of 496 tiles (16 kept for door animation), 370 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
@@ -45,9 +45,9 @@ into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.
 
 | Style | Rock pieces | Secondary tiles |
 | --- | --- | --- |
-| A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 573: over the 496 budget, render only |
-| B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 446 |
-| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 478 |
+| A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 582: over the 496 budget, render only |
+| B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 455 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 469 |
 
 Style C uses FRLG's nine-slice (corners, rims, sides, front face) in both of FRLG's
 versions, one for an edge over ground and one for an edge over a lower terrace, plus its
@@ -79,10 +79,13 @@ the far side of a mountain.
   hall's foot, banded drum hall, red emblem panel, glass doors), the three thatched houses,
   the two dead-trunk gate posts (16 px wide, inside their own cell column), the standing
   stone (from HGSS's stone model through the same camera: a broad rounded stone with lumps,
-  a lobe at its lower left and etched cracks, in a warm grey ramp; `stone-reference.png`).
+  a lobe at its lower left and etched cracks, in the grey ramp of the Center palette;
+  `stone-reference.png`).
   HGSS's boulder is kept as a 2x2 prop in Blackthorn's rock ramp. The bridge and
-  stairs are element pieces; bridge, stairs and gate posts use CherrygrovePrimary's own
-  wood ramp (bank 2), which keeps the secondary palettes free for the rest.
+  stairs are element pieces. Bridge, stairs and gate posts use CherrygrovePrimary's own
+  wood ramp (bank 2), the stone the Center palette's greys (bank 8) and the Ice Path snow
+  the primary's whites (bank 0), so none of their tiles need a learned palette; the bridge
+  railing sits on the top layer over plain water, so no tile mixes wood and water.
 - **Houses**: shaped from HGSS's own house model (132) drawn through Blackthorn's field
   camera, read from pokeheartgold (camera type 0: 48.7 degrees, near-orthographic;
   `hgss_camera.py`, `evidence/elements/house-reference.png`): a small rounded crown on a
@@ -111,8 +114,9 @@ the far side of a mountain.
   cells are solid either way).
 - **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
   Gym sign. The tutor-house and trainer-tips signs are unscripted props.
-- **Colour**: the native map holds 99.5% of the composed element art's pixels exactly in
-  5-bit colour and 99.8% within one level (`evidence/elements/pack-C.json`).
+- **Colour**: the native map holds 99.9% of the composed element art's pixels exactly in
+  5-bit colour and 99.98% within one level; the worst pixel is 4 levels off. Each sprite
+  keeps to a small ramp (the Gym to exactly 15 colours) so the learned banks fit 41 colours (`evidence/elements/pack-C.json`).
 
 ## Verification
 
@@ -139,8 +143,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `b9be2bfc38b1a0ef7acde41a1e53e98e11564cca`, local ROM SHA-256
-`c5746a1ba7492d5da0f5101f9bec288fbca72663e649d2f63bcf04dfa9aac15a` (Ubuntu Arm GNU 13.2.1).
+Engine commit `1be246d22fed926ace5f12695954467e7e99f7ef`, local ROM SHA-256
+`c9ba82e2ea24177a171b4f27e1a805ae0c6bc84f0aaec1b59a8fbae78369c36f` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)

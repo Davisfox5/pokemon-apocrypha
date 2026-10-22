@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "c5746a1ba7492d5da0f5101f9bec288fbca72663e649d2f63bcf04dfa9aac15a",
+  "rom_sha256": "c9ba82e2ea24177a171b4f27e1a805ae0c6bc84f0aaec1b59a8fbae78369c36f",
   "phases": [
     {
       "phase": "write",
@@ -811,8 +811,8 @@
     {
       "frame": "behind-gate-post-east",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3712,
-      "animated_water_pixels_differing_from_frame_0": 975,
+      "pixels_on_animated_water": 3840,
+      "animated_water_pixels_differing_from_frame_0": 994,
       "camera_origin_px": [
         288,
         744
@@ -822,8 +822,8 @@
     {
       "frame": "behind-gate-post",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 2752,
-      "animated_water_pixels_differing_from_frame_0": 650,
+      "pixels_on_animated_water": 2880,
+      "animated_water_pixels_differing_from_frame_0": 669,
       "camera_origin_px": [
         224,
         744
@@ -844,8 +844,8 @@
     {
       "frame": "bridge",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 14208,
-      "animated_water_pixels_differing_from_frame_0": 7269,
+      "pixels_on_animated_water": 15488,
+      "animated_water_pixels_differing_from_frame_0": 7556,
       "camera_origin_px": [
         256,
         856
@@ -1094,8 +1094,8 @@
     {
       "frame": "south-edge-bridge",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 7232,
-      "animated_water_pixels_differing_from_frame_0": 3857,
+      "pixels_on_animated_water": 7872,
+      "animated_water_pixels_differing_from_frame_0": 4009,
       "camera_origin_px": [
         256,
         936
@@ -1104,8 +1104,8 @@
     {
       "frame": "south-gate",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 5696,
-      "animated_water_pixels_differing_from_frame_0": 2338,
+      "pixels_on_animated_water": 6080,
+      "animated_water_pixels_differing_from_frame_0": 2421,
       "camera_origin_px": [
         256,
         760

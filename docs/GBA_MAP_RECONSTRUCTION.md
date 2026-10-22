@@ -223,11 +223,15 @@ tools are marked as Blackthorn's.
    each sprite to one small ramp (15 colours or fewer) and mirror symmetric parts.
 6. **Pack and budget.** One secondary holds 496 tiles (16 kept for door animation) and
    512 metatiles; the shared Center and Mart alone cost about 180 tiles. Count tiles and
-   learned colours per element before cutting (`budget.py`). Learned palettes are four
-   banks of 15 colours; draw wood and
-   similar props in a primary bank's existing colours (CherrygrovePrimary bank 2 is a
-   wood ramp) so their tiles need no learned bank. After packing, check each element's
-   colours, not only the averages: a grey stone once came out brown while totals looked fine.
+   learned colours per element before cutting (`budget.py`). Map palettes are 13 banks:
+   the primary's six, the fixed Center and Mart banks, a junction bank and four learned
+   banks of 15 colours. Draw props in colours a loaded bank already has where they fit:
+   CherrygrovePrimary bank 2 is a wood ramp (bridge, stairs, posts), bank 0 has whites that
+   sit with its grass (snow), the Center's bank 8 has a neutral grey ramp (stone). Keep each
+   remaining colour family (rock, houses, Gym, water mixes) to 15 colours so one bank holds
+   it, and avoid tiles that mix families (railing over water: put the railing on the top
+   layer). After packing, compare each element's decoded colours with its art, not only the
+   averages: a grey stone once came out brown and a Gym panel brown-red while totals looked fine.
 7. **Install and verify every round**: `install_elements.py`, `make`,
    `check_elements.py` (installed decode equals the packer, traversal ledger, reachability
    on foot and by Surf, walk-behind layer types, shared pixels and palettes, budgets,
