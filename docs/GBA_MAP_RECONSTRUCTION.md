@@ -79,7 +79,9 @@ and retain identifiable placements for later replacement.
 
 Use Porymap/native source formats in the production checkout. Preserve owner
 edits, IDs and shared tilesets; do not repack unrelated maps or replay provenance
-generators over committed layouts. Follow the existing source/branch rules.
+generators over layouts the owner has edited or accepted (an element-converted draft
+is regenerated each round until then; see the playbook below). Follow the existing
+source/branch rules.
 
 ### Native visual cleanup and final review
 
@@ -108,8 +110,9 @@ Its art/compiler is local to those maps; transfer the following technique.
    floor or remove a barrier. Check actual final native entries and pixels.
    Existing directly authored maps can use equivalent manual/native tile checks;
    they do not need a new screenshot packer.
-4. **Clean pixels deliberately.** Preserve the original texture and wall/cap
-   shading vocabulary. Review the cap, front/side face and corner as a continuous
+4. **Clean pixels deliberately.** Preserve the map's wall/cap texture and shading
+   vocabulary (on a Gen 4 conversion, the restyled Gen 3 set from the playbook below,
+   not the original's own texture). Review the cap, front/side face and corner as a continuous
    surface; local cleanup must retain its detail and depth. Use the available
    native palette budget to align mixed-material ramps without flattening the
    original texture into uniform or repeated shade bands.
@@ -144,9 +147,10 @@ Its art/compiler is local to those maps; transfer the following technique.
    existing proof for unchanged code/art; run new checks after meaningful changes.
 
 Preserve current editable native source, owner modifications, palette/metatile
-IDs on untouched maps, previous drafts and saves. Generators are provenance;
-never replay them over committed owner layouts. Keep changes local, use the
-installed tool workflow, and publish source/evidence through the shared Git lanes.
+IDs on untouched maps, previous drafts and saves. Generators are provenance once
+the owner has edited or accepted a map; never replay them over those layouts.
+Keep changes local, use the installed tool workflow, and publish source/evidence
+through the shared Git lanes.
 
 ## 4. Validate actual output, then inspect it visually
 
@@ -204,8 +208,13 @@ tools are marked as Blackthorn's.
 2. **Pick Gen 3 counterparts per element.** Rock: FRLG's General mountain set (nine-slice,
    four inner corners, over-rock variants, cave mouth, ledge and ledge-into-cliff joins),
    recoloured to the HGSS rock ramp. Ground and water: Cherrygrove's own tiles chosen by
-   8-neighbour configuration and texture phase. Grass-water edges: Route 30's pond rim.
-   Center and Mart: the shared art, pixel exact.
+   8-neighbour configuration and texture phase. Grass-water edges: Route 30's pond rim
+   (its lip is on the grass side), with every water pixel repainted from the receiving
+   map's own water at its 32 px phase, its mirror images for sides Route 30 never shows,
+   and straight-edge water tiles left as plain lake water. Where a shoreline meets a
+   cliff, the rock quadrant's clear pixels take part in the rim (`rock_beyond`,
+   `ground(shore=True)`), so the lip runs on to the rock. Center and Mart: the shared
+   art, pixel exact.
 3. **Autotile rock from terrace levels.** Each quadrant takes the nine-slice piece its two
    edges call for; a cell whose only lower neighbour is diagonal takes the whole
    inner-corner piece; a quadrant facing a lower terrace uses the over-rock variant;
@@ -257,6 +266,16 @@ tools are marked as Blackthorn's.
   (straw strands down the slope, lumps on a stone).
 - Screenshot sites may be blocked by the cloud environment's network policy; the game's
   own models through its own camera are the fallback reference.
+- A borrowed rim tile keeps its source map's water: a shore strip of one repeated 8 px
+  tile reads as water from somewhere else. Repaint it from the receiving map's water.
+- Learning edge pieces from a map treats trees and paths as "same as me", so a few
+  learned tiles carry lips from contexts that don't apply (a grey spur into the water).
+  Tiles with few samples are suspect; prefer the configuration's well-sampled pieces.
+- A nearest-match fallback can hand a dry grass/sand corner a pond piece, or a shore
+  corner a piece with the wrong sides. Restrict the fallback to the same classes, and
+  build missing grass corners from the straight edge of each wet side.
+- `max(set(tiles), key=tiles.count)` breaks ties in hash order, which changes per run;
+  sort first, and confirm two runs with different `PYTHONHASHSEED` match.
 
 ## Worked example
 

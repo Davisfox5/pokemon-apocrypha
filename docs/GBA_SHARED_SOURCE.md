@@ -76,8 +76,11 @@ existing Grok rules and the branch rules below.
    `git diff --stat` before pushing. If `data/tilesets/primary/cherrygrove/`
    changed and you did not intend it, revert it.
 3. **Keep owner-edited layouts.** The owner edits in Porymap and commits. A
-   generator in `tools/gba/maps/` may never be replayed over a committed layout.
-   The generators are provenance, not the editor.
+   generator in `tools/gba/maps/` may never be replayed over a layout the owner has
+   edited or accepted; from then on the generators are provenance, not the editor.
+   Before that, an element-converted map is regenerated each round
+   (see [AGENTS.md](../AGENTS.md), "Converting a Gen 4 map"); check `git log` on the
+   layout and tileset for owner commits first.
 4. **Preserve IDs.** Map IDs, layout IDs, warp ids and event ids are stable. Append
    new maps to `gMapGroup_Cherrygrove`; do not reorder.
 5. **Evidence goes to this repo**, under `gba/art/<name>/evidence/`, with the

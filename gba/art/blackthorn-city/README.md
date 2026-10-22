@@ -15,7 +15,7 @@ styled with Blackthorn's HGSS colours. Editable source is in
 | --- | --- |
 | Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
-| Secondary | `gTileset_BlackthornCity`: 469 of 496 tiles (16 kept for door animation), 370 of 512 metatiles |
+| Secondary | `gTileset_BlackthornCity`: 472 of 496 tiles (16 kept for door animation), 365 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
@@ -47,7 +47,7 @@ into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.
 | --- | --- | --- |
 | A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 582: over the 496 budget, render only |
 | B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 455 |
-| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 469 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 472 |
 
 Style C uses FRLG's nine-slice (corners, rims, sides, front face) in both of FRLG's
 versions, one for an edge over ground and one for an edge over a lower terrace, plus its
@@ -67,7 +67,12 @@ the far side of a mountain.
 - **Ground and water**: Cherrygrove's own tiles, chosen per 8-neighbour configuration and
   texture phase (the accepted Johto vocabulary, animated sea included). Grass-water edges
   use Route 30's accepted pond rim (`source/elements/route30-native.png`, decoded from the
-  engine at `apocrypha`).
+  engine at `apocrypha`): its grey lip and grass, with every water pixel taken from
+  Blackthorn's lake at the lake's own 32 px phase, so a shore is the same water as the open
+  lake. Route 30 puts the lip on the grass side, so straight-edge water stays plain lake;
+  its mirror images give grass north of water, which its pond never shows. Where a shore
+  meets a cliff (the Dragon's Den landing, both ends of the Gym's shore) the rock's clear
+  pixels take part in the rim, so the lip runs on to the rock.
 - **Ledges**: FRLG's jump ledge in Blackthorn's ramp, with rounded ends where it stops on
   open ground. Where a ledge meets a cliff it runs straight into it: FRLG's join piece (a
   mountain side with the ledge built into its foot) on a plain side, and the ledge carried
@@ -114,8 +119,8 @@ the far side of a mountain.
   cells are solid either way).
 - **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
   Gym sign. The tutor-house and trainer-tips signs are unscripted props.
-- **Colour**: the native map holds 99.9% of the composed element art's pixels exactly in
-  5-bit colour and 99.98% within one level; the worst pixel is 4 levels off. Each sprite
+- **Colour**: the native map holds all but 6 of the composed element art's 1,048,576
+  pixels exactly in 5-bit colour; those 6 are 2 levels off. Each sprite
   keeps to a small ramp (the Gym to exactly 15 colours) so the learned banks fit 41 colours (`evidence/elements/pack-C.json`).
 
 ## Verification
@@ -143,8 +148,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `1be246d22fed926ace5f12695954467e7e99f7ef`, local ROM SHA-256
-`c9ba82e2ea24177a171b4f27e1a805ae0c6bc84f0aaec1b59a8fbae78369c36f` (Ubuntu Arm GNU 13.2.1).
+Engine commit `cf77770b5e02ca2967bf376d827e7c5eb06156f6`, local ROM SHA-256
+`38f64f76076afb60ed4d946940310ce1bd51c3251e19c9787d1352600015794b` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)

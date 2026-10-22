@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "c9ba82e2ea24177a171b4f27e1a805ae0c6bc84f0aaec1b59a8fbae78369c36f",
+  "rom_sha256": "38f64f76076afb60ed4d946940310ce1bd51c3251e19c9787d1352600015794b",
   "phases": [
     {
       "phase": "write",
@@ -845,7 +845,7 @@
       "frame": "bridge",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 15488,
-      "animated_water_pixels_differing_from_frame_0": 7556,
+      "animated_water_pixels_differing_from_frame_0": 7511,
       "camera_origin_px": [
         256,
         856
@@ -905,7 +905,7 @@
       "frame": "den-sign",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 8576,
-      "animated_water_pixels_differing_from_frame_0": 4510,
+      "animated_water_pixels_differing_from_frame_0": 4537,
       "camera_origin_px": [
         384,
         40
@@ -915,7 +915,7 @@
       "frame": "dragons-den-mouth",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 5056,
-      "animated_water_pixels_differing_from_frame_0": 2621,
+      "animated_water_pixels_differing_from_frame_0": 2643,
       "camera_origin_px": [
         400,
         8
@@ -954,8 +954,8 @@
     {
       "frame": "gym-forecourt",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8128,
-      "animated_water_pixels_differing_from_frame_0": 3292,
+      "pixels_on_animated_water": 8192,
+      "animated_water_pixels_differing_from_frame_0": 3584,
       "camera_origin_px": [
         336,
         328
@@ -964,8 +964,8 @@
     {
       "frame": "gym-lawn-west",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 9088,
-      "animated_water_pixels_differing_from_frame_0": 3543,
+      "pixels_on_animated_water": 9152,
+      "animated_water_pixels_differing_from_frame_0": 3763,
       "camera_origin_px": [
         240,
         312
@@ -974,8 +974,8 @@
     {
       "frame": "gym-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 4288,
-      "animated_water_pixels_differing_from_frame_0": 1926,
+      "pixels_on_animated_water": 4352,
+      "animated_water_pixels_differing_from_frame_0": 2043,
       "camera_origin_px": [
         304,
         344
@@ -1095,7 +1095,7 @@
       "frame": "south-edge-bridge",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 7872,
-      "animated_water_pixels_differing_from_frame_0": 4009,
+      "animated_water_pixels_differing_from_frame_0": 3980,
       "camera_origin_px": [
         256,
         936
@@ -1105,7 +1105,7 @@
       "frame": "south-gate",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 6080,
-      "animated_water_pixels_differing_from_frame_0": 2421,
+      "animated_water_pixels_differing_from_frame_0": 2408,
       "camera_origin_px": [
         256,
         760

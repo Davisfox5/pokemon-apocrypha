@@ -17,8 +17,8 @@ back rim toward a lower north, corners where two meet). Three rock styles share 
        darkens the ground it falls on, and its cave mouth is FRLG's
 
 Ground reuses the accepted Cherrygrove vocabulary (grass, sand, water, grass border) and
-Route 30's pond rim; styles A and B use Route 31's jump ledge, style C FRLG's, joined
-into the cliffs it meets. Bridge, stairs, cave mouths and boulders are
+Route 30's pond rim, carrying the lake's own water; styles A and B use Route 31's jump
+ledge, style C FRLG's, joined into the cliffs it meets. Bridge, stairs, cave mouths and boulders are
 element pieces drawn here. Output is a bottom layer (opaque), a top layer (RGBA,
 drawn above the player) and per-cell element labels for the packer:
 
@@ -345,11 +345,53 @@ def learn_pond_rim():
             key = _key(k, ty, tx)
             if k[ty, tx] and WATER_C in key and GRASS_C in key:
                 lib.setdefault(key, {}).setdefault((tx % 4, ty % 4), []).append(img[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].tobytes())
+    # Route 30's pond has trees along its north side, so it never shows grass north of water.
+    # Its mirror images fill the configurations it lacks (ground() repaints the water).
+    for fy, fx in ((True, False), (False, True), (True, True)):
+        for key, by_phase in list(lib.items()):
+            nk = _flip_key(key, fy, fx)
+            if nk in lib:
+                continue
+            flip = lambda b: np.frombuffer(b, np.uint8).reshape(8, 8, 3)[::-1 if fy else 1, ::-1 if fx else 1].tobytes()
+            lib[nk] = {((3 - px) if fx else px, (3 - py) if fy else py): [flip(b) for b in v] for (px, py), v in by_phase.items()}
     return lib
 
-def ground(cells, tex):
+def _flip_key(key, fy, fx):
+    """A neighbour key (own class, then NB8 order) as seen in a mirrored tile."""
+    out = [key[0]]
+    for dx, dy in NB8:
+        out.append(key[1 + NB8.index((-dx if fx else dx, -dy if fy else dy))])
+    return tuple(out)
+
+def rock_beyond(cells):
+    """For every 8x8 quadrant of a rock cell, the ground class its clear pixels show in
+    style C (rock_frlg's rule: what lies past its lower vertical edge, else its lower
+    side, else its lower diagonal), or 0 for rock, bridge, stairs or no lower edge."""
+    d, _, isrock = layers(cells)
+    lab = np.array([[c['lab'] for c in row] for row in cells])
+    floor = np.array([[c['floor'] for c in row] for row in cells])
+    cls = np.where(((lab == '~') & (floor != 'bridge')) | ((lab == 'X') & (floor == 'water')), WATER_C,
+                   np.where(floor == 'grass', GRASS_C, SAND_C))
+    cls[isrock | np.isin(floor, ['bridge', 'stairs'])] = 0
+    out = np.zeros((H * 2, W * 2), int)
+    lvl = lambda x, y: d[min(max(y, 0), H - 1), min(max(x, 0), W - 1)]
+    for y, x in zip(*np.nonzero(isrock)):
+        lo = {k: lvl(x + dx, y + dy) < d[y, x] for k, (dx, dy) in DIRS.items()}
+        for qy in (0, 1):
+            for qx in (0, 1):
+                vk, hk = 'ns'[qy], 'we'[qx]
+                t = next((DIRS[k] for k in (vk, hk, vk + hk) if lo[k]), None)
+                if t:
+                    cx, cy = min(max(x + t[0], 0), W - 1), min(max(y + t[1], 0), H - 1)
+                    out[y * 2 + qy, x * 2 + qx] = cls[cy, cx]
+    return out
+
+def ground(cells, tex, shore=False):
     """Cherrygrove ground: its own tiles for every neighbour configuration it has
-    (preferring the one at the same 32 px texture phase), drawn only where it has none."""
+    (preferring the one at the same 32 px texture phase), drawn only where it has none.
+    With shore, a rock quadrant whose clear pixels show grass or water beside the other
+    (rock_beyond) takes part in the pond rim, so a shoreline runs on under a cliff's edge
+    instead of stopping at it; ground.shore marks those quadrants for rock_frlg."""
     lab = np.array([[c['lab'] for c in row] for row in cells])
     floor = np.array([[c['floor'] for c in row] for row in cells])
     g = (floor == 'grass')
@@ -359,6 +401,13 @@ def ground(cells, tex):
     water = ((lab == '~') & (floor != 'bridge')) | ((lab == 'X') & (floor == 'water'))
     ground_cell = ~np.isin(lab, list(ROCK) + ['O']) & ~((lab == 'X') & ~np.isin(floor, ['grass', 'sand', 'water']))
     k = np.where(water, WATER_C, np.where(~ground_cell, 0, np.where(g, GRASS_C, SAND_C))).repeat(2, 0).repeat(2, 1)
+    ground.shore = np.zeros(k.shape, bool)
+    if shore:
+        rb = rock_beyond(cells)
+        pad = np.pad(k, 1)
+        near = lambda c: (pad[:-2, 1:-1] == c) | (pad[2:, 1:-1] == c) | (pad[1:-1, :-2] == c) | (pad[1:-1, 2:] == c)
+        ground.shore = (k == 0) & (((rb == GRASS_C) & near(WATER_C)) | ((rb == WATER_C) & near(GRASS_C)))
+        k[ground.shore] = rb[ground.shore]
     lib = learn_ground(ground.in_primary)
     lib.update(learn_pond_rim())
     ys, xs = np.mgrid[0:H * 16, 0:W * 16]
@@ -366,21 +415,48 @@ def ground(cells, tex):
     wat = water.repeat(16, 0).repeat(16, 1)
     out[wat] = tex['water'][ys % 32, xs % 32][wat]
     missing = {}
+    def lookup(key, ph):
+        cand = lib.get(key)
+        if cand is None:
+            # a dry configuration never borrows a pond rim tile (its grey lip reads as a shore)
+            same = ([q for q in lib if q[0] == key[0] and (WATER_C in q) == (WATER_C in key)]
+                    or [q for q in lib if q[0] == key[0]])
+            wgt = [1, 3, 1, 3, 1, 3, 1, 3]
+            q = min(same, key=lambda q: sum(wv * (a != b) for wv, a, b in zip(wgt, q[1:], key[1:])))
+            cand = lib[q]; missing[key] = missing.get(key, 0) + 1
+        tiles = cand.get(ph) or max(cand.values(), key=len)
+        best = max(sorted(set(tiles)), key=tiles.count)              # sorted: ties break the same way every run
+        return np.frombuffer(best, np.uint8).reshape(8, 8, 3)
+    rank = lambda t: np.select([(t[..., None, :] == np.array(CHERRY['water'], np.uint8)).all(-1).any(-1),
+                                (t == BORDER_GRAY).all(-1), (t == BORDER_GREEN).all(-1)], [0, 1, 2], 3)
+    SIDES = {1: (0, 2), 3: (2, 4), 5: (4, 6), 7: (6, 0)}          # N, E, S, W and their diagonals in NB8 order
     for ty in range(H * 2):
         for tx in range(W * 2):
             if k[ty, tx] == 0:
                 continue
             key = _key(k, ty, tx)
-            cand = lib.get(key)
-            if cand is None:
-                same = [q for q in lib if q[0] == key[0]]
-                wgt = [1, 3, 1, 3, 1, 3, 1, 3]
-                q = min(same, key=lambda q: sum(wv * (a != b) for wv, a, b in zip(wgt, q[1:], key[1:])))
-                cand = lib[q]; missing[key] = missing.get(key, 0) + 1
+            nb = key[1:]
             ph = (tx % 4, ty % 4)
-            tiles = cand.get(ph) or max(cand.values(), key=len)
-            best = max(set(tiles), key=tiles.count)
-            out[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = np.frombuffer(best, np.uint8).reshape(8, 8, 3)
+            if key[0] == WATER_C and not any(nb[a] == GRASS_C and nb[b] == GRASS_C for a, b in ((1, 3), (3, 5), (5, 7), (7, 1))):
+                continue    # open water or a straight shore: the lip is on the grass side, so this stays the lake
+            if key[0] == GRASS_C and WATER_C in nb and key not in lib:
+                # A grass corner Route 30 never shows: the straight edge for each side that meets
+                # water (and the corner piece for a lone wet diagonal), lip pixels over grass.
+                parts = [{s, *SIDES[s]} for s in SIDES if nb[s] == WATER_C]
+                parts += [{d} for d in (0, 2, 4, 6) if nb[d] == WATER_C and not any(d in p for p in parts)]
+                tiles = [lookup((key[0],) + tuple(v if (i in p or v != WATER_C) else GRASS_C for i, v in enumerate(nb)), ph) for p in parts]
+                r = np.stack([rank(t) for t in tiles])
+                pick = r.argmin(0)
+                t = np.take_along_axis(np.stack(tiles), pick[None, ..., None].repeat(3, -1), 0)[0]
+                missing[key] = missing.get(key, 0) + 1
+            else:
+                t = lookup(key, ph)
+            out[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = t
+    # Learned rim tiles bring the water of the map they came from, at that map's phase (or
+    # one tile repeated where the phase is missing). Keep their lip and grass, and give every
+    # water pixel the lake's own texture at its 32 px phase, so a shore reads as the same lake.
+    wet = (out[..., None, :] == np.array(CHERRY['water'], np.uint8)).all(-1).any(-1)
+    out[wet] = tex['water'][ys % 32, xs % 32][wet]
     ground.missing = missing
     return out
 
@@ -504,7 +580,7 @@ def frlg_pieces(engine):
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0), water=(16, 0))   # flattest 8x8 block of each Cherrygrove texture
 
-def rock_frlg(cells, base, pieces, tex):
+def rock_frlg(cells, base, pieces, tex, shore=None):
     """Blob autotiling from FRLG's set. A cell whose only lower neighbours are diagonal
     takes FRLG's whole inner-corner piece (two of them split down the middle when both
     lower diagonals are on one side), which joins the face and the side as one L. Every
@@ -515,7 +591,8 @@ def rock_frlg(cells, base, pieces, tex):
     lower terrace's top, or the plainest 8x8 block of that ground, a primary tile), and
     its cast shadow is Cherrygrove's border grey, so edge tiles and cells never pick up
     the ground texture's phase. Under a fully opaque quadrant the bottom is the rock top
-    itself, so solid rock is one metatile."""
+    itself, so solid rock is one metatile. A shore quadrant (ground.shore) keeps the rim
+    tile ground() drew for it, so a shoreline meeting the cliff carries on under its edge."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
@@ -577,7 +654,8 @@ def rock_frlg(cells, base, pieces, tex):
                             ix = join['w' if qx == 0 else 'e'][sl]
                         else:
                             ix = np.where((ix < 0) & (ledge_mid[sl] >= 0), ledge_mid[sl], ix)
-                    cell[sl] = bg[sl]
+                    if shore is None or not shore[y * 2 + qy, x * 2 + qx]:
+                        cell[sl] = bg[sl]
                     q = ov[sl]
                     for (yy, xx), k in np.ndenumerate(ix):
                         if k >= 0:
@@ -818,12 +896,12 @@ def compose(engine, phg, style, cells):
         ground.in_primary = primary_check(engine)
     tex = cherry_textures()
     sw = rock_swatches(style, engine, phg)
-    bottom = ground(cells, tex)
+    bottom = ground(cells, tex, shore=style == 'C')
     rails = np.zeros(bottom.shape[:2] + (4,), np.uint8) if style == 'C' else None
     bridge(bottom, cells, tex['water'], rails)
     stairs(bottom, cells)
     if style == 'C':
-        bottom, top, level, piece = rock_frlg(cells, bottom, sw, tex)
+        bottom, top, level, piece = rock_frlg(cells, bottom, sw, tex, ground.shore)
         a = rails[..., 3] > 0
         top[a] = rails[a]
         caves_frlg(bottom, top, cells, sw['cave'])

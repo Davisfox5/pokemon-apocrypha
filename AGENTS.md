@@ -51,9 +51,11 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   orientation. Preserve complete outlines, corners, roots and narrow barriers.
   Give edges, foreground features, doors and stairs priority over spare texture
   variants; retain compact ground/water/plateau texture families.
-- Preserve the original wall/cap texture and shading treatment. Repair joins
-  locally and inspect the cap, front/side faces and corners as one continuous
-  surface. Retain texture detail during palette reduction.
+- Keep one wall/cap treatment across the map and inspect the cap, front/side faces
+  and corners as one continuous surface. On a Gen 4 conversion that treatment is a
+  Gen 3 rock set restyled with the original's colour ramp (see the conversion section
+  below), not the original's own texture. Repair joins locally. Retain texture detail
+  during palette reduction.
 - Put stair/door warps on their actual visible entrances. Remove superseded
   marker squares and restore their ground; inspect the first/last steps and
   the whole stair-to-wall join.
@@ -61,32 +63,39 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   deliberate creases and crisp silhouettes. Maintain consistent palette ramps
   across neighboring banks; inspect light/dark bands and seams after native
   palette reduction. Keep foreground art, ground beneath it and collision separate.
-- Confirm sprite/item-removal donors are unobscured across their full bounds.
+- On a map built from a render or trace, confirm sprite/item-removal donors are
+  unobscured across their full bounds.
   Inspect repaired corners for leftover clothing, skin, outlines and corrupted
   palette pixels; reconstruct the missing local terrain from clean context.
 - Fit reused art to the receiving location: width, height, baseline, wall depth,
   shoulders, approach and adjacent corners. Rebuild the complete join when needed.
   An approved entrance or building still needs local seam/footprint inspection.
-- Use original-game textures and accepted shared art. Preserve tree footprints
-  and complete canopies, coherent grass borders, cliff tops/faces, stair axis,
-  shore lips and dock grain. Reuse the approved Violet Center and shared Pokémart.
+- Build from accepted shared art and Gen 3 pieces, with the original game as the
+  reference for layout, shape and colour (see the conversion section below).
+  Preserve tree footprints and complete canopies, coherent grass borders, cliff
+  tops/faces, stair axis, shore lips and dock grain. Reuse the approved Violet
+  Center and shared Pokémart.
 - Validate actual decoded native tiles/palettes/layers and Porymap output, plus
   relevant headless movement, gates, connections, water, doors/stairs and ordinary
   saves. Review all affected floors/maps and both sides of transitions. Record
   exact source/ROM identities, before/after evidence and concrete remaining limits.
 - Keep owner-approved topology and traversal unless a change is authorized.
-  Edit current native sources; preserve owner work, IDs, prior drafts and saves.
+  Preserve owner work, IDs, prior drafts and saves. Once the owner has edited or
+  accepted a map, edit its native sources directly; until then a converted map is
+  regenerated from its tools each round (see the conversion section below).
   Adapt the technique to each map's own tilesets and hardware budget. Cave-specific
   art, palettes and generators stay local to Union Cave. Visual acceptance remains
   with the owner.
 
 ## Converting a Gen 4 map: convert elements, not pixels
 
-Owner-praised method, Blackthorn City, 2026-10-22: it reached near-acceptance in two
-review rounds. Use it for every HGSS-to-Gen 3 map. Details, pitfalls and budgets are in
+Owner-praised method, Blackthorn City, 2026-10-22: it reached near-acceptance in a few
+rounds of small notes. Use it for every HGSS-to-Gen 3 map. Where an older rule in this
+file or the linked docs reads differently for a Gen 4 conversion, this section wins.
+Details, pitfalls and budgets are in
 [the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
 the worked example is `gba/art/blackthorn-city/README.md` with tools in
-`tools/gba/maps/blackthorn/`.
+`tools/gba/maps/blackthorn/` (read the script you need, not the tree).
 
 - Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
   heights, permissions, events, cell by cell), but replace each **element** with the
@@ -98,19 +107,30 @@ the worked example is `gba/art/blackthorn-city/README.md` with tools in
   one-tile terrace. Autotile per 8x8 quadrant, place inner corners as whole pieces, use
   the over-rock variants on stacked terraces, join ledges into cliffs with FRLG's join
   pieces. When unsure, build two treatments side by side and measure both budgets.
-- Props and buildings: redraw from scratch as top-layer sprites, inside their own cell
-  columns. Take shape and proportion from the game's own model drawn through the map's
-  own field camera (`hgss_camera.py`) when no screenshot is available. Walkable cells
-  with top-layer art get the normal layer type (walk-behind); blocked cells get covered.
-- Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, shared
-  Center and Mart) and colours the loaded palettes already hold (the primary's banks, the
-  Center's bank 8), so tiles and palettes stay inside one tileset pair. Keep each other
-  colour family to 15 colours and check every element's decoded colours after packing. Measure per-element tile and colour cost
-  (`budget.py`) before cutting anything.
+- Props and buildings other than the shared Center and Mart: redraw from scratch as
+  top-layer sprites, inside their own cell columns. Take shape and proportion from the
+  game's own model drawn through the map's own field camera (`hgss_camera.py`) when no
+  screenshot is available. Walkable cells with top-layer art get the normal layer type
+  (walk-behind); blocked cells get covered.
+- Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, the
+  approved Violet Center and shared Mart) and colours the loaded palettes already hold
+  (the primary's banks, the Center's bank 8), so tiles and palettes stay inside one
+  tileset pair. Keep each other colour family to 15 colours and check every element's
+  decoded colours after packing. Measure per-element tile and colour cost (`budget.py`)
+  before cutting anything.
+- A borrowed edge piece brings its source map's texture with it. Repaint its water or
+  ground with the receiving map's own texture at that map's phase, mirror pieces for
+  sides the source never shows, and run a shoreline on under a cliff's clear pixels so
+  it meets the rock instead of stopping short.
 - Every round: compose, pack, install, build, audit (decode, traversal, reachability,
   walk-behind, palettes, budgets, ids, file scope), headless mGBA with VRAM parity,
   Porymap round trip, then look at the images yourself and show the owner
   before/after crops inline. Answer review notes with targeted fixes, not rebuilds.
+- Regenerating the map from its tools each round is the method while the map is still
+  the agent's draft. Check `git log` on its layout and tileset first: once any commit is
+  an owner edit, or the owner has accepted the map, stop regenerating and edit the
+  native files. Keep generators deterministic (no hash-order tie-breaks), so a rerun
+  reproduces the installed map exactly.
 
 ## Ownership and autonomy
 
