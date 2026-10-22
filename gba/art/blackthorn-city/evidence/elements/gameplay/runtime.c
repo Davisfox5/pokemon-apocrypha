@@ -81,7 +81,7 @@ int main(int argc,char**argv){
   step(DOWN,1);
   at(43,20,33,"at-43-20-33");
   go(43,23,34);
-  shot("behind-standing-stone");
+  shot("north-of-standing-stone");
   step(DOWN,1);
   at(43,23,34,"at-43-23-34");
   go(43,14,36);

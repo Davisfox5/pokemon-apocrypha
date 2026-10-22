@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "56dc14a057440adcba2ec7e397641a20790f7ea9c3ed31f78658427c2ee455d3",
+  "rom_sha256": "c5746a1ba7492d5da0f5101f9bec288fbca72663e649d2f63bcf04dfa9aac15a",
   "phases": [
     {
       "phase": "write",
@@ -319,7 +319,7 @@
           "mapsec": 223
         },
         {
-          "step": "shot:behind-standing-stone",
+          "step": "shot:north-of-standing-stone",
           "region": 2,
           "group": 80,
           "map": 43,
@@ -831,20 +831,9 @@
       "bg1_pixels_over_player_cell": 81
     },
     {
-      "frame": "behind-standing-stone",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 1536,
-      "animated_water_pixels_differing_from_frame_0": 0,
-      "camera_origin_px": [
-        256,
-        472
-      ],
-      "bg1_pixels_over_player_cell": 23
-    },
-    {
       "frame": "behind-west-house",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 1536,
+      "pixels_on_animated_water": 1024,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         208,
@@ -885,7 +874,7 @@
     {
       "frame": "central-rocks",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 512,
+      "pixels_on_animated_water": 0,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         368,
@@ -965,8 +954,8 @@
     {
       "frame": "gym-forecourt",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 7616,
-      "animated_water_pixels_differing_from_frame_0": 3140,
+      "pixels_on_animated_water": 8128,
+      "animated_water_pixels_differing_from_frame_0": 3292,
       "camera_origin_px": [
         336,
         328
@@ -975,8 +964,8 @@
     {
       "frame": "gym-lawn-west",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8832,
-      "animated_water_pixels_differing_from_frame_0": 3460,
+      "pixels_on_animated_water": 9088,
+      "animated_water_pixels_differing_from_frame_0": 3543,
       "camera_origin_px": [
         240,
         312
@@ -985,8 +974,8 @@
     {
       "frame": "gym-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3776,
-      "animated_water_pixels_differing_from_frame_0": 1777,
+      "pixels_on_animated_water": 4288,
+      "animated_water_pixels_differing_from_frame_0": 1926,
       "camera_origin_px": [
         304,
         344
@@ -1040,6 +1029,16 @@
       "camera_origin_px": [
         320,
         712
+      ]
+    },
+    {
+      "frame": "north-of-standing-stone",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 1024,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        256,
+        472
       ]
     },
     {
@@ -1125,7 +1124,7 @@
     {
       "frame": "west-house",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 1536,
+      "pixels_on_animated_water": 1024,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         224,

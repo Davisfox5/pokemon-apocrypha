@@ -184,8 +184,79 @@ in the hub. Preserve earlier drafts, owner edits, saves and workbenches. Never
 commit ROMs, saves, credentials or tool binaries. Keep checks, proposals and owner
 acceptance distinct.
 
+## Element conversion playbook
+
+Owner-praised on Blackthorn City (2026-10-22, engine PR #26, hub
+`gba/art/blackthorn-city/README.md`). The first Blackthorn draft rendered HGSS 1:1,
+needed about 1,900 tiles, and had to be split into sections with a streaming engine
+hack. The owner's direction was to convert each element instead. The second build did
+that, fit one ordinary map on CherrygrovePrimary plus one secondary, and needed only two
+rounds of small notes. Adapt the steps below to each map; constants in the Blackthorn
+tools are marked as Blackthorn's.
+
+### Steps
+
+1. **Ledger.** Decode the HGSS map (`hgss_render.py` reads land_data, textures, building
+   models and permissions). Per 16x16 cell record material, structure (rock top, face and
+   its downhill direction, ledge, water, open ground, prop), the cell's HGSS peak height
+   and its permissions. Terrace level = peak height minus the town floor height. Doors,
+   signs and warps come from the zone events (`hgss_events.py`).
+2. **Pick Gen 3 counterparts per element.** Rock: FRLG's General mountain set (nine-slice,
+   four inner corners, over-rock variants, cave mouth, ledge and ledge-into-cliff joins),
+   recoloured to the HGSS rock ramp. Ground and water: Cherrygrove's own tiles chosen by
+   8-neighbour configuration and texture phase. Grass-water edges: Route 30's pond rim.
+   Center and Mart: the shared art, pixel exact.
+3. **Autotile rock from terrace levels.** Each quadrant takes the nine-slice piece its two
+   edges call for; a cell whose only lower neighbour is diagonal takes the whole
+   inner-corner piece; a quadrant facing a lower terrace uses the over-rock variant;
+   north-facing edges show as rims, the way FRLG draws the far side of a mountain.
+4. **Layering, as FRLG does it.** Rock and props sit on the top layer over plain ground.
+   Under a rock edge the bottom layer is the plainest 8x8 block of the ground beyond, so
+   edge tiles don't multiply by the ground texture's phase; under an opaque quadrant the
+   bottom is the rock top, so solid rock is one metatile. The packer sets the normal layer
+   type on walkable cells with top-layer art (walk-behind) and covered on blocked cells.
+5. **Props from scratch.** Draw each prop as a sprite at native resolution. For shape and
+   proportion, render the game's own model through the map's field camera:
+   `hgss_camera.py` reads the camera from pokeheartgold (map header `cameraType`, table
+   `ov01_02206478` in `asm/overlay_01_021EABA8.s`; Blackthorn uses type 0, 48.7 degrees).
+   Keep props inside their cell columns so a player beside them is not overlapped. Keep
+   each sprite to one small ramp (15 colours or fewer) and mirror symmetric parts.
+6. **Pack and budget.** One secondary holds 496 tiles (16 kept for door animation) and
+   512 metatiles; the shared Center and Mart alone cost about 180 tiles. Count tiles and
+   learned colours per element before cutting (`budget.py`). Learned palettes are four
+   banks of 15 colours; draw wood and
+   similar props in a primary bank's existing colours (CherrygrovePrimary bank 2 is a
+   wood ramp) so their tiles need no learned bank. After packing, check each element's
+   colours, not only the averages: a grey stone once came out brown while totals looked fine.
+7. **Install and verify every round**: `install_elements.py`, `make`,
+   `check_elements.py` (installed decode equals the packer, traversal ledger, reachability
+   on foot and by Surf, walk-behind layer types, shared pixels and palettes, budgets,
+   preserved map ids, changed-file scope), `runtime_elements.py` (headless mGBA routes,
+   VRAM-rebuilt BG layers equal the native image, BG1 coverage over the player in
+   walk-behind spots, save, cold reload, Continue), `porymap.py` (fresh clone, export
+   equals native, save is byte-identical), `review_elements.py` (HGSS vs native sheets).
+8. **Review loop.** Look at zoomed crops yourself before sending anything. Show the owner
+   whole-map and before/after crops inline. Answer each note with a targeted fix and
+   re-run step 7.
+
+### Traps already hit (check for these)
+
+- Inner corners built from one quadrant of the inner-corner piece look cut out; place it whole.
+- Stacked terraces built from over-ground pieces show striped seams; use over-rock pieces.
+- Ledges that stop one cell short of a cliff leave a gap; join them with the join pieces.
+- A prop wider than its cell column overlaps a player standing beside it.
+- A boulder on a plateau raises its own cells into a mound; give it the plateau's level.
+- A building on a one-row island makes the shoreline step around it; keep the island
+  inside the building's outline.
+- Texture crops can carry threshold or shadow rows (a door's dark bottom band); crop them.
+- Regular texture repeats (scallop rows on thatch) read as lumpy; follow the form instead
+  (straw strands down the slope, lumps on a stone).
+- Screenshot sites may be blocked by the cloud environment's network policy; the game's
+  own models through its own camera are the fallback reference.
+
 ## Worked example
 
+Blackthorn City (above) is the reference for converting a Gen 4 map element by element.
 The Route 32 material pass is an example, not a universal map template:
 [review and provenance](https://github.com/Davisfox5/pokemon-apocrypha/blob/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/README.md).
 It separates original-reference terrain types from walkability and checks actual

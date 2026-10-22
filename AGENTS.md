@@ -80,6 +80,37 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   art, palettes and generators stay local to Union Cave. Visual acceptance remains
   with the owner.
 
+## Converting a Gen 4 map: convert elements, not pixels
+
+Owner-praised method, Blackthorn City, 2026-10-22: it reached near-acceptance in two
+review rounds. Use it for every HGSS-to-Gen 3 map. Details, pitfalls and budgets are in
+[the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
+the worked example is `gba/art/blackthorn-city/README.md` with tools in
+`tools/gba/maps/blackthorn/`.
+
+- Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
+  heights, permissions, events, cell by cell), but replace each **element** with the
+  Gen 3 piece that does the same job: rock terraces, ground, water, ledges, props.
+- Build a per-cell element ledger first: material, structure (rock top/face direction,
+  ledge, shore), terrace level from HGSS heights, traversal from HGSS permissions.
+- Rock: take a Gen 3 piece set with the same role (FRLG's General mountain set for
+  Johto/Kanto rock) and restyle it with the HGSS colour ramp. One HGSS layer becomes one
+  one-tile terrace. Autotile per 8x8 quadrant, place inner corners as whole pieces, use
+  the over-rock variants on stacked terraces, join ledges into cliffs with FRLG's join
+  pieces. When unsure, build two treatments side by side and measure both budgets.
+- Props and buildings: redraw from scratch as top-layer sprites, inside their own cell
+  columns. Take shape and proportion from the game's own model drawn through the map's
+  own field camera (`hgss_camera.py`) when no screenshot is available. Walkable cells
+  with top-layer art get the normal layer type (walk-behind); blocked cells get covered.
+- Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, shared
+  Center and Mart) and the primary's own palette colours where they fit, so tiles and
+  palettes stay inside one tileset pair. Measure per-element tile and colour cost
+  (`budget.py`) before cutting anything.
+- Every round: compose, pack, install, build, audit (decode, traversal, reachability,
+  walk-behind, palettes, budgets, ids, file scope), headless mGBA with VRAM parity,
+  Porymap round trip, then look at the images yourself and show the owner
+  before/after crops inline. Answer review notes with targeted fixes, not rebuilds.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.

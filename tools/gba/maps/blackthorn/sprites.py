@@ -79,7 +79,7 @@ def tiled(src, w, h, ox=0, oy=0):
     ys, xs = np.mgrid[0:h, 0:w]
     return src[(ys + oy) % src.shape[0], (xs + ox) % src.shape[1]]
 
-GREY = [(52, 52, 60), (88, 88, 96), (124, 124, 132), (160, 160, 168), (196, 196, 204)]   # stone and Gym frames
+GREY = [(56, 54, 52), (96, 92, 86), (128, 124, 116), (160, 156, 146), (192, 188, 176)]   # warm stone grey; Gym frames
 
 # --------------------------------------------------------------------------- thatched hut
 STRAW = [(240, 212, 140), (224, 192, 120), (204, 168, 100), (180, 144, 84), (150, 114, 64), (116, 84, 48)]
@@ -153,9 +153,9 @@ def hut():
     rect(img, 5, top, 59, top + 3, (132, 92, 48))
     for x0 in (3, 55):
         rect(img, x0, top - 1, x0 + 6, 77, (78, 52, 32)); rect(img, x0 + 1, top + 2, x0 + 2, 77, (128, 88, 50))
-    door = tex('fu_door1')[0:28, 0:24]
-    dimg = np.array(Image.fromarray(door).resize((14, 17), Image.Resampling.NEAREST))
-    rect(img, 15, top + 2, 31, 77, (40, 30, 24)); paste(img, dimg, 16, top + 3)
+    door = tex('fu_door1')[0:25, 0:24]            # the green leaf only; HGSS's dark threshold rows dropped
+    dimg = np.array(Image.fromarray(door).resize((14, 76 - (top + 3)), Image.Resampling.NEAREST))
+    rect(img, 15, top + 2, 31, 77, (40, 30, 24)); paste(img, dimg, 16, top + 3)   # one dark sill row left
     win = tex('h_mado')
     rect(img, 35, top + 3, 51, top + 13, (78, 52, 32))
     paste(img, np.array(Image.fromarray(win).resize((14, 8), Image.Resampling.NEAREST)), 36, top + 4)
@@ -226,22 +226,44 @@ def gate_post(mirror=False):
 
 # --------------------------------------------------------------------------- standing stone
 def standing_stone():
-    """The grey stone beside the west house (fu_rock texture), 32 x 56, jagged crown."""
-    rock = tex('fu_rock')
+    """The standing stone beside the west house, from HGSS's stone model (235) seen through
+    Blackthorn's field camera: a tall rounded stone leaning slightly, a smaller lobe at its
+    lower left, lit from the upper left in four bands of warm grey, a few etched cracks;
+    sized against the house by that same camera view (about 0.6 of its height).
+    32 x 56, its base on the bottom of its lowest blocked cell."""
     img = canvas(32, 56)
-    ys, xs = np.mgrid[0:56, 0:32]
-    half = np.clip((ys - 1) * 0.62, 0, 14.5)
-    body = (np.abs(xs - 15.5 + (ys < 20) * (20 - ys) * 0.15) <= half) & (ys >= 1)
-    body &= ~((ys < 14) & (xs > 20))
-    body &= ~((ys > 44) & (np.abs(xs - 15.5) > 13 - (ys - 44) * 0.2))
-    img[body] = tiled(rock, 32, 56)[body]
-    shade(img, body, 14, 30, 16, 28, 0.5)
-    posterize(img, body, 4)
-    for (x0, y0, dx) in ((12, 16, 1), (19, 28, -1), (9, 38, 1)):
-        for i in range(8):
-            yy, xx = y0 + i, x0 + (i * dx) // 2
-            if body[yy, xx]:
-                img[yy, xx] = (70, 70, 78, 255)
+    ys, xs = np.mgrid[0:56, 0:32].astype(float)
+    def lobe(cx, cy, rx, ry, taper=0.0):
+        """Height field of an upright egg (narrower toward the top by taper)."""
+        w = rx * (1 - taper * np.clip((cy - ys) / ry, 0, 1))
+        return np.sqrt(np.clip(1 - ((xs - cx) / w) ** 2 - ((ys - cy) / ry) ** 2, 0, None))
+    main = lobe(18.5, 38, 13, 29, taper=0.6)                      # a broad cone with a rounded peak
+    head = lobe(18.5, 21, 8.5, 12) * 0.92                        # the upper lump, blended into it
+    side = lobe(9.5, 47, 8.5, 8.5) * 0.85                        # the lobe at the lower left
+    hip = lobe(24.5, 45, 6.5, 9.5) * 0.9                         # and a bulge at the lower right
+    shoulder = lobe(12.5, 30, 6, 8) * 0.85                       # a lump on the left flank
+    h = np.maximum.reduce([main, head, side, hip, shoulder])
+    body = (h > 0) & (ys <= 54)
+    gy, gx = np.gradient(h)
+    n = np.stack([-gx * 6, -gy * 6, np.ones_like(h)], -1)
+    n /= np.linalg.norm(n, axis=-1, keepdims=True)
+    light = n @ np.array([-0.55, -0.6, 0.58]) / np.linalg.norm([-0.55, -0.6, 0.58])
+    band = np.digitize(light, [0.35, 0.6, 0.82])               # 0 darkest .. 3 lightest
+    ridge = xs > 17 + (ys - 10) * 0.12                           # a facet edge down the stone: the right face turns away
+    band = np.where(ridge & (np.maximum(main, head) >= np.maximum.reduce([side, hip, shoulder])), np.minimum(band, 2) - (band > 0), band)
+    band = np.clip(band, 0, 3)
+    for k in range(4):
+        img[body & (band == k)] = GREY[k + 1] + (255,)
+    # shadowed creases where one lump tucks under another
+    for a, b, y0 in ((side, main, 40), (hip, main, 40), (shoulder, main, 28)):
+        crease = body & (a > 0) & (np.abs(a - b) < 0.07) & (ys > y0)
+        img[crease] = GREY[1] + (255,)
+    for pts in (((15, 17), (17, 20), (16, 23)), ((22, 29), (20, 32), (22, 36)), ((13, 41), (15, 45))):
+        for (x0, y0), (x1, y1) in zip(pts, pts[1:]):           # etched cracks
+            for t in np.linspace(0, 1, 2 * max(abs(x1 - x0), abs(y1 - y0)) + 1):
+                x, y = int(round(x0 + (x1 - x0) * t)), int(round(y0 + (y1 - y0) * t))
+                if body[y, x]:
+                    img[y, x] = GREY[1] + (255,)
     outline(img, GREY[0])
     snap(img, GREY)
     return img

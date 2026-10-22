@@ -65,7 +65,6 @@
     "gate_post_east": 1,
     "gate_post_west": 1,
     "gym": 10,
-    "stone": 2,
     "tutor_house": 4,
     "west_house": 4
   },
@@ -130,16 +129,6 @@
         33
       ]
     ],
-    "stone": [
-      [
-        23,
-        34
-      ],
-      [
-        24,
-        34
-      ]
-    ],
     "tutor_house": [
       [
         17,
@@ -174,9 +163,9 @@
   "shared_building_pixels_exact": 13958,
   "center_bank8_palette_identical_to_cherrygrove": true,
   "mart_bank9_palette_identical_to_shared_art": true,
-  "secondary_tiles": 480,
+  "secondary_tiles": 478,
   "secondary_tile_limit": 496,
-  "secondary_metatiles": 379,
+  "secondary_metatiles": 371,
   "metatile_limit": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true

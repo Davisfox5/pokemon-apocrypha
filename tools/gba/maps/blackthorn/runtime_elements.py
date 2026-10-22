@@ -2,8 +2,8 @@
 
 Each phase is a fresh emulator process:
     write  new game; walk the town, jump two ledges and fail to climb them, bump the
-           shared Mart, cliffs, water and the gate-post bases, stand behind a gate post, a
-           house and the standing stone, read three signs, enter and leave the Center
+           shared Mart, cliffs, water, the gate-post bases and the standing stone, stand behind
+           both gate posts and a house, read three signs, enter and leave the Center
            (both floors) and the Mart, visit Cherrygrove and come back; ordinary flash save
     read   cold flash reload of that save
     menu   title screen -> Continue
@@ -42,7 +42,7 @@ STEPS = [
     ('go', CITY, 21, 51), ('shot', 'behind-gate-post'), ('south', 1, None), ('at', CITY, 21, 51),
     ('go', CITY, 25, 51), ('shot', 'behind-gate-post-east'), ('south', 1, None), ('at', CITY, 25, 51),
     ('go', CITY, 20, 33), ('shot', 'behind-west-house'), ('south', 1, None), ('at', CITY, 20, 33),
-    ('go', CITY, 23, 34), ('shot', 'behind-standing-stone'), ('south', 1, None), ('at', CITY, 23, 34),
+    ('go', CITY, 23, 34), ('shot', 'north-of-standing-stone'), ('south', 1, None), ('at', CITY, 23, 34),
     # Ledges (HGSS jump-south cells), both directions.
     ('go', CITY, 14, 36), ('south', 1, 'ledge-jump'), ('at', CITY, 14, 38), ('north', 1, None), ('at', CITY, 14, 38),
     ('go', CITY, 20, 39), ('south', 1, None), ('at', CITY, 20, 41), ('north', 1, None), ('at', CITY, 20, 41),
@@ -64,8 +64,7 @@ STEPS = [
     ('go', MART, 3, 6), ('south', 2, None), ('wait', 400), ('at', CITY, 27, 49), ('shot', 'mart-exit'),
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', CITY, 30, 50, 'return-to-blackthorn'),
 ]
-WALK_BEHIND = {'behind-gate-post': (21, 51), 'behind-gate-post-east': (25, 51), 'behind-west-house': (20, 33),
-               'behind-standing-stone': (23, 34)}
+WALK_BEHIND = {'behind-gate-post': (21, 51), 'behind-gate-post-east': (25, 51), 'behind-west-house': (20, 33)}
 
 def generate():
     prefix = TEMPLATE.split('int main(')[0].replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c'))

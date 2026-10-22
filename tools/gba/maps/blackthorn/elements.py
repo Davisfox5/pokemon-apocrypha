@@ -127,11 +127,13 @@ def ledger(phg):
                     for yy in (b[1], b[1] + 1):
                         for xx in (b[0], b[0] + 1):
                             cells[yy][xx]['lab'] = 'T'
-    # The Gym's roof stands over the pond; only its hall's foot rests on the grass island.
+    # The Gym's roof stands over the pond; only its hall's foot rests on the grass island,
+    # which stays inside the hall's outline so the shoreline runs straight up to the
+    # Gym on both sides instead of stepping round a sliver of island.
     x0, y0, x1, y1 = GYM_ISLAND
     for y in range(y0, y1):
         for x in range(x0, x1):
-            cells[y][x]['floor'] = 'grass' if y >= y1 - 2 else 'water'
+            cells[y][x]['floor'] = 'grass' if y == y1 - 1 or (y == y1 - 2 and x0 < x < x1 - 1) else 'water'
             if cells[y][x]['lab'] in ROCK:                    # the Gym's own slopes, not terrain
                 cells[y][x]['lab'] = 'X'
     # Rock-labelled slivers beside the bridge deck over water are the railing's end posts.
