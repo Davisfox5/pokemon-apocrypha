@@ -348,6 +348,24 @@ tools are marked as Blackthorn's.
   neighbour already had, a one-pixel edge shift.
 - Decals picked by hash cluster (four shells in a column). Keep the eye-catching ones two
   cells apart, and keep decals out of cells under objects, whose edge tiles pick them up.
+- A 14-colour fit over a whole building keeps the colours that cover the most and drops a
+  surface's shading: the Cianwood Gym's roof shells came out one flat brown. Give such a
+  surface its own ramp (its k-means shade farthest from the palette joins and the colour
+  whose loss costs least goes) and draw back its fine lines (roof seams, door planks) from
+  a marker render of their texture rows. For a building with many colour families (the
+  Blackthorn Gym: wood, purple, greys, beams, reds, glass) pick the 14 by family from the
+  render's colour clusters.
+- Tile folding erases one-pixel lines (a seam pixel's neighbours all hold the surface
+  colour). Pass drawn detail to the fold as pixels it may not change.
+- A DS texture can be duller than Gen 3 art wants (Blackthorn's straw reads grey on the
+  GBA). Lift that texture's pixels by a fixed gain before the palette fit; ranking them by
+  brightness onto a ramp flattens the pattern.
+- Any blocked cell draws below the player, so under an object or boulder a rock overlay can
+  move to the bottom layer and the object keeps its shared tiles; skip an 8x8 tile where
+  the sea shows through, whose bank lacks the rock's colours.
+- `git checkout BASE -- file` stages the base copy; a reinstall that uses it and a later
+  commit of only the map's own files commits those base copies too. Restore base files
+  with `git restore --source=BASE --worktree`, and read `git show --stat` before pushing.
 
 ## Worked example
 

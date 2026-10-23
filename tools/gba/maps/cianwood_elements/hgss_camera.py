@@ -62,13 +62,14 @@ def render(models, mids, px=16, pad=3, ground=(224, 200, 128)):
 # model into its five-cell footprint, so a building is fitted to its own footprint too.
 C06_PITCH, C06_SCALE = 38.0, 16.0
 
-def view(models, parts, width_px, pitch=C06_PITCH, sy=C06_SCALE, skip=('h_kage',), ground=0.1):
+def view(models, parts, width_px, pitch=C06_PITCH, sy=C06_SCALE, skip=('h_kage',), ground=0.1, retex=None):
     """Gen 3 view of HGSS models at C06's angle: orthographic at `pitch`, `sy` px per tile up
     the screen, squeezed across so the visible model is `width_px` wide. parts lists
     (model id, (x, y, z) offset in tiles). Textures are cutouts (alpha >= 200); the
     ground shadow quad (h_kage) and every face lying on the ground (all vertices below
-    `ground`: painted shadows and floor mats) are left out. Returns RGBA and a function
-    mapping model (x, y, z) to sprite pixels."""
+    `ground`: painted shadows and floor mats) are left out. retex maps a texture name to a
+    function that returns a replacement texture (marker renders). Returns RGBA and a
+    function mapping model (x, y, z) to sprite pixels."""
     th = math.radians(pitch)
     s, c = math.sin(th), math.cos(th)
     items = []
@@ -81,6 +82,8 @@ def view(models, parts, width_px, pitch=C06_PITCH, sy=C06_SCALE, skip=('h_kage',
                 if mat.tex is not None:              # cutout: a soft shadow painted into a texture stays out
                     mat.tex = mat.tex.copy()
                     mat.tex[..., 3] = np.where(mat.tex[..., 3] >= 200, 255, 0)
+                    if retex and mat.name in retex:
+                        mat.tex = retex[mat.name](mat.tex)
                 mats[matid] = mat
             mat = mats[matid]
             if mat.name in skip or mat.tex is None or max(v[0][1] + oy for v in verts) < ground:

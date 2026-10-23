@@ -67,14 +67,86 @@ def hgss_renders(phg):
             mat = R.Material(m, matid, m.tex)
             if mat.tex is not None:
                 tex.setdefault(mat.name, mat.tex[..., :3])
-    out = {}
+    out, seams = {}, {}
     for name, (parts, width, mirror) in RENDERS.items():
         rgba, _ = C.view(models, parts, width)
         if name in PANES:
             t, py, px = PANES[name]
             rgba = glaze(rgba, tex[t][py:py + 8, px:px + 8], mirror[0], mirror[1])
         out[name] = rgba
-    return out
+        if name in SEAMS:
+            seams[name] = seam_mask(C, models, parts, width, rgba.shape[0], *SEAMS[name])
+    return out, seams
+
+# The Gym's side roofs are HGSS's en_gyma planks: light panels with two dark seams (texture
+# rows 7-8 and 23-24) that arc across each roof plane. At 14 colours the render's shading
+# swallows them, so a marker render at 4x finds where they fall and they are drawn back one
+# pixel wide, each pixel one step darker on the roof's own ramp. name: (texture, seam
+# rows, plank columns)
+SEAMS = {'gym': ('en_gyma', ((7, 9), (23, 25)), (14, 60))}
+
+def seam_mask(C, models, parts, width, height, name, rows, cols, z=4):
+    """(seam, plank): per sprite pixel, the seam line (one pixel per column per seam) and
+    the plank surface it lies on."""
+    def mark(t):
+        t = t.copy()
+        t[:32, cols[0]:cols[1], :3] = (0, 255, 0)
+        for a, b in rows:
+            t[a:b, cols[0]:cols[1], :3] = (255, 0, 255)
+        return t
+    big, _ = C.view(models, parts, width * z, sy=C.C06_SCALE * z, retex={name: mark})
+    h = height * z
+    big = big[-h:] if big.shape[0] >= h else np.pad(big, ((h - big.shape[0], 0), (0, 0), (0, 0)))
+    rgb = big[..., :3].astype(int)
+    cover = lambda m: m.reshape(height, z, width, z).mean(axis=(1, 3))
+    seam = cover((rgb[..., 0] > 200) & (rgb[..., 1] < 60) & (rgb[..., 2] > 200))
+    plank = cover((rgb[..., 0] < 60) & (rgb[..., 1] > 200) & (rgb[..., 2] < 60)) + seam
+    line = np.zeros((height, width), bool)
+    for x in range(width):                                  # thin each band to its strongest pixel
+        y = 0
+        while y < height:
+            if seam[y, x] > 0.25:
+                y1 = y
+                while y1 < height and seam[y1, x] > 0.25:
+                    y1 += 1
+                line[y + int(np.argmax(seam[y:y1, x])), x] = True
+                y = y1
+            else:
+                y += 1
+    return line, plank > 0.5
+
+def keep_ramp(pal, rgba, region, k=4, extra=1, n=14):
+    """The plank surface's own shades in the palette: of its k-means colours, the `extra`
+    farthest from every palette colour join, and the colours whose loss costs the sprite
+    least make room (a 14-colour fit alone flattens the roof to one brown)."""
+    own = [tuple(v << 3 | v >> 2 for v in c) for c in sprite_palette(np.where(region[..., None], rgba, 0).astype(np.uint8), k)]
+    pal = list(pal)
+    gap = lambda c: min(max(abs((a >> 3) - (b >> 3)) for a, b in zip(c, q)) for q in pal)
+    new = [c for c in sorted(own, key=gap, reverse=True)[:extra] if gap(c) > 1]
+    px = rgba[rgba[..., 3] > 0][:, :3].astype(float)
+    pal += new
+    while len(pal) > n:
+        P = np.array(pal, float)
+        d = ((px[:, None] - P[None]) ** 2).sum(-1)
+        base = d.min(1).sum()
+        cost = [np.inf if c in new else np.delete(d, i, 1).min(1).sum() - base for i, c in enumerate(pal)]
+        pal.pop(int(np.argmin(cost)))
+    return pal
+
+def draw_seams(img, mask):
+    """Each seam pixel one step darker on the plank surface's ramp (the colours covering at
+    least a twentieth of it, light to dark)."""
+    line, plank = mask
+    img = img.copy()
+    on = plank & (img[..., 3] > 0)
+    cols, cnt = np.unique(img[on][:, :3], axis=0, return_counts=True)
+    ramp = sorted((tuple(int(v) for v in c) for c, k in zip(cols, cnt) if k >= 0.05 * on.sum()), key=sum)
+    step = {c: ramp[max(i - 1, 0)] for i, c in enumerate(ramp)}
+    for y, x in zip(*np.nonzero(line & on)):
+        c = tuple(int(v) for v in img[y, x, :3])
+        if c in step:
+            img[y, x, :3] = step[c]
+    return img
 
 def sprite_palette(rgba, n=14):
     """A sprite's own colours: weighted k-means over its 5-bit colours with farthest-first
@@ -138,10 +210,11 @@ def finish(rgba, pal, mirror=None):
     return img
 
 # Tile reuse, the way a Gen 3 artist trims a tileset: a building tile that differs from a
-# more common tile of its group (any flip) only where an edge sits one pixel over (at most
-# REUSE pixels, each taking a colour its own 4-neighbour already had, same silhouette)
-# becomes that tile. Sprites are bottom-aligned on cells, so the 8 px grid runs up from
-# the bottom edge.
+# more common tile of its group (any flip) only where an edge sits a pixel over or a render
+# speck sits (at most REUSE pixels, each taking a colour its own 4-neighbour already had,
+# same silhouette) becomes that tile. Drawn detail (the Gym's roof seams) is kept: a fold
+# may not touch it. Sprites are bottom-aligned on cells, so the 8 px grid runs up from the
+# bottom edge.
 REUSE = 12
 REUSE_GROUPS = [('gym',), ('studio',), ('house', 'pharmacy')]
 FLIPS = [(False, False), (True, False), (False, True), (True, True)]
@@ -158,11 +231,14 @@ def edge_shift(old, new, diff):
             return False
     return True
 
-def reuse_tiles(parts, names):
-    grids = {}
+def reuse_tiles(parts, names, keep=None):
+    """keep: name -> pixel mask a fold may not change."""
+    grids, hold = {}, {}
     for n in names:
         pad = (-parts[n].shape[0]) % 8
         grids[n] = (pad, np.concatenate([np.zeros((pad, parts[n].shape[1], 4), np.uint8), parts[n]], 0))
+        k = (keep or {}).get(n, np.zeros(parts[n].shape[:2], bool))
+        hold[n] = np.concatenate([np.zeros((pad, k.shape[1]), bool), k], 0)
     seen = {}
     for n, (_, g) in grids.items():
         for ty in range(g.shape[0] // 8):
@@ -173,9 +249,11 @@ def reuse_tiles(parts, names):
                 t[t[..., 3] == 0] = 0
                 f = min(FLIPS, key=lambda f: flip(t, f).tobytes())
                 c = flip(t, f)
-                seen.setdefault(c.tobytes(), [c, []])[1].append((n, ty, tx, f))
+                e = seen.setdefault(c.tobytes(), [c, [], np.zeros((8, 8), bool)])
+                e[1].append((n, ty, tx, f))
+                e[2] |= flip(hold[n][ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8], f)
     kept = []
-    for t, where in sorted(seen.values(), key=lambda v: -len(v[1])):
+    for t, where, held in sorted(seen.values(), key=lambda v: -len(v[1])):
         a, best = t[..., 3] > 0, None
         for r in kept:
             for f in FLIPS:
@@ -184,7 +262,7 @@ def reuse_tiles(parts, names):
                     continue
                 diff = (fr[..., :3] != t[..., :3]).any(-1) & a
                 d = int(diff.sum())
-                if d <= REUSE and (best is None or d < best[0]) and edge_shift(t, fr, diff):
+                if d <= REUSE and (best is None or d < best[0]) and not (diff & held).any() and edge_shift(t, fr, diff):
                     best = (d, fr)
         if best is None:
             kept.append(t)
@@ -279,11 +357,15 @@ def tuft():
 def build(phg):
     sys.path.insert(0, str(HERE))
     import elements as E
-    renders = hgss_renders(phg)
+    renders, seams = hgss_renders(phg)
     pals = town_palettes(renders)
+    for name, (_, plank) in seams.items():
+        pals[name] = keep_ramp(pals[name], renders[name], plank)
     out = {name: finish(r, pals[name], RENDERS[name][2]) for name, r in renders.items()}
+    for name, mask in seams.items():
+        out[name] = draw_seams(out[name], mask)
     for names in REUSE_GROUPS:
-        reuse_tiles(out, names)
+        reuse_tiles(out, names, keep={n: seams[n][0] for n in names if n in seams})
     rock = sea_rock(E.hgss_texture(phg, 'sea_rock', 'sea_rock'))
     out.update(sea_rock=rock, pebble=sea_rock(E.hgss_texture(phg, 'sea_rock', 'sea_rock'), 16, 13),
                stone=stone(E.hgss_texture(phg, 'etc_a', 'etc_a')), tuft=tuft())

@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "34d2a423b878d9ef171704381e56c390076a889609b994e8285b066bbe285736",
+  "rom_sha256": "71ed42639ffed03021cb17c8040e2b50de79b7e574f5845fe255c7f558f1e37d",
   "phases": [
     {
       "phase": "write",
@@ -1197,7 +1197,7 @@
     {
       "frame": "south-east-strip",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 29632,
+      "pixels_on_animated_water": 29312,
       "animated_water_pixels_differing_from_frame_0": 11961,
       "camera_origin_px": [
         384,

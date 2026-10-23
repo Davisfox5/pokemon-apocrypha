@@ -33,13 +33,21 @@ The owner's notes on round 1, and what changed:
 
 ![Round 1 against now](evidence/elements/before-after.png)
 
+Second review: the Gym's brown roof had lost its texture. HGSS's roof shells (`en_gyma`)
+are light plank panels with two dark seams across each shell; the 14-colour fit had kept
+one brown for all of it. The roof now has its own light, mid and dark wood and both seams,
+drawn back one pixel wide where HGSS's render puts them
+(`evidence/elements/gym-roof.png`).
+
+![The Gym's roof: round 2, now, and HGSS's model at C06's angle](evidence/elements/gym-roof.png)
+
 ## The map
 
 | | |
 | --- | --- |
 | Map | `CianwoodCity`, 32x64, `gMapGroup_Cherrygrove` id 47 (Center 48, Center upstairs 49) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, beach, animated sea, signs) |
-| Secondary | `gTileset_CianwoodCity`: 495 of 496 tiles (16 kept for door animation), 303 of 512 metatiles |
+| Secondary | `gTileset_CianwoodCity`: 493 of 496 tiles (16 kept for door animation), 304 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 6-12 one exact fit: C06's 21 colours over 8 and 9, then a bank each for the houses with the Pharmacy (6), the Gym (7), the studio (10) and the racks with the camera (11); the cliffs, stones and tufts share 12, the sea rocks fill 9 |
 | Border | open sea (Cherrygrove's animated sea metatiles, in the sea's 32 px phase) |
 
@@ -103,9 +111,11 @@ face or a one-cell terrace.
   cliffs' rock ramp so it shares their bank) and 11 sand tufts (drawn by hand the way Gen 3
   draws plants: dark outline, light blade edges, in Cherrygrove's grass greens), snapped
   to the 8 px grid so every copy shares the same tiles. Both are flat ground in HGSS and
-  always draw below the player. Over rock no player reaches, the rock's top-layer overlay
-  drops to the bottom layer under an object, so a stone on a cliff top and the north
-  house against the cliff keep the same tiles as their copies on open ground.
+  always draw below the player. In a blocked cell (drawn below the player whatever its
+  layer) the rock's top-layer overlay drops to the bottom layer under an object or a
+  boulder, so a stone on a cliff top, the north house against the cliff and a boulder on a
+  cliff edge keep the same tiles as their copies on open ground; an 8x8 tile where the sea
+  shows through keeps the overlay, since the sea's bank lacks the rock's colours.
 - **Buildings and props** (`sprites.py`, `source/elements/sprites.png`): HGSS's own models
   and textures, rendered at C06's angle (`hgss_camera.view`): orthographic at 38 degrees,
   16 px per tile up the screen, each squeezed across to fit its footprint, as C06 is.
@@ -119,9 +129,13 @@ face or a one-cell terrace.
   outline colour, and each roof is mirrored on an 8 px axis so its halves share tiles. The
   houses' and Pharmacy's glass is laid back on an 8 px pane lattice from HGSS's own roof
   texture, so the plane repeats every two tiles; texture cutouts, HGSS's ground shadow quad
-  and faces lying on the ground (painted shadows) are left out. A building tile that
-  differs from a more common one only by a one-pixel edge shift is folded into it
-  (6 tiles).
+  and faces lying on the ground (painted shadows) are left out. The Gym's roof shells keep
+  a wood ramp of their own (`sprites.keep_ramp`: their own light brown joins the palette
+  and the pale glass highlight, the cheapest colour to lose, folds into white) and their
+  two plank seams, found with a marker render of `en_gyma` at 4x and drawn one pixel wide,
+  one step darker on that ramp. A building tile that differs from a more common one only
+  by a one-pixel edge shift or a render speck is folded into it; drawn seams are never
+  folded away.
 - **Center**: the owner-locked shared Johto Center C06 (`gba/art/johto-center`, sha256
   `89034027`, `gba/art/johto-common/approved-buildings.json`, branch `codex/violet-city`),
   door (2,4) on the HGSS Center door (27,49). Rows 1-4 are solid; its top row is a walkable
@@ -188,8 +202,9 @@ All 34 are listed per cell in `evidence/elements/pack-C.json`.
   The only lines a save changes predate Cianwood: key order in a Route 110 layout entry
   and three `é` escapes in Kanto MAPSEC names (the same as on Blackthorn).
 
-Engine commit `3f3b439011ef662fa2152f97b66071d137e20bc0`, local ROM SHA-256
-`34d2a423b878d9ef171704381e56c390076a889609b994e8285b066bbe285736` (Ubuntu Arm GNU 13.2.1).
+Engine commit `3b3a06c63bc0139817bbc167ccdfd536b1476a02` (Blackthorn's houses and Gym at
+C06's angle merged in), local ROM SHA-256
+`71ed42639ffed03021cb17c8040e2b50de79b7e574f5845fe255c7f558f1e37d` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the Center's roof row](evidence/elements/gameplay/behind-center.png)

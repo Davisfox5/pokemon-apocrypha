@@ -861,17 +861,16 @@ def place(bottom, top, cells, tex):
         # with a ground texture (the three houses share every tile) and the ground below
         # stays the primary's own. The packer picks the layer type per cell: drawn above
         # the player where the cell is walkable (walk-behind), below it where blocked.
-        # Where it overlaps the rock's top-layer overlay in a cell no player reaches (the
-        # cell and the one below it blocked), that overlay drops to the bottom layer, so
-        # the north house's roof against the cliff and a stone on a cliff top keep the
-        # same top-layer tiles as their copies on open ground.
+        # Where it overlaps the rock's top-layer overlay in a blocked cell (drawn below the
+        # player whatever its layer), that overlay drops to the bottom layer, so the north
+        # house's roof against the cliff and a stone on a cliff top keep the same top-layer
+        # tiles as their copies on open ground.
         hit = np.zeros(bottom.shape[:2], bool)
         hit[sl] = a
         for ty in range(Y // 8, (Y + h + 7) // 8):
             for tx in range(X // 8, (X + w + 7) // 8):
                 ts = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-                below = min(ty // 2 + 1, H - 1)
-                if not hit[ts].any() or not blocked[ty * 8, tx * 8] or not blocked[below * 16, tx * 8]:
+                if not hit[ts].any() or not blocked[ty * 8, tx * 8]:
                     continue
                 m = (top[ts][..., 3] > 0) & (owner[ts] == '')
                 bottom[ts][m] = top[ts][..., :3][m]
@@ -1033,10 +1032,19 @@ def compose(engine, phg, cells):
     shore(bottom, cells, tex)
     bottom, top, level, piece = rock_frlg(cells, bottom, sw, tex, ground.shore)
     caves_frlg(bottom, top, cells, sw['cave'])
-    for y in range(H):                     # a boulder on plain rock top: the top stays in the bottom layer, so
-        for x in range(W):                 # every boulder shares the same top-layer tiles
-            if cells[y][x].get('boulder') and piece[y, x] == '' and cells[y][x]['lab'] in ROCK:
-                top[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = 0
+    for y in range(H):                     # a boulder on rock: the rock's overlay drops to the bottom layer (a
+        for x in range(W):                 # blocked cell draws below the player either way), so every boulder
+            c = cells[y][x]                # shares the same top-layer tiles; not where the sea shows through
+            if c.get('boulder') and c['lab'] in ROCK and c['blocked']:   # (its bank lacks the rock's colours)
+                for qy in (0, 8):
+                    for qx in (0, 8):
+                        sl = np.s_[y * 16 + qy:y * 16 + qy + 8, x * 16 + qx:x * 16 + qx + 8]
+                        m = top[sl][..., 3] > 0
+                        b = bottom[sl].astype(int)
+                        if (b[..., 2] > b[..., 0] + 40)[~m].any():
+                            continue
+                        bottom[sl][m] = top[sl][..., :3][m]
+                        top[sl] = 0
     boulders(top, cells, hgss_texture(phg, 'rock01', 'rock01'), BLACKTHORN_RAMP)
     lg = ledges_frlg(cells, sw)
     a = lg[..., 3] > 0
