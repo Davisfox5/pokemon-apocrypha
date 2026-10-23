@@ -227,17 +227,24 @@ tools are marked as Blackthorn's.
    above the player (normal layer type, every tile on the top layer) only when its object's
    base lies further south (walk-behind); doors and other base-row cells and every blocked
    cell draw below the player (covered).
-5. **Props from scratch.** Draw each prop as a sprite at native resolution. For shape and
-   proportion, render the game's own model through the map's field camera:
-   `hgss_camera.py` reads the camera from pokeheartgold (map header `cameraType`, table
-   `ov01_02206478` in `asm/overlay_01_021EABA8.s`; Blackthorn uses type 0, 48.7 degrees).
-   Keep props inside their cell columns so a player beside them is not overlapped. Keep
-   each sprite to one small ramp (15 colours or fewer) and mirror symmetric parts.
+5. **Props and buildings.** Each is a sprite at native resolution. HGSS's field camera
+   (`hgss_camera.py` reads it from pokeheartgold: map header `cameraType`, table
+   `ov01_02206478` in `asm/overlay_01_021EABA8.s`; type 0 is 48.7 degrees) shows HGSS's
+   own look, but the Gen 3 reference is the accepted C06 Center: HGSS's own Center model
+   rendered orthographic at 38 degrees, 16 px per tile up the screen, reproduces C06's
+   silhouette (`hgss_camera.view`, Cianwood's `evidence/elements/c06-angle.png`). Render
+   every building at that angle with its own textures, squeezed across to its footprint,
+   so roof pitch and doors match the Center (Cianwood's `sprites.py`). Keep props inside
+   their cell columns so a player beside them is not overlapped. Keep each sprite to one
+   small ramp (15 colours or fewer) and mirror symmetric parts.
 6. **Pack and budget.** One secondary holds 496 tiles (16 kept for door animation) and
    512 metatiles; the shared Center and Mart alone cost about 180 tiles. Count tiles and
    learned colours per element before cutting (`budget.py`). Map palettes are 13 banks:
-   the primary's six, the fixed Center and Mart banks, a junction bank and four learned
-   banks of 15 colours. Draw props in colours a loaded bank already has where they fit:
+   the primary's six and seven of the secondary's. Blackthorn spends them on fixed Center
+   and Mart banks, a junction bank and four learned banks; Cianwood (no Mart) splits the
+   locked C06 Center's 21 colours exactly over two banks first, gives each building's
+   palette a free bank whole, then fits every other tile into all seven with those colours
+   pre-filled (`pack.exact_banks`). Draw props in colours a loaded bank already has where they fit:
    CherrygrovePrimary bank 2 is a wood ramp (bridge, stairs, posts), bank 0 has whites that
    sit with its grass (snow), the Center's bank 8 has a neutral grey ramp (stone). Keep each
    remaining colour family (rock, houses, Gym, water mixes) to 15 colours so one bank holds
@@ -290,10 +297,80 @@ tools are marked as Blackthorn's.
 - Before copying a shared Center or Mart, check the owner's registry
   (`gba/art/johto-common/approved-buildings.json`) for the locked version and its hash;
   a branch cut from an older `main` can carry a superseded draft.
+- A walkable surf strip drawn as a synthetic foam band reads machine-made. Use the
+  accepted beach's own shore cells instead: Cherrygrove's sandbar gives an edge cell per
+  side and an outer corner per diagonal; key each strip cell by which side or diagonal
+  holds land, join two land sides on the diagonal, and give its sea pixels the map's sea
+  at its phase (Cianwood, `elements.shore`).
+- A "clean" texture block can sit in a shadow (Cherrygrove's sand beside the dock showed
+  dark dashes every 32 px). Use the plain metatile itself, and dump the source pixels
+  before trusting a crop.
+- HGSS's small blocked bumps (the `etc_a` stones) read as slopes: they turned into short
+  cliff faces and one-cell terraces. Label them by material as props, and give their
+  cells the height of the ground round them.
+- HGSS blocks every cell its taller 3D building covers in perspective. A blocked cell the
+  Gen 3 sprite does not reach is an invisible wall; open it and record the adaptation.
+- Flat ground details (stones, tufts, decals) always draw below the player, whatever row
+  their art reaches; snap them to the 8 px grid so every copy shares the same tiles.
+- Greedy bank packing can leave tiles inexact with slots to spare (84 colours in 105
+  slots still failed). Pack only the maximal colour sets, largest first, and take turns
+  between bank-choice rules (fewest new colours, most shared); pull a lone prop's accent
+  colours onto ones a neighbouring sprite already uses.
+- The packer also splits a building's palette over banks when it packs the building's
+  tile subsets one by one, leaving the props no room. Seed each building's whole palette
+  into a bank of its own first, and draw small props in a ramp that is already loaded
+  (Cianwood's stones in the cliffs' ramp).
+- HGSS's field camera is steeper than C06 (48.7 against 38 degrees), so houses rendered
+  through it look steep beside the Center. Render buildings at C06's angle.
+- A rendered texture is sheared and resampled, so a glass roof comes out different on every
+  tile. Lay one pane of the model's own texture back over the plane on an 8 px lattice that
+  steps with the slope; the plane then repeats every two tiles.
+- Median-cut palettes drop small accents (a door's orange); quantize each palette group
+  with k-means seeded farthest-first. Texture alpha is soft: cut it at 200, and leave out
+  the ground shadow quad (`h_kage`) and faces lying on the ground (painted shadows), or they
+  render as black blobs and hooks.
+- A bottom tile under fully opaque top-layer art is never seen but still costs a tile if it
+  carries ground; point it at any primary tile.
+- An object over the rock's top-layer overlay makes top tiles that mix rock and object, so a
+  house against a cliff shares none of its tiles with its copies. Where no player reaches
+  (the cell and the one below blocked), drop the overlay to the bottom layer first.
+- An inner shore corner rounded inside its own cell gets a waterline radius of about 6 px
+  and reads square. Measure depth from a curved sea edge whose curve starts in the two edge
+  cells beside the corner (Cianwood: 10 px, the sandbar's outer corners about 12).
+- A borrowed shore piece can carry colours from its source's secondary bank (Cherrygrove's
+  sandbar has light-green pixels on its tide line). Map them into the receiving bank, or
+  every shore tile needs secondary colours.
+- A taller sprite pokes into a row HGSS blocks for its model and can wall off a pocket of
+  open cells. Open a blocked cell where only the roof's top edge reaches its lower half;
+  the player walks behind that edge.
+- Folding near-duplicate tiles by colour distance draws seams (a beam's edge column copied
+  into a stripe). Fold a tile only where every changed pixel takes a colour its own
+  neighbour already had, a one-pixel edge shift.
+- Decals picked by hash cluster (four shells in a column). Keep the eye-catching ones two
+  cells apart, and keep decals out of cells under objects, whose edge tiles pick them up.
+- A 14-colour fit over a whole building keeps the colours that cover the most and drops a
+  surface's shading: the Cianwood Gym's roof shells came out one flat brown. Give such a
+  surface its own ramp (its k-means shade farthest from the palette joins and the colour
+  whose loss costs least goes) and draw back its fine lines (roof seams, door planks) from
+  a marker render of their texture rows. For a building with many colour families (the
+  Blackthorn Gym: wood, purple, greys, beams, reds, glass) pick the 14 by family from the
+  render's colour clusters.
+- Tile folding erases one-pixel lines (a seam pixel's neighbours all hold the surface
+  colour). Pass drawn detail to the fold as pixels it may not change.
+- A DS texture can be duller than Gen 3 art wants (Blackthorn's straw reads grey on the
+  GBA). Lift that texture's pixels by a fixed gain before the palette fit; ranking them by
+  brightness onto a ramp flattens the pattern.
+- Any blocked cell draws below the player, so under an object or boulder a rock overlay can
+  move to the bottom layer and the object keeps its shared tiles; skip an 8x8 tile where
+  the sea shows through, whose bank lacks the rock's colours.
+- `git checkout BASE -- file` stages the base copy; a reinstall that uses it and a later
+  commit of only the map's own files commits those base copies too. Restore base files
+  with `git restore --source=BASE --worktree`, and read `git show --stat` before pushing.
 
 ## Worked example
 
-Blackthorn City (above) is the reference for converting a Gen 4 map element by element.
+Blackthorn City (above) is the reference for converting a Gen 4 map element by element,
+and Cianwood City (`gba/art/cianwood-elements/README.md`) the reference for a coastal one.
 The Route 32 material pass is an example, not a universal map template:
 [review and provenance](https://github.com/Davisfox5/pokemon-apocrypha/blob/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/README.md).
 It separates original-reference terrain types from walkability and checks actual

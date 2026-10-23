@@ -1,0 +1,327 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/072_T24.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0875_T24.s",
+      "files/msgdata/msg/msg_0572_T24.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 5,
+        "z": 10,
+        "land_data": 68
+      },
+      {
+        "x": 5,
+        "z": 11,
+        "land_data": 69
+      }
+    ],
+    "origin": [
+      160,
+      320
+    ],
+    "size": [
+      32,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [
+        151
+      ],
+      "east": [
+        95
+      ],
+      "north": [],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        12,
+        37
+      ],
+      "dest": "MAP_CIANWOOD_GYM",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        27,
+        49
+      ],
+      "dest": "MAP_CIANWOOD_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        19,
+        50
+      ],
+      "dest": "MAP_CIANWOOD_PHARMACY",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        10,
+        47
+      ],
+      "dest": "MAP_CIANWOOD_KIRKS_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        21,
+        42
+      ],
+      "dest": "MAP_CIANWOOD_CENTRAL_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        21,
+        34
+      ],
+      "dest": "MAP_CIANWOOD_CAMERONS_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 6,
+      "cell": [
+        11,
+        27
+      ],
+      "dest": "MAP_CLIFF_EDGE_GATE",
+      "anchor": 0
+    },
+    {
+      "index": 7,
+      "cell": [
+        7,
+        15
+      ],
+      "dest": "MAP_CIANWOOD_NORTH_HOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        16,
+        42
+      ],
+      "script": "scr_seq_T24_008",
+      "bg_type": 1,
+      "text": "Cianwood City A Port of Crashing Waves"
+    },
+    {
+      "cell": [
+        15,
+        38
+      ],
+      "script": "scr_seq_T24_009",
+      "bg_type": 1,
+      "text": "Cianwood City Pokémon Gym Leader: Chuck His Roaring Fists Do the Talking"
+    },
+    {
+      "cell": [
+        22,
+        50
+      ],
+      "script": "scr_seq_T24_010",
+      "bg_type": 1,
+      "text": "Cianwood City Pharmacy 500 Years of Tradition We Await Your Medicinal Queries"
+    },
+    {
+      "cell": [
+        19,
+        34
+      ],
+      "script": "scr_seq_T24_011",
+      "bg_type": 1,
+      "text": "This is the house of Cameron, the Photographer. Take a Snapshot as a Keepsake!"
+    },
+    {
+      "cell": [
+        12,
+        24
+      ],
+      "script": "scr_seq_T24_004",
+      "bg_type": 1,
+      "text": "Entrance to the road for the Safari Zone. Experience thrilling encounters with wild Pokémon for heart-to-heart contact! The Safari Zone is just around the corner from this entrance!"
+    },
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "script": "std_hiddenitem_t24_revive",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        29,
+        37
+      ],
+      "script": "std_hiddenitem_t24_stardust",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        25,
+        34
+      ],
+      "script": "scr_seq_T24_007",
+      "bg_type": 0,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T24_middlewoman1_2",
+      "sprite": "SPRITE_MIDDLEWOMAN1_2",
+      "cell": [
+        13,
+        40
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T24_gsboy1",
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        18,
+        32
+      ],
+      "facing": 3,
+      "movement": 4,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T24_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        17,
+        26
+      ],
+      "facing": 0,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T24_gsgirl1",
+      "sprite": "SPRITE_GSGIRL1",
+      "cell": [
+        13,
+        51
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T24_middlewoman1_2_2",
+      "sprite": "SPRITE_MIDDLEWOMAN1_2",
+      "cell": [
+        21,
+        53
+      ],
+      "facing": 3,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T24_tsure_poke_static_suicune",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_SUICUNE",
+      "cell": [
+        14,
+        10
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_CIANWOOD_SUICUNE"
+    },
+    {
+      "id": "obj_T24_minaki",
+      "sprite": "SPRITE_MINAKI",
+      "cell": [
+        16,
+        23
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CIANWOOD_EUSINE"
+    },
+    {
+      "id": "obj_T24_breakrock",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        10,
+        13
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_T24_breakrock_2",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        9,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_011"
+    },
+    {
+      "id": "obj_T24_breakrock_3",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        11,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_013"
+    },
+    {
+      "id": "obj_T24_breakrock_4",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        6,
+        18
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_014"
+    },
+    {
+      "id": "obj_T24_breakrock_5",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        10,
+        22
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_015"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+Current Cianwood work: [native exterior from Gen 3 elements](../gba/art/cianwood-elements/README.md), engine PR #27, second pass after the owner's first review (buildings at C06's angle, rounded shore corners). One map on CherrygrovePrimary; interiors other than the Center and connections unbuilt; owner acceptance pending.
+
 Current Blackthorn work: [native exterior from Gen 3 elements](../gba/art/blackthorn-city/README.md), engine PR #26. One map on CherrygrovePrimary; Gym, houses and connections unbuilt; owner acceptance pending.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
@@ -16,6 +18,7 @@ optional, never part of routine startup.
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
+| Cianwood City from Gen 3 elements (October 23); a coastal town by the Blackthorn method | ../gba/art/cianwood-elements/README.md | PR #27 on `claude/blackthorn-city` (`claude/cianwood-city`); generators in `tools/gba/maps/cianwood_elements/` (`elements.py`, `sprites.py`, `pack.py`, `install_elements.py`) |
 | Blackthorn City from Gen 3 elements (October 22); method for converting any Gen 4 map | ../gba/art/blackthorn-city/README.md, GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook | PR #26 on `apocrypha` (`claude/blackthorn-city`); generators in `tools/gba/maps/blackthorn/` (`elements.py`, `sprites.py`, `pack.py`, `install_elements.py`) |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |
 | Edit or review the current Johto maps / shared Git source for Porymap, Poryscript, Porytiles, porygon | GBA_SHARED_SOURCE.md | `Davisfox5/pokeemerald-expansion@apocrypha`; `gba/art/johto-synthesis/README.md` for how the art was generated |
