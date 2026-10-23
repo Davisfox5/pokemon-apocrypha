@@ -4,9 +4,9 @@ Each phase is a fresh emulator process:
     write  new game; walk the town and the beach, walk the surf strip, jump the south and the
            east ledge and fail to climb back, bump the Center, the Gym, a herb rack, the cliff,
            the sea (no Surf) and the unbuilt cave, stand behind the Center's roof, a herb rack,
-           the photo board and the camera, stand in front of every building, read the five
-           signs, enter and leave the Center (both floors), visit Cherrygrove and Blackthorn
-           and come back; ordinary flash save
+           the photo board, the camera, the Gym's roof and a house's ridge, stand in front of
+           every building, read the five signs, enter and leave the Center (both floors),
+           visit Cherrygrove and Blackthorn and come back; ordinary flash save
     read   cold flash reload of that save
     menu   title screen -> Continue
 
@@ -74,6 +74,8 @@ STEPS = [
     ('go', CITY, 28, 32), ('shot', 'behind-herb-rack'), ('south', 1, None), ('at', CITY, 28, 32),
     ('go', CITY, 24, 33), ('shot', 'behind-photo-board'), ('south', 1, None), ('at', CITY, 24, 33),
     ('go', CITY, 25, 33), ('shot', 'behind-camera'), ('south', 1, None), ('at', CITY, 25, 33),
+    ('go', CITY, 11, 32), ('shot', 'behind-gym-roof'), ('south', 1, None), ('at', CITY, 11, 32),
+    ('go', CITY, 21, 37), ('shot', 'behind-house-ridge'), ('south', 1, None), ('at', CITY, 21, 37),
     # Ledges: jump south and east, and fail to climb back.
     ('go', CITY, 14, 12), ('south', 1, 'ledge-jump-south'), ('at', CITY, 14, 14), ('north', 1, None), ('at', CITY, 14, 14),
     ('go', CITY, 17, 11), ('east', 1, 'ledge-jump-east'), ('at', CITY, 19, 11), ('west', 1, None), ('at', CITY, 19, 11),
@@ -96,7 +98,8 @@ STEPS = [
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', BLACKTHORN, 30, 50, 'regression-blackthorn'),
     ('view', CITY, 27, 51, 'return-to-cianwood'),
 ]
-WALK_BEHIND = {'behind-center': (27, 45), 'behind-herb-rack': (28, 32), 'behind-photo-board': (24, 33), 'behind-camera': (25, 33)}
+WALK_BEHIND = {'behind-center': (27, 45), 'behind-herb-rack': (28, 32), 'behind-photo-board': (24, 33), 'behind-camera': (25, 33),
+               'behind-gym-roof': (11, 32), 'behind-house-ridge': (21, 37)}
 # In front of a building the player's head (the cell above its feet) overlaps the building's
 # base row; that row is behind the player, so BG1 must leave both of its cells clear.
 IN_FRONT = ('center-approach', 'center-exit', 'gym-front', 'pharmacy-front', 'kirks-house-front', 'central-house-front',

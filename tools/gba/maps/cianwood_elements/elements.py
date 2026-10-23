@@ -9,13 +9,16 @@ layer, so cliffs become Gen 3 terraces drawn from FRLG's General mountain set re
 to the HGSS rock ramp (Cianwood's cliff01gs uses Blackthorn's colours), composed per 8x8
 quadrant, as a top-layer overlay over plain ground with its cast shadow.
 
-Ground reuses accepted Cherrygrove vocabulary: its grass, its cream beach with the foam
-lip and stepped shore, its sea (animated in the primary) and its round sea rock; Route
-30's pond rim where grass meets water. HGSS's shallow-water strip along the coast is the
-beach's wet edge (walkable, MB_SHALLOW_WATER), so the foam lies where HGSS's waves are.
-Off the map is open sea (Route 41 to the east). Ledges are FRLG's, the east-facing ones
-the same strip turned on its side. Buildings and props are redrawn from HGSS's own models
-through Cianwood's field camera (sprites.py); the Center is the owner-locked C06.
+Ground is Gen 3 ground in CherrygrovePrimary's own colours: Cherrygrove's grass and sea
+(animated in the primary), a Gen 3-style beach (a 16 px sand cell with scattered grains
+and one-tile decals: grains, a ripple, a shell, pebbles), grass meeting sand on rounded
+edges with a dithered rim on the sand side, and Cherrygrove's sandbar as the shore, its
+inner corners curved with the same radius as its outer ones. HGSS's shallow-water strip
+along the coast is the beach's wet edge (walkable, MB_SHALLOW_WATER), so the foam lies
+where HGSS's waves are. Off the map is open sea (Route 41 to the east). Ledges are FRLG's,
+the east-facing ones the same strip turned on its side. Buildings and props are HGSS's own
+models and textures rendered at C06's angle (sprites.py, hgss_camera.view); the Center is
+the owner-locked C06.
 
     source/elements/ledger.json, ledger.png, compose-C.npz
     evidence/elements/terrain-C.png
@@ -273,30 +276,7 @@ def route31_ledge(engine):
             rgba[yy, xx] = remap[v] + (255,)
     return rgba
 
-# --------------------------------------------------------------------------- distance helpers
-def _dist(mask, steps=8):
-    """4-connected (L1) distance from each True pixel to the nearest False pixel, capped."""
-    d = np.where(mask, steps + 1, 0)
-    cur = mask.copy()
-    for i in range(1, steps + 1):
-        pad = np.pad(cur, 1, mode='edge')
-        inner = pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:]
-        d[cur & ~inner] = np.minimum(d[cur & ~inner], i)
-        cur = cur & inner
-    return d
-
-def _axis_dist(mask):
-    def run(m):
-        out = np.full(m.shape, 99)
-        for flip in (False, True):
-            a = m[::-1] if flip else m
-            r = np.zeros(a.shape, int); acc = np.full(a.shape[1], 99)
-            for i in range(a.shape[0]):
-                acc = np.where(a[i], acc + 1, 0); r[i] = acc
-            out = np.minimum(out, r[::-1] if flip else r)
-        return out
-    return run(mask), run(mask.T).T
-
+# --------------------------------------------------------------------------- helpers
 def _components(mask):
     seen = np.zeros_like(mask)
     for y0, x0 in zip(*np.nonzero(mask)):
@@ -310,207 +290,112 @@ def _components(mask):
                     seen[yy, xx] = True; q.append((yy, xx))
         yield comp
 
+def art(rows, pal):
+    """RGB pixel art from rows of palette keys."""
+    return np.array([[pal[ch] for ch in r] for r in rows], np.uint8)
+
 # --------------------------------------------------------------------------- ground
-NB8 = [(-1, -1), (0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0)]
-GRASS_C, SAND_C, WATER_C = 1, 2, 3
-
-def _classes8(img):
-    a = img.reshape(img.shape[0] // 8, 8, img.shape[1] // 8, 8, 3).transpose(0, 2, 1, 3, 4).reshape(img.shape[0] // 8, img.shape[1] // 8, 64, 3)
-    count = lambda cols: sum((a == np.array(c)).all(-1).sum(-1) for c in cols)
-    g, s, w = count(CHERRY['grass']), count(CHERRY['sand']), count(CHERRY['water'])
-    return np.where(w >= 40, WATER_C, np.where(g >= 40, GRASS_C, np.where(s >= 40, SAND_C, 0)))
-
-def _key(k, ty, tx, outside=0):
-    """Own class plus the class of each of the eight neighbours; anything that is not
-    ground (rock, buildings) counts as the tile's own class, so no rim is drawn there.
-    Off the map counts as outside (0: the tile's own class)."""
-    me = int(k[ty, tx])
-    out = [me]
-    for dx, dy in NB8:
-        yy, xx = ty + dy, tx + dx
-        v = int(k[yy, xx]) if 0 <= yy < k.shape[0] and 0 <= xx < k.shape[1] else outside
-        out.append(v if v else me)
-    return tuple(out)
-
 FOAM = (200, 232, 224)                  # Cherrygrove's foam lip
-WATER_COLOURS = set(map(tuple, CHERRY['water']))
-GROUND_COLOURS = set(map(tuple, CHERRY['grass'] + CHERRY['sand'] + CHERRY['water'])) | {FOAM, (168, 216, 152)} | \
-                 {BORDER_GRAY, BORDER_GREEN, DASH, DASH_GAP}
 
-def learn_ground(in_primary=None):
-    """Cherrygrove's own ground tiles by neighbour configuration, with their texture phase;
-    only tiles that exist in CherrygrovePrimary are kept when that check is given."""
-    img = np.array(Image.open(SRC / 'elements/cherrygrove-native.png').convert('RGB'))
-    k = _classes8(img)
-    lib = {}
-    for ty in range(1, k.shape[0] - 1):
-        for tx in range(1, k.shape[1] - 1):
-            if k[ty, tx] == 0:
-                continue
-            t = img[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-            if in_primary is not None and not in_primary(t):
-                continue
-            key = _key(k, ty, tx)
-            cols = {tuple(int(v) for v in c) for c in t.reshape(-1, 3)}
-            if in_primary is None and not cols <= GROUND_COLOURS:
-                continue                    # Cherrygrove's sea rocks, trees and docks are not ground
-            if WATER_C not in key and cols & WATER_COLOURS:
-                continue                    # a dry configuration carries no water pixels
-            lib.setdefault(key, {}).setdefault((tx % 4, ty % 4), []).append(t.tobytes())
-    return lib
+# Cianwood's beach in Cherrygrove's cream (all CherrygrovePrimary bank 0), drawn the way
+# Gen 3 draws sand (Emerald's Dewford and Route 104): a flat base with scattered light
+# grains, each with a shade pixel under it, and a few darker grains. On open beach some
+# cells carry a decal in one 8 px quarter (a second scatter, a ripple of HGSS's beach, a
+# shell, pebbles), so the 16 px repeat does not read as a grid and each decal costs one
+# tile; cells beside an edge or under an object keep the base, so edge tiles do not multiply.
+SAND_PAL = {'.': (232, 232, 192), '+': (240, 240, 200), '-': (224, 224, 184), '=': (216, 216, 176), '#': (208, 208, 168),
+            'w': (224, 200, 128), 't': (216, 184, 128), 'T': (184, 168, 128), 'D': (152, 144, 112)}
+SAND_BASE = ["................", "..++............", "...=......+.....", "..........=.....",
+             "......#.........", "..............++", ".+.............=", ".=......++......",
+             ".........=......", "...#.........#..", "................", "......++........",
+             ".......=.....+..", "..+.........==..", "..=.............", "..........#....."]
+# name: (quarter 0-3 in reading order, 8 x 8 decal)
+SAND_DECALS = dict(
+    grains=(1, ["........", "...++...", "....=...", "........", ".+....#.", ".=......", "........", "....++.."]),
+    ripple=(2, ["........", "..+++...", ".+===++.", "=......=", "........", "....++..", "...+==+.", "........"]),
+    shell=(0, ["........", "..DDD...", ".D+w+D..", "D+w+w+D.", "DTwTwTD.", ".DTwTD..", "..DDD...", "...##..."]),
+    pebbles=(3, ["........", ".tt.....", "twtT....", "ttTD..t.", ".DD..twT", ".....tTD", "......D.", "........"]),
+)
+SAND_ODDS = [('grains', 26), ('ripple', 18), ('shell', 4), ('pebbles', 7)]     # percent of open beach cells
+LOUD = ('shell', 'pebbles')
+CHERRY['sand'] = list(dict.fromkeys(CHERRY['sand'] + [(216, 216, 176)]))       # the beach's darker grain
 
-def mirror_missing(lib, want):
-    """Add each learned configuration's mirror images (pixels flipped, key permuted) where the
-    library lacks that configuration; want(key) picks which keys to mirror."""
-    for fy, fx in ((True, False), (False, True), (True, True)):
-        for key, by_phase in list(lib.items()):
-            nk = _flip_key(key, fy, fx)
-            if nk in lib or not want(key):
-                continue
-            flip = lambda b: np.frombuffer(b, np.uint8).reshape(8, 8, 3)[::-1 if fy else 1, ::-1 if fx else 1].tobytes()
-            lib[nk] = {((3 - px) if fx else px, (3 - py) if fy else py): [flip(b) for b in v] for (px, py), v in by_phase.items()}
-    return lib
-
-def learn_pond_rim():
-    """Route 30's accepted pond rim (grey lip, rounded corners) for every grass-water
-    configuration, learned the way ground() reads Blackthorn: one class per cell."""
-    img = np.array(Image.open(SRC / 'elements/route30-native.png').convert('RGB'))
-    a = img.reshape(img.shape[0] // 16, 16, img.shape[1] // 16, 16, 3).transpose(0, 2, 1, 3, 4).reshape(img.shape[0] // 16, img.shape[1] // 16, 256, 3)
-    count = lambda cols: sum((a == np.array(c)).all(-1).sum(-1) for c in cols)
-    k = np.where(count(CHERRY['water']) >= 128, WATER_C, np.where(count(CHERRY['grass']) >= 128, GRASS_C, 0)).repeat(2, 0).repeat(2, 1)
-    lib = {}
-    for ty in range(1, k.shape[0] - 1):
-        for tx in range(1, k.shape[1] - 1):
-            key = _key(k, ty, tx)
-            if k[ty, tx] and WATER_C in key and GRASS_C in key:
-                lib.setdefault(key, {}).setdefault((tx % 4, ty % 4), []).append(img[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].tobytes())
-    # Route 30's pond has trees along its north side, so it never shows grass north of water.
-    # Its mirror images fill the configurations it lacks (ground() repaints the water).
-    for fy, fx in ((True, False), (False, True), (True, True)):
-        for key, by_phase in list(lib.items()):
-            nk = _flip_key(key, fy, fx)
-            if nk in lib:
-                continue
-            flip = lambda b: np.frombuffer(b, np.uint8).reshape(8, 8, 3)[::-1 if fy else 1, ::-1 if fx else 1].tobytes()
-            lib[nk] = {((3 - px) if fx else px, (3 - py) if fy else py): [flip(b) for b in v] for (px, py), v in by_phase.items()}
-    return lib
-
-def _flip_key(key, fy, fx):
-    """A neighbour key (own class, then NB8 order) as seen in a mirrored tile."""
-    out = [key[0]]
-    for dx, dy in NB8:
-        out.append(key[1 + NB8.index((-dx if fx else dx, -dy if fy else dy))])
-    return tuple(out)
-
-def rock_beyond(cells):
-    """For every 8x8 quadrant of a rock cell, the ground class its clear pixels show in
-    style C (rock_frlg's rule: what lies past its lower vertical edge, else its lower
-    side, else its lower diagonal), or 0 for rock, bridge, stairs or no lower edge."""
-    d, _, isrock = layers(cells)
-    lab = np.array([[c['lab'] for c in row] for row in cells])
-    floor = np.array([[c['floor'] for c in row] for row in cells])
-    cls = np.where(np.isin(lab, ['~', 'R']) | ((lab == 'X') & (floor == 'water')), WATER_C,
-                   np.where(floor == 'grass', GRASS_C, SAND_C))
-    cls[isrock | np.isin(floor, ['bridge', 'stairs'])] = 0
-    out = np.zeros((H * 2, W * 2), int)
-    lvl = lambda x, y: d[min(max(y, 0), H - 1), min(max(x, 0), W - 1)]
-    for y, x in zip(*np.nonzero(isrock)):
-        lo = {k: lvl(x + dx, y + dy) < d[y, x] for k, (dx, dy) in DIRS.items()}
-        for qy in (0, 1):
-            for qx in (0, 1):
-                vk, hk = 'ns'[qy], 'we'[qx]
-                t = next((DIRS[k] for k in (vk, hk, vk + hk) if lo[k]), None)
-                if t:
-                    cx, cy = min(max(x + t[0], 0), W - 1), min(max(y + t[1], 0), H - 1)
-                    out[y * 2 + qy, x * 2 + qx] = cls[cy, cx]
+def sand_cells():
+    base = art(SAND_BASE, SAND_PAL)
+    out = {'base': base}
+    for name, (q, rows) in SAND_DECALS.items():
+        cell = base.copy()
+        cell[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8] = art(rows, SAND_PAL)
+        out[name] = cell
     return out
 
-def ground(cells, tex, shore=False):
-    """Cherrygrove ground: its own tiles for every neighbour configuration it has
-    (preferring the one at the same 32 px texture phase), drawn only where it has none.
-    With shore, a rock quadrant whose clear pixels show grass or water beside the other
-    (rock_beyond) takes part in the pond rim, so a shoreline runs on under a cliff's edge
-    instead of stopping at it; ground.shore marks those quadrants for rock_frlg."""
+def sand_variant(x, y):
+    """The variant for an open beach cell, from a fixed hash of its position."""
+    import hashlib
+    h = int(hashlib.md5(f'cianwood-sand {x},{y}'.encode()).hexdigest(), 16) % 100
+    for name, pct in SAND_ODDS:
+        if h < pct:
+            return name
+        h -= pct
+    return 'base'
+
+GRASS_TUFT = (104, 208, 152)            # Cherrygrove grass's base green
+SAND_RIM = (216, 216, 176)
+
+def ground(cells, tex):
+    """Grass, beach and sea under everything else. Beach is the cream sand above (its
+    variants on open beach); grass is Cherrygrove's lawn; the sea Cherrygrove's, in phase.
+    Grass meets sand the way Gen 3 draws a sand patch in a lawn (Emerald's Route 104): the
+    cell mask is blurred so every corner, inner and outer, rounds off while straight runs
+    stay on the cell edge, and the sand side carries the transition, a row where grass
+    pixels and a darker rim alternate and a dithered rim row behind it. Keeping straight
+    runs on the edge and the fuzz on the sand's own 16 px repeat lets the lawn stay
+    CherrygrovePrimary's tiles and the edge reuse a few. Cells that are not grass or sand
+    (rock, sea, the surf strip) lend the class of the nearest ground cell, so no edge is
+    drawn against them."""
+    from scipy import ndimage
     lab = np.array([[c['lab'] for c in row] for row in cells])
     floor = np.array([[c['floor'] for c in row] for row in cells])
-    g = (floor == 'grass')
+    g = (floor == 'grass') & ~np.isin(lab, list(ROCK))
     for comp in _components(g.copy()):
         if len(comp) < 2:
             for y, x in comp: g[y, x] = False
     water = np.isin(lab, ['~', 'R']) | (np.isin(lab, ['X', 'O']) & (floor == 'water'))   # sea rocks and boulders stand in the sea
-    ground_cell = ~np.isin(lab, list(ROCK) + ['O']) & ~((lab == 'X') & ~np.isin(floor, ['grass', 'sand', 'shallow', 'water']))
-    k = np.where(water, WATER_C, np.where(~ground_cell, 0, np.where(g, GRASS_C, SAND_C)))
-    k[floor == 'shallow'] = 0           # the shore cell is drawn whole by shore(): beach and sea beside it stay plain
-    k = k.repeat(2, 0).repeat(2, 1)
-    ground.shore = np.zeros(k.shape, bool)
-    if shore:
-        rb = rock_beyond(cells)
-        pad = np.pad(k, 1)
-        near = lambda c: (pad[:-2, 1:-1] == c) | (pad[2:, 1:-1] == c) | (pad[1:-1, :-2] == c) | (pad[1:-1, 2:] == c)
-        ground.shore = (k == 0) & (((rb == GRASS_C) & near(WATER_C)) | ((rb == WATER_C) & near(GRASS_C)))
-        k[ground.shore] = rb[ground.shore]
-    lib = learn_ground(None)          # all of Cherrygrove's beach: its edge pieces live in Cherrygrove's secondary
-    # Cherrygrove's sea lies west of its beach; mirror images give the coast facing east,
-    # north and south
-    mirror_missing(lib, lambda key: SAND_C in key and WATER_C in key)
-    lib.update(learn_pond_rim())
+    land = ~water & (floor != 'shallow') & ~np.isin(lab, list(ROCK))
     ys, xs = np.mgrid[0:H * 16, 0:W * 16]
-    out = np.where(g.repeat(16, 0).repeat(16, 1)[..., None], tex['grass'][ys % 32, xs % 32], tex['sand'][ys % tex['sand'].shape[0], xs % tex['sand'].shape[1]]).astype(np.uint8)
+    sand = sand_cells()
+    out = sand['base'][ys % 16, xs % 16].copy()
+    near_edge = ndimage.binary_dilation(~(land & ~g), np.ones((3, 3), bool))
+    # No decal where an object stands (its edge tiles would pick it up), and a shell or
+    # pebbles keeps two cells clear of another, so the eye-catching ones never line up.
+    covered = np.zeros((H, W), bool)
+    for _, img, X, Y in objects():
+        ys_, xs_ = np.nonzero(img[..., 3])
+        covered[(Y + ys_) // 16, (X + xs_) // 16] = True
+    picks = {}
+    for y in range(H):
+        for x in range(W):
+            if land[y, x] and not g[y, x] and not near_edge[y, x] and not covered[y, x]:
+                v = sand_variant(x, y)
+                if v in LOUD and any(picks.get((x + dx, y + dy)) in LOUD for dy in (-2, -1, 0) for dx in range(-2, 3)):
+                    v = 'base'
+                picks[(x, y)] = v
+                out[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = sand[v]
+    _, (iy, ix) = ndimage.distance_transform_edt(~(land | g), return_indices=True)
+    gext = g[iy, ix]
+    G = ndimage.gaussian_filter(gext.repeat(16, 0).repeat(16, 1).astype(float), 3.0, mode='nearest') > 0.5
+    lawn = land.repeat(16, 0).repeat(16, 1)
+    ds = ndimage.distance_transform_cdt(~G, metric='taxicab')
+    grass_px = lawn & G
+    out[grass_px] = tex['grass'][ys % 32, xs % 32][grass_px]
+    checker = (xs + ys) % 2 == 0
+    sand_px = lawn & ~G
+    out[sand_px & (ds == 1)] = np.where(checker[..., None], GRASS_TUFT, SAND_RIM)[sand_px & (ds == 1)]
+    out[sand_px & (ds == 2) & checker] = SAND_RIM
     wat = water.repeat(16, 0).repeat(16, 1)
     out[wat] = tex['water'][ys % 32, xs % 32][wat]
-    missing = {}
-    def lookup(key, ph):
-        cand = lib.get(key)
-        if cand is None:
-            # a dry configuration never borrows a pond rim tile (its grey lip reads as a shore)
-            same = ([q for q in lib if q[0] == key[0] and (WATER_C in q) == (WATER_C in key)]
-                    or [q for q in lib if q[0] == key[0]])
-            wgt = [1, 3, 1, 3, 1, 3, 1, 3]
-            q = min(same, key=lambda q: sum(wv * (a != b) for wv, a, b in zip(wgt, q[1:], key[1:])))
-            cand = lib[q]; missing[key] = missing.get(key, 0) + 1
-        tiles = cand.get(ph) or max(cand.values(), key=len)
-        best = max(sorted(set(tiles)), key=tiles.count)              # sorted: ties break the same way every run
-        return np.frombuffer(best, np.uint8).reshape(8, 8, 3)
-    rank = lambda t: np.select([(t[..., None, :] == np.array(CHERRY['water'], np.uint8)).all(-1).any(-1),
-                                (t == BORDER_GRAY).all(-1), (t == BORDER_GREEN).all(-1)], [0, 1, 2], 3)
-    SIDES = {1: (0, 2), 3: (2, 4), 5: (4, 6), 7: (6, 0)}          # N, E, S, W and their diagonals in NB8 order
-    for ty in range(H * 2):
-        for tx in range(W * 2):
-            if k[ty, tx] == 0:
-                continue
-            key = _key(k, ty, tx, WATER_C)                 # off the map is open sea
-            nb = key[1:]
-            ph = (tx % 4, ty % 4)
-            if key[0] in (SAND_C, GRASS_C) and all(v == key[0] for v in nb):
-                continue    # plain beach or lawn: the base texture, in phase across the whole map
-            if key[0] == WATER_C and SAND_C not in nb and \
-                    not any(nb[a] == GRASS_C and nb[b] == GRASS_C for a, b in ((1, 3), (3, 5), (5, 7), (7, 1))):
-                continue    # open water or a straight grass shore (its lip is on the grass side): the sea itself
-            if key[0] == GRASS_C and WATER_C in nb and key not in lib:
-                # A grass corner Route 30 never shows: the straight edge for each side that meets
-                # water (and the corner piece for a lone wet diagonal), lip pixels over grass.
-                parts = [{s, *SIDES[s]} for s in SIDES if nb[s] == WATER_C]
-                parts += [{d} for d in (0, 2, 4, 6) if nb[d] == WATER_C and not any(d in p for p in parts)]
-                tiles = [lookup((key[0],) + tuple(v if (i in p or v != WATER_C) else GRASS_C for i, v in enumerate(nb)), ph) for p in parts]
-                r = np.stack([rank(t) for t in tiles])
-                pick = r.argmin(0)
-                t = np.take_along_axis(np.stack(tiles), pick[None, ..., None].repeat(3, -1), 0)[0]
-                missing[key] = missing.get(key, 0) + 1
-            else:
-                t = lookup(key, ph)
-            out[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = t
-    # Learned rim tiles bring the water of the map they came from, at that map's phase (or
-    # one tile repeated where the phase is missing). Keep their lip and grass, and give every
-    # water pixel the lake's own texture at its 32 px phase, so a shore reads as the same lake.
-    wet = (out[..., None, :] == np.array(CHERRY['water'], np.uint8)).all(-1).any(-1)
-    out[wet] = tex['water'][ys % 32, xs % 32][wet]
-    # Edge tiles' beach pixels take the beach texture's own phase too, except within 3 px
-    # of the foam lip or the grass border, where Cherrygrove shades its edges.
-    sandy = (out[..., None, :] == np.array(CHERRY['sand'], np.uint8)).all(-1).any(-1)
-    near_edge = _dist(sandy, 3) <= 3
-    repaint = sandy & ~near_edge & (k.repeat(8, 0).repeat(8, 1) == SAND_C)
-    out[repaint] = tex['sand'][ys % tex['sand'].shape[0], xs % tex['sand'].shape[1]][repaint]
-    ground.missing = missing
+    ground.shore = np.zeros((H * 2, W * 2), bool)        # no shore quadrant runs under a cliff here
+    ground.grass = G & lawn
     return out
 
 # --------------------------------------------------------------------------- rock
@@ -915,30 +800,29 @@ def objects():
     import sprites as S
     rgba = lambda f: np.array(Image.open(SHARED / f).convert('RGBA'))
     base = lambda img, x, row: (x * 16, (row + 1) * 16 - img.shape[0])        # bottom on the bottom of that row
-    house, board, cam = S.house(), S.studio_board(), S.camera_prop()
+    house, pharmacy, studio, cam, gym = S.load('house'), S.load('pharmacy'), S.load('studio'), S.load('camera'), S.load('gym')
     out = [
         ('north_house', house, *base(house, 6, 15)),
         ('kirks_house', house, *base(house, 9, 47)),
         ('central_house', house, *base(house, 20, 42)),
-        ('pharmacy', S.pharmacy(), *base(house, 18, 50)),
-        ('studio', S.studio(), *base(S.studio(), 20, 34)),
-        ('studio_board', board, *base(board, 24, 34)),
-        ('camera', cam, 25 * 16, (34 + 1) * 16 - cam.shape[0]),
-        ('gym', S.gym(), *base(S.gym(), 9, 37)),
+        ('pharmacy', pharmacy, *base(pharmacy, 18, 50)),
+        ('studio', studio, *base(studio, 20, 34)),          # with its poster board in cell 24
+        ('camera', cam, *base(cam, 25, 34)),
+        ('gym', gym, *base(gym, 9, 37)),
         ('pokemon_center', rgba('pokemon-center.png'), CENTER_ORIGIN[0] * 16, CENTER_ORIGIN[1] * 16),
     ]
-    rack = S.rack()
+    rack = S.load('rack')
     out += [(f'rack_{i}', rack, *base(rack, 28, row)) for i, row in enumerate((33, 36, 39, 42))]
-    rock, peb = S.sea_rock(), S.pebble()
+    rock, peb = S.load('sea_rock'), S.load('pebble')
     for i, (cx, cy) in enumerate(SEA_ROCKS):
-        out.append((f'sea_rock_{i}', rock, int(round((cx * 16 - 16) / 8)) * 8, int(round((cy * 16 - 12) / 8)) * 8))
+        out.append((f'sea_rock_{i}', rock, int(round((cx * 16 - 16) / 8)) * 8, int(round((cy * 16 - rock.shape[0] / 2) / 8)) * 8))
     out.append(('pebble', peb, int(round((PEBBLE[0] * 16 - 8) / 8)) * 8, int(round((PEBBLE[1] * 16 - 6) / 8)) * 8))
     # Ground details, snapped to the 8 px grid so every copy shares the same few tiles.
-    st, tf = S.stone(), S.tuft()
-    for i, (cx, cy) in enumerate(STONES):
-        out.append((f'stone_{i}', st, int(round((cx * 16 - 8) / 8)) * 8, int(round((cy * 16 - 4) / 8)) * 8))
+    st, tf = S.load('stone'), S.load('tuft')
+    for i, (cx, cy) in enumerate(STONES):                # each in the lower half of the cell it sits in
+        out.append((f'stone_{i}', st, int(round((cx * 16 - 8) / 8)) * 8, int(cy) * 16 + 8))
     for i, (cx, cy) in enumerate(TUFTS):
-        out.append((f'tuft_{i}', tf, int(round((cx * 16 - 8) / 8)) * 8, int(round((cy * 16 - 10) / 8)) * 8))
+        out.append((f'tuft_{i}', tf, int(round((cx * 16 - 8) / 8)) * 8, int(round((cy * 16 - 9) / 8)) * 8))
     return out
 
 # HGSS's sea rocks (sea_rock material blobs, each two cells wide): centres in cells. The
@@ -977,18 +861,26 @@ def place(bottom, top, cells, tex):
         # with a ground texture (the three houses share every tile) and the ground below
         # stays the primary's own. The packer picks the layer type per cell: drawn above
         # the player where the cell is walkable (walk-behind), below it where blocked.
+        # Where it overlaps the rock's top-layer overlay in a cell no player reaches (the
+        # cell and the one below it blocked), that overlay drops to the bottom layer, so
+        # the north house's roof against the cliff and a stone on a cliff top keep the
+        # same top-layer tiles as their copies on open ground.
+        hit = np.zeros(bottom.shape[:2], bool)
+        hit[sl] = a
+        for ty in range(Y // 8, (Y + h + 7) // 8):
+            for tx in range(X // 8, (X + w + 7) // 8):
+                ts = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
+                below = min(ty // 2 + 1, H - 1)
+                if not hit[ts].any() or not blocked[ty * 8, tx * 8] or not blocked[below * 16, tx * 8]:
+                    continue
+                m = (top[ts][..., 3] > 0) & (owner[ts] == '')
+                bottom[ts][m] = top[ts][..., :3][m]
+                top[ts][m] = 0
         top[sl][a] = img[a]
         owner[sl][a] = name
     return owner, shared, shared_src
 
-# --------------------------------------------------------------------------- compose
-def primary_check(engine):
-    sys.path.insert(0, str(HERE))
-    import pack as P
-    tiles, pals, _, _ = P.primary(engine)
-    opaque, _ = P.primary_index(tiles, pals)
-    return lambda t: P.key5(t) in opaque
-
+# --------------------------------------------------------------------------- shore
 # The fallback shore profile for a strip cell no sandbar cell fits, measured from
 # Cherrygrove's beach: from the land side, 2 px of dark sand, 5 px of foam, then the sea.
 SHORE_SAND, SHORE_FOAM = 2, 7
@@ -999,26 +891,36 @@ SHORE_SAND, SHORE_FOAM = 2, 7
 # dock's shadow, so it is the north-west corner mirrored.
 SHORE_EDGE = dict(w=(432, 384), e=(352, 384), n=(384, 400), s=(368, 341))
 SHORE_CORNER = dict(nw=(432, 400, False), ne=(352, 400, False), se=(352, 341, False), sw=(352, 341, True))
+SAND_RIM_TIDE = (208, 208, 168)          # Cherrygrove's dark tide line
+SHORE_ROUND = 10                        # px: radius of the sea's curve at an inner corner (the sandbar's outer corners curve about 12)
 
 def shore_pieces(tex):
-    """Each sandbar window with its sea pixels cleared (alpha 0): Cherrygrove's sea is one
-    32 px block repeated, so a pixel equal to the sea at its own phase is sea."""
+    """Each sandbar window as RGBA plus a sand flag (channel 4). Cherrygrove's sea is one
+    32 px block repeated, so a pixel equal to the sea at its own phase is sea (cleared);
+    one equal to Cherrygrove's sand cell at its own phase is plain beach, which the
+    receiving beach's own sand replaces."""
     img = np.array(Image.open(SRC / 'elements/cherrygrove-native.png').convert('RGB'))
     ys, xs = np.mgrid[0:img.shape[0], 0:img.shape[1]]
     sea = (img == tex['water'][ys % 32, xs % 32]).all(-1)
+    plain = img[384:400, 368:384]
+    sand = (img == plain[ys % 16, xs % 16]).all(-1) & ~sea
     def cut(x, y, flip=False):
-        a = np.dstack([img[y:y + 16, x:x + 16], np.where(sea[y:y + 16, x:x + 16], 0, 255).astype(np.uint8)])
+        a = np.dstack([img[y:y + 16, x:x + 16], np.where(sea[y:y + 16, x:x + 16], 0, 255).astype(np.uint8),
+                       sand[y:y + 16, x:x + 16].astype(np.uint8)])
         return a[:, ::-1].copy() if flip else a
-    edges = {k: cut(*v) for k, v in SHORE_EDGE.items()}
-    corners = {k: cut(*v) for k, v in SHORE_CORNER.items()}
-    return edges, corners
+    return {k: cut(*v) for k, v in SHORE_EDGE.items()}, {k: cut(*v) for k, v in SHORE_CORNER.items()}
 
 def shore(out, cells, tex):
     """HGSS's walkable shallow strip as Cherrygrove's sandbar shore: a strip cell beside
     land on one side is the sandbar's edge cell for that side (its foam and wet sand, in
-    phase along the coast), one beside land on a diagonal only is the sandbar's corner, and
-    one between two land sides joins the two edges on the diagonal. Sea pixels stay the
-    sea at the map's phase. Anything else keeps the distance profile. Off the map is sea."""
+    phase along the coast), one beside land on a diagonal only is the sandbar's rounded
+    corner. One between two land sides is the inner corner, rounded the same way: the
+    sea's edge is a quarter circle of SHORE_ROUND px and every band (wet sand, foam lip)
+    keeps its own distance from it, so the sea curves into the beach instead of meeting it
+    in a mitre. The curve starts in the two edge cells beside the corner, since a radius
+    that reads as round does not fit inside one cell. Sea pixels stay the sea at the map's
+    phase and plain beach takes Cianwood's own sand. A sea cell touching the beach
+    directly gets the same shore. Off the map is sea."""
     from scipy import ndimage
     floor = np.array([[c['floor'] for c in row] for row in cells])
     lab = np.array([[c['lab'] for c in row] for row in cells])
@@ -1027,46 +929,107 @@ def shore(out, cells, tex):
     dist = ndimage.distance_transform_edt(~land.repeat(16, 0).repeat(16, 1))
     ys, xs = np.mgrid[0:H * 16, 0:W * 16]
     sea = tex['water'][ys % 32, xs % 32]
+    beach = sand_cells()['base'][ys % 16, xs % 16]
     edges, corners = shore_pieces(tex)
     is_land = lambda x, y: 0 <= x < W and 0 <= y < H and bool(land[y, x])
     iy, ix = np.mgrid[0:16, 0:16]
     depth = dict(w=ix, e=15 - ix, n=iy, s=15 - iy)
+    def sample(piece, side, d):
+        d = np.clip(np.round(d).astype(int), 0, 15)
+        return {'w': piece[iy, d], 'e': piece[iy, 15 - d], 'n': piece[d, ix], 's': piece[15 - d, ix]}[side]
+    sides4 = dict(w=(-1, 0), e=(1, 0), n=(0, -1), s=(0, 1))
+    # Where each edge piece turns to sea, in px from its land side.
+    sea_at = {k: next(d for d in range(16) if (sample(p, k, np.full((16, 16), d))[..., 3] > 0).sum() < 128)
+              for k, p in edges.items()}
+    def strip_cell(x, y):
+        touches = any(is_land(x + dx, y + dy) for dx, dy in sides4.values())
+        return 0 <= x < W and 0 <= y < H and (floor[y, x] == 'shallow' or (floor[y, x] == 'water' and lab[y, x] not in 'RO' and touches))
+    def land_sides(x, y):
+        return [k for k, (dx, dy) in sides4.items() if is_land(x + dx, y + dy)]
+    inner = [(x, y, *land_sides(x, y)) for y in range(H) for x in range(W)
+             if strip_cell(x, y) and len(land_sides(x, y)) == 2 and land_sides(x, y)[0] in 'we' and land_sides(x, y)[1] in 'ns']
+    def from_land(k, cx, cy, gx, gy):
+        """Depth from side k's land line of the corner cell (cx, cy), for global pixels."""
+        return dict(w=gx - cx * 16, e=cx * 16 + 15 - gx, n=gy - cy * 16, s=cy * 16 + 15 - gy)[k].astype(float)
     shore.kinds = {}
+    painted = np.zeros((H, W), bool)
     for y in range(H):
         for x in range(W):
-            if floor[y, x] != 'shallow':
+            if not strip_cell(x, y):
                 continue
             cell = (slice(y * 16, y * 16 + 16), slice(x * 16, x * 16 + 16))
-            sides = [s for s, (dx, dy) in dict(w=(-1, 0), e=(1, 0), n=(0, -1), s=(0, 1)).items() if is_land(x + dx, y + dy)]
+            sides = land_sides(x, y)
             diag = [d for d, (dx, dy) in dict(nw=(-1, -1), ne=(1, -1), sw=(-1, 1), se=(1, 1)).items() if is_land(x + dx, y + dy)]
             piece = None
-            if len(sides) == 1:
-                piece = edges[sides[0]]
+            if len(sides) == 1 or (x, y, *sides) in inner:
+                # Each pixel samples the edge piece of its nearer land side at its depth; near
+                # an inner corner the depth is measured from the curved sea edge instead.
+                gy, gx = iy + y * 16, ix + x * 16
+                which = np.full((16, 16), sides[0], object)
+                d = depth[sides[0]].astype(float)
+                if len(sides) == 2:
+                    which[depth[sides[1]] < depth[sides[0]]] = sides[1]
+                    d = np.minimum(d, depth[sides[1]])
+                for cx, cy, a, b in inner:
+                    if abs(cx - x) > 2 or abs(cy - y) > 2 or not ({a, b} & set(sides)):
+                        continue
+                    da, db = from_land(a, cx, cy, gx, gy), from_land(b, cx, cy, gx, gy)
+                    if (cx, cy) != (x, y) and not ((sides[0] == a and (db >= 16).all()) or (sides[0] == b and (da >= 16).all())):
+                        continue                                   # only the corner's own two edge runs
+                    r = SHORE_ROUND
+                    ca, cb = sea_at[a] + r, sea_at[b] + r
+                    zone = (da >= 0) & (db >= 0) & (da < ca) & (db < cb)
+                    e = np.hypot(ca - da, cb - db) - r              # px from the curved sea edge toward land
+                    use_a = da <= db
+                    d = np.where(zone, np.where(use_a, sea_at[a] - e, sea_at[b] - e), d)
+                    which = np.where(zone, np.where(use_a, a, b), which)
+                d = np.maximum(d, 0)
+                piece = np.zeros((16, 16, 5), np.uint8)
+                for k in set(which.ravel()):
+                    m = which == k
+                    piece[m] = sample(edges[k], k, d)[m]
             elif not sides and len(diag) == 1:
                 piece = corners[diag[0]]
-            elif len(sides) == 2 and sides[0] in 'we' and sides[1] in 'ns':
-                a, b = edges[sides[0]], edges[sides[1]]
-                piece = np.where((depth[sides[0]] <= depth[sides[1]])[..., None], a, b)
             if piece is None:
                 kind = 'profile'
                 strip = np.zeros((H * 16, W * 16), bool); strip[cell] = True
                 out[strip] = sea[strip]
                 out[strip & (dist <= SHORE_FOAM)] = FOAM
-                out[strip & (dist <= SHORE_SAND)] = CHERRY['sand'][3]
+                out[strip & (dist <= SHORE_SAND)] = SAND_RIM
             else:
                 kind = '+'.join(sides) if sides else diag[0]
                 block = sea[cell].copy()
                 a = piece[..., 3] > 0
                 block[a] = piece[..., :3][a]
+                plain = piece[..., 4] > 0
+                block[plain] = beach[cell][plain]
                 out[cell] = block
+            painted[y, x] = True
             shore.kinds[kind] = shore.kinds.get(kind, 0) + 1
+    # One wet-sand band for every orientation: within the shore cells, beach pixels within
+    # 2 px of the dark tide line are wet (Cherrygrove's darker cream), the rest Cianwood's sand.
+    strip = np.zeros((H * 16, W * 16), bool)
+    for y, x in zip(*np.nonzero(painted)):
+        strip[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = True
+    cream = (out[..., None, :] == np.array([(240, 240, 200), (232, 232, 192), (224, 224, 184), (216, 216, 176)], np.uint8)).all(-1).any(-1)
+    tide = (out == SAND_RIM_TIDE).all(-1)
+    near = ndimage.distance_transform_cdt(~tide, metric='taxicab') <= 2
+    out[strip & cream & near] = (224, 224, 184)
+    out[strip & cream & ~near] = beach[strip & cream & ~near]
+    # Shore tiles keep to the sea's own bank (CherrygrovePrimary bank 1), so they cost no
+    # secondary colours: the beach's darker grain takes the tide colour, and the few green
+    # pixels on Cherrygrove's sandbar tide line (its secondary bank) join the tide line.
+    grain = (out == SAND_RIM).all(-1)
+    out[strip & grain] = SAND_RIM_TIDE
+    foam = ndimage.binary_dilation((out == FOAM).all(-1), iterations=2)
+    out[strip & foam & (out == (168, 216, 152)).all(-1)] = SAND_RIM_TIDE
 
+# --------------------------------------------------------------------------- compose
 def compose(engine, phg, cells):
-    if not hasattr(ground, 'in_primary'):
-        ground.in_primary = primary_check(engine)
     tex = cherry_textures()
+    tex['sand'] = np.tile(sand_cells()['base'], (2, 2, 1))     # Cianwood's beach, for what rock edges show
     sw = frlg_pieces(engine)
-    bottom = ground(cells, tex, shore=True)
+    bottom = ground(cells, tex)
     shore(bottom, cells, tex)
     bottom, top, level, piece = rock_frlg(cells, bottom, sw, tex, ground.shore)
     caves_frlg(bottom, top, cells, sw['cave'])
@@ -1103,7 +1066,7 @@ def main(engine, phg):
     for i, (img, t) in enumerate(((ref, 'HGSS reference (decoded map data)'), (v, 'Gen 3 elements'))):
         sheet.paste(Image.fromarray(img), (i * (W * 16 + 12), 24)); d.text((i * (W * 16 + 12) + 4, 6), t, fill='white')
     sheet.save(EV / 'elements' / 'compare.png')
-    print('wrote terrain-C.png and compare.png; ground fallbacks:', len(ground.missing), 'shore cells:', shore.kinds)
+    print('wrote terrain-C.png and compare.png; shore cells:', shore.kinds)
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())

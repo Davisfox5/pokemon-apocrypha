@@ -8,12 +8,14 @@ references that tile, so the accepted Johto ground and sea (with its animation) 
 nothing. Everything else goes into a Cianwood secondary tileset: 496 tiles (16
 door-animation slots reserved), 512 metatiles and seven learned banks (6-12). The banks are
 one exact fit: the owner-locked C06 Center's 21 colours split exactly over banks 8 and 9,
-then every other tile fits the seven banks, filling the slots the Center leaves.
+each building's palette takes a free bank whole, then every other tile fits the seven
+banks, filling the slots left.
 
 Traversal is the decoded HGSS permissions in Gen 3 behaviours: beach sand, the walkable
 surf strip, the sea, east and south ledges. The Center's body is solid and its top row a
 walkable roof overhang (gba/art/johto-center). A cell HGSS blocks only because its taller
-building model stands there, with nothing of the Gen 3 sprite in it, is open ground.
+building model stands there, with nothing of the Gen 3 sprite in it or only its roof's top
+edge in the cell's lower half, is open ground (the player walks behind that edge).
 Writes evidence/elements/pack-STYLE.json, native-STYLE.png and source/elements/pack-STYLE.npz.
 """
 from __future__ import annotations
@@ -39,6 +41,9 @@ CENTER_ORIGIN, CENTER_DOOR = (25, 45), (2, 4)                 # C06 door on the 
 CENTER = 2                                                    # shared_src id of the Center
 CLEAR = -1                                                    # transparent pixel marker in keys
 FLAT = ('stone_', 'tuft_')                                    # ground details: never above the player
+# Objects whose colours start whole in a bank of their own (sprites.py's palette groups;
+# the racks and the camera share one), so no building's tiles split over banks.
+BANK_GROUPS = [('north_house', 'kirks_house', 'central_house', 'pharmacy'), ('gym',), ('studio',), ('rack', 'camera')]
 EVENTS = json.loads((SRC / 'hgss-events.json').read_text())
 SIGNS = {tuple(e['cell']) for e in EVENTS['signs'] if e['bg_type'] == 1}
 
@@ -115,9 +120,10 @@ def primary_index(tiles, pals):
                     opaque.setdefault(key5(rgb), (t, b, f))
     return opaque, masked
 
-def traversal(engine, cells, art):
+def traversal(engine, cells, art, edge):
     """Gen 3 behaviour, collision and elevation per cell from the HGSS permissions. art is
-    the per-cell 'has object art' grid (top and shared layers, plus the sign cells)."""
+    the per-cell 'has object art' grid (top and shared layers, plus the sign cells); edge
+    marks cells where only a building's top edge reaches, in the cell's lower half."""
     MB = B.behaviors(engine)
     perm = np.load(SRC / 'hgss/hgss-permissions.npz')
     types, coll = perm['types'], perm['collision']
@@ -158,6 +164,9 @@ def traversal(engine, cells, art):
             elif k & 0x80 and lab == 'X' and not art[y, x]:
                 c.update(foot='open', behavior='MB_SAND' if t == 0x21 else 'MB_NORMAL', collision=0, elevation=3,
                          adaptation="HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell")
+            elif k & 0x80 and lab == 'X' and edge[y, x]:
+                c.update(foot='open', behavior='MB_SAND' if t == 0x21 else 'MB_NORMAL', collision=0, elevation=3,
+                         adaptation="HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it")
             elif k & 0x80:
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3)
             elif t == 0x21:
@@ -194,11 +203,15 @@ def above_player(walkable, top, shared, owner):
                 any(base[n] > y for n in names - {''} if not n.startswith(FLAT))
     return out
 
-def object_art(top, shared):
-    art = ((top[..., 3] > 0) | (shared[..., 3] > 0)).reshape(H, 16, W, 16).any(axis=(1, 3))
+def object_art(top, shared, owner):
+    px = (top[..., 3] > 0) | (shared[..., 3] > 0)
+    art = px.reshape(H, 16, W, 16).any(axis=(1, 3))
     for x, y in SIGNS:
         art[y, x] = True
-    return art
+    upper = px.reshape(H, 16, W, 16)[:, :8].any(axis=(1, 3))
+    flat = np.char.startswith(owner.astype(str), FLAT[0]) | np.char.startswith(owner.astype(str), FLAT[1])
+    edge = px.reshape(H, 16, W, 16).any(axis=(1, 3)) & ~upper & ~(flat & px).reshape(H, 16, W, 16).any(axis=(1, 3))
+    return art, edge
 
 def main(engine, style):
     comp = np.load(SRC / 'elements' / f'compose-{style}.npz', allow_pickle=True)
@@ -206,11 +219,13 @@ def main(engine, style):
     cells = json.loads((SRC / 'elements/ledger.json').read_text())['detail']
     tiles, pals, metas, attrs = primary(engine)
     opaque_idx, masked_idx = primary_index(tiles, pals)
-    trav = traversal(engine, cells, object_art(top, shared))
+    trav = traversal(engine, cells, *object_art(top, shared, comp['owner']))
     walkable = np.array([[trav[y * W + x]['foot'] in ('open', 'door', 'water') for x in range(W)] for y in range(H)])
     above = above_player(walkable, top, shared, comp['owner'])
 
     # Decide each 8x8 position's bottom and top content.
+    t0, b0, _ = next(iter(opaque_idx.values()))
+    filler = np.array(pals[b0], np.uint8)[tiles[t0]]
     lay = {}                                                  # (tx, ty, layer) -> dict(px, mask, fixed)
     for ty in range(H * 2):
         for tx in range(W * 2):
@@ -223,16 +238,19 @@ def main(engine, style):
                 if tp.any():
                     lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=tp, fixed=None)
                 continue
-            lay[(tx, ty, 0)] = dict(px=bottom[sl], mask=np.ones((8, 8), bool), fixed=None)
+            # under fully opaque top-layer art the bottom tile is never seen: any primary tile does
+            hidden = tp.all() and not sh.any()
+            lay[(tx, ty, 0)] = dict(px=filler if hidden else bottom[sl], mask=np.ones((8, 8), bool), fixed=None)
             if sh.any():
                 assert not tp.any(), ('shared building over top-layer art', tx, ty)
                 lay[(tx, ty, 1)] = dict(px=shared[sl][..., :3], mask=sh, fixed=fixed)
             elif tp.any():
                 lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=tp, fixed=None)
 
-    # Primary matches first. C06's tiles split exactly over banks 8 and 9; every other
-    # tile then goes into one exact fit over the seven secondary banks, starting from the
-    # Center's colours, so the town's tiles use the slots the Center leaves.
+    # Primary matches first. C06's tiles split exactly over banks 8 and 9 and each
+    # building's palette takes a free bank whole; every other tile then goes into one
+    # exact fit over the seven secondary banks, starting from those colours, so the
+    # props and the ground use the slots left.
     banks = {b: [tuple(v >> 3 for v in c) for c in p[1:16]] for b, p in pals.items()}
     fixed_sets = {b: set(p) for b, p in banks.items()}
     jobs = {}
@@ -260,6 +278,12 @@ def main(engine, style):
     for j, a in zip(center, cassign):
         j['bank'] = CENTER_BANKS[a]
         init[j['bank']] |= {tuple(int(v) for v in c) for c in j['px'][j['mask'] > 0]}
+    kind = np.char.rstrip(np.char.rstrip(comp['owner'].astype(str), '0123456789'), '_')
+    free = [b for b in SECONDARY_BANKS if not init[b]]
+    for names, b in zip(BANK_GROUPS, free):
+        m = (top[..., 3] > 0) & np.isin(kind, names)
+        init[b] = {tuple(c) for c in B.rgb5(top[m][:, :3]).tolist()}
+        assert len(init[b]) <= 15, ('palette group over one bank', names, len(init[b]))
     pals_l, assign, err = exact_banks(town, len(SECONDARY_BANKS), init=[init[b] for b in SECONDARY_BANKS])
     for j, a in zip(town, assign):
         j['bank'] = SECONDARY_BANKS[a]

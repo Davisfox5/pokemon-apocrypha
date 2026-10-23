@@ -1,4 +1,4 @@
-Current Cianwood work: [native exterior from Gen 3 elements](../gba/art/cianwood-elements/README.md), engine PR #27. One map on CherrygrovePrimary; interiors other than the Center and connections unbuilt; owner acceptance pending.
+Current Cianwood work: [native exterior from Gen 3 elements](../gba/art/cianwood-elements/README.md), engine PR #27, second pass after the owner's first review (buildings at C06's angle, rounded shore corners). One map on CherrygrovePrimary; interiors other than the Center and connections unbuilt; owner acceptance pending.
 
 Current Blackthorn work: [native exterior from Gen 3 elements](../gba/art/blackthorn-city/README.md), engine PR #26. One map on CherrygrovePrimary; Gym, houses and connections unbuilt; owner acceptance pending.
 

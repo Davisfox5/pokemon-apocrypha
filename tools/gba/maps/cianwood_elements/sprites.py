@@ -1,20 +1,25 @@
-"""Cianwood's buildings and props, drawn as Gen 3 pixel art from HGSS's own models.
+"""Cianwood's Gen 3 sprites, made from HGSS's own models and textures.
 
-Each shape and proportion is read from the model drawn through Cianwood's field camera
-(camera type 0, 48.7 degrees; hgss_camera.py, evidence/elements/*-reference.png) and
-redrawn at native resolution with one-pixel dark outlines and small ramps. Each sprite's
-bottom edge sits on the bottom of its object's lowest blocked cell, and every building's
-door is in its second cell from the left, as in HGSS.
+    python3 tools/gba/maps/cianwood_elements/sprites.py PATH/TO/pokeheartgold
 
-    python3 tools/gba/maps/cianwood_elements/sprites.py   # writes source/elements/sprites.png
+Buildings and props (the houses 102 + door 103, the Pharmacy 104 and the photo studio 105
+with its poster board, both with door 116, the Gym 108 + door 16, the herb racks 106 and
+Cameron's camera 90) are
+rendered with their own textures at C06's angle (hgss_camera.view: 38 degrees, 16 px per
+tile up the screen, each squeezed across to fit its footprint as C06 is), then finished
+as Gen 3 art: each group's own colours in 5-bit colour (14 for a building, the houses and
+the Pharmacy sharing one palette), merged across groups where they agree within two levels,
+C06's own outline colour round the silhouette, each roof mirrored on an 8 px axis so its
+halves share tiles, and tiles that differ only by a one-pixel edge shift folded together. The sea rocks and small stones are HGSS's own textures
+resampled; the sand tuft is drawn by hand in Cherrygrove's grass greens, the way Gen 3
+draws plants (dark outline, light blade edges).
 
-Models: houses 102 + door 103 (scaled 0.89 so the 74 px model fits four cells), the
-pharmacy 104, Cameron's photo studio 105 with its poster board, the Gym 108 + door 16
-(Blackthorn's Gym model with Cianwood's red bands and grey emblem slab, scaled 0.95),
-the herb drying racks 106, Cameron's camera 90, and the sea rocks (terrain), drawn in
-Cherrygrove's accepted sea-rock colours.
+Writes source/elements/sprites/*.png (what elements.py places) and the contact sheet
+source/elements/sprites.png. Each sprite's bottom edge is the bottom of its object's base
+row.
 """
 from __future__ import annotations
+import sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -22,12 +27,11 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = ROOT / 'gba/art/cianwood-elements/source/elements'
+SPRITES = OUT / 'sprites'
+sys.path.insert(0, str(HERE))
 
 def canvas(w, h):
     return np.zeros((h, w, 4), np.uint8)
-
-def rect(img, x0, y0, x1, y1, c):
-    img[max(0, y0):y1, max(0, x0):x1] = tuple(c[:3]) + (255,)
 
 def outline(img, c):
     """One-pixel outline along the inside edge of the opaque area."""
@@ -36,388 +40,271 @@ def outline(img, c):
     edge = a & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
     img[edge] = tuple(c) + (255,)
 
-def snap(img, palette):
-    """Snap every opaque pixel to its nearest palette colour (keeps a sprite's ramp small)."""
+C06_LINE = (41, 41, 49)                 # C06's outline: every building and prop drawn from HGSS
+FOAM = (200, 232, 224)                  # Cherrygrove's foam lip
+rgb5 = lambda c: tuple((v >> 3 << 3) | (v >> 5) for v in c)
+
+# --------------------------------------------------------------------------- HGSS renders
+D = (0.1195526, 0.1649017, 0.7194366)   # each door's offset from its building in HGSS's placements
+# name: (model parts, footprint width px, mirror (rows, axis x, columns) or None)
+RENDERS = {
+    'house': ([(102, (0, 0, 0)), (103, D)], 64, (57, 32, 64)),
+    'pharmacy': ([(104, (0, 0, 0)), (116, D)], 64, (56, 32, 64)),
+    'studio': ([(105, (0, 0, 0)), (116, D)], 80, (47, 32, 64)),
+    'rack': ([(106, (0, 0, 0))], 32, (999, 16, 32)),
+    'camera': ([(90, (0, 0, 0))], 16, None),
+    'gym': ([(108, (0, 0, 0)), (16, (0, 0, 1.3125))], 112, (999, 56, 112)),
+}
+
+def hgss_renders(phg):
+    import hgss_camera as C
+    R = C.R
+    _, _, models, _, _ = R.load(phg)
+    tex = {}
+    for mid in (102, 104):
+        m = R.mdlview.Model(models[mid])
+        for matid, _ in m.faces():
+            mat = R.Material(m, matid, m.tex)
+            if mat.tex is not None:
+                tex.setdefault(mat.name, mat.tex[..., :3])
+    out = {}
+    for name, (parts, width, mirror) in RENDERS.items():
+        rgba, _ = C.view(models, parts, width)
+        if name in PANES:
+            t, py, px = PANES[name]
+            rgba = glaze(rgba, tex[t][py:py + 8, px:px + 8], mirror[0], mirror[1])
+        out[name] = rgba
+    return out
+
+def sprite_palette(rgba, n=14):
+    """A sprite's own colours: weighted k-means over its 5-bit colours with farthest-first
+    seeds, so a small accent (a door's wood, a poster) keeps its own colour."""
+    import build as B
+    px = rgba[rgba[..., 3] > 0][:, :3] >> 3
+    uc, cnt = np.unique(px, axis=0, return_counts=True)
+    return [tuple(int(v) for v in c) for c in B.kmeans_colors(uc, np.sqrt(cnt).astype(float), n)]
+
+# Colours per palette group: the houses and the Pharmacy are one model with the same
+# walls, frames and glass, so they share one palette; small props keep small ramps.
+GROUPS = [(('house', 'pharmacy'), 14), (('gym',), 14), (('studio',), 14), (('rack',), 8), (('camera',), 6)]
+
+def town_palettes(renders):
+    """A palette per group, then colours within two 5-bit levels of a colour another group
+    already uses are merged into it, so the town shares exact colours."""
+    pals, shared = {}, []
+    for names, n in GROUPS:
+        both = np.concatenate([renders[k][renders[k][..., 3] > 0] for k in names])[None]
+        own = []
+        for c in sprite_palette(both, n):
+            near = [q for q in shared if max(abs(a - b) for a, b in zip(q, c)) <= 2]
+            c = near[0] if near else c
+            if not near:
+                shared.append(c)
+            if c not in own:
+                own.append(c)
+        for k in names:
+            pals[k] = [tuple(v << 3 | v >> 2 for v in c) for c in own]
+    return pals
+
+# Glass roofs: HGSS's own roof textures hold their glass as an 8 px lattice of panes. The
+# render shears and resamples it, so nearly every roof tile comes out different; laying
+# one pane of the texture back over the plane on an 8 px lattice that steps 4 px per pane
+# (the roof's slope) keeps HGSS's glass and makes the plane repeat every two tiles, the
+# way Gen 3 builds a roof. name: (texture, pane cell y, x)
+PANES = {'house': ('tn_h01_02', 32, 0), 'pharmacy': ('tn_pharmacy02', 34, 6)}
+
+def glaze(rgba, pane, rows, axis):
+    """Re-lay the glass of the left roof plane (blue pixels left of axis, above rows)."""
+    img = rgba.copy()
+    ys, xs = np.mgrid[0:img.shape[0], 0:img.shape[1]]
+    c = img[..., :3].astype(int)
+    glass = (img[..., 3] > 0) & (c[..., 2] > c[..., 0] + 40) & (c[..., 2] > 120) & (ys < rows) & (xs < axis)
+    img[glass, :3] = pane[(ys + xs // 2) % 8, xs % 8][glass]
+    return img
+
+def finish(rgba, pal, mirror=None):
+    """Mirror the roof's left half onto its right, map to the sprite's palette, then outline
+    the silhouette in C06's outline colour."""
+    img = rgba.copy()
+    if mirror:
+        rows, axis, cols = mirror
+        left = img[:rows, axis - (cols - axis):axis]
+        img[:rows, axis:cols] = left[:, ::-1]
     a = img[..., 3] > 0
-    p = np.array(palette, float)
-    c = img[a][:, :3].astype(float)
-    img[a, :3] = p[((c[:, None] - p[None]) ** 2).sum(-1).argmin(1)].astype(np.uint8)
-
-# Neutral greys shared by every building, so one palette bank's worth serves them all.
-LINE = (56, 56, 72)
-WHITE, PALE, GREY, MID, DARK = (248, 248, 240), (224, 224, 216), (200, 200, 192), (168, 168, 160), (120, 120, 112)
-WALL = (88, 100, 80)                                       # the dark green-grey upper wall and corner posts
-# Houses and the pharmacy: glass roofs, wood (15 colours with the neutrals: one bank)
-GLASS = [(184, 216, 224), (136, 176, 224), (88, 148, 224), (64, 104, 208), (24, 80, 168)]
-WOOD = [(248, 192, 120), (216, 160, 96), (148, 108, 88)]
-HOUSE_PALETTE = [LINE, WHITE, PALE, GREY, MID, DARK, WALL] + GLASS + WOOD
-# The studio: slate roof, awning, poster board (15 with the neutrals). Its teal is the
-# herb racks', its board the camera's peach and its frame brown the houses' wood, so the
-# town shares palette slots.
-SLATE = [(120, 144, 216), (100, 128, 208), (84, 108, 192), (64, 88, 168)]
-STUDIO_PALETTE = [LINE, WHITE, PALE, GREY, MID, DARK, WALL] + SLATE + [(128, 232, 200), (248, 224, 120), (248, 184, 144), WOOD[2]]
-
-# --------------------------------------------------------------------------- glass-roof houses
-def glass_roof(img, light=False):
-    """The houses' gable roof seen from the camera: ridge running front to back, a glass
-    plane either side in a grid of panes, white eaves, the grey front gable under the
-    ridge's end. Drawn for the left half and mirrored."""
-    h, w = img.shape[:2]
-    ys, xs = np.mgrid[0:h, 0:w]
-    dx = np.abs(xs - 31.5)
-    top = 1 + 0.5 * dx
-    roof = (dx <= 31.5) & (ys >= top) & (ys <= 42)
-    gable = (dx <= 22) & (ys >= 28 + 0.68 * dx) & (ys <= 42)
-    plane = roof & ~gable & (dx >= 3)
-    put = lambda m, c: img.__setitem__(m, tuple(c) + (255,))
-    # panes: 6 px grid from the ridge outward, lighter toward the ridge and the top
-    u = np.floor((dx - 3) / 6).astype(int)
-    v = np.floor((ys - top) / 6).astype(int)
-    shade = np.clip(u // 2 + (v >= 4) + (0 if light else 1), 0, 3)
-    for k in range(4):
-        put(plane & (shade == k), GLASS[k] if light else GLASS[min(3, k + 0)] if k < 3 else GLASS[3])
-    frame = plane & ((((dx - 3) % 6) < 1) | (((ys - top) % 6) < 1))
-    put(frame, GLASS[3] if light else GLASS[4])
-    glint = plane & (((dx - 3) % 6) >= 1) & (((dx - 3) % 6) < 3) & (((ys - top) % 6) == 1)
-    put(glint, GLASS[0])
-    # ridge cap
-    ridge = roof & (dx < 3) & (ys < 30)
-    put(ridge, WHITE); put(ridge & (dx >= 2), PALE)
-    for y in range(4, 28, 4):
-        img[y, 30:34] = tuple(GREY) + (255,)
-    # white eaves along the slopes and down the sides, grey eave under the planes
-    put(plane & (ys < top + 2), WHITE)
-    put(plane & (ys >= top + 2) & (ys < top + 3), PALE)
-    put(plane & (dx > 29.5), WHITE)
-    put(plane & (ys >= 40), PALE)
-    # front gable: grey siding, white bargeboards, a dark vent
-    put(gable, GREY)
-    put(gable & ((ys % 3) == 0), MID)
-    put(gable & (ys < 30 + 0.68 * dx), WHITE)
-    rect(img, 29, 35, 35, 37, LINE)
-    img[:, 32:] = img[:, :32][:, ::-1]
-
-def house_front(img, door_dark=True):
-    """Wall under the eaves: dark band, white wall, corner posts, door in the second cell,
-    window to the right, foundation, blue pots at both corners."""
-    rect(img, 3, 43, 61, 72, (255, 255, 255))
-    rect(img, 3, 43, 61, 49, WALL); rect(img, 3, 43, 61, 44, DARK)
-    rect(img, 3, 49, 61, 68, WHITE); rect(img, 3, 64, 61, 68, GREY)
-    rect(img, 3, 43, 8, 72, WALL); rect(img, 56, 43, 61, 72, WALL)
-    rect(img, 3, 68, 61, 72, MID); rect(img, 3, 71, 61, 72, DARK)
-    # door, cell 1 (x 16-31)
-    rect(img, 17, 50, 31, 72, WHITE)
-    rect(img, 18, 51, 30, 72, LINE)
-    rect(img, 18, 51, 30, 56, WOOD[1])
-    for x in range(18, 30, 3):
-        img[51:56, x] = tuple(WOOD[0]) + (255,)
-    rect(img, 18, 56, 30, 57, WOOD[2])
-    rect(img, 18, 64, 30, 72, DARK)
+    p = np.array(pal, int)
+    img[..., :3] = p[((img[..., :3][..., None, :].astype(int) - p[None, None]) ** 2).sum(-1).argmin(-1)]
+    img[~a] = 0
+    outline(img, C06_LINE)
     return img
 
-def window(img, x0, y0, x1, y1):
-    rect(img, x0, y0, x1, y1, WOOD[2])
-    rect(img, x0 + 1, y0 + 1, x1 - 1, y1 - 1, WHITE)
-    mid = (x0 + x1) // 2
-    rect(img, x0 + 2, y0 + 2, mid - 1, y1 - 2, GLASS[0]); rect(img, mid + 1, y0 + 2, x1 - 2, y1 - 2, GLASS[0])
-    img[y0 + 2, x0 + 2:x0 + 5] = tuple(WHITE) + (255,); img[y0 + 2, mid + 1:mid + 4] = tuple(WHITE) + (255,)
+# Tile reuse, the way a Gen 3 artist trims a tileset: a building tile that differs from a
+# more common tile of its group (any flip) only where an edge sits one pixel over (at most
+# REUSE pixels, each taking a colour its own 4-neighbour already had, same silhouette)
+# becomes that tile. Sprites are bottom-aligned on cells, so the 8 px grid runs up from
+# the bottom edge.
+REUSE = 12
+REUSE_GROUPS = [('gym',), ('studio',), ('house', 'pharmacy')]
+FLIPS = [(False, False), (True, False), (False, True), (True, True)]
 
-def house():
-    """A Cianwood house (models 102 + 103): 64 x 72, the four-cell footprint."""
-    img = canvas(64, 72)
-    glass_roof(img)
-    house_front(img)
-    window(img, 35, 51, 53, 61)
-    rect(img, 34, 61, 54, 62, WOOD[1])
-    rect(img, 37, 63, 51, 68, WOOD[1]); rect(img, 37, 63, 51, 64, WOOD[0])       # bench under the window
-    for x in (41, 46):
-        img[63:68, x] = tuple(WOOD[2]) + (255,)
-    for x0 in (1, 57):                                                          # blue pots
-        rect(img, x0, 64, x0 + 6, 71, GLASS[3]); rect(img, x0, 64, x0 + 6, 65, GLASS[2]); rect(img, x0 + 4, 65, x0 + 6, 71, GLASS[4])
-    outline(img, LINE)
-    snap(img, HOUSE_PALETTE)
+def flip(t, f):
+    t = t[:, ::-1] if f[0] else t
+    return t[::-1] if f[1] else t
+
+def edge_shift(old, new, diff):
+    o, n, oa = old[..., :3].astype(int), new[..., :3].astype(int), old[..., 3] > 0
+    for y, x in zip(*np.nonzero(diff)):
+        if not any(0 <= y + dy < 8 and 0 <= x + dx < 8 and oa[y + dy, x + dx] and (o[y + dy, x + dx] == n[y, x]).all()
+                   for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))):
+            return False
+    return True
+
+def reuse_tiles(parts, names):
+    grids = {}
+    for n in names:
+        pad = (-parts[n].shape[0]) % 8
+        grids[n] = (pad, np.concatenate([np.zeros((pad, parts[n].shape[1], 4), np.uint8), parts[n]], 0))
+    seen = {}
+    for n, (_, g) in grids.items():
+        for ty in range(g.shape[0] // 8):
+            for tx in range(g.shape[1] // 8):
+                t = g[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].copy()
+                if not t[..., 3].any():
+                    continue
+                t[t[..., 3] == 0] = 0
+                f = min(FLIPS, key=lambda f: flip(t, f).tobytes())
+                c = flip(t, f)
+                seen.setdefault(c.tobytes(), [c, []])[1].append((n, ty, tx, f))
+    kept = []
+    for t, where in sorted(seen.values(), key=lambda v: -len(v[1])):
+        a, best = t[..., 3] > 0, None
+        for r in kept:
+            for f in FLIPS:
+                fr = flip(r, f)
+                if ((fr[..., 3] > 0) != a).any():
+                    continue
+                diff = (fr[..., :3] != t[..., :3]).any(-1) & a
+                d = int(diff.sum())
+                if d <= REUSE and (best is None or d < best[0]) and edge_shift(t, fr, diff):
+                    best = (d, fr)
+        if best is None:
+            kept.append(t)
+            continue
+        for n, ty, tx, f in where:
+            grids[n][1][ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = flip(best[1], f)
+    for n, (pad, g) in grids.items():
+        parts[n] = g[pad:]
+
+# --------------------------------------------------------------------------- textures
+def resample(t, w, h):
+    """Area-average an RGBA texture to w x h; alpha thresholded."""
+    a = t.astype(float)
+    pm = np.clip(a[..., :3] * (a[..., 3:] / 255), 0, 255).astype(np.uint8)
+    col = np.array(Image.fromarray(pm).resize((w, h), Image.Resampling.BOX)).astype(float)
+    al = np.array(Image.fromarray(t[..., 3]).resize((w, h), Image.Resampling.BOX)).astype(float)
+    out = np.zeros((h, w, 4), np.uint8)
+    out[..., :3] = np.clip(np.where(al[..., None] > 0, col / np.maximum(al[..., None], 1) * 255, 0), 0, 255)
+    out[..., 3] = np.where(al >= 128, 255, 0)
+    return out
+
+def to_ramp(img, ramp):
+    p = np.array(ramp, int)
+    a = img[..., 3] > 0
+    out = img.copy()
+    out[..., :3] = p[((img[..., :3][..., None, :].astype(int) - p[None, None]) ** 2).sum(-1).argmin(-1)]
+    out[~a] = 0
+    return out
+
+SEA_ROCK = [(198, 206, 214), (173, 181, 189), (148, 148, 156), (123, 132, 132), (107, 107, 107), (90, 90, 99)]
+SEA_ROCK_LINE = (56, 72, 96)            # Cherrygrove's sea-rock slate
+
+def sea_rock(tex, w=32, h=24):
+    """HGSS's sea rock texture (sea_rock): the grey rock lit from the upper left and the foam
+    ring where it meets the water, the water itself cleared; foam in Cherrygrove's lip
+    colour, the rock outlined in Cherrygrove's sea-rock slate."""
+    rgb = tex[..., :3].astype(int)
+    blue = rgb[..., 2] > rgb[..., 0] + 40
+    foam = blue & (rgb[..., 0] > 150)
+    t = tex.copy()
+    t[..., 3] = np.where(~blue | foam, 255, 0)
+    t[foam, :3] = FOAM
+    ys, xs = np.nonzero(t[..., 3])
+    t = t[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+    img = to_ramp(resample(t, w, h), SEA_ROCK + [FOAM])
+    body = (img[..., 3] > 0) & ~(img[..., :3] == FOAM).all(-1)
+    pad = np.pad(body, 1)
+    img[body & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:]), :3] = SEA_ROCK_LINE
     return img
 
-def pharmacy():
-    """Cianwood Pharmacy (104): the house roof in a lighter glass, a shop sign across the
-    front, a wide display window and a wooden counter base."""
-    img = canvas(64, 72)
-    glass_roof(img, light=True)
-    house_front(img)
-    rect(img, 8, 44, 56, 50, WOOD[2]); rect(img, 9, 45, 55, 49, WOOD[0])           # the sign board
-    for x0 in (12, 20, 28, 36, 44):                                             # characters, abstract strokes
-        rect(img, x0, 46, x0 + 5, 47, WOOD[2]); img[45:49, x0 + 2] = tuple(WOOD[2]) + (255,)
-    rect(img, 33, 51, 55, 62, WOOD[2]); rect(img, 34, 52, 54, 61, WHITE)
-    rect(img, 35, 53, 53, 60, GLASS[0]); img[53, 35:39] = tuple(WHITE) + (255,)
-    rect(img, 33, 62, 55, 68, WOOD[1]); rect(img, 33, 62, 55, 63, WOOD[0])           # counter base, gold trim
-    for x in (36, 42, 48, 54):
-        img[63:68, x] = tuple(WOOD[2]) + (255,)
-    outline(img, LINE)
-    snap(img, HOUSE_PALETTE)
-    return img
+# The cliffs' rock ramp (elements.BLACKTHORN_RAMP), light to dark, then its outline, so a
+# stone shares the rock's bank and costs no colours of its own.
+STONE = [(239, 189, 140), (198, 148, 115), (165, 115, 99), (132, 90, 74), (99, 70, 66), (82, 58, 52)]
 
-# --------------------------------------------------------------------------- photo studio
-def studio():
-    """Cameron's photo studio (105 + door 116): 64 x 64. A slate hipped roof whose hips run
-    up to a central ridge, a skylight on its front slope, grey eaves; a dark wall band, a
-    scalloped teal-and-yellow awning, white walls, the door in the second cell, a window."""
-    img = canvas(64, 64)
-    ys, xs = np.mgrid[0:64, 0:64]
-    dx = np.abs(xs - 31.5)
-    put = lambda m, c: img.__setitem__(m, tuple(c) + (255,))
-    roof = (xs >= 1) & (xs <= 62) & (ys >= 2) & (ys <= 33)
-    put(roof, SLATE[1])
-    front = roof & (ys >= 2 + 30 * (dx / 30.5) * 0 + (dx * 0.9))               # the front slope between the hips
-    put(roof & (ys < 2 + dx * 0.9), SLATE[2])                                    # side slopes, a shade darker
-    put(roof & (ys < 2 + dx * 0.9) & (xs > 31.5), SLATE[0])                     # the lit right side
-    put(front & (ys > 26), SLATE[3])
-    hip = roof & (np.abs(ys - (2 + dx * 0.9)) < 1.2) & (dx > 2)
-    put(hip, GREY)
-    put(roof & (dx < 3) & (ys < 5), GREY)
-    put(roof & ((xs <= 2) | (xs >= 61) | (ys <= 3)), GREY)                      # eaves
-    rect(img, 1, 30, 63, 34, GREY); rect(img, 1, 33, 63, 34, MID)
-    rect(img, 23, 14, 41, 26, MID); rect(img, 24, 15, 40, 25, PALE)            # skylight
-    rect(img, 25, 16, 39, 24, WHITE); rect(img, 26, 17, 32, 21, SLATE[0]); rect(img, 33, 19, 38, 23, SLATE[0])
-    rect(img, 1, 34, 63, 64, (255, 255, 255))
-    rect(img, 1, 34, 63, 39, WALL)
-    for x0 in range(4, 60, 8):                                                   # awning scallops
-        c = STUDIO_PALETTE[11] if (x0 // 8) % 2 == 0 else STUDIO_PALETTE[12]
-        rect(img, x0, 39, x0 + 8, 43, c)
-        img[43, x0 + 1:x0 + 7] = tuple(c) + (255,); img[44, x0 + 2:x0 + 6] = tuple(c) + (255,)
-    rect(img, 1, 39, 4, 64, MID); rect(img, 60, 39, 63, 64, MID)
-    rect(img, 4, 45, 60, 58, WHITE)
-    rect(img, 4, 39, 60, 40, LINE)
-    rect(img, 17, 45, 31, 64, LINE); rect(img, 17, 58, 31, 64, DARK)           # door, cell 1
-    rect(img, 37, 46, 53, 57, STUDIO_PALETTE[14]); rect(img, 38, 47, 52, 56, WHITE)
-    rect(img, 39, 48, 51, 55, PALE); img[48, 39:43] = tuple(WHITE) + (255,)
-    rect(img, 4, 58, 60, 61, STUDIO_PALETTE[12]); rect(img, 4, 61, 60, 64, MID)
-    rect(img, 17, 58, 31, 64, DARK)
-    outline(img, LINE)
-    snap(img, STUDIO_PALETTE)
-    return img
+def stone(tex):
+    """HGSS's small brown stone (the lower-left quarter of etc_a, its shadow as the rock's
+    outline), laid flat as HGSS draws it: 16 x 8, one tile row, so every stone is the same
+    two tiles."""
+    return to_ramp(resample(tex[16:32, 0:16], 16, 8), STONE)
 
-def studio_board():
-    """The studio's poster board on two posts, 16 x 26."""
-    img = canvas(16, 26)
-    for x in (2, 12):
-        rect(img, x, 6, x + 2, 26, MID); img[6:26, x + 1] = tuple(DARK) + (255,)
-    rect(img, 1, 1, 15, 20, STUDIO_PALETTE[14])
-    rect(img, 2, 2, 14, 19, STUDIO_PALETTE[13])
-    rect(img, 3, 3, 13, 9, STUDIO_PALETTE[12]); rect(img, 4, 11, 12, 18, WHITE)
-    rect(img, 5, 12, 8, 15, STUDIO_PALETTE[11]); rect(img, 8, 14, 11, 17, MID)
-    outline(img, LINE)
-    snap(img, STUDIO_PALETTE)
-    return img
+# Cherrygrove's grass greens and the dark green of its trees (CherrygrovePrimary banks 0 and 3)
+TUFT = {'o': (64, 136, 104), 'd': (88, 176, 136), 'm': (104, 208, 152), 'l': (168, 216, 152)}
+TUFT_ART = [
+    "........o.......",
+    "...o...olo......",
+    "..olo..olo...o..",
+    "..olo..olo..olo.",
+    "...olo.olo.olo..",
+    "o..olo.olo.olo..",
+    "lo..olooloolo.o.",
+    "olo.olmlmlolo.lo",
+    ".olooldlmlo.olo.",
+    "..olmldmdmlolo..",
+    "...odmdmdmdmo...",
+    "....oddddddo....",
+    ".....oooooo.....",
+]
 
-# --------------------------------------------------------------------------- props
-RACK_PALETTE = [LINE, (248, 240, 200), (232, 216, 152), (200, 176, 104), (160, 136, 72), (128, 232, 200),
-                (64, 184, 152), (32, 120, 104), (112, 112, 120), (248, 184, 144), (184, 80, 8), (72, 80, 80)]
-
-def rack():
-    """A herb drying rack (106): two pale wooden posts and a crossbar, four bundles of green
-    herbs hanging in two rows. 32 x 32, two cells wide on its blocked base row."""
-    img = canvas(32, 32)
-    P = RACK_PALETTE
-    for x0 in (1, 27):
-        rect(img, x0, 3, x0 + 4, 31, P[2]); rect(img, x0, 3, x0 + 1, 31, P[1]); rect(img, x0 + 3, 3, x0 + 4, 31, P[3])
-        rect(img, x0 - 1, 29, x0 + 5, 32, P[3])
-    rect(img, 1, 2, 31, 6, P[2]); rect(img, 1, 2, 31, 3, P[1]); rect(img, 1, 5, 31, 6, P[3])
-    rect(img, 5, 16, 27, 17, P[3])
-    for cx, cy in ((10, 7), (21, 7), (10, 18), (21, 18)):
-        img[cy:cy + 2, cx] = tuple(P[8]) + (255,)
-        ys, xs = np.mgrid[0:32, 0:32]
-        leaf = ((xs - cx) / 4.6) ** 2 + ((ys - cy - 6) / 4.2) ** 2 <= 1
-        img[leaf] = tuple(P[6]) + (255,)
-        img[leaf & (ys < cy + 5)] = tuple(P[5]) + (255,)
-        img[leaf & (ys > cy + 8)] = tuple(P[7]) + (255,)
-        img[leaf & (np.abs(xs - cx) < 1) & (ys > cy + 3)] = tuple(P[7]) + (255,)
-    outline(img, LINE)
-    snap(img, RACK_PALETTE)
-    return img
-
-def camera_prop():
-    """Cameron's camera on its tripod (90): 16 x 24."""
-    img = canvas(16, 24)
-    P = RACK_PALETTE
-    for (x0, x1) in ((7, 2), (8, 13), (7, 7)):
-        for y in range(10, 24):
-            x = int(round(x0 + (x1 - x0) * (y - 10) / 13))
-            img[y, x] = tuple(P[11]) + (255,)
-    rect(img, 2, 2, 14, 10, P[10]); rect(img, 2, 2, 14, 4, P[9]); rect(img, 3, 8, 13, 10, P[11])
-    rect(img, 6, 4, 10, 8, P[11]); img[5, 7:9] = tuple(P[1]) + (255,)
-    rect(img, 6, 0, 10, 2, P[11])
-    outline(img, LINE)
-    snap(img, RACK_PALETTE)
-    return img
-
-# Cherrygrove's accepted sea rock: foam ring, teal-lit top, slate shadow.
-SEA_ROCK = [(208, 216, 216), (136, 184, 184), (112, 168, 184), (128, 128, 128), (72, 96, 112), (56, 72, 96)]
-
-def sea_rock(w=32, h=24):
-    """A rock standing in the sea, HGSS's two-cell size, in Cherrygrove's sea-rock colours:
-    a rounded stone lit from the upper left with two facet creases, its foot ringed with
-    foam where it meets the water. Mirrored facets keep it to few tiles."""
-    img = canvas(w, h)
-    ys, xs = np.mgrid[0:h, 0:w]
-    cx, cy, rx, ry = (w - 1) / 2, h * 0.42, w * 0.41, h * 0.38
-    body = ((xs - cx) / rx) ** 2 + ((ys - cy) / ry) ** 2 <= 1
-    foam = (((xs - cx) / (rx + 2)) ** 2 + ((ys - cy - 1) / (ry + 2)) ** 2 <= 1) & ~body & (ys > cy)
-    img[foam] = SEA_ROCK[0] + (255,)
-    nx, ny = (xs - cx) / rx, (ys - cy) / ry
-    light = -0.6 * nx - 0.8 * ny
-    k = np.select([light > 0.45, light > 0.05, light > -0.35, light > -0.7], [1, 2, 3, 4], 5)
-    for i in range(1, 6):
-        img[body & (k == i)] = SEA_ROCK[i] + (255,)
-    crease = body & ((np.abs(xs - cx + (ys - cy) * 0.6) < 0.6) | (np.abs(xs - cx - 5 - (ys - cy) * 0.4) < 0.6)) & (ys > cy - ry * 0.4)
-    img[crease] = SEA_ROCK[4] + (255,)
-    edge = body & ~(np.pad(body, 1)[:-2, 1:-1] & np.pad(body, 1)[2:, 1:-1] & np.pad(body, 1)[1:-1, :-2] & np.pad(body, 1)[1:-1, 2:])
-    img[edge] = SEA_ROCK[5] + (255,)
-    return img
-
-def pebble():
-    """HGSS's lone pebble north of the rock line, a small sea rock."""
-    return sea_rock(16, 12)
-
-# --------------------------------------------------------------------------- ground details
-# HGSS's small stones (etc_a: the brown stone of its prop atlas, a flat 15 x 8 decal) in
-# the cliff's own ramp, and its sand tufts (beach_sub) in Cherrygrove's grass greens.
-STONE = [(239, 189, 140), (222, 173, 123), (198, 148, 115), (165, 115, 99), (132, 90, 74), (82, 58, 52)]
-TUFT = [(104, 208, 152), (96, 192, 144), (88, 176, 136), (208, 208, 168)]
-
-def stone():
-    """A small brown stone lying flat, 16 x 8: lit from the upper left, dark rim, its
-    shadow along the bottom row."""
-    img = canvas(16, 8)
-    ys, xs = np.mgrid[0:8, 0:16]
-    cx, cy, rx, ry = 7.5, 3.2, 7.0, 3.4
-    body = ((xs - cx) / rx) ** 2 + ((ys - cy) / ry) ** 2 <= 1
-    nx, ny = (xs - cx) / rx, (ys - cy) / ry
-    light = -0.6 * nx - 0.8 * ny
-    k = np.select([light > 0.5, light > 0.1, light > -0.3], [0, 1, 2], 3)
-    for i in range(4):
-        img[body & (k == i)] = STONE[i] + (255,)
-    edge = body & ~(np.pad(body, 1)[:-2, 1:-1] & np.pad(body, 1)[2:, 1:-1] & np.pad(body, 1)[1:-1, :-2] & np.pad(body, 1)[1:-1, 2:])
-    img[edge] = STONE[4] + (255,)
-    img[edge & (ys >= cy)] = STONE[5] + (255,)
-    shadow = ~body & (np.pad(body, ((1, 0), (0, 0)))[:-1]) & (ys >= 5)
-    img[shadow] = STONE[5] + (255,)
+def art(rows, pal):
+    img = canvas(max(len(r) for r in rows), len(rows))
+    for y, r in enumerate(rows):
+        for x, ch in enumerate(r):
+            if ch in pal:
+                img[y, x] = pal[ch] + (255,)
     return img
 
 def tuft():
-    """A tuft of beach grass, 16 x 16: five blades fanning up from a point, a soft
-    shadow on the sand under it."""
-    img = canvas(16, 16)
-    rect(img, 4, 13, 12, 15, TUFT[3]); rect(img, 6, 15, 10, 16, TUFT[3])
-    blades = [((7.5, 14), (7.5, 2), 1), ((7, 14), (3, 5), 2), ((8, 14), (12, 5), 2), ((7, 14), (1, 10), 1), ((8, 14), (14, 10), 1)]
-    for (x0, y0), (x1, y1), shade in blades:
-        n = int(max(abs(x1 - x0), abs(y1 - y0))) * 2 + 1
-        for t in np.linspace(0, 1, n):
-            x, y = int(round(x0 + (x1 - x0) * t)), int(round(y0 + (y1 - y0) * t))
-            img[y, x] = TUFT[shade if t < 0.7 else 0] + (255,)
-    return img
+    """A tuft of beach grass, 16 x 13: blades fanning from one root, light edges, the dark
+    tree green as outline."""
+    return art(TUFT_ART, TUFT)
 
-# --------------------------------------------------------------------------- gym
-# Blackthorn's Gym model (108 in Cianwood) through the same camera, Cianwood's colours:
-# red bands and flank, a grey emblem slab. 15 colours in all.
-GYM = dict(line=LINE, wood=[(184, 144, 104), (160, 112, 72), (120, 88, 56)],
-           beam=[(248, 200, 144), (248, 112, 24), (208, 88, 24)],
-           hall=[(224, 208, 208), (176, 160, 160)], band=[(208, 72, 64), (168, 32, 24)],
-           red=[(168, 168, 168), (136, 136, 136), (80, 80, 80)], glass=(96, 184, 232))
-GYM_PALETTE = [GYM['line'], *GYM['wood'], *GYM['beam'], *GYM['hall'], *GYM['band'], *GYM['red'], GYM['glass']]
+def build(phg):
+    sys.path.insert(0, str(HERE))
+    import elements as E
+    renders = hgss_renders(phg)
+    pals = town_palettes(renders)
+    out = {name: finish(r, pals[name], RENDERS[name][2]) for name, r in renders.items()}
+    for names in REUSE_GROUPS:
+        reuse_tiles(out, names)
+    rock = sea_rock(E.hgss_texture(phg, 'sea_rock', 'sea_rock'))
+    out.update(sea_rock=rock, pebble=sea_rock(E.hgss_texture(phg, 'sea_rock', 'sea_rock'), 16, 13),
+               stone=stone(E.hgss_texture(phg, 'etc_a', 'etc_a')), tuft=tuft())
+    SPRITES.mkdir(parents=True, exist_ok=True)
+    for name, img in out.items():
+        Image.fromarray(img, 'RGBA').save(SPRITES / f'{name}.png')
+    sheet(out)
+    return out
 
-def gym():
-    """Cianwood Gym, from HGSS's Gym model (108, door 16) through the field camera, scaled
-    by 0.95 so its 118 px width fits seven cells: a low oval drum with two red bands, two
-    curved plank roof shells split by a recessed spine with three slats, orange beams that
-    run up the spine's edges, bend out over the hall and drop to its foot as posts, a grey
-    emblem slab over glass doors, two short beam ends at each side. 112 x 80: the foot on
-    the bottom of the door row. Mirror-symmetric, so the halves share tiles."""
-    C = GYM
-    img = canvas(112, 96)
-    ys, xs = np.mgrid[0:96, 0:112]
-    dx = np.abs(xs - 55.5)
-    put = lambda m, c: img.__setitem__(m, tuple(c) + (255,))
-    ell = lambda r: np.sqrt(np.clip(1 - (dx / r) ** 2, 0, 1))
-    e = ell(50)
-    foot = 82 + 13 * e
-    drum = (dx <= 50) & (ys >= 44 - 13 * e) & (ys <= foot)
-    put(drum, C['hall'][0])
-    put(drum & (dx > 45.5) & (ys >= 42), C['band'][0])
-    band = 66 + 11 * e
-    put(drum & (ys >= band) & (ys < band + 3), C['band'][1])
-    put(drum & (ys >= band + 3) & (ys < band + 9), C['hall'][1])
-    put(drum & (ys >= band + 9), C['band'][0])
-    put(drum & (ys >= foot - 2), C['band'][1])
-    er = ell(47)
-    roof = (dx <= 45) & (ys >= 44 - 29 * er) & (ys <= 49 + 16 * er) & ~((dx < 14) & (ys < 22))
-    put(drum & ~roof & (ys <= 51 + 16 * er) & (dx <= 46), C['hall'][1])
-    shell = roof & (dx >= 19)
-    put(shell, C['wood'][0])
-    put(shell & ((ys > 40) | (dx > 39)), C['wood'][1])
-    put(shell & (ys > 47 + 16 * er), C['wood'][2])
-    for ang in (0.55, 1.0):
-        t = np.linspace(0, 1, 120)
-        sx = 19 + t * 30 * np.cos(ang); sy = 58 - t * 44 * np.sin(ang)
-        for x_, y_ in zip(np.round(55.5 - sx).astype(int), np.round(sy).astype(int)):
-            if 0 <= x_ < 56 and shell[y_, x_]:
-                img[y_, x_] = tuple(C['wood'][2]) + (255,)
-    put(shell & (ys < 44 - 29 * er + 1.5) & (dx < 43), C['beam'][0])
-    spine = roof & (dx < 14)
-    put(spine, C['wood'][1])
-    put(spine & (ys < 24), C['wood'][2])
-    put(spine & (dx >= 11.5), C['wood'][2])
-    for y0 in (27, 35, 43):
-        put(spine & (dx < 9.5) & (ys >= y0) & (ys < y0 + 3), C['wood'][2])
-    put(spine & (ys >= 52), C['wood'][2])
-    for x0 in (25, 32):
-        rect(img, x0, 66, x0 + 6, 74, C['hall'][1])
-        rect(img, x0 + 1, 67, x0 + 5, 73, C['glass'])
-        img[67, x0 + 1:x0 + 3] = tuple(C['hall'][0]) + (255,); img[68, x0 + 1] = tuple(C['hall'][0]) + (255,)
-    for y in range(17, 59):
-        for k, t in enumerate([1, 0, 0, 1, 2]):
-            img[y, 36 + k] = tuple(C['beam'][t]) + (255,)
-    for y in range(64, 95):
-        for k, t in enumerate([0, 1, 1, 1, 2]):
-            img[y, 18 + k] = tuple(C['beam'][t]) + (255,)
-    (ax, ay), (bx, by) = (38.0, 57.0), (20.0, 65.0)
-    vx, vy = bx - ax, by - ay
-    tt = np.clip(((xs - ax) * vx + (ys - ay) * vy) / (vx * vx + vy * vy), 0, 1)
-    px_, py_ = ax + tt * vx - xs, ay + tt * vy - ys
-    side = (px_ * vy - py_ * vx) / np.hypot(vx, vy)
-    bend = (np.hypot(px_, py_) <= 2.6) & (xs < 56)
-    put(bend, C['beam'][1]); put(bend & (side > 1.0), C['beam'][0]); put(bend & (side < -1.3), C['beam'][2])
-    img[17, 36] = img[17, 40] = 0
-    rect(img, 41, 59, 56, 80, C['red'][1])
-    rect(img, 43, 59, 56, 60, C['red'][0]); rect(img, 41, 61, 56, 64, C['red'][0]); rect(img, 42, 60, 56, 61, C['red'][0])
-    img[59, 41:43] = 0; img[60, 41] = 0
-    rect(img, 41, 74, 56, 80, C['red'][2]); rect(img, 41, 61, 42, 80, C['red'][2])
-    r2 = (xs - 55.5) ** 2 + (ys - 73.5) ** 2
-    arch = (r2 <= 8.4 ** 2) & (r2 > 4.6 ** 2) & (ys <= 73) & (ys >= 65)
-    put(arch & (xs < 56), C['hall'][0])
-    put((dx < 2) & (ys >= 70) & (ys <= 73), C['hall'][0])
-    rect(img, 41, 80, 45, 95, C['beam'][1]); rect(img, 41, 80, 42, 95, C['beam'][0]); rect(img, 44, 80, 45, 95, C['beam'][2])
-    rect(img, 45, 80, 56, 95, C['hall'][1])
-    rect(img, 46, 81, 55, 95, C['glass'])
-    rect(img, 47, 82, 49, 94, C['hall'][0])
-    img[80:95, 55] = tuple(C['hall'][1]) + (255,)
-    for y0 in (57, 65):
-        rect(img, 0, y0, 7, y0 + 6, C['beam'][1]); rect(img, 0, y0, 7, y0 + 2, C['beam'][0]); rect(img, 0, y0 + 5, 7, y0 + 6, C['beam'][2])
-    img[:, 56:] = img[:, :56][:, ::-1]
-    outline(img, C['line'])
-    snap(img, GYM_PALETTE)
-    assert not img[:16, :, 3].any()
-    return img[16:]
+def load(name):
+    return np.array(Image.open(SPRITES / f'{name}.png').convert('RGBA'))
 
-def sheet():
-    parts = [house(), pharmacy(), studio(), studio_board(), gym(), rack(), camera_prop(), sea_rock(), pebble(), stone(), tuft()]
+def sheet(parts):
+    parts = list(parts.values())
     w = sum(p.shape[1] * 4 + 16 for p in parts); h = max(p.shape[0] for p in parts) * 4 + 16
-    out = Image.new('RGBA', (w, h), (240, 240, 200, 255))
+    out = Image.new('RGBA', (w, h), (232, 232, 192, 255))
     x = 8
     for p in parts:
         out.alpha_composite(Image.fromarray(p, 'RGBA').resize((p.shape[1] * 4, p.shape[0] * 4), Image.Resampling.NEAREST), (x, 8))
         x += p.shape[1] * 4 + 16
-    OUT.mkdir(parents=True, exist_ok=True)
     out.save(OUT / 'sprites.png')
 
 if __name__ == '__main__':
-    sheet()
+    build(Path(sys.argv[1]).resolve())

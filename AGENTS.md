@@ -108,10 +108,14 @@ tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the
   one-tile terrace. Autotile per 8x8 quadrant, place inner corners as whole pieces, use
   the over-rock variants on stacked terraces, join ledges into cliffs with FRLG's join
   pieces. When unsure, build two treatments side by side and measure both budgets.
-- Props and buildings other than the shared Center and Mart: redraw from scratch as
-  top-layer sprites, inside their own cell columns. Take shape and proportion from the
-  game's own model drawn through the map's own field camera (`hgss_camera.py`) when no
-  screenshot is available.
+- Props and buildings other than the shared Center and Mart: top-layer sprites, inside
+  their own cell columns. The owner's reference angle is C06's (owner, 2026-10-23): render
+  each building from the game's own model and textures at C06's angle (orthographic, 38
+  degrees, 16 px per tile up the screen, squeezed across to its footprint;
+  `tools/gba/maps/cianwood_elements/hgss_camera.py` `view`), so roof pitch and doors match
+  the Center. HGSS's own field camera is steeper (48.7 degrees) and makes houses look
+  steep beside it. Small props and plants are drawn at Gen 3 quality (dark outline, lit
+  edges, a short ramp), never as flat blocks.
 - Depth: the player is two cells tall (feet, and head in the cell above). A walkable cell
   draws its art above the player (layer type normal, every tile on the top layer) only
   when the art's object has its base row further south: a roof or crown the player walks
