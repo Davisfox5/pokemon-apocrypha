@@ -1,0 +1,38 @@
+{
+  "tiles": 1000,
+  "tile_limit": 1008,
+  "primary_tiles": 512,
+  "secondary_tiles": 488,
+  "metatiles": 471,
+  "primary_metatiles": 249,
+  "secondary_metatiles": 222,
+  "merged_tiles": 71,
+  "distinct_tile_jobs": 1294,
+  "town_bank_error": 3.517095131227071,
+  "colour_rgb5": {
+    "exact": 214953,
+    "within_1": 247886,
+    "within_2": 257957,
+    "within_4": 261735,
+    "total": 262144,
+    "worst": 9
+  },
+  "center_pixels_exact": true,
+  "adaptations": {
+    "12,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "13,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "16,14": "HGSS door; interior not built, so solid",
+    "25,14": "HGSS door; interior not built, so solid",
+    "20,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "21,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "22,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "23,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "24,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "20,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "21,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "22,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "23,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "24,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "11,23": "HGSS door; interior not built, so solid"
+  }
+}

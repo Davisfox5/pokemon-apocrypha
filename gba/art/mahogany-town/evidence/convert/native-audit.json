@@ -1,0 +1,480 @@
+{
+  "style": "converted",
+  "cells_audited": 1024,
+  "installed_matches_packer_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 338,
+  "open_cells": 340,
+  "unreachable_open_cells": [
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "open_cells_reached_only_by_surf": 0,
+  "approaches_needing_surf": [],
+  "approaches": {
+    "center": [
+      22,
+      24
+    ],
+    "gym": [
+      11,
+      24
+    ],
+    "souvenir_shop": [
+      16,
+      15
+    ],
+    "east_house": [
+      25,
+      15
+    ],
+    "route43_gate": [
+      12,
+      6
+    ],
+    "west_edge": [
+      0,
+      12
+    ],
+    "east_edge": [
+      31,
+      16
+    ],
+    "town_sign": [
+      4,
+      13
+    ],
+    "gym_sign": [
+      8,
+      25
+    ],
+    "souvenir_sign": [
+      14,
+      15
+    ],
+    "west_lawn": [
+      8,
+      10
+    ],
+    "gym_lawn_west": [
+      5,
+      22
+    ],
+    "center_lawn": [
+      18,
+      22
+    ],
+    "behind_center": [
+      22,
+      18
+    ],
+    "behind_gym": [
+      11,
+      17
+    ]
+  },
+  "walk_behind_cells": {
+    "antenna_tree": 9,
+    "east_house": 4,
+    "gym": 14,
+    "pokemon_center": 5,
+    "shop_sign": 1,
+    "souvenir_shop": 14,
+    "terrain": 32,
+    "tower_west": 2,
+    "town_sign": 2
+  },
+  "walk_behind": {
+    "tower_west": [
+      [
+        8,
+        7
+      ],
+      [
+        8,
+        8
+      ]
+    ],
+    "souvenir_shop": [
+      [
+        15,
+        8
+      ],
+      [
+        16,
+        8
+      ],
+      [
+        17,
+        8
+      ],
+      [
+        18,
+        8
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        16,
+        9
+      ],
+      [
+        17,
+        9
+      ],
+      [
+        18,
+        9
+      ],
+      [
+        19,
+        9
+      ],
+      [
+        14,
+        10
+      ],
+      [
+        19,
+        10
+      ],
+      [
+        14,
+        11
+      ],
+      [
+        19,
+        11
+      ]
+    ],
+    "antenna_tree": [
+      [
+        19,
+        9
+      ],
+      [
+        20,
+        9
+      ],
+      [
+        19,
+        10
+      ],
+      [
+        20,
+        10
+      ],
+      [
+        19,
+        11
+      ],
+      [
+        20,
+        11
+      ],
+      [
+        21,
+        11
+      ],
+      [
+        21,
+        12
+      ],
+      [
+        21,
+        13
+      ]
+    ],
+    "east_house": [
+      [
+        23,
+        9
+      ],
+      [
+        23,
+        10
+      ],
+      [
+        23,
+        11
+      ],
+      [
+        23,
+        12
+      ]
+    ],
+    "town_sign": [
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ]
+    ],
+    "shop_sign": [
+      [
+        14,
+        13
+      ]
+    ],
+    "terrain": [
+      [
+        0,
+        15
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        25,
+        17
+      ],
+      [
+        26,
+        17
+      ],
+      [
+        27,
+        17
+      ],
+      [
+        28,
+        17
+      ],
+      [
+        29,
+        17
+      ],
+      [
+        30,
+        17
+      ],
+      [
+        31,
+        17
+      ],
+      [
+        3,
+        26
+      ],
+      [
+        4,
+        26
+      ],
+      [
+        5,
+        26
+      ],
+      [
+        6,
+        26
+      ],
+      [
+        7,
+        26
+      ],
+      [
+        8,
+        26
+      ],
+      [
+        9,
+        26
+      ],
+      [
+        10,
+        26
+      ],
+      [
+        11,
+        26
+      ],
+      [
+        12,
+        26
+      ],
+      [
+        13,
+        26
+      ],
+      [
+        14,
+        26
+      ],
+      [
+        15,
+        26
+      ],
+      [
+        16,
+        26
+      ],
+      [
+        17,
+        26
+      ],
+      [
+        18,
+        26
+      ],
+      [
+        19,
+        26
+      ],
+      [
+        20,
+        26
+      ],
+      [
+        21,
+        26
+      ],
+      [
+        22,
+        26
+      ],
+      [
+        23,
+        26
+      ],
+      [
+        24,
+        26
+      ]
+    ],
+    "gym": [
+      [
+        9,
+        16
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        11,
+        16
+      ],
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        8,
+        17
+      ],
+      [
+        9,
+        17
+      ],
+      [
+        10,
+        17
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        12,
+        17
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        7,
+        20
+      ],
+      [
+        15,
+        20
+      ]
+    ],
+    "pokemon_center": [
+      [
+        20,
+        19
+      ],
+      [
+        21,
+        19
+      ],
+      [
+        22,
+        19
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        24,
+        19
+      ]
+    ]
+  },
+  "walkable_cells_with_art_below_player": {
+    "gate": [
+      [
+        11,
+        6
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        14,
+        6
+      ]
+    ],
+    "pokemon_center": [
+      [
+        22,
+        23
+      ]
+    ]
+  },
+  "shared_building_pixels_exact": 5679,
+  "center_master_sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "tiles": 1000,
+  "tile_limit": 1008,
+  "primary_metatiles": 249,
+  "secondary_metatiles": 222,
+  "metatile_limit_each": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}
