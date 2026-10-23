@@ -1,0 +1,73 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (26b919d)",
+  "engine_commit": "20fbdb8dab34cdf6f595992f56e3ef17d2b030bd",
+  "style": "C",
+  "city_export_vs_native": {
+    "size": [
+      1024,
+      1024
+    ],
+    "differing_pixels": 0
+  },
+  "olivine_files_rewritten": [
+    "data/layouts/OlivineCity/border.bin",
+    "data/layouts/OlivineCity/map.bin",
+    "data/maps/OlivineCenterUpstairs/map.json",
+    "data/maps/OlivineCity/map.json",
+    "data/maps/OlivineMart/map.json",
+    "data/maps/OlivinePokemonCenter/map.json",
+    "data/tilesets/primary/olivine/metatile_attributes.bin",
+    "data/tilesets/primary/olivine/metatiles.bin",
+    "data/tilesets/primary/olivine/palettes/00.pal",
+    "data/tilesets/primary/olivine/palettes/01.pal",
+    "data/tilesets/primary/olivine/palettes/02.pal",
+    "data/tilesets/primary/olivine/palettes/03.pal",
+    "data/tilesets/primary/olivine/palettes/04.pal",
+    "data/tilesets/primary/olivine/palettes/05.pal",
+    "data/tilesets/primary/olivine/palettes/06.pal",
+    "data/tilesets/primary/olivine/palettes/07.pal",
+    "data/tilesets/primary/olivine/palettes/08.pal",
+    "data/tilesets/primary/olivine/palettes/09.pal",
+    "data/tilesets/primary/olivine/palettes/10.pal",
+    "data/tilesets/primary/olivine/palettes/11.pal",
+    "data/tilesets/primary/olivine/palettes/12.pal",
+    "data/tilesets/secondary/olivine_city/metatile_attributes.bin",
+    "data/tilesets/secondary/olivine_city/metatiles.bin",
+    "data/tilesets/secondary/olivine_city/palettes/00.pal",
+    "data/tilesets/secondary/olivine_city/palettes/01.pal",
+    "data/tilesets/secondary/olivine_city/palettes/02.pal",
+    "data/tilesets/secondary/olivine_city/palettes/03.pal",
+    "data/tilesets/secondary/olivine_city/palettes/04.pal",
+    "data/tilesets/secondary/olivine_city/palettes/05.pal",
+    "data/tilesets/secondary/olivine_city/palettes/06.pal",
+    "data/tilesets/secondary/olivine_city/palettes/07.pal",
+    "data/tilesets/secondary/olivine_city/palettes/08.pal",
+    "data/tilesets/secondary/olivine_city/palettes/09.pal",
+    "data/tilesets/secondary/olivine_city/palettes/10.pal",
+    "data/tilesets/secondary/olivine_city/palettes/11.pal",
+    "data/tilesets/secondary/olivine_city/palettes/12.pal"
+  ],
+  "olivine_files_changed": [],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_olivine": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Olivine are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

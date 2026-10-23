@@ -366,6 +366,48 @@ tools are marked as Blackthorn's.
 - `git checkout BASE -- file` stages the base copy; a reinstall that uses it and a later
   commit of only the map's own files commits those base copies too. Restore base files
   with `git restore --source=BASE --worktree`, and read `git show --stat` before pushing.
+- A port city outgrows one secondary (Olivine: about 860 tiles). A derived primary
+  (`olivine_elements/pack.py`) gives about 990: keep CherrygrovePrimary's tile 0, the
+  open-sea tiles the map draws (1-16) and every tile the map draws at their own indices,
+  and its banks 0, 1, 3. CherrygrovePrimary's callback rewrites tiles 1-92 every 16 frames,
+  so a derived primary that keeps it can use none of slots 17-92 (Olivine draws none of
+  the shore tiles there); give it its own callback that plays the same frames into 1-16
+  only (`InitTilesetAnim_OlivinePrimary`, 76 slots freed). The VRAM-parity check then
+  proves the sea still animates and nothing past it is overwritten.
+- After that, palettes bind first: 13 banks for the Center (2), the Mart (1), five
+  buildings and every surface. Map neutral surfaces (deck, quay, fences, paving, sea rocks)
+  onto one shared ramp, draw props in a building's palette (benches in the Lighthouse's,
+  yachts in the Gym's woods and whites), and seed a small prop group (the flag lines) into
+  the Center's half-empty bank.
+- A tile mixing a building with a tree, fence or rock has no bank. Deleting the other's
+  pixels there (the building "keeps" the tile) draws ground-coloured boxes round the
+  building: grass squares in the treetops round the Lighthouse's lantern, gaps where the
+  fences meet the Center, the Mart and the flag poles. Put one family on the top layer and
+  draw the bottom layer there as the picture with that family left out: the art behind,
+  whole, over plain ground. Drawing the bottom as only what shows round the top layer
+  makes every such tile unique (Olivine came to 920 tiles that way, 871 drawn whole).
+- A corner quadrant that drops onto lower rock on one side and onto grass on the other
+  took the grass beyond for both: a strip of grass between two terraces, like a hole in
+  the ledge. Paint its clear pixels nearer the rock side as the lower rock's top on the
+  overlay and keep the bottom one plain ground; a bottom mixing two grounds (sea and deck)
+  needs two banks.
+- A 2x2 prop between two levels (a boulder) took each cell's level from its own
+  neighbours, so the rock beside it drew a ledge into the boulder. Give the whole prop one
+  terrace, from the open ground round it.
+- A prop standing on the map's edge with most of it past the edge (HGSS's north-gate flag
+  line, over Route 39) shows only stubs on a Gen 3 map, and its stubs share tiles with
+  whatever stands beside them. Leave it out.
+- HGSS models tree crowns as terrain a level above their trunks, so a tree cell's height
+  is not its terrace. Plant trees from their trunk pixels (the brown core of `tree01_un`)
+  on HGSS's 2x2 grid and take the terrace from the ground under the trunk.
+- Fences are thin in the top-down render; their faces show in the lifted render
+  (`hgss-ground-materials.npz`). A blocked floor cell without fence faces is plain ground.
+- C06's width is the building's HGSS blocked footprint, not the placement's footprint
+  (which counts the shadow quad): Olivine's houses are four cells, not five. Props keep
+  their true size.
+- A 3D-lit tower (the Lighthouse) is not symmetric in colour; mirror the frame round it
+  and keep the tower's own two sides. A barrel roof's stripes curve, so making each row
+  repeat wipes them out; mirror about the door instead.
 
 ## Worked example
 

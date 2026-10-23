@@ -99,8 +99,10 @@ every HGSS-to-Gen 3 map. Where an older rule in this file or the linked docs rea
 differently for a Gen 4 conversion, this section wins. Details, pitfalls and budgets
 are in [the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
 the worked examples are `gba/art/blackthorn-city/README.md` (mountain town, tools in
-`tools/gba/maps/blackthorn/`) and `gba/art/cianwood-elements/README.md` (coastal town,
-tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the tree.
+`tools/gba/maps/blackthorn/`), `gba/art/cianwood-elements/README.md` (coastal town,
+tools in `tools/gba/maps/cianwood_elements/`) and `gba/art/olivine-elements/README.md`
+(port city on a derived primary, tools in `tools/gba/maps/olivine_elements/`); read the
+script you need, not the tree.
 
 - Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
   heights, permissions, events, cell by cell), but replace each **element** with the
@@ -123,7 +125,7 @@ tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the
   open ground when the Gen 3 sprite misses it or reaches only its lower half with a
   roof's top edge (the player walks behind that edge). Check depth in the emulator from
   behind and in front of every building.
-- Reuse accepted vocabulary (Cherrygrove ground, sea and sandbar shore, Route 30 pond rim,
+- Reuse accepted vocabulary (Cherrygrove ground, sea, sandbar shore and trees, Route 30 pond rim,
   the owner-locked Center and Mart listed in `gba/art/johto-common/approved-buildings.json`)
   and colours the loaded palettes already hold (the primary's banks), so tiles and
   palettes stay inside one tileset pair. Every pixel must decode to its exact 5-bit
@@ -131,6 +133,26 @@ tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the
   and check every element's decoded colours after packing. Measure per-element tile and
   colour cost (`budget.py`) before cutting anything, and cut where it cannot be seen
   (shared tiles, hidden tiles, overlays moved under objects) before cutting detail.
+- When a town's buildings will not fit one secondary even after that (Olivine: 860 tiles
+  against 496), give the map a primary of its own derived from CherrygrovePrimary rather
+  than splitting the town or cutting buildings: keep tile 0, the sea tiles the map draws
+  (Olivine: the 16 open-sea tiles) and every Cherrygrove tile the map draws at their own
+  indices, give the primary its own animation callback that plays Cherrygrove's sea frames
+  into those sea tiles only, keep banks 0, 1 and 3 (filling only slots no Cherrygrove tile
+  draws) and learn the rest (Olivine's `pack.py`). Palettes then bind before tiles do:
+  share one neutral ramp across ground surfaces (deck, quay, fences, paving, sea rocks) and
+  draw small props in a building's palette.
+- Objects have no background. Draw everything that stands (trees, fences, props,
+  buildings) in painter's order by the row its foot stands on, by its own opaque pixels, so
+  whatever stands behind shows round it; never delete one object's pixels to make room for
+  another. Where two palette families meet in one 8x8 tile, one takes the top layer and
+  the bottom layer there is the picture with that family left out (what stands behind it,
+  whole, over plain ground), so those tiles repeat wherever the art behind repeats
+  (Olivine's `elements.split`).
+- Johto trees are Cherrygrove's tree (HGSS's own `tree01_re` at 1:1, 32x48 with trunk and
+  shadow): trunk in the lower row of HGSS's 2x2 tree block, crown rising into the row
+  above, in front of the tree or ledge behind it. HGSS's top-down render flattens trees
+  into wide, flat-sided blobs; do not cut trees from it.
 - A borrowed edge piece brings its source map's texture and colours with it. Repaint its
   water or ground with the receiving map's own texture at that map's phase, recolour its
   stray pixels into the receiving bank, mirror pieces for sides the source never shows,

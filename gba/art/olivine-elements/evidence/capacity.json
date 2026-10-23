@@ -1,0 +1,18 @@
+{
+  "map": "OlivineCity",
+  "primary": "gTileset_OlivinePrimary",
+  "secondary": "gTileset_OlivineCity",
+  "style": "C",
+  "olivine_tiles": 854,
+  "primary_slots": 431,
+  "secondary_tiles": 423,
+  "secondary_tile_limit": 496,
+  "new_metatiles": 572,
+  "metatile_limit": 988,
+  "map_ids": {
+    "OlivineCity": 50,
+    "OlivinePokemonCenter": 51,
+    "OlivineCenterUpstairs": 52,
+    "OlivineMart": 53
+  }
+}
