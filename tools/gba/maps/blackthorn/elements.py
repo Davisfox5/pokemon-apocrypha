@@ -832,8 +832,9 @@ def ledges(cells, strip):
     return top
 
 # --------------------------------------------------------------------------- objects
-# (sprite, left cell, top cell): sprites sit with their bottom edge on the bottom of
-# their lowest blocked cell. Footprints and doors are the decoded HGSS permissions.
+# (name, sprite, left px, top px): sprites sit with their bottom edge on the bottom of
+# their base row (the lowest blocked cell). Footprints and doors are the decoded HGSS
+# permissions. The house and Gym sprites are written by sprites.py from HGSS's models.
 SHARED = SRC / 'shared-art'
 SIGN_METATILE = 0x114                  # Cherrygrove's accepted town sign, a full opaque cell
 SIGNS = [(31, 6), (21, 48), (26, 25), (13, 43), (52, 42)]
@@ -842,15 +843,16 @@ def objects():
     sys.path.insert(0, str(HERE))
     import sprites as S
     rgba = lambda f: np.array(Image.open(SHARED / f).convert('RGBA'))
-    post = S.gate_post()
+    base = lambda img, x, row: (x * 16, (row + 1) * 16 - img.shape[0])        # bottom on the bottom of that row
+    house, gym, post, stone = S.load('house'), S.load('gym'), S.load('gate_post'), S.load('standing_stone')
     return [
-        ('gym', S.gym(), 25 * 16, 19 * 16),
-        ('west_house', S.hut(), 19 * 16, 33 * 16),
-        ('tutor_house', S.hut(), 17 * 16, 44 * 16),
-        ('east_house', S.hut(), 43 * 16, 36 * 16),
-        ('stone', S.standing_stone(), 23 * 16, 38 * 16 - 56),
-        ('gate_post_west', post, 21 * 16, 54 * 16 - post.shape[0]),
-        ('gate_post_east', S.gate_post(True), 25 * 16, 54 * 16 - post.shape[0]),
+        ('gym', gym, *base(gym, 25, 23)),
+        ('west_house', house, *base(house, 19, 37)),
+        ('tutor_house', house, *base(house, 17, 48)),
+        ('east_house', house, *base(house, 43, 40)),
+        ('stone', stone, *base(stone, 23, 37)),
+        ('gate_post_west', post, *base(post, 21, 53)),
+        ('gate_post_east', post[:, ::-1].copy(), *base(post, 25, 53)),
         ('poke_mart', rgba('poke-mart.png'), 25 * 16, 43 * 16),
         ('pokemon_center', rgba('pokemon-center.png'), 31 * 16, 43 * 16),
     ]
