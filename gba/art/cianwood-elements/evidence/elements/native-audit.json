@@ -1,0 +1,374 @@
+{
+  "style": "C",
+  "cells_audited": 2048,
+  "installed_matches_packer_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 654,
+  "open_cells": 654,
+  "unreachable_open_cells": [],
+  "open_cells_reached_only_by_surf": 0,
+  "approaches_needing_surf": [],
+  "approaches": {
+    "center": [
+      27,
+      50
+    ],
+    "gym": [
+      12,
+      38
+    ],
+    "pharmacy": [
+      19,
+      51
+    ],
+    "kirks_house": [
+      10,
+      48
+    ],
+    "central_house": [
+      21,
+      43
+    ],
+    "photo_studio": [
+      21,
+      35
+    ],
+    "north_house": [
+      7,
+      16
+    ],
+    "cliff_edge_gate": [
+      11,
+      27
+    ],
+    "north_beach": [
+      20,
+      11
+    ],
+    "east_shore": [
+      31,
+      40
+    ],
+    "city_sign": [
+      16,
+      43
+    ],
+    "gym_sign": [
+      15,
+      39
+    ],
+    "pharmacy_sign": [
+      22,
+      51
+    ],
+    "photo_sign": [
+      19,
+      35
+    ],
+    "safari_sign": [
+      12,
+      25
+    ]
+  },
+  "walk_behind_cells": {
+    "camera": 1,
+    "pokemon_center": 5,
+    "rack_0": 2,
+    "rack_1": 2,
+    "rack_2": 2,
+    "rack_3": 2,
+    "sea_rock_1": 2,
+    "studio_board": 1,
+    "terrain": 2
+  },
+  "walk_behind": {
+    "sea_rock_1": [
+      [
+        27,
+        6
+      ],
+      [
+        28,
+        6
+      ]
+    ],
+    "terrain": [
+      [
+        22,
+        7
+      ],
+      [
+        31,
+        59
+      ]
+    ],
+    "rack_0": [
+      [
+        28,
+        32
+      ],
+      [
+        29,
+        32
+      ]
+    ],
+    "studio_board": [
+      [
+        24,
+        33
+      ]
+    ],
+    "camera": [
+      [
+        25,
+        33
+      ]
+    ],
+    "rack_1": [
+      [
+        28,
+        35
+      ],
+      [
+        29,
+        35
+      ]
+    ],
+    "rack_2": [
+      [
+        28,
+        38
+      ],
+      [
+        29,
+        38
+      ]
+    ],
+    "rack_3": [
+      [
+        28,
+        41
+      ],
+      [
+        29,
+        41
+      ]
+    ],
+    "pokemon_center": [
+      [
+        25,
+        45
+      ],
+      [
+        26,
+        45
+      ],
+      [
+        27,
+        45
+      ],
+      [
+        28,
+        45
+      ],
+      [
+        29,
+        45
+      ]
+    ]
+  },
+  "walkable_cells_with_art_below_player": {
+    "sea_rock_1": [
+      [
+        27,
+        7
+      ],
+      [
+        28,
+        7
+      ]
+    ],
+    "sea_rock_3": [
+      [
+        24,
+        9
+      ],
+      [
+        25,
+        9
+      ]
+    ],
+    "sea_rock_4": [
+      [
+        26,
+        9
+      ]
+    ],
+    "sea_rock_5": [
+      [
+        29,
+        9
+      ]
+    ],
+    "sea_rock_6": [
+      [
+        30,
+        9
+      ],
+      [
+        31,
+        9
+      ]
+    ],
+    "sea_rock_7": [
+      [
+        28,
+        11
+      ]
+    ],
+    "sea_rock_8": [
+      [
+        26,
+        13
+      ]
+    ],
+    "sea_rock_9": [
+      [
+        27,
+        15
+      ],
+      [
+        28,
+        15
+      ]
+    ],
+    "tuft_0": [
+      [
+        14,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "tuft_1": [
+      [
+        18,
+        18
+      ]
+    ],
+    "tuft_2": [
+      [
+        12,
+        20
+      ],
+      [
+        13,
+        20
+      ]
+    ],
+    "sea_rock_12": [
+      [
+        30,
+        20
+      ]
+    ],
+    "sea_rock_13": [
+      [
+        29,
+        22
+      ]
+    ],
+    "tuft_3": [
+      [
+        17,
+        27
+      ],
+      [
+        18,
+        27
+      ],
+      [
+        17,
+        28
+      ],
+      [
+        18,
+        28
+      ]
+    ],
+    "tuft_4": [
+      [
+        13,
+        30
+      ]
+    ],
+    "tuft_5": [
+      [
+        25,
+        31
+      ],
+      [
+        25,
+        32
+      ]
+    ],
+    "tuft_6": [
+      [
+        18,
+        37
+      ]
+    ],
+    "tuft_7": [
+      [
+        13,
+        39
+      ],
+      [
+        14,
+        39
+      ],
+      [
+        13,
+        40
+      ],
+      [
+        14,
+        40
+      ]
+    ],
+    "tuft_8": [
+      [
+        25,
+        43
+      ]
+    ],
+    "tuft_9": [
+      [
+        15,
+        45
+      ]
+    ],
+    "pokemon_center": [
+      [
+        27,
+        49
+      ]
+    ],
+    "tuft_10": [
+      [
+        28,
+        52
+      ]
+    ]
+  },
+  "shared_building_pixels_exact": 5679,
+  "center_master_sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "secondary_tiles": 472,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 271,
+  "metatile_limit": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

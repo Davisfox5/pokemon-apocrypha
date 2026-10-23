@@ -1,0 +1,634 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 7,
+    "map_texture_set": 7,
+    "building_texture_set": 6,
+    "matrix_origin": [
+      5,
+      10
+    ],
+    "top_down_fill_pixels": 17,
+    "filled_seam_pixels": 18
+  },
+  "size_cells": [
+    32,
+    64
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 31,
+      "chunk": 68,
+      "pos": [
+        12.5,
+        1.0,
+        24.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        11.9375,
+        24.0625,
+        13.125,
+        24.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 102,
+      "chunk": 68,
+      "pos": [
+        8.0,
+        1.0,
+        14.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_in",
+        "h_kage",
+        "h_mado",
+        "tn_h01_02"
+      ],
+      "footprint": [
+        5.875,
+        12.875,
+        10.5,
+        16.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 103,
+      "chunk": 68,
+      "pos": [
+        8.119552612304688,
+        1.1649017333984375,
+        15.219436645507812
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_h01_01"
+      ],
+      "footprint": [
+        6.8695526123046875,
+        15.219436645507812,
+        8.119552612304688,
+        15.348281860351562
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 69,
+      "pos": [
+        19.5,
+        1.0,
+        34.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        18.9375,
+        34.0625,
+        20.125,
+        34.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 69,
+      "pos": [
+        22.5,
+        1.0,
+        50.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        21.9375,
+        50.0625,
+        23.125,
+        50.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 29,
+      "chunk": 69,
+      "pos": [
+        16.5,
+        1.0,
+        42.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ab",
+        "h_kage"
+      ],
+      "footprint": [
+        16.03125,
+        42.5,
+        17.03125,
+        43.0078125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 40,
+      "chunk": 69,
+      "pos": [
+        27.5,
+        1.0,
+        48.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gs_pc_a",
+        "gs_pc_b",
+        "h_kage"
+      ],
+      "footprint": [
+        24.875,
+        46.0,
+        30.5,
+        50.311767578125
+      ],
+      "replaced_by": "pokemon_center"
+    },
+    {
+      "model": 15,
+      "chunk": 69,
+      "pos": [
+        27.5,
+        1.0,
+        49.60820007324219
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "pc_door"
+      ],
+      "footprint": [
+        26.875,
+        49.60820007324219,
+        28.125,
+        49.60820007324219
+      ],
+      "replaced_by": "pokemon_center_door"
+    },
+    {
+      "model": 33,
+      "chunk": 69,
+      "pos": [
+        15.5,
+        1.0,
+        38.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ef",
+        "h_kage"
+      ],
+      "footprint": [
+        14.9375,
+        38.25,
+        16.0625,
+        38.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 105,
+      "chunk": 69,
+      "pos": [
+        22.0,
+        1.0,
+        33.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_in",
+        "h_kage",
+        "h_mado",
+        "tn_photo_02",
+        "tn_photo_03"
+      ],
+      "footprint": [
+        20.0,
+        31.875,
+        24.98486328125,
+        35.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 116,
+      "chunk": 69,
+      "pos": [
+        22.119537353515625,
+        1.1649017333984375,
+        34.21943664550781
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_photo_01",
+        "tn_photo_02"
+      ],
+      "footprint": [
+        20.869537353515625,
+        34.21943664550781,
+        22.119537353515625,
+        34.34828186035156
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 102,
+      "chunk": 69,
+      "pos": [
+        11.0,
+        1.0,
+        46.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_in",
+        "h_kage",
+        "h_mado",
+        "tn_h01_02"
+      ],
+      "footprint": [
+        8.875,
+        44.875,
+        13.5,
+        48.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 103,
+      "chunk": 69,
+      "pos": [
+        11.119552612304688,
+        1.1649017333984375,
+        47.21943664550781
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_h01_01"
+      ],
+      "footprint": [
+        9.869552612304688,
+        47.21943664550781,
+        11.119552612304688,
+        47.34828186035156
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 102,
+      "chunk": 69,
+      "pos": [
+        22.0,
+        1.0,
+        41.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_in",
+        "h_kage",
+        "h_mado",
+        "tn_h01_02"
+      ],
+      "footprint": [
+        19.875,
+        39.875,
+        24.5,
+        43.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 103,
+      "chunk": 69,
+      "pos": [
+        22.119537353515625,
+        1.1649017333984375,
+        42.21943664550781
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_h01_01"
+      ],
+      "footprint": [
+        20.869537353515625,
+        42.21943664550781,
+        22.119537353515625,
+        42.34828186035156
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 104,
+      "chunk": 69,
+      "pos": [
+        20.0,
+        1.0,
+        49.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_in",
+        "h_kage",
+        "h_mado",
+        "tn_pharmacy02"
+      ],
+      "footprint": [
+        17.875,
+        47.875,
+        22.5,
+        51.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 116,
+      "chunk": 69,
+      "pos": [
+        20.119537353515625,
+        1.1649017333984375,
+        50.21942138671875
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_photo_01",
+        "tn_photo_02"
+      ],
+      "footprint": [
+        18.869537353515625,
+        50.21942138671875,
+        20.119537353515625,
+        50.3482666015625
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 106,
+      "chunk": 69,
+      "pos": [
+        29.0,
+        1.0,
+        33.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_dried"
+      ],
+      "footprint": [
+        28.0,
+        32.94390869140625,
+        30.4046630859375,
+        34.41827392578125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 106,
+      "chunk": 69,
+      "pos": [
+        29.0,
+        1.0,
+        36.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_dried"
+      ],
+      "footprint": [
+        28.0,
+        35.94390869140625,
+        30.4046630859375,
+        37.41827392578125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 106,
+      "chunk": 69,
+      "pos": [
+        29.0,
+        1.0,
+        39.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_dried"
+      ],
+      "footprint": [
+        28.0,
+        38.94390869140625,
+        30.4046630859375,
+        40.41827392578125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 106,
+      "chunk": 69,
+      "pos": [
+        29.0,
+        1.0,
+        42.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tn_dried"
+      ],
+      "footprint": [
+        28.0,
+        41.94390869140625,
+        30.4046630859375,
+        43.41827392578125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 108,
+      "chunk": 69,
+      "pos": [
+        12.5,
+        1.0,
+        36.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "en_gyma",
+        "h_kage",
+        "tn_gym_w"
+      ],
+      "footprint": [
+        8.89990234375,
+        33.5,
+        16.261474609375,
+        38.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 16,
+      "chunk": 69,
+      "pos": [
+        12.5,
+        1.0,
+        37.3125
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gym_door"
+      ],
+      "footprint": [
+        11.822998046875,
+        37.3125,
+        13.177001953125,
+        37.5625
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 90,
+      "chunk": 69,
+      "pos": [
+        25.5,
+        1.0,
+        34.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "snap_camera"
+      ],
+      "footprint": [
+        24.5,
+        34.5,
+        26.5,
+        34.5
+      ],
+      "replaced_by": null
+    }
+  ]
+}

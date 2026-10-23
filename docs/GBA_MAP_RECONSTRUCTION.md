@@ -236,8 +236,10 @@ tools are marked as Blackthorn's.
 6. **Pack and budget.** One secondary holds 496 tiles (16 kept for door animation) and
    512 metatiles; the shared Center and Mart alone cost about 180 tiles. Count tiles and
    learned colours per element before cutting (`budget.py`). Map palettes are 13 banks:
-   the primary's six, the fixed Center and Mart banks, a junction bank and four learned
-   banks of 15 colours. Draw props in colours a loaded bank already has where they fit:
+   the primary's six and seven of the secondary's. Blackthorn spends them on fixed Center
+   and Mart banks, a junction bank and four learned banks; Cianwood (no Mart) splits the
+   locked C06 Center's 21 colours exactly over two banks first, then fits every other tile
+   into all seven with the Center's colours pre-filled (`pack.exact_banks`). Draw props in colours a loaded bank already has where they fit:
    CherrygrovePrimary bank 2 is a wood ramp (bridge, stairs, posts), bank 0 has whites that
    sit with its grass (snow), the Center's bank 8 has a neutral grey ramp (stone). Keep each
    remaining colour family (rock, houses, Gym, water mixes) to 15 colours so one bank holds
@@ -290,10 +292,30 @@ tools are marked as Blackthorn's.
 - Before copying a shared Center or Mart, check the owner's registry
   (`gba/art/johto-common/approved-buildings.json`) for the locked version and its hash;
   a branch cut from an older `main` can carry a superseded draft.
+- A walkable surf strip drawn as a synthetic foam band reads machine-made. Use the
+  accepted beach's own shore cells instead: Cherrygrove's sandbar gives an edge cell per
+  side and an outer corner per diagonal; key each strip cell by which side or diagonal
+  holds land, join two land sides on the diagonal, and give its sea pixels the map's sea
+  at its phase (Cianwood, `elements.shore`).
+- A "clean" texture block can sit in a shadow (Cherrygrove's sand beside the dock showed
+  dark dashes every 32 px). Use the plain metatile itself, and dump the source pixels
+  before trusting a crop.
+- HGSS's small blocked bumps (the `etc_a` stones) read as slopes: they turned into short
+  cliff faces and one-cell terraces. Label them by material as props, and give their
+  cells the height of the ground round them.
+- HGSS blocks every cell its taller 3D building covers in perspective. A blocked cell the
+  Gen 3 sprite does not reach is an invisible wall; open it and record the adaptation.
+- Flat ground details (stones, tufts, decals) always draw below the player, whatever row
+  their art reaches; snap them to the 8 px grid so every copy shares the same tiles.
+- Greedy bank packing can leave tiles inexact with slots to spare (84 colours in 105
+  slots still failed). Pack only the maximal colour sets, largest first, and take turns
+  between bank-choice rules (fewest new colours, most shared); pull a lone prop's accent
+  colours onto ones a neighbouring sprite already uses.
 
 ## Worked example
 
-Blackthorn City (above) is the reference for converting a Gen 4 map element by element.
+Blackthorn City (above) is the reference for converting a Gen 4 map element by element,
+and Cianwood City (`gba/art/cianwood-elements/README.md`) the reference for a coastal one.
 The Route 32 material pass is an example, not a universal map template:
 [review and provenance](https://github.com/Davisfox5/pokemon-apocrypha/blob/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/README.md).
 It separates original-reference terrain types from walkability and checks actual

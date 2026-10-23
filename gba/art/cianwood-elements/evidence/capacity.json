@@ -1,0 +1,15 @@
+{
+  "map": "CianwoodCity",
+  "primary": "gTileset_CherrygrovePrimary",
+  "secondary": "gTileset_CianwoodCity",
+  "style": "C",
+  "secondary_tiles": 472,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 271,
+  "metatile_limit": 512,
+  "map_ids": {
+    "CianwoodCity": 47,
+    "CianwoodPokemonCenter": 48,
+    "CianwoodCenterUpstairs": 49
+  }
+}

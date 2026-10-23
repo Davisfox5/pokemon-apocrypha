@@ -94,8 +94,9 @@ rounds of small notes. Use it for every HGSS-to-Gen 3 map. Where an older rule i
 file or the linked docs reads differently for a Gen 4 conversion, this section wins.
 Details, pitfalls and budgets are in
 [the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
-the worked example is `gba/art/blackthorn-city/README.md` with tools in
-`tools/gba/maps/blackthorn/` (read the script you need, not the tree).
+the worked examples are `gba/art/blackthorn-city/README.md` (mountain town, tools in
+`tools/gba/maps/blackthorn/`) and `gba/art/cianwood-elements/README.md` (coastal town,
+tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the tree.
 
 - Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
   heights, permissions, events, cell by cell), but replace each **element** with the
@@ -116,10 +117,10 @@ the worked example is `gba/art/blackthorn-city/README.md` with tools in
   when the art's object has its base row further south: a roof or crown the player walks
   behind. Doors and every other base-row cell, and all blocked cells, draw below the
   player (covered). Check it in the emulator from behind and in front of every building.
-- Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, the
-  approved Violet Center and shared Mart) and colours the loaded palettes already hold
-  (the primary's banks, the Center's bank 8), so tiles and palettes stay inside one
-  tileset pair. Keep each other colour family to 15 colours and check every element's
+- Reuse accepted vocabulary (Cherrygrove ground, beach, sea and sandbar shore, Route 30
+  pond rim, the owner-locked Center and Mart listed in
+  `gba/art/johto-common/approved-buildings.json`) and colours the loaded palettes already
+  hold (the primary's banks), so tiles and palettes stay inside one tileset pair. Keep each other colour family to 15 colours and check every element's
   decoded colours after packing. Measure per-element tile and colour cost (`budget.py`)
   before cutting anything.
 - A borrowed edge piece brings its source map's texture with it. Repaint its water or
