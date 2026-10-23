@@ -15,7 +15,7 @@ does the same job. Editable source is in the engine PR against `apocrypha`, bran
 | --- | --- |
 | Map | `MahoganyTown`, 32x32, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, trees, signs) |
-| Secondary | `gTileset_MahoganyTown`: SECONDARY_TILES of 496 tiles (16 kept for door animation), SECONDARY_METATILES of 512 metatiles |
+| Secondary | `gTileset_MahoganyTown`: 387 of 496 tiles (16 kept for door animation), 258 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 6-12 one exact fit: C06's 21 colours over two banks, then a bank each for the houses, the Gym, the Route 43 gate, and the towers with the antenna tree; rock, ledges and flattened overlaps fill the slots left |
 
 Map ids are appended to `gMapGroup_Cherrygrove`. Blackthorn (engine PR #26) and Cianwood also
@@ -85,11 +85,65 @@ higher than the wall.
 
 ## Deliberate adaptations
 
-ADAPTATIONS
+Twenty-six cells differ from HGSS's permissions, each listed with its reason in
+`evidence/elements/pack-C.json`:
+
+- **Unbuilt destinations are solid**: the Gym door (11, 23), the souvenir shop (16, 14), the
+  east house (25, 14) and both Route 43 gate warps (12..13, 5).
+- **C06's top row** (20..24, 19) is a walkable roof overhang, as its manifest sets it; HGSS's
+  taller Center blocks it.
+- **Cells HGSS blocks only because its taller models rise over them** and the shorter Gen 3
+  sprite misses or only edges into (the player walks behind that edge): the row north of the
+  Center (20..24, 18), the row north of the Gym (8..14, 18) and its two top corners
+  (8, 19), (14, 19), and the souvenir shop's two roof corners (15, 10), (18, 10). The rule
+  applies only within two rows north of an HGSS building footprint; the fenced lawn south of
+  the town (18..21, 28) stays blocked as in HGSS.
+- **Open in HGSS, enclosed**: (8, 7) and (8, 8) on the raised lawn behind the west tower are
+  open in HGSS and walled in on every side there too. They stay open and unreachable.
+- **Colour**: 262,141 of 262,144 composed pixels decode to their exact 5-bit colour. The three
+  others, each within 3 levels, are tree shadow in one tile behind the east house's roof
+  (26, 10), where that shadow's green and the lawn need a bank that has no slot left.
+- **Placement**: the antenna tree sits 4 px east of HGSS's centre so it stays clear of the
+  shop's wall; the C06 Center and the Gen 3 houses and Gym are shorter than HGSS's 3D
+  models, so their roofs start lower, bases unchanged.
+- **Region map**: `MAPSEC_MAHOGANY_TOWN` takes the last section's map square as a placeholder.
 
 ## Verification
 
-VERIFICATION
+- **Native audit** (`check_elements.py`, `evidence/elements/native-audit.json`): the installed
+  files decode identically to the packer; all 1,024 cells match the traversal ledger's
+  behaviour, collision, elevation and layer type; 349 of 351 open cells are reachable on foot
+  from the Center door (the other two are the enclosed pair above), including every door,
+  sign, the gate front and both road ends; walk-behind cells follow the depth rule (Center
+  roof row 5, Gym roof edge 4, antenna tree 3, shop roof corners 2); C06's master hash and
+  all 5,679 of its pixels are exact; existing map ids unchanged; changed files within scope.
+  Coordinate grid: `evidence/elements/native-grid.png`.
+- **Headless mGBA 0.10.2** (`runtime_elements.py`, `evidence/elements/gameplay/results.json`):
+  thirteen views across the town; standing behind the Center's roof row, the Gym's roof
+  edge, the shop's roof corner and the antenna tree; standing in front of the Center, Gym,
+  shop, east house and gate; the south ledges at y 12 and y 21 and the west ledge at x 6
+  jumped and not climbed; Center body, Gym, shop and house doors, gate, a tree, a low wall
+  and the south cliff block; both signs read; Center in, upstairs, back and out; Cherrygrove
+  and back; ordinary flash save, cold reload in a new process, title Continue.
+- **Rendering parity**: for all 28 town captures the map layers BG1-BG3 rebuilt from dumped
+  VRAM, palettes and BG registers match the decoded native map pixel for pixel. Behind the
+  roofs BG1 covers the player's own cell (224 px at the Center, 132 at the antenna tree, 26
+  at the Gym, 1 at the shop's corner); in front of every building BG1 covers none of the
+  player's two cells.
+- **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source and
+  run under Xvfb on a fresh clone of the engine commit: the town and both Center floors open
+  with no errors; Porymap's export of the town matches the native decode pixel for pixel;
+  saving the maps and the town's tilesets rewrote 23 Mahogany files, all byte-identical. The
+  only lines a save changes predate Mahogany: key order in a Route 110 layout entry and three
+  `é` escapes in Kanto MAPSEC names.
+
+Engine commit `eeee9e2259d9ba08b8f52a5dd1bb661aeb0900db`, local ROM SHA-256
+`c0e142d8d585c59b84798710c34a8caf3ed4b1bc504dd4dccb282731671e298f` (Ubuntu Arm GNU 13.2.1).
+No ROM, save, toolchain or emulator binary is committed.
+
+![Headless capture: the player behind the Center's roof row](evidence/elements/gameplay/behind-center.png)
+
+Region pairs for close review: `evidence/elements/review/`.
 
 ## Not verified or not built
 

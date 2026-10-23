@@ -1,3 +1,7 @@
+## Latest: Mahogany Town from Gen 3 elements (October 23)
+
+Engine branch `claude/mahogany-town` (draft PR against `apocrypha`) adds Mahogany as one ordinary 32x32 map, `MahoganyTown` (ids 43-45 with the Center and its upstairs), on `gTileset_CherrygrovePrimary` plus one secondary (387/496 tiles, 258/512 metatiles). Built the Blackthorn/Cianwood way: layout cell for cell from HGSS land_data chunk 85 and its permissions; FRLG mountain rock in the HGSS ramp (same `cliff01gs` as Blackthorn), low walls as one-cell ridges, Cherrygrove ground and its standalone tree on all 40 HGSS tree footprints, FRLG ledges south and west, houses, Gym, Route 43 gate, lookout towers and antenna tree rendered from HGSS's models at C06's angle, the owner-locked C06 Center. Read `gba/art/mahogany-town/README.md`. Audit, headless mGBA (28 captures at VRAM parity, save/reload/Continue) and the Porymap 6.3.1 round trip pass. Gym, shop, house and gatehouse doors are solid (not built); no Route 42/43/44 connections. Owner visual review pending; until then the map is regenerated from `tools/gba/maps/mahogany/` each round. The method section of AGENTS.md this follows lives on `claude/blackthorn-city` (not yet on `main`). Map ids collide with Blackthorn's PR #26 (both append 43+); whichever merges second takes the next ids.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

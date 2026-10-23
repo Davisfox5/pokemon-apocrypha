@@ -14,6 +14,7 @@ optional, never part of routine startup.
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
+| Mahogany Town from Gen 3 elements (October 23) | ../gba/art/mahogany-town/README.md | Draft PR on `apocrypha` (`claude/mahogany-town`); generators in `tools/gba/maps/mahogany/` (`elements.py`, `sprites.py`, `pack.py`, `install_elements.py`); owner visual review pending |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |
 | Edit or review the current Johto maps / shared Git source for Porymap, Poryscript, Porytiles, porygon | GBA_SHARED_SOURCE.md | `Davisfox5/pokeemerald-expansion@apocrypha`; `gba/art/johto-synthesis/README.md` for how the art was generated |
 | October 9 New Bark / Route 31 art rebuild after rejection | ../gba/art/johto-polish/README.md | Measured silhouettes, complete props, layered cliffs, exact scenery packing; previous previews retained |
