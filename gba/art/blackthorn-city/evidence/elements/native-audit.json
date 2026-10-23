@@ -1,0 +1,158 @@
+{
+  "style": "C",
+  "cells_audited": 4096,
+  "installed_matches_packer_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 864,
+  "open_cells": 872,
+  "unreachable_open_cells": [],
+  "open_cells_reached_only_by_surf": 8,
+  "approaches_needing_surf": [
+    "dragons_den",
+    "den_sign"
+  ],
+  "approaches": {
+    "center": [
+      34,
+      49
+    ],
+    "mart": [
+      27,
+      49
+    ],
+    "gym_forecourt": [
+      28,
+      24
+    ],
+    "dragons_den": [
+      32,
+      5
+    ],
+    "ice_path": [
+      57,
+      17
+    ],
+    "bridge_south": [
+      23,
+      63
+    ],
+    "city_sign": [
+      52,
+      43
+    ],
+    "gym_sign": [
+      26,
+      26
+    ],
+    "den_sign": [
+      31,
+      7
+    ],
+    "west_house": [
+      20,
+      38
+    ],
+    "east_house": [
+      44,
+      41
+    ],
+    "tutor_house": [
+      18,
+      49
+    ]
+  },
+  "walk_behind_cells": {
+    "gate_post_east": 1,
+    "gate_post_west": 1,
+    "poke_mart": 7,
+    "tutor_house": 2,
+    "west_house": 2
+  },
+  "walk_behind": {
+    "west_house": [
+      [
+        20,
+        33
+      ],
+      [
+        21,
+        33
+      ]
+    ],
+    "poke_mart": [
+      [
+        25,
+        43
+      ],
+      [
+        26,
+        43
+      ],
+      [
+        27,
+        43
+      ],
+      [
+        28,
+        43
+      ],
+      [
+        29,
+        43
+      ],
+      [
+        30,
+        43
+      ],
+      [
+        31,
+        43
+      ]
+    ],
+    "tutor_house": [
+      [
+        18,
+        44
+      ],
+      [
+        19,
+        44
+      ]
+    ],
+    "gate_post_west": [
+      [
+        21,
+        51
+      ]
+    ],
+    "gate_post_east": [
+      [
+        25,
+        51
+      ]
+    ]
+  },
+  "walkable_cells_with_art_below_player": {
+    "poke_mart": [
+      [
+        27,
+        48
+      ]
+    ],
+    "pokemon_center": [
+      [
+        34,
+        48
+      ]
+    ]
+  },
+  "shared_building_pixels_exact": 14414,
+  "center_bank8_palette_identical_to_cherrygrove": true,
+  "mart_bank9_palette_identical_to_shared_art": true,
+  "secondary_tiles": 465,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 345,
+  "metatile_limit": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

@@ -1,0 +1,16 @@
+{
+  "map": "BlackthornCity",
+  "primary": "gTileset_CherrygrovePrimary",
+  "secondary": "gTileset_BlackthornCity",
+  "style": "C",
+  "secondary_tiles": 465,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 345,
+  "metatile_limit": 512,
+  "map_ids": {
+    "BlackthornCity": 43,
+    "BlackthornPokemonCenter": 44,
+    "BlackthornCenterUpstairs": 45,
+    "BlackthornMart": 46
+  }
+}

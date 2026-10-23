@@ -51,9 +51,12 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   orientation. Preserve complete outlines, corners, roots and narrow barriers.
   Give edges, foreground features, doors and stairs priority over spare texture
   variants; retain compact ground/water/plateau texture families.
-- Preserve the original wall/cap texture and shading treatment. Repair joins
-  locally and inspect the cap, front/side faces and corners as one continuous
-  surface. Retain texture detail during palette reduction.
+- Keep one wall/cap treatment across the map and inspect the cap, front/side faces
+  and corners as one continuous surface. On a Gen 4 conversion that treatment is a
+  Gen 3 rock set restyled with the original's colour ramp (see the conversion section
+  below), not the original's own texture. Buildings are the exception: they are the
+  original's own models and textures (see "Buildings and props" below). Repair joins
+  locally. Retain texture detail during palette reduction.
 - Put stair/door warps on their actual visible entrances. Remove superseded
   marker squares and restore their ground; inspect the first/last steps and
   the whole stair-to-wall join.
@@ -61,24 +64,157 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   deliberate creases and crisp silhouettes. Maintain consistent palette ramps
   across neighboring banks; inspect light/dark bands and seams after native
   palette reduction. Keep foreground art, ground beneath it and collision separate.
-- Confirm sprite/item-removal donors are unobscured across their full bounds.
+- On a map built from a render or trace, confirm sprite/item-removal donors are
+  unobscured across their full bounds.
   Inspect repaired corners for leftover clothing, skin, outlines and corrupted
   palette pixels; reconstruct the missing local terrain from clean context.
 - Fit reused art to the receiving location: width, height, baseline, wall depth,
   shoulders, approach and adjacent corners. Rebuild the complete join when needed.
   An approved entrance or building still needs local seam/footprint inspection.
-- Use original-game textures and accepted shared art. Preserve tree footprints
-  and complete canopies, coherent grass borders, cliff tops/faces, stair axis,
-  shore lips and dock grain. Reuse the approved Violet Center and shared Pokémart.
+- Build from accepted shared art and Gen 3 pieces, with the original game as the
+  reference for layout, shape and colour, and the original's own models and textures
+  for buildings (see the conversion section below). Preserve tree footprints and
+  complete canopies, coherent grass borders, cliff tops/faces, stair axis, shore lips
+  and dock grain. Reuse the owner-locked shared Center and Mart listed in
+  `gba/art/johto-common/approved-buildings.json`.
 - Validate actual decoded native tiles/palettes/layers and Porymap output, plus
   relevant headless movement, gates, connections, water, doors/stairs and ordinary
   saves. Review all affected floors/maps and both sides of transitions. Record
   exact source/ROM identities, before/after evidence and concrete remaining limits.
 - Keep owner-approved topology and traversal unless a change is authorized.
-  Edit current native sources; preserve owner work, IDs, prior drafts and saves.
+  Preserve owner work, IDs, prior drafts and saves. Once the owner has edited or
+  accepted a map, edit its native sources directly; until then a converted map is
+  regenerated from its tools each round (see the conversion section below).
   Adapt the technique to each map's own tilesets and hardware budget. Cave-specific
   art, palettes and generators stay local to Union Cave. Visual acceptance remains
   with the owner.
+
+## Converting a Gen 4 map: convert elements, not pixels
+
+Owner-praised method, Blackthorn City, 2026-10-22: it reached near-acceptance in a few
+rounds of small notes. Its building, texture and ground work on Cianwood City and the
+Blackthorn houses (2026-10-23) the owner called excellent; "Buildings and props" and
+"Ground, sand and shore" below are the standard for every map. Use this section for
+every HGSS-to-Gen 3 map. Where an older rule in this file or the linked docs reads
+differently for a Gen 4 conversion, this section wins. Details, pitfalls and budgets
+are in [the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
+the worked examples are `gba/art/blackthorn-city/README.md` (mountain town, tools in
+`tools/gba/maps/blackthorn/`) and `gba/art/cianwood-elements/README.md` (coastal town,
+tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the tree.
+
+- Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
+  heights, permissions, events, cell by cell), but replace each **element** with the
+  Gen 3 piece that does the same job: rock terraces, ground, water, ledges, props.
+- Build a per-cell element ledger first: material, structure (rock top/face direction,
+  ledge, shore), terrace level from HGSS heights, traversal from HGSS permissions.
+- Rock: take a Gen 3 piece set with the same role (FRLG's General mountain set for
+  Johto/Kanto rock) and restyle it with the HGSS colour ramp. One HGSS layer becomes one
+  one-tile terrace. Autotile per 8x8 quadrant, place inner corners as whole pieces, use
+  the over-rock variants on stacked terraces, join ledges into cliffs with FRLG's join
+  pieces. When unsure, build two treatments side by side and measure both budgets.
+- Props and buildings other than the shared Center and Mart: top-layer sprites inside
+  their own cell columns, made as "Buildings and props" below says. Do not hand-draw a
+  building the game has a model for.
+- Depth: the player is two cells tall (feet, and head in the cell above). A walkable cell
+  draws its art above the player (layer type normal, every tile on the top layer) only
+  when the art's object has its base row further south: a roof or crown the player walks
+  behind. Doors and every other base-row cell, and all blocked cells, draw below the
+  player (covered). A cell HGSS blocks only because its taller 3D model stands there is
+  open ground when the Gen 3 sprite misses it or reaches only its lower half with a
+  roof's top edge (the player walks behind that edge). Check depth in the emulator from
+  behind and in front of every building.
+- Reuse accepted vocabulary (Cherrygrove ground, sea and sandbar shore, Route 30 pond rim,
+  the owner-locked Center and Mart listed in `gba/art/johto-common/approved-buildings.json`)
+  and colours the loaded palettes already hold (the primary's banks), so tiles and
+  palettes stay inside one tileset pair. Every pixel must decode to its exact 5-bit
+  colour: give each building a bank of its own, put small props in a ramp already loaded,
+  and check every element's decoded colours after packing. Measure per-element tile and
+  colour cost (`budget.py`) before cutting anything, and cut where it cannot be seen
+  (shared tiles, hidden tiles, overlays moved under objects) before cutting detail.
+- A borrowed edge piece brings its source map's texture and colours with it. Repaint its
+  water or ground with the receiving map's own texture at that map's phase, recolour its
+  stray pixels into the receiving bank, mirror pieces for sides the source never shows,
+  and run a shoreline on under a cliff's clear pixels so it meets the rock instead of
+  stopping short.
+- Every round: compose, pack, install, build, audit (decode, traversal, reachability,
+  walk-behind, palettes, budgets, ids, file scope), headless mGBA with VRAM parity,
+  Porymap round trip, then look at the images yourself and show the owner
+  before/after crops inline. Answer review notes with targeted fixes, not rebuilds.
+  When a reinstall restores base files, use `git restore --source=BASE --worktree`
+  (`git checkout BASE -- file` stages the old copy, and a later commit takes it), and
+  read `git show --stat` before every push.
+- Regenerating the map from its tools each round is the method while the map is still
+  the agent's draft. Check `git log` on its layout and tileset first: once any commit is
+  an owner edit, or the owner has accepted the map, stop regenerating and edit the
+  native files. Keep generators deterministic (no hash-order tie-breaks), so a rerun
+  reproduces the installed map exactly.
+
+### Buildings and props
+
+The owner-locked C06 Center is the reference: every other building must look like the
+same game standing beside it. Worked code: `sprites.py` and `hgss_camera.py` in
+`tools/gba/maps/cianwood_elements/` and `tools/gba/maps/blackthorn/`.
+
+1. **Render the model, do not draw it.** Take the building's own HGSS model and its door
+   model (the door's offset from the building in HGSS's placements) with their own
+   textures, and render them at C06's angle (owner, 2026-10-23): orthographic, 38
+   degrees, 16 px per tile up the screen, squeezed across so the visible model fills its
+   footprint (`hgss_camera.view`; the fit is Cianwood's `evidence/elements/c06-angle.png`).
+   HGSS's own field camera (48.7 degrees) is only a reference for HGSS's look; it makes
+   houses steep beside the Center. Cut textures out at alpha 200, and leave out the ground
+   shadow quad (`h_kage`) and faces lying on the ground (painted shadows). The sprite's
+   bottom edge is the bottom of the building's base (door) row.
+2. **One bank per building.** 14 colours plus C06's outline colour round the silhouette.
+   Fit them with weighted k-means seeded farthest-first, so small accents (a door's wood,
+   a knob, a poster) keep their own colour; buildings built on one model share one
+   palette. When a building has more colour families than 14 slots hold (a Gym's wood,
+   bands, hall, beams, emblem and glass), pick the 14 by family from its render's own
+   colour clusters. When a fit flattens a surface's shading (a roof gone one brown), give
+   that surface its own ramp: its own k-means shade farthest from the palette joins and
+   the colour whose loss costs least goes. The packer seeds each building's palette into
+   a bank of its own before fitting anything else.
+3. **Draw back the detail reduction loses.** Fine texture lines (roof plank seams, door
+   planks) vanish at sprite size and 14 colours. Find where they fall with a marker render
+   (the texture's line rows or columns recoloured, rendered at 4x) and draw them one pixel
+   wide, one step darker on that surface's ramp; plank gaps on the darkest shade take the
+   outline colour. A regular texture lattice (glass panes) is laid back from the texture
+   itself on an 8 px lattice that steps with the slope, so the plane repeats every two
+   tiles.
+4. **Lift dull DS textures.** A texture that reads grey on the GBA (Blackthorn's straw) has
+   its pixels lifted by a fixed per-channel gain before the palette fit, toward the Gen 3
+   colour the owner has seen and liked. Never rank pixels onto a ramp by brightness; that
+   flattens the pattern.
+5. **Keep tiles shared.** Mirror symmetric roofs on an 8 px axis. Fold a tile into a more
+   common one that differs only by a one-pixel edge shift or a render speck, and never
+   fold away a drawn line. Every copy of a building shares its tiles; in a blocked cell
+   the rock's top-layer overlay drops to the bottom layer under an object or boulder, so
+   the object keeps those tiles (except an 8x8 tile where the sea shows through).
+6. **Props and plants at Gen 3 quality.** Rocks and stones come from HGSS's own textures,
+   resampled into a Gen 3 ramp, best one already loaded (Cianwood's stones use the
+   cliffs' ramp). Plants are drawn by hand the Gen 3 way: dark outline, lit blade edges,
+   a short ramp, never flat blocks or single-colour shapes. Snap ground details to the
+   8 px grid so every copy shares its tiles.
+7. **Check against the source.** Put each finished sprite beside HGSS's model at the same
+   angle, unquantized, at 5x: every colour family and every visible line of the model
+   must be in the sprite. Show the owner the sprite in place, before and after.
+
+### Ground, sand and shore
+
+Owner, Cianwood, 2026-10-23: flat sand read as boring, flat plants as "Atari level", and
+square inner water corners as unfinished.
+
+- Sand is Gen 3 sand: a 16 px cell of base colour with scattered light grains, each with
+  a shade pixel, and a few darker grains, plus one-tile decals (a second scatter, a
+  ripple, a shell, pebbles) in about half the open cells, picked by a fixed hash. Keep the
+  eye-catching decals two cells apart, and keep decals out of cells beside an edge or
+  under an object.
+- Grass meets sand on rounded corners (a blurred cell mask, so straight runs stay on the
+  cell edge) and the sand side carries the transition: alternating grass and rim pixels,
+  then a dithered rim row.
+- A shoreline's inner corners curve into the land with the same radius as its outer
+  corners, every band (wet sand, foam, sea) keeping its distance from the curved sea
+  edge. The curve starts in the edge cells beside the corner; one drawn inside a single
+  cell reads square. Wet sand runs as one even band along the tide line.
 
 ## Ownership and autonomy
 

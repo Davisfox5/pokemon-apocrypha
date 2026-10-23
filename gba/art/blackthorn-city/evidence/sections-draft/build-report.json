@@ -1,0 +1,68 @@
+{
+  "patterns_city": 1884,
+  "sections": [
+    {
+      "name": "BlackthornCity01",
+      "rows": [
+        0,
+        24
+      ],
+      "tiles": 779,
+      "metatiles": 294
+    },
+    {
+      "name": "BlackthornCity02",
+      "rows": [
+        24,
+        44
+      ],
+      "tiles": 749,
+      "metatiles": 306
+    },
+    {
+      "name": "BlackthornCity03",
+      "rows": [
+        44,
+        64
+      ],
+      "tiles": 891,
+      "metatiles": 379
+    }
+  ],
+  "tile_limit": 1008,
+  "metatile_limit": 1024,
+  "palette_banks": {
+    "center": 8,
+    "mart": 9,
+    "junction": 10,
+    "ground": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "foreground": [
+      5,
+      6,
+      7,
+      11,
+      12
+    ]
+  },
+  "junction_colors": 10,
+  "learned_bank_mean_error": {
+    "ground": 2.5707074852265266,
+    "foreground": 2.8628115421814155
+  },
+  "merged_tiles": 0,
+  "colour_rgb5": {
+    "exact_pixels": 740681,
+    "within_1": 1022260,
+    "within_2": 1044113,
+    "total": 1048576,
+    "worst": 10,
+    "shared_building_pixels_exact": true
+  },
+  "hidden_bottom_tiles": 556
+}

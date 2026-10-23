@@ -1,0 +1,74 @@
+{
+  "engine": {
+    "repository": "Davisfox5/pokeemerald-expansion",
+    "branch": "claude/blackthorn-city",
+    "base": "apocrypha @ 2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+    "commit": "019d56eb7bdd6b467ba2960d1508f174b3e99b39",
+    "pull_request": 26
+  },
+  "rom": {
+    "sha256": "f2e6c8d097592dabfe1086a26960d98ce5f74eafbe34ec0897eb883a24b4d2e8",
+    "toolchain": "Ubuntu gcc-arm-none-eabi 13.2.1, newlib; Poryscript 3.6.1 via make tools",
+    "note": "local build; no ROM committed"
+  },
+  "emulator": "libmgba 0.10.2 (Ubuntu), headless",
+  "hgss_source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "hgss_render": {
+    "meta": {
+      "area_bank": 9,
+      "map_texture_set": 9,
+      "building_texture_set": 8,
+      "matrix_origin": [
+        20,
+        4
+      ],
+      "top_down_fill_pixels": 35067,
+      "filled_seam_pixels": 2030
+    },
+    "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+    "files": {
+      "hgss-cell-height.npy": "5548256ad445180829fafe504d9279c7bd085474ecab8ab63a62ecfba7b134d6",
+      "hgss-foreground-owner.npz": "54e970113c5fac57fc12c6bb6118dd20492f04d5afbda090968b193161d73c44",
+      "hgss-foreground.png": "e4da0ee84705c54d2de903eac81cf1a9a921eb26f97ff84094f52defa4c51075",
+      "hgss-ground-materials.npz": "abc6b123cf817e8a6499a6adee2d8742c61879881241861ea84c69743e4917bf",
+      "hgss-ground.png": "6ce4033be63494e4adccc4a10d7a4ce8af67845c7108c28d5225a0300fb6f2fe",
+      "hgss-permissions.npz": "72c2d66a980940fae5d4acb63e72a40d54e88354f851e452b441f5f654bdd862",
+      "hgss-reference-true-heights.png": "435f88276973cfd400c50b20d1b9122a2409ca34d1d353b594b65b611961bda1",
+      "hgss-render.json": "4551bfe06c484529056cfb84f69a7c5dfc7fe5630877d8c01f39c19cace9163b",
+      "hgss-render.png": "062bb4713107d8272312f791654279381b9501131ccd4762ca4a184b258c808a",
+      "hgss-seam-fill-mask.png": "601c07edb79e44be2232205f3960680443cd431a74960136bb78f90fced99d60",
+      "hgss-terrain.png": "a428cba971254f27adfd36dad62fecc9f35a529264db321afa6c953588a4d029"
+    }
+  },
+  "shared_art": {
+    "poke-mart.indexed.png": "3039d2ca6528d3426d4c476aa78da8e004ee55a6950c44479b98bfab41c13809",
+    "poke-mart.pal": "08d2eefb091eaf42529446b43a3b41c83dc593a299c3039292a2bf6efce93741",
+    "poke-mart.png": "62054375bd8e8f24caa00433b1afd49c3339eb9c8af9266f40c451276b910d0a",
+    "pokemon-center.pal": "a3dc3742a017136fe7cbec02d740f9d1b4ce1bea9c9bee21791ba480168d0afb",
+    "pokemon-center.png": "93ae92dbe8ade6dcc2552d760bc9e00579d9d91fd7b8933509ba207d5ae51c02",
+    "provenance.json": "61573fb5bc32bfd0798df1cfd0c8669a8d89791fdfac8100bc121fb7099962d0"
+  },
+  "shared_art_origin": "pokemon-apocrypha 94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b gba/art/shared-building-art/ (Violet Center, Johto Mart)",
+  "generators": [
+    "tools/gba/maps/blackthorn/hgss_events.py",
+    "tools/gba/maps/blackthorn/hgss_render.py",
+    "tools/gba/maps/blackthorn/build.py",
+    "tools/gba/maps/blackthorn/install.py",
+    "tools/gba/maps/blackthorn/stream.py"
+  ],
+  "checks": [
+    "tools/gba/maps/blackthorn/check.py",
+    "tools/gba/maps/blackthorn/runtime.py",
+    "tools/gba/maps/blackthorn/review.py"
+  ],
+  "credits": "Original map geography, models and textures: Game Freak / Nintendo / Creatures (HeartGold/SoulSilver), read-only derivation. Shared Center and Mart: Apocrypha adaptations."
+}

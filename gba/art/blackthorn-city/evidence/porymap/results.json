@@ -1,0 +1,58 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (26b919d)",
+  "engine_commit": "64a8b9e8ce6dd4d4c89ccbc0e118aed8670e8d39",
+  "style": "C",
+  "city_export_vs_native": {
+    "size": [
+      1024,
+      1024
+    ],
+    "differing_pixels": 0
+  },
+  "blackthorn_files_rewritten": [
+    "data/layouts/BlackthornCity/border.bin",
+    "data/layouts/BlackthornCity/map.bin",
+    "data/maps/BlackthornCenterUpstairs/map.json",
+    "data/maps/BlackthornCity/map.json",
+    "data/maps/BlackthornMart/map.json",
+    "data/maps/BlackthornPokemonCenter/map.json",
+    "data/tilesets/secondary/blackthorn_city/metatile_attributes.bin",
+    "data/tilesets/secondary/blackthorn_city/metatiles.bin",
+    "data/tilesets/secondary/blackthorn_city/palettes/00.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/01.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/02.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/03.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/04.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/05.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/06.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/07.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/08.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/09.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/10.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/11.pal",
+    "data/tilesets/secondary/blackthorn_city/palettes/12.pal"
+  ],
+  "blackthorn_files_changed": [],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_blackthorn": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Blackthorn are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

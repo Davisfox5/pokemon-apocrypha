@@ -79,7 +79,9 @@ and retain identifiable placements for later replacement.
 
 Use Porymap/native source formats in the production checkout. Preserve owner
 edits, IDs and shared tilesets; do not repack unrelated maps or replay provenance
-generators over committed layouts. Follow the existing source/branch rules.
+generators over layouts the owner has edited or accepted (an element-converted draft
+is regenerated each round until then; see the playbook below). Follow the existing
+source/branch rules.
 
 ### Native visual cleanup and final review
 
@@ -108,8 +110,9 @@ Its art/compiler is local to those maps; transfer the following technique.
    floor or remove a barrier. Check actual final native entries and pixels.
    Existing directly authored maps can use equivalent manual/native tile checks;
    they do not need a new screenshot packer.
-4. **Clean pixels deliberately.** Preserve the original texture and wall/cap
-   shading vocabulary. Review the cap, front/side face and corner as a continuous
+4. **Clean pixels deliberately.** Preserve the map's wall/cap texture and shading
+   vocabulary (on a Gen 4 conversion, the restyled Gen 3 set from the playbook below,
+   not the original's own texture). Review the cap, front/side face and corner as a continuous
    surface; local cleanup must retain its detail and depth. Use the available
    native palette budget to align mixed-material ramps without flattening the
    original texture into uniform or repeated shade bands.
@@ -144,9 +147,10 @@ Its art/compiler is local to those maps; transfer the following technique.
    existing proof for unchanged code/art; run new checks after meaningful changes.
 
 Preserve current editable native source, owner modifications, palette/metatile
-IDs on untouched maps, previous drafts and saves. Generators are provenance;
-never replay them over committed owner layouts. Keep changes local, use the
-installed tool workflow, and publish source/evidence through the shared Git lanes.
+IDs on untouched maps, previous drafts and saves. Generators are provenance once
+the owner has edited or accepted a map; never replay them over those layouts.
+Keep changes local, use the installed tool workflow, and publish source/evidence
+through the shared Git lanes.
 
 ## 4. Validate actual output, then inspect it visually
 
@@ -184,8 +188,112 @@ in the hub. Preserve earlier drafts, owner edits, saves and workbenches. Never
 commit ROMs, saves, credentials or tool binaries. Keep checks, proposals and owner
 acceptance distinct.
 
+## Element conversion playbook
+
+Owner-praised on Blackthorn City (2026-10-22, engine PR #26, hub
+`gba/art/blackthorn-city/README.md`). The first Blackthorn draft rendered HGSS 1:1,
+needed about 1,900 tiles, and had to be split into sections with a streaming engine
+hack. The owner's direction was to convert each element instead. The second build did
+that, fit one ordinary map on CherrygrovePrimary plus one secondary, and needed only two
+rounds of small notes. Adapt the steps below to each map; constants in the Blackthorn
+tools are marked as Blackthorn's.
+
+### Steps
+
+1. **Ledger.** Decode the HGSS map (`hgss_render.py` reads land_data, textures, building
+   models and permissions). Per 16x16 cell record material, structure (rock top, face and
+   its downhill direction, ledge, water, open ground, prop), the cell's HGSS peak height
+   and its permissions. Terrace level = peak height minus the town floor height. Doors,
+   signs and warps come from the zone events (`hgss_events.py`).
+2. **Pick Gen 3 counterparts per element.** Rock: FRLG's General mountain set (nine-slice,
+   four inner corners, over-rock variants, cave mouth, ledge and ledge-into-cliff joins),
+   recoloured to the HGSS rock ramp. Ground and water: Cherrygrove's own tiles chosen by
+   8-neighbour configuration and texture phase. Grass-water edges: Route 30's pond rim
+   (its lip is on the grass side), with every water pixel repainted from the receiving
+   map's own water at its 32 px phase, its mirror images for sides Route 30 never shows,
+   and straight-edge water tiles left as plain lake water. Where a shoreline meets a
+   cliff, the rock quadrant's clear pixels take part in the rim (`rock_beyond`,
+   `ground(shore=True)`), so the lip runs on to the rock. Center and Mart: the shared
+   art, pixel exact.
+3. **Autotile rock from terrace levels.** Each quadrant takes the nine-slice piece its two
+   edges call for; a cell whose only lower neighbour is diagonal takes the whole
+   inner-corner piece; a quadrant facing a lower terrace uses the over-rock variant;
+   north-facing edges show as rims, the way FRLG draws the far side of a mountain.
+4. **Layering, as FRLG does it.** Rock and props sit on the top layer over plain ground.
+   Under a rock edge the bottom layer is the plainest 8x8 block of the ground beyond, so
+   edge tiles don't multiply by the ground texture's phase; under an opaque quadrant the
+   bottom is the rock top, so solid rock is one metatile. Depth follows each object's base
+   row (`pack.above_player`): the player is two cells tall, so a walkable cell draws its art
+   above the player (normal layer type, every tile on the top layer) only when its object's
+   base lies further south (walk-behind); doors and other base-row cells and every blocked
+   cell draw below the player (covered).
+5. **Props from scratch.** Draw each prop as a sprite at native resolution. For shape and
+   proportion, render the game's own model through the map's field camera:
+   `hgss_camera.py` reads the camera from pokeheartgold (map header `cameraType`, table
+   `ov01_02206478` in `asm/overlay_01_021EABA8.s`; Blackthorn uses type 0, 48.7 degrees).
+   Keep props inside their cell columns so a player beside them is not overlapped. Keep
+   each sprite to one small ramp (15 colours or fewer) and mirror symmetric parts.
+6. **Pack and budget.** One secondary holds 496 tiles (16 kept for door animation) and
+   512 metatiles; the shared Center and Mart alone cost about 180 tiles. Count tiles and
+   learned colours per element before cutting (`budget.py`). Map palettes are 13 banks:
+   the primary's six, the fixed Center and Mart banks, a junction bank and four learned
+   banks of 15 colours. Draw props in colours a loaded bank already has where they fit:
+   CherrygrovePrimary bank 2 is a wood ramp (bridge, stairs, posts), bank 0 has whites that
+   sit with its grass (snow), the Center's bank 8 has a neutral grey ramp (stone). Keep each
+   remaining colour family (rock, houses, Gym, water mixes) to 15 colours so one bank holds
+   it, and avoid tiles that mix families (railing over water: put the railing on the top
+   layer). After packing, compare each element's decoded colours with its art, not only the
+   averages: a grey stone once came out brown and a Gym panel brown-red while totals looked fine.
+7. **Install and verify every round**: `install_elements.py`, `make`,
+   `check_elements.py` (installed decode equals the packer, traversal ledger, reachability
+   on foot and by Surf, walk-behind layer types, shared pixels and palettes, budgets,
+   preserved map ids, changed-file scope), `runtime_elements.py` (headless mGBA routes,
+   VRAM-rebuilt BG layers equal the native image, BG1 coverage over the player in
+   walk-behind spots, save, cold reload, Continue), `porymap.py` (fresh clone, export
+   equals native, save is byte-identical), `review_elements.py` (HGSS vs native sheets).
+8. **Review loop.** Look at zoomed crops yourself before sending anything. Show the owner
+   whole-map and before/after crops inline. Answer each note with a targeted fix and
+   re-run step 7.
+
+### Traps already hit (check for these)
+
+- Inner corners built from one quadrant of the inner-corner piece look cut out; place it whole.
+- Stacked terraces built from over-ground pieces show striped seams; use over-rock pieces.
+- Ledges that stop one cell short of a cliff leave a gap; join them with the join pieces.
+- A prop wider than its cell column overlaps a player standing beside it.
+- A boulder on a plateau raises its own cells into a mound; give it the plateau's level.
+- A building on a one-row island makes the shoreline step around it; keep the island
+  inside the building's outline.
+- Texture crops can carry threshold or shadow rows (a door's dark bottom band); crop them.
+- Regular texture repeats (scallop rows on thatch) read as lumpy; follow the form instead
+  (straw strands down the slope, lumps on a stone).
+- Screenshot sites may be blocked by the cloud environment's network policy; the game's
+  own models through its own camera are the fallback reference.
+- A borrowed rim tile keeps its source map's water: a shore strip of one repeated 8 px
+  tile reads as water from somewhere else. Repaint it from the receiving map's water.
+- Learning edge pieces from a map treats trees and paths as "same as me", so a few
+  learned tiles carry lips from contexts that don't apply (a grey spur into the water).
+  Tiles with few samples are suspect; prefer the configuration's well-sampled pieces.
+- A nearest-match fallback can hand a dry grass/sand corner a pond piece, or a shore
+  corner a piece with the wrong sides. Restrict the fallback to the same classes, and
+  build missing grass corners from the straight edge of each wet side.
+- `max(set(tiles), key=tiles.count)` breaks ties in hash order, which changes per run;
+  sort first, and confirm two runs with different `PYTHONHASHSEED` match.
+- A building drawn to fill its whole blocked footprint comes out stretched (the Gym first
+  took eight rows). Take every building's height from the camera render, even where
+  HGSS's collision runs deeper than the drawn building.
+- A door is walkable but sits on its building's base row. "Walkable plus top-layer art means
+  above the player" hid the player's head under the Mart and Center fronts; decide by the
+  object's base row instead, and test standing in front of every building.
+- On a walk-behind row, opaque tiles left on the bottom layer draw under the player while
+  their neighbours draw over it; put every tile of that row on the top layer.
+- Before copying a shared Center or Mart, check the owner's registry
+  (`gba/art/johto-common/approved-buildings.json`) for the locked version and its hash;
+  a branch cut from an older `main` can carry a superseded draft.
+
 ## Worked example
 
+Blackthorn City (above) is the reference for converting a Gen 4 map element by element.
 The Route 32 material pass is an example, not a universal map template:
 [review and provenance](https://github.com/Davisfox5/pokemon-apocrypha/blob/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/README.md).
 It separates original-reference terrain types from walkability and checks actual
