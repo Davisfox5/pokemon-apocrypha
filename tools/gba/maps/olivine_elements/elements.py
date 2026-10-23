@@ -20,8 +20,9 @@ HGSS's own colours:
     fences        FRLG's metal fence in HGSS's chain-fence greys (fence_a)
     steps, ramp   FRLG's stone stairs; the wooden ramp up to the Lighthouse its turned
                   treads in HGSS's slope colours
-    trees         HGSS's own Olivine tree (32 px, its trunk and shadow) in Cherrygrove's
-                  tree greens, one per HGSS tree on the 2x2 grid HGSS plants them on
+    trees         Cherrygrove's tree (HGSS's tree01_re at 1:1, 32 x 48 with its trunk and
+                  shadow, CherrygrovePrimary's own tiles), one per HGSS tree on the 2x2 grid
+                  HGSS plants them on, its crown rising a row above its block
     sea rocks     HGSS's sea_rock texture resampled (Cianwood's), the rock climb wall
                   HGSS's r_climb texture
 
@@ -29,6 +30,11 @@ Buildings and props are HGSS's own models and textures rendered at C06's angle
 (sprites.py, hgss_camera.view); the Center is the owner-locked C06, the Mart the shared
 Johto Mart. Canon has no Olivine Gym (DESIGN.md): its building stays as a civic hall with
 the emblem and the Gym sign left out.
+
+Everything that stands (trees, fences, props, buildings) is drawn in painter's order with
+no background of its own, so whatever stands behind it shows round it. Where two kinds of
+art meet in one 8x8 tile, one takes the top layer and the other is drawn into the bottom
+layer over its ground (split), so no pixel of either is lost.
 
     source/elements/ledger.json, ledger.png, compose-C.npz
     evidence/elements/terrain-C.png, compare.png
@@ -185,7 +191,9 @@ def ledger(phg):
                 c['terrace'] = max(col) if col else c['terrace']
             if c['lab'] == 'B' and c['material'] == 'fence_a' and c['floor'] == 'cobble':
                 c['floor'] = 'deck'                           # the quay rail's end posts on the deck's edge
-    # A boulder is a 2x2 prop (rock01); its cells take the terrace round it.
+    # A boulder is a 2x2 prop (rock01) sitting on the ground: all four cells take the level
+    # of the open ground round the block (the rock beside it stands above it or below it).
+    blocks = {}
     for y in range(H):
         for x in range(W):
             c = cells[y][x]
@@ -196,14 +204,14 @@ def ledger(phg):
                     for xx in (x0, x0 + 1):
                         if 0 <= xx < W and 0 <= yy < H:
                             cells[yy][xx].update(lab='O', boulder=[x0, y0])
-    for y in range(H):
-        for x in range(W):
-            c = cells[y][x]
-            if c['lab'] == 'O':
-                ring = [cells[yy][xx]['terrace'] for yy, xx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1))
-                        if 0 <= yy < H and 0 <= xx < W and cells[yy][xx]['lab'] != 'O']
-                c['terrace'] = max(set(ring), key=lambda v: (ring.count(v), v)) if ring else 0
-                c['floor'] = 'grass'
+                blocks[(x0, y0)] = [(xx, yy) for yy in (y0, y0 + 1) for xx in (x0, x0 + 1) if 0 <= xx < W and 0 <= yy < H]
+    for (x0, y0), own in blocks.items():
+        ring = [(xx + dx, yy + dy) for xx, yy in own for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0))]
+        ring = [cells[yy][xx] for xx, yy in ring if 0 <= xx < W and 0 <= yy < H and (xx, yy) not in own]
+        levels = [r['terrace'] for r in ring if r['lab'] not in ROCK and r['lab'] != 'O'] or [r['terrace'] for r in ring]
+        level = max(set(levels), key=lambda v: (levels.count(v), v)) if levels else 0
+        for xx, yy in own:
+            cells[yy][xx].update(terrace=level, floor='grass')
     return cells
 
 def save_ledger(cells):
@@ -395,10 +403,10 @@ def ground(cells, tex, engine):
                 out[cell] = blk
     return out
 
-def deck_edges(out, top, cells):
+def deck_edges(out, cells):
     """The deck's rims: a dark side where it meets the sea, the quay's low rail on its
-    south edge (posts every 8 px and a bar, on the top layer) above the deck's front face,
-    and a step line where it meets the plaza."""
+    south edge (posts every 8 px and a bar) above the deck's front face, and a step line
+    where it meets the plaza; all of it ground, on the bottom layer."""
     floor = lambda x, y: cells[y][x]['floor'] if 0 <= x < W and 0 <= y < H else 'water'
     lab = lambda x, y: cells[y][x]['lab'] if 0 <= x < W and 0 <= y < H else '~'
     for y in range(H):
@@ -506,8 +514,11 @@ def rock_frlg(cells, base, pieces, tex):
     only lower neighbours are diagonal takes FRLG's whole inner-corner piece; every other
     cell is composed per 8x8 quadrant from the nine-slice piece its two edges call for,
     the over-rock pieces where the quadrant faces a lower rock terrace. The rock is a
-    top-layer overlay; its clear pixels show what lies beyond that edge (the plainest
-    8x8 block of that ground, or the rock top), its cast shadow Cherrygrove's border grey.
+    top-layer overlay; its clear pixels show what lies beyond that edge (the plainest 8x8
+    block of that ground, or the rock top), its cast shadow Cherrygrove's border grey. A
+    corner that drops onto lower rock on one side and onto the ground on the other takes
+    the piece onto the ground, and its clear pixels nearer the rock side are the lower
+    rock's top, drawn on the overlay, so no ground shows through between two terraces.
     Under a fully opaque quadrant the bottom is the rock top, so solid rock is one metatile."""
     d, face, isrock = layers(cells)
     out = base.copy()
@@ -530,6 +541,7 @@ def rock_frlg(cells, base, pieces, tex):
             return flat['grass'], 'grass'
         return base[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16], 'other'
     cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None, water=None, other=BORDER_GRAY)
+    yy8, xx8 = np.mgrid[0:8, 0:8]                               # pixel row and column within a quadrant
     piece = np.full((H, W), '', object)
     for y in range(H):
         for x in range(W):
@@ -553,64 +565,77 @@ def rock_frlg(cells, base, pieces, tex):
                     h = ('W', 'E')[qx] if lo['w'] and lo['e'] else 'W' if lo['w'] else 'E' if lo['e'] else 'M'
                     sl = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
                     vk, hk = 'ns'[qy], 'we'[qx]
-                    toward = next((DIRS[k] for k in (vk, hk, vk + hk) if lo[k]), None)
-                    bg, kind = beyond(x + toward[0], y + toward[1]) if toward else (fill, 'rock')
+                    sides = {k: beyond(x + DIRS[k][0], y + DIRS[k][1]) for k in (vk, hk, vk + hk) if lo[k]}
+                    # A corner that drops onto lower rock on one side and onto the ground on
+                    # the other: each clear pixel nearer the rock side shows the lower rock's
+                    # top (drawn on the rock layer), the rest the ground beyond, shadow and all.
+                    split_rock = vk in sides and hk in sides and (sides[vk][1] == 'rock') != (sides[hk][1] == 'rock')
+                    if split_rock:
+                        rk, gk = (vk, hk) if sides[vk][1] == 'rock' else (hk, vk)
+                        dv, dh = (yy8 if qy == 0 else 7 - yy8), (xx8 if qx == 0 else 7 - xx8)
+                        d_rock, d_ground = (dv, dh) if rk == vk else (dh, dv)
+                        near_rock = (d_rock < d_ground) | ((d_rock == d_ground) & (sides.get(vk + hk, (None, ''))[1] == 'rock'))
+                        bg, kind = sides[gk]
+                    else:
+                        toward = next((k for k in (vk, hk, vk + hk) if k in sides), None)
+                        bg, kind = sides[toward] if toward else (fill, 'rock')
+                        near_rock = np.zeros((8, 8), bool)
                     if whole is not None:
                         ix = whole[sl]
                     elif lo[vk + hk] and not lo[vk] and not lo[hk]:
                         ix = inner[vk + hk][sl]
                     else:
-                        ix = (nine_rock if kind == 'rock' else nine)[(v, h)][sl]
+                        ix = (nine_rock if kind == 'rock' and not split_rock else nine)[(v, h)][sl]
                     cell[sl] = bg[sl]
-                    q = ov[sl]
-                    for (yy, xx), k in np.ndenumerate(ix):
+                    q, rock_top = ov[sl], fill[sl]
+                    for (py, px), k in np.ndenumerate(ix):
                         if k >= 0:
-                            q[yy, xx] = BLACKTHORN_RAMP[k] + (255,)
+                            q[py, px] = BLACKTHORN_RAMP[k] + (255,)
+                        elif near_rock[py, px]:
+                            q[py, px] = tuple(rock_top[py, px]) + (255,)
                         elif k == SHADOW and cast[kind]:
-                            q[yy, xx] = cast[kind] + (255,)
+                            q[py, px] = cast[kind] + (255,)
                     if (q[..., 3] > 0).all():
                         cell[sl] = fill[sl]
             piece[y, x] = ''.join(k for k in DIRS if lo[k])
     return out, over, d, piece
 
 # --------------------------------------------------------------------------- trees
-# HGSS's Olivine tree (tree01_re crown over tree01_un trunk and shadow, as its top-down
-# terrain draws it), cut out at one tree and mapped onto Cherrygrove's tree greens
-# (CherrygrovePrimary bank 3, the accepted Johto trees' own ramp) by nearest colour, so
-# every tree tile needs no secondary colours. Its shadow is Cherrygrove's tree shadow.
-TREE_RAMP = [(64, 56, 40), (64, 64, 40), (72, 72, 48), (80, 88, 40), (88, 104, 32), (88, 112, 32), (96, 120, 32),
-             (112, 144, 32), (120, 152, 32), (136, 168, 40), (136, 104, 64)]
-TREE_SHADOW = (64, 136, 104)
+# Cherrygrove's tree, the accepted Johto tree: HGSS's own tree01_re at 1:1 (a pointed
+# crown 32 px wide, its trunk and its shadow, 48 px tall) in CherrygrovePrimary's tree
+# greens (bank 3), taken whole from its 2x3 metatiles there. Every pixel is the tree's
+# own; nothing of Cherrygrove's grass comes with it.
+CHERRY_TREE = ((0x42, 0x43), (0x0B, 0x0C), (0x17, 0x18))
+TREE_BANK = 3
 
-def tree_sprite(phg_topdown):
-    """32 x 32 RGBA: one HGSS tree from the forest's top row (trunk row 7, cells 36-37),
-    crown and trunk kept, grass cleared, shadow pixels in the tree shadow."""
-    h, mat, names, rgb = phg_topdown
-    X0, Y0 = 36 * 16, 6 * 16 - 6
-    win = rgb[Y0:Y0 + 32, X0:X0 + 32].astype(int)
-    m = mat[Y0:Y0 + 32, X0:X0 + 32]
-    crown = np.isin(m, [names.index('tree01_re'), names.index('tree01gs')])
-    under = m == names.index('tree01_un')
-    green = (win[..., 1] > win[..., 0] + 50) & (win[..., 2] > 90)            # the grass and its shadow tones
-    shadow = under & green & (win.sum(-1) < 330)
-    body = crown | (under & ~green)
-    img = np.zeros((32, 32, 4), np.uint8)
-    P = np.array(TREE_RAMP, int)
-    near = ((win[..., None, :] - P[None, None]) ** 2).sum(-1).argmin(-1)
-    img[body, :3] = P[near][body]; img[body, 3] = 255
-    img[shadow & ~body] = TREE_SHADOW + (255,)
-    return img
+def cherrygrove_tree(engine):
+    d = engine / 'data/tilesets/primary/cherrygrove'
+    tiles = _tiles(d)
+    pal = np.array(_read_pal(d / f'palettes/{TREE_BANK:02}.pal'), np.uint8)
+    blocks = np.frombuffer((d / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
+    out = np.zeros((16 * len(CHERRY_TREE), 32, 4), np.uint8)
+    for r, row in enumerate(CHERRY_TREE):
+        for c, mid in enumerate(row):
+            for li, e in enumerate(int(v) for v in blocks[mid]):
+                if e >> 12 != TREE_BANK:
+                    continue
+                t = tiles[e & 1023]
+                if e & 0x400: t = t[:, ::-1]
+                if e & 0x800: t = t[::-1]
+                q = li % 4
+                sub = out[r * 16 + (q // 2) * 8:r * 16 + (q // 2) * 8 + 8, c * 16 + (q % 2) * 8:c * 16 + (q % 2) * 8 + 8]
+                m = np.ones((8, 8), bool) if li < 4 else t != 0
+                sub[m, :3] = pal[t][m]
+                sub[m, 3] = 255
+    return out
 
-def trees(top, cells, sprite):
-    """One tree per HGSS tree, north rows first so a tree in front overlaps the one behind."""
+def trees(cells, engine):
+    """One tree per HGSS tree: its trunk and shadow in the lower row of HGSS's 2x2 block, its
+    crown rising a row above the block, in front of whatever stands there (the tree behind
+    it in a forest, the rock face above it), with no background of its own."""
+    img = cherrygrove_tree(engine)
     seen = sorted({tuple(c['tree']) for row in cells for c in row if 'tree' in c}, key=lambda t: (t[1], t[0]))
-    for x0, y0 in seen:
-        X0, Y0 = x0 * 16, y0 * 16
-        for yy in range(32):
-            for xx in range(32):
-                if sprite[yy, xx, 3] and 0 <= Y0 + yy < H * 16 and 0 <= X0 + xx < W * 16:
-                    top[Y0 + yy, X0 + xx] = sprite[yy, xx]
-    return seen
+    return [dict(name=f'tree_{x0}_{y0}', fam='tree', img=img, X=x0 * 16, Y=(y0 + 2) * 16 - img.shape[0]) for x0, y0 in seen]
 
 # --------------------------------------------------------------------------- fences
 # HGSS's chain fence (fence_a) the Gen 3 way: posts every 8 px, a white cap, an outline,
@@ -620,31 +645,33 @@ FENCE = dict(o=(49, 49, 57), d=(107, 107, 107), m=(132, 132, 132), l=(156, 156, 
 FENCE_H = ["........", "..oooo..", ".occwco.", ".ollllo.", ".ommmmo.", "oommmmoo", "ddommodd", "ooommooo", ".ommmmo.", ".oddddo.", "..oooo.."]
 FENCE_V = ["...oo...", "..occo..", "..olwo..", "..olmo..", "..ommo..", "..odmo..", "..oddo..", "...oo..."]
 
-def fences(top, cells):
+def fences(cells):
+    """One fence piece per fence cell, standing in its own cell."""
     f = lambda x, y: 0 <= x < W and 0 <= y < H and cells[y][x]['lab'] == 'f'
     hpost = np.array([[FENCE.get(ch, (0, 0, 0)) + ((255,) if ch in FENCE else (0,)) for ch in r] for r in FENCE_H], np.uint8)
     vpost = np.array([[FENCE.get(ch, (0, 0, 0)) + ((255,) if ch in FENCE else (0,)) for ch in r] for r in FENCE_V], np.uint8)
-    def put(img, X, Y):
-        a = img[..., 3] > 0
-        top[Y:Y + img.shape[0], X:X + img.shape[1]][a] = img[a]
+    out = []
     for y in range(H):
         for x in range(W):
             if not f(x, y):
                 continue
-            X0, Y0 = x * 16, y * 16
+            img = np.zeros((16, 16, 4), np.uint8)
+            def put(p, X, Y):
+                a = p[..., 3] > 0
+                img[Y:Y + p.shape[0], X:X + p.shape[1]][a] = p[a]
             horiz = f(x - 1, y) or f(x + 1, y)
             vert = f(x, y - 1) or f(x, y + 1)
             if vert:
                 # posts end on, two per cell, joined by a rail
-                for py in (Y0, Y0 + 8):
-                    put(vpost, X0 + 4, py)
-                rail = top[Y0:Y0 + 16, X0 + 7:X0 + 9]
+                for py in (0, 8):
+                    put(vpost, 4, py)
+                rail = img[:, 7:9]
                 rail[rail[..., 3] == 0] = FENCE['d'] + (255,)
             if horiz or not vert:
-                for px in (X0, X0 + 8):
-                    put(hpost, px, Y0 + 3)
-                if f(x + 1, y):
-                    pass
+                for px in (0, 8):
+                    put(hpost, px, 3)
+            out.append(dict(name=f'fence_{x}_{y}', fam='harbour', img=img, X=x * 16, Y=y * 16))
+    return out
 
 # --------------------------------------------------------------------------- props
 # HGSS's sea rocks (sea_rock blobs, 32 x 22 each; a wider blob is touching rocks, 481 px
@@ -668,7 +695,7 @@ def prop_blobs(td, name, unit=None):
 def snap(v):
     return int(round(v * 16 / 8)) * 8
 
-def sea_props(top, td, phg):
+def sea_props(td, phg):
     sys.path.insert(0, str(HERE))
     import sprites as S
     tex = hgss_texture(phg, 'sea_rock', 'sea_rock')
@@ -676,17 +703,14 @@ def sea_props(top, td, phg):
     for img in (rock, peb):                                       # the rocks' greys as the harbour ramp holds them
         a = img[..., 3] > 0
         img[a, :3] = np.array([harbour(tuple(c)) for c in img[a, :3].tolist()], np.uint8)
-    placed = []
+    out = []
     for img, pos in ((rock, prop_blobs(td, 'sea_rock', 481)), (peb, prop_blobs(td, 'sea_rock_m'))):
         for x0, y0 in pos:
             X, Y = snap(x0), snap(y0)
-            sl = top[Y:Y + img.shape[0], X:X + img.shape[1]]
-            a = img[:sl.shape[0], :sl.shape[1], 3] > 0
-            sl[a] = img[:sl.shape[0], :sl.shape[1]][a]
-            placed.append(('sea_rock' if img is rock else 'pebble', X, Y))
-    return placed
+            out.append(dict(name=f'rock_{X}_{Y}', fam='harbour', img=img, X=X, Y=Y))
+    return out
 
-def boulders(top, td, phg):
+def boulders(td, phg):
     """HGSS's boulder (rock01, clean pixel art) snapped onto the rock ramp by brightness
     (its own shades are that ramp's), and the small stones (Cianwood's)."""
     sys.path.insert(0, str(HERE))
@@ -697,20 +721,16 @@ def boulders(top, td, phg):
     lum = r[..., :3].astype(int).sum(-1)
     levels = np.quantile(lum[a], np.linspace(0, 1, len(light) + 1)[1:-1])
     r[..., :3] = np.array(light, np.uint8)[np.searchsorted(levels, lum)]
-    placed = []
+    r[~a] = 0
+    out = []
     for x0, y0 in prop_blobs(td, 'rock01'):
         X, Y = int(round(x0)) * 16, int(round(y0)) * 16
-        sl = top[Y:Y + 32, X:X + 32]
-        sl[a[:sl.shape[0], :sl.shape[1]]] = r[:sl.shape[0], :sl.shape[1]][a[:sl.shape[0], :sl.shape[1]]]
-        placed.append(('boulder', X, Y))
+        out.append(dict(name=f'boulder_{X}_{Y}', fam='rock', img=r, X=X, Y=Y))
     st = S.stone(hgss_texture(phg, 'etc_a', 'etc_a'))
     for x0, y0 in prop_blobs(td, 'etc_a'):
         X, Y = snap(x0), int(y0) * 16 + 8
-        sl = top[Y:Y + 8, X:X + 16]
-        m = st[..., 3] > 0
-        sl[m] = st[m]
-        placed.append(('stone', X, Y))
-    return placed
+        out.append(dict(name=f'stone_{X}_{Y}', fam='rock', img=st, X=X, Y=Y, flat=True))
+    return out
 
 # HGSS's steps (slope, the stone stair at the top of the stair lane) and the Lighthouse
 # ramp, in the slope texture's own colours: treads light, risers dark. The stair climbs
@@ -793,10 +813,13 @@ PLACES = [('gym', 'gym', 13.5, 14), ('cafe', 'cafe', 10.0, 33), ('house_0', 'hou
           ('house_1', 'house', 32.0, 17), ('house_2', 'house', 37.0, 17), ('lighthouse', 'lighthouse', 45.5, 39),
           ('terminal', 'terminal', 23.5, 60), ('bench_0', 'bench', 9.0, 42), ('bench_1', 'bench', 16.0, 42),
           ('bench_2', 'bench', 31.0, 42), ('yacht_0', 'yacht', 16.559, 48.5), ('yacht_1', 'yacht', 30.559, 48.5),
-          ('bunting_0', 'bunting', 23.5, 0), ('bunting_1', 'bunting', 9.75, 21), ('bunting_2', 'bunting', 23.0, 30),
+          ('bunting_1', 'bunting', 9.75, 21), ('bunting_2', 'bunting', 23.0, 30),
           ('citysign', 'citysign', 23.5, 23), ('board_0', 'board', 24.5, 42), ('board_1', 'board', 46.5, 40)]
 # The flag line between the Center and the Mart stands 0.75 cells west of HGSS's, so its
-# east pole clears the shared Mart (two cells wider than HGSS's).
+# east pole clears the shared Mart (two cells wider than HGSS's). HGSS's third flag line,
+# over the north gate (model x 23.5, its feet on row 0), hangs past the map's top edge
+# over Route 39; a Gen 3 map draws nothing past its edge, so only two pole stubs would
+# show, and it stays out.
 
 def objects():
     sys.path.insert(0, str(HERE))
@@ -810,93 +833,114 @@ def objects():
         out.append((name, img, X, Y))
     return out
 
-TERRAIN_PROPS = ('tree', 'fence', 'rock', 'boulder', 'stone')
+def standing(engine, phg, cells, td):
+    """Everything that stands on the ground, each with its palette family (the bank its
+    colours live in): trees, fences, sea rocks, boulders and stones, the buildings and
+    props (a hosted prop rides in its host's family), the shared Mart and Center."""
+    sys.path.insert(0, str(HERE))
+    import sprites as S
+    items = trees(cells, engine) + fences(cells) + sea_props(td, phg) + boulders(td, phg)
+    for name, img, X, Y in objects():
+        kind = name.split('_')[0]
+        items.append(dict(name=name, fam=S.HOSTS.get(kind, kind), img=img, X=X, Y=Y))
+    for fam, name, f, (ox, oy) in (('mart', 'poke_mart', 'poke-mart.png', MART_ORIGIN),
+                                   ('center', 'pokemon_center', 'pokemon-center.png', CENTER_ORIGIN)):
+        items.append(dict(name=name, fam=fam, img=np.array(Image.open(SHARED / f).convert('RGBA')), X=ox * 16, Y=oy * 16))
+    return items
 
-def place(bottom, top, owner, cells):
-    """Objects in painter's order, north base rows first, so one standing further south
-    draws over one behind it. An 8x8 tile that would mix a building's colours with a
-    tree's, a fence's or a rock's keeps the building and loses the other's pixels there
-    (no bank holds both; the building stands in front); the shared Center and Mart go on a
-    layer of their own with their exact palettes, and nothing else keeps pixels in their tiles."""
+GROUND_LEVEL = ('tree', 'harbour', 'rock')                     # trees, fences, sea rocks, boulders, stones
+
+def stack(bottom, over, items, leave_out=None):
+    """The finished picture: the ground, the rock over it, then everything standing in
+    painter's order (flat stones first, then by the row its foot stands on, north first),
+    so one standing further south draws over one behind it; in one row, trees, fences and
+    rocks before buildings and props (the shared Mart stands over its lot's fence). Every
+    item is drawn by its own opaque pixels only. Returns the picture and, per pixel, the
+    family and owner of what shows there ('' for the ground and the rock overlay's owner).
+    leave_out: a family drawn out of the picture (what shows behind it)."""
+    want = bottom.copy()
+    fam = np.full(bottom.shape[:2], '', '<U12')
+    own = np.full(bottom.shape[:2], '', '<U16')
+    a = (over[..., 3] > 0) & (leave_out != 'rock')
+    want[a] = over[..., :3][a]
+    fam[a] = 'rock'
+    foot = lambda it: it['Y'] + int(np.nonzero(it['img'][..., 3].any(1))[0].max())
+    order = lambda it: (not it.get('flat'), foot(it) // 16, it['fam'] not in GROUND_LEVEL, foot(it), it['X'])
+    for it in sorted((it for it in items if it['fam'] != leave_out), key=order):
+        img, X, Y = it['img'], it['X'], it['Y']
+        y0, x0 = max(Y, 0), max(X, 0)
+        y1, x1 = min(Y + img.shape[0], H * 16), min(X + img.shape[1], W * 16)
+        if y1 <= y0 or x1 <= x0:
+            continue
+        part = img[y0 - Y:y1 - Y, x0 - X:x1 - X]
+        m = part[..., 3] > 0
+        sl = np.s_[y0:y1, x0:x1]
+        want[sl][m] = part[..., :3][m]
+        fam[sl][m] = it['fam']
+        own[sl][m] = it['name']
+    return want, fam, own
+
+# Where two families show in one 8x8 tile, the first of them here takes the top layer: the
+# shared Center and Mart (their exact banks), then the buildings (each a bank of its own),
+# the flag lines, the trees, the harbour greys, the rock. The bottom layer there is the
+# picture with that family left out: what stands behind it, whole (a fence over its
+# paving, a tree over its grass, rock over what lies beyond it), so the tile is the same
+# wherever that art repeats, whatever stands in front. The grass there is its plainest
+# block, so a bank that holds a family's colours and two greens holds the tile. The
+# picture is the same either way.
+TOP_FIRST = ('center', 'mart', 'gym', 'cafe', 'house', 'lighthouse', 'terminal', 'bunting', 'tree', 'harbour', 'rock')
+SHARED_SRC = dict(mart=1, center=2)
+
+def split(bottom, want, fam, tex, behind):
+    """behind(family) -> (picture, family map) with that family left out."""
+    out = bottom.copy()
+    top = np.zeros(bottom.shape[:2] + (4,), np.uint8)
     shared = np.zeros(bottom.shape[:2] + (4,), np.uint8)
     shared_src = np.zeros(bottom.shape[:2], np.uint8)            # 1 Mart, 2 Center
-    for src, f, (ox, oy) in ((1, 'poke-mart.png', MART_ORIGIN), (2, 'pokemon-center.png', CENTER_ORIGIN)):
-        img = np.array(Image.open(SHARED / f).convert('RGBA'))
-        sl = np.s_[oy * 16:oy * 16 + img.shape[0], ox * 16:ox * 16 + img.shape[1]]
-        a = img[..., 3] > 0
-        shared[sl][a] = img[a]; shared_src[sl][a] = src
-        owner[sl][a] = 'poke_mart' if src == 1 else 'pokemon_center'
-    lost = 0
-    blocked = np.array([[c['blocked'] or c['lab'] in ROCK for c in row] for row in cells])
-    for name, img, X, Y in sorted(objects(), key=lambda o: (o[3] + o[1].shape[0], o[2])):
-        h, w = img.shape[:2]
-        y0, x0 = max(Y, 0), max(X, 0)
-        y1, x1 = min(Y + h, H * 16), min(X + w, W * 16)
-        part = img[y0 - Y:y1 - Y, x0 - X:x1 - X]
-        a = part[..., 3] > 0
-        sl = np.s_[y0:y1, x0:x1]
-        for ty in range(y0 // 8, (y1 + 7) // 8):
-            for tx in range(x0 // 8, (x1 + 7) // 8):
-                ts = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-                hit = np.zeros((H * 16, W * 16), bool)[ts]
-                mine = np.zeros((8, 8), bool)
-                yy, xx = np.mgrid[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-                inside = (yy >= y0) & (yy < y1) & (xx >= x0) & (xx < x1)
-                mine[inside] = a[(yy - y0)[inside], (xx - x0)[inside]]
-                if not mine.any():
-                    continue
-                o = owner[ts].astype(str)
-                prop = np.zeros((8, 8), bool)
-                for k in TERRAIN_PROPS:
-                    prop |= np.char.startswith(o, k)
-                prop &= (top[ts][..., 3] > 0) & ~mine
-                if prop.any():
-                    top[ts][prop] = 0; owner[ts][prop] = ''; lost += int(prop.sum())
-                # Under an object in a blocked cell (drawn below the player either way) the
-                # rock's top-layer overlay drops to the bottom layer, so the object's tiles
-                # do not mix with the rock's.
-                rock = (owner[ts] == '') & (top[ts][..., 3] > 0) & ~mine
-                if rock.any() and blocked[ty // 2, tx // 2]:
-                    bottom[ts][rock] = top[ts][..., :3][rock]
-                    top[ts][rock] = 0
-        top[sl][a] = part[a]
-        owner[sl][a] = name
-    # nothing else keeps pixels in a tile the shared buildings touch
+    green = plain(tex, 'grass')
+    grass = np.array(sorted({tuple(c) for c in tex['grass'].reshape(-1, 3).tolist()}), np.uint8)
+    mixed = {}
     for ty in range(H * 2):
         for tx in range(W * 2):
             ts = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-            if (shared[ts][..., 3] > 0).any():
-                top[ts] = 0
-    place.tree_pixels_lost = lost
-    return shared, shared_src
+            f = fam[ts]
+            kinds = set(np.unique(f).tolist()) - {''}
+            if not kinds:
+                continue
+            first = min(kinds, key=TOP_FIRST.index)
+            m = f == first
+            dst = shared if first in SHARED_SRC else top
+            dst[ts][m] = np.concatenate([want[ts][m], np.full((int(m.sum()), 1), 255, np.uint8)], 1)
+            if first in SHARED_SRC:
+                shared_src[ts][m] = SHARED_SRC[first]
+            if ((f != '') & ~m).any():
+                pic, pfam = behind(first)
+                q = out[ts]
+                q[:] = pic[ts]
+                is_grass = (q[:, :, None, :] == grass[None, None]).all(-1).any(-1) & (pfam[ts] == '')
+                q[is_grass] = green[(ty % 2) * 8:(ty % 2) * 8 + 8, (tx % 2) * 8:(tx % 2) * 8 + 8][is_grass]
+                mixed[(tx, ty)] = [first] + sorted(kinds - {first})
+    return out, top, shared, shared_src, mixed
 
 # --------------------------------------------------------------------------- compose
 def compose(engine, phg, cells, td):
     tex = cherry_textures()
     bottom = ground(cells, tex, engine)
-    top0 = np.zeros(bottom.shape[:2] + (4,), np.uint8)
-    deck_edges(bottom, top0, cells)
+    deck_edges(bottom, cells)
     kerbs(bottom, cells)
     steps(bottom, cells)
     shore(bottom, cells, tex)
-    bottom, top, level, piece = rock_frlg(cells, bottom, frlg_pieces(engine), tex)
-    owner = np.full(bottom.shape[:2], '', dtype='<U16')
-    a = top0[..., 3] > 0
-    top[a] = top0[a]
-    rock_climb(top, cells, phg)
-    before = top[..., 3] > 0
-    for x0, y0 in trees(top, cells, tree_sprite(td)):
-        sl = np.s_[y0 * 16:y0 * 16 + 32, x0 * 16:x0 * 16 + 32]
-        owner[sl][(top[sl][..., 3] > 0) & ~before[sl]] = f'tree_{x0}_{y0}'
-    before = top[..., 3] > 0
-    fences(top, cells)
-    owner[(top[..., 3] > 0) & ~before] = 'fence'
-    for kind, X, Y in sea_props(top, td, phg) + boulders(top, td, phg):
-        sl = np.s_[Y:Y + 32, X:X + 32]
-        owner[sl][(top[sl][..., 3] > 0) & (owner[sl] == '')] = {'sea_rock': 'rock', 'pebble': 'rock', 'boulder': 'boulder',
-                                                                 'stone': 'stone'}[kind] + f'_{X}_{Y}'
-    shared, shared_src = place(bottom, top, owner, cells)
-    return bottom, top, level, piece, owner, shared, shared_src
+    bottom, over, level, piece = rock_frlg(cells, bottom, frlg_pieces(engine), tex)
+    rock_climb(over, cells, phg)
+    items = standing(engine, phg, cells, td)
+    want, fam, owner = stack(bottom, over, items)
+    cache = {}
+    def behind(f):
+        if f not in cache:
+            cache[f] = stack(bottom, over, items, leave_out=f)[:2]
+        return cache[f]
+    bottom, top, shared, shared_src, mixed = split(bottom, want, fam, tex, behind)
+    return bottom, top, level, piece, owner, shared, shared_src, fam, mixed
 
 def preview(bottom, top, shared=None):
     out = bottom.copy()
@@ -912,9 +956,9 @@ def main(engine, phg):
     cells = ledger(phg)
     save_ledger(cells)
     (EV / 'elements').mkdir(parents=True, exist_ok=True)
-    bottom, top, level, piece, owner, shared, shared_src = compose(engine, phg, cells, td)
+    bottom, top, level, piece, owner, shared, shared_src, fam, mixed = compose(engine, phg, cells, td)
     np.savez_compressed(SRC / 'elements' / 'compose-C.npz', bottom=bottom, top=top, shared=shared, shared_src=shared_src,
-                        owner=owner, level=level, piece=piece.astype(str))
+                        owner=owner, family=fam, level=level, piece=piece.astype(str))
     v = preview(bottom, top, shared)
     Image.fromarray(v).save(EV / 'elements' / 'terrain-C.png')
     ref = np.array(Image.open(SRC / 'hgss/hgss-render.png').convert('RGB'))
@@ -922,7 +966,10 @@ def main(engine, phg):
     for i, (img, t) in enumerate(((ref, 'HGSS reference (decoded map data)'), (v, 'Gen 3 elements'))):
         sheet.paste(Image.fromarray(img), (i * (W * 16 + 12), 24)); d.text((i * (W * 16 + 12) + 4, 6), t, fill='white')
     sheet.save(EV / 'elements' / 'compare.png')
-    print('wrote terrain-C.png and compare.png; tree, fence and rock pixels given up to buildings:', place.tree_pixels_lost)
+    pairs = {}
+    for k in mixed.values():
+        pairs['/'.join(k)] = pairs.get('/'.join(k), 0) + 1
+    print('wrote terrain-C.png and compare.png;', len(mixed), 'tiles with art on both layers:', dict(sorted(pairs.items())))
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())

@@ -6,7 +6,8 @@ own map data and drawn with Gen 3 pieces, by the method of
 each HGSS element (cliffs, terraced forest, cobbled plaza, lawns, fences, deck, quay, pier,
 sea, sea rocks, buildings, props) becomes a Gen 3 element that does the same job, in
 Olivine's HGSS colours. Editable source is engine branch `claude/olivine-city`, which builds
-on `claude/cianwood-city` (#27). Owner visual acceptance is pending.
+on `claude/cianwood-city` (#27). Owner visual acceptance is pending; round 2 answers the
+owner's first review (objects without backgrounds, rock corners, trees).
 
 This replaces nothing. Codex's Olivine (engine PR #21 `codex/olivine-city`, evidence on hub
 `codex/olivine-city-evidence`) traces a screenshot into three district maps joined by
@@ -21,30 +22,35 @@ It is left as it is. The two install different names but both append to
 | | |
 | --- | --- |
 | Map | `OlivineCity`, 64x64, `gMapGroup_Cherrygrove` id 50 (Center 51, Center upstairs 52, Mart 53), `MAPSEC_OLIVINE_CITY` |
-| Primary | `gTileset_OlivinePrimary`, derived from CherrygrovePrimary (below): 512 tiles, 128 of them Cherrygrove's at their own indices |
-| Secondary | `gTileset_OlivineCity`: 454 of 496 tiles (16 kept for door animation), 512 metatiles; 53 more metatiles in the primary |
-| Palettes | banks 0, 1, 3 Cherrygrove's (ground, sea, trees); one exact fit over the other ten: the Gym with the yachts (2), the cafe (4), the houses (5), the Lighthouse with the parasol benches (6), the terminal with the notice boards (7), rock and paving (8), the harbour greys (9: deck, quay, fences, sea rocks), the Mart (10), C06 over 11 and 12, the flag lines in 12's free slots |
-| Border | open sea (Cherrygrove's animated sea, in the sea's 32 px phase) |
+| Primary | `gTileset_OlivinePrimary`, derived from CherrygrovePrimary (below): 512 tiles, 81 of them Cherrygrove's at their own indices; its own sea animation callback |
+| Secondary | `gTileset_OlivineCity`: 423 of 496 tiles (16 kept for door animation), 512 metatiles; 60 more metatiles in the primary |
+| Palettes | banks 0 and 1 Cherrygrove's (ground, sea), 3 Cherrygrove's tree greens with its two free slots holding the plain greens; one exact fit over the other ten: the Gym with the yachts (2), the cafe (4), the houses (5), the Lighthouse with the parasol benches (6), the terminal with the notice boards (7), the harbour greys (8: deck, quay, fences, paving, sea rocks), the rock (9), the Mart (10), C06 over 11 and 12, the flag lines in 12's free slots |
+| Border | open sea (Cherrygrove's sea, animated, in the sea's 32 px phase) |
 | Music | `MUS_SLATEPORT` |
 
 ## Why Olivine has its own primary
 
 Olivine has a Center, a Mart, a Lighthouse, a ferry terminal, the Gym's hall, a cafe and
 three houses. Rendered at C06's angle and trimmed (mirrored halves, folded edge shifts) they
-still come to about 500 tiles, the Center and Mart to 167, the ground to 160: 838 distinct
-tiles, against 496 in one secondary. Cutting 350 tiles of buildings would have cost the
-look the owner liked in Cianwood. So the map gets a primary of its own,
+still come to about 500 tiles, the Center and Mart to 168, the ground and rock to about 190:
+854 distinct tiles, against 496 in one secondary. Cutting 350 tiles of buildings would have
+cost the look the owner liked in Cianwood. So the map gets a primary of its own,
 `gTileset_OlivinePrimary`, made from CherrygrovePrimary:
 
-- tile 0 and the 92 sea tiles CherrygrovePrimary's animation rewrites (tiles 1-92) stay at
-  their own indices, and so does every other Cherrygrove tile Olivine draws (35 more); the
-  primary keeps Cherrygrove's animation callback, so the sea moves exactly as it does there
-- banks 0, 1 and 3 are Cherrygrove's, colour for colour; banks 2, 4 and 5 carry nothing
-  Olivine keeps, so they are learned
-- the other 384 tile slots and banks hold Olivine, and every Cherrygrove metatile that still
-  draws as it did keeps its id (17 do); the rest of the primary's metatile ids hold Olivine's
+- tile 0 and the 16 open-sea tiles (1-16) stay at their own indices, and so does every other
+  Cherrygrove tile Olivine draws (64 more, Cherrygrove's trees among them).
+  CherrygrovePrimary's callback rewrites tiles 1-92 (the open sea and its shores) every 16
+  frames; Olivine draws none of those shore tiles, so the primary has its own callback,
+  `InitTilesetAnim_OlivinePrimary` (`src/tileset_anims.c`), that plays the same eight frames
+  into tiles 1-16 only, and slots 17-92 hold Olivine
+- banks 0 and 1 are Cherrygrove's, colour for colour, and so is bank 3 in every slot a
+  Cherrygrove tile draws; its two free slots hold Cherrygrove's plain greens, so a tree drawn
+  on the bottom layer behind a building fits the trees' own bank; banks 2, 4 and 5 carry
+  nothing Olivine keeps, so they are learned
+- the other 431 tile slots hold Olivine, and every Cherrygrove metatile that still draws as
+  it did keeps its id (36 do); the rest of the primary's metatile ids hold Olivine's
 
-It is still one ordinary tileset pair: no engine code changed, no streaming. Limit: a future
+It is still one ordinary tileset pair; the only engine code is that callback. Limit: a future
 route connected to Olivine draws its border strip with Olivine's tilesets, as every Gen 3
 connection does, so only the Cherrygrove metatiles listed above look the same across it.
 
@@ -70,7 +76,7 @@ labels every cell from the top-down height map, materials and permissions:
 
 | HGSS element | Gen 3 piece | Colours |
 | --- | --- | --- |
-| Cliffs, terraced walls (`wall01_g`, `wall01_d`, `cliff01gs`) | FRLG General mountain set, autotiled per 8x8 quadrant, a top-layer overlay | HGSS rock ramp (Blackthorn's) |
+| Cliffs, terraced walls (`wall01_g`, `wall01_d`, `cliff01gs`) | FRLG General mountain set, autotiled per 8x8 quadrant, a top-layer overlay; a corner that drops onto lower rock on one side and the ground on the other shows each on its own side | HGSS rock ramp (Blackthorn's) |
 | Lawns (`grass01gs`), sea | Cherrygrove's own tiles | CherrygrovePrimary 0, 1 |
 | Road to Route 39 and the west exit (`road01`) | Cherrygrove's path sand | CherrygrovePrimary 0 |
 | Kerb between road and plaza (`as_fe01_r`) | HGSS's brick band, 8 px bricks | Cherrygrove's path colours (bank 0) |
@@ -79,16 +85,16 @@ labels every cell from the top-down height map, materials and permissions:
 | Quay edge (row 46) | HGSS's low posts, stone lip and dark deck front | harbour greys |
 | Chain fences (`fence_a`) | posts every 8 px with caps and a chain; vertical runs end on | harbour greys |
 | Stone stair, Lighthouse ramp (`slope`) | treads and risers, across for the stair, up and down for the ramp | Cherrygrove bank 0 tans |
-| Trees (`tree01_*`) | HGSS's own Olivine tree, 32 px, cut from its terrain with trunk and shadow | Cherrygrove's tree greens (bank 3) |
+| Trees (`tree01_*`) | Cherrygrove's tree: HGSS's own `tree01_re` at 1:1, 32x48 with its trunk and shadow, CherrygrovePrimary's own tiles; trunk in the lower row of HGSS's 2x2 tree block, crown rising into the row above | Cherrygrove's tree greens (bank 3) |
 | Sea rocks, small rocks | HGSS's `sea_rock` resampled (Cianwood's) | harbour greys, foam, slate |
-| Boulders, stones | HGSS's `rock01`, `etc_a` | rock ramp |
+| Boulders, stones | HGSS's `rock01`, `etc_a`; a boulder takes one terrace, the open ground's round it | rock ramp |
 | Rock climb wall | HGSS's `r_climb` holds at their own size | rock ramp |
 | East cove beach | Cherrygrove's sandbar edge cell | CherrygrovePrimary 0, 1 |
 
 Buildings and props are HGSS's own models and textures rendered at C06's angle
 (`sprites.py`, `hgss_camera.view`), each squeezed across to its HGSS blocked footprint:
 the Gym (as a civic hall, below), the cafe, the three houses (one sprite), the Lighthouse,
-the ferry terminal, the parasol benches, the two yachts, the three flag lines, the city sign
+the ferry terminal, the parasol benches, the two yachts, two flag lines, the city sign
 and two notice boards. The Gym, the benches and the houses' roofs mirror on an 8 px axis;
 the terminal mirrors about its door, keeping the canopy over its west platform; the
 Lighthouse mirrors everywhere but its tower, which HGSS lights from the left. Benches,
@@ -99,6 +105,17 @@ yachts and signs draw in a loaded building's palette (the AGENTS rule for small 
 
 The owner-locked C06 Center and the shared Johto Mart (Blackthorn's approved copy, hashes in
 `check_elements.py`) stand with their doors on HGSS's Center and Mart doors, pixel exact.
+
+Nothing that stands has a background. Trees, fences, sea rocks, boulders, buildings and
+props are drawn in painter's order by the row their feet stand on (in one row, trees,
+fences and rocks first), each by its own opaque pixels, so whatever stands behind shows
+round it: whole treetops round the Lighthouse's lantern, the fences running behind the flag
+poles and up to the Center and the Mart. Where two palette families meet in one 8x8 tile
+(224 tiles), one takes the top layer and the bottom layer there is the picture with that
+family left out, the art behind it whole over plain ground (`elements.split`), so no pixel
+of either is lost and those tiles repeat wherever the art behind repeats.
+
+![Round 2 against round 1: trees and ledges, the Lighthouse, the plaza's fences and flag lines, the east cove](evidence/elements/round2-before-after.png)
 
 ## Canon
 
@@ -118,27 +135,31 @@ FAST-SHIP PIER", the Lighthouse's. No dialogue, service or district is invented.
   covers there are open deck.
 - The east-west Rock Climb wall is `MB_ROCK_CLIMB`, solid until the field move exists.
 - The flag line between the Center and the Mart stands 0.75 cells west, so its east pole
-  clears the wider Mart. Flag lines are 8 cells wide (HGSS's are 8.8).
-- Where a building and a tree, fence or rock share an 8x8 tile, the building keeps it and the
-  other's pixels there go (no bank holds both): 1,213 pixels, mostly treetops behind the
-  Lighthouse's lantern and fence ends behind roofs.
+  clears the wider Mart. Flag lines are 8 cells wide (HGSS's are 8.8), so their poles stand
+  on the fence lines HGSS's stand beside; the fences run on behind them.
+- HGSS's third flag line, over the north gate, stands on the map's top edge with its flags
+  over Route 39. A Gen 3 map draws nothing past its edge, so it is left out rather than shown
+  as two pole stubs.
 - The terminal's red floor mat (`d_mat01`) lies on the floor, so it is left out with the other
   painted floor faces.
 
-## Verification (engine `6314c7da`, ROM `7164b7aafb7c…`, not committed)
+## Verification (engine `20fbdb8d`, ROM `33d5e5a60eb6…`, not committed)
 
-- **Exact colour**: every visible pixel decodes to its 5-bit colour (817,856 of 817,856).
+- **Exact colour**: every visible pixel decodes to its 5-bit colour (795,712 of 795,712).
 - **Native audit** (`check_elements.py`, `evidence/elements/native-audit.json`): the installed
   map decodes to the packer's image; behaviour, collision, elevation and layer type match the
   ledger in all 4,096 cells; the Center and Mart pixels are exact and their masters' hashes
-  match; the primary keeps Cherrygrove's tiles 0-92 and banks 0, 1, 3 and its animation
-  callback; budgets hold; existing map ids are preserved; only Olivine files changed. 17
+  match; the primary keeps Cherrygrove's tiles 0-16, banks 0 and 1, and bank 3 in every
+  slot a Cherrygrove tile draws, and its callback plays the sea into tiles 1-16 only;
+  budgets hold; existing map ids are preserved; only Olivine files changed. 17
   approaches reachable (the east cove by Surf). Unreachable open cells are HGSS's own
   enclosed strips: the lanes outside the north road's fences (they open only onto Route 39),
   the terminal's west platform and dock, the rock-climb nook, two strips between walls.
 - **Headless mGBA** (`runtime_elements.py`, `evidence/elements/gameplay/`): 41 captures, the
-  map layers rebuilt from VRAM match the native map with 0 mismatched pixels (so the derived
-  primary and its sea animation load as designed); walk-behind BG1 covers the player at 9
+  map layers rebuilt from VRAM match the native map with 0 mismatched pixels outside tiles
+  1-16 (so the derived primary loads as designed and its sea callback writes nothing past
+  the open sea; the sea there differs from its first frame, so it moves); walk-behind BG1
+  covers the player at 9
   spots (hall roof, house ridge, flag line, Mart roof, Lighthouse frame, parasol, terminal
   roof, yacht mast, city sign); BG1 clear at 11 building fronts; stair and ramp walked; Center
   (both floors) and Mart entered and left; Cherrygrove, Blackthorn and Cianwood unchanged;
@@ -169,5 +190,5 @@ accepts the map it is regenerated from these tools each round; after that, edit 
 
 - No interiors for the hall, cafe, houses, Lighthouse or port; no NPCs, items or hidden
   items placed; no connections to Routes 39 and 40 yet.
-- 42 secondary tiles and no primary tile slots are spare; new art must free tiles first.
+- 73 secondary tiles and no primary tile slots are spare; new art must free tiles first.
 - Rock Climb is not obtainable yet, so the nook behind the Lighthouse is untested in play.

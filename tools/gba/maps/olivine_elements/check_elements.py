@@ -6,8 +6,9 @@ Decodes data/layouts/OlivineCity with gTileset_OlivinePrimary and gTileset_Olivi
 exactly as the game composes them (bottom layer, then the top layer's non-zero pixels)
 and checks it against the packer's decode, the traversal ledger (behaviour, collision,
 elevation, layer type per cell), reachability, the shared Center's and Mart's pixels and
-the C06 master hash, the derived primary (Cherrygrove's sea animation tiles and kept
-banks unchanged), walk-behind cells, budgets and preservation.
+the C06 master hash, the derived primary (Cherrygrove's open-sea tiles and kept banks
+unchanged, its own callback playing the sea into those tiles only), walk-behind cells,
+budgets and preservation.
 Writes evidence/elements/native-audit.json and native-grid.png.
 """
 from __future__ import annotations
@@ -126,14 +127,19 @@ def main(g, style):
     assert hashlib.sha256((SRC / 'shared-art/poke-mart.png').read_bytes()).hexdigest() == MART_SHA256
     shared = comp['shared'][..., 3] > 0
     assert (B.rgb5(img)[shared] == B.rgb5(comp['shared'][..., :3])[shared]).all()
-    # The derived primary: Cherrygrove's tile 0 and sea-animation tiles 1-92 at their own
-    # indices, its banks 0, 1 and 3 unchanged, so its animation callback still writes sea.
+    # The derived primary: Cherrygrove's tile 0 and open-sea tiles 1-16 at their own
+    # indices, Olivine's callback playing Cherrygrove's sea frames into those 16 and no
+    # further; banks 0 and 1 unchanged, bank 3 unchanged in every slot a Cherrygrove tile draws.
     cp, op = g / 'data/tilesets/primary/cherrygrove', g / f'data/tilesets/primary/{PFOLDER}'
     ct, ot = tileset(cp)[0], tileset(op)[0]
-    assert all((ct[i] == ot[i]).all() for i in range(93)), 'sea animation tiles moved'
+    assert all((ct[i] == ot[i]).all() for i in range(P.ANIM)), 'sea animation tiles moved'
     for b in (0, 1, 3):
-        assert B.read_pal(cp / f'palettes/{b:02}.pal') == B.read_pal(op / f'palettes/{b:02}.pal'), ('kept bank changed', b)
-    assert 'InitTilesetAnim_CherrygrovePrimary' in (g / 'src/data/tilesets/headers.h').read_text().split('gTileset_OlivinePrimary =')[1].split(';')[0]
+        a, o = B.read_pal(cp / f'palettes/{b:02}.pal'), B.read_pal(op / f'palettes/{b:02}.pal')
+        free = set(P.TREE_BANK_GREENS) if b == 3 else set()
+        assert all(a[i] == o[i] for i in range(16) if i not in free), ('kept bank changed', b)
+    assert 'InitTilesetAnim_OlivinePrimary' in (g / 'src/data/tilesets/headers.h').read_text().split('gTileset_OlivinePrimary =')[1].split(';')[0]
+    anim = (g / 'src/tileset_anims.c').read_text().split('// Claude Olivine sea')[1].split('// End Claude Olivine sea')[0]
+    assert f'TILE_OFFSET_4BPP(1)), {P.ANIM - 1} * TILE_SIZE_4BPP' in anim and 'gTilesetAnims_Cherrygrove_Sea[' in anim
     # Budgets: 512 primary tiles and metatiles; 496 secondary tiles (16 kept for door
     # animation), 512 secondary metatiles.
     n_tiles = n_sec_tiles                                       # tiles.png pads its last row of 16
@@ -148,7 +154,7 @@ def main(g, style):
     changed += subprocess.check_output(['git', '-C', str(g), 'ls-files', '--others', '--exclude-standard'], text=True).splitlines()
     allowed = {'data/event_scripts.s', 'data/layouts/layouts.json', 'data/maps/map_groups.json', 'include/regions.h',
                'src/apocrypha_map_proof.c', 'src/data/region_map/region_map_sections.json', 'src/data/tilesets/graphics.h',
-               'src/data/tilesets/headers.h', 'src/data/tilesets/metatiles.h'}
+               'src/data/tilesets/headers.h', 'src/data/tilesets/metatiles.h', 'src/tileset_anims.c', 'include/tileset_anims.h'}
     prefixes = (f'data/layouts/{NAME}/', 'data/maps/OlivineCity/', 'data/maps/OlivinePokemonCenter/',
                 'data/maps/OlivineCenterUpstairs/', 'data/maps/OlivineMart/', f'data/tilesets/secondary/{FOLDER}/',
                 f'data/tilesets/primary/{PFOLDER}/')

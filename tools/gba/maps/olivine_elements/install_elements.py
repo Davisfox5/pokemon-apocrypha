@@ -3,8 +3,9 @@
     python3 tools/gba/maps/olivine_elements/install_elements.py ENGINE_CHECKOUT [STYLE]   # STYLE C by default
 
 Reads pack.py's output. Olivine is a single 64x64 map on its own tileset pair:
-gTileset_OlivinePrimary (derived from CherrygrovePrimary: its sea animation, ground,
-sea and tree colours kept where Olivine draws them; see pack.py) and gTileset_OlivineCity,
+gTileset_OlivinePrimary (derived from CherrygrovePrimary: its open sea and its sea
+animation's frames, ground, sea and tree colours kept where Olivine draws them; see
+pack.py) and gTileset_OlivineCity,
 which carries the owner-locked C06 Center and the shared Johto Mart. First authoring only:
 refuses to run if any Olivine map already exists, so it never replays over owner edits.
 Existing map, layout and tileset ids are untouched; new maps are appended to
@@ -24,6 +25,25 @@ W, H = 64, 64
 NAME, FOLDER, SYM = 'OlivineCity', 'olivine_city', 'OlivineCity'
 PFOLDER, PSYM = 'olivine', 'OlivinePrimary'
 BORDER = (40, 58)                   # an even cell of open sea, so the border keeps the sea's 32 px phase
+SEA_TILES = 16                      # pack.ANIM - 1: the open sea's tiles, 1-16, the only sea Olivine draws
+# Olivine's own primary callback: Cherrygrove's sea frames (92 tiles each, the open sea's
+# 16 first), played into tiles 1-16 only, so the primary's slots past them hold Olivine.
+ANIM_C = f'''
+// Claude Olivine sea
+static void TilesetAnim_OlivinePrimary(u16 timer);
+void InitTilesetAnim_OlivinePrimary(void)
+{{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_OlivinePrimary;
+}}
+static void TilesetAnim_OlivinePrimary(u16 timer)
+{{
+    if (timer % 16 == 1)
+        AppendTilesetAnimToBuffer(gTilesetAnims_Cherrygrove_Sea[(timer / 16) % 8], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(1)), {SEA_TILES} * TILE_SIZE_4BPP);
+}}
+// End Claude Olivine sea
+'''
 
 def read(p): return json.loads(p.read_text())
 def write(p, v): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(v, indent=2) + '\n')
@@ -61,12 +81,13 @@ def main(g, style):
     grid, pal = z['grid'], z['palettes']
     coll, elev = z['collision'], z['elevation']
     cherry = g / 'data/tilesets/primary/cherrygrove'
-    # Primary: 512 tiles, banks 0-5 (0, 1, 3 Cherrygrove's), 512 metatiles, the sea animation.
+    # Primary: 512 tiles, banks 0-5 (0, 1, 3 Cherrygrove's; 3 with its plain greens in two
+    # slots no Cherrygrove tile draws), 512 metatiles, the open sea animated.
     pd = g / f'data/tilesets/primary/{PFOLDER}'
     (pd / 'palettes').mkdir(parents=True, exist_ok=True)
     tiles_png(pd / 'tiles.png', z['prim_tiles'])
     for bank in range(16):
-        if bank in (0, 1, 3) or bank > 5:
+        if bank in (0, 1) or bank > 5:
             text = (cherry / f'palettes/{bank:02}.pal').read_text()
         else:
             text = jasc([tuple(int(v) for v in pal[bank][i]) for i in range(16)])
@@ -84,7 +105,7 @@ def main(g, style):
         (d / 'palettes' / f'{bank:02}.pal').write_text(text)
     metatiles(d, z['sec_meta'])
     with (g / 'src/data/tilesets/graphics.h').open('a') as f:
-        for sym, kind, folder, note in ((PSYM, 'primary', PFOLDER, 'derived from CherrygrovePrimary (its sea animation kept)'),
+        for sym, kind, folder, note in ((PSYM, 'primary', PFOLDER, 'derived from CherrygrovePrimary (its open sea animated)'),
                                         (SYM, 'secondary', FOLDER, 'element-built')):
             f.write(f'\n// Olivine City: one native map; {kind} tileset, {note}.\n'
                     f'const u32 gTilesetTiles_{sym}[] = INCGFX_U32("data/tilesets/{kind}/{folder}/tiles.png", ".4bpp.fastSmol");\n'
@@ -97,10 +118,18 @@ def main(g, style):
     with (g / 'src/data/tilesets/headers.h').open('a') as f:
         f.write(f'\n// Olivine City\nconst struct Tileset gTileset_{PSYM} = {{ .isCompressed = TRUE, .isSecondary = FALSE, '
                 f'.tiles = gTilesetTiles_{PSYM}, .palettes = gTilesetPalettes_{PSYM}, .metatiles = gMetatiles_{PSYM}, '
-                f'.metatileAttributes = gMetatileAttributes_{PSYM}, .callback = InitTilesetAnim_CherrygrovePrimary }};\n'
+                f'.metatileAttributes = gMetatileAttributes_{PSYM}, .callback = InitTilesetAnim_OlivinePrimary }};\n'
                 f'const struct Tileset gTileset_{SYM} = {{ .isCompressed = TRUE, .isSecondary = TRUE, '
                 f'.tiles = gTilesetTiles_{SYM}, .palettes = gTilesetPalettes_{SYM}, .metatiles = gMetatiles_{SYM}, '
                 f'.metatileAttributes = gMetatileAttributes_{SYM}, .callback = NULL }};\n')
+    p = g / 'src/tileset_anims.c'; s = p.read_text()
+    anchor = '// End Claude Cherrygrove sea\n'
+    assert anchor in s and 'InitTilesetAnim_OlivinePrimary' not in s
+    p.write_text(s.replace(anchor, anchor + ANIM_C, 1))
+    p = g / 'include/tileset_anims.h'; s = p.read_text()
+    anchor = 'void InitTilesetAnim_CherrygrovePrimary(void);\n'
+    assert anchor in s
+    p.write_text(s.replace(anchor, anchor + 'void InitTilesetAnim_OlivinePrimary(void);\n', 1))
     ld = g / f'data/layouts/{NAME}'
     ld.mkdir(parents=True)
     cells = grid.astype(np.uint32) | (coll.astype(np.uint32) << 10) | (elev.astype(np.uint32) << 12)

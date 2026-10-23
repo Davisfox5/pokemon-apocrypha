@@ -7,11 +7,15 @@ layer). Olivine holds a Center, a Mart, a Lighthouse, a ferry terminal, a Gym ha
 cafe and three houses: about 850 distinct tiles, where one secondary holds 496. So it gets
 a primary of its own, gTileset_OlivinePrimary, derived from CherrygrovePrimary:
 
-  - tiles 0-92 are CherrygrovePrimary's (tile 0 and the 92 sea tiles its animation
-    rewrites; the primary keeps Cherrygrove's animation callback), and so is every other
+  - tiles 0-16 are CherrygrovePrimary's (tile 0 and the 16 open-sea tiles, the only sea
+    tiles Olivine draws; its own animation callback, InitTilesetAnim_OlivinePrimary, plays
+    Cherrygrove's sea frames into those 16 and no further), and so is every other
     Cherrygrove tile Olivine draws, each at its own index; every other slot holds Olivine
   - banks 0, 1 and 3 are Cherrygrove's (grass, path and creams; sea and foam; the tree
-    greens); banks 2, 4 and 5, which no tile Olivine keeps uses, are learned
+    greens), bank 3 with Cherrygrove's two plain greens in two slots no Cherrygrove tile
+    draws, so a tree drawn on the bottom layer over grass (behind a building in front of
+    it) fits the trees' own bank; banks 2, 4 and 5, which no tile Olivine keeps uses, are
+    learned
   - every Cherrygrove metatile that still draws exactly as it did (its tiles kept, its
     banks 0, 1 or 3) keeps its id; the other primary ids hold Olivine metatiles
 
@@ -39,9 +43,11 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/olivine-elements'
 SRC, EV = ART / 'source', ART / 'evidence'
 W, H = 64, 64
-KEPT_BANKS = [0, 1, 3]                                        # Cherrygrove's, unchanged
+KEPT_BANKS = [0, 1, 3]                                        # Cherrygrove's
+# Bank 3's slots no Cherrygrove tile draws, filled with its plain greens (elements.plain).
+TREE_BANK_GREENS = {12: (104, 208, 152), 13: (104, 200, 152)}
 LEARNED = [2, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-ANIM = 93                                                     # tiles 0-92: tile 0 and the animated sea
+ANIM = 17                                                     # tiles 0-16: tile 0 and the animated open sea
 SECONDARY_TILES = 496
 NORMAL, COVERED = 0, 1
 CENTER_ORIGIN, CENTER_DOOR = (14, 29), (2, 4)                 # C06 door on HGSS's Center door (16, 33)
@@ -106,6 +112,11 @@ def cherrygrove(engine):
     pals = {b: read_pal(d / f'palettes/{b:02}.pal') for b in range(6)}
     metas = np.frombuffer((d / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
     attrs = np.frombuffer((d / 'metatile_attributes.bin').read_bytes(), '<u2')
+    drawn = {int(v) for row in metas for li, e in enumerate(row) if int(e) >> 12 == 3
+             for v in np.unique(tiles[int(e) & 1023] if li < 4 else tiles[int(e) & 1023][tiles[int(e) & 1023] != 0])}
+    assert not drawn & set(TREE_BANK_GREENS), ('a Cherrygrove tile draws a bank 3 slot Olivine fills', drawn & set(TREE_BANK_GREENS))
+    for i, c in TREE_BANK_GREENS.items():
+        pals[3][i] = c
     return tiles, pals, metas, attrs
 
 def key5(px, mask=None):
@@ -210,7 +221,9 @@ def above_player(walkable, top, shared, owner):
     return out
 
 def object_art(top, shared, owner):
-    px = (top[..., 3] > 0) | (shared[..., 3] > 0)
+    """Per cell: whether any object art shows there (on either layer), and whether only
+    its lower half holds any."""
+    px = (top[..., 3] > 0) | (shared[..., 3] > 0) | (owner != '')
     bld = px & ~np.char.startswith(owner, 'tree') & ~np.char.startswith(owner, 'fence')
     art = bld.reshape(H, 16, W, 16).any(axis=(1, 3))
     upper = bld.reshape(H, 16, W, 16)[:, :8].any(axis=(1, 3))
@@ -324,8 +337,10 @@ def main(engine, style):
         if kk not in patterns:
             patterns[kk] = len(patterns)
         j['pattern'], j['flip'] = patterns[kk], o
-    # Tile slots: Cherrygrove's sea animation and every Cherrygrove tile Olivine draws stay
-    # where they are; Olivine's patterns fill the primary's other slots, then the secondary.
+    # Tile slots: the animated open sea and every Cherrygrove tile Olivine draws stay where
+    # they are; Olivine's patterns fill the primary's other slots, then the secondary. A
+    # Cherrygrove sea tile past the open sea would hold its first frame only.
+    assert not {t for t in used if ANIM <= t < 93}, ('Olivine draws a Cherrygrove sea tile its animation does not play', sorted(used))
     keep = set(range(ANIM)) | used
     free_slots = [t for t in range(512) if t not in keep]
     order = sorted(patterns.items(), key=lambda kv: kv[1])

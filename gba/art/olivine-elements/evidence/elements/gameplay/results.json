@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "7164b7aafb7c88a4b64ff336e283cbaadd0907515996e8c24222c8d03659b118",
+  "rom_sha256": "33d5e5a60eb6e85951ec2f44d8c8e141632b14a8c34b8da941f8282b1aa0600a",
   "phases": [
     {
       "phase": "write",
@@ -941,7 +941,7 @@
     {
       "frame": "behind-city-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8576,
+      "pixels_on_animated_water": 6592,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         256,
@@ -952,7 +952,7 @@
     {
       "frame": "behind-civic-hall",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 15872,
+      "pixels_on_animated_water": 15808,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         80,
@@ -963,7 +963,7 @@
     {
       "frame": "behind-flag-line",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 10112,
+      "pixels_on_animated_water": 7104,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         32,
@@ -974,7 +974,7 @@
     {
       "frame": "behind-house-ridge",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 15424,
+      "pixels_on_animated_water": 13312,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         384,
@@ -985,7 +985,7 @@
     {
       "frame": "behind-lighthouse",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 18432,
+      "pixels_on_animated_water": 18112,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         560,
@@ -996,7 +996,7 @@
     {
       "frame": "behind-mart",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 7296,
+      "pixels_on_animated_water": 3968,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         320,
@@ -1007,7 +1007,7 @@
     {
       "frame": "behind-parasol",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 10304,
+      "pixels_on_animated_water": 6848,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         16,
@@ -1018,7 +1018,7 @@
     {
       "frame": "behind-terminal",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 27904,
+      "pixels_on_animated_water": 25728,
       "animated_water_pixels_differing_from_frame_0": 10463,
       "camera_origin_px": [
         256,
@@ -1029,7 +1029,7 @@
     {
       "frame": "behind-yacht-mast",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 14592,
+      "pixels_on_animated_water": 11520,
       "animated_water_pixels_differing_from_frame_0": 5756,
       "camera_origin_px": [
         144,
@@ -1040,7 +1040,7 @@
     {
       "frame": "bench-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 17088,
+      "pixels_on_animated_water": 12480,
       "animated_water_pixels_differing_from_frame_0": 3022,
       "camera_origin_px": [
         32,
@@ -1051,7 +1051,7 @@
     {
       "frame": "cafe-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 5440,
+      "pixels_on_animated_water": 5120,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         32,
@@ -1062,7 +1062,7 @@
     {
       "frame": "center-approach",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3008,
+      "pixels_on_animated_water": 2624,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1073,7 +1073,7 @@
     {
       "frame": "center-exit",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3008,
+      "pixels_on_animated_water": 2624,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1084,7 +1084,7 @@
     {
       "frame": "city-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 10624,
+      "pixels_on_animated_water": 6720,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         256,
@@ -1094,7 +1094,7 @@
     {
       "frame": "civic-hall-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 11648,
+      "pixels_on_animated_water": 6784,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         96,
@@ -1105,7 +1105,7 @@
     {
       "frame": "cold-flash-reload",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3648,
+      "pixels_on_animated_water": 2496,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1115,7 +1115,7 @@
     {
       "frame": "house-terrace",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 18240,
+      "pixels_on_animated_water": 16000,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         432,
@@ -1125,7 +1125,7 @@
     {
       "frame": "lighthouse-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 21504,
+      "pixels_on_animated_water": 21248,
       "animated_water_pixels_differing_from_frame_0": 131,
       "camera_origin_px": [
         608,
@@ -1136,7 +1136,7 @@
     {
       "frame": "lighthouse-grounds",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 18752,
+      "pixels_on_animated_water": 18560,
       "animated_water_pixels_differing_from_frame_0": 1010,
       "camera_origin_px": [
         576,
@@ -1146,7 +1146,7 @@
     {
       "frame": "lighthouse-ramp",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 14976,
+      "pixels_on_animated_water": 14784,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         544,
@@ -1156,7 +1156,7 @@
     {
       "frame": "lighthouse-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 23424,
+      "pixels_on_animated_water": 22976,
       "animated_water_pixels_differing_from_frame_0": 1049,
       "camera_origin_px": [
         624,
@@ -1166,7 +1166,7 @@
     {
       "frame": "mart-approach",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 256,
+      "pixels_on_animated_water": 0,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         352,
@@ -1177,7 +1177,7 @@
     {
       "frame": "mart-exit",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 256,
+      "pixels_on_animated_water": 0,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         352,
@@ -1199,7 +1199,7 @@
     {
       "frame": "north-road",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 14848,
+      "pixels_on_animated_water": 14720,
       "animated_water_pixels_differing_from_frame_0": 3780,
       "camera_origin_px": [
         256,
@@ -1209,7 +1209,7 @@
     {
       "frame": "northeast-house-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 15488,
+      "pixels_on_animated_water": 16448,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         464,
@@ -1220,7 +1220,7 @@
     {
       "frame": "ordinary-continue",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3648,
+      "pixels_on_animated_water": 2496,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1230,7 +1230,7 @@
     {
       "frame": "pier-end",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 25600,
+      "pixels_on_animated_water": 23424,
       "animated_water_pixels_differing_from_frame_0": 11750,
       "camera_origin_px": [
         256,
@@ -1240,7 +1240,7 @@
     {
       "frame": "pier-sign",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8320,
+      "pixels_on_animated_water": 4736,
       "animated_water_pixels_differing_from_frame_0": 1838,
       "camera_origin_px": [
         272,
@@ -1250,7 +1250,7 @@
     {
       "frame": "pier",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 17920,
+      "pixels_on_animated_water": 16640,
       "animated_water_pixels_differing_from_frame_0": 9322,
       "camera_origin_px": [
         256,
@@ -1260,7 +1260,7 @@
     {
       "frame": "plaza",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 4416,
+      "pixels_on_animated_water": 1728,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1300,7 +1300,7 @@
     {
       "frame": "return-to-olivine",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3648,
+      "pixels_on_animated_water": 2496,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1310,7 +1310,7 @@
     {
       "frame": "rock-climb-wall",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 25856,
+      "pixels_on_animated_water": 25792,
       "animated_water_pixels_differing_from_frame_0": 3167,
       "camera_origin_px": [
         672,
@@ -1320,7 +1320,7 @@
     {
       "frame": "save-in-town",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 3648,
+      "pixels_on_animated_water": 2496,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         144,
@@ -1330,7 +1330,7 @@
     {
       "frame": "south-house-front",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 7808,
+      "pixels_on_animated_water": 3520,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         160,
@@ -1341,7 +1341,7 @@
     {
       "frame": "stair-climb",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 13184,
+      "pixels_on_animated_water": 14080,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         448,
@@ -1351,7 +1351,7 @@
     {
       "frame": "stair-lane",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 12800,
+      "pixels_on_animated_water": 13696,
       "animated_water_pixels_differing_from_frame_0": 0,
       "camera_origin_px": [
         464,
@@ -1361,7 +1361,7 @@
     {
       "frame": "west-exit",
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 19008,
+      "pixels_on_animated_water": 17600,
       "animated_water_pixels_differing_from_frame_0": 8300,
       "camera_origin_px": [
         -80,

@@ -12,8 +12,10 @@ Each phase is a fresh emulator process:
     menu   title screen -> Continue
 
 Every capture also dumps VRAM, BG palettes and BG registers. The map layers (BG1-BG3) are
-rebuilt from that dump and must match the decoded native map pixel for pixel (Olivine
-draws through its own primary, so this also proves the derived tileset loads); for the
+rebuilt from that dump and must match the decoded native map pixel for pixel, all but the
+animated sea (Olivine's tiles 1-16; CherrygrovePrimary's 1-92 on the other towns' frames),
+so this also proves the derived tileset loads and its callback writes nothing past the
+open sea; for the
 walk-behind captures, BG1 (the layer drawn above the player) must hold the object's
 pixels over the player's own cell, and in front of a building BG1 must leave the player's
 two cells clear.
@@ -217,8 +219,9 @@ def bg1(dump):
     byte = vram[cbase + tile * 32 + py * 4 + px // 2]
     return np.where(px % 2, byte >> 4, byte & 15) > 0
 
-def animated(dump):
-    """Pixels any map layer draws from the animated sea tiles (1-92, CherrygrovePrimary's and Olivine's)."""
+def animated(dump, last=16):
+    """Pixels any map layer draws from the animated sea tiles: Olivine's 1-16, or
+    CherrygrovePrimary's 1-92 on the Cherrygrove, Blackthorn and Cianwood frames."""
     raw = dump.read_bytes()
     vram = np.frombuffer(raw[:0x10000], np.uint8)
     regs = np.frombuffer(raw[0x10200:0x10200 + 26], '<u2').astype(np.int32)
@@ -228,7 +231,7 @@ def animated(dump):
         c, hofs, vofs = regs[1 + bg], regs[5 + 2 * bg] & 511, regs[5 + 2 * bg + 1] & 511
         X, Y = (xs + hofs) & 255, (ys + vofs) & 255
         t = vram.view('<u2')[((c >> 8) & 31) * 0x400 + (Y // 8) * 32 + X // 8].astype(np.int32) & 1023
-        m |= (t >= 1) & (t <= 92)
+        m |= (t >= 1) & (t <= last)
     return m
 
 def check_frames(out, game, phases):
@@ -249,7 +252,7 @@ def check_frames(out, game, phases):
         o = positions[tag]
         x0, y0 = o['x'] * 16 - 112 + pad, o['y'] * 16 - 72 + pad
         d = (ref[y0:y0 + 160, x0:x0 + 240] != shot).any(-1)
-        anim = animated(p)                                   # CherrygrovePrimary's sea tiles 1-92 animate
+        anim = animated(p, 92 if tag.startswith('regression-') else 16)
         r = dict(frame=tag, mismatched_map_layer_pixels=int((d & ~anim).sum()),
                  pixels_on_animated_water=int(anim.sum()), animated_water_pixels_differing_from_frame_0=int((d & anim).sum()),
                  camera_origin_px=[int(x0 - pad), int(y0 - pad)])
