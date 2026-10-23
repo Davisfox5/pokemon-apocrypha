@@ -1,0 +1,51 @@
+{
+  "style": "C",
+  "secondary_tiles": 387,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 258,
+  "metatile_limit": 512,
+  "primary_metatiles_reused": 330,
+  "tile_positions": {
+    "primary": 4658,
+    "primary_bank": 7,
+    "center": 91,
+    "secondary": 440
+  },
+  "secondary_bank_error": 0.0015401348705677616,
+  "colour_rgb5": {
+    "exact": 262141,
+    "within_1": 262142,
+    "within_2": 262142,
+    "total": 262144,
+    "worst": 3
+  },
+  "shared_building_pixels_exact": true,
+  "adaptations": {
+    "12,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "13,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "15,10": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "18,10": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "16,14": "HGSS door; interior not built, so solid",
+    "25,14": "HGSS door; interior not built, so solid",
+    "8,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "9,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "10,18": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "11,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "12,18": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "13,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "14,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "20,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "21,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "22,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "23,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "24,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "8,19": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "14,19": "HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it",
+    "20,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "21,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "22,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "23,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "24,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "11,23": "HGSS door; interior not built, so solid"
+  }
+}

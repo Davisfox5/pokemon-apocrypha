@@ -1,0 +1,173 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/084_T28.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0930_T28.s",
+      "files/msgdata/msg/msg_0620_T28.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 16,
+        "z": 5,
+        "land_data": 85
+      }
+    ],
+    "origin": [
+      512,
+      160
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        44
+      ],
+      "east": [
+        46
+      ],
+      "north": [
+        45
+      ],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        12,
+        5
+      ],
+      "dest": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        13,
+        5
+      ],
+      "dest": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        11,
+        23
+      ],
+      "dest": "MAP_MAHOGANY_GYM_ROOM_1",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        22,
+        23
+      ],
+      "dest": "MAP_MAHOGANY_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        25,
+        14
+      ],
+      "dest": "MAP_MAHOGANY_EAST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        16,
+        14
+      ],
+      "dest": "MAP_MAHOGANY_SOUVENIR_SHOP",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        4,
+        12
+      ],
+      "script": "scr_seq_T28_006",
+      "bg_type": 1,
+      "text": "Mahogany Town Home of the Ninja"
+    },
+    {
+      "cell": [
+        14,
+        14
+      ],
+      "script": "scr_seq_T28_007",
+      "bg_type": 1,
+      "text": "Just a Souvenir Shop Nothing Suspicious about It No Need to Be Alarmed"
+    },
+    {
+      "cell": [
+        8,
+        24
+      ],
+      "script": "scr_seq_T28_008",
+      "bg_type": 1,
+      "text": "Mahogany Town Pokémon Gym Leader: Pryce The Teacher of Winter’s Harshness"
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T28_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        28,
+        15
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_205"
+    },
+    {
+      "id": "obj_T28_gsoldman1",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        11,
+        15
+      ],
+      "facing": 2,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T28_gsbigman",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        11,
+        24
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1F9"
+    },
+    {
+      "id": "obj_T28_gsgirl1",
+      "sprite": "SPRITE_GSGIRL1",
+      "cell": [
+        18,
+        15
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_MAHOGANY_SHOP_SALESWOMAN"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "map": "MahoganyTown",
+  "primary": "gTileset_CherrygrovePrimary",
+  "secondary": "gTileset_MahoganyTown",
+  "style": "C",
+  "secondary_tiles": 387,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 258,
+  "metatile_limit": 512,
+  "map_ids": {
+    "MahoganyTown": 43,
+    "MahoganyPokemonCenter": 44,
+    "MahoganyCenterUpstairs": 45
+  }
+}

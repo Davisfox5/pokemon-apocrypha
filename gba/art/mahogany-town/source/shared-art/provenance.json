@@ -1,0 +1,9 @@
+{
+  "pokemon-center.png": {
+    "review_id": "C06",
+    "master": "gba/art/johto-center/source/building.png (branch codex/violet-city, listed in gba/art/johto-common/approved-buildings.json)",
+    "copied_from": "gba/art/cianwood-elements/source/shared-art/pokemon-center.png (branch claude/cianwood-city)",
+    "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+  },
+  "cherrygrove inputs": "source/elements/cherrygrove-native.png and cherrygrove-sign-cell.png are Blackthorn's decodes of the accepted Cherrygrove town (gba/art/blackthorn-city/source/elements, branch claude/blackthorn-city): ground textures, ground edge tiles, the standalone tree and the town sign."
+}
