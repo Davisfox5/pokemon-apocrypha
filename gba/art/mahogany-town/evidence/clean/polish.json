@@ -1,0 +1,18 @@
+{
+  "base_engine": "b37519e732ddc7d13f4412a796419308583d6bc8",
+  "tiles": 1002,
+  "limit": 1008,
+  "changed_pixels": 1528,
+  "changed_by_feature": {
+    "souvenir_shop": 308,
+    "east_house": 310,
+    "gym": 216,
+    "gate": 244,
+    "tower_west": 226,
+    "tower_east": 224
+  },
+  "terrain_pixels_changed": 0,
+  "center_pixels_changed": 0,
+  "palettes_changed": false,
+  "geometry": "Original silhouettes, material grid, cliff heights, roots and traversal retained"
+}

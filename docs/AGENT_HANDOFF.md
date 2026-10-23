@@ -2,6 +2,18 @@
 
 Engine branch `claude/mahogany-town` (draft PR #28 against `apocrypha`) has `MahoganyTown` (ids 43-45 with the Center and its upstairs) converted from HGSS's own art on its own tileset pair: `gTileset_MahoganyPrimary` (512 tiles) and `gTileset_MahoganyTown` (488 tiles, C06 Center). The owner rejected the first draft (Gen 3 element build: "done from scratch", flat textures, wrong house textures, wrong rock depth). This draft keeps HGSS's ground, cliffs, walls, ledges, trees, houses, Gym, gate, towers, antenna tree and signposts at HGSS's heights; only the Center is C06. Generator `tools/gba/maps/mahogany/convert.py`; read `gba/art/mahogany-town/README.md`. Audit, headless mGBA (31 captures at VRAM parity, save/reload/Continue) and Porymap 6.3.1 round trip pass. Doors to unbuilt interiors are solid; no connections. Owner visual review pending. Map ids collide with Blackthorn's PR #26 (both append 43+).
 
+## Latest: clean native Mahogany Town review proposal
+
+Engine PR #30, branch `codex/mahogany-town-clean`, commit `dec8f907`: preserves the
+decoded HGSS terrain and locked C06, cleans architecture contours, adds four
+native room proposals and facade doors. All 1,024 cells audited; local build,
+36 actual native/gameplay background comparisons, entrance/return, ledges,
+occlusion and ordinary save/cold reload/Continue pass. All seven Porymap exports
+match native source. See `gba/art/mahogany-town/CLEAN_GEN3.md` for exact hashes,
+Porymap proof reuse limits, the preserved earlier drafts and remaining scope.
+GitHub checks are queued; PR stays draft. Next: CI and owner visual review.
+Routes 42/43/44, Gym battle/puzzle, residents, inventory and story are unbuilt.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

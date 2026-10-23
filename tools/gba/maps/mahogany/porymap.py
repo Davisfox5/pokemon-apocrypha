@@ -63,7 +63,12 @@ def export(item_y, out):
     time.sleep(4)
 
 def main(engine, binary, style):
-    if style == 'converted':                                # convert.py's map (the current draft)
+    interiors = list(INTERIORS)
+    if style == 'clean':
+        native = np.array(Image.open(EV / 'clean' / 'native.png').convert('RGB'))
+        out = EV / 'clean' / 'porymap'
+        interiors += ['MahoganySouvenirShop', 'MahoganyEastHouse', 'MahoganyGymLobby', 'MahoganyRoute43Gate']
+    elif style == 'converted':                                # convert.py's map (the current draft)
         native = np.array(Image.open(EV / 'convert' / 'native.png').convert('RGB'))
         out = EV / 'convert' / 'porymap'
     else:
@@ -82,7 +87,7 @@ def main(engine, binary, style):
     xvfb = subprocess.Popen(['Xvfb', DISPLAY, '-screen', '0', '1920x1080x24'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(2)
     try:
-        for m in [CITY] + INTERIORS:
+        for m in [CITY] + interiors:
             p = launch(binary, project, cfg, m)
             shot(out / f'{m}-porymap.png')
             export(314, work / f'{m}.png')
@@ -101,6 +106,14 @@ def main(engine, binary, style):
     ref = native[:e.shape[0], :e.shape[1]]
     city = dict(size=list(e.shape[1::-1]), differing_pixels=int((e != ref).any(axis=2).sum()))
     shutil.copy(work / f'{CITY}.png', out / f'{CITY}-export.png')
+    exported = {}
+    if style == 'clean':
+        from render_native import render
+        for m in [CITY] + interiors:
+            a = np.array(Image.open(work / f'{m}.png').convert('RGB'))
+            b = np.array(render(project, m))
+            exported[m] = dict(size=list(a.shape[1::-1]), differing_pixels=int((a != b).any(-1).sum()))
+            shutil.copy(work / f'{m}.png', out / f'{m}-export.png')
     diff = sh('git', '-C', str(project), 'diff', '-U0')
     changed_lines = [l for l in diff.splitlines() if l[:1] in ('+', '-') and not l.startswith(('+++', '---'))]
     rewritten = [str(p.relative_to(project)) for p in project.rglob('*') if p.is_file() and '.git' not in p.parts
@@ -109,6 +122,7 @@ def main(engine, binary, style):
     report = dict(
         porymap=next((l.split('] ', 1)[1] for l in log_text.splitlines() if 'Launching Porymap' in l), 'unknown'),
         engine_commit=head, style=style, city_export_vs_native=city,
+        all_map_exports_vs_native=exported,
         mahogany_files_rewritten=sorted(r for r in rewritten if 'ahogany' in r),
         mahogany_files_changed=sorted(f for f in sh('git', '-C', str(project), 'diff', '--name-only').splitlines() if 'ahogany' in f),
         files_changed_by_save=sh('git', '-C', str(project), 'diff', '--name-only').splitlines(),
@@ -116,8 +130,8 @@ def main(engine, binary, style):
         changed_lines=changed_lines,
         log_errors=[l for l in log_text.splitlines() if '[ERROR]' in l],
         log_warnings=sorted({l.split('] ', 1)[1] for l in log_text.splitlines() if '[WARN]' in l}),
-        note='The export is Porymap\'s own render, compared with the native decode. Lines changed by save that do not '
-             'mention Mahogany are Porymap normalising entries that predate it (key order, \\u escapes).')
+        note='The export is Porymap\'s own render, compared with the actual clone native decode. Inspect changed_lines '
+             'for JSON key-order and Unicode normalization, including the four added Mahogany room maps.')
     (out / 'results.json').write_text(json.dumps(report, indent=2) + '\n')
     shutil.rmtree(work)
     print(json.dumps({k: v for k, v in report.items() if k != 'changed_lines'}, indent=2))

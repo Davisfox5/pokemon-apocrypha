@@ -1,0 +1,177 @@
+{
+  "base_engine": "b37519e732ddc7d13f4412a796419308583d6bc8",
+  "cells_audited": 1024,
+  "material_grid_preserved": true,
+  "behavior_collision_elevation_layer_checked": true,
+  "traversal_changes": [
+    [
+      16,
+      14
+    ],
+    [
+      25,
+      14
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      12,
+      5
+    ],
+    [
+      13,
+      5
+    ]
+  ],
+  "unchanged_cells": 1019,
+  "reachable_foot_cells": 343,
+  "open_cells": 345,
+  "unreachable_original_enclosed_cells": [
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "terrain_pixels_changed": 0,
+  "center_pixels_changed": 0,
+  "changed_architecture_pixels": 1528,
+  "palettes_preserved": true,
+  "existing_map_ids_preserved": true,
+  "highest_native_tile": 1001,
+  "tile_capacity_excluding_door_scratch": 1008,
+  "secondary_metatiles": 227,
+  "warp_references": [
+    [
+      "MahoganyTown",
+      22,
+      23,
+      "MahoganyPokemonCenter",
+      0
+    ],
+    [
+      "MahoganyTown",
+      16,
+      14,
+      "MahoganySouvenirShop",
+      0
+    ],
+    [
+      "MahoganyTown",
+      25,
+      14,
+      "MahoganyEastHouse",
+      0
+    ],
+    [
+      "MahoganyTown",
+      11,
+      23,
+      "MahoganyGymLobby",
+      0
+    ],
+    [
+      "MahoganyTown",
+      12,
+      5,
+      "MahoganyRoute43Gate",
+      0
+    ],
+    [
+      "MahoganyTown",
+      13,
+      5,
+      "MahoganyRoute43Gate",
+      1
+    ],
+    [
+      "MahoganyPokemonCenter",
+      7,
+      8,
+      "MahoganyTown",
+      0
+    ],
+    [
+      "MahoganyPokemonCenter",
+      6,
+      8,
+      "MahoganyTown",
+      0
+    ],
+    [
+      "MahoganyPokemonCenter",
+      1,
+      6,
+      "MahoganyCenterUpstairs",
+      0
+    ],
+    [
+      "MahoganyCenterUpstairs",
+      1,
+      6,
+      "MahoganyPokemonCenter",
+      2
+    ],
+    [
+      "MahoganySouvenirShop",
+      3,
+      7,
+      "MahoganyTown",
+      1
+    ],
+    [
+      "MahoganySouvenirShop",
+      4,
+      7,
+      "MahoganyTown",
+      1
+    ],
+    [
+      "MahoganyEastHouse",
+      3,
+      8,
+      "MahoganyTown",
+      2
+    ],
+    [
+      "MahoganyEastHouse",
+      4,
+      8,
+      "MahoganyTown",
+      2
+    ],
+    [
+      "MahoganyGymLobby",
+      5,
+      9,
+      "MahoganyTown",
+      3
+    ],
+    [
+      "MahoganyGymLobby",
+      6,
+      9,
+      "MahoganyTown",
+      3
+    ],
+    [
+      "MahoganyRoute43Gate",
+      3,
+      8,
+      "MahoganyTown",
+      4
+    ],
+    [
+      "MahoganyRoute43Gate",
+      4,
+      8,
+      "MahoganyTown",
+      5
+    ]
+  ]
+}

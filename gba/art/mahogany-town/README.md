@@ -1,5 +1,10 @@
 # Mahogany Town: HGSS's own art, converted
 
+Latest independent clean native revision: [Gen 3 review build](CLEAN_GEN3.md),
+engine PR #30. It preserves the terrain/C06, polishes architecture and adds
+working entrances, native room proposals and door animations. Earlier drafts
+and their evidence below remain preserved.
+
 Mahogany as one native Gen 3 map, converted from HeartGold/SoulSilver's own map data and
 art. This is the second draft. The owner rejected the first (Gen 3 element build, below) on
 2026-10-23: "done from scratch", flat textures, house textures not right, rock ledges and

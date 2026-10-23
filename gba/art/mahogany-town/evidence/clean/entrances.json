@@ -1,0 +1,37 @@
+{
+  "appended_map_ids": {
+    "MahoganySouvenirShop": 46,
+    "MahoganyEastHouse": 47,
+    "MahoganyGymLobby": 48,
+    "MahoganyRoute43Gate": 49
+  },
+  "door_animation_count": 4,
+  "traversal_changes": [
+    [
+      16,
+      14
+    ],
+    [
+      25,
+      14
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      12,
+      5
+    ],
+    [
+      13,
+      5
+    ]
+  ],
+  "interior_scope": "Native Gen 3 room proposals; no campaign, trainers, rewards or shop inventory",
+  "connections_not_built": [
+    "Route 42",
+    "Route 43 beyond gate vestibule",
+    "Route 44"
+  ]
+}
