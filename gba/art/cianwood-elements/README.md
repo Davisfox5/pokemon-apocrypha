@@ -4,10 +4,13 @@ Cianwood as one native Gen 3 map, laid out cell for cell from HeartGold/SoulSilv
 map data and drawn with Gen 3 pieces, by the same method as
 [Blackthorn](../blackthorn-city/README.md): each HGSS element (rock terraces, beach, surf
 strip, sea, ledges, props, buildings) becomes a Gen 3 element that does the same job, in
-Cianwood's HGSS colours. Editable source is on engine branch `claude/cianwood-city`, which
-builds on `claude/blackthorn-city`. Owner visual acceptance is pending. This replaces
-nothing: Codex's attempt (`gba/art/cianwood-city`, `tools/gba/maps/cianwood` on
-`codex/cianwood-city-evidence`) is left as it is.
+Cianwood's HGSS colours. Editable source is in
+[engine PR #27](https://github.com/Davisfox5/pokeemerald-expansion/pull/27), branch
+`claude/cianwood-city`, which builds on `claude/blackthorn-city` (#26). Owner visual
+acceptance is pending. This replaces nothing: Codex's attempt (engine PR #25, hub PR #22,
+`gba/art/cianwood-city` and `tools/gba/maps/cianwood` on `codex/cianwood-city-evidence`)
+is left as it is. The two install the same map names, so only one of the two engine
+branches can be merged.
 
 ![HGSS render and the installed native map](evidence/elements/original-native.png)
 
