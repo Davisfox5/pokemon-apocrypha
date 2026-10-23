@@ -65,25 +65,17 @@
     "gate_post_east": 1,
     "gate_post_west": 1,
     "poke_mart": 7,
-    "tutor_house": 4,
-    "west_house": 4
+    "tutor_house": 2,
+    "west_house": 2
   },
   "walk_behind": {
     "west_house": [
-      [
-        19,
-        33
-      ],
       [
         20,
         33
       ],
       [
         21,
-        33
-      ],
-      [
-        22,
         33
       ]
     ],
@@ -119,19 +111,11 @@
     ],
     "tutor_house": [
       [
-        17,
-        44
-      ],
-      [
         18,
         44
       ],
       [
         19,
-        44
-      ],
-      [
-        20,
         44
       ]
     ],
@@ -165,9 +149,9 @@
   "shared_building_pixels_exact": 14414,
   "center_bank8_palette_identical_to_cherrygrove": true,
   "mart_bank9_palette_identical_to_shared_art": true,
-  "secondary_tiles": 461,
+  "secondary_tiles": 465,
   "secondary_tile_limit": 496,
-  "secondary_metatiles": 349,
+  "secondary_metatiles": 345,
   "metatile_limit": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true

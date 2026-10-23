@@ -15,7 +15,7 @@ styled with Blackthorn's HGSS colours. Editable source is in
 | --- | --- |
 | Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
-| Secondary | `gTileset_BlackthornCity`: 461 of 496 tiles (16 kept for door animation), 349 of 512 metatiles |
+| Secondary | `gTileset_BlackthornCity`: 465 of 496 tiles (16 kept for door animation), 345 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
@@ -47,7 +47,7 @@ into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.
 | --- | --- | --- |
 | A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 582: over the 496 budget, render only |
 | B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 455 |
-| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 461 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 465 |
 
 Style C uses FRLG's nine-slice (corners, rims, sides, front face) in both of FRLG's
 versions, one for an edge over ground and one for an edge over a lower terrace, plus its
@@ -79,33 +79,39 @@ the far side of a mountain.
   on under the rock's clear and shadow pixels where it meets a corner.
 - **Caves**: FRLG's cave mouth on the Dragon's Den and Ice Path warp cells; Ice Path's arch
   is rimmed with frost and a snow drift spills onto the grass in front.
-- **Props and buildings**, redrawn as Gen 3 sprites (`sprites.py`, `source/elements/sprites.png`):
-  the Gym, the three thatched houses,
-  the two dead-trunk gate posts (16 px wide, inside their own cell column), the standing
-  stone (from HGSS's stone model through the same camera: a broad rounded stone with lumps,
-  a lobe at its lower left and etched cracks, in the grey ramp of the Center palette;
-  `stone-reference.png`).
+- **Props and buildings** as Gen 3 sprites (`sprites.py`, `source/elements/sprites/`,
+  `source/elements/sprites.png`): the Gym and the three thatched houses from HGSS's own
+  models (below), the two dead-trunk gate posts (16 px wide, inside their own cell column)
+  and the standing stone (from HGSS's stone model through HGSS's field camera: a broad
+  rounded stone with lumps, a lobe at its lower left and etched cracks, in the grey ramp of
+  the Center palette; `stone-reference.png`).
   HGSS's boulder is kept as a 2x2 prop in Blackthorn's rock ramp. The bridge and
   stairs are element pieces. Bridge, stairs and gate posts use CherrygrovePrimary's own
   wood ramp (bank 2), the stone the Center palette's greys (bank 8) and the Ice Path snow
   the primary's whites (bank 0), so none of their tiles need a learned palette; the bridge
   railing sits on the top layer over plain water, so no tile mixes wood and water.
-- **Houses**: shaped from HGSS's own house model (132) drawn through Blackthorn's field
-  camera, read from pokeheartgold (camera type 0: 48.7 degrees, near-orthographic;
-  `hgss_camera.py`, `evidence/elements/house-reference.png`): a small rounded crown on a
-  wide, low-pitched skirt that overhangs the walls, straw strands running down the slope,
-  the dormer under the crown, a ragged eave, a green door down to a single dark sill row.
-  Bulbapedia and other screenshot sites are
-  blocked by this environment's network policy, so the game's own model and camera stand
-  in for a screenshot.
-- **Gym**: shaped from HGSS's Gym model (139, door 16) through the same camera
-  (`evidence/elements/gym-reference.png`), scaled by 0.95 so its 118 px width fits seven
-  cells: a low oval drum with two purple bands, two curved plank roof shells split by a
-  recessed spine with three slats, orange beams that run up the spine's edges, bend out
-  over the hall and drop to its foot as posts, a red emblem over glass doors (HGSS's door
-  texture is glass), two short beam ends at each side. 112 x 80 in one 15-colour bank,
-  its foot on the bottom of the door row (y 23). It no longer reaches over the pond.
-  HGSS's collision still blocks row 18 behind the hall, which now shows as open water.
+- **Houses and Gym**: HGSS's own models and textures (the house 132 with its door 133, the
+  Gym 139 with its door 16) rendered at the owner-locked C06 Center's angle
+  (`hgss_camera.view`: orthographic at 38 degrees, 16 px per tile up the screen, squeezed
+  across to fit the footprint as C06 is), so their roofs and doors match the Center and
+  Mart beside them; HGSS's own field camera (48.7 degrees, `house-reference.png`,
+  `gym-reference.png`) draws them steeper. Each roof is mirrored on an 8 px axis so its
+  halves share tiles, C06's outline colour runs round each silhouette, and tiles that
+  differ only by a one-pixel edge shift are folded together.
+  - House: 64 x 75, the rounded crown, the bulging thatch skirt with the dormer, the
+    posts, the window and the stone footing, in 14 colours of its own. HGSS's straw
+    (`fu_h01`) is a muted tan that reads grey on the GBA, so it is lifted toward the golden
+    straw of the first Gen 3 huts; the green door's planks (`fu_door1`, a dark stripe every
+    4 texels) are drawn back one pixel wide, the plank gaps on its dark upper half in the
+    outline colour.
+  - Gym: 112 x 85, in 14 colours picked by family from its own render (roof wood, the
+    purple bands, the hall's greys, the beams, one rust for the beams' shadow side and the
+    emblem's face, the emblem's top and underside, the door glass). The roof shells' two
+    plank seams (`en_gyma`, rows 7-8 and 23-24) are drawn back one pixel wide, one step
+    darker on the roof's ramp. Its foot is on the bottom of the door row (y 23); the beam
+    tips reach 5 px into row 18, over the water HGSS's collision blocks behind the hall.
+  - `evidence/elements/buildings-before-after.png` sets them against the first Gen 3
+    drawings.
 - **Depth (walk-behind)**: props and rock sit on the top layer. A Gen 3 player is two
   cells tall, feet in its own cell and head in the cell above, so the packer decides each
   cell by the depth of the object its art belongs to (`pack.above_player`): a walkable cell
@@ -113,7 +119,7 @@ the far side of a mountain.
   ones included) only when that object's base row lies further south, as with a roof or
   crown the player walks behind. Door cells and every other cell on an object's base row,
   and all blocked cells, draw below the player (covered). The player walks behind the
-  gate posts, the houses' crowns and the Mart's roof row, and stands in front of every
+  gate posts, the houses' crowns (two cells each) and the Mart's roof row, and stands in front of every
   door with its head drawn over the building. The shared buildings' wall rows are solid
   wherever they cover a cell, so no wall edge hangs over a walkable cell. The Gym and the
   stone stand within their own blocked rows.
@@ -136,8 +142,8 @@ the far side of a mountain.
 - **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
   Gym sign. The tutor-house and trainer-tips signs are unscripted props.
 - **Colour**: the native map holds every one of the composed element art's 1,048,576
-  pixels exactly in 5-bit colour. Each sprite keeps to a small ramp (the Gym to exactly 15
-  colours) so the learned banks fit 44 colours (`evidence/elements/pack-C.json`).
+  pixels exactly in 5-bit colour. Each building keeps to one bank (14 colours and the
+  outline) so the learned banks fit 46 colours (`evidence/elements/pack-C.json`).
 
 ## Verification
 
@@ -158,8 +164,8 @@ the far side of a mountain.
 - **Rendering parity**: for all 36 captures the map layers BG1-BG3 rebuilt from dumped VRAM,
   palettes and BG registers match the decoded native image pixel for pixel, apart from
   CherrygrovePrimary's animated sea tiles. In the walk-behind captures BG1 covers the
-  player's own cell (81 px at each gate post, 199 at the house roof, 64 at the Mart's roof
-  row); in front of every building BG1 covers none of the player's two cells.
+  player's own cell (81 px at each gate post, 101 at the house's crown, 64 at the Mart's
+  roof row); in front of every building BG1 covers none of the player's two cells.
 - **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source and run
   under Xvfb on a fresh clone: the city and its three interiors open with no errors;
   Porymap's export of the city matches the native decode pixel for pixel; saving the maps
@@ -167,8 +173,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `1fb146d3eafe073db35d65e0d6b165419cef5b0c`, local ROM SHA-256
-`b692840bacb03a20815777d4765fce7e0b68df31afc4c6220153450384571530` (Ubuntu Arm GNU 13.2.1).
+Engine commit `64a8b9e8ce6dd4d4c89ccbc0e118aed8670e8d39`, local ROM SHA-256
+`45b126c745a0cfeebe48bf62d854aa193d94e885a1cdf9f3db2e574de213f570` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)
@@ -192,7 +198,7 @@ python3 tools/gba/maps/blackthorn/hgss_render.py /path/to/pokeheartgold gba/art/
 python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-house-camera.png
 python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-stone-camera.png 235
 python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-gym-camera.png 139 16
-python3 tools/gba/maps/blackthorn/sprites.py
+python3 tools/gba/maps/blackthorn/sprites.py /path/to/pokeheartgold
 python3 tools/gba/maps/blackthorn/elements.py /path/to/engine /path/to/pokeheartgold
 python3 tools/gba/maps/blackthorn/pack.py /path/to/engine C
 python3 tools/gba/maps/blackthorn/budget.py /path/to/engine C        # tiles and colours per element

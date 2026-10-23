@@ -1,18 +1,18 @@
 {
   "style": "C",
-  "secondary_tiles": 461,
+  "secondary_tiles": 465,
   "secondary_tile_limit": 496,
-  "secondary_metatiles": 349,
+  "secondary_metatiles": 345,
   "metatile_limit": 512,
-  "primary_metatiles_reused": 881,
+  "primary_metatiles_reused": 885,
   "tile_positions": {
-    "primary": 5986,
+    "primary": 5988,
     "fixed_exact": 256,
-    "learned": 311,
+    "learned": 316,
     "learned_fit": "exact where possible"
   },
   "junction_colours": 6,
-  "learned_bank_error": 0.0,
+  "learned_bank_error": 0.00012709011209199243,
   "colour_rgb5": {
     "exact": 1048576,
     "within_1": 1048576,

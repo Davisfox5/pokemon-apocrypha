@@ -84,6 +84,14 @@ int main(int argc,char**argv){
   shot("north-of-standing-stone");
   step(DOWN,1);
   at(43,23,34,"at-43-23-34");
+  go(43,28,43);
+  shot("behind-mart");
+  step(DOWN,1);
+  at(43,28,43,"at-43-28-43");
+  go(43,28,24);
+  shot("front-of-gym");
+  go(43,18,49);
+  shot("front-of-tutor-house");
   go(43,14,36);
   step(DOWN,1);shot("ledge-jump");
   at(43,14,38,"at-43-14-38");

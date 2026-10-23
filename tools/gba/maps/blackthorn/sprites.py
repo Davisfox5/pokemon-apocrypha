@@ -1,15 +1,24 @@
-"""Blackthorn's buildings and props, drawn as Gen 3 pixel art.
+"""Blackthorn's buildings and props as Gen 3 sprites.
 
-Each function returns an RGBA array whose bottom edge sits on the bottom of the
-object's lowest blocked cell. Geometry is drawn fresh at native resolution (flat
-front walls, banded domes, one-pixel dark outlines). The houses and the standing
-stone fill their shapes with HGSS's own texture for that object, reduced to a few
-shades (source/elements/hgss-building-textures/); the Gym and the gate posts are
-drawn in explicit Gen 3 ramps taken from those textures' colours.
+    python3 tools/gba/maps/blackthorn/sprites.py PATH/TO/pokeheartgold
 
-    python3 tools/gba/maps/blackthorn/sprites.py   # writes source/elements/sprites.png
+The houses (model 132 with door 133) and the Gym (139 with door 16) are HGSS's own models
+and textures rendered at C06's angle (hgss_camera.view: 38 degrees, 16 px per tile up the
+screen, each squeezed across to fit its footprint as C06 is), so roof pitch and doors
+match the Center beside them, then finished as Gen 3 art: the house in its own 14 colours
+(k-means) with HGSS's straw lifted toward the golden straw of Blackthorn's first houses,
+the Gym in 14 picked by family from its render (roof wood, purple bands, hall, beams,
+emblem, glass), C06's outline colour round the silhouette, each roof mirrored on an 8 px
+axis so its halves share tiles, the Gym's roof seams and the door's planks drawn back where
+14 colours swallow them, and tiles that differ only by a one-pixel edge shift folded
+together. The gate posts and the standing stone are drawn at native resolution.
+
+Writes source/elements/sprites/*.png (what elements.py places) and the contact sheet
+source/elements/sprites.png. Each sprite's bottom edge is the bottom of its object's base
+row.
 """
 from __future__ import annotations
+import sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -17,21 +26,10 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = ROOT / 'gba/art/blackthorn-city/source/elements'
-TEX = OUT / 'hgss-building-textures'
-
-def tex(name):
-    return np.array(Image.open(TEX / f'{name}.png').convert('RGBA'))
+SPRITES = OUT / 'sprites'
 
 def canvas(w, h):
     return np.zeros((h, w, 4), np.uint8)
-
-def rect(img, x0, y0, x1, y1, c):
-    img[max(0, y0):y1, max(0, x0):x1] = tuple(c[:3]) + (255,)
-
-def paste(img, src, x, y):
-    h, w = src.shape[:2]
-    a = src[..., 3] > 0
-    img[y:y + h, x:x + w][a] = src[a]
 
 def outline(img, c):
     """One-pixel outline along the inside edge of the opaque area."""
@@ -40,55 +38,6 @@ def outline(img, c):
     edge = a & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
     img[edge] = tuple(c) + (255,)
 
-def shade(img, mask, cx, cy, rx, ry, strength=0.35):
-    """Darken a dome away from an upper-left light."""
-    ys, xs = np.nonzero(mask)
-    nx, ny = (xs - cx) / rx, (ys - cy) / ry
-    f = 1 + strength * (-0.6 * nx - 0.8 * ny) * 0.9
-    img[ys, xs, :3] = np.clip(img[ys, xs, :3] * f[:, None], 0, 255).astype(np.uint8)
-
-def shade_sym(img, mask, cx, cy, rx, ry, strength=0.35):
-    """Gen 3 dome shading: horizontal bands that darken toward the base, plus a darker
-    rim along the outline. Rows repeat across the dome and the halves mirror, so the
-    dome packs into few tiles."""
-    ys, xs = np.nonzero(mask)
-    ny = (ys - cy) / ry
-    f = 1 + strength * (-0.8 * ny) * 0.9
-    pad = np.pad(mask, 3)
-    inner = np.ones_like(mask)
-    for dy in range(-3, 4):
-        for dx in range(-3, 4):
-            if abs(dx) + abs(dy) <= 3:
-                inner &= pad[3 + dy:3 + dy + mask.shape[0], 3 + dx:3 + dx + mask.shape[1]]
-    rim = ~inner[ys, xs]
-    f = np.where(rim, f * 0.82, f)
-    img[ys, xs, :3] = np.clip(img[ys, xs, :3] * f[:, None], 0, 255).astype(np.uint8)
-
-def posterize(img, mask, n):
-    """Reduce the colours under mask to n representative shades (by luminance bins)."""
-    ys, xs = np.nonzero(mask)
-    c = img[ys, xs, :3].astype(float)
-    lum = c @ np.array([0.3, 0.59, 0.11])
-    edges = np.quantile(lum, np.linspace(0, 1, n + 1))
-    k = np.clip(np.searchsorted(edges[1:-1], lum), 0, n - 1)
-    for i in range(n):
-        if (k == i).any():
-            img[ys[k == i], xs[k == i], :3] = np.median(c[k == i], 0).astype(np.uint8)
-
-def tiled(src, w, h, ox=0, oy=0):
-    ys, xs = np.mgrid[0:h, 0:w]
-    return src[(ys + oy) % src.shape[0], (xs + ox) % src.shape[1]]
-
-# Stone grey: the grey ramp of Cherrygrove's Center palette (bank 8, loaded for the shared
-# Center), so stone tiles need no learned palette; Gym frames use it too.
-GREY = [(56, 56, 72), (96, 104, 96), (120, 120, 112), (168, 168, 160), (216, 216, 208)]
-
-# --------------------------------------------------------------------------- thatched hut
-STRAW = [(240, 212, 140), (224, 192, 120), (204, 168, 100), (180, 144, 84), (150, 114, 64), (116, 84, 48)]
-STRAW_LINE = (82, 58, 52)                                   # Blackthorn's rock outline, shared
-HUT_PALETTE = STRAW + [STRAW_LINE, (36, 30, 32), (200, 150, 72), (132, 92, 48), (8, 90, 41), (16, 120, 60),
-                       (206, 206, 231), (255, 255, 255)]                      # 15 colours: one bank
-
 def snap(img, palette):
     """Snap every opaque pixel to its nearest palette colour (keeps a sprite's ramp small)."""
     a = img[..., 3] > 0
@@ -96,78 +45,209 @@ def snap(img, palette):
     c = img[a][:, :3].astype(float)
     img[a, :3] = p[((c[:, None] - p[None]) ** 2).sum(-1).argmin(1)].astype(np.uint8)
 
-def hut():
-    """Blackthorn house, shaped from HGSS's own house model seen through Blackthorn's field
-    camera (camera type 0, 48.7 degrees): a small rounded crown sitting on a wide,
-    low-pitched thatch skirt that overhangs the walls, straw strands running down the
-    slope, a dormer on the skirt below the crown, a ragged eave; under it a plank front
-    with dark corner posts, a green door and a window. 64 x 80 (four cells); the crown
-    rises into the row above the footprint. Mirror-symmetric above the eave, so the two
-    roof halves share tiles."""
-    img = canvas(64, 80)
-    ys, xs = np.mgrid[0:80, 0:64]
-    dx = np.abs(xs - 31.5)
-    # silhouettes: the crown is a rounded cap; the skirt's shoulder curves out from under
-    # it to the full width, then falls almost straight to a low eave that bows forward
-    shoulder = 13 + 16 * (1 - np.sqrt(np.clip(1 - ((dx - 16) / 16.5) ** 2, 0, 1)))
-    skirt_top = np.where(dx <= 16, 13, shoulder)
-    eave = 54 + np.floor(2.5 * np.sqrt(np.clip(1 - (dx / 32) ** 2, 0, 1)))
-    half = np.where(ys < 44, 32.0, 32 - (ys - 44) * 0.3)
-    skirt = (ys >= skirt_top) & (ys <= eave) & (dx <= half)
-    crown = ((dx / 18) ** 2 + ((ys - 14) / 13) ** 2 <= 1) & (ys <= 22)
-    # straw: strands run down the slope, two pixels wide, broken into uneven lengths
-    ang = np.arctan2(xs - 31.5, ys + 30)
-    strand = np.floor(np.abs(ang) * 34).astype(int)
-    phase = (strand * 7) % 11
-    brk = ((ys + phase) % 11 < 2)
-    tone = (strand % 2) + brk
-    roof = skirt | crown
-    k = np.zeros(ys.shape, int)
-    k[skirt] = 1 + tone[skirt] + (ys[skirt] > 34) + (ys[skirt] > eave[skirt] - 5)
-    k[skirt & (dx >= 27)] += 1                                  # rounding away at the sides
-    k[crown] = tone[crown] + (ys[crown] > 9)
-    k[crown & (dx >= 14)] += 1
-    k = np.clip(k, 0, 5)
-    for i, c in enumerate(STRAW):
-        img[roof & (k == i)] = c + (255,)
-    # the crown's ragged lip where it overhangs the skirt
-    rim = crown & ~((dx / 18) ** 2 + ((ys - 13) / 13) ** 2 <= 1)
-    img[rim] = STRAW[4] + (255,)
-    for x in range(14, 50):
-        r = int(np.ceil(14 + 13 * np.sqrt(max(0.0, 1 - ((x - 31.5) / 18) ** 2))))
-        if r <= 22 and (x * 5) % 3 == 0:
-            img[min(r, 23), x] = STRAW[5] + (255,)
-    # dormer on the skirt, just under the crown's lip
-    rect(img, 24, 24, 40, 37, (96, 64, 38)); rect(img, 26, 26, 38, 37, (36, 32, 44))
-    rect(img, 26, 26, 38, 28, (140, 96, 52)); rect(img, 23, 36, 41, 38, (96, 64, 38))
-    # ragged eave: straw tips hanging below the skirt's edge
-    for x in range(1, 63):
-        e = int(eave[0, x])
-        if dx[0, x] <= half[e, x]:
-            for t in range(1 + (x * 7 % 5 == 0) + (x % 3 == 0)):
-                img[e + 1 + t, x] = (STRAW[4] if t == 0 else STRAW[5]) + (255,)
-    img[:56, 32:] = img[:56, :32][:, ::-1]                    # mirror the roof
-    # front wall: golden planks between dark corner posts, shadowed under the eave
-    top = 55
-    rect(img, 5, top, 59, 77, (200, 150, 72))
-    for y in range(top + 4, 77, 4):
-        rect(img, 5, y, 59, y + 1, (164, 118, 58))
-    rect(img, 5, top, 59, top + 3, (132, 92, 48))
-    for x0 in (3, 55):
-        rect(img, x0, top - 1, x0 + 6, 77, (78, 52, 32)); rect(img, x0 + 1, top + 2, x0 + 2, 77, (128, 88, 50))
-    door = tex('fu_door1')[0:25, 0:24]            # the green leaf only; HGSS's dark threshold rows dropped
-    dimg = np.array(Image.fromarray(door).resize((14, 76 - (top + 3)), Image.Resampling.NEAREST))
-    rect(img, 15, top + 2, 31, 77, (40, 30, 24)); paste(img, dimg, 16, top + 3)   # one dark sill row left
-    win = tex('h_mado')
-    rect(img, 35, top + 3, 51, top + 13, (78, 52, 32))
-    paste(img, np.array(Image.fromarray(win).resize((14, 8), Image.Resampling.NEAREST)), 36, top + 4)
-    rect(img, 42, top + 4, 43, top + 12, (110, 74, 44)); rect(img, 36, top + 8, 50, top + 9, (110, 74, 44))
-    rect(img, 34, top + 14, 52, top + 17, (132, 92, 48)); rect(img, 34, top + 16, 52, top + 17, STRAW_LINE)   # window box
-    rect(img, 3, 77, 61, 78, (96, 72, 44))                      # sill along the ground
-    outline(img, STRAW_LINE)
-    img[78:] = 0
-    snap(img, HUT_PALETTE)
+# Stone grey: the grey ramp of Cherrygrove's Center palette (bank 8, loaded for the shared
+# Center), so stone tiles need no learned palette.
+GREY = [(56, 56, 72), (96, 104, 96), (120, 120, 112), (168, 168, 160), (216, 216, 208)]
+
+# --------------------------------------------------------------------------- buildings
+C06_LINE = (41, 41, 49)                  # the owner-locked C06 Center's outline
+DOOR = (0.15625, 0, 0.75)                # each door's offset from its building in HGSS's placements
+# name: (model parts, width px, roof mirror (rows, axis, cols))
+RENDERS = {
+    'house': ([(132, (0, 0, 0)), (133, DOOR)], 64, (51, 32, 64)),
+    'gym': ([(139, (0, 0, 0)), (16, (0, 0, 1.3125))], 112, (999, 56, 112)),
+}
+# The Gym in 14 colours picked by family from its own render's colour clusters (the rest
+# fold into the nearest): roof wood light, mid, dark; the purple bands; the hall's two
+# greys; the beams' light, lit face and orange; one rust for the beams' shadow side and the
+# emblem's face; the emblem's lit top and dark underside; the door glass.
+GYM_PALETTE = [(176, 136, 104), (152, 112, 72), (120, 88, 56), (136, 96, 192), (112, 72, 168),
+               (200, 184, 184), (168, 152, 152), (248, 192, 144), (232, 152, 88), (240, 112, 24),
+               (184, 88, 40), (208, 112, 104), (112, 32, 0), (88, 160, 208)]
+
+def sprite_palette(rgba, n=14):
+    """A sprite's own colours: weighted k-means over its 5-bit colours with farthest-first
+    seeds, so a small accent (a door's knob, a window) keeps its own colour."""
+    import build as B
+    px = rgba[rgba[..., 3] > 0][:, :3] >> 3
+    uc, cnt = np.unique(px, axis=0, return_counts=True)
+    return [tuple(int(v) << 3 | int(v) >> 2 for v in c) for c in B.kmeans_colors(uc, np.sqrt(cnt).astype(float), n)]
+
+def finish(rgba, pal, mirror=None):
+    """Mirror the roof's left half onto its right, map to the sprite's palette, then outline
+    the silhouette in C06's outline colour."""
+    img = rgba.copy()
+    if mirror:
+        rows, axis, cols = mirror
+        left = img[:rows, axis - (cols - axis):axis]
+        img[:rows, axis:cols] = left[:, ::-1]
+    a = img[..., 3] > 0
+    p = np.array(pal, int)
+    img[..., :3] = p[((img[..., :3][..., None, :].astype(int) - p[None, None]) ** 2).sum(-1).argmin(-1)]
+    img[~a] = 0
+    outline(img, C06_LINE)
     return img
+
+# Fine lines the render loses at 14 colours, drawn back one pixel wide, each pixel one step
+# darker on its surface's own ramp: the Gym's en_gyma planks carry two dark seams (texture
+# rows 7-8 and 23-24) that arc across each roof shell; the house door's fu_door1 is green
+# planks, a dark 2-texel stripe every 4 texels. A marker render at 4x finds where they fall.
+# name: (texture, surface (rows, cols), stripes, 'rows' for horizontal stripes given as row
+# ranges or 'cols' for vertical ones given as column ranges)
+SEAMS = {'gym': ('en_gyma', ((0, 32), (14, 60)), ((7, 9), (23, 25)), 'rows'),
+         'house': ('fu_door1', ((0, 26), (0, 24)), tuple((a, a + 2) for a in range(2, 24, 4)), 'cols')}
+# The thatch keeps HGSS's own straw (fu_h01's left block) lifted toward the golden straw of
+# Blackthorn's first Gen 3 houses: the DS texture is a muted tan that reads grey on the GBA.
+# name: (texture, (rows, cols), per-channel gain)
+LIFT = {'house': ('fu_h01', ((0, 48), (0, 24)), (1.16, 1.13, 1.0))}
+
+def marked(C, models, parts, width, height, name, paint, z=4):
+    """Per sprite pixel, the share of it that shows each marker colour (green, magenta) of a
+    render where paint(texture) recolours the named texture's regions."""
+    big, _ = C.view(models, parts, width * z, sy=C.C06_SCALE * z, retex={name: paint})
+    h = height * z
+    big = big[-h:] if big.shape[0] >= h else np.pad(big, ((h - big.shape[0], 0), (0, 0), (0, 0)))
+    rgb = big[..., :3].astype(int)
+    cover = lambda m: m.reshape(height, z, width, z).mean(axis=(1, 3))
+    green = cover((rgb[..., 0] < 60) & (rgb[..., 1] > 200) & (rgb[..., 2] < 60))
+    magenta = cover((rgb[..., 0] > 200) & (rgb[..., 1] < 60) & (rgb[..., 2] > 200))
+    return green, magenta
+
+def seam_mask(C, models, parts, width, height, name, surface, stripes, axis):
+    """(seam, surface): per sprite pixel, the seam line (one pixel per stripe crossing, along
+    the stripe's run) and the surface it lies on."""
+    (r0, r1), (c0, c1) = surface
+    def mark(t):
+        t = t.copy()
+        t[r0:r1, c0:c1, :3] = (0, 255, 0)
+        for a, b in stripes:
+            if axis == 'rows':
+                t[a:b, c0:c1, :3] = (255, 0, 255)
+            else:
+                t[r0:r1, a:b, :3] = (255, 0, 255)
+        return t
+    green, seam = marked(C, models, parts, width, height, name, mark)
+    s = seam if axis == 'rows' else seam.T                 # thin each band to its strongest pixel
+    line = np.zeros(s.shape, bool)
+    for x in range(s.shape[1]):
+        y = 0
+        while y < s.shape[0]:
+            if s[y, x] > 0.25:
+                y1 = y
+                while y1 < s.shape[0] and s[y1, x] > 0.25:
+                    y1 += 1
+                line[y + int(np.argmax(s[y:y1, x])), x] = True
+                y = y1
+            else:
+                y += 1
+    return (line if axis == 'rows' else line.T), (green + seam) > 0.5
+
+def lift(C, models, parts, width, rgba, name, region, gain):
+    """Scale the colours of the pixels that show the region of the named texture."""
+    (r0, r1), (c0, c1) = region
+    def mark(t):
+        t = t.copy()
+        t[r0:r1, c0:c1, :3] = (0, 255, 0)
+        return t
+    green, _ = marked(C, models, parts, width, rgba.shape[0], name, mark)
+    img = rgba.copy()
+    m = (green > 0.5) & (img[..., 3] > 0)
+    img[m, :3] = np.clip(img[m, :3].astype(float) * np.array(gain), 0, 255).astype(np.uint8)
+    return img
+
+def draw_seams(img, mask, floor=None):
+    """Each seam pixel one step darker on the surface's ramp (the colours covering at least a
+    twentieth of it, light to dark); on the darkest, `floor` when given (a door's plank gaps
+    go to the outline colour), else unchanged."""
+    line, plank = mask
+    img = img.copy()
+    on = plank & (img[..., 3] > 0)
+    cols, cnt = np.unique(img[on][:, :3], axis=0, return_counts=True)
+    ramp = sorted((tuple(int(v) for v in c) for c, k in zip(cols, cnt) if k >= 0.05 * on.sum()), key=sum)
+    ramp = ([tuple(floor)] if floor else []) + ramp
+    step = {c: ramp[max(i - 1, 0)] for i, c in enumerate(ramp)}
+    for y, x in zip(*np.nonzero(line & on)):
+        c = tuple(int(v) for v in img[y, x, :3])
+        if c in step:
+            img[y, x, :3] = step[c]
+    return img
+
+# Tile reuse, the way a Gen 3 artist trims a tileset: a building tile that differs from a
+# more common tile of its sprite (any flip) only where an edge sits a pixel over or a render
+# speck sits (at most REUSE pixels, each taking a colour its own 4-neighbour already had,
+# same silhouette) becomes that tile. Drawn detail (the Gym's roof seams) is kept: a fold
+# may not touch it. Sprites are bottom-aligned on cells, so the 8 px grid runs up from the
+# bottom edge.
+REUSE = 12
+FLIPS = [(False, False), (True, False), (False, True), (True, True)]
+
+def flip(t, f):
+    t = t[:, ::-1] if f[0] else t
+    return t[::-1] if f[1] else t
+
+def edge_shift(old, new, diff):
+    o, n, oa = old[..., :3].astype(int), new[..., :3].astype(int), old[..., 3] > 0
+    for y, x in zip(*np.nonzero(diff)):
+        if not any(0 <= y + dy < 8 and 0 <= x + dx < 8 and oa[y + dy, x + dx] and (o[y + dy, x + dx] == n[y, x]).all()
+                   for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))):
+            return False
+    return True
+
+def reuse_tiles(img, keep=None):
+    """keep: pixel mask a fold may not change."""
+    pad = (-img.shape[0]) % 8
+    g = np.concatenate([np.zeros((pad, img.shape[1], 4), np.uint8), img], 0)
+    k = keep if keep is not None else np.zeros(img.shape[:2], bool)
+    hold = np.concatenate([np.zeros((pad, k.shape[1]), bool), k], 0)
+    seen = {}
+    for ty in range(g.shape[0] // 8):
+        for tx in range(g.shape[1] // 8):
+            t = g[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].copy()
+            if not t[..., 3].any():
+                continue
+            t[t[..., 3] == 0] = 0
+            f = min(FLIPS, key=lambda f: flip(t, f).tobytes())
+            c = flip(t, f)
+            e = seen.setdefault(c.tobytes(), [c, [], np.zeros((8, 8), bool)])
+            e[1].append((ty, tx, f))
+            e[2] |= flip(hold[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8], f)
+    kept = []
+    for t, where, held in sorted(seen.values(), key=lambda v: -len(v[1])):
+        a, best = t[..., 3] > 0, None
+        for r in kept:
+            for f in FLIPS:
+                fr = flip(r, f)
+                if ((fr[..., 3] > 0) != a).any():
+                    continue
+                diff = (fr[..., :3] != t[..., :3]).any(-1) & a
+                d = int(diff.sum())
+                if d <= REUSE and (best is None or d < best[0]) and not (diff & held).any() and edge_shift(t, fr, diff):
+                    best = (d, fr)
+        if best is None:
+            kept.append(t)
+            continue
+        for ty, tx, f in where:
+            g[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = flip(best[1], f)
+    return g[pad:]
+
+def buildings(phg):
+    """The house and the Gym, finished."""
+    sys.path.insert(0, str(HERE))
+    import hgss_camera as C
+    _, _, models, _, _ = C.R.load(phg)
+    out = {}
+    for name, (parts, width, mirror) in RENDERS.items():
+        rgba, _ = C.view(models, parts, width)
+        if name in LIFT:
+            rgba = lift(C, models, parts, width, rgba, *LIFT[name])
+        pal = GYM_PALETTE if name == 'gym' else sprite_palette(rgba)
+        img = finish(rgba, pal, mirror)
+        keep = None
+        if name in SEAMS:
+            mask = seam_mask(C, models, parts, width, rgba.shape[0], *SEAMS[name])
+            img, keep = draw_seams(img, mask, C06_LINE if SEAMS[name][3] == 'cols' else None), mask[0]
+        out[name] = reuse_tiles(img, keep)
+    return out
 
 # --------------------------------------------------------------------------- gate post
 POST = {'o': (88, 64, 64), 'd': (104, 72, 48), 'm': (136, 96, 72), 'l': (184, 136, 104), 'h': (200, 168, 112),
@@ -270,110 +350,20 @@ def standing_stone():
     snap(img, GREY)
     return img
 
-# --------------------------------------------------------------------------- gym
-# 15 colours, one palette bank, taken from HGSS's own Gym model through the field camera
-GYM = dict(line=GREY[0], wood=[(184, 144, 104), (160, 112, 72), (120, 88, 56)],
-           beam=[(248, 200, 144), (248, 112, 24), (208, 88, 24)],
-           hall=[(224, 208, 208), (176, 160, 160)], band=[(144, 96, 200), (112, 72, 168)],
-           red=[(216, 112, 104), (184, 80, 56), (112, 32, 8)], glass=(96, 184, 232))
-GYM_PALETTE = [GYM['line'], *GYM['wood'], *GYM['beam'], *GYM['hall'], *GYM['band'], *GYM['red'], GYM['glass']]
+def build(phg):
+    out = buildings(phg)
+    out.update(gate_post=gate_post(), standing_stone=standing_stone())
+    SPRITES.mkdir(parents=True, exist_ok=True)
+    for name, img in out.items():
+        Image.fromarray(img, 'RGBA').save(SPRITES / f'{name}.png')
+    sheet(out)
+    return out
 
-def gym():
-    """Blackthorn Gym, shaped from HGSS's own Gym model (139, door 16) seen through
-    Blackthorn's field camera (camera type 0, 48.7 degrees), scaled by 0.95 so its
-    118 px width fits seven cells: a low oval drum with two purple bands, two curved
-    plank roof shells split by a recessed spine with three slats, two orange beams that
-    run up the spine's edges, bend out over the hall and drop to the foot as posts, a
-    red emblem over glass doors, two short beam ends at each side. 112 x 80: the hall's
-    foot sits on the bottom of the door row and the roof reaches the top of the fifth
-    row up. Mirror-symmetric, so the halves share tiles."""
-    C = GYM
-    img = canvas(112, 96)                       # drawn on 96 rows, the empty top row cropped
-    ys, xs = np.mgrid[0:96, 0:112]
-    dx = np.abs(xs - 55.5)
-    put = lambda m, c: img.__setitem__(m, tuple(c) + (255,))
-    ell = lambda r: np.sqrt(np.clip(1 - (dx / r) ** 2, 0, 1))
-    # hall: a drum, top rim ellipse centred on row 44, foot ellipse on row 82
-    e = ell(50)
-    foot = 82 + 13 * e
-    drum = (dx <= 50) & (ys >= 44 - 13 * e) & (ys <= foot)
-    put(drum, C['hall'][0])
-    put(drum & (dx > 45.5) & (ys >= 42), C['band'][0])            # the drum's purple flank
-    band = 66 + 11 * e                                            # bands bow toward the viewer
-    put(drum & (ys >= band) & (ys < band + 3), C['band'][1])
-    put(drum & (ys >= band + 3) & (ys < band + 9), C['hall'][1])
-    put(drum & (ys >= band + 9), C['band'][0])
-    put(drum & (ys >= foot - 2), C['band'][1])
-    # roof: two plank shells on an oval, a recessed spine between them
-    er = ell(47)                                                  # the shells round off at the sides
-    roof = (dx <= 45) & (ys >= 44 - 29 * er) & (ys <= 49 + 16 * er) & ~((dx < 14) & (ys < 22))
-    put(drum & ~roof & (ys <= 51 + 16 * er) & (dx <= 46), C['hall'][1])   # shadow under the eave
-    shell = roof & (dx >= 19)
-    put(shell, C['wood'][0])
-    put(shell & ((ys > 40) | (dx > 39)), C['wood'][1])
-    put(shell & (ys > 47 + 16 * er), C['wood'][2])                         # eave
-    for ang in (0.55, 1.0):                                              # panel seams fan out from the beam's bend
-        t = np.linspace(0, 1, 120)
-        sx = 19 + t * 30 * np.cos(ang); sy = 58 - t * 44 * np.sin(ang)
-        for x_, y_ in zip(np.round(55.5 - sx).astype(int), np.round(sy).astype(int)):
-            if 0 <= x_ < 56 and shell[y_, x_]:
-                img[y_, x_] = tuple(C['wood'][2]) + (255,)
-    rim = shell & (ys < 44 - 29 * er + 1.5) & (dx < 43)                 # orange trim along the shells' crest
-    put(rim, C['beam'][0])
-    spine = roof & (dx < 14)
-    put(spine, C['wood'][1])
-    put(spine & (ys < 24), C['wood'][2])
-    put(spine & (dx >= 11.5), C['wood'][2])
-    for y0 in (27, 35, 43):
-        put(spine & (dx < 9.5) & (ys >= y0) & (ys < y0 + 3), C['wood'][2])
-    put(spine & (ys >= 52), C['wood'][2])
-    # windows: two pairs on the front wall
-    for x0 in (25, 32):
-        rect(img, x0, 66, x0 + 6, 74, C['hall'][1])
-        rect(img, x0 + 1, 67, x0 + 5, 73, C['glass'])
-        img[67, x0 + 1:x0 + 3] = tuple(C['hall'][0]) + (255,); img[68, x0 + 1] = tuple(C['hall'][0]) + (255,)
-    # beams: up the spine's edges (x 36-40), bending out over the hall from row 58 to the
-    # posts at x 18-22, which drop to the foot; the bend keeps the beam's full width
-    for y in range(17, 59):
-        for k, t in enumerate([1, 0, 0, 1, 2]):
-            img[y, 36 + k] = tuple(C['beam'][t]) + (255,)
-    for y in range(64, 95):
-        for k, t in enumerate([0, 1, 1, 1, 2]):
-            img[y, 18 + k] = tuple(C['beam'][t]) + (255,)
-    (ax, ay), (bx, by) = (38.0, 57.0), (20.0, 65.0)
-    vx, vy = bx - ax, by - ay
-    tt = np.clip(((xs - ax) * vx + (ys - ay) * vy) / (vx * vx + vy * vy), 0, 1)
-    px_, py_ = ax + tt * vx - xs, ay + tt * vy - ys
-    side = (px_ * vy - py_ * vx) / np.hypot(vx, vy)              # > 0 on the upper side
-    bend = (np.hypot(px_, py_) <= 2.6) & (xs < 56)
-    put(bend, C['beam'][1]); put(bend & (side > 1.0), C['beam'][0]); put(bend & (side < -1.3), C['beam'][2])
-    img[17, 36] = img[17, 40] = 0                                      # rounded beam tips
-    # emblem: a red slab over the door, lit top face, dark underside, white arch
-    rect(img, 41, 59, 56, 80, C['red'][1])
-    rect(img, 43, 59, 56, 60, C['red'][0]); rect(img, 41, 61, 56, 64, C['red'][0]); rect(img, 42, 60, 56, 61, C['red'][0])
-    img[59, 41:43] = 0; img[60, 41] = 0
-    rect(img, 41, 74, 56, 80, C['red'][2]); rect(img, 41, 61, 42, 80, C['red'][2])
-    r2 = (xs - 55.5) ** 2 + (ys - 73.5) ** 2
-    arch = (r2 <= 8.4 ** 2) & (r2 > 4.6 ** 2) & (ys <= 73) & (ys >= 65)
-    put(arch & (xs < 56), C['hall'][0])
-    put((dx < 2) & (ys >= 70) & (ys <= 73), C['hall'][0])           # the emblem's centre post
-    # inner posts framing the door, then glass doors
-    rect(img, 41, 80, 45, 95, C['beam'][1]); rect(img, 41, 80, 42, 95, C['beam'][0]); rect(img, 44, 80, 45, 95, C['beam'][2])
-    rect(img, 45, 80, 56, 95, C['hall'][1])
-    rect(img, 46, 81, 55, 95, C['glass'])
-    rect(img, 47, 82, 49, 94, C['hall'][0])
-    img[80:95, 55] = tuple(C['hall'][1]) + (255,)
-    # beam ends at the drum's sides
-    for y0 in (57, 65):
-        rect(img, 0, y0, 7, y0 + 6, C['beam'][1]); rect(img, 0, y0, 7, y0 + 2, C['beam'][0]); rect(img, 0, y0 + 5, 7, y0 + 6, C['beam'][2])
-    img[:, 56:] = img[:, :56][:, ::-1]                              # mirror-symmetric
-    outline(img, C['line'])
-    snap(img, GYM_PALETTE)
-    assert not img[:16, :, 3].any()
-    return img[16:]
+def load(name):
+    return np.array(Image.open(SPRITES / f'{name}.png').convert('RGBA'))
 
-def sheet():
-    parts = [hut(), gate_post(), gate_post(True), standing_stone(), gym()]
+def sheet(parts):
+    parts = list(parts.values())
     w = sum(p.shape[1] * 4 + 16 for p in parts); h = max(p.shape[0] for p in parts) * 4 + 16
     out = Image.new('RGBA', (w, h), (226, 200, 140, 255))
     x = 8
@@ -383,4 +373,4 @@ def sheet():
     out.save(OUT / 'sprites.png')
 
 if __name__ == '__main__':
-    sheet()
+    build(Path(sys.argv[1]).resolve())
