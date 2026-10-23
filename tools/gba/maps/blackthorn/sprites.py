@@ -271,78 +271,106 @@ def standing_stone():
     return img
 
 # --------------------------------------------------------------------------- gym
-GYM = dict(line=GREY[0], wood=[STRAW[2], STRAW[3], STRAW[3], STRAW[5]],   # 15 colours in all: one palette bank
-           beam=[(248, 184, 104), (232, 128, 48), (192, 88, 32)],
-           hall=[(236, 228, 244), (204, 196, 222), (170, 162, 196)], band=[(168, 128, 216), (124, 84, 180)],
-           red=[(208, 72, 56), (160, 44, 36), (112, 28, 28)], glass=[(236, 228, 244), (104, 164, 220)],
-           frame=(170, 162, 196))
+# 15 colours, one palette bank, taken from HGSS's own Gym model through the field camera
+GYM = dict(line=GREY[0], wood=[(184, 144, 104), (160, 112, 72), (120, 88, 56)],
+           beam=[(248, 200, 144), (248, 112, 24), (208, 88, 24)],
+           hall=[(224, 208, 208), (176, 160, 160)], band=[(144, 96, 200), (112, 72, 168)],
+           red=[(216, 112, 104), (184, 80, 56), (112, 32, 8)], glass=(96, 184, 232))
+GYM_PALETTE = [GYM['line'], *GYM['wood'], *GYM['beam'], *GYM['hall'], *GYM['band'], *GYM['red'], GYM['glass']]
 
 def gym():
-    """Blackthorn Gym, redrawn in Gen 3 terms: a plank barrel roof (planks running front
-    to back, a dark spine down the middle) on a round lavender hall with two purple
-    bands, two orange beams that rise above the roof and splay out to the hall's foot,
-    orange corner posts, red emblem panel over glass doors. 112 x 128: seven cells
-    wide, the six blocked rows plus two rows of roof over the pond. Shading runs across
-    the roof in 8 px plank columns and the halves mirror, so it packs into few tiles."""
+    """Blackthorn Gym, shaped from HGSS's own Gym model (139, door 16) seen through
+    Blackthorn's field camera (camera type 0, 48.7 degrees), scaled by 0.95 so its
+    118 px width fits seven cells: a low oval drum with two purple bands, two curved
+    plank roof shells split by a recessed spine with three slats, two orange beams that
+    run up the spine's edges, bend out over the hall and drop to the foot as posts, a
+    red emblem over glass doors, two short beam ends at each side. 112 x 80: the hall's
+    foot sits on the bottom of the door row and the roof reaches the top of the fifth
+    row up. Mirror-symmetric, so the halves share tiles."""
     C = GYM
-    img = canvas(112, 128)
-    ys, xs = np.mgrid[0:128, 0:112]
+    img = canvas(112, 96)                       # drawn on 96 rows, the empty top row cropped
+    ys, xs = np.mgrid[0:96, 0:112]
     dx = np.abs(xs - 55.5)
     put = lambda m, c: img.__setitem__(m, tuple(c) + (255,))
-    # hall: a drum; its foot and bands bow toward the viewer at the middle
-    bow = lambda k: k + np.floor(3.5 * np.sqrt(np.clip(1 - (dx / 52) ** 2, 0, 1)))
-    hall = (dx <= 52) & (ys >= 72) & (ys <= bow(115))
-    put(hall, C['hall'][1])
-    put(hall & (ys <= bow(80)), C['hall'][0])
-    put(hall & (ys >= bow(111)), C['hall'][2])
-    for b in (95, 103):
-        put(hall & (ys >= bow(b)) & (ys < bow(b + 2)), C['band'][0])
-        put(hall & (ys >= bow(b + 2)) & (ys < bow(b + 4)), C['band'][1])
-    put(hall & (dx >= 48), C['hall'][2])
-    # barrel roof: rounded back, straight sides, front edge bowed over the hall
-    top = 12 + np.round(28 * (1 - np.sqrt(np.clip(1 - (dx / 47) ** 2, 0, 1))))
-    roof = (dx <= 47) & (ys >= top) & (ys <= bow(74))
-    col = np.minimum(3, (dx // 12).astype(int))               # plank columns lighter at the crown
-    for k in range(4):
-        put(roof & (col == k), C['wood'][k])
-    put(roof & (xs % 8 == 0), C['wood'][3])                     # plank seams every 8 px
-    put(roof & (col < 3) & (xs % 8 == 1), C['wood'][max(0, 0)])
-    spine = roof & (dx < 6)
-    put(spine, C['wood'][2]); put(spine & (ys % 4 == 0), C['wood'][3])
-    put(roof & (ys >= bow(71)), C['wood'][3])                   # eave
-    # beams: rise above the roof, run down its front, then splay to the hall's foot
-    for y in range(4, 117):
-        t = 0.0 if y < 66 else ((y - 66) / 50) ** 1.4
-        x0 = int(np.floor(55.5 - (19 + 17 * t))) - 3
-        for k in range(7):
-            img[y, x0 + k] = tuple(C['beam'][0 if k < 2 else 1 if k < 5 else 2]) + (255,)
-        if y == 4:                                              # rounded horn tips
-            img[y, x0] = img[y, x0 + 6] = 0
-        if y < 12:
-            img[y, x0 + 3] = tuple(C['beam'][2]) + (255,)
-    # corner posts
-    for x0 in (2,):
-        rect(img, x0, 66, x0 + 9, 117, C['beam'][1]); rect(img, x0 + 1, 66, x0 + 3, 117, C['beam'][0])
-        rect(img, x0 + 7, 66, x0 + 9, 117, C['beam'][2]); rect(img, x0, 64, x0 + 9, 67, C['red'][2])
-    # windows
-    for x0 in (16, 26):
-        rect(img, x0 - 1, 83, x0 + 8, 93, C['frame'])
-        rect(img, x0, 84, x0 + 7, 92, C['glass'][1]); rect(img, x0 + 1, 85, x0 + 3, 91, C['glass'][0])
-        rect(img, x0 + 3, 84, x0 + 4, 92, C['frame'])
-    # red emblem panel with the Gym emblem
-    rect(img, 42, 62, 56, 86, C['red'][1]); rect(img, 42, 84, 56, 86, C['red'][2])
-    emblem = tex('fu_gym_w')[19:30, 0:16]
-    e = emblem[..., 3] > 0
-    for (yy, xx) in zip(*np.nonzero(e[:, :8])):
-        lum = int(emblem[yy, xx, :3].astype(int).sum())
-        img[67 + yy, 48 + xx] = tuple(C['hall'][0]) + (255,) if lum > 500 else tuple(C['red'][2]) + (255,)
-    # glass doors
-    rect(img, 45, 92, 56, 118, C['frame'])
-    rect(img, 47, 94, 56, 118, C['glass'][1]); rect(img, 48, 95, 51, 117, C['glass'][0])
-    rect(img, 55, 94, 56, 118, C['frame'])
-    img[:, 56:] = img[:, :56][:, ::-1]                          # mirror-symmetric facade
+    ell = lambda r: np.sqrt(np.clip(1 - (dx / r) ** 2, 0, 1))
+    # hall: a drum, top rim ellipse centred on row 44, foot ellipse on row 82
+    e = ell(50)
+    foot = 82 + 13 * e
+    drum = (dx <= 50) & (ys >= 44 - 13 * e) & (ys <= foot)
+    put(drum, C['hall'][0])
+    put(drum & (dx > 45.5) & (ys >= 42), C['band'][0])            # the drum's purple flank
+    band = 66 + 11 * e                                            # bands bow toward the viewer
+    put(drum & (ys >= band) & (ys < band + 3), C['band'][1])
+    put(drum & (ys >= band + 3) & (ys < band + 9), C['hall'][1])
+    put(drum & (ys >= band + 9), C['band'][0])
+    put(drum & (ys >= foot - 2), C['band'][1])
+    # roof: two plank shells on an oval, a recessed spine between them
+    er = ell(47)                                                  # the shells round off at the sides
+    roof = (dx <= 45) & (ys >= 44 - 29 * er) & (ys <= 49 + 16 * er) & ~((dx < 14) & (ys < 22))
+    put(drum & ~roof & (ys <= 51 + 16 * er) & (dx <= 46), C['hall'][1])   # shadow under the eave
+    shell = roof & (dx >= 19)
+    put(shell, C['wood'][0])
+    put(shell & ((ys > 40) | (dx > 39)), C['wood'][1])
+    put(shell & (ys > 47 + 16 * er), C['wood'][2])                         # eave
+    for ang in (0.55, 1.0):                                              # panel seams fan out from the beam's bend
+        t = np.linspace(0, 1, 120)
+        sx = 19 + t * 30 * np.cos(ang); sy = 58 - t * 44 * np.sin(ang)
+        for x_, y_ in zip(np.round(55.5 - sx).astype(int), np.round(sy).astype(int)):
+            if 0 <= x_ < 56 and shell[y_, x_]:
+                img[y_, x_] = tuple(C['wood'][2]) + (255,)
+    rim = shell & (ys < 44 - 29 * er + 1.5) & (dx < 43)                 # orange trim along the shells' crest
+    put(rim, C['beam'][0])
+    spine = roof & (dx < 14)
+    put(spine, C['wood'][1])
+    put(spine & (ys < 24), C['wood'][2])
+    put(spine & (dx >= 11.5), C['wood'][2])
+    for y0 in (27, 35, 43):
+        put(spine & (dx < 9.5) & (ys >= y0) & (ys < y0 + 3), C['wood'][2])
+    put(spine & (ys >= 52), C['wood'][2])
+    # windows: two pairs on the front wall
+    for x0 in (25, 32):
+        rect(img, x0, 66, x0 + 6, 74, C['hall'][1])
+        rect(img, x0 + 1, 67, x0 + 5, 73, C['glass'])
+        img[67, x0 + 1:x0 + 3] = tuple(C['hall'][0]) + (255,); img[68, x0 + 1] = tuple(C['hall'][0]) + (255,)
+    # beams: up the spine's edges (x 36-40), bending out over the hall from row 58 to the
+    # posts at x 18-22, which drop to the foot; the bend keeps the beam's full width
+    for y in range(17, 59):
+        for k, t in enumerate([1, 0, 0, 1, 2]):
+            img[y, 36 + k] = tuple(C['beam'][t]) + (255,)
+    for y in range(64, 95):
+        for k, t in enumerate([0, 1, 1, 1, 2]):
+            img[y, 18 + k] = tuple(C['beam'][t]) + (255,)
+    (ax, ay), (bx, by) = (38.0, 57.0), (20.0, 65.0)
+    vx, vy = bx - ax, by - ay
+    tt = np.clip(((xs - ax) * vx + (ys - ay) * vy) / (vx * vx + vy * vy), 0, 1)
+    px_, py_ = ax + tt * vx - xs, ay + tt * vy - ys
+    side = (px_ * vy - py_ * vx) / np.hypot(vx, vy)              # > 0 on the upper side
+    bend = (np.hypot(px_, py_) <= 2.6) & (xs < 56)
+    put(bend, C['beam'][1]); put(bend & (side > 1.0), C['beam'][0]); put(bend & (side < -1.3), C['beam'][2])
+    img[17, 36] = img[17, 40] = 0                                      # rounded beam tips
+    # emblem: a red slab over the door, lit top face, dark underside, white arch
+    rect(img, 41, 59, 56, 80, C['red'][1])
+    rect(img, 43, 59, 56, 60, C['red'][0]); rect(img, 41, 61, 56, 64, C['red'][0]); rect(img, 42, 60, 56, 61, C['red'][0])
+    img[59, 41:43] = 0; img[60, 41] = 0
+    rect(img, 41, 74, 56, 80, C['red'][2]); rect(img, 41, 61, 42, 80, C['red'][2])
+    r2 = (xs - 55.5) ** 2 + (ys - 73.5) ** 2
+    arch = (r2 <= 8.4 ** 2) & (r2 > 4.6 ** 2) & (ys <= 73) & (ys >= 65)
+    put(arch & (xs < 56), C['hall'][0])
+    put((dx < 2) & (ys >= 70) & (ys <= 73), C['hall'][0])           # the emblem's centre post
+    # inner posts framing the door, then glass doors
+    rect(img, 41, 80, 45, 95, C['beam'][1]); rect(img, 41, 80, 42, 95, C['beam'][0]); rect(img, 44, 80, 45, 95, C['beam'][2])
+    rect(img, 45, 80, 56, 95, C['hall'][1])
+    rect(img, 46, 81, 55, 95, C['glass'])
+    rect(img, 47, 82, 49, 94, C['hall'][0])
+    img[80:95, 55] = tuple(C['hall'][1]) + (255,)
+    # beam ends at the drum's sides
+    for y0 in (57, 65):
+        rect(img, 0, y0, 7, y0 + 6, C['beam'][1]); rect(img, 0, y0, 7, y0 + 2, C['beam'][0]); rect(img, 0, y0 + 5, 7, y0 + 6, C['beam'][2])
+    img[:, 56:] = img[:, :56][:, ::-1]                              # mirror-symmetric
     outline(img, C['line'])
-    return img
+    snap(img, GYM_PALETTE)
+    assert not img[:16, :, 3].any()
+    return img[16:]
 
 def sheet():
     parts = [hut(), gate_post(), gate_post(True), standing_stone(), gym()]

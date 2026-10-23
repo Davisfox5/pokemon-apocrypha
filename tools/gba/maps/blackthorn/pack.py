@@ -122,11 +122,14 @@ def traversal(engine, cells, shared_src):
     types, coll = perm['types'], perm['collision']
     doors = {(CENTER_ORIGIN[0] + CENTER_DOOR[0], CENTER_ORIGIN[1] + CENTER_DOOR[1]): 'pokemon_center',
              (MART_ORIGIN[0] + MART_DOOR[0], MART_ORIGIN[1] + MART_DOOR[1]): 'poke_mart'}
-    body = np.zeros((H, W), bool)                              # shared buildings: solid where 40%+ covered
-    for src, (ox, oy) in ((1, MART_ORIGIN), (2, CENTER_ORIGIN)):
+    # Shared buildings: the Mart's manifest (gba/art/johto-mart) makes its wall rows 1-5
+    # solid across the width it covers; the Center is solid where 40%+ covered.
+    body = np.zeros((H, W), bool)
+    for src, (ox, oy), need in ((1, MART_ORIGIN, 0.0), (2, CENTER_ORIGIN, 0.4)):
         for cy in range(oy + 1, oy + 6):
             for cx in range(ox, ox + 7):
-                if (shared_src[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16] == src).mean() >= 0.4:
+                cover = (shared_src[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16] == src).mean()
+                if cover > 0 and cover >= need:
                     body[cy, cx] = True
     out = []
     for y in range(H):

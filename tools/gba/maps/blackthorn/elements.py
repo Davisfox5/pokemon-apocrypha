@@ -844,7 +844,7 @@ def objects():
     rgba = lambda f: np.array(Image.open(SHARED / f).convert('RGBA'))
     post = S.gate_post()
     return [
-        ('gym', S.gym(), 25 * 16, 16 * 16),
+        ('gym', S.gym(), 25 * 16, 19 * 16),
         ('west_house', S.hut(), 19 * 16, 33 * 16),
         ('tutor_house', S.hut(), 17 * 16, 44 * 16),
         ('east_house', S.hut(), 43 * 16, 36 * 16),

@@ -276,6 +276,12 @@ tools are marked as Blackthorn's.
   build missing grass corners from the straight edge of each wet side.
 - `max(set(tiles), key=tiles.count)` breaks ties in hash order, which changes per run;
   sort first, and confirm two runs with different `PYTHONHASHSEED` match.
+- A building drawn to fill its whole blocked footprint comes out stretched (the Gym first
+  took eight rows). Take every building's height from the camera render, even where
+  HGSS's collision runs deeper than the drawn building.
+- Before copying a shared Center or Mart, check the owner's registry
+  (`gba/art/johto-common/approved-buildings.json`) for the locked version and its hash;
+  a branch cut from an older `main` can carry a superseded draft.
 
 ## Worked example
 

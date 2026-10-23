@@ -15,7 +15,7 @@ styled with Blackthorn's HGSS colours. Editable source is in
 | --- | --- |
 | Map | `BlackthornCity`, 64x64, `gMapGroup_Cherrygrove` id 43 (Center 44, Center upstairs 45, Mart 46) |
 | Primary | `gTileset_CherrygrovePrimary` (accepted Johto primary: ground, animated water, signs, Center) |
-| Secondary | `gTileset_BlackthornCity`: 472 of 496 tiles (16 kept for door animation), 365 of 512 metatiles |
+| Secondary | `gTileset_BlackthornCity`: 461 of 496 tiles (16 kept for door animation), 349 of 512 metatiles |
 | Palettes | banks 0-5 the primary's; 8 Cherrygrove's Center palette; 9 the shared Mart's; 10 the Center/Mart junction; 6, 7, 11, 12 learned |
 
 ## Reference: decoded HGSS data
@@ -47,7 +47,7 @@ into one-tile Gen 3 terraces were built and compared (`evidence/elements/styles.
 | --- | --- | --- |
 | A | HGSS's own rock top, face band and side, compressed to one layer per metatile | 582: over the 496 budget, render only |
 | B | Emerald's General rock pieces recoloured to Blackthorn's ramp | 455 |
-| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 472 |
+| **C (installed)** | FRLG's General mountain set (the Gen 3 counterpart of HGSS's Kanto/Johto rock) recoloured to Blackthorn's ramp | 461 |
 
 Style C uses FRLG's nine-slice (corners, rims, sides, front face) in both of FRLG's
 versions, one for an edge over ground and one for an edge over a lower terrace, plus its
@@ -80,8 +80,7 @@ the far side of a mountain.
 - **Caves**: FRLG's cave mouth on the Dragon's Den and Ice Path warp cells; Ice Path's arch
   is rimmed with frost and a snow drift spills onto the grass in front.
 - **Props and buildings**, redrawn as Gen 3 sprites (`sprites.py`, `source/elements/sprites.png`):
-  the Gym (plank barrel roof with a dark spine, beams that rise above it and splay to the
-  hall's foot, banded drum hall, red emblem panel, glass doors), the three thatched houses,
+  the Gym, the three thatched houses,
   the two dead-trunk gate posts (16 px wide, inside their own cell column), the standing
   stone (from HGSS's stone model through the same camera: a broad rounded stone with lumps,
   a lobe at its lower left and etched cracks, in the grey ramp of the Center palette;
@@ -99,13 +98,24 @@ the far side of a mountain.
   Bulbapedia and other screenshot sites are
   blocked by this environment's network policy, so the game's own model and camera stand
   in for a screenshot.
+- **Gym**: shaped from HGSS's Gym model (139, door 16) through the same camera
+  (`evidence/elements/gym-reference.png`), scaled by 0.95 so its 118 px width fits seven
+  cells: a low oval drum with two purple bands, two curved plank roof shells split by a
+  recessed spine with three slats, orange beams that run up the spine's edges, bend out
+  over the hall and drop to its foot as posts, a red emblem over glass doors (HGSS's door
+  texture is glass), two short beam ends at each side. 112 x 80 in one 15-colour bank,
+  its foot on the bottom of the door row (y 23). It no longer reaches over the pond.
+  HGSS's collision still blocks row 18 behind the hall, which now shows as open water.
 - **Walk-behind**: props and rock sit on the top layer. The packer gives every walkable
   cell with top-layer art the normal layer type (drawn above the player) and every blocked
-  cell the covered type, so the player walks behind a gate post, a house's roof and the
-  Gym's roof (by Surf) and stays visible around them. The stone stands within its own
+  cell the covered type, so the player walks behind a gate post and a house's roof and
+  stays visible around them. The Gym stands on its own blocked cells. The stone stands within its own
   three blocked rows, so it covers nothing the player can stand on.
-- **Shared buildings**: the approved Violet Center and Johto Mart, on the HGSS warps (34,48)
-  and (27,48). All 13,958 shared pixels keep their exact colours.
+- **Shared buildings**: the Violet Center and the owner-locked shared Johto Mart
+  (`gba/art/johto-mart`, art revision `e53f3450`, review id M01 in
+  `gba/art/johto-common/approved-buildings.json`, both on branch `codex/violet-city`), on
+  the HGSS warps (34,48) and (27,48). The Mart's wall rows 1-5 are solid across its width,
+  as its manifest sets them. All 14,414 shared pixels keep their exact colours.
 
 ## Deliberate adaptations
 
@@ -119,9 +129,9 @@ the far side of a mountain.
   cells are solid either way).
 - **Signs**: city, Gym and Dragon's Den signs read their HGSS text, minus Clair's name on the
   Gym sign. The tutor-house and trainer-tips signs are unscripted props.
-- **Colour**: the native map holds all but 6 of the composed element art's 1,048,576
-  pixels exactly in 5-bit colour; those 6 are 2 levels off. Each sprite
-  keeps to a small ramp (the Gym to exactly 15 colours) so the learned banks fit 41 colours (`evidence/elements/pack-C.json`).
+- **Colour**: the native map holds every one of the composed element art's 1,048,576
+  pixels exactly in 5-bit colour. Each sprite keeps to a small ramp (the Gym to exactly 15
+  colours) so the learned banks fit 44 colours (`evidence/elements/pack-C.json`).
 
 ## Verification
 
@@ -148,8 +158,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `cf77770b5e02ca2967bf376d827e7c5eb06156f6`, local ROM SHA-256
-`38f64f76076afb60ed4d946940310ce1bd51c3251e19c9787d1352600015794b` (Ubuntu Arm GNU 13.2.1).
+Engine commit `409573d857c4c7007185a404b1b8b34cb015a0c3`, local ROM SHA-256
+`9b2da39dfed43ea3383ae310207ba658a60a4e56999363d4cca9edbf2dbde530` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)
@@ -172,6 +182,7 @@ provenance (never replay over owner edits; `install_elements.py` refuses if the 
 python3 tools/gba/maps/blackthorn/hgss_render.py /path/to/pokeheartgold gba/art/blackthorn-city/source/hgss
 python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-house-camera.png
 python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-stone-camera.png 235
+python3 tools/gba/maps/blackthorn/hgss_camera.py /path/to/pokeheartgold gba/art/blackthorn-city/evidence/elements/hgss-gym-camera.png 139 16
 python3 tools/gba/maps/blackthorn/sprites.py
 python3 tools/gba/maps/blackthorn/elements.py /path/to/engine /path/to/pokeheartgold
 python3 tools/gba/maps/blackthorn/pack.py /path/to/engine C

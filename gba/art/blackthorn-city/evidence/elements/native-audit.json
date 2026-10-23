@@ -64,53 +64,10 @@
   "walk_behind_cells": {
     "gate_post_east": 1,
     "gate_post_west": 1,
-    "gym": 10,
     "tutor_house": 4,
     "west_house": 4
   },
   "walk_behind": {
-    "gym": [
-      [
-        27,
-        16
-      ],
-      [
-        28,
-        16
-      ],
-      [
-        29,
-        16
-      ],
-      [
-        25,
-        17
-      ],
-      [
-        26,
-        17
-      ],
-      [
-        27,
-        17
-      ],
-      [
-        28,
-        17
-      ],
-      [
-        29,
-        17
-      ],
-      [
-        30,
-        17
-      ],
-      [
-        31,
-        17
-      ]
-    ],
     "west_house": [
       [
         19,
@@ -160,12 +117,12 @@
       ]
     ]
   },
-  "shared_building_pixels_exact": 13958,
+  "shared_building_pixels_exact": 14414,
   "center_bank8_palette_identical_to_cherrygrove": true,
   "mart_bank9_palette_identical_to_shared_art": true,
-  "secondary_tiles": 472,
+  "secondary_tiles": 461,
   "secondary_tile_limit": 496,
-  "secondary_metatiles": 365,
+  "secondary_metatiles": 349,
   "metatile_limit": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true

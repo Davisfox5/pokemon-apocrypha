@@ -8,7 +8,8 @@ distance 0x29AEC1, pitch 0xDD62 (48.7 degrees down) and a 0x5C1 perspective, so 
 that the view is close to orthographic. Each model is drawn with that pitch: screen y =
 z sin(pitch) - y cos(pitch), at the game's own aspect (ground tiles 16 x 12 px). This is
 the shape a player sees in game, used as the reference for the Gen 3 sprites (sprites.py).
-Default models: 132 and 133, a Blackthorn house and its door.
+Default models: 132 and 133, a Blackthorn house and its door; 139 16 is the Gym and its
+door, 235 the standing stone.
 """
 from __future__ import annotations
 import math, sys

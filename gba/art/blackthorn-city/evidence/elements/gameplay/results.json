@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "38f64f76076afb60ed4d946940310ce1bd51c3251e19c9787d1352600015794b",
+  "rom_sha256": "9b2da39dfed43ea3383ae310207ba658a60a4e56999363d4cca9edbf2dbde530",
   "phases": [
     {
       "phase": "write",
@@ -955,7 +955,7 @@
       "frame": "gym-forecourt",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 8192,
-      "animated_water_pixels_differing_from_frame_0": 3584,
+      "animated_water_pixels_differing_from_frame_0": 3711,
       "camera_origin_px": [
         336,
         328
@@ -965,7 +965,7 @@
       "frame": "gym-lawn-west",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 9152,
-      "animated_water_pixels_differing_from_frame_0": 3763,
+      "animated_water_pixels_differing_from_frame_0": 3916,
       "camera_origin_px": [
         240,
         312
@@ -975,7 +975,7 @@
       "frame": "gym-sign",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 4352,
-      "animated_water_pixels_differing_from_frame_0": 2043,
+      "animated_water_pixels_differing_from_frame_0": 2079,
       "camera_origin_px": [
         304,
         344

@@ -9,22 +9,22 @@
     },
     "poke-mart.png": {
       "source": "gba/art/johto-mart/source/building.png",
-      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
-      "sha256": "62054375bd8e8f24caa00433b1afd49c3339eb9c8af9266f40c451276b910d0a"
+      "source_commit": "e53f3450498097b13ceb9e1e2a3a2bbaaf677c54",
+      "sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8"
     },
     "poke-mart.indexed.png": {
       "source": "gba/art/johto-mart/source/building.indexed.png",
-      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
-      "sha256": "3039d2ca6528d3426d4c476aa78da8e004ee55a6950c44479b98bfab41c13809"
+      "source_commit": "e53f3450498097b13ceb9e1e2a3a2bbaaf677c54",
+      "sha256": "6f48b5a5e79df8b1ac6b6529fd45e683f8f1ec2b16ac1f70896cc9e8bc81ecb0"
     },
     "poke-mart.pal": {
       "source": "gba/art/johto-mart/source/palette.pal",
-      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "source_commit": "e53f3450498097b13ceb9e1e2a3a2bbaaf677c54",
       "sha256": "08d2eefb091eaf42529446b43a3b41c83dc593a299c3039292a2bf6efce93741"
     },
     "mart-brandmark.png": {
       "source": "gba/art/johto-mart/source/brandmark.png",
-      "source_commit": "1c8e61c317a870910ef099af7851144549480b12",
+      "source_commit": "e53f3450498097b13ceb9e1e2a3a2bbaaf677c54",
       "sha256": "ea52cd08c593b6e9ade2cbc42f2fd639a0569a78902c0699b4301eb085849037"
     }
   },
@@ -35,5 +35,10 @@
     "original_preserved": "pokemon-center-original-violet.png",
     "sha256": "93ae92dbe8ade6dcc2552d760bc9e00579d9d91fd7b8933509ba207d5ae51c02",
     "review_status": "owner-requested cleanup; revised map awaiting visual review"
+  },
+  "mart_approval": {
+    "record": "gba/art/johto-mart/source/approval.json (branch codex/violet-city)",
+    "registry": "gba/art/johto-common/approved-buildings.json, review id M01",
+    "status": "owner approved and locked 2026-10-14; Blackthorn switched from the 1c8e61c3 draft on 2026-10-23 at the owner's request"
   }
 }
