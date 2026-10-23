@@ -1,0 +1,176 @@
+{
+  "style": "C",
+  "cells_audited": 1024,
+  "installed_matches_packer_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 349,
+  "open_cells": 351,
+  "unreachable_open_cells": [
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "open_cells_reached_only_by_surf": 0,
+  "approaches_needing_surf": [],
+  "approaches": {
+    "center": [
+      22,
+      24
+    ],
+    "gym": [
+      11,
+      24
+    ],
+    "souvenir_shop": [
+      16,
+      15
+    ],
+    "east_house": [
+      25,
+      15
+    ],
+    "route43_gate": [
+      12,
+      6
+    ],
+    "west_edge": [
+      0,
+      12
+    ],
+    "east_edge": [
+      31,
+      16
+    ],
+    "town_sign": [
+      4,
+      13
+    ],
+    "gym_sign": [
+      8,
+      25
+    ],
+    "souvenir_sign": [
+      14,
+      15
+    ],
+    "west_lawn": [
+      8,
+      10
+    ],
+    "gym_lawn_west": [
+      5,
+      22
+    ],
+    "center_lawn": [
+      18,
+      22
+    ],
+    "behind_center": [
+      22,
+      18
+    ],
+    "behind_gym": [
+      11,
+      18
+    ]
+  },
+  "walk_behind_cells": {
+    "antenna_tree": 3,
+    "gym": 4,
+    "pokemon_center": 5,
+    "souvenir_shop": 2
+  },
+  "walk_behind": {
+    "souvenir_shop": [
+      [
+        15,
+        10
+      ],
+      [
+        18,
+        10
+      ]
+    ],
+    "antenna_tree": [
+      [
+        20,
+        11
+      ],
+      [
+        21,
+        12
+      ],
+      [
+        21,
+        13
+      ]
+    ],
+    "gym": [
+      [
+        10,
+        18
+      ],
+      [
+        12,
+        18
+      ],
+      [
+        8,
+        19
+      ],
+      [
+        14,
+        19
+      ]
+    ],
+    "pokemon_center": [
+      [
+        20,
+        19
+      ],
+      [
+        21,
+        19
+      ],
+      [
+        22,
+        19
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        24,
+        19
+      ]
+    ]
+  },
+  "walkable_cells_with_art_below_player": {
+    "antenna_tree": [
+      [
+        21,
+        14
+      ]
+    ],
+    "pokemon_center": [
+      [
+        22,
+        23
+      ]
+    ]
+  },
+  "shared_building_pixels_exact": 5679,
+  "center_master_sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "secondary_tiles": 387,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 258,
+  "metatile_limit": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

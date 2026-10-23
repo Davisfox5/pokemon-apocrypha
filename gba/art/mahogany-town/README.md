@@ -97,7 +97,7 @@ VERIFICATION
   their doors are solid. No Route 42 or Route 44 connection: the west and east road ends
   meet the map edge.
 - Center nurse scripts are Cherrygrove's copies, not exercised. Music is a placeholder
-  (`MUS_LAVARIDGE`).
+  (`MUS_VERDANTURF`).
 - No NPCs, trainers, encounters or story events. HGSS's four townspeople are recorded in
   `source/hgss-events.json` only.
 - HGSS's two white flowers at (1..2, 10) and the antenna tree's ground shadow are not drawn.

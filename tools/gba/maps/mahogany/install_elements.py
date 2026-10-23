@@ -90,7 +90,7 @@ def main(g, style):
     write(g / 'data/layouts/layouts.json', layouts)
 
     m = dict(read(g / 'data/maps/CherrygroveCity/map.json'))
-    m.update(id=map_id(NAME), name=NAME, layout=layout_id(NAME), music='MUS_LAVARIDGE', region_map_section='MAPSEC_MAHOGANY_TOWN',
+    m.update(id=map_id(NAME), name=NAME, layout=layout_id(NAME), music='MUS_VERDANTURF', region_map_section='MAPSEC_MAHOGANY_TOWN',
              weather='WEATHER_NONE', map_type='MAP_TYPE_TOWN', allow_cycling=True, allow_running=True, show_map_name=True,
              connections=None, object_events=[], warp_events=[], coord_events=[], bg_events=[])
     for (x, y), dest, warp in DOORS:
