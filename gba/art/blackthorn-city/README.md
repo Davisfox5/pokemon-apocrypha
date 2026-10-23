@@ -106,11 +106,17 @@ the far side of a mountain.
   texture is glass), two short beam ends at each side. 112 x 80 in one 15-colour bank,
   its foot on the bottom of the door row (y 23). It no longer reaches over the pond.
   HGSS's collision still blocks row 18 behind the hall, which now shows as open water.
-- **Walk-behind**: props and rock sit on the top layer. The packer gives every walkable
-  cell with top-layer art the normal layer type (drawn above the player) and every blocked
-  cell the covered type, so the player walks behind a gate post and a house's roof and
-  stays visible around them. The Gym stands on its own blocked cells. The stone stands within its own
-  three blocked rows, so it covers nothing the player can stand on.
+- **Depth (walk-behind)**: props and rock sit on the top layer. A Gen 3 player is two
+  cells tall, feet in its own cell and head in the cell above, so the packer decides each
+  cell by the depth of the object its art belongs to (`pack.above_player`): a walkable cell
+  draws its art above the player (layer type normal, every tile on the top layer, opaque
+  ones included) only when that object's base row lies further south, as with a roof or
+  crown the player walks behind. Door cells and every other cell on an object's base row,
+  and all blocked cells, draw below the player (covered). The player walks behind the
+  gate posts, the houses' crowns and the Mart's roof row, and stands in front of every
+  door with its head drawn over the building. The shared buildings' wall rows are solid
+  wherever they cover a cell, so no wall edge hangs over a walkable cell. The Gym and the
+  stone stand within their own blocked rows.
 - **Shared buildings**: the Violet Center and the owner-locked shared Johto Mart
   (`gba/art/johto-mart`, art revision `e53f3450`, review id M01 in
   `gba/art/johto-common/approved-buildings.json`, both on branch `codex/violet-city`), on
@@ -137,20 +143,23 @@ the far side of a mountain.
 
 - **Native audit** (`check_elements.py`, `evidence/elements/native-audit.json`): the installed
   files decode identically to the packer; all 4,096 cells match the traversal ledger's
-  behaviour, collision, elevation and layer type; all 876 open cells are reachable (868 on
-  foot, 8 by Surf: the Dragon's Den ledge, as in HGSS); every walkable cell with top-layer
-  art draws above the player and no blocked cell does; Center bank 8 and Mart bank 9
+  behaviour, collision, elevation and layer type; all 872 open cells are reachable (864 on
+  foot, 8 by Surf: the Dragon's Den ledge, as in HGSS); the layer type of every cell
+  follows the depth rule above (walk-behind cells listed in the audit, both doors below
+  the player); Center bank 8 and Mart bank 9
   palettes identical to the shared sources; existing map ids unchanged; changed files
   within scope. Coordinate grid: `evidence/elements/native-grid.png`.
 - **Headless mGBA 0.10.2** (`runtime_elements.py`, `evidence/elements/gameplay/results.json`):
-  views across the town; standing behind both gate posts and the west house; two ledges
+  views across the town; standing behind both gate posts, the west house and the Mart's
+  roof row; standing in front of the Mart, Center, Gym and all three houses; two ledges
   jumped and not climbed; Mart body, cliffs, the standing stone, pond edge and both cave
   mouths block; three signs read; Center in, upstairs, back and out; Mart in and out; Cherrygrove
   and back; ordinary flash save, cold reload in a new process, title Continue.
-- **Rendering parity**: for all 33 captures the map layers BG1-BG3 rebuilt from dumped VRAM,
+- **Rendering parity**: for all 36 captures the map layers BG1-BG3 rebuilt from dumped VRAM,
   palettes and BG registers match the decoded native image pixel for pixel, apart from
   CherrygrovePrimary's animated sea tiles. In the walk-behind captures BG1 covers the
-  player's own cell (81 px at each gate post, 199 at the house roof).
+  player's own cell (81 px at each gate post, 199 at the house roof, 64 at the Mart's roof
+  row); in front of every building BG1 covers none of the player's two cells.
 - **Porymap 6.3.1** (`porymap.py`, `evidence/porymap/results.json`), built from source and run
   under Xvfb on a fresh clone: the city and its three interiors open with no errors;
   Porymap's export of the city matches the native decode pixel for pixel; saving the maps
@@ -158,8 +167,8 @@ the far side of a mountain.
   save changes predate Blackthorn: key order in a Route 110 layout entry and three `é`
   escapes in Kanto MAPSEC names.
 
-Engine commit `409573d857c4c7007185a404b1b8b34cb015a0c3`, local ROM SHA-256
-`9b2da39dfed43ea3383ae310207ba658a60a4e56999363d4cca9edbf2dbde530` (Ubuntu Arm GNU 13.2.1).
+Engine commit `1fb146d3eafe073db35d65e0d6b165419cef5b0c`, local ROM SHA-256
+`b692840bacb03a20815777d4765fce7e0b68df31afc4c6220153450384571530` (Ubuntu Arm GNU 13.2.1).
 No ROM, save, toolchain or emulator binary is committed.
 
 ![Headless capture: the player behind the west gate post](evidence/elements/gameplay/behind-gate-post.png)

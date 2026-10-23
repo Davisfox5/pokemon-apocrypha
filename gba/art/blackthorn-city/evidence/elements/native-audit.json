@@ -3,8 +3,8 @@
   "cells_audited": 4096,
   "installed_matches_packer_decode": true,
   "ledger_behaviour_collision_elevation_layer": true,
-  "reachable_foot_cells": 868,
-  "open_cells": 876,
+  "reachable_foot_cells": 864,
+  "open_cells": 872,
   "unreachable_open_cells": [],
   "open_cells_reached_only_by_surf": 8,
   "approaches_needing_surf": [
@@ -64,6 +64,7 @@
   "walk_behind_cells": {
     "gate_post_east": 1,
     "gate_post_west": 1,
+    "poke_mart": 7,
     "tutor_house": 4,
     "west_house": 4
   },
@@ -84,6 +85,36 @@
       [
         22,
         33
+      ]
+    ],
+    "poke_mart": [
+      [
+        25,
+        43
+      ],
+      [
+        26,
+        43
+      ],
+      [
+        27,
+        43
+      ],
+      [
+        28,
+        43
+      ],
+      [
+        29,
+        43
+      ],
+      [
+        30,
+        43
+      ],
+      [
+        31,
+        43
       ]
     ],
     "tutor_house": [
@@ -114,6 +145,20 @@
       [
         25,
         51
+      ]
+    ]
+  },
+  "walkable_cells_with_art_below_player": {
+    "poke_mart": [
+      [
+        27,
+        48
+      ]
+    ],
+    "pokemon_center": [
+      [
+        34,
+        48
       ]
     ]
   },

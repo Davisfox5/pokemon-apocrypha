@@ -19,6 +19,7 @@ from PIL import Image, ImageDraw
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import build as B                                   # noqa: E402
+import pack as P                                    # noqa: E402
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/blackthorn-city'
@@ -90,21 +91,28 @@ def main(g, style):
                       east_house=(44, 41), tutor_house=(18, 49))
     for k, p in approaches.items():
         assert p in surfed, ('unreachable approach', k, p)
-    # Walk-behind: every walkable cell with object or rock art on the top layer draws it
-    # above the player (layer type normal); every blocked cell keeps it below (covered).
+    # Depth: a walkable cell draws its art above the player (layer type normal) exactly
+    # when that art's object stands further south (P.above_player: a roof or crown the
+    # player walks behind); doors and other base-row cells, and every blocked cell, keep
+    # their art below the player (covered).
     comp = np.load(SRC / 'elements' / f'compose-{style}.npz', allow_pickle=True)
-    top_a = comp['top'][..., 3] > 0
+    art = (comp['top'][..., 3] > 0) | (comp['shared'][..., 3] > 0)
     owner = comp['owner']
-    walk_behind = {}
+    walkable = np.array([[foot[(x, y)] in ('open', 'door', 'water') for x in range(W)] for y in range(H)])
+    above = P.above_player(walkable, comp['top'], comp['shared'], owner)
+    walk_behind, behind_player = {}, {}
     for y, x in np.ndindex(H, W):
-        cell = top_a[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
-        if foot[(x, y)] in ('open', 'door', 'water') and cell.any():
-            assert layer[y, x] == 0, ('walkable cell with top art not drawn above the player', x, y)
-            who = sorted(set(owner[y * 16:y * 16 + 16, x * 16:x * 16 + 16][cell].ravel()) - {''})
-            for o in who or ['terrain']:
+        cell = art[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+        who = sorted(set(owner[y * 16:y * 16 + 16, x * 16:x * 16 + 16][cell].ravel()) - {''}) or ['terrain']
+        if above[y, x]:
+            assert layer[y, x] == 0, ('walk-behind art not drawn above the player', x, y)
+            for o in who:
                 walk_behind.setdefault(o, []).append([x, y])
-        elif foot[(x, y)] in ('blocked', 'ledge_south'):
-            assert layer[y, x] == 1, ('blocked cell drawn above the player', x, y)
+        else:
+            assert layer[y, x] == 1, ('art drawn above the player in front of its object', x, y)
+            if walkable[y, x] and cell.any():
+                for o in who:
+                    behind_player.setdefault(o, []).append([x, y])
     # Shared Center and Mart: every opaque source pixel exact, palettes identical.
     shared = comp['shared'][..., 3] > 0
     assert (B.rgb5(img)[shared] == B.rgb5(comp['shared'][..., :3])[shared]).all()
@@ -142,6 +150,7 @@ def main(g, style):
                   unreachable_open_cells=sorted(open_cells - surfed), open_cells_reached_only_by_surf=len(open_cells & surfed - seen),
                   approaches_needing_surf=[k for k, p in approaches.items() if p not in seen], approaches=approaches,
                   walk_behind_cells={k: len(v) for k, v in sorted(walk_behind.items())}, walk_behind=walk_behind,
+                  walkable_cells_with_art_below_player=behind_player,
                   shared_building_pixels_exact=int(shared.sum()), center_bank8_palette_identical_to_cherrygrove=True,
                   mart_bank9_palette_identical_to_shared_art=True, secondary_tiles=n_tiles, secondary_tile_limit=496,
                   secondary_metatiles=n_metas, metatile_limit=512, existing_map_ids_preserved=True,

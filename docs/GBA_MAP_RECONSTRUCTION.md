@@ -222,8 +222,11 @@ tools are marked as Blackthorn's.
 4. **Layering, as FRLG does it.** Rock and props sit on the top layer over plain ground.
    Under a rock edge the bottom layer is the plainest 8x8 block of the ground beyond, so
    edge tiles don't multiply by the ground texture's phase; under an opaque quadrant the
-   bottom is the rock top, so solid rock is one metatile. The packer sets the normal layer
-   type on walkable cells with top-layer art (walk-behind) and covered on blocked cells.
+   bottom is the rock top, so solid rock is one metatile. Depth follows each object's base
+   row (`pack.above_player`): the player is two cells tall, so a walkable cell draws its art
+   above the player (normal layer type, every tile on the top layer) only when its object's
+   base lies further south (walk-behind); doors and other base-row cells and every blocked
+   cell draw below the player (covered).
 5. **Props from scratch.** Draw each prop as a sprite at native resolution. For shape and
    proportion, render the game's own model through the map's field camera:
    `hgss_camera.py` reads the camera from pokeheartgold (map header `cameraType`, table
@@ -279,6 +282,11 @@ tools are marked as Blackthorn's.
 - A building drawn to fill its whole blocked footprint comes out stretched (the Gym first
   took eight rows). Take every building's height from the camera render, even where
   HGSS's collision runs deeper than the drawn building.
+- A door is walkable but sits on its building's base row. "Walkable plus top-layer art means
+  above the player" hid the player's head under the Mart and Center fronts; decide by the
+  object's base row instead, and test standing in front of every building.
+- On a walk-behind row, opaque tiles left on the bottom layer draw under the player while
+  their neighbours draw over it; put every tile of that row on the top layer.
 - Before copying a shared Center or Mart, check the owner's registry
   (`gba/art/johto-common/approved-buildings.json`) for the locked version and its hash;
   a branch cut from an older `main` can carry a superseded draft.

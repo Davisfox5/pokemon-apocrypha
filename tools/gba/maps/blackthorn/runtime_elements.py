@@ -43,6 +43,9 @@ STEPS = [
     ('go', CITY, 25, 51), ('shot', 'behind-gate-post-east'), ('south', 1, None), ('at', CITY, 25, 51),
     ('go', CITY, 20, 33), ('shot', 'behind-west-house'), ('south', 1, None), ('at', CITY, 20, 33),
     ('go', CITY, 23, 34), ('shot', 'north-of-standing-stone'), ('south', 1, None), ('at', CITY, 23, 34),
+    ('go', CITY, 28, 43), ('shot', 'behind-mart'), ('south', 1, None), ('at', CITY, 28, 43),
+    # Depth: in front of every building, nothing on the layer above the player touches it.
+    ('go', CITY, 28, 24), ('shot', 'front-of-gym'), ('go', CITY, 18, 49), ('shot', 'front-of-tutor-house'),
     # Ledges (HGSS jump-south cells), both directions.
     ('go', CITY, 14, 36), ('south', 1, 'ledge-jump'), ('at', CITY, 14, 38), ('north', 1, None), ('at', CITY, 14, 38),
     ('go', CITY, 20, 39), ('south', 1, None), ('at', CITY, 20, 41), ('north', 1, None), ('at', CITY, 20, 41),
@@ -64,7 +67,12 @@ STEPS = [
     ('go', MART, 3, 6), ('south', 2, None), ('wait', 400), ('at', CITY, 27, 49), ('shot', 'mart-exit'),
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', CITY, 30, 50, 'return-to-blackthorn'),
 ]
-WALK_BEHIND = {'behind-gate-post': (21, 51), 'behind-gate-post-east': (25, 51), 'behind-west-house': (20, 33)}
+WALK_BEHIND = {'behind-gate-post': (21, 51), 'behind-gate-post-east': (25, 51), 'behind-west-house': (20, 33),
+               'behind-mart': (28, 43)}
+# In front of a building the player's head (the cell above its feet) overlaps the building's
+# base row; that row is behind the player, so BG1 must leave both of its cells clear.
+IN_FRONT = ('mart-approach', 'center-approach', 'mart-exit', 'center-exit', 'west-house', 'east-house',
+            'front-of-gym', 'front-of-tutor-house', 'south-gate')
 
 def generate():
     prefix = TEMPLATE.split('int main(')[0].replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c'))
@@ -150,6 +158,8 @@ def check_frames(out, game, phases):
         if tag in WALK_BEHIND:                              # the player's cell is at screen (112, 72)
             cover = bg1(p)[72:88, 112:128]
             r['bg1_pixels_over_player_cell'] = int(cover.sum())
+        if tag in IN_FRONT:                                 # head cell (112, 56) and feet cell (112, 72)
+            r['bg1_pixels_over_player'] = int(bg1(p)[56:88, 112:128].sum())
         results.append(r)
     return results
 
@@ -180,9 +190,12 @@ def main(game, out):
     (out / 'results.json').write_text(json.dumps(dict(rom_sha256=rom, phases=phases, background_parity=frames), indent=2) + '\n')
     bad = [f for f in frames if f['mismatched_map_layer_pixels']]
     behind = {f['frame']: f.get('bg1_pixels_over_player_cell') for f in frames if 'bg1_pixels_over_player_cell' in f}
-    print(json.dumps(dict(rom_sha256=rom, frames=len(frames), frames_with_background_mismatch=len(bad), walk_behind_bg1=behind)))
+    front = {f['frame']: f['bg1_pixels_over_player'] for f in frames if 'bg1_pixels_over_player' in f}
+    print(json.dumps(dict(rom_sha256=rom, frames=len(frames), frames_with_background_mismatch=len(bad), walk_behind_bg1=behind,
+                          in_front_bg1_over_player=front)))
     for f in bad:
         print('  mismatch', f)
+    assert all(behind.values()) and not any(front.values()), (behind, front)
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())

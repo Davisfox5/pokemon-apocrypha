@@ -110,8 +110,12 @@ the worked example is `gba/art/blackthorn-city/README.md` with tools in
 - Props and buildings other than the shared Center and Mart: redraw from scratch as
   top-layer sprites, inside their own cell columns. Take shape and proportion from the
   game's own model drawn through the map's own field camera (`hgss_camera.py`) when no
-  screenshot is available. Walkable cells with top-layer art get the normal layer type
-  (walk-behind); blocked cells get covered.
+  screenshot is available.
+- Depth: the player is two cells tall (feet, and head in the cell above). A walkable cell
+  draws its art above the player (layer type normal, every tile on the top layer) only
+  when the art's object has its base row further south: a roof or crown the player walks
+  behind. Doors and every other base-row cell, and all blocked cells, draw below the
+  player (covered). Check it in the emulator from behind and in front of every building.
 - Reuse accepted vocabulary (Cherrygrove ground and water, Route 30 pond rim, the
   approved Violet Center and shared Mart) and colours the loaded palettes already hold
   (the primary's banks, the Center's bank 8), so tiles and palettes stay inside one

@@ -122,14 +122,13 @@ def traversal(engine, cells, shared_src):
     types, coll = perm['types'], perm['collision']
     doors = {(CENTER_ORIGIN[0] + CENTER_DOOR[0], CENTER_ORIGIN[1] + CENTER_DOOR[1]): 'pokemon_center',
              (MART_ORIGIN[0] + MART_DOOR[0], MART_ORIGIN[1] + MART_DOOR[1]): 'poke_mart'}
-    # Shared buildings: the Mart's manifest (gba/art/johto-mart) makes its wall rows 1-5
-    # solid across the width it covers; the Center is solid where 40%+ covered.
+    # Shared buildings: wall rows 1-5 are solid wherever the building covers a cell (the
+    # Mart's manifest, gba/art/johto-mart), so no wall edge hangs over a walkable cell.
     body = np.zeros((H, W), bool)
-    for src, (ox, oy), need in ((1, MART_ORIGIN, 0.0), (2, CENTER_ORIGIN, 0.4)):
+    for src, (ox, oy) in ((1, MART_ORIGIN), (2, CENTER_ORIGIN)):
         for cy in range(oy + 1, oy + 6):
             for cx in range(ox, ox + 7):
-                cover = (shared_src[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16] == src).mean()
-                if cover > 0 and cover >= need:
+                if (shared_src[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16] == src).any():
                     body[cy, cx] = True
     out = []
     for y in range(H):
@@ -158,6 +157,29 @@ def traversal(engine, cells, shared_src):
             out.append(c)
     return out
 
+def above_player(walkable, top, shared, owner):
+    """Cells whose art draws above the player (layer type normal). A Gen 3 player is two
+    cells tall: feet in its own cell, head in the cell north of it. Object art in a walkable
+    cell draws above the player only when the object's base (the lowest row holding its
+    pixels) lies further south, so the object stands in front: a roof or crown the player
+    walks behind. A door, or any cell on an object's base row, is behind a player standing
+    on it or south of it and stays below the player (covered), like every blocked cell.
+    Top-layer art that belongs to no object keeps the plain rule (walkable means above)."""
+    art = (top[..., 3] > 0) | (shared[..., 3] > 0)
+    base = {}
+    for name in set(owner[art].ravel().tolist()) - {''}:
+        base[name] = int(np.nonzero((owner == name).any(1))[0].max()) // 16
+    out = np.zeros((H, W), bool)
+    for y in range(H):
+        for x in range(W):
+            sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+            a = art[sl]
+            if not (walkable[y, x] and a.any()):
+                continue
+            names = set(owner[sl][a].ravel().tolist())
+            out[y, x] = ('' in names and (top[sl][..., 3] > 0).any()) or any(base[n] > y for n in names - {''})
+    return out
+
 def main(engine, style):
     comp = np.load(SRC / 'elements' / f'compose-{style}.npz', allow_pickle=True)
     bottom, top, shared, shared_src = comp['bottom'], comp['top'], comp['shared'], comp['shared_src']
@@ -167,6 +189,7 @@ def main(engine, style):
     mart_pal = read_pal(SRC / 'shared-art/poke-mart.pal')
     trav = traversal(engine, cells, shared_src)
     walkable = np.array([[trav[y * W + x]['foot'] in ('open', 'door', 'water') for x in range(W)] for y in range(H)])
+    above = above_player(walkable, top, shared, comp['owner'])
 
     # Decide each 8x8 position's bottom and top content.
     lay = {}                                                  # (tx, ty, layer) -> dict(px, mask, fixed)
@@ -177,7 +200,7 @@ def main(engine, style):
             src = set(shared_src[sl][sh].ravel().tolist())
             fixed = {frozenset({1}): MART_BANK, frozenset({2}): CENTER_BANK, frozenset({1, 2}): JUNCTION_BANK}.get(frozenset(src))
             tp = top[sl][..., 3] > 0
-            if sh.all():
+            if sh.all() and not above[ty // 2, tx // 2]:
                 lay[(tx, ty, 0)] = dict(px=shared[sl][..., :3], mask=np.ones((8, 8), bool), fixed=fixed)
                 if tp.any():
                     lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=tp, fixed=None)
@@ -271,7 +294,7 @@ def main(engine, style):
             tp = [entry(lay.get((a, b, 1))) for a, b in q]
             has_top = any((a, b, 1) in lay for a, b in q)
             c = trav[y * W + x]
-            layer = NORMAL if has_top and walkable[y, x] else COVERED
+            layer = NORMAL if above[y, x] else COVERED                 # walk-behind art: see above_player()
             c['layer'] = 'normal' if layer == NORMAL else 'covered'
             attr = c['behavior_id'] | (layer << 12)
             k = (tuple(bot + (tp if has_top else blank_top)), attr)
