@@ -366,6 +366,29 @@ tools are marked as Blackthorn's.
 - `git checkout BASE -- file` stages the base copy; a reinstall that uses it and a later
   commit of only the map's own files commits those base copies too. Restore base files
   with `git restore --source=BASE --worktree`, and read `git show --stat` before pushing.
+- A port city outgrows one secondary (Olivine: about 840 tiles). A derived primary
+  (`olivine_elements/pack.py`) gives about 880: keep CherrygrovePrimary's tile 0, its 92
+  animated sea tiles and every tile the map draws at their own indices, its banks 0, 1, 3
+  and its animation callback; the VRAM-parity check then proves the sea still animates.
+- After that, palettes bind first: 13 banks for the Center (2), the Mart (1), five
+  buildings and every surface. Map neutral surfaces (deck, quay, fences, paving, sea rocks)
+  onto one shared ramp, draw props in a building's palette (benches in the Lighthouse's,
+  yachts in the Gym's woods and whites), and seed a small prop group (the flag lines) into
+  the Center's half-empty bank.
+- A tile mixing a building with a tree, fence or rock has no bank. Let the building keep
+  the tile (it stands in front) and drop the other's pixels there; drop the rock overlay to
+  the bottom layer under a building in a blocked cell.
+- HGSS models tree crowns as terrain a level above their trunks, so a tree cell's height
+  is not its terrace. Plant trees from their trunk pixels (the brown core of `tree01_un`)
+  on HGSS's 2x2 grid and take the terrace from the ground under the trunk.
+- Fences are thin in the top-down render; their faces show in the lifted render
+  (`hgss-ground-materials.npz`). A blocked floor cell without fence faces is plain ground.
+- C06's width is the building's HGSS blocked footprint, not the placement's footprint
+  (which counts the shadow quad): Olivine's houses are four cells, not five. Props keep
+  their true size.
+- A 3D-lit tower (the Lighthouse) is not symmetric in colour; mirror the frame round it
+  and keep the tower's own two sides. A barrel roof's stripes curve, so making each row
+  repeat wipes them out; mirror about the door instead.
 
 ## Worked example
 

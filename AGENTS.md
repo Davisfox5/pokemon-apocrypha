@@ -99,8 +99,10 @@ every HGSS-to-Gen 3 map. Where an older rule in this file or the linked docs rea
 differently for a Gen 4 conversion, this section wins. Details, pitfalls and budgets
 are in [the element conversion playbook](docs/GBA_MAP_RECONSTRUCTION.md#element-conversion-playbook);
 the worked examples are `gba/art/blackthorn-city/README.md` (mountain town, tools in
-`tools/gba/maps/blackthorn/`) and `gba/art/cianwood-elements/README.md` (coastal town,
-tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the tree.
+`tools/gba/maps/blackthorn/`), `gba/art/cianwood-elements/README.md` (coastal town,
+tools in `tools/gba/maps/cianwood_elements/`) and `gba/art/olivine-elements/README.md`
+(port city on a derived primary, tools in `tools/gba/maps/olivine_elements/`); read the
+script you need, not the tree.
 
 - Do not paste a 1:1 HGSS render onto a Gen 3 grid. Keep HGSS's **layout** (decoded
   heights, permissions, events, cell by cell), but replace each **element** with the
@@ -131,6 +133,14 @@ tools in `tools/gba/maps/cianwood_elements/`); read the script you need, not the
   and check every element's decoded colours after packing. Measure per-element tile and
   colour cost (`budget.py`) before cutting anything, and cut where it cannot be seen
   (shared tiles, hidden tiles, overlays moved under objects) before cutting detail.
+- When a town's buildings will not fit one secondary even after that (Olivine: 838 tiles
+  against 496), give the map a primary of its own derived from CherrygrovePrimary rather
+  than splitting the town or cutting buildings: keep tile 0, the 92 sea tiles the
+  animation rewrites and every Cherrygrove tile the map draws at their own indices, keep
+  banks 0, 1 and 3 and the animation callback, and learn the rest (Olivine's `pack.py`).
+  Palettes then bind before tiles do: share one neutral ramp across ground surfaces (deck,
+  quay, fences, paving, sea rocks), draw small props in a building's palette, and where a
+  building and a tree, fence or rock would share an 8x8 tile, the building keeps it.
 - A borrowed edge piece brings its source map's texture and colours with it. Repaint its
   water or ground with the receiving map's own texture at that map's phase, recolour its
   stray pixels into the receiving bank, mirror pieces for sides the source never shows,

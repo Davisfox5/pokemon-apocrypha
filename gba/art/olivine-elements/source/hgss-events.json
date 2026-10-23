@@ -1,0 +1,295 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/074_T26.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0911_T26.s",
+      "files/msgdata/msg/msg_0604_T26.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 8,
+        "z": 7,
+        "land_data": 58
+      },
+      {
+        "x": 9,
+        "z": 7,
+        "land_data": 59
+      },
+      {
+        "x": 8,
+        "z": 8,
+        "land_data": 60
+      },
+      {
+        "x": 9,
+        "z": 8,
+        "land_data": 61
+      }
+    ],
+    "origin": [
+      256,
+      224
+    ],
+    "size": [
+      64,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [
+        94
+      ],
+      "east": [],
+      "north": [
+        43
+      ],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        13,
+        14
+      ],
+      "dest": "MAP_OLIVINE_GYM",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        16,
+        33
+      ],
+      "dest": "MAP_OLIVINE_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        29,
+        33
+      ],
+      "dest": "MAP_OLIVINE_POKEMART",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        45,
+        39
+      ],
+      "dest": "MAP_OLIVINE_LIGHTHOUSE_1F",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        17,
+        23
+      ],
+      "dest": "MAP_OLIVINE_NORTHWEST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        9,
+        33
+      ],
+      "dest": "MAP_OLIVINE_CAFE",
+      "anchor": 0
+    },
+    {
+      "index": 6,
+      "cell": [
+        31,
+        17
+      ],
+      "dest": "MAP_OLIVINE_NORTH_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 7,
+      "cell": [
+        36,
+        17
+      ],
+      "dest": "MAP_OLIVINE_NORTHEAST_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 8,
+      "cell": [
+        23,
+        52
+      ],
+      "dest": "MAP_SS_AQUA_OLIVINE_PORT_INTERIOR",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        9,
+        14
+      ],
+      "script": "scr_seq_T26_004",
+      "bg_type": 1,
+      "text": "Olivine City Pokémon Gym Leader: Jasmine The Steel-Clad Defense Girl"
+    },
+    {
+      "cell": [
+        23,
+        23
+      ],
+      "script": "scr_seq_T26_005",
+      "bg_type": 1,
+      "text": "Olivine City The Port with Sea Breezes"
+    },
+    {
+      "cell": [
+        24,
+        42
+      ],
+      "script": "scr_seq_T26_006",
+      "bg_type": 1,
+      "text": "Olivine Port Fast-Ship Pier"
+    },
+    {
+      "cell": [
+        46,
+        40
+      ],
+      "script": "scr_seq_T26_007",
+      "bg_type": 1,
+      "text": "Olivine’s Lighthouse It is also known as the Glitter Lighthouse."
+    },
+    {
+      "cell": [
+        53,
+        32
+      ],
+      "script": "std_hiddenitem_t26_rare_candy",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        29,
+        7
+      ],
+      "script": "std_hiddenitem_r39_t26_full_heal",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T26_seaman_2",
+      "sprite": "SPRITE_SEAMAN_2",
+      "cell": [
+        48,
+        42
+      ],
+      "facing": 2,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T26_gsboy1",
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        24,
+        18
+      ],
+      "facing": 0,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T26_seaman_2_2",
+      "sprite": "SPRITE_SEAMAN_2",
+      "cell": [
+        20,
+        37
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T26_gsrivel",
+      "sprite": "SPRITE_GSRIVEL",
+      "cell": [
+        13,
+        14
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_HIDE_OLIVINE_RIVAL"
+    },
+    {
+      "id": "obj_T26_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        53,
+        26
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_T26_TM57"
+    },
+    {
+      "id": "obj_T26_seaman_2_3",
+      "sprite": "SPRITE_SEAMAN_2",
+      "cell": [
+        17,
+        60
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T26_gswoman2",
+      "sprite": "SPRITE_GSWOMAN2",
+      "cell": [
+        17,
+        61
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T26_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        22,
+        33
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    },
+    {
+      "id": "obj_T26_gsmiddleman1_2",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        -4,
+        47
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_UNK_05E"
+    }
+  ]
+}
