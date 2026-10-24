@@ -1,0 +1,362 @@
+{
+  "baseline_source": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "courts": [
+    {
+      "court": "northwest",
+      "outer_source_box": [
+        288,
+        344,
+        416,
+        424
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "northeast",
+      "outer_source_box": [
+        448,
+        344,
+        576,
+        424
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "west",
+      "outer_source_box": [
+        288,
+        448,
+        416,
+        536
+      ],
+      "recess_center": 336,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "central-empty",
+      "outer_source_box": [
+        448,
+        448,
+        576,
+        536
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "theater",
+      "outer_source_box": [
+        624,
+        440,
+        752,
+        536
+      ],
+      "recess_center": 688,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "mart",
+      "outer_source_box": [
+        792,
+        448,
+        920,
+        536
+      ],
+      "recess_center": 840,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "gym",
+      "outer_source_box": [
+        288,
+        560,
+        416,
+        664
+      ],
+      "recess_center": 352,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "southwest-house",
+      "outer_source_box": [
+        448,
+        560,
+        576,
+        664
+      ],
+      "recess_center": 512,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "center",
+      "outer_source_box": [
+        632,
+        560,
+        760,
+        664
+      ],
+      "recess_center": 696,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "southeast",
+      "outer_source_box": [
+        784,
+        560,
+        912,
+        664
+      ],
+      "recess_center": 848,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    }
+  ],
+  "fixtures": 13,
+  "central_plot": "Original HGSS overview shows the same unbuilt earth plot and city sign; retained.",
+  "route32_source": "94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b",
+  "walls": [
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 144
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 144
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 160
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 160
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 176
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 176
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 192
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 192
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 208
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 208
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 240
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 240
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 336,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 352,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 368,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 384,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 432,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 448,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 464,
+      "y": 256
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 320,
+      "y": 256
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 480,
+      "y": 256
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 144
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 144
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 160
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 160
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 176
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 176
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 192
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 192
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 208
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 208
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 352,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 368,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 384,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 432,
+      "y": 224
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 448,
+      "y": 224
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 336,
+      "y": 224
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 464,
+      "y": 224
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 224,
+      "y": 256
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 240,
+      "y": 256
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 256,
+      "y": 256
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 224,
+      "y": 272
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 240,
+      "y": 272
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 256,
+      "y": 272
+    }
+  ],
+  "result_source_commit": "d7a4789d2b9772665a78dfab8b52bdd38e169350",
+  "followup": "finish-report.json supersedes the southeast recess and Theater sign/ridge details."
+}

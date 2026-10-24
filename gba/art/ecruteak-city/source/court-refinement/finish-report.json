@@ -1,0 +1,77 @@
+{
+  "baseline_source": "d7a4789d2b9772665a78dfab8b52bdd38e169350",
+  "fixes": [
+    "Southeast house rim is straight as in HGSS, without an invented approach recess.",
+    "Theater embedded board fragment removed and occluded wall recovered by symmetry; one freestanding sign remains.",
+    "Theater and annex gold ridge accents restored at original source coordinates."
+  ],
+  "collision_changes": 0,
+  "tree_changes": 0,
+  "gold_palette_adaptation": {
+    "source_shade": [
+      216,
+      192,
+      96
+    ],
+    "native_shared_highlight": [
+      184,
+      168,
+      80
+    ],
+    "pixels": 92,
+    "reason": "Use the existing house gold highlight ramp consistently; retain source bar/stud coordinates and native shading."
+  },
+  "theater_palette_consolidations": [
+    {
+      "source": [
+        32,
+        72,
+        152
+      ],
+      "receiving": [
+        32,
+        72,
+        136
+      ],
+      "pixels": 617
+    },
+    {
+      "source": [
+        48,
+        80,
+        144
+      ],
+      "receiving": [
+        48,
+        96,
+        152
+      ],
+      "pixels": 364
+    },
+    {
+      "source": [
+        88,
+        112,
+        144
+      ],
+      "receiving": [
+        88,
+        104,
+        112
+      ],
+      "pixels": 69
+    }
+  ],
+  "purpose": "Reserve three native shades for source gold ridge; consolidate close blue/edge shades, retaining roof shading and silhouette.",
+  "canopy_join": {
+    "native_pixel_box": [
+      872,
+      600,
+      880,
+      608
+    ],
+    "visible_wall_pixels_preserved": 6,
+    "original_background_architecture_retained": true
+  },
+  "result_source_commit": "c8a8267606411bd62a6274ed0e5f430b1b2f7e80"
+}

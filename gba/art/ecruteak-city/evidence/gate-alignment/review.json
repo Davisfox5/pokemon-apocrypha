@@ -1,0 +1,77 @@
+{
+  "baseline_source": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
+  "gate_offset": [
+    1,
+    0
+  ],
+  "gate_native_pixel_position": [
+    640,
+    688
+  ],
+  "passage_columns": [
+    41,
+    42
+  ],
+  "post_cells": [
+    [
+      40,
+      45
+    ],
+    [
+      40,
+      46
+    ],
+    [
+      43,
+      45
+    ],
+    [
+      43,
+      46
+    ],
+    [
+      44,
+      45
+    ],
+    [
+      44,
+      46
+    ]
+  ],
+  "collision_changes": [
+    {
+      "x": 39,
+      "y": 44,
+      "before": true,
+      "after": false
+    },
+    {
+      "x": 40,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 40,
+      "y": 46,
+      "before": false,
+      "after": true
+    }
+  ],
+  "native_cells_checked": 3744,
+  "reachable_open_cells": 1321,
+  "unreachable_open_cells": 0,
+  "tree_count": 493,
+  "all_tree_roots_blocked": true,
+  "all_fence_and_water_ground_blocked": true,
+  "unexplained_interior_blocked_lawn": 0,
+  "gate_side_bypasses": false,
+  "side_gateway_forest_barriers_unchanged": true,
+  "visible_changes_outside_gate_rectangle": 0,
+  "masters_and_other_placements_unchanged": true,
+  "boundary_engine_cases": 531,
+  "limits": [
+    "Interior doors and adjoining routes remain unwired and closed in this exterior preview.",
+    "HGSS geometry plus owner-requested gate adaptation; original hidden collision was not extracted."
+  ]
+}

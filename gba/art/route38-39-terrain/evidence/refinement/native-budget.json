@@ -1,0 +1,22 @@
+{
+  "metatiles": 327,
+  "allocated_glyphs": 496,
+  "palette_indices": [
+    0,
+    1,
+    12
+  ],
+  "command": [
+    "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+    "compile-primary",
+    "-dual-layer",
+    "-tiles-primary-override=1008",
+    "-tiles-total-override=1024",
+    "-metatiles-primary-override=1024",
+    "-pals-primary-override=13",
+    "-o",
+    "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/evidence/refinement/compiled",
+    "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/source/refinement/porytiles",
+    "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+  ]
+}

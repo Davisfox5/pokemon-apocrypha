@@ -1,3 +1,5 @@
+Current terrain review: [corrected Routes38/39](../gba/art/route38-39-terrain/evidence/refinement/README.md). Original HGSS mesh/BDHC height data, square paths, directional rounded wall joins, native source `9e1c0466`; 770 boundary probes plus stairs/ramps/junction/save passed. City endpoints pending.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
@@ -13,6 +15,7 @@ optional, never part of routine startup.
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Azalea Town exterior / HGSS reconstruction | ../gba/art/azalea-town/README.md | Separate codex/azalea-town branch from eb15d89234; shared service buildings/trees, local town architecture, native exterior review; interiors and connections pending; Route33 untouched |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Route 29 from HGSS slices / Porymap-native tileset proposal (October 12) | ../gba/art/apoc-route29/README.md | PR on `apocrypha` (`claude/route29-hgss-slices`); generator `tools/gba/maps/apoc_route29/build.py`; owner visual review pending |
 | Edit or review the current Johto maps / shared Git source for Porymap, Poryscript, Porytiles, porygon | GBA_SHARED_SOURCE.md | `Davisfox5/pokeemerald-expansion@apocrypha`; `gba/art/johto-synthesis/README.md` for how the art was generated |
