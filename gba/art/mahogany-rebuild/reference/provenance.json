@@ -1,0 +1,413 @@
+{
+  "repository": "Davisfox5/pokeheartgold",
+  "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "land_data_chunk": 85,
+  "area_bank": 8,
+  "original_cells": [
+    32,
+    32
+  ],
+  "native_cell_px": 16,
+  "native_offset": [
+    2,
+    2
+  ],
+  "files": {
+    "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+    "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+    "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+    "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a",
+    "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin": "a6012ac34ae879b5f85f21642a78afcff617112813c4cf1e6327054735c56d2d"
+  },
+  "buildings": [
+    {
+      "model": 40,
+      "chunk": 85,
+      "pos": [
+        22.5,
+        4.0,
+        22.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gs_pc_a",
+        "gs_pc_b",
+        "h_kage"
+      ],
+      "footprint": [
+        19.875,
+        20.0,
+        25.5,
+        24.311767578125
+      ],
+      "replaced_by": "pokemon_center"
+    },
+    {
+      "model": 15,
+      "chunk": 85,
+      "pos": [
+        22.5,
+        4.0,
+        23.608200073242188
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "pc_door"
+      ],
+      "footprint": [
+        21.875,
+        23.608200073242188,
+        23.125,
+        23.608200073242188
+      ],
+      "replaced_by": "pokemon_center_door"
+    },
+    {
+      "model": 31,
+      "chunk": 85,
+      "pos": [
+        14.5,
+        4.0,
+        14.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        13.9375,
+        14.0625,
+        15.125,
+        14.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 33,
+      "chunk": 85,
+      "pos": [
+        8.5,
+        4.0,
+        24.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ef",
+        "h_kage"
+      ],
+      "footprint": [
+        7.9375,
+        24.25,
+        9.0625,
+        24.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 29,
+      "chunk": 85,
+      "pos": [
+        4.5,
+        4.0,
+        12.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_ab",
+        "h_kage"
+      ],
+      "footprint": [
+        4.03125,
+        12.5,
+        5.03125,
+        13.0078125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 35,
+      "chunk": 85,
+      "pos": [
+        13.0,
+        4.0,
+        3.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gate",
+        "gate_2",
+        "gate_3",
+        "gate_p2",
+        "h_kage"
+      ],
+      "footprint": [
+        10.0,
+        -1.255615234375,
+        16.25,
+        6.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 134,
+      "chunk": 85,
+      "pos": [
+        17.0,
+        4.0,
+        13.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_h01_1",
+        "h_in",
+        "h_kage",
+        "h_mado"
+      ],
+      "footprint": [
+        14.875,
+        11.75,
+        19.5,
+        15.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 135,
+      "chunk": 85,
+      "pos": [
+        17.125,
+        4.1875,
+        14.219436645507812
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_d01_1"
+      ],
+      "footprint": [
+        15.88043212890625,
+        14.219436645507812,
+        17.13043212890625,
+        14.348281860351562
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 134,
+      "chunk": 85,
+      "pos": [
+        26.0,
+        4.0,
+        13.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_h01_1",
+        "h_in",
+        "h_kage",
+        "h_mado"
+      ],
+      "footprint": [
+        23.875,
+        11.75,
+        28.5,
+        15.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 135,
+      "chunk": 85,
+      "pos": [
+        26.125,
+        4.1875,
+        14.219436645507812
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_d01_1"
+      ],
+      "footprint": [
+        24.88043212890625,
+        14.219436645507812,
+        26.13043212890625,
+        14.348281860351562
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 136,
+      "chunk": 85,
+      "pos": [
+        20.0,
+        4.0,
+        14.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "antree_a",
+        "antree_b"
+      ],
+      "footprint": [
+        18.0,
+        12.0771484375,
+        22.0,
+        15.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 249,
+      "chunk": 85,
+      "pos": [
+        7.0,
+        5.0,
+        8.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_mihari",
+        "h_kage"
+      ],
+      "footprint": [
+        5.762451171875,
+        6.637451171875,
+        8.237548828125,
+        9.112548828125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 249,
+      "chunk": 85,
+      "pos": [
+        26.0,
+        5.0,
+        7.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_mihari",
+        "h_kage"
+      ],
+      "footprint": [
+        24.762451171875,
+        6.137451171875,
+        27.237548828125,
+        8.612548828125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 138,
+      "chunk": 85,
+      "pos": [
+        11.5,
+        4.0,
+        22.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_gym_w",
+        "en_gyma",
+        "h_kage"
+      ],
+      "footprint": [
+        7.89990234375,
+        19.5,
+        15.261474609375,
+        24.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 16,
+      "chunk": 85,
+      "pos": [
+        11.5,
+        4.0,
+        23.3125
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gym_door"
+      ],
+      "footprint": [
+        10.822998046875,
+        23.3125,
+        12.177001953125,
+        23.5625
+      ],
+      "replaced_by": null
+    }
+  ],
+  "metadata": {
+    "area_bank": 8,
+    "map_texture_set": 8,
+    "building_texture_set": 7,
+    "matrix_origin": [
+      16,
+      5
+    ]
+  }
+}

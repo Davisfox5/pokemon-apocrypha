@@ -1,0 +1,109 @@
+[
+  {
+    "box": [
+      0,
+      7,
+      9,
+      9
+    ],
+    "material": "grass",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      5,
+      5,
+      9,
+      7
+    ],
+    "material": "grass",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      25,
+      5,
+      29,
+      11
+    ],
+    "material": "grass",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      28,
+      12,
+      32,
+      15
+    ],
+    "material": "grass",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      0,
+      17,
+      2,
+      21
+    ],
+    "material": "grass",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      26,
+      19,
+      32,
+      27
+    ],
+    "material": "stone",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "box": [
+      0,
+      28,
+      32,
+      32
+    ],
+    "material": "stone",
+    "reason": "Complete receiving plane after original tree mesh removal"
+  },
+  {
+    "region": "stone-top groves, original rows 19..31",
+    "material": "grass root pockets",
+    "reason": "Joined original trunk beds underneath complete shared native trees"
+  },
+  {
+    "box": [
+      3,
+      27,
+      25,
+      28
+    ],
+    "material": "north-facing rock rim",
+    "high_side": "south",
+    "reason": "Reconstruct exposed cap/front join with original wall and rock textures"
+  },
+  {
+    "box": [
+      26,
+      18,
+      32,
+      19
+    ],
+    "material": "north-facing rock rim",
+    "high_side": "south",
+    "reason": "Reconstruct exposed cap/front join with original wall and rock textures"
+  },
+  {
+    "box": [
+      20,
+      13,
+      21,
+      15
+    ],
+    "material": "dirt",
+    "reason": "Restore receiving ground beneath smaller native antenna tree"
+  }
+]
