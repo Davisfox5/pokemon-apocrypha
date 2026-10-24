@@ -1,0 +1,18 @@
+{
+  "map": "Route43",
+  "primary": "gTileset_Route43Primary",
+  "secondary": "gTileset_Route43",
+  "build": "shared Johto art + Blackthorn FRLG rock, lossless (assemble.py, pack_lossless.py)",
+  "tiles": 550,
+  "tile_limit": 1008,
+  "primary_tiles": 512,
+  "secondary_tiles": 38,
+  "metatiles": 296,
+  "primary_metatiles": 274,
+  "secondary_metatiles": 22,
+  "map_ids": {
+    "Route43": 46,
+    "Route43Gatehouse": 47,
+    "Route43MahoganyGatehouse": 48
+  }
+}

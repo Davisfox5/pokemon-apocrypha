@@ -1,0 +1,1194 @@
+{
+  "installed_matches_packer_decode": true,
+  "installed_matches_assembled_art": true,
+  "cells_audited": 2048,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 683,
+  "open_cells": 701,
+  "unreachable_open_cells": [
+    [
+      0,
+      28
+    ],
+    [
+      0,
+      29
+    ],
+    [
+      0,
+      30
+    ],
+    [
+      1,
+      28
+    ],
+    [
+      1,
+      29
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      2,
+      28
+    ],
+    [
+      2,
+      29
+    ],
+    [
+      2,
+      30
+    ],
+    [
+      2,
+      31
+    ],
+    [
+      2,
+      32
+    ],
+    [
+      3,
+      28
+    ],
+    [
+      3,
+      29
+    ],
+    [
+      3,
+      30
+    ],
+    [
+      3,
+      31
+    ],
+    [
+      3,
+      32
+    ],
+    [
+      4,
+      32
+    ],
+    [
+      5,
+      32
+    ]
+  ],
+  "surf_reachable_cells": 853,
+  "pond_cells": 152,
+  "tall_grass_cells": 189,
+  "approaches": {
+    "mahogany_gatehouse": [
+      13,
+      61
+    ],
+    "south_sign": [
+      15,
+      59
+    ],
+    "trainer_tips": [
+      20,
+      51
+    ],
+    "toll_gate_south": [
+      25,
+      47
+    ],
+    "toll_gate_north": [
+      25,
+      39
+    ],
+    "ledge_top": [
+      19,
+      44
+    ],
+    "ledge_bottom": [
+      19,
+      46
+    ],
+    "west_grass": [
+      14,
+      44
+    ],
+    "pond_shore": [
+      14,
+      30
+    ],
+    "north_road": [
+      17,
+      8
+    ],
+    "north_sign": [
+      20,
+      4
+    ],
+    "north_edge": [
+      16,
+      0
+    ],
+    "north_west_grass": [
+      3,
+      6
+    ],
+    "east_lawn": [
+      28,
+      18
+    ]
+  },
+  "walk_behind_cells": {
+    "sign": 7,
+    "tree": 34
+  },
+  "walk_behind": {
+    "tree": [
+      [
+        14,
+        2
+      ],
+      [
+        15,
+        2
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        18,
+        11
+      ],
+      [
+        19,
+        11
+      ],
+      [
+        20,
+        11
+      ],
+      [
+        21,
+        11
+      ],
+      [
+        16,
+        15
+      ],
+      [
+        17,
+        15
+      ],
+      [
+        23,
+        18
+      ],
+      [
+        24,
+        18
+      ],
+      [
+        14,
+        19
+      ],
+      [
+        15,
+        19
+      ],
+      [
+        18,
+        28
+      ],
+      [
+        19,
+        28
+      ],
+      [
+        0,
+        30
+      ],
+      [
+        1,
+        30
+      ],
+      [
+        2,
+        32
+      ],
+      [
+        3,
+        32
+      ],
+      [
+        4,
+        32
+      ],
+      [
+        5,
+        32
+      ],
+      [
+        16,
+        36
+      ],
+      [
+        17,
+        36
+      ],
+      [
+        18,
+        54
+      ],
+      [
+        19,
+        54
+      ],
+      [
+        20,
+        54
+      ],
+      [
+        21,
+        54
+      ],
+      [
+        22,
+        54
+      ],
+      [
+        23,
+        54
+      ],
+      [
+        16,
+        56
+      ],
+      [
+        17,
+        56
+      ]
+    ],
+    "sign": [
+      [
+        19,
+        2
+      ],
+      [
+        20,
+        2
+      ],
+      [
+        19,
+        49
+      ],
+      [
+        20,
+        49
+      ],
+      [
+        21,
+        49
+      ],
+      [
+        14,
+        57
+      ],
+      [
+        15,
+        57
+      ]
+    ]
+  },
+  "warps": [
+    {
+      "map": "Route43",
+      "warp": 0,
+      "cell": [
+        12,
+        61
+      ],
+      "to": "Route43MahoganyGatehouse",
+      "to_cell": [
+        4,
+        1
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43",
+      "warp": 1,
+      "cell": [
+        13,
+        61
+      ],
+      "to": "Route43MahoganyGatehouse",
+      "to_cell": [
+        4,
+        1
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43",
+      "warp": 2,
+      "cell": [
+        25,
+        47
+      ],
+      "to": "Route43Gatehouse",
+      "to_cell": [
+        4,
+        13
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43",
+      "warp": 3,
+      "cell": [
+        26,
+        47
+      ],
+      "to": "Route43Gatehouse",
+      "to_cell": [
+        4,
+        13
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43",
+      "warp": 4,
+      "cell": [
+        25,
+        39
+      ],
+      "to": "Route43Gatehouse",
+      "to_cell": [
+        4,
+        1
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43",
+      "warp": 5,
+      "cell": [
+        26,
+        39
+      ],
+      "to": "Route43Gatehouse",
+      "to_cell": [
+        4,
+        1
+      ],
+      "returns": "Route43"
+    },
+    {
+      "map": "Route43Gatehouse",
+      "warp": 0,
+      "cell": [
+        4,
+        13
+      ],
+      "to": "Route43",
+      "to_cell": [
+        25,
+        47
+      ],
+      "returns": "Route43Gatehouse"
+    },
+    {
+      "map": "Route43Gatehouse",
+      "warp": 1,
+      "cell": [
+        4,
+        1
+      ],
+      "to": "Route43",
+      "to_cell": [
+        25,
+        39
+      ],
+      "returns": "Route43Gatehouse"
+    },
+    {
+      "map": "Route43MahoganyGatehouse",
+      "warp": 0,
+      "cell": [
+        4,
+        13
+      ],
+      "to": "MahoganyTown",
+      "to_cell": [
+        12,
+        5
+      ],
+      "returns": "Route43MahoganyGatehouse"
+    },
+    {
+      "map": "Route43MahoganyGatehouse",
+      "warp": 1,
+      "cell": [
+        4,
+        1
+      ],
+      "to": "Route43",
+      "to_cell": [
+        12,
+        61
+      ],
+      "returns": "Route43MahoganyGatehouse"
+    },
+    {
+      "map": "MahoganyTown",
+      "warp": 1,
+      "cell": [
+        12,
+        5
+      ],
+      "to": "Route43MahoganyGatehouse",
+      "to_cell": [
+        4,
+        13
+      ],
+      "returns": "MahoganyTown"
+    },
+    {
+      "map": "MahoganyTown",
+      "warp": 2,
+      "cell": [
+        13,
+        5
+      ],
+      "to": "Route43MahoganyGatehouse",
+      "to_cell": [
+        4,
+        13
+      ],
+      "returns": "MahoganyTown"
+    }
+  ],
+  "mahogany": {
+    "mahogany_doorways": [
+      [
+        12,
+        5
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "mahogany_pixels_unchanged": true,
+    "connections": null
+  },
+  "shared_masters_byte_identical": {
+    "T01.png": true,
+    "P14.png": true,
+    "P16.png": true,
+    "L11.png": true,
+    "L12.png": true,
+    "L13.png": true,
+    "G01a.png": true,
+    "G00.png": true,
+    "G01.png": true,
+    "G02.png": true,
+    "G03.png": true,
+    "G04.png": true,
+    "G05.png": true,
+    "G06.png": true,
+    "G07.png": true,
+    "G08.png": true,
+    "G09.png": true,
+    "G10.png": true,
+    "G11.png": true,
+    "G12.png": true,
+    "G13.png": true,
+    "G14.png": true,
+    "G15.png": true,
+    "pond/pond-0-0.png": true,
+    "pond/pond-0-1.png": true,
+    "pond/pond-0-2.png": true,
+    "pond/pond-0-3.png": true,
+    "pond/pond-1-0.png": true,
+    "pond/pond-1-1.png": true,
+    "pond/pond-1-2.png": true,
+    "pond/pond-1-3.png": true,
+    "pond/pond-2-0.png": true,
+    "pond/pond-2-1.png": true,
+    "pond/pond-2-2.png": true,
+    "pond/pond-2-3.png": true,
+    "pond/pond-3-0.png": true,
+    "pond/pond-3-1.png": true,
+    "pond/pond-3-2.png": true,
+    "pond/pond-3-3.png": true,
+    "pond/pond-4-0.png": true,
+    "pond/pond-4-1.png": true,
+    "pond/pond-4-2.png": true,
+    "pond/pond-4-3.png": true,
+    "pond/pond-5-0.png": true,
+    "pond/pond-5-1.png": true,
+    "pond/pond-5-2.png": true,
+    "pond/pond-5-3.png": true,
+    "pond/pond-6-0.png": true,
+    "pond/pond-6-1.png": true,
+    "pond/pond-6-2.png": true,
+    "pond/pond-6-3.png": true,
+    "pond/pond-7-0.png": true,
+    "pond/pond-7-1.png": true,
+    "pond/pond-7-2.png": true,
+    "pond/pond-7-3.png": true,
+    "pond/pond-8-0.png": true,
+    "pond/pond-8-1.png": true,
+    "pond/pond-8-2.png": true,
+    "pond/pond-8-3.png": true,
+    "pond/pond-9-0.png": true,
+    "pond/pond-9-1.png": true,
+    "pond/pond-9-2.png": true,
+    "pond/pond-9-3.png": true,
+    "pond/pond-10-0.png": true,
+    "pond/pond-10-1.png": true,
+    "pond/pond-10-2.png": true,
+    "pond/pond-10-3.png": true,
+    "pond/pond-11-0.png": true,
+    "pond/pond-11-1.png": true,
+    "pond/pond-11-2.png": true,
+    "pond/pond-11-3.png": true,
+    "pond/pond-12-0.png": true,
+    "pond/pond-12-1.png": true,
+    "pond/pond-12-2.png": true,
+    "pond/pond-12-3.png": true,
+    "pond/pond-13-0.png": true,
+    "pond/pond-13-1.png": true,
+    "pond/pond-13-2.png": true,
+    "pond/pond-13-3.png": true,
+    "pond/pond-14-0.png": true,
+    "pond/pond-14-1.png": true,
+    "pond/pond-14-2.png": true,
+    "pond/pond-14-3.png": true,
+    "pond/pond-15-0.png": true,
+    "pond/pond-15-1.png": true,
+    "pond/pond-15-2.png": true,
+    "pond/pond-15-3.png": true
+  },
+  "tiles": 550,
+  "tile_limit": 1008,
+  "primary_metatiles": 274,
+  "secondary_metatiles": 22,
+  "metatile_limit_each": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true,
+  "material_cells": 2048,
+  "material_matches": 1900,
+  "material_mismatches": [],
+  "foreground_differs": [
+    [
+      19,
+      1
+    ],
+    [
+      20,
+      1
+    ],
+    [
+      14,
+      2
+    ],
+    [
+      15,
+      2
+    ],
+    [
+      20,
+      2
+    ],
+    [
+      14,
+      3
+    ],
+    [
+      15,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      15,
+      7
+    ],
+    [
+      21,
+      7
+    ],
+    [
+      22,
+      7
+    ],
+    [
+      23,
+      7
+    ],
+    [
+      24,
+      7
+    ],
+    [
+      25,
+      7
+    ],
+    [
+      26,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      9,
+      11
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      13,
+      11
+    ],
+    [
+      18,
+      11
+    ],
+    [
+      19,
+      11
+    ],
+    [
+      20,
+      11
+    ],
+    [
+      21,
+      11
+    ],
+    [
+      18,
+      12
+    ],
+    [
+      19,
+      12
+    ],
+    [
+      20,
+      12
+    ],
+    [
+      21,
+      12
+    ],
+    [
+      16,
+      15
+    ],
+    [
+      17,
+      15
+    ],
+    [
+      16,
+      16
+    ],
+    [
+      17,
+      16
+    ],
+    [
+      21,
+      16
+    ],
+    [
+      27,
+      17
+    ],
+    [
+      28,
+      17
+    ],
+    [
+      23,
+      18
+    ],
+    [
+      24,
+      18
+    ],
+    [
+      14,
+      19
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      23,
+      19
+    ],
+    [
+      24,
+      19
+    ],
+    [
+      14,
+      20
+    ],
+    [
+      15,
+      20
+    ],
+    [
+      16,
+      22
+    ],
+    [
+      17,
+      22
+    ],
+    [
+      19,
+      22
+    ],
+    [
+      0,
+      27
+    ],
+    [
+      1,
+      27
+    ],
+    [
+      2,
+      27
+    ],
+    [
+      3,
+      27
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      15,
+      28
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      19,
+      28
+    ],
+    [
+      18,
+      29
+    ],
+    [
+      19,
+      29
+    ],
+    [
+      0,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      0,
+      31
+    ],
+    [
+      1,
+      31
+    ],
+    [
+      4,
+      31
+    ],
+    [
+      5,
+      31
+    ],
+    [
+      2,
+      32
+    ],
+    [
+      3,
+      32
+    ],
+    [
+      4,
+      32
+    ],
+    [
+      5,
+      32
+    ],
+    [
+      2,
+      33
+    ],
+    [
+      3,
+      33
+    ],
+    [
+      4,
+      33
+    ],
+    [
+      5,
+      33
+    ],
+    [
+      23,
+      33
+    ],
+    [
+      24,
+      33
+    ],
+    [
+      2,
+      35
+    ],
+    [
+      3,
+      35
+    ],
+    [
+      4,
+      35
+    ],
+    [
+      5,
+      35
+    ],
+    [
+      16,
+      36
+    ],
+    [
+      17,
+      36
+    ],
+    [
+      16,
+      37
+    ],
+    [
+      17,
+      37
+    ],
+    [
+      25,
+      37
+    ],
+    [
+      26,
+      37
+    ],
+    [
+      24,
+      38
+    ],
+    [
+      25,
+      38
+    ],
+    [
+      26,
+      38
+    ],
+    [
+      27,
+      38
+    ],
+    [
+      19,
+      39
+    ],
+    [
+      24,
+      39
+    ],
+    [
+      25,
+      39
+    ],
+    [
+      26,
+      39
+    ],
+    [
+      27,
+      39
+    ],
+    [
+      24,
+      40
+    ],
+    [
+      27,
+      40
+    ],
+    [
+      23,
+      41
+    ],
+    [
+      28,
+      41
+    ],
+    [
+      23,
+      42
+    ],
+    [
+      0,
+      43
+    ],
+    [
+      1,
+      43
+    ],
+    [
+      16,
+      47
+    ],
+    [
+      17,
+      47
+    ],
+    [
+      27,
+      47
+    ],
+    [
+      28,
+      47
+    ],
+    [
+      20,
+      49
+    ],
+    [
+      20,
+      50
+    ],
+    [
+      18,
+      54
+    ],
+    [
+      19,
+      54
+    ],
+    [
+      20,
+      54
+    ],
+    [
+      21,
+      54
+    ],
+    [
+      22,
+      54
+    ],
+    [
+      23,
+      54
+    ],
+    [
+      18,
+      55
+    ],
+    [
+      19,
+      55
+    ],
+    [
+      20,
+      55
+    ],
+    [
+      21,
+      55
+    ],
+    [
+      22,
+      55
+    ],
+    [
+      23,
+      55
+    ],
+    [
+      15,
+      56
+    ],
+    [
+      16,
+      56
+    ],
+    [
+      17,
+      56
+    ],
+    [
+      15,
+      57
+    ],
+    [
+      16,
+      57
+    ],
+    [
+      17,
+      57
+    ],
+    [
+      12,
+      62
+    ],
+    [
+      13,
+      62
+    ],
+    [
+      11,
+      63
+    ],
+    [
+      12,
+      63
+    ],
+    [
+      13,
+      63
+    ],
+    [
+      14,
+      63
+    ],
+    [
+      16,
+      63
+    ],
+    [
+      17,
+      63
+    ],
+    [
+      18,
+      63
+    ],
+    [
+      19,
+      63
+    ],
+    [
+      20,
+      63
+    ],
+    [
+      21,
+      63
+    ],
+    [
+      22,
+      63
+    ],
+    [
+      23,
+      63
+    ]
+  ]
+}

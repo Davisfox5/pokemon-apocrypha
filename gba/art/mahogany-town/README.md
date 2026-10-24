@@ -4,6 +4,12 @@
 `fbad5b2d`. Treat this map as locked: edit its committed native source in Porymap, never
 regenerate it from these tools.
 
+**Route 43 wiring (2026-10-24, engine branch `claude/route-43`)**: the gate doorway (12,5)/(13,5) is
+now a door into `Route43MahoganyGatehouse` (two warp events; the two cells' collision cleared and
+their single-use metatiles given `MB_NON_ANIMATED_DOOR`), a native-source edit by
+`tools/gba/maps/route43/install.py`. No pixel changed. The traversal and audit evidence below predate
+it. See [Route 43](../route-43/README.md).
+
 Mahogany as one native Gen 3 map, rebuilt strictly to `AGENTS.md` and
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md). The owner rejected the
 element build ("done from scratch": flat textures, wrong houses, wrong rock depth) and the direct

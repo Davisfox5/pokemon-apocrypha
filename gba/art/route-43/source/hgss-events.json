@@ -1,0 +1,231 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/042_R43.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0254_R43.s",
+      "files/msgdata/msg/msg_0401_R43.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 16,
+        "z": 3,
+        "land_data": 87
+      },
+      {
+        "x": 16,
+        "z": 4,
+        "land_data": 88
+      }
+    ],
+    "origin": [
+      512,
+      96
+    ],
+    "size": [
+      32,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [],
+      "east": [],
+      "north": [
+        88
+      ],
+      "south": [
+        87
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        12,
+        60
+      ],
+      "dest": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        13,
+        60
+      ],
+      "dest": "MAP_ROUTE_43_MAHOGANY_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 2,
+      "cell": [
+        25,
+        47
+      ],
+      "dest": "MAP_ROUTE_43_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        26,
+        47
+      ],
+      "dest": "MAP_ROUTE_43_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        25,
+        38
+      ],
+      "dest": "MAP_ROUTE_43_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 5,
+      "cell": [
+        26,
+        38
+      ],
+      "dest": "MAP_ROUTE_43_GATEHOUSE",
+      "anchor": 1
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        15,
+        58
+      ],
+      "script": "scr_seq_R43_001",
+      "bg_type": 1,
+      "text": "Rt. 43 North to Lake of Rage"
+    },
+    {
+      "cell": [
+        20,
+        50
+      ],
+      "script": "scr_seq_R43_002",
+      "bg_type": 1,
+      "text": "Trainer Tips All Pokémon have pros and cons depending on their types. If their types differ, even a higher- level Pokémon may lose in battle. Learn which types are strong or weak against your Pokémon’s type."
+    },
+    {
+      "cell": [
+        20,
+        3
+      ],
+      "script": "scr_seq_R43_003",
+      "bg_type": 1,
+      "text": "North to Lake of Rage South to Mahogany Town"
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R43_campboy_2",
+      "sprite": "SPRITE_CAMPBOY_2",
+      "cell": [
+        14,
+        53
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_picnicgirl_2",
+      "sprite": "SPRITE_PICNICGIRL_2",
+      "cell": [
+        14,
+        31
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_mania",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        19,
+        26
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_mania_2",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        25,
+        15
+      ],
+      "facing": 1,
+      "movement": 4,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_mania_3",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        18,
+        8
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_fishing_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        8,
+        17
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        1,
+        29
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R43_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        20,
+        42
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R43_MAX_ETHER"
+    },
+    {
+      "id": "obj_R43_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        3,
+        32
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    }
+  ]
+}
