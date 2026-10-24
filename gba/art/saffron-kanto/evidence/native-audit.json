@@ -1,804 +1,380 @@
 {
-  "cells_audited": 3630,
-  "installed_matches_compose": true,
+  "cells_audited": 4096,
   "installed_matches_packer_decode": true,
-  "frlg_palettes_kept": [
-    0,
-    1,
-    2,
-    3,
-    5,
-    8,
-    9,
-    10
-  ],
-  "graded_banks": [
-    11,
-    12
-  ],
-  "station_pixels_exact": 16455,
-  "station_cells": 85,
   "ledger_behaviour_collision_elevation_layer": true,
-  "frlg_layer_types_outside_station": true,
-  "reachable_foot_cells": 742,
-  "open_cells": 890,
+  "reachable_cells": 1528,
+  "open_cells": 1565,
   "unreachable_open_cells": [
     [
-      0,
-      19
-    ],
-    [
-      0,
-      20
-    ],
-    [
-      0,
-      21
-    ],
-    [
-      0,
-      22
-    ],
-    [
-      0,
-      23
-    ],
-    [
-      0,
-      24
-    ],
-    [
-      0,
-      25
-    ],
-    [
-      0,
-      26
-    ],
-    [
-      0,
-      27
-    ],
-    [
-      0,
-      28
-    ],
-    [
-      0,
-      30
-    ],
-    [
-      0,
-      31
-    ],
-    [
-      0,
-      32
-    ],
-    [
-      0,
-      33
-    ],
-    [
-      0,
-      34
-    ],
-    [
-      1,
-      19
-    ],
-    [
-      1,
-      20
-    ],
-    [
-      1,
-      21
-    ],
-    [
-      1,
-      22
-    ],
-    [
-      1,
-      23
-    ],
-    [
-      1,
-      24
-    ],
-    [
-      1,
-      25
-    ],
-    [
-      1,
-      26
-    ],
-    [
-      1,
-      28
-    ],
-    [
-      1,
-      30
-    ],
-    [
-      1,
-      31
-    ],
-    [
-      1,
-      32
-    ],
-    [
-      1,
-      33
-    ],
-    [
-      1,
-      34
-    ],
-    [
-      2,
-      19
-    ],
-    [
-      2,
-      20
-    ],
-    [
-      2,
-      21
-    ],
-    [
-      2,
-      22
-    ],
-    [
-      2,
-      23
-    ],
-    [
-      2,
-      24
-    ],
-    [
-      2,
-      30
-    ],
-    [
-      2,
-      31
-    ],
-    [
-      2,
-      32
-    ],
-    [
-      2,
-      33
-    ],
-    [
-      2,
-      34
+      3,
+      9
     ],
     [
       3,
-      19
+      10
     ],
     [
       3,
-      20
+      11
     ],
     [
       3,
-      21
+      12
     ],
     [
       3,
-      22
+      13
     ],
     [
       3,
-      23
-    ],
-    [
-      3,
-      24
-    ],
-    [
-      3,
-      30
-    ],
-    [
-      3,
-      31
-    ],
-    [
-      3,
-      32
-    ],
-    [
-      3,
-      33
-    ],
-    [
-      3,
-      34
+      14
     ],
     [
       4,
-      19
+      9
     ],
     [
       4,
-      20
+      10
     ],
     [
       4,
-      21
+      11
     ],
     [
       4,
-      22
-    ],
-    [
-      4,
-      23
-    ],
-    [
-      4,
-      24
-    ],
-    [
-      4,
-      30
-    ],
-    [
-      4,
-      31
-    ],
-    [
-      4,
-      32
-    ],
-    [
-      4,
-      33
-    ],
-    [
-      4,
-      34
+      12
     ],
     [
       5,
-      34
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      5,
+      12
     ],
     [
       6,
-      23
+      9
     ],
     [
       6,
-      30
+      10
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      6,
+      12
     ],
     [
       7,
-      23
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
     ],
     [
       8,
-      23
+      9
     ],
     [
       8,
-      30
+      10
+    ],
+    [
+      8,
+      11
     ],
     [
       9,
-      23
+      9
     ],
     [
       9,
-      30
+      10
+    ],
+    [
+      9,
+      11
     ],
     [
       10,
-      30
+      9
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      10,
+      11
     ],
     [
       11,
-      30
+      9
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      11,
+      11
     ],
     [
       12,
-      30
+      9
     ],
     [
-      14,
-      44
+      12,
+      10
     ],
     [
-      15,
-      44
+      12,
+      11
     ],
     [
-      16,
-      44
-    ],
-    [
-      17,
-      44
-    ],
-    [
-      18,
-      44
-    ],
-    [
-      24,
-      2
-    ],
-    [
-      24,
-      54
-    ],
-    [
-      25,
-      0
-    ],
-    [
-      25,
-      2
-    ],
-    [
-      25,
-      54
-    ],
-    [
-      26,
-      0
-    ],
-    [
-      26,
-      2
-    ],
-    [
-      26,
-      54
-    ],
-    [
-      27,
-      0
-    ],
-    [
-      27,
-      2
-    ],
-    [
-      27,
-      54
-    ],
-    [
-      28,
-      0
-    ],
-    [
-      28,
-      2
-    ],
-    [
-      28,
-      54
-    ],
-    [
-      29,
-      0
-    ],
-    [
-      29,
-      2
-    ],
-    [
-      29,
-      54
-    ],
-    [
-      30,
-      0
-    ],
-    [
-      30,
-      2
-    ],
-    [
-      30,
-      54
-    ],
-    [
-      31,
-      0
-    ],
-    [
-      31,
-      2
-    ],
-    [
-      31,
-      54
-    ],
-    [
-      33,
-      53
-    ],
-    [
-      33,
-      54
-    ],
-    [
-      34,
-      53
-    ],
-    [
-      34,
-      54
-    ],
-    [
-      35,
-      53
-    ],
-    [
-      35,
-      54
-    ],
-    [
-      36,
-      53
-    ],
-    [
-      36,
-      54
-    ],
-    [
-      38,
-      0
-    ],
-    [
-      38,
-      2
-    ],
-    [
-      38,
-      54
-    ],
-    [
-      39,
-      0
-    ],
-    [
-      39,
-      2
-    ],
-    [
-      39,
-      54
-    ],
-    [
-      40,
-      0
-    ],
-    [
-      40,
-      2
-    ],
-    [
-      40,
-      54
-    ],
-    [
-      41,
-      0
-    ],
-    [
-      41,
-      2
-    ],
-    [
-      41,
-      54
-    ],
-    [
-      42,
-      0
-    ],
-    [
-      42,
-      2
-    ],
-    [
-      42,
-      54
-    ],
-    [
-      43,
-      2
-    ],
-    [
-      43,
-      54
-    ],
-    [
-      51,
-      44
-    ],
-    [
-      52,
-      44
-    ],
-    [
-      53,
-      44
-    ],
-    [
-      54,
-      23
-    ],
-    [
-      54,
-      30
-    ],
-    [
-      55,
-      23
-    ],
-    [
-      55,
-      30
-    ],
-    [
-      56,
-      23
-    ],
-    [
-      56,
-      30
-    ],
-    [
-      57,
-      23
-    ],
-    [
-      57,
-      30
-    ],
-    [
-      58,
-      23
-    ],
-    [
-      58,
-      30
-    ],
-    [
-      59,
-      23
-    ],
-    [
-      59,
-      30
-    ],
-    [
-      60,
-      23
-    ],
-    [
-      60,
-      30
-    ],
-    [
-      61,
-      23
-    ],
-    [
-      61,
-      30
-    ],
-    [
-      65,
-      25
-    ],
-    [
-      65,
-      26
-    ],
-    [
-      65,
-      28
+      50,
+      10
     ]
   ],
   "approaches": {
     "center": [
-      24,
-      39
+      14,
+      51
     ],
     "mart": [
-      40,
-      22
+      38,
+      27
+    ],
+    "dojo_fighting": [
+      41,
+      13
+    ],
+    "dojo_psychic": [
+      48,
+      13
+    ],
+    "lab": [
+      37,
+      42
     ],
     "silph": [
-      33,
-      31
+      28,
+      38
     ],
     "station": [
-      25,
-      15
+      10,
+      17
     ],
-    "fighting_dojo": [
-      40,
-      13
+    "copycat": [
+      17,
+      27
     ],
-    "psychic_dojo": [
-      46,
-      13
-    ],
-    "league_office": [
-      47,
-      22
-    ],
-    "copycat_house": [
-      19,
-      22
-    ],
-    "mr_psychic": [
+    "mrpsychic": [
       43,
-      39
+      51
     ],
-    "south_gate": [
-      34,
-      45
+    "station_sign": [
+      12,
+      19
     ],
-    "plaza": [
-      44,
-      15
+    "city_sign": [
+      23,
+      19
     ],
-    "sign_CitySign": [
-      30,
-      13
+    "fighting_sign": [
+      43,
+      17
     ],
-    "sign_StationSign": [
-      25,
-      15
-    ],
-    "sign_FightingDojoSign": [
-      42,
-      15
-    ],
-    "sign_PsychicDojoSign": [
+    "psychic_sign": [
       50,
-      15
+      17
     ],
-    "sign_LeagueOfficeSign": [
-      49,
-      23
+    "silph_sign": [
+      26,
+      43
     ],
-    "sign_SilphCoSign": [
-      29,
-      32
+    "mrpsychic_sign": [
+      41,
+      51
     ],
-    "sign_SilphMagnetTrainSign": [
-      13,
-      26
+    "north_gate": [
+      20,
+      6
     ],
-    "sign_TrainerTipsGreatBall": [
-      18,
-      31
+    "east_gate": [
+      56,
+      48
     ],
-    "sign_TrainerTipsFullHeal": [
-      54,
-      26
+    "south_exit": [
+      20,
+      60
     ],
-    "sign_MrPsychicSign": [
-      40,
-      39
-    ]
-  },
-  "doors_reached": [
-    [
-      8,
-      27
-    ],
-    [
-      19,
-      21
-    ],
-    [
-      24,
-      38
-    ],
-    [
-      25,
-      14
-    ],
-    [
-      27,
-      21
-    ],
-    [
-      33,
-      30
-    ],
-    [
-      34,
-      5
-    ],
-    [
-      34,
-      46
-    ],
-    [
-      35,
-      5
-    ],
-    [
-      35,
-      46
-    ],
-    [
-      40,
-      12
-    ],
-    [
-      40,
-      21
-    ],
-    [
-      43,
-      38
-    ],
-    [
-      46,
-      12
-    ],
-    [
-      47,
-      21
-    ],
-    [
-      58,
-      27
-    ]
-  ],
-  "outer_gate_doors": [
-    [
+    "west_exit": [
       1,
-      27
-    ],
-    [
-      34,
-      52
-    ],
-    [
-      35,
-      52
-    ],
-    [
-      65,
-      27
+      48
     ]
-  ],
-  "solid_former_doors": 18,
-  "signs": 10,
-  "open_doors": {
-    "24,38": "MAP_KANTO_SAFFRON_POKEMON_CENTER",
-    "40,21": "MAP_KANTO_SAFFRON_MART"
   },
-  "door_metatile": 191,
+  "walk_behind_cells": {
+    "board": 3,
+    "citysign": 1,
+    "dojo_psychic": 1,
+    "dojosign": 2,
+    "gate_e": 1,
+    "hydrant": 4,
+    "lab": 9,
+    "lamp": 14,
+    "poke_mart": 7,
+    "station": 27
+  },
+  "shared_building_pixels_exact": 13925,
+  "center_master_sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "mart_sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8",
   "primary_tiles": 512,
-  "secondary_tiles": 149,
+  "cherrygrove_tiles_at_their_index": 46,
+  "primary_callback": null,
+  "secondary_tiles": 448,
   "secondary_tile_limit": 496,
-  "primary_metatiles": 512,
-  "secondary_metatiles": 84,
-  "metatile_limit": 512,
+  "secondary_metatiles": 512,
+  "v1_door_entry_removed": true,
+  "warps": [
+    {
+      "city_warp": 0,
+      "door": [
+        14,
+        50
+      ],
+      "to": "KantoSaffronPokemonCenter",
+      "arrives": [
+        7,
+        8
+      ],
+      "back_to_city_warp": 0
+    },
+    {
+      "city_warp": 1,
+      "door": [
+        38,
+        26
+      ],
+      "to": "KantoSaffronMart",
+      "arrives": [
+        3,
+        7
+      ],
+      "back_to_city_warp": 1
+    },
+    {
+      "city_warp": 2,
+      "door": [
+        41,
+        12
+      ],
+      "to": "KantoSaffronDojo",
+      "arrives": [
+        6,
+        14
+      ],
+      "back_to_city_warp": 2
+    },
+    {
+      "city_warp": 3,
+      "door": [
+        48,
+        12
+      ],
+      "to": "KantoSaffronDojo",
+      "arrives": [
+        17,
+        14
+      ],
+      "back_to_city_warp": 3
+    },
+    {
+      "city_warp": 4,
+      "door": [
+        37,
+        41
+      ],
+      "to": "KantoSaffronSilphLab",
+      "arrives": [
+        7,
+        9
+      ],
+      "back_to_city_warp": 4
+    },
+    {
+      "city_warp": 5,
+      "door": [
+        38,
+        41
+      ],
+      "to": "KantoSaffronSilphLab",
+      "arrives": [
+        7,
+        9
+      ],
+      "back_to_city_warp": 4
+    }
+  ],
+  "interiors": {
+    "KantoSaffronDojo": {
+      "size": [
+        23,
+        16
+      ],
+      "tiles": 96,
+      "metatiles": 68,
+      "matches_fireRed_pixels": true,
+      "exit_mats": [
+        [
+          6,
+          14
+        ],
+        [
+          17,
+          14
+        ]
+      ],
+      "walkable": 240,
+      "reachable_from_exit": 240
+    },
+    "KantoSaffronSilphLab": {
+      "size": [
+        15,
+        11
+      ],
+      "tiles": 128,
+      "metatiles": 70,
+      "matches_fireRed_pixels": true,
+      "exit_mats": [
+        [
+          7,
+          9
+        ]
+      ],
+      "walkable": 93,
+      "reachable_from_exit": 92
+    }
+  },
   "existing_map_ids_preserved": true,
-  "changed_files_within_scope": true
+  "changed_files_within_scope": true,
+  "field_door_unchanged_from_base": true
 }

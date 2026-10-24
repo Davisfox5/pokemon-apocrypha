@@ -238,26 +238,33 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
-## Kanto towns: FireRed's map, ten years on
+## Kanto towns: HGSS's plan, ten years on
 
-Kanto towns start from FireRed's own map in the expansion (`*_Frlg`), not from HGSS. The
-worked example is `gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+Owner, Saffron, 2026-10-24: look to HGSS. Kanto towns follow HGSS's city plan, converted
+element by element as Olivine is (the section above), not FireRed's map edited. The worked
+example is `gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
 
-- Keep every cell FireRed draws and change only what ten years and the story change, each
-  change answering a DESIGN.md line (Saffron: the Magnet Train station, Silph taller with
-  annex wings, no gym, the League office). A building Kanto gained since FireRed is HGSS's
-  model at C06's angle, where HGSS puts it.
+- Keep HGSS's plan and change only what ten years and the story change, each change
+  answering the owner's brief or a DESIGN.md line (Saffron: one Dojo for both dojos, an
+  entrance each and a shared hall; Silph taller, with a lab wing and its own entrance; no
+  gym).
+- A new building is made from HGSS's own models: slice, move and copy their faces
+  (`saffron/modelkit.py`), keep their textures and lighting, render at C06's angle. Paint a
+  mark that replaces an emblem on the rendered sprite at Gen 3 scale; texture-mapped marks
+  come out mangled.
 - Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
   FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
-- Repack FireRed's pair into one Emerald-format pair: FireRed's banks keep their numbers,
-  kept metatiles keep their behaviour and layer type, new art goes in the secondary and is
-  packed exact, and FireRed's tile 0x14 stays at slot 0x14 (the engine fills BG3 under
-  normal-layer metatiles with it, and FireRed's transparent roof corners show it).
-- Kanto's grade is cool and institutional: house walls concrete, roofs slate
-  (`frlg.GRADE`); paving, trees, the Center and Mart and institutional colours keep
-  FireRed's.
-- Doors to unbuilt interiors and gates to unbuilt routes are solid; the Center and Mart
-  open, with FireRed's sliding door animation.
+- An interior Kanto needs is FireRed's room, or a room composed from FireRed's rooms cell
+  by cell, packed from its pixels into its own secondary on `gTileset_Building`
+  (`saffron/interiors.py`). Exit mats keep `MB_SOUTH_ARROW_WARP`; other FireRed behaviours
+  become `MB_NORMAL` until their scripts exist (their numbers mean other things in
+  Emerald: FireRed's Gym pads would warp).
+- A big city is tight on tiles. Mirror symmetric buildings on an 8 px axis, draw a facade
+  of one-unit bays at 16 px per unit so the bays repeat as tiles, and keep sprites from
+  overlapping a neighbour from another palette group (move one a tile column). Never
+  ship an inexact colour to fit: seed a bank with the street's colours instead.
+- Doors to unbuilt interiors and gates to unbuilt routes are solid. Keep HGSS's colours;
+  the first round's Kanto grade (`frlg.GRADE`) turned HGSS's blocks drab.
 
 ## Ownership and autonomy
 

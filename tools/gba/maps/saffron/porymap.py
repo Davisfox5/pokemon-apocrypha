@@ -5,11 +5,11 @@
 Works on a fresh `git clone` of ENGINE_CHECKOUT's current branch in a temporary
 directory, never on the checkout itself (commit the engine first). Under Xvfb it opens
 KantoSaffronCity (on its own pair, gTileset_KantoSaffronPrimary and
-gTileset_KantoSaffronCity) and its three interiors in Porymap, exports Porymap's own map
-image of each, saves the city's tilesets from the tileset editor, saves every map
-(File > Save), then reports what Porymap rewrote and how its city image compares with
-the native decode (check.render_blocks, which Porymap draws the same way: a bottom
-pixel of colour 0 shows the BG3 fill; see frlg.under).
+gTileset_KantoSaffronCity) and its five interiors in Porymap (the Center, upstairs, the
+Mart, the Dojo's hall and Silph's lab), exports Porymap's own map image of each, saves
+the city's tilesets from the tileset editor, saves every map (File > Save), then reports
+what Porymap rewrote and how its images of the city, the hall and the lab compare with
+the native decodes (evidence/native.png, interiors.decode).
 
 Needs Xvfb, xdotool and ImageMagick `import`. Menu coordinates are Porymap 6.3.1's
 Fusion layout with the main window at 1920x1050; keyboard shortcuts do not reach
@@ -23,10 +23,13 @@ import numpy as np
 from PIL import Image
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
 ROOT = HERE.parents[3]
 EV = ROOT / 'gba/art/saffron-kanto/evidence'
 CITY = 'KantoSaffronCity'
-INTERIORS = ['KantoSaffronPokemonCenter', 'KantoSaffronCenterUpstairs', 'KantoSaffronMart']
+INTERIORS = ['KantoSaffronPokemonCenter', 'KantoSaffronCenterUpstairs', 'KantoSaffronMart', 'KantoSaffronDojo',
+             'KantoSaffronSilphLab']
+ROOMS = dict(KantoSaffronDojo='dojo', KantoSaffronSilphLab='lab')
 DISPLAY = ':99'
 ENV = dict(os.environ, DISPLAY=DISPLAY)
 
@@ -100,6 +103,13 @@ def main(engine, binary):
     ref = native[:e.shape[0], :e.shape[1]]
     city = dict(size=list(e.shape[1::-1]), differing_pixels=int((e != ref).any(axis=2).sum()))
     shutil.copy(work / f'{CITY}.png', out / f'{CITY}-export.png')
+    import interiors as I
+    rooms = {}
+    for m, key in ROOMS.items():
+        e = np.array(Image.open(work / f'{m}.png').convert('RGB'))
+        ref = I.decode(np.load(ROOT / f'gba/art/saffron-kanto/source/interiors/{key}.npz'))[:e.shape[0], :e.shape[1]]
+        rooms[m] = dict(size=list(e.shape[1::-1]), differing_pixels=int(((e >> 3) != (ref >> 3)).any(axis=2).sum()))
+        shutil.copy(work / f'{m}.png', out / f'{m}-export.png')
     diff = sh('git', '-C', str(project), 'diff', '-U0')
     changed_lines = [l for l in diff.splitlines() if l[:1] in ('+', '-') and not l.startswith(('+++', '---'))]
     rewritten = [str(p.relative_to(project)) for p in project.rglob('*') if p.is_file() and '.git' not in p.parts
@@ -107,7 +117,7 @@ def main(engine, binary):
     log_text = log.read_text(errors='replace')[log_start:] if log.exists() else ''
     report = dict(
         porymap=next((l.split('] ', 1)[1] for l in log_text.splitlines() if 'Launching Porymap' in l), 'unknown'),
-        engine_commit=head, city_export_vs_native=city,
+        engine_commit=head, city_export_vs_native=city, interior_exports_vs_native=rooms,
         saffron_files_rewritten=sorted(r for r in rewritten if 'affron' in r),
         saffron_files_changed=sorted(f for f in sh('git', '-C', str(project), 'diff', '--name-only').splitlines() if 'affron' in f),
         files_changed_by_save=sh('git', '-C', str(project), 'diff', '--name-only').splitlines(),

@@ -1,30 +1,35 @@
-"""Pack the edited Saffron into one Emerald-format tileset pair.
+"""Pack Saffron's composed elements into one native map on its own tileset pair.
 
     python3 tools/gba/maps/saffron/pack.py ENGINE_CHECKOUT
 
-FireRed's Saffron uses 488 of its tileset pair's tiles and 10 of its 13 palette banks
-(0-3, 5, 8-12). Here they become one Emerald-format pair (512-tile primary with banks 0-5,
-secondary from tile 512 with banks 6-12, 16-bit attributes), so the map lives in the same
-Porymap project as the Johto towns, beside them in the Emerald build:
+Input is terrain.py's compose.npz (bottom layer, top layer, shared Center and Mart layer).
+Saffron holds the Magnet Train station, Silph Co. and its lab wing, the Dojo, two
+gatehouses, the Center, the Mart and some thirty apartment blocks: more tiles than one
+secondary holds. So, as Olivine does (olivine_elements/pack.py), it gets a primary of its
+own, gTileset_KantoSaffronPrimary, derived from CherrygrovePrimary:
 
-  - every cell left as FireRed drew it keeps its metatile: its tile entries remapped to the
-    new pair, its palette banks the same numbers (FireRed's bank 6 and 7 slots are free in
-    Saffron), its behaviour and layer type as they were; these fill the primary
-  - the art cells (the station, the Psychic Dojo's plate) are packed from their pixels:
-    each 8x8 tile reuses a FireRed tile wherever one draws the same, the rest are new;
-    the station's colours take bank 4, and a bottom tile behind it whose colours no
-    FireRed bank holds goes to banks 6 and 7, all exact. Their metatiles are the
-    secondary's; the station's draw below the player (covered), the plate's keep
-    FireRed's layer type
-  - FireRed's tile 0x14 keeps slot 0x14: the engine fills BG3 under normal-layer
-    metatiles with that slot, and FireRed's roof corners show it (frlg.under)
-  - FireRed's animated flowers in General_Frlg are drawn static (Emerald's engine plays
-    no General_Frlg animation)
+  - tile 0 and every Cherrygrove tile Saffron draws (its grass and its tree) stay at their
+    own indices; every other slot holds Saffron. Saffron draws no sea, so the primary
+    plays no animation (callback NULL)
+  - banks 0 and 3 are Cherrygrove's (grass, path and creams; the tree greens), bank 3 with
+    Cherrygrove's two plain greens in two slots no Cherrygrove tile draws (Olivine's), so a
+    tree drawn on the bottom layer over grass fits its own bank; the other eleven are learned
+  - every Cherrygrove metatile that still draws exactly as it did keeps its id
 
-Traversal is FireRed's grid, with Apocrypha's doors: the Center and the Mart open (their
-interiors are cloned from Cherrygrove's, install.py), every other door and gate solid
-until its interior or route exists, the station blocked across its footprint.
-Writes source/pack.npz, source/traversal.json, evidence/pack.json and evidence/native.png.
+The secondary, gTileset_KantoSaffronCity, holds up to 496 tiles (16 door-animation slots
+reserved) and 512 metatiles. Palettes are one exact fit over the eleven learned banks: the
+owner-locked C06 Center over two, the shared Mart one, each building family's palette a
+bank whole (art.py's groups; the Dojo's Fighting and Psychic halves one each), the street's
+(road, paving, kerbs, railings, hydrants) one, then every other tile fits the eleven.
+
+Traversal is the decoded HGSS permissions in Gen 3 behaviours, with Apocrypha's doors: the
+Center, the Mart, the Dojo's two entrances and the lab's open; every other HGSS warp (Silph's
+lobby, the station, the houses, the gates and the city's four exits) is solid until its
+interior or route exists. A cell HGSS leaves open that a Gen 3 building's wall fills (walls())
+is solid. A cell HGSS blocks only because its taller building model stands
+there, with nothing of the Gen 3 sprite in it or only a roof's top edge in its lower half,
+is open ground (the player walks behind that edge).
+Writes evidence/pack.json, native.png and source/pack.npz, traversal.json.
 """
 from __future__ import annotations
 import json, sys
@@ -33,160 +38,225 @@ import numpy as np
 from PIL import Image
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[3]
-sys.path[:0] = [str(HERE), str(HERE.parent / 'olivine_elements')]
-import frlg                                     # noqa: E402
-import compose as C                             # noqa: E402
-import build as B                               # noqa: E402  (rgb5, flips, tile_error, behaviours)
+sys.path.insert(0, str(HERE))
+import olivine                                                # noqa: E402
+OP = olivine.mod('pack')                                      # Olivine's packer: exact banks, Cherrygrove's primary, depth
+B = olivine.mod('build')
 
+ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/saffron-kanto'
 SRC, EV = ART / 'source', ART / 'evidence'
-W, H = C.W, C.H
-FRLG_BANKS = [0, 1, 2, 3, 5, 8, 9, 10, 11, 12]
-STATION_BANK = 4
-SPARE = [6, 7]
-PRIMARY_TILES, SECONDARY_TILES = 512, 496       # 16 secondary slots kept for door animation
+W, H = 64, 64
+KEPT_BANKS = [0, 3]                                           # Cherrygrove's
+LEARNED = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+SECONDARY_TILES = 496
 NORMAL, COVERED = 0, 1
-CLEAR = -1
-# Doors with interiors (install.py clones Cherrygrove's Center, its upstairs and its Mart).
-OPEN_DOORS = {(24, 38): 'pokemon_center', (40, 21): 'poke_mart'}
-MB = dict(normal=0x00, door=0x69, sign=0x1D)
-WARP_BEHAVIOURS = {0x60, 0x62, 0x63, 0x64, 0x65, 0x69}
+CENTER_ORIGIN, CENTER_DOOR = (12, 46), (2, 4)                 # C06 door on HGSS's Center door (14, 50)
+MART_ORIGIN, MART_DOOR = (36, 21), (2, 5)                     # shared Mart door on HGSS's Mart door (38, 26)
+MART, CENTER = 1, 2
+FLAT = ('manhole_',)
+# Doors with interiors: the Center and Mart (cloned from Cherrygrove's), the Dojo's two
+# entrances into its one hall, the lab wing's door (interiors.py).
+DOORS = {(14, 50): 'pokemon_center', (38, 26): 'poke_mart', (41, 12): 'dojo_fighting', (48, 12): 'dojo_psychic',
+         (37, 41): 'lab', (38, 41): 'lab'}
+SOLID_WARPS = {(10, 16): 'Magnet Train station', (17, 26): "the Copycat's house", (28, 37): 'Silph Co.', (29, 37): 'Silph Co.',
+               (43, 50): "Mr. Psychic's house", (20, 5): 'the north gate (Route 5)', (21, 5): 'the north gate (Route 5)',
+               (57, 48): 'the east gate (Route 8)', (57, 49): 'the east gate (Route 8)',
+               (20, 61): 'the south exit (Route 6)', (21, 61): 'the south exit (Route 6)',
+               (0, 48): 'the west exit (Route 7)', (0, 49): 'the west exit (Route 7)'}
+# Warps not entered northward: the east gate's from the west, the west and south exits.
+SIDE_WARPS = {(57, 48), (57, 49), (0, 48), (0, 49), (20, 61), (21, 61)}
+# Each family's own palette starts whole in a bank (art.py's groups).
+BANK_GROUPS = [('station',), ('silph',), ('dojo_w',), ('dojo_e',), ('apt',), ('house',), ('gate',)]
 
-def exact_banks(jobs, nbanks, size=15, tries=4000, init=None):
-    """Olivine's exact palette packing (olivine_elements/pack.py): maximal colour sets,
-    largest first, the packing that leaves the fewest tile uses unplaced."""
-    sets = [frozenset(map(tuple, j['px'][j['mask'] > 0].astype(int).tolist())) for j in jobs]
-    distinct = sorted(set(sets), key=lambda c: sorted(c))
-    maximal = [c for c in distinct if not any(c < d for d in distinct)]
-    rng = np.random.default_rng(0)
-    best = None
-    for t in range(tries):
-        order = sorted(maximal, key=lambda c: (-len(c) * (1 + (rng.random() * 0.8 if t else 0)), sorted(c)))
-        banks = [set(init[k]) if init else set() for k in range(nbanks)]
-        rule = t % 3
-        for c in order:
-            fits = [((len(c - b), -len(c & b)) if rule == 0 else (-len(c & b), len(c - b)) if rule == 1 else (len(c - b), len(b)))
-                    + (k,) for k, b in enumerate(banks) if len(b | c) <= size]
-            if fits:
-                banks[min(fits)[-1]] |= c
-        lost = sum(j['weight'] for j, c in zip(jobs, sets) if not any(c <= b for b in banks))
-        if best is None or lost < best[0]:
-            best = (lost, [set(b) for b in banks])
-        if not lost:
-            break
-    banks = best[1]
-    assign = [next((k for k, b in enumerate(banks) if c <= b), None) for c in sets]
-    return [sorted(b) for b in banks], assign, best[0]
+WALL_COVER = 0.75
+GROUND_LEVEL = ('', 'tree', 'street')
 
-def key5(px, mask=None):
-    k = B.rgb5(px).astype(np.int16)
-    if mask is not None:
-        k[~mask] = CLEAR
-    return k.tobytes()
-
-def frlg_index(pair, pals):
-    """rgb5 content -> (FireRed tile, bank, flip) for every tile under every bank Saffron uses."""
-    opaque, masked = {}, {}
-    for t, ix in enumerate(pair.tiles):
-        for b in FRLG_BANKS:
-            p = np.array(pals[b], np.int32)
-            for f, v in enumerate(B.flips(ix)):
-                m = v != 0
-                masked.setdefault(key5(p[v], m), (t, b, f))
-                if m.all():
-                    opaque.setdefault(key5(p[v]), (t, b, f))
-    return opaque, masked
-
-def traversal(pair, g, art, station):
-    out = {}
+def walls(owner, family):
+    """Cells a Gen 3 building's wall fills: WALL_COVER or more of the cell drawn by one
+    building whose base row is this row or the next (a roof the player walks behind stands
+    further south). HGSS leaves some such cells open where its model is narrower. The cell in
+    front of a door entered northward (where a gate's steps are drawn) stays open."""
+    foot, cover = {}, {}
     for y in range(H):
         for x in range(W):
-            v = int(g[y, x]); mid = v & 0x3FF
-            beh, coll, elev = pair.behavior(mid), (v >> 10) & 3, (v >> 12) & 15
-            c = dict(x=x, y=y, frlg_behavior=beh, frlg_collision=coll)
-            if (x, y) in OPEN_DOORS:
-                c.update(behavior=MB['door'], collision=0, elevation=3, door=OPEN_DOORS[(x, y)])
-            elif station[y, x]:
-                c.update(behavior=MB['normal'], collision=1, elevation=0)
-                if (x, y) == C.STATION_DOOR:
-                    c['adaptation'] = 'Magnet Train station door: solid until the station interior is built'
-            elif beh in WARP_BEHAVIOURS:
-                c.update(behavior=MB['normal'], collision=1, elevation=elev,
-                         adaptation='door or gate warp: solid until its interior or route is built')
-            else:
-                c.update(behavior=beh, collision=coll, elevation=elev)
-            out[(x, y)] = c
+            sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+            o, f = owner[sl], family[sl]
+            for name in set(np.unique(o[~np.isin(f, GROUND_LEVEL)]).tolist()) - {''}:
+                m = o == name
+                foot[name] = max(foot.get(name, 0), y * 16 + int(np.nonzero(m.any(1))[0].max()))
+                cover[(x, y, name)] = m.mean()
+    out = {}
+    for (x, y, name), c in cover.items():
+        if c >= WALL_COVER and foot[name] // 16 - y <= 1:
+            out[(x, y)] = name.rstrip('_0123456789') if name[-1:].isdigit() else name
     return out
 
-def main(engine):
-    z = np.load(SRC / 'compose.npz')
-    g, art, station, bottom, top = z['edited'], z['art'], z['station_cells'], z['bottom'], z['top']
-    pair = frlg.Pair(engine, C.PRIMARY, C.SECONDARY)
-    pals = {b: [tuple(int(v) for v in c) for c in z['pals'][b]] for b in range(13)}
-    opaque_idx, masked_idx = frlg_index(pair, pals)
-    trav = traversal(pair, g, art, station)
-
-    # 1. FireRed metatiles kept as they are, and the tiles they use
-    used_tiles = set()
-    kept_meta = set(int(v) & 0x3FF for v in z['border'].ravel())
+def traversal(engine, cells, art, edge, shared_src, wall):
+    MB = B.behaviors(engine)
+    perm = np.load(SRC / 'hgss/hgss-permissions.npz')
+    types, coll = perm['types'], perm['collision']
+    body = np.zeros((H, W), bool)                             # the shared buildings' wall rows are solid
+    for src, (ox, oy), rows, cols in ((MART, MART_ORIGIN, 6, 7), (CENTER, CENTER_ORIGIN, 5, 5)):
+        for cy in range(oy + 1, oy + rows):
+            for cx in range(ox, ox + cols):
+                if (shared_src[cy * 16:cy * 16 + 16, cx * 16:cx * 16 + 16] == src).any():
+                    body[cy, cx] = True
+    out = []
     for y in range(H):
         for x in range(W):
-            if not art[y, x]:
-                kept_meta.add(int(g[y, x]) & 0x3FF)
-    for m in kept_meta:
-        used_tiles |= {e & 1023 for e in pair.meta[m]}
+            t, k = int(types[y, x]), int(coll[y, x])
+            cl = cells[y][x]
+            lab = cl['lab']
+            c = dict(x=x, y=y, hgss_type=t, hgss_collision=k, element=lab + cl['floor'][0])
+            if (x, y) in DOORS:
+                c.update(foot='door', behavior='MB_ANIMATED_DOOR', collision=0, elevation=3, door=DOORS[(x, y)])
+                if not t & 0x60 and DOORS[(x, y)] == 'lab':
+                    c['adaptation'] = "the lab wing's door (new: the wing stands on an apartment block's lot)"
+            elif (x, y) in SOLID_WARPS:
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                         adaptation=f'HGSS warp to {SOLID_WARPS[(x, y)]}: solid until its interior or route is built')
+            elif body[y, x]:
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3)
+                if not k & 0x80:
+                    c['adaptation'] = "open in HGSS; inside the shared building (wider than HGSS's)"
+            elif not k & 0x80 and (x, y) in wall and not ((x, y - 1) in DOORS or (x, y - 1) in SOLID_WARPS and (x, y - 1) not in SIDE_WARPS):
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                         adaptation=f"open in HGSS; the Gen 3 {wall[(x, y)]}'s wall fills it (wider than HGSS's model)")
+            elif k & 0x80 and lab in ('X', 'B') and cl['owner'] >= 0 and not art[y, x]:
+                c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
+                         adaptation="HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell")
+            elif k & 0x80 and lab in ('X', 'B') and cl['owner'] >= 0 and edge[y, x]:
+                c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
+                         adaptation="HGSS's taller building model blocks it; only the Gen 3 roof's top edge reaches this cell, and the player walks behind it")
+            elif k & 0x80:
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3)
+            else:
+                c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3)
+            c['behavior_id'] = MB[c['behavior']]
+            out.append(c)
+    return out
 
-    # 2. the art cells, per 8x8 tile
-    lay, jobs = {}, {}
-    for y in range(H):
-        for x in range(W):
-            if not art[y, x]:
+def street_colours(bottom, top, family, kept_sets):
+    """The ground and street furniture's colours, one bank whole: every tile layer that holds
+    nothing else (no building) and does not draw in a kept Cherrygrove bank. Seeded so a
+    tile with paving and a hydrant, say, finds both in one bank."""
+    out = set()
+    for ty in range(H * 2):
+        for tx in range(W * 2):
+            sl = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
+            if set(np.unique(family[sl]).tolist()) - {'', 'street'}:
                 continue
-            for q in range(4):
-                tx, ty = x * 2 + q % 2, y * 2 + q // 2
-                sl = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
-                tp = top[sl][..., 3] > 0
-                for layer, px, mask in ((0, bottom[sl], np.ones((8, 8), bool)), (1, top[sl][..., :3], tp)):
-                    if layer == 1 and not tp.any():
-                        lay[(tx, ty, 1)] = ('empty',)
-                        continue
-                    if layer == 0 and tp.all() and station[y, x]:
-                        lay[(tx, ty, 0)] = ('hidden',)
-                        continue
-                    k = key5(px, None if layer == 0 else mask)
-                    hit = (opaque_idx if layer == 0 else masked_idx).get(k)
-                    if hit:
-                        lay[(tx, ty, layer)] = ('frlg',) + hit
-                        used_tiles.add(hit[0])
-                        continue
-                    cols = {tuple(int(v) for v in c) for c in B.rgb5(px)[mask]}
-                    is_station = layer == 1 and station[y, x]
-                    fixed = STATION_BANK if is_station else next((b for b in FRLG_BANKS
-                                                                  if cols <= {tuple(v >> 3 for v in c) for c in pals[b][1:]}), None)
-                    jk = (k, layer, fixed)
-                    j = jobs.setdefault(jk, dict(px=B.rgb5(px).reshape(64, 3), mask=mask.ravel().astype(np.uint8), weight=0,
-                                                 bank=fixed, layer=layer, station=is_station))
-                    j['weight'] += 1
-                    lay[(tx, ty, layer)] = ('job', jk)
-    # station colours (its sprite's 15) fill bank 4; the rest of the new tiles fit banks 6, 7
-    sprite = np.array(Image.open(SRC / 'sprites/station.png').convert('RGBA'))
-    station_cols = sorted({tuple(int(v) >> 3 for v in c) for c in sprite[sprite[..., 3] > 0][:, :3].tolist()})
-    assert len(station_cols) <= 15, len(station_cols)
-    banks = {b: [tuple(v >> 3 for v in c) for c in pals[b][1:16]] for b in FRLG_BANKS}
-    banks[STATION_BANK] = station_cols + [station_cols[-1]] * (15 - len(station_cols))
-    free = [j for j in jobs.values() if j['bank'] is None]
-    lost = 0
-    if free:
-        packed, assign, lost = exact_banks(free, len(SPARE))
-        for j, a in zip(free, assign):
-            j['bank'] = SPARE[a] if a is not None else SPARE[0]
-        for b, cols in zip(SPARE, packed):
-            cols = cols or [(0, 0, 0)]
-            banks[b] = cols + [cols[-1]] * (15 - len(cols))
-    for b in SPARE:
-        banks.setdefault(b, [(0, 0, 0)] * 15)
-    # quantize the new tiles in their banks and share patterns across flips
+            a = top[sl][..., 3] > 0
+            for px in (bottom[sl].reshape(-1, 3), top[sl][a][:, :3]):
+                cols = {tuple(c) for c in B.rgb5(px).tolist()}
+                if cols and not any(cols <= k for k in kept_sets.values()):
+                    out |= cols
+    return out
+
+def tiles_by_owner(lay, jobs, owner):
+    """Tiles only one building (or the ground, or a tile where two meet) draws, by kind."""
+    users = {}
+    for (tx, ty, layer), L in lay.items():
+        if L['entry'][0] != 'job':
+            continue
+        o = owner[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
+        names = {n.rstrip('_0123456789') if n[-1:].isdigit() else n for n in np.unique(o).tolist() if n}
+        kind = 'ground' if not names else names.pop() if len(names) == 1 else 'two meet'
+        users.setdefault(jobs[L['entry'][1]]['pattern'], set()).add(kind)
+    out = {}
+    for kinds in users.values():
+        k = kinds.pop() if len(kinds) == 1 else 'shared'
+        out[k] = out.get(k, 0) + 1
+    return dict(sorted(out.items(), key=lambda kv: -kv[1]))
+
+def main(engine):
+    comp = np.load(SRC / 'compose.npz', allow_pickle=True)
+    bottom, top, shared, shared_src, owner, family = (comp[k] for k in ('bottom', 'top', 'shared', 'shared_src', 'owner', 'family'))
+    cells = json.loads((SRC / 'ledger.json').read_text())['detail']
+    tiles, pals, metas, attrs = OP.cherrygrove(engine)
+    opaque_idx, masked_idx = OP.primary_index(tiles, pals, KEPT_BANKS)
+    OP.H, OP.W = H, W
+    trav = traversal(engine, cells, *OP.object_art(top, shared, owner), shared_src, walls(owner, family))
+    walkable = np.array([[trav[y * W + x]['foot'] in ('open', 'door') for x in range(W)] for y in range(H)])
+    OP.FLAT = FLAT
+    above = OP.above_player(walkable, top, shared, owner)
+
+    lay = {}
+    for ty in range(H * 2):
+        for tx in range(W * 2):
+            sl = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
+            sh = shared[sl][..., 3] > 0
+            src = set(shared_src[sl][sh].ravel().tolist())
+            fixed = {frozenset({MART}): 'mart', frozenset({CENTER}): 'center'}.get(frozenset(src))
+            assert len(src) < 2, ('Center and Mart share a tile', tx, ty)
+            tp = top[sl][..., 3] > 0
+            if sh.all() and not above[ty // 2, tx // 2]:
+                lay[(tx, ty, 0)] = dict(px=shared[sl][..., :3], mask=np.ones((8, 8), bool), fixed=fixed)
+                continue
+            hidden = tp.all() and not sh.any()
+            lay[(tx, ty, 0)] = dict(px=None if hidden else bottom[sl], mask=np.ones((8, 8), bool), fixed=None, hidden=hidden)
+            if sh.any():
+                assert not tp.any(), ('shared building over top-layer art', tx, ty)
+                lay[(tx, ty, 1)] = dict(px=shared[sl][..., :3], mask=sh, fixed=fixed)
+            elif tp.any():
+                lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=tp, fixed=None)
+
+    kept_sets = {b: {tuple(v >> 3 for v in c) for c in pals[b][1:]} for b in KEPT_BANKS}
+    jobs, used = {}, set()
+    stats = dict(cherrygrove=0, kept_bank=0, center=0, mart=0, learned=0, hidden=0)
+    for pos, L in lay.items():
+        layer = pos[2]
+        if L.get('hidden'):
+            L['entry'] = ('hidden',); stats['hidden'] += 1
+            continue
+        k = OP.key5(L['px'], None if layer == 0 else L['mask'])
+        hit = (opaque_idx if layer == 0 else masked_idx).get(k)
+        if hit and L['fixed'] is None:
+            L['entry'] = ('cherry',) + hit; used.add(hit[0]); stats['cherrygrove'] += 1
+            continue
+        cols = {tuple(int(v) for v in c) for c in B.rgb5(L['px'])[L['mask']]}
+        bank = None if L['fixed'] else next((b for b in KEPT_BANKS if cols <= kept_sets[b]), None)
+        jk = (k, layer, bank, L['fixed'])
+        j = jobs.setdefault(jk, dict(px=B.rgb5(L['px']).reshape(64, 3), mask=L['mask'].ravel().astype(np.uint8), weight=0,
+                                     bank=bank, layer=layer, fixed=L['fixed']))
+        j['weight'] += 1
+        L['entry'] = ('job', jk)
+    banks = {b: [tuple(v >> 3 for v in c) for c in pals[b][1:16]] for b in KEPT_BANKS}
+    center = [j for j in jobs.values() if j['fixed'] == 'center']
+    mart = [j for j in jobs.values() if j['fixed'] == 'mart']
+    town = [j for j in jobs.values() if j['bank'] is None and not j['fixed']]
+    stats.update(kept_bank=len(jobs) - len(center) - len(mart) - len(town), center=len(center), mart=len(mart), learned=len(town))
+    init = {b: set() for b in LEARNED}
+    cpals, cassign, cerr, _ = OP.exact_banks(center, 2)
+    assert cerr == 0, ('C06 does not split exactly over two banks', cerr)
+    cbanks = [LEARNED[-2], LEARNED[-1]]
+    for j, a in zip(center, cassign):
+        j['bank'] = cbanks[a]
+        init[j['bank']] |= {tuple(int(v) for v in c) for c in j['px'][j['mask'] > 0]}
+    mart_pal = [tuple(v >> 3 for v in c) for c in OP.read_pal(olivine.DIR.parent.parent.parent.parent /
+                                                               'gba/art/olivine-elements/source/shared-art/poke-mart.pal')[1:]]
+    mbank = LEARNED[-3]
+    init[mbank] = set(mart_pal)
+    for j in mart:
+        assert {tuple(int(v) for v in c) for c in j['px'][j['mask'] > 0]} <= init[mbank], 'Mart colour outside its palette'
+        j['bank'] = mbank
+    free = [b for b in LEARNED if not init[b]]
+    for names, b in zip(BANK_GROUPS, free):
+        m = (top[..., 3] > 0) & np.isin(family, names)
+        init[b] = {tuple(c) for c in B.rgb5(top[m][:, :3]).tolist()}
+        assert len(init[b]) <= 15, ('palette group over one bank', names, len(init[b]))
+    b = free[len(BANK_GROUPS)]
+    init[b] = street_colours(bottom, top, family, kept_sets)
+    assert len(init[b]) <= 15, ('the street over one bank', len(init[b]))
+    pals_l, assign, err, unplaced = OP.exact_banks(town, len(LEARNED), init=[init[b] for b in LEARNED])
+    for j, a in zip(town, assign):
+        j['bank'] = LEARNED[a]
+    for b, p in zip(LEARNED, pals_l):
+        banks[b] = [tuple(int(v) for v in c) for c in p]
+    for j in center + mart:
+        assert {tuple(int(v) for v in c) for c in j['px'][j['mask'] > 0]} <= set(banks[j['bank']]), 'shared building colour lost'
+
     patterns = {}
     for j in jobs.values():
         pal = np.array(banks[j['bank']], float)
@@ -196,119 +266,128 @@ def main(engine):
         vs = B.flips(ix.reshape(8, 8))
         o = min(range(4), key=lambda i: vs[i].tobytes())
         kk = vs[o].tobytes()
-        patterns.setdefault(kk, len(patterns))
+        if kk not in patterns:
+            patterns[kk] = len(patterns)
         j['pattern'], j['flip'] = patterns[kk], o
-
-    # 3. tile slots: tile 0 blank, FireRed's kept tiles (its tile 0x14 at slot 0x14: the
-    # engine fills BG3 under normal-layer metatiles with that slot, frlg.under), then the
-    # new patterns
-    assert not pair.tiles[0].any(), 'FireRed tile 0 is not blank'
-    rest = sorted(used_tiles - {0, frlg.FILL_TILE})
-    order = [0] + rest[:frlg.FILL_TILE - 1] + [frlg.FILL_TILE] + rest[frlg.FILL_TILE - 1:]
-    assert order[frlg.FILL_TILE] == frlg.FILL_TILE
-    slot_of = {t: i for i, t in enumerate(order)}
-    new_slot = {p: len(order) + i for i, p in enumerate(sorted(patterns.values()))}
-    total = len(order) + len(patterns)
-    assert total <= PRIMARY_TILES + SECONDARY_TILES, ('tiles over budget', total)
-    all_tiles = [pair.tiles[t] for t in order] + [np.frombuffer(kk, np.uint8).reshape(8, 8)
-                                                  for kk, _ in sorted(patterns.items(), key=lambda kv: kv[1])]
-    prim_tiles = all_tiles[:PRIMARY_TILES] + [np.zeros((8, 8), np.uint8)] * max(0, PRIMARY_TILES - len(all_tiles))
-    sec_tiles = all_tiles[PRIMARY_TILES:]
-
-    def remap(e):
-        return slot_of[e & 1023] | (e & 0xFC00)
+    keep = {0} | used
+    free_slots = [t for t in range(512) if t not in keep]
+    order = sorted(patterns.items(), key=lambda kv: kv[1])
+    slot = {}
+    for n, (kk, i) in enumerate(order):
+        slot[i] = free_slots[n] if n < len(free_slots) else 512 + n - len(free_slots)
+    n_sec = max(0, len(order) - len(free_slots))
+    report_budget = dict(saffron_tiles=len(order), primary_slots_free=len(free_slots), secondary_tiles=n_sec,
+                         tiles_by_owner=tiles_by_owner(lay, jobs, owner))
+    assert n_sec <= SECONDARY_TILES, ('tiles over budget', report_budget)
+    prim_tiles = [tiles[t] if t in keep else np.zeros((8, 8), np.uint8) for t in range(512)]
+    sec_tiles = [np.zeros((8, 8), np.uint8) for _ in range(n_sec)]
+    for kk, i in order:
+        ix = np.frombuffer(kk, np.uint8).reshape(8, 8)
+        if slot[i] < 512:
+            prim_tiles[slot[i]] = ix
+        else:
+            sec_tiles[slot[i] - 512] = ix
+    filler = (sorted(used)[0], 0, 0)
 
     def entry(L):
-        if L[0] in ('empty', 'hidden'):
+        if L is None:
             return 0
-        if L[0] == 'frlg':
-            t, b, f = L[1:]
-            return slot_of[t] | ((f & 1) << 10) | ((f >> 1) << 11) | (b << 12)
-        j = jobs[L[1]]
-        return new_slot[j['pattern']] | ((j['flip'] & 1) << 10) | ((j['flip'] >> 1) << 11) | (j['bank'] << 12)
+        e = L['entry']
+        if e[0] == 'cherry':
+            t, b, f = e[1:]
+        elif e[0] == 'hidden':
+            t, b, f = filler
+        else:
+            j = jobs[e[1]]; t, b, f = slot[j['pattern']], j['bank'], j['flip']
+        return t | ((f & 1) << 10) | ((f >> 1) << 11) | (b << 12)
 
-    # 4. metatiles: each cell's (entries, attribute), shared where equal. FireRed's kept
-    # metatiles fill the primary (ids 0-511); the art cells' (the station, the plate) are
-    # the secondary's, from id 512.
-    keys = {}
+    ok_meta = {}
+    for i in range(len(metas)):
+        es = [int(v) for v in metas[i]]
+        if all((e & 1023) in keep and (e >> 12) in KEPT_BANKS for e in es):
+            ok_meta[(tuple(es), int(attrs[i]))] = i
+    free_prim_ids = [i for i in range(512) if i not in set(ok_meta.values())]
+    new_meta, grid = {}, np.zeros((H, W), np.uint16)
     for y in range(H):
         for x in range(W):
-            c = trav[(x, y)]
-            v = int(g[y, x])
-            if art[y, x]:
-                q = [(2 * x, 2 * y), (2 * x + 1, 2 * y), (2 * x, 2 * y + 1), (2 * x + 1, 2 * y + 1)]
-                ents = [entry(lay[(a, b, 0)]) for a, b in q] + [entry(lay[(a, b, 1)]) for a, b in q]
-                layer = COVERED if station[y, x] else pair.layer_type(v & 0x3FF)   # the plate keeps FireRed's
-            else:
-                m = v & 0x3FF
-                ents = [remap(e) for e in pair.meta[m]]
-                layer = pair.layer_type(m)
-            c['layer'] = 'covered' if layer == COVERED else 'normal'
-            keys[(x, y)] = (tuple(ents), c['behavior'] | (layer << 12))
-    border_keys = [(tuple(remap(e) for e in pair.meta[int(v) & 0x3FF]),
-                    pair.behavior(int(v) & 0x3FF) | (pair.layer_type(int(v) & 0x3FF) << 12)) for v in z['border'].ravel()]
-    cells = [(x, y) for y in range(H) for x in range(W)]
-    prim_keys = list(dict.fromkeys([keys[p] for p in cells if not art[p[1], p[0]]] + border_keys))
-    sec_keys = [k for k in dict.fromkeys(keys[p] for p in cells if art[p[1], p[0]]) if k not in set(prim_keys)]
-    assert len(prim_keys) <= 512 and len(sec_keys) <= 512, (len(prim_keys), len(sec_keys))
-    metas = {k: i for i, k in enumerate(prim_keys)}
-    metas.update({k: 512 + i for i, k in enumerate(sec_keys)})
-    grid = np.zeros((H, W), np.uint16)
-    for x, y in cells:
-        c = trav[(x, y)]
-        grid[y, x] = metas[keys[(x, y)]] | (c['collision'] << 10) | (c['elevation'] << 12)
-    border = np.array([metas[k] for k in border_keys], np.uint16)
-    prim_meta = prim_keys + [((0,) * 8, 0)] * (512 - len(prim_keys))
-    sec_meta = sec_keys
-
-    # 5. palettes and the decode
-    pal_rgb = np.zeros((16, 16, 3), np.uint8)
-    for b in range(13):
-        if b in FRLG_BANKS:
-            pal_rgb[b] = np.array(pals[b], np.uint8)
+            q = [(2 * x, 2 * y), (2 * x + 1, 2 * y), (2 * x, 2 * y + 1), (2 * x + 1, 2 * y + 1)]
+            bot = [entry(lay[(a, b, 0)]) for a, b in q]
+            tp = [entry(lay.get((a, b, 1))) for a, b in q]
+            c = trav[y * W + x]
+            layer = NORMAL if above[y, x] else COVERED
+            c['layer'] = 'normal' if layer == NORMAL else 'covered'
+            k = (tuple(bot + tp), c['behavior_id'] | (layer << 12))
+            if k in ok_meta:
+                grid[y, x] = ok_meta[k]
+                continue
+            if k not in new_meta:
+                n = len(new_meta)
+                new_meta[k] = 512 + n if n < 512 else free_prim_ids[n - 512]
+            grid[y, x] = new_meta[k]
+    assert len(new_meta) <= 512 + len(free_prim_ids), ('metatiles over budget', len(new_meta))
+    prim_meta = [(tuple(int(v) for v in metas[i]), int(attrs[i])) if i in set(ok_meta.values()) else ((0,) * 8, 0)
+                 for i in range(512)]
+    sec_meta = []
+    for k, i in sorted(new_meta.items(), key=lambda kv: kv[1]):
+        if i < 512:
+            prim_meta[i] = k
         else:
-            pal_rgb[b, 1:] = [[(v << 3) | (v >> 2) for v in c] for c in banks[b][:15]]
-    tile_at = lambda t: prim_tiles[t] if t < PRIMARY_TILES else sec_tiles[t - PRIMARY_TILES]
-    allmeta = {i: k for k, i in metas.items()}
+            sec_meta.append(k)
+
+    pal_rgb = np.zeros((16, 16, 3), np.uint8)
+    for b in KEPT_BANKS:
+        pal_rgb[b] = np.array(pals[b], np.uint8)
+    for b in LEARNED:
+        for i, c in enumerate(banks[b][:15]):
+            pal_rgb[b, i + 1] = [(v << 3) | (v >> 2) for v in c]
+
+    allmeta = {i: prim_meta[i] for i in range(512)}
+    for n, k in enumerate(sec_meta):
+        allmeta[512 + n] = k
+    tile_at = lambda t: prim_tiles[t] if t < 512 else sec_tiles[t - 512]
     native = np.zeros((H * 16, W * 16, 3), np.uint8)
     for y in range(H):
         for x in range(W):
-            ents, attr = allmeta[int(grid[y, x]) & 0x3FF]
-            fill = frlg.under(tile_at(frlg.FILL_TILE), attr >> 12, pal_rgb)
+            ents, _ = allmeta[int(grid[y, x])]
             for li, e in enumerate(ents):
                 ix = tile_at(e & 1023)
                 if e & 0x400: ix = ix[:, ::-1]
                 if e & 0x800: ix = ix[::-1]
                 qi = li % 4
                 oy, ox = y * 16 + (qi // 2) * 8, x * 16 + (qi % 2) * 8
-                if li < 4:
-                    native[oy:oy + 8, ox:ox + 8] = np.where((ix == 0)[..., None], fill, pal_rgb[e >> 12][ix])
-                else:
-                    m = ix > 0
-                    native[oy:oy + 8, ox:ox + 8][m] = pal_rgb[e >> 12][ix[m]]
-    want = frlg.flat(bottom, top)
+                m = ix > 0 if li >= 4 else np.ones((8, 8), bool)
+                native[oy:oy + 8, ox:ox + 8][m] = pal_rgb[e >> 12][ix[m]]
+    want = bottom.copy()
+    a = top[..., 3] > 0; want[a] = top[..., :3][a]
+    a = shared[..., 3] > 0; want[a] = shared[..., :3][a]
     d5 = np.abs(B.rgb5(native) - B.rgb5(want)).max(-1)
-    hidden = np.zeros((H * 16, W * 16), bool)
+    hidden = np.zeros(d5.shape, bool)
     for (tx, ty, l), L in lay.items():
-        if L[0] == 'hidden':
+        if L.get('hidden'):
             hidden[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8] = True
+    shared_exact = bool((d5[shared[..., 3] > 0] == 0).all())
+    assert shared_exact, 'shared building pixels changed'
     EV.mkdir(parents=True, exist_ok=True)
     Image.fromarray(native).save(EV / 'native.png')
-    np.savez_compressed(SRC / 'pack.npz', grid=grid, border=border, prim_tiles=np.array(prim_tiles, np.uint8),
+    np.savez_compressed(SRC / 'pack.npz', grid=grid, prim_tiles=np.array(prim_tiles, np.uint8),
                         sec_tiles=np.array(sec_tiles, np.uint8).reshape(-1, 8, 8), palettes=pal_rgb,
                         prim_meta=np.array([list(k[0]) + [k[1]] for k in prim_meta], np.uint16),
-                        sec_meta=np.array([list(k[0]) + [k[1]] for k in sec_meta], np.uint16).reshape(-1, 9))
-    (SRC / 'traversal.json').write_text(json.dumps([trav[(x, y)] for y in range(H) for x in range(W)]) + '\n')
-    report = dict(frlg_tiles_kept=len(order), new_tiles=len(patterns), primary_tiles=min(PRIMARY_TILES, total),
-                  secondary_tiles=max(0, total - PRIMARY_TILES), secondary_tile_limit=SECONDARY_TILES,
-                  metatiles=len(metas), metatiles_in_primary=len(prim_keys), metatiles_in_secondary=len(sec_meta),
-                  frlg_metatiles_kept=len(kept_meta),
-                  art_cells=int(art.sum()), unplaced_tile_uses=int(lost),
-                  colour_rgb5=dict(exact=int((d5[~hidden] == 0).sum()), total=int((~hidden).sum()), worst=int(d5[~hidden].max())),
-                  banks=dict(frlg=FRLG_BANKS, station=STATION_BANK, spare=SPARE),
-                  adaptations={f"{c['x']},{c['y']}": c['adaptation'] for c in trav.values() if 'adaptation' in c})
+                        sec_meta=np.array([list(k[0]) + [k[1]] for k in sec_meta], np.uint16).reshape(-1, 9),
+                        collision=np.array([[trav[y * W + x]['collision'] for x in range(W)] for y in range(H)], np.uint8),
+                        elevation=np.array([[trav[y * W + x]['elevation'] for x in range(W)] for y in range(H)], np.uint8))
+    (SRC / 'traversal.json').write_text(json.dumps(trav) + '\n')
+    bad = (d5 > 0) & ~hidden
+    report = dict(report_budget, secondary_tile_limit=SECONDARY_TILES, cherrygrove_tiles_kept=len(keep),
+                  new_metatiles=len(new_meta), metatiles_in_secondary=len(sec_meta),
+                  metatiles_in_primary=len(new_meta) - len(sec_meta), cherrygrove_metatiles_kept=len(ok_meta),
+                  tile_positions=stats, learned_bank_error=err, unplaced_tile_kinds=len(unplaced),
+                  colour_rgb5=dict(exact=int((d5[~hidden] == 0).sum()), within_1=int((d5[~hidden] <= 1).sum()),
+                                   total=int((~hidden).sum()), worst=int(d5[~hidden].max())),
+                  inexact_cells=sorted({(int(x) // 16, int(y) // 16) for y, x in zip(*np.nonzero(bad))})[:60],
+                  shared_building_pixels_exact=shared_exact,
+                  adaptations={f"{c['x']},{c['y']}": c['adaptation'] for c in trav if 'adaptation' in c})
     (EV / 'pack.json').write_text(json.dumps(report, indent=2) + '\n')
-    print(json.dumps({k: v for k, v in report.items() if k != 'adaptations'}), len(report['adaptations']), 'adapted cells')
+    print(json.dumps({k: v for k, v in report.items() if k not in ('adaptations',)}), len(report['adaptations']), 'adapted cells')
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve())

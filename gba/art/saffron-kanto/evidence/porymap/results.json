@@ -1,20 +1,42 @@
 {
   "porymap": "Launching Porymap v6.3.1 (26b919d)",
-  "engine_commit": "3ef532ebd9d84f8989469e00d156378f4f15c19f",
+  "engine_commit": "6f3b8599ecec1cb134eb06b964d42746949311bf",
   "city_export_vs_native": {
     "size": [
-      1056,
-      880
+      1024,
+      1024
     ],
     "differing_pixels": 0
+  },
+  "interior_exports_vs_native": {
+    "KantoSaffronDojo": {
+      "size": [
+        368,
+        256
+      ],
+      "differing_pixels": 0
+    },
+    "KantoSaffronSilphLab": {
+      "size": [
+        240,
+        176
+      ],
+      "differing_pixels": 0
+    }
   },
   "saffron_files_rewritten": [
     "data/layouts/KantoSaffronCity/border.bin",
     "data/layouts/KantoSaffronCity/map.bin",
+    "data/layouts/KantoSaffronDojo/border.bin",
+    "data/layouts/KantoSaffronDojo/map.bin",
+    "data/layouts/KantoSaffronSilphLab/border.bin",
+    "data/layouts/KantoSaffronSilphLab/map.bin",
     "data/maps/KantoSaffronCenterUpstairs/map.json",
     "data/maps/KantoSaffronCity/map.json",
+    "data/maps/KantoSaffronDojo/map.json",
     "data/maps/KantoSaffronMart/map.json",
     "data/maps/KantoSaffronPokemonCenter/map.json",
+    "data/maps/KantoSaffronSilphLab/map.json",
     "data/tilesets/primary/kanto_saffron/metatile_attributes.bin",
     "data/tilesets/primary/kanto_saffron/metatiles.bin",
     "data/tilesets/primary/kanto_saffron/palettes/00.pal",

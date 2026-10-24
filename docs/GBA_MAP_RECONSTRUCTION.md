@@ -409,25 +409,37 @@ tools are marked as Blackthorn's.
   and keep the tower's own two sides. A barrel roof's stripes curve, so making each row
   repeat wipes them out; mirror about the door instead.
 
-### Kanto towns from FireRed
+### Kanto towns
 
-Saffron (2026-10-24, `gba/art/saffron-kanto/README.md`) edits FireRed's own map rather
-than converting HGSS. Traps hit there:
+Saffron (`gba/art/saffron-kanto/README.md`) first edited FireRed's map, then (owner,
+2026-10-24) moved to HGSS's plan, converted as Olivine is, with FireRed's rooms for its new
+interiors. Traps hit there:
 
-- A decoder that draws a bottom-layer pixel of colour 0 in its tile's bank colour 0 is
-  wrong. On hardware a normal-layer metatile's bottom sits on BG2 over BG3, which
-  `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); a covered or split one sits on
-  BG3 over the backdrop (bank 0's colour 0). Repacking moved FireRed's tile 0x14, and the
-  headless check caught 1-2 wrong pixels at FireRed's roof corners. Keep tile 0x14 at its
-  slot and decode with `frlg.under`; Porymap draws it the same way.
-- Art cells take FireRed's layer type, not one from their collision: the Gym plate's lower
-  cell (44, 12) is walkable and covered in FireRed.
-- FireRed's "GYM" plate straddles two cell rows (11 and 12); paint inside the plate's own
-  pixel box, or the door's red trim beside it goes too.
-- A secondary with no metatiles breaks the build and Porymap. Put the new art's metatiles
-  in the secondary (ids from 512) and FireRed's kept ones in the primary.
-- FireRed's gates have route-side doors at the map's edges, reachable only from the routes;
-  check them apart from the city's doors.
+- Saffron is denser than any Johto town: its first pack needed 1,117 tiles for 962 slots.
+  What fit it, in order of yield: Silph at 16 px per model unit (its one-unit window bays
+  fall on the 8 px grid; 17.6 px per unit put every column at a new phase), mirroring each
+  Dojo porch, the station's hall and its annex and the east gate on an 8 px axis (a tile's
+  middle works too), and anchoring renders that share parts (Silph and its lab) so their
+  floors fall on the same pixel rows (`modelkit.render(anchor=...)`). Stronger near-duplicate
+  folding (`REUSE` 12 to 20) saved under ten.
+- Count tiles by owner before cutting (`pack.tiles_by_owner`): the guess that tiles where
+  two objects meet were the cost was wrong; leaving railings out behind roofs saved one.
+- A palette bank that is full everywhere leaves a mixed tile inexact (a hydrant's cap in
+  the paving beside an apartment's base). Seed the street's colours as one bank
+  (`pack.street_colours`) and keep sprites from another group off each other's edge tiles.
+- A Gen 3 sprite wider than HGSS's model fills cells HGSS leaves open (the east gate's
+  corner): make them solid (`pack.walls`), but not the cell in front of a door entered
+  northward, where a gate draws its steps.
+- A tree HGSS stands in front of a building can sit on the Gen 3 sprite's plinth; leave it
+  out (`terrain.clear_fronts`).
+- In the shared Center and Mart's family map, an overwrite by list position swapped the
+  two (`terrain.SHARED_FAMILY` now names each); a swapped Mart fails the exact-palette check.
+- FireRed rooms: a decoder that draws a bottom-layer pixel of colour 0 in its tile's bank
+  colour 0 is wrong. On hardware a normal-layer metatile's bottom sits on BG2 over BG3,
+  which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
+  Packing a room from its pixels with every bottom pixel opaque sidesteps it.
+- FireRed's metatile behaviours carry Emerald's numbering, not FireRed's meaning: 103 on
+  Sabrina's pads is `MB_AQUA_HIDEOUT_WARP`, 131 on a lab machine `MB_PC`.
 
 ## Worked example
 
