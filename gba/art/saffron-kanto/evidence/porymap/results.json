@@ -1,28 +1,12 @@
 {
   "porymap": "Launching Porymap v6.3.1 (26b919d)",
-  "engine_commit": "6f3b8599ecec1cb134eb06b964d42746949311bf",
+  "engine_commit": "e0fc91c8a59a44a22eafccfc8737740d0afd84d8",
   "city_export_vs_native": {
     "size": [
-      1024,
-      1024
+      1056,
+      880
     ],
     "differing_pixels": 0
-  },
-  "interior_exports_vs_native": {
-    "KantoSaffronDojo": {
-      "size": [
-        368,
-        256
-      ],
-      "differing_pixels": 0
-    },
-    "KantoSaffronSilphLab": {
-      "size": [
-        240,
-        176
-      ],
-      "differing_pixels": 0
-    }
   },
   "saffron_files_rewritten": [
     "data/layouts/KantoSaffronCity/border.bin",

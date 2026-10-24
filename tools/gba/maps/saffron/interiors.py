@@ -4,14 +4,14 @@
 
     dojo   the Saffron Dojo's one hall (the owner's brief, 2026-10-24: the Fighting and
            Psychic Dojos "each with an individual entrance but a shared interior"):
-           FireRed's Fighting Dojo (SaffronCity_Dojo) is its west half, wood floor, tatami,
-           scrolls and statues; Sabrina's Gym (SaffronCity_Gym's rooms) its east half,
-           lilac wall, blue floor, the pink rug under the wall and the statues by the door.
-           One room, open between the two (a white column where the walls meet), an
-           exit mat under each half: the west mat back to the Fighting door (41, 12), the
-           east mat to the Psychic door (48, 12).
+           FireRed's Fighting Dojo (SaffronCity_Dojo) built out to twice its width, one
+           wall, one tatami arena for both schools; the west end FireRed's floor and
+           statues, the east end Sabrina's Gym statues and pink diamond rug laid on the
+           Dojo's wood (overlays: the Gym's own pixels without its floor). An exit mat at
+           each end: the west mat back to the Fighting door (40, 12), the east mat to the
+           Psychic door (45, 12).
     lab    Silph's research lab, open and empty (the owner's call): FireRed's Cinnabar Lab
-           experiment room, its exit mat back to the wing's door (37-38, 41).
+           experiment room, its exit mat back to the lab's door (42, 30).
 
 Each room is drawn cell by cell from FireRed's metatiles (frlg.Pair), so every cell looks
 as FireRed draws it, then packed from its pixels into a secondary of its own on Emerald's
@@ -23,7 +23,7 @@ pixels are all opaque, so the primary's BG3 fill never shows.
 Behaviour: the exit mats keep MB_SOUTH_ARROW_WARP; every other cell is MB_NORMAL (FireRed's
 statue signposts, the Gym's teleport pads and the lab's machines need scripts or warps the
 rooms do not have yet; their numbers mean other things in Emerald). Collision and elevation
-are FireRed's, cell by cell.
+are FireRed's, cell by cell; the cells the Gym's statues stand on are solid.
 
 Writes gba/art/saffron-kanto/source/interiors/{dojo,lab}.npz, events.json and
 evidence/interiors/{dojo,lab}.png.
@@ -36,10 +36,9 @@ from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import olivine                                  # noqa: E402
 import frlg                                     # noqa: E402
-OP = olivine.mod('pack')
-B = olivine.mod('build')
+import pack as P                                # noqa: E402  (the city's exact bank fit)
+B = P.B
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/saffron-kanto'
@@ -66,47 +65,63 @@ def cell(src, k, x, y):
     return (k, v & 0x3FF, (v >> 10) & 3, v >> 12)
 
 def dojo(src):
-    """The hall, 23x16. Columns 0-11 are FireRed's Fighting Dojo as it is (its west black
-    edge, then its hall); column 12 one of the Gym wall's white columns where the two walls
-    meet, the Gym's blue floor below; 13-21 the Gym's room (its columns 10-18): the wall's two rows and the shadowed
-    floor under them, the pink rug under the wall where Sabrina stood, blue floor, the
-    teleport pads along the east wall (drawn, not warps), the two statues and the exit mat
-    from its entrance room; column 22 the black east edge."""
-    W, H = 23, 16
-    g = [[None] * W for _ in range(H)]
-    for y in range(H):
-        for x in range(12):
-            g[y][x] = cell(src, 'D', x, y)
-        g[y][22] = cell(src, 'D', 12, y)
-    black, floor = cell(src, 'D', 12, 0), cell(src, 'G', 12, 13)
-    for x in range(12, 22):
-        g[0][x] = black
-        g[15][x] = black
-        for y in range(4, 15):
-            g[y][x] = floor
-    g[1][12], g[2][12], g[3][12] = cell(src, 'G', 11, 16), cell(src, 'G', 11, 17), cell(src, 'G', 11, 18)
-    for gx in range(10, 19):
-        for gy, hy in ((16, 1), (17, 2), (18, 3)):
-            g[hy][gx + 3] = cell(src, 'G', gx, gy)
-    for gx in range(12, 17):                    # the rug, its top row in the wall's shadow
-        for gy, hy in ((10, 3), (11, 4), (12, 5)):
-            g[hy][gx + 3] = cell(src, 'G', gx, gy)
-    for hy in (6, 10):                          # the pads on the east wall
-        g[hy][21] = cell(src, 'G', 18, 20)
-    for gx in (12, 16):                         # the statues
-        g[12][gx + 3], g[13][gx + 3] = cell(src, 'G', gx, 19), cell(src, 'G', gx, 20)
-    for gx in range(13, 16):                    # the exit mat and the door frame under it
-        g[14][gx + 3], g[15][gx + 3] = cell(src, 'G', gx, 23), cell(src, 'G', gx, 24)
-    return g
+    """The hall, 25x16: one Dojo, FireRed's Fighting Dojo (SaffronCity_Dojo) built out to
+    twice its width. One wall runs the length of it, its pillars every four cells (FireRed's
+    two, then three more), its window and scroll bays repeated; one tatami arena, FireRed's
+    mat drawn seventeen cells long between the second and sixth pillars, shared by both
+    schools. The west end is FireRed's Dojo floor as it is, its two statues and its exit mat
+    (back to the Fighting door); the east end repeats it with Sabrina's Gym in it: the Gym's
+    two Pokemon statues on the Dojo's wood (overlays), its pink diamond rug laid on the
+    arena's east half, and the second exit mat (back to the Psychic door)."""
+    W, H = 25, 16
+    D = lambda x, y: cell(src, 'D', x, y)
+    black = D(0, 0)
+    g = [[black] * W for _ in range(H)]
+    wall = [None, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 4, 9, 10, 11, 4, 5, 6, 7, 8, 9, 10, 11]
+    for x in range(1, W - 1):
+        sx = wall[x]
+        for y in range(1, 7):
+            g[y][x] = D(sx, y)
+        mat = 4 if x == 4 else 8 if x == 20 else 6 if 4 < x < 20 else (wall[x] if x < 4 else 9 + (x - 21))
+        for y in range(7, 12):
+            g[y][x] = D(mat, y)
+        low = x if x < 12 else 2 if x == 12 else max(2, x - 12)
+        for y in range(12, 15):
+            g[y][x] = D(low, y)
+    for x0 in (5, 17):                          # the exit mats' door frames
+        for i in range(3):
+            g[15][x0 + i] = D(5 + i, 15)
+    for x in (15, 21):                          # the east statues: plain floor under the Gym's
+        for y in (12, 13, 14):
+            g[y][x] = D(2, y)
+        g[14][x + 1] = D(2, 14)
+    overlays = [dict(src='G', cells=(12, 10, 17, 12), floor=[(12, 13, 17, 15), (10, 10, 11, 11), (17, 10, 18, 11)], at=(14 * 16, 8 * 16 + 8)),
+                dict(src='G', cells=(12, 19, 13, 21), floor=[(12, 13, 17, 15), (13, 19, 14, 21)], at=(15 * 16, 12 * 16)),
+                dict(src='G', cells=(12, 19, 13, 21), floor=[(12, 13, 17, 15), (13, 19, 14, 21)], at=(21 * 16, 12 * 16))]
+    return dict(cells=g, overlays=overlays, blocked=[(15, 12), (15, 13), (21, 12), (21, 13)])
 
 def lab(src):
     """FireRed's experiment room as it is, 15x11."""
     h, w = src['L'][1].shape
-    return [[cell(src, 'L', x, y) for x in range(w)] for y in range(h)]
+    return dict(cells=[[cell(src, 'L', x, y) for x in range(w)] for y in range(h)], overlays=[], blocked=[])
 
 ROOMS = dict(dojo=dojo, lab=lab)
-EXITS = dict(dojo=[((6, 14), 'MAP_KANTO_SAFFRON_CITY', 'dojo_fighting'), ((17, 14), 'MAP_KANTO_SAFFRON_CITY', 'dojo_psychic')],
+EXITS = dict(dojo=[((6, 14), 'MAP_KANTO_SAFFRON_CITY', 'dojo_fighting'), ((18, 14), 'MAP_KANTO_SAFFRON_CITY', 'dojo_psychic')],
              lab=[((7, 9), 'MAP_KANTO_SAFFRON_CITY', 'lab')])
+
+def piece(src, k, x0, y0, x1, y1):
+    """FireRed's picture of a block of a source's cells (x1, y1 exclusive), both layers flat."""
+    pair, grid = src[k]
+    b, t = frlg.render(pair, grid[y0:y1, x0:x1])
+    return frlg.flat(b, t)
+
+def overlay(src, bot, o):
+    """Paste a source block's own pixels (those not in its floor's colours) onto a room."""
+    px = piece(src, o['src'], *o['cells'])
+    floor = {tuple(c) for r in o['floor'] for c in piece(src, o['src'], *r).reshape(-1, 3).tolist()}
+    keep = ~np.array([[tuple(c) in floor for c in row] for row in px.tolist()])
+    X, Y = o['at']
+    bot[Y:Y + px.shape[0], X:X + px.shape[1]][keep] = px[keep]
 
 # --------------------------------------------------------------------------- pixels
 def draw(src, room):
@@ -138,13 +153,15 @@ def pack(bot, top, info, behaviors):
                 if layer == 1 and not mask.any():
                     lay[(tx, ty, 1)] = None
                     continue
-                k = (OP.key5(px, None if layer == 0 else mask), layer)
+                k = (P.key5(px, None if layer == 0 else mask), layer)
                 j = jobs.setdefault(k, dict(px=B.rgb5(px).reshape(64, 3), mask=mask.ravel().astype(np.uint8), weight=0, layer=layer))
                 j['weight'] += 1
                 lay[(tx, ty, layer)] = k
     order = list(jobs.values())
-    pals, assign, err, unplaced = OP.exact_banks(order, len(BANKS))
-    assert not unplaced, ('a tile fits no bank', len(unplaced))
+    packed, assign, lost = P.exact_banks(order, len(BANKS))
+    assert not lost, ('a tile fits no bank', len(lost))
+    pals = [(c or [(0, 0, 0)]) + [(c or [(0, 0, 0)])[-1]] * (15 - len(c or [(0, 0, 0)])) for c in packed]
+    err = 0
     patterns = {}
     for j, a in zip(order, assign):
         j['bank'] = BANKS[a]
@@ -214,12 +231,16 @@ def main(engine):
     report = {}
     for name, build in ROOMS.items():
         room = build(src)
-        bot, top, info = draw(src, room)
+        bot, top, info = draw(src, room['cells'])
+        for o in room['overlays']:
+            overlay(src, bot, o)
+        for x, y in room['blocked']:
+            info[y][x]['collision'] = 1
         p, err = pack(bot, top, info, MB)
         want = frlg.flat(bot, top)
         got = decode(p)
         d5 = np.abs(B.rgb5(got) - B.rgb5(want)).max(-1)
-        assert d5.max() == 0, (name, 'packed room differs from FireRed', int((d5 > 0).sum()))
+        assert d5.max() == 0, (name, 'packed room differs from its picture', int((d5 > 0).sum()))
         np.savez_compressed(OUT / f'{name}.npz', **p)
         big = Image.fromarray(got).resize((got.shape[1] * 2, got.shape[0] * 2), Image.Resampling.NEAREST)
         big.save(EV / f'{name}.png')

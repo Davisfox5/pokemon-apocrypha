@@ -2,39 +2,33 @@
   "map": "KantoSaffronCity",
   "group": "gMapGroup_Kanto",
   "size": [
-    64,
-    64
+    66,
+    55
   ],
   "primary": "gTileset_KantoSaffronPrimary",
   "secondary": "gTileset_KantoSaffronCity",
-  "saffron_tiles": 909,
-  "primary_slots_free": 466,
-  "secondary_tiles": 443,
+  "primary_tiles": 512,
+  "secondary_tiles": 297,
   "secondary_tile_limit": 496,
-  "new_metatiles": 611,
-  "metatiles_in_primary": 99,
-  "metatiles_in_secondary": 512,
-  "border": [
-    13832,
-    13833,
-    13824,
-    13825
-  ],
+  "primary_metatiles": 262,
+  "secondary_metatiles": 261,
+  "colours": 192,
+  "door_metatile": 131,
   "interiors": {
     "KantoSaffronDojo": {
       "size": [
-        23,
+        25,
         16
       ],
-      "tiles": 95,
-      "metatiles": 68
+      "tiles": 81,
+      "metatiles": 51
     },
     "KantoSaffronSilphLab": {
       "size": [
         15,
         11
       ],
-      "tiles": 115,
+      "tiles": 114,
       "metatiles": 70
     }
   },

@@ -1,25 +1,25 @@
-"""Install Saffron City ten years on, HGSS's plan (v2), over the first FireRed-based install.
+"""Install Saffron City ten years on (v3) over the first FireRed-based install.
 
     python3 tools/gba/maps/saffron/install.py ENGINE_CHECKOUT
 
-Reads pack.py's and interiors.py's output. KantoSaffronCity becomes a 64x64 map (HGSS's
-Saffron, cell for cell) on its own Emerald-format pair, the same symbols as before:
-gTileset_KantoSaffronPrimary (derived from CherrygrovePrimary, pack.py) and
-gTileset_KantoSaffronCity. Its map id, its Center, Center upstairs and Mart are kept (their
-warps back still name the city's warps 0 and 1). New beside them in gMapGroup_Kanto:
+Reads pack.py's and interiors.py's output. KantoSaffronCity stays a 66x55 map (FireRed's
+SaffronCity_Frlg, cell for cell, with the v3 parts and green spaces) on its own
+Emerald-format pair, the same symbols as the first install: gTileset_KantoSaffronPrimary
+(FireRed's unchanged cells, repacked) and gTileset_KantoSaffronCity (the art cells). Its map
+id, its Center, Center upstairs and Mart are kept (their warps back still name the city's
+warps 0 and 1). New beside them in gMapGroup_Kanto:
 
-    KantoSaffronDojo       the Dojo's one hall, two exit mats (interiors.py), on
+    KantoSaffronDojo       the Saffron Dojo's one hall, two exit mats (interiors.py), on
                            gTileset_Building + gTileset_KantoSaffronDojo
     KantoSaffronSilphLab   Silph's research lab, open and empty, on
                            gTileset_Building + gTileset_KantoSaffronSilphLab
 
-The city's warps: the Center (14, 50), the Mart (38, 26), the Fighting Dojo door (41, 12)
-and the Psychic Dojo door (48, 12) into the one hall, the lab wing's door (37-38, 41).
-FireRed's sliding door entry for v1's door metatile is removed (the new primary's metatile
-of that number is not a door; the C06 Center and the shared Mart play no door animation,
-as in Olivine). Signs: HGSS's six, ten years on (the Gym's is the Psychic Dojo's). No
-connections: Routes 5-8 are not built. Refuses to run once the Dojo map exists, so it never
-replays over owner edits.
+The city's warps, in order: the Center (24, 38), the Mart (40, 21), the Fighting door
+(40, 12) and the Psychic door (45, 12) into the one hall, the lab's door (42, 30). FireRed's
+sliding door entry (the Center's and the Mart's shared door metatile) moves to that
+metatile's new number; the Dojo's and the lab's doors play no door animation, as in
+Olivine. Signs: the first install's, ten years on. No connections: Routes 5-8 are not
+built. Refuses to run once the Dojo map exists, so it never replays over owner edits.
 """
 from __future__ import annotations
 import json, re, struct, sys
@@ -31,31 +31,40 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/saffron-kanto'
 SRC, EV = ART / 'source', ART / 'evidence'
-W, H = 64, 64
+W, H = 66, 55
 NAME, GROUP = 'KantoSaffronCity', 'gMapGroup_Kanto'
 PFOLDER, PSYM = 'kanto_saffron', 'KantoSaffronPrimary'
 FOLDER, SYM = 'kanto_saffron_city', 'KantoSaffronCity'
 MAPSEC = 'MAPSEC_SAFFRON_CITY'
-BORDER_TREE = (60, 19)                          # a tree's top-left cell deep in the east forest: the border is forest
-# name: (layout size from interiors.py, secondary folder and symbol, music)
+# name: (interiors.py room, secondary folder and symbol, music)
 ROOMS = {'KantoSaffronDojo': ('dojo', 'kanto_saffron_dojo', 'KantoSaffronDojo', 'MUS_RG_PEWTER'),
          'KantoSaffronSilphLab': ('lab', 'kanto_saffron_silph_lab', 'KantoSaffronSilphLab', 'MUS_RG_SILPH')}
 # The city's warps, in order (the Center's and the Mart's interiors name 0 and 1).
-WARPS = [((14, 50), 'MAP_KANTO_SAFFRON_POKEMON_CENTER', '0'), ((38, 26), 'MAP_KANTO_SAFFRON_MART', '0'),
-         ((41, 12), 'MAP_KANTO_SAFFRON_DOJO', '0'), ((48, 12), 'MAP_KANTO_SAFFRON_DOJO', '3'),
-         ((37, 41), 'MAP_KANTO_SAFFRON_SILPH_LAB', '0'), ((38, 41), 'MAP_KANTO_SAFFRON_SILPH_LAB', '0')]
+WARPS = [((24, 38), 'MAP_KANTO_SAFFRON_POKEMON_CENTER', '0'), ((40, 21), 'MAP_KANTO_SAFFRON_MART', '0'),
+         ((40, 12), 'MAP_KANTO_SAFFRON_DOJO', '0'), ((45, 12), 'MAP_KANTO_SAFFRON_DOJO', '3'),
+         ((42, 30), 'MAP_KANTO_SAFFRON_SILPH_LAB', '0')]
 # Each room's exit mats, the arrow cell first (where the player arrives), back to the city's warp.
-ROOM_WARPS = {'KantoSaffronDojo': [((6, 14), '2'), ((5, 14), '2'), ((7, 14), '2'), ((17, 14), '3'), ((16, 14), '3'), ((18, 14), '3')],
+ROOM_WARPS = {'KantoSaffronDojo': [((6, 14), '2'), ((5, 14), '2'), ((7, 14), '2'), ((18, 14), '3'), ((17, 14), '3'), ((19, 14), '3')],
               'KantoSaffronSilphLab': [((7, 9), '4')]}
-# HGSS's signs (zone 056_T11, msg_0529_T11), ten years on.
+# FireRed's signs, ten years on (compose.py moves the city sign and turns the Gym signposts
+# plain); the station's sign is on its door, solid until the station's interior exists.
 SIGNS = [
-    ('StationSign', (12, 18), 'SAFFRON CITY STATION\\nKANTO-JOHTO MAGNET TRAIN LINE'),
-    ('CitySign', (23, 18), 'SAFFRON CITY\\nShining Big City'),
-    ('FightingDojoSign', (43, 16), 'FIGHTING DOJO\\nEveryone is welcome!'),
-    ('PsychicDojoSign', (50, 16), 'PSYCHIC DOJO\\nEveryone is welcome!'),
-    ('SilphCoSign', (26, 42), 'SILPH CO. OFFICE BUILDING'),
-    ('MrPsychicSign', (41, 50), "MR. PSYCHIC'S HOUSE\\nDon't call me Uncle Psychic!"),
+    ('CitySign', (30, 12), 'SAFFRON CITY\\nShining, Golden Land of Commerce'),
+    ('StationSign', (25, 14), 'SAFFRON STATION\\nMAGNET TRAIN to GOLDENROD CITY'),
+    ('FightingDojoSign', (42, 14), 'SAFFRON DOJO - FIGHTING\\nChallengers welcome.'),
+    ('PsychicDojoSign', (50, 14), 'SAFFRON DOJO - PSYCHIC\\nChallengers welcome.'),
+    ('LeagueOfficeSign', (49, 22), 'POKéMON LEAGUE\\nKANTO OFFICE'),
+    ('SilphCoSign', (29, 31), 'SILPH CO. HEADQUARTERS\\pThe lobby is open to visitors.\\n'
+                              'RESEARCH LAB entrance to the east.'),
+    ('SilphMagnetTrainSign', (13, 25), 'The MAGNET TRAIN runs on\\nSILPH CO. engineering.'),
+    ('TrainerTipsGreatBall', (18, 30), 'TRAINER TIPS\\pThe GREAT BALL offers improved\\ncatching rates.\\p'
+                                       'Try it on those hard-to-catch\\nPOKéMON.'),
+    ('TrainerTipsFullHeal', (54, 25), 'TRAINER TIPS\\pFULL HEAL cures all ailments like\\nburns, paralysis, poisoning,\\l'
+                                      'freezing, and sleep.\\pIt costs a bit more, but it\'s more\\n'
+                                      'convenient than buying other items.'),
+    ('MrPsychicSign', (40, 38), "MR. PSYCHIC'S HOUSE"),
 ]
+DOOR_ENTRY = re.compile(r'(    \{\.metatileNum=)(\d+)(, \.tileset=&gTileset_KantoSaffronPrimary,)')
 
 def read(p): return json.loads(p.read_text())
 def write(p, v): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(v, indent=2, ensure_ascii=False) + '\n')
@@ -110,36 +119,56 @@ def register_secondary(g, sym, folder, note):
         assert f'_{sym}[]' not in s and f'gTileset_{sym} ' not in s, (path, sym)
         p.write_text(s + text)
 
-def remove_v1_door(g):
+DOOR_PNG = 'graphics/door_anims/kanto_saffron_sliding.png'
+
+def move_door(g, grid, meta, pal):
+    """The Center's and the Mart's door metatile (one FireRed cell, in the primary) keeps
+    FireRed's sliding door under its new number. Its tiles' banks moved in the repack, so the
+    door's frames (FireRed's sliding_single.png) are indexed again into those banks, tile by
+    tile, every colour exact, and its palette list names them."""
+    mids = {int(grid[y, x]) & 0x3FF for (x, y), _, _ in WARPS[:2]}
+    assert len(mids) == 1 and min(mids) < 512, ('Center and Mart doors', mids)
+    mid = mids.pop()
+    banks = [int(e) >> 12 for e in meta[mid][:4]]
+    src = Image.open(g / 'graphics/door_anims/sliding_single.png')
+    ix, rgb = np.array(src), np.array(src.getpalette()[:48]).reshape(16, 3) >> 3
+    out = np.zeros_like(ix)
+    for f in range(ix.shape[0] // 16):
+        for q, b in enumerate(banks):
+            sl = np.s_[f * 16 + (q // 2) * 8:f * 16 + (q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
+            bank = [tuple(int(v) >> 3 for v in c) for c in pal[b]]
+            for i in np.unique(ix[sl]):
+                if i:
+                    out[sl][ix[sl] == i] = bank.index(tuple(int(v) for v in rgb[i]), 1)
+    im = Image.fromarray(out.astype(np.uint8), 'P'); im.putpalette([v for c in pal[banks[0]] for v in c] + [0] * 720)
+    im.save(g / DOOR_PNG, bits=4)
     p = g / 'src/field_door.c'; s = p.read_text()
-    a, b = '// Kanto Saffron doors: FireRed\'s sliding door, on the Center and the Mart\n', '// End Kanto Saffron doors\n'
-    assert a in s and b in s, 'v1 door block not found'
-    s = s[:s.index(a)] + s[s.index(b) + len(b):]
-    s, n = re.subn(r'    \{\.metatileNum=\d+, \.tileset=&gTileset_KantoSaffronPrimary,[^\n]*\n', '', s)
+    s, n = DOOR_ENTRY.subn(lambda m: f'{m[1]}{mid}{m[3]}', s)
     assert n == 1, ('v1 door entries', n)
+    old_png = 'INCGFX_U8("graphics/door_anims/sliding_single.png", ".4bpp");\nstatic const u8 sKantoSaffronDoorPal_Sliding[] = {3, 3, 3, 3, 3, 3, 3, 3};'
+    assert old_png in s, 'v1 door frames not found'
+    s = s.replace(old_png, f'INCGFX_U8("{DOOR_PNG}", ".4bpp");\nstatic const u8 sKantoSaffronDoorPal_Sliding[] = '
+                           f'{{{", ".join(map(str, banks + banks))}}};')
     p.write_text(s)
+    return mid
 
 def city(g):
     z = np.load(SRC / 'pack.npz')
-    grid, pal, coll, elev = z['grid'], z['palettes'], z['collision'], z['elevation']
+    grid, pal = z['grid'], z['palettes']
     pd = g / f'data/tilesets/primary/{PFOLDER}'
     tiles_png(pd / 'tiles.png', z['prim_tiles'])
     palettes(pd, pal)
     metatiles(pd, z['prim_meta'])
     d = g / f'data/tilesets/secondary/{FOLDER}'
     tiles_png(d / 'tiles.png', z['sec_tiles'])
-    palettes(d, pal, pd)
+    palettes(d, pal)
     metatiles(d, z['sec_meta'])
+    p = g / 'src/data/tilesets/graphics.h'
+    p.write_text(p.read_text().replace('secondary tileset, the station and the Psychic Dojo plate.',
+                                       'secondary tileset, its new buildings, props and lawns.'))
     ld = g / f'data/layouts/{NAME}'
-    cells = grid.astype(np.uint32) | (coll.astype(np.uint32) << 10) | (elev.astype(np.uint32) << 12)
-    (ld / 'map.bin').write_bytes(cells.astype('<u2').tobytes())
-    bx, by = BORDER_TREE
-    border = [int(cells[by + (i >> 1), bx + (i & 1)]) for i in range(4)]
-    (ld / 'border.bin').write_bytes(struct.pack('<4H', *border))
-    layouts = read(g / 'data/layouts/layouts.json')
-    lay = next(l for l in layouts['layouts'] if l.get('id') == layout_id(NAME))
-    lay.update(width=W, height=H)
-    write(g / 'data/layouts/layouts.json', layouts)
+    (ld / 'map.bin').write_bytes(grid.astype('<u2').tobytes())
+    (ld / 'border.bin').write_bytes(struct.pack('<4H', *[int(v) for v in np.asarray(z['border']).ravel()]))
 
     p = g / f'data/maps/{NAME}/map.json'
     m = read(p)
@@ -153,7 +182,7 @@ def city(g):
                    f'\n{NAME}_{label}_Text:\n    .string "{text}$"\n')
     write(p, porymap_order(m))
     (g / f'data/maps/{NAME}/scripts.inc').write_text(script)
-    return border
+    return move_door(g, grid, z['prim_meta'], pal)
 
 def rooms(g):
     template = read(g / 'data/maps/KantoSaffronMart/map.json')
@@ -167,7 +196,7 @@ def rooms(g):
         tiles_png(d / 'tiles.png', z['tiles'])
         palettes(d, z['palettes'], g / 'data/tilesets/primary/building')
         metatiles(d, z['meta'])
-        register_secondary(g, sym, folder, {'dojo': "the Dojo's one hall (FireRed's Fighting Dojo and Sabrina's Gym)",
+        register_secondary(g, sym, folder, {'dojo': "the Saffron Dojo's one hall (FireRed's Fighting Dojo, built out, with Sabrina's Gym in its east end)",
                                             'lab': "Silph's research lab (FireRed's Cinnabar Lab experiment room)"}[key])
         ld = g / f'data/layouts/{name}'
         ld.mkdir(parents=True)
@@ -200,20 +229,18 @@ def rooms(g):
     return out, {n: groups[GROUP].index(n) for n in groups[GROUP]}
 
 def main(g):
-    if any((g / 'data/maps' / n).exists() for n in ROOMS):
-        raise SystemExit('Saffron v2 is installed: edit native source; never replay over owner edits.')
-    assert (g / f'data/maps/{NAME}/map.json').exists(), 'v1 Saffron not installed'
-    remove_v1_door(g)
-    border = city(g)
+    if any((g / 'data/maps' / n / 'map.json').exists() for n in ROOMS):
+        raise SystemExit('Saffron v3 is installed: edit native source; never replay over owner edits.')
+    assert (g / f'data/maps/{NAME}/map.json').exists(), 'the first Saffron install is not in this checkout'
+    door = city(g)
     room_report, ids = rooms(g)
     report = read(EV / 'pack.json')
     write(EV / 'capacity.json', dict(map=NAME, group=GROUP, size=[W, H], primary=f'gTileset_{PSYM}', secondary=f'gTileset_{SYM}',
-                                     saffron_tiles=report['saffron_tiles'], primary_slots_free=report['primary_slots_free'],
-                                     secondary_tiles=report['secondary_tiles'], secondary_tile_limit=report['secondary_tile_limit'],
-                                     new_metatiles=report['new_metatiles'], metatiles_in_primary=report['metatiles_in_primary'],
-                                     metatiles_in_secondary=report['metatiles_in_secondary'], border=border,
-                                     interiors=room_report, map_ids=ids))
-    print('Installed Saffron v2:', ids)
+                                     primary_tiles=report['primary_tiles'], secondary_tiles=report['secondary_tiles'],
+                                     secondary_tile_limit=report['secondary_tile_limit'],
+                                     primary_metatiles=report['metatiles_in_primary'], secondary_metatiles=report['metatiles_in_secondary'],
+                                     colours=report['colours'], door_metatile=door, interiors=room_report, map_ids=ids))
+    print('Installed Saffron v3:', ids, 'door metatile', door)
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve())

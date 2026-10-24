@@ -412,34 +412,33 @@ tools are marked as Blackthorn's.
 ### Kanto towns
 
 Saffron (`gba/art/saffron-kanto/README.md`) first edited FireRed's map, then (owner,
-2026-10-24) moved to HGSS's plan, converted as Olivine is, with FireRed's rooms for its new
-interiors. Traps hit there:
+2026-10-24) tried HGSS's plan with buildings rendered from HGSS's models, which the owner
+turned down; the third round is FireRed's map again with new buildings cut from Gen 3 map
+art (`saffron/parts.py`). Traps hit there:
 
-- Saffron is denser than any Johto town: its first pack needed 1,117 tiles for 962 slots.
-  What fit it, in order of yield: Silph at 16 px per model unit (its one-unit window bays
-  fall on the 8 px grid; 17.6 px per unit put every column at a new phase), mirroring each
-  Dojo porch, the station's hall and its annex and the east gate on an 8 px axis (a tile's
-  middle works too), and anchoring renders that share parts (Silph and its lab) so their
-  floors fall on the same pixel rows (`modelkit.render(anchor=...)`). Stronger near-duplicate
-  folding (`REUSE` 12 to 20) saved under ten.
-- Count tiles by owner before cutting (`pack.tiles_by_owner`): the guess that tiles where
-  two objects meet were the cost was wrong; leaving railings out behind roofs saved one.
-- A palette bank that is full everywhere leaves a mixed tile inexact (a hydrant's cap in
-  the paving beside an apartment's base). Seed the street's colours as one bank
-  (`pack.street_colours`) and keep sprites from another group off each other's edge tiles.
-- A Gen 3 sprite wider than HGSS's model fills cells HGSS leaves open (the east gate's
-  corner): make them solid (`pack.walls`), but not the cell in front of a door entered
-  northward, where a gate draws its steps.
-- A tree HGSS stands in front of a building can sit on the Gen 3 sprite's plinth; leave it
-  out (`terrain.clear_fronts`).
-- In the shared Center and Mart's family map, an overwrite by list position swapped the
-  two (`terrain.SHARED_FAMILY` now names each); a swapped Mart fails the exact-palette check.
+- A cut part keeps the ground it was cut from. Flood-fill the ground colours from the
+  part's edges to transparent (`parts.clear_from_edges`), then look at the part on grass
+  as well as on paving: Rustboro's lamp carried pale paving speckles and a grey cast shadow
+  that only showed once a lawn went under it.
+- A roof widened by repeating columns needs its period: the Battle Palace's roof repeats
+  every 8 px, so widening it by whole 8 px bays keeps the tiles shared.
+- Thirteen banks hold about 195 colours, and a whole city repacked from pixels fills them.
+  What made Saffron fit, in order: snapping each part's colours to a colour FireRed already
+  draws within 2.5 5-bit steps, merging colours one step apart in every channel, and an
+  annealed exact fit over maximal colour sets with seed restarts (a greedy fit left 740 tile
+  uses unplaced). Green spaces from FireRed's own grass, flowers and trees cost no colours.
+- A lawn edge drawn on both cells keeps each cell's colours in its own family: the grass
+  rim in a grass colour, the kerb in the paving's own darkest and lightest colours, so no
+  tile mixes the two.
+- After a repack the Center's door metatile drew from banks 10 and 11, not FireRed's 3;
+  the sliding door then played in the wrong colours. Index the door frames into the
+  metatile's banks and name them in the door's palette list (`install.move_door`).
+- A building's foot row can overhang a cell by a pixel or two; such a cell stays
+  walkable and draws below the player, so test the solid front one row higher.
 - FireRed rooms: a decoder that draws a bottom-layer pixel of colour 0 in its tile's bank
   colour 0 is wrong. On hardware a normal-layer metatile's bottom sits on BG2 over BG3,
   which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
   Packing a room from its pixels with every bottom pixel opaque sidesteps it.
-- FireRed's metatile behaviours carry Emerald's numbering, not FireRed's meaning: 103 on
-  Sabrina's pads is `MB_AQUA_HIDEOUT_WARP`, 131 on a lab machine `MB_PC`.
 
 ## Worked example
 

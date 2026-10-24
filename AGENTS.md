@@ -238,33 +238,36 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
-## Kanto towns: HGSS's plan, ten years on
+## Kanto towns: FireRed's map, new buildings from Gen 3 art
 
-Owner, Saffron, 2026-10-24: look to HGSS. Kanto towns follow HGSS's city plan, converted
-element by element as Olivine is (the section above), not FireRed's map edited. The worked
-example is `gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+Owner, Saffron, 2026-10-24 (third round): FireRed's Gen 3 Saffron is the base. The second
+round's HGSS plan with buildings rendered from HGSS's models was turned down as a
+regression ("made for a 1980s game", "boring"). The worked example is
+`gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
 
-- Keep HGSS's plan and change only what ten years and the story change, each change
-  answering the owner's brief or a DESIGN.md line (Saffron: one Dojo for both dojos, an
-  entrance each and a shared hall; Silph taller, with a lab wing and its own entrance; no
-  gym).
-- A new building is made from HGSS's own models: slice, move and copy their faces
-  (`saffron/modelkit.py`), keep their textures and lighting, render at C06's angle. Paint a
-  mark that replaces an emblem on the rendered sprite at Gen 3 scale; texture-mapped marks
-  come out mangled.
+- Keep every cell FireRed draws and change only what ten years and the story change, each
+  change answering the owner's brief or a DESIGN.md line.
+- A new building is real Gen 3 map art: cells of FireRed's or Emerald's own maps, as the
+  game draws them, cut and put together into a building of the town's own
+  (`saffron/parts.py`). No 3D model renders.
+- Two buildings combined must read as one: one roof line, one facade, one crest, the
+  difference carried by details (Saffron: each school's door curtain). Two halves under a
+  shared roof is the failure the owner named. A wing must change the silhouette of what it
+  joins, built onto it, not set beside it.
+- The ground needs life: lawns, flowers and trees in FireRed's own General pieces (no new
+  colours), with Celadon's lawn edge drawn in the town's colours.
+- Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
+  snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
+  Never ship an inexact colour. If a repack moves a door metatile's banks, index its door
+  frames into the new banks (`saffron/install.py`).
 - Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
   FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
-- An interior Kanto needs is FireRed's room, or a room composed from FireRed's rooms cell
-  by cell, packed from its pixels into its own secondary on `gTileset_Building`
-  (`saffron/interiors.py`). Exit mats keep `MB_SOUTH_ARROW_WARP`; other FireRed behaviours
-  become `MB_NORMAL` until their scripts exist (their numbers mean other things in
-  Emerald: FireRed's Gym pads would warp).
-- A big city is tight on tiles. Mirror symmetric buildings on an 8 px axis, draw a facade
-  of one-unit bays at 16 px per unit so the bays repeat as tiles, and keep sprites from
-  overlapping a neighbour from another palette group (move one a tile column). Never
-  ship an inexact colour to fit: seed a bank with the street's colours instead.
-- Doors to unbuilt interiors and gates to unbuilt routes are solid. Keep HGSS's colours;
-  the first round's Kanto grade (`frlg.GRADE`) turned HGSS's blocks drab.
+- An interior Kanto needs is FireRed's room, or a room built from FireRed's rooms cell by
+  cell with other rooms' objects laid on by their own pixels, packed into its own
+  secondary on `gTileset_Building` (`saffron/interiors.py`). Exit mats keep
+  `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until their scripts
+  exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
+- Doors to unbuilt interiors and gates to unbuilt routes are solid.
 
 ## Ownership and autonomy
 

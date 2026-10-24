@@ -1,12 +1,12 @@
 {
  "dojo": {
   "size": [
-   23,
+   25,
    16
   ],
-  "tiles": 95,
-  "metatiles": 68,
-  "bank_error": 0.0,
+  "tiles": 81,
+  "metatiles": 51,
+  "bank_error": 0,
   "pixels_exact": true,
   "exits": [
    {
@@ -16,22 +16,22 @@
     "door": "dojo_fighting"
    },
    {
-    "x": 17,
+    "x": 18,
     "y": 14,
     "dest": "MAP_KANTO_SAFFRON_CITY",
     "door": "dojo_psychic"
    }
   ],
-  "walkable": 240
+  "walkable": 250
  },
  "lab": {
   "size": [
    15,
    11
   ],
-  "tiles": 115,
+  "tiles": 114,
   "metatiles": 70,
-  "bank_error": 0.0,
+  "bank_error": 0,
   "pixels_exact": true,
   "exits": [
    {

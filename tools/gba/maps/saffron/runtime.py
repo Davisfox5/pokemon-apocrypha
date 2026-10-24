@@ -1,25 +1,26 @@
-"""Headless mGBA checks for Saffron City ten years on (v2, HGSS's plan) and its new interiors.
+"""Headless mGBA checks for Saffron City ten years on (KantoSaffronCity, v3).
 
 Each phase is a fresh emulator process:
-    write  new game; stand in front of the station, Silph, the lab wing, both Dojo doors,
-           the Copycat's and Mr. Psychic's houses, the Center, the Mart and the north gate;
-           bump the station's, Silph's, the houses' and the gates' doors and the city's
-           exits (solid until their interiors and routes exist) and the east gate's corner;
-           stand behind the lab wing's roof, the Mart, a Dojo sign, a street lamp, the city
-           sign, a Silph board and the east gate; read the six signs; enter and leave the
-           Center (both floors) and the Mart; enter the Dojo by the Fighting door, walk
-           across the one hall and leave by the Psychic door, then in by the Psychic door
-           and out again; enter the lab by both door cells and leave; visit Cherrygrove and
-           Olivine and come back; ordinary flash save
+    write  new game; stand in front of the station, Silph, its lab, both Dojo doors, the
+           League office, the Copycat's and Mr. Psychic's houses, the Center, the Mart and
+           the fountain garden, and at the four gates; bump the station's front and door,
+           Silph's lobby door, the Copycat's door and the north and west gates (solid until
+           their interiors and routes exist); stand behind the lab's roof, the station, the
+           Dojo's west end, an east-green tree, the Copycat's house, the Center and the
+           Mart; read the ten signs; watch the Center's door slide open; enter and leave the
+           Center (both floors) and the Mart; enter the Dojo by the Fighting door and leave
+           by the Psychic mat, enter by the Psychic door and leave by the Fighting mat; enter
+           and leave the lab; visit Cherrygrove and Olivine and come back; ordinary flash save
     read   cold flash reload of that save
     menu   title screen -> Continue
 
 Every capture also dumps VRAM, BG palettes and BG registers. The map layers (BG1-BG3) are
-rebuilt from that dump and must match the decoded native map pixel for pixel, the Dojo's
-and the lab's frames included (Saffron and its rooms play no tileset animation; the
-regression towns' animated sea is set aside as in olivine_elements/runtime_elements.py).
-Behind a roof, BG1 (the layer above the player) must cover the player's cell; in front of
-a building it must leave the player's two cells clear.
+rebuilt from that dump and must match the decoded native map pixel for pixel, in the city
+and in the Dojo hall and the lab (Saffron plays no tileset animation; the regression towns'
+animated sea is set aside as in olivine_elements/runtime_elements.py). Behind a roof, BG1
+(the layer above the player) must cover the player's cell; in front of a building it must
+leave the player's two cells clear. The door frames must show FireRed's sliding door as
+install.py indexes it into the door's banks (graphics/door_anims/kanto_saffron_sliding.png).
 
     python3 tools/gba/maps/saffron/runtime.py ENGINE_CHECKOUT OUT_DIR
 """
@@ -33,73 +34,70 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path[:0] = [str(HERE), str(HERE.parent / 'olivine_elements'), str(HERE.parent)]
 import runtime_elements as RE                       # noqa: E402  (VRAM decoding, the harness template)
-import interiors as I                               # noqa: E402
-import install as N                                 # noqa: E402
+import check as K                                   # noqa: E402
 
 # MapProof indices (sMapProofMaps); Saffron's maps are gMapGroup_Kanto (group 81) 0-5
 CITY, CENTER, UPSTAIRS, MART, DOJO, LAB = 54, 55, 56, 57, 58, 59
 KANTO_GROUP, CHERRYGROVE_GROUP = 81, 80
 OLIVINE = 50
-SAVE = (CITY, 14, 52)
+SAVE = (CITY, 24, 40)
+DOOR_SHOTS = 15
 
 STEPS = [
-    # In front of every door: BG1 clear over the player.
-    ('view', CITY, 10, 17, 'station-front'), ('view', CITY, 28, 38, 'silph-front'), ('view', CITY, 37, 42, 'lab-front'),
-    ('view', CITY, 41, 13, 'fighting-dojo-front'), ('view', CITY, 48, 13, 'psychic-dojo-front'),
-    ('view', CITY, 17, 27, 'copycat-house-front'), ('view', CITY, 43, 51, 'mr-psychic-front'),
-    ('view', CITY, 14, 51, 'center-approach'), ('view', CITY, 38, 27, 'mart-approach'), ('view', CITY, 20, 6, 'north-gate-front'),
-    ('view', CITY, 56, 48, 'east-gate'), ('view', CITY, 1, 48, 'west-exit'), ('view', CITY, 20, 60, 'south-exit'),
-    ('view', CITY, 44, 14, 'dojo-plaza'), ('view', CITY, 30, 44, 'silph-plaza'),
-    # Walk behind: the top layer covers the player's cell, the base below stays solid.
-    ('go', CITY, 36, 34), ('shot', 'behind-lab-roof'), ('south', 1, None), ('at', CITY, 36, 34),
-    ('go', CITY, 38, 21), ('shot', 'behind-mart'), ('south', 1, None), ('at', CITY, 38, 21),
-    ('go', CITY, 43, 15), ('shot', 'behind-dojo-sign'), ('south', 1, None), ('at', CITY, 43, 15),
-    ('go', CITY, 36, 13), ('shot', 'behind-lamp'), ('south', 1, None), ('at', CITY, 36, 13),
-    ('go', CITY, 23, 17), ('shot', 'behind-city-sign'), ('south', 1, None), ('at', CITY, 23, 17),
-    ('go', CITY, 26, 41), ('shot', 'behind-silph-board'), ('south', 1, None), ('at', CITY, 26, 41),
-    ('go', CITY, 57, 47), ('shot', 'behind-east-gate'), ('south', 1, None), ('at', CITY, 57, 47),
-    # Solid: the station's, Silph's, the houses' and the gates' doors, the city's exits, the
-    # east gate's corner.
-    ('go', CITY, 10, 17), ('north', 1, 'station-door-solid'), ('at', CITY, 10, 17),
-    ('go', CITY, 28, 38), ('north', 1, None), ('at', CITY, 28, 38),
-    ('go', CITY, 17, 27), ('north', 1, None), ('at', CITY, 17, 27),
-    ('go', CITY, 43, 51), ('north', 1, None), ('at', CITY, 43, 51),
-    ('go', CITY, 20, 6), ('north', 1, None), ('at', CITY, 20, 6),
-    ('go', CITY, 56, 48), ('east', 1, None), ('at', CITY, 56, 48),
-    ('go', CITY, 56, 50), ('east', 1, None), ('at', CITY, 56, 50),
-    ('go', CITY, 1, 48), ('west', 1, None), ('at', CITY, 1, 48),
-    ('go', CITY, 20, 60), ('south', 1, None), ('at', CITY, 20, 60),
-    # The six signs.
-] + [('sign', CITY, x, y, 'sign-' + label[:-4].lower()) for label, (x, y), _ in N.SIGNS] + [
-    # Center: in, upstairs and back, out. Mart: in and out.
-    ('go', CITY, 14, 51), ('north', 1, None), ('wait', 400), ('map', CENTER, 'center-entry'), ('shot', 'center-interior'),
+    # In front of every building: BG1 clear over the player.
+    ('view', CITY, 25, 15, 'station-front'), ('view', CITY, 33, 31, 'silph-front'), ('view', CITY, 42, 31, 'lab-front'),
+    ('view', CITY, 40, 13, 'fighting-door-front'), ('view', CITY, 45, 13, 'psychic-door-front'),
+    ('view', CITY, 47, 22, 'league-office-front'), ('view', CITY, 19, 22, 'copycat-house-front'),
+    ('view', CITY, 43, 39, 'mr-psychic-front'), ('view', CITY, 24, 39, 'center-approach'),
+    ('view', CITY, 40, 22, 'mart-approach'), ('view', CITY, 44, 15, 'dojo-plaza'), ('view', CITY, 34, 43, 'fountain-garden'),
+    ('view', CITY, 34, 6, 'north-gate'), ('view', CITY, 34, 45, 'south-gate'),
+    ('view', CITY, 9, 27, 'west-gate'), ('view', CITY, 57, 27, 'east-gate'),
+    # Walk behind: the top layer covers the player's cell, what is below stays solid.
+    ('go', CITY, 40, 23), ('shot', 'behind-lab-roof'), ('south', 1, None), ('at', CITY, 40, 23),
+    ('go', CITY, 19, 10), ('shot', 'behind-station'), ('south', 1, None), ('at', CITY, 19, 10),
+    ('go', CITY, 36, 6), ('shot', 'behind-dojo-west-end'), ('east', 1, None), ('at', CITY, 36, 6),
+    ('go', CITY, 49, 15), ('shot', 'behind-east-tree'), ('south', 1, None), ('at', CITY, 49, 15),
+    ('go', CITY, 19, 17), ('shot', 'behind-copycat-house'), ('south', 1, None), ('at', CITY, 19, 17),
+    ('go', CITY, 24, 34), ('shot', 'behind-center'), ('south', 1, None), ('at', CITY, 24, 34),
+    ('go', CITY, 40, 18), ('shot', 'behind-mart'), ('south', 1, None), ('at', CITY, 40, 18),
+    # Solid: the station's front and door, Silph's lobby door, the Copycat's door, the
+    # north and west gates.
+    ('go', CITY, 21, 14), ('north', 1, None), ('at', CITY, 21, 14),
+    ('go', CITY, 25, 15), ('north', 1, 'station-door-solid'), ('at', CITY, 25, 15),
+    ('go', CITY, 33, 31), ('north', 1, 'silph-door-solid'), ('at', CITY, 33, 31),
+    ('go', CITY, 19, 22), ('north', 1, None), ('at', CITY, 19, 22),
+    ('go', CITY, 34, 6), ('north', 1, None), ('at', CITY, 34, 6),
+    ('go', CITY, 9, 27), ('west', 1, None), ('at', CITY, 9, 27),
+    # The ten signs.
+    ('sign', CITY, 30, 12, 'sign-city'), ('sign', CITY, 25, 14, 'sign-station'), ('sign', CITY, 42, 14, 'sign-fighting-dojo'),
+    ('sign', CITY, 50, 14, 'sign-psychic-dojo'), ('sign', CITY, 49, 22, 'sign-league-office'), ('sign', CITY, 29, 31, 'sign-silph'),
+    ('sign', CITY, 13, 25, 'sign-silph-magnet-train'), ('sign', CITY, 18, 30, 'sign-tips-great-ball'),
+    ('sign', CITY, 54, 25, 'sign-tips-full-heal'), ('sign', CITY, 40, 38, 'sign-mr-psychic'),
+    # The Center's door slides open; in, upstairs and back, out. Mart: in and out.
+    ('door', CITY, 24, 39, 'center-door'), ('wait', 400), ('map', CENTER, 'center-entry'), ('shot', 'center-interior'),
     ('go', CENTER, 2, 6), ('west', 1, None), ('wait', 400), ('map', UPSTAIRS, 'center-upstairs'), ('shot', 'center-upstairs'),
     ('west', 1, None), ('wait', 400), ('map', CENTER, 'center-stair-return'),
-    ('go', CENTER, 7, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 14, 51), ('shot', 'center-exit'),
-    ('go', CITY, 38, 27), ('north', 1, None), ('wait', 400), ('map', MART, 'mart-entry'), ('shot', 'mart-interior'),
-    ('go', MART, 3, 6), ('south', 2, None), ('wait', 400), ('at', CITY, 38, 27), ('shot', 'mart-exit'),
-    # The Dojo: in by the Fighting door, across the one hall on foot, out by the Psychic door.
-    ('go', CITY, 41, 13), ('north', 1, None), ('wait', 400), ('map', DOJO, 'dojo-entry-fighting'), ('at', DOJO, 6, 14),
-    ('shot', 'dojo-hall-fighting'), ('north', 3, None), ('east', 11, None), ('at', DOJO, 17, 11), ('shot', 'dojo-hall-psychic'),
-    ('south', 4, None), ('wait', 400), ('at', CITY, 48, 13), ('shot', 'psychic-dojo-exit'),
-    ('north', 1, None), ('wait', 400), ('map', DOJO, 'dojo-entry-psychic'), ('at', DOJO, 17, 14),
-    ('south', 1, None), ('wait', 400), ('at', CITY, 48, 13),
-    # The lab: in by each door cell, out again.
-    ('go', CITY, 37, 42), ('north', 1, None), ('wait', 400), ('map', LAB, 'lab-entry-west'), ('at', LAB, 7, 9), ('shot', 'lab-interior'),
-    ('north', 2, None), ('at', LAB, 7, 7), ('shot', 'lab-interior-walk'), ('south', 3, None), ('wait', 400), ('at', CITY, 37, 42),
-    ('shot', 'lab-exit'),
-    ('go', CITY, 38, 42), ('north', 1, None), ('wait', 400), ('map', LAB, 'lab-entry-east'), ('at', LAB, 7, 9),
-    ('south', 1, None), ('wait', 400), ('at', CITY, 37, 42),
+    ('go', CENTER, 7, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 24, 39), ('shot', 'center-exit'),
+    ('go', CITY, 40, 22), ('north', 1, None), ('wait', 400), ('map', MART, 'mart-entry'), ('shot', 'mart-interior'),
+    ('go', MART, 3, 6), ('south', 2, None), ('wait', 400), ('at', CITY, 40, 22), ('shot', 'mart-exit'),
+    # The Dojo: one hall, in by either door, out by the other school's mat.
+    ('go', CITY, 40, 13), ('north', 1, None), ('wait', 400), ('at', DOJO, 6, 14), ('shot', 'dojo-hall-fighting'),
+    ('go', DOJO, 18, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 45, 13), ('shot', 'dojo-out-psychic'),
+    ('north', 1, None), ('wait', 400), ('at', DOJO, 18, 14), ('shot', 'dojo-hall-psychic'),
+    ('go', DOJO, 6, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 40, 13), ('shot', 'dojo-out-fighting'),
+    # Silph's lab: in and out.
+    ('go', CITY, 42, 31), ('north', 1, None), ('wait', 400), ('at', LAB, 7, 9), ('shot', 'lab-hall'),
+    ('go', LAB, 7, 8), ('south', 2, None), ('wait', 400), ('at', CITY, 42, 31), ('shot', 'lab-exit'),
     # Other towns through the ordinary renderer, then back.
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', OLIVINE, 16, 35, 'regression-olivine'),
-    ('view', CITY, 14, 52, 'return-to-saffron'),
+    ('view', CITY, 24, 40, 'return-to-saffron'),
 ]
-WALK_BEHIND = {'behind-lab-roof': (36, 34), 'behind-mart': (38, 21), 'behind-dojo-sign': (43, 15), 'behind-lamp': (36, 13),
-               'behind-city-sign': (23, 17), 'behind-silph-board': (26, 41), 'behind-east-gate': (57, 47)}
-IN_FRONT = ('station-front', 'silph-front', 'lab-front', 'fighting-dojo-front', 'psychic-dojo-front', 'copycat-house-front',
-            'mr-psychic-front', 'center-approach', 'center-exit', 'mart-approach', 'mart-exit', 'north-gate-front',
-            'psychic-dojo-exit', 'lab-exit')
-ROOM_FRAMES = {'dojo-hall-': 'dojo', 'lab-interior': 'lab'}
+WALK_BEHIND = {'behind-lab-roof': (40, 23), 'behind-station': (19, 10), 'behind-dojo-west-end': (36, 6),
+               'behind-east-tree': (49, 15), 'behind-copycat-house': (19, 17), 'behind-center': (24, 34), 'behind-mart': (40, 18)}
+IN_FRONT = ('station-front', 'silph-front', 'lab-front', 'fighting-door-front', 'psychic-door-front', 'league-office-front',
+            'copycat-house-front', 'mr-psychic-front', 'center-approach', 'center-exit', 'mart-approach', 'mart-exit',
+            'fountain-garden', 'dojo-out-psychic', 'dojo-out-fighting', 'lab-exit')
+ROOM_TAGS = {'dojo-hall': 'dojo', 'lab-hall': 'lab'}
 
 def body():
     keys = dict(north='UP', south='DOWN', east='RIGHT', west='LEFT')
@@ -116,6 +114,9 @@ def body():
             out.append(f'at({s[1]},{s[2]},{s[3]},"at-{s[1]}-{s[2]}-{s[3]}");')
         elif k == 'sign':   # face the sign from below, then wait for the whole text to print
             out.append(f'go({s[1]},{s[2]},{s[3]}+1);tap(UP);frames(1,A);frames(360,0);need(locked(),"{s[4]}");shot("{s[4]}");close_dialog();')
+        elif k == 'door':   # walk up to the door (facing it), press into it, capture every two frames
+            out.append(f'go({s[1]},{s[2]},{s[3]}+1);step(UP,1);frames(2,UP);' +
+                       ''.join(f'frames(2,0);shot("{s[4]}-{i:02}");' for i in range(DOOR_SHOTS)))
         elif k == 'wait':
             out.append(f'frames({s[1]},0);')
         elif k == 'map':
@@ -147,34 +148,81 @@ static void shot(const char*t){screenshot(out,t);vram(t);char o[128];snprintf(o,
     main = RE.MAIN.replace('olivine-native-proof', 'saffron-native-proof').replace('olivine.sav', 'saffron.sav')
     return prefix + main.replace('BODY', body())
 
-def room_padded(img):
-    """An interior's decode with its black border (every border cell is the black edge's
-    metatile, the room's bottom-left cell) beyond the edges."""
-    h, w = img.shape[0] // 16, img.shape[1] // 16
+def padded(img, border):
+    """A decoded native map with its 2x2 border block beyond the edges (the camera sees
+    it), the block's quarter chosen by the cell's parity as GetBorderBlockAt does."""
+    H, W = img.shape[0] // 16, img.shape[1] // 16
     P = 16
-    black = img[(h - 1) * 16:h * 16, 0:16]
-    out = np.tile(black, (h + 2 * P, w + 2 * P, 1)).astype(np.int32)
-    out[P * 16:(P + h) * 16, P * 16:(P + w) * 16] = img
+    out = np.zeros(((H + 2 * P) * 16, (W + 2 * P) * 16, 3), np.int32)
+    for py in range(H + 2 * P):
+        for px in range(W + 2 * P):
+            x, y = px - P, py - P
+            if 0 <= x < W and 0 <= y < H:
+                cell = img[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+            else:
+                cell = border[(y & 1) * 16:(y & 1) * 16 + 16, (x & 1) * 16:(x & 1) * 16 + 16]
+            out[py * 16:py * 16 + 16, px * 16:px * 16 + 16] = cell
     return out, P * 16
+
+def door_frames(game):
+    """FireRed's sliding door as install.py indexes it: its 16x16 frames, stacked, as palette indices."""
+    return np.array(Image.open(game / 'graphics/door_anims/kanto_saffron_sliding.png'))
+
+def room_ref(key):
+    """A room as interiors.py decodes it, its black border cell beyond its edges, in 5-bit colour."""
+    import interiors as I
+    p = dict(np.load(ROOT / f'gba/art/saffron-kanto/source/interiors/{key}.npz'))
+    img = I.decode(p).astype(np.int32) >> 3
+    h = img.shape[0] // 16
+    black = img[(h - 1) * 16:h * 16, 0:16]
+    return padded(img, np.tile(black, (2, 2, 1)))
+
+def door_drawn(dump, frames):
+    """Which sliding-door frame the map draws (from the door tiles at the top of VRAM), or None."""
+    raw = dump.read_bytes()
+    vram = np.frombuffer(raw[:0x10000], np.uint8)
+    regs = np.frombuffer(raw[0x10200:0x10200 + 26], '<u2').astype(np.int32)
+    start = 1024 - 8                                           # DOOR_TILE_START_SIZE1
+    ys, xs = np.mgrid[0:160, 0:240]
+    used = False
+    for bg in (1, 2, 3):
+        c, hofs, vofs = regs[1 + bg], regs[5 + 2 * bg] & 511, regs[5 + 2 * bg + 1] & 511
+        X, Y = (xs + hofs) & 255, (ys + vofs) & 255
+        t = vram.view('<u2')[((c >> 8) & 31) * 0x400 + (Y // 8) * 32 + X // 8].astype(np.int32) & 1023
+        used |= bool(((t >= start) & (t < start + 4)).any())
+    if not used:
+        return None
+    def tile(i):
+        b = vram[i * 32:(i + 1) * 32]
+        return np.stack([b & 15, b >> 4], -1).reshape(8, 8)
+    vt = [tile(start + i) for i in range(4)]
+    for f in range(frames.shape[0] // 16):
+        fr = frames[f * 16:(f + 1) * 16]
+        want = [fr[:8, :8], fr[:8, 8:], fr[8:, :8], fr[8:, 8:]]
+        if all((a == b).all() for a, b in zip(vt, want)):
+            return f
+    return 'unknown'
 
 def check_frames(out, game, phases):
     positions = {o['step'][5:]: o for p in phases for o in p['observations'] if o.get('step', '').startswith('shot:')}
-    city = np.array(Image.open(ROOT / 'gba/art/saffron-kanto/evidence/native.png').convert('RGB')).astype(np.int32) >> 3
-    city = RE.padded(city, N.BORDER_TREE)
-    rooms = {k: room_padded(I.decode(np.load(ROOT / f'gba/art/saffron-kanto/source/interiors/{k}.npz')).astype(np.int32) >> 3)
-             for k in ('dojo', 'lab')}
+    city = (K.decode(game)['img'].astype(np.int32) >> 3)
+    city = padded(city, K.border_image(game).astype(np.int32) >> 3)
     olivine = RE.padded(np.array(Image.open(ROOT / 'gba/art/olivine-elements/evidence/elements/native-C.png').convert('RGB')).astype(np.int32) >> 3,
                         (40, 58))
     from tiles import Tileset
     cg = np.frombuffer((game / 'data/layouts/CherrygroveCity/map.bin').read_bytes(), '<u2')
     cherry = (np.array(Tileset(game, 'cherrygrove', 'cherrygrove').map_image(cg.tolist(), 80).convert('RGB')).astype(np.int32) >> 3, 0)
-    results = []
+    frames = door_frames(game)
+    results, door, rooms = [], {}, {}
     for p in sorted(out.glob('vram-*.bin')):
         tag = p.stem[5:]
-        room = next((v for k, v in ROOM_FRAMES.items() if tag.startswith(k)), None)
-        if room is None and any(t in tag for t in ('center-interior', 'center-upstairs', 'mart-interior', 'continue-menu')):
+        if tag.startswith('center-door-'):
+            door[tag] = door_drawn(p, frames)
             continue
-        ref, pad = (rooms[room] if room else cherry if tag.startswith('regression-cherrygrove')
+        if any(t in tag for t in ('interior', 'upstairs', 'continue-menu')):
+            continue
+        room = next((k for t, k in ROOM_TAGS.items() if tag.startswith(t)), None)
+        ref, pad = (rooms.setdefault(room, room_ref(room)) if room else cherry if tag.startswith('regression-cherrygrove')
                     else olivine if tag.startswith('regression-olivine') else city)
         shot = RE.map_layers(p)
         Image.fromarray((shot << 3 | shot >> 2).astype(np.uint8)).save(out / f'bg-{tag}.png')
@@ -190,7 +238,7 @@ def check_frames(out, game, phases):
         if tag in IN_FRONT:                                 # head cell (112, 56) and feet cell (112, 72)
             r['bg1_pixels_over_player'] = int(RE.bg1(p)[56:88, 112:128].sum())
         results.append(r)
-    return results
+    return results, door
 
 def main(game, out):
     out.mkdir(parents=True, exist_ok=True)
@@ -214,14 +262,16 @@ def main(game, out):
         if r.returncode:
             (out / 'results.json').write_text(json.dumps(dict(phases=phases), indent=2) + '\n')
             raise SystemExit(f'{phase} failed: {r.stderr}')
-    frames = check_frames(out, game, phases)
+    frames, door = check_frames(out, game, phases)
     rom = hashlib.sha256((game / 'pokeemerald.gba').read_bytes()).hexdigest()
-    (out / 'results.json').write_text(json.dumps(dict(rom_sha256=rom, phases=phases, background_parity=frames), indent=2) + '\n')
+    door_seen = sorted({f for f in door.values() if f is not None}, key=str)
+    (out / 'results.json').write_text(json.dumps(dict(rom_sha256=rom, phases=phases, background_parity=frames,
+                                                      center_door_frames=door), indent=2) + '\n')
     bad = [f for f in frames if f['mismatched_map_layer_pixels']]
     behind = {f['frame']: f.get('bg1_pixels_over_player_cell') for f in frames if 'bg1_pixels_over_player_cell' in f}
     front = {f['frame']: f['bg1_pixels_over_player'] for f in frames if 'bg1_pixels_over_player' in f}
     print(json.dumps(dict(rom_sha256=rom, frames=len(frames), frames_with_background_mismatch=len(bad), walk_behind_bg1=behind,
-                          in_front_bg1_over_player=front)))
+                          in_front_bg1_over_player=front, sliding_door_frames_seen=door_seen)))
     for f in bad:
         print('  mismatch', f)
     # Keep only the captures and results: the harness binary, its source, the symbols,
@@ -229,6 +279,7 @@ def main(game, out):
     for p in [out / 'runtime', out / 'runtime.c', out / 'symbols.txt', *out.glob('vram-*.bin'), *out.glob('*.sav')]:
         p.unlink(missing_ok=True)
     assert not bad and all(behind.values()) and not any(front.values()), (behind, front)
+    assert any(isinstance(f, int) and f > 0 for f in door_seen) and 'unknown' not in door_seen, door
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())
