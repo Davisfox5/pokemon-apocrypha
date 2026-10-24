@@ -1,6 +1,6 @@
 """Porymap round trip for Mahogany: open, export, save, diff.
 
-    python3 tools/gba/maps/mahogany/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY [STYLE]   # STYLE C, or 'converted' for convert.py's map
+    python3 tools/gba/maps/mahogany/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY [STYLE]   # STYLE C, 'converted' (second draft) or 'pack3' (third draft)
 
 Works on a fresh `git clone` of ENGINE_CHECKOUT's current branch in a temporary
 directory, never on the checkout itself. Under Xvfb it opens MahoganyTown and its
@@ -63,9 +63,10 @@ def export(item_y, out):
     time.sleep(4)
 
 def main(engine, binary, style):
-    if style == 'converted':                                # convert.py's map (the current draft)
-        native = np.array(Image.open(EV / 'convert' / 'native.png').convert('RGB'))
-        out = EV / 'convert' / 'porymap'
+    if style in ('converted', 'pack3'):                     # convert.py's map (second draft) / the third draft
+        d = 'convert' if style == 'converted' else 'pack3'
+        native = np.array(Image.open(EV / d / 'native.png').convert('RGB'))
+        out = EV / d / 'porymap'
     else:
         native = np.array(Image.open(EV / 'elements' / f'native-{style}.png').convert('RGB'))
         out = EV / 'porymap'

@@ -5,5 +5,104 @@
     "copied_from": "gba/art/cianwood-elements/source/shared-art/pokemon-center.png (branch claude/cianwood-city)",
     "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
   },
-  "cherrygrove inputs": "source/elements/cherrygrove-native.png and cherrygrove-sign-cell.png are Blackthorn's decodes of the accepted Cherrygrove town (gba/art/blackthorn-city/source/elements, branch claude/blackthorn-city): ground textures, ground edge tiles, the standalone tree and the town sign."
+  "cherrygrove inputs": "source/elements/cherrygrove-native.png and cherrygrove-sign-cell.png are Blackthorn's decodes of the accepted Cherrygrove town (gba/art/blackthorn-city/source/elements, branch claude/blackthorn-city): ground textures, ground edge tiles, the standalone tree and the town sign.",
+  "catalog": {
+    "branch": "codex/violet-city",
+    "commit": "de5d8cfb707f8614c25977c6d186ddfaaa8fc035",
+    "rule": "Masters copied byte for byte; native tile ids and palette slots may differ, visible colours do not."
+  },
+  "T01.png": {
+    "source": "gba/art/johto-common/trees/source/T01.png",
+    "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a"
+  },
+  "P12.png": {
+    "source": "gba/art/johto-common/scenery/source/P12.png",
+    "sha256": "2bae513033cc365be954cd9afb203fd3f8430f96eca935bb52f6fe994c72fd4d"
+  },
+  "P13.png": {
+    "source": "gba/art/johto-common/scenery/source/P13.png",
+    "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c"
+  },
+  "P15.png": {
+    "source": "gba/art/johto-common/scenery/source/P15.png",
+    "sha256": "7ed65bb881f98956d071ffb3ea18225dc6993d6f061e0bcf65b7ba1758251565"
+  },
+  "L11.png": {
+    "source": "gba/art/johto-common/scenery/source/L11.png",
+    "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+  },
+  "L12.png": {
+    "source": "gba/art/johto-common/scenery/source/L12.png",
+    "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+  },
+  "L13.png": {
+    "source": "gba/art/johto-common/scenery/source/L13.png",
+    "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+  },
+  "G01a.png": {
+    "source": "gba/art/johto-common-review/gates/refinement-4/G01a.png",
+    "sha256": "01b1d6c8a3f391d7e2c688c74ea34d47ceaebc443c15dcc5e84830e8d7858201"
+  },
+  "rock/R01.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R01.png",
+    "sha256": "911b04ff4b357a5a7be221f2c0b527d7d330d136431c0b711f521ee5f3def57d"
+  },
+  "rock/R02.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R02.png",
+    "sha256": "13e22a3e226900dbcf274e5a40293882af15ff9c8e14616a5776d7edccc95e12"
+  },
+  "rock/R03.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R03.png",
+    "sha256": "595972fa4eca4620a1c672bbd02e0abd5c68927bf3d0e9179323d6b31c2bb91d"
+  },
+  "rock/R04.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R04.png",
+    "sha256": "95bc6530aa79222fe8550af62fedf7d20aea3b426decda49f9df0644fd38e59c"
+  },
+  "rock/R11.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R11.png",
+    "sha256": "a024a78ca63d09c381e77e7ef2f6479fe6bcea0932660df08b909339054b2ba7"
+  },
+  "rock/R12.png": {
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R12.png",
+    "sha256": "cc08ae1763f054268ba9c753c3b40610efdb4bd8dfa707fd469a99a3e041310a"
+  },
+  "rock/grass-lip-top-0.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-top-0.png",
+    "sha256": "8eb9ae682ad12b79f4d640fdb4d423d1dfd4a8941fc43577b683470f5d7ea622"
+  },
+  "rock/grass-lip-top-1.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-top-1.png",
+    "sha256": "537dbaff59358784e3525ee48f8b6a17f32e21c4071448b5583ff325ce94d70b"
+  },
+  "rock/grass-lip-bottom-0.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-bottom-0.png",
+    "sha256": "6f4c4177d529e88406b52259913f56c3ae5a56074f0edf6c78c8738e6efbe8c8"
+  },
+  "rock/grass-lip-bottom-1.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-bottom-1.png",
+    "sha256": "12a9f13f2e9d5de9f7969fc4169c9f64eebfba6dfd1d98e0a62de42b8a96ed51"
+  },
+  "rock/grass-lip-left-0.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-left-0.png",
+    "sha256": "38a9118ecf3149b92b54e500a57d5aaf3a44d24ec5927f6651bb2d35c126f382"
+  },
+  "rock/grass-lip-left-1.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-left-1.png",
+    "sha256": "4ba3f1c6c43dfe3a3e42916712ad3883ca4c8daedc908e108acd6a714a6ef3a8"
+  },
+  "rock/grass-lip-right-0.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-right-0.png",
+    "sha256": "3008d4dbcdd29eae5bdf7a13529d670f0632fc5d002c67552b05a81b2c229c02"
+  },
+  "rock/grass-lip-right-1.png": {
+    "source": "gba/art/johto-common/rocks/r02-shared-rims/source/tiles/grass-lip-right-1.png",
+    "sha256": "283d7c2abaced3e75b4dde5ac5620325dfa788055e794c68d943d0cd557033c3"
+  },
+  "rock/route31-top-source.png": {
+    "source": "gba/art/hgss-connections/references/route31-hgss.png crop [944, 32, 976, 64]",
+    "source_sha256": "f94c72aec1bab8cc1956ed22abdbb35549b084b69b068025db693a66fa3cd4b9",
+    "sha256": "6fee413bdc028a98a66437be3e717fd3854252421124562907a024173eb447ee",
+    "use": "Routes 31/32 structure rebuild plateau top (unobscured HGSS 32 px patch)"
+  }
 }

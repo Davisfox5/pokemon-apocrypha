@@ -1,7 +1,142 @@
-# Mahogany Town: HGSS's own art, converted
+# Mahogany Town: third draft under the reconstruction guide
+
+Mahogany as one native Gen 3 map, rebuilt strictly to `AGENTS.md` and
+[the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md). The owner rejected the
+element build ("done from scratch": flat textures, wrong houses, wrong rock depth) and the direct
+HGSS conversion ("does not follow the guide in agents.md"). This draft traces HGSS square by square,
+assembles the map from the accepted shared Johto art, authors only what the catalog lacks from HGSS's
+own models, packs it without any colour or tile approximation, and records review findings by
+coordinate. Engine branch `claude/mahogany-town` at `8c60a820` (draft PR #28 against `apocrypha`).
+Owner visual acceptance is pending.
+
+![HGSS and the installed native map, numbered by cell](evidence/review3/whole.png)
+
+[All three drafts beside HGSS](evidence/review3/drafts.png) ·
+[gameplay frames](evidence/review3/gameplay.png) ·
+[review findings by coordinate](evidence/review3/findings.json)
+
+## The map
+
+| | |
+| --- | --- |
+| Map | `MahoganyTown`, 32x32, `gMapGroup_Cherrygrove` id 43 (Center 44, upstairs 45) |
+| Tilesets | private pair `gTileset_MahoganyPrimary` + `gTileset_MahoganyTown`: 966 of 1,008 tiles (1008-1023 left for door animation), 211 + 188 metatiles |
+| Colour | 13 banks, each colour exact: all 262,144 native pixels equal the assembled art in RGB555 |
+| Material audit | 936 of 1,024 cells show HGSS's material, 0 mismatches, 88 cells where a foreground object differs (below) |
+
+## 1. Reference (`trace.py`)
+
+- Authority: HGSS land_data chunk 85 decoded from pret/pokeheartgold (header 87, area bank 8, matrix
+  origin [16,5]), events zone T28. Registration is exact: HGSS tile (x, z) is native cell (x, y), 16 px,
+  origin (0,0), no crop or expansion. Not a screenshot trace.
+- Numbered sheets: `evidence/trace/hgss-numbered-1..4.png`; material grid over HGSS:
+  `evidence/trace/grid-over-hgss-1..4.png`.
+- Rock structure per pixel (`source/trace/roles.npz`, `evidence/trace/roles.png`): HGSS's terrain mesh
+  rendered at its own heights, every wall triangle classed by its normal as top, front (south), east
+  side, west side or rear (north) face, with what lies on the wall's top (lawn or rock). Measured: fronts
+  27 and 43 px, sides 11 px, rear rims 8 px.
+- Editable material grid `source/trace/material-grid.txt` (one code per cell), traversal ledger
+  `source/trace/traversal.json` (HGSS type and collision bits per cell), tree roots `trees.json` (40 trees,
+  2x2), buildings `buildings.json`.
+
+## 2-3. Assembly (`assemble.py`) and shared art
+
+Shared masters are copied byte for byte into `source/shared-art/` with hashes and the catalog commit
+(`codex/violet-city` `de5d8cf`) in `provenance.json`:
+
+| Part | Shared art | Placement |
+| --- | --- | --- |
+| Lawn, road, rims | Cherrygrove/Route 36 painter (`claude_cherrygrove/ground.py`) | lawn or road per 8 px quadrant, read from HGSS's own colours |
+| Rock faces | R02 (front), R12 (side), Route 36 grass lips | on HGSS's measured faces, one course resampled to each drop |
+| Rock tops | Route 31 HGSS plateau patch | HGSS's rock-top pixels |
+| Ledges | L11 / L12 / L13 | HGSS's 17 jump-south cells; run ends rounded |
+| Trees | T01 | on each of HGSS's 40 roots, crown one row behind |
+| Signs | P12 signpost, P13 plaque, P15 Gym marker | on HGSS's sign cells and bases |
+| Center | C06 | origin (20,19), door on HGSS's (22,23) |
+| Gate | G01a | origin (10,-2), door column on HGSS warp (13,5) |
+
+Local assets (`source/local-art/`, only what the catalog lacks): the houses, Gym, two lookout towers and
+antenna tree, cut exactly from HGSS's own models and textures (`*-hgss.png`), transparent, no baked
+ground; the white flowers at (1,10)-(2,10) from HGSS's flower03 texture; the west-facing ledge
+(6,10)-(6,11), Emerald's native jump-west ledge (general metatile 0x85) recoloured onto the ledge ramp,
+and its corner (6,12).
+
+## 4. Native pack (`pack_lossless.py`)
+
+No k-means, no nearest-colour tile merging. Banks are exact colour sets (an integer program places
+every tile's colour set in a bank), tiles dedupe only when identical under a flip, and the only
+compaction is bottom-layer pixels hidden under opaque top-layer art. Rock that shares a tile with
+ground sits on the top layer over pure ground in cells drawn under the player. The packer asserts that
+every native pixel equals the assembled art.
+
+## Deliberate adaptations
+
+All listed with coordinates in `evidence/review3/findings.json`.
+
+- **Capacity.** One 16 px face course per orientation (R02, R12) and a 16 px plateau-top core, as the
+  Routes 31/32 structure rebuild did for Route 32; rock-to-ground edges snap to the 8 px tile grid
+  (up to 4 px); straight lawn rims (no 32 px wave) and a 16 px road core.
+- **Palette alignment.** Four near-duplicate plateau tones and two face tones fold into a neighbour
+  (1-2 RGB555 steps), and the warm ledge's three stone tones map onto the matching rock tones, so the
+  whole rock ramp and the grass lips fit one bank.
+- **Local buildings.** Moved to the nearest 8 px corner (2-3 px). Houses and towers share 14 tones
+  (from 45), the antenna tree 13 (from 24), the Gym 19 (from 37, the fewest merges that fit two banks);
+  closest tones merge, warm and cool never together, shapes untouched (`source/local-art/reductions.json`).
+- **Foreground.** T01 is 48 px tall to HGSS's 32 px bushes, so crowns rise one row higher; C06 is shorter
+  than HGSS's Center and the road shows where HGSS's roof stood. These are the 88 "foreground differs"
+  cells in `evidence/pack3/material-audit.json`.
+- **Collision.** HGSS's own, except the ten cells at (20-24,18-19) that HGSS's taller Center blocked:
+  walkable here, row 19 drawn above the player (C06's roof edge), row 18 open road. Gate warps (12,5)/(13,5), the Gym door, the shop and
+  the east house stay solid until their interiors exist.
+
+## Verification
+
+- **Build**: engine `8c60a820`, ROM sha256 `0deca7f7ca38338d15a98890844411960f05bc0d93cd9896e4da6dc59d2cca9d`
+  (not committed).
+- **Native audit** (`check3.py`, `evidence/pack3/native-audit.json`): installed decode equals the packer's
+  and the assembled art pixel for pixel; behaviour, collision, elevation and layer type match the ledger
+  on all 1,024 cells; every approach reachable; walk-behind layering matches the objects' base rows;
+  shared masters byte-identical to the catalog; only Mahogany files changed; budgets met.
+- **Material audit** (`evidence/pack3/material-audit.json`, magenta/cyan boxes in `native-grid.png`):
+  native classes from decoded colours against the masters' own colour vocabularies, HGSS classes from the
+  decoded reference. 936 match, 0 mismatch, 88 foreground differences as above.
+- **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 31 captures, map layers rebuilt from VRAM
+  equal the native decode in all of them; BG1 covers the player behind the Center, Gym roof, shop roof,
+  antenna tree and town sign and leaves the player clear in front of all six buildings; both ledge
+  directions jump and refuse the climb back; Center, Gym, shop, house and gate doors, a tree, a wall and the
+  mountain block; both signs read; Center and upstairs round trip; Cherrygrove and back; ordinary flash
+  save, cold reload and title Continue. No desktop game opened.
+- **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves the map on a fresh clone; its own
+  map export equals the native decode with 0 differing pixels.
+
+## Open for owner review
+
+- Cells (8,7)-(8,8) behind the west tower are open but walled in, as in HGSS.
+- The west mountain's short side face at (4-5,3-6) reads as a plain slab where HGSS shows a slope.
+- Rear rims are a dark band without HGSS's stud row.
+- Not built: Route 43 gatehouse, Gym, souvenir shop and east house interiors, connections, NPCs.
+
+## Reproduction
+
+```sh
+python3 tools/gba/maps/mahogany/trace.py PHG_CHECKOUT
+python3 tools/gba/maps/mahogany/assemble.py PHG_CHECKOUT CATALOG_CHECKOUT ENGINE_CHECKOUT   # catalog: codex/violet-city
+python3 tools/gba/maps/mahogany/pack_lossless.py ENGINE_CHECKOUT PHG_CHECKOUT
+python3 tools/gba/maps/mahogany/install_convert.py ENGINE_CHECKOUT pack3    # replaces the earlier Mahogany install only
+make -C ENGINE_CHECKOUT -j8
+python3 tools/gba/maps/mahogany/check3.py ENGINE_CHECKOUT PHG_CHECKOUT
+python3 tools/gba/maps/mahogany/review3.py
+python3 tools/gba/maps/mahogany/runtime3.py ENGINE_CHECKOUT OUT_DIR
+python3 tools/gba/maps/mahogany/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY pack3
+```
+
+Generators are provenance: edit the committed native map in Porymap; never replay them over owner edits
+(the installer refuses if a Mahogany file carries a commit it did not make).
+
+## Second draft: HGSS art converted (rejected 2026-10-23)
 
 Mahogany as one native Gen 3 map, converted from HeartGold/SoulSilver's own map data and
-art. This is the second draft. The owner rejected the first (Gen 3 element build, below) on
+art. The owner rejected the first (Gen 3 element build, below) on
 2026-10-23: "done from scratch", flat textures, house textures not right, rock ledges and
 depth wrong. This draft draws HGSS's own ground, grass, road, cliffs, low walls, ledges,
 trees, houses, Gym, Route 43 gate, lookout towers, antenna tree and signposts, at HGSS's
@@ -11,7 +146,7 @@ acceptance is pending.
 
 ![HGSS render and the installed native map](evidence/convert/original-native.png)
 
-## The map
+### The map
 
 | | |
 | --- | --- |
@@ -23,7 +158,7 @@ acceptance is pending.
 Map ids are appended to `gMapGroup_Cherrygrove`; Blackthorn (engine PR #26) and Cianwood also
 append there, and whichever merges second takes the next ids.
 
-## How it is made (`tools/gba/maps/mahogany/convert.py`)
+### How it is made (`tools/gba/maps/mahogany/convert.py`)
 
 - **Art**: `hgss_render.py` renders HGSS land_data chunk 85 with its own textures and building
   models, 16 px per tile. Anything above the town floor rises up the screen by its height, the
@@ -42,7 +177,7 @@ append there, and whichever merges second takes the next ids.
   texture tiles share one tile each, cheapest first: same bank, same transparent pixels, no
   pixel moving more than 6 levels. Result: 1,000 of 1,008.
 
-## Deliberate adaptations
+### Deliberate adaptations
 
 All listed with reasons in `evidence/convert/pack.json`:
 
@@ -59,7 +194,7 @@ All listed with reasons in `evidence/convert/pack.json`:
   sliding animation (the warp works). Music is a placeholder (`MUS_VERDANTURF`); the region map
   square is a placeholder.
 
-## Verification
+### Verification
 
 - **Native audit** (`check_convert.py`, `evidence/convert/native-audit.json`): the installed files
   decode identically to the packer; all 1,024 cells match the traversal ledger's behaviour,
@@ -89,13 +224,13 @@ No ROM, save, toolchain or emulator binary is committed. Close-up pairs: `eviden
 
 ![Headless capture: the player behind the Gym's roof](evidence/convert/gameplay/behind-gym-roof.png)
 
-## Not built
+### Not built
 
 - Gym, souvenir shop, east house and Route 43 gatehouse interiors; Route 42, 43 and 44
   connections. No NPCs, trainers, encounters or story events (HGSS's four townspeople are
   recorded in `source/hgss-events.json`).
 
-## Reproduction
+### Reproduction
 
 The map is regenerated from these tools each round until the owner edits or accepts it.
 `install_convert.py` removes the agent's earlier Mahogany install (it refuses if any Mahogany

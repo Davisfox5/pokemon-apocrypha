@@ -1,0 +1,1146 @@
+{
+  "rom_sha256": "0deca7f7ca38338d15a98890844411960f05bc0d93cd9896e4da6dc59d2cca9d",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:town-centre",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 16,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:center-approach",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:gym-front",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 11,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:shop-front",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 16,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:east-house-front",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:gate-front",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 13,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:west-lawn",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 3,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:north-road",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 17,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:east-road",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 30,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:south-road",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 15,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:gym-lawn-west",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:center-lawn",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 18,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:west-edge",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 0,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:north-woods-edge",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 20,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:east-wall",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 24,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:behind-center",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-22-19",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:behind-gym-roof",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 11,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-11-17",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 11,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:behind-shop-roof",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 17,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-17-9",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 17,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:behind-town-sign",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 4,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-4-11",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 4,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:behind-antenna-tree",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 20,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-20-11",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 20,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:ledge-jump-south",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 10,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-10-13",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 10,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-10-13",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 10,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:ledge-jump-west",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-5-10",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-5-10",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:ledge-jump-gym-lawn",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-5-22",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-5-22",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-21-24",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 21,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-11-24",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 11,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-16-15",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 16,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-25-15",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-13-6",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 13,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-16-8",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 16,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-5-10",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 5,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-3-18",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 3,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-15-26",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 15,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:town-sign",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 4,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:gym-sign",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 8,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "center-entry",
+          "region": 2,
+          "group": 80,
+          "map": 44,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:center-interior",
+          "region": 2,
+          "group": 80,
+          "map": 44,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "center-upstairs",
+          "region": 2,
+          "group": 80,
+          "map": 45,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:center-upstairs",
+          "region": 2,
+          "group": 80,
+          "map": 45,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "center-stair-return",
+          "region": 2,
+          "group": 80,
+          "map": 44,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-43-22-24",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:center-exit",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:regression-cherrygrove",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 50,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "shot:return-to-mahogany",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "save-in-town",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:save-in-town",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 22,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "behind-antenna-tree",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 21568,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        104
+      ],
+      "bg1_pixels_over_player_cell": 254
+    },
+    {
+      "frame": "behind-center",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 17280,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        232
+      ],
+      "bg1_pixels_over_player_cell": 224
+    },
+    {
+      "frame": "behind-gym-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 19584,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        64,
+        200
+      ],
+      "bg1_pixels_over_player_cell": 256
+    },
+    {
+      "frame": "behind-shop-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 22464,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        160,
+        72
+      ],
+      "bg1_pixels_over_player_cell": 256
+    },
+    {
+      "frame": "behind-town-sign",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 16512,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -48,
+        104
+      ],
+      "bg1_pixels_over_player_cell": 136
+    },
+    {
+      "frame": "center-approach",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 22336,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        312
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "center-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 22336,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        312
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "center-lawn",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 18112,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        176,
+        296
+      ]
+    },
+    {
+      "frame": "cold-flash-reload",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 21504,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        328
+      ]
+    },
+    {
+      "frame": "east-house-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 19328,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        288,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "east-road",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 26816,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        368,
+        184
+      ]
+    },
+    {
+      "frame": "east-wall",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 24576,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        272,
+        328
+      ]
+    },
+    {
+      "frame": "gate-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 25536,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        96,
+        24
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "gym-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 17664,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        64,
+        312
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "gym-lawn-west",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 23872,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -32,
+        296
+      ]
+    },
+    {
+      "frame": "gym-sign",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 18880,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        16,
+        328
+      ]
+    },
+    {
+      "frame": "ledge-jump-gym-lawn",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 23808,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -32,
+        280
+      ]
+    },
+    {
+      "frame": "ledge-jump-south",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 15296,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        48,
+        136
+      ]
+    },
+    {
+      "frame": "ledge-jump-west",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 15040,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -32,
+        88
+      ]
+    },
+    {
+      "frame": "north-road",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 22464,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        160,
+        72
+      ]
+    },
+    {
+      "frame": "north-woods-edge",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 26304,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        56
+      ]
+    },
+    {
+      "frame": "ordinary-continue",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 21504,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        328
+      ]
+    },
+    {
+      "frame": "regression-cherrygrove",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2048,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        688,
+        200
+      ]
+    },
+    {
+      "frame": "return-to-mahogany",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 21504,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        328
+      ]
+    },
+    {
+      "frame": "save-in-town",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 21504,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        240,
+        328
+      ]
+    },
+    {
+      "frame": "shop-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 19712,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        144,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "south-road",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 16384,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        344
+      ]
+    },
+    {
+      "frame": "town-centre",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 20800,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        144,
+        184
+      ]
+    },
+    {
+      "frame": "town-sign",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 16896,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -48,
+        136
+      ]
+    },
+    {
+      "frame": "west-edge",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 23360,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -112,
+        136
+      ]
+    },
+    {
+      "frame": "west-lawn",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 18368,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -64,
+        104
+      ]
+    }
+  ]
+}

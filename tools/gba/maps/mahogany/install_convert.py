@@ -1,8 +1,9 @@
 """Install the HGSS-converted Mahogany Town (convert.py) as one native map, with its Center.
 
-    python3 tools/gba/maps/mahogany/install_convert.py ENGINE_CHECKOUT
+    python3 tools/gba/maps/mahogany/install_convert.py ENGINE_CHECKOUT [PACK]
 
-Reads convert.py's output. Mahogany is a single 32x32 map on its own tileset pair:
+Reads a packed draft: PACK 'convert' (second draft, convert.py) or 'pack3' (third draft,
+assemble.py + pack_lossless.py). Mahogany is a single 32x32 map on its own tileset pair:
 gTileset_MahoganyPrimary (HGSS Mahogany's ground, cliffs, trees and walls, banks 0-5) and
 gTileset_MahoganyTown (the rest of HGSS's art and the owner-locked C06 Center, banks 6-12).
 It replaces the first draft (the Gen 3 element build) on the engine branch: that draft's
@@ -79,7 +80,7 @@ def write_tileset(d, pats, pal, metas, banks_shown):
 
 def register(g, sym, folder, kind, secondary):
     with (g / 'src/data/tilesets/graphics.h').open('a') as f:
-        f.write(f'\n// Mahogany Town ({kind}): HGSS Mahogany converted.\n'
+        f.write(f'\n// Mahogany Town ({kind}).\n'
                 f'const u32 gTilesetTiles_{sym}[] = INCGFX_U32("data/tilesets/{kind}/{folder}/tiles.png", ".4bpp.fastSmol");\n'
                 f'const u16 gTilesetPalettes_{sym}[][16] = {{\n' +
                 ''.join(f'    INCGFX_U16("data/tilesets/{kind}/{folder}/palettes/{i:02}.pal", ".gbapal"),\n' for i in range(16)) + '};\n')
@@ -91,9 +92,13 @@ def register(g, sym, folder, kind, secondary):
                 f'.tiles = gTilesetTiles_{sym}, .palettes = gTilesetPalettes_{sym}, .metatiles = gMetatiles_{sym}, '
                 f'.metatileAttributes = gMetatileAttributes_{sym}, .callback = NULL }};\n')
 
+BUILDS = {'convert': 'HGSS conversion (convert.py)',
+          'pack3': 'third draft: shared Johto art + local HGSS buildings, lossless (assemble.py, pack_lossless.py)'}
+
 def main(g, style):
+    style = style or 'convert'
     remove_draft(g)
-    z = np.load(SRC / 'convert' / 'pack.npz')
+    z = np.load(SRC / style / 'pack.npz')
     grid, pats, pal, metas = z['grid'], z['patterns'], z['palettes'], z['metatiles']
     coll, elev = z['collision'], z['elevation']
     write_tileset(g / f'data/tilesets/primary/{PFOLDER}', pats[:512], pal, metas[metas[:, 0] < 512], range(6))
@@ -162,11 +167,11 @@ def main(g, style):
     assert anchor in s
     s = s.replace(anchor, 'MAP_CHERRYGROVE_REGIONAL_PREVIEW_30, ' + ', '.join(map_id(n) for n in all_new) + '};'); p.write_text(s)
     ids = {n: groups['gMapGroup_Cherrygrove'].index(n) for n in all_new}
-    report = json.loads((EV / 'convert' / 'pack.json').read_text())
-    write(EV / 'capacity.json', dict(map=NAME, primary=PRIMARY, secondary=f'gTileset_{SYM}', build='HGSS conversion (convert.py)',
+    report = json.loads((EV / style / 'pack.json').read_text())
+    write(EV / 'capacity.json', dict(map=NAME, primary=PRIMARY, secondary=f'gTileset_{SYM}', build=BUILDS[style],
                                      **{k: report[k] for k in ('tiles', 'tile_limit', 'primary_tiles', 'secondary_tiles', 'metatiles',
                                                                 'primary_metatiles', 'secondary_metatiles')}, map_ids=ids))
     print('Installed Mahogany:', ids)
 
 if __name__ == '__main__':
-    main(Path(sys.argv[1]).resolve(), None)
+    main(Path(sys.argv[1]).resolve(), sys.argv[2] if len(sys.argv) > 2 else None)
