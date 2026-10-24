@@ -1,0 +1,102 @@
+{
+  "method": "lossless: exact RGB555 banks, flip dedupe, hidden-backing compaction only",
+  "tiles": 571,
+  "tile_limit": 1008,
+  "primary_tiles": 512,
+  "secondary_tiles": 59,
+  "metatiles": 268,
+  "primary_metatiles": 236,
+  "secondary_metatiles": 32,
+  "distinct_tile_jobs": 589,
+  "hidden_backing_tiles": 1065,
+  "rock_on_top_layer_tiles": 206,
+  "overlap_tiles_split_across_layers": 2,
+  "family_banks": {
+    "ground": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "gate": [
+      4
+    ],
+    "tree": [
+      5
+    ],
+    "sign": [
+      6
+    ],
+    "rock": [
+      7
+    ]
+  },
+  "banks_used": 9,
+  "colours_per_bank": [
+    14,
+    14,
+    12,
+    13,
+    15,
+    12,
+    11,
+    7,
+    10,
+    1,
+    1,
+    1,
+    1
+  ],
+  "native_pixels_exact": 524288,
+  "native_pixels": 524288,
+  "adaptations": {
+    "14,3": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "15,3": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "2,9": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "3,9": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "4,9": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "5,9": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "20,12": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "21,12": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "18,14": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "19,14": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "16,18": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "17,18": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "23,19": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "24,19": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "14,22": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "15,22": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "18,29": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "19,29": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "0,31": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "1,31": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "2,33": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "3,33": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "4,33": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "5,33": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "25,38": "HGSS gate warp row; the arrow warp is the cell south of it",
+    "26,38": "HGSS gate warp row; the arrow warp is the cell south of it",
+    "16,39": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "17,39": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "23,39": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "24,39": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "25,39": "HGSS's gate warp (25, 38) stands one row north, in front of its taller model; the arrow warp sits against the Gen 3 roof",
+    "26,39": "HGSS's gate warp (26, 38) stands one row north, in front of its taller model; the arrow warp sits against the Gen 3 roof",
+    "27,39": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "28,39": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "23,40": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "28,40": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "18,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "19,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "20,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "21,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "22,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "23,55": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "16,57": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "17,57": "HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it",
+    "12,60": "HGSS gate warp row; the arrow warp is the cell south of it",
+    "13,60": "HGSS gate warp row; the arrow warp is the cell south of it",
+    "12,61": "HGSS's gate warp (12, 60) stands one row north, in front of its taller model; the arrow warp sits against the Gen 3 roof",
+    "13,61": "HGSS's gate warp (13, 60) stands one row north, in front of its taller model; the arrow warp sits against the Gen 3 roof"
+  }
+}

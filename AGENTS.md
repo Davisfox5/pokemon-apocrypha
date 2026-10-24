@@ -70,6 +70,14 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
 - Use original-game textures and accepted shared art. Preserve tree footprints
   and complete canopies, coherent grass borders, cliff tops/faces, stair axis,
   shore lips and dock grain. Reuse the approved Violet Center and shared Pokémart.
+- Tall grass defaults to the whole-cell piece: the Johto catalog's G15
+  (`gba/art/johto-common/scenery/source/G15.png`) on every tall-grass cell. The
+  edge pieces G00-G14 are trimmed on the sides with no tall grass beside them,
+  so cells beside trees and one-cell strips come out part empty (owner review,
+  Route 43, 2026-10-24). Use an edge piece only where a map deliberately needs it.
+- Pond and lake shores look natural, not manicured: an irregular bank of uneven
+  width with grass breaking into it, never a straight, even rim like a city or
+  park pool (owner review, Route 43, 2026-10-24). Keep the Surf boundary on cell edges.
 - Validate actual decoded native tiles/palettes/layers and Porymap output, plus
   relevant headless movement, gates, connections, water, doors/stairs and ordinary
   saves. Review all affected floors/maps and both sides of transitions. Record

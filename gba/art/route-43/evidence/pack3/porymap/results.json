@@ -1,0 +1,79 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "d9f951c9d72beeefa717416655c0c05647ba6c34",
+  "export_vs_native": {
+    "Route43": {
+      "size": [
+        512,
+        1024
+      ],
+      "differing_pixels": 0
+    },
+    "MahoganyTown": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels": 0
+    }
+  },
+  "route43_files_rewritten": [
+    "data/layouts/Route43/border.bin",
+    "data/layouts/Route43/map.bin",
+    "data/maps/Route43/map.json",
+    "data/maps/Route43Gatehouse/map.json",
+    "data/maps/Route43MahoganyGatehouse/map.json",
+    "data/tilesets/primary/route43/metatile_attributes.bin",
+    "data/tilesets/primary/route43/metatiles.bin",
+    "data/tilesets/primary/route43/palettes/00.pal",
+    "data/tilesets/primary/route43/palettes/01.pal",
+    "data/tilesets/primary/route43/palettes/02.pal",
+    "data/tilesets/primary/route43/palettes/03.pal",
+    "data/tilesets/primary/route43/palettes/04.pal",
+    "data/tilesets/primary/route43/palettes/05.pal",
+    "data/tilesets/primary/route43/palettes/06.pal",
+    "data/tilesets/primary/route43/palettes/07.pal",
+    "data/tilesets/primary/route43/palettes/08.pal",
+    "data/tilesets/primary/route43/palettes/09.pal",
+    "data/tilesets/primary/route43/palettes/10.pal",
+    "data/tilesets/primary/route43/palettes/11.pal",
+    "data/tilesets/primary/route43/palettes/12.pal",
+    "data/tilesets/secondary/route_43/metatile_attributes.bin",
+    "data/tilesets/secondary/route_43/metatiles.bin",
+    "data/tilesets/secondary/route_43/palettes/00.pal",
+    "data/tilesets/secondary/route_43/palettes/01.pal",
+    "data/tilesets/secondary/route_43/palettes/02.pal",
+    "data/tilesets/secondary/route_43/palettes/03.pal",
+    "data/tilesets/secondary/route_43/palettes/04.pal",
+    "data/tilesets/secondary/route_43/palettes/05.pal",
+    "data/tilesets/secondary/route_43/palettes/06.pal",
+    "data/tilesets/secondary/route_43/palettes/07.pal",
+    "data/tilesets/secondary/route_43/palettes/08.pal",
+    "data/tilesets/secondary/route_43/palettes/09.pal",
+    "data/tilesets/secondary/route_43/palettes/10.pal",
+    "data/tilesets/secondary/route_43/palettes/11.pal",
+    "data/tilesets/secondary/route_43/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_route43": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Route 43 are Porymap normalising entries that predate it (key order, \\u escapes)."
+}
