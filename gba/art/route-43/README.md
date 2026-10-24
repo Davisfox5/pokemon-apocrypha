@@ -14,15 +14,16 @@ Detail sheets (HGSS beside native, numbered by cell): [north woods and sign](evi
 [south road and Mahogany gate](evidence/review3/south-road-mahogany-gate.png)
 
 **Owner review 2026-10-24** ("nearly one-shotted it"): some large trees overlapped and a few tall-grass
-patches were half a cell. Fixed: trees on non-overlapping roots, one-cell strips of tall grass on full
-pieces.
+patches were half a cell. Fixed: trees on non-overlapping roots. Second round: tall grass beside trees
+and in one-cell lines still did not fill its cell, so every tall-grass cell now takes G15, the piece that
+fills the whole cell.
 
 ## The map
 
 | | |
 | --- | --- |
 | Map | `Route43`, 32x64, `gMapGroup_Cherrygrove` id 46; `Route43Gatehouse` 47, `Route43MahoganyGatehouse` 48; `MAPSEC_JOHTO_ROUTE_43` |
-| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 511 of 1,008 tiles (all in the primary; the secondary holds one blank metatile the build requires), 252 metatiles |
+| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 466 of 1,008 tiles (all in the primary; the secondary holds one blank metatile the build requires), 222 metatiles |
 | Colour | 8 banks, each colour exact: all 524,288 native pixels equal the assembled art in RGB555 |
 | Material audit | 1,914 of 2,048 cells show HGSS's material, 0 mismatches, 134 cells where a foreground object differs (below) |
 
@@ -56,7 +57,7 @@ Copied byte for byte into `source/shared-art/` with hashes and the catalog commi
 | Part | Shared art | Placement |
 | --- | --- | --- |
 | Lawn, road, rims | Cherrygrove/Route 36 painter, unchanged | lawn or road per 8 px quadrant from HGSS's flat ground colours |
-| Tall grass | G00-G15 | HGSS's 189 tall-grass cells, piece by which of N/S/W/E neighbours are tall grass; a one-cell-wide (or -tall) strip takes the full-width (or -height) piece, so no patch is half a cell |
+| Tall grass | G15 | HGSS's 189 tall-grass cells, each the whole-cell piece (owner review: the trimmed edge pieces left cells part empty) |
 | Ponds | Route 30's installed HGSS freshwater (`route30-hgss-blocks` pond-*mask*-*phase*) | HGSS's 152 water cells; bank and rim inside the water cells, so the Surf edge is the cell edge |
 | Ledge | L11 / L12 / L13 | HGSS's jump-south run (18-22,45) |
 | Trees | T01 | 136 non-overlapping roots (above), crown one row behind |
@@ -109,7 +110,7 @@ top-layer art compacted. Asserts every native pixel equals the assembled art.
 ## Verification
 
 - **Build**: engine `claude/route-43`, ROM sha256
-  `66ca181e7e16169f3baab6fc192457760ac8348bb5aef55c983aa0d5232786db` (not committed).
+  `903f8a1b8aa947175b9b210a124123ff033141593e0e5389c638faf3ede5da69` (not committed).
 - **Native audit** (`check3.py`, `evidence/pack3/native-audit.json`): installed decode equals the packer's
   and the assembled art pixel for pixel; behaviour, collision, elevation and layer type match the ledger
   on all 2,048 cells; every approach reachable on foot, every pond cell with Surf; walk-behind layering

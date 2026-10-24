@@ -647,8 +647,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 96,
+    "lawn": 13
    },
    "hgss": {
     "tall_grass": 256
@@ -665,8 +665,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
+    "tall_grass": 101,
+    "lawn": 8
    },
    "hgss": {
     "tall_grass": 217,
@@ -826,8 +826,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 96,
+    "lawn": 13
    },
    "hgss": {
     "tall_grass": 256
@@ -844,8 +844,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
+    "tall_grass": 101,
+    "lawn": 8
    },
    "hgss": {
     "tall_grass": 217,
@@ -4073,8 +4073,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -5165,8 +5165,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -5180,11 +5180,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -5733,8 +5733,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -5750,8 +5750,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -5767,8 +5767,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -5784,8 +5784,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -5798,11 +5798,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -6256,11 +6256,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -6345,8 +6345,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -6809,8 +6809,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -6827,8 +6827,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -6844,8 +6844,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -6861,8 +6861,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -6895,8 +6895,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -7014,11 +7014,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -7035,8 +7035,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -7052,8 +7052,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -7066,11 +7066,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -7427,8 +7427,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -7444,8 +7444,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -7566,8 +7566,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -7618,8 +7618,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -7986,8 +7986,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -8108,8 +8108,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -8160,8 +8160,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -8655,8 +8655,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -8707,8 +8707,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9200,8 +9200,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9251,8 +9251,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9339,11 +9339,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9359,8 +9359,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9373,11 +9373,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9746,8 +9746,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -9797,8 +9797,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -9885,8 +9885,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -9920,8 +9920,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -10290,8 +10290,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -10341,8 +10341,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -10429,8 +10429,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -10464,8 +10464,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -10838,8 +10838,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -10873,8 +10873,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 96,
+    "lawn": 13
    },
    "hgss": {
     "tall_grass": 256
@@ -10891,8 +10891,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
+    "tall_grass": 101,
+    "lawn": 8
    },
    "hgss": {
     "tall_grass": 217,
@@ -10979,8 +10979,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -11014,8 +11014,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -11334,11 +11334,11 @@
    ],
    "code": "n",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "water",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "water": 176,
@@ -11356,8 +11356,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "water",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "water": 176,
@@ -11375,8 +11375,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "water",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "water": 137,
@@ -11411,8 +11411,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -11535,8 +11535,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -11570,8 +11570,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -11889,8 +11889,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -11957,8 +11957,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -12061,11 +12061,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12115,8 +12115,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12451,8 +12451,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12502,8 +12502,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -12587,11 +12587,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -12642,8 +12642,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12659,8 +12659,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12980,8 +12980,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -12997,8 +12997,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -13014,8 +13014,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -13032,8 +13032,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 96,
+    "lawn": 13
    },
    "hgss": {
     "tall_grass": 256
@@ -13050,8 +13050,8 @@
    "hgss_lead": "tall_grass",
    "native": {
     "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
+    "tall_grass": 101,
+    "lawn": 8
    },
    "hgss": {
     "tall_grass": 217,
@@ -13138,8 +13138,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -13173,8 +13173,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -13695,8 +13695,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -13730,8 +13730,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -14237,8 +14237,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -14272,8 +14272,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -14782,8 +14782,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -14817,8 +14817,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -15254,11 +15254,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -15275,8 +15275,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -15292,8 +15292,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -15309,8 +15309,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -15360,8 +15360,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -15798,8 +15798,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -15901,8 +15901,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -16358,8 +16358,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -16375,8 +16375,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -16392,8 +16392,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -16443,8 +16443,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -16949,8 +16949,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -16983,8 +16983,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -17487,8 +17487,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -17521,8 +17521,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -18025,8 +18025,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -18059,8 +18059,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -18456,11 +18456,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 144,
-    "tall_grass": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -18473,11 +18473,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -18564,8 +18564,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -18598,8 +18598,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -18997,8 +18997,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -19028,11 +19028,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -19101,8 +19101,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -19136,8 +19136,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -19548,8 +19548,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -19596,11 +19596,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 148,
-    "tall_grass": 108
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -19653,8 +19653,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -19671,8 +19671,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -20092,8 +20092,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -20143,8 +20143,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -20197,8 +20197,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -20215,8 +20215,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -20660,8 +20660,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -20694,8 +20694,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -20748,8 +20748,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 208,
-    "lawn": 48
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -21223,8 +21223,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -21240,8 +21240,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -22853,8 +22853,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -23912,12 +23912,12 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 128,
-    "tall_grass": 112,
-    "road": 16
+    "tall_grass": 227,
+    "lawn": 27,
+    "road": 2
    },
    "hgss": {
     "tall_grass": 256
@@ -23933,8 +23933,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -24456,8 +24456,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -24473,8 +24473,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -24996,9 +24996,9 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 84,
-    "road": 16
+    "tall_grass": 227,
+    "lawn": 27,
+    "road": 2
    },
    "hgss": {
     "tall_grass": 256
@@ -25014,8 +25014,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -25532,8 +25532,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -25549,8 +25549,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -26072,9 +26072,9 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 84,
-    "road": 16
+    "tall_grass": 227,
+    "lawn": 27,
+    "road": 2
    },
    "hgss": {
     "tall_grass": 256
@@ -26090,8 +26090,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -26602,8 +26602,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -26619,8 +26619,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -27130,9 +27130,9 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 84,
-    "road": 16
+    "tall_grass": 227,
+    "lawn": 27,
+    "road": 2
    },
    "hgss": {
     "tall_grass": 256
@@ -27148,8 +27148,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,
@@ -27668,8 +27668,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 156,
-    "lawn": 100
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -27685,8 +27685,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 155,
-    "lawn": 101
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -28202,8 +28202,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 256
@@ -28219,8 +28219,8 @@
    "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tall_grass": 144,
-    "lawn": 112
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 253,

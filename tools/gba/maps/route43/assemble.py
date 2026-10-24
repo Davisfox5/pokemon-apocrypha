@@ -17,8 +17,7 @@ owner accepted for Mahogany Town (tools/gba/maps/mahogany/assemble.py).
                  an 8 px lawn/road grid read from HGSS's own flat ground colours
      ponds       Route 30's installed HGSS freshwater pieces (route30-hgss-blocks pond-<mask>-
                  <phase>) on HGSS's water cells, by which neighbours are water too
-     tall grass  G00-G15 on HGSS's tall-grass cells, chosen by which of the four neighbours
-                 (north, south, west, east) are tall grass too; one-cell strips take full pieces
+     tall grass  G15, the whole-cell tall grass piece, on every HGSS tall-grass cell
      ledges      L11/L12/L13 (warm Johto ledge ends and run)
      trees       T01 on non-overlapping 2x2 roots on HGSS's woods cells (elements.tree_footprints)
      signs       P14 green route sign (HGSS model 32), P16 blue information board (model 34)
@@ -60,7 +59,7 @@ CATALOG = {  # local name -> catalog path (branch codex/violet-city)
     'L12.png': 'gba/art/johto-common/scenery/source/L12.png',
     'L13.png': 'gba/art/johto-common/scenery/source/L13.png',
     'G01a.png': 'gba/art/johto-common-review/gates/refinement-4/G01a.png',
-    **{f'G{i:02}.png': f'gba/art/johto-common/scenery/source/G{i:02}.png' for i in range(16)},
+    'G15.png': 'gba/art/johto-common/scenery/source/G15.png',
     # Route 30's installed HGSS freshwater (tools/gba/maps/route30_hgss_blocks/assets.py):
     # pond-<bits>-<phase>, bits 1 north, 2 south, 4 west, 8 east where water continues,
     # phase (y % 2) * 2 + x % 2 of its 32 px water texture.
@@ -181,27 +180,15 @@ def ground_quadrants(cells, rock):
     return q
 
 def tall_grass(cells):
-    """Catalog tall grass on every HGSS tall-grass cell: G<mask>, mask bits north, south, west,
-    east (1 where that neighbour is tall grass too; off the map counts as not). A strip one
-    cell wide would take a piece trimmed on both sides, half a cell across; it takes the
-    full-width piece instead (both side bits set), and a strip one cell tall the full-height
-    piece, so every tall-grass cell is a whole cell of grass."""
+    """Catalog tall grass on every HGSS tall-grass cell. Every cell takes G15, the interior piece
+    that fills the whole cell (owner review: the edge pieces, trimmed on the sides with no tall
+    grass beside them, left cells beside trees and one-cell strips part empty)."""
     grass = np.array([[c['lab'] == 'G' for c in row] for row in cells])
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    used = {}
+    g15 = rgba(SHARED / 'G15.png')
     for y, x in zip(*np.nonzero(grass)):
-        n = y > 0 and grass[y - 1, x]
-        s = y + 1 < H and grass[y + 1, x]
-        w = x > 0 and grass[y, x - 1]
-        e = x + 1 < W and grass[y, x + 1]
-        if not (w or e):
-            w = e = True
-        if not (n or s):
-            n = s = True
-        k = int(n) * 8 + int(s) * 4 + int(w) * 2 + int(e)
-        art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = rgba(SHARED / f'G{k:02}.png')
-        used[f'G{k:02}'] = used.get(f'G{k:02}', 0) + 1
-    return art, used
+        art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15
+    return art, {'G15': int(grass.sum())}
 
 def pond(cells):
     """Route 30's HGSS freshwater on every HGSS water cell: pond-<bits>-<phase>, bits 1 north,

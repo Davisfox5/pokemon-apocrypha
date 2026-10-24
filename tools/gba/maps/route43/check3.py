@@ -108,7 +108,7 @@ def vocab():
         road=c5set(tex[G.PATH]) | {tuple(np.array(c) >> 3) for c in G.PROFILES[(G.GRASS, G.PATH)][1]},
         rock={tuple(np.array(E.ROCK_RAMP[i]) >> 3) for i in ramp},
         ledge=set().union(*(c5set(rgba(sh / f'{n}.png')) for n in ('L11', 'L12', 'L13'))),
-        tall_grass=set().union(*(c5set(rgba(sh / f'G{i:02}.png')) for i in range(16))),
+        tall_grass=c5set(rgba(sh / 'G15.png')),
         water=set().union(*(c5set(rgba(p)) for p in (sh / 'pond').glob('pond-*.png'))) - c5set(tex[G.GRASS]),
         flowers=c5set(rgba(SRC / 'local-art/flowers.png')),
         tree=c5set(rgba(sh / 'T01.png')), gate=c5set(rgba(sh / 'G01a.png')),
