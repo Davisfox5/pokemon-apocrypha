@@ -1,3 +1,5 @@
+Current correction: [original HGSS grid, heights and coherent wall joins](evidence/refinement/README.md), native source `9e1c0466`. This supersedes the first-pass dimensions and inferred height model documented below. The earlier pass is preserved for comparison.
+
 # Routes 38 and 39 — native terrain-only review
 
 The owner was broadly satisfied with Ecruteak and requested the Olivine–Ecruteak
