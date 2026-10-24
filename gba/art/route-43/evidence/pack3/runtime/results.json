@@ -1,0 +1,1211 @@
+{
+  "rom_sha256": "e2721da7722feb6c41f2f87a72f40c53624a6e78f133d4bbdfb485e96bd5a3c3",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:north-road",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 16,
+          "y": 3,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:north-west-grass",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 4,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:upper-pond",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:east-grass",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 23,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:big-pond",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:east-lawn",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:ledge-lawn",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 19,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:south-road-west",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 12,
+          "y": 50,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:south-road-east",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 52,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:south-road",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 13,
+          "y": 58,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:east-ridge",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 28,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:behind-trees-south",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-20-54",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 54,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:behind-tree-pond",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-15-19",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:behind-trainer-tips",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 49,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-20-49",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 49,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:behind-south-sign",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-15-57",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:behind-north-sign",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-20-2",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:ledge-jump-south",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 19,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-19-46",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 19,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-19-46",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 19,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:tall-grass-walk",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-15-40",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-15-37",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 37,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-18-44",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 18,
+          "y": 44,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-10-49",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 10,
+          "y": 49,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-28-50",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 28,
+          "y": 50,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-24-48",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 24,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-14-30",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 14,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:north-sign",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 4,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:trainer-tips",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 20,
+          "y": 51,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:south-sign",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 15,
+          "y": 59,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:toll-gate-front",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "toll-gate-entry",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 4,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:gatehouse-toll-interior",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 4,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-25-39",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:toll-gate-north-exit",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-25-38",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-25-39",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "toll-gate-north-entry",
+          "region": 2,
+          "group": 80,
+          "map": 47,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-25-48",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:toll-gate-south-exit",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 25,
+          "y": 48,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-13-61",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 13,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:mahogany-gate-back",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 13,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "mahogany-gatehouse-entry",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:gatehouse-mahogany-interior",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-43-12-6",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 12,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:mahogany-gate-exit",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 12,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "mahogany-gatehouse-return",
+          "region": 2,
+          "group": 80,
+          "map": 48,
+          "x": 4,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "at-46-12-61",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 12,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:route43-from-mahogany",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 12,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:mahogany-north-seam",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 13,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:regression-cherrygrove",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 50,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 46,
+          "x": 27,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 224
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "behind-north-sign",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        -40
+      ],
+      "bg1_pixels_over_player_cell": 222
+    },
+    {
+      "frame": "behind-south-sign",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        840
+      ],
+      "bg1_pixels_over_player_cell": 222
+    },
+    {
+      "frame": "behind-trainer-tips",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        712
+      ],
+      "bg1_pixels_over_player_cell": 96
+    },
+    {
+      "frame": "behind-tree-pond",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        232
+      ],
+      "bg1_pixels_over_player_cell": 147
+    },
+    {
+      "frame": "behind-trees-south",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        792
+      ],
+      "bg1_pixels_over_player_cell": 147
+    },
+    {
+      "frame": "big-pond",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        344
+      ]
+    },
+    {
+      "frame": "cold-flash-reload",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        320,
+        312
+      ]
+    },
+    {
+      "frame": "east-grass",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        256,
+        136
+      ]
+    },
+    {
+      "frame": "east-lawn",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        320,
+        312
+      ]
+    },
+    {
+      "frame": "east-ridge",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        336,
+        408
+      ]
+    },
+    {
+      "frame": "ledge-jump-south",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        192,
+        664
+      ]
+    },
+    {
+      "frame": "ledge-lawn",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        192,
+        568
+      ]
+    },
+    {
+      "frame": "mahogany-gate-back",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        96,
+        904
+      ]
+    },
+    {
+      "frame": "mahogany-gate-exit",
+      "map": 43,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        80,
+        24
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "mahogany-north-seam",
+      "map": 43,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        96,
+        -40
+      ]
+    },
+    {
+      "frame": "north-road",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        144,
+        -24
+      ]
+    },
+    {
+      "frame": "north-sign",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        -8
+      ]
+    },
+    {
+      "frame": "north-west-grass",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        -48,
+        40
+      ]
+    },
+    {
+      "frame": "ordinary-continue",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        320,
+        312
+      ]
+    },
+    {
+      "frame": "regression-cherrygrove",
+      "map": 0,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2048,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        688,
+        200
+      ]
+    },
+    {
+      "frame": "route43-from-mahogany",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        80,
+        904
+      ]
+    },
+    {
+      "frame": "save-on-route",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        320,
+        312
+      ]
+    },
+    {
+      "frame": "south-road-east",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        320,
+        760
+      ]
+    },
+    {
+      "frame": "south-road-west",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        80,
+        728
+      ]
+    },
+    {
+      "frame": "south-road",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        96,
+        856
+      ]
+    },
+    {
+      "frame": "south-sign",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        872
+      ]
+    },
+    {
+      "frame": "tall-grass-walk",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        568
+      ]
+    },
+    {
+      "frame": "toll-gate-front",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        288,
+        696
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "toll-gate-north-exit",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        288,
+        552
+      ]
+    },
+    {
+      "frame": "toll-gate-south-exit",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        288,
+        696
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "trainer-tips",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        208,
+        744
+      ]
+    },
+    {
+      "frame": "upper-pond",
+      "map": 46,
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "animated_water_pixels_differing_from_frame_0": 0,
+      "camera_origin_px": [
+        128,
+        120
+      ]
+    }
+  ]
+}
