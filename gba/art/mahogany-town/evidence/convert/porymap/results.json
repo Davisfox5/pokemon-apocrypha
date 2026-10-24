@@ -1,0 +1,72 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "b37519e732ddc7d13f4412a796419308583d6bc8",
+  "style": "converted",
+  "city_export_vs_native": {
+    "size": [
+      512,
+      512
+    ],
+    "differing_pixels": 0
+  },
+  "mahogany_files_rewritten": [
+    "data/layouts/MahoganyTown/border.bin",
+    "data/layouts/MahoganyTown/map.bin",
+    "data/maps/MahoganyCenterUpstairs/map.json",
+    "data/maps/MahoganyPokemonCenter/map.json",
+    "data/maps/MahoganyTown/map.json",
+    "data/tilesets/primary/mahogany/metatile_attributes.bin",
+    "data/tilesets/primary/mahogany/metatiles.bin",
+    "data/tilesets/primary/mahogany/palettes/00.pal",
+    "data/tilesets/primary/mahogany/palettes/01.pal",
+    "data/tilesets/primary/mahogany/palettes/02.pal",
+    "data/tilesets/primary/mahogany/palettes/03.pal",
+    "data/tilesets/primary/mahogany/palettes/04.pal",
+    "data/tilesets/primary/mahogany/palettes/05.pal",
+    "data/tilesets/primary/mahogany/palettes/06.pal",
+    "data/tilesets/primary/mahogany/palettes/07.pal",
+    "data/tilesets/primary/mahogany/palettes/08.pal",
+    "data/tilesets/primary/mahogany/palettes/09.pal",
+    "data/tilesets/primary/mahogany/palettes/10.pal",
+    "data/tilesets/primary/mahogany/palettes/11.pal",
+    "data/tilesets/primary/mahogany/palettes/12.pal",
+    "data/tilesets/secondary/mahogany_town/metatile_attributes.bin",
+    "data/tilesets/secondary/mahogany_town/metatiles.bin",
+    "data/tilesets/secondary/mahogany_town/palettes/00.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/01.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/02.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/03.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/04.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/05.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/06.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/07.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/08.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/09.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/10.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/11.pal",
+    "data/tilesets/secondary/mahogany_town/palettes/12.pal"
+  ],
+  "mahogany_files_changed": [],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_mahogany": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Mahogany are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

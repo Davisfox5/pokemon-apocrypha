@@ -1,3 +1,15 @@
+## Mahogany Town, Blackthorn-style rock (October 24, owner-accepted)
+
+Engine branch `claude/mahogany-town` at `02dc6b15` (draft PR #28 against `apocrypha`) has `MahoganyTown` (ids 43-45 with the Center and its upstairs) rebuilt to `docs/GBA_MAP_RECONSTRUCTION.md`. After the third draft the owner found the rock faces still wrong and named Blackthorn as the reference: rock is now Blackthorn's FRLG terraces (`elements.rock_frlg`), one terrace per HGSS height layer, one face per metatile. Ground is the approved Cherrygrove painter on an 8 px grid from HGSS's flat colours; shared catalog ledges, T01, signs, C06, G01a; local HGSS houses, Gym, towers, antenna tree. Lossless pack (901 tiles, 13 exact banks). Native and material audits, headless mGBA (31 captures at VRAM parity, ledges, barriers, signs, Center, save/reload/Continue) and Porymap 6.3.1 pass. Read `gba/art/mahogany-town/README.md`; findings in `evidence/review3/findings.json`. Doors to unbuilt interiors are solid; no connections. **Owner accepted and locked it on 2026-10-24**: edit its native source, never regenerate it. Map ids collide with Blackthorn's PR #26 (both append 43+).
+
+## Earlier: Mahogany Town, third draft (October 24, rock replaced)
+
+Third draft at engine `8c60a820`: same pipeline with R02/R12 rock courses on HGSS's projected faces.
+
+## Earlier: Mahogany Town, HGSS's own art converted (October 23, rejected)
+
+Engine branch `claude/mahogany-town` (draft PR #28 against `apocrypha`) has `MahoganyTown` (ids 43-45 with the Center and its upstairs) converted from HGSS's own art on its own tileset pair: `gTileset_MahoganyPrimary` (512 tiles) and `gTileset_MahoganyTown` (488 tiles, C06 Center). The owner rejected the first draft (Gen 3 element build: "done from scratch", flat textures, wrong house textures, wrong rock depth). This draft keeps HGSS's ground, cliffs, walls, ledges, trees, houses, Gym, gate, towers, antenna tree and signposts at HGSS's heights; only the Center is C06. Generator `tools/gba/maps/mahogany/convert.py`; read `gba/art/mahogany-town/README.md`. Audit, headless mGBA (31 captures at VRAM parity, save/reload/Continue) and Porymap 6.3.1 round trip pass. Doors to unbuilt interiors are solid; no connections. Owner visual review pending. Map ids collide with Blackthorn's PR #26 (both append 43+).
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

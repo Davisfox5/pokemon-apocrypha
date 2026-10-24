@@ -1,0 +1,55 @@
+# Mahogany Town material and structure grid, one code per native 16x16 cell (x across, y down).
+# Traced from decoded HGSS land_data chunk 85 (trace.py), then reviewed. Codes:
+#   g  lawn
+#   d  dirt road
+#   f  lawn with white flowers
+#   r  rock plateau top
+#   F  rock front face (mountain)
+#   E  rock side facing east
+#   W  rock side facing west
+#   N  rock rear rim
+#   w  low wall, front (grass-topped)
+#   e  low wall side facing east
+#   x  low wall side facing west
+#   n  low wall rear rim
+#   L  jump ledge south
+#   Q  jump ledge west
+#   J  ledge corner (blocked)
+#   t  tree root (T01)
+#   B  building / prop footprint
+#   C  Pokemon Center (C06)
+#   G  Route 43 gatehouse
+#   s  sign
+#   x: 01234567890123456789012345678901
+00    rrrrrrrrEEGGGGGGttttttttWWrrrrrr
+01    rrrrrrrrEEGGGGGGttttttttWWrrrrrr
+02    rrrrrrrrEEGGGGGGttttttttWWrrrrrr
+03    rrrrFFFFeEGGGGGGttttttttWxFFrrrr
+04    rrrrEFFFweGGGGGGttttttttxwFWrrrr
+05    FFFFetttteGGddGGttttttttxttxFFrr
+06    FFFFwtttteddddddttttttttxttwFWrr
+07    ttttttBBgeddddddttttttttxBBttWrr
+08    ttttttwwweddddddddddddddxBBttWrr
+09    wwwwwwwwwwddddddddddddddxttttxFF
+10    dffgggQggdddddddddddddddxttttwFF
+11    dgggggQggddddddBBBBdddddwwwwwwFF
+12    dgggsgJLLLLLLLLBBBBBBdddBBBBBggg
+13    dddddddddddddddBBBBBBdddBBBBtttt
+14    ddddddddddddddsBBBBBBdddBBBBtttt
+15    nndddddddddddddddddddddddddddddd
+16    ggeddddddddddddddddddddddddddddd
+17    tteggggggdddddddddddddddddnnnnnn
+18    tteggggggddddddddddddddddxgggnnn
+19    ttegggggBBBBBBBdddgggggggxttxggg
+20    ttegggggBBBBBBBdddggCCCCCxttWrrr
+21    geeLLLLLBBBBBBBLdLLLCCCCCxttWrrr
+22    rEEgggggBBBBBBBdddggCCCCCxttWrrr
+23    rEEgggggBBBBBBBdddggCCCCCxttWrrr
+24    rEEdddddsddddddddddddddddxttWrrr
+25    rEEddddddddddddddddddddddxxggrrr
+26    rEEnnnnnnnnnnnnnnnnnnnnnnWWrrrrr
+27    rEgggggnngggggggggggggggggWrrrrr
+28    rEttttxggettttgggggnngttttWrrrrr
+29    rEttttWrrEttttttttxggnttttWrrrrr
+30    rggggggrrggggnttttWrrggggggrrrrr
+31    rrrrrrrrrrrrrggggggrrrrrrrrrrrrr

@@ -1,0 +1,75 @@
+{
+ "note": "Coordinate-labelled review (evidence/review3/*.png: HGSS left, installed native right). Native cells x,y. \"fixed\" findings were corrected before the reviewed build; \"adaptation\" ones are deliberate; \"open\" ones remain for owner review. Owner review of the third draft (2026-10-24): rock faces still not right, see Blackthorn.",
+ "findings": [
+  {
+   "cells": "all rock",
+   "state": "fixed",
+   "finding": "Owner review: the third draft's rock (R02/R12 courses stretched over HGSS's projected faces) was not right. Rebuilt as Blackthorn's installed rock: each HGSS height layer one terrace (floor 0, raised lawns 1, mountain 2, source/assemble/terrace-grid.txt), FRLG's mountain nine-slice, over-rock pieces and inner corners in the Johto rock ramp, one face per metatile, top-layer overlay on plain ground."
+  },
+  {
+   "cells": "all ground",
+   "state": "fixed",
+   "finding": "Ground reads lawn or road per 8 px quadrant from HGSS's flat ground colours, the same flat decode the terraces use, so lawn edges meet the faces. The approved painter runs unchanged (32 px rim wave and road texture restored)."
+  },
+  {
+   "cells": "3-9,16-24 / 18-20,18-24 / 24-28,12-15",
+   "state": "fixed",
+   "finding": "Lawn edges sat a cell low: ground came from the flat top-down decode while rock came from the true-height render, and HGSS's road01_r rim texture (half lawn) was classed as road. Ground now reads lawn/road per 8 px quadrant from the HGSS reference's own colours."
+  },
+  {
+   "cells": "15,21",
+   "state": "fixed",
+   "finding": "Ledge stub read as lawn (HGSS ledge stone pixels counted as lawn); ledge cells now read the ground the stone band leaves open. Road under it, as HGSS."
+  },
+  {
+   "cells": "1-26,28 (south lawn)",
+   "state": "fixed",
+   "finding": "Stray road squares inside the south lawn from quadrants with a few sand-coloured rim pixels; a quadrant now needs half its pixels in road sand."
+  },
+  {
+   "cells": "15-19,8-14 / 24-28,8-14",
+   "state": "fixed",
+   "finding": "House window glass merged into the wall cream during palette reduction; cool and warm tones no longer merge."
+  },
+  {
+   "cells": "14,14 / 8,24",
+   "state": "fixed",
+   "finding": "Souvenir-shop plaque and Gym marker sat 8 and 16 px below HGSS's sign bases; raised to HGSS's base rows."
+  },
+  {
+   "cells": "5-8,4-6 / 25-28,5-10 and every wooded area",
+   "state": "adaptation",
+   "finding": "T01, the approved shared tree, is 48 px tall on HGSS's 2x2 roots; HGSS's bushes are 32 px. Crowns rise one row higher and cover a little of the walls behind them (cells 5-8,4-5)."
+  },
+  {
+   "cells": "20-24,16-19",
+   "state": "adaptation",
+   "finding": "C06 is shorter than HGSS's Center; the road shows where HGSS's taller roof stood. Those cells are walkable, the only collision change from HGSS."
+  },
+  {
+   "cells": "10-15,0-5",
+   "state": "adaptation",
+   "finding": "G01a, the approved front gatehouse, at cell (10,-2): its door column on HGSS warp (13,5). Its top two rows are off the map, as HGSS's gate runs into Route 43. Warps solid until the gatehouse exists."
+  },
+  {
+   "cells": "houses, towers, Gym, antenna tree",
+   "state": "adaptation",
+   "finding": "Local HGSS masters moved to the nearest 8 px tile corner (2-3 px) and reduced: houses and towers share 15 tones (from 45), antenna tree 15 (from 24), Gym 20 (from 37, the fewest merges that fit two banks). Shapes unchanged."
+  },
+  {
+   "cells": "8,7 / 8,8",
+   "state": "open",
+   "finding": "Two open lawn cells behind the west tower are enclosed by walls and the tower, unreachable on foot. This is HGSS's own collision, kept unchanged."
+  },
+  {
+   "cells": "2-25,27 / 25-31,18",
+   "state": "adaptation",
+   "finding": "Where the ground rises toward the south (the south lawn terrace, the east plateau's north edge) the step faces away from the camera and shows as an FRLG rim on a one-cell rock strip, as Blackthorn draws the far side of a mountain; HGSS shows a dark studded rim there."
+  },
+  {
+   "cells": "0-2,16-31 / 8-9,0-9 / 25-27,18-26",
+   "state": "adaptation",
+   "finding": "Mountain sides beside a raised lawn step twice (mountain face, then the low wall), one metatile each, following HGSS's two height layers."
+  }
+ ]
+}

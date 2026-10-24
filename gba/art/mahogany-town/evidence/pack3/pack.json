@@ -1,0 +1,83 @@
+{
+  "method": "lossless: exact RGB555 banks, flip dedupe, hidden-backing compaction only",
+  "tiles": 901,
+  "tile_limit": 1008,
+  "primary_tiles": 512,
+  "secondary_tiles": 389,
+  "metatiles": 370,
+  "primary_metatiles": 210,
+  "secondary_metatiles": 160,
+  "distinct_tile_jobs": 916,
+  "hidden_backing_tiles": 798,
+  "rock_on_top_layer_tiles": 172,
+  "overlap_tiles_split_across_layers": 40,
+  "family_banks": {
+    "center": [
+      0,
+      1
+    ],
+    "gym": [
+      2,
+      3
+    ],
+    "ground": [
+      4
+    ],
+    "gate": [
+      5
+    ],
+    "red roofs": [
+      6
+    ],
+    "antenna": [
+      7
+    ],
+    "sign": [
+      8
+    ],
+    "tree": [
+      9
+    ],
+    "junction": [
+      10
+    ],
+    "rock": [
+      11
+    ]
+  },
+  "banks_used": 13,
+  "colours_per_bank": [
+    15,
+    14,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    13,
+    15,
+    14
+  ],
+  "native_pixels_exact": 262144,
+  "native_pixels": 262144,
+  "adaptations": {
+    "12,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "13,5": "HGSS warp into the Route 43 gate; gatehouse not built, so solid",
+    "16,14": "HGSS door; interior not built, so solid",
+    "25,14": "HGSS door; interior not built, so solid",
+    "20,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "21,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "22,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "23,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "24,18": "HGSS's taller building model blocks it; the Gen 3 sprite does not reach this cell",
+    "20,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "21,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "22,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "23,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "24,19": "C06's top row: a walkable roof overhang (HGSS's taller Center blocks it)",
+    "11,23": "HGSS door; interior not built, so solid"
+  }
+}

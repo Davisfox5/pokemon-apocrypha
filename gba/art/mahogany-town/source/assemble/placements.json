@@ -1,0 +1,848 @@
+{
+ "note": "Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots (T01 bottom on the root bottom, crown one row behind); local buildings keep their HGSS render position.",
+ "objects": [
+  {
+   "name": "tree_0",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    -16
+   ],
+   "root": [
+    16,
+    0
+   ],
+   "base": 26
+  },
+  {
+   "name": "tree_1",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    -16
+   ],
+   "root": [
+    18,
+    0
+   ],
+   "base": 26
+  },
+  {
+   "name": "tree_2",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    -16
+   ],
+   "root": [
+    20,
+    0
+   ],
+   "base": 26
+  },
+  {
+   "name": "tree_3",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    -16
+   ],
+   "root": [
+    22,
+    0
+   ],
+   "base": 26
+  },
+  {
+   "name": "tree_4",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    16
+   ],
+   "root": [
+    16,
+    2
+   ],
+   "base": 58
+  },
+  {
+   "name": "tree_5",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    16
+   ],
+   "root": [
+    18,
+    2
+   ],
+   "base": 58
+  },
+  {
+   "name": "tree_6",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    16
+   ],
+   "root": [
+    20,
+    2
+   ],
+   "base": 58
+  },
+  {
+   "name": "tree_7",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    16
+   ],
+   "root": [
+    22,
+    2
+   ],
+   "base": 58
+  },
+  {
+   "name": "tree_8",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    48
+   ],
+   "root": [
+    16,
+    4
+   ],
+   "base": 90
+  },
+  {
+   "name": "tree_9",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    48
+   ],
+   "root": [
+    18,
+    4
+   ],
+   "base": 90
+  },
+  {
+   "name": "tree_10",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    48
+   ],
+   "root": [
+    20,
+    4
+   ],
+   "base": 90
+  },
+  {
+   "name": "tree_11",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    48
+   ],
+   "root": [
+    22,
+    4
+   ],
+   "base": 90
+  },
+  {
+   "name": "gate",
+   "master": "shared-art/G01a.png",
+   "xy": [
+    160,
+    -32
+   ],
+   "base": 95
+  },
+  {
+   "name": "tree_12",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    64
+   ],
+   "root": [
+    5,
+    5
+   ],
+   "base": 106
+  },
+  {
+   "name": "tree_13",
+   "master": "shared-art/T01.png",
+   "xy": [
+    112,
+    64
+   ],
+   "root": [
+    7,
+    5
+   ],
+   "base": 106
+  },
+  {
+   "name": "tree_14",
+   "master": "shared-art/T01.png",
+   "xy": [
+    400,
+    64
+   ],
+   "root": [
+    25,
+    5
+   ],
+   "base": 106
+  },
+  {
+   "name": "tree_15",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    80
+   ],
+   "root": [
+    16,
+    6
+   ],
+   "base": 122
+  },
+  {
+   "name": "tree_16",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    80
+   ],
+   "root": [
+    18,
+    6
+   ],
+   "base": 122
+  },
+  {
+   "name": "tree_17",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    80
+   ],
+   "root": [
+    20,
+    6
+   ],
+   "base": 122
+  },
+  {
+   "name": "tree_18",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    80
+   ],
+   "root": [
+    22,
+    6
+   ],
+   "base": 122
+  },
+  {
+   "name": "tower_44",
+   "master": "local-art/tower.png",
+   "xy": [
+    400,
+    40
+   ],
+   "model": 249,
+   "pos": [
+    26.0,
+    5.0,
+    7.5
+   ],
+   "hgss_xy": [
+    397,
+    40
+   ],
+   "base": 133
+  },
+  {
+   "name": "tree_19",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    96
+   ],
+   "root": [
+    0,
+    7
+   ],
+   "base": 138
+  },
+  {
+   "name": "tree_20",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    96
+   ],
+   "root": [
+    2,
+    7
+   ],
+   "base": 138
+  },
+  {
+   "name": "tree_21",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    96
+   ],
+   "root": [
+    4,
+    7
+   ],
+   "base": 138
+  },
+  {
+   "name": "tree_22",
+   "master": "shared-art/T01.png",
+   "xy": [
+    432,
+    96
+   ],
+   "root": [
+    27,
+    7
+   ],
+   "base": 138
+  },
+  {
+   "name": "tower_43",
+   "master": "local-art/tower.png",
+   "xy": [
+    96,
+    48
+   ],
+   "model": 249,
+   "pos": [
+    7.0,
+    5.0,
+    8.0
+   ],
+   "hgss_xy": [
+    93,
+    48
+   ],
+   "base": 141
+  },
+  {
+   "name": "tree_23",
+   "master": "shared-art/T01.png",
+   "xy": [
+    400,
+    128
+   ],
+   "root": [
+    25,
+    9
+   ],
+   "base": 170
+  },
+  {
+   "name": "tree_24",
+   "master": "shared-art/T01.png",
+   "xy": [
+    432,
+    128
+   ],
+   "root": [
+    27,
+    9
+   ],
+   "base": 170
+  },
+  {
+   "name": "sign_4_12",
+   "master": "shared-art/P12.png",
+   "xy": [
+    64,
+    176
+   ],
+   "cell": [
+    4,
+    12
+   ],
+   "base": 198
+  },
+  {
+   "name": "sign_14_14",
+   "master": "shared-art/P13.png",
+   "xy": [
+    216,
+    200
+   ],
+   "cell": [
+    14,
+    14
+   ],
+   "base": 230
+  },
+  {
+   "name": "house_40",
+   "master": "local-art/house.png",
+   "xy": [
+    240,
+    128
+   ],
+   "model": 134,
+   "pos": [
+    17.0,
+    4.0,
+    13.5
+   ],
+   "hgss_xy": [
+    238,
+    126
+   ],
+   "base": 234
+  },
+  {
+   "name": "house_41",
+   "master": "local-art/house.png",
+   "xy": [
+    384,
+    128
+   ],
+   "model": 134,
+   "pos": [
+    26.0,
+    4.0,
+    13.5
+   ],
+   "hgss_xy": [
+    382,
+    126
+   ],
+   "base": 234
+  },
+  {
+   "name": "tree_25",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    192
+   ],
+   "root": [
+    28,
+    13
+   ],
+   "base": 234
+  },
+  {
+   "name": "tree_26",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    192
+   ],
+   "root": [
+    30,
+    13
+   ],
+   "base": 234
+  },
+  {
+   "name": "antenna_tree_42",
+   "master": "local-art/antenna_tree.png",
+   "xy": [
+    304,
+    144
+   ],
+   "model": 136,
+   "pos": [
+    20.0,
+    4.0,
+    14.0
+   ],
+   "hgss_xy": [
+    302,
+    145
+   ],
+   "base": 238
+  },
+  {
+   "name": "tree_27",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    256
+   ],
+   "root": [
+    0,
+    17
+   ],
+   "base": 298
+  },
+  {
+   "name": "tree_28",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    288
+   ],
+   "root": [
+    0,
+    19
+   ],
+   "base": 330
+  },
+  {
+   "name": "tree_29",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    288
+   ],
+   "root": [
+    26,
+    19
+   ],
+   "base": 330
+  },
+  {
+   "name": "tree_30",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    320
+   ],
+   "root": [
+    26,
+    21
+   ],
+   "base": 362
+  },
+  {
+   "name": "gym_45",
+   "master": "local-art/gym.png",
+   "xy": [
+    128,
+    256
+   ],
+   "model": 138,
+   "pos": [
+    11.5,
+    4.0,
+    22.0
+   ],
+   "hgss_xy": [
+    126,
+    257
+   ],
+   "base": 373
+  },
+  {
+   "name": "pokemon_center",
+   "master": "shared-art/pokemon-center.png",
+   "xy": [
+    320,
+    304
+   ],
+   "base": 383
+  },
+  {
+   "name": "sign_8_24",
+   "master": "shared-art/P15.png",
+   "xy": [
+    120,
+    360
+   ],
+   "cell": [
+    8,
+    24
+   ],
+   "base": 389
+  },
+  {
+   "name": "tree_31",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    352
+   ],
+   "root": [
+    26,
+    23
+   ],
+   "base": 394
+  },
+  {
+   "name": "tree_32",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    432
+   ],
+   "root": [
+    2,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_33",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    432
+   ],
+   "root": [
+    4,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_34",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    432
+   ],
+   "root": [
+    10,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_35",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    432
+   ],
+   "root": [
+    12,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_36",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    432
+   ],
+   "root": [
+    22,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_37",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    432
+   ],
+   "root": [
+    24,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_38",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    448
+   ],
+   "root": [
+    14,
+    29
+   ],
+   "base": 490
+  },
+  {
+   "name": "tree_39",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    448
+   ],
+   "root": [
+    16,
+    29
+   ],
+   "base": 490
+  }
+ ],
+ "ledges": [
+  {
+   "cell": [
+    6,
+    10
+   ],
+   "art": "west ledge (0x85)"
+  },
+  {
+   "cell": [
+    6,
+    11
+   ],
+   "art": "west ledge (0x85)"
+  },
+  {
+   "cell": [
+    6,
+    12
+   ],
+   "art": "ledge corner"
+  },
+  {
+   "cell": [
+    7,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    8,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    9,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    10,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    11,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    12,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    13,
+    12
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    14,
+    12
+   ],
+   "art": "L13"
+  },
+  {
+   "cell": [
+    3,
+    21
+   ],
+   "art": "L11"
+  },
+  {
+   "cell": [
+    4,
+    21
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    5,
+    21
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    6,
+    21
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    7,
+    21
+   ],
+   "art": "L13"
+  },
+  {
+   "cell": [
+    15,
+    21
+   ],
+   "art": "L11+L13"
+  },
+  {
+   "cell": [
+    17,
+    21
+   ],
+   "art": "L11"
+  },
+  {
+   "cell": [
+    18,
+    21
+   ],
+   "art": "L12"
+  },
+  {
+   "cell": [
+    19,
+    21
+   ],
+   "art": "L13"
+  }
+ ],
+ "flower_cells": [
+  [
+   1,
+   10
+  ],
+  [
+   2,
+   10
+  ]
+ ]
+}
