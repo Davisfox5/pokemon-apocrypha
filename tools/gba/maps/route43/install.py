@@ -99,6 +99,8 @@ def remove_draft(g):
     subprocess.run(['git', '-C', str(g), 'restore', f'--source={BASE}', '--worktree', '--'] + SHARED_FILES + MAHOGANY_FILES, check=True)
 
 def write_tileset(d, pats, pal, metas):
+    if not len(metas):                                         # the build refuses an empty metatile file:
+        metas = np.zeros((1, 10), np.uint16)                   # one blank metatile, used by no cell
     (d / 'palettes').mkdir(parents=True, exist_ok=True)
     rows = max(1, (len(pats) + 15) // 16)
     buf = np.zeros((rows * 8, 128), np.uint8)

@@ -1,7 +1,7 @@
 {
  "method": "Square by square: native classes from decoded colours (each colour votes for every\nvocabulary that holds it), HGSS classes from the decoded reference. A terrain cell matches\nwhen the native's leading terrain material is one HGSS shows there (at least 24 px); an\nobject cell when the same kind of object leads in both. Cells where an object leads in\none but terrain in the other are listed as foreground differences, not counted as\nmatches. Native vocabularies come from the source masters (shared catalog art, the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, Route 30's pond pieces, the local flowers); HGSS classes from the flat decode (cliff, ledge, tall grass, water, flower and tree materials, ground colours) and its building models.",
  "cells": 2048,
- "matches": 1900,
+ "matches": 1914,
  "mismatches": [],
  "foreground_differs": [
   {
@@ -43,41 +43,6 @@
   },
   {
    "cell": [
-    14,
-    2
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 217,
-    "tree": 39
-   }
-  },
-  {
-   "cell": [
-    15,
-    2
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
     20,
     2
    ],
@@ -100,13 +65,13 @@
     14,
     3
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 220,
@@ -118,13 +83,13 @@
     15,
     3
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -197,6 +162,24 @@
    "native": {
     "lawn": 163,
     "tree": 93
+   },
+   "hgss": {
+    "tree": 210,
+    "tall_grass": 46
+   }
+  },
+  {
+   "cell": [
+    14,
+    7
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 210,
@@ -326,88 +309,15 @@
   {
    "cell": [
     2,
-    8
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "lawn": 72,
-    "tall_grass": 37
-   },
-   "hgss": {
-    "tall_grass": 217,
-    "tree": 39
-   }
-  },
-  {
-   "cell": [
-    3,
-    8
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "tall_grass": 96,
-    "lawn": 13
-   },
-   "hgss": {
-    "tall_grass": 256
-   }
-  },
-  {
-   "cell": [
-    4,
-    8
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
-   },
-   "hgss": {
-    "tall_grass": 256
-   }
-  },
-  {
-   "cell": [
-    5,
-    8
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "tall_grass": 96,
-    "lawn": 13
-   },
-   "hgss": {
-    "tall_grass": 256
-   }
-  },
-  {
-   "cell": [
-    2,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 122,
@@ -420,13 +330,13 @@
     3,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 122,
@@ -439,13 +349,13 @@
     4,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 133,
@@ -458,13 +368,13 @@
     5,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tall_grass": 126,
@@ -619,41 +529,6 @@
   },
   {
    "cell": [
-    20,
-    11
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    21,
-    11
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 254,
-    "tall_grass": 2
-   }
-  },
-  {
-   "cell": [
     18,
     12
    ],
@@ -681,7 +556,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 223,
@@ -693,12 +569,13 @@
     20,
     12
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -710,18 +587,53 @@
     21,
     12
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 173,
     "tall_grass": 50,
     "tree": 33
+   }
+  },
+  {
+   "cell": [
+    18,
+    13
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 249,
+    "tall_grass": 7
+   }
+  },
+  {
+   "cell": [
+    19,
+    13
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
    }
   },
   {
@@ -771,8 +683,8 @@
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tall_grass": 223,
@@ -789,11 +701,30 @@
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tall_grass": 220,
     "tree": 36
+   }
+  },
+  {
+   "cell": [
+    20,
+    16
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 254,
+    "tall_grass": 2
    }
   },
   {
@@ -812,6 +743,42 @@
    "hgss": {
     "tree": 172,
     "tall_grass": 84
+   }
+  },
+  {
+   "cell": [
+    16,
+    17
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 246,
+    "tall_grass": 10
+   }
+  },
+  {
+   "cell": [
+    17,
+    17
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 246,
+    "tall_grass": 10
    }
   },
   {
@@ -850,42 +817,6 @@
   },
   {
    "cell": [
-    23,
-    18
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
-   },
-   "hgss": {
-    "tall_grass": 256
-   }
-  },
-  {
-   "cell": [
-    24,
-    18
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "tall_grass",
-   "native": {
-    "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
-   },
-   "hgss": {
-    "tall_grass": 256
-   }
-  },
-  {
-   "cell": [
     14,
     19
    ],
@@ -926,13 +857,13 @@
     23,
     19
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tall_grass": 131,
@@ -945,13 +876,13 @@
     24,
     19
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 133,
@@ -969,8 +900,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "lawn": 102,
@@ -989,7 +920,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 133,
@@ -999,7 +931,60 @@
   },
   {
    "cell": [
+    14,
+    21
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 247,
+    "water": 9
+   }
+  },
+  {
+   "cell": [
+    15,
+    21
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
     16,
+    22
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 210,
+    "tall_grass": 46
+   }
+  },
+  {
+   "cell": [
+    17,
     22
    ],
    "code": "t",
@@ -1017,7 +1002,7 @@
   },
   {
    "cell": [
-    17,
+    18,
     22
    ],
    "code": "t",
@@ -1159,50 +1144,15 @@
   {
    "cell": [
     18,
-    28
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    19,
-    28
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 206,
-    "tall_grass": 50
-   }
-  },
-  {
-   "cell": [
-    18,
     29
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -1214,13 +1164,13 @@
     19,
     29
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 173,
@@ -1231,49 +1181,15 @@
   {
    "cell": [
     0,
-    30
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    1,
-    30
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    0,
     31
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -1285,13 +1201,13 @@
     1,
     31
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -1336,85 +1252,15 @@
   {
    "cell": [
     2,
-    32
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 217,
-    "tree": 39
-   }
-  },
-  {
-   "cell": [
-    3,
-    32
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    4,
-    32
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 256
-   }
-  },
-  {
-   "cell": [
-    5,
-    32
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 208,
-    "water": 48
-   }
-  },
-  {
-   "cell": [
-    2,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 209,
@@ -1426,13 +1272,13 @@
     3,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -1444,13 +1290,13 @@
     4,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -1462,13 +1308,13 @@
     5,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 175,
@@ -1628,8 +1474,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "lawn": 165,
@@ -1647,7 +1493,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 220,
@@ -1686,6 +1533,41 @@
    "hgss": {
     "road": 128,
     "gate": 128
+   }
+  },
+  {
+   "cell": [
+    16,
+    38
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 249,
+    "tall_grass": 7
+   }
+  },
+  {
+   "cell": [
+    17,
+    38
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
    }
   },
   {
@@ -1752,6 +1634,23 @@
    "hgss": {
     "gate": 238,
     "road": 18
+   }
+  },
+  {
+   "cell": [
+    18,
+    39
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
    }
   },
   {
@@ -2074,129 +1973,15 @@
   {
    "cell": [
     18,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 108
-   }
-  },
-  {
-   "cell": [
-    19,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 107
-   }
-  },
-  {
-   "cell": [
-    20,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 108
-   }
-  },
-  {
-   "cell": [
-    21,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 107
-   }
-  },
-  {
-   "cell": [
-    22,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 108
-   }
-  },
-  {
-   "cell": [
-    23,
-    54
-   ],
-   "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "road",
-   "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 107
-   }
-  },
-  {
-   "cell": [
-    18,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -2208,13 +1993,13 @@
     19,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -2226,13 +2011,13 @@
     20,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -2244,13 +2029,13 @@
     21,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -2262,13 +2047,13 @@
     22,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -2280,13 +2065,13 @@
     23,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -2314,42 +2099,6 @@
   },
   {
    "cell": [
-    16,
-    56
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 218,
-    "sign": 38
-   }
-  },
-  {
-   "cell": [
-    17,
-    56
-   ],
-   "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
-   "hgss_lead": "lawn",
-   "native": {
-    "tree": 147,
-    "lawn": 109
-   },
-   "hgss": {
-    "lawn": 217,
-    "tree": 39
-   }
-  },
-  {
-   "cell": [
     15,
     57
    ],
@@ -2373,14 +2122,14 @@
     16,
     57
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 217,
-    "sign": 34,
-    "lawn": 5
+    "tree": 147,
+    "lawn": 75,
+    "sign": 34
    },
    "hgss": {
     "lawn": 222,
@@ -2393,13 +2142,13 @@
     17,
     57
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 220,
@@ -3974,12 +3723,11 @@
     2
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 217,
@@ -3992,12 +3740,11 @@
     2
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -4323,11 +4070,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 191,
-    "tall_grass": 65
+    "tall_grass": 155,
+    "lawn": 101
    },
    "hgss": {
     "tall_grass": 253,
@@ -4527,13 +4274,13 @@
     14,
     3
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 220,
@@ -4545,13 +4292,13 @@
     15,
     3
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -4872,11 +4619,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 172,
-    "tall_grass": 84
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -5544,8 +5291,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 253,
-    "lawn": 3
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -5561,8 +5308,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 223,
-    "lawn": 33
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -5578,8 +5325,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 239,
-    "lawn": 17
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -5595,8 +5342,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 223,
-    "lawn": 33
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -5612,8 +5359,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 239,
-    "lawn": 17
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -5629,8 +5376,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -6090,7 +5837,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -6106,8 +5854,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -6123,6 +5871,23 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    6
+   ],
+   "code": "t",
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
     "tree": 233,
     "lawn": 23
    },
@@ -6132,7 +5897,7 @@
   },
   {
    "cell": [
-    12,
+    13,
     6
    ],
    "code": "t",
@@ -6149,7 +5914,7 @@
   },
   {
    "cell": [
-    13,
+    14,
     6
    ],
    "code": "t",
@@ -6159,22 +5924,6 @@
    "native": {
     "tree": 233,
     "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    14,
-    6
-   ],
-   "code": "t",
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 256
    },
    "hgss": {
     "tree": 256
@@ -6632,22 +6381,6 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    10,
-    7
-   ],
-   "code": "t",
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
     "tree": 187,
     "lawn": 69
    },
@@ -6657,7 +6390,7 @@
   },
   {
    "cell": [
-    11,
+    10,
     7
    ],
    "code": "t",
@@ -6674,6 +6407,23 @@
   },
   {
    "cell": [
+    11,
+    7
+   ],
+   "code": "t",
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
     12,
     7
    ],
@@ -6682,8 +6432,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 253,
-    "lawn": 3
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -6699,8 +6449,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 223,
-    "lawn": 33
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 254,
@@ -6713,12 +6463,12 @@
     7
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 142,
-    "lawn": 114
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 210,
@@ -7055,13 +6805,12 @@
     8
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "lawn": 72,
-    "tall_grass": 37
+    "tall_grass": 144,
+    "lawn": 112
    },
    "hgss": {
     "tall_grass": 217,
@@ -7074,13 +6823,12 @@
     8
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "tall_grass": 96,
-    "lawn": 13
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 256
@@ -7092,13 +6840,12 @@
     8
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 256
@@ -7110,13 +6857,12 @@
     8
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "tall_grass": 96,
-    "lawn": 13
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 256
@@ -7185,22 +6931,6 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    10,
-    8
-   ],
-   "code": "t",
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
     "tree": 242,
     "lawn": 14
    },
@@ -7210,7 +6940,7 @@
   },
   {
    "cell": [
-    11,
+    10,
     8
    ],
    "code": "t",
@@ -7227,6 +6957,23 @@
   },
   {
    "cell": [
+    11,
+    8
+   ],
+   "code": "t",
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
     12,
     8
    ],
@@ -7235,7 +6982,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -7598,13 +7346,13 @@
     2,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 122,
@@ -7617,13 +7365,13 @@
     3,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 122,
@@ -7636,13 +7384,13 @@
     4,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 133,
@@ -7655,13 +7403,13 @@
     5,
     9
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tall_grass": 126,
@@ -7732,8 +7480,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 236,
-    "lawn": 20
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -7749,8 +7497,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 239,
-    "lawn": 17
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -7766,8 +7514,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 223,
-    "lawn": 33
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -7783,8 +7531,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -8235,11 +7983,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 176,
-    "tall_grass": 80
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 217,
@@ -9007,12 +8755,11 @@
     11
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -9024,12 +8771,11 @@
     11
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 254,
@@ -9541,7 +9287,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 223,
@@ -9553,12 +9300,13 @@
     20,
     12
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -9570,13 +9318,13 @@
     21,
     12
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 173,
@@ -10063,12 +9811,12 @@
     13
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 249,
@@ -10081,11 +9829,12 @@
     13
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "lawn": 163,
+    "tree": 93
    },
    "hgss": {
     "tree": 256
@@ -10101,7 +9850,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -10117,8 +9867,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 251,
@@ -10604,13 +10354,13 @@
     18,
     14
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 206,
@@ -10622,12 +10372,13 @@
     19,
     14
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 256
@@ -10643,7 +10394,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -10659,8 +10411,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 212,
@@ -11157,8 +10909,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -11175,7 +10927,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -11191,7 +10944,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -11674,8 +11428,8 @@
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tall_grass": 223,
@@ -11692,7 +11446,8 @@
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tall_grass": 220,
@@ -11709,7 +11464,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -11726,8 +11482,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 247,
-    "lawn": 9
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -11739,12 +11495,12 @@
     16
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 142,
-    "lawn": 114
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 254,
@@ -12215,12 +11971,12 @@
     17
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 246,
@@ -12233,11 +11989,12 @@
     17
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "lawn": 163,
+    "tree": 93
    },
    "hgss": {
     "tree": 246,
@@ -12254,7 +12011,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -12757,13 +12515,13 @@
     16,
     18
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 206,
@@ -12775,13 +12533,13 @@
     17,
     18
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 236,
-    "lawn": 20
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 256
@@ -12797,8 +12555,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -12880,13 +12638,12 @@
     18
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "tall_grass": 95,
-    "lawn": 14
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 256
@@ -12898,13 +12655,12 @@
     18
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 147,
-    "lawn": 69,
-    "tall_grass": 40
+    "tall_grass": 144,
+    "lawn": 112
    },
    "hgss": {
     "tall_grass": 256
@@ -13221,11 +12977,11 @@
    ],
    "code": "w",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 156,
-    "tall_grass": 100
+    "tall_grass": 156,
+    "lawn": 100
    },
    "hgss": {
     "tall_grass": 256
@@ -13429,13 +13185,13 @@
     23,
     19
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "tall_grass",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tall_grass": 131,
@@ -13448,13 +13204,13 @@
     24,
     19
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 133,
@@ -13830,8 +13586,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "lawn": 102,
@@ -13850,7 +13606,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 133,
@@ -13868,8 +13625,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 223,
-    "lawn": 33
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 251,
@@ -13886,8 +13643,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 239,
-    "lawn": 17
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -13903,8 +13660,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -13991,8 +13748,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -14009,8 +13766,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -14372,12 +14129,12 @@
     21
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 247,
@@ -14390,11 +14147,12 @@
     21
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "lawn": 163,
+    "tree": 93
    },
    "hgss": {
     "tree": 256
@@ -14403,6 +14161,23 @@
   {
    "cell": [
     16,
+    21
+   ],
+   "code": "t",
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    17,
     21
    ],
    "code": "t",
@@ -14419,7 +14194,7 @@
   },
   {
    "cell": [
-    17,
+    18,
     21
    ],
    "code": "t",
@@ -14429,22 +14204,6 @@
    "native": {
     "tree": 233,
     "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    18,
-    21
-   ],
-   "code": "t",
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 256
    },
    "hgss": {
     "tree": 256
@@ -14531,8 +14290,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -14549,8 +14308,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -14910,13 +14669,13 @@
     14,
     22
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 219,
@@ -14928,13 +14687,13 @@
     15,
     22
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 236,
-    "lawn": 20
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 254,
@@ -14944,24 +14703,6 @@
   {
    "cell": [
     16,
-    22
-   ],
-   "code": "t",
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 210,
-    "tall_grass": 46
-   }
-  },
-  {
-   "cell": [
-    17,
     22
    ],
    "code": "t",
@@ -14979,16 +14720,34 @@
   },
   {
    "cell": [
+    17,
+    22
+   ],
+   "code": "t",
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 210,
+    "tall_grass": 46
+   }
+  },
+  {
+   "cell": [
     18,
     22
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 142,
-    "lawn": 114
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 210,
@@ -15076,8 +14835,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -15094,8 +14853,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -15619,8 +15378,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -15637,8 +15396,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -16160,8 +15919,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -16178,8 +15937,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -16702,8 +16461,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -16720,8 +16479,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -17242,8 +17001,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 249,
@@ -17260,8 +17019,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -17780,8 +17539,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -17798,8 +17557,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -18229,12 +17988,11 @@
     28
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -18246,12 +18004,11 @@
     28
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 206,
@@ -18765,13 +18522,13 @@
     18,
     29
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -18783,13 +18540,13 @@
     19,
     29
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 242,
-    "lawn": 14
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 173,
@@ -19004,12 +18761,11 @@
     30
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -19021,12 +18777,11 @@
     30
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -19311,8 +19066,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -19328,8 +19083,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 187,
-    "lawn": 69
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "tree": 251,
@@ -19552,13 +19307,13 @@
     0,
     31
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -19570,13 +19325,13 @@
     1,
     31
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -19862,8 +19617,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 206,
@@ -19880,8 +19635,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 187,
+    "lawn": 69
    },
    "hgss": {
     "tree": 212,
@@ -20136,12 +19891,11 @@
     32
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 217,
@@ -20154,12 +19908,11 @@
     32
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -20171,12 +19924,11 @@
     32
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 256
@@ -20188,12 +19940,11 @@
     32
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 208,
@@ -20682,13 +20433,13 @@
     2,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 209,
@@ -20700,13 +20451,13 @@
     3,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -20718,13 +20469,13 @@
     4,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -20736,13 +20487,13 @@
     5,
     33
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 175,
@@ -20994,11 +20745,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 176,
-    "tall_grass": 80
+    "tall_grass": 208,
+    "lawn": 48
    },
    "hgss": {
     "tall_grass": 253,
@@ -23099,11 +22850,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 191,
-    "tall_grass": 65
+    "tall_grass": 155,
+    "lawn": 101
    },
    "hgss": {
     "tall_grass": 256
@@ -23119,8 +22870,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "lawn": 165,
@@ -23138,7 +22889,8 @@
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 256
+    "tree": 242,
+    "lawn": 14
    },
    "hgss": {
     "lawn": 220,
@@ -23155,8 +22907,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 176,
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -23636,11 +23388,11 @@
    ],
    "code": "g",
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "tall_grass",
    "hgss_lead": "tall_grass",
    "native": {
-    "lawn": 172,
-    "tall_grass": 84
+    "tall_grass": 227,
+    "lawn": 29
    },
    "hgss": {
     "tall_grass": 217,
@@ -23653,12 +23405,12 @@
     38
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 233,
-    "lawn": 23
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 249,
@@ -23671,11 +23423,12 @@
     38
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "lawn": 163,
+    "tree": 93
    },
    "hgss": {
     "tree": 256
@@ -23691,7 +23444,8 @@
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 256
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
     "tree": 256
@@ -24192,13 +23946,13 @@
     16,
     39
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 176,
-    "lawn": 80
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 206,
@@ -24210,13 +23964,13 @@
     17,
     39
    ],
-   "code": "t",
+   "code": "g",
    "status": "match",
    "native_lead": "tree",
    "hgss_lead": "tree",
    "native": {
-    "tree": 236,
-    "lawn": 20
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "tree": 256
@@ -24228,12 +23982,12 @@
     39
    ],
    "code": "t",
-   "status": "match",
-   "native_lead": "tree",
+   "status": "foreground differs",
+   "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "tree": 142,
-    "lawn": 114
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 256
@@ -32235,13 +31989,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "road",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
+    "road": 141,
+    "lawn": 115
    },
    "hgss": {
     "road": 109,
@@ -32254,13 +32007,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
+    "lawn": 141,
+    "road": 115
    },
    "hgss": {
     "road": 109,
@@ -32273,13 +32025,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "road",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
+    "road": 141,
+    "lawn": 115
    },
    "hgss": {
     "road": 109,
@@ -32292,13 +32043,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
+    "lawn": 141,
+    "road": 115
    },
    "hgss": {
     "road": 109,
@@ -32311,13 +32061,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "road",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 82,
-    "lawn": 27
+    "road": 141,
+    "lawn": 115
    },
    "hgss": {
     "road": 109,
@@ -32330,13 +32079,12 @@
     54
    ],
    "code": "d",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "tree": 147,
-    "road": 72,
-    "lawn": 37
+    "lawn": 141,
+    "road": 115
    },
    "hgss": {
     "road": 109,
@@ -32782,13 +32530,13 @@
     18,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -32800,13 +32548,13 @@
     19,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -32818,13 +32566,13 @@
     20,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -32836,13 +32584,13 @@
     21,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 212,
@@ -32854,13 +32602,13 @@
     22,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 235,
-    "lawn": 21
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -32872,13 +32620,13 @@
     23,
     55
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 223,
@@ -33290,12 +33038,11 @@
     56
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 218,
@@ -33308,12 +33055,11 @@
     56
    ],
    "code": "g",
-   "status": "foreground differs",
-   "native_lead": "tree",
+   "status": "match",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 147,
-    "lawn": 109
+    "lawn": 256
    },
    "hgss": {
     "lawn": 217,
@@ -33824,14 +33570,14 @@
     16,
     57
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 217,
-    "sign": 34,
-    "lawn": 5
+    "tree": 147,
+    "lawn": 75,
+    "sign": 34
    },
    "hgss": {
     "lawn": 222,
@@ -33844,13 +33590,13 @@
     17,
     57
    ],
-   "code": "t",
+   "code": "g",
    "status": "foreground differs",
    "native_lead": "tree",
    "hgss_lead": "lawn",
    "native": {
-    "tree": 243,
-    "lawn": 13
+    "tree": 147,
+    "lawn": 109
    },
    "hgss": {
     "lawn": 220,

@@ -38,6 +38,8 @@ def traversal(engine, cells, art, edge):
     the per-cell 'has object art' grid (top layer, plus the sign cells); edge marks cells
     where only a building's top edge reaches, in the cell's lower half."""
     MB = B.behaviors(engine)
+    trees = json.loads((SRC / 'trace/trees.json').read_text())['trees']
+    rooted = {(x + dx, y + dy) for x, y in trees for dx in (0, 1) for dy in (0, 1)}
     perm = np.load(SRC / 'hgss/hgss-permissions.npz')
     types, coll = perm['types'], perm['collision']
     # HGSS blocks the cells its taller models rise over: a building's footprint and up to two
@@ -65,6 +67,9 @@ def traversal(engine, cells, art, edge):
                 c.update(foot='ledge_west', behavior='MB_JUMP_WEST', collision=1, elevation=0)
             elif t == 0x10:
                 c.update(foot='surf', behavior='MB_POND_WATER', collision=0, elevation=1)
+            elif lab == 'F' and (x, y) not in rooted:
+                c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
+                         adaptation="HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it")
             elif t == 0x02 and not k & 0x80:
                 c.update(foot='open', behavior='MB_TALL_GRASS', collision=0, elevation=3, grass=True)
             elif k & 0x80 and lab == 'X' and near_model(x, y) and not art[y, x]:

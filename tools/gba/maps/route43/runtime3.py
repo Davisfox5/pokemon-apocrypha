@@ -28,7 +28,7 @@ RC.STEPS = [
     ('view', R, 19, 40, 'ledge-lawn'), ('view', R, 12, 50, 'south-road-west'), ('view', R, 27, 52, 'south-road-east'),
     ('view', R, 13, 58, 'south-road'), ('view', R, 28, 30, 'east-ridge'),
     # Walk behind: the top layer covers the player's cell, the object's base stays solid.
-    ('go', R, 20, 54), ('shot', 'behind-trees-south'), ('south', 1, None), ('at', R, 20, 54),
+    ('go', R, 20, 55), ('shot', 'behind-trees-south'), ('south', 1, None), ('at', R, 20, 55),
     ('go', R, 15, 19), ('shot', 'behind-tree-pond'), ('south', 1, None), ('at', R, 15, 19),
     ('go', R, 20, 49), ('shot', 'behind-trainer-tips'), ('south', 1, None), ('at', R, 20, 49),
     ('go', R, 15, 57), ('shot', 'behind-south-sign'), ('south', 1, None), ('at', R, 15, 57),
@@ -61,7 +61,7 @@ RC.STEPS = [
     ('go', MG, 4, 2), ('north', 1, None), ('wait', 400), ('at', R, 12, 61), ('shot', 'route43-from-mahogany'),
     ('view', M, 13, 2, 'mahogany-north-seam'), ('view', 0, 50, 17, 'regression-cherrygrove'),
 ]
-RC.WALK_BEHIND = {'behind-trees-south': (20, 54), 'behind-tree-pond': (15, 19), 'behind-trainer-tips': (20, 49),
+RC.WALK_BEHIND = {'behind-trees-south': (20, 55), 'behind-tree-pond': (15, 19), 'behind-trainer-tips': (20, 49),
                   'behind-south-sign': (15, 57), 'behind-north-sign': (20, 2)}
 RC.IN_FRONT = ('toll-gate-front', 'toll-gate-south-exit', 'mahogany-gate-exit')
 

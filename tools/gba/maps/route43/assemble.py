@@ -18,9 +18,9 @@ owner accepted for Mahogany Town (tools/gba/maps/mahogany/assemble.py).
      ponds       Route 30's installed HGSS freshwater pieces (route30-hgss-blocks pond-<mask>-
                  <phase>) on HGSS's water cells, by which neighbours are water too
      tall grass  G00-G15 on HGSS's tall-grass cells, chosen by which of the four neighbours
-                 (north, south, west, east) are tall grass too
+                 (north, south, west, east) are tall grass too; one-cell strips take full pieces
      ledges      L11/L12/L13 (warm Johto ledge ends and run)
-     trees       T01 on each decoded 2x2 HGSS root
+     trees       T01 on non-overlapping 2x2 roots on HGSS's woods cells (elements.tree_footprints)
      signs       P14 green route sign (HGSS model 32), P16 blue information board (model 34)
      gatehouse   G01a front gatehouse: the Route 43 toll gate on HGSS's gate, and the top two
                  rows of Mahogany's north gatehouse (Mahogany places the same G01a at its
@@ -182,7 +182,10 @@ def ground_quadrants(cells, rock):
 
 def tall_grass(cells):
     """Catalog tall grass on every HGSS tall-grass cell: G<mask>, mask bits north, south, west,
-    east (1 where that neighbour is tall grass too; off the map counts as not)."""
+    east (1 where that neighbour is tall grass too; off the map counts as not). A strip one
+    cell wide would take a piece trimmed on both sides, half a cell across; it takes the
+    full-width piece instead (both side bits set), and a strip one cell tall the full-height
+    piece, so every tall-grass cell is a whole cell of grass."""
     grass = np.array([[c['lab'] == 'G' for c in row] for row in cells])
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     used = {}
@@ -191,6 +194,10 @@ def tall_grass(cells):
         s = y + 1 < H and grass[y + 1, x]
         w = x > 0 and grass[y, x - 1]
         e = x + 1 < W and grass[y, x + 1]
+        if not (w or e):
+            w = e = True
+        if not (n or s):
+            n = s = True
         k = int(n) * 8 + int(s) * 4 + int(w) * 2 + int(e)
         art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = rgba(SHARED / f'G{k:02}.png')
         used[f'G{k:02}'] = used.get(f'G{k:02}', 0) + 1

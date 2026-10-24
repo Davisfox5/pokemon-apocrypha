@@ -13,14 +13,18 @@ Detail sheets (HGSS beside native, numbered by cell): [north woods and sign](evi
 [massif, ledge, toll gate](evidence/review3/massif-ledge-toll-gate.png) ·
 [south road and Mahogany gate](evidence/review3/south-road-mahogany-gate.png)
 
+**Owner review 2026-10-24** ("nearly one-shotted it"): some large trees overlapped and a few tall-grass
+patches were half a cell. Fixed: trees on non-overlapping roots, one-cell strips of tall grass on full
+pieces.
+
 ## The map
 
 | | |
 | --- | --- |
 | Map | `Route43`, 32x64, `gMapGroup_Cherrygrove` id 46; `Route43Gatehouse` 47, `Route43MahoganyGatehouse` 48; `MAPSEC_JOHTO_ROUTE_43` |
-| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 550 of 1,008 tiles, 274 + 22 metatiles |
+| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 511 of 1,008 tiles (all in the primary; the secondary holds one blank metatile the build requires), 252 metatiles |
 | Colour | 8 banks, each colour exact: all 524,288 native pixels equal the assembled art in RGB555 |
-| Material audit | 1,900 of 2,048 cells show HGSS's material, 0 mismatches, 148 cells where a foreground object differs (below) |
+| Material audit | 1,914 of 2,048 cells show HGSS's material, 0 mismatches, 134 cells where a foreground object differs (below) |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
 
@@ -32,9 +36,10 @@ Detail sheets (HGSS beside native, numbered by cell): [north woods and sign](evi
   roots `source/trace/trees.json`; models `buildings.json` (signs 32 and 34, gate 35).
 - Flat cell decode (`elements.ledger`): rock cells, the ledge, woods (type 0x06), tall grass (0x02),
   pond water (0x10), ground height per cell.
-- Trees: HGSS shows a trunk row only where no crown covers it, so trunk detection finds 108 of its
-  trees. The woods cells left bare are filled with 2x2 roots north-west first, then any cell still bare
-  gets a tree overlapping its neighbours, as HGSS's crowns overlap: 160 trees, every woods cell covered.
+- Trees: HGSS shows a trunk row only where no crown covers it, and it offsets its trees, so the roots
+  are the largest set of non-overlapping 2x2 footprints on its woods cells (an integer program that
+  prefers the 108 trunk-detected roots on ties; 97 of them kept): 136 trees, none overlapping. The 34
+  woods cells no root fits are HGSS crown overhang and are open lawn (adaptation below).
 
 ## 2. Rock: Blackthorn's method
 
@@ -51,10 +56,10 @@ Copied byte for byte into `source/shared-art/` with hashes and the catalog commi
 | Part | Shared art | Placement |
 | --- | --- | --- |
 | Lawn, road, rims | Cherrygrove/Route 36 painter, unchanged | lawn or road per 8 px quadrant from HGSS's flat ground colours |
-| Tall grass | G00-G15 | HGSS's 189 tall-grass cells, piece by which of N/S/W/E neighbours are tall grass |
+| Tall grass | G00-G15 | HGSS's 189 tall-grass cells, piece by which of N/S/W/E neighbours are tall grass; a one-cell-wide (or -tall) strip takes the full-width (or -height) piece, so no patch is half a cell |
 | Ponds | Route 30's installed HGSS freshwater (`route30-hgss-blocks` pond-*mask*-*phase*) | HGSS's 152 water cells; bank and rim inside the water cells, so the Surf edge is the cell edge |
 | Ledge | L11 / L12 / L13 | HGSS's jump-south run (18-22,45) |
-| Trees | T01 | 160 roots (above), crown one row behind |
+| Trees | T01 | 136 non-overlapping roots (above), crown one row behind |
 | Signs | P14 green route sign (model 32), P16 blue information board (model 34) | (20,3), (15,58); (20,50) |
 | Toll gate | G01a | origin (23,40), doorway on HGSS's gate warps (25,47)/(26,47) |
 | Mahogany gatehouse | G01a, its top two rows | origin (10,62), the same G01a Mahogany places at its (10,-2) |
@@ -90,9 +95,13 @@ top-layer art compacted. Asserts every native pixel equals the assembled art.
   against the roof ((25,39), (26,39), (12,61), (13,61)); HGSS's warp row stays open ground. Cells
   (23,39)-(28,39), (23,40) and (28,40), blocked only by HGSS's taller model, are open where G01a has no
   pixel. Listed per cell in `evidence/pack3/pack.json` (`adaptations`).
+- **Woods overhang.** 34 cells HGSS blocks under its offset crowns hold no Gen 3 root and are open
+  lawn: (14-15,3), (2-5,9), (20-21,12), (18-19,14), (16-17,18), (23-24,19), (14-15,22), (18-19,29),
+  (0-1,31), (2-5,33), (16-17,39), (18-23,55), (16-17,57). None joins two areas; most sit under the
+  crown of the tree south of them, so the player walks behind it.
 - **Rock.** One-metatile FRLG faces in place of HGSS's projected faces, as in Mahogany and Blackthorn.
-- **Foreground.** T01 rises one row higher than HGSS's trees and the woods fill differs from HGSS's
-  offset crowns; G01a is smaller than HGSS's gate. These are the 148 "foreground differs" cells in
+- **Foreground.** T01 rises one row higher than HGSS's trees and sits on a 2-cell grid where HGSS
+  offsets its crowns; G01a is smaller than HGSS's gate. These are the 134 "foreground differs" cells in
   `evidence/pack3/material-audit.json`.
 - **Sign text.** HGSS's text (msg_0401_R43) in Gen 3 sign boxes: ROUTE 43 / NORTH: LAKE OF RAGE (and
   SOUTH: MAHOGANY TOWN on the north sign); the Trainer Tips text over three pages.
@@ -100,15 +109,15 @@ top-layer art compacted. Asserts every native pixel equals the assembled art.
 ## Verification
 
 - **Build**: engine `claude/route-43`, ROM sha256
-  `e2721da7722feb6c41f2f87a72f40c53624a6e78f133d4bbdfb485e96bd5a3c3` (not committed).
+  `66ca181e7e16169f3baab6fc192457760ac8348bb5aef55c983aa0d5232786db` (not committed).
 - **Native audit** (`check3.py`, `evidence/pack3/native-audit.json`): installed decode equals the packer's
   and the assembled art pixel for pixel; behaviour, collision, elevation and layer type match the ledger
   on all 2,048 cells; every approach reachable on foot, every pond cell with Surf; walk-behind layering
   matches the objects' base rows; every warp leads back; Mahogany's doorways are doors and its pixels
   unchanged; shared masters byte-identical; only Route 43 files and Mahogany's three wiring files
   changed; budgets met.
-- **Material audit** (`evidence/pack3/material-audit.json`, `native-grid.png`): 1,900 match, 0 mismatch,
-  148 foreground differences.
+- **Material audit** (`evidence/pack3/material-audit.json`, `native-grid.png`): 1,914 match, 0 mismatch,
+  134 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 32 captures with map layers rebuilt from
   VRAM equal to the native decode in all of them; BG1 covers the player behind two tree rows and all
   three signs and leaves the player clear in front of both gatehouses; the ledge jumps and refuses the
