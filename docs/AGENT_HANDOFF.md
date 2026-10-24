@@ -1,3 +1,18 @@
+## Latest: fresh Mahogany native rebuild (proposal, 2026-10-24)
+
+Owner rejected the earlier Mahogany result and requested a restart following
+AGENTS.md. The replacement starts at shared engine base `2722eaf7`, reads original
+HGSS chunk 85, and uses shared native trees/houses plus the locked C06 Center.
+Engine draft [PR #31](https://github.com/Davisfox5/pokeemerald-expansion/pull/31),
+commit `1cd699403fee16b60bb3954e4f2c300f1335990e`, has the same tree as the
+locally built/tested source. Full reference/native grids, receiving repairs,
+asset identities, Porymap/mGBA results and limits are in
+[the rebuild review](../gba/art/mahogany-rebuild/README.md).
+Exterior and Center floors are native and tested; routes and other interiors
+remain unbuilt. Visual acceptance is pending. Preserve the rejected branches
+and saves. Edit native source directly; do not replay provenance generators over
+owner edits or treat the earlier drafts as geographic authority.
+
 ## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,

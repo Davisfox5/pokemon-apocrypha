@@ -1,0 +1,23 @@
+{
+  "engine_repository": "Davisfox5/pokeemerald-expansion",
+  "engine_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "engine_local_commit": "e218eafac05c8cbcbfd399698599585a5e71b601",
+  "engine_tree": "663a71e6226e173ed717b5d4074e5e73e9468698",
+  "rom_sha256": "eef5a62dfc8db3ae460404f363210bcb43f85b82c5d85425f77d952ca0f9cebb",
+  "native_sha256": "048bf0ced15db8ede9d45d399d7aa815eca11e3696aecad1fc4a3705c2445075",
+  "tools": {
+    "porytiles": "2.0.0 legacy CLI",
+    "porymap": "6.3.1 (139eda9)",
+    "poryscript": "3.6.1",
+    "mgba": "0.10.5",
+    "arm_gcc": "14.2.1"
+  },
+  "assets": {
+    "source/approved-center.png": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+    "source/approved-gym.png": "b1ddcf5e11bf36cbf3878325bb3e3b1f6b2b27290a36facdd228d30ab4069e9c",
+    "source/gym-native.png": "adca57797296e0c148c4187a62fba3bb574c7215dfd792575d1af31eef6590d4",
+    "source/layers.npz": "a4dac3df9e0a03652915252112e14aaf92f9c327f5fba7ca2543139397f27e7d",
+    "source/receiving-ground.png": "186957125d194a446fe5b52616a1ccf43ff290df825921f662440d8152c31480"
+  },
+  "approval": "Proposal; owner visual acceptance pending"
+}

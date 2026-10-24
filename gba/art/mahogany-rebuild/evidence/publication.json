@@ -1,0 +1,22 @@
+{
+  "engine": {
+    "repository": "Davisfox5/pokeemerald-expansion",
+    "branch": "codex/mahogany-town-rebuild",
+    "base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+    "published_commit": "1cd699403fee16b60bb3954e4f2c300f1335990e",
+    "local_commit": "e218eafac05c8cbcbfd399698599585a5e71b601",
+    "tree": "663a71e6226e173ed717b5d4074e5e73e9468698",
+    "published_tree_equals_tested_local_tree": true,
+    "pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/31"
+  },
+  "hub": {
+    "repository": "Davisfox5/pokemon-apocrypha",
+    "branch": "codex/mahogany-town-rebuild-evidence",
+    "base": "e3ad86462bf2f7cbd317c5dde1b670253c40ebc0"
+  },
+  "superseded": {
+    "engine_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/30",
+    "hub_pr": "https://github.com/Davisfox5/pokemon-apocrypha/pull/27"
+  },
+  "visual_acceptance": "Owner review pending"
+}

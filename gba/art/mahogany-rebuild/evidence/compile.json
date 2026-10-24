@@ -1,0 +1,31 @@
+{
+  "commands": [
+    [
+      "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+      "compile-primary",
+      "-dual-layer",
+      "-tiles-total-override=1008",
+      "-target-base-game=pokeemerald",
+      "-o",
+      "/workspace/mahogany-rebuild/data/tilesets/primary/mahogany_rebuild",
+      "/workspace/mahogany-hub/gba/art/mahogany-rebuild/source/primary",
+      "/workspace/mahogany-rebuild/include/constants/metatile_behaviors.h"
+    ],
+    [
+      "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+      "compile-secondary",
+      "-dual-layer",
+      "-tiles-total-override=1008",
+      "-target-base-game=pokeemerald",
+      "-o",
+      "/workspace/mahogany-rebuild/data/tilesets/secondary/mahogany_rebuild",
+      "/workspace/mahogany-hub/gba/art/mahogany-rebuild/source/secondary",
+      "/workspace/mahogany-hub/gba/art/mahogany-rebuild/source/primary",
+      "/workspace/mahogany-rebuild/include/constants/metatile_behaviors.h"
+    ]
+  ],
+  "metatiles": [
+    217,
+    149
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "e218eafac05c8cbcbfd399698599585a5e71b601",
+  "style": "fresh",
+  "city_export_vs_native": {
+    "size": [
+      576,
+      576
+    ],
+    "differing_pixels": 0
+  },
+  "all_map_exports_vs_native": {
+    "MahoganyTown": {
+      "size": [
+        576,
+        576
+      ],
+      "differing_pixels": 0
+    },
+    "MahoganyPokemonCenter": {
+      "size": [
+        224,
+        144
+      ],
+      "differing_pixels": 0
+    },
+    "MahoganyCenterUpstairs": {
+      "size": [
+        224,
+        160
+      ],
+      "differing_pixels": 0
+    }
+  },
+  "mahogany_files_rewritten": [
+    "data/layouts/MahoganyTown/border.bin",
+    "data/layouts/MahoganyTown/map.bin",
+    "data/maps/MahoganyCenterUpstairs/map.json",
+    "data/maps/MahoganyPokemonCenter/map.json",
+    "data/maps/MahoganyTown/map.json",
+    "data/tilesets/primary/mahogany_rebuild/metatile_attributes.bin",
+    "data/tilesets/primary/mahogany_rebuild/metatiles.bin",
+    "data/tilesets/primary/mahogany_rebuild/palettes/00.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/01.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/02.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/03.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/04.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/05.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/06.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/07.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/08.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/09.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/10.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/11.pal",
+    "data/tilesets/primary/mahogany_rebuild/palettes/12.pal",
+    "data/tilesets/secondary/mahogany_rebuild/metatile_attributes.bin",
+    "data/tilesets/secondary/mahogany_rebuild/metatiles.bin",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/00.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/01.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/02.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/03.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/04.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/05.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/06.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/07.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/08.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/09.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/10.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/11.pal",
+    "data/tilesets/secondary/mahogany_rebuild/palettes/12.pal"
+  ],
+  "mahogany_files_changed": [
+    "data/maps/MahoganyCenterUpstairs/map.json",
+    "data/maps/MahoganyPokemonCenter/map.json"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "data/maps/MahoganyCenterUpstairs/map.json",
+    "data/maps/MahoganyPokemonCenter/map.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_mahogany": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-  \"region\": \"REGION_JOHTO\",",
+    "-  \"build_target\": \"emerald\",",
+    "-  \"bg_events\": []",
+    "+  \"bg_events\": [],",
+    "+  \"build_target\": \"emerald\",",
+    "+  \"region\": \"REGION_JOHTO\"",
+    "-  \"region\": \"REGION_JOHTO\",",
+    "-  \"build_target\": \"emerald\",",
+    "-  \"bg_events\": []",
+    "+  \"bg_events\": [],",
+    "+  \"build_target\": \"emerald\",",
+    "+  \"region\": \"REGION_JOHTO\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'",
+    "Qt module 'charts' not found. Some features will be disabled."
+  ],
+  "note": "The export is Porymap's own render, compared with the actual clone native decode. Inspect changed_lines for JSON key-order and Unicode normalization, the fresh exterior and Center maps."
+}

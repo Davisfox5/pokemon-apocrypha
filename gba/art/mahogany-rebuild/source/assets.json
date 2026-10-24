@@ -1,0 +1,36 @@
+{
+  "shared_hub_repository": "Davisfox5/pokemon-apocrypha",
+  "assets": [
+    {
+      "asset": "source/approved-center.png",
+      "origin_commit": "5da5cda94a2cac01491c06c7ae9fec97bd67b055",
+      "origin_path": "gba/art/goldenrod-city/source/masters/center.png",
+      "use": "Locked shared Violet/C06 Center, all opaque native RGB5 pixels unchanged",
+      "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+    },
+    {
+      "asset": "source/approved-gym.png",
+      "origin_commit": "5da5cda94a2cac01491c06c7ae9fec97bd67b055",
+      "origin_path": "gba/art/goldenrod-city/source/refined-buildings/04.png",
+      "use": "Established Gym master; silhouette, dimensions, facade color and logo adapted as a proposal",
+      "sha256": "b1ddcf5e11bf36cbf3878325bb3e3b1f6b2b27290a36facdd228d30ab4069e9c"
+    },
+    {
+      "asset": "shared tree",
+      "origin_commit": "e3ad86462bf2f7cbd317c5dde1b670253c40ebc0",
+      "origin_path": "gba/art/cherrygrove-synthesis/refined/tree.png",
+      "origin_git_blob": "d00fa55daf612f53fe41a7d144f14748ea981ee9",
+      "sha256": "9069036f7fd0274963c7496b9aaf2896fb88967e84af096c96ea9d8feb203808"
+    },
+    {
+      "asset": "shared house",
+      "origin_commit": "e3ad86462bf2f7cbd317c5dde1b670253c40ebc0",
+      "origin_path": "gba/art/cherrygrove-synthesis/refined/house.png",
+      "origin_git_blob": "1a32c622990e039a6196ccc558349cb48d70f0c6",
+      "sha256": "aa7a4136bc1b59ad6b8ee3e9abac86808118a320cb3fa1a014ec3b0bfa9c5b4f"
+    }
+  ],
+  "new_assets": "Native gate, watchtowers, antenna tree and sign drawn in build.py; proposals.",
+  "original_design_credit": "Game Freak / Nintendo / Creatures",
+  "read_only_tooling": "Generic binary HGSS decoder/native decoder and test/editor adapters retained; earlier Mahogany native art/layout/palettes are not composition inputs."
+}
