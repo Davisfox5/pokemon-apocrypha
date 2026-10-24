@@ -1,0 +1,205 @@
+[
+  {
+    "name": "Olivine Gym",
+    "reference_box": [
+      184,
+      152,
+      296,
+      244
+    ],
+    "facade": [
+      192,
+      224,
+      288,
+      244
+    ],
+    "door_approach": [
+      15,
+      16
+    ],
+    "native_box": [
+      184,
+      148,
+      296,
+      244
+    ]
+  },
+  {
+    "name": "West residence",
+    "reference_box": [
+      272,
+      272,
+      344,
+      352
+    ],
+    "facade": [
+      280,
+      328,
+      344,
+      352
+    ],
+    "door_approach": [
+      19,
+      22
+    ],
+    "native_box": [
+      272,
+      264,
+      344,
+      352
+    ]
+  },
+  {
+    "name": "North residence west",
+    "reference_box": [
+      496,
+      184,
+      568,
+      272
+    ],
+    "facade": [
+      504,
+      248,
+      568,
+      272
+    ],
+    "door_approach": [
+      33,
+      17
+    ]
+  },
+  {
+    "name": "North residence east",
+    "reference_box": [
+      576,
+      184,
+      648,
+      272
+    ],
+    "facade": [
+      584,
+      248,
+      648,
+      272
+    ],
+    "door_approach": [
+      38,
+      17
+    ]
+  },
+  {
+    "name": "Olivine Cafe",
+    "reference_box": [
+      144,
+      400,
+      216,
+      480
+    ],
+    "facade": [
+      144,
+      448,
+      216,
+      480
+    ],
+    "door_approach": [
+      11,
+      30
+    ]
+  },
+  {
+    "name": "Lighthouse",
+    "reference_box": [
+      688,
+      344,
+      808,
+      520
+    ],
+    "facade": [
+      696,
+      480,
+      800,
+      520
+    ],
+    "door_approach": [
+      46,
+      33
+    ]
+  },
+  {
+    "name": "Port terminal",
+    "reference_box": [
+      320,
+      696,
+      472,
+      808
+    ],
+    "facade": [
+      328,
+      776,
+      464,
+      800
+    ],
+    "door_approach": [
+      24,
+      50
+    ],
+    "native_box": [
+      320,
+      688,
+      472,
+      800
+    ]
+  },
+  {
+    "name": "approved Violet Pokemon Center",
+    "reference_box": [
+      240,
+      400,
+      320,
+      480
+    ],
+    "native_box": [
+      240,
+      400,
+      320,
+      480
+    ],
+    "facade": [
+      240,
+      448,
+      320,
+      480
+    ],
+    "door_approach": [
+      17,
+      30
+    ],
+    "adaptation": "Approved transparent shared master fitted to original service pad."
+  },
+  {
+    "name": "approved shared Pokemart",
+    "reference_box": [
+      464,
+      416,
+      544,
+      480
+    ],
+    "native_box": [
+      469,
+      416,
+      549,
+      480
+    ],
+    "facade": [
+      464,
+      448,
+      544,
+      480
+    ],
+    "door_approach": [
+      31,
+      30
+    ],
+    "adaptation": "Approved transparent shared master fitted to original service pad."
+  }
+]

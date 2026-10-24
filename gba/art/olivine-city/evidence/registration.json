@@ -1,0 +1,49 @@
+{
+  "reference": "https://archives.bulbagarden.net/media/upload/f/f6/Olivine_City_HGSS.png",
+  "reference_size": [
+    1035,
+    858
+  ],
+  "native_size": [
+    65,
+    54
+  ],
+  "scale": 1,
+  "origin": [
+    0,
+    0
+  ],
+  "padding": [
+    5,
+    6
+  ],
+  "source": "HGSS overview interpretation, not extracted DS collision",
+  "limits": [
+    "Exterior only; closed doors, no interiors, ferry or Lighthouse floors.",
+    "Route39 and Route40 exits closed pending separately scoped routes.",
+    "Static water, flags and boats.",
+    "Intact HGSS groves retained; matching interior tree courses reused within native tile budgets."
+  ],
+  "rejected_pass_edge_adaptation": {
+    "right_strip": [
+      1032,
+      0,
+      1040,
+      864
+    ],
+    "bottom_strip": [
+      0,
+      856,
+      1040,
+      864
+    ],
+    "method": "Last3 reference columns and last2 reference rows extended across final8px native strips; includes padding plus edge overlap."
+  },
+  "current_assembly": "Retained HGSS terrain at1:1 origin0,0, fully repaired old-object receiving areas and transparent polished masters; last column/row extended only across5px/6px padding.",
+  "native_contour_adaptations": [
+    "Preserved previous collision/elevation corrections except two documented Mart-side lamp cells.",
+    "Lower path and quay east shoulders completed to x640 from x632.",
+    "Original upper stair crop576,304,624,336 fitted to a32x32 native stair; existing bypass collision preserved.",
+    "Avenue shoulder x448..464 at y320..400 reconstructed with paving."
+  ]
+}

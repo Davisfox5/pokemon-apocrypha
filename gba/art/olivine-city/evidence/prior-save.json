@@ -1,0 +1,85 @@
+[
+  {
+    "city": "Olivine",
+    "source_build": "dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41",
+    "save_sha256": "1a8715744939ab549275dbbd70c198ad81cbee64841e6758d9037063c24d444e",
+    "save_bytes": 131072,
+    "read_exit_code": 0,
+    "observations": [
+      {
+        "step": "cold-reload-Olivine",
+        "region": 3,
+        "group": 80,
+        "map": 68,
+        "x": 8,
+        "y": 5,
+        "frlg_layout": 0,
+        "width": 16,
+        "height": 13,
+        "interaction": 0,
+        "mapsec": 228
+      },
+      {
+        "step": "cold-lamp-base-approach",
+        "region": 3,
+        "group": 80,
+        "map": 68,
+        "x": 11,
+        "y": 0,
+        "frlg_layout": 0,
+        "width": 16,
+        "height": 13,
+        "interaction": 0,
+        "mapsec": 228
+      },
+      {
+        "step": "cold-lamp-base-blocks",
+        "region": 3,
+        "group": 80,
+        "map": 68,
+        "x": 11,
+        "y": 0,
+        "frlg_layout": 0,
+        "width": 16,
+        "height": 13,
+        "interaction": 0,
+        "mapsec": 228
+      },
+      {
+        "step": "cold-lamp-upper-projection-clear",
+        "region": 3,
+        "group": 80,
+        "map": 65,
+        "x": 13,
+        "y": 12,
+        "frlg_layout": 0,
+        "width": 16,
+        "height": 14,
+        "interaction": 0,
+        "mapsec": 228
+      }
+    ]
+  },
+  {
+    "city": "Goldenrod",
+    "source_build": "eb63c24cb7e28c7de1eddd7db0b693a6510b29d4",
+    "save_sha256": "efaf55713f0c0437ea33ad3ebc99862042a3347628eb31f6a60f634ed65e589f",
+    "save_bytes": 131072,
+    "read_exit_code": 0,
+    "observations": [
+      {
+        "step": "cold-reload-Goldenrod",
+        "region": 3,
+        "group": 80,
+        "map": 60,
+        "x": 16,
+        "y": 6,
+        "frlg_layout": 0,
+        "width": 21,
+        "height": 14,
+        "interaction": 0,
+        "mapsec": 227
+      }
+    ]
+  }
+]

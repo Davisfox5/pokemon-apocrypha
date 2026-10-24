@@ -1,3 +1,5 @@
+Current Olivine exterior: [native inward-corner and coastal-tier correction](../gba/art/olivine-city/evidence/corner-revision/README.md). Engine `0e47f9cc`, draft PR23. Corrected15 inward joins; removed extra lowest coastal tier; retained approved straight/external faces. Actual Porymap/gameplay/save proof; owner review pending.
+
 Current Goldenrod exterior: [HGSS/native city review](../gba/art/goldenrod-city/README.md). Engine `codex/goldenrod-city` (`eb63c24c`), draft PR #20; native tiles, approved carnival boardwalk, continuous camera views, original-reference grids and gameplay/save evidence. Interiors/adjacent routes/train service remain unwired; hosted CI is blocked because Actions is disabled.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
@@ -102,3 +104,7 @@ Use an exact file or narrowly scoped directory, not `rg --no-ignore` at root.
 
 Approved means chosen; verified means tested. See GBA_BASELINE.md for which
 checks actually exist. Do not turn a design target into a completion claim.
+
+- [City production playbook and Goldenrod retrospective](GBA_CITY_BUILDING_PLAYBOOK.md): required city exemplar; reconstruction, individual building polish, transparent asset/context repairs, approved boardwalk redesign and validation.
+
+- [Olivine native exterior review pass](../gba/art/olivine-city/README.md): HGSS terrain, building contexts, city-wide collision/foreground audit, recorded gameplay, source identity and preserved pre-existing remote branch.

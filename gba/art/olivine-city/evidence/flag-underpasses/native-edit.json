@@ -1,0 +1,19 @@
+{
+  "baseline": "86b1e47e0305596bb76fd1a1ff94f3b47947e47d",
+  "sections": [
+    {
+      "map": "OlivineCity01",
+      "glyphs": 965,
+      "foreground_cells": 16
+    },
+    {
+      "map": "OlivineCity03",
+      "glyphs": 807,
+      "foreground_cells": 16
+    }
+  ],
+  "mask_pixels": 3136,
+  "city_composite_RGB_errors": 0,
+  "collision_elevation_changes": 0,
+  "method": "Exact native cloth/rope cutouts on split foreground layer; Transparent foreground mask over existing native background; support posts untouched"
+}

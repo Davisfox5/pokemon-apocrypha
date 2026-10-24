@@ -191,3 +191,7 @@ The Route 32 material pass is an example, not a universal map template:
 It separates original-reference terrain types from walkability and checks actual
 native output. Its exclusions and wider Center footprint are declared adaptations;
 future maps must establish their own reference registration and exceptions.
+
+## City case study
+
+Apply the owner-accepted [Goldenrod production playbook](GBA_CITY_BUILDING_PLAYBOOK.md) for city work. It records the complete first build, individual building and equipment refinements, transparent Center receiving-context repair, approved carnival addition, hardware constraints and review evidence. Transfer the method; retain each city’s own geography and native budget.

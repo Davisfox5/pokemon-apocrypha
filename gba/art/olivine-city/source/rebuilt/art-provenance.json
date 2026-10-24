@@ -1,0 +1,103 @@
+{
+  "architecture_generator": "image_gen; six isolated original buildings/boat using HGSS as architecture reference only",
+  "architecture_source": "architecture-original.png",
+  "architecture_sha256": "98cb7511995dfc5d352f6d6e04eff565afb9d40b4181917df6065ef2518aab72",
+  "masters": {
+    "gym": {
+      "crop": [
+        24,
+        144,
+        520,
+        544
+      ],
+      "target_size": [
+        112,
+        96
+      ],
+      "sha256": "54b1efe760edd19d0fd7c18846695595a9392cd15a5cf8eb754b49f23674eaad"
+    },
+    "house": {
+      "crop": [
+        544,
+        176,
+        872,
+        544
+      ],
+      "target_size": [
+        72,
+        88
+      ],
+      "sha256": "1e40bc0d0b3abe74028084827689fb59b72d866662d9fa223ebb6f7948699f2a"
+    },
+    "cafe": {
+      "crop": [
+        912,
+        208,
+        1240,
+        552
+      ],
+      "target_size": [
+        72,
+        80
+      ],
+      "sha256": "c3a0e26a963dfca194925c48fb0bd1d5dd8807cfeffae9bf030bec6ef126bcae"
+    },
+    "lighthouse": {
+      "crop": [
+        24,
+        568,
+        448,
+        1160
+      ],
+      "target_size": [
+        120,
+        176
+      ],
+      "sha256": "a78b6aff1d7df33c4ee256c69017c9ec7ad7ab03d2c96101f440e99268547eb4"
+    },
+    "terminal": {
+      "crop": [
+        448,
+        760,
+        920,
+        1152
+      ],
+      "target_size": [
+        152,
+        112
+      ],
+      "sha256": "c67250b902d4f0c12b5e2ad6beecda09818f6d779b16de38d8b5163240e6d81e"
+    },
+    "sailboat": {
+      "crop": [
+        920,
+        808,
+        1248,
+        1152
+      ],
+      "target_size": [
+        80,
+        72
+      ],
+      "sha256": "7e15979ddb1fe204589e7ba0faa2402749e478eefca40364e59962bb9b54d4cf"
+    }
+  },
+  "terrain": "Native-size independently drawn repeatable modules; no overview pixels",
+  "modules": {
+    "water": "7d7f041ebe00a7cd5562f5d0bba91224509f12315e38317b63ef15447835e9eb",
+    "paving": "552ebaac8e729b3b417ad52bba59a7ea2ec3a4bca8badbcf891bdda3ad72d2fb",
+    "sand": "9d2ea262b8ae9b9c688671a1c8deecebc1e778e9d18084160e85a85790b5c1e7",
+    "lawn": "c7fca2cdc146ab41d45155e655cf91ab016a968b75528ab369939263c6ac1c24",
+    "dock": "a43c838e8177bf580a0baf5cb985b9638e9f8b4591b6821e53f2768d0bec0b47",
+    "cliff-face": "652e7af556ca6d227ab0452420b6874287b3a101876ee012138c49b00fa58ff9",
+    "cliff-cap": "570589e3201b99cd0741d4a4e829c5e471b1e17ea096a0f74e9ab512f30fe260",
+    "curb": "dcce9ea9cf1a2cf5f2c05096dace3df0b814ba10ae73efa1f0fb32fa013cf80b",
+    "fence": "d754142530fc10b080378d884b3fac12a66a16a0d2d76a7b68b93b992998a232",
+    "lamp": "8314156887ed6c996478e2ea868748d1932b0a8ad13aed83222e98f0113002a0",
+    "sign": "6286e1e5d1d97573e9e700b5fa067262016595eb74e7de281d3608ee2761e402",
+    "parasol-table": "1a9bebda597bb1ecbacc9b86d5939ab87d71541ea5e514846138adbedc45d21e",
+    "stairs": "7ca06db9d4e0730ea161b73c9a1ee23fe055f6d64ac5c9e86f7304b9c30d8598",
+    "ramp": "13be99e80f4cfc8cb406206ba0cb3e35c2e7c0de3c0dc54b5e68ffcc304f8cc0",
+    "shore-rock": "07e1b6d5e9b499d4ad2484b1d32696ed5f3bdae04f0db93bd1f31ff9113a596b"
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "orientation": "SW",
+    "donor_metatile": "0x89",
+    "layout": "Route111_NoMirageTower_Layout",
+    "cell": [
+      13,
+      35
+    ],
+    "neighbors_N_E_S_W": [
+      "0x7b",
+      "0x73",
+      "0x70",
+      "0x79"
+    ]
+  },
+  {
+    "orientation": "SE",
+    "donor_metatile": "0x74",
+    "layout": "Route111_NoMirageTower_Layout",
+    "cell": [
+      1,
+      127
+    ],
+    "neighbors_N_E_S_W": [
+      "0x71",
+      "0x7c",
+      "0x7d",
+      "0x71"
+    ]
+  },
+  {
+    "orientation": "NE",
+    "donor_metatile": "0xbf",
+    "layout": "Route111_NoMirageTower_Layout",
+    "cell": [
+      1,
+      97
+    ],
+    "neighbors_N_E_S_W": [
+      "0x75",
+      "0x6c",
+      "0x71",
+      "0x71"
+    ]
+  }
+]

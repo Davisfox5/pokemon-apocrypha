@@ -1,0 +1,149 @@
+{
+  "source_commit": "dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41",
+  "ROM_sha256": "1213137539a637ef24bbaa4644f36f8673c738c40d1512d7c41495d78c1e19e0",
+  "frames": 9596,
+  "fps": 59.7275,
+  "duration_seconds": 160.66301117575657,
+  "chapters": [
+    {
+      "chapter": "Central flags - northbound",
+      "frame": 60
+    },
+    {
+      "chapter": "Walk to west festival gate",
+      "frame": 324
+    },
+    {
+      "chapter": "West flags - northbound",
+      "frame": 636
+    },
+    {
+      "chapter": "West orange flag approach",
+      "frame": 852
+    },
+    {
+      "chapter": "West orange flag - transparent edges",
+      "frame": 972
+    },
+    {
+      "chapter": "West right orange flag approach",
+      "frame": 1092
+    },
+    {
+      "chapter": "West right orange flag - transparent edges",
+      "frame": 1236
+    },
+    {
+      "chapter": "West flags - southbound",
+      "frame": 1356
+    },
+    {
+      "chapter": "West fence approach",
+      "frame": 1604
+    },
+    {
+      "chapter": "West fence blocks",
+      "frame": 1780
+    },
+    {
+      "chapter": "West flag support approach",
+      "frame": 1905
+    },
+    {
+      "chapter": "Flag support blocks",
+      "frame": 2129
+    },
+    {
+      "chapter": "Gym approach",
+      "frame": 2254
+    },
+    {
+      "chapter": "Gym entrance currently closed",
+      "frame": 2382
+    },
+    {
+      "chapter": "North residence west",
+      "frame": 2507
+    },
+    {
+      "chapter": "North residence east",
+      "frame": 3531
+    },
+    {
+      "chapter": "Return to central flags",
+      "frame": 3699
+    },
+    {
+      "chapter": "Central flags - southbound",
+      "frame": 4347
+    },
+    {
+      "chapter": "Mart-side lamp approach",
+      "frame": 4563
+    },
+    {
+      "chapter": "Retained lamp blocks",
+      "frame": 4787
+    },
+    {
+      "chapter": "Pokemon Center approach",
+      "frame": 4912
+    },
+    {
+      "chapter": "Cafe approach",
+      "frame": 5328
+    },
+    {
+      "chapter": "Quay railing approach",
+      "frame": 5512
+    },
+    {
+      "chapter": "Quay railing blocks",
+      "frame": 5848
+    },
+    {
+      "chapter": "Harbor promenade and boats",
+      "frame": 5973
+    },
+    {
+      "chapter": "Ferry pier and terminal",
+      "frame": 6429
+    },
+    {
+      "chapter": "Terminal currently closed",
+      "frame": 7037
+    },
+    {
+      "chapter": "Walk to lighthouse",
+      "frame": 7162
+    },
+    {
+      "chapter": "Lighthouse currently closed",
+      "frame": 8442
+    },
+    {
+      "chapter": "Lighthouse retaining wall",
+      "frame": 8567
+    },
+    {
+      "chapter": "Retaining wall blocks",
+      "frame": 8663
+    },
+    {
+      "chapter": "Mart approach",
+      "frame": 8788
+    },
+    {
+      "chapter": "Return to city center",
+      "frame": 9324
+    }
+  ],
+  "continuous_walking": true,
+  "initial_position_helper_only": true,
+  "save_written": false,
+  "ROM_or_map_modified": false,
+  "audio": false,
+  "all_coordinate_assertions_passed": true,
+  "capture_source_note": "Working tree captured then committed exactly; clean source manifest and ROM hash verified.",
+  "video_sha256": "a7a424c769af06be15e6dc144ae2515b903c6016931bdb3f09105e4f90048099"
+}

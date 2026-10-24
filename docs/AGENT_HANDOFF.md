@@ -1,3 +1,246 @@
+## Latest: Olivine inward corners / extra coastal tier removed — 2026-10-24
+
+Current engine `0e47f9cc35cfe8f3c43764fa43109e092622d3e0`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/corner-revision/README.md` first. Owner approved
+straight-face directions and external corners, requested correction of all inward
+corners and removal of the unnecessary lowest coastal grass/rock tier.
+
+Correct native mountain joins are 089 (SW), 074 (SE), 0BF (NE), established from
+actual original Emerald Route 111 placements. Fifteen retained inward bends were
+replaced. Removed 69 coastal cells (20 formerly open), with native ocean directly
+beneath the remaining wall. The retained straight/convex rock pixels and all
+pixels outside 127 recorded edit cells remain unchanged. No palette or renderer
+changes. Native additions preserve old entries/IDs: 243 catalog entries/481 stored
+glyphs; 225 active metatiles/468 viewport glyphs, peak 268/1008.
+
+All 13 actual Porymap views, 2,057 open cells /8,228 movement attempts, 2,057 pixel-exact
+BG/sprite comparisons, save/reload/Continue, prior Olivine/Goldenrod saves and
+7,459 protected previous native files pass. Updated 2:04 recorded walk. Local build;
+no hosted CI or second compilation claimed. Stairs remain removed; city/pier has
+1,076 ordinary reachable cells and six separately qualified terrace components.
+
+`corner_revision.py` is guarded to a clean df08620e and records this additive
+installation; never replay over newer edits. Current direction model is in
+`elevation.py`; historical first installer uses frozen `foundation_elevation.py`.
+Current engine files remain authoritative. Next: owner review, then only requested
+local changes. Preserve the approved faces/external corners; do not add stairs,
+objects, services or route connections unless requested.
+
+## Historical: Olivine native terrain foundation / directional cliffs — 2026-10-21
+
+Current engine `df08620e053e1a437557370399cac39667bbd2a4`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/base-terrain/README.md` first. The owner removed
+all trees, buildings, fences, flags, parasols, boats and stairs, then corrected
+the cliff methodology: derive levels from HGSS and use matching directional
+Gen 3 faces/corners. Generated concept contours and undirected border textures
+are superseded. Original HGSS overview is the geometry authority; relative
+height interpretation and 16px adaptations are explicit, not extracted DS data.
+
+Actual native terrain has 220 reusable metatiles /471 glyphs, 351 directional
+cliff cells, 3,510 native cells, zero stairs/foreground objects. All 2,077 open
+cells /8,308 directional attempts pass, with pixel-exact backgrounds/sprite
+composites. The 1,090-cell city/pier component is ordinary reachable; stairless
+terraces require separate test placements. There is a 2:04 continuous city walk.
+Save/reload/Continue, prior Olivine/Goldenrod saves, Porymap, local build and
+7,459 protected native files pass. Native atlas peak 268/1008. No hosted CI claim.
+
+Opening the cleared ground exposed a T-junction incoming-map bug: inclusive end
+selected the preceding section one row out of bounds. Olivine alone now uses
+exclusive end bounds. Its native camera border also continues each terrain
+course. Preserve those corrections and the previous stripe-release renderer fix.
+
+Engine map/tileset files are current editing authority. `elevation.py` records
+relative planes and directional donors; `base_terrain.py` is guarded baseline
+installation provenance, not a replay tool over current native edits. Old
+features/building metadata and earlier runtime/overlay proof are historical.
+Next: owner review of this base; apply requested local fixes without reintroducing
+objects or stairs. Do not merge, add services/routes, or expand the design.
+
+## Latest: full Olivine collision and foreground audit — 2026-10-20
+
+Owner authorized redesigned flags and every-tile collision/overlay inspection.
+Engine `c1363f3f147e4b61028da9f8a86f9ababda10280`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/interaction-audit/README.md` for the current
+map, 4:19 continuous recording, clean cutouts and full cell/physical ledger.
+All three strings use new maritime bunting; all three parasols have transparent
+cloth overlays and solid tables. Building floors, fences, posts, signs, terrace
+trunks and ramp guards have explicit footprints; 182 collision cells corrected.
+HGSS terrain and shared architecture remain, with local receiving repairs.
+
+All 877 open cells /3,508 directional attempts pass; 868 ordinary reachable and
+nine separately qualified decorative west pavement cells. 877 standing BG and
+actual sprite-layer comparisons have zero errors, including semitransparent OBJ
+shadows. Another1,012 mid-scroll samples are pixel exact. A real scrolling cache
+overflow was caught and fixed by releasing the complete outgoing stripe before
+allocating replacements; final peak1,005/1,008. Local build, actual Porymap,
+save/reload/Continue, prior Olivine/Goldenrod saves and clean source/atlas guards
+pass. 47 generated native/atlas files reproduce exactly. No second clean build
+or hosted CI success claimed; previous7,459 native files unchanged.
+
+`city_interactions.py` requires clean engine dc3c5bf1 and hub c82106e source
+layers; never rerun on current art. Exterior services/interiors/routes remain
+unwired; owner visual review remains pending. Preserve the independent remote
+Olivine/Ecruteak branch. Earlier flag passes below are historical.
+
+## Historical: flag alpha backgrounds corrected — 2026-10-20
+
+Owner found that the prior foreground masks still contained grass/pavement.
+Current engine `dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41` fixes the actual alpha, restores local receiving
+street/lawn and preserves post heads/shafts exactly. Read
+`gba/art/olivine-city/evidence/flag-alpha-cleanup/README.md`.1,367 terrain pixels
+removed from masks;1,769 cloth/rope pixels retained. No collision/elevation,
+palette, map ID or renderer code changes. Two local native sections edited.
+
+The updated2:41 continuous recording adds direct passes beneath both orange
+emblems. Four real sprite poses verify both retained flags and visible player
+pixels through removed backing. Checkerboard cutouts and post preservation
+proofs are included. Full Porymap/native,134 BG capture, save/reload/Continue,
+previous Olivine/Goldenrod saves, clean source/atlas guards and guarded native
+reproduction pass. Peak959/1,008 slots. No hosted CI or second clean compilation
+claimed. Owner may still provide diagram-based art cleanup; do not expand scope.
+
+Earlier flag-layering proofs are historical: they did not detect bad alpha.
+`refine_flag_alpha.py` is an isolated83936f1b baseline patch, not a current editor.
+
+## Historical first layering pass — alpha was incomplete — 2026-10-20
+
+Owner authorized the repair after the recorded review. Current engine `83936f1b20920137a816535dd900e7429928a79f`
+on the same branch/PR23. Read `gba/art/olivine-city/evidence/flag-underpasses/README.md`.
+Both hanging flag spans now use exact transparent cloth/rope masks on the native
+split foreground layer. No collision, elevation, palette, geography or renderer
+code changes. Town composite stays pixel-identical; source background remains
+below the foreground mask. Atlas generation omits only fully hidden background
+quadrants (all64 foreground pixels opaque), preserving ordinary native source.
+Peak cache999/1,008 slots. Guarded `flags.py` is an86b1e47e-baseline provenance edit,
+not a current-map editor. Do not replay it over newer source.
+
+Same2:32 recorded route now passes under both flag strings, both directions.
+Physical barriers still block. Exact real-sprite occlusion checks pass for both
+spans; player pixels remain visible outside the masks. Full Porymap/native parity,
+134 BG frames, save/reload/Continue and previous Olivine/Goldenrod saves pass.
+New video and before/after GIF are preserved beside the unchanged old recording.
+No second clean compilation or hosted CI success claimed. Owner may provide an
+annotated diagram for further art cleanup; do not expand this fix's scope.
+
+## Historical before-repair review: recorded Olivine walk — 2026-10-20
+
+Owner requested a recorded collision/layering review before sending annotated art
+corrections. `gba/art/olivine-city/evidence/walking-tour/` contains a continuous
+2:32 real mGBA recording, flag preview, input/coordinate logs and timestamps.
+Current engine/ROM remain unchanged from the receiving-context pass below.
+Both flag spans permit movement but the player draws OVER the flags. Foreground
+mask/layer repair remains outstanding; do not claim underpass occlusion works.
+The west support, fences, lamp and waterfront barriers block as expected.
+Owner may provide an annotated diagram next. Preserve this before-repair recording.
+
+## Latest: Olivine HGSS receiving-context repair — 2026-10-20
+
+The owner clarified the desired middle ground: keep Goldenrod's HGSS terrain
+character and the polished Olivine buildings; completely remove superseded
+objects and rebuild all hidden fences/ground before fitting replacements.
+The independent generic terrain pass below was rejected. AGENTS and the city
+playbook now reflect the clarification. Do not return to generic wholesale
+terrain replacement or unresolved prefab stamping.
+
+Current engine `86b1e47e0305596bb76fd1a1ff94f3b47947e47d`, branch
+`codex/olivine-goldenrod-playbook-20261019`, draft PR23. Read
+`gba/art/olivine-city/evidence/middle-ground/README.md`. The current native map
+retains repaired HGSS terrain, groves and shoreline with polished transparent
+architecture. No144-tree layout. Full old contact shadows and small support/
+window remnants were removed. Hidden west-house/service/Gym/quay fences are
+complete before placement. The Mart shifts5px right to clear the original lamp;
+only two lamp collision cells change from81697. Native table padding fixes
+neighbor attribute lookups during section crossings; mirrored atlas sharing
+preserves every decoded native quadrant. Section IDs/topology stay fixed.
+
+Local ROM build, actual Porymap3510-cell parity, all approaches, continuous
+walking/barriers, SaveMapView/cold reload/title Continue, prior Olivine and
+Goldenrod saves pass.134 BG captures /5,145,600 pixels have zero errors. Four
+walking clips and source/clean-ground/final contexts are published. Clean source
+and both atlas guards pass; guarded native reproduction hashes agree. Previous
+7459 native files remain unchanged. No second clean compilation or hosted CI
+success claimed. ROM SHA256 `d5aa20b933f2040c7bd3b52a576fa3ec76234b150dcb99eb4f3c729ef170eb97`.
+
+Owner visual acceptance remains pending. Exterior only; services/interiors/ferry/
+routes remain unwired. Preserve the independent remote Olivine/Ecruteak branch.
+Never replay old author/rebuild tools over current source. `middle_ground.py`
+is an isolated clean81697-baseline provenance edit, not a general current editor.
+
+## Historical rejected generic-terrain pass: Olivine independent-asset reconstruction — 2026-10-20
+
+The owner rejected the overview-based first pass as prefabs pasted over the
+original map. They authorized reconstruction from individual assets. Read
+`gba/art/olivine-city/evidence/rebuild/README.md` and the owner correction in
+`docs/GBA_CITY_BUILDING_PLAYBOOK.md`. AGENTS now explicitly disallows treating
+full-overview palette conversion as a completed city-art reconstruction.
+
+Current engine `81697bbe0f9582ca30567604c748f22d0166a458`, same distinct branch
+`codex/olivine-goldenrod-playbook-20261019`, draft PR23. All architecture except
+canonical service prefabs is newly prepared standalone art. Terrain and props
+are independently drawn modules; no overview raster is sampled by the assembler.
+All original conifers are replaced with144 complete shared trees. Blue glass,
+cliff caps/faces, fan paving, yellow/blue flags, prop spacing, forest/roof palette
+overlap, source festival-gate opening and upper stair joins received local review.
+
+Same section IDs/dimensions, previous native cities intact. Twenty-four cells
+repair the rejected trace's cliff/railing bypasses, stair shoulders and moved
+lamp/sign footprints. Elevation and save schema are unchanged. Source-cache
+restoration and queued static tile DMA on fast Return/Continue are bypassed only
+for the static Olivine exterior; player state remains intact.
+
+Local build, actual Porymap parity over3510 cells, all building approaches,
+continuous walking/barriers, ordinary view-snapshot save/cold reload/Continue,
+old Olivine save with new physical lamp check, old Goldenrod save and exact
+Goldenrod return scenery pass.134 BG views /5,145,600 pixels have zero errors;
+there are four walking clips. Clean source hash/atlas guards and guarded art
+reproduction over340 native/derived files pass. No second clean compilation or
+hosted CI success claimed. ROM20f7acf35a45e6dd611cc172b352369d49db5dd481cd0d902a5b6cf88cae1a77.
+
+Owner visual acceptance is pending. Exterior only; no services/interiors/ferry
+operation/routes. The pre-existing remote Olivine/Ecruteak branch remains
+preserved and requires reconciliation before merging. Never replay `author.py`;
+it is rejected historical provenance. `rebuild.py` is a guarded c996146b/8fb82f73
+baseline patch only, not an editor for current native work.
+
+## Latest: city playbook and separate Olivine review pass — 2026-10-19
+
+The owner accepted Goldenrod's carnival result and requested a full retrospective
+as the template for every city, then an Olivine pass. Read
+[GBA_CITY_BUILDING_PLAYBOOK.md](GBA_CITY_BUILDING_PLAYBOOK.md), now linked from
+AGENTS, the context index and reconstruction workflow. It covers initial HGSS
+registration, native hardware/layers, all building/tree/equipment revisions,
+transparent Center receiving-context diagnosis, concept iterations, carnival
+modules, owner constraints and independent validation.
+
+Olivine exterior evidence: `gba/art/olivine-city/README.md`. This work is on
+`codex/olivine-goldenrod-playbook-20261019` in both repos. Engine source
+`c996146b286add8b16f434346a4eed376e6c2b6e`,
+[draft PR #23](https://github.com/Davisfox5/pokeemerald-expansion/pull/23), stacked
+on Goldenrod `eb63c24c`. Thirteen new native sections append map IDs63–75.
+All prior native maps/layout IDs remain exact relative to that baseline.
+
+Important: publication discovered a PRE-EXISTING remote `codex/olivine-city`
+branch, head `506860f6`, containing later Ecruteak/Olivine work. It was preserved
+unchanged. The local pass was published under the distinct name above. Do not
+merge or replay either onto the other without reconciling geography, IDs, engine
+adapters and owner review history. This pass does not supersede that work.
+PR22 was an accidental branch-target mismatch, closed without a merge.
+
+The Olivine pass retains HGSS geography, canonical transparent Center/Mart,
+126 complete shared trees plus isolated original cliff-pocket trees, coherent
+native material palettes, nine building context comparisons, actual Porymap
+parity over3,510 cells and118 exact gameplay BG views (4,531,200 pixels).
+Continuous walking found a private-metatile/diagonal-void overlay bug; only
+Olivine camera transitions skip stale `MoveMapViewToBackup` after InitMap.
+Goldenrod transition behavior is preserved. Production build, movement/barriers,
+ordinary save/cold reload/Continue, prior Goldenrod save, exact Goldenrod return
+scenery, four walking clips and independent clean-source hash/atlas checks pass.
+ROM `48e52dffd193ed7619a428c3ecc5ec4da5a84121f9f52486ecdc5374de1ce1b0`.
+Fresh worktree source equality is verified; no separate fresh compilation claimed.
+Hosted Actions remains disabled. Owner visual review of this pass is pending.
+No interiors, services, NPCs, operational ferry or route exits are implemented.
+Native maps are authoritative; never replay first-authoring helpers over them.
+
 ## Latest: Goldenrod carnival boardwalk — 2026-10-19
 
 Owner approved the Coney Island-style map concept and authorized native building.

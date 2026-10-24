@@ -1,0 +1,31 @@
+{
+  "ROM_sha256": "8f6a9a3d305ac0dd7f7c3196ef6b4cfbe7fad183e824b44dbd1f4b9bbcdaf255",
+  "cache_overflows": 0,
+  "sampling": "Every second native frame during held input; each decoded BG must exactly match a contiguous native-world window within four pixels of previous sample.",
+  "clips": [
+    {
+      "clip": "dense-west",
+      "frames": 161,
+      "pixels": 6182400,
+      "RGB_errors": 0
+    },
+    {
+      "clip": "north-avenue",
+      "frames": 257,
+      "pixels": 9868800,
+      "RGB_errors": 0
+    },
+    {
+      "clip": "parasol-row",
+      "frames": 433,
+      "pixels": 16627200,
+      "RGB_errors": 0
+    },
+    {
+      "clip": "ramp",
+      "frames": 161,
+      "pixels": 6182400,
+      "RGB_errors": 0
+    }
+  ]
+}

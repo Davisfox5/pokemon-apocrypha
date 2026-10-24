@@ -1,0 +1,137 @@
+{
+  "source_commit": "86b1e47e0305596bb76fd1a1ff94f3b47947e47d",
+  "ROM_sha256": "d5aa20b933f2040c7bd3b52a576fa3ec76234b150dcb99eb4f3c729ef170eb97",
+  "frames": 9060,
+  "fps": 59.7275,
+  "duration_seconds": 151.6889205140011,
+  "chapters": [
+    {
+      "chapter": "Central flags - northbound",
+      "frame": 60
+    },
+    {
+      "chapter": "Walk to west festival gate",
+      "frame": 324
+    },
+    {
+      "chapter": "West flags - northbound",
+      "frame": 636
+    },
+    {
+      "chapter": "West flags - southbound",
+      "frame": 852
+    },
+    {
+      "chapter": "West fence approach",
+      "frame": 1068
+    },
+    {
+      "chapter": "West fence blocks",
+      "frame": 1244
+    },
+    {
+      "chapter": "West flag support approach",
+      "frame": 1369
+    },
+    {
+      "chapter": "Flag support blocks",
+      "frame": 1593
+    },
+    {
+      "chapter": "Gym approach",
+      "frame": 1718
+    },
+    {
+      "chapter": "Gym entrance currently closed",
+      "frame": 1846
+    },
+    {
+      "chapter": "North residence west",
+      "frame": 1971
+    },
+    {
+      "chapter": "North residence east",
+      "frame": 2995
+    },
+    {
+      "chapter": "Return to central flags",
+      "frame": 3163
+    },
+    {
+      "chapter": "Central flags - southbound",
+      "frame": 3811
+    },
+    {
+      "chapter": "Mart-side lamp approach",
+      "frame": 4027
+    },
+    {
+      "chapter": "Retained lamp blocks",
+      "frame": 4251
+    },
+    {
+      "chapter": "Pokemon Center approach",
+      "frame": 4376
+    },
+    {
+      "chapter": "Cafe approach",
+      "frame": 4792
+    },
+    {
+      "chapter": "Quay railing approach",
+      "frame": 4976
+    },
+    {
+      "chapter": "Quay railing blocks",
+      "frame": 5312
+    },
+    {
+      "chapter": "Harbor promenade and boats",
+      "frame": 5437
+    },
+    {
+      "chapter": "Ferry pier and terminal",
+      "frame": 5893
+    },
+    {
+      "chapter": "Terminal currently closed",
+      "frame": 6501
+    },
+    {
+      "chapter": "Walk to lighthouse",
+      "frame": 6626
+    },
+    {
+      "chapter": "Lighthouse currently closed",
+      "frame": 7906
+    },
+    {
+      "chapter": "Lighthouse retaining wall",
+      "frame": 8031
+    },
+    {
+      "chapter": "Retaining wall blocks",
+      "frame": 8127
+    },
+    {
+      "chapter": "Mart approach",
+      "frame": 8252
+    },
+    {
+      "chapter": "Return to city center",
+      "frame": 8788
+    }
+  ],
+  "continuous_walking": true,
+  "initial_position_helper_only": true,
+  "save_written": false,
+  "ROM_or_map_modified": false,
+  "audio": false,
+  "all_coordinate_assertions_passed": true,
+  "findings": {
+    "flag_spans": "Both traversed north/south without blocking; player draws over hanging flags. Needs foreground occlusion repair.",
+    "support_post": "West support at15,18 blocks from14,18 as intended.",
+    "probes": "West fence, Mart-side lamp, quay rail, retaining wall and closed entrances keep player in place."
+  },
+  "video_sha256": "3d6f39c9c66f69df106799840e77a19c465f8201123f7e048d9df7c4fd557e71"
+}

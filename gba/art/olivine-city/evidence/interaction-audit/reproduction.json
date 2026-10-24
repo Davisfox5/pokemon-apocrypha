@@ -1,0 +1,6 @@
+{
+  "baseline": "dc3c5bf1fe54365b65e2839b01d50fcd7f6a4e41",
+  "native_and_atlas_files": 47,
+  "hash_errors": 0,
+  "runtime_source_fix": "Release an entire outgoing camera stripe before loading its replacement; three hand-edited C/header files verified by local build and runtime."
+}

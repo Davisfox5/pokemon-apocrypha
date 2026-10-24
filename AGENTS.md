@@ -37,6 +37,19 @@
   publish readable source/native comparisons. Functional tests do not establish
   owner visual acceptance.
 
+- For city production, also apply the owner-accepted [Goldenrod city playbook](docs/GBA_CITY_BUILDING_PLAYBOOK.md): full reconstruction, building-by-building polish, receiving-context repairs and approved additions.
+
+Owner clarification, 2026-10-20: retain the HGSS terrain textures that worked in
+Goldenrod, together with polished transparent building masters. Cleanly remove
+superseded objects, including outlines, shadows and attached floor patches.
+Reconstruct everything they obscured—fences, ground, curbs, cliff faces and
+corners—before fitting the replacement. Preserve intact terrain and woodland.
+Show the clean receiving ground and repaired continuations separately from the
+final building placement. Do not stamp over unresolved source objects, and do
+not replace detailed terrain wholesale with generic modules. Goldenrod retained
+and refined HGSS terrain; do not describe it as entirely independent artwork.
+Native conversion and pixel-parity tests do not establish visual acceptance.
+
 ## Required native visual cleanup — all maps and floors
 
 Owner-established after the Union Cave refinement, 2026-10-15. Apply this to
@@ -54,6 +67,12 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
 - Preserve the original wall/cap texture and shading treatment. Repair joins
   locally and inspect the cap, front/side faces and corners as one continuous
   surface. Retain texture detail during palette reduction.
+- Derive connected terrain levels from the original-game reference before choosing
+  rock tiles. Record which side of every face is high and low. Opposite sides of
+  the same raised surface must rise toward its interior; match directional side
+  faces, fronts, convex and concave corners. An undirected border texture or a
+  vertically flipped face cannot substitute for a correctly oriented cliff.
+  Collision checks alone do not prove coherent visual elevation.
 - Put stair/door warps on their actual visible entrances. Remove superseded
   marker squares and restore their ground; inspect the first/last steps and
   the whole stair-to-wall join.

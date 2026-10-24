@@ -1,0 +1,89 @@
+{
+  "ROM_sha256": "8f6a9a3d305ac0dd7f7c3196ef6b4cfbe7fad183e824b44dbd1f4b9bbcdaf255",
+  "exit_code": 0,
+  "observations": [
+    {
+      "step": "festival-gate-end",
+      "region": 3,
+      "group": 80,
+      "map": 63,
+      "x": 13,
+      "y": 16,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 27,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "harbor-promenade-end",
+      "region": 3,
+      "group": 80,
+      "map": 72,
+      "x": 3,
+      "y": 7,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "lighthouse-ramp-end",
+      "region": 3,
+      "group": 80,
+      "map": 74,
+      "x": 2,
+      "y": 8,
+      "frlg_layout": 0,
+      "width": 17,
+      "height": 13,
+      "interaction": 0,
+      "mapsec": 228
+    },
+    {
+      "step": "ferry-pier-end",
+      "region": 3,
+      "group": 80,
+      "map": 69,
+      "x": 8,
+      "y": 6,
+      "frlg_layout": 0,
+      "width": 16,
+      "height": 14,
+      "interaction": 0,
+      "mapsec": 228
+    }
+  ],
+  "clips": [
+    {
+      "clip": "festival-gate",
+      "input_frames": 224,
+      "captured_frames": 56,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "harbor-promenade",
+      "input_frames": 240,
+      "captured_frames": 60,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "lighthouse-ramp",
+      "input_frames": 192,
+      "captured_frames": 48,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    },
+    {
+      "clip": "ferry-pier",
+      "input_frames": 160,
+      "captured_frames": 40,
+      "sampling": "1/4 native60Hzframes; GIF67ms",
+      "save_file_written": false
+    }
+  ],
+  "cache_overflows": 0
+}

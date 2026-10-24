@@ -1,0 +1,768 @@
+{
+  "baseline": "df08620e053e1a437557370399cac39667bbd2a4",
+  "coastal_cells_removed": 69,
+  "open_coastal_cells_removed": 20,
+  "inside_corners_replaced": 15,
+  "affected_cells": 127,
+  "outside_edit_RGB_errors": 0,
+  "retained_straight_and_convex_rock_RGB_errors": 0,
+  "palette_files_unchanged": true,
+  "metatiles_before": 220,
+  "metatiles_after": 243,
+  "glyphs_before": 471,
+  "glyphs_after": 481,
+  "changes": [
+    {
+      "x": 58,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 59,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 60,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 61,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 62,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 63,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 64,
+      "y": 17,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 58,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 59,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 60,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 61,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 62,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 63,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 64,
+      "y": 18,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 58,
+      "y": 19,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 58,
+      "y": 20,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 21,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 57,
+      "y": 21,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 58,
+      "y": 21,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 22,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 23,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 24,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 55,
+      "y": 24,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 24,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 25,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 26,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 27,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 28,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 29,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 30,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 31,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 32,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 33,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 34,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 56,
+      "y": 35,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 36,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 37,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 38,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 40,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 41,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 42,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 43,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 44,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 45,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 46,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 47,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 48,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 49,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 50,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 51,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 52,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 53,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 39,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 39,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 40,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 41,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 42,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 43,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 44,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 45,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 46,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 47,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 48,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 49,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 50,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 51,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 52,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 53,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 54,
+      "y": 40,
+      "reason": "remove extra lowest coastal grass/rock course"
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 34,
+      "y": 10,
+      "reason": "native inward corner",
+      "old_donor": "0x76",
+      "new_donor": "0x89"
+    },
+    {
+      "x": 41,
+      "y": 11,
+      "reason": "native inward corner",
+      "old_donor": "0x76",
+      "new_donor": "0x89"
+    },
+    {
+      "x": 42,
+      "y": 12,
+      "reason": "native inward corner",
+      "old_donor": "0x76",
+      "new_donor": "0x89"
+    },
+    {
+      "x": 54,
+      "y": 14,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 52,
+      "y": 16,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 57,
+      "y": 16,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 58,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 59,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 60,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 61,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 62,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 63,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 64,
+      "y": 16,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 57,
+      "y": 17,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 57,
+      "y": 18,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 57,
+      "y": 19,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 34,
+      "y": 20,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 40,
+      "y": 20,
+      "reason": "native inward corner",
+      "old_donor": "0x76",
+      "new_donor": "0x89"
+    },
+    {
+      "x": 55,
+      "y": 20,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 56,
+      "y": 20,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 57,
+      "y": 20,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x7a",
+      "new_donor": "0x7a"
+    },
+    {
+      "x": 55,
+      "y": 21,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 22,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 53,
+      "y": 23,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 54,
+      "y": 23,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 55,
+      "y": 23,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x7a",
+      "new_donor": "0x7a"
+    },
+    {
+      "x": 32,
+      "y": 24,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 53,
+      "y": 24,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 53,
+      "y": 25,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 53,
+      "y": 26,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 53,
+      "y": 27,
+      "reason": "native inward corner",
+      "old_donor": "0x74",
+      "new_donor": "0xbf"
+    },
+    {
+      "x": 54,
+      "y": 27,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x69",
+      "new_donor": "0x69"
+    },
+    {
+      "x": 55,
+      "y": 28,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 29,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 30,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 31,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 32,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 33,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 55,
+      "y": 34,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 51,
+      "y": 35,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 53,
+      "y": 35,
+      "reason": "native inward corner",
+      "old_donor": "0x77",
+      "new_donor": "0x74"
+    },
+    {
+      "x": 54,
+      "y": 35,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 53,
+      "y": 36,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 53,
+      "y": 37,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x72",
+      "new_donor": "0x72"
+    },
+    {
+      "x": 41,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 42,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 43,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 44,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 45,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 46,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 47,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 48,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 49,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 50,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 51,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 52,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x79",
+      "new_donor": "0x79"
+    },
+    {
+      "x": 53,
+      "y": 38,
+      "reason": "sea directly meets retained cliff",
+      "old_donor": "0x7a",
+      "new_donor": "0x7a"
+    }
+  ],
+  "used_metatiles_after": 225
+}

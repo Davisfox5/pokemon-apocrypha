@@ -1,0 +1,84 @@
+{
+  "contexts": {
+    "gym": [
+      160,
+      128,
+      328,
+      272
+    ],
+    "residences": [
+      480,
+      160,
+      672,
+      304
+    ],
+    "cafe": [
+      120,
+      376,
+      240,
+      504
+    ],
+    "lighthouse": [
+      664,
+      320,
+      840,
+      552
+    ],
+    "ferry-terminal": [
+      272,
+      672,
+      488,
+      848
+    ],
+    "service-buildings-and-lamp": [
+      224,
+      368,
+      568,
+      512
+    ],
+    "festival-gate": [
+      88,
+      256,
+      464,
+      352
+    ],
+    "upper-stairs": [
+      528,
+      272,
+      688,
+      368
+    ],
+    "lighthouse-ramp-coast": [
+      576,
+      512,
+      896,
+      672
+    ],
+    "northern-grove": [
+      512,
+      48,
+      840,
+      224
+    ],
+    "promenade": [
+      104,
+      528,
+      632,
+      656
+    ]
+  },
+  "findings": [
+    "Replaced all overview terrain and source foliage.",
+    "Reusable complete building/prop masters with independent ground.",
+    "Protected residence/cafe blue glass and yellow/blue flags.",
+    "Aligned actual festival gate; blocked railings, stair shoulders and rock faces.",
+    "Relocated Mart-adjacent lamp and Lighthouse sign; canonical service art remains exact.",
+    "Mixed canopy/roof quadrants split across layers to retain canonical visible tree pixels.",
+    "Native terrain completion at partial path, quay and pier edges recorded explicitly."
+  ],
+  "owner_visual_acceptance": "Pending",
+  "limits": [
+    "Static scenery; native-grid contour/projection adaptations, not extracted DS heights.",
+    "Rock/sea/paving are compact repeated native material cores; no animated water or ride/service systems."
+  ]
+}

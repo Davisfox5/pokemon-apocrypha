@@ -1,0 +1,1187 @@
+{
+  "frames": 118,
+  "pixels": 4531200,
+  "RGB_errors": 0,
+  "frames_detail": [
+    {
+      "frame": "arrival",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01-walk-0",
+      "world": [
+        23,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01-walk-6",
+      "world": [
+        20,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01-walk-12",
+      "world": [
+        16,
+        27
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01-walk-18",
+      "world": [
+        16,
+        21
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01-walk-24",
+      "world": [
+        15,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-01",
+      "world": [
+        15,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-02-walk-0",
+      "world": [
+        16,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-02-walk-6",
+      "world": [
+        16,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-02",
+      "world": [
+        19,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-0",
+      "world": [
+        20,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-6",
+      "world": [
+        24,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-12",
+      "world": [
+        30,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03-walk-18",
+      "world": [
+        33,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-03",
+      "world": [
+        33,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-04-walk-0",
+      "world": [
+        34,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-04",
+      "world": [
+        38,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-0",
+      "world": [
+        37,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-6",
+      "world": [
+        31,
+        17
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-12",
+      "world": [
+        28,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-18",
+      "world": [
+        22,
+        20
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-24",
+      "world": [
+        18,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-30",
+      "world": [
+        14,
+        24
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05-walk-36",
+      "world": [
+        14,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-05",
+      "world": [
+        11,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-0",
+      "world": [
+        12,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-6",
+      "world": [
+        18,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-12",
+      "world": [
+        24,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-18",
+      "world": [
+        30,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-24",
+      "world": [
+        36,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-30",
+      "world": [
+        39,
+        33
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06-walk-36",
+      "world": [
+        44,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-06",
+      "world": [
+        46,
+        33
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-0",
+      "world": [
+        45,
+        33
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-6",
+      "world": [
+        40,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-12",
+      "world": [
+        34,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-18",
+      "world": [
+        28,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-24",
+      "world": [
+        22,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-30",
+      "world": [
+        22,
+        40
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-36",
+      "world": [
+        22,
+        46
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-42",
+      "world": [
+        19,
+        49
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07-walk-48",
+      "world": [
+        24,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-07",
+      "world": [
+        24,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-0",
+      "world": [
+        23,
+        50
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-6",
+      "world": [
+        19,
+        48
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-12",
+      "world": [
+        22,
+        45
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-18",
+      "world": [
+        22,
+        39
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-24",
+      "world": [
+        20,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08-walk-30",
+      "world": [
+        17,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-08",
+      "world": [
+        17,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-09-walk-0",
+      "world": [
+        18,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-09-walk-6",
+      "world": [
+        24,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-09-walk-12",
+      "world": [
+        30,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "building-09",
+      "world": [
+        31,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-0",
+      "world": [
+        30,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-6",
+      "world": [
+        26,
+        28
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-12",
+      "world": [
+        26,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-18",
+      "world": [
+        24,
+        18
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-24",
+      "world": [
+        24,
+        12
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary-walk-30",
+      "world": [
+        24,
+        6
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "north-route-boundary",
+      "world": [
+        24,
+        1
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-0",
+      "world": [
+        23,
+        1
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-6",
+      "world": [
+        21,
+        5
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-12",
+      "world": [
+        20,
+        10
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-18",
+      "world": [
+        15,
+        11
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-24",
+      "world": [
+        9,
+        11
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-30",
+      "world": [
+        8,
+        16
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-36",
+      "world": [
+        8,
+        22
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-42",
+      "world": [
+        8,
+        28
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary-walk-48",
+      "world": [
+        4,
+        30
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "west-route-boundary",
+      "world": [
+        1,
+        31
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "quay-railing-walk-0",
+      "world": [
+        2,
+        31
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "quay-railing-walk-6",
+      "world": [
+        7,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "quay-railing-walk-12",
+      "world": [
+        7,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "quay-railing",
+      "world": [
+        7,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "pier-water-walk-0",
+      "world": [
+        8,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "pier-water-walk-6",
+      "world": [
+        14,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "pier-water-walk-12",
+      "world": [
+        20,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "pier-water-walk-18",
+      "world": [
+        22,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "pier-water",
+      "world": [
+        22,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-0",
+      "world": [
+        23,
+        42
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-6",
+      "world": [
+        26,
+        39
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-12",
+      "world": [
+        31,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-18",
+      "world": [
+        37,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-24",
+      "world": [
+        40,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall-walk-30",
+      "world": [
+        46,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-retaining-wall",
+      "world": [
+        46,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-sign-walk-0",
+      "world": [
+        47,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-sign",
+      "world": [
+        47,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-0",
+      "world": [
+        46,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-6",
+      "world": [
+        40,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-12",
+      "world": [
+        34,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-18",
+      "world": [
+        28,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-24",
+      "world": [
+        22,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-30",
+      "world": [
+        16,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table-walk-36",
+      "world": [
+        13,
+        37
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "promenade-table",
+      "world": [
+        10,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-0",
+      "world": [
+        11,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-6",
+      "world": [
+        17,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-12",
+      "world": [
+        23,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-18",
+      "world": [
+        29,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-24",
+      "world": [
+        35,
+        38
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-30",
+      "world": [
+        39,
+        36
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-36",
+      "world": [
+        44,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-42",
+      "world": [
+        50,
+        35
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back-walk-48",
+      "world": [
+        50,
+        29
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "lighthouse-back",
+      "world": [
+        50,
+        25
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-0",
+      "world": [
+        50,
+        26
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-6",
+      "world": [
+        50,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-12",
+      "world": [
+        46,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-18",
+      "world": [
+        40,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-24",
+      "world": [
+        34,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-30",
+      "world": [
+        28,
+        34
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city-walk-36",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "return-to-city",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "save-Olivine",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "cold-reload",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    },
+    {
+      "frame": "title-continue",
+      "world": [
+        24,
+        32
+      ],
+      "camera_delta_y": 0,
+      "pixels": 38400,
+      "RGB_errors": 0
+    }
+  ]
+}

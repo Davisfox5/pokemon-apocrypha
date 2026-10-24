@@ -1,0 +1,110 @@
+{
+  "baseline": "81697bbe0f9582ca30567604c748f22d0166a458",
+  "sections": [
+    {
+      "map": "OlivineCity01",
+      "glyphs": 923,
+      "metatile_slots": 261,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity02",
+      "glyphs": 698,
+      "metatile_slots": 194,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity03",
+      "glyphs": 765,
+      "metatile_slots": 220,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity04",
+      "glyphs": 695,
+      "metatile_slots": 198,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity05",
+      "glyphs": 490,
+      "metatile_slots": 147,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity06",
+      "glyphs": 677,
+      "metatile_slots": 195,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity07",
+      "glyphs": 728,
+      "metatile_slots": 207,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity08",
+      "glyphs": 968,
+      "metatile_slots": 286,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity09",
+      "glyphs": 812,
+      "metatile_slots": 250,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity10",
+      "glyphs": 671,
+      "metatile_slots": 196,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity11",
+      "glyphs": 447,
+      "metatile_slots": 129,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity12",
+      "glyphs": 720,
+      "metatile_slots": 210,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    },
+    {
+      "map": "OlivineCity13",
+      "glyphs": 409,
+      "metatile_slots": 131,
+      "stable_map_ID": true,
+      "elevation_exact_collision_repairs_documented": true
+    }
+  ],
+  "method": "Retained HGSS terrain with explicitly repaired receiving contexts and accepted transparent architecture",
+  "collision_changes": [
+    [
+      28,
+      27,
+      false
+    ],
+    [
+      29,
+      27,
+      true
+    ]
+  ],
+  "owner_visual_acceptance": "Pending"
+}
