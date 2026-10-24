@@ -1,0 +1,1516 @@
+{
+  "rom_sha256": "bad30f05ee1db91bdfd699b07e294b9a3ba1240aead21a827522826816a66749",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:station-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:silph-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 33,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:silph-west-wing-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 26,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:silph-east-wing-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:fighting-dojo-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:psychic-dojo-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 46,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:league-office-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 47,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:copycat-house-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 19,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:mr-psychic-front",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 43,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-approach",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:mart-approach",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:dojo-plaza",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 44,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:north-gate",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 34,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:south-gate",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 34,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:west-gate",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 9,
+          "y": 27,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:east-gate",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 57,
+          "y": 27,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-silph-roof",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 31,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-31-14",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 31,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-silph-wing",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 26,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-26-25",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 26,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-league-office",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 47,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-47-17",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 47,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-copycat-house",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 19,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-19-17",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 19,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-center",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-24-34",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-mart",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-40-18",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-21-15",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 21,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:station-door-solid",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-25-15",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-33-31",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 33,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-40-13",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-46-13",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 46,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-19-22",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 19,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-34-6",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 34,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-9-27",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 9,
+          "y": 27,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-city",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 30,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-station",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 25,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-fighting-dojo",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 42,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-psychic-dojo",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 50,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-league-office",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 49,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-silph",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 29,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-silph-magnet-train",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 13,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-tips-great-ball",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 18,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-tips-full-heal",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 54,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:sign-mr-psychic",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-00",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-01",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-02",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-03",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-04",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-05",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-06",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-07",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-08",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-09",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-10",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-11",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-12",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-13",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-door-14",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "center-entry",
+          "region": 1,
+          "group": 81,
+          "map": 1,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-interior",
+          "region": 1,
+          "group": 81,
+          "map": 1,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "center-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 2,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 2,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "center-stair-return",
+          "region": 1,
+          "group": 81,
+          "map": 1,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-24-39",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:center-exit",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 39,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "mart-entry",
+          "region": 1,
+          "group": 81,
+          "map": 3,
+          "x": 3,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 11,
+          "height": 8,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:mart-interior",
+          "region": 1,
+          "group": 81,
+          "map": 3,
+          "x": 3,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 11,
+          "height": 8,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-40-22",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:mart-exit",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 40,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:regression-cherrygrove",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 50,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "shot:regression-olivine",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 16,
+          "y": 35,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "shot:return-to-saffron",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "save-in-town",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:save-in-town",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "behind-center",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        472
+      ],
+      "bg1_pixels_over_player_cell": 96
+    },
+    {
+      "frame": "behind-copycat-house",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        192,
+        200
+      ],
+      "bg1_pixels_over_player_cell": 128
+    },
+    {
+      "frame": "behind-league-office",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        640,
+        200
+      ],
+      "bg1_pixels_over_player_cell": 128
+    },
+    {
+      "frame": "behind-mart",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        216
+      ],
+      "bg1_pixels_over_player_cell": 224
+    },
+    {
+      "frame": "behind-silph-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        384,
+        152
+      ],
+      "bg1_pixels_over_player_cell": 128
+    },
+    {
+      "frame": "behind-silph-wing",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        304,
+        328
+      ],
+      "bg1_pixels_over_player_cell": 128
+    },
+    {
+      "frame": "center-approach",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        552
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "center-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        552
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "cold-flash-reload",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        568
+      ]
+    },
+    {
+      "frame": "copycat-house-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        192,
+        280
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "dojo-plaza",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        592,
+        168
+      ]
+    },
+    {
+      "frame": "east-gate",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        800,
+        360
+      ]
+    },
+    {
+      "frame": "fighting-dojo-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        136
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "league-office-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        640,
+        280
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "mart-approach",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        280
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "mart-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        280
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "mr-psychic-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        576,
+        552
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "north-gate",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        432,
+        24
+      ]
+    },
+    {
+      "frame": "ordinary-continue",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        568
+      ]
+    },
+    {
+      "frame": "psychic-dojo-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        624,
+        136
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "regression-cherrygrove",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2048,
+      "camera_origin_px": [
+        688,
+        200
+      ]
+    },
+    {
+      "frame": "regression-olivine",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2496,
+      "camera_origin_px": [
+        144,
+        488
+      ]
+    },
+    {
+      "frame": "return-to-saffron",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        568
+      ]
+    },
+    {
+      "frame": "save-in-town",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        568
+      ]
+    },
+    {
+      "frame": "sign-city",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        368,
+        136
+      ]
+    },
+    {
+      "frame": "sign-fighting-dojo",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        560,
+        168
+      ]
+    },
+    {
+      "frame": "sign-league-office",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        672,
+        296
+      ]
+    },
+    {
+      "frame": "sign-mr-psychic",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        552
+      ]
+    },
+    {
+      "frame": "sign-psychic-dojo",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        688,
+        168
+      ]
+    },
+    {
+      "frame": "sign-silph-magnet-train",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        96,
+        344
+      ]
+    },
+    {
+      "frame": "sign-silph",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        352,
+        440
+      ]
+    },
+    {
+      "frame": "sign-station",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        288,
+        168
+      ]
+    },
+    {
+      "frame": "sign-tips-full-heal",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        752,
+        344
+      ]
+    },
+    {
+      "frame": "sign-tips-great-ball",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        176,
+        424
+      ]
+    },
+    {
+      "frame": "silph-east-wing-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        424
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "silph-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        416,
+        424
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "silph-west-wing-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        304,
+        424
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "south-gate",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        432,
+        648
+      ]
+    },
+    {
+      "frame": "station-door-solid",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        288,
+        168
+      ]
+    },
+    {
+      "frame": "station-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        288,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "west-gate",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        32,
+        360
+      ]
+    }
+  ],
+  "center_door_frames": {
+    "center-door-00": null,
+    "center-door-01": null,
+    "center-door-02": 0,
+    "center-door-03": 0,
+    "center-door-04": 1,
+    "center-door-05": 1,
+    "center-door-06": 2,
+    "center-door-07": 2,
+    "center-door-08": 2,
+    "center-door-09": 2,
+    "center-door-10": 2,
+    "center-door-11": 2,
+    "center-door-12": 2,
+    "center-door-13": 2,
+    "center-door-14": 2
+  }
+}

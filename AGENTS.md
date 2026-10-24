@@ -238,6 +238,27 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
+## Kanto towns: FireRed's map, ten years on
+
+Kanto towns start from FireRed's own map in the expansion (`*_Frlg`), not from HGSS. The
+worked example is `gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+
+- Keep every cell FireRed draws and change only what ten years and the story change, each
+  change answering a DESIGN.md line (Saffron: the Magnet Train station, Silph taller with
+  annex wings, no gym, the League office). A building Kanto gained since FireRed is HGSS's
+  model at C06's angle, where HGSS puts it.
+- Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
+  FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
+- Repack FireRed's pair into one Emerald-format pair: FireRed's banks keep their numbers,
+  kept metatiles keep their behaviour and layer type, new art goes in the secondary and is
+  packed exact, and FireRed's tile 0x14 stays at slot 0x14 (the engine fills BG3 under
+  normal-layer metatiles with it, and FireRed's transparent roof corners show it).
+- Kanto's grade is cool and institutional: house walls concrete, roofs slate
+  (`frlg.GRADE`); paving, trees, the Center and Mart and institutional colours keep
+  FireRed's.
+- Doors to unbuilt interiors and gates to unbuilt routes are solid; the Center and Mart
+  open, with FireRed's sliding door animation.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.

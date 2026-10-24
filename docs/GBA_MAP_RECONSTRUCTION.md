@@ -409,6 +409,26 @@ tools are marked as Blackthorn's.
   and keep the tower's own two sides. A barrel roof's stripes curve, so making each row
   repeat wipes them out; mirror about the door instead.
 
+### Kanto towns from FireRed
+
+Saffron (2026-10-24, `gba/art/saffron-kanto/README.md`) edits FireRed's own map rather
+than converting HGSS. Traps hit there:
+
+- A decoder that draws a bottom-layer pixel of colour 0 in its tile's bank colour 0 is
+  wrong. On hardware a normal-layer metatile's bottom sits on BG2 over BG3, which
+  `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); a covered or split one sits on
+  BG3 over the backdrop (bank 0's colour 0). Repacking moved FireRed's tile 0x14, and the
+  headless check caught 1-2 wrong pixels at FireRed's roof corners. Keep tile 0x14 at its
+  slot and decode with `frlg.under`; Porymap draws it the same way.
+- Art cells take FireRed's layer type, not one from their collision: the Gym plate's lower
+  cell (44, 12) is walkable and covered in FireRed.
+- FireRed's "GYM" plate straddles two cell rows (11 and 12); paint inside the plate's own
+  pixel box, or the door's red trim beside it goes too.
+- A secondary with no metatiles breaks the build and Porymap. Put the new art's metatiles
+  in the secondary (ids from 512) and FireRed's kept ones in the primary.
+- FireRed's gates have route-side doors at the map's edges, reachable only from the routes;
+  check them apart from the city's doors.
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,

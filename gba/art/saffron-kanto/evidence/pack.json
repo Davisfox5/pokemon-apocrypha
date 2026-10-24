@@ -1,0 +1,57 @@
+{
+  "frlg_tiles_kept": 476,
+  "new_tiles": 185,
+  "primary_tiles": 512,
+  "secondary_tiles": 149,
+  "secondary_tile_limit": 496,
+  "metatiles": 395,
+  "metatiles_in_primary": 311,
+  "metatiles_in_secondary": 84,
+  "frlg_metatiles_kept": 312,
+  "art_cells": 89,
+  "unplaced_tile_uses": 0,
+  "colour_rgb5": {
+    "exact": 915264,
+    "total": 915264,
+    "worst": 0
+  },
+  "banks": {
+    "frlg": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "station": 4,
+    "spare": [
+      6,
+      7
+    ]
+  },
+  "adaptations": {
+    "34,5": "door or gate warp: solid until its interior or route is built",
+    "35,5": "door or gate warp: solid until its interior or route is built",
+    "40,12": "door or gate warp: solid until its interior or route is built",
+    "46,12": "door or gate warp: solid until its interior or route is built",
+    "25,14": "Magnet Train station door: solid until the station interior is built",
+    "19,21": "door or gate warp: solid until its interior or route is built",
+    "27,21": "door or gate warp: solid until its interior or route is built",
+    "47,21": "door or gate warp: solid until its interior or route is built",
+    "1,27": "door or gate warp: solid until its interior or route is built",
+    "8,27": "door or gate warp: solid until its interior or route is built",
+    "58,27": "door or gate warp: solid until its interior or route is built",
+    "65,27": "door or gate warp: solid until its interior or route is built",
+    "33,30": "door or gate warp: solid until its interior or route is built",
+    "43,38": "door or gate warp: solid until its interior or route is built",
+    "34,46": "door or gate warp: solid until its interior or route is built",
+    "35,46": "door or gate warp: solid until its interior or route is built",
+    "34,52": "door or gate warp: solid until its interior or route is built",
+    "35,52": "door or gate warp: solid until its interior or route is built"
+  }
+}
