@@ -1,0 +1,303 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 8,
+    "map_texture_set": 8,
+    "building_texture_set": 7,
+    "matrix_origin": [
+      15,
+      1
+    ],
+    "top_down_fill_pixels": 3421,
+    "filled_seam_pixels": 557
+  },
+  "size_cells": [
+    96,
+    64
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 125,
+      "chunk": 89,
+      "pos": [
+        16.0,
+        0.0,
+        15.875
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tree_kage"
+      ],
+      "footprint": [
+        6.7001953125,
+        5.2265625,
+        33.0,
+        33.0263671875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 134,
+      "chunk": 89,
+      "pos": [
+        18.0,
+        4.0,
+        9.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_h01_1",
+        "h_in",
+        "h_kage",
+        "h_mado"
+      ],
+      "footprint": [
+        15.875,
+        7.75,
+        20.5,
+        11.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 135,
+      "chunk": 89,
+      "pos": [
+        18.125,
+        4.1875,
+        10.219436645507812
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_d01_1"
+      ],
+      "footprint": [
+        16.88043212890625,
+        10.219436645507812,
+        18.13043212890625,
+        10.348281860351562
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 128,
+      "chunk": 90,
+      "pos": [
+        48.0,
+        0.0,
+        15.75
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tree_kage"
+      ],
+      "footprint": [
+        32.0,
+        5.1015625,
+        64.0,
+        31.1005859375
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 130,
+      "chunk": 91,
+      "pos": [
+        80.0,
+        0.0,
+        15.75
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tree_kage"
+      ],
+      "footprint": [
+        64.0,
+        11.10107421875,
+        68.0,
+        19.10107421875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 127,
+      "chunk": 92,
+      "pos": [
+        16.0,
+        0.0,
+        47.875
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tree_kage"
+      ],
+      "footprint": [
+        6.7001953125,
+        31.2265625,
+        33.0,
+        47.0263671875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 129,
+      "chunk": 93,
+      "pos": [
+        48.0,
+        0.0,
+        48.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tree_kage"
+      ],
+      "footprint": [
+        31.7001953125,
+        31.3515625,
+        38.2998046875,
+        47.1513671875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 93,
+      "pos": [
+        54.5,
+        4.0,
+        57.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        53.9375,
+        57.0625,
+        55.125,
+        57.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 134,
+      "chunk": 93,
+      "pos": [
+        57.0,
+        4.0,
+        56.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_h01_1",
+        "h_in",
+        "h_kage",
+        "h_mado"
+      ],
+      "footprint": [
+        54.875,
+        54.75,
+        59.5,
+        58.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 135,
+      "chunk": 93,
+      "pos": [
+        57.125,
+        4.1875,
+        57.21942138671875
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ch_d01_1"
+      ],
+      "footprint": [
+        55.88043212890625,
+        57.21942138671875,
+        57.13043212890625,
+        57.3482666015625
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 93,
+      "pos": [
+        48.5,
+        4.0,
+        50.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        47.9375,
+        50.0625,
+        49.125,
+        50.8125
+      ],
+      "replaced_by": null
+    }
+  ]
+}

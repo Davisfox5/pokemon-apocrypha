@@ -19,6 +19,12 @@ and in one-cell lines still did not fill its cell, so every tall-grass cell now 
 fills the whole cell. Third round: the even pond rim looked like a city or park pool, so the banks are
 now drawn rough and natural (below). Both rules are in `AGENTS.md`.
 
+**Lake of Rage (2026-10-24, engine branch `claude/lake-of-rage`)**: Route 43 now shares its primary tileset
+with Lake of Rage and connects north to it (offset -32), as HGSS joins them. Its tiles and metatiles were
+repacked jointly (`tools/gba/maps/lake_of_rage/pack_pair.py`) with every pixel unchanged, and its border
+block is now the Lake's woods block. The tileset and evidence numbers below describe this branch's own
+build; see [Lake of Rage](../lake-of-rage/README.md).
+
 ## The map
 
 | | |
@@ -139,7 +145,7 @@ top-layer art compacted. Asserts every native pixel equals the assembled art.
 
 ## Remaining
 
-- The north edge (Lake of Rage) is unwired: no Lake of Rage map exists yet.
+- The north edge is wired to Lake of Rage on branch `claude/lake-of-rage`.
 - Not placed: HGSS's object events (six trainers, the Max Ether item ball, the Apricorn tree at (1,29)
   and the Cut tree at (3,32)). The west nook (0-5, 28-32) is reachable only by Surf, as HGSS's woods
   enclose it.
