@@ -15,8 +15,8 @@ owner accepted for Mahogany Town (tools/gba/maps/mahogany/assemble.py).
    (CATALOG_CHECKOUT is a checkout of branch codex/violet-city):
      ground      the accepted Cherrygrove/Route 36 painter (claude_cherrygrove/ground.py), run on
                  an 8 px lawn/road grid read from HGSS's own flat ground colours
-     ponds       Route 30's installed HGSS freshwater pieces (route30-hgss-blocks pond-<mask>-
-                 <phase>) on HGSS's water cells, by which neighbours are water too
+     ponds       Route 30's installed HGSS freshwater texture (route30-hgss-blocks pond-15) on
+                 HGSS's water cells, with a rough natural bank in Route 30's rim tones (pond())
      tall grass  G15, the whole-cell tall grass piece, on every HGSS tall-grass cell
      ledges      L11/L12/L13 (warm Johto ledge ends and run)
      trees       T01 on non-overlapping 2x2 roots on HGSS's woods cells (elements.tree_footprints)
@@ -24,7 +24,7 @@ owner accepted for Mahogany Town (tools/gba/maps/mahogany/assemble.py).
      gatehouse   G01a front gatehouse: the Route 43 toll gate on HGSS's gate, and the top two
                  rows of Mahogany's north gatehouse (Mahogany places the same G01a at its
                  cell (10,-2), which is this map's (10,62))
-4. Local asset: the flower patches, lifted from HGSS's own flower01-03 ground textures (every
+4. Local assets: the pond banks (local-art/pond.png, pond() above), and the flower patches, lifted from HGSS's own flower01-03 ground textures (every
    pixel of the texture that is not lawn green), as Mahogany's white flowers were.
 
 Writes source/assemble/layers.npz (ground RGB with ledges, flowers and tall grass, rock RGBA,
@@ -60,10 +60,9 @@ CATALOG = {  # local name -> catalog path (branch codex/violet-city)
     'L13.png': 'gba/art/johto-common/scenery/source/L13.png',
     'G01a.png': 'gba/art/johto-common-review/gates/refinement-4/G01a.png',
     'G15.png': 'gba/art/johto-common/scenery/source/G15.png',
-    # Route 30's installed HGSS freshwater (tools/gba/maps/route30_hgss_blocks/assets.py):
-    # pond-<bits>-<phase>, bits 1 north, 2 south, 4 west, 8 east where water continues,
-    # phase (y % 2) * 2 + x % 2 of its 32 px water texture.
-    **{f'pond/pond-{b}-{f}.png': f'gba/art/route30-hgss-blocks/source/materials/pond-{b}-{f}.png' for b in range(16) for f in range(4)},
+    # Route 30's installed HGSS freshwater (tools/gba/maps/route30_hgss_blocks/assets.py): pond-15-<phase>
+    # is open water, phase (y % 2) * 2 + x % 2 of its 32 px water texture.
+    **{f'pond/pond-15-{f}.png': f'gba/art/route30-hgss-blocks/source/materials/pond-15-{f}.png' for f in range(4)},
 }
 WAVE = True              # the approved painter's 32 px rim wave
 PATH_CORE = 32           # the approved painter's full 32 px road texture
@@ -190,21 +189,60 @@ def tall_grass(cells):
         art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15
     return art, {'G15': int(grass.sum())}
 
-def pond(cells):
-    """Route 30's HGSS freshwater on every HGSS water cell: pond-<bits>-<phase>, bits 1 north,
-    2 south, 4 west, 8 east where the water continues (off the map counts as not), phase from
-    the cell's position on the water texture's 32 px repeat. The bank and rim are inside the
-    water cells, so the Surf boundary is the cell edge."""
-    water = np.array([[c['lab'] == '~' for c in row] for row in cells])
-    art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    used = {}
-    for y, x in zip(*np.nonzero(water)):
-        bits = sum(f for f, (dy, dx) in zip((1, 2, 4, 8), ((-1, 0), (1, 0), (0, -1), (0, 1)))
-                   if 0 <= y + dy < H and 0 <= x + dx < W and water[y + dy, x + dx])
-        name = f'pond-{bits}-{(y % 2) * 2 + x % 2}'
-        art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = rgba(SHARED / f'pond/{name}.png')
-        used[name] = used.get(name, 0) + 1
-    return art, used
+POND_SEED = 43
+GRASS_EDGE, GRASS_DARK = (104, 208, 152), (88, 176, 136)       # Cherrygrove lawn tones
+MUD, BANK, SHALLOW = (160, 144, 104), (88, 112, 80), (72, 200, 224)   # Route 30's HGSS pond rim tones
+
+def smooth_noise(h, w, step, rng):
+    """Value noise in [-1, 1]: a random grid every `step` px, bilinear between grid points."""
+    gh, gw = h // step + 2, w // step + 2
+    g = rng.uniform(-1, 1, (gh, gw))
+    ys, xs = np.mgrid[0:h, 0:w] / step
+    y0, x0 = ys.astype(int), xs.astype(int)
+    fy, fx = ys - y0, xs - x0
+    top = g[y0, x0] * (1 - fx) + g[y0, x0 + 1] * fx
+    bot = g[y0 + 1, x0] * (1 - fx) + g[y0 + 1, x0 + 1] * fx
+    return top * (1 - fy) + bot * fy
+
+def pond(cells, ground):
+    """HGSS's water cells as natural ponds (owner review: the even Route 30 rim looked like a
+    park pool). Water is Route 30's HGSS freshwater texture (pond-15, its 32 px repeat); the
+    bank uses Route 30's own rim tones (mud, dark bank line, shallow water) but follows a
+    shoreline with rounded corners, roughened by three octaves of value noise: the bank's
+    width varies, lawn tufts break into the mud, and the shallow band is broken. The mean shore
+    sits two pixels inside the water cells and wanders about four pixels either way, so the
+    Surf boundary stays the cell edge. Returns RGBA over the ground (only pixels it changes) and saves
+    local-art/pond.png."""
+    from scipy.ndimage import distance_transform_edt, gaussian_filter
+    rng = np.random.default_rng(POND_SEED)
+    water = np.repeat(np.repeat(np.array([[c['lab'] == '~' for c in row] for row in cells]), PX, 0), PX, 1)
+    h, w = water.shape
+    soft = gaussian_filter(water.astype(float), 5) > 0.5                     # corners rounded, ~8 px
+    d = distance_transform_edt(soft) - distance_transform_edt(~soft)         # + inside water, - outside
+    shore = d - 2 + 2.6 * smooth_noise(h, w, 14, rng) + 1.2 * smooth_noise(h, w, 6, rng) + 0.5 * smooth_noise(h, w, 3, rng)
+    tuft = smooth_noise(h, w, 3, rng) + 0.5 * rng.uniform(-1, 1, (h, w))
+    broken = smooth_noise(h, w, 5, rng)
+    tex = np.concatenate([np.concatenate([rgba(SHARED / f'pond/pond-15-{r * 2 + c}.png')[..., :3] for c in (0, 1)], 1)
+                          for r in (0, 1)], 0)
+    ys, xs = np.mgrid[0:h, 0:w]
+    art = np.zeros((h, w, 4), np.uint8)
+    def put(m, col):
+        art[m, :3] = col; art[m, 3] = 255
+    near = d > -6
+    put(near & (shore >= 4.5), tex[ys % 32, xs % 32][near & (shore >= 4.5)])
+    put(near & (shore >= 3.2) & (shore < 4.5) & (broken > -0.35), SHALLOW)
+    put(near & (shore >= 3.2) & (shore < 4.5) & (broken <= -0.35), tex[ys % 32, xs % 32][near & (shore >= 3.2) & (shore < 4.5) & (broken <= -0.35)])
+    put(near & (shore >= 2.2) & (shore < 3.2), BANK)
+    mud = near & (shore >= 0.3) & (shore < 2.2)
+    put(mud, MUD)
+    put(mud & (tuft > 0.75), GRASS_EDGE)                                      # lawn breaking into the bank
+    put(mud & (tuft < -0.95), BANK)                                           # darker mud flecks
+    put(near & (shore >= -0.6) & (shore < 0.3), GRASS_DARK)                  # the lawn's shaded lip
+    art[(art[..., 3] > 0) & (art[..., :3] == ground[..., :3]).all(-1), 3] = 0
+    centre = water & (ys % PX == PX // 2) & (xs % PX == PX // 2)
+    assert (shore[centre] >= 3.2).all(), 'a water cell centre is not open water'
+    Image.fromarray(art).save(LOCAL / 'pond.png')
+    return art, {'pond texture': 'route30 pond-15', 'rim': 'route30 rim tones, roughened', 'seed': POND_SEED}
 
 def flowers(phg):
     """HGSS's flower cells (flower01-03): the flower heads lifted from the decoded ground
@@ -258,7 +296,7 @@ def compose(phg):
         ''.join(f'{y:02d}    ' + ''.join(('ABC'[min(d[y, x], 3) - 1] if isrock[y, x] else str(d[y, x])) for x in range(W)) + '\n'
                 for y in range(H)))
     # Ponds, flowers, tall grass, then ledges, on the ground layer.
-    pd, pd_used = pond(cells)
+    pd, pd_used = pond(cells, bottom)
     a = pd[..., 3] > 0
     bottom[a] = pd[a, :3]; owner[a] = 'pond'
     fl, fcells = flowers(phg)
@@ -322,8 +360,8 @@ def main(phg, catalog, engine):
         note='Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots '
              '(T01 bottom on the root bottom, crown one row behind); the gatehouses and signs stand on HGSS\'s own.',
         objects=[{k: v for k, v in o.items() if k != 'art'} for o in objs], ledges=ledges, flower_cells=fcells,
-        tall_grass_pieces=tg_used, pond_pieces=pd_used), indent=1, default=int) + '\n')
-    print('objects', len(objs), 'ledges', len(ledges), 'flower cells', len(fcells), 'tall grass', tg_used, 'pond', len(pd_used))
+        tall_grass_pieces=tg_used, pond=pd_used), indent=1, default=int) + '\n')
+    print('objects', len(objs), 'ledges', len(ledges), 'flower cells', len(fcells), 'tall grass', tg_used)
 
 if __name__ == '__main__':
     main(*(Path(a).resolve() for a in sys.argv[1:4]))

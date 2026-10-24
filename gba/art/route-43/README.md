@@ -16,15 +16,16 @@ Detail sheets (HGSS beside native, numbered by cell): [north woods and sign](evi
 **Owner review 2026-10-24** ("nearly one-shotted it"): some large trees overlapped and a few tall-grass
 patches were half a cell. Fixed: trees on non-overlapping roots. Second round: tall grass beside trees
 and in one-cell lines still did not fill its cell, so every tall-grass cell now takes G15, the piece that
-fills the whole cell.
+fills the whole cell. Third round: the even pond rim looked like a city or park pool, so the banks are
+now drawn rough and natural (below). Both rules are in `AGENTS.md`.
 
 ## The map
 
 | | |
 | --- | --- |
 | Map | `Route43`, 32x64, `gMapGroup_Cherrygrove` id 46; `Route43Gatehouse` 47, `Route43MahoganyGatehouse` 48; `MAPSEC_JOHTO_ROUTE_43` |
-| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 466 of 1,008 tiles (all in the primary; the secondary holds one blank metatile the build requires), 222 metatiles |
-| Colour | 8 banks, each colour exact: all 524,288 native pixels equal the assembled art in RGB555 |
+| Tilesets | private pair `gTileset_Route43Primary` + `gTileset_Route43`: 571 of 1,008 tiles, 236 + 32 metatiles |
+| Colour | 9 banks, each colour exact: all 524,288 native pixels equal the assembled art in RGB555 |
 | Material audit | 1,914 of 2,048 cells show HGSS's material, 0 mismatches, 134 cells where a foreground object differs (below) |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
@@ -58,15 +59,22 @@ Copied byte for byte into `source/shared-art/` with hashes and the catalog commi
 | --- | --- | --- |
 | Lawn, road, rims | Cherrygrove/Route 36 painter, unchanged | lawn or road per 8 px quadrant from HGSS's flat ground colours |
 | Tall grass | G15 | HGSS's 189 tall-grass cells, each the whole-cell piece (owner review: the trimmed edge pieces left cells part empty) |
-| Ponds | Route 30's installed HGSS freshwater (`route30-hgss-blocks` pond-*mask*-*phase*) | HGSS's 152 water cells; bank and rim inside the water cells, so the Surf edge is the cell edge |
+| Pond water | Route 30's installed HGSS freshwater texture (`route30-hgss-blocks` pond-15) | HGSS's 152 water cells, under the local bank (below) |
 | Ledge | L11 / L12 / L13 | HGSS's jump-south run (18-22,45) |
 | Trees | T01 | 136 non-overlapping roots (above), crown one row behind |
 | Signs | P14 green route sign (model 32), P16 blue information board (model 34) | (20,3), (15,58); (20,50) |
 | Toll gate | G01a | origin (23,40), doorway on HGSS's gate warps (25,47)/(26,47) |
 | Mahogany gatehouse | G01a, its top two rows | origin (10,62), the same G01a Mahogany places at its (10,-2) |
 
-Local asset (`source/local-art/flowers.png`): the flower heads from HGSS's own flower01-03 textures
-(every texture pixel that is not lawn green), on HGSS's 18 flower cells.
+Local assets:
+
+- `source/local-art/pond.png`: natural pond banks (`assemble.pond`). Route 30's own rim tones (mud,
+  dark bank line, shallow water) and the lawn's shade, following a shoreline with rounded corners and
+  three octaves of seeded value noise: the bank's width varies, lawn tufts break into the mud and the
+  shallow band is broken. The mean shore sits two pixels inside the water cells and wanders about four
+  either way; every water cell's centre is open water, and the Surf boundary is the cell edge.
+- `source/local-art/flowers.png`: the flower heads from HGSS's own flower01-03 textures (every texture
+  pixel that is not lawn green), on HGSS's 18 flower cells.
 
 ## 4. Native pack (`pack_lossless.py`)
 
@@ -110,7 +118,7 @@ top-layer art compacted. Asserts every native pixel equals the assembled art.
 ## Verification
 
 - **Build**: engine `claude/route-43`, ROM sha256
-  `903f8a1b8aa947175b9b210a124123ff033141593e0e5389c638faf3ede5da69` (not committed).
+  `79ebc14402977de496eb1bff8a204ebb563b6794bf8560c4684906fd0a7c7ef8` (not committed).
 - **Native audit** (`check3.py`, `evidence/pack3/native-audit.json`): installed decode equals the packer's
   and the assembled art pixel for pixel; behaviour, collision, elevation and layer type match the ledger
   on all 2,048 cells; every approach reachable on foot, every pond cell with Surf; walk-behind layering

@@ -109,7 +109,7 @@ def vocab():
         rock={tuple(np.array(E.ROCK_RAMP[i]) >> 3) for i in ramp},
         ledge=set().union(*(c5set(rgba(sh / f'{n}.png')) for n in ('L11', 'L12', 'L13'))),
         tall_grass=c5set(rgba(sh / 'G15.png')),
-        water=set().union(*(c5set(rgba(p)) for p in (sh / 'pond').glob('pond-*.png'))) - c5set(tex[G.GRASS]),
+        water=c5set(rgba(SRC / 'local-art/pond.png')) - c5set(tex[G.GRASS]),
         flowers=c5set(rgba(SRC / 'local-art/flowers.png')),
         tree=c5set(rgba(sh / 'T01.png')), gate=c5set(rgba(sh / 'G01a.png')),
         sign=c5set(rgba(sh / 'P14.png')) | c5set(rgba(sh / 'P16.png')))
@@ -300,8 +300,8 @@ def main(g, phg):
     rows, mism, fg_diff, unknown = material_audit(img, grid, phg)
     (OUT / 'material-audit.json').write_text(json.dumps(dict(
         method=material_audit.__doc__.strip() + ' Native vocabularies come from the source masters (shared catalog art, '
-               'the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, Route 30\'s pond pieces, the '
-               'local flowers); HGSS classes from the flat decode (cliff, ledge, tall grass, water, flower and tree '
+               'the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, the local pond banks and '
+               'flowers); HGSS classes from the flat decode (cliff, ledge, tall grass, water, flower and tree '
                'materials, ground colours) and its building models.',
         cells=len(rows), matches=sum(r['status'] == 'match' for r in rows), mismatches=mism, foreground_differs=fg_diff,
         unclassified_colours={str(k): n for k, n in unknown.most_common(20)}, per_cell=rows), indent=1) + '\n')

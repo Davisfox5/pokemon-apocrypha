@@ -1,5 +1,5 @@
 {
- "method": "Square by square: native classes from decoded colours (each colour votes for every\nvocabulary that holds it), HGSS classes from the decoded reference. A terrain cell matches\nwhen the native's leading terrain material is one HGSS shows there (at least 24 px); an\nobject cell when the same kind of object leads in both. Cells where an object leads in\none but terrain in the other are listed as foreground differences, not counted as\nmatches. Native vocabularies come from the source masters (shared catalog art, the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, Route 30's pond pieces, the local flowers); HGSS classes from the flat decode (cliff, ledge, tall grass, water, flower and tree materials, ground colours) and its building models.",
+ "method": "Square by square: native classes from decoded colours (each colour votes for every\nvocabulary that holds it), HGSS classes from the decoded reference. A terrain cell matches\nwhen the native's leading terrain material is one HGSS shows there (at least 24 px); an\nobject cell when the same kind of object leads in both. Cells where an object leads in\none but terrain in the other are listed as foreground differences, not counted as\nmatches. Native vocabularies come from the source masters (shared catalog art, the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, the local pond banks and flowers); HGSS classes from the flat decode (cliff, ledge, tall grass, water, flower and tree materials, ground colours) and its building models.",
  "cells": 2048,
  "matches": 1914,
  "mismatches": [],
@@ -9097,8 +9097,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 216,
+    "lawn": 40
    },
    "hgss": {
     "water": 256
@@ -9114,8 +9114,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 246,
+    "lawn": 10
    },
    "hgss": {
     "water": 256
@@ -9131,8 +9131,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 244,
+    "lawn": 12
    },
    "hgss": {
     "water": 256
@@ -9148,8 +9148,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 220,
+    "lawn": 36
    },
    "hgss": {
     "water": 256
@@ -9165,8 +9165,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 252,
+    "lawn": 4
    },
    "hgss": {
     "water": 256
@@ -9182,8 +9182,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 177,
+    "lawn": 79
    },
    "hgss": {
     "water": 206,
@@ -9647,8 +9647,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 255,
+    "lawn": 1
    },
    "hgss": {
     "water": 256
@@ -9728,8 +9728,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 247,
+    "lawn": 9
    },
    "hgss": {
     "water": 206,
@@ -10191,8 +10191,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 233,
+    "lawn": 23
    },
    "hgss": {
     "water": 256
@@ -10272,8 +10272,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 236,
+    "lawn": 20
    },
    "hgss": {
     "water": 206,
@@ -10735,8 +10735,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 177,
+    "lawn": 79
    },
    "hgss": {
     "water": 256
@@ -10752,8 +10752,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 242,
+    "lawn": 14
    },
    "hgss": {
     "water": 256
@@ -10769,8 +10769,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 230,
+    "lawn": 26
    },
    "hgss": {
     "water": 256
@@ -10786,8 +10786,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 219,
+    "lawn": 37
    },
    "hgss": {
     "water": 256
@@ -10803,8 +10803,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 230,
+    "lawn": 26
    },
    "hgss": {
     "water": 256
@@ -10820,8 +10820,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 156,
+    "lawn": 100
    },
    "hgss": {
     "water": 206,
@@ -13445,8 +13445,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 228,
+    "lawn": 28
    },
    "hgss": {
     "water": 217,
@@ -13463,8 +13463,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 220,
+    "lawn": 36
    },
    "hgss": {
     "water": 256
@@ -13480,8 +13480,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 217,
+    "lawn": 39
    },
    "hgss": {
     "water": 256
@@ -13497,8 +13497,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 191,
+    "lawn": 65
    },
    "hgss": {
     "water": 256
@@ -13514,8 +13514,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 221,
+    "lawn": 35
    },
    "hgss": {
     "water": 249,
@@ -13532,8 +13532,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 234,
+    "lawn": 22
    },
    "hgss": {
     "water": 166,
@@ -13550,8 +13550,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 237,
+    "lawn": 19
    },
    "hgss": {
     "water": 166,
@@ -13568,8 +13568,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 181,
+    "lawn": 75
    },
    "hgss": {
     "water": 166,
@@ -14001,8 +14001,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 225,
+    "lawn": 31
    },
    "hgss": {
     "water": 253,
@@ -14115,8 +14115,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 226,
+    "lawn": 30
    },
    "hgss": {
     "water": 217,
@@ -14542,8 +14542,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 231,
+    "lawn": 25
    },
    "hgss": {
     "water": 217,
@@ -14656,8 +14656,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 223,
+    "lawn": 33
    },
    "hgss": {
     "water": 253,
@@ -15089,8 +15089,7 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 256
    },
    "hgss": {
     "water": 253,
@@ -15203,8 +15202,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 234,
+    "lawn": 22
    },
    "hgss": {
     "water": 217,
@@ -15630,8 +15629,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 247,
+    "lawn": 9
    },
    "hgss": {
     "water": 217,
@@ -15744,8 +15743,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 204,
+    "lawn": 52
    },
    "hgss": {
     "water": 253,
@@ -16172,8 +16171,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 211,
+    "lawn": 45
    },
    "hgss": {
     "water": 253,
@@ -16286,8 +16285,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 236,
+    "lawn": 20
    },
    "hgss": {
     "water": 217,
@@ -16713,8 +16712,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 232,
+    "lawn": 24
    },
    "hgss": {
     "water": 217,
@@ -16827,8 +16826,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 227,
+    "lawn": 29
    },
    "hgss": {
     "water": 253,
@@ -17254,8 +17253,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 205,
+    "lawn": 51
    },
    "hgss": {
     "water": 253,
@@ -17368,8 +17367,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 229,
+    "lawn": 27
    },
    "hgss": {
     "water": 217,
@@ -17788,8 +17787,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 202,
+    "lawn": 54
    },
    "hgss": {
     "water": 217,
@@ -17902,8 +17901,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 233,
+    "lawn": 23
    },
    "hgss": {
     "water": 251,
@@ -18327,8 +18326,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 201,
+    "lawn": 55
    },
    "hgss": {
     "water": 253,
@@ -18441,8 +18440,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 243,
+    "lawn": 13
    },
    "hgss": {
     "water": 206,
@@ -18865,8 +18864,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 229,
+    "lawn": 27
    },
    "hgss": {
     "water": 217,
@@ -18979,8 +18978,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 237,
+    "lawn": 19
    },
    "hgss": {
     "water": 206,
@@ -19416,8 +19415,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 205,
+    "lawn": 51
    },
    "hgss": {
     "water": 253,
@@ -19530,8 +19529,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 244,
+    "lawn": 12
    },
    "hgss": {
     "water": 206,
@@ -19961,8 +19960,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 198,
+    "lawn": 58
    },
    "hgss": {
     "water": 256
@@ -20074,8 +20073,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 241,
+    "lawn": 15
    },
    "hgss": {
     "water": 206,
@@ -20511,8 +20510,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 208,
+    "lawn": 48
    },
    "hgss": {
     "water": 256
@@ -20624,8 +20623,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 223,
+    "lawn": 33
    },
    "hgss": {
     "water": 249,
@@ -21057,8 +21056,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 233,
+    "lawn": 23
    },
    "hgss": {
     "water": 217,
@@ -21171,8 +21170,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 32
+    "water": 216,
+    "lawn": 40
    },
    "hgss": {
     "water": 256
@@ -21605,8 +21604,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 59,
+    "water": 140,
+    "lawn": 114,
     "road": 2
    },
    "hgss": {
@@ -21624,9 +21623,9 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 23,
-    "road": 9
+    "water": 196,
+    "lawn": 46,
+    "road": 14
    },
    "hgss": {
     "water": 256
@@ -21642,8 +21641,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 30,
+    "water": 216,
+    "lawn": 38,
     "road": 2
    },
    "hgss": {
@@ -21660,9 +21659,9 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 23,
-    "road": 9
+    "water": 215,
+    "lawn": 27,
+    "road": 14
    },
    "hgss": {
     "water": 256
@@ -21678,8 +21677,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 30,
+    "water": 207,
+    "lawn": 47,
     "road": 2
    },
    "hgss": {
@@ -21696,9 +21695,9 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 23,
-    "road": 9
+    "water": 203,
+    "lawn": 39,
+    "road": 14
    },
    "hgss": {
     "water": 256
@@ -21714,8 +21713,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 224,
-    "lawn": 30,
+    "water": 244,
+    "lawn": 10,
     "road": 2
    },
    "hgss": {
@@ -21732,8 +21731,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "water": 195,
-    "lawn": 61
+    "water": 192,
+    "lawn": 64
    },
    "hgss": {
     "water": 256

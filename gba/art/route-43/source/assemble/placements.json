@@ -1941,22 +1941,9 @@
  "tall_grass_pieces": {
   "G15": 189
  },
- "pond_pieces": {
-  "pond-10-0": 2,
-  "pond-14-1": 5,
-  "pond-14-0": 5,
-  "pond-6-1": 2,
-  "pond-11-2": 8,
-  "pond-15-3": 23,
-  "pond-15-2": 23,
-  "pond-7-3": 8,
-  "pond-11-0": 8,
-  "pond-15-1": 23,
-  "pond-15-0": 23,
-  "pond-7-1": 8,
-  "pond-9-2": 2,
-  "pond-13-3": 5,
-  "pond-13-2": 5,
-  "pond-5-3": 2
+ "pond": {
+  "pond texture": "route30 pond-15",
+  "rim": "route30 rim tones, roughened",
+  "seed": 43
  }
 }
