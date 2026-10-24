@@ -1,0 +1,380 @@
+{
+  "cells_audited": 4096,
+  "installed_matches_packer_decode": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_cells": 1528,
+  "open_cells": 1565,
+  "unreachable_open_cells": [
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      14
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      4,
+      12
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      5,
+      12
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      9,
+      11
+    ],
+    [
+      10,
+      9
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      12,
+      10
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      50,
+      10
+    ]
+  ],
+  "approaches": {
+    "center": [
+      14,
+      51
+    ],
+    "mart": [
+      38,
+      27
+    ],
+    "dojo_fighting": [
+      41,
+      13
+    ],
+    "dojo_psychic": [
+      48,
+      13
+    ],
+    "lab": [
+      37,
+      42
+    ],
+    "silph": [
+      28,
+      38
+    ],
+    "station": [
+      10,
+      17
+    ],
+    "copycat": [
+      17,
+      27
+    ],
+    "mrpsychic": [
+      43,
+      51
+    ],
+    "station_sign": [
+      12,
+      19
+    ],
+    "city_sign": [
+      23,
+      19
+    ],
+    "fighting_sign": [
+      43,
+      17
+    ],
+    "psychic_sign": [
+      50,
+      17
+    ],
+    "silph_sign": [
+      26,
+      43
+    ],
+    "mrpsychic_sign": [
+      41,
+      51
+    ],
+    "north_gate": [
+      20,
+      6
+    ],
+    "east_gate": [
+      56,
+      48
+    ],
+    "south_exit": [
+      20,
+      60
+    ],
+    "west_exit": [
+      1,
+      48
+    ]
+  },
+  "walk_behind_cells": {
+    "board": 3,
+    "citysign": 1,
+    "dojo_psychic": 1,
+    "dojosign": 2,
+    "gate_e": 1,
+    "hydrant": 4,
+    "lab": 9,
+    "lamp": 14,
+    "poke_mart": 7,
+    "station": 27
+  },
+  "shared_building_pixels_exact": 13925,
+  "center_master_sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "mart_sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8",
+  "primary_tiles": 512,
+  "cherrygrove_tiles_at_their_index": 46,
+  "primary_callback": null,
+  "secondary_tiles": 448,
+  "secondary_tile_limit": 496,
+  "secondary_metatiles": 512,
+  "v1_door_entry_removed": true,
+  "warps": [
+    {
+      "city_warp": 0,
+      "door": [
+        14,
+        50
+      ],
+      "to": "KantoSaffronPokemonCenter",
+      "arrives": [
+        7,
+        8
+      ],
+      "back_to_city_warp": 0
+    },
+    {
+      "city_warp": 1,
+      "door": [
+        38,
+        26
+      ],
+      "to": "KantoSaffronMart",
+      "arrives": [
+        3,
+        7
+      ],
+      "back_to_city_warp": 1
+    },
+    {
+      "city_warp": 2,
+      "door": [
+        41,
+        12
+      ],
+      "to": "KantoSaffronDojo",
+      "arrives": [
+        6,
+        14
+      ],
+      "back_to_city_warp": 2
+    },
+    {
+      "city_warp": 3,
+      "door": [
+        48,
+        12
+      ],
+      "to": "KantoSaffronDojo",
+      "arrives": [
+        17,
+        14
+      ],
+      "back_to_city_warp": 3
+    },
+    {
+      "city_warp": 4,
+      "door": [
+        37,
+        41
+      ],
+      "to": "KantoSaffronSilphLab",
+      "arrives": [
+        7,
+        9
+      ],
+      "back_to_city_warp": 4
+    },
+    {
+      "city_warp": 5,
+      "door": [
+        38,
+        41
+      ],
+      "to": "KantoSaffronSilphLab",
+      "arrives": [
+        7,
+        9
+      ],
+      "back_to_city_warp": 4
+    }
+  ],
+  "interiors": {
+    "KantoSaffronDojo": {
+      "size": [
+        23,
+        16
+      ],
+      "tiles": 96,
+      "metatiles": 68,
+      "matches_fireRed_pixels": true,
+      "exit_mats": [
+        [
+          6,
+          14
+        ],
+        [
+          17,
+          14
+        ]
+      ],
+      "walkable": 240,
+      "reachable_from_exit": 240
+    },
+    "KantoSaffronSilphLab": {
+      "size": [
+        15,
+        11
+      ],
+      "tiles": 128,
+      "metatiles": 70,
+      "matches_fireRed_pixels": true,
+      "exit_mats": [
+        [
+          7,
+          9
+        ]
+      ],
+      "walkable": 93,
+      "reachable_from_exit": 92
+    }
+  },
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true,
+  "field_door_unchanged_from_base": true
+}

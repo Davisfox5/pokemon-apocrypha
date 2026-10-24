@@ -238,6 +238,34 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
+## Kanto towns: HGSS's plan, ten years on
+
+Owner, Saffron, 2026-10-24: look to HGSS. Kanto towns follow HGSS's city plan, converted
+element by element as Olivine is (the section above), not FireRed's map edited. The worked
+example is `gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+
+- Keep HGSS's plan and change only what ten years and the story change, each change
+  answering the owner's brief or a DESIGN.md line (Saffron: one Dojo for both dojos, an
+  entrance each and a shared hall; Silph taller, with a lab wing and its own entrance; no
+  gym).
+- A new building is made from HGSS's own models: slice, move and copy their faces
+  (`saffron/modelkit.py`), keep their textures and lighting, render at C06's angle. Paint a
+  mark that replaces an emblem on the rendered sprite at Gen 3 scale; texture-mapped marks
+  come out mangled.
+- Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
+  FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
+- An interior Kanto needs is FireRed's room, or a room composed from FireRed's rooms cell
+  by cell, packed from its pixels into its own secondary on `gTileset_Building`
+  (`saffron/interiors.py`). Exit mats keep `MB_SOUTH_ARROW_WARP`; other FireRed behaviours
+  become `MB_NORMAL` until their scripts exist (their numbers mean other things in
+  Emerald: FireRed's Gym pads would warp).
+- A big city is tight on tiles. Mirror symmetric buildings on an 8 px axis, draw a facade
+  of one-unit bays at 16 px per unit so the bays repeat as tiles, and keep sprites from
+  overlapping a neighbour from another palette group (move one a tile column). Never
+  ship an inexact colour to fit: seed a bank with the street's colours instead.
+- Doors to unbuilt interiors and gates to unbuilt routes are solid. Keep HGSS's colours;
+  the first round's Kanto grade (`frlg.GRADE`) turned HGSS's blocks drab.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.
