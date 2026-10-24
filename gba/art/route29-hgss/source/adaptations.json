@@ -1,0 +1,1962 @@
+{
+  "carried_from_accepted_layout": {
+    "base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+    "west_adapter_cols": [
+      0,
+      9
+    ],
+    "east_adapter_cols": [
+      88,
+      97
+    ],
+    "ridge_rows_old": [
+      29,
+      47
+    ],
+    "ridge_rows_new": [
+      35,
+      53
+    ],
+    "hgss_cells_overridden": "HGSS columns 0-8 and 87-95 (town seam windows); the accepted sea ridge is appended below the HGSS region"
+  },
+  "tree_overlaps": [
+    [
+      10,
+      0
+    ],
+    [
+      10,
+      2
+    ],
+    [
+      10,
+      4
+    ],
+    [
+      10,
+      6
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      12,
+      2
+    ],
+    [
+      12,
+      4
+    ],
+    [
+      12,
+      6
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      12,
+      10
+    ],
+    [
+      12,
+      12
+    ],
+    [
+      13,
+      11
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      13,
+      26
+    ],
+    [
+      13,
+      29
+    ],
+    [
+      14,
+      0
+    ],
+    [
+      14,
+      2
+    ],
+    [
+      14,
+      4
+    ],
+    [
+      14,
+      6
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      14,
+      26
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      14,
+      30
+    ],
+    [
+      14,
+      32
+    ],
+    [
+      15,
+      24
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      2
+    ],
+    [
+      16,
+      4
+    ],
+    [
+      16,
+      6
+    ],
+    [
+      16,
+      8
+    ],
+    [
+      16,
+      24
+    ],
+    [
+      16,
+      26
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      16,
+      30
+    ],
+    [
+      16,
+      32
+    ],
+    [
+      17,
+      8
+    ],
+    [
+      18,
+      0
+    ],
+    [
+      18,
+      2
+    ],
+    [
+      18,
+      4
+    ],
+    [
+      18,
+      6
+    ],
+    [
+      18,
+      24
+    ],
+    [
+      18,
+      26
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      18,
+      30
+    ],
+    [
+      18,
+      32
+    ],
+    [
+      20,
+      0
+    ],
+    [
+      20,
+      2
+    ],
+    [
+      20,
+      4
+    ],
+    [
+      20,
+      6
+    ],
+    [
+      20,
+      24
+    ],
+    [
+      20,
+      26
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      20,
+      30
+    ],
+    [
+      20,
+      32
+    ],
+    [
+      22,
+      0
+    ],
+    [
+      22,
+      2
+    ],
+    [
+      22,
+      4
+    ],
+    [
+      22,
+      6
+    ],
+    [
+      22,
+      24
+    ],
+    [
+      22,
+      26
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      22,
+      30
+    ],
+    [
+      22,
+      32
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      24,
+      2
+    ],
+    [
+      24,
+      4
+    ],
+    [
+      24,
+      6
+    ],
+    [
+      24,
+      24
+    ],
+    [
+      24,
+      26
+    ],
+    [
+      24,
+      28
+    ],
+    [
+      24,
+      30
+    ],
+    [
+      24,
+      32
+    ],
+    [
+      26,
+      0
+    ],
+    [
+      26,
+      2
+    ],
+    [
+      26,
+      4
+    ],
+    [
+      26,
+      6
+    ],
+    [
+      26,
+      24
+    ],
+    [
+      26,
+      26
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      26,
+      30
+    ],
+    [
+      26,
+      32
+    ],
+    [
+      28,
+      0
+    ],
+    [
+      28,
+      2
+    ],
+    [
+      28,
+      4
+    ],
+    [
+      28,
+      6
+    ],
+    [
+      28,
+      24
+    ],
+    [
+      28,
+      26
+    ],
+    [
+      28,
+      28
+    ],
+    [
+      28,
+      30
+    ],
+    [
+      28,
+      32
+    ],
+    [
+      29,
+      24
+    ],
+    [
+      29,
+      27
+    ],
+    [
+      30,
+      0
+    ],
+    [
+      30,
+      2
+    ],
+    [
+      30,
+      4
+    ],
+    [
+      30,
+      6
+    ],
+    [
+      30,
+      30
+    ],
+    [
+      30,
+      32
+    ],
+    [
+      31,
+      18
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      32,
+      2
+    ],
+    [
+      32,
+      4
+    ],
+    [
+      32,
+      6
+    ],
+    [
+      32,
+      18
+    ],
+    [
+      32,
+      30
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      33,
+      16
+    ],
+    [
+      33,
+      18
+    ],
+    [
+      34,
+      0
+    ],
+    [
+      34,
+      2
+    ],
+    [
+      34,
+      4
+    ],
+    [
+      34,
+      6
+    ],
+    [
+      34,
+      16
+    ],
+    [
+      34,
+      30
+    ],
+    [
+      34,
+      32
+    ],
+    [
+      36,
+      0
+    ],
+    [
+      36,
+      2
+    ],
+    [
+      36,
+      4
+    ],
+    [
+      36,
+      6
+    ],
+    [
+      36,
+      22
+    ],
+    [
+      36,
+      24
+    ],
+    [
+      36,
+      30
+    ],
+    [
+      36,
+      32
+    ],
+    [
+      38,
+      0
+    ],
+    [
+      38,
+      2
+    ],
+    [
+      38,
+      4
+    ],
+    [
+      38,
+      6
+    ],
+    [
+      38,
+      22
+    ],
+    [
+      38,
+      24
+    ],
+    [
+      38,
+      30
+    ],
+    [
+      38,
+      32
+    ],
+    [
+      39,
+      8
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      2
+    ],
+    [
+      40,
+      4
+    ],
+    [
+      40,
+      6
+    ],
+    [
+      40,
+      8
+    ],
+    [
+      40,
+      16
+    ],
+    [
+      40,
+      30
+    ],
+    [
+      40,
+      32
+    ],
+    [
+      41,
+      10
+    ],
+    [
+      41,
+      16
+    ],
+    [
+      41,
+      18
+    ],
+    [
+      41,
+      30
+    ],
+    [
+      42,
+      0
+    ],
+    [
+      42,
+      2
+    ],
+    [
+      42,
+      4
+    ],
+    [
+      42,
+      6
+    ],
+    [
+      42,
+      8
+    ],
+    [
+      42,
+      10
+    ],
+    [
+      42,
+      18
+    ],
+    [
+      42,
+      32
+    ],
+    [
+      43,
+      9
+    ],
+    [
+      43,
+      11
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      44,
+      2
+    ],
+    [
+      44,
+      4
+    ],
+    [
+      44,
+      6
+    ],
+    [
+      44,
+      18
+    ],
+    [
+      45,
+      20
+    ],
+    [
+      46,
+      0
+    ],
+    [
+      46,
+      2
+    ],
+    [
+      46,
+      4
+    ],
+    [
+      46,
+      6
+    ],
+    [
+      46,
+      18
+    ],
+    [
+      46,
+      20
+    ],
+    [
+      47,
+      3
+    ],
+    [
+      47,
+      6
+    ],
+    [
+      47,
+      18
+    ],
+    [
+      47,
+      21
+    ],
+    [
+      55,
+      3
+    ],
+    [
+      55,
+      6
+    ],
+    [
+      55,
+      9
+    ],
+    [
+      55,
+      12
+    ],
+    [
+      55,
+      18
+    ],
+    [
+      56,
+      0
+    ],
+    [
+      56,
+      2
+    ],
+    [
+      56,
+      4
+    ],
+    [
+      56,
+      6
+    ],
+    [
+      56,
+      8
+    ],
+    [
+      56,
+      10
+    ],
+    [
+      56,
+      12
+    ],
+    [
+      56,
+      18
+    ],
+    [
+      57,
+      9
+    ],
+    [
+      57,
+      12
+    ],
+    [
+      58,
+      0
+    ],
+    [
+      58,
+      2
+    ],
+    [
+      58,
+      4
+    ],
+    [
+      58,
+      6
+    ],
+    [
+      60,
+      0
+    ],
+    [
+      60,
+      2
+    ],
+    [
+      60,
+      4
+    ],
+    [
+      60,
+      6
+    ],
+    [
+      60,
+      18
+    ],
+    [
+      61,
+      18
+    ],
+    [
+      62,
+      0
+    ],
+    [
+      62,
+      2
+    ],
+    [
+      62,
+      4
+    ],
+    [
+      62,
+      6
+    ],
+    [
+      62,
+      27
+    ],
+    [
+      63,
+      5
+    ],
+    [
+      63,
+      7
+    ],
+    [
+      63,
+      23
+    ],
+    [
+      63,
+      26
+    ],
+    [
+      64,
+      0
+    ],
+    [
+      64,
+      2
+    ],
+    [
+      64,
+      23
+    ],
+    [
+      64,
+      25
+    ],
+    [
+      64,
+      27
+    ],
+    [
+      65,
+      12
+    ],
+    [
+      65,
+      15
+    ],
+    [
+      65,
+      18
+    ],
+    [
+      65,
+      23
+    ],
+    [
+      65,
+      26
+    ],
+    [
+      66,
+      0
+    ],
+    [
+      66,
+      2
+    ],
+    [
+      66,
+      12
+    ],
+    [
+      66,
+      14
+    ],
+    [
+      66,
+      16
+    ],
+    [
+      66,
+      18
+    ],
+    [
+      67,
+      12
+    ],
+    [
+      67,
+      15
+    ],
+    [
+      67,
+      18
+    ],
+    [
+      68,
+      0
+    ],
+    [
+      68,
+      2
+    ],
+    [
+      70,
+      0
+    ],
+    [
+      70,
+      2
+    ],
+    [
+      72,
+      0
+    ],
+    [
+      72,
+      2
+    ],
+    [
+      73,
+      8
+    ],
+    [
+      73,
+      11
+    ],
+    [
+      73,
+      14
+    ],
+    [
+      74,
+      0
+    ],
+    [
+      74,
+      2
+    ],
+    [
+      74,
+      8
+    ],
+    [
+      74,
+      10
+    ],
+    [
+      74,
+      12
+    ],
+    [
+      74,
+      14
+    ],
+    [
+      74,
+      32
+    ],
+    [
+      75,
+      30
+    ],
+    [
+      76,
+      0
+    ],
+    [
+      76,
+      2
+    ],
+    [
+      76,
+      8
+    ],
+    [
+      76,
+      10
+    ],
+    [
+      76,
+      12
+    ],
+    [
+      76,
+      14
+    ],
+    [
+      76,
+      30
+    ],
+    [
+      76,
+      32
+    ],
+    [
+      78,
+      0
+    ],
+    [
+      78,
+      2
+    ],
+    [
+      78,
+      8
+    ],
+    [
+      78,
+      10
+    ],
+    [
+      78,
+      12
+    ],
+    [
+      78,
+      14
+    ],
+    [
+      78,
+      30
+    ],
+    [
+      78,
+      32
+    ],
+    [
+      79,
+      14
+    ],
+    [
+      80,
+      0
+    ],
+    [
+      80,
+      2
+    ],
+    [
+      80,
+      8
+    ],
+    [
+      80,
+      10
+    ],
+    [
+      80,
+      12
+    ],
+    [
+      80,
+      30
+    ],
+    [
+      80,
+      32
+    ],
+    [
+      81,
+      6
+    ],
+    [
+      81,
+      28
+    ],
+    [
+      82,
+      0
+    ],
+    [
+      82,
+      2
+    ],
+    [
+      82,
+      6
+    ],
+    [
+      82,
+      8
+    ],
+    [
+      82,
+      10
+    ],
+    [
+      82,
+      12
+    ],
+    [
+      82,
+      28
+    ],
+    [
+      82,
+      30
+    ],
+    [
+      82,
+      32
+    ],
+    [
+      83,
+      3
+    ],
+    [
+      83,
+      12
+    ],
+    [
+      83,
+      26
+    ],
+    [
+      84,
+      0
+    ],
+    [
+      84,
+      2
+    ],
+    [
+      84,
+      4
+    ],
+    [
+      84,
+      6
+    ],
+    [
+      84,
+      8
+    ],
+    [
+      84,
+      10
+    ],
+    [
+      84,
+      26
+    ],
+    [
+      84,
+      28
+    ],
+    [
+      84,
+      30
+    ],
+    [
+      84,
+      32
+    ],
+    [
+      86,
+      0
+    ],
+    [
+      86,
+      2
+    ],
+    [
+      86,
+      4
+    ],
+    [
+      86,
+      6
+    ],
+    [
+      86,
+      8
+    ],
+    [
+      86,
+      10
+    ],
+    [
+      86,
+      26
+    ],
+    [
+      86,
+      28
+    ],
+    [
+      86,
+      30
+    ],
+    [
+      86,
+      32
+    ]
+  ],
+  "lawn_phase_misses": {
+    "blossom": 35,
+    "tree": 296
+  },
+  "seam_pinned_metatiles": {
+    "accepted_route": [
+      "0x200",
+      "0x201",
+      "0x204",
+      "0x205",
+      "0x206",
+      "0x207",
+      "0x209",
+      "0x20b",
+      "0x20c",
+      "0x20d",
+      "0x237",
+      "0x238",
+      "0x23a",
+      "0x23b",
+      "0x23d",
+      "0x242",
+      "0x246",
+      "0x247",
+      "0x264",
+      "0x265",
+      "0x266",
+      "0x275",
+      "0x276",
+      "0x277",
+      "0x27a",
+      "0x27b",
+      "0x287",
+      "0x288"
+    ],
+    "new_bark": [
+      "0x200",
+      "0x201",
+      "0x204",
+      "0x205",
+      "0x206",
+      "0x207",
+      "0x209",
+      "0x20b",
+      "0x25c",
+      "0x25d"
+    ],
+    "cherrygrove": []
+  },
+  "decorations_from_render": {
+    "20,10": "L",
+    "20,11": "L",
+    "20,12": "L",
+    "21,10": "L",
+    "21,11": "L",
+    "22,10": "L",
+    "22,11": "L",
+    "23,10": "L",
+    "23,11": "L",
+    "24,10": "L",
+    "24,11": "L",
+    "25,10": "L",
+    "25,11": "L",
+    "35,17": "f",
+    "36,16": "f",
+    "36,17": "f",
+    "39,17": "f",
+    "45,10": "f",
+    "46,9": "f",
+    "47,9": "f",
+    "50,10": "L",
+    "50,11": "L",
+    "50,12": "L",
+    "51,10": "L",
+    "51,11": "L",
+    "51,12": "L",
+    "61,24": "f",
+    "71,13": "f",
+    "85,12": "f",
+    "89,12": "f"
+  },
+  "tree_fitting": [
+    {
+      "cell": [
+        37,
+        13
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest run at columns 37-38, rows 14-15 is 2 rows, shorter than a tree"
+    },
+    {
+      "cell": [
+        38,
+        13
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest run at columns 37-38, rows 14-15 is 2 rows, shorter than a tree"
+    },
+    {
+      "cell": [
+        45,
+        25
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest run at columns 45-46, rows 23-24 is 2 rows, shorter than a tree"
+    },
+    {
+      "cell": [
+        46,
+        25
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest run at columns 45-46, rows 23-24 is 2 rows, shorter than a tree"
+    },
+    {
+      "cell": [
+        48,
+        3
+      ],
+      "change": "whole tree at [47, 3] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        55,
+        3
+      ],
+      "change": "whole tree at [55, 3] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        64,
+        5
+      ],
+      "change": "whole tree at [63, 5] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        83,
+        5
+      ],
+      "change": "whole tree at [83, 3] overlaps earlier trees on 5 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        48,
+        6
+      ],
+      "change": "whole tree at [47, 6] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        55,
+        6
+      ],
+      "change": "whole tree at [55, 6] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        81,
+        6
+      ],
+      "change": "whole tree at [81, 6] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        63,
+        9
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [64, 8] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        64,
+        9
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [64, 8] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        64,
+        8
+      ],
+      "change": "whole tree at [63, 7] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        73,
+        8
+      ],
+      "change": "whole tree at [73, 8] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        18,
+        9
+      ],
+      "change": "whole tree at [17, 8] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        39,
+        9
+      ],
+      "change": "whole tree at [39, 8] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        44,
+        9
+      ],
+      "change": "whole tree at [43, 9] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        55,
+        9
+      ],
+      "change": "whole tree at [55, 9] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        58,
+        9
+      ],
+      "change": "whole tree at [57, 9] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        14,
+        11
+      ],
+      "change": "whole tree at [13, 11] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        41,
+        11
+      ],
+      "change": "whole tree at [41, 10] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        73,
+        11
+      ],
+      "change": "whole tree at [73, 11] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        43,
+        13
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [44, 12] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        44,
+        13
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [44, 12] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        44,
+        12
+      ],
+      "change": "whole tree at [43, 11] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        55,
+        12
+      ],
+      "change": "whole tree at [55, 12] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        58,
+        12
+      ],
+      "change": "whole tree at [57, 12] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        65,
+        12
+      ],
+      "change": "whole tree at [65, 12] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        68,
+        12
+      ],
+      "change": "whole tree at [67, 12] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        84,
+        13
+      ],
+      "change": "whole tree at [83, 12] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        14,
+        14
+      ],
+      "change": "whole tree at [13, 14] overlaps earlier trees on 1 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        73,
+        14
+      ],
+      "change": "whole tree at [73, 14] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        65,
+        15
+      ],
+      "change": "whole tree at [65, 15] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        68,
+        15
+      ],
+      "change": "whole tree at [67, 15] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        80,
+        15
+      ],
+      "change": "whole tree at [79, 14] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        33,
+        16
+      ],
+      "change": "whole tree at [33, 16] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        42,
+        16
+      ],
+      "change": "whole tree at [41, 16] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        31,
+        18
+      ],
+      "change": "whole tree at [31, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        48,
+        18
+      ],
+      "change": "whole tree at [47, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        55,
+        18
+      ],
+      "change": "whole tree at [55, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        62,
+        18
+      ],
+      "change": "whole tree at [61, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        65,
+        18
+      ],
+      "change": "whole tree at [65, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        68,
+        18
+      ],
+      "change": "whole tree at [67, 18] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        34,
+        19
+      ],
+      "change": "whole tree at [33, 18] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        41,
+        19
+      ],
+      "change": "whole tree at [41, 18] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        45,
+        21
+      ],
+      "change": "whole tree at [45, 20] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        47,
+        23
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [48, 21] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        48,
+        23
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [48, 21] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        48,
+        21
+      ],
+      "change": "whole tree at [47, 21] overlaps earlier trees on 2 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        63,
+        23
+      ],
+      "change": "whole tree at [63, 23] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        66,
+        23
+      ],
+      "change": "whole tree at [65, 23] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        15,
+        24
+      ],
+      "change": "whole tree at [15, 24] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        30,
+        24
+      ],
+      "change": "whole tree at [29, 24] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        13,
+        26
+      ],
+      "change": "whole tree at [13, 26] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        63,
+        26
+      ],
+      "change": "whole tree at [63, 26] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        66,
+        26
+      ],
+      "change": "whole tree at [65, 26] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        83,
+        26
+      ],
+      "change": "whole tree at [83, 26] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        30,
+        27
+      ],
+      "change": "whole tree at [29, 27] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        81,
+        28
+      ],
+      "change": "whole tree at [81, 28] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        13,
+        29
+      ],
+      "change": "whole tree at [13, 29] overlaps earlier trees on 3 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        62,
+        27
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [63, 29] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        62,
+        28
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [63, 29] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        62,
+        29
+      ],
+      "change": "lawn absorbed under a whole tree (blocked)",
+      "reason": "forest cell [63, 29] had no whole-tree fit"
+    },
+    {
+      "cell": [
+        63,
+        29
+      ],
+      "change": "whole tree at [62, 27] overlaps earlier trees on 2 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        66,
+        29
+      ],
+      "change": "forest cell left without tree art; kept BLOCKED and drawn as lawn",
+      "reason": "no whole-tree fit: no absorbable lawn and every overlap would stack more than three trees"
+    },
+    {
+      "cell": [
+        42,
+        30
+      ],
+      "change": "whole tree at [41, 30] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    },
+    {
+      "cell": [
+        75,
+        30
+      ],
+      "change": "whole tree at [75, 30] overlaps earlier trees on 4 cells",
+      "reason": "HGSS forest here is narrower than two native trees"
+    }
+  ],
+  "trees": 330,
+  "blossoms": [
+    [
+      10,
+      12
+    ],
+    [
+      10,
+      32
+    ],
+    [
+      12,
+      32
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      14,
+      32
+    ],
+    [
+      16,
+      32
+    ],
+    [
+      20,
+      32
+    ]
+  ],
+  "event_moves": [
+    {
+      "event": "hidden Potion",
+      "old": [
+        62,
+        27
+      ],
+      "new": [
+        62,
+        33
+      ]
+    },
+    {
+      "event": "west sign (HGSS 5,13)",
+      "old": [
+        6,
+        16
+      ],
+      "new": [
+        10,
+        16
+      ],
+      "note": "HGSS cell is inside the carried Cherrygrove adapter; placed on the first HGSS lawn cell east of it, reusing the route sign script"
+    }
+  ],
+  "notes": [
+    {
+      "cell": [
+        27,
+        12
+      ],
+      "note": "blocked ordinary ground: ledge corner or prop, see events"
+    },
+    {
+      "cell": [
+        5,
+        13
+      ],
+      "note": "blocked ordinary ground: ledge corner or prop, see events"
+    },
+    {
+      "cell": [
+        86,
+        13
+      ],
+      "note": "blocked ordinary ground: ledge corner or prop, see events"
+    },
+    {
+      "cell": [
+        12,
+        17
+      ],
+      "note": "blocked ordinary ground: ledge corner or prop, see events"
+    },
+    {
+      "cell": [
+        51,
+        23
+      ],
+      "note": "blocked ordinary ground: ledge corner or prop, see events"
+    }
+  ],
+  "cuttable_trees": [
+    [
+      54,
+      20
+    ],
+    [
+      44,
+      24
+    ]
+  ],
+  "unwired": [
+    "Route 46 gatehouse door cells (50,5) and (51,5): interior map not built, door kept blocked",
+    "original NPCs, Apricorn harvesting and the HGSS item ball Potion at (78,2) are campaign work and are not placed"
+  ]
+}

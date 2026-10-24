@@ -1,0 +1,366 @@
+{
+ "jobs": 493,
+ "primary_jobs": 61,
+ "secondary_tiles": 410,
+ "secondary_metatiles": 264,
+ "banks": {
+  "6": 15,
+  "7": 14,
+  "8": 12,
+  "9": 14,
+  "10": 15,
+  "11": 12
+ },
+ "pinned": {
+  "nb": 10,
+  "old": 8
+ },
+ "window_cells_inexact": 8,
+ "reach": {
+  "native_with_cut": 1448,
+  "native_before_cut": 1446,
+  "hgss": 1352,
+  "native_only": [
+   [
+    34,
+    18
+   ],
+   [
+    35,
+    18
+   ],
+   [
+    36,
+    16
+   ],
+   [
+    37,
+    16
+   ],
+   [
+    38,
+    16
+   ],
+   [
+    39,
+    16
+   ],
+   [
+    39,
+    22
+   ],
+   [
+    40,
+    14
+   ],
+   [
+    40,
+    22
+   ],
+   [
+    41,
+    14
+   ],
+   [
+    41,
+    22
+   ],
+   [
+    42,
+    16
+   ],
+   [
+    42,
+    22
+   ],
+   [
+    43,
+    16
+   ],
+   [
+    43,
+    24
+   ],
+   [
+    44,
+    16
+   ],
+   [
+    44,
+    24
+   ],
+   [
+    45,
+    16
+   ],
+   [
+    45,
+    24
+   ],
+   [
+    46,
+    18
+   ],
+   [
+    46,
+    24
+   ],
+   [
+    47,
+    18
+   ],
+   [
+    48,
+    18
+   ],
+   [
+    49,
+    18
+   ],
+   [
+    50,
+    18
+   ],
+   [
+    51,
+    18
+   ],
+   [
+    55,
+    18
+   ],
+   [
+    56,
+    18
+   ],
+   [
+    58,
+    18
+   ],
+   [
+    59,
+    18
+   ],
+   [
+    60,
+    18
+   ],
+   [
+    61,
+    18
+   ],
+   [
+    62,
+    18
+   ],
+   [
+    63,
+    18
+   ],
+   [
+    64,
+    18
+   ],
+   [
+    65,
+    18
+   ],
+   [
+    66,
+    23
+   ],
+   [
+    67,
+    23
+   ],
+   [
+    68,
+    12
+   ],
+   [
+    68,
+    23
+   ],
+   [
+    69,
+    12
+   ],
+   [
+    69,
+    23
+   ],
+   [
+    70,
+    12
+   ],
+   [
+    71,
+    12
+   ],
+   [
+    76,
+    8
+   ],
+   [
+    77,
+    8
+   ],
+   [
+    78,
+    8
+   ],
+   [
+    79,
+    8
+   ],
+   [
+    80,
+    8
+   ],
+   [
+    81,
+    8
+   ],
+   [
+    82,
+    8
+   ],
+   [
+    83,
+    8
+   ],
+   [
+    84,
+    6
+   ],
+   [
+    85,
+    6
+   ]
+  ],
+  "hgss_only": [],
+  "east_edge_reached": true
+ },
+ "events": {
+  "moves": [
+   {
+    "event": "route sign (east)",
+    "old": [
+     87,
+     16
+    ],
+    "new": [
+     90,
+     16
+    ],
+    "note": "HGSS's east sign (86,13)"
+   },
+   {
+    "event": "hidden Potion",
+    "old": [
+     62,
+     27
+    ],
+    "new": [
+     66,
+     30
+    ],
+    "note": "the same lookout cell as before, moved with the carried coast"
+   },
+   {
+    "event": "route sign (west)",
+    "new": [
+     9,
+     16
+    ],
+    "note": "HGSS's west sign (5,13); reuses the route's existing sign script"
+   }
+  ],
+  "cut_trees": [
+   [
+    57,
+    20
+   ],
+   [
+    47,
+    24
+   ]
+  ]
+ },
+ "native_pixels_differing_outside_windows": 0,
+ "native_pixels_differing_in_windows": 112,
+ "window_inexact": [
+  {
+   "cell": [
+    100,
+    27
+   ],
+   "metatile": "0x1a3",
+   "pixels_differing": 12,
+   "code": "t"
+  },
+  {
+   "cell": [
+    101,
+    27
+   ],
+   "metatile": "0x1a4",
+   "pixels_differing": 16,
+   "code": "t"
+  },
+  {
+   "cell": [
+    0,
+    29
+   ],
+   "metatile": "0x1a3",
+   "pixels_differing": 12,
+   "code": "t"
+  },
+  {
+   "cell": [
+    1,
+    29
+   ],
+   "metatile": "0x1a4",
+   "pixels_differing": 16,
+   "code": "t"
+  },
+  {
+   "cell": [
+    2,
+    29
+   ],
+   "metatile": "0x1a3",
+   "pixels_differing": 12,
+   "code": "t"
+  },
+  {
+   "cell": [
+    3,
+    29
+   ],
+   "metatile": "0x1a4",
+   "pixels_differing": 16,
+   "code": "t"
+  },
+  {
+   "cell": [
+    100,
+    29
+   ],
+   "metatile": "0x1a3",
+   "pixels_differing": 12,
+   "code": "t"
+  },
+  {
+   "cell": [
+    101,
+    29
+   ],
+   "metatile": "0x1a4",
+   "pixels_differing": 16,
+   "code": "t"
+  }
+ ]
+}

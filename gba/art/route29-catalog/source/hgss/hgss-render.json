@@ -1,0 +1,109 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "0bb663f70c977e78226f22e5056584a4349fc962",
+    "archives": {
+      "files/a/0/6/5": "5c30f7bc7955b33ab47ee30aef1e5ee11ebf3539911f6f6a795864862124fa6a",
+      "files/a/0/4/2": "7ffd32abdd242e25f43a982a2c1767743244698d743a7ada738647b47b018ab3",
+      "files/a/0/4/4": "7cc9b3590972da486696811a4c72542a43131784671fb6d60de197b006512c06",
+      "files/a/0/4/0": "392bd842c8e94d77f6f347d61cc74e9c14015d588e84743937ba1fb227f696e4"
+    }
+  },
+  "meta": {
+    "area_bank": 2,
+    "map_texture_set": 2,
+    "building_texture_set": 0,
+    "matrix_origin": [
+      18,
+      12
+    ],
+    "top_down_fill_pixels": 0,
+    "filled_seam_pixels": 0
+  },
+  "size_cells": [
+    96,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 32,
+      "chunk": 1,
+      "pos": [
+        5.5,
+        1.0,
+        13.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        4.75,
+        13.3125,
+        6.25,
+        13.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 35,
+      "chunk": 2,
+      "pos": [
+        51.0,
+        1.0,
+        3.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gate",
+        "gate_2",
+        "gate_3",
+        "gate_p2",
+        "h_kage"
+      ],
+      "footprint": [
+        48.0,
+        -1.255615234375,
+        54.25,
+        6.5
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 32,
+      "chunk": 3,
+      "pos": [
+        86.5,
+        1.0,
+        13.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        85.75,
+        13.3125,
+        87.25,
+        13.75
+      ],
+      "replaced_by": null
+    }
+  ]
+}
