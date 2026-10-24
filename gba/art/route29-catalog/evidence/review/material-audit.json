@@ -1,0 +1,17 @@
+{
+ "cells": 3072,
+ "summary": {
+  "match: woods": 1318,
+  "match: blocked corner / prop": 40,
+  "match: tall grass": 409,
+  "match: open ground": 943,
+  "match: gatehouse doorway (declared": 2,
+  "match: ledge": 72,
+  "coast (declared: replaces HGSS forest border rows 29-31)": 288
+ },
+ "mismatches": [],
+ "declared_adaptations": {
+  "HGSS woods cell under a crown or between trees where no non-overlapping 2x2 root fits (HGSS's offset crowns)": 54,
+  "HGSS's warp into the Route 46 gatehouse": 2
+ }
+}

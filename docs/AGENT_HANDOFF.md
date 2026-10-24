@@ -1,4 +1,25 @@
-## Latest: Route 29 rebuilt from the decoded HGSS map (proposal, October 24)
+## Latest: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)
+
+The owner rejected the October 24 draft: placement, overlapping trees, paths, missing grass, ledges,
+borders and walking routes were wrong. Root causes:
+
+- The old screenshot reference is a tilted capture at about 12 px per row.
+- Roads were drawn from a footstep flag.
+- HGSS 0x38/0x39 are jump-east/west ledges, not walls.
+
+Rebuilt on the accepted process. HGSS is rendered from its DS data at 16 px per cell (native = HGSS +
+(4,3), 102x51). The Cherrygrove tree sits on non-overlapping 2x2 roots (integer program). Ground is the
+Cherrygrove painter on HGSS's 8 px lawn/road grid. Catalog G15/L11-13/G01a/P14 come from
+`codex/violet-city` de5d8cfb. Seam windows use only metatiles both towns draw identically, with New Bark
+and coast ids pinned. Exact pack onto CherrygrovePrimary.
+
+Checks: material audit 2,784/2,784, walkable area equal to HGSS plus crown overhang, seams clean,
+Porymap 6.3.1 export equal to the native decode. Headless mGBA walks the route step by step and tours
+every area; all ledges, blocks, grass, signs, Potion and saves pass. Engine `claude/route29-hgss-decoded`
+(PR #34). Read `gba/art/route29-catalog/README.md`. GitHub Actions is disabled on the engine repo. Next:
+owner visual review.
+
+## Previous: Route 29 rebuilt from the decoded HGSS map (October 24, superseded)
 
 Redone from scratch under `docs/GBA_MAP_RECONSTRUCTION.md`. The decoded DS map
 (terrain types, collision bytes, zone events) is the square-by-square reference;

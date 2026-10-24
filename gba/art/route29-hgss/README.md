@@ -1,4 +1,8 @@
-# Route 29 rebuilt from the decoded HGSS map
+# Route 29 rebuilt from the decoded HGSS map (superseded)
+
+> Superseded on October 25 by `gba/art/route29-catalog`, after owner review: placement, trees, paths, grass,
+> ledges, borders and walking routes were wrong. Kept as the prior draft; its generator now targets the
+> same tileset name, so do not run it over the current branch.
 
 October 24, 2026. Cherrygrove to New Bark, redone from scratch under
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md). The

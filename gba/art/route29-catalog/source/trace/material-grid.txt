@@ -1,0 +1,71 @@
+# Route 29 native material grid (102x51), one code per 16x16 cell. Native = HGSS + (4, 3); two padding columns east.
+#   g  lawn
+#   d  dirt road
+#   f  lawn with flowers
+#   l  light lawn patch
+#   G  tall grass (G15)
+#   t  tree root (T01)
+#   o  woods cell no root fits (crown overhang): open lawn
+#   k  woods cell under the crown of the tree south of it (blocked)
+#   L  jump ledge south
+#   Q  jump ledge west
+#   E  jump ledge east
+#   J  ledge corner (blocked)
+#   B  Route 46 gatehouse (G01a)
+#   D  gatehouse door
+#   s  route sign (P14)
+#   c  cuttable tree (object)
+#   X  other blocked
+#   ~  coast (carried)
+#   x: 012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901
+00    tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+01    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBtttttttttttttttttttttttttttttttttttttttttttt
+02    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBtttttttttttttttttttttttttttttttttttttttttttt
+03    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBtttttttttttttttttttttttttttttttttttttttttttt
+04    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBtttttttttttttttttttttttttttttttttttttttttttt
+05    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBttttttttttGGGggGggGGgGgffgggtttttttttttttttt
+06    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBttttttttttggGGGGGGGGGGgffgkktttttttttttttttt
+07    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBttttttttttGGGGGGGGGGGGGgggtttttttttttttttttt
+08    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBDDBBttttttttttgGGGGGGGkkkkkkkktttttttttttttttttt
+09    ttttttttttttttttttttttgllllllllEggggggggffttttttffffggggggttttGGGGggGGGGGGGGtttttttttttttttttttttttttt
+10    ttttttttttttttttttttttgllllllllEgggggggggfttttttffgggllllgttttGGGGggGGGGGGGGtttttttttttttttttttttttttt
+11    ttttttttttttttttttgggggllllllllEGGGGGGggggggttttfggggllllgttttGGGGggGGGGGGGGtttttttttttttttttttttttttt
+12    ttttttttttttttttttgggggllllllllEGGGGGGGgggggttttgggggllllgttttGGGGGGkkkkggggtttttttttttttttttttttttttt
+13    ttttttttgffgttttttgggggllllllllEGGGGGGGGgggggggfgggggllllgttttGGGGGGttttggffttttttttttttfggffgtttttttt
+14    ttttttttgffgttttttgggggllllllllEGGGGGGGGkkggggfffggggllllgttttGGGGGGttttgggfttttttttttttggggggtttttttt
+15    ggggggggggggggggttLLLLgggLLLLLLXGGGGGGGGttggggfffggggllllgGGGGGGGGGGttttggggttttttttgffggggggggggggggg
+16    gggggggggsggggggttggGGGGGGGGGGGGGGGGkkkkttkkkkggffggggggggGGGGGGGGGGttttggggttttttttgffgggsggggggggggg
+17    gggggdddddddddddQgggGGGGGGGGGGGGGGGGttttttttttggggggggggggGGGGGGGGGGttttGGGGgggEffgggggggddddddddddggg
+18    gggggdddddddddddQgggGGGGGGGGGGGGGGkkttttttttttkkkkkkgggkkgkkkkkkkkGGttttGGGGgggEgggggggggddddddddddggg
+19    gggggdddddddddddQgggggggggggggggggttttffggffttttttttgggttgttttttttGGttttGGGGgggEGGGGGGgggddddddddddggg
+20    gggggdddddddddddXLLLLLgggLLLLLLLLLttttggggggttttttttLLLttcttttttttGGttttGGGGgggEGGGGGGGggddddddddddggg
+21    ggggggggggGGddddddddddddddddddggggggggggggggggffttttgggQgggggggfffggggggGGGGgggEGGGGGGGGgggggggggggggg
+22    kkkkkkkkttGGddddddddddddddddddgggggggggkkkkgggggttttgggQggggggggfffgggggGGGGgggEGGGGGGGGggggggkkkkkkkk
+23    ttttttttttGGddddddddddddddddddgggggggggttttgggggttffgggQgggggggggfkkkkggGGGGgggEGGGGGGGGGGGGGGtttttttt
+24    ttttttttttGGGGGGGGttttttttttttttttgggggttttkkkkcttffgggQggggggggggttttgggggggggEGGGGGGGGGGGGGGtttttttt
+25    ttttttttttGGGGGGGGttttttttttttttttgggggttttttttggggggggQggggggggggttttgggggggggEddgGGGGGGGGGGGttttttkk
+26    ttttttttttGGGGGGttttttttttttttttttLLLLLttttttttgglllllgXLLLLggLLLLttttLLLLLLLLLJdddGGGtttttttttttttttt
+27    kkkkttttttGGGGGGttttttttttttttttttgggggggggggffgglllllgggggdddggffttttGGGGGGGddddddGGGtttttttttttttttt
+28    ttttttttttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddgggfttttGGGGGGGddddddGtttttttttttttttttt
+29    ttttkkkkttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddggggttttGGGGGGGGGGGGGGttttttttttkkkkkktt
+30    ttttttttttGGGGGGttttttttttttttttttttttttttttttgggggggggggggddddddddddddggGGGGGtttttttttttttttttttttttt
+31    ttttttttttGGGGGGttttttttttttttttttttttttttttttgggggggggggggddddddddddddggGGGGGtttttttttttttttttttttttt
+32    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+33    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+34    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+35    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+36    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+37    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+38    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+39    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+40    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+41    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+42    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+43    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+44    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+45    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+46    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+47    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+48    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+49    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+50    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

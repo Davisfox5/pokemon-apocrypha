@@ -1,0 +1,74 @@
+{
+ "phases": [
+  {
+   "phase": "write",
+   "exit": 0,
+   "observations": 589
+  },
+  {
+   "phase": "read",
+   "exit": 0,
+   "observations": 2
+  },
+  {
+   "phase": "menu",
+   "exit": 0,
+   "observations": 3
+  }
+ ],
+ "frame_parity": {
+  "write": {
+   "frames": 49,
+   "fully_identical": 36,
+   "below_99_5": [
+    [
+     "cross-into-route29",
+     0.9089
+    ],
+    [
+     "cross-into-new-bark",
+     0.9089
+    ],
+    [
+     "cross-back-into-route29",
+     0.9486
+    ],
+    [
+     "cross-back-into-cherrygrove",
+     0.9089
+    ],
+    [
+     "centre",
+     0.991
+    ],
+    [
+     "potion-found",
+     0.7214
+    ],
+    [
+     "sign-west",
+     0.7214
+    ],
+    [
+     "sign-east",
+     0.7214
+    ]
+   ]
+  },
+  "read": {
+   "frames": 1,
+   "fully_identical": 1,
+   "below_99_5": []
+  },
+  "menu": {
+   "frames": 2,
+   "fully_identical": 1,
+   "below_99_5": [
+    [
+     "continue-menu",
+     0.0
+    ]
+   ]
+  }
+ }
+}

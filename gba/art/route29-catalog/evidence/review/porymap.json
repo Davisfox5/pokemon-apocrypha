@@ -1,0 +1,27 @@
+{
+ "porymap": "6.3.1",
+ "method": "Porymap's own Project::loadMap and Layout::render (tools/gba/maps/route29_catalog/porymap_probe.cpp), compared in RGB555",
+ "maps": {
+  "CherrygroveRoute29Approach": {
+   "size": [
+    1632,
+    816
+   ],
+   "differing_pixels": 0
+  },
+  "CherrygroveCity": {
+   "size": [
+    1280,
+    768
+   ],
+   "differing_pixels": 0
+  },
+  "NewBarkTown": {
+   "size": [
+    576,
+    800
+   ],
+   "differing_pixels": 0
+  }
+ }
+}

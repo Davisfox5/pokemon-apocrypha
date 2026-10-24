@@ -1,0 +1,224 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "0bb663f70c977e78226f22e5056584a4349fc962",
+    "files": [
+      "files/fielddata/eventdata/zone_event/030_R29.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0225_R29.s",
+      "files/msgdata/msg/msg_0373_R29.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 18,
+        "z": 12,
+        "land_data": 1
+      },
+      {
+        "x": 19,
+        "z": 12,
+        "land_data": 2
+      },
+      {
+        "x": 20,
+        "z": 12,
+        "land_data": 3
+      }
+    ],
+    "origin": [
+      576,
+      384
+    ],
+    "size": [
+      96,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        67
+      ],
+      "east": [
+        60
+      ],
+      "north": [
+        48
+      ],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        50,
+        5
+      ],
+      "dest": "MAP_ROUTE_29_ROUTE_46_GATEHOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        51,
+        5
+      ],
+      "dest": "MAP_ROUTE_29_ROUTE_46_GATEHOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        5,
+        13
+      ],
+      "script": "scr_seq_R29_004",
+      "bg_type": 1,
+      "text": "ROUTE 29 EAST: ELM INSTITUTE CAMPUS"
+    },
+    {
+      "cell": [
+        86,
+        13
+      ],
+      "script": "scr_seq_R29_005",
+      "bg_type": 1,
+      "text": "ROUTE 29 WEST: CHERRYGROVE CITY"
+    },
+    {
+      "cell": [
+        -4,
+        6
+      ],
+      "script": "std_hiddenitem_r29_r30_t21_nugget",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R29_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        50,
+        26
+      ],
+      "facing": 1,
+      "movement": 4,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R29_gsbigman",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        46,
+        8
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R29_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        24,
+        11
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R29_gswoman2",
+      "sprite": "SPRITE_GSWOMAN2",
+      "cell": [
+        32,
+        20
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R29_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        53,
+        17
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R29_tree_2",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        43,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_011"
+    },
+    {
+      "id": "obj_R29_var_2",
+      "sprite": "SPRITE_VAR_2",
+      "cell": [
+        85,
+        16
+      ],
+      "facing": 2,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_29_FRIEND"
+    },
+    {
+      "id": "obj_R29_tsure_poke_static_marill",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MARILL",
+      "cell": [
+        84,
+        16
+      ],
+      "facing": 3,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_29_MARILL"
+    },
+    {
+      "id": "obj_R29_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        78,
+        2
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R29_POTION"
+    },
+    {
+      "id": "obj_R29_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        20,
+        8
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R29_gswoman2_2",
+      "sprite": "SPRITE_GSWOMAN2",
+      "cell": [
+        53,
+        21
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_UNK_207"
+    }
+  ]
+}
