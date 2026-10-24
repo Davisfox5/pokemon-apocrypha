@@ -1,15 +1,20 @@
 {
- "note": "Coordinate-labelled review of the third draft (evidence/review3/*.png: HGSS left, installed native right). Native cells x,y. \"fixed\" findings were corrected before the reviewed build; \"adaptation\" ones are deliberate; \"open\" ones remain for owner review.",
+ "note": "Coordinate-labelled review (evidence/review3/*.png: HGSS left, installed native right). Native cells x,y. \"fixed\" findings were corrected before the reviewed build; \"adaptation\" ones are deliberate; \"open\" ones remain for owner review. Owner review of the third draft (2026-10-24): rock faces still not right, see Blackthorn.",
  "findings": [
+  {
+   "cells": "all rock",
+   "state": "fixed",
+   "finding": "Owner review: the third draft's rock (R02/R12 courses stretched over HGSS's projected faces) was not right. Rebuilt as Blackthorn's installed rock: each HGSS height layer one terrace (floor 0, raised lawns 1, mountain 2, source/assemble/terrace-grid.txt), FRLG's mountain nine-slice, over-rock pieces and inner corners in the Johto rock ramp, one face per metatile, top-layer overlay on plain ground."
+  },
+  {
+   "cells": "all ground",
+   "state": "fixed",
+   "finding": "Ground reads lawn or road per 8 px quadrant from HGSS's flat ground colours, the same flat decode the terraces use, so lawn edges meet the faces. The approved painter runs unchanged (32 px rim wave and road texture restored)."
+  },
   {
    "cells": "3-9,16-24 / 18-20,18-24 / 24-28,12-15",
    "state": "fixed",
    "finding": "Lawn edges sat a cell low: ground came from the flat top-down decode while rock came from the true-height render, and HGSS's road01_r rim texture (half lawn) was classed as road. Ground now reads lawn/road per 8 px quadrant from the HGSS reference's own colours."
-  },
-  {
-   "cells": "8-9,0-9",
-   "state": "fixed",
-   "finding": "The narrow lawn strip between the mountain's east face and the gate-side face vanished when both face ends snapped to the tile grid. Ends facing ground narrower than 8 px now keep HGSS's pixels."
   },
   {
    "cells": "15,21",
@@ -20,16 +25,6 @@
    "cells": "1-26,28 (south lawn)",
    "state": "fixed",
    "finding": "Stray road squares inside the south lawn from quadrants with a few sand-coloured rim pixels; a quadrant now needs half its pixels in road sand."
-  },
-  {
-   "cells": "2-25,26-31",
-   "state": "fixed",
-   "finding": "Single-pixel role steps at rock joins and mesh-hole fills; isolated pixels take their neighbours' role."
-  },
-  {
-   "cells": "7-9,27-28 / 18-21,29",
-   "state": "fixed",
-   "finding": "Two rear rims back to back (terrace rim, then a pillar's) were resampled as one 14 px course and read as a front face; they are now two courses. Rear rims use R02's own lower course (the dark band HGSS shows from above) instead of a mirrored, squeezed face."
   },
   {
    "cells": "15-19,8-14 / 24-28,8-14",
@@ -57,19 +52,9 @@
    "finding": "G01a, the approved front gatehouse, at cell (10,-2): its door column on HGSS warp (13,5). Its top two rows are off the map, as HGSS's gate runs into Route 43. Warps solid until the gatehouse exists."
   },
   {
-   "cells": "all rock",
-   "state": "adaptation",
-   "finding": "Rock faces use one 16 px course per orientation (R02 front, R12 side) and a 16 px plateau-top core, the Routes 31/32 structure rebuild's capacity method; rock edges meeting ground snap to the 8 px tile grid (shift up to 4 px)."
-  },
-  {
    "cells": "houses, towers, Gym, antenna tree",
    "state": "adaptation",
-   "finding": "Local HGSS masters moved to the nearest 8 px tile corner (2-3 px) and reduced: houses and towers share 14 tones (from 45), antenna tree 13 (from 24), Gym 19 (from 37, the fewest merges that fit two banks). Shapes unchanged."
-  },
-  {
-   "cells": "all lawn edges",
-   "state": "adaptation",
-   "finding": "Lawn/road rims run straight on the 8 px grid (no 32 px wave) and the road repeats a 16 px core, to fit 1,008 tiles."
+   "finding": "Local HGSS masters moved to the nearest 8 px tile corner (2-3 px) and reduced: houses and towers share 15 tones (from 45), antenna tree 15 (from 24), Gym 20 (from 37, the fewest merges that fit two banks). Shapes unchanged."
   },
   {
    "cells": "8,7 / 8,8",
@@ -77,9 +62,14 @@
    "finding": "Two open lawn cells behind the west tower are enclosed by walls and the tower, unreachable on foot. This is HGSS's own collision, kept unchanged."
   },
   {
-   "cells": "4-5,3-6",
-   "state": "open",
-   "finding": "The west mountain's short side face beside the tower reads as a plain slab; HGSS shows a sloped surface there. Partly behind T01 crowns."
+   "cells": "2-25,27 / 25-31,18",
+   "state": "adaptation",
+   "finding": "Where the ground rises toward the south (the south lawn terrace, the east plateau's north edge) the step faces away from the camera and shows as an FRLG rim on a one-cell rock strip, as Blackthorn draws the far side of a mountain; HGSS shows a dark studded rim there."
+  },
+  {
+   "cells": "0-2,16-31 / 8-9,0-9 / 25-27,18-26",
+   "state": "adaptation",
+   "finding": "Mountain sides beside a raised lawn step twice (mountain face, then the low wall), one metatile each, following HGSS's two height layers."
   }
  ]
 }

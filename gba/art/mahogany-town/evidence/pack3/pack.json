@@ -1,15 +1,15 @@
 {
   "method": "lossless: exact RGB555 banks, flip dedupe, hidden-backing compaction only",
-  "tiles": 966,
+  "tiles": 901,
   "tile_limit": 1008,
   "primary_tiles": 512,
-  "secondary_tiles": 454,
-  "metatiles": 399,
-  "primary_metatiles": 211,
-  "secondary_metatiles": 188,
-  "distinct_tile_jobs": 996,
+  "secondary_tiles": 389,
+  "metatiles": 370,
+  "primary_metatiles": 210,
+  "secondary_metatiles": 160,
+  "distinct_tile_jobs": 916,
   "hidden_backing_tiles": 798,
-  "rock_on_top_layer_tiles": 45,
+  "rock_on_top_layer_tiles": 172,
   "overlap_tiles_split_across_layers": 40,
   "family_banks": {
     "center": [
@@ -20,46 +20,46 @@
       2,
       3
     ],
-    "rock": [
+    "ground": [
       4
     ],
-    "ground": [
+    "gate": [
       5
     ],
-    "gate": [
+    "red roofs": [
       6
     ],
-    "junction": [
+    "antenna": [
       7
     ],
     "sign": [
       8
     ],
-    "red roofs": [
+    "tree": [
       9
     ],
-    "antenna": [
+    "junction": [
       10
     ],
-    "tree": [
+    "rock": [
       11
     ]
   },
   "banks_used": 13,
   "colours_per_bank": [
     15,
-    15,
-    15,
-    15,
-    15,
-    15,
-    15,
-    15,
-    15,
     14,
     15,
     15,
-    15
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    13,
+    15,
+    14
   ],
   "native_pixels_exact": 262144,
   "native_pixels": 262144,

@@ -280,32 +280,17 @@
     "L11.png": true,
     "L12.png": true,
     "L13.png": true,
-    "G01a.png": true,
-    "rock/R01.png": true,
-    "rock/R02.png": true,
-    "rock/R03.png": true,
-    "rock/R04.png": true,
-    "rock/R11.png": true,
-    "rock/R12.png": true,
-    "rock/grass-lip-top-0.png": true,
-    "rock/grass-lip-top-1.png": true,
-    "rock/grass-lip-bottom-0.png": true,
-    "rock/grass-lip-bottom-1.png": true,
-    "rock/grass-lip-left-0.png": true,
-    "rock/grass-lip-left-1.png": true,
-    "rock/grass-lip-right-0.png": true,
-    "rock/grass-lip-right-1.png": true,
-    "rock/route31-top-source.png": true
+    "G01a.png": true
   },
-  "tiles": 966,
+  "tiles": 901,
   "tile_limit": 1008,
-  "primary_metatiles": 211,
-  "secondary_metatiles": 188,
+  "primary_metatiles": 210,
+  "secondary_metatiles": 160,
   "metatile_limit_each": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true,
   "material_cells": 1024,
-  "material_matches": 936,
+  "material_matches": 929,
   "material_mismatches": [],
   "foreground_differs": [
     [
@@ -389,6 +374,30 @@
       7
     ],
     [
+      0,
+      8
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      5,
+      8
+    ],
+    [
       16,
       8
     ],
@@ -398,6 +407,10 @@
     ],
     [
       20,
+      10
+    ],
+    [
+      28,
       10
     ],
     [

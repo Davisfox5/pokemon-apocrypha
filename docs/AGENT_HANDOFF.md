@@ -1,6 +1,10 @@
-## Latest: Mahogany Town, third draft under the reconstruction guide (October 24)
+## Latest: Mahogany Town, Blackthorn-style rock (October 24)
 
-Engine branch `claude/mahogany-town` at `8c60a820` (draft PR #28 against `apocrypha`) has `MahoganyTown` (ids 43-45 with the Center and its upstairs) rebuilt strictly to `docs/GBA_MAP_RECONSTRUCTION.md` after the owner rejected the element build and the direct HGSS conversion ("does not follow the guide"). Decoded HGSS trace (`trace.py`), shared Johto catalog art (Cherrygrove painter, R02/R12 rock on HGSS's measured faces, L11-L13, T01, P12/P13/P15, C06, G01a) plus local HGSS houses, Gym, towers and antenna tree (`assemble.py`), lossless pack (`pack_lossless.py`: 966 tiles, 13 exact banks, every pixel exact). Native and material audits, headless mGBA (31 captures at VRAM parity, ledges, barriers, signs, Center, save/reload/Continue) and Porymap 6.3.1 (export equals native) pass. Read `gba/art/mahogany-town/README.md`; findings by coordinate in `evidence/review3/findings.json`. Doors to unbuilt interiors are solid; no connections. Owner visual review pending. Map ids collide with Blackthorn's PR #26 (both append 43+).
+Engine branch `claude/mahogany-town` at `02dc6b15` (draft PR #28 against `apocrypha`) has `MahoganyTown` (ids 43-45 with the Center and its upstairs) rebuilt to `docs/GBA_MAP_RECONSTRUCTION.md`. After the third draft the owner found the rock faces still wrong and named Blackthorn as the reference: rock is now Blackthorn's FRLG terraces (`elements.rock_frlg`), one terrace per HGSS height layer, one face per metatile. Ground is the approved Cherrygrove painter on an 8 px grid from HGSS's flat colours; shared catalog ledges, T01, signs, C06, G01a; local HGSS houses, Gym, towers, antenna tree. Lossless pack (901 tiles, 13 exact banks). Native and material audits, headless mGBA (31 captures at VRAM parity, ledges, barriers, signs, Center, save/reload/Continue) and Porymap 6.3.1 pass. Read `gba/art/mahogany-town/README.md`; findings in `evidence/review3/findings.json`. Doors to unbuilt interiors are solid; no connections. Owner visual review pending. Map ids collide with Blackthorn's PR #26 (both append 43+).
+
+## Earlier: Mahogany Town, third draft (October 24, rock replaced)
+
+Third draft at engine `8c60a820`: same pipeline with R02/R12 rock courses on HGSS's projected faces.
 
 ## Earlier: Mahogany Town, HGSS's own art converted (October 23, rejected)
 

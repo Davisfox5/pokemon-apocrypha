@@ -95,7 +95,7 @@ def render_roles(phg):
             role[changed] = code
             drawn |= changed
     names = list(R.MATERIAL_NAMES)
-    return role, cv.rgb.astype(np.uint8), cv.mat, names, drawn
+    return role, cv.rgb.astype(np.uint8), cv.mat, names, drawn, cv.height
 
 def ground_material(phg):
     """Flat top-down HGSS ground per pixel: 0 lawn, 1 dirt road, 2 flowers."""
@@ -229,14 +229,15 @@ def main(phg):
     perm = np.load(SRC / 'hgss/hgss-permissions.npz')
     events = json.loads((SRC / 'hgss-events.json').read_text())
     rinfo = json.loads((SRC / 'hgss/hgss-render.json').read_text())
-    role, rgb, mat, names, drawn = render_roles(phg)
+    role, rgb, mat, names, drawn, height = render_roles(phg)
     gmat, height = ground_material(phg)
     topmat = top_material(role, gmat)
     cells = E.ledger(phg)
     trees = E.tree_footprints(cells)
     blds = building_cells(perm, rinfo, events)
     grid = cell_grid(role, topmat, gmat, perm, trees, events, blds)
-    np.savez_compressed(OUT / 'roles.npz', role=role, top_material=topmat, ground_material=gmat, drawn=drawn)
+    np.savez_compressed(OUT / 'roles.npz', role=role, top_material=topmat, ground_material=gmat, drawn=drawn,
+                        height=np.nan_to_num(height, nan=-1).astype(np.float32))
     (OUT / 'material-grid.txt').write_text(
         '# Mahogany Town material and structure grid, one code per native 16x16 cell (x across, y down).\n'
         '# Traced from decoded HGSS land_data chunk 85 (trace.py), then reviewed. Codes:\n' +

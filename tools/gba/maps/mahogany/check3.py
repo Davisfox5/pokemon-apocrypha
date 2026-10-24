@@ -45,56 +45,52 @@ def vocab():
     from claude_cherrygrove import ground as G
     tex = G.textures()
     sh = SRC / 'shared-art'
-    import assemble as A
-    front, west, top, lips = A.rock_modules()
+    import elements as E
+    pieces = E.frlg_pieces(ENGINE)
+    ramp = {i for group in ('nine', 'rock', 'inner') for p in pieces[group].values() for i in p.ravel().tolist() if i >= 0}
     v = dict(
         lawn=c5set(tex[G.GRASS]) | {tuple(np.array(c) >> 3) for c in G.PROFILES[(G.GRASS, G.PATH)][0]},
         road=c5set(tex[G.PATH]) | {tuple(np.array(c) >> 3) for c in G.PROFILES[(G.GRASS, G.PATH)][1]},
-        rock_top=c5set(np.array(top)),
-        rock_face=c5set(front) | c5set(west),
-        ledge=set().union(*(c5set(A.align_ledge(rgba(sh / f'{n}.png'))) for n in ('L11', 'L12', 'L13'))),
+        rock={tuple(np.array(E.ROCK_RAMP[i]) >> 3) for i in ramp},
+        ledge=set().union(*(c5set(rgba(sh / f'{n}.png')) for n in ('L11', 'L12', 'L13'))),
         flowers={(29, 28, 26)},
         tree=c5set(rgba(sh / 'T01.png')),
         center=c5set(rgba(sh / 'pokemon-center.png')), gate=c5set(rgba(sh / 'G01a.png')),
         sign=set().union(*(c5set(rgba(sh / f'{n}.png')) for n in ('P12', 'P13', 'P15'))),
         houses_towers=c5set(rgba(SRC / 'local-art/house.png')) | c5set(rgba(SRC / 'local-art/tower.png')),
         gym=c5set(rgba(SRC / 'local-art/gym.png')), antenna_tree=c5set(rgba(SRC / 'local-art/antenna_tree.png')))
-    v['lawn'] |= c5set(np.array([c[:3] for l in lips.values() for t in l for c in t.reshape(-1, 4) if c[3] and c[1] > c[0]]).reshape(-1, 3))
     return v
 
 OBJECTS = ('tree', 'center', 'gate', 'sign', 'houses_towers', 'gym', 'antenna_tree')
-TERRAIN = ('lawn', 'road', 'flowers', 'rock_top', 'rock_face', 'ledge')
+TERRAIN = ('lawn', 'road', 'flowers', 'rock', 'ledge')
 MODEL_CLASS = {29: 'sign', 31: 'sign', 33: 'sign', 35: 'gate', 134: 'houses_towers', 135: 'houses_towers',
                249: 'houses_towers', 136: 'antenna_tree', 138: 'gym', 16: 'gym'}
 
 def hgss_classes(phg, grid):
-    """Per pixel, what HGSS shows: its building models (hgss-foreground), its trees (tree
-    materials of the decoded terrain), the Center (left out of hgss-foreground; its grid cells),
-    ledges (ledge materials), then the traced terrain roles and flat ground materials."""
-    sys.path.insert(0, str(HERE))
-    import hgss_render as R
-    R.SNAP = True
-    r = R.render(phg)
-    names = list(R.MATERIAL_NAMES)
-    gm = r['ground_mat']
-    z = np.load(SRC / 'trace/roles.npz')
-    role, gmat = z['role'], z['ground_material']
+    """Per pixel, what HGSS shows, decoded flat (the way the rock terraces are built): its
+    cliff and wall materials (rock), ledge materials, tree materials, lawn or road by its own
+    ground colours, then its building models (hgss-foreground) and the Center (left out of
+    hgss-foreground; its grid cells)."""
+    import elements as E
+    h, mat, names, rgb = E.topdown(phg)
+    nm = np.array(names + ['none'])
+    m = nm[np.where(mat >= 0, mat, len(names))]
+    rgb = rgb.astype(int)
     cls = np.full((H * 16, W * 16), '', object)
-    cls[gmat == 0] = 'lawn'; cls[gmat == 1] = 'road'; cls[gmat == 2] = 'lawn'     # flower03 is lawn with white heads
-    cls[role == 1] = 'rock_top'; cls[role >= 2] = 'rock_face'
-    led = np.isin(gm, [names.index(n) for n in ('allpeakgs', 'allpeak_pgs')])
-    cls[led] = 'ledge'
-    tree = np.isin(gm, [names.index(n) for n in ('tree01gs', 'tree01_un', 'tree01_re')])
-    cls[tree] = 'tree'
+    cls[(rgb[..., 1] > rgb[..., 0] + 20)] = 'lawn'
+    cls[(rgb[..., 0] >= rgb[..., 1]) & (rgb[..., 0] > 180) & (rgb[..., 2] < 175)] = 'road'
+    cls[np.isin(m, E.ROCK_MATERIALS) & ~np.isin(m, E.LEDGE_MATERIALS)] = 'rock'
+    cls[np.isin(m, E.LEDGE_MATERIALS)] = 'ledge'
+    cls[np.isin(m, E.TREE_MATERIALS)] = 'tree'
     for y in range(H):
         for x in range(W):
             if grid[y][x] == 'C':
                 cls[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = 'center'
     own = np.load(SRC / 'hgss/hgss-foreground-owner.npz')['owner']
     models = [b['model'] for b in json.loads((SRC / 'hgss/hgss-render.json').read_text())['buildings']]
-    for i, m in enumerate(models):
-        if m in MODEL_CLASS:
-            cls[own == i] = MODEL_CLASS[m]
+    for i, mm in enumerate(models):
+        if mm in MODEL_CLASS:
+            cls[own == i] = MODEL_CLASS[mm]
     return cls
 
 def material_audit(img, grid, phg):
@@ -146,7 +142,11 @@ def material_audit(img, grid, phg):
                 fg_diff.append(row)
     return rows, mism, fg_diff, unknown
 
+ENGINE = None
+
 def main(g, phg):
+    global ENGINE
+    ENGINE = g
     img, beh, layer, coll, elev, mid, _, n_metas = CC.decode(g)
     built = np.array(Image.open(OUT / 'native.png').convert('RGB'))
     assert (B.rgb5(img) == B.rgb5(built)).all(), 'installed map differs from the packer decode'
@@ -215,8 +215,8 @@ def main(g, phg):
     rows, mism, fg_diff, unknown = material_audit(img, grid, phg)
     (OUT / 'material-audit.json').write_text(json.dumps(dict(
         method=material_audit.__doc__.strip() + ' Native vocabularies come from the source masters (shared catalog art, '
-               'the Cherrygrove ground painter, the rock modules, the local HGSS buildings); HGSS classes from hgss_render '
-               '(building models, tree and ledge materials), the traced rock roles and the flat ground materials.',
+               'the Cherrygrove ground painter, the FRLG mountain pieces in the rock ramp, the local HGSS buildings); HGSS '
+               'classes from the flat decode (cliff, wall, ledge and tree materials, ground colours) and its building models.',
         cells=len(rows), matches=sum(r['status'] == 'match' for r in rows), mismatches=mism, foreground_differs=fg_diff,
         unclassified_colours={str(k): n for k, n in unknown.most_common(20)}, per_cell=rows), indent=1) + '\n')
     big = Image.fromarray(img).resize((W * 32, H * 32), Image.Resampling.NEAREST); d = ImageDraw.Draw(big)

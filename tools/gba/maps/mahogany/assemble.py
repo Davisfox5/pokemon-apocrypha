@@ -1,40 +1,39 @@
-"""Mahogany Town, third draft: native art assembled under docs/GBA_MAP_RECONSTRUCTION.md.
+"""Mahogany Town: native art assembled under docs/GBA_MAP_RECONSTRUCTION.md.
 
     python3 tools/gba/maps/mahogany/assemble.py PHG_CHECKOUT CATALOG_CHECKOUT ENGINE_CHECKOUT
 
 The owner rejected the element build (flat textures, wrong houses, wrong rock depth) and the
-direct HGSS conversion (it did not follow the guide). This draft follows the guide step by step:
+direct HGSS conversion (it did not follow the guide); on the third draft the owner found the
+rock faces still wrong and named Blackthorn as the reference. So:
 
-1. Reference: trace.py registers decoded HGSS land_data chunk 85 to native cells 1:1 and writes
-   the material grid, the per-pixel rock roles (top, front, sides, rear, measured from HGSS's
-   own mesh) and the traversal ledger. This script reads those; it never reads a previous draft.
-2. Shared art, copied unchanged with hashes into source/shared-art/ from the Johto catalog
+1. Reference: trace.py registers decoded HGSS land_data chunk 85 to native cells 1:1 (numbered
+   sheets, material grid, traversal ledger); elements.ledger decodes it flat, cell by cell.
+2. Rock, as Blackthorn's installed rock: every HGSS height layer is one terrace (floor 0, raised
+   lawns 1, mountain 2; source/assemble/terrace-grid.txt), drawn with FRLG General's mountain
+   nine-slice, over-rock pieces and inner corners in the Johto rock ramp, one face per metatile,
+   as a top-layer overlay on plain ground (elements.rock_frlg, Blackthorn's rock_frlg).
+3. Shared art, copied unchanged with hashes into source/shared-art/ from the Johto catalog
    (CATALOG_CHECKOUT is a checkout of branch codex/violet-city):
-     ground      the accepted Cherrygrove/Route 36 painter (claude_cherrygrove/ground.py),
-                 lawn and road textures with their measured rim profiles
-     rock        Route 30 complete tiles R02|R04 (front) and R12/R11 (side), Route 36 grass lips,
-                 and the Route 31 HGSS plateau-top patch, as in the Routes 31/32 structure rebuild:
-                 one complete face resampled to each measured drop, never repeated within a drop
+     ground      the accepted Cherrygrove/Route 36 painter (claude_cherrygrove/ground.py), run on
+                 an 8 px lawn/road grid read from HGSS's own flat ground colours
      ledges      L11/L12/L13 (warm Johto ledge ends and run)
      trees       T01 on each decoded 2x2 HGSS root
      signs       P12 signpost, P13 information plaque, P15 Gym marker
      buildings   C06 Pokemon Center, G01a front gatehouse (approved-buildings.json)
-3. Local assets, authored only where the catalog has none (source/local-art/): the two houses,
+4. Local assets, authored only where the catalog has none (source/local-art/): the two houses,
    the Gym, the two lookout towers and the antenna tree from HGSS's own models and textures
-   (transparent, exact HGSS texture colours, no baked ground); the white flower patch from
-   HGSS's flower03 texture; and the west-facing ledge, Emerald's native jump-west ledge
-   (general metatile 0x85) recoloured onto the L11-L13 ramp.
+   (transparent, HGSS texture colours, no baked ground); the white flower patch from HGSS's
+   flower03 texture; and the west-facing ledge, Emerald's native jump-west ledge (general
+   metatile 0x85) recoloured onto the L11-L13 ramp.
 
-Writes source/assemble/layers.npz (ground RGB with ledges and flowers, rock RGBA, objects RGBA, object owner), source/assemble/
-placements.json, evidence/assemble/composed.png.
+Writes source/assemble/layers.npz (ground RGB with ledges and flowers, rock RGBA, objects RGBA,
+object owner, terrace levels), placements.json, terrace-grid.txt, evidence/assemble/*.png.
 """
 from __future__ import annotations
 import hashlib, json, shutil, subprocess, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
-from collections import Counter
-from scipy import ndimage
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -49,7 +48,6 @@ TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 W = H = 32
 PX = 16
-GROUND, TOP, FRONT, EAST, WEST, REAR = range(6)
 
 CATALOG = {  # local name -> catalog path (branch codex/violet-city)
     'T01.png': 'gba/art/johto-common/trees/source/T01.png',
@@ -60,17 +58,10 @@ CATALOG = {  # local name -> catalog path (branch codex/violet-city)
     'L12.png': 'gba/art/johto-common/scenery/source/L12.png',
     'L13.png': 'gba/art/johto-common/scenery/source/L13.png',
     'G01a.png': 'gba/art/johto-common-review/gates/refinement-4/G01a.png',
-    **{f'rock/{r}.png': f'gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/{r}.png' for r in ('R01', 'R02', 'R03', 'R04', 'R11', 'R12')},
-    **{f'rock/{r}.png': f'gba/art/johto-common/rocks/r02-shared-rims/source/tiles/{r}.png'
-       for r in [f'grass-lip-{s}-{i}' for s in ('top', 'bottom', 'left', 'right') for i in (0, 1)]},
 }
-WAVE = False             # straight rims on the 8 px grid; the 32 px wave costs ~75 tiles there
-PATH_CORE = 16           # road sand repeats its 16 px core (the lawn keeps its 32 px texture)
-TOP_CORE = 16            # plateau-top core (the 32 px patch costs 45 more tiles than the budget leaves)
-TOP_FOLD = {(160, 112, 88): (160, 120, 96), (168, 120, 96): (160, 120, 96), (168, 120, 88): (160, 120, 96),
-            (200, 152, 104): (208, 160, 104)}
-FACE_FOLD = {(128, 96, 80): (136, 104, 80), (104, 96, 88): (88, 80, 72)}
-TOP_PATCH = ('gba/art/hgss-connections/references/route31-hgss.png', (944, 32, 976, 64))
+WAVE = True              # the approved painter's 32 px rim wave
+PATH_CORE = 32           # the approved painter's full 32 px road texture
+FLOOR = 4                # HGSS height of the town floor; raised lawns stand at 5, the mountain at 6
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def rgba(p): return np.array(Image.open(p).convert('RGBA'))
@@ -86,64 +77,50 @@ def stage_shared(catalog):
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(catalog / rel, dst)
         prov[name] = dict(source=rel, sha256=sha(dst))
-    src, box = TOP_PATCH
-    patch = Image.open(catalog / src).convert('RGB').crop(box)
-    patch.save(SHARED / 'rock/route31-top-source.png')
-    prov['rock/route31-top-source.png'] = dict(source=f'{src} crop {list(box)}', source_sha256=sha(catalog / src),
-                                               sha256=sha(SHARED / 'rock/route31-top-source.png'),
-                                               use='Routes 31/32 structure rebuild plateau top (unobscured HGSS 32 px patch)')
+    for k in [k for k in prov if k.startswith('rock/')]:     # the third draft's R02 rock is retired
+        del prov[k]
     (SHARED / 'provenance.json').write_text(json.dumps(prov, indent=2) + '\n')
 
 # --------------------------------------------------------------------------- rock
-def rock_modules():
-    R = {n: rgba(SHARED / f'rock/{n}.png') for n in ('R01', 'R02', 'R03', 'R04', 'R11', 'R12')}
-    # Capacity: as in the Routes 31/32 structure rebuild's Route 32 build, one face variant per
-    # orientation (R02 front, R12 side) and a 16 px plateau-top core, so the complete geometry
-    # fits the tile budget beside six HGSS buildings.
-    front = np.concatenate([R['R02'], R['R02']], axis=1)          # 16 x 32: R02 course, 16 px period
-    west = np.concatenate([R['R12'], R['R12']], axis=0)           # 32 x 16: R12 course, 16 px period
-    # Ramp alignment: two pairs of near-identical stone tones (1-2 RGB555 steps apart) share
-    # one tone each, so the rock bank also holds the two lawn greens of the grass lips.
-    for m in (front, west):
-        for src, dst in FACE_FOLD.items():
-            m[(m[..., :3] == src).all(-1), :3] = dst
-    lips = {k: [rgba(SHARED / f'rock/grass-lip-{k}-{i}.png') for i in (0, 1)] for k in ('top', 'bottom', 'left', 'right')}
-    # Plateau top: the unobscured HGSS Route 31 patch with its own tones. Its four nearest
-    # duplicate tones fold into a neighbour (three into the face ramp's lightest stone), so the
-    # whole rock ramp, face and top together, is one 15-colour bank and rims, corners and
-    # caps never need two; the diamond pattern keeps five steps plus the shared stone.
-    top = np.array(Image.open(SHARED / 'rock/route31-top-source.png').convert('RGB'))
-    for src, dst in TOP_FOLD.items():
-        top[(top == src).all(-1)] = dst
-    if TOP_CORE == 16:
-        top = np.tile(top[:16, :16], (2, 2, 1))                      # the 16 px core, tiled to the 32 px lookup
-    Image.fromarray(top).save(LOCAL / 'rock-top.png')
-    return front, west, top, lips
+def terraces(cells):
+    """Blackthorn's rock structure: every HGSS height layer is one Gen 3 terrace. A rock cell
+    (ledger label T, E, S, W or N: HGSS's cliff and wall cells, decoded flat) stands at its
+    rock peak above the floor (mountain 2, the low walls round the raised lawns 1); every other
+    cell at its ground height (floor 0, raised lawns 1; under a tree crown or a roof, the
+    cell's lowest point). So a low wall is the face of the lawn terrace above it, not a ridge."""
+    lab = np.array([[c['lab'] for c in row] for row in cells])
+    rock = np.isin(lab, list(E.ROCK))
+    d = np.zeros((H, W), int)
+    for y in range(H):
+        for x in range(W):
+            c = cells[y][x]
+            d[y, x] = max(1, round(c['peak']) - FLOOR) if rock[y, x] else max(0, round(c['ground']) - FLOOR)
+    pad = np.pad(d, 1, mode='edge')
+    lower = np.zeros((H, W), bool)
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            if dy or dx:
+                lower |= pad[1 + dy:1 + dy + H, 1 + dx:1 + dx + W] < d
+    return d, rock & lower, rock
 
-def fill_roles(role, drawn, tree_px):
-    """HGSS's projected mesh leaves small holes at snapped corners. Fill each undrawn pixel
-    (outside tree roots, where HGSS has no ground mesh) with the nearest drawn pixel's role."""
-    hole = ~drawn & ~tree_px
-    _, (iy, ix) = ndimage.distance_transform_edt(~drawn, return_indices=True)
-    out = role.copy()
-    out[hole] = role[iy[hole], ix[hole]]
-    out[~drawn & tree_px] = GROUND
-    return out
-
-def runs(mask, axis):
-    """Yield (fixed, start, stop) for every run of True along axis (0: vertical runs per column)."""
-    a = mask if axis == 0 else mask.T
-    for fixed in range(a.shape[1]):
-        col = a[:, fixed]
-        d = np.diff(np.concatenate([[0], col.astype(np.int8), [0]]))
-        for s, e in zip(np.nonzero(d == 1)[0], np.nonzero(d == -1)[0]):
-            yield fixed, s, e
+def frlg_rock(cells, ground):
+    """Blackthorn's installed rock (style C, tools/gba/maps/blackthorn/elements.rock_frlg, kept
+    here as elements.rock_frlg): FRLG General's mountain nine-slice, its over-rock version
+    where an edge drops to a lower terrace, and its four inner corners, recoloured to the
+    Johto rock ramp, one face per metatile. The rock is a top-layer overlay; under its clear
+    pixels the bottom carries the plainest 8x8 block of the ground beyond the edge, and its
+    cast shadow is Cherrygrove's border grey. Ledges keep their own art (no FRLG join piece)."""
+    d, face, isrock = terraces(cells)
+    E.layers = lambda _cells: (d, face, isrock)
+    plain_cells = [[dict(c, lab='.' if c['lab'] in E.LEDGES else c['lab']) for c in row] for row in cells]
+    out, over, _, piece = E.rock_frlg(plain_cells, ground, E.frlg_pieces(ENGINE), E.cherry_textures())
+    return out, over, d, isrock, piece
 
 def paint_ground(q):
     """The accepted Cherrygrove/Route 36 painter (claude_cherrygrove/ground.paint) on an 8 px
-    material grid: its own textures, rim profiles and order, with each material square 8 px
-    instead of 16 so lawn edges can sit mid-cell where HGSS puts them. Capacity: rims run
-    straight (WAVE off) and the road repeats a 16 px core (PATH_CORE)."""
+    material grid: its own textures, rim profiles, 32 px wobble wave and order, with each
+    material square 8 px instead of 16 so lawn edges can sit mid-cell where HGSS puts them.
+    WAVE and PATH_CORE can trade the wave and the road's 32 px texture for tiles (both on here)."""
     U = 8
     hq, wq = q.shape
     h, w = hq * U, wq * U
@@ -169,138 +146,38 @@ def paint_ground(q):
             out[..., :3][(mat == b) & (dist[a] == k + 1)] = c
     return out, mat
 
-def ground_quadrants(cells, grid, role, drawn):
-    """Lawn or road per 8 px quadrant, read from the HGSS reference's own colours (lawn greens
-    against road sand) on its open ground; squares HGSS shows no ground in (rock, objects)
-    keep their cell's material. Ledge stones are read past: a ledge cell's lower (south ledge)
-    or left (west ledge) quadrants take the ground of the quadrant beside them."""
-    ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB')).astype(int)
-    r, g, b = ref[..., 0], ref[..., 1], ref[..., 2]
-    lawn = (g > r + 20) & (role == GROUND)
-    sand = (r >= g) & (r > 180) & (b < 175) & (role == GROUND)
-    q = np.repeat(np.repeat(cells, 2, 0), 2, 1).astype(np.int8)
+def ground_quadrants(cells, rock):
+    """Lawn or road per 8 px quadrant, read from HGSS's own flat ground colours (lawn greens
+    against road sand: HGSS's road01_r rim texture is half lawn, so its material name
+    misleads); quadrants HGSS shows too little open ground in keep their cell's material.
+    Ledge stones are read past: a south ledge cell's lower quadrants and a west ledge cell's
+    left ones take the ground beside them."""
+    _, _, _, rgb = E.topdown(PHG)
+    rgb = rgb.astype(int)
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    rockpx = np.repeat(np.repeat(rock, PX, 0), PX, 1)
+    lawn = (g > r + 20) & ~rockpx
+    sand = (r >= g) & (r > 180) & (b < 175) & ~rockpx
+    q = np.repeat(np.repeat(np.array([[G.PATH if c['floor'] == 'sand' else G.GRASS for c in row] for row in cells]), 2, 0), 2, 1).astype(np.int8)
     for qy in range(H * 2):
         for qx in range(W * 2):
-            if grid[qy // 2][qx // 2] == 't':
+            if cells[qy // 2][qx // 2]['lab'] == 'F':
+                q[qy, qx] = G.GRASS                       # HGSS's woods stand on lawn
                 continue
             sl = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
             nl, ns = int(lawn[sl].sum()), int(sand[sl].sum())
-            if ns >= 32 and ns > nl:                    # at least half the quadrant reads as road sand
+            if ns >= 32 and ns > nl:
                 q[qy, qx] = G.PATH
             elif nl >= 8:
                 q[qy, qx] = G.GRASS
     for y in range(H):
         for x in range(W):
-            c = grid[y][x]
+            c = cells[y][x]['lab']
             if c in 'LJ':
                 q[2 * y + 1, 2 * x:2 * x + 2] = q[2 * y, 2 * x:2 * x + 2]
             if c in 'QJ':
                 q[2 * y:2 * y + 2, 2 * x] = q[2 * y:2 * y + 2, 2 * x + 1]
     return q
-
-def despeckle(role, rounds=2):
-    """Isolated-pixel cleanup within the rock: a pixel whose role at most one of its eight
-    neighbours shares takes its neighbours' commonest role (HGSS's projected joins and the
-    filled mesh holes leave single-pixel steps that read as noise at native scale)."""
-    r = role.copy()
-    h, w = r.shape
-    for _ in range(rounds):
-        p = np.pad(r, 1, mode='edge')
-        nb = np.stack([p[1 + dy:h + 1 + dy, 1 + dx:w + 1 + dx] for dy in (-1, 0, 1) for dx in (-1, 0, 1) if dy or dx])
-        same = (nb == r[None]).sum(0)
-        lone = (same <= 1) & ((r != GROUND) | (nb != GROUND).any(0))
-        counts = np.stack([(nb == k).sum(0) for k in range(6)])
-        r = np.where(lone, counts.argmax(0), r).astype(np.uint8)
-    return r
-
-def snap_roles(role, topmat):
-    """Native tile fit. Every face run end that meets ground (not the rock top) moves to the
-    nearest 8 px tile edge, so rock and ground share as few 8x8 tiles as possible; ends that
-    meet the plateau top, and the diagonal joins inside the rock, keep HGSS's own pixels. The
-    face is then resampled to its new length, so it stays one complete course. Returns the
-    snapped roles, top materials and how far each run moved."""
-    out = np.where(role == TOP, TOP, GROUND).astype(np.uint8)
-    tm = np.zeros_like(topmat)
-    moved = Counter()
-    snap = lambda v: int(round(v / 8.0)) * 8
-    for k in (FRONT, REAR, WEST, EAST):
-        axis = 0 if k in (FRONT, REAR) else 1
-        for fixed, a0, a1 in runs(role == k, axis):
-            get = (lambda i: role[i, fixed]) if axis == 0 else (lambda i: role[fixed, i])
-            lim = role.shape[axis]
-            b0 = get(a0 - 1) if a0 > 0 else TOP
-            b1 = get(a1) if a1 < lim else TOP
-            def gap(i, step):                          # open ground beyond this end, up to the next face
-                k = 0
-                while 0 <= i < lim and get(i) == GROUND and k < 8:
-                    i += step; k += 1
-                return k
-            # a narrow lawn strip between two faces (under 8 px) keeps HGSS's pixels
-            n0 = snap(a0) if b0 == GROUND and gap(a0 - 1, -1) >= 8 else a0
-            n1 = snap(a1) if b1 == GROUND and gap(a1, 1) >= 8 else a1
-            if n1 - n0 < 4:
-                n0, n1 = a0, a1
-            fill_top = None
-            moved[(n0 - a0, n1 - a1)] += 1
-            t = topmat[a0, fixed] if axis == 0 else topmat[fixed, a0]
-            if axis == 0:
-                if fill_top:
-                    out[fill_top[0]:fill_top[1], fixed] = TOP
-                out[n0:n1, fixed] = k; tm[n0:n1, fixed] = t
-            else:
-                out[fixed, n0:n1] = k; tm[fixed, n0:n1] = t
-    return out, tm, moved
-
-def paint_rock(img, role, topmat, modules):
-    """Paint every rock pixel; returns the mask of grass-lip pixels (lawn greens hanging over
-    a grass-topped wall's edge), which belong to the ground layer, not the rock."""
-    front, west, top, lips = modules
-    h, w = role.shape
-    lipm = np.zeros((h, w), bool)
-    yy, xx = np.mgrid[0:h, 0:w]
-    m = role == TOP
-    img[m] = top[yy[m] % 32, xx[m] % 32]
-    for x, y0, y1 in runs(role == FRONT, 0):
-        n = y1 - y0
-        iy = ((np.arange(n) * 16) // n).clip(0, 15)
-        img[y0:y1, x] = front[iy, x % 32, :3]
-        if topmat[y0, x] == 1:                                   # grass-topped wall: the lip once, at its top
-            lip = lips['top'][(x // 16) % 2]
-            for dy in range(min(3, n)):
-                c = lip[dy, x % 16]
-                if c[3] and c[1] > c[0]:
-                    img[y0 + dy, x] = c[:3]; lipm[y0 + dy, x] = True
-    rear = []
-    for x, y0, y1 in runs(role == REAR, 0):
-        if y1 - y0 > 10:                                 # two rims back to back (a terrace rim, then a pillar's)
-            rear += [(x, y0, y0 + 8), (x, y0 + 8, y1)]
-        else:
-            rear.append((x, y0, y1))
-    for x, y0, y1 in rear:
-        n = y1 - y0
-        iy = (8 + (np.arange(n) * 8) // n).clip(8, 15)
-        img[y0:y1, x] = front[iy, x % 32, :3]             # the face's own studded lower course, as HGSS shows a rim from above
-        if topmat[y1 - 1, x] == 1:
-            lip = lips['bottom'][(x // 16) % 2]
-            for dy in range(min(3, n)):
-                c = lip[15 - dy, x % 16]
-                if c[3] and c[1] > c[0]:
-                    img[y1 - 1 - dy, x] = c[:3]; lipm[y1 - 1 - dy, x] = True
-    for k, mirror, lipkey in ((WEST, False, 'right'), (EAST, True, 'left')):
-        mod = west[:, ::-1] if mirror else west
-        for y, x0, x1 in runs(role == k, 1):
-            n = x1 - x0
-            ix = ((np.arange(n) * 16) // n).clip(0, 15)
-            img[y, x0:x1] = mod[y % 32, ix, :3]
-            top_x = x1 - 1 if k == WEST else x0                  # the plateau lies east of a west face
-            if topmat[y, top_x] == 1:
-                lip = lips[lipkey][(y // 16) % 2]
-                for d in range(min(3, n)):
-                    xi, li = (x1 - 1 - d, 15 - d) if k == WEST else (x0 + d, d)
-                    c = lip[y % 16, li]
-                    if c[3] and c[1] > c[0]:
-                        img[y, xi] = c[:3]; lipm[y, xi] = True
-    return lipm
 
 # --------------------------------------------------------------------------- local assets
 def west_ledge():
@@ -326,16 +203,6 @@ def west_ledge():
     assert {tuple(c) for c in out[a][:, :3].tolist()} <= set(tone.values()), 'unmapped 0x85 colour'
     Image.fromarray(out).save(LOCAL / 'ledge-west.png')
     return out
-
-LEDGE_ALIGN = {(128, 88, 64): (120, 88, 64), (160, 112, 80): (160, 120, 96), (192, 144, 96): (184, 136, 104)}
-
-def align_ledge(a):
-    """Ramp alignment: the warm ledge's stone tones onto the rock ramp's nearest tones (each
-    within 1-2 RGB555 steps; (104,72,56) is already shared), so ledges spend no ground slots."""
-    a = a.copy()
-    for src, dst in LEDGE_ALIGN.items():
-        a[(a[..., :3] == src).all(-1) & (a[..., 3] > 0), :3] = dst
-    return a
 
 def ledge_corner(q, l12):
     """Where the west run turns into the south run (HGSS (6,12)): the west band down to the
@@ -409,7 +276,7 @@ def local_buildings(phg):
         groups=reductions), indent=1) + '\n')
     return placed
 
-REDUCE = {'red roofs and timber': (('house', 'tower'), 14), 'gym': (('gym',), 30), 'antenna tree': (('antenna_tree',), 13)}
+REDUCE = {'red roofs and timber': (('house', 'tower'), 15), 'gym': (('gym',), 30), 'antenna tree': (('antenna_tree',), 15)}
 BANKS_FOR = {'gym': 2}       # the Gym may span two banks: reduce only until its placed tiles pack into two
 
 def tile_sets(arts, offs):
@@ -502,47 +369,26 @@ CENTER_ORIGIN = (20, 19)      # C06 door (2,4) on HGSS's Center door (22,23)
 SIGN_XY = {(4, 12): ('P12.png', 64, 176), (14, 14): ('P13.png', 216, 200), (8, 24): ('P15.png', 120, 360)}   # bases on HGSS's sign bases
 
 def compose(phg):
-    z = np.load(TRACE / 'roles.npz')
+    global PHG
+    PHG = phg
     grid = read_grid()
+    cells = E.ledger(phg)
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
-    tree_px = np.zeros((H * PX, W * PX), bool)
-    for tx, ty in trees:
-        tree_px[ty * PX:(ty + 2) * PX, tx * PX:(tx + 2) * PX] = True
-    role = fill_roles(z['role'], z['drawn'], tree_px)
-    topmat, gmat = z['top_material'], z['ground_material']
-    role, topmat, moved = snap_roles(role, topmat)
-    role = despeckle(role)
-    SNAPPED.update(moved)
-    # Ground: one material per cell for the Cherrygrove painter, from HGSS's flat ground.
-    cells = np.zeros((H, W), np.int8)
-    for y in range(H):
-        for x in range(W):
-            sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
-            keep = (role[sl] == GROUND) & z['drawn'][sl]
-            part = {'L': np.s_[:8, :], 'Q': np.s_[:, 8:], 'J': np.s_[:8, 8:]}.get(grid[y][x])
-            if part is not None:                       # a ledge cell: read the ground the stone band leaves open
-                k2 = np.zeros_like(keep); k2[part] = keep[part]; keep = k2
-            gm = gmat[sl][keep]
-            if grid[y][x] == 't':
-                cells[y, x] = G.GRASS                  # HGSS draws no ground under its trees; the woods stand on lawn
-            elif gm.size == 0:
-                cells[y, x] = G.GRASS                  # all rock: the painter's flat ROCK fill must never show
-            else:
-                cells[y, x] = G.PATH if (gm == 1).mean() > 0.5 else G.GRASS
-    ground, _ = paint_ground(ground_quadrants(cells, grid, role, z['drawn']))
-    bottom = ground[..., :3].copy()
+    lab = np.array([[c['lab'] for c in row] for row in cells])
+    ground, _ = paint_ground(ground_quadrants(cells, np.isin(lab, list(E.ROCK))))
+    bottom, rock, d, isrock, piece = frlg_rock(cells, ground[..., :3].copy())
     owner = np.full((H * PX, W * PX), '', object)
-    rockrgb = np.zeros_like(bottom)
-    lipm = paint_rock(rockrgb, role, topmat, rock_modules())
-    rock = np.zeros((H * PX, W * PX, 4), np.uint8)
-    rm = role != GROUND                            # grass lips stay in the rock layer: the rock bank holds their two greens
-    rock[rm, :3] = rockrgb[rm]; rock[rm, 3] = 255
+    (OUT / 'terrace-grid.txt').write_text(
+        '# Mahogany rock terraces (assemble.terraces), one line per cell row: level 0-2, rock cells upper-case R/M\n'
+        '# (R a low wall, M the mountain), from HGSS land_data 85 decoded flat (elements.ledger).\n' +
+        ''.join(f'{y:02d}    ' + ''.join(('RM'[min(d[y, x], 2) - 1] if isrock[y, x] else str(d[y, x])) for x in range(W)) + '\n'
+                for y in range(H)))
     # Flowers, then ledges, on the ground layer.
     fl, fcells = flowers(phg)
     a = fl[..., 3] > 0
     bottom[a] = fl[a, :3]; owner[a] = 'flowers'
-    l11, l12, l13 = (align_ledge(rgba(SHARED / f'{n}.png')) for n in ('L11', 'L12', 'L13'))
-    q = align_ledge(west_ledge()); j = ledge_corner(q, l12)
+    l11, l12, l13 = (rgba(SHARED / f'{n}.png') for n in ('L11', 'L12', 'L13'))
+    q = west_ledge(); j = ledge_corner(q, l12)
     single = np.concatenate([l11[:, :8], l13[:, 8:]], axis=1)
     ledges = []
     for y in range(H):
@@ -582,10 +428,10 @@ def compose(phg):
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
-    return bottom, rock, top, owner, role, cells, objs, ledges, fcells
+    return bottom, rock, top, owner, d, objs, ledges, fcells
 
 ENGINE = None
-SNAPPED = Counter()
+PHG = None
 
 def main(phg, catalog, engine):
     global ENGINE
@@ -593,7 +439,7 @@ def main(phg, catalog, engine):
     for d in (OUT, OEV, LOCAL, SHARED):
         d.mkdir(parents=True, exist_ok=True)
     stage_shared(catalog)
-    ground, rock, top, owner, role, cells, objs, ledges, fcells = compose(phg)
+    ground, rock, top, owner, levels, objs, ledges, fcells = compose(phg)
     view = ground.copy()
     for layer in (rock, top):
         a = layer[..., 3] > 0
@@ -602,15 +448,12 @@ def main(phg, catalog, engine):
     Image.fromarray(ground).save(OEV / 'ground.png')
     Image.fromarray(rock).save(OEV / 'rock.png')
     Image.fromarray(top).save(OEV / 'objects.png')
-    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), role=role, ground_cells=cells)
+    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), levels=levels)
     (OUT / 'placements.json').write_text(json.dumps(dict(
         note='Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots '
              '(T01 bottom on the root bottom, crown one row behind); local buildings keep their HGSS render position.',
         objects=[{k: v for k, v in o.items() if k != 'art'} for o in objs], ledges=ledges, flower_cells=fcells), indent=1, default=int) + '\n')
-    (OUT / 'snap.json').write_text(json.dumps(dict(
-        note='Face run ends that meet ground moved to the nearest 8 px tile edge (pixels: start shift, end shift) -> runs.',
-        shifts={f'{a},{b}': n for (a, b), n in sorted(SNAPPED.items())}), indent=1) + '\n')
-    print('objects', len(objs), 'ledges', len(ledges), 'flower cells', fcells, 'snap', dict(SNAPPED.most_common(8)))
+    print('objects', len(objs), 'ledges', len(ledges), 'flower cells', fcells)
 
 if __name__ == '__main__':
     main(*(Path(a).resolve() for a in sys.argv[1:4]))

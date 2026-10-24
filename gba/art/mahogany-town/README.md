@@ -1,17 +1,16 @@
-# Mahogany Town: third draft under the reconstruction guide
+# Mahogany Town: reconstruction-guide draft with Blackthorn's rock
 
 Mahogany as one native Gen 3 map, rebuilt strictly to `AGENTS.md` and
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md). The owner rejected the
 element build ("done from scratch": flat textures, wrong houses, wrong rock depth) and the direct
-HGSS conversion ("does not follow the guide in agents.md"). This draft traces HGSS square by square,
-assembles the map from the accepted shared Johto art, authors only what the catalog lacks from HGSS's
-own models, packs it without any colour or tile approximation, and records review findings by
-coordinate. Engine branch `claude/mahogany-town` at `8c60a820` (draft PR #28 against `apocrypha`).
-Owner visual acceptance is pending.
+HGSS conversion ("does not follow the guide in agents.md"). On the third draft the owner found the
+rock faces still not right and named Blackthorn as the reference, so the rock is now built the way
+Blackthorn's is. Engine branch `claude/mahogany-town` at `02dc6b15` (draft PR #28 against
+`apocrypha`). Owner visual acceptance is pending.
 
 ![HGSS and the installed native map, numbered by cell](evidence/review3/whole.png)
 
-[All three drafts beside HGSS](evidence/review3/drafts.png) ·
+[Every draft beside HGSS](evidence/review3/drafts.png) ·
 [gameplay frames](evidence/review3/gameplay.png) ·
 [review findings by coordinate](evidence/review3/findings.json)
 
@@ -20,35 +19,45 @@ Owner visual acceptance is pending.
 | | |
 | --- | --- |
 | Map | `MahoganyTown`, 32x32, `gMapGroup_Cherrygrove` id 43 (Center 44, upstairs 45) |
-| Tilesets | private pair `gTileset_MahoganyPrimary` + `gTileset_MahoganyTown`: 966 of 1,008 tiles (1008-1023 left for door animation), 211 + 188 metatiles |
+| Tilesets | private pair `gTileset_MahoganyPrimary` + `gTileset_MahoganyTown`: 901 of 1,008 tiles (1008-1023 left for door animation), 210 + 160 metatiles |
 | Colour | 13 banks, each colour exact: all 262,144 native pixels equal the assembled art in RGB555 |
-| Material audit | 936 of 1,024 cells show HGSS's material, 0 mismatches, 88 cells where a foreground object differs (below) |
+| Material audit | 929 of 1,024 cells show HGSS's material, 0 mismatches, 95 cells where a foreground object differs (below) |
 
-## 1. Reference (`trace.py`)
+## 1. Reference (`trace.py`, `elements.ledger`)
 
 - Authority: HGSS land_data chunk 85 decoded from pret/pokeheartgold (header 87, area bank 8, matrix
   origin [16,5]), events zone T28. Registration is exact: HGSS tile (x, z) is native cell (x, y), 16 px,
   origin (0,0), no crop or expansion. Not a screenshot trace.
 - Numbered sheets: `evidence/trace/hgss-numbered-1..4.png`; material grid over HGSS:
-  `evidence/trace/grid-over-hgss-1..4.png`.
-- Rock structure per pixel (`source/trace/roles.npz`, `evidence/trace/roles.png`): HGSS's terrain mesh
-  rendered at its own heights, every wall triangle classed by its normal as top, front (south), east
-  side, west side or rear (north) face, with what lies on the wall's top (lawn or rock). Measured: fronts
-  27 and 43 px, sides 11 px, rear rims 8 px.
-- Editable material grid `source/trace/material-grid.txt` (one code per cell), traversal ledger
-  `source/trace/traversal.json` (HGSS type and collision bits per cell), tree roots `trees.json` (40 trees,
-  2x2), buildings `buildings.json`.
+  `evidence/trace/grid-over-hgss-1..4.png`; traversal ledger `source/trace/traversal.json` (HGSS type
+  and collision bits per cell); tree roots `trees.json` (40 trees, 2x2); buildings `buildings.json`.
+- Flat cell decode (`elements.ledger`): rock cells (HGSS cliff and wall cells, by slope and
+  collision), ledges, trees, ground height per cell (under crowns and roofs, the cell's lowest point).
 
-## 2-3. Assembly (`assemble.py`) and shared art
+## 2. Rock: Blackthorn's method
+
+Blackthorn's installed rock (style C) is FRLG General's mountain set recoloured to the Johto rock
+ramp, one face per metatile. Mahogany now uses the same code (`elements.rock_frlg`, Blackthorn's
+`rock_frlg`) on HGSS's own height layers:
+
+- Every HGSS height layer is one terrace: town floor 0, the raised lawns 1, the mountain 2
+  (`source/assemble/terrace-grid.txt`, one line per row). A rock cell stands at its rock peak, every
+  other cell at its ground height, so a low wall is the face of the lawn terrace above it and the
+  mountain beside a raised lawn steps twice.
+- FRLG's nine-slice composes each rock cell per 8x8 quadrant from the edges that drop; its over-rock
+  pieces where an edge drops to lower rock and its four inner corners where only a diagonal drops.
+- The rock is a top-layer overlay: its clear pixels show the plainest block of the ground beyond the
+  edge, and its cast shadow is Cherrygrove's border grey. Rock that rises toward the south faces away
+  from the camera and shows as a rim, as in Blackthorn.
+
+## 3. Shared and local art (`assemble.py`)
 
 Shared masters are copied byte for byte into `source/shared-art/` with hashes and the catalog commit
 (`codex/violet-city` `de5d8cf`) in `provenance.json`:
 
 | Part | Shared art | Placement |
 | --- | --- | --- |
-| Lawn, road, rims | Cherrygrove/Route 36 painter (`claude_cherrygrove/ground.py`) | lawn or road per 8 px quadrant, read from HGSS's own colours |
-| Rock faces | R02 (front), R12 (side), Route 36 grass lips | on HGSS's measured faces, one course resampled to each drop |
-| Rock tops | Route 31 HGSS plateau patch | HGSS's rock-top pixels |
+| Lawn, road, rims | Cherrygrove/Route 36 painter (`claude_cherrygrove/ground.py`), unchanged | lawn or road per 8 px quadrant from HGSS's own flat ground colours |
 | Ledges | L11 / L12 / L13 | HGSS's 17 jump-south cells; run ends rounded |
 | Trees | T01 | on each of HGSS's 40 roots, crown one row behind |
 | Signs | P12 signpost, P13 plaque, P15 Gym marker | on HGSS's sign cells and bases |
@@ -65,55 +74,49 @@ and its corner (6,12).
 
 No k-means, no nearest-colour tile merging. Banks are exact colour sets (an integer program places
 every tile's colour set in a bank), tiles dedupe only when identical under a flip, and the only
-compaction is bottom-layer pixels hidden under opaque top-layer art. Rock that shares a tile with
-ground sits on the top layer over pure ground in cells drawn under the player. The packer asserts that
-every native pixel equals the assembled art.
+compaction is bottom-layer pixels hidden under opaque top-layer art. The packer asserts that every
+native pixel equals the assembled art.
 
 ## Deliberate adaptations
 
 All listed with coordinates in `evidence/review3/findings.json`.
 
-- **Capacity.** One 16 px face course per orientation (R02, R12) and a 16 px plateau-top core, as the
-  Routes 31/32 structure rebuild did for Route 32; rock-to-ground edges snap to the 8 px tile grid
-  (up to 4 px); straight lawn rims (no 32 px wave) and a 16 px road core.
-- **Palette alignment.** Four near-duplicate plateau tones and two face tones fold into a neighbour
-  (1-2 RGB555 steps), and the warm ledge's three stone tones map onto the matching rock tones, so the
-  whole rock ramp and the grass lips fit one bank.
-- **Local buildings.** Moved to the nearest 8 px corner (2-3 px). Houses and towers share 14 tones
-  (from 45), the antenna tree 13 (from 24), the Gym 19 (from 37, the fewest merges that fit two banks);
+- **Rock.** Blackthorn's FRLG terraces replace HGSS's 27-43 px projected faces with one-metatile faces;
+  steps rising toward the south show as rims.
+- **Local buildings.** Moved to the nearest 8 px corner (2-3 px). Houses and towers share 15 tones
+  (from 45), the antenna tree 15 (from 24), the Gym 20 (from 37, the fewest merges that fit two banks);
   closest tones merge, warm and cool never together, shapes untouched (`source/local-art/reductions.json`).
 - **Foreground.** T01 is 48 px tall to HGSS's 32 px bushes, so crowns rise one row higher; C06 is shorter
-  than HGSS's Center and the road shows where HGSS's roof stood. These are the 88 "foreground differs"
+  than HGSS's Center and the road shows where HGSS's roof stood. These are the 95 "foreground differs"
   cells in `evidence/pack3/material-audit.json`.
 - **Collision.** HGSS's own, except the ten cells at (20-24,18-19) that HGSS's taller Center blocked:
-  walkable here, row 19 drawn above the player (C06's roof edge), row 18 open road. Gate warps (12,5)/(13,5), the Gym door, the shop and
-  the east house stay solid until their interiors exist.
+  walkable here, row 19 drawn above the player (C06's roof edge), row 18 open road. Gate warps
+  (12,5)/(13,5), the Gym door, the shop and the east house stay solid until their interiors exist.
 
 ## Verification
 
-- **Build**: engine `8c60a820`, ROM sha256 `0deca7f7ca38338d15a98890844411960f05bc0d93cd9896e4da6dc59d2cca9d`
+- **Build**: engine `02dc6b15`, ROM sha256 `2d186bc204858c246b7aaa48bb892cbb58a56c021bcec69f44b05e9b00a54e97`
   (not committed).
 - **Native audit** (`check3.py`, `evidence/pack3/native-audit.json`): installed decode equals the packer's
   and the assembled art pixel for pixel; behaviour, collision, elevation and layer type match the ledger
   on all 1,024 cells; every approach reachable; walk-behind layering matches the objects' base rows;
   shared masters byte-identical to the catalog; only Mahogany files changed; budgets met.
 - **Material audit** (`evidence/pack3/material-audit.json`, magenta/cyan boxes in `native-grid.png`):
-  native classes from decoded colours against the masters' own colour vocabularies, HGSS classes from the
-  decoded reference. 936 match, 0 mismatch, 88 foreground differences as above.
+  native classes from decoded colours against the masters' own colour vocabularies (the FRLG pieces in
+  the rock ramp for rock), HGSS classes from the flat decode. 929 match, 0 mismatch, 95 foreground
+  differences as above.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 31 captures, map layers rebuilt from VRAM
   equal the native decode in all of them; BG1 covers the player behind the Center, Gym roof, shop roof,
   antenna tree and town sign and leaves the player clear in front of all six buildings; both ledge
   directions jump and refuse the climb back; Center, Gym, shop, house and gate doors, a tree, a wall and the
   mountain block; both signs read; Center and upstairs round trip; Cherrygrove and back; ordinary flash
   save, cold reload and title Continue. No desktop game opened.
-- **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves the map on a fresh clone; its own
-  map export equals the native decode with 0 differing pixels.
+- **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves the map on a fresh clone of
+  `02dc6b15`; its own map export equals the native decode with 0 differing pixels.
 
 ## Open for owner review
 
 - Cells (8,7)-(8,8) behind the west tower are open but walled in, as in HGSS.
-- The west mountain's short side face at (4-5,3-6) reads as a plain slab where HGSS shows a slope.
-- Rear rims are a dark band without HGSS's stud row.
 - Not built: Route 43 gatehouse, Gym, souvenir shop and east house interiors, connections, NPCs.
 
 ## Reproduction
@@ -132,6 +135,13 @@ python3 tools/gba/maps/mahogany/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY pack3
 
 Generators are provenance: edit the committed native map in Porymap; never replay them over owner edits
 (the installer refuses if a Mahogany file carries a commit it did not make).
+
+## Third draft rock (replaced 2026-10-24)
+
+The third draft (engine `8c60a820`, hub `0e8c15a7`) drew rock from the shared R02/R12 courses
+resampled onto HGSS's projected faces, with a 16 px Route 31 plateau core. The owner found those faces
+still not right; its native image is the fourth panel of `evidence/review3/drafts.png`. Everything else
+in this README describes the current build.
 
 ## Second draft: HGSS art converted (rejected 2026-10-23)
 
