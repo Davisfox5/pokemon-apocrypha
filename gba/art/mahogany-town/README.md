@@ -1,12 +1,16 @@
 # Mahogany Town: reconstruction-guide draft with Blackthorn's rock
 
+**Owner-accepted 2026-10-24** ("SO much better. We can lock that in"), engine `02dc6b15`, hub
+`fbad5b2d`. Treat this map as locked: edit its committed native source in Porymap, never
+regenerate it from these tools.
+
 Mahogany as one native Gen 3 map, rebuilt strictly to `AGENTS.md` and
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md). The owner rejected the
 element build ("done from scratch": flat textures, wrong houses, wrong rock depth) and the direct
 HGSS conversion ("does not follow the guide in agents.md"). On the third draft the owner found the
 rock faces still not right and named Blackthorn as the reference, so the rock is now built the way
 Blackthorn's is. Engine branch `claude/mahogany-town` at `02dc6b15` (draft PR #28 against
-`apocrypha`). Owner visual acceptance is pending.
+`apocrypha`).
 
 ![HGSS and the installed native map, numbered by cell](evidence/review3/whole.png)
 
@@ -114,7 +118,7 @@ All listed with coordinates in `evidence/review3/findings.json`.
 - **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves the map on a fresh clone of
   `02dc6b15`; its own map export equals the native decode with 0 differing pixels.
 
-## Open for owner review
+## Remaining
 
 - Cells (8,7)-(8,8) behind the west tower are open but walled in, as in HGSS.
 - Not built: Route 43 gatehouse, Gym, souvenir shop and east house interiors, connections, NPCs.
