@@ -5,7 +5,7 @@ import sys,json,csv
 import numpy as np
 from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parents[4];G=Path(sys.argv[1]);P=Path(sys.argv[2]);sys.path.insert(0,str(R/'tools/gba/maps'));from tiles import Tileset
-S=R/'gba/art/olivine-city/source';A=S/'base-terrain';E=S.parent/'evidence';O=E/'base-terrain';sections=json.loads((E/'sections.json').read_text());solid=np.load(A/'solid.npy');mat=np.load(A/'material.npy');ids=np.load(A/'metatile-map.npy');height=np.load(A/'height.npy');native=Image.new('RGB',(1040,864));rows=[]
+S=R/'gba/art/olivine-city/source';A=S/'base-terrain';E=S.parent/'evidence';O=Path(sys.argv[3]) if len(sys.argv)>3 else E/'base-terrain';sections=json.loads((E/'sections.json').read_text());solid=np.load(A/'solid.npy');mat=np.load(A/'material.npy');ids=np.load(A/'metatile-map.npy');height=np.load(A/'height.npy');native=Image.new('RGB',(1040,864));rows=[]
 for sec in sections:
  n=sec['name'];x,y,x1,y1=sec['box'];t=Tileset(G,n.lower(),n.lower());grid=np.fromfile(G/f'data/layouts/{n}/map.bin','<u2').reshape(y1-y,x1-x);im=t.map_image(list(map(int,grid.ravel())),x1-x)
  assert np.array_equal(grid>>12, (height[y:y1,x:x1]*2+3));assert np.array_equal(grid&1023,ids[y:y1,x:x1]);assert np.array_equal(grid&0xc00!=0,solid[y:y1,x:x1]);assert all(t.attrs[int(i>=512)][int(i%512)]==0x1000 for i in np.unique(grid&1023))

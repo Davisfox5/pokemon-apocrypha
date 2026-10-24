@@ -1,4 +1,32 @@
-## Latest: Olivine native terrain foundation / directional cliffs — 2026-10-21
+## Latest: Olivine inward corners / extra coastal tier removed — 2026-10-24
+
+Current engine `0e47f9cc35cfe8f3c43764fa43109e092622d3e0`, same branch/draft PR23.
+Read `gba/art/olivine-city/evidence/corner-revision/README.md` first. Owner approved
+straight-face directions and external corners, requested correction of all inward
+corners and removal of the unnecessary lowest coastal grass/rock tier.
+
+Correct native mountain joins are 089 (SW), 074 (SE), 0BF (NE), established from
+actual original Emerald Route 111 placements. Fifteen retained inward bends were
+replaced. Removed 69 coastal cells (20 formerly open), with native ocean directly
+beneath the remaining wall. The retained straight/convex rock pixels and all
+pixels outside 127 recorded edit cells remain unchanged. No palette or renderer
+changes. Native additions preserve old entries/IDs: 243 catalog entries/481 stored
+glyphs; 225 active metatiles/468 viewport glyphs, peak 268/1008.
+
+All 13 actual Porymap views, 2,057 open cells /8,228 movement attempts, 2,057 pixel-exact
+BG/sprite comparisons, save/reload/Continue, prior Olivine/Goldenrod saves and
+7,459 protected previous native files pass. Updated 2:04 recorded walk. Local build;
+no hosted CI or second compilation claimed. Stairs remain removed; city/pier has
+1,076 ordinary reachable cells and six separately qualified terrace components.
+
+`corner_revision.py` is guarded to a clean df08620e and records this additive
+installation; never replay over newer edits. Current direction model is in
+`elevation.py`; historical first installer uses frozen `foundation_elevation.py`.
+Current engine files remain authoritative. Next: owner review, then only requested
+local changes. Preserve the approved faces/external corners; do not add stairs,
+objects, services or route connections unless requested.
+
+## Historical: Olivine native terrain foundation / directional cliffs — 2026-10-21
 
 Current engine `df08620e053e1a437557370399cac39667bbd2a4`, same branch/draft PR23.
 Read `gba/art/olivine-city/evidence/base-terrain/README.md` first. The owner removed
@@ -14,7 +42,7 @@ cells /8,308 directional attempts pass, with pixel-exact backgrounds/sprite
 composites. The 1,090-cell city/pier component is ordinary reachable; stairless
 terraces require separate test placements. There is a 2:04 continuous city walk.
 Save/reload/Continue, prior Olivine/Goldenrod saves, Porymap, local build and
-7,459 protected native files pass. Native atlas peak268/1008. No hosted CI claim.
+7,459 protected native files pass. Native atlas peak 268/1008. No hosted CI claim.
 
 Opening the cleared ground exposed a T-junction incoming-map bug: inclusive end
 selected the preceding section one row out of bounds. Olivine alone now uses

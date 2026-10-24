@@ -1,21 +1,21 @@
 id,material,uses,sample_x,sample_y
 0,grass,290,0,0
 1,grass,273,1,0
-2,cliff,22,19,0
+2,cliff,13,19,0
 3,sand,21,21,0
 4,sand,21,22,0
 5,cliff,3,29,0
 6,cliff,8,31,0
-7,grass,291,0,1
-8,grass,276,1,1
-9,cliff,11,19,1
+7,grass,280,0,1
+8,grass,266,1,1
+9,cliff,3,19,1
 10,sand,24,21,1
 11,sand,24,22,1
 12,cliff,3,29,1
 13,cliff,7,31,1
 14,grass,11,20,5
 15,cliff,1,33,5
-16,cliff,130,34,5
+16,cliff,86,34,5
 17,cliff,1,19,6
 18,paving,31,20,6
 19,paving,23,21,6
@@ -40,10 +40,10 @@ id,material,uses,sample_x,sample_y
 38,paving,38,22,9
 39,paving,39,23,9
 40,cliff,4,29,9
-41,cliff,13,5,10
+41,unused-preserved,0,-1,-1
 42,cliff,1,19,10
 43,cliff,2,31,10
-44,cliff,4,34,10
+44,unused-preserved,0,-1,-1
 45,cliff,5,5,11
 46,cliff,1,34,11
 47,cliff,4,5,12
@@ -63,25 +63,25 @@ id,material,uses,sample_x,sample_y
 61,cliff,1,54,16
 62,grass,3,11,17
 63,cliff,9,52,18
-64,cliff,2,58,19
-65,water,42,59,19
-66,water,46,60,19
-67,water,44,61,19
-68,water,42,62,19
-69,cliff,3,57,20
-70,cliff,2,58,20
-71,water,53,59,20
-72,water,59,60,20
-73,water,56,61,20
+64,unused-preserved,0,-1,-1
+65,water,45,59,19
+66,water,54,60,19
+67,water,48,61,19
+68,water,47,58,19
+69,cliff,1,51,36
+70,unused-preserved,0,-1,-1
+71,water,58,59,20
+72,water,66,60,20
+73,water,60,61,20
 74,shore rock,2,62,20
 75,shore rock,2,63,20
 76,grass,1,9,21
 77,cliff,1,34,21
 78,cliff,4,40,21
-79,cliff,1,58,21
-80,water,59,59,21
-81,water,67,60,21
-82,water,60,61,21
+79,unused-preserved,0,-1,-1
+80,water,61,59,17
+81,water,72,60,17
+82,water,62,61,17
 83,shore rock,2,62,21
 84,shore rock,2,63,21
 85,grass,1,16,22
@@ -90,44 +90,44 @@ id,material,uses,sample_x,sample_y
 88,grass,2,26,22
 89,cliff,1,34,22
 90,cliff,3,40,22
-91,cliff,3,56,22
-92,water,43,57,22
-93,water,39,58,22
-94,water,42,59,22
-95,water,48,60,22
+91,unused-preserved,0,-1,-1
+92,water,44,61,18
+93,water,43,58,18
+94,water,44,59,18
+95,water,53,60,18
 96,grass,1,16,23
 97,grass,1,26,23
 98,cliff,1,34,23
 99,cliff,3,40,23
-100,cliff,1,55,23
-101,cliff,2,56,23
+100,unused-preserved,0,-1,-1
+101,unused-preserved,0,-1,-1
 102,shore rock,7,63,23
 103,shore rock,7,64,23
 104,cliff,1,34,24
 105,cliff,3,40,24
-106,cliff,1,56,24
-107,water,51,58,24
+106,unused-preserved,0,-1,-1
+107,water,58,58,20
 108,shore rock,7,63,24
 109,shore rock,7,64,24
 110,cliff,1,29,25
 111,cliff,1,32,25
-112,cliff,2,54,25
-113,water,53,58,25
+112,unused-preserved,0,-1,-1
+113,water,58,58,17
 114,shore rock,5,62,25
 115,shore rock,5,63,25
-116,cliff,2,54,26
+116,unused-preserved,0,-1,-1
 117,shore rock,5,62,26
 118,shore rock,5,63,26
-119,cliff,1,53,27
-120,cliff,1,54,27
+119,cliff,10,5,10
+120,unused-preserved,0,-1,-1
 121,cliff,1,55,27
-122,cliff,1,56,27
+122,unused-preserved,0,-1,-1
 123,cliff,1,5,28
 124,grass,2,9,28
 125,grass,1,33,28
-126,cliff,2,56,28
+126,unused-preserved,0,-1,-1
 127,grass,1,20,29
-128,cliff,2,56,29
+128,unused-preserved,0,-1,-1
 129,grass,2,9,30
 130,grass,7,10,30
 131,grass,6,11,30
@@ -148,7 +148,7 @@ id,material,uses,sample_x,sample_y
 146,cliff,2,40,35
 147,cliff,1,52,35
 148,cliff,1,55,35
-149,cliff,1,56,35
+149,unused-preserved,0,-1,-1
 150,cliff,2,2,36
 151,cliff,2,5,36
 152,cliff,1,42,36
@@ -161,8 +161,8 @@ id,material,uses,sample_x,sample_y
 159,shore rock,2,6,40
 160,dock,4,22,40
 161,dock,6,26,40
-162,cliff,1,39,40
-163,cliff,1,54,40
+162,unused-preserved,0,-1,-1
+163,unused-preserved,0,-1,-1
 164,shore rock,2,5,41
 165,shore rock,2,6,41
 166,dock,4,22,41
@@ -219,3 +219,26 @@ id,material,uses,sample_x,sample_y
 217,dock,2,17,48
 218,dock,1,17,51
 219,dock,1,28,51
+220,cliff,4,34,10
+221,cliff,2,58,16
+222,cliff,2,59,16
+223,cliff,3,60,16
+224,cliff,1,61,16
+225,cliff,3,57,17
+226,cliff,2,57,18
+227,cliff,1,57,19
+228,cliff,1,57,20
+229,cliff,3,55,21
+230,cliff,3,55,22
+231,cliff,2,54,23
+232,cliff,1,55,23
+233,cliff,2,53,24
+234,cliff,1,53,27
+235,cliff,1,54,27
+236,cliff,2,55,28
+237,cliff,1,55,31
+238,cliff,3,41,38
+239,cliff,3,42,38
+240,cliff,3,43,38
+241,cliff,3,44,38
+242,cliff,1,53,38

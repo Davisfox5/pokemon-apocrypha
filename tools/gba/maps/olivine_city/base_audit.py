@@ -9,7 +9,7 @@ import sys,json,subprocess,os,shlex,ast,hashlib
 import numpy as np
 from PIL import Image
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE));import base_runtime as r
-G,O,T=map(Path,sys.argv[1:4]);O.mkdir(parents=True,exist_ok=False);S=r.R/'gba/art/olivine-city/source';E=S.parent/'evidence/base-terrain'
+G,O,T=map(Path,sys.argv[1:4]);O.mkdir(parents=True,exist_ok=False);S=r.R/'gba/art/olivine-city/source';E=Path(sys.argv[4]) if len(sys.argv)>4 else S.parent/'evidence/base-terrain'
 solid=np.load(S/'solid.npy');H,W=solid.shape;directions=[(1,0,'RIGHT'),(0,1,'DOWN'),(-1,0,'LEFT'),(0,-1,'UP')];keys={(dx,dy):key for dx,dy,key in directions};opposite={'RIGHT':'LEFT','LEFT':'RIGHT','UP':'DOWN','DOWN':'UP'};seen=set();tested=set();parts=[];components=[];poses=[];sys.setrecursionlimit(20000)
 def move(a,b,key,label):
  parts.append(f'step({key},1);'+r.at(*b,label));tested.add((a[0],a[1],key))

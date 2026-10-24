@@ -1,0 +1,304 @@
+x,y,high_level,low_sides,orientation,donor_metatile,under
+19,0,1,['E'],E face,0x72,grass
+29,0,1,['W'],W face,0x70,sand
+31,0,2,['W'],W face,0x70,grass
+33,0,3,['W'],W face,0x70,grass
+19,1,1,['E'],E face,0x72,grass
+29,1,1,['W'],W face,0x70,sand
+31,1,2,['W'],W face,0x70,grass
+33,1,3,['W'],W face,0x70,grass
+19,2,1,['E'],E face,0x72,grass
+29,2,1,['W'],W face,0x70,sand
+31,2,2,['W'],W face,0x70,grass
+33,2,3,['W'],W face,0x70,grass
+19,3,1,['E'],E face,0x72,grass
+29,3,1,['W'],W face,0x70,sand
+31,3,2,['W'],W face,0x70,grass
+33,3,3,['W'],W face,0x70,grass
+19,4,1,['E'],E face,0x72,grass
+29,4,1,['W'],W face,0x70,sand
+31,4,2,['W'],W face,0x70,grass
+33,4,3,['W'],W face,0x70,grass
+19,5,1,['E'],E face,0x72,grass
+29,5,1,['W'],W face,0x70,sand
+31,5,2,['W'],W face,0x70,grass
+33,5,3,"['S', 'W']",SW convex corner,0x78,grass
+34,5,3,['S'],S face,0x79,grass
+35,5,3,['S'],S face,0x79,grass
+36,5,3,['S'],S face,0x79,grass
+37,5,3,['S'],S face,0x79,grass
+38,5,3,['S'],S face,0x79,grass
+39,5,3,['S'],S face,0x79,grass
+40,5,3,['S'],S face,0x79,grass
+41,5,3,['S'],S face,0x79,grass
+42,5,3,['S'],S face,0x79,grass
+43,5,3,['S'],S face,0x79,grass
+44,5,3,['S'],S face,0x79,grass
+45,5,3,['S'],S face,0x79,grass
+46,5,3,['S'],S face,0x79,grass
+47,5,3,['S'],S face,0x79,grass
+48,5,3,['S'],S face,0x79,grass
+49,5,3,['S'],S face,0x79,grass
+50,5,3,['S'],S face,0x79,grass
+51,5,3,['S'],S face,0x79,grass
+52,5,3,['S'],S face,0x79,grass
+53,5,3,['S'],S face,0x79,grass
+54,5,3,['S'],S face,0x79,grass
+55,5,3,['S'],S face,0x79,grass
+56,5,3,['S'],S face,0x79,grass
+57,5,3,['S'],S face,0x79,grass
+58,5,3,['S'],S face,0x79,grass
+59,5,3,['S'],S face,0x79,grass
+60,5,3,['S'],S face,0x79,grass
+61,5,3,['S'],S face,0x79,grass
+62,5,3,['S'],S face,0x79,grass
+63,5,3,['S'],S face,0x79,grass
+64,5,3,['S'],S face,0x79,grass
+19,6,1,['E'],E face,0x72,paving
+29,6,1,['W'],W face,0x70,paving
+31,6,2,['W'],W face,0x70,grass
+19,7,1,['E'],E face,0x72,paving
+29,7,1,['W'],W face,0x70,paving
+31,7,2,['W'],W face,0x70,grass
+19,8,1,['E'],E face,0x72,paving
+29,8,1,['W'],W face,0x70,paving
+31,8,2,['W'],W face,0x70,grass
+19,9,1,['E'],E face,0x72,paving
+29,9,1,['W'],W face,0x70,paving
+31,9,2,['W'],W face,0x70,grass
+5,10,1,[],SE concave corner,0x74,grass
+6,10,1,['S'],S face,0x79,paving
+7,10,1,['S'],S face,0x79,paving
+8,10,1,['S'],S face,0x79,paving
+9,10,1,['S'],S face,0x79,paving
+10,10,1,['S'],S face,0x79,paving
+11,10,1,['S'],S face,0x79,paving
+12,10,1,['S'],S face,0x79,paving
+13,10,1,['S'],S face,0x79,paving
+14,10,1,['S'],S face,0x79,paving
+15,10,1,['S'],S face,0x79,paving
+16,10,1,['S'],S face,0x79,paving
+17,10,1,['S'],S face,0x79,paving
+18,10,1,['S'],S face,0x79,paving
+19,10,1,"['E', 'S']",ES convex corner,0x7a,paving
+29,10,1,['W'],W face,0x70,paving
+31,10,2,"['S', 'W']",SW convex corner,0x78,grass
+32,10,2,['S'],S face,0x79,grass
+33,10,2,['S'],S face,0x79,grass
+34,10,2,[],SW concave corner,0x89,grass
+5,11,1,['E'],E face,0x72,paving
+29,11,1,['W'],W face,0x70,paving
+34,11,2,"['S', 'W']",SW convex corner,0x78,grass
+35,11,2,['S'],S face,0x79,grass
+36,11,2,['S'],S face,0x79,grass
+37,11,2,['S'],S face,0x79,grass
+38,11,2,['S'],S face,0x79,grass
+39,11,2,['S'],S face,0x79,grass
+40,11,2,['S'],S face,0x79,grass
+41,11,2,[],SW concave corner,0x89,grass
+5,12,1,['E'],E face,0x72,paving
+29,12,1,['W'],W face,0x70,paving
+41,12,2,"['S', 'W']",SW convex corner,0x78,grass
+42,12,2,[],SW concave corner,0x89,grass
+5,13,1,['E'],E face,0x72,paving
+29,13,1,['W'],W face,0x70,paving
+42,13,2,['W'],W face,0x70,grass
+5,14,1,['E'],E face,0x72,paving
+29,14,1,['W'],W face,0x70,paving
+42,14,2,['W'],W face,0x70,grass
+54,14,2,[],SE concave corner,0x74,grass
+55,14,2,['S'],S face,0x79,grass
+56,14,2,['S'],S face,0x79,grass
+57,14,2,['S'],S face,0x79,grass
+58,14,2,['S'],S face,0x79,grass
+59,14,2,['S'],S face,0x79,grass
+60,14,2,['S'],S face,0x79,grass
+61,14,2,['S'],S face,0x79,grass
+62,14,2,['S'],S face,0x79,grass
+63,14,2,['S'],S face,0x79,grass
+64,14,2,['S'],S face,0x79,grass
+5,15,1,['E'],E face,0x72,paving
+29,15,1,['W'],W face,0x70,paving
+42,15,2,['W'],W face,0x70,grass
+54,15,2,['E'],E face,0x72,grass
+5,16,1,['E'],E face,0x72,paving
+29,16,1,['W'],W face,0x70,paving
+42,16,2,['W'],W face,0x70,grass
+52,16,2,[],SE concave corner,0x74,grass
+53,16,2,['S'],S face,0x79,grass
+54,16,2,"['E', 'S']",ES convex corner,0x7a,grass
+57,16,1,[],SE concave corner,0x74,grass
+58,16,1,['S'],S face,0x79,water
+59,16,1,['S'],S face,0x79,water
+60,16,1,['S'],S face,0x79,water
+61,16,1,['S'],S face,0x79,water
+62,16,1,['S'],S face,0x79,water
+63,16,1,['S'],S face,0x79,water
+64,16,1,['S'],S face,0x79,water
+5,17,1,['E'],E face,0x72,paving
+29,17,1,['W'],W face,0x70,paving
+42,17,2,['W'],W face,0x70,grass
+52,17,2,['E'],E face,0x72,grass
+57,17,1,['E'],E face,0x72,water
+5,18,1,['E'],E face,0x72,paving
+29,18,1,['W'],W face,0x70,paving
+42,18,2,['W'],W face,0x70,grass
+52,18,2,['E'],E face,0x72,grass
+57,18,1,['E'],E face,0x72,water
+5,19,1,['E'],E face,0x72,paving
+29,19,1,['W'],W face,0x70,paving
+42,19,2,['W'],W face,0x70,grass
+52,19,2,['E'],E face,0x72,grass
+57,19,1,['E'],E face,0x72,water
+5,20,1,['E'],E face,0x72,paving
+29,20,1,['W'],W face,0x70,paving
+34,20,1,[],SE concave corner,0x74,grass
+35,20,1,['S'],S face,0x79,paving
+36,20,1,['S'],S face,0x79,paving
+37,20,1,['S'],S face,0x79,paving
+38,20,1,['S'],S face,0x79,paving
+39,20,1,['S'],S face,0x79,paving
+40,20,1,[],SW concave corner,0x89,grass
+42,20,2,['W'],W face,0x70,grass
+52,20,2,['E'],E face,0x72,grass
+55,20,1,[],SE concave corner,0x74,grass
+56,20,1,['S'],S face,0x79,water
+57,20,1,"['E', 'S']",ES convex corner,0x7a,water
+5,21,1,['E'],E face,0x72,paving
+29,21,1,['W'],W face,0x70,paving
+34,21,1,['E'],E face,0x72,paving
+40,21,1,['W'],W face,0x70,paving
+42,21,2,['W'],W face,0x70,grass
+52,21,2,['E'],E face,0x72,grass
+55,21,1,['E'],E face,0x72,water
+5,22,1,['E'],E face,0x72,paving
+29,22,1,['W'],W face,0x70,paving
+34,22,1,['E'],E face,0x72,paving
+40,22,1,['W'],W face,0x70,paving
+42,22,2,['W'],W face,0x70,grass
+52,22,2,['E'],E face,0x72,grass
+55,22,1,['E'],E face,0x72,water
+5,23,1,['E'],E face,0x72,paving
+29,23,1,['W'],W face,0x70,paving
+34,23,1,['E'],E face,0x72,paving
+40,23,1,['W'],W face,0x70,paving
+42,23,2,['W'],W face,0x70,grass
+52,23,2,['E'],E face,0x72,grass
+53,23,1,[],SE concave corner,0x74,grass
+54,23,1,['S'],S face,0x79,water
+55,23,1,"['E', 'S']",ES convex corner,0x7a,water
+5,24,1,['E'],E face,0x72,paving
+29,24,1,['W'],W face,0x70,paving
+32,24,1,[],SE concave corner,0x74,grass
+33,24,1,['S'],S face,0x79,paving
+34,24,1,"['E', 'S']",ES convex corner,0x7a,paving
+40,24,1,['W'],W face,0x70,paving
+42,24,2,['W'],W face,0x70,grass
+52,24,2,['E'],E face,0x72,grass
+53,24,1,['E'],E face,0x72,water
+5,25,1,['E'],E face,0x72,paving
+29,25,1,"['S', 'W']",SW convex corner,0x78,paving
+30,25,1,['S'],S face,0x79,paving
+31,25,1,['S'],S face,0x79,paving
+32,25,1,"['E', 'S']",ES convex corner,0x7a,paving
+40,25,1,['W'],W face,0x70,paving
+42,25,2,['W'],W face,0x70,grass
+52,25,2,['E'],E face,0x72,grass
+53,25,1,['E'],E face,0x72,water
+5,26,1,['E'],E face,0x72,paving
+40,26,1,['W'],W face,0x70,paving
+42,26,2,['W'],W face,0x70,grass
+52,26,2,['E'],E face,0x72,grass
+53,26,1,['E'],E face,0x72,water
+5,27,1,['E'],E face,0x72,paving
+40,27,1,['W'],W face,0x70,paving
+42,27,2,['W'],W face,0x70,grass
+52,27,2,['E'],E face,0x72,grass
+53,27,1,[],NE concave corner,0xbf,grass
+54,27,1,['N'],N face,0x69,water
+55,27,1,"['N', 'E']",NE convex corner,0x6a,water
+0,28,1,['S'],S face,0x79,sand
+1,28,1,['S'],S face,0x79,sand
+2,28,1,['S'],S face,0x79,sand
+3,28,1,['S'],S face,0x79,sand
+4,28,1,['S'],S face,0x79,sand
+5,28,1,"['E', 'S']",ES convex corner,0x7a,paving
+40,28,1,['W'],W face,0x70,paving
+42,28,2,['W'],W face,0x70,grass
+52,28,2,['E'],E face,0x72,grass
+55,28,1,['E'],E face,0x72,water
+40,29,1,['W'],W face,0x70,paving
+42,29,2,['W'],W face,0x70,grass
+52,29,2,['E'],E face,0x72,grass
+55,29,1,['E'],E face,0x72,water
+40,30,1,['W'],W face,0x70,paving
+42,30,2,['W'],W face,0x70,grass
+52,30,2,['E'],E face,0x72,grass
+55,30,1,['E'],E face,0x72,water
+40,31,1,['W'],W face,0x70,paving
+42,31,2,['W'],W face,0x70,grass
+52,31,2,['E'],E face,0x72,grass
+55,31,1,['E'],E face,0x72,water
+40,32,1,['W'],W face,0x70,paving
+42,32,2,['W'],W face,0x70,grass
+52,32,2,['E'],E face,0x72,grass
+55,32,1,['E'],E face,0x72,water
+40,33,1,['W'],W face,0x70,paving
+42,33,2,['W'],W face,0x70,grass
+52,33,2,['E'],E face,0x72,grass
+55,33,1,['E'],E face,0x72,water
+2,34,1,"['N', 'W']",NW convex corner,0x68,sand
+3,34,1,['N'],N face,0x69,sand
+4,34,1,['N'],N face,0x69,sand
+5,34,1,"['N', 'E']",NE convex corner,0x6a,dock
+40,34,1,['W'],W face,0x70,dock
+42,34,2,['W'],W face,0x70,grass
+52,34,2,['E'],E face,0x72,grass
+55,34,1,['E'],E face,0x72,water
+2,35,1,['W'],W face,0x70,sand
+5,35,1,['E'],E face,0x72,dock
+40,35,1,['W'],W face,0x70,dock
+42,35,2,['W'],W face,0x70,grass
+51,35,2,[],SE concave corner,0x74,grass
+52,35,2,"['E', 'S']",ES convex corner,0x7a,grass
+53,35,1,[],SE concave corner,0x74,grass
+54,35,1,['S'],S face,0x79,water
+55,35,1,"['E', 'S']",ES convex corner,0x7a,water
+2,36,1,['W'],W face,0x70,sand
+5,36,1,['E'],E face,0x72,dock
+40,36,1,['W'],W face,0x70,dock
+42,36,2,"['S', 'W']",SW convex corner,0x78,grass
+43,36,2,['S'],S face,0x79,grass
+44,36,2,['S'],S face,0x79,grass
+45,36,2,['S'],S face,0x79,grass
+46,36,2,['S'],S face,0x79,grass
+47,36,2,['S'],S face,0x79,grass
+48,36,2,['S'],S face,0x79,grass
+49,36,2,['S'],S face,0x79,grass
+50,36,2,['S'],S face,0x79,grass
+51,36,2,"['E', 'S']",ES convex corner,0x7a,grass
+53,36,1,['E'],E face,0x72,water
+2,37,1,['W'],W face,0x70,sand
+5,37,1,['E'],E face,0x72,dock
+40,37,1,['W'],W face,0x70,dock
+53,37,1,['E'],E face,0x72,water
+2,38,1,['W'],W face,0x70,sand
+5,38,1,['E'],E face,0x72,dock
+40,38,1,"['S', 'W']",SW convex corner,0x78,dock
+41,38,1,['S'],S face,0x79,water
+42,38,1,['S'],S face,0x79,water
+43,38,1,['S'],S face,0x79,water
+44,38,1,['S'],S face,0x79,water
+45,38,1,['S'],S face,0x79,water
+46,38,1,['S'],S face,0x79,water
+47,38,1,['S'],S face,0x79,water
+48,38,1,['S'],S face,0x79,water
+49,38,1,['S'],S face,0x79,water
+50,38,1,['S'],S face,0x79,water
+51,38,1,['S'],S face,0x79,water
+52,38,1,['S'],S face,0x79,water
+53,38,1,"['E', 'S']",ES convex corner,0x7a,water
+2,39,1,"['S', 'W']",SW convex corner,0x78,sand
+3,39,1,['S'],S face,0x79,water
+4,39,1,['S'],S face,0x79,water
+5,39,1,"['E', 'S']",ES convex corner,0x7a,dock

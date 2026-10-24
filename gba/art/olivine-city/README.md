@@ -1,16 +1,16 @@
-# Olivine City — current native terrain foundation
+# Olivine City — current terrain corner revision
 
-Current pass: [cleared terrain, directional cliff levels, native walking proof](evidence/base-terrain/README.md).
-Engine `df08620e053e1a437557370399cac39667bbd2a4`, same branch and draft PR23.
-The owner requested removal of all structures/props and stairs, followed by an
-HGSS-based rebuild using correctly oriented Gen 3 cliff faces and corners.
-This is the current editable native exterior; visual acceptance remains pending.
+[Current native map, corner review and gameplay proof](evidence/corner-revision/README.md).
+Engine `0e47f9cc35cfe8f3c43764fa43109e092622d3e0`, same branch and draft PR23.
+All 15 remaining inside cliff corners use the correct native mountain joins.
+The extra lowest coastal grass/rock tier is removed. Retained straight faces and
+outside corners preserve their existing rock pixels; stairs remain absent.
 
-![Current native terrain](evidence/base-terrain/native-map.png)
+![Current native terrain](evidence/corner-revision/native-map.png)
 
-[Two-minute recorded walk](evidence/base-terrain/olivine-walking-tour.mp4).
-Prior architecture masters and city passes remain historical references below.
-Do not replay their object-placement generators over this terrain foundation.
+[Updated two-minute walkthrough](evidence/corner-revision/olivine-walking-tour.mp4).
+Owner visual review is pending. [Previous foundation](evidence/base-terrain/README.md)
+and the earlier architecture passes are historical references.
 
 ## Historical object-filled exterior — receiving-context repairs
 

@@ -1,4 +1,4 @@
-Current Olivine exterior: [native terrain and directional elevations](../gba/art/olivine-city/evidence/base-terrain/README.md). Engine `df08620e`, draft PR23. Cleared base only; stairs removed, HGSS-derived relative surfaces with directional Gen 3 cliffs. Actual Porymap/gameplay/save evidence; owner review pending. Earlier object-filled Olivine passes are historical.
+Current Olivine exterior: [native inward-corner and coastal-tier correction](../gba/art/olivine-city/evidence/corner-revision/README.md). Engine `0e47f9cc`, draft PR23. Corrected15 inward joins; removed extra lowest coastal tier; retained approved straight/external faces. Actual Porymap/gameplay/save proof; owner review pending.
 
 Current Goldenrod exterior: [HGSS/native city review](../gba/art/goldenrod-city/README.md). Engine `codex/goldenrod-city` (`eb63c24c`), draft PR #20; native tiles, approved carnival boardwalk, continuous camera views, original-reference grids and gameplay/save evidence. Interiors/adjacent routes/train service remain unwired; hosted CI is blocked because Actions is disabled.
 

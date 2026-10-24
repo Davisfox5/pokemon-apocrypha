@@ -3,7 +3,7 @@
 Coordinates trace the 1035x858 overview on a 65x54 native grid. Heights are
 interpreted relative levels, NOT extracted DS terrain. Former tree/roof-covered
 returns are completed from the visible adjoining courses. No generated concept
-is a geometry authority. The coastal footing is below the two upper terraces.
+is a geometry authority. The owner removed the extra lowest coastal footing on the next review.
 """
 import numpy as np
 from PIL import Image, ImageDraw
@@ -41,12 +41,17 @@ def build():
   height[m]=region['level'];material[m]='grass'
  # Retain the original western quay rock outcrop as one complete raised block.
  height[34:40,2:6]=1;material[34:40,2:6]='rock outcrop'
+ # Owner revision: remove the entire extra grass/rock footing along the sea.
+ coast=(height==0)&(np.indices(height.shape)[1]>=39)&(material=='grass')
+ material[coast]='water';height[coast]=-1
  return material,height
 # These are original General metatiles. Never flip a complete cliff vertically:
 # that would turn a cap into a foot and reverse the perceived elevation.
 STRAIGHTS={'W':0x70,'E':0x72,'N':0x69,'S':0x79}
 CORNERS={frozenset('NW'):0x68,frozenset('NE'):0x6a,frozenset('SW'):0x78,frozenset('SE'):0x7a}
-INSIDE={'NW':0x73,'NE':0x74,'SW':0x76,'SE':0x77}
+# Native mountain concave joins, confirmed against Route 111 placements.
+# 76/77 are not the joins used by the actual native cliff family.
+INSIDE={'NW':0xbe,'NE':0xbf,'SW':0x89,'SE':0x74}
 DIRECTIONS={'N':(0,-1),'E':(1,0),'S':(0,1),'W':(-1,0)}
 def cliffs(material,height):
  result={};ledger=[]

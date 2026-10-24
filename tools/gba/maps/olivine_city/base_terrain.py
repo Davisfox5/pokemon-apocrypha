@@ -14,7 +14,7 @@ if not preview:
  assert subprocess.check_output(['git','-C',str(G),'rev-parse','HEAD'],text=True).strip()==BASE
  assert not subprocess.check_output(['git','-C',str(G),'status','--porcelain'],text=True),'Use a clean isolated baseline; preserve native edits.'
 # HGSS surface topology and explicit high/low-side native cliff grammar.
-from elevation import build,cliffs,REGIONS,SURFACES
+from foundation_elevation import build,cliffs,REGIONS,SURFACES
 sys.path.insert(0,str(R/'tools/gba/maps'));from tiles import Tileset
 mat,levels=build();wall,cliff_ledger=cliffs(mat,levels)
 geometry=dict(surfaces=SURFACES,raised_regions=REGIONS,cliffs=cliff_ledger,stairs=[],props=[],registration=dict(cells=[W,H],tile_pixels=16,reference='source/hgss-reference.png',method='HGSS overview trace; connected relative levels; 16px grid adaptation, occluded returns inferred. Not extracted DS heights.'))

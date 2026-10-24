@@ -3,11 +3,11 @@ from pathlib import Path
 import sys,json,csv,hashlib
 import numpy as np
 from PIL import Image,ImageDraw
-R=Path(__file__).resolve().parents[4];S=R/'gba/art/olivine-city/source';A=S/'base-terrain';O=S.parent/'evidence/base-terrain'
+R=Path(__file__).resolve().parents[4];S=R/'gba/art/olivine-city/source';A=S/'base-terrain';O=Path(sys.argv[1]) if len(sys.argv)>1 else S.parent/'evidence/base-terrain'
 height=np.load(A/'height.npy');solid=np.load(A/'solid.npy');geo=json.loads((A/'geometry.json').read_text());rows=geo['cliffs'];native=Image.open(O/'native-map.png');ref=Image.open(S/'hgss-reference.png')
 # Hand-reviewed source landmarks anchor the relative planes independently of
 # the edge picker. Numbers are relative planes inferred from the overview.
-anchors=[('main avenue',24,18,0),('residential lawn',37,17,1),('lighthouse lawn',47,33,2),('middle coastal shelf',53,37,1),('coastal footing',53,39,0),('ocean',59,39,-1),('north woodland',40,2,3),('north middle woodland',40,8,2),('west woodland',3,20,1)]
+anchors=[('main avenue',24,18,0),('residential lawn',37,17,1),('lighthouse lawn',47,33,2),('middle coastal shelf',53,37,1),('removed coastal footing',53,39,-1),('ocean',59,39,-1),('north woodland',40,2,3),('north middle woodland',40,8,2),('west woodland',3,20,1)]
 for name,x,y,h in anchors:assert int(height[y,x])==h,(name,x,y)
 # Native donor semantics: 70 rises toward E, 72 rises toward W, 79 toward N.
 # Convex and concave corners are distinct, never generic blended intersections.
@@ -19,7 +19,7 @@ for row in rows:
   assert set(row['low_sides'])==semantics[mid],row
   for side in semantics[mid]:
    dx,dy=deltas[side];assert height[y+dy,x+dx]<height[y,x],row
- else:assert mid in [0x73,0x74,0x76,0x77] and not row['low_sides'],row
+ else:assert mid in [0xbe,0xbf,0x89,0x74] and not row['low_sides'],row
 # Both long sides of the SAME plateau must rise INWARD, with a south face
 # across the bottom. These concrete locations catch the rejected reuse bug.
 bycell={(r['x'],r['y']):int(r['donor_metatile'],16) for r in rows}

@@ -38,5 +38,5 @@ for name,(num,x,y) in locations.items():
  errors,dy,expected=best;Image.fromarray(now).save(O/(name+'-background.png'));results.append(dict(frame=name,world=[wx,wy],camera_delta_y=dy,pixels=38400,RGB_errors=errors))
  if errors:
   sh=Image.new('RGB',(720,160));sh.paste(Image.fromarray(expected),(0,0));sh.paste(Image.fromarray(now),(240,0));diff=np.zeros_like(now);diff[np.any(now!=expected,2)]=[255,0,80];sh.paste(Image.fromarray(diff),(480,0));sh.save(O/(name+'-difference.png'))
-report=dict(frames=len(results),pixels=sum(r['pixels'] for r in results),RGB_errors=sum(r['RGB_errors'] for r in results),frames_detail=results);(E/'base-terrain/gameplay-background-parity.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+report=dict(frames=len(results),pixels=sum(r['pixels'] for r in results),RGB_errors=sum(r['RGB_errors'] for r in results),frames_detail=results);((Path(sys.argv[2]) if len(sys.argv)>2 else E/'base-terrain')/'gameplay-background-parity.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 assert not report['RGB_errors'],'Inspect actual VRAM differences; do not conceal them with tolerance'
