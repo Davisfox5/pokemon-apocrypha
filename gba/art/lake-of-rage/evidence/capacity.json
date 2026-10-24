@@ -1,0 +1,83 @@
+{
+  "map": "LakeOfRage",
+  "primary": "gTileset_Route43Primary (shared with Route 43)",
+  "secondary": "gTileset_LakeOfRage",
+  "build": "shared Johto art + Blackthorn FRLG rock + natural lake banks, lossless pair pack (assemble.py, pack_pair.py)",
+  "pair": {
+    "method": "lossless pair pack: shared primary (tiles 0-511, palettes 0-5, metatiles 0-511) for the seam strips; each map its own secondary",
+    "route43": {
+      "native_pixels_exact": 524288,
+      "native_pixels": 524288,
+      "primary_tiles_used": 300,
+      "secondary_tiles": 271,
+      "primary_metatiles_used": 52,
+      "secondary_metatiles": 216,
+      "banks": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        13,
+        15,
+        12,
+        13
+      ]
+    },
+    "lake": {
+      "native_pixels_exact": 1572864,
+      "native_pixels": 1572864,
+      "primary_tiles_used": 313,
+      "secondary_tiles": 272,
+      "primary_metatiles_used": 59,
+      "secondary_metatiles": 367,
+      "banks": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        13,
+        14,
+        14,
+        12,
+        15
+      ]
+    },
+    "seam_route43_with_lake_tilesets_exact": true,
+    "seam_lake_with_route43_tilesets_exact": true,
+    "primary_tiles": 512,
+    "primary_metatiles": 82,
+    "shared_banks": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "seam": {
+      "route43": [
+        0,
+        0,
+        32,
+        7
+      ],
+      "lake": [
+        24,
+        56,
+        72,
+        64
+      ]
+    },
+    "offset": 32
+  },
+  "border_block": [
+    2,
+    2
+  ],
+  "map_id": 49
+}

@@ -1,0 +1,363 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/085_T29.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0938_T29.s",
+      "files/msgdata/msg/msg_0626_T29.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 15,
+        "z": 1,
+        "land_data": 89
+      },
+      {
+        "x": 16,
+        "z": 1,
+        "land_data": 90
+      },
+      {
+        "x": 17,
+        "z": 1,
+        "land_data": 91
+      },
+      {
+        "x": 15,
+        "z": 2,
+        "land_data": 92
+      },
+      {
+        "x": 16,
+        "z": 2,
+        "land_data": 93
+      },
+      {
+        "x": 17,
+        "z": 2,
+        "land_data": 94
+      }
+    ],
+    "origin": [
+      480,
+      32
+    ],
+    "size": [
+      96,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [],
+      "east": [],
+      "north": [],
+      "south": [
+        45
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        17,
+        10
+      ],
+      "dest": "MAP_LAKE_OF_RAGE_HIDDEN_POWER_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        56,
+        57
+      ],
+      "dest": "MAP_LAKE_OF_RAGE_FISHING_GURU_HOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        48,
+        50
+      ],
+      "script": "scr_seq_T29_007",
+      "bg_type": 1,
+      "text": "Lake of Rage Also Known As GYARADOS Lake"
+    },
+    {
+      "cell": [
+        54,
+        57
+      ],
+      "script": "scr_seq_T29_006",
+      "bg_type": 1,
+      "text": ""
+    },
+    {
+      "cell": [
+        31,
+        50
+      ],
+      "script": "std_hiddenitem_t29_full_restore",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        67,
+        47
+      ],
+      "script": "std_hiddenitem_t29_rare_candy",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        62,
+        5
+      ],
+      "script": "std_hiddenitem_t29_max_potion",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T29_gsoldman1",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        48,
+        48
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T29_gswoman1",
+      "sprite": "SPRITE_GSWOMAN1",
+      "cell": [
+        53,
+        53
+      ],
+      "facing": 2,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T29_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        70,
+        32
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T29_rgyaradosu",
+      "sprite": "SPRITE_RGYARADOSU",
+      "cell": [
+        45,
+        39
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS"
+    },
+    {
+      "id": "obj_T29_fishing_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        55,
+        48
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_FISHERMEN"
+    },
+    {
+      "id": "obj_T29_fishing_2_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        63,
+        43
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_FISHERMEN"
+    },
+    {
+      "id": "obj_T29_gsman3",
+      "sprite": "SPRITE_GSMAN3",
+      "cell": [
+        16,
+        38
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_UNK_1FE"
+    },
+    {
+      "id": "obj_T29_gswoman3",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        70,
+        23
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_ACE_TRAINER_LOIS"
+    },
+    {
+      "id": "obj_T29_wataru",
+      "sprite": "SPRITE_WATARU",
+      "cell": [
+        48,
+        51
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_LANCE"
+    },
+    {
+      "id": "obj_T29_gsman1_2",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        15,
+        16
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1FC"
+    },
+    {
+      "id": "obj_T29_tsure_poke_static_dragonite",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_DRAGONITE",
+      "cell": [
+        49,
+        51
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_LANCE"
+    },
+    {
+      "id": "obj_T29_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        20,
+        27
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_UNK_28B"
+    },
+    {
+      "id": "obj_T29_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        61,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_UNK_28C"
+    },
+    {
+      "id": "obj_T29_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        43,
+        47
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_UNK_289"
+    },
+    {
+      "id": "obj_T29_monstarball_4",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        26,
+        2
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_T29_TM43"
+    },
+    {
+      "id": "obj_T29_monstarball_5",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        9,
+        41
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_T29_RED_FLUTE"
+    },
+    {
+      "id": "obj_T29_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        18,
+        37
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_011"
+    },
+    {
+      "id": "obj_T29_tree_2",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        35,
+        22
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_013"
+    },
+    {
+      "id": "obj_T29_tree_3",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        42,
+        18
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_014"
+    },
+    {
+      "id": "obj_T29_monstarball_6",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        60,
+        5
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_T29_CHOICE_SPECS"
+    },
+    {
+      "id": "obj_T29_gsleader7",
+      "sprite": "SPRITE_GSLEADER7",
+      "cell": [
+        23,
+        48
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_PRYCE"
+    }
+  ]
+}

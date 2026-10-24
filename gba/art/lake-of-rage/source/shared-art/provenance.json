@@ -1,0 +1,47 @@
+{
+  "catalog": {
+    "branch": "codex/violet-city",
+    "commit": "de5d8cfb707f8614c25977c6d186ddfaaa8fc035",
+    "rule": "Masters copied byte for byte; native tile ids and palette slots may differ, visible colours do not."
+  },
+  "T01.png": {
+    "source": "gba/art/johto-common/trees/source/T01.png",
+    "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a"
+  },
+  "P13.png": {
+    "source": "gba/art/johto-common/scenery/source/P13.png",
+    "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c"
+  },
+  "L11.png": {
+    "source": "gba/art/johto-common/scenery/source/L11.png",
+    "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+  },
+  "L12.png": {
+    "source": "gba/art/johto-common/scenery/source/L12.png",
+    "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+  },
+  "L13.png": {
+    "source": "gba/art/johto-common/scenery/source/L13.png",
+    "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+  },
+  "pond/pond-15-0.png": {
+    "source": "gba/art/route30-hgss-blocks/source/materials/pond-15-0.png",
+    "sha256": "87939ef6230f5330ef8ddcb8046b1a037190ad67d3d3b295bc52ea9a23e09fba"
+  },
+  "pond/pond-15-1.png": {
+    "source": "gba/art/route30-hgss-blocks/source/materials/pond-15-1.png",
+    "sha256": "97aa0889c8587413b0157386ad0d99b08137e80fa4827aab2b80b115cf772659"
+  },
+  "pond/pond-15-2.png": {
+    "source": "gba/art/route30-hgss-blocks/source/materials/pond-15-2.png",
+    "sha256": "0b2a74f4ac09fdf4ee8ab20017fbdad45f0d2bb213e0145c17c5acd3b4f786e7"
+  },
+  "pond/pond-15-3.png": {
+    "source": "gba/art/route30-hgss-blocks/source/materials/pond-15-3.png",
+    "sha256": "8bbe1922f4fd96a51a6c901e236d63fe1098f475b38aef5b840168f8fe424d36"
+  },
+  "house.png": {
+    "source": "gba/art/mahogany-town/source/local-art/house.png (owner-accepted with Mahogany)",
+    "sha256": "ed89154156acebf36bdba7ba774230c218b3fb5801f8e546228c6c4f6ada97c7"
+  }
+}
