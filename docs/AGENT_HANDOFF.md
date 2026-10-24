@@ -1,4 +1,22 @@
-## Latest: Route 29 rebuilt from HGSS slices as a Porymap tileset (proposal)
+## Latest: Route 29 rebuilt from the decoded HGSS map (proposal, October 24)
+
+Redone from scratch under `docs/GBA_MAP_RECONSTRUCTION.md`. The decoded DS map
+(terrain types, collision bytes, zone events) is the square-by-square reference;
+material and traversal are separate grids with a ledger and a declared-adaptation
+list. Native art: accepted lawn, dirt kit and the 2x3 Cherrygrove tree with complete
+footprints (HGSS canopy stacking via composite metatiles); tall grass, ledges, walls,
+gate, Apricorn tree, flowers and sign sliced from the HGSS render. Tileset
+`route29_hgss` pins every seam metatile id used by Cherrygrove and New Bark and
+leaves tile 0x200 blank (stale-VRAM artefact after connection crossings). Ridge and
+seam windows carried from `2722eaf`. Checked: local ROM build, headless mGBA (both
+connections, all ledges, walls, gate, grass, signs, trees, Potion, save, cold reload,
+Continue), Porymap 6.3.1 offscreen project/map load, audit 2478 agree / 18 declared.
+Branch `claude/route29-hgss-decoded`, PR against `apocrypha`. Read
+`gba/art/route29-hgss/README.md`. Next: owner visual review of the comparison
+sheets and gameplay frames; known limits are listed there. Do not replay the
+generator over Porymap edits on the branch.
+
+## Previous: Route 29 rebuilt from HGSS slices as a Porymap tileset (superseded draft)
 
 First map done the shared-source way: the HGSS Route 29 vocabulary (tall grass,
 ledges, gate, Apricorn tree, flowers, light lawn, sign) sliced at 16 px into one

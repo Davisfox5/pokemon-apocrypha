@@ -1,0 +1,318 @@
+{
+  "cells_checked": 2496,
+  "summary": {
+    "agree": 2478,
+    "declared: gate door kept blocked (interior map not built)": 2,
+    "declared: lawn absorbed under a whole tree": 13,
+    "declared: HGSS tree sprite -> native cuttable-tree object event (object blocks)": 2,
+    "declared: forest cell without tree art (blocked)": 1
+  },
+  "disagreements": [
+    {
+      "hgss": [
+        50,
+        5
+      ],
+      "map": [
+        51,
+        8
+      ],
+      "material": "D",
+      "traversal": "D",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "other",
+      "metatile": "0x2fc",
+      "verdict": "declared: gate door kept blocked (interior map not built)"
+    },
+    {
+      "hgss": [
+        51,
+        5
+      ],
+      "map": [
+        52,
+        8
+      ],
+      "material": "D",
+      "traversal": "D",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "other",
+      "metatile": "0x2fd",
+      "verdict": "declared: gate door kept blocked (interior map not built)"
+    },
+    {
+      "hgss": [
+        62,
+        6
+      ],
+      "map": [
+        63,
+        9
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x020",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        63,
+        6
+      ],
+      "map": [
+        64,
+        9
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x01d",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        36,
+        10
+      ],
+      "map": [
+        37,
+        13
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x00a",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        37,
+        10
+      ],
+      "map": [
+        38,
+        13
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x007",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        42,
+        10
+      ],
+      "map": [
+        43,
+        13
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x020",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        43,
+        10
+      ],
+      "map": [
+        44,
+        13
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x01d",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        53,
+        17
+      ],
+      "map": [
+        54,
+        20
+      ],
+      "material": "x",
+      "traversal": "X",
+      "native_blocked": false,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "lawn",
+      "metatile": "0x028",
+      "verdict": "declared: HGSS tree sprite -> native cuttable-tree object event (object blocks)"
+    },
+    {
+      "hgss": [
+        46,
+        20
+      ],
+      "map": [
+        47,
+        23
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x020",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        47,
+        20
+      ],
+      "map": [
+        48,
+        23
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x01d",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        43,
+        21
+      ],
+      "map": [
+        44,
+        24
+      ],
+      "material": "x",
+      "traversal": "X",
+      "native_blocked": false,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "lawn",
+      "metatile": "0x028",
+      "verdict": "declared: HGSS tree sprite -> native cuttable-tree object event (object blocks)"
+    },
+    {
+      "hgss": [
+        44,
+        22
+      ],
+      "map": [
+        45,
+        25
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x020",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        45,
+        22
+      ],
+      "map": [
+        46,
+        25
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x01d",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        61,
+        24
+      ],
+      "map": [
+        62,
+        27
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x00a",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        61,
+        25
+      ],
+      "map": [
+        62,
+        28
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x00e",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        61,
+        26
+      ],
+      "map": [
+        62,
+        29
+      ],
+      "material": ".",
+      "traversal": ".",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "tree",
+      "metatile": "0x020",
+      "verdict": "declared: lawn absorbed under a whole tree"
+    },
+    {
+      "hgss": [
+        65,
+        26
+      ],
+      "map": [
+        66,
+        29
+      ],
+      "material": "T",
+      "traversal": "X",
+      "native_blocked": true,
+      "native_behavior": "MB_NORMAL",
+      "native_class": "lawn",
+      "metatile": "0x034",
+      "verdict": "declared: forest cell without tree art (blocked)"
+    }
+  ]
+}

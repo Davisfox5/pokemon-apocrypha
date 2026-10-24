@@ -1,0 +1,54 @@
+{
+  "matrix": "map_matrix_0000_EVERYWHERE.bin",
+  "matrix_cells": [
+    [
+      18,
+      12
+    ],
+    [
+      19,
+      12
+    ],
+    [
+      20,
+      12
+    ]
+  ],
+  "land_models": [
+    1,
+    2,
+    3
+  ],
+  "land_sha256": "5c30f7bc7955b33ab47ee30aef1e5ee11ebf3539911f6f6a795864862124fa6a",
+  "ds_tree": "0bb663f70c977e78226f22e5056584a4349fc962",
+  "size": [
+    96,
+    32
+  ],
+  "registration": {
+    "map_col": "hx + 1",
+    "map_row": "hz + 3",
+    "region_cols": [
+      10,
+      87
+    ],
+    "region_rows": [
+      3,
+      31
+    ]
+  },
+  "terrain_types": {
+    "0x00": "ordinary ground (collision byte 0x04 = lawn, 0x00 = dirt)",
+    "0x02": "tall grass",
+    "0x06": "forest (blocked)",
+    "0x3b": "one-way ledge, jump south",
+    "0x38": "ledge wall, high side west",
+    "0x39": "ledge wall, high side east",
+    "0x3e": "ledge wall corner",
+    "0x6e": "gatehouse door"
+  },
+  "render": {
+    "file": "gba/art/claude-routes/references/route29-hgss.png",
+    "use": "texture only; cell registration is approximate (about 50% cell agreement for tall grass), so it decides no cell"
+  }
+}
