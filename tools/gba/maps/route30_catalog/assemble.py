@@ -12,17 +12,18 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
   trees       the Cherrygrove tree (T01 with the town's contact shadow) on non-overlapping 2x2 roots
   tall grass  G15 on every HGSS tall-grass cell
   ledges      L11/L12/L13 on HGSS's jump-south runs
-  stairs      S01/S02/S03 on the north-south flights; S05 (its middle two rows) on the side flight
+  stairs      HGSS's own, cut from its ground render on every stair cell (6 tones)
   ponds       Route 43's natural pond: Route 30's HGSS freshwater texture (pond-15) with rough banks
   signs       P14 (HGSS model 32), P16 (model 34) on HGSS's sign cells; HGSS's readable sign at
-              Mr. Pokemon's house (model 30) is his mailbox, cut with the house
-Local assets cut from HGSS's own models and textures (source/local-art/): both houses with their doors
-and Mr. Pokemon's mailbox, the fences, flower heads and light lawn patches. The houses' contact shadows
-take the Cherrygrove tree shadow's green.
+              Mr. Pokemon's house (model 30) is his mailbox (buildings.py)
+Local assets from HGSS's own models and textures (source/local-art/): both houses with their doors and
+Mr. Pokemon's mailbox as Gen 3 sprites (buildings.py: Blackthorn's method, HGSS's models at the C06 Center's
+angle), the stairs, fences, flower heads and light lawn patches. The houses' contact shadows take the
+Cherrygrove tree shadow's green.
 
 The south padding (reference.py) is Cherrygrove's own north forest band, drawn as Cherrygrove's
-primary metatiles. HGSS's road takes Cherrygrove's road columns on its straight run next to the band,
-with the kit's straight edge (Route 29's seam fix).
+primary metatiles. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
+east) with the painter's wavy edge; only its last cell before the band takes the kit's straight edge.
 
 Writes source/assemble/layers.npz, placements.json and evidence/assemble/*.png.
 """
@@ -47,7 +48,7 @@ TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
 CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
-           for n in ('P14', 'P16', 'L11', 'L12', 'L13', 'G15', 'S01', 'S02', 'S03', 'S05')}
+           for n in ('P14', 'P16', 'L11', 'L12', 'L13', 'G15')}
 CATALOG['T01.png'] = 'gba/art/johto-common/trees/source/T01.png'
 # Route 30's installed HGSS freshwater texture, as Route 43 carries it (hub branch claude/route-43).
 POND = {f'pond/pond-15-{k}.png': ('claude/route-43', f'gba/art/route-43/source/shared-art/pond/pond-15-{k}.png',
@@ -55,8 +56,9 @@ POND = {f'pond/pond-15-{k}.png': ('claude/route-43', f'gba/art/route-43/source/s
 TREE_BOX = (896, 80, 928, 128)      # Cherrygrove's standalone tree (cells 56-57, 5-7)
 FLOOR = 1                           # HGSS height of Route 30's lowest walkable floor (its south end)
 FLAT_RUN = 2 * PX                   # the painter's edge wave fades out over this many px towards a straight kit run
+JOIN_Q = 2                          # quadrant rows of HGSS's road that step onto Cherrygrove's road columns (one cell)
 SIGN_ART = {32: 'P14', 34: 'P16'}   # model 30 is Mr. Pokemon's mailbox (HGSS's readable sign there), cut with his house
-HOUSE_PARTS = {'mr_pokemon_house': (1, 2, 3), 'apricorn_house': (6, 7)}   # hgss-render building indices (house, door, mailbox)
+HOUSE_PARTS = {'mr_pokemon_house': (1, 2, 3), 'apricorn_house': (6, 7)}   # hgss-render building indices (house, door, mailbox): the shadow's box
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def rgba(p): return np.array(Image.open(p).convert('RGBA'))
@@ -143,7 +145,8 @@ def kit_profiles(engine):
 
 # --------------------------------------------------------------------------- ground
 def native_cells(cells, grid):
-    """The ledger in the native frame. West of HGSS column 0 is woods at column 0's ground; the south
+    """The ledger in the native frame. West of HGSS column 0 is woods at column 0's height (its rock's top
+    where column 0 is HGSS's west wall); the south
     padding is Cherrygrove's band at HGSS row 95's ground; the north padding is HGSS row 0 with its stairs as
     road. Blocked corners beside rock count as rock."""
     out = []
@@ -154,8 +157,11 @@ def native_cells(cells, grid):
             if y >= PAD0:
                 c = dict(cells[HH - 1][min(max(hx, 0), HW - 1)])
                 c.update(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass')
-            elif hx < 0:
-                c = dict(cells[max(hz, 0)][0]); c.update(lab='F', floor='grass')
+            elif hx < 0:                                  # woods beyond HGSS's west edge, at the height of what stands there:
+                c = dict(cells[max(hz, 0)][0])             # where column 0 is HGSS's west wall, the wall's top, so the wall
+                if c['lab'] == 'R':                        # keeps only its own east face, as at HGSS's map edge
+                    c['ground'] = c['peak']
+                c.update(lab='F', floor='grass')
             elif hz < 0:                                  # north padding: HGSS row 0, its stairs as road at the plateau's height
                 c = dict(cells[0][hx])
                 if c['lab'] == '^':
@@ -215,9 +221,11 @@ def ground_quadrants(phg, ncells):
         for i in range(1, n + 1):
             if sizes[i] < small:
                 q[lab == i] = other
-    # The straight run into Cherrygrove's road (Route 29's seam fix, along a column here). HGSS's road
-    # stops half a row short of its south edge and sits one quadrant west of Cherrygrove's: it opens onto
-    # the band's road, and both edges of its straight run step one quadrant east.
+    # The join with Cherrygrove's road. HGSS's road stops half a row short of its south edge and sits one
+    # quadrant west of Cherrygrove's: it opens onto the band's road, and its straight south section moves one
+    # quadrant east onto the town's columns, so the edges run on without a step. The section keeps the
+    # painter's wavy edge, as on the rest of the route; only its last JOIN_Q quadrant rows (one cell) take
+    # the kit's straight edge, which the band continues.
     c0, c1 = 2 * Rf.ROAD_COLS.start, 2 * Rf.ROAD_COLS.stop          # quadrant columns of Cherrygrove's road
     band = range(c0 - 6, c1 + 6)
     has = lambda r: any(q[r, c] == G.PATH for c in band)
@@ -236,7 +244,8 @@ def ground_quadrants(phg, ncells):
             q[qy, want] = G.PATH
             qy -= 1
         x = want * 8 if edge == 'left' else (want + 1) * 8
-        runs.append(dict(edge=edge, x=x, y0=(qy + 2) * 8, y1=PAD0 * PX, hgss_edge_quadrant=int(have)))   # one quadrant short of the turn
+        runs.append(dict(edge=edge, x=x, y0=(last - JOIN_Q + 1) * 8, y1=PAD0 * PX, hgss_edge_quadrant=int(have),
+                         moved_from_quadrant_row=int(qy + 1)))
     return q, runs
 
 def paint_ground(q, road, runs, kits):
@@ -336,28 +345,38 @@ def fences(phg, grid):
     Image.fromarray(art).save(LOCAL / 'fences.png')
     return art
 
-def houses(shadow):
-    """Both HGSS houses, their doors and Mr. Pokemon's mailbox, cut from HGSS's own foreground render
-    (no baked ground), moved to the nearest 8 px corner. Contact shadow: where HGSS's ground render is
-    darker than its bare terrain inside the house's box, the Cherrygrove tree shadow's green."""
-    fg = rgba(SRC / 'hgss/hgss-foreground.png'); own = np.load(SRC / 'hgss/hgss-foreground-owner.npz')['owner']
+def houses(shadow, grid):
+    """Both HGSS houses and Mr. Pokemon's mailbox as Gen 3 sprites (buildings.py: HGSS's models at C06's
+    angle, Blackthorn's finish), each door on HGSS's door cell and each sprite's bottom on its base row.
+    Contact shadow: where HGSS's ground render is darker than its bare terrain inside the house's box, the
+    Cherrygrove tree shadow's green, in the ground."""
+    own = np.load(SRC / 'hgss/hgss-foreground-owner.npz')['owner']
     gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB')).astype(int)
     ter = np.array(Image.open(SRC / 'hgss/hgss-terrain.png').convert('RGB')).astype(int)
+    info = json.loads((LOCAL / 'buildings/buildings.json').read_text())['sprites']
+    doors = sorted((x, y) for y, row in enumerate(grid) for x, ch in enumerate(row) if ch == 'D')
+    mailbox = next((x, y) for y, row in enumerate(grid) for x, ch in enumerate(row) if ch == 's' and any(grid[y][x + d] == 'H' for d in (1, 2)))
     out = []
     for name, parts in HOUSE_PARTS.items():
         m = np.isin(own, parts)
         ys, xs = np.nonzero(m)
         y0, x0, y1, x1 = ys.min(), xs.min(), ys.max() + 1, xs.max() + 1
-        dx = int(round(x0 / 8)) * 8 - x0; dy = int(round(y0 / 8)) * 8 - y0
-        art = np.zeros((y1 - y0 + 16, x1 - x0, 4), np.uint8)
-        sub = m[y0:y1, x0:x1]
-        art[:y1 - y0][sub] = fg[y0:y1, x0:x1][sub]
-        dark = (gnd[y0:y1 + 16, x0:x1].sum(-1) + 24 < ter[y0:y1 + 16, x0:x1].sum(-1))
-        dark &= art[..., 3] == 0
-        art[dark, :3] = shadow; art[dark, 3] = 255
-        Image.fromarray(art).save(LOCAL / f'{name}-hgss.png')
-        out.append(dict(name=name, master=f'local-art/{name}-hgss.png', art=art,
-                        xy=[x0 + dx + COL0 * PX, y0 + dy + ROW0 * PX], moved_px=[dx, dy]))
+        dark = np.zeros((y1 - y0 + 16, x1 - x0, 4), np.uint8)
+        sel = (gnd[y0:y1 + 16, x0:x1].sum(-1) + 24 < ter[y0:y1 + 16, x0:x1].sum(-1))
+        dark[sel, :3] = shadow; dark[sel, 3] = 255
+        art = rgba(LOCAL / f'buildings/{name}.png')
+        hx0, hx1 = x0 // PX + COL0, (x1 - 1) // PX + COL0           # the door cell inside this house's columns
+        dx, dy = next(d for d in doors if hx0 <= d[0] <= hx1)
+        c0, c1 = info[name]['door_columns']
+        xy = [dx * PX + PX // 2 - (c0 + c1) // 2, (dy + 1) * PX - art.shape[0]]
+        top = dy * PX - (y0 + ROW0 * PX)                             # HGSS's taller house cast shadow beside its roof:
+        dark[:max(top, 0)] = 0                                       # the Gen 3 sprite keeps it from the door row down
+        out.append(dict(name=name, master=f'local-art/buildings/{name}.png (HGSS model {info[name]["models"][0]} at C06\'s angle)',
+                        art=art, xy=xy, door=[dx, dy], shadow=dark, shadow_xy=[x0 + COL0 * PX, y0 + ROW0 * PX]))
+    art = rgba(LOCAL / 'buildings/mailbox.png')
+    mx, my = mailbox
+    out.append(dict(name='mailbox', master='local-art/buildings/mailbox.png (HGSS model 30 at C06\'s angle)', art=art,
+                    xy=[mx * PX + (PX - art.shape[1]) // 2, (my + 1) * PX - art.shape[0]], cell=[mx, my]))
     return out
 
 LOCAL_TONES = 15                    # each local HGSS house keeps 15 tones (Mahogany's figure), one bank of its own
@@ -437,29 +456,23 @@ def apply_tones(a, mapping):
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
+STAIR_TONES = 6
+
 def stairs(grid):
-    """S01/S02/S03 across each north-south flight; on the side flight (a column of steps through a
-    one-cell wall), S05's middle two rows."""
-    s = {k: rgba(SHARED / f'{k}.png') for k in ('S01', 'S02', 'S03', 'S05')}
-    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
+    """HGSS's own stairs: every stair cell cut from HGSS's ground render (no objects over it) at its own
+    cell, so each flight keeps HGSS's width, step count, treads, risers and cheeks; reduced to STAIR_TONES
+    tones (Mahogany's medoid rule) in compose."""
+    gnd = rgba(SRC / 'hgss/hgss-ground.png')
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed = []
     for y in range(H):
         for x in range(W):
-            if g(x, y) != '^':
+            if grid[y][x] != '^':
                 continue
-            left, right = g(x - 1, y) == '^', g(x + 1, y) == '^'
-            sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
-            if left or right:
-                k = 'S02' if left and right else 'S01' if right else 'S03'
-                piece = s[k]
-            else:
-                top = g(x, y - 1) != '^'
-                piece = s['S05'][8:24] if top else s['S05'][24:40]
-                k = 'S05-' + ('upper' if top else 'lower')
-            a = piece[..., 3] > 0
-            art[sl][a] = piece[a]
-            placed.append(dict(cell=[x, y], art=k))
+            hx, hz = Rf.to_hgss(x, y)
+            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[hz * PX:(hz + 1) * PX, hx * PX:(hx + 1) * PX]
+            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX, 3] = 255
+            placed.append(dict(cell=[x, y], art='HGSS ground render', hgss=[hx, hz]))
     return art, placed
 
 def ledge_pieces():
@@ -586,6 +599,8 @@ def compose(phg, engine):
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15; n_g15 += 1
     la, ledge_list = ledges(grid)
     sa, stair_list = stairs(grid)
+    sa = apply_tones(sa, reduce_tones([sa], keep=set(), n=STAIR_TONES))
+    Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, ponds and stairs are drawn into the ground, so
     # whatever stands on top (crowns, roofs, signs) never shares a tile, and a palette bank, with them.
     for art in (rock_over, pond_art, sa):
@@ -595,7 +610,7 @@ def compose(phg, engine):
     tree, shadow = cherry_tree(engine, tex[G.GRASS])
     objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX], art=tree, root=[x, y])
             for i, (x, y) in enumerate(roots)]
-    hs = houses(shadow)
+    hs = houses(shadow, grid)
     fa = fences(phg, grid)
     # Local HGSS art: the buildings and fences share 15 tones (Mahogany's rule); the flower heads and the
     # light lawn keep their closest tones within FLOWER_TONES and LIGHT_TONES, so the route's art fits
@@ -605,21 +620,15 @@ def compose(phg, engine):
         m = reduce_tones([local_flat[k]], keep=set(), n=n)
         snap.update(m)
         local_flat[k] = apply_tones(local_flat[k], m)
-    # Each house (with its door and mailbox) keeps 15 tones of its own, one palette bank; its contact
-    # shadow is ground (the bottom layer). The fences keep 4.
+    # The houses and the mailbox are finished Gen 3 sprites (15 colours each with the outline); each
+    # house's contact shadow is ground (the bottom layer). The fences keep 4 tones.
     tones = {}
     for h in hs:
-        sh = (h['art'][..., 3] > 0) & (h['art'][..., :3] == np.array(shadow)).all(-1)
-        h['shadow'] = np.zeros_like(h['art']); h['shadow'][sh] = h['art'][sh]
-        h['art'] = h['art'].copy(); h['art'][sh] = 0
-        x0, y0 = h['xy']
-        sa_ = h['shadow']; a_ = sa_[..., 3] > 0
+        if 'shadow' not in h:
+            continue
+        x0, y0 = h.pop('shadow_xy'); sa_ = h.pop('shadow'); a_ = sa_[..., 3] > 0
         region = bottom[y0:y0 + sa_.shape[0], x0:x0 + sa_.shape[1]]
         region[a_[:region.shape[0], :region.shape[1]]] = sa_[:region.shape[0], :region.shape[1]][a_[:region.shape[0], :region.shape[1]]][:, :3]
-        m = reduce_tones([h['art']], keep={tuple(shadow)})
-        tones.update(m)
-        h['art'] = apply_tones(h['art'], m)
-        Image.fromarray(h['art']).save(LOCAL / f"{h['name']}-hgss.png")
     m = reduce_tones([fa], keep=set(), n=FENCE_TONES)
     tones.update(m)
     fa = apply_tones(fa, m)
@@ -628,8 +637,9 @@ def compose(phg, engine):
         Image.fromarray(v).save(LOCAL / f"{k.replace('_', '-')}.png")
     (LOCAL / 'reductions.json').write_text(json.dumps(dict(
         rule=('Local HGSS art, reduced by medoids in Lab (the most distinct original tones kept farthest-first, every other '
-              'tone joining its nearest): the flower heads keep 6 tones, the light lawn 3 and the fences 4; each house with its '
-              'door (and mailbox) keeps 15. The houses\' contact shadows are the Cherrygrove tree shadow green, in the ground.'),
+              'tone joining its nearest): the flower heads keep 6 tones, the light lawn 3 and the fences 4. The houses and '
+              'the mailbox are Gen 3 sprites in 15 colours each (buildings.py); their contact shadows are the Cherrygrove tree '
+              'shadow green, in the ground.'),
         flowers_and_light_lawn={'%d,%d,%d' % k: '%d,%d,%d' % v for k, v in sorted(snap.items())},
         merged={'%d,%d,%d' % k: '%d,%d,%d' % v for k, v in sorted(tones.items()) if k != v}), indent=1) + '\n')
     lay(local_flat['light_lawn'], 'light_lawn')

@@ -20,21 +20,40 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
 2. **Trees**: an integer program places 360 non-overlapping 2x2 roots on HGSS's woods cells; each is the
    Cherrygrove tree (T01 plus the town's contact shadow), crown one row north of its root.
 3. **Ground** (`assemble.py`): the approved Cherrygrove/Route 36 painter on an 8 px lawn/road grid read from
-   HGSS's flat ground colours, at Cherrygrove's texture phase. Next to the band, HGSS's road takes the
-   town's road columns with the kit's straight edge, so the roads meet edge to edge.
-4. **Terrain**: Blackthorn's FRLG rock terraces (`rock.py`), one terrace per HGSS height layer; Route 43's
-   natural pond (HGSS freshwater texture, rough banks) on both ponds; stairs S01-S03 on the horizontal flights
-   and S05 on the side flight. Terrain is drawn into the bottom layer.
+   HGSS's flat ground colours, at Cherrygrove's texture phase.
+   - HGSS's road keeps the painter's wavy edge, as on the rest of the route, all the way to the band.
+   - Its straight south section sits one quadrant east, on Cherrygrove's road columns, so it runs into the
+     town's road without a step.
+   - Only the last cell before the band takes the town kit's straight edge, which the band continues.
+4. **Terrain**, drawn into the bottom layer:
+   - Rock: Blackthorn's FRLG rock terraces (`rock.py`), one terrace per HGSS height layer. The woods
+     padding west of HGSS's west wall stands at the wall's top, so the wall keeps only its east face, as
+     at HGSS's map edge, and the north rock runs to the edge without turning a corner.
+   - Ponds: Route 43's natural pond (HGSS freshwater texture, rough banks) on both.
+   - Stairs: HGSS's own, cut from its ground render on every stair cell, so each flight keeps HGSS's width,
+     step count, treads, risers and cheeks (6 tones).
 5. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb): G15 on all 338 tall-grass cells,
    L11/L12/L13 on the 32 jump-south ledge cells, P14 on the route sign, P16 on the Trainer Tips board.
-6. **Local art** cut from HGSS's render: Mr. Pokemon's house (with its mailbox) and the Apricorn house, 15
-   tones each; the fences, 4; flower heads, 6; light lawn patches, 3 (`source/local-art/reductions.json`).
-7. **Pack** (`pair_pack.py`, joint with Route 31): exact, 0 native pixels differ from the assembled art.
+6. **Houses** (`buildings.py`, Blackthorn's method, `tools/gba/maps/blackthorn/sprites.py` on
+   `claude/blackthorn-city`):
+   - HGSS's own models and textures: Mr. Pokemon's house (model 53) and the Apricorn house (37), each with
+     its door (50) at HGSS's own offset, plus Mr. Pokemon's mailbox (30).
+   - They're rendered at the owner-locked C06 Center's angle (orthographic at 38 degrees, 16 px per tile up
+     the screen, squeezed to the footprint), so roofs and doors read like the Center, the Mart and
+     Blackthorn's houses.
+   - Then finished as Gen 3 art: each house in 14 colours of its own plus C06's outline colour (the mailbox
+     shares its house's), and tiles that differ by a one-pixel edge folded together.
+   - Each door sits on HGSS's door cell, its sprite's bottom on the base row. HGSS's contact shadow stays in
+     the ground from the door row down.
+   - Contact sheet: `evidence/assemble/buildings.png`.
+7. **Local art** cut from HGSS's render: the fences, 4 tones; flower heads, 6; light lawn patches, 3
+   (`source/local-art/reductions.json`).
+8. **Pack** (`pair_pack.py`, joint with Route 31): exact, 0 native pixels differ from the assembled art.
    - Primary `cherrygrove_route30`: CherrygrovePrimary with palettes 0-3 and every tile Cherrygrove's visible
-     cells and the band use kept; palettes 4-5 and 181 of its 435 free tile slots hold route art.
-   - Secondary `route30_hgss`: 512 tiles, 401 metatiles, banks 6-12. Bank 10 is Cherrygrove's own blossom
+     cells and the band use kept; palettes 4-5 and 119 of its 435 free tile slots hold route art.
+   - Secondary `route30_hgss`: 512 tiles, 391 metatiles, banks 6-12. Bank 10 is Cherrygrove's own blossom
      palette, which Cherrygrove's visible trees need.
-8. **Events**: the four signs on HGSS's cells with HGSS's text; the Antidote and Potion balls
+9. **Events**: the four signs on HGSS's cells with HGSS's text; the Antidote and Potion balls
    (`FLAG_ITEM_APOC_ROUTE30_ANTIDOTE` 0x265, `FLAG_ITEM_APOC_ROUTE30_POTION` 0x266); the hidden Potion near the
    Trainer Tips board (`FLAG_HIDDEN_ITEM_APOC_ROUTE30_POTION` 0x267); the cuttable tree.
 
@@ -46,7 +65,7 @@ already on screen as they were drawn.
 - **Cherrygrove (south)**: the band is Cherrygrove's own metatiles, and every Cherrygrove cell visible from
   Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. Clean both ways.
 - **Route 31 (north, offset -28)**: each route's palettes are full, so the cells either route can see across
-  the seam (Route 30: 160, Route 31: 96) get 65 secondary metatile ids defined in both secondaries. Each map
+  the seam (Route 30: 160, Route 31: 96) get 53 secondary metatile ids defined in both secondaries. Each map
   draws the other's cells pixel for pixel with its own tiles. Clean both ways.
   - Without the two north rows, Route 31's camera would see Mr. Pokemon's roof. Route 31's banks can't
     hold its colours beside Route 31's own art (the integer program proves it infeasible), so the pad moves
@@ -94,7 +113,7 @@ the map: dialogue boxes, the map-name popup, the item balls and the cuttable tre
 - **Padding**: four woods columns west, Cherrygrove's band south, two rows north (HGSS row 0, its stairs as road
   at the plateau's height: six walkable road cells HGSS doesn't have).
 - **Houses**: both doors stay shut; no interiors exist yet.
-- **Mailbox**: HGSS model 30 is Mr. Pokemon's mailbox. It's drawn with his house, and its sign reads his house.
+- **Mailbox**: HGSS model 30 is Mr. Pokemon's mailbox. It's a sprite of its own beside his house, and its sign reads his house.
 - **Woods**: cells under a crown stay solid, as HGSS has them.
 - **Not placed**: the Apricorn tree, NPCs and trainers (objects or campaign work), and HGSS's Nugget, which
   sits on the Route 29/30/Cherrygrove border, outside this map.

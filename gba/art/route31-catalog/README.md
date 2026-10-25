@@ -17,7 +17,8 @@ PR #39 against `apocrypha`. Visual acceptance stays with the owner.
 4. **Terrain**:
    - Rock: Blackthorn's FRLG terraces for the ridge, the walls beside the pond and Dark Cave's mountain.
    - Pond: Route 43's natural pond.
-   - Stairs: S04 and S05, the two side flights over the ridge.
+   - Stairs: HGSS's own ridge crossing (the plank flight over both ridge columns with its rock cheeks),
+     cut from HGSS's ground render on the stair cells (6 tones).
    - Dark Cave: its dark opening, cut from HGSS's render.
 5. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb):
    - G02, the owner-approved HGSS side gate, on the gatehouse with its stairs on HGSS's two gate warps.
@@ -28,7 +29,7 @@ PR #39 against `apocrypha`. Visual acceptance stays with the owner.
 6. **Pack** (`route30_catalog/pair_pack.py`, joint with Route 30): exact, 0 native pixels differ.
    - Primary `cherrygrove_route31`: CherrygrovePrimary with palettes 0, 2 and 3 kept. Route 31 never draws
      Cherrygrove's sea palette, so palettes 1, 4 and 5 hold route art.
-   - Secondary `route31_hgss`: 511 tiles and 291 metatiles (65 of them the seam cells shared with Route 30),
+   - Secondary `route31_hgss`: 484 tiles and 278 metatiles (53 of them the seam cells shared with Route 30),
      banks 6-12.
 7. **Events** on HGSS's cells:
    - Warps:

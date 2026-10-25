@@ -23,6 +23,14 @@ Checks:
 - Porymap 6.3.1 exports equal the native decodes.
 - Both headless runs pass: walks, gate and cave warps, ledges, blocks, items and saves.
 
+Owner review (October 25), refined the same day:
+- The houses are now Gen 3 sprites by Blackthorn's method (HGSS models at C06's angle,
+  `tools/gba/maps/route30_catalog/buildings.py`).
+- The stairs are HGSS's own, cut from its ground render on every stair cell.
+- West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
+  rock no longer turns a corner.
+- The south road keeps the painter's wavy edge down to Cherrygrove's band.
+
 Read `gba/art/route30-catalog/README.md` and `gba/art/route31-catalog/README.md`. Next: owner visual review.
 
 ## Previous: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)

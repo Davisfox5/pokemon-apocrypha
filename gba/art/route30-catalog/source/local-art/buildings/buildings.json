@@ -1,0 +1,77 @@
+{
+ "note": "Blackthorn's method: HGSS models at C06's angle (38 degrees, 16 px per tile up the screen, squeezed to the footprint), 14 colours each by k-means, C06 outline, one-pixel edge folds.",
+ "sprites": {
+  "mr_pokemon_house": {
+   "models": [
+    53,
+    50
+   ],
+   "offsets": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.1299591064453125,
+     0.053558349609375,
+     0.7426605224609375
+    ]
+   ],
+   "size": [
+    72,
+    76
+   ],
+   "door_columns": [
+    18,
+    38
+   ],
+   "colours": 14
+  },
+  "apricorn_house": {
+   "models": [
+    37,
+    50
+   ],
+   "offsets": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.12451171875,
+     0.0394287109375,
+     0.7314605712890625
+    ]
+   ],
+   "size": [
+    64,
+    74
+   ],
+   "door_columns": [
+    16,
+    35
+   ],
+   "colours": 15
+  },
+  "mailbox": {
+   "models": [
+    30
+   ],
+   "offsets": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "size": [
+    11,
+    28
+   ],
+   "door_columns": null,
+   "colours": 6
+  }
+ }
+}

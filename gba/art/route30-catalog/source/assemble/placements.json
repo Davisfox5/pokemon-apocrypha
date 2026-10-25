@@ -349,16 +349,16 @@
   },
   {
    "name": "mr_pokemon_house",
-   "master": "local-art/mr_pokemon_house-hgss.png",
+   "master": "local-art/buildings/mr_pokemon_house.png (HGSS model 53 at C06's angle)",
    "xy": [
-    416,
-    32
+    428,
+    68
    ],
-   "moved_px": [
-    -2,
-    -3
+   "door": [
+    28,
+    8
    ],
-   "base": 134
+   "base": 142
   },
   {
    "name": "tree_19",
@@ -401,6 +401,19 @@
    "xy": [
     409,
     133
+   ],
+   "base": 143
+  },
+  {
+   "name": "mailbox",
+   "master": "local-art/buildings/mailbox.png (HGSS model 30 at C06's angle)",
+   "xy": [
+    418,
+    116
+   ],
+   "cell": [
+    26,
+    8
    ],
    "base": 143
   },
@@ -3399,16 +3412,16 @@
   },
   {
    "name": "apricorn_house",
-   "master": "local-art/apricorn_house-hgss.png",
+   "master": "local-art/buildings/apricorn_house.png (HGSS model 37 at C06's angle)",
    "xy": [
-    224,
-    1008
+    223,
+    1046
    ],
-   "moved_px": [
-    3,
-    -2
+   "door": [
+    15,
+    69
    ],
-   "base": 1110
+   "base": 1118
   },
   {
    "name": "tree_247",
@@ -5144,133 +5157,209 @@
     10,
     2
    ],
-   "art": "S01"
+   "art": "HGSS ground render",
+   "hgss": [
+    6,
+    0
+   ]
   },
   {
    "cell": [
     11,
     2
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    7,
+    0
+   ]
   },
   {
    "cell": [
     12,
     2
    ],
-   "art": "S03"
+   "art": "HGSS ground render",
+   "hgss": [
+    8,
+    0
+   ]
   },
   {
    "cell": [
     10,
     3
    ],
-   "art": "S01"
+   "art": "HGSS ground render",
+   "hgss": [
+    6,
+    1
+   ]
   },
   {
    "cell": [
     11,
     3
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    7,
+    1
+   ]
   },
   {
    "cell": [
     12,
     3
    ],
-   "art": "S03"
+   "art": "HGSS ground render",
+   "hgss": [
+    8,
+    1
+   ]
   },
   {
    "cell": [
     16,
     9
    ],
-   "art": "S05-upper"
+   "art": "HGSS ground render",
+   "hgss": [
+    12,
+    7
+   ]
   },
   {
    "cell": [
     16,
     10
    ],
-   "art": "S05-lower"
+   "art": "HGSS ground render",
+   "hgss": [
+    12,
+    8
+   ]
   },
   {
    "cell": [
     10,
     37
    ],
-   "art": "S01"
+   "art": "HGSS ground render",
+   "hgss": [
+    6,
+    35
+   ]
   },
   {
    "cell": [
     11,
     37
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    7,
+    35
+   ]
   },
   {
    "cell": [
     12,
     37
    ],
-   "art": "S03"
+   "art": "HGSS ground render",
+   "hgss": [
+    8,
+    35
+   ]
   },
   {
    "cell": [
     7,
     82
    ],
-   "art": "S01"
+   "art": "HGSS ground render",
+   "hgss": [
+    3,
+    80
+   ]
   },
   {
    "cell": [
     8,
     82
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    4,
+    80
+   ]
   },
   {
    "cell": [
     9,
     82
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    5,
+    80
+   ]
   },
   {
    "cell": [
     10,
     82
    ],
-   "art": "S03"
+   "art": "HGSS ground render",
+   "hgss": [
+    6,
+    80
+   ]
   },
   {
    "cell": [
     18,
     82
    ],
-   "art": "S01"
+   "art": "HGSS ground render",
+   "hgss": [
+    14,
+    80
+   ]
   },
   {
    "cell": [
     19,
     82
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    15,
+    80
+   ]
   },
   {
    "cell": [
     20,
     82
    ],
-   "art": "S02"
+   "art": "HGSS ground render",
+   "hgss": [
+    16,
+    80
+   ]
   },
   {
    "cell": [
     21,
     82
    ],
-   "art": "S03"
+   "art": "HGSS ground render",
+   "hgss": [
+    17,
+    80
+   ]
   }
  ],
  "tall_grass_cells": 338,
@@ -5278,16 +5367,18 @@
   {
    "edge": "left",
    "x": 128,
-   "y0": 1336,
+   "y0": 1528,
    "y1": 1568,
-   "hgss_edge_quadrant": 15
+   "hgss_edge_quadrant": 15,
+   "moved_from_quadrant_row": 166
   },
   {
    "edge": "right",
    "x": 176,
-   "y0": 1336,
+   "y0": 1528,
    "y1": 1568,
-   "hgss_edge_quadrant": 20
+   "hgss_edge_quadrant": 20,
+   "moved_from_quadrant_row": 166
   }
  ],
  "band": {

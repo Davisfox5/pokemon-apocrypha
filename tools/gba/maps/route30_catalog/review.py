@@ -37,7 +37,7 @@ NEIGHBOURS = [('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route3
 # art drawn over a cell counts: a roof over the woods behind a house, Mr. Pokemon's mailbox in his house art).
 EXPECT = {'F': ('tko', 'blocked', ('tree', 'house')), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),
           'L': ('L', 'ledge_south', 'ledge'), 'E': ('E', 'ledge_east', 'ledge'), 'Q': ('Q', 'ledge_west', 'ledge'),
-          'J': ('J', 'blocked', None), '^': ('^', 'open', None), 's': ('s', 'blocked', ('sign', 'house')), 'R': ('R', 'blocked', None),
+          'J': ('J', 'blocked', None), '^': ('^', 'open', None), 's': ('s', 'blocked', ('sign', 'house', 'mailbox')), 'R': ('R', 'blocked', None),
           'X': ('XR', 'blocked', None), 'H': ('H', 'blocked', ('house', 'fence')), 'D': ('D', 'blocked', 'house'), 'n': ('n', 'blocked', 'fence'),
           'B': ('B', 'blocked', 'gate'), 'W': ('W', 'open', 'gate'), 'V': ('V', 'open', None), 'C': ('C', 'blocked', None),
           '.': ('gdflc', 'open', None)}

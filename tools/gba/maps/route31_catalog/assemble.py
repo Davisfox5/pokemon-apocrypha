@@ -11,7 +11,7 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
   trees       the Cherrygrove tree (T01 with the town's contact shadow) on non-overlapping 2x2 roots
   tall grass  G15 on every HGSS tall-grass cell
   ledges      L11/L12/L13 on the jump-south runs; turned a quarter for the jump-east run
-  stairs      S04 and S05, the two side flights over the ridge (HGSS's crossing, 2 cells by 3)
+  stairs      HGSS's own ridge crossing, cut from its ground render on the stair cells (6 tones)
   pond        Route 43's natural pond: Route 30's HGSS freshwater texture with rough banks
   gatehouse   G02, the owner-approved HGSS side gate, its stairs on HGSS's gate warps
   signs       P14 (HGSS model 32) on the route sign, P13 (model 31) on the Dark Cave plaque
@@ -41,7 +41,7 @@ TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
 CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
-           for n in ('P13', 'P14', 'L11', 'L12', 'L13', 'G15', 'S04', 'S05')}
+           for n in ('P13', 'P14', 'L11', 'L12', 'L13', 'G15')}
 CATALOG['T01.png'] = 'gba/art/johto-common/trees/source/T01.png'
 CATALOG['G02.png'] = 'gba/art/johto-common-review/gates/refinement-4/G02.png'
 POND = {f'pond/pond-15-{k}.png': ('claude/route-43', f'gba/art/route-43/source/shared-art/pond/pond-15-{k}.png',
@@ -266,27 +266,23 @@ def apply_tones(a, mapping):
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
+STAIR_TONES = 6
+
 def stairs(grid):
-    """HGSS's ridge crossing: two side flights side by side, each through one ridge cell, three rows tall:
-    S04 (the west flight) and S05 (the east flight), each 16x48, top on the crossing's first row."""
-    s = {k: rgba(SHARED / f'{k}.png') for k in ('S04', 'S05')}
-    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
+    """HGSS's own stairs: every stair cell cut from HGSS's ground render (no objects over it) at its own
+    cell, so each flight keeps HGSS's width, step count, treads, risers and cheeks; reduced to STAIR_TONES
+    tones (Mahogany's medoid rule) in compose."""
+    gnd = rgba(SRC / 'hgss/hgss-ground.png')
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed = []
     for y in range(H):
         for x in range(W):
-            if g(x, y) != '^' or g(x, y - 1) == '^':
+            if grid[y][x] != '^':
                 continue
-            k = 'S04' if g(x + 1, y) == '^' else 'S05'
-            n = 1
-            while g(x, y + n) == '^':
-                n += 1
-            assert n == 3, ('side flight is not three rows', x, y, n)
-            piece = s[k]
-            sl = np.s_[y * PX:y * PX + 48, x * PX:(x + 1) * PX]
-            a = piece[..., 3] > 0
-            art[sl][a] = piece[a]
-            placed.append(dict(cell=[x, y], art=k, rows=n))
+            hx, hz = Rf.to_hgss(x, y)
+            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[hz * PX:(hz + 1) * PX, hx * PX:(hx + 1) * PX]
+            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX, 3] = 255
+            placed.append(dict(cell=[x, y], art='HGSS ground render', hgss=[hx, hz]))
     return art, placed
 
 def ledges(grid):
@@ -430,6 +426,8 @@ def compose(phg, engine):
     cave = cave_mouth(phg)
     Image.fromarray(cave).save(LOCAL / 'cave-mouth.png')
     sa, stair_list = stairs(grid)
+    sa = apply_tones(sa, reduce_tones([sa], keep=set(), n=STAIR_TONES))
+    Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, the pond, the cave mouth and the stairs are drawn into
     # the ground, so whatever stands on top (crowns, the gatehouse, signs) never shares a tile with them.
     for art in (rock_over, pond_art, cave, sa):
