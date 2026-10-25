@@ -1,3 +1,5 @@
+> Rejected by the owner for visual quality. The current direction retains GBA and requires a substantial art/spatial redesign; see [the visual study](../pallet-art-redesign/README.md).
+
 # Pallet Town — fresh FRLG trace and HGSS conversion
 
 The previous Pallet proposal was rejected. This rebuild starts with decoded FRLG

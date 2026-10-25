@@ -1,3 +1,14 @@
+## Current owner direction: Pallet visual redesign, GBA retained
+
+The owner rejected the second Pallet build as visually unacceptable: distorted/unclean
+houses, inadequate space, excessive pixelation and crude interiors. They explicitly
+confirmed keeping GBA while dramatically improving art and spatial design. PR #42 and
+hub PR #37 are rejected visual proposals, not accepted work. Do not cite their passing
+technical checks as visual readiness. New work is on `codex/pallet-art-redesign`.
+Use clean, consistently proportioned HGSS architecture, expanded receiving space,
+coherent contemporary interior design, and actual 240x160 gameplay-scale review.
+A high-resolution concept is direction only; it is not a native implementation.
+
 ## Latest: Pallet Town rebuilt after owner rejection (October 25)
 
 The owner rejected the first HGSS Pallet proposal and requested the complete process again.

@@ -12,7 +12,7 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
-| Pallet Town — fresh rebuild after rejection (October 25) | ../gba/art/pallet-town-rebuild/README.md | Fresh FRLG trace/HGSS models, complete facade/fence/tree fits, all floors, animated water, native/Porymap/ROM evidence; source `codex/pallet-town-rebuild`; owner review pending |
+| Pallet Town — visual redesign, GBA retained | ../gba/art/pallet-art-redesign/README.md | Owner rejected both native drafts; clean architecture, more appropriate space and contemporary interiors required. Current image is concept only; native redesign pending. |
 | Rejected Pallet Town proposal | ../gba/art/pallet-town/README.md | Historical only; superseded by the fresh rebuild above |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
