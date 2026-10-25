@@ -409,7 +409,20 @@ FRLG_NINE_OVER_ROCK = {('N', 'W'): 0x6B, ('N', 'M'): 0x6C, ('N', 'E'): 0x6D, ('M
 FRLG_INNER = dict(se=0xB2, sw=0xB3, ne=0xBA, nw=0xBB)          # whole-cell inner corners
 FRLG_LEDGE = dict(mid=0x87, left=0xB0, right=0xB1)             # jump ledge and its rounded ends
 FRLG_JOIN = dict(w=0x1F1, e=0x1F2)       # a mountain side with a ledge running into its foot from the west / east
+FRLG_BOULDER = 0x9F                      # FRLG General's boulder on lawn: its top layer, in the mountain ramp
 CLEAR, SHADOW = -1, -2
+
+def frlg_boulder(engine):
+    """FRLG General's boulder as a 16 px sprite in the Johto rock ramp, its shadow Cherrygrove's
+    border grey."""
+    ix = frlg_pieces(engine)['boulder']
+    out = np.zeros((16, 16, 4), np.uint8)
+    for (y, x), k in np.ndenumerate(ix):
+        if k >= 0:
+            out[y, x] = ROCK_RAMP[k] + (255,)
+        elif k == SHADOW:
+            out[y, x] = BORDER_GRAY + (255,)
+    return out
 
 def frlg_pieces(engine):
     """FRLG General's mountain pieces as index maps into the rock ramp (bank 1 only)."""
@@ -431,7 +444,7 @@ def frlg_pieces(engine):
                 if v:
                     sub[yy, xx] = FRLG_RAMP.get(int(v), SHADOW)
         return out
-    return dict(nine={k: piece(v) for k, v in FRLG_NINE.items()}, rock={k: piece(v) for k, v in FRLG_NINE_OVER_ROCK.items()},
+    return dict(boulder=piece(FRLG_BOULDER), nine={k: piece(v) for k, v in FRLG_NINE.items()}, rock={k: piece(v) for k, v in FRLG_NINE_OVER_ROCK.items()},
                 inner={k: piece(v) for k, v in FRLG_INNER.items()}, ledge={k: piece(v) for k, v in FRLG_LEDGE.items()},
                 join={k: piece(v) for k, v in FRLG_JOIN.items()})
 

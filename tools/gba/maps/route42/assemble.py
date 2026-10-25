@@ -87,6 +87,37 @@ def stage_shared(catalog):
 
 # --------------------------------------------------------------------------- rock
 CAVE_FLOOR = ('road05', 'road05_sub')       # HGSS's dark cave-floor dirt on the Mt. Mortar ledge
+ROCK_BASE = 3                               # HGSS height of Route 42's lowest ground (the lawns by the ponds)
+
+def boulder_cells():
+    """The cells HGSS's boulders (rock01) stand on: a quarter of a cell's pixels or more."""
+    z = np.load(SRC / 'hgss/hgss-ground-materials.npz')
+    m = z['material'] == list(z['names']).index('rock01')
+    return m.reshape(H, PX, W, PX).sum(axis=(1, 3)) >= 32
+
+def unboulder(cells):
+    """HGSS reads each boulder's 2x2 footprint as a little cliff. Here a boulder is one object
+    (assemble.boulders), so its cells take the ground round it: the rock top it sits on, at that
+    rock's height, or the lawn, road or water about it. Collision stays HGSS's (pack.traversal)."""
+    bc = boulder_cells()
+    out = [list(row) for row in cells]
+    for y, x in zip(*np.nonzero(bc)):
+        near = [cells[ny][nx] for ny in range(y - 1, y + 2) for nx in range(x - 1, x + 2)
+                if 0 <= ny < H and 0 <= nx < W and not bc[ny, nx]]
+        rock = [c for c in near if c['lab'] in E.ROCK]
+        water = [c for c in near if c['type'] == 0x10]
+        ground = [c for c in near if c not in rock and c not in water]
+        kind = max((len(rock), 'rock'), (len(water), 'water'), (len(ground), 'ground'))[1]
+        c = cells[y][x]
+        if kind == 'rock':
+            # the rock it stands on: its own row's rock either side, else the rock about it
+            row = [cells[y][nx] for nx in range(x - 3, x + 4) if 0 <= nx < W and not bc[y, nx] and cells[y][nx]['lab'] in E.ROCK]
+            out[y][x] = dict(c, lab='T', peak=float(np.median([n['peak'] for n in (row or rock)])), boulder=True)
+        else:
+            pool = water if kind == 'water' else ground
+            floors = [n['floor'] for n in pool]
+            out[y][x] = dict(c, lab='.', floor=max(set(floors), key=floors.count), boulder=True)
+    return out
 
 def rock_cells(cells):
     """The ledger for the rock pass: a Mt. Mortar mouth is a face cell of the cliff it is cut
@@ -96,7 +127,7 @@ def rock_cells(cells):
     it (stairs(); the cells stay walkable). The Mt. Mortar ledge's cave-floor cells are their own
     ground class, so a rock edge onto the ledge shows its dirt (owner review, Route 42)."""
     out = []
-    for row in cells:
+    for row in unboulder(cells):
         r = []
         for c in row:
             if c['lab'] in 'DK':
@@ -112,15 +143,20 @@ def rock_cells(cells):
 def terraces(cells):
     """Blackthorn's rock structure: every HGSS height layer is one Gen 3 terrace. A rock cell
     (ledger label T, E, S, W or N: HGSS's cliff cells, decoded flat) stands at its rock peak
-    above the floor; every other cell at its ground height (floor 0; under a tree crown, the
-    cell's lowest point; the ponds sit below the floor and count as 0)."""
+    above Route 42's lowest ground (ROCK_BASE, the lawns by the ponds), so every HGSS step is a
+    wall of its own (owner review: counted against HGSS, a step was missing round Mt. Mortar);
+    the Mt. Mortar ledge stands at its own height, so it meets the Rock Climb slope level; every
+    other cell is ground, 0."""
     lab = np.array([[c['lab'] for c in row] for row in cells])
     rock = np.isin(lab, list(E.ROCK))
     d = np.zeros((H, W), int)
     for y in range(H):
         for x in range(W):
             c = cells[y][x]
-            d[y, x] = max(1, round(c['peak']) - FLOOR) if rock[y, x] else 0
+            if rock[y, x]:
+                d[y, x] = max(1, round(c['peak']) - ROCK_BASE)
+            elif c.get('floor') == 'cave':
+                d[y, x] = round(c['ground']) - ROCK_BASE
     pad = np.pad(d, 1, mode='edge')
     lower = np.zeros((H, W), bool)
     for dy in (-1, 0, 1):
@@ -335,6 +371,36 @@ def snap_pieces(art, step=8):
         moves.append(dict(hgss_xy=[int(x0), int(y0)], xy=[nx, ny]))
     return out, moves
 
+PEG_TONES = ((239, 214, 165), (214, 181, 148), (189, 156, 123), (165, 140, 99))   # r_climb's light pegs
+
+PEG_SHIFT = 5           # px east: from the face's light west strip onto its darker middle
+
+def climb_pegs(rock):
+    """HGSS's Rock Climb pegs on the FRLG faces of the slope (its cells are face edge to edge):
+    the light tones of HGSS's r_climb texture in the nearest light Johto rock-ramp tones, a
+    one-pixel outline in the ramp's darkest tone, moved PEG_SHIFT px east onto the darker middle
+    of each face, and only over the rock (rock: the rock overlay)."""
+    from scipy.ndimage import binary_dilation
+    art = hgss_material(['r_climb'])
+    light = np.zeros(art.shape[:2], bool)
+    for t in PEG_TONES:
+        light |= (art[..., :3] == t).all(-1) & (art[..., 3] > 0)
+    from scipy.ndimage import label
+    on_rock = rock[..., 3] > 0
+    light = np.roll(light, PEG_SHIFT, axis=1) & on_rock
+    lb, n = label(light, np.ones((3, 3), bool))
+    sizes = np.bincount(lb.ravel())
+    light = (sizes[lb] >= 6) & (lb > 0)                   # whole pegs only, not specks of highlight
+    ring = binary_dilation(light, np.ones((3, 3), bool)) & ~light
+    ramp = np.array(E.ROCK_RAMP[1:4], int)
+    src = np.roll(art, PEG_SHIFT, axis=1)
+    out = np.zeros_like(art)
+    for y, x in zip(*np.nonzero(light)):
+        out[y, x, :3] = ramp[np.abs(ramp - src[y, x, :3].astype(int)).sum(-1).argmin()]
+        out[y, x, 3] = 255
+    out[ring & on_rock] = E.ROCK_RAMP[6] + (255,)
+    return out
+
 def plain_dirt(art):
     """HGSS's cave-floor dirt in its commonest tone: its one pebble (its other tones, 10x7 px on
     the Mt. Mortar ledge) is left out, for want of tile slots under Mahogany's tilesets. Only the
@@ -367,9 +433,9 @@ def flowers(phg):
 # Local HGSS pieces: at most this many tones that Mahogany's palettes lack (Route 42 packs onto
 # Mahogany's tilesets, and its own art gets the free palette slots).
 # Each piece's tones merge toward the Mahogany bank its surroundings are drawn in: the cave
-# mouths and the boulders sit in the rock (bank 10), the flower heads and the
-# cave-floor dirt on the lawn and road (bank 4).
-REDUCE = {'cave': (2, [10]), 'cave_floor': (0, [4]), 'boulder': (0, [10]), 'flowers': (0, [4])}
+# mouths sit in the rock (bank 10), the flower heads and the cave-floor dirt on the lawn and
+# road (bank 4). The boulders are FRLG's, in the rock ramp itself.
+REDUCE = {'cave': (2, [10]), 'cave_floor': (0, [4]), 'flowers': (0, [4])}
 
 def mahogany_tones(banks):
     """The colours in the given banks of Mahogany Town's installed palettes, RGB555."""
@@ -520,7 +586,9 @@ def compose(phg):
     cells = E.ledger(phg)
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
     lab = np.array([[c['lab'] for c in row] for row in cells])
-    ground, _ = paint_ground(ground_quadrants(cells, np.isin(lab, list(E.ROCK) + ['D', 'K'])))
+    ub = unboulder(cells)
+    ublab = np.array([[c['lab'] for c in row] for row in ub])
+    ground, _ = paint_ground(ground_quadrants(ub, np.isin(ublab, list(E.ROCK) + ['D', 'K'])))
     reductions = {}
     lim = lambda k: (REDUCE[k][0], mahogany_tones(REDUCE[k][1]))
     fd, reductions['cave_floor'] = reduce_local(hgss_material(list(CAVE_FLOOR)), *lim('cave_floor'))
@@ -554,15 +622,26 @@ def compose(phg):
     # The boulders on the rock layer (HGSS draws them into its rock); the Mt. Mortar mouths
     # below. HGSS's Rock Climb wall is plain FRLG cliff face here: Gen 3 has no Rock Climb.
     cave, reductions['cave'] = reduce_local(hgss_material(['cavehole']), *lim('cave'))
-    stones, reductions['boulder'] = reduce_local(hgss_material(['rock01']), *lim('boulder'))
-    stones, boulder_moves = snap_pieces(stones, 16)
+    # HGSS's boulders become FRLG General's boulder (metatile 0x9F's top layer) in the Johto rock
+    # ramp, the rock the map is built of: one on the middle of each HGSS boulder's footprint.
+    _, boulder_moves = snap_pieces(hgss_material(['rock01']), 16)
+    stones = np.zeros((H * PX, W * PX, 4), np.uint8)
+    frlg_boulder = E.frlg_boulder(ENGINE)
+    for b in boulder_moves:
+        b['frlg_xy'] = [b['xy'][0] + 8, b['xy'][1] + 8]
+        over(stones, frlg_boulder, *b['frlg_xy'])
+    # HGSS's Rock Climb wall is FRLG cliff face like the rest of the slope, with HGSS's climbing
+    # pegs (r_climb's light tones, in the nearest rock-ramp tones) on its faces.
+    pegs = climb_pegs(rock)
+    a = pegs[..., 3] > 0
+    stones[a] = pegs[a]
     cave, cave_moves = snap_pieces(cave)
     (LOCAL / 'reductions.json').write_text(json.dumps(dict(
         note='Local HGSS pieces: closest RGB555 tones merge (the rarer into the commoner, or onto the nearest tone '
              'Mahogany\'s palettes hold) until at most the limit of tones Mahogany lacks remain; shapes untouched. '
              'Entries: [dropped tone, kept tone, pixels].', limits={k: dict(new_tones=v[0], mahogany_banks=v[1]) for k, v in REDUCE.items()}, **reductions), indent=1) + '\n')
     Image.fromarray(cave).save(LOCAL / 'mt-mortar-mouths.png')
-    Image.fromarray(stones).save(LOCAL / 'boulders.png')
+    Image.fromarray(stones).save(LOCAL / 'boulders-and-pegs.png')
     a = stones[..., 3] > 0
     rock[a] = stones[a]; owner[a] = 'boulder'
     # Objects, painted north to south by their base row so the nearer one covers.

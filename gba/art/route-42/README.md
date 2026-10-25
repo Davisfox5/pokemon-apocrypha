@@ -23,9 +23,9 @@ Detail sheets (HGSS beside native, numbered by cell):
 | | |
 | --- | --- |
 | Map | `Route42`, 96x32, `gMapGroup_Cherrygrove` id 51, `MAPSEC_JOHTO_ROUTE_42` |
-| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (138 of its tiles reused) + own secondary `gTileset_Route42` (496 tiles: 444 new, 51 copied from Mahogany; 357 metatiles) |
+| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (138 of its tiles reused) + own secondary `gTileset_Route42` (496 tiles: 451 new, 51 copied from Mahogany; 357 metatiles) |
 | Colour | 13 banks, each colour exact: all 786,432 native pixels equal the assembled art in RGB555 |
-| Material audit | 2,864 of 3,072 cells show HGSS's material, 16 mismatches (declared below), 192 cells where a foreground object differs |
+| Material audit | 2,865 of 3,072 cells show HGSS's material, 15 mismatches (declared below), 192 cells where a foreground object differs |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
 
@@ -58,14 +58,21 @@ Shared masters copied byte for byte into `source/shared-art/` with hashes (`prov
 | Trees | T01 | as above |
 | Signs | P14 green rounded sign (model 32), P13 grey plaque (model 31) | (11,17) and (86,12) route signs, (16,11) and (75,12) Mt. Mortar plaques |
 | Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs |
-| Mt. Mortar mouths, cave-floor dirt, boulders | HGSS's own pixels (cavehole, road05, rock01), lifted from the decoded true-heights render (local) | HGSS's positions; mouths on the nearest 8 px corner (at most 2 px), the ten identical boulders on the nearest 16 px corner (at most 8 px). The Mt. Mortar ledge (49-53, 5-6) is the dirt's commonest tone edge to edge (its one pebble left out, below), and the rock edges round it show that dirt past them |
+| Boulders | FRLG General's boulder (metatile 0x9F's top layer) in the Johto rock ramp, the rock the map is built of | one on the middle of each of HGSS's ten boulder (rock01) footprints; the footprint cells take the ground round them (rock top at its height, lawn or water), collision HGSS's |
+| Rock Climb | the normal FRLG cliff faces of the slope, with HGSS's climbing pegs (r_climb's light tones in the nearest rock-ramp tones, a dark one-pixel outline) | HGSS's pegs, 5 px east onto each face's darker middle |
+| Mt. Mortar mouths, cave-floor dirt | HGSS's own pixels (cavehole, road05), lifted from the decoded true-heights render (local) | HGSS's positions; mouths on the nearest 8 px corner (at most 2 px). The Mt. Mortar ledge (49-53, 5-6) is the dirt's commonest tone edge to edge (its one pebble left out, below), and the rock edges round it show that dirt past them |
 | Flowers | HGSS's flower heads (local) | HGSS's flower cells |
 
 Tall grass, flowers, the Mt. Mortar mouths and the stairs are flat details on the top layer, never above the
 player; under the stairs, the cliff they cut through is on the ground layer.
 Local tone reductions (`source/local-art/reductions.json`): the cave mouths keep 2 tones of their own and
-merge the rest onto Mahogany's rock bank; the cave-floor dirt, flower heads and boulders take Mahogany's
-existing tones only.
+merge the rest onto Mahogany's rock bank; the cave-floor dirt and flower heads take Mahogany's existing
+tones only.
+
+Rock levels count from Route 42's lowest ground (the lawns by the ponds, HGSS height 3), so every HGSS height
+step is a wall of its own (owner review: a step was missing on the Mt. Mortar slope, the Rock Climb wall
+included, which now has HGSS's three walls from the ledge down to the lawn). The Mt. Mortar ledge stands at
+its own height, level with the top of the Rock Climb slope.
 
 ## 3. On Mahogany's tilesets (`pack_fixed.py`)
 
@@ -74,9 +81,9 @@ the Mahogany cells its tilesets ever draw use (Mahogany x 0-7: 15 metatiles, 51 
 slots in banks 6, 8, 9 and 10). The part of Route 42 Mahogany's tilesets ever draw (x 88-95 round the
 road, every standing view from Mahogany and the column that scrolls out while crossing east) is drawn
 with Mahogany's metatiles: 161 of its 172 cells are Mahogany metatiles as they are. The other 11 (rock
-corners south of the road and HGSS's boulder at (90,18)) are metatiles appended to Mahogany's secondary
-table (ids 674-684); where no Mahogany tile drew a quadrant, 18 tiles are appended to Mahogany's secondary
-tile sheet after its own 400 (indices 912-929), drawn with Mahogany's palettes as installed. No Mahogany
+corners south of the road and the boulder at (91,18)) are metatiles appended to Mahogany's secondary
+table (ids 674-684); where no Mahogany tile drew a quadrant, 10 tiles are appended to Mahogany's secondary
+tile sheet after its own 400 (indices 912-921), drawn with Mahogany's palettes as installed. No Mahogany
 cell uses any of them. Both maps use Mahogany's border block.
 
 The packer proves: Route 42 decoded with its pair equals its assembled art; every Route 42 pixel
@@ -98,22 +105,23 @@ Mahogany with the appended metatiles and tiles is unchanged.
 - **Mt. Mortar ledge pebble.** HGSS's one pebble on the ledge's dirt (10x7 px at (49, 6)) is left out for
   want of tile slots under Mahogany's tilesets; only the ledge's own cells, reached by Rock Climb alone,
   have it in view.
-- **Rock Climb.** HGSS's Rock Climb wall (54-56, 5) is plain FRLG cliff face and solid: Gen 3 has no Rock
-  Climb. The two pockets behind it (the cave floor by the north Mt. Mortar mouth, and a pool) are not
-  reached. 3 material mismatches.
+- **Rock Climb.** HGSS's Rock Climb wall (54-56, 5) is FRLG cliff face with HGSS's pegs on it, and solid:
+  Gen 3 has no Rock Climb. The two pockets behind it (the cave floor by the north Mt. Mortar mouth, and a
+  pool) are not reached. 2 material mismatches.
 - **Banks.** HGSS's pond rims are drawn as the natural bank the owner approved on Route 43; rock standing in
   the water meets it directly.
 - **Mt. Mortar and the Ecruteak gate.** Their interiors are not built: the four mouths and the gate's doorway
   are solid. As in HGSS, Route 42's middle and west are reached through Mt. Mortar or by Surf; with Mt.
   Mortar not built, by Surf.
-- **Boulders and mouths.** Moved at most 8 px and 2 px to the grid so identical pieces share tiles.
+- **Boulders and mouths.** HGSS's boulders are FRLG's one-cell boulder on the middle of each footprint; the
+  mouths moved at most 2 px to the grid so identical pieces share tiles.
 - **Foreground.** T01, the signs, the gate and the stairs differ in size and offset from HGSS's; these are
   the 192 "foreground differs" cells in `evidence/pack3/material-audit.json`.
 
 ## Verification
 
 - **Build**: engine `claude/route-42`, ROM sha256
-  `e720e9b0687b4d4f3f8ab60f9ebb085bc6a9b0f53eabd3405efb0a1fb3907b3a` (not committed).
+  `f8581d2b0e57bef270f2856044be402f3a85560f4d80437eba1c4545d5e2d6c1` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 42 equals the pack decode
   and its assembled art; Mahogany's installed decode equals its accepted native; both seam views exact from
   the installed files; connections (Mahogany now joins Route 44 east and Route 42 west, offset 0); shared
@@ -122,7 +130,7 @@ Mahogany with the appended metatiles and tiles is unchanged.
   G02's footprint and the rows along its north and south sides solid;
   walk-behind layering; budgets; shared masters byte-identical; Mahogany's own metatiles and tiles
   unchanged, its map.json changing only by the new connection; only Route 42 files otherwise.
-- **Material audit**: 2,864 match, 16 mismatch, 192 foreground differences.
+- **Material audit**: 2,865 match, 15 mismatch, 192 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 35 captures with map layers rebuilt from
   VRAM equal to the native decodes, connected maps beyond the seam included; the seam walked both ways on
   the road's middle, top and bottom rows, with captures 3 px into each crossing step matching too; BG1

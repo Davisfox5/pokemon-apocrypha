@@ -120,7 +120,7 @@ def vocab():
     return dict(
         lawn=grass | {tuple(np.array(c) >> 3) for c in G.PROFILES[(G.GRASS, G.PATH)][0]} | c5set(rgba(la / 'flowers.png')),
         road=c5set(tex[G.PATH]) | {tuple(np.array(c) >> 3) for c in G.PROFILES[(G.GRASS, G.PATH)][1]},
-        rock={tuple(np.array(E.ROCK_RAMP[i]) >> 3) for i in ramp} | c5set(rgba(la / 'boulders.png')),
+        rock={tuple(np.array(E.ROCK_RAMP[i]) >> 3) for i in ramp} | c5set(rgba(la / 'boulders-and-pegs.png')),
         water=water, bank=c5set(rgba(la / 'water-banks.png')) - grass,
         tall=c5set(rgba(sh / 'G15.png')), stairs=c5set(rgba(sh / 'S04.png')), cave=c5set(rgba(la / 'mt-mortar-mouths.png')),
         cave_floor=c5set(rgba(la / 'cave-floor.png')), gate=c5set(rgba(sh / 'G02.png')),

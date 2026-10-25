@@ -1,27 +1,8 @@
 {
  "method": "Square by square: native classes from decoded colours (each colour votes for every\nvocabulary that holds it), HGSS classes from the flat decode. A terrain cell matches when\nthe native's leading terrain material is one HGSS shows there (at least 24 px); an object\ncell when the same kind of object leads in both. Cells where an object leads in one but\nterrain in the other are foreground differences, not counted as matches.",
  "cells": 3072,
- "matches": 2864,
+ "matches": 2865,
  "mismatches": [
-  {
-   "cell": [
-    54,
-    5
-   ],
-   "status": "mismatch",
-   "native_lead": "cave",
-   "hgss_lead": "road",
-   "native": {
-    "cave": 238,
-    "rock": 218,
-    "lawn": 20,
-    "cave_floor": 18
-   },
-   "hgss": {
-    "road": 98,
-    "rock": 35
-   }
-  },
   {
    "cell": [
     55,
@@ -32,7 +13,7 @@
    "hgss_lead": "road",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 234
    },
    "hgss": {
     "road": 98,
@@ -45,11 +26,11 @@
     5
    ],
    "status": "mismatch",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "road",
    "native": {
-    "cave": 254,
-    "rock": 219,
+    "rock": 254,
+    "cave": 232,
     "lawn": 37
    },
    "hgss": {
@@ -229,6 +210,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 245,
+    "rock": 16,
     "cave": 16,
     "road": 16
    },
@@ -247,6 +229,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -263,6 +246,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 243,
+    "rock": 22,
     "cave": 22,
     "road": 18
    },
@@ -660,7 +644,7 @@
     "tree": 147,
     "road": 107,
     "lawn": 98,
-    "cave": 2
+    "rock": 2
    },
    "hgss": {
     "road": 256
@@ -830,8 +814,8 @@
    "native": {
     "tree": 242,
     "lawn": 11,
-    "cave": 6,
-    "road": 4
+    "rock": 6,
+    "cave": 6
    },
    "hgss": {
     "road": 256
@@ -994,7 +978,7 @@
     "tree": 147,
     "lawn": 102,
     "road": 12,
-    "cave": 9
+    "rock": 9
    },
    "hgss": {
     "road": 109,
@@ -1013,6 +997,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 6,
     "cave": 6
    },
    "hgss": {
@@ -1268,7 +1253,7 @@
     "tree": 147,
     "lawn": 95,
     "road": 21,
-    "cave": 18
+    "rock": 18
    },
    "hgss": {
     "road": 109,
@@ -1287,6 +1272,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -1687,7 +1673,7 @@
     "tree": 147,
     "lawn": 95,
     "road": 21,
-    "cave": 18
+    "rock": 18
    },
    "hgss": {
     "road": 109,
@@ -1706,6 +1692,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -3736,11 +3723,11 @@
     0
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -3758,7 +3745,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -3773,8 +3760,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -3869,8 +3856,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4061,8 +4048,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4365,8 +4352,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4381,8 +4368,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4397,8 +4384,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4413,8 +4400,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4429,8 +4416,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4445,8 +4432,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4461,8 +4448,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4477,8 +4464,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4493,8 +4480,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4509,8 +4496,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4525,8 +4512,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4541,8 +4528,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4557,8 +4544,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4573,8 +4560,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4589,8 +4576,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4605,8 +4592,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4621,8 +4608,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4637,8 +4624,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4653,8 +4640,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4669,8 +4656,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4685,8 +4672,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -4861,8 +4848,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5005,8 +4992,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5274,11 +5261,11 @@
     1
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -5296,7 +5283,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5311,8 +5298,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5407,8 +5394,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5599,8 +5586,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5887,8 +5874,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5919,8 +5906,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5935,8 +5922,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5951,8 +5938,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5967,8 +5954,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5983,8 +5970,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -5999,8 +5986,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6015,8 +6002,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6031,8 +6018,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6047,8 +6034,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6063,8 +6050,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6079,8 +6066,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6095,8 +6082,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6111,8 +6098,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6127,8 +6114,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6143,8 +6130,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6159,8 +6146,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6175,8 +6162,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6191,8 +6178,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 242
    },
    "hgss": {
     "rock": 256
@@ -6208,7 +6195,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 242
+    "cave": 248
    },
    "hgss": {
     "rock": 237
@@ -6239,8 +6226,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6399,8 +6386,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6543,8 +6530,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6812,11 +6799,11 @@
     2
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -6834,7 +6821,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6849,8 +6836,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -6945,8 +6932,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7153,8 +7140,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7169,8 +7156,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7185,8 +7172,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7201,8 +7188,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7217,8 +7204,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7233,8 +7220,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7249,8 +7236,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7426,8 +7413,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7442,8 +7429,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7474,8 +7461,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7490,8 +7477,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7506,8 +7493,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7522,8 +7509,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7538,8 +7525,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7554,8 +7541,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7570,8 +7557,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7586,8 +7573,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7602,8 +7589,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7618,8 +7605,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7634,8 +7621,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7650,8 +7637,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7666,8 +7653,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7715,7 +7702,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 184
+    "cave": 234,
+    "lawn": 1
    },
    "hgss": {
     "rock": 256
@@ -7731,7 +7719,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 209
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -7746,8 +7734,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -7778,8 +7766,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -7938,8 +7926,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8082,8 +8070,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8351,11 +8339,11 @@
     3
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -8373,7 +8361,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8500,8 +8488,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8516,8 +8504,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8532,8 +8520,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8548,8 +8536,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8564,8 +8552,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8580,8 +8568,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8596,8 +8584,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8612,8 +8600,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8628,8 +8616,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8644,8 +8632,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8660,8 +8648,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8676,8 +8664,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8692,8 +8680,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8708,8 +8696,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8724,8 +8712,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8740,8 +8728,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8756,8 +8744,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8772,8 +8760,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8820,8 +8808,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8836,8 +8824,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8852,8 +8840,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8868,8 +8856,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8884,8 +8872,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8900,8 +8888,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8950,8 +8938,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 193,
@@ -8967,8 +8955,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -8983,8 +8971,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -8999,8 +8987,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9016,7 +9004,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 252
    },
    "hgss": {
     "rock": 206
@@ -9032,7 +9020,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9048,7 +9036,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9064,7 +9052,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9080,7 +9068,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9096,7 +9084,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9112,7 +9100,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9128,7 +9116,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9144,7 +9132,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9160,7 +9148,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 237
@@ -9223,8 +9211,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9256,7 +9244,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 212
+    "cave": 248,
+    "lawn": 5
    },
    "hgss": {
     "rock": 256
@@ -9272,7 +9261,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 205
+    "cave": 255,
+    "lawn": 10
    },
    "hgss": {
     "rock": 256
@@ -9287,8 +9277,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 242
    },
    "hgss": {
     "rock": 256
@@ -9319,8 +9309,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9479,8 +9469,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9624,8 +9614,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9893,11 +9883,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -9915,7 +9905,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -9947,8 +9937,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10059,8 +10049,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10075,8 +10065,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10091,8 +10081,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10107,8 +10097,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10123,8 +10113,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10139,8 +10129,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10155,8 +10145,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10171,8 +10161,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10187,8 +10177,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10203,8 +10193,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10219,8 +10209,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10235,8 +10225,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10251,8 +10241,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10267,8 +10257,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10283,8 +10273,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10299,8 +10289,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10331,8 +10321,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10396,7 +10386,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 184
+    "cave": 234,
+    "lawn": 1
    },
    "hgss": {
     "rock": 256
@@ -10412,7 +10403,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 209
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -10461,7 +10452,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 194,
+    "rock": 210,
     "lawn": 16
    },
    "hgss": {
@@ -10480,7 +10471,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 248,
-    "rock": 53,
+    "rock": 101,
     "lawn": 48,
     "cave_floor": 8
    },
@@ -10499,7 +10490,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 245,
+    "rock": 251,
     "lawn": 6
    },
    "hgss": {
@@ -10514,11 +10505,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -10531,11 +10522,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 220,
     "lawn": 22,
     "cave_floor": 14
    },
@@ -10553,8 +10544,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 232
@@ -10570,7 +10561,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 232
@@ -10599,11 +10590,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -10616,11 +10607,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -10633,11 +10624,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -10650,11 +10641,11 @@
     4
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -10720,7 +10711,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10783,8 +10774,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10847,8 +10838,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -10879,8 +10870,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11039,8 +11030,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11183,8 +11174,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11452,11 +11443,11 @@
     5
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -11474,7 +11465,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11506,8 +11497,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11602,8 +11593,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11683,7 +11674,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 252
    },
    "hgss": {
     "rock": 206,
@@ -11700,7 +11691,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11716,7 +11707,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11732,7 +11723,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11748,7 +11739,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11764,7 +11755,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11780,7 +11771,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11796,7 +11787,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11812,7 +11803,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11828,7 +11819,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11844,7 +11835,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 256
@@ -11876,8 +11867,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11892,8 +11883,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -11957,7 +11948,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 212
+    "cave": 248,
+    "lawn": 5
    },
    "hgss": {
     "rock": 256
@@ -11973,7 +11965,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 205
+    "cave": 248,
+    "lawn": 10
    },
    "hgss": {
     "rock": 256
@@ -12001,11 +11994,11 @@
     5
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
     "cave_floor": 2
    },
@@ -12023,8 +12016,8 @@
    "hgss_lead": "cave_floor",
    "native": {
     "cave_floor": 237,
+    "rock": 19,
     "cave": 19,
-    "rock": 13,
     "lawn": 6
    },
    "hgss": {
@@ -12058,8 +12051,8 @@
    "hgss_lead": "cave_floor",
    "native": {
     "cave_floor": 239,
+    "rock": 17,
     "cave": 17,
-    "rock": 13,
     "lawn": 4
    },
    "hgss": {
@@ -12102,14 +12095,12 @@
     54,
     5
    ],
-   "status": "mismatch",
-   "native_lead": "cave",
+   "status": "match",
+   "native_lead": "rock",
    "hgss_lead": "road",
    "native": {
-    "cave": 238,
-    "rock": 218,
-    "lawn": 20,
-    "cave_floor": 18
+    "rock": 256,
+    "cave": 234
    },
    "hgss": {
     "road": 98,
@@ -12126,7 +12117,7 @@
    "hgss_lead": "road",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 234
    },
    "hgss": {
     "road": 98,
@@ -12139,11 +12130,11 @@
     5
    ],
    "status": "mismatch",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "road",
    "native": {
-    "cave": 254,
-    "rock": 219,
+    "rock": 254,
+    "cave": 232,
     "lawn": 37
    },
    "hgss": {
@@ -12161,6 +12152,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 244,
+    "rock": 21,
     "cave": 21,
     "road": 17
    },
@@ -12179,6 +12171,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -12195,6 +12188,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 254,
+    "rock": 15,
     "cave": 15,
     "road": 2
    },
@@ -12213,6 +12207,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -12225,11 +12220,11 @@
     5
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "lawn",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 59
    },
    "hgss": {
@@ -12279,7 +12274,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 246,
@@ -12296,7 +12291,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12312,7 +12307,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 237,
@@ -12360,8 +12355,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12376,8 +12371,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12408,8 +12403,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12440,8 +12435,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12584,8 +12579,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12600,8 +12595,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -12680,8 +12675,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12696,8 +12691,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12712,8 +12707,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12728,8 +12723,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -12744,8 +12739,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -13013,11 +13008,11 @@
     6
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -13035,7 +13030,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13082,8 +13077,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13162,8 +13157,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13179,7 +13174,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 252
    },
    "hgss": {
     "rock": 206,
@@ -13196,7 +13191,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13212,7 +13207,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13228,7 +13223,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13244,7 +13239,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 238,
@@ -13389,7 +13384,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 184
+    "cave": 234,
+    "lawn": 1
    },
    "hgss": {
     "rock": 256
@@ -13405,7 +13401,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 209
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -13436,8 +13432,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13452,8 +13448,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13561,11 +13557,11 @@
     6
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
     "cave_floor": 2
    },
@@ -13654,13 +13650,11 @@
     6
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 238,
-    "rock": 218,
-    "lawn": 20,
-    "cave_floor": 18
+    "rock": 256,
+    "cave": 248
    },
    "hgss": {
     "rock": 174,
@@ -13690,11 +13684,11 @@
     6
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 254,
-    "rock": 219,
+    "rock": 254,
+    "cave": 246,
     "lawn": 37
    },
    "hgss": {
@@ -13712,6 +13706,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -13729,6 +13724,7 @@
    "native": {
     "lawn": 248,
     "road": 11,
+    "rock": 10,
     "cave": 10
    },
    "hgss": {
@@ -13746,6 +13742,7 @@
    "native": {
     "lawn": 234,
     "road": 146,
+    "rock": 28,
     "cave": 28
    },
    "hgss": {
@@ -13763,6 +13760,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 2,
     "cave": 2
    },
    "hgss": {
@@ -13780,6 +13778,7 @@
    "native": {
     "lawn": 245,
     "road": 16,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -13792,11 +13791,11 @@
     6
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -13861,7 +13860,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 238,
@@ -13878,7 +13877,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13894,7 +13893,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -13910,7 +13909,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 237
@@ -13941,8 +13940,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14005,8 +14004,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14021,8 +14020,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14037,8 +14036,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14053,8 +14052,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14069,8 +14068,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14085,8 +14084,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14101,8 +14100,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14117,8 +14116,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -14213,8 +14212,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14562,11 +14561,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -14584,7 +14583,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 238
@@ -14600,7 +14599,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14616,7 +14615,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14632,7 +14631,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 237
@@ -14663,8 +14662,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14679,8 +14678,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14695,8 +14694,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14711,8 +14710,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -14728,7 +14727,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -14790,11 +14789,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14808,11 +14807,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14826,11 +14825,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14844,11 +14843,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14862,11 +14861,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14880,11 +14879,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14898,11 +14897,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -14953,7 +14952,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 212
+    "cave": 248,
+    "lawn": 5
    },
    "hgss": {
     "rock": 256
@@ -14969,7 +14969,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 205
+    "cave": 255,
+    "lawn": 10
    },
    "hgss": {
     "rock": 256
@@ -14985,7 +14986,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 256
@@ -15000,8 +15001,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15016,8 +15017,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15231,7 +15232,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 242
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15247,7 +15248,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15259,11 +15260,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37
    },
    "hgss": {
@@ -15280,6 +15281,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 245,
+    "rock": 16,
     "cave": 16,
     "road": 16
    },
@@ -15313,8 +15315,7 @@
    "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "lawn": 256,
-    "cave": 1
+    "lawn": 256
    },
    "hgss": {
     "lawn": 208,
@@ -15330,9 +15331,7 @@
    "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "lawn": 254,
-    "cave": 6,
-    "road": 2
+    "lawn": 256
    },
    "hgss": {
     "lawn": 208,
@@ -15349,6 +15348,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 247,
+    "rock": 15,
     "cave": 15,
     "road": 14
    },
@@ -15363,11 +15363,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 55,
     "road": 16
    },
@@ -15384,11 +15384,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -15402,11 +15402,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -15420,11 +15420,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -15438,11 +15438,11 @@
     7
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -15492,7 +15492,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15523,8 +15523,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15555,8 +15555,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15683,8 +15683,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15699,8 +15699,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15715,8 +15715,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15731,8 +15731,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15747,8 +15747,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15763,8 +15763,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15779,8 +15779,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -15795,8 +15795,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -16144,11 +16144,11 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 59
    },
    "hgss": {
@@ -16163,11 +16163,11 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -16180,11 +16180,11 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -16217,7 +16217,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16297,7 +16297,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 252
    },
    "hgss": {
     "rock": 206
@@ -16313,7 +16313,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 254,
@@ -16359,13 +16359,13 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 219,
@@ -16381,8 +16381,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -16398,8 +16398,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16415,8 +16415,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16432,8 +16432,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16449,8 +16449,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16466,8 +16466,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16483,8 +16483,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 193,
@@ -16497,13 +16497,13 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
-    "bank": 30,
-    "water": 30
+    "water": 30,
+    "bank": 30
    },
    "hgss": {
     "rock": 188,
@@ -16572,7 +16572,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16587,8 +16587,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16603,8 +16603,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16795,8 +16795,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16811,8 +16811,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16828,7 +16828,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -16840,11 +16840,11 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37,
     "road": 2
    },
@@ -16865,7 +16865,7 @@
     "bank": 220,
     "water": 180,
     "lawn": 36,
-    "cave": 2
+    "rock": 2
    },
    "hgss": {
     "water": 152,
@@ -16901,8 +16901,7 @@
    "native": {
     "bank": 229,
     "water": 193,
-    "lawn": 25,
-    "cave": 3
+    "lawn": 27
    },
    "hgss": {
     "water": 186,
@@ -16915,13 +16914,13 @@
     8
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "lawn",
    "hgss_lead": "rock",
    "native": {
-    "rock": 183,
-    "cave": 113,
-    "lawn": 56,
-    "bank": 17
+    "lawn": 128,
+    "bank": 76,
+    "rock": 57,
+    "cave": 43
    },
    "hgss": {
     "rock": 97,
@@ -16935,13 +16934,13 @@
     8
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "road",
    "hgss_lead": "rock",
    "native": {
-    "rock": 148,
-    "cave": 105,
-    "lawn": 71,
-    "bank": 37
+    "road": 111,
+    "lawn": 100,
+    "bank": 73,
+    "rock": 56
    },
    "hgss": {
     "rock": 94,
@@ -16976,8 +16975,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16993,8 +16992,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17010,8 +17009,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17027,8 +17026,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -17041,13 +17040,13 @@
     8
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 222,
@@ -17080,7 +17079,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17111,8 +17110,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17159,8 +17158,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17175,8 +17174,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17191,8 +17190,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17207,8 +17206,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17223,8 +17222,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17239,8 +17238,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17255,8 +17254,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -17320,8 +17319,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17336,8 +17335,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17352,8 +17351,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17368,8 +17367,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17384,8 +17383,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17400,8 +17399,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17416,8 +17415,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17432,8 +17431,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17448,8 +17447,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17464,8 +17463,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17480,8 +17479,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17496,8 +17495,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -17741,6 +17740,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -17758,6 +17758,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 255,
+    "rock": 7,
     "cave": 7,
     "road": 1
    },
@@ -17775,6 +17776,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 246,
+    "rock": 18,
     "cave": 18,
     "road": 15
    },
@@ -17789,11 +17791,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -17810,7 +17812,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17890,7 +17892,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -17935,11 +17937,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -17956,9 +17958,10 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 248,
-    "cave": 246,
-    "lawn": 8
+    "rock": 242,
+    "cave": 242,
+    "lawn": 39,
+    "water": 14
    },
    "hgss": {
     "rock": 162,
@@ -17973,13 +17976,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 248,
-    "cave": 163,
-    "bank": 8,
-    "water": 8
+    "water": 210,
+    "bank": 210,
+    "rock": 46,
+    "cave": 32
    },
    "hgss": {
     "rock": 97,
@@ -17993,13 +17996,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "rock": 154,
-    "cave": 118,
-    "bank": 91,
-    "water": 91
+    "water": 201,
+    "bank": 201,
+    "rock": 55,
+    "cave": 47
    },
    "hgss": {
     "water": 162,
@@ -18015,8 +18018,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18031,8 +18034,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18047,8 +18050,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18063,8 +18066,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18079,8 +18082,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 253,
@@ -18096,8 +18099,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 201,
@@ -18110,13 +18113,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 222,
@@ -18165,7 +18168,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18180,8 +18183,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18196,8 +18199,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18388,8 +18391,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18404,8 +18407,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18421,7 +18424,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18433,13 +18436,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 222,
@@ -18455,8 +18458,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -18472,8 +18475,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18489,8 +18492,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18503,13 +18506,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 200,
-    "cave": 191,
-    "bank": 29,
-    "water": 29
+    "water": 199,
+    "bank": 199,
+    "rock": 57,
+    "cave": 57
    },
    "hgss": {
     "rock": 134,
@@ -18523,13 +18526,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 204,
-    "cave": 199,
-    "lawn": 38,
-    "bank": 14
+    "water": 196,
+    "bank": 196,
+    "rock": 60,
+    "cave": 60
    },
    "hgss": {
     "rock": 137,
@@ -18545,8 +18548,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18561,8 +18564,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18577,8 +18580,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18593,8 +18596,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -18609,8 +18612,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18623,13 +18626,13 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -18662,7 +18665,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18885,8 +18888,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -18930,11 +18933,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -18947,11 +18950,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -18964,11 +18967,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -18981,11 +18984,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -18998,11 +19001,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19015,11 +19018,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19032,11 +19035,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19049,11 +19052,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19066,11 +19069,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19083,11 +19086,11 @@
     9
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19378,11 +19381,11 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 24,
     "sign": 14
    },
@@ -19400,7 +19403,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 238
@@ -19415,7 +19418,7 @@
    "native_lead": "cave",
    "hgss_lead": "rock",
    "native": {
-    "cave": 248,
+    "cave": 256,
     "rock": 211
    },
    "hgss": {
@@ -19450,7 +19453,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 250
+    "cave": 256
    },
    "hgss": {
     "rock": 193,
@@ -19467,7 +19470,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -19483,7 +19486,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 209
@@ -19511,13 +19514,13 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 219,
@@ -19533,8 +19536,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -19550,8 +19553,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -19567,10 +19570,10 @@
    "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "bank": 186,
-    "water": 186,
-    "rock": 70,
-    "cave": 34
+    "water": 199,
+    "bank": 199,
+    "rock": 57,
+    "cave": 57
    },
    "hgss": {
     "rock": 134,
@@ -19587,10 +19590,10 @@
    "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "bank": 195,
-    "water": 195,
-    "rock": 61,
-    "cave": 18
+    "water": 196,
+    "bank": 196,
+    "rock": 60,
+    "cave": 60
    },
    "hgss": {
     "rock": 137,
@@ -19606,8 +19609,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -19622,8 +19625,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -19638,8 +19641,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -19654,8 +19657,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -19670,8 +19673,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -19686,8 +19689,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -19700,13 +19703,13 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
-    "bank": 30,
-    "water": 30
+    "water": 30,
+    "bank": 30
    },
    "hgss": {
     "rock": 163,
@@ -19721,11 +19724,11 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -19760,7 +19763,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -19775,8 +19778,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -19791,8 +19794,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -19984,8 +19987,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20000,8 +20003,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20017,7 +20020,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20050,8 +20053,8 @@
    "native": {
     "rock": 242,
     "cave": 211,
-    "bank": 14,
-    "water": 14
+    "water": 14,
+    "bank": 14
    },
    "hgss": {
     "rock": 187,
@@ -20071,8 +20074,8 @@
    "native": {
     "rock": 242,
     "cave": 211,
-    "bank": 14,
-    "water": 14
+    "water": 14,
+    "bank": 14
    },
    "hgss": {
     "rock": 208,
@@ -20085,13 +20088,13 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 141,
     "cave": 137,
-    "rock": 136,
-    "bank": 115,
-    "water": 115
+    "water": 115,
+    "bank": 115
    },
    "hgss": {
     "rock": 163,
@@ -20109,8 +20112,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -20126,8 +20129,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -20142,8 +20145,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -20158,8 +20161,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -20174,8 +20177,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -20190,8 +20193,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -20206,8 +20209,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -20220,13 +20223,13 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -20259,7 +20262,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 238
@@ -20275,7 +20278,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20291,7 +20294,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 242
    },
    "hgss": {
     "rock": 237,
@@ -20324,8 +20327,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20340,8 +20343,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20356,8 +20359,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 176,
@@ -20407,8 +20410,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 193,
@@ -20424,8 +20427,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20440,8 +20443,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20456,8 +20459,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20472,8 +20475,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -20488,8 +20491,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238,
@@ -20518,11 +20521,11 @@
     10
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37,
     "road": 2
    },
@@ -20978,11 +20981,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 53,
     "road": 22
    },
@@ -20997,11 +21000,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21018,7 +21021,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 194,
+    "rock": 210,
     "lawn": 16
    },
    "hgss": {
@@ -21036,9 +21039,10 @@
    "native_lead": "cave",
    "hgss_lead": "cave",
    "native": {
-    "cave": 256,
-    "rock": 65,
-    "lawn": 44
+    "cave": 248,
+    "rock": 101,
+    "lawn": 56,
+    "road": 8
    },
    "hgss": {
     "cave": 231,
@@ -21055,7 +21059,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 245,
+    "rock": 251,
     "lawn": 6
    },
    "hgss": {
@@ -21070,11 +21074,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21087,11 +21091,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21104,11 +21108,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21121,11 +21125,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 48,
     "bank": 5
    },
@@ -21162,8 +21166,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21178,8 +21182,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21194,8 +21198,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21210,8 +21214,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21226,8 +21230,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21242,8 +21246,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21258,8 +21262,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21274,8 +21278,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21290,8 +21294,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -21307,8 +21311,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -21324,8 +21328,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -21338,13 +21342,13 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 222,
@@ -21361,7 +21365,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21376,8 +21380,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21408,8 +21412,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21584,8 +21588,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21600,8 +21604,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21617,7 +21621,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -21677,13 +21681,13 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 208,
@@ -21699,8 +21703,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -21716,8 +21720,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21732,8 +21736,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21748,8 +21752,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21764,8 +21768,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21780,8 +21784,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -21810,11 +21814,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 36,
     "bank": 23
    },
@@ -21830,11 +21834,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21847,11 +21851,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21867,8 +21871,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 235,
@@ -21881,12 +21885,13 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 248,
-    "lawn": 8
+    "rock": 234,
+    "cave": 234,
+    "lawn": 42,
+    "road": 22
    },
    "hgss": {
     "rock": 208,
@@ -21899,11 +21904,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21916,11 +21921,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -21933,11 +21938,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 234,
     "sign": 14,
     "lawn": 8
    },
@@ -21957,7 +21962,7 @@
     "sign": 240,
     "stairs": 70,
     "gate": 70,
-    "cave": 16
+    "rock": 16
    },
    "hgss": {
     "sign": 256
@@ -21973,7 +21978,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 242,
-    "rock": 180,
+    "rock": 196,
     "lawn": 16,
     "sign": 14
    },
@@ -21993,8 +21998,8 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 248,
+    "rock": 101,
     "lawn": 56,
-    "rock": 53,
     "road": 8
    },
    "hgss": {
@@ -22012,7 +22017,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 245,
+    "rock": 251,
     "lawn": 6
    },
    "hgss": {
@@ -22027,11 +22032,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22044,11 +22049,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22061,11 +22066,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22078,11 +22083,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22095,11 +22100,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22112,11 +22117,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -22129,11 +22134,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 211,
     "cave": 211,
-    "rock": 191,
     "sign": 40,
     "lawn": 25
    },
@@ -22479,6 +22484,7 @@
    "native": {
     "lawn": 233,
     "road": 56,
+    "rock": 17,
     "cave": 17
    },
    "hgss": {
@@ -22498,6 +22504,7 @@
    "native": {
     "lawn": 223,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22516,6 +22523,7 @@
    "native": {
     "lawn": 221,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22534,6 +22542,7 @@
    "native": {
     "lawn": 223,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22552,6 +22561,7 @@
    "native": {
     "lawn": 221,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22570,6 +22580,7 @@
    "native": {
     "lawn": 223,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22588,6 +22599,7 @@
    "native": {
     "lawn": 221,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -22606,6 +22618,7 @@
    "native": {
     "lawn": 217,
     "road": 200,
+    "rock": 13,
     "cave": 13
    },
    "hgss": {
@@ -22640,8 +22653,8 @@
    "native": {
     "road": 237,
     "lawn": 232,
-    "cave": 19,
-    "rock": 13
+    "rock": 19,
+    "cave": 19
    },
    "hgss": {
     "road": 224,
@@ -22676,8 +22689,8 @@
    "native": {
     "lawn": 211,
     "road": 97,
-    "cave": 32,
-    "rock": 13
+    "rock": 32,
+    "cave": 32
    },
    "hgss": {
     "lawn": 100,
@@ -22696,6 +22709,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -22712,6 +22726,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 255,
+    "rock": 7,
     "cave": 7,
     "road": 1
    },
@@ -22730,6 +22745,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -22746,6 +22762,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -22780,8 +22797,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22796,8 +22813,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22812,8 +22829,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22828,8 +22845,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22844,8 +22861,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22860,8 +22877,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22876,8 +22893,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22892,8 +22909,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22908,8 +22925,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22924,8 +22941,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -22940,8 +22957,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -22954,13 +22971,13 @@
     12
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -22977,7 +22994,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23008,8 +23025,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23056,8 +23073,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23072,8 +23089,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23088,8 +23105,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23104,8 +23121,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23120,8 +23137,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23136,8 +23153,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23152,8 +23169,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23168,8 +23185,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23184,8 +23201,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23200,8 +23217,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238,
@@ -23217,8 +23234,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23234,7 +23251,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -23262,11 +23279,11 @@
     12
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -23282,11 +23299,11 @@
     12
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -23300,13 +23317,13 @@
     12
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 39,
-    "bank": 14
+    "water": 14
    },
    "hgss": {
     "rock": 163,
@@ -23324,8 +23341,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -23341,8 +23358,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -23357,8 +23374,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -23373,8 +23390,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -23389,8 +23406,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -23405,8 +23422,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -23458,6 +23475,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -23474,6 +23492,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 244,
+    "rock": 23,
     "cave": 23,
     "road": 17
    },
@@ -23491,8 +23510,8 @@
    "hgss_lead": "rock",
    "native": {
     "stairs": 164,
+    "rock": 82,
     "cave": 82,
-    "rock": 57,
     "lawn": 35
    },
    "hgss": {
@@ -23595,8 +23614,8 @@
    "native": {
     "road": 231,
     "lawn": 225,
-    "cave": 19,
-    "rock": 13
+    "rock": 19,
+    "cave": 19
    },
    "hgss": {
     "road": 224,
@@ -23631,8 +23650,8 @@
    "native": {
     "road": 239,
     "lawn": 230,
-    "cave": 17,
-    "rock": 13
+    "rock": 17,
+    "cave": 17
    },
    "hgss": {
     "road": 226,
@@ -24076,6 +24095,7 @@
    "native": {
     "lawn": 221,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -24255,6 +24275,7 @@
    "native": {
     "lawn": 218,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -24287,6 +24308,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -24303,6 +24325,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 254,
+    "rock": 6,
     "cave": 6,
     "road": 2
    },
@@ -24353,8 +24376,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24369,8 +24392,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24385,8 +24408,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24401,8 +24424,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24417,8 +24440,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24433,8 +24456,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24449,8 +24472,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24465,8 +24488,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24481,8 +24504,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24497,8 +24520,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24513,8 +24536,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -24527,13 +24550,13 @@
     13
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -24550,7 +24573,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24614,8 +24637,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24630,8 +24653,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24646,8 +24669,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24662,8 +24685,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24678,8 +24701,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24694,8 +24717,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24710,8 +24733,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24726,8 +24749,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24742,8 +24765,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24758,8 +24781,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24774,8 +24797,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24790,8 +24813,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -24807,7 +24830,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -24819,13 +24842,13 @@
     13
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 219,
@@ -24841,8 +24864,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -24858,8 +24881,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -24875,8 +24898,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 184,
@@ -24892,8 +24915,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 250,
@@ -24909,8 +24932,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24925,8 +24948,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24941,8 +24964,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24957,8 +24980,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24973,8 +24996,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25039,6 +25062,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -25055,8 +25079,8 @@
    "hgss_lead": "stairs",
    "native": {
     "stairs": 240,
-    "sign": 32,
     "gate": 32,
+    "sign": 32,
     "lawn": 16
    },
    "hgss": {
@@ -25564,8 +25588,8 @@
    "native": {
     "lawn": 147,
     "gate": 104,
-    "cave": 9,
-    "road": 5
+    "rock": 9,
+    "cave": 9
    },
    "hgss": {
     "lawn": 85,
@@ -25584,6 +25608,7 @@
    "native": {
     "lawn": 218,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25602,6 +25627,7 @@
    "native": {
     "lawn": 221,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25620,6 +25646,7 @@
    "native": {
     "lawn": 223,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25638,6 +25665,7 @@
    "native": {
     "lawn": 217,
     "road": 203,
+    "rock": 13,
     "cave": 13
    },
    "hgss": {
@@ -25752,6 +25780,7 @@
    "native": {
     "lawn": 213,
     "road": 171,
+    "rock": 17,
     "cave": 17
    },
    "hgss": {
@@ -25770,6 +25799,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25788,6 +25818,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25806,6 +25837,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -25824,6 +25856,7 @@
    "native": {
     "lawn": 233,
     "road": 56,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -25856,6 +25889,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 251,
+    "rock": 8,
     "cave": 8,
     "road": 6
    },
@@ -25874,6 +25908,7 @@
    "native": {
     "lawn": 239,
     "road": 147,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -25891,6 +25926,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 3,
     "cave": 3
    },
    "hgss": {
@@ -25925,8 +25961,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25941,8 +25977,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25957,8 +25993,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25973,8 +26009,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -25990,8 +26026,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -26007,8 +26043,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26024,8 +26060,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26041,8 +26077,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -26058,8 +26094,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26074,8 +26110,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26090,8 +26126,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26104,13 +26140,13 @@
     14
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -26127,7 +26163,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 255
    },
    "hgss": {
     "rock": 256
@@ -26143,7 +26179,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26159,7 +26195,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26175,7 +26211,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26191,7 +26227,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26207,7 +26243,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26223,7 +26259,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26239,7 +26275,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26254,7 +26290,7 @@
    "native_lead": "cave",
    "hgss_lead": "rock",
    "native": {
-    "cave": 248,
+    "cave": 256,
     "rock": 211
    },
    "hgss": {
@@ -26289,7 +26325,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 250
+    "cave": 256
    },
    "hgss": {
     "rock": 193,
@@ -26306,7 +26342,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26322,7 +26358,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26338,7 +26374,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26354,7 +26390,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26370,7 +26406,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -26386,7 +26422,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -26398,13 +26434,13 @@
     14
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 208,
@@ -26420,8 +26456,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26437,8 +26473,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26453,8 +26489,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26469,8 +26505,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26485,8 +26521,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26501,8 +26537,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26517,8 +26553,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26533,8 +26569,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26549,8 +26585,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26615,6 +26651,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 245,
+    "rock": 16,
     "cave": 16,
     "road": 16
    },
@@ -26628,11 +26665,11 @@
     14
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "stairs",
    "native": {
+    "rock": 196,
     "cave": 196,
-    "rock": 149,
     "lawn": 60,
     "stairs": 47
    },
@@ -27140,8 +27177,8 @@
    "hgss_lead": "gate",
    "native": {
     "gate": 256,
-    "sign": 10,
-    "stairs": 10
+    "stairs": 10,
+    "sign": 10
    },
    "hgss": {
     "gate": 185,
@@ -27159,6 +27196,7 @@
    "native": {
     "road": 240,
     "lawn": 219,
+    "rock": 11,
     "cave": 11
    },
    "hgss": {
@@ -27323,6 +27361,7 @@
    "native": {
     "lawn": 218,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -27431,6 +27470,7 @@
    "native": {
     "lawn": 248,
     "road": 13,
+    "rock": 9,
     "cave": 9
    },
    "hgss": {
@@ -27447,6 +27487,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -27481,8 +27522,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -27497,8 +27538,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -27513,8 +27554,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 249,
@@ -27530,8 +27571,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 246,
@@ -27548,8 +27589,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 130,
-    "bank": 126,
     "water": 126,
+    "bank": 126,
     "cave": 121
    },
    "hgss": {
@@ -27570,8 +27611,8 @@
    "native": {
     "rock": 242,
     "cave": 211,
-    "bank": 14,
-    "water": 14
+    "water": 14,
+    "bank": 14
    },
    "hgss": {
     "rock": 208,
@@ -27584,13 +27625,13 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 141,
     "cave": 137,
-    "rock": 136,
-    "bank": 115,
-    "water": 115
+    "water": 115,
+    "bank": 115
    },
    "hgss": {
     "rock": 163,
@@ -27608,8 +27649,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -27625,8 +27666,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -27641,8 +27682,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -27657,8 +27698,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -27671,13 +27712,13 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -27722,11 +27763,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27739,11 +27780,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27756,11 +27797,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27773,11 +27814,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27790,11 +27831,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27807,11 +27848,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27828,7 +27869,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 194,
+    "rock": 210,
     "lawn": 16
    },
    "hgss": {
@@ -27846,9 +27887,10 @@
    "native_lead": "cave",
    "hgss_lead": "cave",
    "native": {
-    "cave": 256,
-    "rock": 65,
-    "lawn": 44
+    "cave": 248,
+    "rock": 101,
+    "lawn": 56,
+    "road": 8
    },
    "hgss": {
     "cave": 230,
@@ -27865,7 +27907,7 @@
    "hgss_lead": "cave",
    "native": {
     "cave": 256,
-    "rock": 245,
+    "rock": 251,
     "lawn": 6
    },
    "hgss": {
@@ -27880,11 +27922,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27897,11 +27939,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27914,11 +27956,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27931,11 +27973,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27948,11 +27990,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27965,11 +28007,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -27982,11 +28024,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 49,
     "bank": 4
    },
@@ -28024,8 +28066,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28037,13 +28079,13 @@
     15
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "rock": 183,
-    "cave": 113,
-    "bank": 73,
-    "water": 73
+    "water": 210,
+    "bank": 210,
+    "rock": 46,
+    "cave": 32
    },
    "hgss": {
     "water": 159,
@@ -28056,13 +28098,13 @@
     15
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "rock": 148,
-    "cave": 105,
-    "bank": 104,
-    "water": 104
+    "water": 201,
+    "bank": 201,
+    "rock": 55,
+    "cave": 47
    },
    "hgss": {
     "water": 162,
@@ -28078,8 +28120,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28094,8 +28136,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28110,8 +28152,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28126,8 +28168,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28142,8 +28184,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28208,6 +28250,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -28220,11 +28263,11 @@
     15
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 236,
     "cave": 236,
-    "rock": 181,
     "lawn": 75,
     "road": 2
    },
@@ -28244,6 +28287,7 @@
    "native": {
     "lawn": 213,
     "road": 186,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -28262,6 +28306,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -28280,6 +28325,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -28298,6 +28344,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -28316,6 +28363,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -28334,6 +28382,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -28352,6 +28401,7 @@
    "native": {
     "lawn": 212,
     "road": 185,
+    "rock": 18,
     "cave": 18
    },
    "hgss": {
@@ -28657,8 +28707,8 @@
    "hgss_lead": "gate",
    "native": {
     "gate": 256,
-    "sign": 4,
-    "stairs": 4
+    "stairs": 4,
+    "sign": 4
    },
    "hgss": {
     "gate": 256
@@ -28734,8 +28784,8 @@
    "hgss_lead": "gate",
    "native": {
     "gate": 256,
-    "sign": 4,
-    "stairs": 4
+    "stairs": 4,
+    "sign": 4
    },
    "hgss": {
     "gate": 256
@@ -28751,8 +28801,8 @@
    "hgss_lead": "gate",
    "native": {
     "gate": 253,
-    "sign": 19,
     "stairs": 19,
+    "sign": 19,
     "lawn": 3
    },
    "hgss": {
@@ -28937,6 +28987,7 @@
    "native": {
     "lawn": 220,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -29092,8 +29143,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29108,8 +29159,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29124,8 +29175,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -29142,8 +29193,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 130,
-    "bank": 126,
     "water": 126,
+    "bank": 126,
     "cave": 121
    },
    "hgss": {
@@ -29192,13 +29243,13 @@
     16
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 208,
@@ -29214,8 +29265,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -29231,8 +29282,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29247,8 +29298,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -29264,8 +29315,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 153,
@@ -29278,13 +29329,13 @@
     16
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 187,
@@ -29315,11 +29366,11 @@
     16
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 53
    },
    "hgss": {
@@ -29337,6 +29388,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 255,
+    "rock": 7,
     "cave": 7,
     "road": 1
    },
@@ -29355,6 +29407,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -29371,6 +29424,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 255,
+    "rock": 7,
     "cave": 7,
     "road": 1
    },
@@ -29389,6 +29443,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -29406,6 +29461,7 @@
    "native": {
     "lawn": 219,
     "road": 145,
+    "rock": 23,
     "cave": 23
    },
    "hgss": {
@@ -29440,8 +29496,8 @@
    "native": {
     "road": 237,
     "lawn": 232,
-    "cave": 19,
-    "rock": 13
+    "rock": 19,
+    "cave": 19
    },
    "hgss": {
     "road": 224,
@@ -29476,8 +29532,8 @@
    "native": {
     "road": 239,
     "lawn": 232,
-    "cave": 17,
-    "rock": 13
+    "rock": 17,
+    "cave": 17
    },
    "hgss": {
     "road": 226,
@@ -29559,6 +29615,7 @@
    "native": {
     "lawn": 213,
     "road": 125,
+    "rock": 22,
     "cave": 22
    },
    "hgss": {
@@ -29576,6 +29633,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 255,
+    "rock": 7,
     "cave": 7,
     "road": 1
    },
@@ -29627,8 +29685,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29640,13 +29698,13 @@
     16
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 200,
-    "cave": 191,
-    "bank": 29,
-    "water": 29
+    "water": 199,
+    "bank": 199,
+    "rock": 57,
+    "cave": 57
    },
    "hgss": {
     "rock": 134,
@@ -29659,13 +29717,13 @@
     16
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 220,
-    "cave": 211,
-    "lawn": 34,
-    "bank": 2
+    "water": 196,
+    "bank": 196,
+    "rock": 60,
+    "cave": 60
    },
    "hgss": {
     "rock": 137,
@@ -29681,8 +29739,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29697,8 +29755,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29713,8 +29771,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29729,8 +29787,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29745,8 +29803,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29811,6 +29869,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 245,
+    "rock": 16,
     "cave": 16,
     "road": 16
    },
@@ -29824,11 +29883,11 @@
     16
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 236,
     "cave": 236,
-    "rock": 181,
     "lawn": 75,
     "road": 2
    },
@@ -29849,6 +29908,7 @@
    "native": {
     "lawn": 233,
     "road": 56,
+    "rock": 17,
     "cave": 17
    },
    "hgss": {
@@ -29942,6 +30002,7 @@
    "native": {
     "lawn": 220,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -30383,7 +30444,7 @@
     "tree": 147,
     "road": 107,
     "lawn": 98,
-    "cave": 2
+    "rock": 2
    },
    "hgss": {
     "road": 256
@@ -30546,6 +30607,7 @@
    "native": {
     "lawn": 218,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -30717,8 +30779,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -30733,8 +30795,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -30749,8 +30811,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -30763,13 +30825,13 @@
     17
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -30816,13 +30878,13 @@
     17
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 39,
-    "bank": 14
+    "water": 14
    },
    "hgss": {
     "rock": 172,
@@ -30840,8 +30902,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -30857,8 +30919,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -30873,8 +30935,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -30891,8 +30953,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 130,
-    "bank": 126,
     "water": 126,
+    "bank": 126,
     "cave": 121
    },
    "hgss": {
@@ -30925,11 +30987,11 @@
     17
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37
    },
    "hgss": {
@@ -30947,6 +31009,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -31024,6 +31087,7 @@
    "native": {
     "lawn": 223,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31170,6 +31234,7 @@
    "native": {
     "lawn": 222,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31235,8 +31300,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31251,8 +31316,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31264,13 +31329,13 @@
     17
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "rock": 226,
-    "cave": 169,
-    "bank": 15,
-    "water": 15
+    "water": 210,
+    "bank": 210,
+    "rock": 46,
+    "cave": 32
    },
    "hgss": {
     "water": 159,
@@ -31283,13 +31348,13 @@
     17
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "rock": 148,
-    "cave": 105,
-    "bank": 104,
-    "water": 104
+    "water": 201,
+    "bank": 201,
+    "rock": 55,
+    "cave": 47
    },
    "hgss": {
     "water": 162,
@@ -31305,8 +31370,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31321,8 +31386,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31337,8 +31402,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31353,8 +31418,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31419,6 +31484,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -31431,11 +31497,11 @@
     17
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 236,
     "cave": 236,
-    "rock": 181,
     "lawn": 75
    },
    "hgss": {
@@ -31452,6 +31518,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 245,
+    "rock": 17,
     "cave": 17,
     "road": 16
    },
@@ -31469,6 +31536,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 254,
+    "rock": 6,
     "cave": 6,
     "road": 2
    },
@@ -31486,6 +31554,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 249,
+    "rock": 13,
     "cave": 13,
     "road": 12
    },
@@ -31503,6 +31572,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 254,
+    "rock": 6,
     "cave": 6,
     "road": 2
    },
@@ -31520,6 +31590,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 247,
+    "rock": 15,
     "cave": 15,
     "road": 14
    },
@@ -31537,6 +31608,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -31554,6 +31626,7 @@
    "native": {
     "lawn": 238,
     "road": 42,
+    "rock": 12,
     "cave": 12
    },
    "hgss": {
@@ -31573,6 +31646,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31592,6 +31666,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31611,6 +31686,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31630,6 +31706,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31649,6 +31726,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31668,6 +31746,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31687,6 +31766,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31706,6 +31786,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31725,6 +31806,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31744,6 +31826,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -31763,6 +31846,7 @@
    "native": {
     "lawn": 220,
     "road": 141,
+    "rock": 20,
     "cave": 20
    },
    "hgss": {
@@ -31777,11 +31861,11 @@
     17
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38,
     "road": 18
    },
@@ -32008,8 +32092,8 @@
    "native": {
     "tree": 242,
     "lawn": 11,
-    "cave": 6,
-    "road": 4
+    "rock": 6,
+    "cave": 6
    },
    "hgss": {
     "road": 256
@@ -32026,6 +32110,7 @@
    "native": {
     "road": 254,
     "lawn": 213,
+    "rock": 2,
     "cave": 2
    },
    "hgss": {
@@ -32043,6 +32128,7 @@
    "native": {
     "road": 242,
     "lawn": 215,
+    "rock": 9,
     "cave": 9
    },
    "hgss": {
@@ -32172,6 +32258,7 @@
    "native": {
     "lawn": 220,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32337,8 +32424,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32353,8 +32440,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32369,8 +32456,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -32383,13 +32470,13 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -32418,13 +32505,13 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 35,
-    "bank": 2
+    "water": 2
    },
    "hgss": {
     "rock": 218,
@@ -32440,8 +32527,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 153,
@@ -32457,8 +32544,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -32474,8 +32561,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32490,8 +32577,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -32504,13 +32591,13 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 20,
-    "bank": 18
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -32539,11 +32626,11 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37
    },
    "hgss": {
@@ -32560,6 +32647,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 4,
     "cave": 4
    },
    "hgss": {
@@ -32637,6 +32725,7 @@
    "native": {
     "lawn": 231,
     "road": 59,
+    "rock": 18,
     "cave": 18
    },
    "hgss": {
@@ -32655,6 +32744,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32673,6 +32763,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32691,6 +32782,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32709,6 +32801,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32727,6 +32820,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32745,6 +32839,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32763,6 +32858,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32781,6 +32877,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -32799,6 +32896,7 @@
    "native": {
     "lawn": 235,
     "road": 53,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -32864,8 +32962,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32880,8 +32978,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32893,13 +32991,13 @@
     18
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 200,
-    "cave": 191,
-    "bank": 29,
-    "water": 29
+    "water": 199,
+    "bank": 199,
+    "rock": 57,
+    "cave": 57
    },
    "hgss": {
     "rock": 134,
@@ -32912,13 +33010,13 @@
     18
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "water",
    "hgss_lead": "rock",
    "native": {
-    "rock": 204,
-    "cave": 199,
-    "lawn": 38,
-    "bank": 14
+    "water": 196,
+    "bank": 196,
+    "rock": 60,
+    "cave": 60
    },
    "hgss": {
     "rock": 137,
@@ -32934,8 +33032,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32950,8 +33048,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -33018,6 +33116,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -33035,6 +33134,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 254,
+    "rock": 6,
     "cave": 6,
     "road": 2
    },
@@ -33053,6 +33153,7 @@
    "native": {
     "lawn": 236,
     "road": 54,
+    "rock": 20,
     "cave": 20
    },
    "hgss": {
@@ -33066,11 +33167,11 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 228,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -33086,9 +33187,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "cave": 211,
-    "lawn": 14
+    "rock": 165,
+    "cave": 148,
+    "lawn": 91
    },
    "hgss": {
     "rock": 208,
@@ -33169,11 +33270,11 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 141,
     "cave": 137,
-    "rock": 136,
     "lawn": 120
    },
    "hgss": {
@@ -33379,6 +33480,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 245,
+    "rock": 16,
     "cave": 16,
     "road": 16
    },
@@ -33393,11 +33495,11 @@
     18
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -33414,8 +33516,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -33431,7 +33533,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 184
+    "cave": 234,
+    "lawn": 1
    },
    "hgss": {
     "rock": 256
@@ -33447,7 +33550,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 209
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -33658,7 +33761,7 @@
     "tree": 147,
     "lawn": 102,
     "road": 12,
-    "cave": 9
+    "rock": 9
    },
    "hgss": {
     "road": 109,
@@ -33677,6 +33780,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 6,
     "cave": 6
    },
    "hgss": {
@@ -33696,6 +33800,7 @@
    "native": {
     "lawn": 210,
     "road": 180,
+    "rock": 20,
     "cave": 20
    },
    "hgss": {
@@ -33810,6 +33915,7 @@
    "native": {
     "lawn": 218,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -33975,8 +34081,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -33991,8 +34097,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34007,8 +34113,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -34021,13 +34127,13 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
-    "bank": 30,
-    "water": 30
+    "water": 30,
+    "bank": 30
    },
    "hgss": {
     "rock": 162,
@@ -34042,11 +34148,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -34060,13 +34166,13 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 39,
-    "bank": 14
+    "water": 14
    },
    "hgss": {
     "rock": 163,
@@ -34084,8 +34190,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -34101,8 +34207,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34117,8 +34223,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34148,11 +34254,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 226,
     "cave": 226,
-    "rock": 197,
     "lawn": 39,
     "bank": 20
    },
@@ -34169,11 +34275,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 256,
     "cave": 256,
-    "rock": 248,
     "lawn": 8
    },
    "hgss": {
@@ -34186,11 +34292,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 242,
     "cave": 242,
-    "rock": 203,
     "lawn": 53
    },
    "hgss": {
@@ -34507,8 +34613,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34523,8 +34629,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34539,8 +34645,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34555,8 +34661,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34571,8 +34677,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34587,8 +34693,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34725,7 +34831,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -34801,11 +34907,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37,
     "road": 2
    },
@@ -34826,7 +34932,7 @@
     "tall": 227,
     "lawn": 27,
     "road": 2,
-    "cave": 2
+    "rock": 2
    },
    "hgss": {
     "tall": 256
@@ -35002,6 +35108,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -35014,11 +35121,11 @@
     19
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38,
     "road": 18
    },
@@ -35036,8 +35143,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -35053,7 +35160,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 212
+    "cave": 248,
+    "lawn": 5
    },
    "hgss": {
     "rock": 256
@@ -35069,7 +35177,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 205
+    "cave": 248,
+    "lawn": 10
    },
    "hgss": {
     "rock": 256
@@ -35294,6 +35403,7 @@
    "native": {
     "lawn": 219,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -35393,6 +35503,7 @@
    "native": {
     "road": 254,
     "lawn": 224,
+    "rock": 2,
     "cave": 2
    },
    "hgss": {
@@ -35410,6 +35521,7 @@
    "native": {
     "lawn": 215,
     "road": 111,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -35575,8 +35687,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35591,8 +35703,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35607,8 +35719,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -35624,8 +35736,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35641,8 +35753,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35658,8 +35770,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -35675,8 +35787,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -35692,8 +35804,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35708,8 +35820,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35761,6 +35873,7 @@
    "native": {
     "lawn": 246,
     "road": 15,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -35777,6 +35890,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 1,
     "cave": 1
    },
    "hgss": {
@@ -36220,6 +36334,7 @@
    "native": {
     "lawn": 245,
     "road": 16,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -36232,11 +36347,11 @@
     20
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -36269,7 +36384,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 239
    },
    "hgss": {
     "rock": 256
@@ -36285,7 +36400,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 225
    },
    "hgss": {
     "rock": 256
@@ -36301,7 +36416,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 225
    },
    "hgss": {
     "rock": 256
@@ -36377,11 +36492,11 @@
     20
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 254,
     "cave": 254,
-    "rock": 219,
     "lawn": 37,
     "road": 2
    },
@@ -36402,7 +36517,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 6
+    "rock": 6
    },
    "hgss": {
     "tall": 256
@@ -36419,8 +36534,8 @@
    "native": {
     "tall": 227,
     "lawn": 27,
-    "cave": 4,
-    "road": 2
+    "rock": 4,
+    "cave": 4
    },
    "hgss": {
     "tall": 256
@@ -36438,7 +36553,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 4
+    "rock": 4
    },
    "hgss": {
     "tall": 256
@@ -36455,8 +36570,8 @@
    "native": {
     "tall": 227,
     "lawn": 27,
-    "cave": 4,
-    "road": 2
+    "rock": 4,
+    "cave": 4
    },
    "hgss": {
     "tall": 256
@@ -36474,7 +36589,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 4
+    "rock": 4
    },
    "hgss": {
     "tall": 256
@@ -36491,8 +36606,8 @@
    "native": {
     "tall": 227,
     "lawn": 27,
-    "cave": 4,
-    "road": 2
+    "rock": 4,
+    "cave": 4
    },
    "hgss": {
     "tall": 256
@@ -36510,7 +36625,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 4
+    "rock": 4
    },
    "hgss": {
     "tall": 256
@@ -36527,8 +36642,8 @@
    "native": {
     "tall": 227,
     "lawn": 27,
-    "cave": 4,
-    "road": 2
+    "rock": 4,
+    "cave": 4
    },
    "hgss": {
     "tall": 256
@@ -36546,7 +36661,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 4
+    "rock": 4
    },
    "hgss": {
     "tall": 256
@@ -36563,8 +36678,8 @@
    "native": {
     "tall": 227,
     "lawn": 27,
-    "cave": 4,
-    "road": 2
+    "rock": 4,
+    "cave": 4
    },
    "hgss": {
     "tall": 256
@@ -36582,7 +36697,7 @@
     "tall": 227,
     "lawn": 25,
     "road": 8,
-    "cave": 4
+    "rock": 4
    },
    "hgss": {
     "tall": 256
@@ -36598,6 +36713,7 @@
    "hgss_lead": "tall",
    "native": {
     "lawn": 243,
+    "rock": 22,
     "cave": 22,
     "road": 18
    },
@@ -36611,11 +36727,11 @@
     20
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38,
     "road": 18
    },
@@ -36633,8 +36749,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -36891,6 +37007,7 @@
    "native": {
     "lawn": 221,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -36974,6 +37091,7 @@
    "native": {
     "lawn": 213,
     "road": 186,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -36993,7 +37111,7 @@
     "tree": 147,
     "lawn": 95,
     "road": 21,
-    "cave": 18
+    "rock": 18
    },
    "hgss": {
     "road": 109,
@@ -37012,6 +37130,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -37247,8 +37366,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37263,8 +37382,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37279,8 +37398,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37295,8 +37414,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37311,8 +37430,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37823,6 +37942,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 256,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -37835,11 +37955,11 @@
     21
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -37872,7 +37992,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -38245,8 +38365,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -38503,6 +38623,7 @@
    "native": {
     "lawn": 219,
     "road": 144,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -38570,6 +38691,7 @@
    "native": {
     "road": 254,
     "lawn": 224,
+    "rock": 2,
     "cave": 2
    },
    "hgss": {
@@ -38587,6 +38709,7 @@
    "native": {
     "lawn": 215,
     "road": 111,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -38852,8 +38975,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38868,8 +38991,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38884,8 +39007,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38900,8 +39023,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38916,8 +39039,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -39376,12 +39499,12 @@
     22
    ],
    "status": "match",
-   "native_lead": "lawn",
+   "native_lead": "rock",
    "hgss_lead": "lawn",
    "native": {
-    "lawn": 188,
-    "cave": 66,
-    "rock": 61,
+    "rock": 129,
+    "cave": 128,
+    "lawn": 120,
     "bank": 7
    },
    "hgss": {
@@ -39401,6 +39524,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 247,
+    "rock": 15,
     "cave": 15,
     "road": 14
    },
@@ -39418,6 +39542,7 @@
    "hgss_lead": "lawn",
    "native": {
     "lawn": 243,
+    "rock": 22,
     "cave": 22,
     "road": 18
    },
@@ -39431,11 +39556,11 @@
     22
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -39468,7 +39593,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -39499,8 +39624,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -40061,6 +40186,7 @@
    "native": {
     "lawn": 221,
     "road": 112,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -40112,6 +40238,7 @@
    "native": {
     "lawn": 213,
     "road": 186,
+    "rock": 15,
     "cave": 15
    },
    "hgss": {
@@ -40131,7 +40258,7 @@
     "tree": 147,
     "lawn": 95,
     "road": 21,
-    "cave": 18
+    "rock": 18
    },
    "hgss": {
     "road": 109,
@@ -40150,6 +40277,7 @@
    "native": {
     "tree": 147,
     "lawn": 109,
+    "rock": 5,
     "cave": 5
    },
    "hgss": {
@@ -40506,13 +40634,13 @@
     23
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "bank",
    "hgss_lead": "lawn",
    "native": {
-    "rock": 183,
-    "cave": 113,
-    "bank": 70,
-    "water": 59
+    "bank": 153,
+    "water": 92,
+    "lawn": 58,
+    "rock": 47
    },
    "hgss": {
     "lawn": 112,
@@ -40526,12 +40654,13 @@
     23
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "lawn",
    "hgss_lead": "lawn",
    "native": {
-    "rock": 148,
-    "lawn": 108,
-    "cave": 105
+    "lawn": 190,
+    "rock": 72,
+    "cave": 64,
+    "road": 17
    },
    "hgss": {
     "lawn": 156,
@@ -40959,11 +41088,11 @@
     23
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 228,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -41049,7 +41178,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -41080,8 +41209,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -41144,8 +41273,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -41320,8 +41449,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -41642,6 +41771,7 @@
    "native": {
     "lawn": 221,
     "road": 88,
+    "rock": 19,
     "cave": 19
    },
    "hgss": {
@@ -41661,6 +41791,7 @@
    "native": {
     "lawn": 222,
     "road": 115,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -41679,6 +41810,7 @@
    "native": {
     "lawn": 217,
     "road": 141,
+    "rock": 16,
     "cave": 16
    },
    "hgss": {
@@ -41697,6 +41829,7 @@
    "native": {
     "lawn": 233,
     "road": 56,
+    "rock": 14,
     "cave": 14
    },
    "hgss": {
@@ -42071,13 +42204,12 @@
     24
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "lawn",
    "hgss_lead": "rock",
    "native": {
-    "rock": 200,
-    "cave": 191,
-    "lawn": 56,
-    "road": 7
+    "lawn": 204,
+    "rock": 58,
+    "cave": 58
    },
    "hgss": {
     "rock": 134,
@@ -42091,12 +42223,12 @@
     24
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "lawn",
    "hgss_lead": "rock",
    "native": {
-    "rock": 203,
-    "cave": 202,
-    "lawn": 53
+    "lawn": 206,
+    "rock": 60,
+    "cave": 60
    },
    "hgss": {
     "rock": 134,
@@ -42520,11 +42652,11 @@
     24
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -42606,7 +42738,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -42637,8 +42769,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -44067,11 +44199,11 @@
     25
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -44105,7 +44237,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 239
    },
    "hgss": {
     "rock": 256
@@ -44121,7 +44253,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 225
    },
    "hgss": {
     "rock": 256
@@ -44137,7 +44269,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 225
    },
    "hgss": {
     "rock": 256
@@ -44153,7 +44285,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 225
    },
    "hgss": {
     "rock": 238
@@ -44184,8 +44316,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -44297,7 +44429,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 184
+    "cave": 234,
+    "lawn": 1
    },
    "hgss": {
     "rock": 256
@@ -44313,7 +44446,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 209
+    "cave": 248
    },
    "hgss": {
     "rock": 256
@@ -44456,8 +44589,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -45597,11 +45730,11 @@
     26
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -45635,7 +45768,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -45827,7 +45960,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 212
+    "cave": 248,
+    "lawn": 5
    },
    "hgss": {
     "rock": 256
@@ -45843,7 +45977,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 205
+    "cave": 248,
+    "lawn": 10
    },
    "hgss": {
     "rock": 256
@@ -46002,8 +46137,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46018,8 +46153,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46034,8 +46169,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46050,8 +46185,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46066,8 +46201,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46082,8 +46217,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -46098,8 +46233,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 238
@@ -47147,11 +47282,11 @@
     27
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -47185,7 +47320,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -47216,8 +47351,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -47296,8 +47431,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -47328,8 +47463,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -48685,11 +48820,11 @@
     28
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -48723,7 +48858,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -48754,8 +48889,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -48850,8 +48985,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -48866,8 +49001,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -50223,11 +50358,11 @@
     29
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -50261,7 +50396,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -50292,8 +50427,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -51761,11 +51896,11 @@
     30
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -51799,7 +51934,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -51830,8 +51965,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -53299,11 +53434,11 @@
     31
    ],
    "status": "match",
-   "native_lead": "cave",
+   "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
+    "rock": 238,
     "cave": 238,
-    "rock": 218,
     "lawn": 38
    },
    "hgss": {
@@ -53337,7 +53472,7 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 256,
-    "cave": 248
+    "cave": 256
    },
    "hgss": {
     "rock": 256
@@ -53368,8 +53503,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "cave": 256,
-    "rock": 256
+    "rock": 256,
+    "cave": 256
    },
    "hgss": {
     "rock": 256

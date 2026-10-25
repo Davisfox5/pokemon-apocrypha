@@ -137,15 +137,7 @@
     918,
     919,
     920,
-    921,
-    922,
-    923,
-    924,
-    925,
-    926,
-    927,
-    928,
-    929
+    921
   ],
   "reserved_palette_slots": {
     "6": [
@@ -177,7 +169,6 @@
     ],
     "10": [
       3,
-      5,
       6,
       7,
       8,
@@ -194,22 +185,22 @@
     15,
     15,
     15,
-    14,
-    15,
-    12,
     15,
     15,
     14,
-    12
+    15,
+    14,
+    14,
+    14
   ],
-  "primary_tiles_reused": 139,
-  "new_secondary_tiles": 444,
-  "secondary_tile_slots": 445,
+  "primary_tiles_reused": 140,
+  "new_secondary_tiles": 451,
+  "secondary_tile_slots": 453,
   "secondary_metatiles": 357,
-  "primary_metatiles_used": 48,
+  "primary_metatiles_used": 47,
   "mahogany_new_tiles": {
     "first": 912,
-    "count": 18
+    "count": 10
   },
   "mahogany_appended": {
     "primary": [],
@@ -1218,23 +1209,20 @@
       ],
       "sources": [
         [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
           "new Mahogany tiles",
           43925,
-          0
-        ],
-        [
-          "new Mahogany tiles",
-          42902,
-          0
-        ],
-        [
-          "new Mahogany tiles",
-          43927,
-          0
-        ],
-        [
-          "new Mahogany tiles",
-          43928,
           0
         ]
       ]
@@ -1254,24 +1242,21 @@
       ],
       "sources": [
         [
-          "new Mahogany tiles",
-          44953,
+          0,
           0
         ],
         [
-          "new Mahogany tiles",
-          43930,
-          0
+          0,
+          1
         ],
         [
           "new Mahogany tiles",
-          44955,
+          44950,
           0
         ],
         [
-          "new Mahogany tiles",
-          43932,
-          0
+          0,
+          3
         ]
       ]
     },
@@ -1319,7 +1304,7 @@
         ],
         [
           "new Mahogany tiles",
-          20381,
+          20375,
           0
         ],
         [
@@ -1363,13 +1348,12 @@
       ],
       "sources": [
         [
-          "new Mahogany tiles",
-          41886,
+          0,
           0
         ],
         [
           "new Mahogany tiles",
-          41887,
+          44952,
           0
         ],
         [
@@ -1398,13 +1382,12 @@
       "sources": [
         [
           "new Mahogany tiles",
-          42912,
+          42905,
           0
         ],
         [
-          "new Mahogany tiles",
-          41889,
-          0
+          0,
+          1
         ],
         [
           0,

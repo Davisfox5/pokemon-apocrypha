@@ -89,6 +89,12 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
   is smaller than the original model, the leftover model cells become woods. Keep
   the footprint and the rows along its sides solid, and check both in the audit
   and in headless movement.
+- Reuse rock art; don't make new custom rocks (owner review, Route 42,
+  2026-10-25). Boulders and loose rocks come from the Gen 3 tilesets already in
+  the engine (FRLG/Emerald general, e.g. FRLG's boulder, metatile 0x9F) or from
+  HGSS pieces already recreated in the catalog, in the map's rock ramp. A special
+  wall (Rock Climb) is the normal wall tiles with its details pasted on. Count
+  the original's wall levels: every height step is a wall of its own.
 - Validate actual decoded native tiles/palettes/layers and Porymap output, plus
   relevant headless movement, gates, connections, water, doors/stairs and ordinary
   saves. Review all affected floors/maps and both sides of transitions. Record
