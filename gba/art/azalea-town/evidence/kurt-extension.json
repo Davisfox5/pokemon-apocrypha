@@ -1,0 +1,44 @@
+{
+  "baseline": "d822306675e15abe67c85235d9faf8d6e676d449",
+  "design_status": "Owner-authorized proposal; visual acceptance pending",
+  "removed_trees": [
+    [
+      304,
+      128
+    ],
+    [
+      320,
+      96
+    ]
+  ],
+  "new_objects": [
+    {
+      "name": "kurt-firewood",
+      "x": 272,
+      "y": 112,
+      "role": "Owner proposal: large rear firewood stack"
+    },
+    {
+      "name": "kurt-kiln",
+      "x": 256,
+      "y": 128,
+      "role": "Owner proposal: attached masonry kiln and chimney"
+    }
+  ],
+  "original_house_pixels_changed": 0,
+  "changed_cells": 33,
+  "collision_cells_changed": 16,
+  "glyphs": 995,
+  "metatiles": 412,
+  "palette_changes": 0,
+  "regular_house_changes": 0,
+  "Route33_changes": 0,
+  "original_house_visible_pixel_errors": 0,
+  "RGB_changes_outside_Kurt_property": 0,
+  "visible_pixels_changed": 6767,
+  "removed_tree_count": 2,
+  "remaining_tree_count": 275,
+  "stacked_end_facing_logs": 23,
+  "interiors": "Not added; proposal is exterior only.",
+  "kiln": "Unlit masonry structure, chimney and firebox; no new gameplay mechanic."
+}

@@ -1,0 +1,474 @@
+{
+  "shared_commit": "82b98516aa17eeb538a0cd9adf373df8b3c7d3cb",
+  "registration": [
+    64,
+    16
+  ],
+  "whole_tiles": [
+    {
+      "tile": "well-R01",
+      "x": 44,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 45,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 48,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 49,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 50,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 51,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R01",
+      "x": 52,
+      "y": 7,
+      "mirror": false,
+      "boundary": "north rim / upper terrace"
+    },
+    {
+      "tile": "well-R16",
+      "x": 43,
+      "y": 7,
+      "mirror": true,
+      "boundary": "northwest return"
+    },
+    {
+      "tile": "well-R16",
+      "x": 53,
+      "y": 7,
+      "mirror": false,
+      "boundary": "northeast return"
+    },
+    {
+      "tile": "well-R05",
+      "x": 42,
+      "y": 8,
+      "mirror": false,
+      "boundary": "offset northwest join"
+    },
+    {
+      "tile": "well-R02",
+      "x": 43,
+      "y": 8,
+      "mirror": false,
+      "boundary": "northwest stacked face"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 9,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 10,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 11,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 12,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 13,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 14,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 15,
+      "mirror": true,
+      "boundary": "west outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 8,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 9,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 10,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 11,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 12,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 13,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 14,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 15,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 16,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 17,
+      "mirror": false,
+      "boundary": "east outside return"
+    },
+    {
+      "tile": "well-R05",
+      "x": 44,
+      "y": 8,
+      "mirror": false,
+      "boundary": "northwest lower return"
+    },
+    {
+      "tile": "well-R02",
+      "x": 45,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R02",
+      "x": 46,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R02",
+      "x": 47,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R02",
+      "x": 48,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R02",
+      "x": 49,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R02",
+      "x": 50,
+      "y": 8,
+      "mirror": false,
+      "boundary": "north lower course"
+    },
+    {
+      "tile": "well-R10",
+      "x": 51,
+      "y": 8,
+      "mirror": false,
+      "boundary": "lower course east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 9,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 10,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 11,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 12,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 13,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 14,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 15,
+      "mirror": true,
+      "boundary": "west court return"
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 48,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 49,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R01",
+      "x": 50,
+      "y": 11,
+      "mirror": false,
+      "boundary": "upper terrace / well court"
+    },
+    {
+      "tile": "well-R16",
+      "x": 51,
+      "y": 11,
+      "mirror": false,
+      "boundary": "court northeast return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 12,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 13,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 14,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 15,
+      "mirror": false,
+      "boundary": "court east return"
+    },
+    {
+      "tile": "well-R15",
+      "x": 51,
+      "y": 16,
+      "mirror": false,
+      "boundary": "court southeast foot"
+    },
+    {
+      "tile": "well-R15",
+      "x": 44,
+      "y": 16,
+      "mirror": false,
+      "boundary": "court southwest foot"
+    },
+    {
+      "tile": "well-R01",
+      "x": 45,
+      "y": 16,
+      "mirror": false,
+      "boundary": "well court / town"
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 16,
+      "mirror": false,
+      "boundary": "well court / town"
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 16,
+      "mirror": false,
+      "boundary": "well court / town"
+    }
+  ],
+  "new_props": [
+    {
+      "name": "well-S04",
+      "x": 704,
+      "y": 144
+    },
+    {
+      "name": "well-S01",
+      "x": 768,
+      "y": 256
+    },
+    {
+      "name": "well-S03",
+      "x": 784,
+      "y": 256
+    },
+    {
+      "name": "L11",
+      "x": 800,
+      "y": 272
+    },
+    {
+      "name": "L12",
+      "x": 816,
+      "y": 272
+    },
+    {
+      "name": "L12",
+      "x": 832,
+      "y": 272
+    },
+    {
+      "name": "L13",
+      "x": 848,
+      "y": 272
+    }
+  ],
+  "new_trees": [],
+  "rail_props": [],
+  "adaptations": [
+    "Full 16x16 shared tiles only. No resizing, slicing, middle-row insertion or pixel-repainted corners.",
+    "HGSS projected outer face spans approximately 24 screen pixels; native face quantized to one complete 16px master plus separate lower course.",
+    "Northern sloping strip is represented as a complete course with an open eastern landing; exact DS slope height unavailable.",
+    "Existing shared staircase placeholders and southern ledge retained; no new story or interiors."
+  ]
+}

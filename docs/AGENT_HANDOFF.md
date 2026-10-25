@@ -1222,3 +1222,41 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+
+## Azalea exterior — 2026-10-18
+
+Owner moved this thread to Azalea; leave Route33 refinement to the other thread.
+New exterior engine source: `codex/azalea-town` at `a322750485`, based on
+`eb15d89234`; source/evidence entry: [Azalea](../gba/art/azalea-town/README.md).
+Hub evidence branches from main, without altering Route33 evidence. Map ID50
+appended; no prior IDs or unrelated art changed. HGSS overview registered at
++64,+16; shared Center/Mart/gate/trees/props, native terrain, missing local
+Azalea architecture. Porymap/native2112-cell equality, full tree footprints,
+headless movement/ledges/barriers/closed approaches and ordinary save/reload/
+Continue verified; a copied prior Route33 save remains compatible. Source is
+authoritative: never replay first-authoring tools over the committed map.
+Interiors, Slowpoke Well descent, Ilex/Route33 connections and campaign actors
+remain pending; visual approval stays with the owner.
+
+### Azalea individual house cleanup, 2026-10-18
+
+Engine `codex/azalea-town` commit `76a8e5f16b` refines Kurt’s house and the southeast house separately. Evidence and full commit are in `gba/art/azalea-town/README.md`; per-house before/after images are under its evidence directory. The guarded `tools/gba/maps/azalea_town/house_cleanup.py` is a narrow direct native patch against the preserved a322750485 baseline, not a layout generator. Two redundant house outline shades were consolidated to restore violet window glass without spending another palette. Southeast vents, chimney and stray cutout edges are corrected. Porymap/native RGB match, unchanged collision/elevation, zero changed pixels outside the two house regions, and headless walking/save/cold-reload/Continue pass. Route33 and shared building/tree art are untouched. Exterior only; interiors and adjacent-map integration remain pending.
+
+Kurt-only eave follow-up: `8beab42d99def1e39eb37ba076e837d1be13da31` on codex/azalea-town. Attached log fragments removed and side smoothed; separate logs and owner-approved regular house untouched. See azalea-town/evidence/kurt-edge-before-after.png and guarded kurt_edge_cleanup.py. Native/Porymap and headless save/reload pass.
+
+Kurt structure follow-up: engine `0c0d2cff899438dcf0663762c2b2675e8d6cea5c` restores clipped upper roof and full left column/stone footing. Current comparison: `gba/art/azalea-town/evidence/kurt-structure-original-current.png`. Narrow guarded native patch `kurt_structure_cleanup.py`; no collision or visible outside-house changes. Porymap/native and headless save/reload pass. Regular house remains approved and untouched.
+
+Kurt roof correction supersedes rejected structure patch: `e365b1821260897eea1463485fdadea741658510`. User rejected the additive yellow extension over the old outline. `kurt_roof_rebuild.py` replaces the whole upper section using clean HGSS same-plane thatch donors, excluding canopy colors; retains central ridge and a single outside border. Current comparison `gba/art/azalea-town/evidence/kurt-roof-original-current.png`; owner visual acceptance pending. No visible changes outside the upper roof; Porymap/native and headless save/reload pass.
+
+Kurt texture/contrast pass: engine `d822306675e15abe67c85235d9faf8d6e676d449`. Same roof silhouette, isolated thatch speckle cleanup, original crossed-log gray facets restored with existing native charcoal palette and separated native layers. Source/previous/current close-up `gba/art/azalea-town/evidence/kurt-texture-detail.png`; guarded patch `kurt_roof_texture.py`, baseline e365b18212. No changed palette, collision or visible pixels outside the roof. Porymap/native plus headless save/reload pass. Owner visual approval pending.
+
+Kurt property growth proposal: `38200410b559a842e4b4c7ef17e5dc8e77164f9a` on codex/azalea-town. User refined the initial lower-thatched-wing idea into a kiln/chimney and tight end-facing logs. Current assets: kurt-kiln, kurt-firewood; original house exact. Two whole trees removed and side-yard path connected. Current review `gba/art/azalea-town/evidence/kurt-property-current.png`; before/after and runtime frames alongside. 995 glyphs, 412 metatiles, 13 unchanged palettes; 40 native files reproduce from d822306675. Porymap/native, side-yard/wall/pile/forest collision, save/cold reload/Continue and copied previous save pass. Exterior design only, owner visual review pending. No Route33 changes. Prior thatched-wing proposal and all baseline source are preserved in source/kurt-extension/.
+
+Slowpoke Well/gate repair: engine `d41fc5718c2205cc284792d7c2a5849549ecd73e`, codex/azalea-town. Complete shared R02 structures now use matched 24px outer / tapered lower /16px inner courses, corrected side/corner orientation, complete gray stairs and a lower down-only return. Five full trees behind the gate plus a short lower rail and correct front-wall collision seal both bypasses; approach remains open. Current comparisons in azalea-town/evidence/well-repair-comparison.png and gate-repair-comparison.png. Porymap/native, both stair axes/directions, wall/ledge/barrier checks, saves and copied older save pass;40 native files reproduce. Kurt unchanged. Source/input snapshots and guarded well_gate_art/install.py retained. IMPORTANT: static Azalea now uses all1024 tile slots; both callbacks NULL and events/warps empty. Repack <=1008 before adding animated doors (field_door reserves last16). Interiors remain pending; owner visual acceptance pending.
+
+
+Current Azalea correction supersedes the rejected d41 well art and its tile-budget note: engine `9de3b41845`, codex/azalea-town. Whole shared16px rock modules replace stretched24px/tapered12/8px faces. Authored relative contour plan and measurements: azalea-town/source/well-elevation-rebuild/elevation-plan.json; visual review: evidence/well-elevation-plan.png and well-elevation-comparison.png. Levels are overview-inferred, not decoded DS data; northern slope is quantized, existing stair placeholders retained. Lossless private-bank packing now987/1008 static glyphs,21 spare plus full16-door reserve. NULL tileset callbacks do not protect field_door’s reserve. No visible changes outside well; gate/Kurt exact. Porymap/native, headless movement/barriers/save/Continue and copied d41 save pass. All42 tracked native source files reproduce. Rejected drafts retained. Owner visual acceptance pending; interiors/connections unwired.
+
+
+October25, fresh well scene supersedes ALL previous well geometry/positive-level plans: engine **4d8fbbfa033a4703a3df5df4d6751c07fed10f4b**, codex/azalea-town. Authority is now decoded HGSS mesh/materials/permissions, header74 area4, matrix[12,14], native=HGSS+(-1,+7). Town Y1, court Y-2 => relative-3. Original spiral access restored; invented southern stairs removed. Existing Blackthorn/Mahogany directional native rock modules in Johto palette, T01 forest, shared ground/props; original tiny stone decoded. Current review: azalea-town/evidence/well-scene-comparison.png, well-scene-grid.png, well-scene-heights.png, well-scene-corners.png; source/well-scene/ledger.json. All102 wall cells,332 collision cells (three closed well entrance exceptions), native/Porymap/shared assets, roots/canopies, headless spiral both directions/gates/saves/Continue and copied9de save pass. Native art,42 tracked native files and raw HGSS-derived height/material arrays reproduce.992 static tiles,16 spare +16-door reserve,445 metatiles,13 unchanged palettes. Other buildings/Kurt/gate exact; only five engine source files change. Rejected annotation images/layouts remain historical. Interiors/connections unwired; owner visual approval pending.

@@ -1,0 +1,31 @@
+{
+  "engine_commit": "38200410b559a842e4b4c7ef17e5dc8e77164f9a",
+  "engine_baseline": "d822306675e15abe67c85235d9faf8d6e676d449",
+  "design": "Owner-directed ten-year property growth proposal: attached masonry kiln/chimney, rear tightly stacked end-on firewood, two cleared complete trees and connecting path.",
+  "authoring": "Only new kiln and cut-end log module authored; original house art is not resized or changed.",
+  "palettes": {
+    "2": "Existing Kurt timber, thatch and firewood colors",
+    "12": "Existing gray/stone ramp for kiln and flue"
+  },
+  "palette_changes": 0,
+  "assets": {
+    "kiln.png": "bbca1a3cdcc690c5e39bf6787d7faa29028d36c919c7aea8afc8cdfa23d2e252",
+    "firewood-stack.png": "cc3719768db5baded7c908dfa527edc5279acd15440124751ac094e717b448e8",
+    "firewood-log.png": "9f8182b70f1739989f83e6d14e24444cd790939f0d0e5ab3e6ed0c2eda6e5461"
+  },
+  "approved_house_sha256": "fd7462cf09f062a9facdd3cbe1440b2ef761b707869949e6b72bb83f8f40d935",
+  "ground": "Existing Azalea grass/path module and its established edge palette.",
+  "removed_tree_origins": [
+    [
+      304,
+      128
+    ],
+    [
+      320,
+      96
+    ]
+  ],
+  "placement_snapshot": "assembly-before.json",
+  "first_proposal": "earlier-thatch-proposal/ is retained historical evidence; owner requested the kiln instead.",
+  "asset_reproduction_RGB_and_PNG_errors": 0
+}

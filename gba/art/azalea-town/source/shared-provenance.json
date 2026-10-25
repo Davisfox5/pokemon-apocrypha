@@ -1,0 +1,134 @@
+[
+  {
+    "name": "tree",
+    "source": "gba/art/johto-common/trees/source/T01.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a"
+  },
+  {
+    "name": "center",
+    "source": "gba/art/johto-center/source/building.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+  },
+  {
+    "name": "mart",
+    "source": "gba/art/johto-mart/source/building.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8"
+  },
+  {
+    "name": "gate",
+    "source": "gba/art/johto-common-review/gates/refinement-4/G02.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6"
+  },
+  {
+    "name": "P09",
+    "source": "gba/art/johto-common/scenery/source/P09.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "49cad56429edd993ef7cf4722bb7d337f5102a15cf74964b7920d2926d42a58b"
+  },
+  {
+    "name": "P12",
+    "source": "gba/art/johto-common/scenery/source/P12.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "2bae513033cc365be954cd9afb203fd3f8430f96eca935bb52f6fe994c72fd4d"
+  },
+  {
+    "name": "P13",
+    "source": "gba/art/johto-common/scenery/source/P13.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c"
+  },
+  {
+    "name": "P15",
+    "source": "gba/art/johto-common/scenery/source/P15.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "7ed65bb881f98956d071ffb3ea18225dc6993d6f061e0bcf65b7ba1758251565"
+  },
+  {
+    "name": "F01",
+    "source": "gba/art/johto-common/scenery/source/F01.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a"
+  },
+  {
+    "name": "L11",
+    "source": "gba/art/johto-common/scenery/source/L11.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+  },
+  {
+    "name": "L12",
+    "source": "gba/art/johto-common/scenery/source/L12.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+  },
+  {
+    "name": "L13",
+    "source": "gba/art/johto-common/scenery/source/L13.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+  },
+  {
+    "name": "R02",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R02.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "13e22a3e226900dbcf274e5a40293882af15ff9c8e14616a5776d7edccc95e12"
+  },
+  {
+    "name": "R04",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R04.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "95bc6530aa79222fe8550af62fedf7d20aea3b426decda49f9df0644fd38e59c"
+  },
+  {
+    "name": "R05",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R05.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "e8c32d82d100fa3b238047dfae452f68eb7f6c1b386f46775b34f1301db64367"
+  },
+  {
+    "name": "R10",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R10.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "3122cb63f7019b827c819361b838a8322b567ec18502f0f1d50bd4d883e651c8"
+  },
+  {
+    "name": "R11",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R11.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "a024a78ca63d09c381e77e7ef2f6479fe6bcea0932660df08b909339054b2ba7"
+  },
+  {
+    "name": "R12",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R12.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "cc08ae1763f054268ba9c753c3b40610efdb4bd8dfa707fd469a99a3e041310a"
+  },
+  {
+    "name": "R17",
+    "source": "gba/art/johto-common/rocks/r02-complete-tiles/source/tiles/R17.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "8f8d42c83d9e3587aecd55cd35f868f67c72e6003d5f4710d89dbe35f2eea66d"
+  },
+  {
+    "name": "grass",
+    "source": "gba/art/route33-hgss/source/shared-art/grass.png",
+    "commit": "41032a733276c6bf1e7940ec9c4daa4d13db08fd",
+    "sha256": "3f16202efeb133f5a68b5ef873314f8c8f029fc0d4ff06e3e0b323af9cf3d919"
+  },
+  {
+    "name": "path",
+    "source": "gba/art/route33-hgss/source/shared-art/path.png",
+    "commit": "41032a733276c6bf1e7940ec9c4daa4d13db08fd",
+    "sha256": "33b8e0bed4bd5ee8b90d156e6555d4c26a0135cda06eb3a4fa4f0527d073ba98"
+  },
+  {
+    "name": "P09-native",
+    "source": "gba/art/johto-common/scenery/source/P09.idx.png",
+    "commit": "ddafe9de4b923800bc12fc6f54b821469389ae48",
+    "sha256": "bf227703200279a023e44dd0aa22f89c6e7bdbd692c1ab282ff7ec83cd912b20"
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "source_save_engine": "9de3b41845",
+  "original_save_unchanged": true,
+  "original_save_sha256": "1b51e5ff01e936a85a3e03a04e02b8762685b98f6230cf82bdf9569eb3a001cf",
+  "observations": {
+    "read": [
+      {
+        "step": "cold-reload-Azalea",
+        "region": 3,
+        "group": 80,
+        "map": 50,
+        "x": 20,
+        "y": 18,
+        "frlg_layout": 0,
+        "width": 64,
+        "height": 33,
+        "interaction": 0,
+        "mapsec": 226
+      }
+    ],
+    "menu": [
+      {
+        "step": "ordinary-title-continue",
+        "region": 3,
+        "group": 80,
+        "map": 50,
+        "x": 20,
+        "y": 18,
+        "frlg_layout": 0,
+        "width": 64,
+        "height": 33,
+        "interaction": 0,
+        "mapsec": 226
+      }
+    ]
+  }
+}

@@ -1,0 +1,911 @@
+{
+  "shared_commit": "82b98516aa17eeb538a0cd9adf373df8b3c7d3cb",
+  "registration": [
+    64,
+    16
+  ],
+  "wall_segments": [
+    {
+      "asset": "R01",
+      "x": 704,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 720,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 736,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 752,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 768,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 784,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 800,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 816,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 832,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R16",
+      "x": 688,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": true,
+      "role": "corner"
+    },
+    {
+      "asset": "R16",
+      "x": 848,
+      "y": 104,
+      "width": 16,
+      "height": 24,
+      "mirror": false,
+      "role": "corner"
+    },
+    {
+      "asset": "R05",
+      "x": 672,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "corner"
+    },
+    {
+      "asset": "R02",
+      "x": 688,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 672,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 848,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R05",
+      "x": 704,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "corner"
+    },
+    {
+      "asset": "R02",
+      "x": 720,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 736,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 752,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 768,
+      "y": 128,
+      "width": 16,
+      "height": 12,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 784,
+      "y": 128,
+      "width": 16,
+      "height": 12,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 800,
+      "y": 128,
+      "width": 16,
+      "height": 8,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R02",
+      "x": 816,
+      "y": 128,
+      "width": 16,
+      "height": 8,
+      "mirror": false,
+      "role": "tapered front"
+    },
+    {
+      "asset": "R01",
+      "x": 736,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 752,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 768,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 784,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 800,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R16",
+      "x": 816,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "corner"
+    },
+    {
+      "asset": "R06",
+      "x": 816,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 816,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 816,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 816,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 816,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R06",
+      "x": 704,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "mirror": true,
+      "role": "side"
+    },
+    {
+      "asset": "R15",
+      "x": 704,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "corner"
+    },
+    {
+      "asset": "R01",
+      "x": 720,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 736,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    },
+    {
+      "asset": "R01",
+      "x": 752,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "mirror": false,
+      "role": "front"
+    }
+  ],
+  "whole_tiles": [
+    {
+      "tile": "well-R05",
+      "x": 42,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R02",
+      "x": 43,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 9,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 10,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 11,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 12,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 13,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 14,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 42,
+      "y": 15,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 9,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 10,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 12,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 13,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 14,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 15,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 53,
+      "y": 17,
+      "mirror": false
+    },
+    {
+      "tile": "well-R05",
+      "x": 44,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R02",
+      "x": 45,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R02",
+      "x": 46,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R02",
+      "x": 47,
+      "y": 8,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 48,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 49,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 50,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R16",
+      "x": 51,
+      "y": 11,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 12,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 13,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 14,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 15,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 51,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 9,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 10,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 11,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 12,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 13,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 14,
+      "mirror": true
+    },
+    {
+      "tile": "well-R06",
+      "x": 44,
+      "y": 15,
+      "mirror": true
+    },
+    {
+      "tile": "well-R15",
+      "x": 44,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 45,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 46,
+      "y": 16,
+      "mirror": false
+    },
+    {
+      "tile": "well-R01",
+      "x": 47,
+      "y": 16,
+      "mirror": false
+    }
+  ],
+  "new_props": [
+    {
+      "name": "well-S04",
+      "x": 704,
+      "y": 144,
+      "role": "Complete shared side stairs, descend west; east/west traversal"
+    },
+    {
+      "name": "well-S01",
+      "x": 768,
+      "y": 256,
+      "role": "North/south stair flight, left edge"
+    },
+    {
+      "name": "well-S03",
+      "x": 784,
+      "y": 256,
+      "role": "North/south stair flight, right edge"
+    },
+    {
+      "name": "L11",
+      "x": 800,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L12",
+      "x": 816,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L12",
+      "x": 832,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    },
+    {
+      "name": "L13",
+      "x": 848,
+      "y": 272,
+      "role": "Lower southern terrace return / down-only ledge"
+    }
+  ],
+  "rail_props": [
+    {
+      "name": "gate-P04",
+      "x": 112,
+      "y": 304,
+      "role": "Short shared rail joins gate base to the southern forest"
+    }
+  ],
+  "new_trees": [
+    {
+      "name": "tree",
+      "x": 0,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 32,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 64,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 96,
+      "y": 192,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    },
+    {
+      "name": "tree",
+      "x": 96,
+      "y": 224,
+      "role": "Aligned forest extension behind gate roof; clear of building wall footprint"
+    }
+  ],
+  "adaptations": [
+    "One complete 24px outer drop, a separately tapering 16/12/8px lower ramp, and a 16px inner drop.",
+    "West outside side-plane shifts 8px from the traced midpoint to reserve a full native landing.",
+    "Shared west-descending stairs substitute for the reference sloped notch; two north/south edge tiles mark the southern descent.",
+    "Shared terrain grass shade (96,192,144) maps to the existing bank8 (104,200,152); four existing neutral shades encode stair/rail silhouettes."
+  ]
+}

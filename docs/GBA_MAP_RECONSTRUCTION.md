@@ -54,6 +54,10 @@ For a new or expanded area without an original counterpart, apply the same grid,
 material, footprint and validation discipline; label its design as a proposal
 rather than claiming an exact original-game reconstruction.
 
+### Loaded graphics and animation budget
+
+For this pokeemerald-expansion target, each location may choose a primary/secondary tileset pair, but the current map still has only1024 loaded8×8 graphics slots. Keep static art below1008 when the normal16-tile door reserve is required. `field_door.c` uses the upper slots independently of tileset animation callbacks; NULL callbacks do not make those slots safe for static art. Verify actual decoded references and the reserve after packing. Deduplicate exact patterns/H/V flips and already-occluded background before sacrificing silhouettes or inventing terrain patches. Repack only the intended private map pair and prove unchanged visible art elsewhere.
+
 ## 3. Assemble coherent native art
 
 Reuse accepted Cherrygrove ground, trees, architecture, terrain and palette
