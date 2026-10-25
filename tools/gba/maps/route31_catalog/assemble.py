@@ -11,7 +11,7 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
   trees       the Cherrygrove tree (T01 with the town's contact shadow) on non-overlapping 2x2 roots
   tall grass  G15 on every HGSS tall-grass cell
   ledges      L11/L12/L13 on the jump-south runs; turned a quarter for the jump-east run
-  stairs      HGSS's own ridge crossing, cut from its ground render on the stair cells (6 tones)
+  stairs      Route 36's plank flight on each column of HGSS's ridge crossing (stair_pieces.py)
   pond        Route 43's natural pond: Route 30's HGSS freshwater texture with rough banks
   gatehouse   G02, the owner-approved HGSS side gate, its stairs on HGSS's gate warps
   signs       P14 (HGSS model 32) on the route sign, P13 (model 31) on the Dark Cave plaque
@@ -38,6 +38,7 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route31-catalog'
 SRC, EV = ART / 'source', ART / 'evidence'
 TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
+STAIR_ART = ROOT / 'gba/art/route30-catalog/source/shared-art/stairs'   # stair_pieces.py
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
 CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
@@ -266,23 +267,56 @@ def apply_tones(a, mapping):
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
-STAIR_TONES = 6
+EW_PLANK_TONES = 6
+EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes Route 30/31's rock ramp
+
+def fit_ew(pieces):
+    """Route 36's flight sits in this route's wall: its rock cheeks take the wall's FRLG rock ramp (each rock
+    colour its nearest ramp tone), its planks keep their own tones, reduced to EW_PLANK_TONES."""
+    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
+    lab_r = _lab(np.array(ramp))
+    snap = {}
+    cols = sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()})
+    for c in cols:
+        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
+        if d.min() < EW_ROCK_SNAP:
+            snap[c] = ramp[int(d.argmin())]
+    planks = {k: apply_tones(v, snap) for k, v in pieces.items()}
+    m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
+    return {k: apply_tones(v, m) for k, v in planks.items()}
+
 
 def stairs(grid):
-    """HGSS's own stairs: every stair cell cut from HGSS's ground render (no objects over it) at its own
-    cell, so each flight keeps HGSS's width, step count, treads, risers and cheeks; reduced to STAIR_TONES
-    tones (Mahogany's medoid rule) in compose."""
-    gnd = rgba(SRC / 'hgss/hgss-ground.png')
+    """The Johto stair pieces (stair_pieces.py), placed flight by flight on HGSS's stair cells. A flight with
+    rock above and below it is crossed east-west: each of its columns takes Route 36's plank flight (its top
+    cell with the dark cheek, plank cells, the bottom cell with the brown cheek). Every other flight is
+    climbed north-south: each of its rows takes the earlier Route 30's grey treads (left end, middle, right
+    end)."""
+    p = {k: rgba(STAIR_ART / f'{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed = []
-    for y in range(H):
-        for x in range(W):
-            if grid[y][x] != '^':
+    placed, seen = [], set()
+    for y0 in range(H):
+        for x0 in range(W):
+            if g(x0, y0) != '^' or (x0, y0) in seen:
                 continue
-            hx, hz = Rf.to_hgss(x, y)
-            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[hz * PX:(hz + 1) * PX, hx * PX:(hx + 1) * PX]
-            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX, 3] = 255
-            placed.append(dict(cell=[x, y], art='HGSS ground render', hgss=[hx, hz]))
+            comp, todo = set(), [(x0, y0)]
+            while todo:
+                c = todo.pop()
+                if c in comp or g(*c) != '^':
+                    continue
+                comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
+            seen |= comp
+            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            ew = all(g(x, ys[0] - 1) == 'R' and g(x, ys[-1] + 1) == 'R' for x in xs)
+            for (x, y) in sorted(comp):
+                if ew:
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                else:
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
+                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south'))
     return art, placed
 
 def ledges(grid):
@@ -426,7 +460,6 @@ def compose(phg, engine):
     cave = cave_mouth(phg)
     Image.fromarray(cave).save(LOCAL / 'cave-mouth.png')
     sa, stair_list = stairs(grid)
-    sa = apply_tones(sa, reduce_tones([sa], keep=set(), n=STAIR_TONES))
     Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, the pond, the cave mouth and the stairs are drawn into
     # the ground, so whatever stands on top (crowns, the gatehouse, signs) never shares a tile with them.

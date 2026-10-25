@@ -12,7 +12,8 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
   trees       the Cherrygrove tree (T01 with the town's contact shadow) on non-overlapping 2x2 roots
   tall grass  G15 on every HGSS tall-grass cell
   ledges      L11/L12/L13 on HGSS's jump-south runs
-  stairs      HGSS's own, cut from its ground render on every stair cell (6 tones)
+  stairs      the Johto stair pieces (stair_pieces.py): the earlier Route 30's grey treads on north-south
+              flights, Route 36's plank flight on east-west flights through a wall
   ponds       Route 43's natural pond: Route 30's HGSS freshwater texture (pond-15) with rough banks
   signs       P14 (HGSS model 32), P16 (model 34) on HGSS's sign cells; HGSS's readable sign at
               Mr. Pokemon's house (model 30) is his mailbox (buildings.py)
@@ -45,6 +46,7 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route30-catalog'
 SRC, EV = ART / 'source', ART / 'evidence'
 TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
+STAIR_ART = ROOT / 'gba/art/route30-catalog/source/shared-art/stairs'   # stair_pieces.py
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
 CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
@@ -154,9 +156,9 @@ def native_cells(cells, grid):
         row = []
         for x in range(W):
             hx, hz = Rf.to_hgss(x, y)
-            if y >= PAD0:
+            if y >= PAD0:                                 # Cherrygrove's band, at the floor: the west wall ends above it
                 c = dict(cells[HH - 1][min(max(hx, 0), HW - 1)])
-                c.update(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass')
+                c.update(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass', ground=float(FLOOR), peak=float(FLOOR))
             elif hx < 0:                                  # woods beyond HGSS's west edge, at the height of what stands there:
                 c = dict(cells[max(hz, 0)][0])             # where column 0 is HGSS's west wall, the wall's top, so the wall
                 if c['lab'] == 'R':                        # keeps only its own east face, as at HGSS's map edge
@@ -246,9 +248,42 @@ def ground_quadrants(phg, ncells):
         x = want * 8 if edge == 'left' else (want + 1) * 8
         runs.append(dict(edge=edge, x=x, y0=(last - JOIN_Q + 1) * 8, y1=PAD0 * PX, hgss_edge_quadrant=int(have),
                          moved_from_quadrant_row=int(qy + 1)))
-    return q, runs
+    flats = stair_landings(q, ncells)
+    return q, runs, flats
 
-def paint_ground(q, road, runs, kits):
+STAIR_LANDING = 2                    # cells above and below a north-south flight whose road takes the flight's columns
+
+def stair_landings(q, ncells):
+    """The road meets each north-south flight edge to edge: for STAIR_LANDING cells above and below it, the
+    road's quadrants are the flight's own columns and the quadrant either side lawn, wherever the road runs
+    on into that cell; the painter's wave fades out there, so the road edges stand on the treads' ends.
+    Returns the flat rectangles (px)."""
+    lab = lambda x, y: ncells[y][x]['lab'] if 0 <= x < W and 0 <= y < H else '#'
+    flats, seen = [], set()
+    for y in range(H):
+        for x in range(W):
+            if lab(x, y) != '^' or (x, y) in seen or lab(x - 1, y) == '^' or lab(x, y - 1) == '^':
+                continue
+            x1 = x
+            while lab(x1 + 1, y) == '^':
+                x1 += 1
+            if x1 == x:
+                continue                                   # a one-cell column: an east-west flight
+            y1 = y
+            while all(lab(c, y1 + 1) == '^' for c in range(x, x1 + 1)):
+                y1 += 1
+            seen |= {(c, r) for c in range(x, x1 + 1) for r in range(y, y1 + 1)}
+            for r in list(range(y - STAIR_LANDING, y)) + list(range(y1 + 1, y1 + 1 + STAIR_LANDING)):
+                if not (0 <= r < H) or not any(q[2 * r + k, c] == G.PATH for k in (0, 1) for c in range(2 * x - 1, 2 * x1 + 3)):
+                    continue
+                q[2 * r:2 * r + 2, 2 * x:2 * x1 + 2] = G.PATH
+                for c in (2 * x - 1, 2 * x1 + 2):
+                    if 0 <= c < q.shape[1] and lab(c // 2, r) not in 'R^':
+                        q[2 * r:2 * r + 2, c] = G.GRASS
+            flats.append((x * PX - 8, (y - STAIR_LANDING) * PX, (x1 + 1) * PX + 8, (y1 + 1 + STAIR_LANDING) * PX))
+    return flats
+
+def paint_ground(q, road, runs, kits, flats=()):
     """The approved painter on an 8 px material grid, textures at Cherrygrove's phase. Along the straight
     runs the edge is the kit's own (no wave, the kit's profile)."""
     U = 8
@@ -262,6 +297,9 @@ def paint_ground(q, road, runs, kits):
     for r in runs:
         dy = np.maximum(np.maximum(r['y0'] - ys, ys - (r['y1'] - 1)), 0)
         near = np.maximum(near, np.clip(1 - dy / FLAT_RUN, 0, 1) * np.clip(1 - np.abs(xs - r['x']) / FLAT_RUN, 0, 1))
+    for x0, y0, x1, y1 in flats:                                     # straight road edges on the stair landings
+        dx_ = np.maximum(np.maximum(x0 - xs, xs - (x1 - 1)), 0); dy_ = np.maximum(np.maximum(y0 - ys, ys - (y1 - 1)), 0)
+        near = np.maximum(near, np.clip(1 - np.maximum(dx_, dy_) / FLAT_RUN, 0, 1))
     fade = 1 - near
     dx = np.rint(wave[ys % 32] * fade).astype(int); dyy = np.rint(wave[(xs + 11) % 32] * fade).astype(int)
     sx = np.clip(xs + dx, 0, w - 1) // U; sy = np.clip(ys + dyy, 0, h - 1) // U
@@ -456,23 +494,56 @@ def apply_tones(a, mapping):
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
-STAIR_TONES = 6
+EW_PLANK_TONES = 6
+EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes Route 30/31's rock ramp
+
+def fit_ew(pieces):
+    """Route 36's flight sits in this route's wall: its rock cheeks take the wall's FRLG rock ramp (each rock
+    colour its nearest ramp tone), its planks keep their own tones, reduced to EW_PLANK_TONES."""
+    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
+    lab_r = _lab(np.array(ramp))
+    snap = {}
+    cols = sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()})
+    for c in cols:
+        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
+        if d.min() < EW_ROCK_SNAP:
+            snap[c] = ramp[int(d.argmin())]
+    planks = {k: apply_tones(v, snap) for k, v in pieces.items()}
+    m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
+    return {k: apply_tones(v, m) for k, v in planks.items()}
+
 
 def stairs(grid):
-    """HGSS's own stairs: every stair cell cut from HGSS's ground render (no objects over it) at its own
-    cell, so each flight keeps HGSS's width, step count, treads, risers and cheeks; reduced to STAIR_TONES
-    tones (Mahogany's medoid rule) in compose."""
-    gnd = rgba(SRC / 'hgss/hgss-ground.png')
+    """The Johto stair pieces (stair_pieces.py), placed flight by flight on HGSS's stair cells. A flight with
+    rock above and below it is crossed east-west: each of its columns takes Route 36's plank flight (its top
+    cell with the dark cheek, plank cells, the bottom cell with the brown cheek). Every other flight is
+    climbed north-south: each of its rows takes the earlier Route 30's grey treads (left end, middle, right
+    end)."""
+    p = {k: rgba(STAIR_ART / f'{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+    g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed = []
-    for y in range(H):
-        for x in range(W):
-            if grid[y][x] != '^':
+    placed, seen = [], set()
+    for y0 in range(H):
+        for x0 in range(W):
+            if g(x0, y0) != '^' or (x0, y0) in seen:
                 continue
-            hx, hz = Rf.to_hgss(x, y)
-            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[hz * PX:(hz + 1) * PX, hx * PX:(hx + 1) * PX]
-            art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX, 3] = 255
-            placed.append(dict(cell=[x, y], art='HGSS ground render', hgss=[hx, hz]))
+            comp, todo = set(), [(x0, y0)]
+            while todo:
+                c = todo.pop()
+                if c in comp or g(*c) != '^':
+                    continue
+                comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
+            seen |= comp
+            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            ew = all(g(x, ys[0] - 1) == 'R' and g(x, ys[-1] + 1) == 'R' for x in xs)
+            for (x, y) in sorted(comp):
+                if ew:
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                else:
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
+                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south'))
     return art, placed
 
 def ledge_pieces():
@@ -575,8 +646,8 @@ def compose(phg, engine):
     rinfo = json.loads((SRC / 'hgss/hgss-render.json').read_text())
     roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']]
     road = road_texture(engine)
-    q, runs = ground_quadrants(phg, ncells)
-    bottom, mat, tex = paint_ground(q, road, runs, kit_profiles(engine))
+    q, runs, flats = ground_quadrants(phg, ncells)
+    bottom, mat, tex = paint_ground(q, road, runs, kit_profiles(engine), flats)
     # Rock terraces over the ground (bottom keeps the plain block beyond each edge).
     d, isrock = Rk.terraces(ncells, FLOOR)
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH])
@@ -599,7 +670,6 @@ def compose(phg, engine):
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15; n_g15 += 1
     la, ledge_list = ledges(grid)
     sa, stair_list = stairs(grid)
-    sa = apply_tones(sa, reduce_tones([sa], keep=set(), n=STAIR_TONES))
     Image.fromarray(sa).save(LOCAL / 'stairs.png')
     # Terrain belongs to the bottom layer: rock faces, ponds and stairs are drawn into the ground, so
     # whatever stands on top (crowns, roofs, signs) never shares a tile, and a palette bank, with them.

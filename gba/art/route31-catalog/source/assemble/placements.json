@@ -3381,66 +3381,48 @@
     34,
     16
    ],
-   "art": "HGSS ground render",
-   "hgss": [
+   "art": "ew-top",
+   "flight": "east-west"
+  },
+  {
+   "cell": [
     34,
+    17
+   ],
+   "art": "ew-mid",
+   "flight": "east-west"
+  },
+  {
+   "cell": [
+    34,
+    18
+   ],
+   "art": "ew-bottom",
+   "flight": "east-west"
+  },
+  {
+   "cell": [
+    35,
     16
-   ]
-  },
-  {
-   "cell": [
-    35,
-    16
    ],
-   "art": "HGSS ground render",
-   "hgss": [
-    35,
-    16
-   ]
-  },
-  {
-   "cell": [
-    34,
-    17
-   ],
-   "art": "HGSS ground render",
-   "hgss": [
-    34,
-    17
-   ]
+   "art": "ew-top",
+   "flight": "east-west"
   },
   {
    "cell": [
     35,
     17
    ],
-   "art": "HGSS ground render",
-   "hgss": [
-    35,
-    17
-   ]
-  },
-  {
-   "cell": [
-    34,
-    18
-   ],
-   "art": "HGSS ground render",
-   "hgss": [
-    34,
-    18
-   ]
+   "art": "ew-mid",
+   "flight": "east-west"
   },
   {
    "cell": [
     35,
     18
    ],
-   "art": "HGSS ground render",
-   "hgss": [
-    35,
-    18
-   ]
+   "art": "ew-bottom",
+   "flight": "east-west"
   }
  ],
  "tall_grass_cells": 165

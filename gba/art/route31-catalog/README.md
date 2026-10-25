@@ -10,15 +10,16 @@ PR #39 against `apocrypha`. Visual acceptance stays with the owner.
 1. **Reference** (`reference.py`, `hgss_render.py`, `hgss_events.py`): HGSS Route 31 (EVERYWHERE matrix cells
    (16..17, 8), land_data, zone events R31) rendered at 16 px per cell. Native cell = HGSS cell; the map is
    HGSS's 64x32 with no padding. Route 30 joins its south edge with Route 30's column 0 at Route 31's column
-   28 (offsets 28 / -28), so Route 31's road meets Route 30's stairs.
+   27 (offsets 27 / -27), so Route 31's road meets Route 30's stairs.
 2. **Trees**: 243 non-overlapping 2x2 roots on HGSS's woods cells, each the Cherrygrove tree.
 3. **Ground** (`assemble.py`): the Cherrygrove/Route 36 painter on HGSS's own flat ground colours, at
    Cherrygrove's texture phase (through Route 30).
 4. **Terrain**:
    - Rock: Blackthorn's FRLG terraces for the ridge, the walls beside the pond and Dark Cave's mountain.
    - Pond: Route 43's natural pond.
-   - Stairs: HGSS's own ridge crossing (the plank flight over both ridge columns with its rock cheeks),
-     cut from HGSS's ground render on the stair cells (6 tones).
+   - Stairs: HGSS's ridge crossing is an east-west flight over both ridge columns. Each column takes Route 36's
+     plank flight (`route30_catalog/stair_pieces.py`: engine 1643f58a48, "04 Stairs | East-west flight 1"),
+     its rock cheeks in this ridge's rock ramp.
    - Dark Cave: its dark opening, cut from HGSS's render.
 5. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb):
    - G02, the owner-approved HGSS side gate, on the gatehouse with its stairs on HGSS's two gate warps.

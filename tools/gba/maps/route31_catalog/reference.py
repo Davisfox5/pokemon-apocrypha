@@ -7,7 +7,7 @@ permissions, terrain mesh and zone events R31), decoded and rendered 1:1 at 16 p
 hgss_render.py: the Route 29 catalog process (Mahogany / Route 43), as Route 30.
 
 Native frame: HGSS tile (hx, hz) is native cell (hx, hz), 16 px, no scaling. Route 30 joins its south
-edge with its column 0 at Route 31's column 28 (Route 30 is HGSS Route 30 + (4, 0); HGSS Route 30's
+edge with its column 0 at Route 31's column 27 (Route 30 is HGSS Route 30 + (5, 2); HGSS Route 30's
 column 0 is HGSS Route 31's column 32). The Violet gate is a building (warps), not a connection.
 
 Writes gba/art/route31-catalog/source/trace/{ledger.json, material-grid.txt, traversal.json,
@@ -32,7 +32,7 @@ COL0, ROW0 = 0, 0
 W, H = HW, HH
 PAD0 = H                              # no padding rows
 PX = 16
-R30_OFFSET = -28                      # Route 30's "up" connection: Route 31 column 0 is Route 30 column -28
+R30_OFFSET = -27                      # Route 30's "up" connection: Route 31 column 0 is Route 30 column -27
 CG_OFFSET = 35
 # Lawn and road textures are Cherrygrove's 32 px blocks in Cherrygrove's own pixel frame: Route 31 column x
 # is Cherrygrove column x + 28 + 35 - 4... resolved through Route 30: Route 31 x = Route 30 x + 28, Route 30

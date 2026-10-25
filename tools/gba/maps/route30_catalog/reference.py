@@ -7,10 +7,10 @@ permissions, terrain mesh and zone events R30), decoded and rendered 1:1 at 16 p
 hgss_render.py: the Route 29 catalog process (Mahogany / Route 43), with Route 43's rock decode.
 
 Native frame: HGSS tile (hx, hz) is native cell (hx + COL0, hz + ROW0), 16 px, no scaling.
-  * COL0 = 4 puts HGSS's south road (columns 3-6, native 7-10) on Cherrygrove's north road (Cherrygrove
-    columns 43-45, native 8-10; connection offset 35, unchanged). The straight run next to the seam takes
-    Cherrygrove's columns (assemble.ground_quadrants), as on Route 29. Four columns (even) keep HGSS's
-    tree pairs west of its road whole.
+  * COL0 = 5 puts HGSS's south road (columns 3-6, native 8-11) on Cherrygrove's north road (Cherrygrove
+    columns 43-45, native 8-10, and its rim; connection offset 35, unchanged), and HGSS's woods east of the
+    road (columns 8-21, native 13-26) on the column pairs of Cherrygrove's forest band (trees on odd
+    columns there), so the route's trees stand in the band's columns.
   * SOUTH_PAD = 6 rows below HGSS row 95 carry Cherrygrove's own north forest band (its rows 0-2, twice,
     as Cherrygrove's primary metatile ids) with its road: from Cherrygrove's road and lawn the camera sees
     five rows into Route 30, which would otherwise show HGSS's west wall and south pond in Cherrygrove's
@@ -41,9 +41,9 @@ SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'trace', EV / 'trace'
 HW, HH = 32, 96                       # HGSS Route 30
 NORTH_PAD = 2
-COL0, ROW0 = 4, NORTH_PAD
+COL0, ROW0 = 5, NORTH_PAD
 SOUTH_PAD = 6
-W, H = HW + COL0, HH + ROW0 + SOUTH_PAD   # 36 x 104
+W, H = HW + COL0, HH + ROW0 + SOUTH_PAD   # 37 x 104
 WINDOW = 8                            # seam window: drawn by the neighbouring map with its own tilesets
 PX = 16
 CG_OFFSET = 35                        # Cherrygrove's "up" connection: Route 30 column 0 is Cherrygrove column 35
@@ -211,7 +211,10 @@ def tree_roots(woods, cells):
             return 0.5                                   # west of HGSS column 0: never seen, leftovers go here
         inner = all(not (0 <= x + dx < W and 0 <= y + dy < H) or woods[y + dy, x + dx] for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
         return 1.25 if inner else 1.0
-    weight = np.concatenate([np.array([-0.01 * ((x, y) in detected) for x, y in cand]), -np.array([cw(*c) for c in cells_used])])
+    # Ties: HGSS's own trunk-detected roots; west of HGSS column 0, even columns, the column pairs of
+    # Cherrygrove's forest band below.
+    pref = lambda x, y: 0.01 * ((x, y) in detected) + 0.005 * (x < COL0 and x % 2 == 0)
+    weight = np.concatenate([np.array([-pref(x, y) for x, y in cand]), -np.array([cw(*c) for c in cells_used])])
     res = milp(weight, constraints=LinearConstraint(A.tocsr(), lo, hi), integrality=np.ones(nr + nc), bounds=Bounds(0, 1),
                options=dict(time_limit=600))
     assert res.x is not None, res.message

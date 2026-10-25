@@ -9,14 +9,17 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
 ## The method
 
 1. **Reference** (`reference.py`, `hgss_render.py`, `hgss_events.py`): HGSS Route 30 (EVERYWHERE matrix cells
-   (17, 9..11), land_data, zone events R30) rendered at 16 px per cell. Native cell = HGSS cell + (4, 2);
-   the map is 36x104.
-   - Four columns west are woods beyond HGSS's west wall. They put HGSS's south road on Cherrygrove's road
-     (connection offset 35, unchanged).
+   (17, 9..11), land_data, zone events R30) rendered at 16 px per cell. Native cell = HGSS cell + (5, 2);
+   the map is 37x104.
+   - Five columns west are woods beyond HGSS's west wall, standing at the wall's top. They put HGSS's
+     south road on Cherrygrove's road (connection offset 35, unchanged), and HGSS's woods east of the road
+     on the column pairs of Cherrygrove's forest band below, so the trees stand in the band's columns. The
+     padding's own trees take the band's even columns.
    - Six rows south are Cherrygrove's own north forest band (its rows 0-2, twice, as Cherrygrove's primary
      metatiles), so Cherrygrove's camera sees its own cells across the seam. The band's two blossom trees take
      the green tree beside them.
    - Two rows north repeat HGSS row 0 with its stairs as road (see Seams).
+   - The band sits at the floor, so the west wall ends above it with its own rounded south end.
 2. **Trees**: an integer program places 360 non-overlapping 2x2 roots on HGSS's woods cells; each is the
    Cherrygrove tree (T01 plus the town's contact shadow), crown one row north of its root.
 3. **Ground** (`assemble.py`): the approved Cherrygrove/Route 36 painter on an 8 px lawn/road grid read from
@@ -30,8 +33,14 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
      padding west of HGSS's west wall stands at the wall's top, so the wall keeps only its east face, as
      at HGSS's map edge, and the north rock runs to the edge without turning a corner.
    - Ponds: Route 43's natural pond (HGSS freshwater texture, rough banks) on both.
-   - Stairs: HGSS's own, cut from its ground render on every stair cell, so each flight keeps HGSS's width,
-     step count, treads, risers and cheeks (6 tones).
+   - Stairs: the Johto stair pieces already built from HGSS's templates (`stair_pieces.py`), on HGSS's
+     stair cells:
+     - North-south flights take the earlier Route 30's grey treads, as Route 32 and the earlier Route 31 draw
+       them: engine 4f01430776, the editor library's "04 Stairs | middle" prefab.
+     - The east-west flight through the column-17 wall takes Route 36's plank flight: engine 1643f58a48,
+       "04 Stairs | East-west flight 1". Its rock cheeks take this wall's rock ramp.
+     - For two cells above and below each north-south flight, the road stands on the flight's own columns
+       with a straight edge, so both dirt paths meet the treads end to end.
 5. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb): G15 on all 338 tall-grass cells,
    L11/L12/L13 on the 32 jump-south ledge cells, P14 on the route sign, P16 on the Trainer Tips board.
 6. **Houses** (`buildings.py`, Blackthorn's method, `tools/gba/maps/blackthorn/sprites.py` on
@@ -64,7 +73,7 @@ already on screen as they were drawn.
 
 - **Cherrygrove (south)**: the band is Cherrygrove's own metatiles, and every Cherrygrove cell visible from
   Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. Clean both ways.
-- **Route 31 (north, offset -28)**: each route's palettes are full, so the cells either route can see across
+- **Route 31 (north, offset -27)**: each route's palettes are full, so the cells either route can see across
   the seam (Route 30: 160, Route 31: 96) get 53 secondary metatile ids defined in both secondaries. Each map
   draws the other's cells pixel for pixel with its own tiles. Clean both ways.
   - Without the two north rows, Route 31's camera would see Mr. Pokemon's roof. Route 31's banks can't
@@ -110,7 +119,7 @@ the map: dialogue boxes, the map-name popup, the item balls and the cuttable tre
 
 ## Declared adaptations
 
-- **Padding**: four woods columns west, Cherrygrove's band south, two rows north (HGSS row 0, its stairs as road
+- **Padding**: five woods columns west, Cherrygrove's band south, two rows north (HGSS row 0, its stairs as road
   at the plateau's height: six walkable road cells HGSS doesn't have).
 - **Houses**: both doors stay shut; no interiors exist yet.
 - **Mailbox**: HGSS model 30 is Mr. Pokemon's mailbox. It's a sprite of its own beside his house, and its sign reads his house.

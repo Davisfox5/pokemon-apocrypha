@@ -8,7 +8,7 @@ The installed pack is the joint Route 30/31 pack (pair_pack.py), which runs this
 layers, traversal and pins) and --install-words (its map words, events and checks); the single pack below
 is Route 30 alone, kept for comparison.
 
-Route 30 keeps its live connections to Cherrygrove (south, offset 35) and Route 31 (north, offset -28). A
+Route 30 keeps its live connections to Cherrygrove (south, offset 35) and Route 31 (north, offset -27). A
 Gen 3 map draws a connected map's nearest 7 rows with its own tilesets, so Route 30's primary is
 CherrygrovePrimary with only its palettes 4 and 5 changed (`cherrygrove_route30`): every Cherrygrove tile
 and metatile a Cherrygrove cell visible from Route 30 uses keeps its index and look in palettes 0-3;
@@ -46,6 +46,7 @@ SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'pack', EV / 'pack'
 MAP, LAYOUT = 'CherrygroveRoute30Approach', 'LAYOUT_CHERRYGROVE_ROUTE30_APPROACH'
 TS_NAME, TS_SYM = 'route30_hgss', 'Route30Hgss'
+R31_OFFSET = -27                     # Route 30's "up" connection (route31_catalog/reference.py R30_OFFSET)
 PRI_NAME, PRI_SYM = 'cherrygrove_route30', 'CherrygroveRoute30Primary'
 PRI_KEEP = (0, 1, 2, 3)              # CherrygrovePrimary's palettes kept as they are
 PRI_FREE = (4, 5)                    # palettes the route art takes (no Cherrygrove cell near either seam uses them)
@@ -581,6 +582,9 @@ def write_map(engine, r, connections=None):
     M['warp_events'] = []
     if connections is not None:
         M['connections'] = connections
+    for c in M['connections']:                       # Route 31 column 0 sits at Route 30 column R31_OFFSET
+        if c['direction'] == 'up' and c['map'] == 'MAP_JOHTO_ROUTE31':
+            c['offset'] = R31_OFFSET
     (engine / f'data/maps/{MAP}/map.json').write_text(json.dumps(M, indent=2) + '\n')
     (engine / f'data/maps/{MAP}/scripts.inc').write_text(SCRIPTS)
     write_flags(engine)

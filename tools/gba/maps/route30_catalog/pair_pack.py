@@ -343,7 +343,7 @@ MAPS = dict(route30=dict(tool=HERE / 'pack.py', ts=('route30_hgss', 'Route30Hgss
                          keep=(0, 1, 2, 3), free=(4, 5), art=ROOT / 'gba/art/route30-catalog'),
             route31=dict(tool=HERE.parent / 'route31_catalog/pack.py', ts=('route31_hgss', 'Route31Hgss'), pri=('cherrygrove_route31', 'CherrygroveRoute31Primary'),
                          keep=(0, 2, 3), free=(1, 4, 5), art=ROOT / 'gba/art/route31-catalog'))
-UPPER, LOWER, OFFSET = 'route31', 'route30', -28     # Route 30's "up" connection: Route 31 column 0 at Route 30 column -28
+UPPER, LOWER, OFFSET = 'route31', 'route30', -27     # Route 30's "up" connection: Route 31 column 0 at Route 30 column -27
 RETIRED = [('Route30Route31Primary', 'route30_31')]   # the earlier shared primary
 
 def main(engine, install):

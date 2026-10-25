@@ -150,7 +150,7 @@ def plan(engine):
     x30 = cx - Rf.CG_OFFSET
     out = [((0, -1), (TOWN, cx, 2 - i), None) for i in range(3)]
     out += [((0, -1), (R30, x30, H - 1), 'cross-into-route30')]
-    north = (11, 0)
+    north = (Rf.COL0 + 7, 0)                                    # the road at the top of HGSS's north stairs
     seg = path(trav, (x30, H - 1), north, avoid=objs)
     for i, (d, p) in enumerate(seg):
         out.append((d, (R30, *p), f'route-{i:03d}' if i % 8 == 7 or i == len(seg) - 1 else None))

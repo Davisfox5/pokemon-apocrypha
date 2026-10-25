@@ -5,7 +5,7 @@ only, rendered from DS data at 16 px per cell, and traced square by square. Tree
 2x2 roots, the ground is the Cherrygrove painter, and the catalog art and terrain are Blackthorn's FRLG
 rock, Route 43's pond and the catalog stairs.
 
-- Route 30 = HGSS + (4,2), 36x104. Cherrygrove's band sits south and two rows north repeat HGSS row 0, its
+- Route 30 = HGSS + (5,2), 37x104. Cherrygrove's band sits south and two rows north repeat HGSS row 0, its
   stairs as road.
 - Route 31 = HGSS, 64x32. G02 gatehouse and Dark Cave warps sit on HGSS's cells.
 
@@ -26,7 +26,11 @@ Checks:
 Owner review (October 25), refined the same day:
 - The houses are now Gen 3 sprites by Blackthorn's method (HGSS models at C06's angle,
   `tools/gba/maps/route30_catalog/buildings.py`).
-- The stairs are HGSS's own, cut from its ground render on every stair cell.
+- Second review: the stairs reuse the Johto pieces (`stair_pieces.py`). North-south flights take the earlier
+  Route 30's grey treads; east-west flights take Route 36's plank flight.
+- The road meets each flight on the flight's own columns.
+- HGSS moved one column east, so the trees stand in the Cherrygrove band's columns, and the west wall ends
+  above the band. Route 30/31 offsets are -27/27.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

@@ -33,7 +33,7 @@ from tiles import Tileset                                    # noqa: E402
 
 ART = ROOT / 'gba/art/route31-catalog'
 R30, R31, GATE, CAVE = 10, 29, 33, 34
-R30_W, R30_H = 36, 104
+R30_W, R30_H = 37, 104
 A, B, RIGHT, LEFT, UP, DOWN = 1, 2, 16, 32, 64, 128
 KEY = {(1, 0): RIGHT, (-1, 0): LEFT, (0, 1): DOWN, (0, -1): UP}
 FLAGS = dict(poke_ball=0x268, potion=0x269)
