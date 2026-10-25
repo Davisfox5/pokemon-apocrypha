@@ -7,7 +7,7 @@ hub PR #37 are rejected visual proposals, not accepted work. Do not cite their p
 technical checks as visual readiness. New work is on `codex/pallet-art-redesign`.
 Use clean, consistently proportioned HGSS architecture, expanded receiving space,
 coherent contemporary interior design, and actual 240x160 gameplay-scale review.
-A high-resolution concept is direction only; it is not a native implementation.
+Work directly in native GBA maps and converted HGSS assets. The owner requires actual native previews and no preliminary artwork requests.
 
 ## Latest: Pallet Town rebuilt after owner rejection (October 25)
 

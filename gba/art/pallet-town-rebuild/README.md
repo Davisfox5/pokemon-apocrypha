@@ -1,4 +1,4 @@
-> Rejected by the owner for visual quality. The current direction retains GBA and requires a substantial art/spatial redesign; see [the visual study](../pallet-art-redesign/README.md).
+> Rejected by the owner for visual quality. The current direction retains GBA and requires a substantial art/spatial redesign.
 
 # Pallet Town — fresh FRLG trace and HGSS conversion
 
