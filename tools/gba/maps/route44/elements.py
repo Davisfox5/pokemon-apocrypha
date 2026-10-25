@@ -131,12 +131,12 @@ def route44_labels(cells, m, nm):
 
 def tree_footprints(cells):
     """HGSS trees stand on 2 x 2 footprints: a crown row (tree01gs / tree01_re) over a trunk
-    row (tree01_un), and a run of trunk cells pairs up from its west end. In dense woods a
-    crown hides the trunk row of the tree behind it and HGSS offsets its trees, so the roots
-    are chosen as the largest set of non-overlapping 2 x 2 footprints on woods cells (F), an
-    integer program that prefers the trunk-detected roots on ties. Woods cells no root covers
-    are HGSS crown overhang (pack.traversal opens them)."""
-    from scipy.optimize import milp, LinearConstraint, Bounds
+    row (tree01_un). Each separate block of woods cells (F) takes one regular lattice of 2 x 2
+    roots, so its trees line up in rows and columns as HGSS draws them (owner review, Route 44:
+    a packing that maximised the tree count staggered them). The lattice phase is the one that
+    covers the most woods cells, counting the T01 crown that fills the row above each root,
+    then the one on HGSS's own trunk rows. Woods cells the lattice leaves bare are HGSS crown
+    overhang (pack.traversal)."""
     detected = set()
     for y in range(1, H):
         x = 0
@@ -150,19 +150,21 @@ def tree_footprints(cells):
                 x = x1
             else:
                 x += 1
-    isf = lambda x, y: cells[y][x]['lab'] == 'F'
-    woods = [(x, y) for y in range(H) for x in range(W) if isf(x, y)]
-    index = {p: i for i, p in enumerate(woods)}
-    cand = [(x, y) for y in range(H - 1) for x in range(W - 1) if all(isf(x + dx, y + dy) for dx in (0, 1) for dy in (0, 1))]
-    A = np.zeros((len(woods), len(cand)))
-    for j, (x, y) in enumerate(cand):
-        for dx in (0, 1):
-            for dy in (0, 1):
-                A[index[(x + dx, y + dy)], j] = 1
-    weight = np.array([-(4 + 0.01 * ((x, y) in detected)) for x, y in cand])
-    res = milp(weight, constraints=LinearConstraint(A, 0, 1), integrality=np.ones(len(cand)), bounds=Bounds(0, 1))
-    assert res.x is not None, res.message
-    return sorted((cand[j] for j in range(len(cand)) if res.x[j] > 0.5), key=lambda t: (t[1], t[0]))
+    isf = np.array([[c['lab'] == 'F' for c in row] for row in cells])
+    roots = []
+    for comp in _components(isf.copy()):
+        comp = {(x, y) for y, x in comp}
+        cand = [(x, y) for x, y in comp if all((x + dx, y + dy) in comp for dx in (0, 1) for dy in (0, 1))]
+        best = None
+        for px in (0, 1):
+            for py in (0, 1):
+                rs = [(x, y) for x, y in cand if x % 2 == px and y % 2 == py]
+                cover = {(x + dx, y + dy) for x, y in rs for dx in (0, 1) for dy in (-1, 0, 1)} & comp
+                key = (len(cover), sum(r in detected for r in rs), -px, -py)
+                if best is None or key > best[0]:
+                    best = (key, rs)
+        roots += [(int(x), int(y)) for x, y in best[1]]
+    return sorted(roots, key=lambda t: (t[1], t[0]))
 
 def save_ledger(cells, trees):
     out = SRC / 'elements'

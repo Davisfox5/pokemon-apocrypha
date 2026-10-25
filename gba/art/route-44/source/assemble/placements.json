@@ -734,55 +734,29 @@
    "master": "shared-art/T01.png",
    "xy": [
     624,
-    240
+    256
    ],
    "root": [
     39,
-    16
+    17
    ],
-   "base": 282
+   "base": 298
   },
   {
    "name": "tree_56",
    "master": "shared-art/T01.png",
    "xy": [
     656,
-    240
+    256
    ],
    "root": [
     41,
-    16
+    17
    ],
-   "base": 282
+   "base": 298
   },
   {
    "name": "tree_57",
-   "master": "shared-art/T01.png",
-   "xy": [
-    720,
-    240
-   ],
-   "root": [
-    45,
-    16
-   ],
-   "base": 282
-  },
-  {
-   "name": "tree_58",
-   "master": "shared-art/T01.png",
-   "xy": [
-    784,
-    240
-   ],
-   "root": [
-    49,
-    16
-   ],
-   "base": 282
-  },
-  {
-   "name": "tree_59",
    "master": "shared-art/T01.png",
    "xy": [
     688,
@@ -795,7 +769,20 @@
    "base": 298
   },
   {
-   "name": "tree_60",
+   "name": "tree_58",
+   "master": "shared-art/T01.png",
+   "xy": [
+    720,
+    256
+   ],
+   "root": [
+    45,
+    17
+   ],
+   "base": 298
+  },
+  {
+   "name": "tree_59",
    "master": "shared-art/T01.png",
    "xy": [
     752,
@@ -803,6 +790,19 @@
    ],
    "root": [
     47,
+    17
+   ],
+   "base": 298
+  },
+  {
+   "name": "tree_60",
+   "master": "shared-art/T01.png",
+   "xy": [
+    784,
+    256
+   ],
+   "root": [
+    49,
     17
    ],
    "base": 298
@@ -929,42 +929,29 @@
    "master": "shared-art/T01.png",
    "xy": [
     624,
-    272
+    288
    ],
    "root": [
     39,
-    18
+    19
    ],
-   "base": 314
+   "base": 330
   },
   {
    "name": "tree_70",
    "master": "shared-art/T01.png",
    "xy": [
     656,
-    272
+    288
    ],
    "root": [
     41,
-    18
+    19
    ],
-   "base": 314
+   "base": 330
   },
   {
    "name": "tree_71",
-   "master": "shared-art/T01.png",
-   "xy": [
-    720,
-    272
-   ],
-   "root": [
-    45,
-    18
-   ],
-   "base": 314
-  },
-  {
-   "name": "tree_72",
    "master": "shared-art/T01.png",
    "xy": [
     688,
@@ -972,6 +959,19 @@
    ],
    "root": [
     43,
+    19
+   ],
+   "base": 330
+  },
+  {
+   "name": "tree_72",
+   "master": "shared-art/T01.png",
+   "xy": [
+    720,
+    288
+   ],
+   "root": [
+    45,
     19
    ],
    "base": 330
@@ -1072,26 +1072,26 @@
    "master": "shared-art/T01.png",
    "xy": [
     624,
-    304
+    320
    ],
    "root": [
     39,
-    20
+    21
    ],
-   "base": 346
+   "base": 362
   },
   {
    "name": "tree_81",
    "master": "shared-art/T01.png",
    "xy": [
     656,
-    304
+    320
    ],
    "root": [
     41,
-    20
+    21
    ],
-   "base": 346
+   "base": 362
   },
   {
    "name": "tree_82",

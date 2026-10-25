@@ -22,9 +22,9 @@ Detail sheets (HGSS beside native, numbered by cell):
 | | |
 | --- | --- |
 | Map | `Route44`, 96x32, `gMapGroup_Cherrygrove` id 50, `MAPSEC_JOHTO_ROUTE_44` |
-| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (146 of its tiles reused) + own secondary `gTileset_Route44` (467 tiles: 391 new, 76 copied from Mahogany; 334 metatiles) |
+| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (146 of its tiles reused) + own secondary `gTileset_Route44` (464 tiles: 385 new, 76 copied from Mahogany; 330 metatiles) |
 | Colour | 13 banks, each colour exact: all 786,432 native pixels equal the assembled art in RGB555 |
-| Material audit | 2,882 of 3,072 cells show HGSS's material, 3 mismatches (the pond corner below), 187 cells where a foreground object differs |
+| Material audit | 2,898 of 3,072 cells show HGSS's material, 3 mismatches (the pond corner below), 171 cells where a foreground object differs |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
 
@@ -34,8 +34,10 @@ Detail sheets (HGSS beside native, numbered by cell):
 - Ledger: rock cells by slope, woods `F`, tall grass `G`, water `~` (type 0x10), the Ice Path ledges (jump
   south `L`, jump west `Q`, the corner `J`), and Route 44's own features: the bridge deck `b` (HGSS bridge_a,
   cells 27-38 x 24-27), the stairs `s` (HGSS slope cells, 78-79 x 16-18) and the Ice Path mouth `D` (warp 0x6E).
-- Trees: the largest set of non-overlapping 2x2 roots on the woods cells (integer program): 102. Woods
-  cells under a rooted tree's crown stay blocked, as HGSS has them; the others no root fits are open lawn.
+- Trees: each block of woods cells takes one regular lattice of 2x2 roots, so its trees line up in rows and
+  columns (owner review, 2026-10-25: a packing that maximised the tree count staggered them); the phase is
+  the one covering the most woods, crown rows counted, then HGSS's trunk rows: 102 trees. Woods cells
+  under a rooted tree's crown stay blocked, as HGSS has them; the others no root fits are open lawn.
 
 ## 2. Art (`assemble.py`)
 
@@ -95,13 +97,13 @@ Mahogany with the appended metatiles is unchanged.
   board reaches into column 7, which scrolls out under Mahogany's tilesets when crossing west.
 - **Boulders.** Moved at most 4 px to the 8 px grid so the seven identical boulders share tiles.
 - **Ice Path.** The mouth is solid; Ice Path is not built.
-- **Foreground.** T01, the signs and the stairs differ in size and offset from HGSS's; these are the 187
+- **Foreground.** T01, the signs and the stairs differ in size and offset from HGSS's; these are the 171
   "foreground differs" cells in `evidence/pack3/material-audit.json`.
 
 ## Verification
 
 - **Build**: engine `claude/route-44`, ROM sha256
-  `772f97413e09d001455f7adc1f8642c26a9b8079e18ffec74e0374d2ddf89ce0` (not committed).
+  `8886c93c9ffbab07cb2e86181e5e11bce2c7ab807102c84a22988c185ab4f91f` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 44 equals the pack decode
   and its assembled art; Mahogany's installed decode equals its accepted native; both seam views exact from
   the installed files; connections both ways (offset 0); shared border; behaviour, collision, elevation and
@@ -109,7 +111,7 @@ Mahogany with the appended metatiles is unchanged.
   approach reachable from the seam, the tall grass between the river and the big pond with Surf, as in
   HGSS; walk-behind layering; budgets; shared masters byte-identical; Mahogany's map.json changes only
   its connection and its own 160 metatiles are unchanged; only Route 44 files otherwise.
-- **Material audit**: 2,882 match, 3 mismatch, 187 foreground differences.
+- **Material audit**: 2,898 match, 3 mismatch, 171 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 35 captures with map layers rebuilt from
   VRAM equal to the native decodes, the connected map beyond the seam included; the seam walked both ways on
   all three road rows, with captures 3 px into each crossing step (just after the secondary tileset swaps)
