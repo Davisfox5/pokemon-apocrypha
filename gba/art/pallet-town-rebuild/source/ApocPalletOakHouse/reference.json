@@ -1,0 +1,25 @@
+{
+  "map": "ApocPalletOakHouse",
+  "donor": "PalletTown_RivalsHouse_Frlg",
+  "layout": {
+    "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
+    "name": "PalletTown_RivalsHouse_Layout",
+    "width": 13,
+    "height": 10,
+    "primary_tileset": "gTileset_BuildingFrlg",
+    "secondary_tileset": "gTileset_GenericBuilding2",
+    "border_filepath": "data/layouts/PalletTown_RivalsHouse_Frlg/border.bin",
+    "blockdata_filepath": "data/layouts/PalletTown_RivalsHouse_Frlg/map.bin",
+    "border_height": 2,
+    "border_width": 2,
+    "layout_version": "frlg"
+  },
+  "reference": "Decoded original FRLG data, not a screenshot trace",
+  "scale": 16,
+  "native_offset": [
+    0,
+    0
+  ],
+  "crop": null,
+  "expansion": null
+}

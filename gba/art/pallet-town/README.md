@@ -1,3 +1,5 @@
+> Rejected by the owner on 2026-10-25. Superseded by the [fresh rebuild](../pallet-town-rebuild/README.md). Kept as historical evidence.
+
 # Pallet Town — converted HGSS models, FRLG reference
 
 Review proposal for the GBA shared source. The owner's current direction is **HGSS models converted into native Gen 3 assets, using FRLG as the reference**. The superseded FRLG-art draft is preserved in [frlg-draft](frlg-draft/README.md) and engine history.

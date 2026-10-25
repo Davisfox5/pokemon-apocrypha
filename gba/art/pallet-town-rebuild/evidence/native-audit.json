@@ -1,0 +1,57 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "native_cells": 552,
+    "registered_reference_cells": 480,
+    "added_apron_cells": 72,
+    "source_rgb5_pixel_differences": 0,
+    "porymap_pixel_differences": 0,
+    "reference_core_collision_elevation_behavior_equal": true,
+    "material_grid": "source/ApocPalletTown/material-grid.csv",
+    "visual_acceptance": "owner review pending; pixel parity is not material/visual acceptance"
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "native_cells": 130,
+    "registered_reference_cells": 130,
+    "added_apron_cells": 0,
+    "source_rgb5_pixel_differences": 0,
+    "porymap_pixel_differences": 0,
+    "reference_core_collision_elevation_behavior_equal": true,
+    "material_grid": "source/ApocPalletRedHouse1F/material-grid.csv",
+    "visual_acceptance": "owner review pending; pixel parity is not material/visual acceptance"
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "native_cells": 108,
+    "registered_reference_cells": 108,
+    "added_apron_cells": 0,
+    "source_rgb5_pixel_differences": 0,
+    "porymap_pixel_differences": 0,
+    "reference_core_collision_elevation_behavior_equal": true,
+    "material_grid": "source/ApocPalletRedHouse2F/material-grid.csv",
+    "visual_acceptance": "owner review pending; pixel parity is not material/visual acceptance"
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "native_cells": 130,
+    "registered_reference_cells": 130,
+    "added_apron_cells": 0,
+    "source_rgb5_pixel_differences": 0,
+    "porymap_pixel_differences": 0,
+    "reference_core_collision_elevation_behavior_equal": true,
+    "material_grid": "source/ApocPalletOakHouse/material-grid.csv",
+    "visual_acceptance": "owner review pending; pixel parity is not material/visual acceptance"
+  },
+  {
+    "map": "ApocPalletLab",
+    "native_cells": 182,
+    "registered_reference_cells": 182,
+    "added_apron_cells": 0,
+    "source_rgb5_pixel_differences": 0,
+    "porymap_pixel_differences": 0,
+    "reference_core_collision_elevation_behavior_equal": true,
+    "material_grid": "source/ApocPalletLab/material-grid.csv",
+    "visual_acceptance": "owner review pending; pixel parity is not material/visual acceptance"
+  }
+]

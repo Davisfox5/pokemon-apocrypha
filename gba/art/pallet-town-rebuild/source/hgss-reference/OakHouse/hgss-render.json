@@ -1,0 +1,293 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/fielddata/build_model/bm_room.narc": "5b1bbc59de9751db0fd037e702c006ac7b0a21600b850a284551683a358fd466"
+    }
+  },
+  "meta": {
+    "area_bank": 43,
+    "map_texture_set": 43,
+    "building_texture_set": 41,
+    "matrix": 248,
+    "top_down_fill_pixels": 0,
+    "filled_seam_pixels": 220416
+  },
+  "size_cells": [
+    32,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 70,
+      "chunk": 364,
+      "pos": [
+        8.5,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "shelf07"
+      ],
+      "footprint": [
+        8.0,
+        2.875,
+        9.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 4,
+      "chunk": 364,
+      "pos": [
+        3.5,
+        0.0,
+        4.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "d_map04"
+      ],
+      "footprint": [
+        3.0625,
+        3.25,
+        3.9375,
+        5.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 1,
+      "chunk": 364,
+      "pos": [
+        5.5,
+        0.0,
+        10.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "d_mat01"
+      ],
+      "footprint": [
+        4.625,
+        10.25,
+        6.375,
+        11.25
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 19,
+      "chunk": 364,
+      "pos": [
+        7.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tv01.1"
+      ],
+      "footprint": [
+        6.0,
+        2.875,
+        8.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 21,
+      "chunk": 364,
+      "pos": [
+        11.5,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ref01"
+      ],
+      "footprint": [
+        11.0,
+        2.875,
+        12.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 20,
+      "chunk": 364,
+      "pos": [
+        10.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "sink01"
+      ],
+      "footprint": [
+        9.0,
+        2.875,
+        11.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 94,
+      "chunk": 364,
+      "pos": [
+        8.0,
+        0.0,
+        7.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "table01"
+      ],
+      "footprint": [
+        7.0,
+        6.0,
+        9.0,
+        8.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 364,
+      "pos": [
+        9.5,
+        0.0,
+        7.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        9.0,
+        7.0,
+        10.0,
+        8.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 364,
+      "pos": [
+        6.5,
+        0.0,
+        6.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        6.0,
+        6.0,
+        7.0,
+        7.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 364,
+      "pos": [
+        6.5,
+        0.0,
+        7.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        6.0,
+        7.0,
+        7.0,
+        8.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 364,
+      "pos": [
+        9.5,
+        0.0,
+        6.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        9.0,
+        6.0,
+        10.0,
+        7.0
+      ],
+      "replaced_by": null
+    }
+  ],
+  "scope": "Off-room nearest fill excluded; only original mesh surfaces and isolated props are used."
+}

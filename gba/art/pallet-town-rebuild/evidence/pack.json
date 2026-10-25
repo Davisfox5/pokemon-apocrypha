@@ -1,0 +1,47 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "width": 24,
+    "height": 23,
+    "cells": 552,
+    "unique_native_metatiles": 188,
+    "secondary_tiles": 352,
+    "exact_color_conversion": true
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "width": 13,
+    "height": 10,
+    "cells": 130,
+    "unique_native_metatiles": 56,
+    "secondary_tiles": 128,
+    "exact_color_conversion": true
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "width": 12,
+    "height": 9,
+    "cells": 108,
+    "unique_native_metatiles": 45,
+    "secondary_tiles": 112,
+    "exact_color_conversion": true
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "width": 13,
+    "height": 10,
+    "cells": 130,
+    "unique_native_metatiles": 52,
+    "secondary_tiles": 112,
+    "exact_color_conversion": true
+  },
+  {
+    "map": "ApocPalletLab",
+    "width": 13,
+    "height": 14,
+    "cells": 182,
+    "unique_native_metatiles": 64,
+    "secondary_tiles": 160,
+    "exact_color_conversion": true
+  }
+]

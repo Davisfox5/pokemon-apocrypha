@@ -1,0 +1,56 @@
+[
+  {
+    "x": 6,
+    "y": 8,
+    "metatile": 604,
+    "frames": 3,
+    "bytes": 768,
+    "palette_banks": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      10,
+      10
+    ],
+    "closed_pixels_unchanged": true
+  },
+  {
+    "x": 15,
+    "y": 8,
+    "metatile": 610,
+    "frames": 3,
+    "bytes": 768,
+    "palette_banks": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      10,
+      10
+    ],
+    "closed_pixels_unchanged": true
+  },
+  {
+    "x": 16,
+    "y": 14,
+    "metatile": 662,
+    "frames": 3,
+    "bytes": 768,
+    "palette_banks": [
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      11,
+      11
+    ],
+    "closed_pixels_unchanged": true
+  }
+]

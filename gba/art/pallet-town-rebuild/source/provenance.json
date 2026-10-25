@@ -1,0 +1,17 @@
+{
+  "hgss_revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "hgss_archives": {
+    "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+    "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a",
+    "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+    "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+    "files/fielddata/build_model/bm_room.narc": "5b1bbc59de9751db0fd037e702c006ac7b0a21600b850a284551683a358fd466"
+  },
+  "shared_tree": {
+    "path": "gba/art/route31-catalog/source/local-art/cherrygrove-tree-with-shadow.png",
+    "sha256": "cc48cf15f1775e03943008b424d8454fc5d6e259384fcdab814e19c356b1a3da",
+    "catalog": "de5d8cfb707f8614c25977c6d186ddfaaa8fc035 / T01 plus accepted Cherrygrove shadow"
+  },
+  "rejected_versions": "Preserved in codex/pallet-town, engine 550cdf32, hub 73d38e9; not layout/art/palette inputs to this rebuild",
+  "reused_tools": "Read-only original decoders, original FRLG material taxonomy, qualified Porymap adapter and emulator harness"
+}

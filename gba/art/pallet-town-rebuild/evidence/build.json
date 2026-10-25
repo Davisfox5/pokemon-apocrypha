@@ -1,0 +1,16 @@
+{
+  "engine_commit": "b02c5c97c070368592fc1b60c0c679aa816d5a79",
+  "rom_sha256": "8ceb0ee76b858fe6376f5cc3aecdec7611523e98e6fe60deae2b4d260b211158",
+  "rom_bytes": 33554432,
+  "tools": {
+    "ARM GCC": "14.2.1",
+    "Porytiles": "2.0.0 legacy",
+    "Porymap": "6.3.1",
+    "libmgba": "0.10.5",
+    "Poryscript": "3.6.1"
+  },
+  "generated": "make -j1 generated: passed",
+  "build": "make -j8: passed",
+  "native_audit": "1102 pixels/entries; 1030 original traversal cells; all floors",
+  "remote_CI": "queried separately in publication.json"
+}

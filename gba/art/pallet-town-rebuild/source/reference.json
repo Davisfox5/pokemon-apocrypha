@@ -1,0 +1,131 @@
+{
+  "engine_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "hgss": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "maps": [
+    {
+      "map": "ApocPalletTown",
+      "donor": "PalletTown_Frlg",
+      "layout": {
+        "id": "LAYOUT_PALLET_TOWN",
+        "name": "PalletTown_Layout",
+        "width": 24,
+        "height": 20,
+        "primary_tileset": "gTileset_General_Frlg",
+        "secondary_tileset": "gTileset_PalletTown",
+        "border_filepath": "data/layouts/PalletTown_Frlg/border.bin",
+        "blockdata_filepath": "data/layouts/PalletTown_Frlg/map.bin",
+        "border_height": 2,
+        "border_width": 2,
+        "layout_version": "frlg"
+      },
+      "reference": "Decoded original FRLG data, not a screenshot trace",
+      "scale": 16,
+      "native_offset": [
+        0,
+        1
+      ],
+      "crop": null,
+      "expansion": "one north/two south canopy apron rows"
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "donor": "PalletTown_PlayersHouse_1F_Frlg",
+      "layout": {
+        "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_1F_FRLG",
+        "name": "PalletTown_PlayersHouse_1F_Layout",
+        "width": 13,
+        "height": 10,
+        "primary_tileset": "gTileset_BuildingFrlg",
+        "secondary_tileset": "gTileset_GenericBuilding1",
+        "border_filepath": "data/layouts/PalletTown_PlayersHouse_1F_Frlg/border.bin",
+        "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_1F_Frlg/map.bin",
+        "border_height": 2,
+        "border_width": 2,
+        "layout_version": "frlg"
+      },
+      "reference": "Decoded original FRLG data, not a screenshot trace",
+      "scale": 16,
+      "native_offset": [
+        0,
+        0
+      ],
+      "crop": null,
+      "expansion": null
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "donor": "PalletTown_PlayersHouse_2F_Frlg",
+      "layout": {
+        "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG",
+        "name": "PalletTown_PlayersHouse_2F_FRLG_Layout",
+        "width": 12,
+        "height": 9,
+        "primary_tileset": "gTileset_BuildingFrlg",
+        "secondary_tileset": "gTileset_GenericBuilding1",
+        "border_filepath": "data/layouts/PalletTown_PlayersHouse_2F_Frlg/border.bin",
+        "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_2F_Frlg/map.bin",
+        "border_height": 2,
+        "border_width": 2,
+        "layout_version": "frlg"
+      },
+      "reference": "Decoded original FRLG data, not a screenshot trace",
+      "scale": 16,
+      "native_offset": [
+        0,
+        0
+      ],
+      "crop": null,
+      "expansion": null
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "donor": "PalletTown_RivalsHouse_Frlg",
+      "layout": {
+        "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
+        "name": "PalletTown_RivalsHouse_Layout",
+        "width": 13,
+        "height": 10,
+        "primary_tileset": "gTileset_BuildingFrlg",
+        "secondary_tileset": "gTileset_GenericBuilding2",
+        "border_filepath": "data/layouts/PalletTown_RivalsHouse_Frlg/border.bin",
+        "blockdata_filepath": "data/layouts/PalletTown_RivalsHouse_Frlg/map.bin",
+        "border_height": 2,
+        "border_width": 2,
+        "layout_version": "frlg"
+      },
+      "reference": "Decoded original FRLG data, not a screenshot trace",
+      "scale": 16,
+      "native_offset": [
+        0,
+        0
+      ],
+      "crop": null,
+      "expansion": null
+    },
+    {
+      "map": "ApocPalletLab",
+      "donor": "PalletTown_ProfessorOaksLab_Frlg",
+      "layout": {
+        "id": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+        "name": "PalletTown_ProfessorOaksLab_Layout",
+        "width": 13,
+        "height": 14,
+        "primary_tileset": "gTileset_BuildingFrlg",
+        "secondary_tileset": "gTileset_Lab_Frlg",
+        "border_filepath": "data/layouts/PalletTown_ProfessorOaksLab_Frlg/border.bin",
+        "blockdata_filepath": "data/layouts/PalletTown_ProfessorOaksLab_Frlg/map.bin",
+        "border_height": 2,
+        "border_width": 2,
+        "layout_version": "frlg"
+      },
+      "reference": "Decoded original FRLG data, not a screenshot trace",
+      "scale": 16,
+      "native_offset": [
+        0,
+        0
+      ],
+      "crop": null,
+      "expansion": null
+    }
+  ]
+}

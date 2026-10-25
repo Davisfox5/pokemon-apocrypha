@@ -1,0 +1,561 @@
+[
+  {
+    "name": "pallet-house",
+    "source_size": [
+      92,
+      155
+    ],
+    "native_size": [
+      80,
+      96
+    ],
+    "y_planes": [
+      [
+        0,
+        0
+      ],
+      [
+        70,
+        32
+      ],
+      [
+        122,
+        64
+      ],
+      [
+        155,
+        96
+      ]
+    ],
+    "x_planes": [
+      [
+        0,
+        0
+      ],
+      [
+        20,
+        16
+      ],
+      [
+        40,
+        32
+      ],
+      [
+        92,
+        80
+      ]
+    ],
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "8df1d3b4b8d6c20cd8be11c69ff39196eae766d93507f48a20413310a4558f2c"
+  },
+  {
+    "name": "pallet-lab",
+    "source_size": [
+      108,
+      117
+    ],
+    "native_size": [
+      112,
+      80
+    ],
+    "y_planes": [
+      [
+        0,
+        0
+      ],
+      [
+        66,
+        40
+      ],
+      [
+        117,
+        80
+      ]
+    ],
+    "x_planes": [
+      [
+        0,
+        0
+      ],
+      [
+        44,
+        48
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        108,
+        112
+      ]
+    ],
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "0fc63a74a74b6fb9a22d06d1420543824853e005542778d21162c2b0385c1d20"
+  },
+  {
+    "name": "mailbox",
+    "source_size": [
+      12,
+      37
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "20fc9875c962544e48e44d12d90c21345989fd1282bea683e016a7d4fcc5282a"
+  },
+  {
+    "name": "town-sign",
+    "source_size": [
+      14,
+      28
+    ],
+    "native_size": [
+      16,
+      24
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "32202c5667d31ede744538ec64e772dd4addc3a330a427d30dece164534346c4"
+  },
+  {
+    "name": "lab-sign",
+    "source_size": [
+      16,
+      29
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "2d2f2f5d8b57c67b9d332e1d86e1c6cf60b684a8a8807e4c95e9e52870267fb6"
+  },
+  {
+    "name": "complete-potted-plant",
+    "source_size": [
+      22,
+      32
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "155ea64e75e3cfff1a060f08b739e535391159256562781180e0014c0dab615a"
+  },
+  {
+    "name": "Red1F-table-and-rug",
+    "source_size": [
+      96,
+      64
+    ],
+    "native_size": [
+      96,
+      64
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "e9562f4e99c8ba5cc3748b02214035970d2a872e329b43715e7d06798e1d8877"
+  },
+  {
+    "name": "Red1F-kitchen",
+    "source_size": [
+      28,
+      27
+    ],
+    "native_size": [
+      48,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "0d15f18c6b14200765da8b020189a368d5a5e4f9e0075ce402adec4e035751e3"
+  },
+  {
+    "name": "Red1F-telephone",
+    "source_size": [
+      14,
+      42
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "1f219900ea92e10cd2f06511f0aaabea6d5445e8f66b375ae644400d7e262be1"
+  },
+  {
+    "name": "Red1F-television",
+    "source_size": [
+      28,
+      40
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "291b39dfc696b205aa321d150b049a29b36a19130910733ebd711cf2d7cd7eb4"
+  },
+  {
+    "name": "Red1F-exit-mat",
+    "source_size": [
+      28,
+      16
+    ],
+    "native_size": [
+      48,
+      16
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "768a8fee0863a91a57b6e19f7c1a627b11d4aecce586927c719af212dee69c34"
+  },
+  {
+    "name": "bedroom-rug",
+    "source_size": [
+      32,
+      32
+    ],
+    "native_size": [
+      80,
+      64
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "50fe0e8714f937b2d7e3c7dc1ff89b4c842d5a27bc57909b1a16cd54916334f6"
+  },
+  {
+    "name": "bedroom-bed",
+    "source_size": [
+      26,
+      51
+    ],
+    "native_size": [
+      32,
+      48
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "3444173ad448a05b488586b109cef9297cd4136ccfeda6de836a9203e5ec8a55"
+  },
+  {
+    "name": "bedroom-pc",
+    "source_size": [
+      30,
+      39
+    ],
+    "native_size": [
+      32,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "7fe23bdc0cb6e00692779f23a88a626e3f4d60459afb117046e3ad50797b7551"
+  },
+  {
+    "name": "bedroom-chair",
+    "source_size": [
+      14,
+      14
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "4fe8089fd54200601ba30b035ba81e32352888b9f1a8a5ec1d0bc7c314ce87c3"
+  },
+  {
+    "name": "bedroom-shelves",
+    "source_size": [
+      45,
+      43
+    ],
+    "native_size": [
+      32,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "54e22c0bbb7f93e7f450fa01c544478bed7e213b91f736c909d3f91e23818bc5"
+  },
+  {
+    "name": "bedroom-game-console",
+    "source_size": [
+      13,
+      14
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "f9f46f9784c8fce64d23f98c09d071513420af9a0b4a03dce79ad8c3f876dd4a"
+  },
+  {
+    "name": "bedroom-notice",
+    "source_size": [
+      14,
+      28
+    ],
+    "native_size": [
+      16,
+      16
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "23464633274c3a251c6cca7bc42ea7890ce96742e7e2c009c8805344db218272"
+  },
+  {
+    "name": "OakHouse-table-and-rug",
+    "source_size": [
+      96,
+      64
+    ],
+    "native_size": [
+      96,
+      64
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "e9562f4e99c8ba5cc3748b02214035970d2a872e329b43715e7d06798e1d8877"
+  },
+  {
+    "name": "OakHouse-kitchen",
+    "source_size": [
+      28,
+      27
+    ],
+    "native_size": [
+      48,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "0d15f18c6b14200765da8b020189a368d5a5e4f9e0075ce402adec4e035751e3"
+  },
+  {
+    "name": "OakHouse-telephone",
+    "source_size": [
+      14,
+      42
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "1f219900ea92e10cd2f06511f0aaabea6d5445e8f66b375ae644400d7e262be1"
+  },
+  {
+    "name": "OakHouse-television",
+    "source_size": [
+      28,
+      40
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "291b39dfc696b205aa321d150b049a29b36a19130910733ebd711cf2d7cd7eb4"
+  },
+  {
+    "name": "oak-bookshelf",
+    "source_size": [
+      14,
+      43
+    ],
+    "native_size": [
+      32,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "2016775ac90738261e703a4a818b043f4f4d670431dcd08a50351b105ae29033"
+  },
+  {
+    "name": "OakHouse-exit-mat",
+    "source_size": [
+      28,
+      16
+    ],
+    "native_size": [
+      48,
+      16
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "768a8fee0863a91a57b6e19f7c1a627b11d4aecce586927c719af212dee69c34"
+  },
+  {
+    "name": "lab-research-machines",
+    "source_size": [
+      61,
+      40
+    ],
+    "native_size": [
+      64,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "2d588f10e6526e33d16d4f2ed26e92724746f60940c7726120cc7b1a78ac9370"
+  },
+  {
+    "name": "lab-lab-equipment",
+    "source_size": [
+      42,
+      78
+    ],
+    "native_size": [
+      32,
+      48
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "29ca5036ecc22375501d7f238c819d74d506342a11041015da03e1698793142d"
+  },
+  {
+    "name": "lab-rear-cabinets",
+    "source_size": [
+      60,
+      50
+    ],
+    "native_size": [
+      64,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "271efc942b2c1462d50040901a2400ed88b319e94e850816e3da79c86701d771"
+  },
+  {
+    "name": "lab-research-table",
+    "source_size": [
+      46,
+      38
+    ],
+    "native_size": [
+      48,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "5a5c17a737945c4c6c98b8f6cb7938bb25f7a18fb3d40c824e8cb529a0cbb291"
+  },
+  {
+    "name": "lab-right-cabinets",
+    "source_size": [
+      60,
+      60
+    ],
+    "native_size": [
+      80,
+      48
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "d582a6a3412a9e45a83983ed0d21dae679ac70f6b4d2d038c45bfb83df2b4649"
+  },
+  {
+    "name": "lab-left-cabinets",
+    "source_size": [
+      60,
+      60
+    ],
+    "native_size": [
+      80,
+      48
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "d582a6a3412a9e45a83983ed0d21dae679ac70f6b4d2d038c45bfb83df2b4649"
+  },
+  {
+    "name": "lab-books",
+    "source_size": [
+      28,
+      43
+    ],
+    "native_size": [
+      16,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "15977a6b37e1d9e997cb7e05157d1d0843fc0958211093f4b1ca5f348dddcbed"
+  },
+  {
+    "name": "lab-rear-desk",
+    "source_size": [
+      46,
+      25
+    ],
+    "native_size": [
+      32,
+      32
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "3756c5f33a4601ea8fe4ef3724ca408e68afee7406ce700d80b564a80d449780"
+  },
+  {
+    "name": "Lab-exit-mat",
+    "source_size": [
+      28,
+      16
+    ],
+    "native_size": [
+      48,
+      16
+    ],
+    "y_planes": null,
+    "x_planes": null,
+    "colors": "15 opaque colors, no dithering, RGB5; transparency excluded",
+    "sha256": "768a8fee0863a91a57b6e19f7c1a627b11d4aecce586927c719af212dee69c34"
+  }
+]

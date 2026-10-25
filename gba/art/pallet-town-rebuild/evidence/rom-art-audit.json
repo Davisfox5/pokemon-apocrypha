@@ -1,0 +1,44 @@
+[
+  {
+    "map": 43,
+    "rom_metatiles_attributes_equal": true,
+    "vram_native_or_explicit_animation_tiles_equal": 416,
+    "background_palette_colors_equal": 207,
+    "engine_backdrop_slot_0_black": true,
+    "water_phase": [
+      3
+    ]
+  },
+  {
+    "map": 44,
+    "rom_metatiles_attributes_equal": true,
+    "vram_native_or_explicit_animation_tiles_equal": 144,
+    "background_palette_colors_equal": 207,
+    "engine_backdrop_slot_0_black": true,
+    "water_phase": null
+  },
+  {
+    "map": 45,
+    "rom_metatiles_attributes_equal": true,
+    "vram_native_or_explicit_animation_tiles_equal": 128,
+    "background_palette_colors_equal": 207,
+    "engine_backdrop_slot_0_black": true,
+    "water_phase": null
+  },
+  {
+    "map": 46,
+    "rom_metatiles_attributes_equal": true,
+    "vram_native_or_explicit_animation_tiles_equal": 128,
+    "background_palette_colors_equal": 207,
+    "engine_backdrop_slot_0_black": true,
+    "water_phase": null
+  },
+  {
+    "map": 47,
+    "rom_metatiles_attributes_equal": true,
+    "vram_native_or_explicit_animation_tiles_equal": 176,
+    "background_palette_colors_equal": 207,
+    "engine_backdrop_slot_0_black": true,
+    "water_phase": null
+  }
+]

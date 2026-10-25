@@ -1,0 +1,553 @@
+x,y,reference_x,reference_y,reference_material,native_ground,native_visible_features,reference_metatile,native_metatile,native_layer,native_entries,hidden_ground_interpretation,adaptation
+0,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+1,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+2,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+3,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+4,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+5,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+6,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+7,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+8,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+9,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+10,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+11,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+12,0,,,outside reference,shared lawn / explicit light-lawn mask,,,202,0,1200 1201 2a02 1e03 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+13,0,,,outside reference,shared lawn / explicit light-lawn mask,,,203,0,1e04 1205 1606 1a07 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+14,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+15,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+16,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+17,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+18,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+19,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+20,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+21,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+22,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+23,0,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+0,1,0,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,1,1,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,1,2,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+3,1,3,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+4,1,4,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+5,1,5,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+6,1,6,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+7,1,7,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+8,1,8,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+9,1,9,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+10,1,10,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+11,1,11,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+12,1,12,0,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2a6,206,0,1208 1609 1a0a 160b 0000 0000 0000 0000,False,
+13,1,13,0,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2a7,207,0,1a0c 120d 1a0e 1a0f 0000 0000 0000 0000,False,
+14,1,14,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+15,1,15,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+16,1,16,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+17,1,17,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+18,1,18,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+19,1,19,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+20,1,20,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+21,1,21,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+22,1,22,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,1,23,0,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,2,0,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,2,1,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,2,2,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+3,2,3,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+4,2,4,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+5,2,5,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+6,2,6,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+7,2,7,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+8,2,8,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+9,2,9,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+10,2,10,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+11,2,11,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,027,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+12,2,12,1,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+13,2,13,1,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2af,20d,0,1e1a 1a1b 1606 1a07 0000 0000 0000 0000,False,
+14,2,14,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,026,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+15,2,15,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+16,2,16,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+17,2,17,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+18,2,18,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+19,2,19,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+20,2,20,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,024,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,hidden receiving lawn inferred from surroundings
+21,2,21,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,025,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,hidden receiving lawn inferred from surroundings
+22,2,22,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,2,23,1,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,3,0,2,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,3,1,2,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,3,2,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2a6,206,0,1208 1609 1a0a 160b 0000 0000 0000 0000,False,
+3,3,3,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+4,3,4,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+5,3,5,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,red-house,28e,210,0,1e1c 1e1d 1834 1c35 0000 0000 0000 4220,False,complete HGSS roof above original building footprint
+6,3,6,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,red-house,28e,211,0,121e 161f 1830 1431 0000 4221 4222 4623,False,complete HGSS roof above original building footprint
+7,3,7,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,red-house,28e,212,0,1e1c 1e1d 1834 1c35 4224 4625 4226 4226,False,complete HGSS roof above original building footprint
+8,3,8,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,red-house,28e,213,0,121e 161f 1830 1431 4627 0000 4628 4629,False,complete HGSS roof above original building footprint
+9,3,9,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,complete HGSS roof above original building footprint
+10,3,10,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+11,3,11,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+12,3,12,2,lawn,shared lawn / explicit light-lawn mask,,285,214,0,1e2a 162b 1a2c 160b 0000 0000 0000 0000,False,
+13,3,13,2,lawn,shared lawn / explicit light-lawn mask,,286,215,0,1a2d 1e2e 1a0e 1e2f 0000 0000 0000 0000,False,
+14,3,14,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,oak-home,28e,216,0,121e 161f 1830 1431 0000 0000 0000 4220,False,complete HGSS roof above original building footprint
+15,3,15,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,oak-home,28e,217,0,1e1c 1e1d 1834 1c35 0000 4221 4222 4623,False,complete HGSS roof above original building footprint
+16,3,16,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,oak-home,28e,218,0,121e 161f 1830 1431 4224 4625 4226 4226,False,complete HGSS roof above original building footprint
+17,3,17,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,oak-home,28e,219,0,1e1c 1e1d 1834 1c35 4627 0000 4628 4629,False,complete HGSS roof above original building footprint
+18,3,18,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,complete HGSS roof above original building footprint
+19,3,19,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+20,3,20,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+21,3,21,2,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28f,21a,0,1630 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,3,22,2,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,3,23,2,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,4,0,3,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,4,1,3,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,4,2,3,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,4,3,3,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+4,4,4,3,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+5,4,5,3,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,281,21d,0,1c2a 1c2b 1232 1e33 4234 4235 4236 4237,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+6,4,6,3,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,282,21e,0,1426 1427 1803 1c04 4e38 4e39 463a 423b,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+7,4,7,3,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,282,21f,0,1c2a 1c2b 100b 1c0c 4226 423c 4226 4a3d,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+8,4,8,3,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,282,220,0,1426 1427 1803 1c04 4a3e 423f 4240 4241,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+9,4,9,3,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,283,221,0,1c2a 1c2b 1e42 1a43 4644 4645 4246 4647,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+10,4,10,3,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+11,4,11,3,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,4,12,3,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+13,4,13,3,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+14,4,14,3,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,281,222,0,1426 1427 1e48 1e49 4234 4235 4236 4237,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+15,4,15,3,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,282,223,0,1c2a 1c2b 100b 1c0c 4e38 4e39 463a 423b,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+16,4,16,3,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,282,224,0,1426 1427 1803 1c04 4226 423c 4226 4a3d,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+17,4,17,3,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,282,225,0,1c2a 1c2b 100b 1c0c 4a3e 423f 4240 4241,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+18,4,18,3,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,283,226,0,1426 1427 1a4a 1a4b 4644 4645 4246 4647,True,complete HGSS roof above original building footprint;hidden receiving lawn inferred from surroundings
+19,4,19,3,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+20,4,20,3,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,4,21,3,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,4,22,3,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,4,23,3,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,5,0,4,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,5,1,4,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,5,2,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,5,3,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c7,229,0,164f 1e50 1a31 1c1b 0000 0000 0000 0000,False,
+4,5,4,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+5,5,5,4,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,289,22b,0,1818 1c19 181a 1c1b 4a53 4a54 4255 4256,True,hidden receiving lawn inferred from surroundings
+6,5,6,4,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,28a,22c,0,1810 1411 1812 1413 4657 4658 4259 4e5a,True,hidden receiving lawn inferred from surroundings
+7,5,7,4,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,28a,22d,0,1818 1c19 181a 1c1b 425b 465c 425d 425e,True,hidden receiving lawn inferred from surroundings
+8,5,8,4,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,28a,22e,0,1810 1411 1812 1413 425f 4e60 4e61 4a62,True,hidden receiving lawn inferred from surroundings
+9,5,9,4,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,28b,22f,0,1818 1c19 181a 1c1b 4a63 4a64 4265 4266,True,hidden receiving lawn inferred from surroundings
+10,5,10,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c6,230,0,1251 1667 1812 1e68 0000 0000 0000 0000,False,
+11,5,11,4,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,5,12,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c7,232,0,1269 166a 1a6b 1413 0000 0000 0000 0000,False,
+13,5,13,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+14,5,14,4,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,289,234,0,1810 1411 1812 1413 4a53 4a54 4255 4256,True,hidden receiving lawn inferred from surroundings
+15,5,15,4,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,28a,235,0,1818 1c19 181a 1c1b 4657 4658 4259 4e5a,True,hidden receiving lawn inferred from surroundings
+16,5,16,4,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,28a,236,0,1810 1411 1812 1413 425b 465c 425d 425e,True,hidden receiving lawn inferred from surroundings
+17,5,17,4,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,28a,237,0,1818 1c19 181a 1c1b 425f 4e60 4e61 4a62,True,hidden receiving lawn inferred from surroundings
+18,5,18,4,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,28b,238,0,1810 1411 1812 1413 4a63 4a64 4265 4266,True,hidden receiving lawn inferred from surroundings
+19,5,19,4,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c6,239,0,1a6c 126e 181a 1e6f 0000 0000 0000 0000,False,
+20,5,20,4,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+21,5,21,4,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,5,22,4,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,5,23,4,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,6,0,5,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,6,1,5,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,6,2,5,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,6,3,5,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+4,6,4,5,lawn,shared lawn / explicit light-lawn mask,,011,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,
+5,6,5,5,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,291,23d,0,1c09 1c0a 100b 1c0c 4a71 4a72 4a73 4e74,True,hidden receiving lawn inferred from surroundings
+6,6,6,5,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,293,23e,0,1401 1402 1803 1c04 4a75 4e76 4a77 4a77,True,hidden receiving lawn inferred from surroundings
+7,6,7,5,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,292,23f,0,1c09 1c0a 100b 1c0c 4a78 4e79 4a7a 4a7a,True,hidden receiving lawn inferred from surroundings
+8,6,8,5,home_roof_eave,shared lawn / explicit light-lawn mask,red-house,292,240,0,1401 1402 1803 1c04 4e7b 4a7c 4a7a 4a7d,True,hidden receiving lawn inferred from surroundings
+9,6,9,5,lawn_contact_shadow,shared lawn / explicit light-lawn mask,red-house,294,241,0,1c09 1c0a 100b 1c0c 4e7e 4a7f 4680 4e81,False,
+10,6,10,5,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,242,0,1401 1e82 1803 1a83 0000 0000 0000 0000,False,
+11,6,11,5,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,6,12,5,lawn,shared lawn / explicit light-lawn mask,,297,243,0,2684 1402 1e85 1c04 0000 0000 0000 0000,False,
+13,6,13,5,lawn,shared lawn / explicit light-lawn mask,,011,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+14,6,14,5,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,291,245,0,1401 1402 1803 1c04 4a71 4a72 4a73 4e74,True,hidden receiving lawn inferred from surroundings
+15,6,15,5,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,293,246,0,1c09 1c0a 100b 1c0c 4a75 4e76 4a77 4a77,True,hidden receiving lawn inferred from surroundings
+16,6,16,5,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,292,247,0,1401 1402 1803 1c04 4a78 4e79 4a7a 4a7a,True,hidden receiving lawn inferred from surroundings
+17,6,17,5,home_roof_eave,shared lawn / explicit light-lawn mask,oak-home,292,248,0,1c09 1c0a 100b 1c0c 4e7b 4a7c 4a7a 4a7d,True,hidden receiving lawn inferred from surroundings
+18,6,18,5,lawn_contact_shadow,shared lawn / explicit light-lawn mask,oak-home,294,249,0,1401 1402 1803 1c04 4e7e 4a7f 4680 4e81,False,
+19,6,19,5,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,24a,0,1c09 1e86 100b 1e87 0000 0000 0000 0000,False,
+20,6,20,5,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,6,21,5,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,6,22,5,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,6,23,5,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,7,0,6,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,7,1,6,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,7,2,6,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,7,3,6,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+4,7,4,6,sign,shared lawn / explicit light-lawn mask,red-mailbox,2a5,24b,0,1810 1411 1812 1413 7288 7689 7e8a 768b,False,
+5,7,5,6,home_wall_window,shared lawn / explicit light-lawn mask,red-house,298,24c,0,1818 1c19 181a 1c1b 4a8c 468d 428e 4e8f,True,hidden receiving lawn inferred from surroundings
+6,7,6,6,home_wall_window,shared lawn / explicit light-lawn mask,red-house,299,24d,0,1810 1411 1812 1413 4290 4690 4691 4a92,True,hidden receiving lawn inferred from surroundings
+7,7,7,6,home_wall_window,shared lawn / explicit light-lawn mask,red-house,29a,24e,0,1818 1c19 181a 1c1b 4293 4294 4a95 4a96,True,hidden receiving lawn inferred from surroundings
+8,7,8,6,home_wall_window,shared lawn / explicit light-lawn mask,red-house,29b,24f,0,1810 1411 1812 1413 4297 4698 4a99 4a9a,True,hidden receiving lawn inferred from surroundings
+9,7,9,6,home_wall_window,shared lawn / explicit light-lawn mask,red-house,29c,250,0,1818 1c19 181a 1c1b 4a9b 4e9c 4e9d 4e9e,True,hidden receiving lawn inferred from surroundings
+10,7,10,6,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,251,0,1810 1e9f 1812 1e68 0000 0000 0000 0000,False,
+11,7,11,6,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,7,12,6,lawn,shared lawn / explicit light-lawn mask,,297,252,0,1aa0 1411 1a6b 1413 0000 0000 0000 0000,False,
+13,7,13,6,sign,shared lawn / explicit light-lawn mask,oak-mailbox,2a5,253,0,1818 1c19 181a 1c1b 7288 7689 7e8a 768b,False,
+14,7,14,6,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,298,254,0,1810 1411 1812 1413 4a8c 468d 428e 4e8f,True,hidden receiving lawn inferred from surroundings
+15,7,15,6,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,299,255,0,1818 1c19 181a 1c1b 4290 4690 4691 4a92,True,hidden receiving lawn inferred from surroundings
+16,7,16,6,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,29a,256,0,1810 1411 1812 1413 4293 4294 4a95 4a96,True,hidden receiving lawn inferred from surroundings
+17,7,17,6,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,29b,257,0,1818 1c19 181a 1c1b 4297 4698 4a99 4a9a,True,hidden receiving lawn inferred from surroundings
+18,7,18,6,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,29c,258,0,1810 1411 1812 1413 4a9b 4e9c 4e9d 4e9e,True,hidden receiving lawn inferred from surroundings
+19,7,19,6,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,259,0,1818 1ea1 181a 1e6f 0000 0000 0000 0000,False,
+20,7,20,6,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+21,7,21,6,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,7,22,6,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,7,23,6,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,8,0,7,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,8,1,7,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,8,2,7,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,8,3,7,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+4,8,4,7,sign,shared lawn / explicit light-lawn mask,red-mailbox,2ad,25a,0,1401 1402 1803 1c04 9aa2 9aa3 52a4 56a4,False,
+5,8,5,7,home_wall_window,shared lawn / explicit light-lawn mask,red-house,2a0,25b,0,1c09 1c0a 100b 1c0c 42a5 4ea6 4aa7 0ea8,True,hidden receiving lawn inferred from surroundings
+6,8,6,7,home_entrance,shared lawn / explicit light-lawn mask,red-house,2a3,25c,0,1401 1402 1803 1c04 4ea9 42aa 0000 0000,True,hidden receiving lawn inferred from surroundings
+7,8,7,7,home_wall_window,shared lawn / explicit light-lawn mask,red-house,2a2,25d,0,1c09 1c0a 100b 1c0c 4aab 4aac 0000 0000,True,hidden receiving lawn inferred from surroundings
+8,8,8,7,home_wall_window,shared lawn / explicit light-lawn mask,red-house,2a1,25e,0,1401 1402 1803 1c04 4aac 4ead 0000 0000,True,hidden receiving lawn inferred from surroundings
+9,8,9,7,home_wall_window,shared lawn / explicit light-lawn mask,red-house,2a4,25f,0,1c09 1c0a 100b 1c0c 4aae 46af 4ab0 46af,True,hidden receiving lawn inferred from surroundings
+10,8,10,7,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,242,0,1401 1e82 1803 1a83 0000 0000 0000 0000,False,
+11,8,11,7,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,8,12,7,lawn,shared lawn / explicit light-lawn mask,,297,243,0,2684 1402 1e85 1c04 0000 0000 0000 0000,False,
+13,8,13,7,sign,shared lawn / explicit light-lawn mask,oak-mailbox,2ad,260,0,1c09 1c0a 100b 1c0c 9aa2 9aa3 52a4 56a4,False,
+14,8,14,7,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,2a0,261,0,1401 1402 1803 1c04 42a5 4ea6 4aa7 0ea8,True,hidden receiving lawn inferred from surroundings
+15,8,15,7,home_entrance,shared lawn / explicit light-lawn mask,oak-home,2a3,262,0,1c09 1c0a 100b 1c0c 4ea9 42aa 0000 0000,True,hidden receiving lawn inferred from surroundings
+16,8,16,7,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,2a2,263,0,1401 1402 1803 1c04 4aab 4aac 0000 0000,True,hidden receiving lawn inferred from surroundings
+17,8,17,7,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,2a1,264,0,1c09 1c0a 100b 1c0c 4aac 4ead 0000 0000,True,hidden receiving lawn inferred from surroundings
+18,8,18,7,home_wall_window,shared lawn / explicit light-lawn mask,oak-home,2a4,265,0,1401 1402 1803 1c04 4aae 46af 4ab0 46af,True,hidden receiving lawn inferred from surroundings
+19,8,19,7,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,24a,0,1c09 1e86 100b 1e87 0000 0000 0000 0000,False,
+20,8,20,7,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,8,21,7,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,8,22,7,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,8,23,7,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,9,0,8,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,9,1,8,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,9,2,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,9,3,8,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,266,0,1ab1 1e1d 1834 1c35 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+4,9,4,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+5,9,5,8,lawn,shared lawn / explicit light-lawn mask,,2be,267,0,1a0c 1eb2 1834 1c35 0000 0000 0000 0000,False,
+6,9,6,8,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+7,9,7,8,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,266,0,1ab1 1e1d 1834 1c35 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+8,9,8,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+9,9,9,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+10,9,10,8,lawn,shared lawn / explicit light-lawn mask,,2be,268,0,1ab3 1ab4 1830 1431 0000 0000 0000 0000,False,
+11,9,11,8,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,9,12,8,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,269,0,1ab5 161f 1830 1431 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+13,9,13,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+14,9,14,8,lawn,shared lawn / explicit light-lawn mask,,2be,268,0,1ab3 1ab4 1830 1431 0000 0000 0000 0000,False,
+15,9,15,8,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+16,9,16,8,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,269,0,1ab5 161f 1830 1431 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+17,9,17,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+18,9,18,8,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+19,9,19,8,lawn,shared lawn / explicit light-lawn mask,,2be,267,0,1a0c 1eb2 1834 1c35 0000 0000 0000 0000,False,
+20,9,20,8,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+21,9,21,8,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,9,22,8,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,9,23,8,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,10,0,9,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,10,1,9,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,10,2,9,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,10,3,9,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+4,10,4,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+5,10,5,9,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+6,10,6,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+7,10,7,9,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+8,10,8,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+9,10,9,9,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+10,10,10,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+11,10,11,9,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,10,12,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+13,10,13,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2a8,26a,0,1c2a 1c2b 1eb6 1c0c 62b7 62b8 62b9 62ba,True,hidden receiving lawn inferred from surroundings
+14,10,14,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2a9,26b,0,1426 1427 1803 1c04 62b8 62b8 62bb 66bc,True,hidden receiving lawn inferred from surroundings
+15,10,15,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2a9,26c,0,1c2a 1c2b 100b 1c0c 62b8 62b8 66bd 66be,True,hidden receiving lawn inferred from surroundings
+16,10,16,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2a9,26d,0,1426 1427 1803 1c04 62b8 62b8 62bf 66c0,True,hidden receiving lawn inferred from surroundings
+17,10,17,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2a9,26e,0,1c2a 1c2b 100b 1c0c 62b8 62c1 62c2 62c3,True,hidden receiving lawn inferred from surroundings
+18,10,18,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2bd,26f,0,1426 1427 1803 1c04 52c4 56c5 5ac6 5ec7,True,hidden receiving lawn inferred from surroundings
+19,10,19,9,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b5,270,0,1c2a 1c2b 100b 1ec8 62b8 66b7 66c9 6eca,True,hidden receiving lawn inferred from surroundings
+20,10,20,9,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,10,21,9,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,10,22,9,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,10,23,9,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,11,0,10,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,11,1,10,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,11,2,10,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,11,3,10,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+4,11,4,10,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+5,11,5,10,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+6,11,6,10,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+7,11,7,10,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+8,11,8,10,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+9,11,9,10,lawn,shared lawn / explicit light-lawn mask,town-sign,296,271,0,1c32 1c33 1834 1c35 0000 0000 92cb 96cb,False,
+10,11,10,10,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+11,11,11,10,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,11,12,10,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c7,232,0,1269 166a 1a6b 1413 0000 0000 0000 0000,False,
+13,11,13,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b0,272,0,1818 1c19 181a 1c1b 62b9 62cc 62b9 6acd,True,hidden receiving lawn inferred from surroundings
+14,11,14,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b1,273,0,1810 1411 1812 1413 62ce 66cf 6ad0 6ed1,True,hidden receiving lawn inferred from surroundings
+15,11,15,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b1,274,0,1818 1c19 181a 1c1b 66d2 66d3 6ed4 6ed5,True,hidden receiving lawn inferred from surroundings
+16,11,16,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b1,275,0,1810 1411 1812 1413 62d6 66d7 6ad8 6ed9,True,hidden receiving lawn inferred from surroundings
+17,11,17,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b1,276,0,1818 1c19 181a 1c1b 62da 66db 6adc 6add,True,hidden receiving lawn inferred from surroundings
+18,11,18,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b3,277,0,1810 1411 1812 1413 52de 52de 62df 66e0,True,hidden receiving lawn inferred from surroundings
+19,11,19,10,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b4,278,0,1818 1c19 181a 1c1b 62e1 66e2 6ee3 66ca,True,hidden receiving lawn inferred from surroundings
+20,11,20,10,lab_wall_window,shared lawn / explicit light-lawn mask,,2ce,279,0,12e4 162b 1a0a 160b 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+21,11,21,10,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,11,22,10,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,11,23,10,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,12,0,11,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,12,1,11,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,12,2,11,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,12,3,11,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+4,12,4,11,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c7,27a,0,12e5 16e6 1e85 1c04 0000 0000 0000 0000,False,
+5,12,5,11,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,284,27b,0,1ee7 1ee8 100b 1c0c 72e9 72e9 8aea 8aea,False,
+6,12,6,11,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,284,27c,0,16eb 16ec 1803 1c04 72e9 72e9 8aea 8aea,False,
+7,12,7,11,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,284,27b,0,1ee7 1ee8 100b 1c0c 72e9 72e9 8aea 8aea,False,
+8,12,8,11,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,284,27c,0,16eb 16ec 1803 1c04 72e9 72e9 8aea 8aea,False,
+9,12,9,11,sign,shared lawn / explicit light-lawn mask,town-sign,002,27d,0,1c09 1c0a 100b 1c0c 96ed 92ee 9aef 9eef,False,
+10,12,10,11,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c6,27e,0,16f0 16f1 1803 1a83 0000 0000 0000 0000,False,
+11,12,11,11,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,12,12,11,lawn,shared lawn / explicit light-lawn mask,,297,243,0,2684 1402 1e85 1c04 0000 0000 0000 0000,False,
+13,12,13,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b8,27f,0,1c09 1c0a 100b 1c0c 6af2 66f3 5af4 56f5,True,hidden receiving lawn inferred from surroundings
+14,12,14,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b9,280,0,1401 1402 1803 1c04 5af6 5af6 62f7 62f8,True,hidden receiving lawn inferred from surroundings
+15,12,15,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b9,281,0,1c09 1c0a 100b 1c0c 5af6 5af6 66f9 62fa,True,hidden receiving lawn inferred from surroundings
+16,12,16,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b9,282,0,1401 1402 1803 1c04 5af6 5af6 56fb 52fb,True,hidden receiving lawn inferred from surroundings
+17,12,17,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2b9,283,0,1c09 1c0a 100b 1c0c 5af6 5af6 66fa 62f9,True,hidden receiving lawn inferred from surroundings
+18,12,18,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2bb,284,0,1401 1402 1803 1c04 5af6 5af6 66f8 66f7,True,hidden receiving lawn inferred from surroundings
+19,12,19,11,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,laboratory,2bc,285,0,1c09 1c0a 100b 1c0c 62f3 6ef2 52f5 5ef4,True,hidden receiving lawn inferred from surroundings
+20,12,20,11,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+21,12,21,11,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,12,22,11,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,12,23,11,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,13,0,12,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,13,1,12,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,13,2,12,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,13,3,12,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+4,13,4,12,lawn,shared lawn / explicit light-lawn mask,,297,252,0,1aa0 1411 1a6b 1413 0000 0000 0000 0000,False,
+5,13,5,12,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,286,0,1818 1c19 181a 1c1b 52fc 56fd 5afe 5eff,False,
+6,13,6,12,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,287,0,1810 1411 1812 1413 52fc 56fd 5afe 5eff,False,
+7,13,7,12,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,286,0,1818 1c19 181a 1c1b 52fc 56fd 5afe 5eff,False,
+8,13,8,12,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,287,0,1810 1411 1812 1413 52fc 56fd 5afe 5eff,False,
+9,13,9,12,lawn,shared lawn / explicit light-lawn mask,,011,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,
+10,13,10,12,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,251,0,1810 1e9f 1812 1e68 0000 0000 0000 0000,False,
+11,13,11,12,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,13,12,12,lawn,shared lawn / explicit light-lawn mask,,297,252,0,1aa0 1411 1a6b 1413 0000 0000 0000 0000,False,
+13,13,13,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c0,289,0,1818 1c19 181a 1c1b 8300 6b01 8302 6703,True,hidden receiving lawn inferred from surroundings
+14,13,14,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c1,28a,0,1810 1411 1812 1413 6f04 6f05 6b06 6f07,True,hidden receiving lawn inferred from surroundings
+15,13,15,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2d0,28b,0,1818 1c19 181a 1c1b 6b08 6309 6b0a 6b0b,True,hidden receiving lawn inferred from surroundings
+16,13,16,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c2,28c,0,1810 1411 1812 1413 6b0c 6f0c 6b0d 6f0d,True,hidden receiving lawn inferred from surroundings
+17,13,17,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c3,28d,0,1818 1c19 181a 1c1b 6f0e 630f 6f0b 6f0a,True,hidden receiving lawn inferred from surroundings
+18,13,18,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c4,28e,0,1810 1411 1812 1413 6b10 6311 6b07 6f06,True,hidden receiving lawn inferred from surroundings
+19,13,19,12,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c5,28f,0,1818 1c19 181a 1c1b 6f01 8700 6303 8702,True,hidden receiving lawn inferred from surroundings
+20,13,20,12,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+21,13,21,12,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,13,22,12,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,13,23,12,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,14,0,13,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,14,1,13,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,14,2,13,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,14,3,13,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+4,14,4,13,lawn,shared lawn / explicit light-lawn mask,,297,243,0,2684 1402 1e85 1c04 0000 0000 0000 0000,False,
+5,14,5,13,flowers_on_lawn,shared lawn / explicit light-lawn mask,red-memorial;flowers,004,290,0,1c09 1c0a 100b 1c0c 52fc 56fd 5b12 5713,False,
+6,14,6,13,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,291,0,1401 1402 1803 1c04 52fc 56fd 5afe 5eff,False,
+7,14,7,13,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,292,0,1c09 1c0a 100b 1c0c 52fc 56fd 5afe 5eff,False,
+8,14,8,13,flowers_on_lawn,shared lawn / explicit light-lawn mask,flowers,004,291,0,1401 1402 1803 1c04 52fc 56fd 5afe 5eff,False,
+9,14,9,13,lawn,shared lawn / explicit light-lawn mask,,008,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+10,14,10,13,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,242,0,1401 1e82 1803 1a83 0000 0000 0000 0000,False,
+11,14,11,13,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,14,12,13,lawn,shared lawn / explicit light-lawn mask,,297,243,0,2684 1402 1e85 1c04 0000 0000 0000 0000,False,
+13,14,13,13,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c8,293,0,1c09 1c0a 100b 1c0c 8b14 6b15 6b16 6717,True,hidden receiving lawn inferred from surroundings
+14,14,14,13,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2c9,294,0,1401 1402 1803 1c04 6b18 6f19 6b1a 6b1a,True,hidden receiving lawn inferred from surroundings
+15,14,15,13,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2d8,295,0,1c09 1c0a 100b 1c0c 6f1b 671c 6b1a 6b1d,True,hidden receiving lawn inferred from surroundings
+16,14,16,13,lab_entrance,shared lawn / explicit light-lawn mask,laboratory,2ac,296,0,1401 1402 1803 1c04 731e 771f 7b20 7f21,True,hidden receiving lawn inferred from surroundings
+17,14,17,13,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2cb,297,0,1c09 1c0a 100b 1c0c 631c 6f22 6f1d 6b1a,True,hidden receiving lawn inferred from surroundings
+18,14,18,13,lab_wall_window,shared lawn / explicit light-lawn mask,laboratory,2cc,298,0,1401 1402 1803 1c04 6b23 6f24 6b1a 6b1a,True,hidden receiving lawn inferred from surroundings
+19,14,19,13,lawn_contact_shadow,shared lawn / explicit light-lawn mask,laboratory,2cd,299,0,1c09 1c0a 100b 1c0c 6f15 8f14 6325 6f16,False,
+20,14,20,13,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+21,14,21,13,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,14,22,13,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,14,23,13,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,15,0,14,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,15,1,14,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,15,2,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,15,3,14,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+4,15,4,14,lawn,shared lawn / explicit light-lawn mask,,297,252,0,1aa0 1411 1a6b 1413 0000 0000 0000 0000,False,
+5,15,5,14,sign,shared lawn / explicit light-lawn mask,red-memorial,003,29a,0,1818 1c19 181a 1c1b 96ed 92ee 9aef 9eef,False,
+6,15,6,14,lawn,shared lawn / explicit light-lawn mask,,009,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,
+7,15,7,14,lawn,shared lawn / explicit light-lawn mask,,011,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,
+8,15,8,14,lawn,shared lawn / explicit light-lawn mask,,009,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,
+9,15,9,14,lawn,shared lawn / explicit light-lawn mask,,011,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,
+10,15,10,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,295,251,0,1810 1e9f 1812 1e68 0000 0000 0000 0000,False,
+11,15,11,14,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,15,12,14,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,269,0,1ab5 161f 1830 1431 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+13,15,13,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+14,15,14,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+15,15,15,14,lawn,shared lawn / explicit light-lawn mask,,2be,267,0,1a0c 1eb2 1834 1c35 0000 0000 0000 0000,False,
+16,15,16,14,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+17,15,17,14,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,266,0,1ab1 1e1d 1834 1c35 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+18,15,18,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20f,0,121e 161f 1830 1431 0000 0000 0000 0000,False,
+19,15,19,14,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,20e,0,1e1c 1e1d 1834 1c35 0000 0000 0000 0000,False,
+20,15,20,14,lawn,shared lawn / explicit light-lawn mask,,28c,29c,0,1e2a 142f 1830 1431 0000 0000 0000 0000,False,
+21,15,21,14,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,15,22,14,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,15,23,14,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,16,0,15,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,16,1,15,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,16,2,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,20c,0,1218 1619 2a02 1e03 0000 0000 0000 0000,False,
+3,16,3,15,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+4,16,4,15,lab_wall_window,shared lawn / explicit light-lawn mask,,2bf,29d,0,1326 1f27 1828 1429 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+5,16,5,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,29e,0,1f28 1f29 102c 1c2d 0000 0000 0000 0000,False,
+6,16,6,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,29f,0,232a 1f27 1828 1429 0000 0000 0000 0000,False,
+7,16,7,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,29e,0,1f28 1f29 102c 1c2d 0000 0000 0000 0000,False,
+8,16,8,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,29f,0,232a 1f27 1828 1429 0000 0000 0000 0000,False,
+9,16,9,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,28e,29e,0,1f28 1f29 102c 1c2d 0000 0000 0000 0000,False,
+10,16,10,15,lawn,shared lawn / explicit light-lawn mask,,2be,2a0,0,272b 1f2c 1828 1429 0000 0000 0000 0000,False,
+11,16,11,15,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,16,12,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c7,27a,0,12e5 16e6 1e85 1c04 0000 0000 0000 0000,False,
+13,16,13,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a1,0,1b2d 1b2e 100b 1c0c 0000 0000 0000 0000,False,
+14,16,14,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a2,0,16f0 1f2f 1803 1c04 0000 0000 0000 0000,False,
+15,16,15,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a1,0,1b2d 1b2e 100b 1c0c 0000 0000 0000 0000,False,
+16,16,16,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,lab-sign,29e,2a3,0,16f0 1f2f 1803 1c04 8330 8730 8731 8332,False,
+17,16,17,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a1,0,1b2d 1b2e 100b 1c0c 0000 0000 0000 0000,False,
+18,16,18,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a2,0,16f0 1f2f 1803 1c04 0000 0000 0000 0000,False,
+19,16,19,15,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2c6,2a4,0,1b2d 1f33 100b 1e87 0000 0000 0000 0000,False,
+20,16,20,15,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,16,21,15,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,16,22,15,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,16,23,15,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,17,0,16,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,17,1,16,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,17,2,16,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,2ae,228,0,1e4e 162b 1a0a 160b 0000 0000 0000 0000,False,
+3,17,3,16,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+4,17,4,16,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+5,17,5,16,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+6,17,6,16,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+7,17,7,16,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+8,17,8,16,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+9,17,9,16,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+10,17,10,16,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+11,17,11,16,lawn,shared lawn / explicit light-lawn mask,,296,231,0,1c32 1c33 1834 1c35 0000 0000 0000 0000,False,
+12,17,12,16,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,290,2a5,0,1b34 1411 1b35 1736 0000 0000 0000 0000,False,
+13,17,13,16,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,287,2a6,0,1818 1c19 1b37 1b38 72e9 72e9 8aea 8aea,False,
+14,17,14,16,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,287,2a7,0,1810 1411 1b39 173a 72e9 72e9 8aea 8aea,False,
+15,17,15,16,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,287,2a6,0,1818 1c19 1b37 1b38 72e9 72e9 8aea 8aea,False,
+16,17,16,16,sign,shared lawn / explicit light-lawn mask,lab-sign,002,2a8,0,1810 1411 1812 1413 8b3b 8f3c 533d 533d,False,
+17,17,17,16,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,287,2a6,0,1818 1c19 1b37 1b38 72e9 72e9 8aea 8aea,False,
+18,17,18,16,picket_fence,shared lawn / explicit light-lawn mask,picket-fence,287,2a7,0,1810 1411 1b39 173a 72e9 72e9 8aea 8aea,False,
+19,17,19,16,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,288,2a9,0,1818 1f3e 1b3f 1f40 0000 0000 0000 0000,False,
+20,17,20,16,lawn,shared lawn / explicit light-lawn mask,,296,23a,0,142e 142f 1830 1431 0000 0000 0000 0000,False,
+21,17,21,16,lawn,shared lawn / explicit light-lawn mask,,297,23b,0,1a70 1c19 1a31 1c1b 0000 0000 0000 0000,False,
+22,17,22,16,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,17,23,16,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,18,0,17,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,18,1,17,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,18,2,17,lab_roof_rim_chimney,shared lawn / explicit light-lawn mask,,2b6,2aa,0,1341 16e6 1803 1c04 0000 0000 0000 0000,True,hidden receiving lawn inferred from surroundings
+3,18,3,17,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a1,0,1b2d 1b2e 100b 1c0c 0000 0000 0000 0000,False,
+4,18,4,17,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a2,0,16f0 1f2f 1803 1c04 0000 0000 0000 0000,False,
+5,18,5,17,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a1,0,1b2d 1b2e 100b 1c0c 0000 0000 0000 0000,False,
+6,18,6,17,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,2a2,0,16f0 1f2f 1803 1c04 0000 0000 0000 0000,False,
+7,18,7,17,shore_lip_and_water,HGSS water / rock shore lip,,2d1,2ab,0,0f42 0f43 0f44 0745 0000 0000 0000 0000,False,
+8,18,8,17,shore_lip_and_water,HGSS water / rock shore lip,,123,2ac,0,0f46 0747 0b48 0349 0000 0000 0000 0000,False,
+9,18,9,17,shore_lip_and_water,HGSS water / rock shore lip,,123,2ad,0,0f4a 0f43 0f4b 0745 0000 0000 0000 0000,False,
+10,18,10,17,shore_lip_and_water,HGSS water / rock shore lip,,2d2,2ae,0,0f46 034c 0b48 034d 0000 0000 0000 0000,False,
+11,18,11,17,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+12,18,12,17,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+13,18,13,17,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+14,18,14,17,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+15,18,15,17,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+16,18,16,17,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+17,18,17,17,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+18,18,18,17,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+19,18,19,17,lawn,shared lawn / explicit light-lawn mask,,296,21b,0,1c2a 1c2b 102c 1c2d 0000 0000 0000 0000,False,
+20,18,20,17,lawn,shared lawn / explicit light-lawn mask,,296,21c,0,1426 1427 1828 1429 0000 0000 0000 0000,False,
+21,18,21,17,lawn,shared lawn / explicit light-lawn mask,,297,227,0,1a4c 1c0a 124d 1c0c 0000 0000 0000 0000,False,
+22,18,22,17,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,18,23,17,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,19,0,18,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01c,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+1,19,1,18,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01f,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+2,19,2,18,lawn,shared lawn / explicit light-lawn mask,,011,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,
+3,19,3,18,lawn,shared lawn / explicit light-lawn mask,,011,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,
+4,19,4,18,lawn,shared lawn / explicit light-lawn mask,,009,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,
+5,19,5,18,lawn,shared lawn / explicit light-lawn mask,,011,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,
+6,19,6,18,lawn,shared lawn / explicit light-lawn mask,,009,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,
+7,19,7,18,shore_lip_and_water,HGSS water / rock shore lip,,12a,2af,0,074e 043b 074f 0c3d 0000 0000 0000 0000,False,
+8,19,8,18,water,HGSS water / rock shore lip,,12b,2b0,0,0036 0437 0c38 0839 0000 0000 0000 0000,False,
+9,19,9,18,water,HGSS water / rock shore lip,,12b,2b1,0,083a 043b 043c 0c3d 0000 0000 0000 0000,False,
+10,19,10,18,shore_lip_and_water,HGSS water / rock shore lip,,12c,2b2,0,0036 0350 0c38 0b51 0000 0000 0000 0000,False,
+11,19,11,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+12,19,12,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+13,19,13,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+14,19,14,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+15,19,15,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+16,19,16,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+17,19,17,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+18,19,18,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+19,19,19,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,233,0,1a6c 1a6d 181a 1c1b 0000 0000 0000 0000,False,
+20,19,20,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29e,22a,0,1251 1652 1812 1413 0000 0000 0000 0000,False,
+21,19,21,18,lawn_contact_shadow,shared lawn / explicit light-lawn mask,,29f,2b3,0,1f52 1c19 181a 1c1b 0000 0000 0000 0000,False,
+22,19,22,18,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01e,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,hidden receiving lawn inferred from surroundings
+23,19,23,18,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,01d,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,hidden receiving lawn inferred from surroundings
+0,20,0,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,014,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+1,20,1,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,017,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+2,20,2,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00e,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,hidden receiving lawn inferred from surroundings
+3,20,3,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00f,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,hidden receiving lawn inferred from surroundings
+4,20,4,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00e,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,hidden receiving lawn inferred from surroundings
+5,20,5,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00f,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,hidden receiving lawn inferred from surroundings
+6,20,6,19,lawn,shared lawn / explicit light-lawn mask,,008,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,
+7,20,7,19,shore_lip_and_water,HGSS water / rock shore lip,,12a,2b4,0,0f53 0354 0f44 0745 0000 0000 0000 0000,False,
+8,20,8,19,water,HGSS water / rock shore lip,,12b,2b5,0,0755 0356 0b48 0349 0000 0000 0000 0000,False,
+9,20,9,19,water,HGSS water / rock shore lip,,12b,2b6,0,0f57 0354 0f4b 0745 0000 0000 0000 0000,False,
+10,20,10,19,shore_lip_and_water,HGSS water / rock shore lip,,12c,2b7,0,0755 0358 0b48 034d 0000 0000 0000 0000,False,
+11,20,11,19,lawn,shared lawn / explicit light-lawn mask,,011,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+12,20,12,19,lawn,shared lawn / explicit light-lawn mask,,008,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,
+13,20,13,19,lawn,shared lawn / explicit light-lawn mask,,011,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+14,20,14,19,lawn,shared lawn / explicit light-lawn mask,,008,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,
+15,20,15,19,lawn,shared lawn / explicit light-lawn mask,,011,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+16,20,16,19,lawn,shared lawn / explicit light-lawn mask,,008,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,
+17,20,17,19,lawn,shared lawn / explicit light-lawn mask,,011,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,
+18,20,18,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00e,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,hidden receiving lawn inferred from surroundings
+19,20,19,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00f,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,hidden receiving lawn inferred from surroundings
+20,20,20,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00e,200,0,1401 1402 1803 1c04 3005 3006 3007 3808,True,hidden receiving lawn inferred from surroundings
+21,20,21,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree,00f,201,0,1c09 1c0a 100b 1c0c 340d 3405 3c0e 340f,True,hidden receiving lawn inferred from surroundings
+22,20,22,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,016,208,0,1401 1402 1803 1c04 3820 3c21 3022 3808,True,hidden receiving lawn inferred from surroundings
+23,20,23,19,tree_canopy_trunk_root,shared lawn / explicit light-lawn mask,shared-tree;shared-tree,015,209,0,1c09 1c0a 100b 1c0c 3823 3c24 3c0e 3425,True,hidden receiving lawn inferred from surroundings
+0,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+1,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+2,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+3,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+4,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+5,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+6,21,,,outside reference,shared lawn / explicit light-lawn mask,,,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+7,21,,,outside reference,HGSS water / rock shore lip,,,2af,0,074e 043b 074f 0c3d 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+8,21,,,outside reference,HGSS water / rock shore lip,,,2b0,0,0036 0437 0c38 0839 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+9,21,,,outside reference,HGSS water / rock shore lip,,,2b1,0,083a 043b 043c 0c3d 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+10,21,,,outside reference,HGSS water / rock shore lip,,,2b2,0,0036 0350 0c38 0b51 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+11,21,,,outside reference,shared lawn / explicit light-lawn mask,,,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+12,21,,,outside reference,shared lawn / explicit light-lawn mask,,,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+13,21,,,outside reference,shared lawn / explicit light-lawn mask,,,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+14,21,,,outside reference,shared lawn / explicit light-lawn mask,,,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+15,21,,,outside reference,shared lawn / explicit light-lawn mask,,,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+16,21,,,outside reference,shared lawn / explicit light-lawn mask,,,29b,0,1810 1411 1812 1413 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+17,21,,,outside reference,shared lawn / explicit light-lawn mask,,,288,0,1818 1c19 181a 1c1b 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+18,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+19,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+20,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+21,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+22,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,204,0,1810 1411 1812 1413 3814 3815 3816 3417,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+23,21,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,205,0,1818 1c19 181a 1c1b 3c1c 381d 341e 3c1f,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+0,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+1,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+2,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+3,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+4,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+5,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+6,22,,,outside reference,shared lawn / explicit light-lawn mask,,,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+7,22,,,outside reference,HGSS water / rock shore lip,,,2b4,0,0f53 0354 0f44 0745 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+8,22,,,outside reference,HGSS water / rock shore lip,,,2b5,0,0755 0356 0b48 0349 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+9,22,,,outside reference,HGSS water / rock shore lip,,,2b6,0,0f57 0354 0f4b 0745 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+10,22,,,outside reference,HGSS water / rock shore lip,,,2b7,0,0755 0358 0b48 034d 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+11,22,,,outside reference,shared lawn / explicit light-lawn mask,,,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+12,22,,,outside reference,shared lawn / explicit light-lawn mask,,,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+13,22,,,outside reference,shared lawn / explicit light-lawn mask,,,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+14,22,,,outside reference,shared lawn / explicit light-lawn mask,,,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+15,22,,,outside reference,shared lawn / explicit light-lawn mask,,,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+16,22,,,outside reference,shared lawn / explicit light-lawn mask,,,23c,0,1401 1402 1803 1c04 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+17,22,,,outside reference,shared lawn / explicit light-lawn mask,,,244,0,1c09 1c0a 100b 1c0c 0000 0000 0000 0000,False,canopy apron; original edge traversal extended
+18,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+19,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+20,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+21,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+22,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20a,0,1401 1402 1803 1c04 3a10 3a11 3a12 3a13,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings
+23,22,,,outside reference,shared lawn / explicit light-lawn mask,shared-tree,,20b,0,1c09 1c0a 100b 1c0c 3a14 3e15 3e16 3e17,True,canopy apron; original edge traversal extended;hidden receiving lawn inferred from surroundings

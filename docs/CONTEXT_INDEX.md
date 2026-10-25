@@ -12,7 +12,8 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
-| Pallet Town — HGSS models converted with FRLG reference (October 25) | ../gba/art/pallet-town/README.md | Five native maps, Porytiles/Porymap, 1,030-cell audit, mGBA doors/stairs/water/311 blocks/save/Continue; source `codex/pallet-town` against `apocrypha`; owner review pending |
+| Pallet Town — fresh rebuild after rejection (October 25) | ../gba/art/pallet-town-rebuild/README.md | Fresh FRLG trace/HGSS models, complete facade/fence/tree fits, all floors, animated water, native/Porymap/ROM evidence; source `codex/pallet-town-rebuild`; owner review pending |
+| Rejected Pallet Town proposal | ../gba/art/pallet-town/README.md | Historical only; superseded by the fresh rebuild above |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Routes 30 and 31, Mahogany/Route 43 process (October 25) | ../gba/art/route30-catalog/README.md, ../gba/art/route31-catalog/README.md | HGSS only, built like Route 29: one CherrygrovePrimary copy per route, joint pack with shared seam ids (`tools/gba/maps/route30_catalog/pair_pack.py`), Route 30's two north padding rows, engine primary reload and redraw on crossing; tools `tools/gba/maps/route30_catalog/`, `route31_catalog/`; PR #39 (`claude/routes-30-31-catalog`); owner visual review pending |

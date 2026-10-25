@@ -1,3 +1,23 @@
+## Latest: Pallet Town rebuilt after owner rejection (October 25)
+
+The owner rejected the first HGSS Pallet proposal and requested the complete process again.
+Fresh FRLG reference/material/traversal trace and freshly decoded HGSS models now supply all five
+maps. Complete house facades, fence posts, readable light lawn, full shared trees, bedroom rug and
+native animated water replace the rejected conversion. Original 24x20 core registers at (0,1)
+in a 24x23 exterior; 72 canopy-apron cells are explicit. Interior registration stays unchanged.
+
+Engine `codex/pallet-town-rebuild`, commit `b02c5c97c070368592fc1b60c0c679aa816d5a79`.
+The 1,030 original cells preserve collision/elevation/behavior; all 1,102 native cells match source
+RGB5 pixels and actual Porymap output. ROM/VRAM/palettes and 19 mGBA phases pass (walking, three
+animated doors/returns, both stairs, dialogue, 317 blocked edges, water animation/Surf/dismount,
+ordinary saves, cold reload and title Continue on all floors). Pixel checks are not visual acceptance.
+
+Read `gba/art/pallet-town-rebuild/README.md`, `REVIEW.md` and preservation/runtime identities.
+Current limits: Route 1/21/campaign access/HM acquisition unbuilt; southern off-map forest border
+visible near the unwired boundary; dialogue and model/material fits are proposals. Prior Pallet
+versions are rejected historical evidence, not accepted source. IDs and all unrelated maps/art stay
+intact. Native source owns later editing; do not replay generators over subsequent owner changes.
+
 ## Latest: Routes 30 and 31 by the Mahogany/Route 43 process (October 25)
 
 Owner: "do the routes between Cherrygrove and Violet City in the same manner" as Route 29. Both are HGSS
