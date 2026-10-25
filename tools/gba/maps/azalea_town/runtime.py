@@ -13,14 +13,16 @@ steps=r'''
  go(50,14,18);step(DOWN,9);step(RIGHT,14);at(50,28,27,"southern-loop");shot("southern-loop");step(UP,3);at(50,28,24,"eastern-Gym-loop");step(LEFT,3);at(50,26,24,"Gym-lawn-edge");shot("gym-east");
  go(50,20,25);shot("Azalea-gym");step(UP,1);at(50,20,25,"Gym-interior-not-wired");
  go(50,28,24);step(RIGHT,6);step(UP,2);at(50,34,22,"ordinary-house-approach");shot("ordinary-house");step(UP,1);at(50,34,22,"house-interior-not-wired");
- go(50,38,17);step(RIGHT,8);step(DOWN,1);step(RIGHT,2);step(UP,2);at(50,48,16,"well-court-approach");shot("Slowpoke-Well");step(UP,1);at(50,48,16,"well-interior-not-wired");
- go(50,43,10);shot("well-west-stairs");step(RIGHT,2);at(50,45,10,"well-side-stairs-eastbound");shot("well-upper-landing");step(LEFT,2);at(50,43,10,"well-side-stairs-westbound");
- go(50,43,12);step(LEFT,1);at(50,43,12,"well-outer-west-wall");step(RIGHT,1);at(50,43,12,"well-inner-west-wall");
- go(50,49,17);step(UP,1);at(50,49,16,"well-south-stairs-northbound");shot("well-south-stairs");step(DOWN,1);at(50,49,17,"well-south-stairs-southbound");
- go(50,52,16);step(DOWN,1);at(50,52,18,"well-lower-return-down-ledge");shot("well-lower-return");step(UP,1);at(50,52,18,"well-lower-return-blocks-climb");
- go(50,52,9);step(UP,1);at(50,52,8,"well-ramp-east-landing");step(LEFT,1);at(50,52,8,"well-ramp-face-blocks");shot("well-ramp-landing");
- go(50,52,12);step(RIGHT,1);at(50,52,12,"well-outer-east-wall");shot("well-east-corridor");
- go(50,49,17);step(DOWN,2);step(LEFT,2);step(DOWN,1);at(50,47,21,"east-field-south-ledge-jump");step(UP,1);at(50,47,21,"east-field-ledge-blocked-return");shot("eastern-field");
+ // Original HGSS spiral: town -> east corridor -> northern slope -> west court.
+ go(50,49,20);shot("well-spiral-entry");step(UP,2);at(50,49,18,"well-east-access-landing");step(RIGHT,4);at(50,53,18,"well-east-corridor-south");shot("well-east-corridor");
+ step(UP,9);at(50,53,9,"well-northern-ramp-east");shot("well-ramp-east");step(LEFT,7);at(50,46,9,"well-northern-ramp-west");shot("well-ramp-west");
+ step(DOWN,6);at(50,46,15,"well-west-court-passage");step(RIGHT,2);at(50,48,15,"well-court-approach");shot("Slowpoke-Well");step(UP,1);at(50,48,15,"well-unwired-interior-blocked");
+ step(DOWN,1);at(50,48,15,"well-south-back-wall-no-invented-stairs");shot("well-south-back-wall");
+ step(RIGHT,2);at(50,50,15,"well-east-court-passage");step(UP,4);at(50,50,11,"well-east-court-return");shot("well-court-east");
+ go(50,46,13);step(LEFT,1);at(50,46,13,"well-west-descending-rock-wall");shot("well-west-wall");
+ go(50,53,13);step(RIGHT,1);at(50,53,13,"well-east-outer-rock-wall");step(LEFT,1);at(50,53,13,"well-east-inner-rock-wall");
+ go(50,48,15);step(LEFT,2);step(UP,6);step(RIGHT,7);step(DOWN,9);step(LEFT,4);step(DOWN,2);at(50,49,20,"well-spiral-return-to-town");shot("well-spiral-return");
+ go(50,47,19);step(DOWN,1);at(50,47,19,"well-sign-blocked");shot("well-sign");
  go(50,48,24);step(RIGHT,15);at(50,62,24,"Route33-integration-pending-boundary");shot("east-approach");
  go(50,14,18);step(LEFT,6);at(50,8,18,"Ilex-gate-approach");step(LEFT,1);at(50,8,18,"Ilex-gate-interior-pending");shot("Ilex-gate");
  go(50,8,17);step(LEFT,1);at(50,8,17,"Ilex-gate-northern-bypass-blocked");shot("gate-north-closure");

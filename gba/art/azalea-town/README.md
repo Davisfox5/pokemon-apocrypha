@@ -1,9 +1,11 @@
 # Azalea Town — HGSS-based native exterior
 
 A separate area on engine `codex/azalea-town` and hub `codex/azalea-evidence`.
-Engine source `9de3b41845` (full identity in `evidence/build.json`).
+Engine source `4d8fbbfa03` (full identity in `evidence/build.json`).
 Route33 map/layout/art/source is untouched; this work branches from engine
 `eb15d8923401af86bb12670c6627c2bfba1e3d0a`.
+
+**Current well scene:** rebuilt from decoded HGSS terrain, engine `4d8fbbfa03`. Start with [HGSS/native](evidence/well-scene-comparison.png), [native scene](evidence/well-scene-current.png), [exact grid](evidence/well-scene-grid.png) and [true height plan](evidence/well-scene-heights.png). Previous well geometry, inferred positive levels and image-generated drawing bases are rejected reference history, not current source.
 
 ## Visual review
 
@@ -39,8 +41,8 @@ Only Azalea-specific thatched houses, Gym, well, timber piles and the small ston
 need local assets; source polygons and native palette cleanup are preserved.
 Gym green signage remains opaque architectural art. The chimney stays gray.
 
-There are now 280 complete32×48 tree masters (two removed for Kurt’s yard, five added behind the gate). Roots occupy distinct2×2 cells; supported
-canopy overlap is32px between rows. The row beside Kurt's woodpiles shifts16px
+There are now263 complete32×48 tree masters; the well woods are rebuilt from decoded HGSS, with exclusive roots. Roots occupy distinct2×2 cells; supported
+rows use32px pitch, with11px overlap in the43px drawn silhouette. The row beside Kurt's woodpiles shifts16px
 without overlapping roots or exposing a missing-tree corridor. Roofs draw above
 walking space while the actual walls/bases block, preserving the street behind
 the southeast roof. Dirt/grass edges and the well apron use a coherent native rim.
@@ -60,7 +62,7 @@ Current source is `data/maps/JohtoAzaleaTown`, its layout, and the private
 ledgers, foreground/background layers and canonical masters are under `source/`.
 The original native tree/building/scenery PNGs remain unchanged.
 
-987 static native glyphs,435 metatiles and13 BG palette banks. The full16-tile animated-door reserve is free, with21 further static slots available. Porymap6.3.1 exports equal the decoded native output across2112 cells.
+992 static native glyphs,445 metatiles and13 unchanged BG palette banks. The full16-tile animated-door reserve is free, with16 further static slots available. Porymap6.3.1 exports equal the decoded native output across2112 cells.
 Source root footprints, native attributes, complete well rock masters, connected
 approaches and shared master pixels are checked by `review.py`. Arm GNU14.2.1
 build and actual headless movement/barrier/ledge/closed-door approach checks pass,
@@ -160,7 +162,7 @@ Porymap6.3.1 and native RGB agree across all 2112 cells. Native wall/stair/foreg
 **Historical capacity error, fixed below:** this rejected static exterior used 1024/1024 graphics and 435 metatiles, with all13 palette banks unchanged. Engine loading supports all1024 tiles, both Azalea tileset callbacks are NULL, and the map has no events/warps. The upper16 slots also serve animated doors in `field_door.c`: **repack below1008 before wiring animated interiors**. The installer guards the static/no-events assumption. No engine-wide capacity settings were changed.
 
 
-### Current well contour rebuild and door-reserve correction
+### Historical rejected well contour rebuild / retained door-reserve correction
 
 Engine `9de3b41845` supersedes the rejected stretched/tapered well assembly. The reference is measured in registered screen-space bands before selecting complete shared R02 family tiles: north outer face about24px, separate lower course8–16px, court north/south faces16px. The editable [elevation plan](source/well-elevation-rebuild/elevation-plan.json) records town0, court+1, upper terrace+2 and north rim+4; +3 is an intermediate wall-course seam, not an invented walking strip. These are **inferred ordinal tiers**, not decoded DS heights or metres. Hidden side geometry and the northern taper remain interpretations. The native northern faces use full16px courses, with no24px stretch,12/8px slicing or repainted corners. Existing complete stair placeholders and southern ledge are retained.
 
@@ -176,3 +178,39 @@ Each map can select its own primary/secondary pair; Azalea already has a private
 Lossless H/V pattern deduplication and reuse of background pixels fully hidden by foreground objects reduce the private pair to **987/1008 static tiles**, leaving21 additional static slots and all16 door slots. Reserved slots are zero and no metatile references them. Retired unreferenced draft metatile slots are cleared without renumbering active IDs; their prior contents remain in Git history. Palettes stay unchanged. Final decoded RGB proves there are **zero visible changes outside the well**, including Kurt’s property and the repaired gate. No other map or shared tileset is repacked.
 
 `well_elevation_art.py` reconstructs local target art only from fixed preserved inputs; `well_elevation_install.py ENGINE` is a narrow hash-guarded patch expecting d41fc5718c, not a town generator. `well_elevation_evidence.py` publishes comparisons. Inputs, rejected-before snapshots, shared originals, receiving-palette variants, whole-module coordinates and the authored level ledger are retained in `source/well-elevation-rebuild/`. The detached patch reproduces all42 tracked native Azalea files. Porymap/native output, visible shared masters, tree roots, stair axes, wall/ledge barriers, both gate closures, normal saves, cold reload, Continue and a copied previous save pass. Owner visual acceptance remains pending. Interiors, animated-door wiring and adjacent-map connections are still outside this exterior pass.
+
+
+### Fresh complete Slowpoke Well reconstruction (October 25)
+
+Engine **`4d8fbbfa033a4703a3df5df4d6751c07fed10f4b`**, `codex/azalea-town`, replaces the whole rejected well scene. Other town buildings, Kurt’s property, the gate closure and Route33 are unchanged. The local reset starts from plain grass and reusable assets; no old well wall placements or image-generated edits supply the layout.
+
+**Actual reference:** `pret/pokeheartgold@6988158691eb6178cff697cda0428045ddcba5fb`, header74, area4, EVERYWHERE matrix origin[12,14], land chunks decoded by `well_hgss_render.py`. The terrain mesh, material IDs, original collision bytes and well/sign model placements are recorded in `source/well-scene/`. Raw archives stay outside Git, with SHA256 provenance. The scene uses one native16px cell per HGSS cell, registered **native = HGSS +(-1,+7)** to retain its position within the already-built town. The older screenshot registration applies only to preserved town context, not this rebuilt scene.
+
+The town floor is world Y=1 and the well court Y=-2: **three levels below the lawn**, not the raised court the rejected plan invented. The original eastern corridor, northern grassy slope and inner side passages replace the invented southern staircase/access. Wall cells use their actual high edge and signed lower neighbors to select facing and inner/outer corners. Existing FRLG General modules use the same directional construction as the accepted Blackthorn/Mahogany method, in Azalea’s existing Johto rock ramp. No wall face is resized, stretched or sliced to manufacture depth. The native rock quadrants are existing8px modules with a ledger of their source/role at all102 cliff cells.
+
+T01 trees retain complete silhouettes and exclusive2×2 roots on HGSS wood cells. Thirty complete trees rebuild this scene; total263 in town. Both roots and canopy pixels are checked against every vertical face: zero overlaps. The well reuses its transparent existing local master. The sign uses shared P13. The little15×8 `etc_a` stone is decoded directly and converted to the existing stone palette, replacing the oversized generic boulder. The larger western boulder reuses its existing transparent master and shifts8px west to keep it fully off the wall. A larger native foreground well footprint closes three HGSS entrance cells pending the separately scoped interior; the original side passages stay open.
+
+Ground classification reads the **texture colors as well as the material name**: HGSS `road01_r` includes grass corners. The actual dirt mask is mapped to8px native ground pieces, copied from the locked existing Cherrygrove-style kit. This preserves the rounded apron rather than filling the whole rectangular road texture. Two diagonal-only ground-key adaptations are explicit; no cardinal boundary changes. Original flower cells reuse shared native flowers. No NPCs, dialogue, quests, encounters, interior warps or campaign mechanics are added.
+
+- [HGSS left / actual native right](evidence/well-scene-comparison.png), no generated redraw
+- [Native scene](evidence/well-scene-current.png), [whole town](evidence/native-map-2x.png)
+- [Exact16px grid](evidence/well-scene-grid.png), [decoded relative levels](evidence/well-scene-heights.png)
+- [Eight corner/join inspections](evidence/well-scene-corners.png), [coordinate findings and material/collision audit](evidence/well-scene-rebuild.json)
+- [Native gameplay at the court](evidence/gameplay/Slowpoke-Well.png), [eastern corridor](evidence/gameplay/well-east-corridor.png), [northern ramp](evidence/gameplay/well-ramp-east.png), [closed southern back wall](evidence/gameplay/well-south-back-wall.png)
+- [Native-source reproduction](evidence/well-scene-reproduction.json), [HGSS decoder reproduction](evidence/well-scene-hgss-reproduction.json), [art reconstruction hashes](evidence/well-scene-art-reproduction.json), [copied prior save](evidence/well-scene-previous-save.json)
+
+**Checks:** all332 audited original collision cells match except the three explicitly closed well entrance cells. All102 wall cells, eight detailed joins, actual native/Porymap RGB, shared master pixels, complete roots, both traversal directions around the spiral, wall/sign blockers, absence of the southern shortcut and both retained gate closures pass. Normal save, cold reload and title Continue pass; a copy of the prior9de save from the central street also passes without changing the original. The fixed art inputs regenerate byte-for-byte, all42 tracked Azalea native files reproduce on a detached9de baseline, and the original terrain-height/material arrays and reference renders reproduce from their archives. These functional checks do not establish owner visual approval.
+
+**Capacity/source scope:** 992/1008 static tiles,445 metatiles,13 unchanged palettes;16 spare static tiles plus all16 reserved door slots. Exact pattern/flip deduplication and only already-occluded background reuse preserve every visible pixel outside the scene. Palette values and indices remain unchanged. Only five engine files change: this map’s map.bin, private primary metatiles/attributes and the two tile sheets. No ROM, saves or binaries are committed.
+
+**Reproduce, on a separate baseline checkout:**
+
+```sh
+python3 tools/gba/maps/azalea_town/well_hgss_render.py HGSS_REFERENCE OUT_REFERENCE
+python3 tools/gba/maps/azalea_town/well_scene_art.py ENGINE_AT_9de3b41845
+python3 tools/gba/maps/azalea_town/well_scene_install.py ENGINE_AT_9de3b41845
+```
+
+The local art builder reads fixed preserved snapshots and decoded ledgers. The installer hash-guards the native baseline; it is not the town generator and must never be replayed over later native edits. Current maps are edited natively in Porymap. `well_scene_evidence.py`, `review.py`, `runtime.py` and `publish.py` capture the current proof. Keep all previous workbenches, owner saves and drafts intact.
+
+Remaining limits: the northern slope is quantized to native levels, the reused well has an explicitly adapted footprint, northern padding continues the forest beyond the original matrix edge, and interiors/adjacent-map connections remain unwired. Owner visual acceptance is pending. Hosted CI is not claimed.

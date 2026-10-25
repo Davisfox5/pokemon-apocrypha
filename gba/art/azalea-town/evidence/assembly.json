@@ -349,46 +349,6 @@
       4
     ],
     [
-      40,
-      4
-    ],
-    [
-      42,
-      4
-    ],
-    [
-      44,
-      4
-    ],
-    [
-      46,
-      4
-    ],
-    [
-      48,
-      4
-    ],
-    [
-      50,
-      4
-    ],
-    [
-      52,
-      4
-    ],
-    [
-      54,
-      4
-    ],
-    [
-      56,
-      4
-    ],
-    [
-      58,
-      4
-    ],
-    [
       60,
       4
     ],
@@ -434,22 +394,6 @@
     ],
     [
       30,
-      6
-    ],
-    [
-      40,
-      6
-    ],
-    [
-      54,
-      6
-    ],
-    [
-      56,
-      6
-    ],
-    [
-      58,
       6
     ],
     [
@@ -501,22 +445,6 @@
       8
     ],
     [
-      40,
-      8
-    ],
-    [
-      54,
-      8
-    ],
-    [
-      56,
-      8
-    ],
-    [
-      58,
-      8
-    ],
-    [
       60,
       8
     ],
@@ -549,22 +477,6 @@
       10
     ],
     [
-      40,
-      10
-    ],
-    [
-      54,
-      10
-    ],
-    [
-      56,
-      10
-    ],
-    [
-      58,
-      10
-    ],
-    [
       60,
       10
     ],
@@ -577,22 +489,6 @@
       12
     ],
     [
-      40,
-      12
-    ],
-    [
-      54,
-      12
-    ],
-    [
-      56,
-      12
-    ],
-    [
-      58,
-      12
-    ],
-    [
       60,
       12
     ],
@@ -601,36 +497,12 @@
       12
     ],
     [
-      54,
-      14
-    ],
-    [
-      56,
-      14
-    ],
-    [
-      58,
-      14
-    ],
-    [
       60,
       14
     ],
     [
       62,
       14
-    ],
-    [
-      54,
-      16
-    ],
-    [
-      56,
-      16
-    ],
-    [
-      58,
-      16
     ],
     [
       60,
@@ -642,30 +514,6 @@
     ],
     [
       38,
-      18
-    ],
-    [
-      40,
-      18
-    ],
-    [
-      42,
-      18
-    ],
-    [
-      44,
-      18
-    ],
-    [
-      54,
-      18
-    ],
-    [
-      56,
-      18
-    ],
-    [
-      58,
       18
     ],
     [
@@ -701,30 +549,6 @@
       20
     ],
     [
-      40,
-      20
-    ],
-    [
-      42,
-      20
-    ],
-    [
-      44,
-      20
-    ],
-    [
-      54,
-      20
-    ],
-    [
-      56,
-      20
-    ],
-    [
-      58,
-      20
-    ],
-    [
       60,
       20
     ],
@@ -754,18 +578,6 @@
     ],
     [
       38,
-      22
-    ],
-    [
-      40,
-      22
-    ],
-    [
-      42,
-      22
-    ],
-    [
-      44,
       22
     ],
     [
@@ -1131,9 +943,129 @@
     [
       6,
       14
+    ],
+    [
+      40,
+      4
+    ],
+    [
+      42,
+      4
+    ],
+    [
+      44,
+      4
+    ],
+    [
+      46,
+      4
+    ],
+    [
+      48,
+      4
+    ],
+    [
+      50,
+      4
+    ],
+    [
+      52,
+      4
+    ],
+    [
+      54,
+      4
+    ],
+    [
+      56,
+      4
+    ],
+    [
+      58,
+      4
+    ],
+    [
+      41,
+      6
+    ],
+    [
+      55,
+      6
+    ],
+    [
+      57,
+      6
+    ],
+    [
+      41,
+      8
+    ],
+    [
+      55,
+      8
+    ],
+    [
+      57,
+      8
+    ],
+    [
+      41,
+      10
+    ],
+    [
+      57,
+      10
+    ],
+    [
+      41,
+      12
+    ],
+    [
+      55,
+      12
+    ],
+    [
+      57,
+      12
+    ],
+    [
+      41,
+      14
+    ],
+    [
+      55,
+      14
+    ],
+    [
+      57,
+      14
+    ],
+    [
+      55,
+      16
+    ],
+    [
+      57,
+      16
+    ],
+    [
+      55,
+      18
+    ],
+    [
+      57,
+      18
+    ],
+    [
+      55,
+      20
+    ],
+    [
+      57,
+      20
     ]
   ],
-  "tree_count": 280,
+  "tree_count": 263,
   "overlapping_tree_roots": 0,
   "placements": [
     {
@@ -1648,66 +1580,6 @@
     },
     {
       "name": "tree",
-      "x": 640,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 672,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 704,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 736,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 768,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 800,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 832,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 64,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 64,
       "role": "aligned shared forest"
@@ -1775,30 +1647,6 @@
     {
       "name": "tree",
       "x": 480,
-      "y": 96,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 640,
-      "y": 96,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 96,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 96,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
       "y": 96,
       "role": "aligned shared forest"
     },
@@ -1876,30 +1724,6 @@
     },
     {
       "name": "tree",
-      "x": 640,
-      "y": 128,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 128,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 128,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 128,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 128,
       "role": "aligned shared forest"
@@ -1948,30 +1772,6 @@
     },
     {
       "name": "tree",
-      "x": 640,
-      "y": 160,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 160,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 160,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 160,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 160,
       "role": "aligned shared forest"
@@ -1990,30 +1790,6 @@
     },
     {
       "name": "tree",
-      "x": 640,
-      "y": 192,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 192,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 192,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 192,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 192,
       "role": "aligned shared forest"
@@ -2026,24 +1802,6 @@
     },
     {
       "name": "tree",
-      "x": 864,
-      "y": 224,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 224,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 224,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 224,
       "role": "aligned shared forest"
@@ -2052,24 +1810,6 @@
       "name": "tree",
       "x": 992,
       "y": 224,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 256,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 256,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 256,
       "role": "aligned shared forest"
     },
     {
@@ -2087,42 +1827,6 @@
     {
       "name": "tree",
       "x": 608,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 640,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 672,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 704,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 288,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
       "y": 288,
       "role": "aligned shared forest"
     },
@@ -2176,42 +1880,6 @@
     },
     {
       "name": "tree",
-      "x": 640,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 672,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 704,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 864,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 896,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 928,
-      "y": 320,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
       "x": 960,
       "y": 320,
       "role": "aligned shared forest"
@@ -2255,24 +1923,6 @@
     {
       "name": "tree",
       "x": 608,
-      "y": 352,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 640,
-      "y": 352,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 672,
-      "y": 352,
-      "role": "aligned shared forest"
-    },
-    {
-      "name": "tree",
-      "x": 704,
       "y": 352,
       "role": "aligned shared forest"
     },
@@ -2871,28 +2521,10 @@
       "role": "shared building"
     },
     {
-      "name": "well",
-      "x": 736,
-      "y": 192,
-      "role": "Azalea local architecture"
-    },
-    {
       "name": "boulder",
       "x": 136,
       "y": 192,
       "role": "exact native rock before foliage; two-layer encoding"
-    },
-    {
-      "name": "boulder",
-      "x": 648,
-      "y": 216,
-      "role": "exact native rock before foliage; two-layer encoding"
-    },
-    {
-      "name": "small-boulder",
-      "x": 728,
-      "y": 240,
-      "role": "stone foreground on source lawn"
     },
     {
       "name": "P09-native",
@@ -2910,12 +2542,6 @@
       "name": "P12",
       "x": 472,
       "y": 248,
-      "role": "shared town prop"
-    },
-    {
-      "name": "P13",
-      "x": 736,
-      "y": 256,
       "role": "shared town prop"
     },
     {
@@ -2973,24 +2599,6 @@
       "role": "shared flower cluster"
     },
     {
-      "name": "F01",
-      "x": 800,
-      "y": 304,
-      "role": "shared flower cluster"
-    },
-    {
-      "name": "F01",
-      "x": 816,
-      "y": 304,
-      "role": "shared flower cluster"
-    },
-    {
-      "name": "F01",
-      "x": 832,
-      "y": 304,
-      "role": "shared flower cluster"
-    },
-    {
       "name": "L11",
       "x": 160,
       "y": 208,
@@ -3009,517 +2617,259 @@
       "role": "south ledge"
     },
     {
-      "name": "L11",
-      "x": 720,
-      "y": 320,
-      "role": "south ledge"
+      "name": "tree",
+      "x": 640,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
     },
     {
-      "name": "L12",
+      "name": "tree",
+      "x": 672,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 704,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
       "x": 736,
-      "y": 320,
-      "role": "south ledge"
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
     },
     {
-      "name": "L12",
-      "x": 752,
-      "y": 320,
-      "role": "south ledge"
-    },
-    {
-      "name": "L13",
+      "name": "tree",
       "x": 768,
-      "y": 320,
-      "role": "south ledge"
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
     },
     {
-      "name": "L11",
+      "name": "tree",
       "x": 800,
-      "y": 320,
-      "role": "south ledge"
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
     },
     {
-      "name": "L12",
-      "x": 816,
-      "y": 320,
-      "role": "south ledge"
+      "name": "tree",
+      "x": 832,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
     },
     {
-      "name": "L12",
+      "name": "tree",
+      "x": 864,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 896,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 928,
+      "y": 64,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 656,
+      "y": 96,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 96,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 96,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 656,
+      "y": 128,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 128,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 128,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 656,
+      "y": 160,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 160,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 656,
+      "y": 192,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 192,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 192,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 656,
+      "y": 224,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 224,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 224,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 256,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 256,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 288,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 288,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 880,
+      "y": 320,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "tree",
+      "x": 912,
+      "y": 320,
+      "role": "HGSS woods / complete independent T01 roots"
+    },
+    {
+      "name": "well",
+      "x": 744,
+      "y": 184,
+      "role": "Existing transparent well master; front approaches HGSS cell49,8"
+    },
+    {
+      "name": "P13",
+      "x": 744,
+      "y": 296,
+      "role": "Original HGSS sign anchor48.5,13.5"
+    },
+    {
+      "name": "boulder",
+      "x": 648,
+      "y": 272,
+      "role": "Original HGSS rock01 boulder west of well"
+    },
+    {
+      "name": "well-small-stone",
+      "x": 736,
+      "y": 288,
+      "role": "Stone beside original southern wall / sign"
+    },
+    {
+      "name": "F01",
       "x": 832,
       "y": 320,
-      "role": "south ledge"
+      "role": "HGSS flower03 cell with shared native flowers"
     },
     {
-      "name": "L12",
+      "name": "F01",
       "x": 848,
       "y": 320,
-      "role": "south ledge"
+      "role": "HGSS flower03 cell with shared native flowers"
     },
     {
-      "name": "L13",
+      "name": "F01",
       "x": 864,
       "y": 320,
-      "role": "south ledge"
+      "role": "HGSS flower03 cell with shared native flowers"
     },
     {
-      "name": "well-S04",
-      "x": 704,
-      "y": 144
-    },
-    {
-      "name": "well-S01",
-      "x": 768,
-      "y": 256
-    },
-    {
-      "name": "well-S03",
-      "x": 784,
-      "y": 256
-    },
-    {
-      "name": "L11",
-      "x": 800,
-      "y": 272
-    },
-    {
-      "name": "L12",
-      "x": 816,
-      "y": 272
-    },
-    {
-      "name": "L12",
+      "name": "F01",
       "x": 832,
-      "y": 272
+      "y": 336,
+      "role": "HGSS flower03 cell with shared native flowers"
     },
     {
-      "name": "L13",
+      "name": "F01",
       "x": 848,
-      "y": 272
+      "y": 336,
+      "role": "HGSS flower03 cell with shared native flowers"
+    },
+    {
+      "name": "F01",
+      "x": 864,
+      "y": 336,
+      "role": "HGSS flower03 cell with shared native flowers"
+    },
+    {
+      "name": "F01",
+      "x": 848,
+      "y": 352,
+      "role": "HGSS flower03 cell with shared native flowers"
+    },
+    {
+      "name": "F01",
+      "x": 864,
+      "y": 352,
+      "role": "HGSS flower03 cell with shared native flowers"
     }
   ],
-  "rock_placements": [
-    {
-      "tile": "well-R01",
-      "x": 44,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 45,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 46,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 47,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 48,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 49,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 50,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 51,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R01",
-      "x": 52,
-      "y": 7,
-      "mirror": false,
-      "boundary": "north rim / upper terrace"
-    },
-    {
-      "tile": "well-R16",
-      "x": 43,
-      "y": 7,
-      "mirror": true,
-      "boundary": "northwest return"
-    },
-    {
-      "tile": "well-R16",
-      "x": 53,
-      "y": 7,
-      "mirror": false,
-      "boundary": "northeast return"
-    },
-    {
-      "tile": "well-R05",
-      "x": 42,
-      "y": 8,
-      "mirror": false,
-      "boundary": "offset northwest join"
-    },
-    {
-      "tile": "well-R02",
-      "x": 43,
-      "y": 8,
-      "mirror": false,
-      "boundary": "northwest stacked face"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 9,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 10,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 11,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 12,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 13,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 14,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 42,
-      "y": 15,
-      "mirror": true,
-      "boundary": "west outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 8,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 9,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 10,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 11,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 12,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 13,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 14,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 15,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 16,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 53,
-      "y": 17,
-      "mirror": false,
-      "boundary": "east outside return"
-    },
-    {
-      "tile": "well-R05",
-      "x": 44,
-      "y": 8,
-      "mirror": false,
-      "boundary": "northwest lower return"
-    },
-    {
-      "tile": "well-R02",
-      "x": 45,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R02",
-      "x": 46,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R02",
-      "x": 47,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R02",
-      "x": 48,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R02",
-      "x": 49,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R02",
-      "x": 50,
-      "y": 8,
-      "mirror": false,
-      "boundary": "north lower course"
-    },
-    {
-      "tile": "well-R10",
-      "x": 51,
-      "y": 8,
-      "mirror": false,
-      "boundary": "lower course east return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 9,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 10,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 11,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 12,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 13,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 14,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 44,
-      "y": 15,
-      "mirror": true,
-      "boundary": "west court return"
-    },
-    {
-      "tile": "well-R01",
-      "x": 46,
-      "y": 11,
-      "mirror": false,
-      "boundary": "upper terrace / well court"
-    },
-    {
-      "tile": "well-R01",
-      "x": 47,
-      "y": 11,
-      "mirror": false,
-      "boundary": "upper terrace / well court"
-    },
-    {
-      "tile": "well-R01",
-      "x": 48,
-      "y": 11,
-      "mirror": false,
-      "boundary": "upper terrace / well court"
-    },
-    {
-      "tile": "well-R01",
-      "x": 49,
-      "y": 11,
-      "mirror": false,
-      "boundary": "upper terrace / well court"
-    },
-    {
-      "tile": "well-R01",
-      "x": 50,
-      "y": 11,
-      "mirror": false,
-      "boundary": "upper terrace / well court"
-    },
-    {
-      "tile": "well-R16",
-      "x": 51,
-      "y": 11,
-      "mirror": false,
-      "boundary": "court northeast return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 12,
-      "mirror": false,
-      "boundary": "court east return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 13,
-      "mirror": false,
-      "boundary": "court east return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 14,
-      "mirror": false,
-      "boundary": "court east return"
-    },
-    {
-      "tile": "well-R06",
-      "x": 51,
-      "y": 15,
-      "mirror": false,
-      "boundary": "court east return"
-    },
-    {
-      "tile": "well-R15",
-      "x": 51,
-      "y": 16,
-      "mirror": false,
-      "boundary": "court southeast foot"
-    },
-    {
-      "tile": "well-R15",
-      "x": 44,
-      "y": 16,
-      "mirror": false,
-      "boundary": "court southwest foot"
-    },
-    {
-      "tile": "well-R01",
-      "x": 45,
-      "y": 16,
-      "mirror": false,
-      "boundary": "well court / town"
-    },
-    {
-      "tile": "well-R01",
-      "x": 46,
-      "y": 16,
-      "mirror": false,
-      "boundary": "well court / town"
-    },
-    {
-      "tile": "well-R01",
-      "x": 47,
-      "y": 16,
-      "mirror": false,
-      "boundary": "well court / town"
-    }
-  ],
+  "rock_placements": [],
   "buildings": [
     [
       "kurt",
@@ -3607,13 +2957,13 @@
     "small-boulder": 0
   },
   "palettes": 13,
-  "glyphs": 987,
-  "metatiles": 435,
+  "glyphs": 992,
+  "metatiles": 445,
   "limits": [
     "Exterior only; no building/well interiors or campaign NPCs invented.",
     "Route33/Ilex connections remain closed for separate integration; Route33 source untouched.",
     "Source occluded ground is inferred from adjacent materials."
   ],
   "owner_adaptation": "Proposed ten-year Kurt property growth: attached kiln and chimney, tight end-on rear firewood stack, exactly two removed complete trees and connected side-yard path.",
-  "well_geometry": "source/well-elevation-rebuild/geometry.json"
+  "well_geometry": "source/well-scene/ledger.json"
 }

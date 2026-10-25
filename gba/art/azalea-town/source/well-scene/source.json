@@ -1,0 +1,36 @@
+{
+  "engine_baseline": "9de3b41845",
+  "shared_assets": "de5d8cfb",
+  "reference": "pret/pokeheartgold",
+  "header": 74,
+  "area": 4,
+  "registration": {
+    "hgss_cell_to_native": [
+      -1,
+      7
+    ],
+    "screen_scale": 16
+  },
+  "raw_archives": "Read-only outside git at /workspace/hgss-original-reference; hashes in hgss-render.json",
+  "scope": "Replace entire Slowpoke Well scene; preserve Kurt, gate and all other town buildings",
+  "rejected": "Previous native well geometry and image-generated annotation images are not layout or artwork authority",
+  "reference_revision": "6988158691eb6178cff697cda0428045ddcba5fb",
+  "native_rock_profile": "FRLG General nine-slice and inner corners, matching accepted Blackthorn/Mahogany method; existing Azalea/Johto RGB5 ramp",
+  "geometry_authority": "Original HGSS land_data mesh; town world Y=1, well court Y=-2, relative depth=-3",
+  "small_stone": "Direct etc_a terrain silhouette 15x8, converted to existing Azalea stone palette with alpha retained",
+  "tree_master": "T01 sha256 906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a",
+  "ground": "Existing native Cherrygrove-style grass/dirt kit learned from locked baseline; HGSS material PLUS texture colour determines dirt footprint; 8px grid, two diagonal-only key adaptations",
+  "runtime": "libmGBA0.10.5 background, no owner desktop emulator opened",
+  "source_fields": [
+    "terrain mesh heights",
+    "terrain material IDs",
+    "land permissions bit0x80 only",
+    "well/sign model placements"
+  ],
+  "geometry_adaptations": [
+    "Native well master slightly wider/shorter than original 3D model; original side passages preserved, three entrance cells blocked pending the interior.",
+    "Northern terrain slope quantized to native surface levels; no gray stairs invented.",
+    "Full T01 roots packed only on original woods cells with no face overlaps.",
+    "Native upper-padding forest continues existing border above the original Azalea matrix extent."
+  ]
+}

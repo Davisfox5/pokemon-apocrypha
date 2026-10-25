@@ -19,7 +19,7 @@ for i,p in enumerate(r['placements'],1):
  a=np.array(Image.open(S/'masters'/(p['name']+'.png')).convert('RGBA'));a[...,:3]&=248;images[i]=a;h,w=a.shape[:2];mask=a[...,3]>0;owner[p['y']:p['y']+h,p['x']:p['x']+w][mask]=i
 asset_checks=[]
 for i,p in enumerate(r['placements'],1):
- if p['name'] not in ['well','gym','small-boulder','well-S01','well-S03','well-S04','gate-P04','kurt-kiln','kurt-firewood','kurt','house','tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
+ if p['name'] not in ['well','well-small-stone','gym','small-boulder','well-S01','well-S03','well-S04','gate-P04','kurt-kiln','kurt-firewood','kurt','house','tree','center','mart','gate','P09-native','P12','P13','P15','F01','L11','L12','L13','boulder']:continue
  a=images[i];h,w=a.shape[:2];visible=owner[p['y']:p['y']+h,p['x']:p['x']+w]==i;assert np.array_equal(now[p['y']:p['y']+h,p['x']:p['x']+w][visible],a[visible,:3]);asset_checks.append(dict(name=p['name'],x=p['x'],y=p['y'],visible_pixels=int(visible.sum()),RGB_errors=0))
 final_rocks={(p['x'],p['y']):p for p in r['rock_placements']}
 for p in final_rocks.values():
@@ -41,21 +41,21 @@ for x,y in todo:
    if dy==1 and beh[ny,nx]==59:ny+=1
    else:continue
   if ny<33 and not solid[ny,nx] and (nx,ny) not in seen:seen.add((nx,ny));todo.append((nx,ny))
-points={'Kurt':(14,12),'Center':(25,16),'Mart':(34,14),'Gym':(20,25),'house':(34,22),'well':(48,16),'Ilex gate':(8,18),'east road':(61,24),'well outer corridor':(52,12),'Kurt side yard':(20,9),'Kurt addition front':(18,12),'well stair west':(43,10),'well stair east':(45,10),'well south stair head':(49,16),'well south stair foot':(49,17)}
+points={'Kurt':(14,12),'Center':(25,16),'Mart':(34,14),'Gym':(20,25),'house':(34,22),'well':(48,15),'Ilex gate':(8,18),'east road':(61,24),'well outer corridor':(53,12),'Kurt side yard':(20,9),'Kurt addition front':(18,12),'well ramp west':(46,9),'well ramp east':(53,9),'well court west':(46,15),'well spiral entry':(49,20)}
 assert all(p in seen for p in points.values()),{k:p for k,p in points.items() if p not in seen}
 assert not any(x<8 for x,y in seen),'Gate bypass remains reachable'
-mat=np.load(S/'material-grid.npy');ledger=[]
-for y,x in np.ndindex(33,64):ledger.append(dict(x=x,y=y,reference_pixel_box=[x*16-64,y*16-16,x*16-48,y*16],material=mat[y,x],native_metatile=int(g[y,x]&1023),collision=int(g[y,x]>>10&3),behavior=int(beh[y,x]),reference_limits='Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately.'))
+mat=np.load(S/'material-grid.npy');ledger=[];scene_mask=np.load(S/'well-scene/edit-mask.npy').reshape(33,16,64,16).any((1,3))
+for y,x in np.ndindex(33,64):ledger.append(dict(x=x,y=y,reference_pixel_box=[x*16+16,y*16-112,x*16+32,y*16-96] if scene_mask[y,x] else [x*16-64,y*16-16,x*16-48,y*16],reference_authority='Decoded HGSS grid; native=HGSS+(-1,+7)' if scene_mask[y,x] else 'Historical town screenshot overview',material=mat[y,x],native_metatile=int(g[y,x]&1023),collision=int(g[y,x]>>10&3),behavior=int(beh[y,x]),reference_limits='Overview registration; foreground/roof/forest occlusion and approved footprint adaptations recorded separately.'))
 (E/'cell-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n');(E/'shared-art-review.json').write_text(json.dumps(asset_checks,indent=2)+'\n')
 font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',18);native=Image.fromarray(now);native.save(E/'native-map.png');native.resize((2048,1056),Image.Resampling.NEAREST).save(E/'native-map-2x.png');ref=Image.open(S/'hgss-reference.png').convert('RGB');registered=Image.new('RGB',(1024,528),'#223039');registered.paste(ref,(64,16));sheet=Image.new('RGB',(2080,590),'#223039');d=ImageDraw.Draw(sheet)
-for x,title,im in [(8,'HGSS registered at +64,+16; dark border is extension',registered),(1048,'Native Azalea exterior / complete shared trees and service buildings',native)]:d.text((x,8),title,font=font,fill='white');sheet.paste(im,(x,40))
+for x,title,im in [(8,'HGSS overview; rebuilt well uses separate decoded-cell comparison',registered),(1048,'Native Azalea exterior / complete shared trees and service buildings',native)]:d.text((x,8),title,font=font,fill='white');sheet.paste(im,(x,40))
 sheet.save(E/'reference-comparison.png')
 for title,im in [('reference',registered),('native',native)]:
  sh=Image.new('RGB',(1072,576),'#223039');sh.paste(im,(32,32));d=ImageDraw.Draw(sh)
  for x in range(65):d.line((32+x*16,32,32+x*16,560),fill='#586974');d.text((32+x*16,12),str(x),fill='white')
  for y in range(34):d.line((32,32+y*16,1056,32+y*16),fill='#586974');d.text((4,32+y*16),str(y),fill='white')
  sh.save(E/(title+'-grid.png'))
-for name,box in [('Kurt',(144,80,336,240)),('service-buildings',(352,112,640,288)),('Gym-loop',(192,288,480,464)),('well',(672,96,880,288)),('house-forest',(480,256,752,432)),('gate',(0,192,192,336))]:
+for name,box in [('Kurt',(144,80,336,240)),('service-buildings',(352,112,640,288)),('Gym-loop',(192,288,480,464)),('house-forest',(480,256,752,432)),('gate',(0,192,192,336))]:
  w,h=box[2]-box[0],box[3]-box[1];sh=Image.new('RGB',(w*4+32,h*2+44),'#223039');d=ImageDraw.Draw(sh)
  for i,(label,im) in enumerate([('HGSS',registered),('Native',native)]):x=8+i*(w*2+16);d.text((x,6),label,font=font,fill='white');sh.paste(im.crop(box).resize((w*2,h*2),Image.Resampling.NEAREST),(x,36))
  sh.save(E/(name+'-comparison.png'))
