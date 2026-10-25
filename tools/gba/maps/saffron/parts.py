@@ -167,7 +167,7 @@ def dojo(engine):
     return out
 
 # --------------------------------------------------------------------------- Silph Co.
-SILPH_EXTRA_FLOORS = 2                          # floors added to FireRed's nine
+SILPH_EXTRA_FLOORS = 1                          # floors added to FireRed's nine (a second left too little street behind it)
 FLOOR = 16                                      # FireRed's Silph: one floor every 16 px
 FIRST_FLOOR, CANOPY_FROM_FOOT = 85, 35          # its first floor's top row; its entrance canopy's top, from the sprite's foot
 ATRIUM = (48, 96)                               # the roof atrium's columns, which the entrance canopy shares
@@ -175,7 +175,7 @@ ATRIUM_BAND, ATRIUM_MULLION = 41, 12            # a 16-row band of the atrium's 
 
 def silph(engine):
     """FireRed's own Silph Co., in its own materials throughout (purple roof panels, white
-    rounded sides, pale teal glass, a floor line every 16 px), two floors taller; the roof
+    rounded sides, pale teal glass, a floor line every 16 px), a floor taller; the roof
     atrium's glass carried down the whole front as one spine to the entrance canopy, which is
     the atrium's width, its mullions on the floor lines."""
     s = source(engine, 'SaffronCity')

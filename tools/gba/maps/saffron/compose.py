@@ -10,7 +10,7 @@ buildings are real Gen 3 art put together into buildings of Saffron's own (parts
                  FireRed's Fighting Dojo's and Gym's lots: the Fighting door (40, 12), the
                  Psychic door (45, 12). Canon has no Saffron Gym.
     silph        Silph Co. "dominates the skyline": FireRed's crown on a new glass tower,
-                 two floors taller (its crown now on the street north of it).
+                 a floor taller; the street behind it four cells deep, the back two behind its roof.
     lab          Silph's research lab, built onto the tower's east side on the east inner
                  block's lot, its own door (42, 30).
     station      The Magnet Train station, the player's way into Kanto (Chapter 4's end),
@@ -69,6 +69,10 @@ PLACED = [('dojo', 'dojo', 36 * 16, 12), ('silph', 'silph', 29 * 16, 30), ('lab'
           ('lamp_silph_w', 'lamp', 31 * 16, 31), ('lamp_silph_e', 'lamp', 35 * 16, 31),
           ('lamp_lab_w', 'lamp', 40 * 16, 31), ('lamp_lab_e', 'lamp', 44 * 16, 31)]
 BUILDINGS = ('dojo', 'silph', 'lab', 'station', 'fountain')
+# Rows at a building's back (from the top row its pixels reach) that keep their ground's
+# collision and draw above the player, who walks behind the roof: a tall building is not
+# deep, so Silph's roof hides two rows of the street behind it.
+BACK_ROWS = {'silph': 2}
 DOORS = {'dojo_fighting': (40, 12), 'dojo_psychic': (45, 12), 'lab': (42, 30), 'silph': (33, 30), 'station': STATION_DOOR}
 
 # Green spaces, all in FireRed's own General pieces (Celadon's grass, flowers and trees), so

@@ -275,8 +275,10 @@ regression ("made for a 1980s game", "boring"). The worked example is
   `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until their scripts
   exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
 - A building's back row (the top row its pixels reach) is walkable wherever its ground is,
-  drawn above the player, so the player walks behind the roof, never on it. Clear whatever
-  FireRed had there (railings, signs) when a taller building's roof reaches it.
+  drawn above the player, so the player walks behind the roof, never on it. A tall building
+  is not deep: give it more back rows (`compose.BACK_ROWS`; Silph two) and keep a real
+  street behind it, lowering the building if the street is too thin. Clear whatever FireRed
+  had there (railings, signs) when a taller building's roof reaches it.
 - Doors to unbuilt interiors and gates to unbuilt routes are solid.
 
 ## Ownership and autonomy

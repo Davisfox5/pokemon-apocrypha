@@ -118,9 +118,10 @@ def key5(px, mask=None):
 
 def traversal(pair, g, art, owner, cover, feet):
     """Each cell's behaviour, collision and elevation. A building blocks the cells it covers
-    by half or more, except its back row (the top row its pixels reach): there the roof's
-    back stands in front of the street behind it, so the cell keeps its ground's collision
-    and, the building's foot being south of it, draws above the player, who walks behind."""
+    by half or more, except its back rows (from the top row its pixels reach; one, or
+    compose.BACK_ROWS): there the roof stands in front of the street behind it, so the cell
+    keeps its ground's collision and, the building's foot being south of it, draws above the
+    player, who walks behind."""
     back = {o: int(min(np.nonzero(owner == o)[0])) for o in C.BUILDINGS if (owner == o).any()}
     out = {}
     for y in range(H):
@@ -136,7 +137,7 @@ def traversal(pair, g, art, owner, cover, feet):
             elif (x, y) in SOLID_DOORS:
                 c.update(behavior=MB['normal'], collision=1, elevation=3,
                          adaptation=f'{SOLID_DOORS[(x, y)]} door: solid until its interior is built')
-            elif o and (o in C.BUILDINGS and cover[y, x] >= BLOCK_COVER and y != back[o] or o.startswith('lamp') and y == feet[o]):
+            elif o and (o in C.BUILDINGS and cover[y, x] >= BLOCK_COVER and y - back[o] >= C.BACK_ROWS.get(o, 1) or o.startswith('lamp') and y == feet[o]):
                 c.update(behavior=MB['normal'], collision=1, elevation=3)
                 if not coll:
                     c['adaptation'] = f'{o} stands here'

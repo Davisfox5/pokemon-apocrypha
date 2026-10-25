@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "01371404d026d9f40064646318ea21ad7b6790b4d8f604670408e4ee59c5b8b9",
+  "rom_sha256": "9e2472b64ecbc8c3bcdf849d63146494edc4c76f37e838b0a7b1c06d0990e1fd",
   "phases": [
     {
       "phase": "write",
@@ -220,7 +220,7 @@
           "group": 81,
           "map": 0,
           "x": 30,
-          "y": 14,
+          "y": 15,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -228,12 +228,38 @@
           "mapsec": 98
         },
         {
-          "step": "at-54-30-14",
+          "step": "at-54-30-16",
           "region": 1,
           "group": 81,
           "map": 0,
           "x": 30,
-          "y": 14,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-silph-roof-deep",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 30,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-30-16",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 30,
+          "y": 16,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -246,7 +272,7 @@
           "group": 81,
           "map": 0,
           "x": 33,
-          "y": 14,
+          "y": 16,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -254,12 +280,12 @@
           "mapsec": 98
         },
         {
-          "step": "at-54-33-14",
+          "step": "at-54-33-16",
           "region": 1,
           "group": 81,
           "map": 0,
           "x": 33,
-          "y": 14,
+          "y": 16,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -267,12 +293,12 @@
           "mapsec": 98
         },
         {
-          "step": "at-54-37-14",
+          "step": "at-54-38-16",
           "region": 1,
           "group": 81,
           "map": 0,
-          "x": 37,
-          "y": 14,
+          "x": 38,
+          "y": 16,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -1407,9 +1433,19 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         416,
-        152
+        184
       ],
-      "bg1_pixels_over_player_cell": 222
+      "bg1_pixels_over_player_cell": 256
+    },
+    {
+      "frame": "behind-silph-roof-deep",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        368,
+        184
+      ],
+      "bg1_pixels_over_player_cell": 256
     },
     {
       "frame": "behind-silph-roof",
@@ -1417,7 +1453,7 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         368,
-        152
+        168
       ],
       "bg1_pixels_over_player_cell": 64
     },
