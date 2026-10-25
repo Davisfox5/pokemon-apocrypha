@@ -8,7 +8,7 @@ write  new game; Cherrygrove -> Route 29 -> New Bark and back again by walking, 
        into every area HGSS reaches (upper lawn, gatehouse front, north-east grass, the south pocket and
        the lookout); every ledge run jumps and refuses the climb back; the gatehouse, both cuttable
        trees and both signs block; tall grass with an empty party starts no battle; both signs read;
-       the hidden Potion is found once by walking to it; ordinary save
+       HGSS's item ball is picked up on foot and disappears; ordinary save
 read   cold flash reload of that save
 menu   title screen -> Continue
 
@@ -34,7 +34,7 @@ ART = ROOT / 'gba/art/route29-catalog'
 TOWN, R29, NEWBARK = 0, 9, 28
 A, B, RIGHT, LEFT, UP, DOWN = 1, 2, 16, 32, 64, 128
 KEY = {(1, 0): RIGHT, (-1, 0): LEFT, (0, 1): DOWN, (0, -1): UP}
-HIDDEN_FLAG = 0x264
+ITEM_FLAG = 0x264
 TOWN_W, NB_W, NB_OFFSET = 80, 36, 6
 
 TEMPLATE = r'''
@@ -71,7 +71,7 @@ int main(int argc,char**argv){
   frames(1,8);frames(180,0);frames(1,A);frames(300,0);frames(1,A);frames(180,0);shot("continue-menu");frames(1,A);frames(300,0);shot("title-continue");at(R29,SAVE_X,SAVE_Y,"title-continue");
  }else if(!strcmp(argv[4],"read")){
   unsigned s=call("LoadGameSave",0);need(s==1,"load-status");call("MapProof_Resume",0);frames(240,0);shot("cold-reload");at(R29,SAVE_X,SAVE_Y,"cold-reload");
-  need(call("FlagGet",HIDDEN_FLAG)==1,"potion-flag-survives-save");
+  need(call("FlagGet",ITEM_FLAG)==1,"item-ball-flag-survives-save");
  }else{
   call("MapProof_Boot",0);frames(240,0);observe("new-game");
   {static const unsigned char nm[]={0xCA,0xC6,0xBB,0xD3,0xBF,0xCC,0xFF,0xFF};unsigned sb2=c->busRead32(c,sym("gSaveBlock2Ptr"));for(int i=0;i<8;i++)c->busWrite8(c,sb2+i,nm[i]);}
@@ -84,13 +84,13 @@ int main(int argc,char**argv){
   // A walking tour into every area: no warps between targets.
   go(R29,TOUR_X,TOUR_Y);at(R29,TOUR_X,TOUR_Y,"tour-start");
   walk(TOUR,sizeof(TOUR)/sizeof(TOUR[0]));
-  // The hidden Potion, reached on foot by the tour: face it and search.
+  // HGSS's item ball, reached on foot by the tour: it blocks, the player faces it and picks it up, then it is gone.
   FACE_POTION
-  need(call("FlagGet",HIDDEN_FLAG)==0,"potion-flag-clear");
-  frames(1,A);frames(150,0);need(locked(),"potion-found");shot("potion-found");close_dialog();
-  need(call("FlagGet",HIDDEN_FLAG)==1,"potion-flag-set");
-  frames(1,A);frames(90,0);int again=locked();if(again)close_dialog();need(!again,"potion-only-once");
-  printf("{\"hidden_potion\":\"found once\",\"flag\":%u}\n",HIDDEN_FLAG);
+  need(call("FlagGet",ITEM_FLAG)==0,"item-ball-flag-clear");
+  frames(1,A);frames(150,0);need(locked(),"item-ball-picked-up");shot("item-ball-potion");close_dialog();frames(60,0);
+  need(call("FlagGet",ITEM_FLAG)==1,"item-ball-flag-set");
+  step(UP);at(R29,POTION_X,POTION_Y,"item-ball-gone");shot("item-ball-gone");
+  printf("{\"item_ball\":\"Potion picked up once, ball removed\",\"flag\":%u}\n",ITEM_FLAG);
   LEDGES
   BLOCKS
   go(R29,GRASS_X,GRASS_Y);for(int i=0;i<6;i++){step(RIGHT);need(overworld()&&!locked(),"grass-no-battle");}shot("tall-grass");
@@ -142,8 +142,8 @@ def plan(engine):
     trav = load_trav()
     ev = json.loads((engine / 'data/maps/CherrygroveRoute29Approach/map.json').read_text())
     signs = [(b['x'], b['y']) for b in ev['bg_events'] if b['type'] == 'sign']
-    potion = next((b['x'], b['y']) for b in ev['bg_events'] if b['type'] == 'hidden_item')
-    cut = {(o['x'], o['y']) for o in ev['object_events'] if o['graphics_id'] == 'OBJ_EVENT_GFX_CUTTABLE_TREE'}
+    potion = next((o['x'], o['y']) for o in ev['object_events'] if o['graphics_id'] == 'OBJ_EVENT_GFX_ITEM_BALL')
+    cut = {(o['x'], o['y']) for o in ev['object_events'] if o['graphics_id'] in ('OBJ_EVENT_GFX_CUTTABLE_TREE', 'OBJ_EVENT_GFX_ITEM_BALL')}
     tb = (engine / 'data/layouts/CherrygroveCity/map.bin').read_bytes()
     town = np.array(struct.unpack('<%dH' % (len(tb) // 2), tb)).reshape(-1, TOWN_W)
     road_y = 18
@@ -165,7 +165,7 @@ def plan(engine):
     # Tour: every area HGSS reaches, walked between targets.
     targets = [((24, 12), 'upper-lawn'), ((33, 10), 'north-grass'), ((54, 9), 'gatehouse-front'), ((72, 6), 'north-east-grass'),
                ((88, 15), 'east-sign-lawn'), ((84, 22), 'east-grass'), ((70, 27), 'south-east-pocket'), ((52, 24), 'centre'),
-               ((40, 27), 'south-lawn'), ((60, 30), 'lookout'), ((potion[0] - 1, potion[1]), 'by-the-potion')]
+               ((40, 27), 'south-lawn'), ((60, 30), 'south-pocket'), ((potion[0], potion[1] + 1), 'by-the-item-ball')]
     tour, cur = [], (2, road_y)
     for (t, name) in targets:
         assert trav[t]['foot'] == 'open', (t, name, trav[t])
@@ -195,17 +195,15 @@ def plan(engine):
     blocks = []
     gate_door = next((x, y) for (x, y), c in trav.items() if c['code'] == 'D')
     blocks.append(((gate_door[0], gate_door[1] + 1), UP, 'gatehouse-door-shut'))
-    for (x, y) in sorted(cut):
+    for (x, y) in sorted(c for c in cut if c != potion):
         blocks.append(((x, y + 1), UP, f'cut-tree-{x}-{y}'))
     for (x, y) in signs:
         blocks.append(((x, y + 1), UP, f'sign-{x}-{y}'))
     grass = next((x, y) for (x, y), c in sorted(trav.items(), key=lambda kv: (kv[0][1], kv[0][0]))
                  if all(trav.get((x + i, y), {}).get('behavior') == 'MB_TALL_GRASS' for i in range(1, 7)) and trav[(x, y)]['foot'] == 'open')
-    # Turn to face the Potion without stepping onto it: a tap walks when already facing that way, so
-    # step back west first if it did, then tap east (a turn, since the player now faces west).
-    face = (f'go(R29,{potion[0] - 1},{potion[1]});tap(RIGHT);{{unsigned m,x,y;pos(&m,&x,&y);if(x!={potion[0] - 1}){{step(LEFT);tap(RIGHT);}}}}'
-            f'at(R29,{potion[0] - 1},{potion[1]},"facing-potion");')
-    save = (potion[0] - 1, potion[1])
+    # Face the item ball from the cell south of it: the ball blocks, so a tap north is a turn.
+    face = f'go(R29,{potion[0]},{potion[1] + 1});tap(UP);at(R29,{potion[0]},{potion[1] + 1},"facing-item-ball");'
+    save = (potion[0], potion[1] + 1)
     return dict(start=start, out=out, back=back, tour=tour, ledges=ledges, blocks=blocks, signs=sorted(signs), grass=grass,
                 face=face, save=save, potion=potion)
 
@@ -219,7 +217,7 @@ def generate(engine):
     src = src.replace('FACE_POTION', p['face'])
     rep = dict(START_X=p['start'][0], START_Y=p['start'][1], TOUR_X=2, TOUR_Y=18, GRASS_X=p['grass'][0], GRASS_Y=p['grass'][1],
                WEST_SIGN_X=p['signs'][0][0], WEST_SIGN_Y=p['signs'][0][1], EAST_SIGN_X=p['signs'][-1][0], EAST_SIGN_Y=p['signs'][-1][1],
-               SAVE_X=p['save'][0], SAVE_Y=p['save'][1], HIDDEN_FLAG=HIDDEN_FLAG, TOWN=TOWN, R29=R29, NEWBARK=NEWBARK,
+               SAVE_X=p['save'][0], SAVE_Y=p['save'][1], POTION_X=p['potion'][0], POTION_Y=p['potion'][1], ITEM_FLAG=ITEM_FLAG, TOWN=TOWN, R29=R29, NEWBARK=NEWBARK,
                RIGHT=RIGHT, LEFT=LEFT, UP=UP, DOWN=DOWN)
     defines = ''.join(f'#define {k} {v}\n' for k, v in rep.items()) + '#define A 1\n#define B 2\n'
     return src.replace('#undef main\n', '#undef main\n' + defines, 1), p

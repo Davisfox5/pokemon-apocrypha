@@ -11,16 +11,14 @@ with its own tilesets, so:
     secondary metatile ids, which this tileset carries with New Bark's definitions (pinned);
   * every New Bark secondary id that appears in New Bark's first 8 columns is pinned here, so this map
     draws New Bark correctly when the player looks across the seam from Route 29;
-  * the accepted coast (rows 32-50) is carried as metatile ids from apocrypha 2722eaf, its secondary
-    ids pinned with their definitions.
 Everything else packs exactly (Mahogany's lossless rule): every native pixel keeps its assembled RGB555
 colour; tiles that exist in CherrygrovePrimary are reused from it; the rest go into exact banks.
 
 Traversal (source/trace/ledger.json, decoded HGSS permissions): woods under a tree root, the gatehouse,
 signs and ledge corners blocked (collision 1, elevation 0 as vanilla); jump-south, jump-east and
 jump-west ledges as MB_JUMP_*; tall grass MB_TALL_GRASS; everything else open. Declared adaptations:
-woods cells with no root (HGSS's crown overhang) are open where the player walks behind the crown, as
-on Route 43; the gatehouse doorway stays blocked (no interior exists).
+woods cells under a crown stay solid, as HGSS has them; the gatehouse doorway stays blocked (no interior
+exists).
 """
 from __future__ import annotations
 import json, re, struct, subprocess, sys
@@ -32,7 +30,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 import reference as Rf                               # noqa: E402
-from reference import W, H, PX, COL0, ROW0, COAST_ROW, WINDOW   # noqa: E402
+from reference import W, H, PX, COL0, ROW0, WINDOW   # noqa: E402
 from tiles import Tileset                            # noqa: E402
 
 ROOT = HERE.parents[3]
@@ -42,12 +40,11 @@ OUT, OEV = SRC / 'pack', EV / 'pack'
 MAP, LAYOUT = 'CherrygroveRoute29Approach', 'LAYOUT_CHERRYGROVE_ROUTE29_APPROACH'
 TS_NAME, TS_SYM = 'route29_hgss', 'Route29Hgss'
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'
-OLD_TS = 'claude_route29'
-OLD_W, OLD_COAST = 98, 29           # the accepted layout: 98 wide, coast from its row 29
-OLD_SHIFT = 4                       # old column c is native column c + 4: even, so tree pairs stay pairs
 SEC_TILES = 512                     # Route 29 has no animated door, so 1008-1023 are free too
 BANKS = list(range(6, 13))
 COVERED, NORMAL = 1, 0
+# The Route 29 Potion's flag (0x264, previously the hidden Potion's), named for what it now is: HGSS's item ball.
+ITEM_FLAG = 'FLAG_ITEM_APOC_ROUTE29_POTION'
 
 def rgb5(a): return (np.asarray(a).astype(np.int32) >> 3)
 
@@ -55,26 +52,6 @@ def rgb5(a): return (np.asarray(a).astype(np.int32) >> 3)
 def behaviors(engine):
     names = re.findall(r'^\s+(MB_[A-Z0-9_]+),', (engine / 'include/constants/metatile_behaviors.h').read_text(), re.M)
     return {n: i for i, n in enumerate(names)}
-
-def old_layout(engine):
-    b = subprocess.check_output(['git', '-C', str(engine), 'show', f'{BASE_REV}:data/layouts/{MAP}/map.bin'])
-    return np.array(struct.unpack('<%dH' % (len(b) // 2), b), np.uint16).reshape(-1, OLD_W)
-
-def git_tileset(engine, name, rev=BASE_REV):
-    """A secondary tileset as committed at rev (tiles, palettes, metatiles, attributes)."""
-    import io
-    d = f'data/tilesets/secondary/{name}'
-    show = lambda p: subprocess.check_output(['git', '-C', str(engine), 'show', f'{rev}:{d}/{p}'])
-    img = Image.open(io.BytesIO(show('tiles.png')))
-    tiles = [np.array(img.crop((x, y, x + 8, y + 8))) & 15 for y in range(0, img.height, 8) for x in range(0, img.width, 8)]
-    pals = []
-    for n in range(16):
-        lines = show(f'palettes/{n:02}.pal').decode().split()
-        vals = list(map(int, lines[3:]))
-        pals.append([tuple(vals[i:i + 3]) for i in range(0, 48, 3)])
-    mts = np.frombuffer(show('metatiles.bin'), '<u2').reshape(-1, 8)
-    at = np.frombuffer(show('metatile_attributes.bin'), '<u2')
-    return dict(tiles=tiles, pals=pals, metatiles=mts, attrs=at)
 
 class Primary:
     """CherrygrovePrimary: every tile under every bank and flip, every metatile's rendering."""
@@ -117,9 +94,7 @@ def traversal(engine, grid, cells, objs):
             c = dict(x=x, y=y, code=ch)
             if 0 <= hz < Rf.HH and 0 <= hx < Rf.HW:
                 c['hgss'] = dict(type=ledger[hz][hx]['type'], collision=ledger[hz][hx]['collision'], label=ledger[hz][hx]['lab'])
-            if ch == '~':
-                c.update(foot='coast')                          # carried words
-            elif ch == 'L':
+            if ch == 'L':
                 c.update(foot='ledge_south', behavior='MB_JUMP_SOUTH', collision=1, elevation=0)
             elif ch == 'E':
                 c.update(foot='ledge_east', behavior='MB_JUMP_EAST', collision=1, elevation=0)
@@ -130,7 +105,9 @@ def traversal(engine, grid, cells, objs):
             elif ch == 'D':
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=0,
                          adaptation="HGSS's warp into the Route 46 gatehouse; no gatehouse interior exists yet, so the doorway stays shut")
-            elif ch == 'k' and Rf.in_window(x):
+            elif ch == 'k':
+                # A woods cell under the crown of the tree south of it: solid, as HGSS has it and as the towns'
+                # forest edges are (a crown over a solid cell).
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=0)
             elif ch in 'ko':
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
@@ -245,39 +222,13 @@ def pack(engine):
     above = above_player(trav, top, owner)
     P = Primary(engine)
     MB = behaviors(engine)
-    old = old_layout(engine)
-    oldts = git_tileset(engine, OLD_TS)
     nbts = Tileset(engine, 'new_bark', 'cherrygrove')
-    def old_render(mid):
-        ents = oldts['metatiles'][mid - 512]
-        img = np.zeros((16, 16, 3), np.uint8)
-        for li, e in enumerate(ents):
-            e = int(e); tid, bank = e & 1023, e >> 12
-            ix = P.tiles[tid] if tid < 512 else oldts['tiles'][tid - 512]
-            if e & 0x400: ix = ix[:, ::-1]
-            if e & 0x800: ix = ix[::-1]
-            pal = P.pals[bank] if bank < 6 else oldts['pals'][bank]
-            q = li % 4; sub = img[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
-            m = (ix > 0) if li >= 4 else np.ones((8, 8), bool)
-            if m.any():
-                sub[m] = np.array([pal[k] for k in ix[m]], np.uint8).reshape(-1, 3)
-        return img
     nbgrid = np.frombuffer((engine / 'data/layouts/NewBarkTown/map.bin').read_bytes(), '<u2').reshape(-1, 36) & 1023
 
-    # ---- pinned secondary metatiles: New Bark's seam ids and the coast's ids
-    pins = {}                                  # id -> ('nb'|'old', source)
+    # ---- pinned secondary metatiles: New Bark's seam ids
+    pins = {}                                  # id -> 'nb'
     for mid in sorted({int(v) for v in nbgrid[:, :WINDOW].ravel() if v >= 512}):
         pins[mid] = 'nb'
-    coast_words = {}
-    for y in range(COAST_ROW, H):
-        for x in range(W):
-            oc = x - OLD_SHIFT if x >= OLD_SHIFT else x % 2   # columns 0-3 repeat the old west edge pair
-            coast_words[(x, y)] = int(old[y - COAST_ROW + OLD_COAST, oc])
-    for v in set(coast_words.values()):
-        mid = v & 1023
-        if mid >= 512:
-            assert pins.get(mid, 'old') == 'old' or _same(nbts, oldts, mid), f'coast id {mid:#x} collides with a New Bark pin'
-            pins.setdefault(mid, 'old')
     fixed_pal = {}                             # bank -> palette (15 colours) required by pinned tiles
     sec_tiles, sec_lookup = [np.zeros((8, 8), np.uint8)], {np.zeros((8, 8), np.uint8).tobytes(): 0}
     def add_tile(ix):
@@ -289,14 +240,10 @@ def pack(engine):
         sec_lookup[ix.tobytes()] = len(sec_tiles); sec_tiles.append(ix.copy())
         return len(sec_tiles) - 1, 0
     pinned_defs = {}
-    for mid, src in pins.items():
-        if src == 'nb':
-            ents, attr = nbts.blocks[1][mid - 512], nbts.attrs[1][mid - 512]
-            tiles_src = [np.array(x, np.uint8).reshape(8, 8) & 15 for x in nbts.tiles[1]]
-            pals_src = [[tuple(c) for c in p] for p in nbts.pals[1]]
-        else:
-            ents, attr = oldts['metatiles'][mid - 512], oldts['attrs'][mid - 512]
-            tiles_src, pals_src = oldts['tiles'], oldts['pals']
+    tiles_src = [np.array(x, np.uint8).reshape(8, 8) & 15 for x in nbts.tiles[1]]
+    pals_src = [[tuple(c) for c in p] for p in nbts.pals[1]]
+    for mid in pins:
+        ents, attr = nbts.blocks[1][mid - 512], nbts.attrs[1][mid - 512]
         new = []
         for e in ents:
             e = int(e); tid, bank = e & 1023, e >> 12
@@ -324,7 +271,7 @@ def pack(engine):
     def render_id(m):
         return nb_render[m] if m >= 512 else P.rendered(m)
     renders = {m: render_id(m).astype(np.int16) for m in set(cand_e)}
-    for y in range(COAST_ROW):
+    for y in range(H):
         for x in list(range(WINDOW)) + list(range(W - WINDOW, W)):
             tgt = want[y * 16:y * 16 + 16, x * 16:x * 16 + 16].astype(np.int16)
             c = trav[y, x]
@@ -337,10 +284,10 @@ def pack(engine):
             if diff:
                 window_report.append(dict(cell=[x, y], metatile=f'{best:#05x}', pixels_differing=diff, code=grid[y][x]))
 
-    # Primary metatiles placed by id (seam windows, coast) may draw primary tiles in secondary palette banks
+    # Primary metatiles placed by id (seam windows) may draw primary tiles in secondary palette banks
     # (the towns' blossom trees use bank 10): those banks take the towns' palettes.
     cg_pals = [[tuple(c) for c in p] for p in P.t.pals[1]]
-    used_primary = {m for m in window_ids.values() if m < 512} | {v & 1023 for v in coast_words.values() if (v & 1023) < 512}
+    used_primary = {m for m in window_ids.values() if m < 512}
     for m in sorted(used_primary):
         for e in P.metatiles[m]:
             bank = e >> 12
@@ -376,9 +323,9 @@ def pack(engine):
             if (pl[sl][vis] == b[vis]).all():
                 return pl[sl].copy()
         return b
-    common = Counter(ground[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].tobytes() for ty in range(COAST_ROW * 2) for tx in range(W * 2)).most_common(1)[0][0]
+    common = Counter(ground[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8].tobytes() for ty in range(H * 2) for tx in range(W * 2)).most_common(1)[0][0]
     filler = np.frombuffer(common, np.uint8).reshape(8, 8, 3)
-    for y in range(COAST_ROW):
+    for y in range(H):
         for x in range(W):
             if (x, y) in window_ids:
                 continue
@@ -463,11 +410,6 @@ def pack(engine):
     for y in range(H):
         for x in range(W):
             c = trav[y, x]
-            if (x, y) in coast_words:
-                words[y, x] = coast_words[(x, y)]
-                c['metatile'] = coast_words[(x, y)] & 1023
-                c['collision'] = (coast_words[(x, y)] >> 10) & 3; c['elevation'] = coast_words[(x, y)] >> 12
-                continue
             if (x, y) in window_ids:
                 mid = window_ids[(x, y)]
             else:
@@ -483,15 +425,13 @@ def pack(engine):
     meta_rows = [(tuple([0] * 8), 0)] * n_sec
     for key, mid in sec_meta.items():
         meta_rows[mid - 512] = key
-    pals = {b: [tuple((v << 3) | (v >> 2) for v in c) for c in order5[b]] for b in order5}
+    # 8-bit values as the towns' palettes write them (v << 3), so Porymap shows both in the same shades
+    pals = {b: [tuple(v << 3 for v in c) for c in order5[b]] for b in order5}
     for b in fixed_pal:
         pals[b] = list(fixed_pal[b])
     return dict(words=words, trav=trav, sec_tiles=sec_tiles, pals=pals, meta_rows=meta_rows, pins=pins,
                 window_report=window_report, n_jobs=len(jobs), n_primary_jobs=sum(j['primary'] is not None for j in jobs.values()),
                 want=want, grid=grid, cells=cells)
-
-def _same(a, b, mid):
-    return False
 
 # --------------------------------------------------------------------------- write
 def write_tileset(engine, r):
@@ -542,11 +482,9 @@ def write_map(engine, r):
             old = (b['x'], b['y']); b['x'], b['y'] = signs[-1]
             moves.append(dict(event='route sign (east)', old=list(old), new=list(signs[-1]), note="HGSS's east sign (86,13)"))
         elif b['type'] == 'hidden_item':
-            old = (b['x'], b['y'])
-            nx, ny = old[0] + OLD_SHIFT, old[1] + (COAST_ROW - OLD_COAST)   # moved with the carried coast: two rows above its railing
-            assert trav_ok(nx, ny), ('hidden Potion cell is not open ground', nx, ny)
-            b['x'], b['y'] = nx, ny
-            moves.append(dict(event='hidden Potion', old=list(old), new=[nx, ny], note='the same lookout cell as before, moved with the carried coast'))
+            moves.append(dict(event='hidden Potion', old=[b['x'], b['y']], new=None,
+                              note="removed: HGSS has no hidden item here; its Potion is the item ball below"))
+            continue
         bgs.append(b)
     west = dict(type='sign', x=signs[0][0], y=signs[0][1], elevation=0, player_facing_dir='BG_EVENT_PLAYER_FACING_ANY',
                 script=next(b['script'] for b in base['bg_events'] if b['type'] == 'sign'))
@@ -559,8 +497,17 @@ def write_map(engine, r):
         dict(graphics_id='OBJ_EVENT_GFX_CUTTABLE_TREE', x=x, y=y, elevation=3, movement_type='MOVEMENT_TYPE_LOOK_AROUND',
              movement_range_x=0, movement_range_y=0, trainer_type='TRAINER_TYPE_NONE', trainer_sight_or_berry_tree_id='0',
              script='EventScript_CutTree', flag=f'FLAG_TEMP_{11 + n}') for n, (x, y) in enumerate(cut)]
+    # HGSS's item ball (obj_R29_monstarball, std_itemball_r29_potion) on its own cell, as Emerald's item balls are.
+    ball = next(o for o in events['objects'] if o['sprite'] == 'SPRITE_MONSTARBALL')
+    bx, by = Rf.to_map(*ball['cell'])
+    assert r['trav'][by, bx]['foot'] == 'open', ('item ball cell is not open ground', bx, by)
+    M['object_events'] = [o for o in M['object_events'] if o.get('graphics_id') != 'OBJ_EVENT_GFX_ITEM_BALL'] + [
+        dict(graphics_id='OBJ_EVENT_GFX_ITEM_BALL', x=bx, y=by, elevation=3, movement_type='MOVEMENT_TYPE_FACE_DOWN',
+             movement_range_x=0, movement_range_y=0, trainer_type='TRAINER_TYPE_NONE', trainer_sight_or_berry_tree_id='ITEM_POTION',
+             script='Common_EventScript_FindItem', flag=ITEM_FLAG)]
+    moves.append(dict(event='item ball Potion', new=[bx, by], note=f"HGSS's item ball {ball['cell']} ({ball['flag']}); flag {ITEM_FLAG}"))
     (engine / f'data/maps/{MAP}/map.json').write_text(json.dumps(M, indent=2) + '\n')
-    return dict(moves=moves, cut_trees=cut)
+    return dict(moves=moves, cut_trees=cut, item_ball=[bx, by])
 
 # --------------------------------------------------------------------------- checks
 def decode(engine, words):
@@ -581,7 +528,7 @@ def main(engine, install):
     ns = reach(trav, (0, 18), cut=cut)
     ns_cut = reach(trav, (0, 18), cut_open=True)
     hs_map = {Rf.to_map(*p) for p in hs}
-    region = lambda p: Rf.WINDOW <= p[0] < W - Rf.WINDOW and p[1] < COAST_ROW
+    region = lambda p: Rf.WINDOW <= p[0] < W - Rf.WINDOW
     only_native = sorted(p for p in ns_cut if region(p) and p not in hs_map)
     only_hgss = sorted(p for p in hs_map if region(p) and p not in ns_cut)
     report['reach'] = dict(native_with_cut=len(ns_cut), native_before_cut=len(ns), hgss=len(hs),
@@ -593,7 +540,7 @@ def main(engine, install):
         native, _ = decode(engine, r['words'])
         Image.fromarray(native).save(OEV / 'native.png')
         want = r['want']
-        d = (rgb5(native[:COAST_ROW * PX]) != rgb5(want[:COAST_ROW * PX])).any(-1)
+        d = (rgb5(native[:H * PX]) != rgb5(want[:H * PX])).any(-1)
         win = np.zeros_like(d)
         for x in list(range(WINDOW)) + list(range(W - WINDOW, W)):
             win[:, x * PX:(x + 1) * PX] = True

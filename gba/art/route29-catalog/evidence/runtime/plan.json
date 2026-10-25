@@ -217,16 +217,16 @@
   69,
   6
  ],
- "face": "go(R29,65,30);tap(RIGHT);{unsigned m,x,y;pos(&m,&x,&y);if(x!=65){step(LEFT);tap(RIGHT);}}at(R29,65,30,\"facing-potion\");",
+ "face": "go(R29,82,6);tap(UP);at(R29,82,6,\"facing-item-ball\");",
  "save": [
-  65,
-  30
+  82,
+  6
  ],
  "potion": [
-  66,
-  30
+  82,
+  5
  ],
  "steps_out": 123,
- "steps_back": 145,
- "tour_steps": 232
+ "steps_back": 147,
+ "tour_steps": 273
 }

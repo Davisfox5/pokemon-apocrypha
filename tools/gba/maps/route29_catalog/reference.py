@@ -11,8 +11,7 @@ Native frame: HGSS tile (hx, hz) is native cell (hx + COL0, hz + ROW0), 16 px, n
   * COL0 = 4 puts every HGSS sign and tall-grass cell outside the 8-column seam windows and keeps
     HGSS's two-column tree pairs on the windows' pairs; the four added west columns continue
     HGSS column 0 toward Cherrygrove.
-  * HGSS rows 29-31 are the solid forest border; the accepted Cherrygrove coast (cliff and sea)
-    replaces them from native row 32 down. Nothing walkable changes there.
+  * The map ends at HGSS's own south forest border (HGSS rows 29-31, native rows 32-34).
 
 Writes gba/art/route29-catalog/source/trace/{ledger.json, material-grid.txt, traversal.json,
 trees.json} and evidence/trace/ numbered sheets of the HGSS render with the grid.
@@ -34,8 +33,7 @@ OUT, OEV = SRC / 'trace', EV / 'trace'
 HW, HH = 96, 32                       # HGSS Route 29
 COL0, ROW0 = 4, 3
 EAST_PAD = 2                          # two columns east of HGSS column 95 keep HGSS's east grass outside the window
-W, H = HW + COL0 + EAST_PAD, 51       # native map
-COAST_ROW = HH - 3 + ROW0             # native row 32: the coast replaces HGSS rows 29-31 (forest border)
+W, H = HW + COL0 + EAST_PAD, HH + ROW0   # native map: HGSS Route 29 and nothing else below it
 WINDOW = 8                            # seam window: drawn by the neighbouring town with its own tilesets
 PX = 16
 TREES = ('tree01gs', 'tree01_un', 'tree01_re')
@@ -88,20 +86,19 @@ def ledger(phg):
 
 # --------------------------------------------------------------------------- trees
 def woods_mask(cells):
-    """Native cells that are woods: HGSS woods above the coast, and the three padding rows above
+    """Native cells that are woods: HGSS woods, and the three padding rows above
     HGSS row 0 and the padding columns west of HGSS column 0 wherever their neighbour is woods."""
     m = np.zeros((H, W), bool)
     for hz in range(HH):
         for hx in range(HW):
             x, y = to_map(hx, hz)
-            if y < COAST_ROW:
-                m[y, x] = cells[hz][hx]['lab'] == 'F'
+            m[y, x] = cells[hz][hx]['lab'] == 'F'
     for y in range(ROW0):
         m[y, COL0:] = True
     for x in range(COL0):
-        m[:COAST_ROW, x] = m[:COAST_ROW, COL0]
+        m[:, x] = m[:, COL0]
     for x in range(W - EAST_PAD, W):
-        m[:COAST_ROW, x] = m[:COAST_ROW, W - EAST_PAD - 1]
+        m[:, x] = m[:, W - EAST_PAD - 1]
     m[:ROW0, :COL0] = True
     # The HGSS gatehouse is wider than G01a: its footprint column east of G01a closes with trees.
     for x, y in GATE_EXTRA:
@@ -133,7 +130,7 @@ def tree_roots(woods, cells):
             else:
                 hx += 1
     # Row -1 (above the map) counts as woods, so the top padding rows fill with whole trees.
-    wd = lambda x, y: y < 0 or (y < COAST_ROW and woods[y, x])
+    wd = lambda x, y: y < 0 or (y < H and woods[y, x])
     def allowed(x, y):
         if not all(wd(x + dx, y + dy) for dx in (0, 1) for dy in (0, 1)):
             return False
@@ -147,7 +144,7 @@ def tree_roots(woods, cells):
             if not (wd(x, y - 1) and wd(x + 1, y - 1)):
                 return False
         return True
-    cand = [(x, y) for y in range(-1, COAST_ROW - 1) for x in range(W - 1) if allowed(x, y)]
+    cand = [(x, y) for y in range(-1, H - 1) for x in range(W - 1) if allowed(x, y)]
     # Integer program: roots x_j (binary), covered cells c_i (binary). Footprints never overlap. A woods cell
     # counts as covered when a root's footprint holds it, or, inside a seam window, when it is the blocked
     # crown row of a root (the towns' own forest edges: a crown over a solid cell).
@@ -169,8 +166,8 @@ def tree_roots(woods, cells):
         hi[i] = 1; lo[i] = 0                             # footprints never overlap
         A[nc + i, nr + i] = 1; hi[nc + i] = 0            # covered only if something covers it
     def solid(x, y):
-        # never walked on: woods, the gatehouse, the coast, beyond the map
-        if not (0 <= x < W) or y < 0 or y >= COAST_ROW:
+        # never walked on: woods, the gatehouse, beyond the map
+        if not (0 <= x < W) or y < 0 or y >= H:
             return True
         gx, gy = GATE_ORIGIN
         return wd(x, y) or (gx <= x < gx + 6 and gy <= y < gy + 8)
@@ -190,7 +187,7 @@ CODES = {'g': 'lawn', 'd': 'dirt road', 'f': 'lawn with flowers', 'l': 'light la
          't': 'tree root (T01)', 'o': 'woods cell no root fits (crown overhang): open lawn', 'k': 'woods cell under the crown of the tree south of it (blocked)',
          'L': 'jump ledge south', 'Q': 'jump ledge west', 'E': 'jump ledge east', 'J': 'ledge corner (blocked)',
          'B': 'Route 46 gatehouse (G01a)', 'D': 'gatehouse door', 's': 'route sign (P14)', 'c': 'cuttable tree (object)',
-         'X': 'other blocked', '~': 'coast (carried)'}
+         'X': 'other blocked'}
 
 def material_grid(cells, woods, roots, events, gate_cells):
     rooted = {(x + dx, y + dy) for x, y in roots for dx in (0, 1) for dy in (0, 1)}
@@ -203,9 +200,7 @@ def material_grid(cells, woods, roots, events, gate_cells):
         for x in range(W):
             hx, hz = to_hgss(x, y)
             c = cells[hz][min(max(0, hx), HW - 1)] if 0 <= hz < HH else None
-            if y >= COAST_ROW:
-                ch = '~'
-            elif (x, y) in doors:
+            if (x, y) in doors:
                 ch = 'D'
             elif ((x, y) in gate_cells and (x, y) not in GATE_EXTRA) or (
                     GATE_ORIGIN[0] <= x < GATE_ORIGIN[0] + 6 and GATE_ORIGIN[1] <= y < GATE_ORIGIN[1] + 8):
@@ -292,7 +287,7 @@ def main(phg):
         note='Native 2x2 tree roots (top-left cell; crown row, trunk row). T01 draws its crown one row north of the root.',
         roots=roots, hgss_trunk_detected=detected), indent=0) + '\n')
     (OUT / 'material-grid.txt').write_text(
-        '# Route 29 native material grid (102x51), one code per 16x16 cell. Native = HGSS + (4, 3); two padding columns east.\n' +
+        '# Route 29 native material grid (102x35), one code per 16x16 cell. Native = HGSS + (4, 3); two padding columns east.\n' +
         ''.join(f'#   {k}  {v}\n' for k, v in CODES.items()) +
         '#   x: ' + ''.join(str(x % 10) for x in range(W)) + '\n' +
         ''.join(f'{y:02d}    ' + ''.join(row) + '\n' for y, row in enumerate(grid)))

@@ -4,6 +4,10 @@ October 24-25, 2026. Third Route 29 rebuild. It answers the owner's review of th
 (`gba/art/route29-hgss`): wrong placement, overlapping trees, wrong paths, missing tall grass,
 ledges that didn't connect, bad borders between tile types and wrong walking routes.
 
+On October 25 the owner chose HGSS only: the map is HGSS Route 29 and nothing else. The carried
+Cherrygrove coast (ridge, sea and lookout) is gone, and the Potion is HGSS's item ball. DESIGN.md
+(Chapter 1, Route 29) still describes the ridge and a hidden Potion; it was not edited.
+
 It follows [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md) and the process
 the owner accepted for Mahogany Town (PR #28) and reviewed on Route 43 (PR #33). Engine branch
 `claude/route29-hgss-decoded`, draft PR #34 against `apocrypha`. Visual acceptance stays with the owner.
@@ -23,7 +27,8 @@ the owner accepted for Mahogany Town (PR #28) and reviewed on Route 43 (PR #33).
 
 1. **Reference** (`reference.py`, `hgss_render.py`, `hgss_events.py`): HGSS Route 29 is rendered from its
    own DS map data (EVERYWHERE matrix cells 18-20/12, land_data, area bank 2, zone events R29) at
-   exactly 16 px per cell, the way Route 43 was. Native cell = HGSS cell + (4, 3).
+   exactly 16 px per cell, the way Route 43 was. Native cell = HGSS cell + (4, 3). The map is 102x35
+   and ends at HGSS's own south forest border.
    - Row offset 3 keeps both connections on their roads (Cherrygrove offset 0, New Bark offset 6).
    - Column offset 4 keeps the HGSS signs and tall grass out of the 8-column seam windows. It also
      lines HGSS's two-column tree pairs up with the windows.
@@ -32,7 +37,7 @@ the owner accepted for Mahogany Town (PR #28) and reviewed on Route 43 (PR #33).
    (Route 43's method), interior cells first. Each tree is the Cherrygrove tree, which is T01 pixel for pixel
    plus the town's contact shadow, with its crown one row north of its root. They are painted north to
    south, so each crown covers the trunk behind it, as Cherrygrove's own dense forest does. Nothing
-   overlaps. 440 trees, no leftover woods cells.
+   overlaps. 496 trees; the 168 woods cells under a crown stay solid, as HGSS has them.
 3. **Ground** (`assemble.py`): the approved Cherrygrove/Route 36 painter on an 8 px lawn/road grid read
    from HGSS's own flat ground colours, so the road follows HGSS's shape and rims. The road texture is
    Cherrygrove's own, so it runs into the town unchanged.
@@ -47,28 +52,34 @@ the owner accepted for Mahogany Town (PR #28) and reviewed on Route 43 (PR #33).
 5. **Seams** (`pack.py`, `seams.py`): Gen 3 draws a connected map's 7 nearest columns with the current map's
    tilesets. So Route 29 keeps CherrygrovePrimary unchanged, and its 8-column windows hold only
    metatiles both towns draw identically.
-   - The windows use the towns' own road kits on their road rows.
-   - New Bark's edge metatiles and the accepted coast's metatiles are carried with their own
-     definitions, palettes included.
+   - The windows use the towns' own road kits on their road rows, with the lawn rims either side
+     (Cherrygrove's road on rows 17-19, New Bark's on rows 18-19).
+   - The straight run of HGSS road next to each window takes the town's road rows and the town kit's
+     straight, dashed edge, so the roads meet edge to edge. The painter's wavy edge fades in from there.
+   - New Bark's 10 edge metatiles are carried with their own definitions, palettes included.
 6. **Pack**: exact. Every native pixel keeps its assembled colour. Tiles already in CherrygrovePrimary
-   are reused. 410 secondary tiles, 264 metatiles, banks 6-11.
+   are reused. 433 secondary tiles, 271 metatiles, banks 6-11. Palettes are written as the towns' are
+   (5-bit value x 8), so Porymap shows the route and the seam windows in the same shades.
+7. **Events**: both signs, both cuttable trees and the gatehouse warp sit on HGSS's cells. HGSS's item ball
+   (`obj_R29_monstarball`, a Potion) is an Emerald item ball at (82,5), flag
+   `FLAG_ITEM_APOC_ROUTE29_POTION` (0x264, the flag the hidden Potion used).
 
 ## Review
 
 - [Whole map](evidence/review/whole.png): HGSS above, native below, same cells.
 - [Sheet 1](evidence/review/sheet-1-x0-25.png), [2](evidence/review/sheet-2-x25-50.png),
   [3](evidence/review/sheet-3-x50-76.png), [4](evidence/review/sheet-4-x76-101.png): HGSS left, native right,
-  numbered cells.
-- [Gameplay](evidence/review/gameplay.png): 52 headless mGBA frames.
+  numbered cells. Objects (item ball, cuttable trees) are not in the static renders; see the gameplay frames.
+- [Gameplay](evidence/review/gameplay.png): 54 headless mGBA frames.
 - [Material grid over HGSS](evidence/trace/grid-over-hgss-1.png) (sheets 1-4) and the [ledger](source/trace/material-grid.txt).
 
 ## Checks
 
 | Check | Result |
 | --- | --- |
-| Material audit, every HGSS cell above the coast (`material-audit.json`) | 2,784 match, 0 mismatch |
-| Native decode vs assembled art | 0 pixels differ outside the windows; 112 lawn-speckle pixels inside them (primary tree joins) |
-| Walkable area vs HGSS (`pack.json`) | every cell HGSS reaches is reachable; the only additions are 54 overhang cells under crowns |
+| Material audit, every HGSS cell (`material-audit.json`) | 3,072 match, 0 mismatch |
+| Native decode vs assembled art | 0 pixels differ, inside or outside the windows |
+| Walkable area vs HGSS (`pack.json`) | identical: no cell HGSS reaches is missing, none is added |
 | Seams, both directions, every cell a player can see (`seams.py`) | clean |
 | Porymap 6.3.1 export vs native decode (`porymap.json`) | 0 pixels differ, Route 29, Cherrygrove and New Bark |
 | ROM build | passes; sha256 in `hashes.json` |
@@ -78,35 +89,30 @@ The headless run covers:
 
 - Cherrygrove to Route 29 to New Bark and back, walked with every step checked against the predicted route.
 - A walking tour into every area: upper lawn, north grass, gatehouse front, north-east grass, east sign,
-  east grass, south-east pocket, centre, south lawn and the lookout.
+  east grass, south-east pocket, centre, south lawn, south pocket and the item ball.
 - All 13 ledge runs jump and refuse the climb back.
 - The gatehouse door, both cuttable trees and both signs block.
 - Six tall-grass steps with an empty party start no battle.
-- Both signs read, and the hidden Potion is found once on foot.
+- Both signs read. The item ball gives one Potion, sets its flag and is gone; the flag survives the save.
 - Ordinary save, cold reload and title Continue.
 
-Each frame is compared with the native decode at the camera position, both towns included. 36 of 49
+Each frame is compared with the native decode at the camera position, both towns included. 40 of 54
 frames are identical. The rest differ only where something covers the map: dialogue boxes, the map-name
-popup, cuttable-tree sprites and the Continue menu.
+popup, sprites and the Continue menu.
 
 ## Declared adaptations
 
-- **Coast.** Rows 32-50 are the accepted Cherrygrove coast from `apocrypha` 2722eaf, carried as metatile
-  ids. They replace HGSS rows 29-31, which are solid forest border, so nothing walkable changes.
-  - The coast moves four columns east and three rows south with the new frame.
-  - The hidden Potion moves with it, to (66,30): two rows above the railing, as before.
-- **Overhang.** 54 HGSS woods cells under a crown have no 2x2 root that fits, because of HGSS's offset
-  crowns. They are open, and the player walks behind the crown, as on Route 43. None joins two areas
-  HGSS separates.
-- **Seam windows.** The windows' tree joins use the primary's own join tiles (0x1A3/0x1A4), which differ
-  from the assembled pixels only in lawn speckle.
-- **Window crowns.** In the windows, a crown over a woods cell is solid, as on both towns' forest edges.
-- **Hidden coast ids.** Three carried coast ids in the east window (0x277, 0x287, 0x288) would draw
-  differently in New Bark's tileset. New Bark never shows those columns, so they are kept.
+- **Padding.** Three rows above HGSS row 0, four columns west and two east are forest, so the seams
+  and connections line up.
+- **Seam windows.** In the windows, a crown over a woods cell is solid, as on both towns' forest edges.
+- **Seam roads.** HGSS's road meets the west seam half a cell lower than Cherrygrove's, and at the east seam
+  it is a cell taller than New Bark's (half a cell above and below). Its straight runs there (columns 8-14 on the
+  north edge and 8-11 on the south edge in the west, columns 90-93 in the east) sit on the towns' rows.
+  Walking is unchanged.
 - **Gatehouse.** The doorway stays shut: no Route 46 gatehouse interior exists.
 - **Cuttable trees.** HGSS's cuttable trees are native cuttable-tree objects (`EventScript_CutTree`).
 - **West sign.** It reuses the route's existing sign script; its text names Cherrygrove.
-- **Not placed:** the Apricorn tree, NPCs and the item ball. They are objects or campaign work.
+- **Not placed:** the Apricorn tree and NPCs. They are objects or campaign work.
 - **Trees.** The Cherrygrove tree stands one row taller than HGSS's squat tree, as on Route 43.
 
 ## Not verified

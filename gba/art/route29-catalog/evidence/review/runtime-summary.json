@@ -3,7 +3,7 @@
   {
    "phase": "write",
    "exit": 0,
-   "observations": 589
+   "observations": 635
   },
   {
    "phase": "read",
@@ -18,8 +18,8 @@
  ],
  "frame_parity": {
   "write": {
-   "frames": 49,
-   "fully_identical": 36,
+   "frames": 51,
+   "fully_identical": 38,
    "below_99_5": [
     [
      "cross-into-route29",
@@ -42,7 +42,7 @@
      0.991
     ],
     [
-     "potion-found",
+     "item-ball-potion",
      0.7214
     ],
     [

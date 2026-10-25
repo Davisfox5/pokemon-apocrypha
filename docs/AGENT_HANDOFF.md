@@ -8,16 +8,27 @@ borders and walking routes were wrong. Root causes:
 - HGSS 0x38/0x39 are jump-east/west ledges, not walls.
 
 Rebuilt on the accepted process. HGSS is rendered from its DS data at 16 px per cell (native = HGSS +
-(4,3), 102x51). The Cherrygrove tree sits on non-overlapping 2x2 roots (integer program). Ground is the
+(4,3), 102x35). The Cherrygrove tree sits on non-overlapping 2x2 roots (integer program). Ground is the
 Cherrygrove painter on HGSS's 8 px lawn/road grid. Catalog G15/L11-13/G01a/P14 come from
 `codex/violet-city` de5d8cfb. Seam windows use only metatiles both towns draw identically, with New Bark
-and coast ids pinned. Exact pack onto CherrygrovePrimary.
+ids pinned. Exact pack onto CherrygrovePrimary.
 
-Checks: material audit 2,784/2,784, walkable area equal to HGSS plus crown overhang, seams clean,
-Porymap 6.3.1 export equal to the native decode. Headless mGBA walks the route step by step and tours
-every area; all ledges, blocks, grass, signs, Potion and saves pass. Engine `claude/route29-hgss-decoded`
-(PR #34). Read `gba/art/route29-catalog/README.md`. GitHub Actions is disabled on the engine repo. Next:
-owner visual review.
+Owner decision, October 25: HGSS only. The carried coast (ridge, sea, lookout) is removed; the map ends
+at HGSS's south forest border. The Potion is HGSS's item ball at (82,5), `FLAG_ITEM_APOC_ROUTE29_POTION`
+(0x264). Crown cells stay solid, so the walkable area equals HGSS. DESIGN.md's Route 29 entry still
+names the ridge and a hidden Potion; it was not edited.
+
+Seam follow-up (owner: "fix the weird borders on the left and right"): HGSS's road met both town roads
+half a cell off, with a wavy edge against the towns' straight kits, and the route's palettes were written
+with a different 8-bit rounding than the towns', so the seam strips showed a shade darker in Porymap. The
+straight runs next to each window now sit on the towns' road rows with the kits' own edge, the windows
+carry the lawn rims, and palettes are written as 5-bit value x 8.
+
+Checks: material audit 3,072/3,072, walkable area equal to HGSS, seams clean, Porymap 6.3.1 export equal
+to the native decode. Headless mGBA walks the route step by step and tours every area; all ledges,
+blocks, grass, signs, the item ball and saves pass. Engine `claude/route29-hgss-decoded` (PR #34). Read
+`gba/art/route29-catalog/README.md`. GitHub Actions is disabled on the engine repo. Next: owner visual
+review.
 
 ## Previous: Route 29 rebuilt from the decoded HGSS map (October 24, superseded)
 

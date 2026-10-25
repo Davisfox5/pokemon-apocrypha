@@ -1,0 +1,293 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/031_R30.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0227_R30.s",
+      "files/msgdata/msg/msg_0375_R30.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 17,
+        "z": 9,
+        "land_data": 6
+      },
+      {
+        "x": 17,
+        "z": 10,
+        "land_data": 7
+      },
+      {
+        "x": 17,
+        "z": 11,
+        "land_data": 8
+      }
+    ],
+    "origin": [
+      544,
+      288
+    ],
+    "size": [
+      32,
+      96
+    ],
+    "neighbour_headers": {
+      "west": [],
+      "east": [],
+      "north": [
+        35
+      ],
+      "south": [
+        67
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        24,
+        6
+      ],
+      "dest": "MAP_ROUTE_30_MR_POKEMON_HOUSE",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        11,
+        67
+      ],
+      "dest": "MAP_ROUTE_30_APRICORN_HOUSE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        10,
+        75
+      ],
+      "script": "scr_seq_R30_005",
+      "bg_type": 1,
+      "text": "Rt. 30 South to Cherrygrove City"
+    },
+    {
+      "cell": [
+        17,
+        44
+      ],
+      "script": "scr_seq_R30_006",
+      "bg_type": 1,
+      "text": "Mr. Pokémon’s House Straight Ahead!"
+    },
+    {
+      "cell": [
+        5,
+        31
+      ],
+      "script": "scr_seq_R30_007",
+      "bg_type": 1,
+      "text": "Trainer Tips No stealing other people’s Pokémon! Poké Balls are to be thrown only at wild Pokémon!"
+    },
+    {
+      "cell": [
+        22,
+        6
+      ],
+      "script": "scr_seq_R30_008",
+      "bg_type": 1,
+      "text": "Mr. Pokémon’s House"
+    },
+    {
+      "cell": [
+        11,
+        31
+      ],
+      "script": "std_hiddenitem_r30_potion",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        28,
+        102
+      ],
+      "script": "std_hiddenitem_r29_r30_t21_nugget",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R30_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        10,
+        47
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_gsgirl2",
+      "sprite": "SPRITE_GSGIRL2",
+      "cell": [
+        4,
+        18
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        15,
+        7
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R30_gsboy3",
+      "sprite": "SPRITE_GSBOY3",
+      "cell": [
+        6,
+        10
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        9,
+        44
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_HIDE_ROUTE_30_YOUNGSTER_JOEY"
+    },
+    {
+      "id": "obj_R30_gsboy2_2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        8,
+        37
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_tsure_poke_static_rattata",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_RATTATA",
+      "cell": [
+        8,
+        39
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_ROUTE_30_BATTLERS"
+    },
+    {
+      "id": "obj_R30_tsure_poke_static_pidgey",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_PIDGEY",
+      "cell": [
+        8,
+        38
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_ROUTE_30_BATTLERS"
+    },
+    {
+      "id": "obj_R30_gsboy2_3",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        8,
+        41
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_ROUTE_30_BATTLERS"
+    },
+    {
+      "id": "obj_R30_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        10,
+        54
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R30_ANTIDOTE"
+    },
+    {
+      "id": "obj_R30_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        20,
+        81
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R30_POTION"
+    },
+    {
+      "id": "obj_R30_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        9,
+        67
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_bonguri_2",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        18,
+        5
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R30_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        11,
+        67
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_30_APRICORN_MAN"
+    },
+    {
+      "id": "obj_R30_gsboy3_2",
+      "sprite": "SPRITE_GSBOY3",
+      "cell": [
+        13,
+        78
+      ],
+      "facing": 3,
+      "movement": 4,
+      "flag": "FLAG_NOTHING"
+    }
+  ]
+}
