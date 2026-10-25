@@ -16,7 +16,11 @@ Native frame: HGSS tile (hx, hz) is native cell (hx + COL0, hz + ROW0), 16 px, n
     five rows into Route 30, which would otherwise show HGSS's west wall and south pond in Cherrygrove's
     tileset. The band continues the town's forest across the seam; its two blossom trees take the
     green tree beside them (the blossom's palette would cost a whole secondary bank).
-  * The north edge is HGSS's own (Route 31 above; the Route 30/31 seam shares its window cells).
+  * NORTH_PAD = 2 rows above HGSS row 0 continue its north edge: the rock at Route 31's plateau height with
+    the road on through it from the top of the stairs (HGSS row 0 with its stairs as road). Route 31's
+    camera sees five rows into Route 30, and each map draws the other's visible cells with its own
+    tilesets; without the pad that view takes in Mr. Pokemon's roof, whose colours Route 31's banks cannot
+    hold beside its own art (pair_pack.py).
 
 Writes gba/art/route30-catalog/source/trace/{ledger.json, material-grid.txt, traversal.json,
 trees.json} and evidence/trace/ numbered sheets of the HGSS render with the grid.
@@ -36,9 +40,10 @@ ART = ROOT / 'gba/art/route30-catalog'
 SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'trace', EV / 'trace'
 HW, HH = 32, 96                       # HGSS Route 30
-COL0, ROW0 = 4, 0
+NORTH_PAD = 2
+COL0, ROW0 = 4, NORTH_PAD
 SOUTH_PAD = 6
-W, H = HW + COL0, HH + ROW0 + SOUTH_PAD   # 36 x 102
+W, H = HW + COL0, HH + ROW0 + SOUTH_PAD   # 36 x 104
 WINDOW = 8                            # seam window: drawn by the neighbouring map with its own tilesets
 PX = 16
 CG_OFFSET = 35                        # Cherrygrove's "up" connection: Route 30 column 0 is Cherrygrove column 35
@@ -220,6 +225,7 @@ CODES = {'g': 'lawn', 'd': 'dirt road', 'f': 'lawn with flowers', 'l': 'light la
          '~': 'pond water (Surf)', '^': 'stairs', 'R': 'rock (terrace, FRLG faces)', 'H': 'house', 'D': 'house door',
          'n': 'fence', 's': 'sign', 'c': 'cuttable tree (object)', 'X': 'other blocked',
          'P': "Cherrygrove's north forest band (its metatiles, south padding)", 'p': "Cherrygrove's road in the band"}
+# Rows 0-1 (north padding) repeat HGSS row 0, its stairs as road.
 
 def material_grid(cells, woods, roots, events):
     rooted = {(x + dx, y + dy) for x, y in roots for dx in (0, 1) for dy in (0, 1)}
@@ -232,6 +238,9 @@ def material_grid(cells, woods, roots, events):
             c = cells[hz][hx] if 0 <= hz < HH and 0 <= hx < HW else None
             if y >= PAD0:
                 ch = 'p' if x in ROAD_COLS else 'P'
+            elif y < ROW0 and not woods[y, x]:
+                top = cells[0][hx]['lab']
+                ch = 'd' if top == '^' else top
             elif (x, y) in cut:
                 ch = 'c'
             elif woods[y, x]:
@@ -299,7 +308,7 @@ def main(phg):
         roots=roots, hgss_trunk_detected=detected), indent=0) + '\n')
     (OUT / 'material-grid.txt').write_text(
         f'# Route 30 native material grid ({W}x{H}), one code per 16x16 cell. Native = HGSS + ({COL0}, {ROW0}); '
-        f'{COL0} rock-side columns west, {SOUTH_PAD} padding rows south.\n' +
+        f'{COL0} rock-side columns west, {NORTH_PAD} padding rows north (HGSS row 0, its stairs as road), {SOUTH_PAD} padding rows south.\n' +
         ''.join(f'#   {k}  {v}\n' for k, v in CODES.items()) +
         '#   x: ' + ''.join(str(x % 10) for x in range(W)) + '\n' +
         ''.join(f'{y:03d}   ' + ''.join(row) + '\n' for y, row in enumerate(grid)))

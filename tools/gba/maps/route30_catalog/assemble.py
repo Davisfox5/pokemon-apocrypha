@@ -144,7 +144,8 @@ def kit_profiles(engine):
 # --------------------------------------------------------------------------- ground
 def native_cells(cells, grid):
     """The ledger in the native frame. West of HGSS column 0 is woods at column 0's ground; the south
-    padding is Cherrygrove's band at HGSS row 95's ground. Blocked corners beside rock count as rock."""
+    padding is Cherrygrove's band at HGSS row 95's ground; the north padding is HGSS row 0 with its stairs as
+    road. Blocked corners beside rock count as rock."""
     out = []
     for y in range(H):
         row = []
@@ -154,7 +155,11 @@ def native_cells(cells, grid):
                 c = dict(cells[HH - 1][min(max(hx, 0), HW - 1)])
                 c.update(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass')
             elif hx < 0:
-                c = dict(cells[hz][0]); c.update(lab='F', floor='grass')
+                c = dict(cells[max(hz, 0)][0]); c.update(lab='F', floor='grass')
+            elif hz < 0:                                  # north padding: HGSS row 0, its stairs as road at the plateau's height
+                c = dict(cells[0][hx])
+                if c['lab'] == '^':
+                    c.update(lab='.', floor='sand', ground=c['peak'], blocked=False)
             else:
                 c = dict(cells[hz][hx])
             row.append(c)
@@ -187,8 +192,8 @@ def ground_quadrants(phg, ncells):
         for qx in range(W * 2):
             x, y = qx // 2, qy // 2
             lab = ncells[y][x]['lab']
-            if lab in 'FG~P' or y >= PAD0 or x < COL0:
-                if lab != 'P':
+            if lab in 'FG~P' or y >= PAD0 or x < COL0 or y < ROW0:
+                if lab != 'P' and not (y < ROW0 and ncells[y][x]['floor'] == 'sand'):
                     q[qy, qx] = G.GRASS
                 continue
             hqx, hqy = qx - COL0 * 2, qy - ROW0 * 2

@@ -1,0 +1,429 @@
+[
+ {
+  "phase": "write",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 466,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "route30-start",
+     "map": 10,
+     "x": 11,
+     "y": 2,
+     "identical": 1.0
+    },
+    {
+     "shot": "cross-into-route31",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 0.9089
+    },
+    {
+     "shot": "to-gate-007",
+     "map": 29,
+     "x": 47,
+     "y": 31,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-015",
+     "map": 29,
+     "x": 51,
+     "y": 27,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-023",
+     "map": 29,
+     "x": 51,
+     "y": 19,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-031",
+     "map": 29,
+     "x": 44,
+     "y": 18,
+     "identical": 0.9929
+    },
+    {
+     "shot": "to-gate-039",
+     "map": 29,
+     "x": 36,
+     "y": 18,
+     "identical": 0.9955
+    },
+    {
+     "shot": "to-gate-047",
+     "map": 29,
+     "x": 28,
+     "y": 18,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-055",
+     "map": 29,
+     "x": 22,
+     "y": 21,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-063",
+     "map": 29,
+     "x": 14,
+     "y": 21,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-071",
+     "map": 29,
+     "x": 10,
+     "y": 17,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-gate-079",
+     "map": 29,
+     "x": 6,
+     "y": 13,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-cave-007",
+     "map": 29,
+     "x": 14,
+     "y": 13,
+     "identical": 0.9955
+    },
+    {
+     "shot": "to-cave-015",
+     "map": 29,
+     "x": 23,
+     "y": 13,
+     "identical": 0.9955
+    },
+    {
+     "shot": "to-cave-023",
+     "map": 29,
+     "x": 30,
+     "y": 14,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-cave-031",
+     "map": 29,
+     "x": 36,
+     "y": 16,
+     "identical": 0.998
+    },
+    {
+     "shot": "to-cave-039",
+     "map": 29,
+     "x": 44,
+     "y": 16,
+     "identical": 0.9948
+    },
+    {
+     "shot": "to-cave-047",
+     "map": 29,
+     "x": 52,
+     "y": 16,
+     "identical": 0.9969
+    },
+    {
+     "shot": "to-cave-050",
+     "map": 29,
+     "x": 53,
+     "y": 14,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-seam-015",
+     "map": 29,
+     "x": 49,
+     "y": 26,
+     "identical": 1.0
+    },
+    {
+     "shot": "to-seam-030",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 1.0
+    },
+    {
+     "shot": "cross-back-into-route30",
+     "map": 10,
+     "x": 11,
+     "y": 0,
+     "identical": 0.9089
+    },
+    {
+     "shot": "area-38-23",
+     "map": 29,
+     "x": 38,
+     "y": 23,
+     "identical": 0.9924
+    },
+    {
+     "shot": "area-33-19",
+     "map": 29,
+     "x": 33,
+     "y": 19,
+     "identical": 0.9955
+    },
+    {
+     "shot": "area-30-13",
+     "map": 29,
+     "x": 30,
+     "y": 13,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-23-17",
+     "map": 29,
+     "x": 23,
+     "y": 17,
+     "identical": 0.9975
+    },
+    {
+     "shot": "area-26-22",
+     "map": 29,
+     "x": 26,
+     "y": 22,
+     "identical": 0.9969
+    },
+    {
+     "shot": "area-30-26",
+     "map": 29,
+     "x": 30,
+     "y": 26,
+     "identical": 0.9969
+    },
+    {
+     "shot": "area-19-24",
+     "map": 29,
+     "x": 19,
+     "y": 24,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-9-20",
+     "map": 29,
+     "x": 9,
+     "y": 20,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-6-10",
+     "map": 29,
+     "x": 6,
+     "y": 10,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-16-13",
+     "map": 29,
+     "x": 16,
+     "y": 13,
+     "identical": 0.9955
+    },
+    {
+     "shot": "area-42-17",
+     "map": 29,
+     "x": 42,
+     "y": 17,
+     "identical": 0.9924
+    },
+    {
+     "shot": "area-47-12",
+     "map": 29,
+     "x": 47,
+     "y": 12,
+     "identical": 0.9969
+    },
+    {
+     "shot": "area-55-14",
+     "map": 29,
+     "x": 55,
+     "y": 14,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-50-26",
+     "map": 29,
+     "x": 50,
+     "y": 26,
+     "identical": 1.0
+    },
+    {
+     "shot": "item-ball-45-13",
+     "map": 29,
+     "x": 45,
+     "y": 14,
+     "identical": 0.7214
+    },
+    {
+     "shot": "item-ball-45-13-gone",
+     "map": 29,
+     "x": 45,
+     "y": 13,
+     "identical": 1.0
+    },
+    {
+     "shot": "item-ball-33-25",
+     "map": 29,
+     "x": 33,
+     "y": 26,
+     "identical": 0.719
+    },
+    {
+     "shot": "item-ball-33-25-gone",
+     "map": 29,
+     "x": 33,
+     "y": 25,
+     "identical": 0.9955
+    },
+    {
+     "shot": "cut-tree-40-21",
+     "map": 29,
+     "x": 40,
+     "y": 22,
+     "identical": 1.0
+    },
+    {
+     "shot": "cut-tree-21-12",
+     "map": 29,
+     "x": 21,
+     "y": 13,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-10-12",
+     "map": 29,
+     "x": 10,
+     "y": 13,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-51-14",
+     "map": 29,
+     "x": 51,
+     "y": 15,
+     "identical": 1.0
+    },
+    {
+     "shot": "pond-edge",
+     "map": 29,
+     "x": 25,
+     "y": 12,
+     "identical": 0.9955
+    },
+    {
+     "shot": "gatehouse-wall",
+     "map": 29,
+     "x": 6,
+     "y": 11,
+     "identical": 1.0
+    },
+    {
+     "shot": "rock",
+     "map": 29,
+     "x": 31,
+     "y": 26,
+     "identical": 1.0
+    },
+    {
+     "shot": "cave-rock",
+     "map": 29,
+     "x": 52,
+     "y": 14,
+     "identical": 1.0
+    },
+    {
+     "shot": "tall-grass",
+     "map": 29,
+     "x": 51,
+     "y": 28,
+     "identical": 1.0
+    },
+    {
+     "shot": "read-sign-10-12",
+     "map": 29,
+     "x": 10,
+     "y": 13,
+     "identical": 0.7214
+    },
+    {
+     "shot": "read-sign-51-14",
+     "map": 29,
+     "x": 51,
+     "y": 15,
+     "identical": 0.7214
+    },
+    {
+     "shot": "save-spot",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 1.0
+    }
+   ]
+  }
+ },
+ {
+  "phase": "read",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 2,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "cold-reload",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 1.0
+    }
+   ]
+  }
+ },
+ {
+  "phase": "menu",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 3,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "continue-menu",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 0.0
+    },
+    {
+     "shot": "title-continue",
+     "map": 29,
+     "x": 39,
+     "y": 31,
+     "identical": 1.0
+    }
+   ]
+  }
+ }
+]

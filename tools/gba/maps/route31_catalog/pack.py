@@ -5,7 +5,8 @@ joint Route 30/31 pack (Route 30's pack.py, for Route 31).
 
 The tilesets are packed and installed by tools/gba/maps/route30_catalog/pair_pack.py, which runs this file
 with --spec (this map's layers, traversal and layer types) and --install-words (its map words, events and
-checks). Route 31 shares Route 30's primary (`route30_31`) and draws its own art from `route31_hgss`.
+checks). Route 31's primary is CherrygrovePrimary with palettes 1, 4 and 5 holding route art
+(`cherrygrove_route31`; Route 31 never draws Cherrygrove's sea palette); its own art is in `route31_hgss`.
 
 Traversal (source/trace/ledger.json, decoded HGSS permissions): woods under a tree root, rock, the
 gatehouse, the cave mouth's rock, signs and ledge ends blocked (collision 1, elevation 0 as vanilla);
@@ -32,7 +33,7 @@ SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'pack', EV / 'pack'
 MAP, LAYOUT = 'JohtoRoute31', 'LAYOUT_JOHTO_ROUTE31'
 TS_NAME, TS_SYM = 'route31_hgss', 'Route31Hgss'
-PRI_NAME, PRI_SYM = 'route30_31', 'Route30Route31Primary'
+PRI_NAME, PRI_SYM = 'cherrygrove_route31', 'CherrygroveRoute31Primary'
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'
 # JOHTO_ITEMS.md: Route 31's Poke Ball and Potion balls (HGSS's two item balls).
 ITEMS = dict(poke_ball=('FLAG_ITEM_APOC_ROUTE31_POKE_BALL', 'FLAG_UNUSED_0x268', 'ITEM_POKE_BALL'),

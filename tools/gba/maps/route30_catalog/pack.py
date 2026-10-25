@@ -6,17 +6,18 @@ layer types, events, and installation into the engine checkout (Route 29's pack.
 
 The installed pack is the joint Route 30/31 pack (pair_pack.py), which runs this file with --spec (this map's
 layers, traversal and pins) and --install-words (its map words, events and checks); the single pack below
-is Route 30 alone on the shared primary, kept for comparison.
+is Route 30 alone, kept for comparison.
 
-Route 30 keeps its live connections to Cherrygrove (south, offset 35) and Route 31 (north). A Gen 3 map
-draws a connected map's nearest 7 rows with its own tilesets, so Route 30's primary is CherrygrovePrimary
-with only its palettes 4 and 5 changed (`route30_31`, shared with Route 31): every Cherrygrove tile and
-metatile keeps its index and look in palettes 0-3, the only banks a Cherrygrove cell visible from Route 30
-uses; palettes 4-5 hold route art. The route's own art goes in one secondary tileset (`route30_hgss`,
-banks 6-12):
+Route 30 keeps its live connections to Cherrygrove (south, offset 35) and Route 31 (north, offset -28). A
+Gen 3 map draws a connected map's nearest 7 rows with its own tilesets, so Route 30's primary is
+CherrygrovePrimary with only its palettes 4 and 5 changed (`cherrygrove_route30`): every Cherrygrove tile
+and metatile a Cherrygrove cell visible from Route 30 uses keeps its index and look in palettes 0-3;
+palettes 4-5 and the free tile slots hold route art. The route's own art goes in one secondary tileset
+(`route30_hgss`, banks 6-12):
   * the south band (reference.py) is Cherrygrove's own primary metatiles, so Cherrygrove draws it exactly,
     and Cherrygrove's own top rows are primary metatiles, which Route 30 draws exactly;
-  * the north seam with Route 31 is checked from both sides by seams.py (seam.py shares its cells).
+  * the cells either map can see across the Route 30/31 seam sit at secondary ids both secondaries define
+    (pair_pack.py); seams.py checks both seams from both sides.
 Everything else packs exactly (Mahogany's lossless rule): every native pixel keeps its assembled RGB555
 colour; tiles that exist in CherrygrovePrimary are reused from it; the rest go into exact banks.
 
@@ -24,7 +25,7 @@ Traversal (source/trace/ledger.json, decoded HGSS permissions): woods under a tr
 fences, signs and ledge ends blocked (collision 1, elevation 0 as vanilla); jump-south ledges
 MB_JUMP_SOUTH; pond water MB_POND_WATER (collision 0, elevation 1); tall grass MB_TALL_GRASS; stairs and
 everything else open. Declared adaptations: woods cells under a crown stay solid, as HGSS has them; both
-house doors stay shut (no interiors exist yet).
+house doors stay shut (no interiors exist yet); the north padding's road (reference.py) is open.
 """
 from __future__ import annotations
 import json, re, struct, subprocess, sys
@@ -45,7 +46,7 @@ SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'pack', EV / 'pack'
 MAP, LAYOUT = 'CherrygroveRoute30Approach', 'LAYOUT_CHERRYGROVE_ROUTE30_APPROACH'
 TS_NAME, TS_SYM = 'route30_hgss', 'Route30Hgss'
-PRI_NAME, PRI_SYM = 'route30_31', 'Route30Route31Primary'
+PRI_NAME, PRI_SYM = 'cherrygrove_route30', 'CherrygroveRoute30Primary'
 PRI_KEEP = (0, 1, 2, 3)              # CherrygrovePrimary's palettes kept as they are
 PRI_FREE = (4, 5)                    # palettes the route art takes (no Cherrygrove cell near either seam uses them)
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'

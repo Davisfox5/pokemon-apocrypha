@@ -1,0 +1,82 @@
+{
+ "phases": [
+  {
+   "phase": "write",
+   "exit": 0,
+   "observations": 466
+  },
+  {
+   "phase": "read",
+   "exit": 0,
+   "observations": 2
+  },
+  {
+   "phase": "menu",
+   "exit": 0,
+   "observations": 3
+  }
+ ],
+ "frame_parity": {
+  "write": {
+   "frames": 52,
+   "fully_identical": 29,
+   "below_99_5": [
+    [
+     "cross-into-route31",
+     0.9089
+    ],
+    [
+     "to-gate-031",
+     0.9929
+    ],
+    [
+     "to-cave-039",
+     0.9948
+    ],
+    [
+     "cross-back-into-route30",
+     0.9089
+    ],
+    [
+     "area-38-23",
+     0.9924
+    ],
+    [
+     "area-42-17",
+     0.9924
+    ],
+    [
+     "item-ball-45-13",
+     0.7214
+    ],
+    [
+     "item-ball-33-25",
+     0.719
+    ],
+    [
+     "read-sign-10-12",
+     0.7214
+    ],
+    [
+     "read-sign-51-14",
+     0.7214
+    ]
+   ]
+  },
+  "read": {
+   "frames": 1,
+   "fully_identical": 1,
+   "below_99_5": []
+  },
+  "menu": {
+   "frames": 2,
+   "fully_identical": 1,
+   "below_99_5": [
+    [
+     "continue-menu",
+     0.0
+    ]
+   ]
+  }
+ }
+}

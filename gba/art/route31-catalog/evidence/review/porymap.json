@@ -1,0 +1,27 @@
+{
+ "porymap": "6.3.1",
+ "method": "Porymap's own Project::loadMap and Layout::render (tools/gba/maps/route29_catalog/porymap_probe.cpp), compared in RGB555",
+ "maps": {
+  "CherrygroveRoute30Approach": {
+   "size": [
+    576,
+    1664
+   ],
+   "differing_pixels": 0
+  },
+  "JohtoRoute31": {
+   "size": [
+    1024,
+    512
+   ],
+   "differing_pixels": 0
+  },
+  "CherrygroveCity": {
+   "size": [
+    1280,
+    768
+   ],
+   "differing_pixels": 0
+  }
+ }
+}

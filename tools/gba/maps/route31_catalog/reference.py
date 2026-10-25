@@ -36,8 +36,8 @@ R30_OFFSET = -28                      # Route 30's "up" connection: Route 31 col
 CG_OFFSET = 35
 # Lawn and road textures are Cherrygrove's 32 px blocks in Cherrygrove's own pixel frame: Route 31 column x
 # is Cherrygrove column x + 28 + 35 - 4... resolved through Route 30: Route 31 x = Route 30 x + 28, Route 30
-# x = Cherrygrove x - 35; Route 31's rows sit 32 + 102 rows above Cherrygrove's.
-XPHASE, YPHASE = ((CG_OFFSET - R30_OFFSET) * PX) % 32, (-(H + 102) * PX) % 32
+# x = Cherrygrove x - 35; Route 31's rows sit 32 + 104 rows above Cherrygrove's.
+XPHASE, YPHASE = ((CG_OFFSET - R30_OFFSET) * PX) % 32, (-(H + 104) * PX) % 32
 TREES = ('tree01gs', 'tree01_un', 'tree01_re')
 LIGHT = ('grass02', 'grass02_r', 'grass02_a')
 FLOWERS = ('flower01', 'flower02', 'flower03')
