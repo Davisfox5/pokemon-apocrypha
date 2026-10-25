@@ -185,7 +185,45 @@ def silph(engine):
     m = door[..., 3] > 0
     base[16:48, 48:96][m] = door[m]
     base[16:48, 48:96][~m & lower[16:48, :1].repeat(48, 1)] = 0
-    return np.concatenate([crown, body, base], 0)
+    t = np.concatenate([crown, body, base], 0)
+    round_sides(t, crown.shape[0])
+    return t
+
+SIDE_INSET, SIDE_SHADE = 4, (2, 2, 1, 1, 1)     # px set in under the crown; darkening steps, outermost first
+
+def darker(c, palette):
+    """The part's own colour nearest c at about four-fifths of its brightness (a step down
+    its ramp), so a shaded pixel adds no colour."""
+    c = np.array(c, float)
+    cands = [p for p in palette if sum(p) < c.sum() - 12]
+    if not cands:
+        return tuple(int(v) for v in c)
+    return min(cands, key=lambda p: ((np.array(p, float) - c * 0.8) ** 2).sum())
+
+def round_sides(t, y0):
+    """Silph's tower and podium below the crown (rows y0 on), rounded at both sides: set in
+    under the crown's ledge, an outline on the edge, the glass and concrete darkening
+    towards it as round glass does, the podium's foot corners cut round."""
+    a = t[..., 3] > 0
+    palette = sorted({tuple(int(v) for v in c) for c in t[a][:, :3]})
+    h, w = t.shape[:2]
+    for side in (1, -1):
+        xs = list(range(w)) if side == 1 else list(range(w - 1, -1, -1))
+        out, edge, shade = xs[:SIDE_INSET], xs[SIDE_INSET], xs[SIDE_INSET + 1:SIDE_INSET + 1 + len(SIDE_SHADE)]
+        for y in range(y0, h):
+            if not a[y, edge]:
+                continue
+            t[y, out, 3] = 0
+            t[y, edge, :3] = OUTLINE
+            for x, n in zip(shade, SIDE_SHADE):
+                if t[y, x, 3]:
+                    c = tuple(int(v) for v in t[y, x, :3])
+                    for _ in range(n):
+                        c = darker(c, palette)
+                    t[y, x, :3] = c
+        for dy, dx in ((1, 0), (1, 1), (2, 0)):         # the podium's foot corner, cut round
+            t[h - dy, xs[SIDE_INSET + dx], 3] = 0
+        t[h - 1, xs[SIDE_INSET + 2], :3] = OUTLINE
 
 def lab(engine):
     ms = source(engine, 'MossdeepCity')

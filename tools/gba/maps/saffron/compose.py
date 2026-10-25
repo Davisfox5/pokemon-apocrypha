@@ -76,9 +76,9 @@ DOORS = {'dojo_fighting': (40, 12), 'dojo_psychic': (45, 12), 'lab': (42, 30), '
 GRASS = (0x008, 0x009, 0x010, 0x011)            # Celadon's lawn: plain, and two with tufts
 FLOWERS = 0x004
 TREE = ((0x00E, 0x00F), (0x01E, 0x01F), (0x024, 0x025))
-LAWNS = [(31, 39, 37, 44),                      # the fountain garden on the south avenue, out to the south gate's grass
+LAWNS = [(31, 39, 37, 43), (32, 44, 37, 44),    # the fountain garden on the south avenue, out to the south gate's grass ((31, 44) holds a tree's crown)
          (30, 31, 32, 32), (34, 31, 41, 32), (43, 31, 47, 32),   # Silph's and the lab's front lawns, paths kept to both doors
-         (49, 15, 52, 21),                      # the east fence's green, north of the east gate
+         (50, 15, 52, 21),                      # the east fence's green, north of the east gate (east of the League office)
          (48, 30, 52, 33),                      # and south of it
          (15, 39, 18, 42),                      # the south-west corner by the Center, inside its fence
          (15, 10, 16, 16)]                      # the strip west of the station
@@ -86,8 +86,10 @@ REPAVED = [(30, 31, 47, 33)]                    # FireRed's olive patch before S
 FLOWER_BEDS = [(31, 39), (37, 39), (31, 41), (37, 41), (31, 43), (37, 43), (32, 44), (36, 44),
                (30, 32), (32, 31), (34, 32), (36, 31), (38, 32), (39, 31), (41, 32),
                (43, 32), (45, 31), (46, 32), (47, 31),
-               (49, 20), (52, 21), (48, 33), (52, 33), (15, 39), (18, 39), (16, 16)]
-TREES = [(49, 15), (51, 15), (49, 30), (51, 30), (15, 40), (17, 40), (15, 10), (15, 13)]
+               (50, 17), (52, 16), (50, 20), (52, 21), (50, 31), (52, 30), (48, 33), (52, 33), (15, 39), (18, 39),
+               (15, 11), (16, 13), (15, 16)]
+# Trees only off the walkways: check.py fails if one makes any route between doors, gates and signs longer.
+TREES = [(15, 40), (17, 40)]                    # the fenced corner by the Center
 
 def edit_grid(grid):
     g = grid.copy()
@@ -199,9 +201,26 @@ def kerbs(images, full):
                 im[kerb[1]][..., :3] = light
     return n
 
+def lawn_ground(pair, grid):
+    """Every lawn cell replaces paving or grass, never part of a building: its FireRed
+    picture (lots cleared, no lawns yet) holds only paving and grass colours."""
+    kept = LAWNS, FLOWER_BEDS, TREES
+    globals().update(LAWNS=[], FLOWER_BEDS=[], TREES=[])
+    try:
+        g, _ = edit_grid(grid)
+    finally:
+        globals().update(LAWNS=kept[0], FLOWER_BEDS=kept[1], TREES=kept[2])
+    full = frlg.flat(*frlg.render(pair, g))
+    cellc = lambda x, y: {tuple(c) for c in full[y * 16:y * 16 + 16, x * 16:x * 16 + 16].reshape(-1, 3).tolist()}
+    ground = cellc(38, 33) | cellc(49, 28) | cellc(32, 45) | {tuple(c) for m in GRASS for c in
+                                                             frlg.flat(*frlg.render(pair, np.array([[m]], np.uint16))).reshape(-1, 3).tolist()}
+    bad = [(x, y) for x0, y0, x1, y1 in LAWNS for y in range(y0, y1 + 1) for x in range(x0, x1 + 1) if not cellc(x, y) <= ground]
+    assert not bad, ('lawn over a building', bad)
+
 def compose(engine):
     pair = frlg.Pair(engine, PRIMARY, SECONDARY)
     grid, border = frlg.layout(engine, LAYOUT)
+    lawn_ground(pair, grid)
     g, notes = edit_grid(grid)
     bottom, top = frlg.render(pair, g)
     full = frlg.flat(bottom, top)

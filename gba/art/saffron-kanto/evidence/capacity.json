@@ -8,12 +8,12 @@
   "primary": "gTileset_KantoSaffronPrimary",
   "secondary": "gTileset_KantoSaffronCity",
   "primary_tiles": 512,
-  "secondary_tiles": 297,
+  "secondary_tiles": 306,
   "secondary_tile_limit": 496,
-  "primary_metatiles": 262,
-  "secondary_metatiles": 261,
+  "primary_metatiles": 260,
+  "secondary_metatiles": 267,
   "colours": 192,
-  "door_metatile": 131,
+  "door_metatile": 133,
   "interiors": {
     "KantoSaffronDojo": {
       "size": [

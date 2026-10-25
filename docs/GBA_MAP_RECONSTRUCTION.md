@@ -433,6 +433,11 @@ art (`saffron/parts.py`). Traps hit there:
 - After a repack the Center's door metatile drew from banks 10 and 11, not FireRed's 3;
   the sliding door then played in the wrong colours. Index the door frames into the
   metatile's banks and name them in the door's palette list (`install.move_door`).
+- A lawn rectangle drawn by eye ran one column into a house and one cell into a tree's
+  crown poking up from the row below. Check every lawn cell's FireRed picture holds only
+  paving and grass colours before painting it.
+- Trees in pairs filled whole walkways though each alone cost two steps at most. Measure
+  routes with all trees in, against all trees out, not one at a time.
 - A building's foot row can overhang a cell by a pixel or two; such a cell stays
   walkable and draws below the player, so test the solid front one row higher.
 - FireRed rooms: a decoder that draws a bottom-layer pixel of colour 0 in its tile's bank

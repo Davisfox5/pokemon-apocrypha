@@ -124,6 +124,17 @@ def rooms(g, city_warps):
 
 C_MAP = 'MAP_KANTO_SAFFRON_CITY'
 
+def steps(foot, start):
+    """Walking distance from start to every reachable foot cell (no ledges)."""
+    dist = {start: 0}; q = deque([start])
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (x + dx, y + dy)
+            if foot.get(n) in ('open', 'door') and n not in dist:
+                dist[n] = dist[(x, y)] + 1; q.append(n)
+    return dist
+
 def main(g):
     d = decode(g)
     img = d['img']
@@ -165,6 +176,18 @@ def main(g):
     approaches.update({f'sign_{b["script"].split("_", 1)[1]}': (b['x'], b['y'] + 1) for b in m['bg_events']})
     for k, p in approaches.items():
         assert p in seen, ('unreachable approach', k, p)
+    # Trees stand off the walkways: with their blocked cells opened, no route between two
+    # approaches is shorter than it is with them.
+    treeless = dict(foot)
+    for tx, ty in C.TREES:
+        for j in (1, 2):
+            for i in (0, 1):
+                treeless[(tx + i, ty + j)] = 'open'
+    longer = []
+    for k, p in approaches.items():
+        a, b = steps(foot, p), steps(treeless, p)
+        longer += [(k, k2) for k2, q in approaches.items() if a.get(q, 10 ** 6) > b.get(q, 10 ** 6)]
+    assert not longer, ('a tree lengthens a route', longer)
     # Every FireRed warp a new building has not built over (solid now unless it is a door
     # with an interior) still has a reachable cell beside it, as do the new doors. The
     # gates' outer doors (west, east and south) face Routes 7, 8 and 6, outside the walls.
@@ -236,7 +259,7 @@ def main(g):
                   palettes_match_packer=list(P.BANKS), bottom_layer_opaque=True, art_cells=int(art.sum()),
                   ledger_behaviour_collision_elevation_layer=True, frlg_layer_types_outside_parts=True,
                   reachable_foot_cells=len(seen), open_cells=len(open_cells),
-                  unreachable_open_cells=sorted(open_cells - seen), approaches=approaches,
+                  unreachable_open_cells=sorted(open_cells - seen), approaches=approaches, trees_lengthen_no_route=True,
                   doors_reached=must_reach, frlg_warps_built_over=sorted(built_over), outer_gate_doors=outer_gate_doors,
                   signs=len(m['bg_events']), open_doors={f'{x},{y}': v for (x, y), v in doors.items()},
                   door_metatile=door_mid, door_banks=banks, interiors=room_report,

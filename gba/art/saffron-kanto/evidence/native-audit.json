@@ -21,8 +21,8 @@
   "art_cells": 433,
   "ledger_behaviour_collision_elevation_layer": true,
   "frlg_layer_types_outside_parts": true,
-  "reachable_foot_cells": 692,
-  "open_cells": 840,
+  "reachable_foot_cells": 712,
+  "open_cells": 860,
   "unreachable_open_cells": [
     [
       0,
@@ -711,6 +711,7 @@
       39
     ]
   },
+  "trees_lengthen_no_route": true,
   "doors_reached": [
     [
       8,
@@ -817,7 +818,7 @@
     "45,12": "MAP_KANTO_SAFFRON_DOJO",
     "42,30": "MAP_KANTO_SAFFRON_SILPH_LAB"
   },
-  "door_metatile": 131,
+  "door_metatile": 133,
   "door_banks": [
     10,
     10,
@@ -845,10 +846,10 @@
     }
   },
   "primary_tiles": 512,
-  "secondary_tiles": 297,
+  "secondary_tiles": 306,
   "secondary_tile_limit": 496,
   "primary_metatiles": 512,
-  "secondary_metatiles": 261,
+  "secondary_metatiles": 267,
   "metatile_limit": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true

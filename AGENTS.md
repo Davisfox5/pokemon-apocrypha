@@ -255,7 +255,12 @@ regression ("made for a 1980s game", "boring"). The worked example is
   shared roof is the failure the owner named. A wing must change the silhouette of what it
   joins, built onto it, not set beside it.
 - The ground needs life: lawns, flowers and trees in FireRed's own General pieces (no new
-  colours), with Celadon's lawn edge drawn in the town's colours.
+  colours), with Celadon's lawn edge drawn in the town's colours. A lawn replaces paving
+  or grass only, never a building's cell or a tree's crown (`compose.lawn_ground`). Trees
+  go where they close no walkway: none may make a route between doors, gates and signs
+  longer (`check.py`); flowers and lawns are walkable, so use them on walkways.
+- A tall building's sides must not stop dead: set the body in under its roof, outline it,
+  shade towards the edge, cut the foot corners round (`parts.round_sides`).
 - Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
   snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
   Never ship an inexact colour. If a repack moves a door metatile's banks, index its door

@@ -30,9 +30,9 @@ Chapters 4 and 5).
 | Change | Source art | Story |
 | --- | --- | --- |
 | The Saffron Dojo: one building on FireRed's Fighting Dojo and Gym lots, 14 cells wide, a door for each school, Fighting (40, 12) and Psychic (45, 12), into one shared hall | Emerald's Battle Palace hall (Battle Frontier) widened under one dark tiled roof, its periodic roof bay repeated; a second roof tier over the centre bay with a shoji band and the shared crest (half Fighting red, half Psychic purple); a noren over each door in its school's colour, a fist on the red, an eye on the purple | The owner's brief: both dojos "each with an individual entrance but a shared interior", one original building. Canon has no Saffron Gym |
-| Silph Co.: a new glass tower under FireRed's crown, eight floors of curtain wall, its own entrance canopy at the foot | FireRed's Silph crown (purple roof panels, glass atrium); Emerald's Battle Tower curtain wall and base; FireRed's Silph door canopy | "Silph Co. dominates the skyline" |
+| Silph Co.: a new glass tower under FireRed's crown, eight floors of curtain wall, its own entrance canopy at the foot; the tower and podium set in under the crown, outlined, the glass darkening towards each side as round glass does, the podium's foot corners cut round | FireRed's Silph crown (purple roof panels, glass atrium); Emerald's Battle Tower curtain wall and base; FireRed's Silph door canopy | "Silph Co. dominates the skyline" |
 | Silph's research lab, built onto the tower's east side, its own door (42, 30) into an open, empty lab | Emerald's Mossdeep Space Center (observatory dome, roof-deck dish, glass stair column) recoloured to Silph's lavender | The owner's brief: a wing on Silph with a separate entrance, "Open, empty lab" |
-| Green spaces: a fountain garden on the south avenue out to the south gate's grass; lawns and flower beds before Silph and the lab (paths kept to both doors); the east fence's green with trees north and south of the east gate; two corner groves (west of the station, by the Center) | FireRed's own General grass, flowers and trees (Celadon's), Celadon's fountain; Celadon's lawn edge drawn in Saffron's colours (a darker grass rim, a mortar-and-highlight kerb on the paving) | "The floor looks boring": Celadon's Gen 3 vocabulary, no new colours |
+| Green spaces: a fountain garden on the south avenue out to the south gate's grass; lawns and flower beds before Silph and the lab (paths kept to both doors); the east fence's green north and south of the east gate and the strip west of the station, in flowers; a grove of trees in the fenced corner by the Center, the one place trees close no walkway | FireRed's own General grass, flowers and trees (Celadon's), Celadon's fountain; Celadon's lawn edge drawn in Saffron's colours (a darker grass rim, a mortar-and-highlight kerb on the paving) | "The floor looks boring": Celadon's Gen 3 vocabulary, no new colours |
 | Street lamps at Silph's and the lab's doors | Rustboro's lamp (Emerald), its paving left behind | |
 | The Magnet Train station in the north-west block, in place of three houses | v1's station (`sprites.py`, HGSS's model at C06's angle) | Chapter 4's arrival with Mel, Chapter 5's missing rail pass |
 | The Gym's red signposts made plain city signposts; signs SAFFRON DOJO - FIGHTING and SAFFRON DOJO - PSYCHIC, "Challengers welcome." | | No gym |
@@ -69,8 +69,8 @@ and empty.
 | | |
 | --- | --- |
 | Map | `KantoSaffronCity`, 66x55, `gMapGroup_Kanto` (group 81) id 0; Center 1, Center upstairs 2, Mart 3, Dojo 4, lab 5; `MAPSEC_SAFFRON_CITY`, `REGION_KANTO` |
-| Primary | `gTileset_KantoSaffronPrimary`: 512 tiles, 262 metatiles (every cell FireRed drew as it was, and the border) |
-| Secondary | `gTileset_KantoSaffronCity`: 297 of 496 tiles (16 kept for door animation), 261 metatiles (the 433 art cells) |
+| Primary | `gTileset_KantoSaffronPrimary`: 512 tiles, 260 metatiles (every cell FireRed drew as it was, and the border) |
+| Secondary | `gTileset_KantoSaffronCity`: 306 of 496 tiles (16 kept for door animation), 267 metatiles (the 433 art cells) |
 | Palettes | 13 banks, 192 of 195 colours, one pixel-exact fit over the whole map |
 | Rooms | `KantoSaffronDojo` (81 tiles, 51 metatiles) and `KantoSaffronSilphLab` (114 tiles, 70 metatiles), each on `gTileset_Building` and its own secondary |
 | Border | FireRed's |
@@ -82,7 +82,7 @@ and empty.
 - `parts.py` cuts each part from a FireRed or Emerald map as the game draws it, makes the
   ground round it transparent and writes `source/sprites/*.png`.
 - `compose.py` edits FireRed's grid (cleared lots, signposts, the Copycat's door front,
-  lawns, flowers, trees), renders it, draws the kerbs, and places the parts in painter's
+  lawns, flowers, trees), refuses a lawn over anything but paving or grass, renders it, draws the kerbs, and places the parts in painter's
   order. A cell any part draws in is an art cell: FireRed's picture there, both layers
   flat, on the bottom layer, the part's pixels on the top layer. Part colours within 2.5
   5-bit steps of one FireRed draws take FireRed's; colours one 5-bit step apart in every
@@ -112,7 +112,8 @@ Dojo's wall. No connections: Routes 5-8 are not built.
   compose.py's picture and the packer's decode, every pixel, palettes equal to the
   packer's, no transparent bottom pixel; behaviour, collision, elevation and layer type
   match the ledger in all 3,630 cells, and every cell FireRed drew keeps FireRed's layer
-  type; every approach, sign and remaining door reachable from the Center; the gates'
+  type; every approach, sign and remaining door reachable from the Center; no tree makes
+  any route between two approaches longer than it would be without trees; the gates'
   route-side doors face only route ground. The 148 unreachable open cells are FireRed's
   own (route ground past the gates, gate roofs, tree tops). The door entry names the
   door's banks and its frames' colours are FireRed's. Both rooms' blocks are the packed
@@ -121,7 +122,7 @@ Dojo's wall. No connections: Routes 5-8 are not built.
 - **Headless mGBA** (`runtime.py`, `evidence/gameplay/`): 49 captures; the map layers
   rebuilt from VRAM match the native map with 0 mismatched pixels, in the city, the Dojo's
   hall and the lab; BG1 covers the player behind the lab's roof, the station, the Dojo's
-  west end, a tree, the Copycat's house, the Center and the Mart; BG1 clear at 16 fronts;
+  west end, a grove tree, the Copycat's house, the Center and the Mart; BG1 clear at 16 fronts;
   the station, Silph's lobby, the Copycat's door and two gates solid; the ten signs read;
   the Center's door plays the sliding door (frames 0-2 seen in VRAM); Center (both floors)
   and Mart entered and left; the Dojo entered by the Fighting door and left by the Psychic
@@ -133,7 +134,7 @@ Dojo's wall. No connections: Routes 5-8 are not built.
 - **Deterministic**: two runs of parts, compose, pack and interiors under different
   `PYTHONHASHSEED` give identical arrays and sprites.
 
-Local ROM `18986d03` on engine `claude/saffron-city`.
+Local ROM `30a54f75` on engine `claude/saffron-city`.
 
 ## Rebuild
 
@@ -155,6 +156,8 @@ map it is regenerated from these tools each round; after that, edit natively.
 
 ## Limits
 
+- Owner review, round 1 (2026-10-25): the east lawn covered the League office house's east
+  column, trees closed walkways, Silph's sides were hard; all three fixed.
 - The station is still v1's (HGSS's model at C06's angle); it is the one part not cut from
   Gen 3 map art.
 - Interiors other than the Center, the Mart, the Dojo's hall and the lab (Silph's lobby,
