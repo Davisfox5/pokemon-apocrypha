@@ -1,0 +1,298 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/041_R42.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0252_R42.s",
+      "files/msgdata/msg/msg_0399_R42.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 13,
+        "z": 5,
+        "land_data": 82
+      },
+      {
+        "x": 14,
+        "z": 5,
+        "land_data": 83
+      },
+      {
+        "x": 15,
+        "z": 5,
+        "land_data": 84
+      }
+    ],
+    "origin": [
+      416,
+      160
+    ],
+    "size": [
+      96,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        78
+      ],
+      "east": [
+        87
+      ],
+      "north": [],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        6,
+        15
+      ],
+      "dest": "MAP_ROUTE_42_ECRUTEAK_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        6,
+        16
+      ],
+      "dest": "MAP_ROUTE_42_ECRUTEAK_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 2,
+      "cell": [
+        20,
+        11
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        48,
+        15
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 1
+    },
+    {
+      "index": 4,
+      "cell": [
+        50,
+        4
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 2
+    },
+    {
+      "index": 5,
+      "cell": [
+        77,
+        11
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 3
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        11,
+        17
+      ],
+      "script": "scr_seq_R42_002",
+      "bg_type": 1,
+      "text": "Rt. 42 Ecruteak City to Mahogany Town"
+    },
+    {
+      "cell": [
+        16,
+        11
+      ],
+      "script": "scr_seq_R42_003",
+      "bg_type": 1,
+      "text": "Mt. Mortar Waterfall Cave Inside"
+    },
+    {
+      "cell": [
+        75,
+        12
+      ],
+      "script": "scr_seq_R42_004",
+      "bg_type": 1,
+      "text": "Mt. Mortar Waterfall Cave Inside"
+    },
+    {
+      "cell": [
+        88,
+        12
+      ],
+      "script": "scr_seq_R42_005",
+      "bg_type": 1,
+      "text": "Rt. 42 Mahogany Town to Ecruteak City"
+    },
+    {
+      "cell": [
+        64,
+        22
+      ],
+      "script": "std_hiddenitem_r42_max_potion",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R42_fishing_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        67,
+        15
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_mania",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        79,
+        12
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_mount_2",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        85,
+        17
+      ],
+      "facing": 2,
+      "movement": 6,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        48,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_bonguri_2",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        49,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_bonguri_3",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        50,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R42_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        56,
+        16
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R42_SUPER_POTION"
+    },
+    {
+      "id": "obj_R42_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        61,
+        6
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R42_DUBIOUS_DISC"
+    },
+    {
+      "id": "obj_R42_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        14,
+        9
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R42_TM65"
+    },
+    {
+      "id": "obj_R42_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        44,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R42_mount_2_2",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        20,
+        11
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_42_HIKER"
+    },
+    {
+      "id": "obj_R42_tsure_poke_static_suicune",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_SUICUNE",
+      "cell": [
+        50,
+        22
+      ],
+      "facing": 2,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_42_SUICUNE"
+    },
+    {
+      "id": "obj_R42_minaki",
+      "sprite": "SPRITE_MINAKI",
+      "cell": [
+        36,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ROUTE_42_EUSINE"
+    }
+  ]
+}

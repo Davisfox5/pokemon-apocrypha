@@ -1,0 +1,189 @@
+{
+  "map": "Route42",
+  "primary": "gTileset_MahoganyPrimary (Mahogany Town's)",
+  "secondary": "gTileset_Route42",
+  "build": "shared Johto art + Blackthorn FRLG rock + natural water banks, lossless pack on Mahogany's tilesets (assemble.py, pack_fixed.py)",
+  "pack": {
+    "method": "lossless pack on Mahogany Town's tilesets: Mahogany's primary (tiles 0-511, palettes 0-5, metatiles 0-511); a secondary carrying exact copies of what Mahogany's visible edge uses, then Route 42's own art",
+    "native_pixels_exact": 786432,
+    "route42_pixels_in_mahogany_view": 41984,
+    "route42_pixels_in_mahogany_view_exact": true,
+    "mahogany_pixels_in_route42_view": 30720,
+    "mahogany_pixels_in_route42_view_exact": true,
+    "mahogany_unchanged_with_appended_metatiles": true,
+    "reserved_metatiles": {
+      "532": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "533": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "534": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "537": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "538": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "539": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "540": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "541": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "542": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "548": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "566": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "567": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "584": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "585": [
+        0,
+        1
+      ],
+      "586": [
+        0,
+        1
+      ]
+    },
+    "reserved_palette_slots": {
+      "6": [
+        4,
+        5
+      ],
+      "8": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        15
+      ],
+      "9": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "10": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+      ]
+    },
+    "banks": [
+      15,
+      14,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      14,
+      15,
+      14,
+      14,
+      14
+    ],
+    "primary_tiles_reused": 140,
+    "new_secondary_tiles": 451,
+    "secondary_tile_slots": 453,
+    "secondary_metatiles": 357,
+    "primary_metatiles_used": 47,
+    "mahogany_new_tiles": {
+      "first": 912,
+      "count": 10
+    },
+    "mahogany_appended": {
+      "primary": [],
+      "secondary": [
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682,
+        683,
+        684
+      ]
+    },
+    "mahogany_counts": {
+      "primary_tiles": 512,
+      "primary_metatiles": 210,
+      "secondary_tiles": 400,
+      "secondary_metatiles": 162
+    }
+  },
+  "map_id": 51
+}
