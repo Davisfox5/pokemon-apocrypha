@@ -18,7 +18,7 @@ import compose as C                                 # noqa: E402
 
 EV = C.EV
 REGIONS = {  # cells x0, y0, x1, y1 (exclusive)
-    'station': (12, 4, 32, 18), 'saffron-dojo': (32, 1, 55, 17), 'silph-and-lab': (26, 12, 50, 35),
+    'station': (12, 4, 32, 18), 'magnet-train': (0, 6, 30, 18), 'saffron-dojo': (32, 1, 55, 17), 'silph-and-lab': (26, 12, 50, 35),
     'copycat-house': (14, 15, 26, 24), 'east-green': (44, 12, 55, 36), 'fountain-garden': (26, 32, 42, 47),
     'south-west-green': (13, 34, 28, 45),
 }

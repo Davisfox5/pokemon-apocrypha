@@ -18,7 +18,7 @@
     12
   ],
   "bottom_layer_opaque": true,
-  "art_cells": 424,
+  "art_cells": 496,
   "ledger_behaviour_collision_elevation_layer": true,
   "frlg_layer_types_outside_parts": true,
   "reachable_foot_cells": 748,
@@ -674,6 +674,10 @@
       33,
       16
     ],
+    "under_magnet_train": [
+      16,
+      12
+    ],
     "sign_CitySign": [
       30,
       13
@@ -822,12 +826,12 @@
     "45,12": "MAP_KANTO_SAFFRON_DOJO",
     "42,30": "MAP_KANTO_SAFFRON_SILPH_LAB"
   },
-  "door_metatile": 133,
+  "door_metatile": 135,
   "door_banks": [
-    7,
-    7,
-    7,
-    7
+    0,
+    0,
+    0,
+    0
   ],
   "interiors": {
     "KantoSaffronDojo": {
@@ -850,10 +854,10 @@
     }
   },
   "primary_tiles": 512,
-  "secondary_tiles": 284,
+  "secondary_tiles": 359,
   "secondary_tile_limit": 496,
   "primary_metatiles": 512,
-  "secondary_metatiles": 265,
+  "secondary_metatiles": 301,
   "metatile_limit": 512,
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true

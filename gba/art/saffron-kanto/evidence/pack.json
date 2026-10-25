@@ -1,16 +1,16 @@
 {
-  "tiles": 796,
+  "tiles": 871,
   "primary_tiles": 512,
-  "secondary_tiles": 284,
+  "secondary_tiles": 359,
   "secondary_tile_limit": 496,
-  "metatiles": 525,
-  "metatiles_in_primary": 260,
-  "metatiles_in_secondary": 265,
-  "art_cells": 424,
-  "colours": 192,
+  "metatiles": 571,
+  "metatiles_in_primary": 270,
+  "metatiles_in_secondary": 301,
+  "art_cells": 496,
+  "colours": 195,
   "colour_rgb5": {
-    "exact": 844608,
-    "total": 844608
+    "exact": 829248,
+    "total": 829248
   },
   "adaptations": {
     "34,5": "door or gate warp: solid until its interior or route is built",

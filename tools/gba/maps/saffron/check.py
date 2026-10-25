@@ -172,7 +172,7 @@ def main(g):
     m = json.loads((g / f'data/maps/{NAME}/map.json').read_text())
     approaches = dict(center=(24, 39), mart=(40, 22), silph=(33, 31), lab=(42, 31), station=(25, 15), fighting_dojo=(40, 13),
                       psychic_dojo=(45, 13), league_office=(49, 23), copycat_house=(19, 22), mr_psychic=(43, 39),
-                      south_gate=(34, 45), fountain_garden=(34, 43), plaza=(44, 15), behind_silph=(33, 16))
+                      south_gate=(34, 45), fountain_garden=(34, 43), plaza=(44, 15), behind_silph=(33, 16), under_magnet_train=(16, 12))
     approaches.update({f'sign_{b["script"].split("_", 1)[1]}': (b['x'], b['y'] + 1) for b in m['bg_events']})
     for k, p in approaches.items():
         assert p in seen, ('unreachable approach', k, p)

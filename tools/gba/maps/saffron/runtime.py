@@ -5,7 +5,7 @@ Each phase is a fresh emulator process:
            League office, the Copycat's and Mr. Psychic's houses, the Center, the Mart and
            the fountain garden, and at the four gates; bump the station's front and door,
            Silph's lobby door, the Copycat's door and the north and west gates (solid until
-           their interiors and routes exist); walk the length of Silph's back and stand behind its roof and its
+           their interiors and routes exist); walk under the Magnet Train's deck; walk the length of Silph's back and stand behind its roof and its
            dome, the lab's roof, the station, the
            Dojo's west end, a grove tree, the Copycat's house, the Center and the
            Mart; read the ten signs; watch the Center's door slide open; enter and leave the
@@ -58,6 +58,8 @@ STEPS = [
     ('shot', 'behind-silph-roof-deep'), ('south', 1, None), ('at', CITY, 30, 16),
     ('go', CITY, 33, 16), ('shot', 'behind-silph-dome'), ('south', 1, None), ('at', CITY, 33, 16),
     ('go', CITY, 28, 16), ('east', 10, None), ('at', CITY, 38, 16),            # the whole back of Silph on foot, behind its roof
+    ('go', CITY, 15, 12), ('shot', 'under-magnet-train'),
+    ('go', CITY, 16, 15), ('north', 5, None), ('at', CITY, 16, 10),             # under the Magnet Train's deck, end to end
     ('go', CITY, 40, 23), ('shot', 'behind-lab-roof'), ('south', 1, None), ('at', CITY, 40, 23),
     ('go', CITY, 19, 10), ('shot', 'behind-station'), ('south', 1, None), ('at', CITY, 19, 10),
     ('go', CITY, 36, 6), ('shot', 'behind-dojo-west-end'), ('east', 1, None), ('at', CITY, 36, 6),
@@ -97,7 +99,7 @@ STEPS = [
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', OLIVINE, 16, 35, 'regression-olivine'),
     ('view', CITY, 24, 40, 'return-to-saffron'),
 ]
-WALK_BEHIND = {'behind-silph-roof': (30, 15), 'behind-silph-roof-deep': (30, 16), 'behind-silph-dome': (33, 16), 'behind-lab-roof': (40, 23), 'behind-station': (19, 10), 'behind-dojo-west-end': (36, 6),
+WALK_BEHIND = {'under-magnet-train': (15, 12), 'behind-silph-roof': (30, 15), 'behind-silph-roof-deep': (30, 16), 'behind-silph-dome': (33, 16), 'behind-lab-roof': (40, 23), 'behind-station': (19, 10), 'behind-dojo-west-end': (36, 6),
                'behind-grove-tree': (15, 40), 'behind-copycat-house': (19, 17), 'behind-center': (24, 34), 'behind-mart': (40, 18)}
 IN_FRONT = ('station-front', 'silph-front', 'lab-front', 'fighting-door-front', 'psychic-door-front', 'league-office-front',
             'copycat-house-front', 'mr-psychic-front', 'center-approach', 'center-exit', 'mart-approach', 'mart-exit',
