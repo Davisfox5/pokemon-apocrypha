@@ -1,0 +1,41 @@
+{
+  "donor_repository": "Davisfox5/pokeheartgold",
+  "donor_revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "source_art_credit": "Game Freak / Nintendo / Creatures",
+  "models": {
+    "field-313.nsbmd": "73e42c52b9e8e9f41ffa2bd09f1ce5689a970b181aaf2804931925f457868e38",
+    "field-310.nsbmd": "b44f472309097fa2385c09509f44d82ad19d13293abae277ae5965d8328f194c",
+    "field-314.nsbmd": "67ea6cc8605a520f7a841c52b250070949dd399c494d34fe79992f9525b051f1",
+    "field-311.nsbmd": "a985825aa4dcab5a5704c3c2478b05061360e1878ee8efc7add59715a15a1443",
+    "field-30.nsbmd": "42f5429adfd3ca4c28e0279bd2f0d3c77b7b6909bcbcfb6b754fed1890ac76bb",
+    "field-29.nsbmd": "79bb09f480f34420481952bf9871e44ebd09d37d5add1db372a03826a85fffae",
+    "field-31.nsbmd": "a12f6a2df635d38260091b34720a5353d3c4db85b4962a0c304adea7f3336731",
+    "room-21.nsbmd": "23c5ad7b1686c10bfa740e70a5c66ce22e22ca906701e2d7a57ab985a08ab43c",
+    "room-20.nsbmd": "498006b3f7155b417c077bf62fed713301b62b94f70f818e4b811973a3eb364a",
+    "room-19.nsbmd": "5304733cf76347f8d417bb32f46bc49f6bfa07f7e317b0024a1e1c10ddf55e8b",
+    "room-94.nsbmd": "c10fe0773733e8803c1b7059a26dcc56b2cef75e1eb0ed5f45694fcf9c2d01e0",
+    "room-53.nsbmd": "977af359072903c9f2764347b2f5b890cb334a6c595947c09fab73c0b7574eee",
+    "room-70.nsbmd": "f3f54e9d1520e1473c3d8f06e4676e7855c8a3fc7d6ba3158bdab63162a9a2c7",
+    "room-17.nsbmd": "308f3d31cfc7ee2c3c681d235784d873c74a1f7a05c2a3ea25a51adfe53bdb6f",
+    "room-24.nsbmd": "012658f2d92b187142e0828d133880d8b1e1b6c32a8eacb615dd5aa3b4d05937",
+    "room-54.nsbmd": "95be155df683eda98e6135f580a53ef90de90ec95edb83300b8c8708faa68d67",
+    "room-66.nsbmd": "b80723ae1b417fcf69a63a6269a5e1b098e84ce2bfada4c28caebb71a148cd30",
+    "room-67.nsbmd": "49e82bcfcfa709f0efa2a403675affea4258b09a36e6dc1b41402d120c878d14",
+    "room-18.nsbmd": "c6548ce3ab0781fbcbeae658de9244c3debfa901000f5ed5cc9b4e1b46b22938",
+    "room-27.nsbmd": "3dceaf8c5b5e80369eb06b85adbe19b93e0284d5639814a33662bc7ff6944d2d",
+    "room-29.nsbmd": "460cf43acbfd07ecc3b80e89fcdc08c84bf6c5fe2234d42e88f139d6e588f34f",
+    "room-91.nsbmd": "7e01a542bf942c142ebfbff57588fc57a8609d607f76867637beb9fb046f0043",
+    "room-95.nsbmd": "e658f9614b2642ab25734d10aa9fbfab843e19d47e974170aa9c087d080db727",
+    "room-30.nsbmd": "ef57ca46e6b1b46147475eb6ca131541022775625d9261917aca76196f498d2c",
+    "room-210.nsbmd": "2033953fe34c634f2d20bd2075d0a954b6ebdb56717b64436765159b2f91960d",
+    "room-101.nsbmd": "7a77a92a93e0b8ac31c4d05d229af76179ae32f5608e80fc12229dbcb089bf84",
+    "room-103.nsbmd": "e4ecc97ada145bef848d7237a20e03a44b93f71f768e92b2c0eb472f34ebca01",
+    "room-114.nsbmd": "903ccc7f9e7e76e7c73dbcbac2f412c30279cd48f3fbe20265d876b02080fade",
+    "room-89.nsbmd": "92754f24011e8be1b7e40712f4cd0cafb4e91a3c0e04223e56891efc4472a18b"
+  },
+  "conversion": "static meshes, vertex colors, face lighting, original texture lookup; native RGB555 palette adaptation",
+  "accepted_shared_assets": [
+    "Cherrygrove T01 tree",
+    "Cherrygrove grass and path material"
+  ]
+}

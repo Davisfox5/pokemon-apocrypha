@@ -1,0 +1,62 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "width": 36,
+    "height": 36,
+    "cells": 1296,
+    "primary_tiles": 192,
+    "secondary_tiles": 272,
+    "primary_metatiles": 116,
+    "secondary_metatiles": 104,
+    "palettes": 12,
+    "native_pixels_equal": true
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "width": 18,
+    "height": 14,
+    "cells": 252,
+    "primary_tiles": 128,
+    "secondary_tiles": 80,
+    "primary_metatiles": 65,
+    "secondary_metatiles": 24,
+    "palettes": 12,
+    "native_pixels_equal": true
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "width": 16,
+    "height": 13,
+    "cells": 208,
+    "primary_tiles": 80,
+    "secondary_tiles": 80,
+    "primary_metatiles": 44,
+    "secondary_metatiles": 24,
+    "palettes": 10,
+    "native_pixels_equal": true
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "width": 18,
+    "height": 14,
+    "cells": 252,
+    "primary_tiles": 112,
+    "secondary_tiles": 112,
+    "primary_metatiles": 64,
+    "secondary_metatiles": 36,
+    "palettes": 12,
+    "native_pixels_equal": true
+  },
+  {
+    "map": "ApocPalletLab",
+    "width": 20,
+    "height": 18,
+    "cells": 360,
+    "primary_tiles": 112,
+    "secondary_tiles": 112,
+    "primary_metatiles": 74,
+    "secondary_metatiles": 39,
+    "palettes": 10,
+    "native_pixels_equal": true
+  }
+]

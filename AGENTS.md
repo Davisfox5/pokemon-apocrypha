@@ -25,6 +25,11 @@
 
 ## Required workflow for every map-building task
 
+- Always show map previews inline in the response. Include a readable whole-map
+  preview when presenting map-building work; source and evidence links supplement
+  the inline images. Owner-established preference, 2026-10-25.
+- Work directly on native GBA art/maps. Do not request preliminary artwork or
+  reopen the settled platform choice. Show actual map previews.
 - All models and instances, including Codex, Claude, Grok and Gemini, must read
   and apply [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
   before building, rebuilding, extending or refining a map.

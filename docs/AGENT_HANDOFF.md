@@ -1,3 +1,39 @@
+## Current: Pallet Town native GBA revision
+
+The owner requires direct native GBA work, HGSS model conversions with FRLG as
+reference, and inline actual map previews. Do not reopen the platform choice.
+Both preceding native drafts are rejected. Current source is
+`codex/pallet-native-revision`; evidence and process are in
+`gba/art/pallet-native/README.md`. Evidence PR #41; engine PR #45 at
+`14f116de7bb0aa020357e3be34f47264c9b8577f` passes all 19 local runtime phases,
+including 709 blocked edges, actor visibility/palettes and ordinary saves. No remote
+CI runs/checks were returned. See its publication/runtime records for exact
+identities and review status. It expands the receiving layout, retains full
+building geometry and vertex colors, furnishes all four interiors, animates water,
+and continues the inlet in the southern camera border. Source IDs remain stable.
+Technical verification does not establish owner visual acceptance.
+
+## Latest: Pallet Town rebuilt after owner rejection (October 25)
+
+The owner rejected the first HGSS Pallet proposal and requested the complete process again.
+Fresh FRLG reference/material/traversal trace and freshly decoded HGSS models now supply all five
+maps. Complete house facades, fence posts, readable light lawn, full shared trees, bedroom rug and
+native animated water replace the rejected conversion. Original 24x20 core registers at (0,1)
+in a 24x23 exterior; 72 canopy-apron cells are explicit. Interior registration stays unchanged.
+
+Engine `codex/pallet-town-rebuild`, commit `b02c5c97c070368592fc1b60c0c679aa816d5a79`.
+Source PR #42; evidence PR #37. Both are drafts; no remote CI checks returned.
+The 1,030 original cells preserve collision/elevation/behavior; all 1,102 native cells match source
+RGB5 pixels and actual Porymap output. ROM/VRAM/palettes and 19 mGBA phases pass (walking, three
+animated doors/returns, both stairs, dialogue, 317 blocked edges, water animation/Surf/dismount,
+ordinary saves, cold reload and title Continue on all floors). Pixel checks are not visual acceptance.
+
+Read `gba/art/pallet-town-rebuild/README.md`, `REVIEW.md` and preservation/runtime identities.
+Current limits: Route 1/21/campaign access/HM acquisition unbuilt; southern off-map forest border
+visible near the unwired boundary; dialogue and model/material fits are proposals. Prior Pallet
+versions are rejected historical evidence, not accepted source. IDs and all unrelated maps/art stay
+intact. Native source owns later editing; do not replay generators over subsequent owner changes.
+
 ## Latest: Routes 30 and 31 by the Mahogany/Route 43 process (October 25)
 
 Owner: "do the routes between Cherrygrove and Violet City in the same manner" as Route 29. Both are HGSS
@@ -47,6 +83,26 @@ Owner review (October 25), refined the same day:
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
 
 Read `gba/art/route30-catalog/README.md` and `gba/art/route31-catalog/README.md`. Next: owner visual review.
+
+## Previous: Rejected Pallet Town from HGSS models with FRLG reference (October 25)
+
+Owner requested Pallet Town under AGENTS.md, then specified HGSS models converted using FRLG as reference.
+Five new native maps append at group 80 / 43–47; existing maps, layouts, shared assets, campaign flags
+and saves remain intact. Field models 313/314/310/311 and Pallet bm_room data supply the new art;
+accepted Cherrygrove lawn/T01 trees remain shared. The prior FRLG-only draft is preserved.
+
+Source: `Davisfox5/pokeemerald-expansion@codex/pallet-town`, commit
+`550cdf32f1f58b846477df52b9a46ddd25054126`, against `apocrypha`. Porytiles 2.0.0 compiles;
+Porymap 6.3.1 opens/renders/saves all floors. All 1,030 native squares match converted source at
+RGB555; actual ROM/VRAM/palettes checked. Nineteen headless mGBA phases pass: continuous walking,
+all doors/stairs/returns, dialogue, 311 blocked edges, water/dismount, ordinary saves, cold reload
+and title-screen Continue on every map. Final native/engine screenshots were inspected.
+
+Read `gba/art/pallet-town/README.md` and its preservation/build/runtime records. Current limits:
+static water, unwired Route 1/21 and campaign acquisition/travel, proposed dialogue/model-footprint
+adaptations, owner visual approval pending. The normal start is preserved; use R+START's existing
+debug warp menu, group 80/map 43. Do not replay the provenance generators over later owner edits.
+Remote CI is not claimed green; source/evidence are draft PRs pending available checks and review.
 
 ## Previous: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)
 

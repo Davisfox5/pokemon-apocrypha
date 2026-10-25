@@ -1,0 +1,22 @@
+{
+  "map": "ApocPalletRedHouse2F",
+  "donor": "PalletTown_PlayersHouse_2F_Frlg",
+  "layout": {
+    "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG",
+    "name": "PalletTown_PlayersHouse_2F_FRLG_Layout",
+    "width": 12,
+    "height": 9,
+    "primary_tileset": "gTileset_BuildingFrlg",
+    "secondary_tileset": "gTileset_GenericBuilding1",
+    "border_filepath": "data/layouts/PalletTown_PlayersHouse_2F_Frlg/border.bin",
+    "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_2F_Frlg/map.bin",
+    "border_height": 2,
+    "border_width": 2,
+    "layout_version": "frlg"
+  },
+  "reference": "Decoded original FRLG data, not a screenshot trace",
+  "scale": 16,
+  "native_offset": null,
+  "crop": null,
+  "expansion": "Owner-requested spatial redesign; original landmarks retained, receiving cells separately authored"
+}

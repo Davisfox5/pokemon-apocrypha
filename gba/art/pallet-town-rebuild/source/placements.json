@@ -1,0 +1,923 @@
+{
+  "tree_roots": [
+    [
+      0,
+      1
+    ],
+    [
+      22,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      22,
+      3
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      22,
+      5
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      22,
+      7
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      22,
+      9
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      22,
+      11
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      22,
+      13
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      22,
+      15
+    ],
+    [
+      0,
+      17
+    ],
+    [
+      22,
+      17
+    ],
+    [
+      0,
+      19
+    ],
+    [
+      22,
+      19
+    ],
+    [
+      0,
+      21
+    ],
+    [
+      22,
+      21
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      10,
+      1
+    ],
+    [
+      14,
+      1
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      18,
+      1
+    ],
+    [
+      20,
+      1
+    ],
+    [
+      2,
+      21
+    ],
+    [
+      4,
+      21
+    ],
+    [
+      18,
+      21
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "root_beds_disjoint": true,
+  "placements": [
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 32,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 64,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 96,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 128,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 160,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 224,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 256,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 288,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 320,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 0,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 32,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 32,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 64,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 64,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 96,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 96,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 128,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 128,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 160,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 160,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 192,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 192,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 224,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 224,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 256,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 256,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 288,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 288,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 0,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 32,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 64,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 288,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 320,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "shared-tree",
+      "x": 352,
+      "y": 320,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "red-house",
+      "x": 80,
+      "y": 48,
+      "width": 80,
+      "height": 96
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "oak-home",
+      "x": 224,
+      "y": 48,
+      "width": 80,
+      "height": 96
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "laboratory",
+      "x": 208,
+      "y": 160,
+      "width": 112,
+      "height": 80
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "red-mailbox",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "oak-mailbox",
+      "x": 208,
+      "y": 112,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "town-sign",
+      "x": 144,
+      "y": 184,
+      "width": 16,
+      "height": 24
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "red-memorial",
+      "x": 80,
+      "y": 232,
+      "width": 16,
+      "height": 24
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "lab-sign",
+      "x": 256,
+      "y": 256,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 80,
+      "y": 192,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 112,
+      "y": 192,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 128,
+      "y": 192,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 208,
+      "y": 272,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 224,
+      "y": 272,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 240,
+      "y": 272,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 272,
+      "y": 272,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "picket-fence",
+      "x": 288,
+      "y": 272,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 80,
+      "y": 208,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 96,
+      "y": 208,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 112,
+      "y": 208,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 128,
+      "y": 208,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 80,
+      "y": 224,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 96,
+      "y": 224,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 112,
+      "y": 224,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletTown",
+      "asset": "flowers",
+      "x": 128,
+      "y": 224,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "table-and-four-chairs",
+      "x": 64,
+      "y": 48,
+      "width": 96,
+      "height": 64
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "kitchen",
+      "x": 16,
+      "y": 16,
+      "width": 48,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "telephone",
+      "x": 64,
+      "y": 16,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "television",
+      "x": 96,
+      "y": 16,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "potted-plant",
+      "x": 16,
+      "y": 96,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "potted-plant",
+      "x": 192,
+      "y": 96,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "window",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "original-HGSS-stairs",
+      "x": 160,
+      "y": 16,
+      "width": 48,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletRedHouse1F",
+      "asset": "exit-mat",
+      "x": 48,
+      "y": 128,
+      "width": 48,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "bedroom-rug",
+      "x": 64,
+      "y": 64,
+      "width": 80,
+      "height": 64
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "bed",
+      "x": 32,
+      "y": 64,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "pc",
+      "x": 16,
+      "y": 16,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "chair",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "shelves",
+      "x": 64,
+      "y": 16,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "game-console",
+      "x": 96,
+      "y": 64,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "wall-notice",
+      "x": 176,
+      "y": 16,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletRedHouse2F",
+      "asset": "original-HGSS-stairs",
+      "x": 128,
+      "y": 16,
+      "width": 48,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "table-and-four-chairs",
+      "x": 64,
+      "y": 48,
+      "width": 96,
+      "height": 64
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "kitchen",
+      "x": 0,
+      "y": 16,
+      "width": 48,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "telephone",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "television",
+      "x": 80,
+      "y": 16,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "potted-plant",
+      "x": 0,
+      "y": 112,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "potted-plant",
+      "x": 192,
+      "y": 112,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "window",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "bookshelf",
+      "x": 176,
+      "y": 16,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletOakHouse",
+      "asset": "exit-mat",
+      "x": 48,
+      "y": 128,
+      "width": 48,
+      "height": 16
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "research-machines",
+      "x": 0,
+      "y": 16,
+      "width": 64,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "lab-equipment",
+      "x": 16,
+      "y": 48,
+      "width": 32,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "rear-cabinets",
+      "x": 144,
+      "y": 16,
+      "width": 64,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "research-table",
+      "x": 128,
+      "y": 64,
+      "width": 48,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "right-cabinets",
+      "x": 128,
+      "y": 112,
+      "width": 80,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "left-cabinets",
+      "x": 0,
+      "y": 112,
+      "width": 80,
+      "height": 48
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "books",
+      "x": 0,
+      "y": 48,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "rear-desk",
+      "x": 64,
+      "y": 16,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "potted-plant",
+      "x": 0,
+      "y": 176,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "potted-plant",
+      "x": 192,
+      "y": 176,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "map": "ApocPalletLab",
+      "asset": "exit-mat",
+      "x": 80,
+      "y": 192,
+      "width": 48,
+      "height": 16
+    }
+  ]
+}

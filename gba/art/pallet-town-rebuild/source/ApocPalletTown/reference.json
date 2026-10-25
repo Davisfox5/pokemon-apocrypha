@@ -1,0 +1,25 @@
+{
+  "map": "ApocPalletTown",
+  "donor": "PalletTown_Frlg",
+  "layout": {
+    "id": "LAYOUT_PALLET_TOWN",
+    "name": "PalletTown_Layout",
+    "width": 24,
+    "height": 20,
+    "primary_tileset": "gTileset_General_Frlg",
+    "secondary_tileset": "gTileset_PalletTown",
+    "border_filepath": "data/layouts/PalletTown_Frlg/border.bin",
+    "blockdata_filepath": "data/layouts/PalletTown_Frlg/map.bin",
+    "border_height": 2,
+    "border_width": 2,
+    "layout_version": "frlg"
+  },
+  "reference": "Decoded original FRLG data, not a screenshot trace",
+  "scale": 16,
+  "native_offset": [
+    0,
+    1
+  ],
+  "crop": null,
+  "expansion": "one north/two south canopy apron rows"
+}

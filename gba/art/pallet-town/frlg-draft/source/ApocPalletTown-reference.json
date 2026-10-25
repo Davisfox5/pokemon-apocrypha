@@ -1,0 +1,26 @@
+{
+  "original_map": "PalletTown_Frlg",
+  "layout": {
+    "id": "LAYOUT_PALLET_TOWN",
+    "name": "PalletTown_Layout",
+    "width": 24,
+    "height": 20,
+    "primary_tileset": "gTileset_General_Frlg",
+    "secondary_tileset": "gTileset_PalletTown",
+    "border_filepath": "data/layouts/PalletTown_Frlg/border.bin",
+    "blockdata_filepath": "data/layouts/PalletTown_Frlg/map.bin",
+    "border_height": 2,
+    "border_width": 2,
+    "layout_version": "frlg"
+  },
+  "reference": "FRLG source decoded directly, not a screenshot trace",
+  "registration": {
+    "scale": 1,
+    "origin": [
+      0,
+      0
+    ],
+    "crop": null,
+    "expansion": null
+  }
+}

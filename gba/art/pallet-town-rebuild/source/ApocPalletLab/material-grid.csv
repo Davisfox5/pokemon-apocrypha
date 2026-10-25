@@ -1,0 +1,183 @@
+x,y,reference_x,reference_y,reference_material,native_ground,native_visible_features,reference_metatile,native_metatile,native_layer,native_entries,hidden_ground_interpretation,adaptation
+0,0,0,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,29d,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+1,0,1,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06d,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+2,0,2,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06d,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+3,0,3,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06e,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+4,0,4,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,069,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+5,0,5,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,069,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+6,0,6,0,wall_notices,HGSS wood floor / original void,HGSS-wall-cap-and-face,28d,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+7,0,7,0,wall_notices,HGSS wood floor / original void,HGSS-wall-cap-and-face,28d,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+8,0,8,0,display,HGSS wood floor / original void,HGSS-wall-cap-and-face,098,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+9,0,9,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06b,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+10,0,10,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06c,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+11,0,11,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06b,201,1,0401 0402 0403 0402 1204 1200 1205 1602,False,
+12,0,12,0,wall_cap_face,HGSS wood floor / original void,HGSS-wall-cap-and-face,06c,200,1,0401 0402 0403 0402 1600 1601 1202 1603,False,
+0,1,0,1,research_machines,HGSS wood floor / original void,HGSS-wall-cap-and-face;research-machines,2ad,202,1,0401 0402 0403 0402 3a06 a607 3208 3209,False,
+1,1,1,1,research_machines,HGSS wood floor / original void,HGSS-wall-cap-and-face;research-machines,2a6,203,1,0401 0402 0403 0402 120a 160b 160c 160d,False,
+2,1,2,1,research_machines,HGSS wood floor / original void,HGSS-wall-cap-and-face;research-machines,075,204,1,0401 0402 0403 0402 a60e 360f 3210 3211,False,
+3,1,3,1,research_machines,HGSS wood floor / original void,HGSS-wall-cap-and-face;research-machines,076,205,1,0401 0402 0403 0402 3612 1602 3e13 3a14,False,
+4,1,4,1,desk,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-desk,085,206,1,0401 0402 0403 0402 0615 0216 0617 0218,False,
+5,1,5,1,desk,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-desk,086,207,1,0401 0402 0403 0402 0216 0215 0218 0217,False,
+6,1,6,1,wall_notices,HGSS wood floor / original void,HGSS-wall-cap-and-face,295,208,1,0401 0402 0403 0402 1202 1619 1e1a 1e1b,False,
+7,1,7,1,wall_notices,HGSS wood floor / original void,HGSS-wall-cap-and-face,295,209,1,0401 0402 0403 0402 121c 1602 1a1d 1a1e,False,
+8,1,8,1,display,HGSS wood floor / original void,HGSS-wall-cap-and-face,0a0,20a,1,0401 0402 0403 0402 1202 1619 1e1a 1e1b,False,
+9,1,9,1,bookshelf,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-cabinets,073,20b,1,0401 0402 0403 0402 221f 1220 2221 6622,False,
+10,1,10,1,bookshelf,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-cabinets,074,20c,1,0401 0402 0403 0402 2223 2e24 6a25 2626,False,
+11,1,11,1,bookshelf,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-cabinets,073,20d,1,0401 0402 0403 0402 2a24 2623 2227 6628,False,
+12,1,12,1,bookshelf,HGSS wood floor / original void,HGSS-wall-cap-and-face;rear-cabinets,074,20e,1,0401 0402 0403 0402 1220 261f 6229 262a,False,
+0,2,0,2,research_machines,HGSS wood floor / original void,research-machines,2b5,20f,1,0401 0402 0403 0402 3a2b 3e2c aa2d 462e,False,
+1,2,1,2,research_machines,HGSS wood floor / original void,research-machines,2b6,210,1,0401 0402 0403 0402 122f 1630 1a31 1e32,False,
+2,2,2,2,research_machines,HGSS wood floor / original void,research-machines,285,211,1,0401 0402 0403 0402 8e33 8e34 4e35 0000,False,
+3,2,3,2,research_machines,HGSS wood floor / original void,research-machines,286,212,1,0401 0402 0403 0402 4a36 4e37 aa38 ae39,False,
+4,2,4,2,desk,HGSS wood floor / original void,rear-desk,285,213,1,0401 0402 0403 0402 aa3a a23b ae3c aa3d,False,
+5,2,5,2,desk,HGSS wood floor / original void,rear-desk,286,214,1,0401 0402 0403 0402 a23b ae3a aa3d aa3c,False,
+6,2,6,2,laboratory_tile_floor,HGSS wood floor / original void,,281,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,2,7,2,laboratory_tile_floor,HGSS wood floor / original void,,281,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,2,8,2,laboratory_tile_floor,HGSS wood floor / original void,,281,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,2,9,2,bookshelf,HGSS wood floor / original void,rear-cabinets,283,216,1,0401 0402 0403 0402 623e 663f 6240 6a41,False,
+10,2,10,2,bookshelf,HGSS wood floor / original void,rear-cabinets,284,217,1,0401 0402 0403 0402 2242 2e43 6a44 6e45,False,
+11,2,11,2,bookshelf,HGSS wood floor / original void,rear-cabinets,283,218,1,0401 0402 0403 0402 6a46 6247 6a45 6e44,False,
+12,2,12,2,bookshelf,HGSS wood floor / original void,rear-cabinets,284,219,1,0401 0402 0403 0402 6248 2e49 6a41 6640,False,
+0,3,0,3,reference_books,HGSS wood floor / original void,books,29f,21a,1,0401 0402 0403 0402 564a 524a 564b 724c,False,
+1,3,1,3,research_machine,HGSS wood floor / original void,lab-equipment,2a3,21b,1,0401 0402 0403 0402 524d 824e 5a4f 8650,False,
+2,3,2,3,research_machine,HGSS wood floor / original void,lab-equipment,2a4,21c,1,0401 0402 0403 0402 864e 564d 8251 5e52,False,
+3,3,3,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,3,4,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,3,5,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,3,6,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,3,7,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,3,8,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,3,9,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+10,3,10,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+11,3,11,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,3,12,3,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+0,4,0,4,reference_books,HGSS wood floor / original void,books,29f,21d,1,0401 0402 0403 0402 5653 7e54 7e55 0000,False,
+1,4,1,4,research_machine,HGSS wood floor / original void,lab-equipment,2ab,21e,1,0401 0402 0403 0402 5a56 5e57 9258 7659,False,
+2,4,2,4,research_machine,HGSS wood floor / original void,lab-equipment,2ac,21f,1,0401 0402 0403 0402 5a5a 5e56 7a5b 965c,False,
+3,4,3,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,4,4,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,4,5,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,4,6,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,4,7,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,4,8,4,research_table,HGSS wood floor / original void,research-table,2a8,220,1,0401 0402 0403 0402 0e5d 0a18 025e 025f,False,
+9,4,9,4,research_table,HGSS wood floor / original void,research-table,2a9,221,1,0401 0402 0403 0402 0a18 0a18 025f 025f,False,
+10,4,10,4,research_table,HGSS wood floor / original void,research-table,2aa,222,1,0401 0402 0403 0402 0a18 0a5d 025f 0260,False,
+11,4,11,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,4,12,4,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+0,5,0,5,laboratory_tile_floor,HGSS wood floor / original void,,288,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+1,5,1,5,research_machine,HGSS wood floor / original void,lab-equipment,2b3,223,1,0401 0402 0403 0402 9a61 9e62 9e63 5a64,False,
+2,5,2,5,research_machine,HGSS wood floor / original void,lab-equipment,2b4,224,1,0401 0402 0403 0402 9a65 9e61 5e64 9a66,False,
+3,5,3,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,5,4,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,5,5,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,5,6,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,5,7,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,5,8,5,research_table,HGSS wood floor / original void,research-table,2b0,225,1,0401 0402 0403 0402 0667 0268 ae69 aa6a,False,
+9,5,9,5,research_table,HGSS wood floor / original void,research-table,2b1,226,1,0401 0402 0403 0402 0268 0268 aa6a aa6a,False,
+10,5,10,5,research_table,HGSS wood floor / original void,research-table,2b2,227,1,0401 0402 0403 0402 0268 0267 aa6a aa69,False,
+11,5,11,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,5,12,5,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+0,6,0,6,laboratory_tile_floor,HGSS wood floor / original void,,288,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+1,6,1,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+2,6,2,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+3,6,3,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,6,4,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,6,5,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,6,6,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,6,7,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,6,8,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,6,9,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+10,6,10,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+11,6,11,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,6,12,6,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+0,7,0,7,laboratory_tile_floor,HGSS wood floor / original void,left-cabinets,2ba,228,1,0401 0402 0403 0402 226b 266c 226d 266e,False,HGSS lab wood floor replaces FRLG tile floor
+1,7,1,7,laboratory_tile_floor,HGSS wood floor / original void,left-cabinets,28b,229,1,0401 0402 0403 0402 1220 226f 1220 2270,False,HGSS lab wood floor replaces FRLG tile floor
+2,7,2,7,laboratory_tile_floor,HGSS wood floor / original void,left-cabinets,28c,22a,1,0401 0402 0403 0402 1671 1271 1671 1271,False,HGSS lab wood floor replaces FRLG tile floor
+3,7,3,7,laboratory_tile_floor,HGSS wood floor / original void,left-cabinets,28b,22b,1,0401 0402 0403 0402 266f 1220 2670 1220,False,HGSS lab wood floor replaces FRLG tile floor
+4,7,4,7,laboratory_tile_floor,HGSS wood floor / original void,left-cabinets,28c,22c,1,0401 0402 0403 0402 226c 266b 226e 266d,False,HGSS lab wood floor replaces FRLG tile floor
+5,7,5,7,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,7,6,7,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,7,7,7,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,7,8,7,laboratory_tile_floor,HGSS wood floor / original void,right-cabinets,28b,228,1,0401 0402 0403 0402 226b 266c 226d 266e,False,HGSS lab wood floor replaces FRLG tile floor
+9,7,9,7,laboratory_tile_floor,HGSS wood floor / original void,right-cabinets,28c,229,1,0401 0402 0403 0402 1220 226f 1220 2270,False,HGSS lab wood floor replaces FRLG tile floor
+10,7,10,7,laboratory_tile_floor,HGSS wood floor / original void,right-cabinets,28b,22a,1,0401 0402 0403 0402 1671 1271 1671 1271,False,HGSS lab wood floor replaces FRLG tile floor
+11,7,11,7,laboratory_tile_floor,HGSS wood floor / original void,right-cabinets,28c,22b,1,0401 0402 0403 0402 266f 1220 2670 1220,False,HGSS lab wood floor replaces FRLG tile floor
+12,7,12,7,laboratory_tile_floor,HGSS wood floor / original void,right-cabinets,28c,22c,1,0401 0402 0403 0402 226c 266b 226e 266d,False,HGSS lab wood floor replaces FRLG tile floor
+0,8,0,8,bookshelf,HGSS wood floor / original void,left-cabinets,073,22d,1,0401 0402 0403 0402 2272 2673 2a74 6275,False,
+1,8,1,8,bookshelf,HGSS wood floor / original void,left-cabinets,073,22e,1,0401 0402 0403 0402 6676 6277 6278 6a79,False,
+2,8,2,8,bookshelf,HGSS wood floor / original void,left-cabinets,074,22f,1,0401 0402 0403 0402 1671 1271 1671 1271,False,
+3,8,3,8,bookshelf,HGSS wood floor / original void,left-cabinets,073,230,1,0401 0402 0403 0402 267a 667b 6e7c 667d,False,
+4,8,4,8,bookshelf,HGSS wood floor / original void,left-cabinets,074,231,1,0401 0402 0403 0402 627e 267f 6280 2681,False,
+5,8,5,8,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,8,6,8,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,8,7,8,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,8,8,8,bookshelf,HGSS wood floor / original void,right-cabinets,073,22d,1,0401 0402 0403 0402 2272 2673 2a74 6275,False,
+9,8,9,8,bookshelf,HGSS wood floor / original void,right-cabinets,074,22e,1,0401 0402 0403 0402 6676 6277 6278 6a79,False,
+10,8,10,8,bookshelf,HGSS wood floor / original void,right-cabinets,073,22f,1,0401 0402 0403 0402 1671 1271 1671 1271,False,
+11,8,11,8,bookshelf,HGSS wood floor / original void,right-cabinets,074,230,1,0401 0402 0403 0402 267a 667b 6e7c 667d,False,
+12,8,12,8,bookshelf,HGSS wood floor / original void,right-cabinets,074,231,1,0401 0402 0403 0402 627e 267f 6280 2681,False,
+0,9,0,9,bookshelf,HGSS wood floor / original void,left-cabinets,287,232,1,0401 0402 0403 0402 6282 6e83 6a84 6e85,False,
+1,9,1,9,bookshelf,HGSS wood floor / original void,left-cabinets,283,233,1,0401 0402 0403 0402 6e86 2287 6a88 6a89,False,
+2,9,2,9,bookshelf,HGSS wood floor / original void,left-cabinets,284,22a,1,0401 0402 0403 0402 1671 1271 1671 1271,False,
+3,9,3,9,bookshelf,HGSS wood floor / original void,left-cabinets,283,234,1,0401 0402 0403 0402 6e8a 6a8b 6e89 6a88,False,
+4,9,4,9,bookshelf,HGSS wood floor / original void,left-cabinets,284,235,1,0401 0402 0403 0402 2a8c 268d 6a85 6e84,False,
+5,9,5,9,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,9,6,9,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,9,7,9,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,9,8,9,bookshelf,HGSS wood floor / original void,right-cabinets,283,232,1,0401 0402 0403 0402 6282 6e83 6a84 6e85,False,
+9,9,9,9,bookshelf,HGSS wood floor / original void,right-cabinets,284,233,1,0401 0402 0403 0402 6e86 2287 6a88 6a89,False,
+10,9,10,9,bookshelf,HGSS wood floor / original void,right-cabinets,283,22a,1,0401 0402 0403 0402 1671 1271 1671 1271,False,
+11,9,11,9,bookshelf,HGSS wood floor / original void,right-cabinets,284,234,1,0401 0402 0403 0402 6e8a 6a8b 6e89 6a88,False,
+12,9,12,9,bookshelf,HGSS wood floor / original void,right-cabinets,284,235,1,0401 0402 0403 0402 2a8c 268d 6a85 6e84,False,
+0,10,0,10,laboratory_tile_floor,HGSS wood floor / original void,,288,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+1,10,1,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+2,10,2,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+3,10,3,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,10,4,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,10,5,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,10,6,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,10,7,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,10,8,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,10,9,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+10,10,10,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+11,10,11,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,10,12,10,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+0,11,0,11,plant,HGSS wood floor / original void,potted-plant,293,236,1,0401 0402 0403 0402 428e 468f 4e90 4a91,False,
+1,11,1,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+2,11,2,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+3,11,3,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,11,4,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,11,5,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,11,6,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,11,7,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,11,8,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,11,9,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+10,11,10,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+11,11,11,11,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,11,12,11,plant,HGSS wood floor / original void,potted-plant,294,236,1,0401 0402 0403 0402 428e 468f 4e90 4a91,False,
+0,12,0,12,plant,HGSS wood floor / original void,potted-plant,29b,237,1,0401 0402 0403 0402 9a92 9e93 0a94 0e94,False,
+1,12,1,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+2,12,2,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+3,12,3,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+4,12,4,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+5,12,5,12,exit_rug,HGSS wood floor / original void,exit-mat,290,238,1,0401 0402 0403 0402 0295 0296 0a95 0a96,False,
+6,12,6,12,exit_rug,HGSS wood floor / original void,exit-mat,291,239,1,0401 0402 0403 0402 0a97 0a98 0297 0298,False,
+7,12,7,12,exit_rug,HGSS wood floor / original void,exit-mat,292,23a,1,0401 0402 0403 0402 0699 0695 0e99 0e95,False,
+8,12,8,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+9,12,9,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+10,12,10,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+11,12,11,12,laboratory_tile_floor,HGSS wood floor / original void,,289,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+12,12,12,12,plant,HGSS wood floor / original void,potted-plant,29c,237,1,0401 0402 0403 0402 9a92 9e93 0a94 0e94,False,
+0,13,0,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+1,13,1,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+2,13,2,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+3,13,3,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+4,13,4,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+5,13,5,13,laboratory_tile_floor,HGSS wood floor / original void,,298,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+6,13,6,13,laboratory_tile_floor,HGSS wood floor / original void,,299,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+7,13,7,13,laboratory_tile_floor,HGSS wood floor / original void,,29a,215,1,0401 0402 0403 0402 0000 0000 0000 0000,False,HGSS lab wood floor replaces FRLG tile floor
+8,13,8,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+9,13,9,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+10,13,10,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+11,13,11,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,
+12,13,12,13,void,HGSS wood floor / original void,,008,23b,1,029a 029a 029a 029a 0000 0000 0000 0000,False,

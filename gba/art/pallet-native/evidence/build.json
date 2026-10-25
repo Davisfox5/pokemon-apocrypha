@@ -1,0 +1,18 @@
+{
+  "source_commit": "14f116de7bb0aa020357e3be34f47264c9b8577f",
+  "rom_sha256": "9d7897ce5601a086b8680e2b998c9430bcbb198750e9ab5b170bae917dc79d50",
+  "elf_sha256": "430ca4285e9704ff64546b25ef23b1326d5af3ed6d9f3385fabb5fcdde1304bb",
+  "local_build_passed": true,
+  "toolchain": "arm-none-eabi GCC 14.2.1",
+  "porymap": "6.3.1",
+  "porytiles": "2.0.0 legacy",
+  "mgba": "0.10.5",
+  "gba_display": [
+    240,
+    160
+  ],
+  "runtime_phases": 19,
+  "blocked_edges": 709,
+  "actor_visibility_and_original_palettes_checked": true,
+  "rom_committed": false
+}
