@@ -35,7 +35,7 @@ Chapters 4 and 5).
 | Green spaces: a fountain garden on the south avenue out to the south gate's grass; lawns and flower beds before Silph and the lab (paths kept to both doors); the east fence's green north and south of the east gate and the strip west of the station, in flowers; a grove of trees in the fenced corner by the Center, the one place trees close no walkway | FireRed's own General grass, flowers and trees (Celadon's), Celadon's fountain; Celadon's lawn edge drawn in Saffron's colours (a darker grass rim, a mortar-and-highlight kerb on the paving) | "The floor looks boring": Celadon's Gen 3 vocabulary, no new colours |
 | Street lamps at Silph's and the lab's doors | Rustboro's lamp (Emerald), its paving left behind | |
 | The Magnet Train station in the north-west block, in place of three houses | v1's station (`sprites.py`, HGSS's model at C06's angle) | Chapter 4's arrival with Mel, Chapter 5's missing rail pass |
-| The Magnet Train's elevated deck from the station's west platform to the map's west edge, toward Johto, over the forest, the city fence and the west walkway, which stays open under it (the deck drawn over the player); its shadow on the street below | Goldenrod's deck as Codex built it natively (engine PR #20; `source/goldenrod-deck.png` and its `.json` give the commit), mirrored, two rows of its flat middle band left out so it fills four cells, in Goldenrod's six main colours exactly | DESIGN.md: rail is the "primary Kanto-Johto link"; Saffron's line matches Goldenrod's |
+| The Magnet Train's elevated deck from the station's west platform to the map's west edge, toward Johto, over the forest, the city fence and the west walkway, which stays open under it (the deck drawn over the player); its shadow on the street below | The form of Goldenrod's deck as Codex built it natively (engine PR #20; `source/goldenrod-deck.png` and its `.json` give the commit), mirrored, two rows of its flat middle band left out so it fills four cells, recoloured in the palette of Saffron's station, which it runs into | DESIGN.md: rail is the "primary Kanto-Johto link". The owner: distinctly Kanto's own, not a copy of Goldenrod's |
 | The Gym's red signposts made plain city signposts; signs SAFFRON DOJO - FIGHTING and SAFFRON DOJO - PSYCHIC, "Challengers welcome." | | No gym |
 | The Trainer Fan Club's sign reads POKéMON LEAGUE, KANTO OFFICE | | "League offices" |
 | The Copycat's house moves to the house at (18, 17), which gains FireRed's door front at (19, 21) | | The station took her lot |
@@ -72,7 +72,7 @@ and empty.
 | Map | `KantoSaffronCity`, 66x55, `gMapGroup_Kanto` (group 81) id 0; Center 1, Center upstairs 2, Mart 3, Dojo 4, lab 5; `MAPSEC_SAFFRON_CITY`, `REGION_KANTO` |
 | Primary | `gTileset_KantoSaffronPrimary`: 512 tiles, 260 metatiles (every cell FireRed drew as it was, and the border) |
 | Secondary | `gTileset_KantoSaffronCity`: 359 of 496 tiles (16 kept for door animation), 301 metatiles (the 496 art cells) |
-| Palettes | 13 banks, all 195 colours, one pixel-exact fit over the whole map |
+| Palettes | 13 banks, 194 of 195 colours, one pixel-exact fit over the whole map |
 | Rooms | `KantoSaffronDojo` (81 tiles, 51 metatiles) and `KantoSaffronSilphLab` (114 tiles, 70 metatiles), each on `gTileset_Building` and its own secondary |
 | Border | FireRed's |
 | Music | `MUS_RG_PEWTER` (FireRed's Saffron theme); the lab `MUS_RG_SILPH` |
@@ -141,7 +141,7 @@ Dojo's wall. No connections: Routes 5-8 are not built.
 - **Deterministic**: two runs of parts, compose, pack and interiors under different
   `PYTHONHASHSEED` give identical arrays and sprites.
 
-Local ROM `8aeafa71` on engine `claude/saffron-city`.
+Local ROM `86a276b7` on engine `claude/saffron-city`.
 
 ## Rebuild
 
@@ -171,7 +171,8 @@ map it is regenerated from these tools each round; after that, edit natively.
   old city sign behind its roof cleared; the back row walkable, the roof drawn over the player.
 - Owner review, round 4 (2026-10-25): more room behind Silph. One floor lower (a floor taller
   than FireRed's, not two), its back two rows walkable behind the roof.
-- Owner review, round 5 (2026-10-25): a Magnet Train track to match Johto's (Goldenrod's).
+- Owner review, round 5 (2026-10-25): a Magnet Train track. First in Goldenrod's colours; the
+  owner chose Saffron's own (the station's palette), distinctly Kanto's.
 - The station is still v1's (HGSS's model at C06's angle); it is the one part not cut from
   Gen 3 map art.
 - Interiors other than the Center, the Mart, the Dojo's hall and the lab (Silph's lobby,
@@ -181,6 +182,5 @@ map it is regenerated from these tools each round; after that, edit natively.
   students, Sabrina and Bruno, the Copycat) comes with its scenes.
 - The café and hidden items in KANTO_ITEMS.md are not placed.
 - The Center and Mart interiors are Cherrygrove's (the same clerk and nurse sprites).
-- The palette is full (195 of 195). The deck fits in Goldenrod's six main colours; forced into
-  Saffron's existing colours it turned peach and purple, and its full twelve colours or a
-  row lower did not fit. A further part with new colours needs colours freed first.
+- One palette slot is free (194 of 195): a further part with new colours needs colours freed
+  first.

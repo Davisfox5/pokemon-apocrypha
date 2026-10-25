@@ -19,8 +19,8 @@ a part (water, grass, paving) are made transparent, so a part stands on Saffron'
                   roof deck, the glass stair column), in Silph's lavender.
     fountain(), lamp()   street furniture: Celadon's fountain (FireRed), Rustboro's street
                   lamps (Emerald).
-    rail()        the Magnet Train's elevated deck, Goldenrod's (Codex's native Goldenrod),
-                  from the station west to the map's edge.
+    rail()        the Magnet Train's elevated deck, the form of Goldenrod's (Codex's native
+                  Goldenrod), from the station west to the map's edge.
 
     python3 tools/gba/maps/saffron/parts.py ENGINE_CHECKOUT    # writes source/sprites/*.png
 """
@@ -236,8 +236,9 @@ RAIL_PAD = 16                                   # a transparent cell row under t
 RAIL_TRIM = (24, 26)                            # two rows of the deck's flat middle band (all one grey) left out: 66 px to four cells
 
 def rail(engine):
-    """The Magnet Train's elevated deck to match Johto's: Goldenrod's deck as Codex built it
-    natively (source/goldenrod-deck.png, with its provenance), mirrored so its station end
+    """The Magnet Train's elevated deck: the form of Goldenrod's deck as Codex built it natively
+    (source/goldenrod-deck.png, with its provenance; compose.py recolours it in Saffron's own
+    colours), mirrored so its station end
     meets Saffron's station from the west (the line runs west, toward Johto), two rows of its
     flat middle band left out so it fills four cells exactly."""
     deck = np.array(Image.open(OUT.parent / 'goldenrod-deck.png').convert('RGB'))[:, ::-1]

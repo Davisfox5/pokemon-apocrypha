@@ -267,9 +267,10 @@ regression ("made for a 1980s game", "boring"). The worked example is
   snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
   Never ship an inexact colour. If a repack moves a door metatile's banks, index its door
   frames into the new banks (`saffron/install.py`).
-- A piece shared with a town another agent built (Saffron's Magnet Train deck, Goldenrod's)
-  comes from that town's own native art, kept as a source file with its branch and commit,
-  so the two match. Check open PRs for such towns before saying one does not exist.
+- A piece another region also has (the Magnet Train's deck) may take its form from that
+  town's native art (kept as a source file with its branch and commit), but Kanto's is its
+  own: recolour it in the Kanto town's palette (Saffron: its station's). Check open PRs for
+  towns other agents built before saying one does not exist.
 - Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
   FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
 - An interior Kanto needs is FireRed's room, or a room built from FireRed's rooms cell by

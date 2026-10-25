@@ -444,8 +444,9 @@ art (`saffron/parts.py`). Traps hit there:
   the door tiles (`pack.door_frame_colours`).
 - With every bank full, a new part's colours cannot simply be snapped to the map's nearest:
   they land in many banks and leave hundreds of tile uses unplaced (Saffron's deck: 580).
-  One bank's colours fit but change its look (the deck went peach). What fit and kept it:
-  the part in few of its own colours (Goldenrod's six), and lines that fall on the cell grid.
+  One bank's colours fit (the deck in the station's, which the owner chose as Kanto's own);
+  so did the part in few of its own colours (Goldenrod's six). Lines that fall on the cell
+  grid help either way.
 - A lawn rectangle drawn by eye ran one column into a house and one cell into a tree's
   crown poking up from the row below. Check every lawn cell's FireRed picture holds only
   paving and grass colours before painting it.

@@ -21,8 +21,8 @@ buildings are real Gen 3 art put together into buildings of Saffron's own (parts
                  grass, flowers and trees, no new colours): a fountain garden out to the
                  south gate's grass, lawns before Silph and the lab, the east fence's green,
                  two corner groves; Celadon's lawn edge drawn in Saffron's colours (kerbs).
-    rail         the Magnet Train's elevated deck to match Johto's (Goldenrod's), west from the
-                 station to the map's edge, the west walkway under it.
+    rail         the Magnet Train's elevated deck, Goldenrod's form in Saffron's own colours, west
+                 from the station to the map's edge, the west walkway under it.
     signs        The Gym's red signposts are plain city signposts (install.py writes the
                  dojos' signs); the city sign moves north of Silph's crown.
     copycat      The Copycat's house, whose lot the station takes, moves to the house at
@@ -73,20 +73,17 @@ PLACED = [('rail', 'rail', 0, 14), ('dojo', 'dojo', 36 * 16, 12), ('silph', 'sil
 BUILDINGS = ('dojo', 'silph', 'lab', 'station', 'fountain')
 # The Magnet Train's deck runs from the station's west platform (x 288) to the map's west
 # edge at the platform's height, over the forest, the city fence and the west walkway
-# (cols 15-16), which stays open under it, the deck drawn over the player. Goldenrod's
-# deck casts a 40 px shadow on the street below it; so does Saffron's.
+# (cols 15-16), which stays open under it, the deck drawn over the player, with a 40 px
+# shadow on the street below it (as Goldenrod's deck casts).
 RAIL_SHADOW = (14 * 16, 14 * 16, 4 * 16, 40)   # x, y, width, height (px): the fence, the walkway and the street west of the station; the forest's crowns stay as they are
-# Saffron's 13 banks are full, so the deck's colours come from two sides: the station it meets
-# takes FireRed's nearest colours throughout (it is a soft render; 2-4 5-bit steps), which
-# frees its own; the deck keeps Goldenrod's twelve main colours exactly (93% of its pixels),
-# its rare specks taking the nearest of those twelve.
-SNAPS = {'rail': None}         # a part's snap distance; None: every colour to its palette's nearest
-RAIL_COLOURS = 6
-def rail_palette():
-    d = np.array(Image.open(SRC / 'goldenrod-deck.png').convert('RGB')).astype(int) >> 3
-    cs, n = np.unique(d.reshape(-1, 3), axis=0, return_counts=True)
-    return cs[np.argsort(-n, kind='stable')[:RAIL_COLOURS]]
-PALETTES = {'rail': rail_palette}
+# The deck is Saffron's own, in Kanto's colours, not Goldenrod's (the owner, 2026-10-25): its
+# palette is one of Saffron's banks, the station's, which it runs into. So every deck tile
+# fits a bank the map already has (Saffron's 13 banks are full). 5-bit colours.
+SNAPS = {'rail': None}                          # a part's snap distance; None: every colour to its palette's nearest
+RAIL_PALETTE = np.array([(3, 5, 10), (5, 6, 11), (8, 9, 13), (11, 7, 8), (11, 11, 14), (15, 9, 9), (15, 15, 16),
+                         (18, 13, 13), (23, 18, 17), (25, 19, 10), (26, 24, 16), (27, 24, 20), (28, 27, 20),
+                         (28, 29, 29), (29, 26, 24)])
+PALETTES = {'rail': lambda: RAIL_PALETTE}
 # Rows at a building's back (from the top row its pixels reach) that keep their ground's
 # collision and draw above the player, who walks behind the roof: a tall building is not
 # deep, so Silph's roof hides two rows of the street behind it.
