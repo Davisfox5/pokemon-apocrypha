@@ -1,0 +1,224 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/043_R44.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0257_R44.s",
+      "files/msgdata/msg/msg_0404_R44.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 17,
+        "z": 5,
+        "land_data": 101
+      },
+      {
+        "x": 18,
+        "z": 5,
+        "land_data": 102
+      },
+      {
+        "x": 19,
+        "z": 5,
+        "land_data": 103
+      }
+    ],
+    "origin": [
+      544,
+      160
+    ],
+    "size": [
+      96,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        87
+      ],
+      "east": [
+        89
+      ],
+      "north": [],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        89,
+        9
+      ],
+      "dest": "MAP_ICE_PATH_1F",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        90,
+        11
+      ],
+      "script": "scr_seq_R44_001",
+      "bg_type": 1,
+      "text": "Ice Path Careful not to slip, fall over, freeze, and get stuck on the ice."
+    },
+    {
+      "cell": [
+        8,
+        18
+      ],
+      "script": "scr_seq_R44_002",
+      "bg_type": 1,
+      "text": "Rt. 44 East to Blackthorn City"
+    },
+    {
+      "cell": [
+        69,
+        11
+      ],
+      "script": "std_hiddenitem_r44_elixir",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R44_mystery_2",
+      "sprite": "SPRITE_MYSTERY_2",
+      "cell": [
+        14,
+        17
+      ],
+      "facing": 2,
+      "movement": 2,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_fishing_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        32,
+        24
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_fishing_2_2",
+      "sprite": "SPRITE_FISHING_2",
+      "cell": [
+        51,
+        4
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_gswoman3",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        48,
+        26
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_gsman3",
+      "sprite": "SPRITE_GSMAN3",
+      "cell": [
+        60,
+        25
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_mania",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        59,
+        3
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_gsman2",
+      "sprite": "SPRITE_GSMAN2",
+      "cell": [
+        85,
+        13
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        13,
+        11
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R44_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        20,
+        17
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R44_MAX_REPEL"
+    },
+    {
+      "id": "obj_R44_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        45,
+        13
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R44_MAX_REVIVE"
+    },
+    {
+      "id": "obj_R44_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        63,
+        2
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R44_ULTRA_BALL"
+    },
+    {
+      "id": "obj_R44_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        -4,
+        15
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_057"
+    }
+  ]
+}

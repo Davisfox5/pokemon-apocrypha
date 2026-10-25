@@ -1,0 +1,1245 @@
+{
+  "method": "lossless pack on Mahogany Town's tilesets: Mahogany's primary (tiles 0-511, palettes 0-5, metatiles 0-511); a secondary carrying exact copies of what Mahogany's visible edge uses, then Route 44's own art",
+  "native_pixels_exact": 786432,
+  "route44_pixels_in_mahogany_view": 24576,
+  "route44_pixels_in_mahogany_view_exact": true,
+  "mahogany_pixels_in_route44_view": 28672,
+  "mahogany_pixels_in_route44_view_exact": true,
+  "mahogany_unchanged_with_appended_metatiles": true,
+  "reserved_metatiles": {
+    "513": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "514": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "515": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "519": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "528": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "529": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "530": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "531": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "532": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "533": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "534": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "536": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "537": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "538": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "539": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "540": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "541": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "542": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "548": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "556": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "565": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "566": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "567": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "568": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "581": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "582": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "583": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "584": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "599": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "619": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "632": [
+      0,
+      1
+    ],
+    "633": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "reserved_tiles": [
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    537,
+    538,
+    539,
+    545,
+    546,
+    547,
+    550,
+    551,
+    552,
+    553,
+    554,
+    555,
+    557,
+    558,
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    575,
+    576,
+    577,
+    578,
+    579,
+    580,
+    581,
+    582,
+    593,
+    613,
+    627,
+    628,
+    629,
+    630,
+    644,
+    645,
+    646,
+    663,
+    664,
+    665,
+    666,
+    667,
+    668,
+    669,
+    692,
+    693,
+    709,
+    717,
+    742,
+    743,
+    766,
+    767,
+    768,
+    792,
+    798,
+    799,
+    820,
+    821,
+    862,
+    895,
+    896
+  ],
+  "reserved_palette_slots": {
+    "6": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "9": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "10": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      13
+    ],
+    "12": [
+      6,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14
+    ]
+  },
+  "banks": [
+    15,
+    14,
+    15,
+    15,
+    15,
+    15,
+    13,
+    15,
+    14,
+    13,
+    15,
+    15,
+    15
+  ],
+  "primary_tiles_reused": 146,
+  "new_secondary_tiles": 391,
+  "secondary_tile_slots": 420,
+  "secondary_metatiles": 334,
+  "primary_metatiles_used": 44,
+  "mahogany_appended": {
+    "primary": [],
+    "secondary": [
+      672,
+      673
+    ]
+  },
+  "seam": [
+    {
+      "cell": [
+        0,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        1,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        2,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        3,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        4,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        5,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        6,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        7,
+        10
+      ],
+      "kind": "mahogany metatile",
+      "id": 149
+    },
+    {
+      "cell": [
+        0,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        1,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        2,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        3,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        4,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        5,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        6,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        7,
+        11
+      ],
+      "kind": "mahogany metatile",
+      "id": 120
+    },
+    {
+      "cell": [
+        0,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 185
+    },
+    {
+      "cell": [
+        1,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 184
+    },
+    {
+      "cell": [
+        2,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 185
+    },
+    {
+      "cell": [
+        3,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 184
+    },
+    {
+      "cell": [
+        4,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 185
+    },
+    {
+      "cell": [
+        5,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 184
+    },
+    {
+      "cell": [
+        6,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 185
+    },
+    {
+      "cell": [
+        7,
+        12
+      ],
+      "kind": "mahogany metatile",
+      "id": 184
+    },
+    {
+      "cell": [
+        0,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 86
+    },
+    {
+      "cell": [
+        1,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 87
+    },
+    {
+      "cell": [
+        2,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 86
+    },
+    {
+      "cell": [
+        3,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 87
+    },
+    {
+      "cell": [
+        4,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 86
+    },
+    {
+      "cell": [
+        5,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 87
+    },
+    {
+      "cell": [
+        6,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 86
+    },
+    {
+      "cell": [
+        7,
+        13
+      ],
+      "kind": "mahogany metatile",
+      "id": 87
+    },
+    {
+      "cell": [
+        0,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 193
+    },
+    {
+      "cell": [
+        1,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 194
+    },
+    {
+      "cell": [
+        2,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 193
+    },
+    {
+      "cell": [
+        3,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 194
+    },
+    {
+      "cell": [
+        4,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 193
+    },
+    {
+      "cell": [
+        5,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 194
+    },
+    {
+      "cell": [
+        6,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 193
+    },
+    {
+      "cell": [
+        7,
+        14
+      ],
+      "kind": "mahogany metatile",
+      "id": 194
+    },
+    {
+      "cell": [
+        0,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 188
+    },
+    {
+      "cell": [
+        1,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 187
+    },
+    {
+      "cell": [
+        2,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 188
+    },
+    {
+      "cell": [
+        3,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 187
+    },
+    {
+      "cell": [
+        4,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 188
+    },
+    {
+      "cell": [
+        5,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 187
+    },
+    {
+      "cell": [
+        6,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 188
+    },
+    {
+      "cell": [
+        7,
+        15
+      ],
+      "kind": "mahogany metatile",
+      "id": 187
+    },
+    {
+      "cell": [
+        0,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 80
+    },
+    {
+      "cell": [
+        1,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        2,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 80
+    },
+    {
+      "cell": [
+        3,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        4,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 80
+    },
+    {
+      "cell": [
+        5,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        6,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 80
+    },
+    {
+      "cell": [
+        7,
+        16
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        0,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 93
+    },
+    {
+      "cell": [
+        1,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        2,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 93
+    },
+    {
+      "cell": [
+        3,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        4,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 93
+    },
+    {
+      "cell": [
+        5,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        6,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 93
+    },
+    {
+      "cell": [
+        7,
+        17
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        0,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 567
+    },
+    {
+      "cell": [
+        1,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 567
+    },
+    {
+      "cell": [
+        2,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 567
+    },
+    {
+      "cell": [
+        3,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 567
+    },
+    {
+      "cell": [
+        4,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 539
+    },
+    {
+      "cell": [
+        5,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        6,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 80
+    },
+    {
+      "cell": [
+        7,
+        18
+      ],
+      "kind": "mahogany metatile",
+      "id": 79
+    },
+    {
+      "cell": [
+        0,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 584
+    },
+    {
+      "cell": [
+        1,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 584
+    },
+    {
+      "cell": [
+        2,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 584
+    },
+    {
+      "cell": [
+        3,
+        19
+      ],
+      "kind": "appended to Mahogany's secondary, visible quadrants shared",
+      "id": 672,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          662,
+          0
+        ],
+        [
+          662,
+          1
+        ],
+        [
+          44,
+          2
+        ],
+        [
+          601,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        4,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 2
+    },
+    {
+      "cell": [
+        5,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        6,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 93
+    },
+    {
+      "cell": [
+        7,
+        19
+      ],
+      "kind": "mahogany metatile",
+      "id": 92
+    },
+    {
+      "cell": [
+        0,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        1,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        2,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        3,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 1
+    },
+    {
+      "cell": [
+        4,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 2
+    },
+    {
+      "cell": [
+        5,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        6,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        7,
+        20
+      ],
+      "kind": "mahogany metatile",
+      "id": 542
+    },
+    {
+      "cell": [
+        0,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        1,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        2,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        3,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 1
+    },
+    {
+      "cell": [
+        4,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 58
+    },
+    {
+      "cell": [
+        5,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 633
+    },
+    {
+      "cell": [
+        6,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 152
+    },
+    {
+      "cell": [
+        7,
+        21
+      ],
+      "kind": "mahogany metatile",
+      "id": 151
+    },
+    {
+      "cell": [
+        0,
+        22
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        1,
+        22
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        2,
+        22
+      ],
+      "kind": "mahogany metatile",
+      "id": 0
+    },
+    {
+      "cell": [
+        3,
+        22
+      ],
+      "kind": "mahogany metatile",
+      "id": 1
+    },
+    {
+      "cell": [
+        4,
+        22
+      ],
+      "kind": "mahogany metatile",
+      "id": 2
+    },
+    {
+      "cell": [
+        5,
+        22
+      ],
+      "kind": "Mahogany secondary id, visible quadrants shared",
+      "id": 620,
+      "quads": [
+        0,
+        1
+      ]
+    },
+    {
+      "cell": [
+        6,
+        22
+      ],
+      "kind": "appended to Mahogany's secondary, visible quadrants shared",
+      "id": 673,
+      "quads": [
+        0,
+        1
+      ],
+      "sources": [
+        [
+          166,
+          0
+        ],
+        [
+          166,
+          1
+        ],
+        null,
+        null
+      ]
+    },
+    {
+      "cell": [
+        7,
+        22
+      ],
+      "kind": "Mahogany secondary id, visible quadrants shared",
+      "id": 586,
+      "quads": [
+        0,
+        1
+      ]
+    }
+  ],
+  "mahogany_counts": {
+    "primary_tiles": 512,
+    "primary_metatiles": 210,
+    "secondary_tiles": 400,
+    "secondary_metatiles": 160
+  }
+}

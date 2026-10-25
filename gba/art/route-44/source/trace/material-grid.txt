@@ -1,0 +1,55 @@
+# Route 44 material and structure grid, one code per native 16x16 cell (x across, y down).
+# Traced from decoded HGSS land_data chunks 101-103 (trace.py), then reviewed. Codes:
+#   g  lawn
+#   d  dirt road
+#   f  lawn with white flowers
+#   r  rock plateau top
+#   F  rock front face (mountain)
+#   E  rock side facing east
+#   W  rock side facing west
+#   N  rock rear rim
+#   w  low wall, front (grass-topped)
+#   e  low wall side facing east
+#   x  low wall side facing west
+#   n  low wall rear rim
+#   L  jump ledge south
+#   Q  jump ledge west
+#   J  ledge corner (blocked)
+#   t  tree root (T01)
+#   B  building / prop footprint
+#   C  Pokemon Center (C06)
+#   G  Route 44 gatehouse
+#   s  sign
+#   x: 012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
+00    rrrrrrrrrrrrrrrrrEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFWWWrrWrrrrWrrrrrrrrrrrr
+01    rrrrrrrrrrrFFFFFFEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFWWWWrrWrrrrWrrrrrrrrrrrr
+02    rrrrrrggrrrEFFFFFFEgggggggggggggggggggggggggggggggggggggggggggggggggggggWWWWrrWrrrrWrrrrrrrrrrrr
+03    rrrrrrrrrrrEEFFFFFFttttttgggnnnnnnnngggggggwwwwwwwwgggggggggggggttttttttWWWWrrWrrrrWrrrrrrrrrrrr
+04    rrrrrrrrrrrEEggggggttttttggxrgNNNNNgeggggggggggggggwwwwwwwwwwwggttttttttWWWWrrWrrrrWrrrrrrrrrrrr
+05    rrrrrrrrrrrEEttttttttggggggWrxrrrrrEEttttttgggggggggggggggggggggttttttttWWWWrrWrggrWrrrrrrrrrrrr
+06    rrrrrrrrrrrEEttttttttgggggnWrWrrrrrEEttttttgggggggggggggggggggggttttttttWWWWrrWrrrrWFFFFFFFFFFFr
+07    rrrrrrrrFFFEEttttttggggggxgNNWrrrrrErNNNNgegggggggggggggggggggggggttttttWWWWrrWFFFFFFFFFFFFFFFWr
+08    rrrrrrrrEFFFEttttttggggggWxrrrrrrFFExrrrrEEgggggggggggggggggggggggttttttWWWWFFFFFFFFFFFFFFFFFWWr
+09    FFFFFFFFEEFFFgfffggggggttWWrrrrrrEFFWrrFFEEnnnnnngggggggggggggttggttttttWWxFFFFFFFFFFFFFFFFFWWWr
+10    FFFFFFFFFEggggfffggggggttWWrrrrrrErrWFFFFFEgggggggggggggggggggttggttttttWWxgggggggggggggggggWWWr
+11    FFFFFFFFFFgggggggggggttxrrWrrggrrEFFFFFFFFEttttttgggggggggggggttgggggsttWWxgggggggggggQgggsgWWWr
+12    gggggggggggggfgggggggttWrrWrrrrrrEEFFFFFFFFttttttgnnggggggggggttggggggttWWxggttttgggggQgggggWWWr
+13    ttttttttttgggggggttttttWrNWrrrrrrEEggggggggggggggggggggggggnngggggttttttWWxggttttgggggJLLLLLWWWr
+14    ttttttttttgggggggttttttWxrrrrFFFFEEgggggggggggggggggggggggggggggggttttttWWxgggggggggggggggggWWWr
+15    dddddddddddddddggttttxrrWrrrrEFFFFEgggggggggggggggggnnnnnnnttgggttttttttWWWwwwggwwwwwwwgNNNNWWWr
+16    dddddddddddddddggttttWrrWrrrrEEFFFFggggttttggttggttggggggggttgggttttttttWWwwwwggwwwwwwxxrNNNNWWr
+17    nnnnddddddddddddddgggWggWrrrrEEggggggggttttttttttttttttttttttgggggttttttWFwwwwggwwwwwWWWxrNNNNWr
+18    NNNgedddsdddddddddgggWrrWFFFFEEggggggggttttttttttggttttttttttgggggttttttwFwwwwggwwwwWWWWWxrrrrrr
+19    rrrEEdddddddddddddgggWFFFFFFFFEggggggggttttttttttttttttttttttggggggggggggggggddddgggWWWWWWrrrrrr
+20    rrrEEdddddddddddddgggwFFFFFFFFFggggggggttttttggttttttttttttttgdddddddddddddddddddddgWWWWWWrrrrrr
+21    rrrEEwwwwwwwwwgdddddddgggggggggggggggggttttttttttttttttttttttgdddddddddddddddddddddgWWWWWWrrrrrr
+22    rrrEEggggggggggdddddddgggggggggggggggggggggttttttttttttttttttgdddddddddddddddddddddgWWWWWWrrrrrr
+23    rrrEEggggggggggdddddddgfgggggggggggggggttttttttttttttttttttttgdddggnnnnnnnnnnnnnnnnnWWWWWWrrrrrr
+24    rrrEEgggggggggwwwwgdddgggggnnnnnnnnnnnnttttttttttttttttttttttgdddgxgNNNNNNNNNNNNNNNNNWWWWWrrrrrr
+25    rrrEEnnnnggggggggggddddddddggggggggggggddddddddddddddddddddddddddgWxrrrrrrrrrrrrrrrrrrWWWWrrrrrr
+26    rrrENNNgeggggggggggddddddddggggggggggggddddddddddddddddddddddddddgWWrrrrrrrrrrrrrrrrrrWWWWrrrrrr
+27    rrrrrrrEEggggggggggddddddddwwwwwwwwwwwwddddddddddddddddddddddddddgWWrrrrrrrrrrrrrrrrrrWWWWrrrrrr
+28    rrrrrrrEEnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnWWrrrrrrrrrrrrrggrrrWWWWrrrrrr
+29    rrrrrrrENNNNNNNNNNNNNNNNNNNNNNNNNNnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnNNNWrrrrrrrrrrrrrrrrrrWWWWrrrrrr
+30    rrrggrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrggggggggggggggggggggggggggggrrrrrrrrrrrrrrrrrrrrrrrWWWWrrrrrr
+31    rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrggWWWWrrrrrr
