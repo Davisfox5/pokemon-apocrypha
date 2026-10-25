@@ -1,0 +1,51 @@
+{
+  "source_repository": "Davisfox5/pokeemerald-expansion",
+  "source_branch": "codex/route38-39-rebuild",
+  "source_commit": "eb8d6bb9f85c511f0b21e0e0b2d7f038beb47f6c",
+  "previous_source": "9e1c0466b9ff16b4b1cdc29d5d402567bd9c0553",
+  "source_tree": "0d76a45999c533b20141d099009fb8ce7506166b",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/36",
+  "rom_sha256": "281196e77c95022b91de64a6d68ff5d9e4b5c8d2f8e486a37ea9164eb444723b",
+  "rom_bytes": 33554432,
+  "tools": {
+    "gcc": "14.2.1",
+    "porymap": "6.3.1",
+    "porytiles": "2.0.0 legacy",
+    "mgba": "0.10.5"
+  },
+  "native_cells": 4096,
+  "boundary_probes": 798,
+  "direction_review": {
+    "two_sided_defined_plane_pairs": 336,
+    "reversed_faces": 0
+  },
+  "connected_rock_components": {
+    "route38": 3,
+    "route39": 2,
+    "fragments_under_12_pixels": 0
+  },
+  "native_gameplay_pixels": 358080,
+  "native_gameplay_differences": 0,
+  "border_pixels": 1920,
+  "border_differences": 0,
+  "stable_map_ids": {
+    "JohtoRoute38": [
+      80,
+      53
+    ],
+    "JohtoRoute39": [
+      80,
+      54
+    ]
+  },
+  "earlier_drafts_preserved": true,
+  "legacy_save_preserved": true,
+  "hosted_checks": "No check runs present at packaging; draft PR.",
+  "owner_visual_acceptance": "Pending",
+  "limits": [
+    "Terrain-only preview: trees, buildings, fences, props, tall grass and jump ledges intentionally absent.",
+    "Exterior city exits and campaign/HM hooks unwired. Preview perimeter bounded except three internal road crossing lanes.",
+    "Removed original foreground collision and complete native wall footprints are explicit adaptations; see source/traversal-adaptations.json.",
+    "Height beneath undefined original blocking backing is inferred and marked separately."
+  ]
+}
