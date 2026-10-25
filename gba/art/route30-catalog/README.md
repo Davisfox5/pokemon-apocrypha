@@ -100,9 +100,13 @@ base revision before the pack (`--render`) and installs after it (`--install`).
 - **Ids**: Route 30's band cells (wall and forest) and Cherrygrove's new cells Route 30 can see take
   secondary ids from 596 (after Cherrygrove's own 84) in both secondaries (`source/pack/mirror-ids.json`),
   each drawn with that map's own tiles: in Cherrygrove the rock (bank 5) or the trees (bank 3) above, the
-  lawn and shadow (bank 0) or the sea below. Cherrygrove's other new cells follow. CherrygrovePrimary's palette 5 takes the rock ramp
-  in the seven slots no layout on CherrygrovePrimary draws (the tool checks every metatile of the primary
-  and of those layouts' secondaries). No Cherrygrove cell draws the old warm ramp (palette 2) any more.
+  lawn (bank 0) or the sea below. Cherrygrove's other new cells follow.
+- **Palette and tiles**: CherrygrovePrimary's palette 5 takes the rock ramp, the cast-shadow grey and the
+  fringe's rim tone in the nine slots no map on CherrygrovePrimary draws (the tool reads every metatile each
+  map and border draws, from the sheet it draws it from; the pier uses slot 14). The trees and lawn reuse the
+  town's own tiles; the 23 new rock tiles take the Cherrygrove sheet's free slots, grown to its 512 limit,
+  and three CherrygrovePrimary slots nothing drawn uses. The tool then checks that every cell of the town
+  draws as expected, changed or not. No Cherrygrove cell draws the old warm ramp (palette 2) any more.
 - **What gave way**: a green tree and the blossom tree at Cherrygrove (39-42, 0-5), and the band's tree pair
   in the same columns. The cliff-top lawn west of the wall (Cherrygrove row 6) no longer connects to the
   road; nothing stood there.

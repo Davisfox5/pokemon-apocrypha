@@ -1,23 +1,45 @@
 {
- "jobs": 1169,
+ "jobs": 1183,
  "seam_cells": {
   "route31": 96,
   "route30": 160
  },
- "seam_metatiles": 55,
+ "seam_metatiles": 61,
  "maps": {
   "route30": {
-   "jobs": 817,
+   "jobs": 831,
    "primary_reused": 67,
    "secondary_tiles": 512,
    "primary_slots": {
-    "free": 435,
-    "used": 180
+    "free": 441,
+    "used": 194
    },
-   "secondary_metatiles": 435,
+   "secondary_metatiles": 461,
    "mirror_ids": [
     596,
-    597
+    597,
+    598,
+    599,
+    600,
+    601,
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    608,
+    609,
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619
    ],
    "banks": {
     "1": 15,
@@ -26,34 +48,34 @@
     "5": 14,
     "6": 14,
     "7": 14,
-    "8": 15,
-    "9": 15,
-    "10": 15,
-    "11": 15,
+    "8": 14,
+    "9": 14,
+    "10": 14,
+    "11": 9,
     "12": 0
    }
   },
   "route31": {
-   "jobs": 603,
+   "jobs": 611,
    "primary_reused": 61,
-   "secondary_tiles": 486,
+   "secondary_tiles": 494,
    "primary_slots": {
     "free": 451,
     "used": 0
    },
-   "secondary_metatiles": 278,
+   "secondary_metatiles": 284,
    "mirror_ids": [],
    "banks": {
-    "1": 15,
-    "4": 14,
-    "5": 15,
+    "1": 14,
+    "4": 15,
+    "5": 9,
     "6": 15,
-    "7": 13,
-    "8": 14,
-    "9": 15,
-    "10": 12,
+    "7": 14,
+    "8": 15,
+    "9": 13,
+    "10": 14,
     "11": 15,
-    "12": 13
+    "12": 15
    }
   }
  },

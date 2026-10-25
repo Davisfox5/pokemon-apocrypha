@@ -71,9 +71,9 @@ def terraces(cells, floor):
 # Where a rock top meets grass at its own height, the grass runs onto the rock along a gently wavy line
 # (FRINGE px deep at each position along the edge, periodic per cell so a run of cells tiles), edged by the
 # lawn's dark rim tone, then a dithered step of that tone onto the rock: a soft join, not a straight cut.
+# (One tone: Cherrygrove's palette 5 has room for the ramp, the cast shadow and this, no more.)
 FRINGE = (3, 3, 3, 4, 4, 4, 3, 3, 2, 2, 2, 3, 3, 4, 4, 3)
 FRINGE_RIM = (88, 176, 136)            # Cherrygrove's lawn rim tone (its palette 0)
-FRINGE_MID = (96, 192, 144)            # its lawn's middle tone
 
 def soften(cell, ov, sides, grass):
     """Grass over the rock top of one 16x16 cell along each side in sides (n, s, w, e)."""
@@ -82,10 +82,8 @@ def soften(cell, ov, sides, grass):
             for xx in range(16):
                 t, s = dict(n=(yy, xx), s=(15 - yy, xx), w=(xx, yy), e=(15 - xx, yy))[k]
                 depth = FRINGE[s]
-                if t < depth - 1:
+                if t < depth:
                     ov[yy, xx] = 0; cell[yy, xx] = grass[yy, xx]
-                elif t == depth - 1:
-                    ov[yy, xx] = FRINGE_MID + (255,)
                 elif t == depth and ov[yy, xx, 3]:
                     ov[yy, xx] = FRINGE_RIM + (255,)
                 elif t == depth + 1 and (s + t) % 2 == 0 and ov[yy, xx, 3]:
@@ -114,7 +112,7 @@ def rock_frlg(cells, d, isrock, base, pieces, tex, soft=False):
             return fill, 'rock'
         k = cells[cy][cx]['floor']
         return plain[k], k
-    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None, water=None)   # no cast shadow on water
+    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None, water=None, shore=None)   # none on water or a sea cliff's shore
     piece = np.full((H, W), '', object)
     for y in range(H):
         for x in range(W):
