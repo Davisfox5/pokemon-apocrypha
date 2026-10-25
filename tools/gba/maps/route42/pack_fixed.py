@@ -151,7 +151,7 @@ def plan_layers(z, layer_of):
     """pack_lossless's per-8x8 layer plan: objects on the top layer over the terrain, part-rock
     tiles split onto the top layer where the cell draws under the player, overlapping objects
     split back and front, hidden bottom pixels compacted (Lake of Rage's pack_pair.plan_layers)."""
-    ground, rock, top, owner, trees = z['ground'], z['rock'], z['objects'].copy(), z['owner'].astype(object), z['trees']
+    ground, rock, top, owner, trees, gate = z['ground'], z['rock'], z['objects'].copy(), z['owner'].astype(object), z['trees'], z['gate']
     terrain = ground.copy()
     rk_all = rock[..., 3] > 0
     terrain[rk_all] = rock[rk_all, :3]
@@ -205,24 +205,34 @@ def plan_layers(z, layer_of):
             ob = top[sl][..., 3] > 0
             rk = rk_all[sl]
             fs = set(fam[sl][ob].ravel().tolist())
+            merge = False
             if len(fs) > 1 and not above[ty // 2, tx // 2]:
                 front = fam[sl][ob].ravel()[np.argmax(base[sl][ob].ravel())]
+                # Crowns over the gate's foundation: where the crown and the foundation it leaves
+                # in view fit the tree palette with the foundation's two darkest teals, both take
+                # the top layer over plain lawn.
+                merge = fs == {'tree', 'gate'} and front == 'tree' and colour_set(top[sl][..., :3], ob) <= MERGE_SET
+                if fs == {'tree', 'gate'}:
+                    front = 'gate'                         # otherwise the gate takes the top layer
+            if merge:
+                lay[(tx, ty, 0)] = dict(px=backing(terrain[sl].copy(), ~ob, sl), mask=full)
+                lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=ob)
+            elif len(fs) > 1 and not above[ty // 2, tx // 2]:
                 gate_tree = fs == {'tree', 'gate'}
-                if gate_tree:
-                    # Round the gate (the Route 36 surround) the picture is already composed and
-                    # the cell is solid, so either part may take the top layer: the gate does, and
-                    # the trees join the lawn below it, whole under the gate, in the palettes
-                    # trees and lawn already share, the same tiles from tree to tree.
-                    front = 'gate'
                 fm = ob & (fam[sl] == front)
                 bm = ob & ~fm
                 b = terrain[sl].copy(); b[bm] = top[sl][bm, :3]
                 if gate_tree:
-                    ta = trees[sl][..., 3] > 0
-                    b[ta] = trees[sl][ta, :3]
+                    # Round the gate (the Route 36 surround) the picture is already composed and
+                    # the cell is solid, so either part may take the top layer: the gate does, and
+                    # the trees lie whole below it with the lawn, in the palette trees and lawn
+                    # already share, so these tiles repeat from tree to tree.
+                    whole = trees
+                    wa = whole[sl][..., 3] > 0
+                    b[wa] = whole[sl][wa, :3]
                     assert (b[~fm] == want_top_rgb(sl)[~fm]).all()
                 hide = bool(fm.all())
-                lay[(tx, ty, 0)] = dict(px=filler if hide and not gate_tree else b if gate_tree else backing(b, ~fm, sl), mask=full)
+                lay[(tx, ty, 0)] = dict(px=filler if hide else b if gate_tree else backing(b, ~fm, sl), mask=full)
                 lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=fm)
             elif ob.any():
                 hide = bool(ob.all())
@@ -241,6 +251,11 @@ def plan_layers(z, layer_of):
     a = top[..., 3] > 0
     want[a] = top[a, :3]
     return lay, want
+
+# T01's colours and the gate foundation's two darkest teals (RGB555)
+MERGE_SET = frozenset(tuple(v // 8 for v in c) for c in (
+    (64, 56, 40), (64, 64, 40), (72, 72, 48), (80, 88, 40), (88, 104, 32), (88, 112, 32), (96, 120, 32),
+    (112, 144, 32), (120, 152, 32), (136, 104, 64), (136, 168, 40), (24, 80, 64), (32, 144, 136)))
 
 def colour_set(px, mask):
     return frozenset(map(tuple, B.rgb5(px)[mask].reshape(-1, 3).tolist()))

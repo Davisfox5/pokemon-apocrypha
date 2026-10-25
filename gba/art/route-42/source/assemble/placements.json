@@ -573,62 +573,6 @@
    "base": 206
   },
   {
-   "name": "tree_40",
-   "master": "shared-art/T01.png",
-   "xy": [
-    0,
-    272
-   ],
-   "root": [
-    0,
-    18
-   ],
-   "base": 280,
-   "tips_under_gate_base": true
-  },
-  {
-   "name": "tree_41",
-   "master": "shared-art/T01.png",
-   "xy": [
-    32,
-    272
-   ],
-   "root": [
-    2,
-    18
-   ],
-   "base": 280,
-   "tips_under_gate_base": true
-  },
-  {
-   "name": "tree_42",
-   "master": "shared-art/T01.png",
-   "xy": [
-    64,
-    272
-   ],
-   "root": [
-    4,
-    18
-   ],
-   "base": 280,
-   "tips_under_gate_base": true
-  },
-  {
-   "name": "tree_43",
-   "master": "shared-art/T01.png",
-   "xy": [
-    96,
-    272
-   ],
-   "root": [
-    6,
-    18
-   ],
-   "base": 280,
-   "tips_under_gate_base": true
-  },
-  {
    "name": "gate_ecruteak",
    "master": "shared-art/G02.png",
    "xy": [
@@ -653,6 +597,58 @@
     17
    ],
    "base": 286
+  },
+  {
+   "name": "tree_40",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    272
+   ],
+   "root": [
+    0,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_41",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    272
+   ],
+   "root": [
+    2,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_42",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    272
+   ],
+   "root": [
+    4,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_43",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    272
+   ],
+   "root": [
+    6,
+    18
+   ],
+   "base": 314
   },
   {
    "name": "tree_44",
@@ -2826,6 +2822,17 @@
     752,
     224
    ]
+  }
+ ],
+ "cave_floor_pebbles": [
+  {
+   "hgss_box": [
+    787,
+    100,
+    797,
+    107
+   ],
+   "left_out": true
   }
  ]
 }

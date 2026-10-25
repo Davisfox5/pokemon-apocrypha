@@ -335,6 +335,21 @@ def snap_pieces(art, step=8):
         moves.append(dict(hgss_xy=[int(x0), int(y0)], xy=[nx, ny]))
     return out, moves
 
+def plain_dirt(art):
+    """HGSS's cave-floor dirt in its commonest tone: its one pebble (its other tones, 10x7 px on
+    the Mt. Mortar ledge) is left out, for want of tile slots under Mahogany's tilesets. Only the
+    ledge's own cells have it in view, and they are reached by Rock Climb alone, which Gen 3
+    lacks. Returns the layer and the pebble's place."""
+    a = art[..., 3] > 0
+    cols, cnt = np.unique(art[a, :3], axis=0, return_counts=True)
+    dirt = cols[np.argmax(cnt)]
+    odd = a & (art[..., :3] != dirt).any(-1)
+    out = art.copy()
+    out[odd, :3] = dirt
+    ys, xs = np.nonzero(odd)
+    return out, ([dict(hgss_box=[int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1], left_out=True)]
+                 if len(ys) else [])
+
 def flowers(phg):
     """HGSS's flower cells (flower01-03): the flower heads lifted from the decoded ground
     texture, every pixel that is not one of the texture's lawn greens (green over red by 40)."""
@@ -509,6 +524,7 @@ def compose(phg):
     reductions = {}
     lim = lambda k: (REDUCE[k][0], mahogany_tones(REDUCE[k][1]))
     fd, reductions['cave_floor'] = reduce_local(hgss_material(list(CAVE_FLOOR)), *lim('cave_floor'))
+    fd, pebble_moves = plain_dirt(fd)
     Image.fromarray(fd).save(LOCAL / 'cave-floor.png')
     # The Mt. Mortar ledge is cave-floor dirt edge to edge (its commonest tone under HGSS's own
     # pixels), and it is what a rock edge onto the ledge shows past it.
@@ -572,23 +588,20 @@ def compose(phg):
         o['base'] = o['xy'][1] + int(np.nonzero(a.any(1))[0].max())
     # Round the gate the trees overlap it, as on the owner-approved Route 36 gate surround: the
     # rear row stands behind its top rows and the gate, painted later by base row, draws over
-    # them with the trees seen round its roof; the first southern row's crowns are pasted onto
-    # its base, their narrow tips under its foundation strip, so the crowns start on the
-    # foundation line and the gate keeps its own tiles (elements.gate_anchors).
-    gate = next(o for o in objs if o['name'] == 'gate_ecruteak')
-    for o in objs:
-        if o['name'].startswith('tree_') and o['root'][1] == E.GATE_ROWS[1] + 1 and o['root'][0] <= E.GATE_COLS[1]:
-            o['base'], o['tips_under_gate_base'] = gate['base'] - 1, True
+    # them with the trees seen round its roof; the first southern row stands in front, its
+    # crowns over the gate's foundation (elements.gate_anchors).
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
-    compose.boulders, compose.caves = boulder_moves, cave_moves
-    # The trees alone, whole: where a tree and the gate share a tile, the packer keeps the
-    # trees' hidden pixels whole under the gate, so those tiles repeat from tree to tree.
-    compose.trees = np.zeros_like(top)
+    compose.boulders, compose.caves, compose.pebbles = boulder_moves, cave_moves, pebble_moves
+    # The trees alone and the gate alone, whole: where a tree and the gate share a tile, the
+    # packer keeps the hidden one whole under the other, so those tiles repeat.
+    compose.trees, compose.gate = np.zeros_like(top), np.zeros_like(top)
     for o in objs:
         if o['name'].startswith('tree_'):
             over(compose.trees, o['art'], o['xy'][0], o['xy'][1])
+        if o['name'] == 'gate_ecruteak':
+            over(compose.gate, o['art'], o['xy'][0], o['xy'][1])
     return bottom, rock, top, owner, d, objs, fcells, tg_used, view, mah_view
 
 ENGINE = None
@@ -610,13 +623,13 @@ def main(phg, catalog, engine):
     Image.fromarray(ground).save(OEV / 'ground.png')
     Image.fromarray(rock).save(OEV / 'rock.png')
     Image.fromarray(top).save(OEV / 'objects.png')
-    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), levels=levels, trees=compose.trees,
+    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), levels=levels, trees=compose.trees, gate=compose.gate,
                         mahogany_view=view, route_view_of_mahogany=mah_view)
     (OUT / 'placements.json').write_text(json.dumps(dict(
         note='Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots '
              '(T01 bottom on the root bottom, crown one row behind); the signs and the gate stand on HGSS\'s own.',
         objects=[{k: v for k, v in o.items() if k != 'art'} for o in objs], flower_cells=fcells,
-        tall_grass_pieces=tg_used, stairs=STAIRS, boulders=compose.boulders, cave_mouths=compose.caves), indent=1, default=int) + '\n')
+        tall_grass_pieces=tg_used, stairs=STAIRS, boulders=compose.boulders, cave_mouths=compose.caves, cave_floor_pebbles=compose.pebbles), indent=1, default=int) + '\n')
     print('objects', len(objs), 'flower cells', len(fcells), 'tall grass', tg_used)
 
 if __name__ == '__main__':
