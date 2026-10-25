@@ -1,0 +1,23 @@
+{
+  "baseline_source": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "removed_tree": {
+    "name": "maple-hgss",
+    "x": 32,
+    "y": 16
+  },
+  "tree_count": 493,
+  "all_other_tree_positions_unchanged": true,
+  "building_placements_unchanged": true,
+  "collision_unchanged": true,
+  "visible_changes_outside_three_local_rectangles": 0,
+  "decoded_native_layer_cells_checked": 34,
+  "layer_RGB_and_transparency_errors": 0,
+  "exposed_normal_edges_checked": 26,
+  "Bell_mask_correction": "Remove two source-foliage rows above the original dark ridge outline; recover the small leaf-occluded timber edge from its unchanged vertical grain eight pixels below. Preserve the ridge and annex gold rail.",
+  "limits": [
+    "Exterior only; gates, interiors and adjoining routes remain unwired as before.",
+    "The roof repair uses an unobscured nearby timber donor for hidden source pixels."
+  ],
+  "source_commit": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
+  "ROM_SHA256": "7f0843d6abc0879a3eaf53fcd6014c611ce739dbbed42ac6e2940c6921e5c0db"
+}

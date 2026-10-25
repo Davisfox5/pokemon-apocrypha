@@ -1,0 +1,68 @@
+{
+  "baseline_source": "103874452f101ba3f597cafcca73c1aa1e32998d",
+  "approved_concept": "Simplified owner-approved concept; no characters, flower beds or statues",
+  "asset_provenance": "Image-generated architectural sheet derived from owner-approved concept; native RGB5 conversion to existing house palette",
+  "cleared_trees": [
+    [
+      58,
+      14
+    ],
+    [
+      58,
+      16
+    ],
+    [
+      60,
+      14
+    ],
+    [
+      60,
+      16
+    ]
+  ],
+  "tree_count": 489,
+  "shrine_geometry": [
+    {
+      "name": "shrine",
+      "x": 34,
+      "y": 29,
+      "width": 3,
+      "solid_rows": 3,
+      "front": [
+        35,
+        32
+      ]
+    },
+    {
+      "name": "shrine",
+      "x": 58,
+      "y": 16,
+      "width": 3,
+      "solid_rows": 3,
+      "front": [
+        59,
+        19
+      ]
+    }
+  ],
+  "gate_visual_center_x": 672,
+  "gate_position": [
+    632,
+    688
+  ],
+  "gate_passage_columns": [
+    41,
+    42
+  ],
+  "materials": "Existing green tree master, existing local wood/roof palette, native court/paving textures",
+  "new_master_hashes": {
+    "heritage-shrine": "5ced477fa5973aa98ec6de450a159ff0b0c2accc0ac4248b7099a998415f7aed",
+    "red-lantern": "c547b475f49272ea02baa5484cfde96edb686182fae94a41b3054731ba3b4678",
+    "offering-counter": "2154ee83ed2c50bb754f9690144446cb22c20ed10ce5618466c0d7ae3951e346",
+    "restoration-scaffold": "e9ea6c47f0b850014a251f21427b7012263acaa9f85085522402e6f80d9b23fb",
+    "archive-scroll": "1a26320180b5bf8fc96b03f38e95b7fb49f4e6273594d3f43378cfb7491f9067",
+    "heritage-torii": "3ed798a5174588d5db55f9b2a0a3e71098bfecae9eed81a1d83515d72e9a820b",
+    "tree-autumn": "d8c322694fc76a56de0f64dff8f490d9abe441c6c22494127b0a11bc14338830",
+    "tree-amber": "4eea0cf53fc3b148ac9a9ec734aab9ef71a16e2e06171f5f396de0e39c19924d"
+  }
+}

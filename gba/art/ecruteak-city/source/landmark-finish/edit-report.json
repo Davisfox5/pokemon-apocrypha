@@ -1,0 +1,161 @@
+{
+  "baseline_source": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "removed_tree": {
+    "name": "maple-hgss",
+    "x": 32,
+    "y": 16
+  },
+  "tree_count": 493,
+  "areas": [
+    [
+      512,
+      256,
+      544,
+      304
+    ],
+    [
+      608,
+      200,
+      728,
+      208
+    ],
+    [
+      600,
+      216,
+      624,
+      224
+    ]
+  ],
+  "collision_unchanged": true,
+  "master_hashes": {
+    "route32-emerald-0x87": "99a6f340cb1ae7dd7b3ce4979c6c80f3b6c34f905840494eadd24494aef10bd9",
+    "shrine-lantern": "0774770590dfb0f705b6b0325c7730395e90d34dc54c1f3887d6411c45eb09cf",
+    "R16": "c1dc7771f058cd0a39e99ea75d7b8edec38043f10528a71247a48c026dfde210",
+    "grass": "3f16202efeb133f5a68b5ef873314f8c8f029fc0d4ff06e3e0b323af9cf3d919",
+    "maple-hgss": "ef11075a9a28ae1722bb612c521d3fcb6151085ccf07976b521ad9c42cdc3122",
+    "dance-theater": "64b9689780f7badf86298c0cd3bb7bdeb88eb6f4a192d1908a029621a4ed98b1",
+    "R10": "6407bd568cf757331449328e5ea68e056ecd2a01cb24aae0534f8612889f3980",
+    "house-entry": "157ce9657cfc6f349e1c46f3400007ac3ea5ae3108be6a47a6723eff7f514a0b",
+    "house": "dd1cd302e8c892e0668a7c0e99a309cf96938bfbb711a8181fdc698234451dfe",
+    "house-green": "d2ce301ad977f7e833a6f1606daaefd3b2e3710d55374f776e0dca64cbd59678",
+    "gate": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6",
+    "route32-emerald-0x7c": "6a9f2d145e2311c22a9315415e44b2c2af20d3bfcf92ce7237b916afa769e368",
+    "R14": "019d15d7f7839abb67a57cc9f597c1c989c1f7c76bee3b24315902d5b6fe5187",
+    "fence": "3dba49266c93ac542fd2d57feca9a91c1594dedf67ae4ee608b7934921bf76e2",
+    "route32-rock-top": "fb9778ec4a7c9f02ae85cd3f5fe1b366d66533e5509bb169b90cbb0e47a5c417",
+    "P13": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c",
+    "side-gate": "7de7fd773af224e068603981c86fdbe094ade793e305fd6e7fb1df68d4bb3533",
+    "F01": "d81e1bde439b593d6e2c391d84b89fa4601bf9a1a43e4f8d1ddc869d43acab3a",
+    "R03": "265d9b4c03cd9ece6a98f5c10c157a504b2d784b450afa9ec5fb490bb9f93938",
+    "route32-emerald-0x85": "66f7f123fe7120ea51c87da7c65c5a5a421946ce8320ee01f46dac6472af4339",
+    "R09": "f73caa568df0eb26a2abc6fc23b7f8715e3713c9d86f88cdbde2f6798ae25f5b",
+    "tree": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a",
+    "tree-amber": "ee960b392e0b7b9f9d0edef245e6cbff028915d2f6d35a0ff0b8f6ec486b5453",
+    "center": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+    "stone-front": "5c2acf4cecbf66a35cbe940941ed678d4927127dd2bf88c436774f4ec9747de1",
+    "route32-emerald-0x86": "36e4abfeb6abd8441caddda0b662bfed2af0dfdeaf49bfec44734fe60b5b41d6",
+    "P09-native": "bf227703200279a023e44dd0aa22f89c6e7bdbd692c1ab282ff7ec83cd912b20",
+    "house-lantern": "9ed47cf2b45fd6e91d8d3c50c7ddcda563a465d86c80b2055cc63cd6d05312b9",
+    "burned-tower": "0473f18524594f3d3a91968b8d34f6544cd2d554a62328e3cf81e7b547829df1",
+    "R12": "a7720005f5460b997f3047a7001261648561dc6519e15fcfd88b66d6b06b6a7d",
+    "court": "528704eb5e8219d6706bc1571f23bd042098f8e2ebb0e58e5eede8c4687da3ef",
+    "house-southeast": "fe45a43be32021167a0a80e328f1bceec68dc500e56dd6d57ef009b1bfb9d106",
+    "R11": "b66e8bc4c6f804ee06069755298fb3b35604368caaa6d9a571d727fa6dff2224",
+    "R15": "c92560569175364c5e8c8e6b4b08a23a1ee2cee910217fdba58dec5f9268ec3b",
+    "route32-shelf-top": "3837a44378db9b4d94da9e93193531306cf982c52af7a9ebe4165cd82bacd4b4",
+    "tree-hgss": "f0f7285408d01c6160453919b11fbcd7cfbf5563d7afa6d09cb91ecc842e56c1",
+    "bell-entrance": "98309840cf667632aeafb44fe9d5b76619848fb97228e2b6291bcac2e8237af8",
+    "P12": "2bae513033cc365be954cd9afb203fd3f8430f96eca935bb52f6fe994c72fd4d",
+    "route32-corner-right": "92cae94b506399d97aba7b5766fcd7ca1ca9204c999748296faa97a0f49452d8",
+    "R08": "32b02837967cd29cf9bc49dc93946dacf32f2ebd7de05439c093ec4756939c3d",
+    "R05": "0c48c96254a44e11e990164f54e244ac23f6df628860d12ba44e5984664f15f6",
+    "paving": "9269fa189daa4b888637bca3ea28a7db9e7dd6c5f6be88629ae6764703da199f",
+    "stairs": "3238a62eecf7b5db6decf662e5edfa7c9317a71dcdd51125ffebbb351c47f666",
+    "tree-autumn": "d7ba27a514d51e6dc41eb2f0cca7db4c8bafb8758cca3f11245187e364415c43",
+    "maple-amber": "d35de6a1966a0819619d2b2578675ef90c32abb762a3b7472a2657e2a05f3f51",
+    "R01": "d55d4356a2b458bf5bff6efeb2777cfc979e3d8a9e423c0f7a53f969cac1991d",
+    "spring": "d207d8292a195de59ee140b3e0ba3426425382615b4bbb3d1014594bdb14de75",
+    "R17": "037a722e23fe14a580ebcf9c5700d92c2e717e51d0c72e3b5ea25ca6e3968910",
+    "R02": "9910a93df552fd422f7837fa597be6e9f7bd403ad465e96e94dda9b828d86c46",
+    "terrace": "0bad9d34a623659cf98c407a52447b2a00a6d5e62f39c3e65d6e60af31c8b2ee",
+    "R07": "7a806c99d250efbe9faba72a75fe056ed818d71c9ba28c1e318db16d833de1fb",
+    "maple-autumn": "8c2a3745c588f11b67b12f862e92a22f6c11e4623ea536dcc7ebe4c4f7bd211f",
+    "route32-corner-left": "351d1b525b9a65df82d76b6e40e76e87c6cd4eefae0e593a89a74a3e336e4a0e",
+    "grove-outcrop": "5035a2129ef5e99187fd0daf7bfb114aa97f973d6d8972ff26b4f5ab93f61c8d",
+    "pond-boulder": "86b51f9799168b37192f452d62814adc9190e017496d8d954bb350d4265a245d",
+    "water": "9bd5091df3bbd3dd9df681aa59e290aa23e279c24cb077f0824663c00ecddcbb",
+    "shared-boulder": "02a9296a904f5ebcf2752298fb632f2ad3d0e3d3f13e30b5a5f9904326c368fa",
+    "R13": "f41577b5e6d900e7503fa63fdbb9703359fa0eb815ea27c08db4469e4143036e",
+    "gym": "58d951edd809b81fd27167d248825b8d50d61a33baf758f4148e828c701e9376",
+    "shared-plateau": "9d709c0425a55115ca9fa703e56a9a682573121ba162b5080b9c5f8608f3d4d7",
+    "R04": "04dbf9d43eb89d0291bb4b183b85bf6ed9aafd3d68fd3a55cdc64cdd6f22aa95",
+    "route32-emerald-0x75": "ac4c0f1a1c4ee13af1b1fb9339c51b20d8881e2d36a2babef8897653193fa11d",
+    "R06": "fccf8aed36e891a86ead824592ca6c796a3848b4be2d3f136851efa41b0789a6",
+    "route32-emerald-0x73": "00c652b6dce70ba555c1a10c7ef9b5d3b608733de0197739fc2e5f406a1883f7",
+    "south-gate": "37c97ea09af686d312acf33405535cd6d83bf0ed48d87c4309c5b258445d46da",
+    "mart": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8",
+    "P15": "7ed65bb881f98956d071ffb3ea18225dc6993d6f061e0bcf65b7ba1758251565",
+    "stone-top": "24569738e1fb39c2ef440a12981b12c8beb9130fb55b53f80bd68a1372721692"
+  },
+  "exact_local_layer_encoding": [
+    [
+      520,
+      264,
+      8,
+      9
+    ],
+    [
+      528,
+      264,
+      8,
+      9
+    ],
+    [
+      512,
+      280,
+      11,
+      2
+    ],
+    [
+      520,
+      280,
+      11,
+      2
+    ],
+    [
+      528,
+      280,
+      11,
+      2
+    ],
+    [
+      536,
+      280,
+      11,
+      2
+    ]
+  ],
+  "bell_mask_removed_source_foliage": [
+    [
+      69,
+      2,
+      180,
+      4
+    ]
+  ],
+  "bell_timber_repair": {
+    "box": [
+      59,
+      18,
+      74,
+      23
+    ],
+    "donor": [
+      59,
+      26,
+      74,
+      31
+    ]
+  },
+  "all_tree_positions_other_than_removed_unchanged": true
+}

@@ -1,0 +1,43 @@
+{
+  "objects": [
+    {
+      "name": "heritage-shrine",
+      "x": 544,
+      "y": 464,
+      "source_xy": null,
+      "role": "Central wayside shrine with south-facing stone steps",
+      "graphics_path": "graphics/object_events/pics/ecruteak/heritage-shrine.png",
+      "native_padding": [
+        8,
+        0
+      ],
+      "native_size": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "offering-counter",
+      "x": 520,
+      "y": 528,
+      "source_xy": null,
+      "role": "Unattended wrapped-offering counter; inspection only",
+      "graphics_path": "graphics/object_events/pics/ecruteak/offering-counter.png",
+      "native_padding": [
+        0,
+        0
+      ],
+      "native_size": [
+        32,
+        16
+      ]
+    }
+  ],
+  "graphics_IDs": [
+    1037,
+    1038
+  ],
+  "palette_tag": "0x118D",
+  "collision": "Native map bodies plus native inanimate object footing; no NPCs or persistent flags.",
+  "pixel_conversion": "Exact indexed conversion of the existing RGB5 house palette; no color loss."
+}

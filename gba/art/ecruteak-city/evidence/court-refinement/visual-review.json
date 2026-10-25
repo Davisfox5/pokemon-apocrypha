@@ -1,0 +1,25 @@
+{
+  "source_commit": "c8a8267606411bd62a6274ed0e5f430b1b2f7e80",
+  "owner_visual_acceptance": "pending",
+  "reviewed_native_views": [
+    "All ten court border loops and entrance recesses, original / previous / current, coordinate-labelled",
+    "Directional stone courses without tree canopies and with complete master ownership",
+    "Gym, house lantern, Burned Tower and southern-house native gameplay frames"
+  ],
+  "findings": [
+    "Continuous multi-shade rims return around all entrance recesses; lower-house recess axes and depths corrected.",
+    "Five house lanterns and eight gateway lanterns restored; three base cells block walking.",
+    "Gym glass/paint/roof bands, Burned Tower orange framing and house gold ridges restored without source texture loss.",
+    "Complete wood posts replace clipped fence masks.",
+    "Route32 directional stone pixels replace prior R02 walls; complete corners join native quadrants.",
+    "Central empty plot matches the HGSS overview; no omitted structure.",
+    "Southeast plain-front house keeps the HGSS straight rim; no false recess.",
+    "Theater embedded board fragment removed; one complete separate sign remains.",
+    "Theater/annex gold accents restored using the shared native ramp; close blue/edge shade consolidation is explicit in finish-report.json.",
+    "Architectural background pixels beneath the southeast canopy remain exact after court restoration."
+  ],
+  "limits": [
+    "Overview interpretation with source RGB5 palette approximation; hidden pixels remain uncertain.",
+    "Two-district fade, unwired interiors/routes and campaign scope unchanged."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "route": 38,
+      "cells": 2048,
+      "source_grid": "original32x32 HGSS map chunks, not overview projection",
+      "decoded_native_pixels_exact": true,
+      "forbidden_behaviors": 0,
+      "open_height_seams": 0,
+      "walkable_cells": 1698,
+      "native_ids_preserved": true
+    },
+    {
+      "route": 39,
+      "cells": 2048,
+      "source_grid": "original32x32 HGSS map chunks, not overview projection",
+      "decoded_native_pixels_exact": true,
+      "forbidden_behaviors": 0,
+      "open_height_seams": 0,
+      "walkable_cells": 1605,
+      "native_ids_preserved": true
+    }
+  ],
+  "boundary_probes": 770
+}

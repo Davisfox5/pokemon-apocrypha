@@ -1,0 +1,18 @@
+{
+  "prior_source": "b89ae5d5f14878b0b759ba04a495d50a676b6e6b",
+  "prior_save_SHA256": "51a4a9b24533f379ede27ab573367083ad218fbf299c669587359577785f399e",
+  "original_save_unchanged": true,
+  "copied_save_only": true,
+  "phases": [
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "output": "{\"step\":\"cold-reload-Ecruteak\",\"region\":3,\"group\":80,\"map\":51,\"x\":41,\"y\":8,\"frlg_layout\":0,\"width\":72,\"height\":25,\"interaction\":0,\"mapsec\":227}\n"
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "output": "{\"step\":\"ordinary-title-continue\",\"region\":3,\"group\":80,\"map\":51,\"x\":41,\"y\":8,\"frlg_layout\":0,\"width\":72,\"height\":25,\"interaction\":0,\"mapsec\":227}\n"
+    }
+  ]
+}

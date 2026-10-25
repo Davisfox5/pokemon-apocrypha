@@ -1,0 +1,1281 @@
+[
+  {
+    "name": "house",
+    "box": [
+      288,
+      336,
+      384,
+      408
+    ],
+    "polygons": [
+      [
+        [
+          309,
+          342
+        ],
+        [
+          321,
+          342
+        ],
+        [
+          321,
+          340
+        ],
+        [
+          361,
+          340
+        ],
+        [
+          361,
+          343
+        ],
+        [
+          373,
+          343
+        ],
+        [
+          373,
+          380
+        ],
+        [
+          369,
+          383
+        ],
+        [
+          369,
+          399
+        ],
+        [
+          307,
+          399
+        ],
+        [
+          307,
+          382
+        ],
+        [
+          303,
+          379
+        ],
+        [
+          303,
+          350
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "house-entry",
+    "box": [
+      288,
+      448,
+      384,
+      528
+    ],
+    "polygons": [
+      [
+        [
+          309,
+          454
+        ],
+        [
+          321,
+          454
+        ],
+        [
+          321,
+          452
+        ],
+        [
+          361,
+          452
+        ],
+        [
+          361,
+          455
+        ],
+        [
+          373,
+          455
+        ],
+        [
+          373,
+          492
+        ],
+        [
+          369,
+          495
+        ],
+        [
+          369,
+          518
+        ],
+        [
+          307,
+          518
+        ],
+        [
+          307,
+          494
+        ],
+        [
+          303,
+          491
+        ],
+        [
+          303,
+          462
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "house-green",
+    "box": [
+      472,
+      568,
+      568,
+      648
+    ],
+    "polygons": [
+      [
+        [
+          481,
+          578
+        ],
+        [
+          492,
+          578
+        ],
+        [
+          492,
+          575
+        ],
+        [
+          534,
+          575
+        ],
+        [
+          534,
+          578
+        ],
+        [
+          548,
+          578
+        ],
+        [
+          553,
+          611
+        ],
+        [
+          547,
+          614
+        ],
+        [
+          547,
+          638
+        ],
+        [
+          480,
+          638
+        ],
+        [
+          480,
+          614
+        ],
+        [
+          476,
+          610
+        ],
+        [
+          476,
+          584
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "house-southeast",
+    "box": [
+      808,
+      568,
+      904,
+      648
+    ],
+    "polygons": [
+      [
+        [
+          817,
+          578
+        ],
+        [
+          828,
+          578
+        ],
+        [
+          828,
+          575
+        ],
+        [
+          870,
+          575
+        ],
+        [
+          870,
+          578
+        ],
+        [
+          884,
+          578
+        ],
+        [
+          889,
+          611
+        ],
+        [
+          883,
+          614
+        ],
+        [
+          883,
+          638
+        ],
+        [
+          816,
+          638
+        ],
+        [
+          816,
+          614
+        ],
+        [
+          812,
+          610
+        ],
+        [
+          812,
+          584
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "burned-tower",
+    "box": [
+      288,
+      88,
+      432,
+      216
+    ],
+    "polygons": [
+      [
+        [
+          299,
+          92
+        ],
+        [
+          399,
+          92
+        ],
+        [
+          402,
+          96
+        ],
+        [
+          402,
+          141
+        ],
+        [
+          420,
+          145
+        ],
+        [
+          423,
+          153
+        ],
+        [
+          402,
+          166
+        ],
+        [
+          400,
+          173
+        ],
+        [
+          400,
+          200
+        ],
+        [
+          360,
+          200
+        ],
+        [
+          360,
+          207
+        ],
+        [
+          336,
+          207
+        ],
+        [
+          336,
+          200
+        ],
+        [
+          304,
+          200
+        ],
+        [
+          304,
+          174
+        ],
+        [
+          298,
+          173
+        ],
+        [
+          296,
+          164
+        ],
+        [
+          296,
+          97
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "bell-entrance",
+    "box": [
+      480,
+      184,
+      672,
+      280
+    ],
+    "polygons": [
+      [
+        [
+          488,
+          205
+        ],
+        [
+          496,
+          205
+        ],
+        [
+          496,
+          209
+        ],
+        [
+          539,
+          209
+        ],
+        [
+          539,
+          191
+        ],
+        [
+          549,
+          191
+        ],
+        [
+          549,
+          186
+        ],
+        [
+          659,
+          186
+        ],
+        [
+          659,
+          191
+        ],
+        [
+          666,
+          191
+        ],
+        [
+          666,
+          199
+        ],
+        [
+          661,
+          202
+        ],
+        [
+          661,
+          243
+        ],
+        [
+          655,
+          247
+        ],
+        [
+          655,
+          266
+        ],
+        [
+          551,
+          266
+        ],
+        [
+          551,
+          261
+        ],
+        [
+          490,
+          261
+        ],
+        [
+          490,
+          249
+        ],
+        [
+          485,
+          247
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "dance-theater",
+    "box": [
+      624,
+      424,
+      752,
+      536
+    ],
+    "polygons": [
+      [
+        [
+          633,
+          445
+        ],
+        [
+          657,
+          434
+        ],
+        [
+          674,
+          434
+        ],
+        [
+          674,
+          430
+        ],
+        [
+          709,
+          430
+        ],
+        [
+          709,
+          435
+        ],
+        [
+          728,
+          435
+        ],
+        [
+          738,
+          444
+        ],
+        [
+          739,
+          467
+        ],
+        [
+          746,
+          482
+        ],
+        [
+          743,
+          496
+        ],
+        [
+          735,
+          501
+        ],
+        [
+          735,
+          520
+        ],
+        [
+          644,
+          520
+        ],
+        [
+          644,
+          500
+        ],
+        [
+          632,
+          493
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "gym",
+    "box": [
+      288,
+      544,
+      416,
+      656
+    ],
+    "polygons": [
+      [
+        [
+          329,
+          553
+        ],
+        [
+          334,
+          551
+        ],
+        [
+          364,
+          552
+        ],
+        [
+          369,
+          554
+        ],
+        [
+          391,
+          569
+        ],
+        [
+          400,
+          589
+        ],
+        [
+          401,
+          605
+        ],
+        [
+          409,
+          609
+        ],
+        [
+          409,
+          624
+        ],
+        [
+          399,
+          632
+        ],
+        [
+          373,
+          638
+        ],
+        [
+          327,
+          638
+        ],
+        [
+          304,
+          629
+        ],
+        [
+          296,
+          624
+        ],
+        [
+          296,
+          607
+        ],
+        [
+          300,
+          604
+        ],
+        [
+          300,
+          586
+        ],
+        [
+          310,
+          567
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "south-gate",
+    "box": [
+      560,
+      672,
+      640,
+      736
+    ],
+    "polygons": [
+      [
+        [
+          564,
+          679
+        ],
+        [
+          632,
+          679
+        ],
+        [
+          633,
+          687
+        ],
+        [
+          626,
+          690
+        ],
+        [
+          626,
+          731
+        ],
+        [
+          620,
+          733
+        ],
+        [
+          620,
+          710
+        ],
+        [
+          575,
+          710
+        ],
+        [
+          575,
+          733
+        ],
+        [
+          569,
+          731
+        ],
+        [
+          569,
+          690
+        ],
+        [
+          563,
+          688
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "side-gate",
+    "box": [
+      0,
+      352,
+      64,
+      448
+    ],
+    "polygons": [
+      [
+        [
+          0,
+          361
+        ],
+        [
+          32,
+          361
+        ],
+        [
+          32,
+          363
+        ],
+        [
+          45,
+          363
+        ],
+        [
+          45,
+          407
+        ],
+        [
+          56,
+          412
+        ],
+        [
+          56,
+          422
+        ],
+        [
+          47,
+          424
+        ],
+        [
+          47,
+          442
+        ],
+        [
+          39,
+          442
+        ],
+        [
+          39,
+          425
+        ],
+        [
+          0,
+          425
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "paving",
+    "box": [
+      416,
+      416,
+      448,
+      432
+    ],
+    "polygons": [
+      [
+        [
+          416,
+          416
+        ],
+        [
+          447,
+          416
+        ],
+        [
+          447,
+          431
+        ],
+        [
+          416,
+          431
+        ]
+      ]
+    ],
+    "colors": 5,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "court",
+    "box": [
+      456,
+      456,
+      472,
+      472
+    ],
+    "polygons": [
+      [
+        [
+          456,
+          456
+        ],
+        [
+          471,
+          456
+        ],
+        [
+          471,
+          471
+        ],
+        [
+          456,
+          471
+        ]
+      ]
+    ],
+    "colors": 3,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "stone-top",
+    "box": [
+      272,
+      128,
+      288,
+      144
+    ],
+    "polygons": [
+      [
+        [
+          272,
+          128
+        ],
+        [
+          287,
+          128
+        ],
+        [
+          287,
+          143
+        ],
+        [
+          272,
+          143
+        ]
+      ]
+    ],
+    "colors": 6,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "stone-front",
+    "box": [
+      272,
+      232,
+      304,
+      256
+    ],
+    "polygons": [
+      [
+        [
+          272,
+          232
+        ],
+        [
+          303,
+          232
+        ],
+        [
+          303,
+          255
+        ],
+        [
+          272,
+          255
+        ]
+      ]
+    ],
+    "colors": 8,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "water",
+    "box": [
+      680,
+      296,
+      712,
+      312
+    ],
+    "polygons": [
+      [
+        [
+          680,
+          296
+        ],
+        [
+          711,
+          296
+        ],
+        [
+          711,
+          311
+        ],
+        [
+          680,
+          311
+        ]
+      ]
+    ],
+    "colors": 3,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "spring",
+    "box": [
+      720,
+      280,
+      768,
+      328
+    ],
+    "polygons": [
+      [
+        [
+          735,
+          280
+        ],
+        [
+          747,
+          280
+        ],
+        [
+          754,
+          290
+        ],
+        [
+          757,
+          304
+        ],
+        [
+          750,
+          313
+        ],
+        [
+          739,
+          317
+        ],
+        [
+          731,
+          312
+        ],
+        [
+          726,
+          302
+        ],
+        [
+          726,
+          291
+        ]
+      ]
+    ],
+    "colors": 12,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "fence",
+    "box": [
+      256,
+      264,
+      272,
+      280
+    ],
+    "polygons": [
+      [
+        [
+          257,
+          269
+        ],
+        [
+          262,
+          268
+        ],
+        [
+          263,
+          282
+        ],
+        [
+          257,
+          282
+        ]
+      ],
+      [
+        [
+          266,
+          268
+        ],
+        [
+          271,
+          269
+        ],
+        [
+          271,
+          282
+        ],
+        [
+          266,
+          282
+        ]
+      ]
+    ],
+    "colors": 7,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "stairs",
+    "box": [
+      336,
+      208,
+      360,
+      256
+    ],
+    "polygons": [
+      [
+        [
+          342,
+          212
+        ],
+        [
+          356,
+          212
+        ],
+        [
+          356,
+          254
+        ],
+        [
+          342,
+          254
+        ]
+      ]
+    ],
+    "colors": 9,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "terrace",
+    "box": [
+      248,
+      120,
+      440,
+      264
+    ],
+    "polygons": [
+      [
+        [
+          264,
+          128
+        ],
+        [
+          288,
+          122
+        ],
+        [
+          296,
+          122
+        ],
+        [
+          296,
+          208
+        ],
+        [
+          336,
+          208
+        ],
+        [
+          336,
+          256
+        ],
+        [
+          264,
+          256
+        ]
+      ],
+      [
+        [
+          400,
+          122
+        ],
+        [
+          414,
+          128
+        ],
+        [
+          428,
+          248
+        ],
+        [
+          424,
+          256
+        ],
+        [
+          360,
+          256
+        ],
+        [
+          360,
+          208
+        ],
+        [
+          400,
+          208
+        ]
+      ]
+    ],
+    "colors": 15,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "grove-outcrop",
+    "box": [
+      152,
+      240,
+      216,
+      288
+    ],
+    "polygons": [
+      [
+        [
+          168,
+          245
+        ],
+        [
+          188,
+          245
+        ],
+        [
+          205,
+          253
+        ],
+        [
+          210,
+          263
+        ],
+        [
+          205,
+          277
+        ],
+        [
+          194,
+          278
+        ],
+        [
+          188,
+          273
+        ],
+        [
+          175,
+          276
+        ],
+        [
+          160,
+          273
+        ],
+        [
+          156,
+          263
+        ]
+      ]
+    ],
+    "colors": 12,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "pond-boulder",
+    "box": [
+      664,
+      232,
+      696,
+      272
+    ],
+    "polygons": [
+      [
+        [
+          674,
+          237
+        ],
+        [
+          682,
+          238
+        ],
+        [
+          687,
+          246
+        ],
+        [
+          691,
+          255
+        ],
+        [
+          690,
+          262
+        ],
+        [
+          684,
+          266
+        ],
+        [
+          670,
+          265
+        ],
+        [
+          666,
+          260
+        ],
+        [
+          668,
+          248
+        ]
+      ]
+    ],
+    "colors": 9,
+    "origin": "HGSS Ecruteak overview; explicit silhouette; native RGB5 reduction"
+  },
+  {
+    "name": "tree-amber",
+    "source": "complete shared T01",
+    "adaptation": "leaf colors only; autumn grove in HGSS reference"
+  },
+  {
+    "name": "tree-autumn",
+    "source": "complete shared T01",
+    "adaptation": "leaf colors only; autumn grove in HGSS reference"
+  },
+  {
+    "names": [
+      "house",
+      "house-entry",
+      "house-green",
+      "house-southeast"
+    ],
+    "adaptation": "shared 15-color material-aware ramp, violet glazing and green sliding doors protected; no silhouette smoothing across materials"
+  },
+  {
+    "name": "fence",
+    "adaptation": "native neighboring house material ramp; original silhouette and internal geometry preserved"
+  },
+  {
+    "name": "stairs",
+    "adaptation": "native neighboring terrace material ramp; original silhouette and internal geometry preserved"
+  },
+  {
+    "name": "grove-outcrop",
+    "adaptation": "native neighboring terrace material ramp; original silhouette and internal geometry preserved"
+  },
+  {
+    "name": "pond-boulder",
+    "adaptation": "native neighboring terrace material ramp; original silhouette and internal geometry preserved"
+  },
+  {
+    "name": "heritage-shrine",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      48,
+      64
+    ]
+  },
+  {
+    "name": "red-lantern",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      16,
+      32
+    ]
+  },
+  {
+    "name": "offering-counter",
+    "source": "Owner-approved simplified Ecruteak concept and transparent generated architecture sheet",
+    "native_conversion": "Existing RGB5 house palette, exact indexed/native pixels verified in-game",
+    "native_size": [
+      32,
+      16
+    ]
+  },
+  {
+    "name": "tree-amber",
+    "source": "Exact tree-hgss alpha and texture geometry; foliage colors replaced shade-for-shade",
+    "geometry_unchanged": true
+  },
+  {
+    "name": "tree-autumn",
+    "source": "Exact tree-hgss alpha and texture geometry; foliage colors replaced shade-for-shade",
+    "geometry_unchanged": true
+  }
+]

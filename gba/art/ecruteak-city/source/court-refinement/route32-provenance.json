@@ -1,0 +1,57 @@
+{
+  "source_commit": "94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b",
+  "assets": [
+    {
+      "file": "coastal-rock.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/coastal-rock.png",
+      "sha256": "d1a9ec3e3ff726b1dffd3593a4f576546102c6512a48c442f33a6f309b1bce0c"
+    },
+    {
+      "file": "emerald-0x73.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x73.png",
+      "sha256": "00c652b6dce70ba555c1a10c7ef9b5d3b608733de0197739fc2e5f406a1883f7"
+    },
+    {
+      "file": "emerald-0x75.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x75.png",
+      "sha256": "ac4c0f1a1c4ee13af1b1fb9339c51b20d8881e2d36a2babef8897653193fa11d"
+    },
+    {
+      "file": "emerald-0x7c.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x7c.png",
+      "sha256": "6a9f2d145e2311c22a9315415e44b2c2af20d3bfcf92ce7237b916afa769e368"
+    },
+    {
+      "file": "emerald-0x85.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x85.png",
+      "sha256": "66f7f123fe7120ea51c87da7c65c5a5a421946ce8320ee01f46dac6472af4339"
+    },
+    {
+      "file": "emerald-0x86.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x86.png",
+      "sha256": "36e4abfeb6abd8441caddda0b662bfed2af0dfdeaf49bfec44734fe60b5b41d6"
+    },
+    {
+      "file": "emerald-0x87.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0x87.png",
+      "sha256": "99a6f340cb1ae7dd7b3ce4979c6c80f3b6c34f905840494eadd24494aef10bd9"
+    },
+    {
+      "file": "emerald-0xa6.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0xa6.png",
+      "sha256": "e123482f6ff92fb8adb784da9a7e7deb8e01fbaf30eb7f59387a00a7629e6847"
+    },
+    {
+      "file": "emerald-0xa7.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/emerald-0xa7.png",
+      "sha256": "013cf282c322d8cfd86ca5d79081267c75e10a21e184fd399a35a5271ed12211"
+    },
+    {
+      "file": "rock-top.png",
+      "source": "https://raw.githubusercontent.com/Davisfox5/pokemon-apocrypha/94bb239d7ea0d470fc5e4ecc85f9630867a1fb3b/gba/art/route32-hgss-blocks/source/refined-materials/rock-top.png",
+      "sha256": "fb9778ec4a7c9f02ae85cd3f5fe1b366d66533e5509bb169b90cbb0e47a5c417"
+    }
+  ],
+  "adaptation": "Exact original directional side/front masters, with complete 16px corners assembled from their original native 8px quadrants. No geometric scaling.",
+  "source_credit": "Nintendo / Game Freak / Creatures; existing Route32 reconstruction in accepted Cherrygrove palette."
+}

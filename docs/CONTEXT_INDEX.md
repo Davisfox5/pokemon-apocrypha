@@ -1,3 +1,5 @@
+Current terrain review: [fresh Routes 38/39 rebuild](../gba/art/route38-39-rebuild/README.md). Original HGSS material/height/traversal layers, complete native cliff kit, source `eb8d6bb9`; 798 boundary probes plus stairs/ramps/junction/save and legacy save passed. Terrain only; city endpoints pending. Earlier route drafts remain preserved.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
@@ -13,6 +15,7 @@ optional, never part of routine startup.
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Azalea Town exterior / HGSS reconstruction | ../gba/art/azalea-town/README.md | Separate codex/azalea-town branch from eb15d89234; shared service buildings/trees, local town architecture, native exterior review; interiors and connections pending; Route33 untouched |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Route 29, Mahogany/Route 43 process (October 25) | ../gba/art/route29-catalog/README.md | Current proposal after owner review: HGSS rendered from its DS data 1:1, non-overlapping tree roots, catalog G15/L11-13/G01a/P14, Cherrygrove painter ground, jump-east/west ledges, seam-safe windows; tools `tools/gba/maps/route29_catalog/`; PR #34 (`claude/route29-hgss-decoded`); owner visual review pending |
 | Route 29 rebuilt from the decoded HGSS map (October 24, superseded) | ../gba/art/route29-hgss/README.md | Superseded draft: decoded DS terrain/collision/events as the square-by-square reference, native 2x3 trees, seam-pinned tileset; PR on `apocrypha` (`claude/route29-hgss-decoded`); generator, mGBA checks and evidence in `tools/gba/maps/route29_hgss/`; owner visual review pending |

@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "route": 38,
+      "cells": 2244,
+      "decoded_pixels_exact": true,
+      "forbidden_behaviors": 0,
+      "open_height_seams": 0,
+      "walkable_cells": 1958,
+      "rock_stair_and_path_review": "reference/native grid traced; missing foreground deliberately cleared. Occluded terrain is inferred, not original-data extraction."
+    },
+    {
+      "route": 39,
+      "cells": 2128,
+      "decoded_pixels_exact": true,
+      "forbidden_behaviors": 0,
+      "open_height_seams": 0,
+      "walkable_cells": 1748,
+      "rock_stair_and_path_review": "reference/native grid traced; missing foreground deliberately cleared. Occluded terrain is inferred, not original-data extraction."
+    }
+  ],
+  "boundary_probes": 788,
+  "all_existing_layouts_preserved": true
+}

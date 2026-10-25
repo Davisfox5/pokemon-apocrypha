@@ -1,0 +1,497 @@
+{
+  "baseline_source": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "courts": [
+    {
+      "court": "northwest",
+      "outer_source_box": [
+        288,
+        344,
+        416,
+        424
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "northeast",
+      "outer_source_box": [
+        448,
+        344,
+        576,
+        424
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "west",
+      "outer_source_box": [
+        288,
+        448,
+        416,
+        536
+      ],
+      "recess_center": 336,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "central-empty",
+      "outer_source_box": [
+        448,
+        448,
+        576,
+        536
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "theater",
+      "outer_source_box": [
+        624,
+        440,
+        752,
+        536
+      ],
+      "recess_center": 688,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "mart",
+      "outer_source_box": [
+        792,
+        448,
+        920,
+        536
+      ],
+      "recess_center": 840,
+      "recess_depth": 16,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "gym",
+      "outer_source_box": [
+        288,
+        560,
+        416,
+        664
+      ],
+      "recess_center": 352,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "southwest-house",
+      "outer_source_box": [
+        448,
+        560,
+        576,
+        664
+      ],
+      "recess_center": 512,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "center",
+      "outer_source_box": [
+        632,
+        560,
+        760,
+        664
+      ],
+      "recess_center": 696,
+      "recess_depth": 24,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners"
+    },
+    {
+      "court": "southeast",
+      "outer_source_box": [
+        784,
+        560,
+        912,
+        664
+      ],
+      "recess_center": null,
+      "recess_depth": 0,
+      "border": "continuous shaded HGSS moss-paver rim with returning recess corners",
+      "finding": "HGSS plain-front house has a straight southern rim; remove inherited false recess."
+    }
+  ],
+  "wall_modules": [
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 144,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 144,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 160,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 160,
+      "visible_pixels": 182,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 176,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 176,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 192,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 192,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 208,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 208,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 320,
+      "y": 240,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 480,
+      "y": 240,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 336,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 352,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 368,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 384,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 432,
+      "y": 256,
+      "visible_pixels": 240,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 448,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 464,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 320,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 480,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 144,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 144,
+      "visible_pixels": 195,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 160,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 160,
+      "visible_pixels": 2,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 176,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 176,
+      "visible_pixels": 186,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 192,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 192,
+      "visible_pixels": 240,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x73",
+      "x": 336,
+      "y": 208,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x75",
+      "x": 464,
+      "y": 208,
+      "visible_pixels": 247,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 352,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 368,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 384,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 432,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 448,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 336,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 464,
+      "y": 224,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 224,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 240,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-shelf-top",
+      "x": 256,
+      "y": 256,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-left",
+      "x": 224,
+      "y": 272,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-emerald-0x7c",
+      "x": 240,
+      "y": 272,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    },
+    {
+      "name": "route32-corner-right",
+      "x": 256,
+      "y": 272,
+      "visible_pixels": 256,
+      "RGB_errors": 0
+    }
+  ],
+  "collision_changes": [
+    {
+      "x": 22,
+      "y": 25,
+      "before": false,
+      "after": true,
+      "reason": "restored lantern support/base"
+    },
+    {
+      "x": 32,
+      "y": 25,
+      "before": false,
+      "after": true,
+      "reason": "restored lantern support/base"
+    },
+    {
+      "x": 22,
+      "y": 32,
+      "before": false,
+      "after": true,
+      "reason": "restored lantern support/base"
+    }
+  ],
+  "shared_masters": [
+    {
+      "name": "center",
+      "unchanged": true,
+      "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+    },
+    {
+      "name": "mart",
+      "unchanged": true,
+      "sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8"
+    },
+    {
+      "name": "gate",
+      "unchanged": true,
+      "sha256": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6"
+    }
+  ],
+  "tree_anchors_unchanged": true,
+  "central_plot": "Unbuilt earth and sign are present in HGSS; no omitted building.",
+  "owner_visual_acceptance": "pending",
+  "limits": [
+    "Original overview interpretation, including hidden walls; native palette reduction approximates source shades.",
+    "Interiors and neighboring routes remain unwired."
+  ]
+}

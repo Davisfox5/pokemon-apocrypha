@@ -1,0 +1,17 @@
+{
+  "source_commit": "103874452f101ba3f597cafcca73c1aa1e32998d",
+  "owner_visual_acceptance": "Owner approved previous map; requested one-tile southern gate correction now available for review.",
+  "reviewed_native_views": [
+    "Coordinate-labelled HGSS / b89ae5d5 / gate +1 cell east",
+    "Actual native Porymap exports",
+    "In-game southern torii and woodland closure"
+  ],
+  "findings": [
+    "Gate shifts exactly 16 pixels east.",
+    "Both passage tiles are clear; post cells connect to unchanged tree barriers.",
+    "All other placement and visible RGB outside gate rectangle are preserved."
+  ],
+  "limits": [
+    "Interiors and adjoining routes remain unwired."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "original_repository": "pret/pokeheartgold",
+  "source_commit": "6988158691eb6178cff697cda0428045ddcba5fb",
+  "land_path": "files/a/0/6/5",
+  "land_sha256": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+  "members": [
+    {
+      "member": 54,
+      "matrix_xy": [
+        9,
+        5
+      ],
+      "sha256": "013f313e0a1f9313c689446372e5ae97d707793e67a500e5e04929c5c2102cd9",
+      "bdhc_sha256": "85a17085ee3583561b37caa97f42cbe685167bf2118dd26535868fc634f0f6a7"
+    },
+    {
+      "member": 55,
+      "matrix_xy": [
+        10,
+        5
+      ],
+      "sha256": "e3461a8c947a696b619324ad341fdaba0dfcdd3d81425009910184dfc6fcbcf1",
+      "bdhc_sha256": "dfbeae793513d03eab0b0cdb65cf3df9b9d82c9d98e5ed34953327f921051f45"
+    },
+    {
+      "member": 56,
+      "matrix_xy": [
+        8,
+        5
+      ],
+      "sha256": "d77c327f7f594eee9e91b10c274784812def037e5f13c683325bc137c6b21c2c",
+      "bdhc_sha256": "f4e1d7dd996871e9ac6e3e939aee28f98bcead2e672208117ace7ded3b0b35f7"
+    },
+    {
+      "member": 57,
+      "matrix_xy": [
+        8,
+        6
+      ],
+      "sha256": "9e2c84d583bbc3dbd41645951bf65c008ff18b9070e99bfdf0fc581d6230b6ff",
+      "bdhc_sha256": "9214b62ae6f3946fa2fbcf8684d9f009ae91197b4dd13eb263e149cf0c77b8d8"
+    }
+  ],
+  "grid": "one original16-unit DS cell to one native16px cell; Route38 64x32, Route39 32x64",
+  "material_rule": "Original material, traversal byte and height are independent. Ordinary type00/collision00 is not a dirt guarantee here: original bound road mesh resolves visible road coverage. Tree, tall-grass, props and jump-ledges are cleared to lawn by owner request. Per-cell exceptions are recorded in adaptations.json.",
+  "height_rule": "BDHC plane equation with original vector/4096 and distance/65536; unknown blocking backing inferred explicitly."
+}
