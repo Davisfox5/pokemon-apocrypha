@@ -1,0 +1,1 @@
+Written by cherrygrove_wall.py --render: Cherrygrove's new cells (ground and object layers, `cherrygrove-cells.npz`), which of them Route 30 can see (`visible`), and the primary metatiles it places by id (`cherrygrove-kit.json`).

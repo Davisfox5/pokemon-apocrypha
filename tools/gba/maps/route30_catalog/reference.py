@@ -164,6 +164,21 @@ WALL_COLS = {5: 2, 6: 1}
 BAND_KIT = {4: ((0x033, 0x027), 3), 7: ((0x04F, 0x060), 0)}
 CG_WALL_ROWS = range(0, 10)           # Cherrygrove rows the wall takes at columns 40-41 (its cliff's rows 7-9 included)
 CG_WALL_ID0 = 596                     # first metatile id after Cherrygrove's secondary's own 84 (512-595)
+# The seam forest: the route's tree lattice (2x2 roots every two columns and rows, crown one row north, so
+# the crowns overlap) runs on through the band and Cherrygrove's north forest on both sides of the road,
+# in place of the band's copies of Cherrygrove's three-row tree rows. Band roots (native frame) and
+# Cherrygrove's (its own frame); the ground under them is Cherrygrove's lawn, or its road's right rim in
+# Cherrygrove column 46.
+BAND_ROOTS = [(x, y) for y in (98, 100, 102) for x in (0, 2) + tuple(range(11, 36, 2))]
+CG_ROOTS = [(x, y) for y in (0, 2, 4) for x in range(-1, 38, 2)] + [(x, 0) for x in range(46, 70, 2)]
+CG_RIGHT_RIM = 46
+def band_woods(x):
+    return x < min(BAND_KIT) or x >= 11
+def forest_ground(cx, cy):
+    """Cherrygrove metatile under the seam forest at Cherrygrove cell (cx, cy) (cy < 0: the band)."""
+    if cx == CG_RIGHT_RIM:
+        return (0x032, 0x026)[cy % 2]
+    return ((0x034, 0x033), (0x028, 0x027))[cy % 2][cx % 2]
 def pad_source(x, y):
     cx = x + CG_OFFSET
     return BLOSSOM.get(cx, cx), (y - PAD0) % 3
@@ -251,7 +266,7 @@ def material_grid(cells, woods, roots, events):
             hx, hz = to_hgss(x, y)
             c = cells[hz][hx] if 0 <= hz < HH and 0 <= hx < HW else None
             if y >= PAD0:
-                ch = 'R' if x in WALL_COLS else 'p' if x in ROAD_COLS else 'P'
+                ch = 'R' if x in WALL_COLS else 'p' if x in ROAD_COLS else 't' if band_woods(x) else 'P'
             elif y < ROW0 and not woods[y, x]:
                 top = cells[0][hx]['lab']
                 ch = 'd' if top == '^' else top

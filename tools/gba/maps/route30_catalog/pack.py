@@ -14,10 +14,10 @@ CherrygrovePrimary with palettes 1, 2, 4 and 5 changed (`cherrygrove_route30`): 
 metatile a Cherrygrove cell visible from Route 30 uses keeps its index and look in palettes 0 and 3 (and
 the pinned blossom bank 10); the freed palettes and the free tile slots hold route art. The route's own art goes in one secondary tileset
 (`route30_hgss`, banks 6-12):
-  * the south band (reference.py) is Cherrygrove's own primary metatiles, so Cherrygrove draws it exactly,
-    and Cherrygrove's own top rows are primary metatiles, which Route 30 draws exactly; the west wall runs
-    on through both, at secondary ids from 596 that Route 30's secondary and Cherrygrove's both define
-    (pair_pack.py's mirror cells, cherrygrove_wall.py);
+  * the south band's road and kit (reference.py) are Cherrygrove's own primary metatiles, and Cherrygrove's
+    other visible cells are primary metatiles, so each map draws them exactly; the west wall and the seam
+    forest run on through both, at secondary ids from 596 that Route 30's secondary and Cherrygrove's both
+    define (pair_pack.py's mirror cells and arts, cherrygrove_wall.py);
   * the cells either map can see across the Route 30/31 seam sit at secondary ids both secondaries define
     (pair_pack.py); seams.py checks both seams from both sides.
 Everything else packs exactly (Mahogany's lossless rule): every native pixel keeps its assembled RGB555
@@ -97,9 +97,17 @@ class Primary:
 def entry(tile, flip, bank):
     return tile | ((flip & 1) << 10) | ((flip >> 1) << 11) | (bank << 12)
 
-def cherrygrove_words(engine):
-    b = (engine / 'data/layouts/CherrygroveCity/map.bin').read_bytes()
-    return np.array(struct.unpack('<%dH' % (len(b) // 2), b)).reshape(-1, 80)
+def cherrygrove_words(engine, target=False):
+    """Cherrygrove's map at the engine's base revision; target: as cherrygrove_wall.py installs it, its
+    primary metatiles placed by id applied and its new art cells (secondary ids) -1."""
+    b = subprocess.check_output(['git', '-C', str(engine), 'show', f'{BASE_REV}:data/layouts/CherrygroveCity/map.bin'])
+    w = np.array(struct.unpack('<%dH' % (len(b) // 2), b)).reshape(-1, 80)
+    if target:
+        for x, r, m, c, e in json.loads((SRC / 'seam/cherrygrove-kit.json').read_text())['cells']:
+            w[r, x] = m | (c << 10) | (e << 12)
+        for x, r in np.load(SRC / 'seam/cherrygrove-cells.npz')['cells']:
+            w[r, x] = -1
+    return w
 
 # --------------------------------------------------------------------------- traversal
 def traversal(engine, grid, cells):
@@ -203,7 +211,7 @@ def visible_cherrygrove(engine, trav=None):
     """Cherrygrove's metatiles a player on Route 30 can see across the seam: from every walkable Route 30
     cell, the camera's 8 columns either side and 5 rows below (seams.py's rule). Without a traversal, the
     south band's road (the only walkable cells within 5 rows of Cherrygrove)."""
-    cg = cherrygrove_words(engine)
+    cg = cherrygrove_words(engine, target=True)
     walk = [(x, y) for y in range(H - 6, H) for x in range(W)
             if (trav[y, x]['foot'] == 'open' if trav is not None else x in Rf.ROAD_COLS)]
     out = set()
@@ -211,9 +219,9 @@ def visible_cherrygrove(engine, trav=None):
         for dx in range(-8, 9):
             for dy in range(-5, 6):
                 cx, cy = x + dx + Rf.CG_OFFSET, y + dy - H
-                if 0 <= cy < cg.shape[0] and 0 <= cx < cg.shape[1]:
+                if 0 <= cy < cg.shape[0] and 0 <= cx < cg.shape[1] and cg[cy, cx] >= 0:
                     out.add(int(cg[cy, cx]) & 1023)
-    return {m for m in out if m < Rf.CG_WALL_ID0}     # the wall's ids are this map's own (mirror_cells)
+    return out                                       # the new art cells are mirror arts (cherrygrove_arts)
 
 def prepare(engine):
     """Layers, traversal, layer types, the band placed by id and the banks it pins (the joint pack and
@@ -266,7 +274,14 @@ def save_pair_spec(engine, path):
     PP.save_spec(path, 'route30', W, H, d['ground'], d['flat'], d['top'], d['owner'], d['above'], get('behavior_id'),
                  get('collision'), get('elevation'), d['placed'], d['fixed_pal'],
                  d['visible'] | {m for m in d['placed'].values() if m < 512}, d['plains'],
-                 mirror_cells=[(x, y) for y in range(PAD0, H) for x in Rf.WALL_COLS], mirror_base=Rf.CG_WALL_ID0)
+                 mirror_cells=[(x, y) for y in range(PAD0, H) for x in range(W) if (x, y) not in d['placed']],
+                 mirror_base=Rf.CG_WALL_ID0, mirror_arts=cherrygrove_arts())
+
+def cherrygrove_arts():
+    """Cherrygrove's new cells Route 30 can see across the seam (cherrygrove_wall.py --render), ground and
+    object layers: they take ids in the mirror block too, so Route 30 draws them."""
+    z = np.load(SRC / 'seam/cherrygrove-cells.npz')
+    return [dict(cell=tuple(int(v) for v in c), ground=g, top=t) for c, g, t, v in zip(z['cells'], z['ground'], z['top'], z['visible']) if v]
 
 def pack(engine):
     OUT.mkdir(parents=True, exist_ok=True); OEV.mkdir(parents=True, exist_ok=True)

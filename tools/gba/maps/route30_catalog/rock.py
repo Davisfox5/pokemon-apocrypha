@@ -1,6 +1,6 @@
 """Route 30's rock: Blackthorn's FRLG terraces, the method the owner accepted for Mahogany and used on
 Route 43 (Route 43's elements.frlg_pieces / rock_frlg and assemble.terraces, carried here unchanged in
-behaviour for Route 30's frame).
+behaviour for Route 30's frame; soft=True adds the grass fringe where a rock top meets grass at its height).
 
 Every HGSS height layer is one Gen 3 terrace. A rock cell (ledger label R: HGSS's wall01 walls,
 decoded flat) stands at its rock peak above the floor; every other cell at its ground height. FRLG
@@ -68,7 +68,30 @@ def terraces(cells, floor):
             d[y, x] = max(1, round(c['peak']) - floor) if rock[y, x] else max(0, round(c['ground']) - floor)
     return d, rock
 
-def rock_frlg(cells, d, isrock, base, pieces, tex):
+# Where a rock top meets grass at its own height, the grass runs onto the rock along a gently wavy line
+# (FRINGE px deep at each position along the edge, periodic per cell so a run of cells tiles), edged by the
+# lawn's dark rim tone, then a dithered step of that tone onto the rock: a soft join, not a straight cut.
+FRINGE = (3, 3, 3, 4, 4, 4, 3, 3, 2, 2, 2, 3, 3, 4, 4, 3)
+FRINGE_RIM = (88, 176, 136)            # Cherrygrove's lawn rim tone (its palette 0)
+FRINGE_MID = (96, 192, 144)            # its lawn's middle tone
+
+def soften(cell, ov, sides, grass):
+    """Grass over the rock top of one 16x16 cell along each side in sides (n, s, w, e)."""
+    for k in sides:
+        for yy in range(16):
+            for xx in range(16):
+                t, s = dict(n=(yy, xx), s=(15 - yy, xx), w=(xx, yy), e=(15 - xx, yy))[k]
+                depth = FRINGE[s]
+                if t < depth - 1:
+                    ov[yy, xx] = 0; cell[yy, xx] = grass[yy, xx]
+                elif t == depth - 1:
+                    ov[yy, xx] = FRINGE_MID + (255,)
+                elif t == depth and ov[yy, xx, 3]:
+                    ov[yy, xx] = FRINGE_RIM + (255,)
+                elif t == depth + 1 and (s + t) % 2 == 0 and ov[yy, xx, 3]:
+                    ov[yy, xx] = FRINGE_RIM + (255,)
+
+def rock_frlg(cells, d, isrock, base, pieces, tex, soft=False):
     """Blob autotiling from FRLG's set (Blackthorn's rock_frlg). A cell whose only lower neighbours are
     diagonal takes FRLG's whole inner-corner piece (two of them split down the middle when both lower
     diagonals are on one side). Every other cell is composed per 8x8 quadrant from the nine-slice piece
@@ -138,4 +161,12 @@ def rock_frlg(cells, d, isrock, base, pieces, tex):
                     if (q[..., 3] > 0).all():
                         cell[sl] = fill[sl]
             piece[y, x] = ''.join(k for k in DIRS if lo[k])
+            if soft:                                 # rock top beside grass at the same height
+                def grass_level(k):
+                    nx, ny = x + DIRS[k][0], y + DIRS[k][1]
+                    return (0 <= nx < W and 0 <= ny < H and not isrock[ny, nx] and d[ny, nx] == me
+                            and cells[ny][nx]['floor'] == 'grass')
+                same = [k for k in 'nswe' if grass_level(k)]
+                if same:
+                    soften(cell, ov, same, plain['grass'])
     return out, over, piece

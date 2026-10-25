@@ -38,6 +38,10 @@ Owner review (October 25), refined the same day:
   from 596, defined in both Route 30's and Cherrygrove's secondaries. CherrygrovePrimary palette 5's seven
   unused slots now hold the ramp. Route 30's primary now keeps only palettes 0 and 3 (all its visible
   Cherrygrove cells use) and frees 1, 2, 4 and 5 for route art.
+- The route's tree lattice runs on through the band and Cherrygrove's north forest (the seam forest,
+  `reference.py` BAND_ROOTS / CG_ROOTS), crowns overlapping. Rock tops meeting same-height grass take
+  `rock.py`'s soft fringe. Order: `cherrygrove_wall.py --render`, Route 30 assembly, `pair_pack.py --install`,
+  `cherrygrove_wall.py --install`.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

@@ -23,8 +23,10 @@ angle), the stairs, fences, flower heads and light lawn patches. The houses' con
 Cherrygrove tree shadow's green.
 
 The south padding (reference.py) is Cherrygrove's own north forest band, drawn as Cherrygrove's
-primary metatiles. The west wall runs on through it (columns 5-6, reference.py WALL_COLS) into Cherrygrove,
-whose half of the wall cherrygrove_wall.py renders the same way. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
+primary metatiles where it is Cherrygrove's road and kit. The west wall runs on through it (columns 5-6,
+reference.py WALL_COLS) into Cherrygrove, and the route's tree lattice runs on through it on both sides of the
+road (the seam forest, reference.py BAND_ROOTS / CG_ROOTS): cherrygrove_wall.py renders Cherrygrove's side the
+same way. Rock tops meeting grass at their own height take rock.py's soft grass fringe. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
 east) with the painter's wavy edge; only its last cell before the band takes the kit's straight edge.
 
 Writes source/assemble/layers.npz, placements.json and evidence/assemble/*.png.
@@ -336,13 +338,18 @@ def paint_ground(q, road, runs, kits, flats=()):
     return out, mat, tex
 
 def band(engine, bottom, flat):
-    """The south padding: Cherrygrove's rows 0-2, drawn as its own metatiles; beside the west wall, which runs
-    on through it, Cherrygrove's lawn and road rim."""
+    """The south padding: Cherrygrove's road and, beside the west wall (which runs on through it), its lawn
+    and road rim, drawn as its own metatiles; elsewhere the seam forest's ground, Cherrygrove's lawn (and its
+    road's right rim), under the route's tree lattice (reference.py BAND_ROOTS)."""
     t, words, _ = cherrygrove(engine)
     ids = {}
     for y in range(PAD0, H):
         for x in range(W):
             if x in Rf.WALL_COLS:
+                continue
+            if Rf.band_woods(x):
+                sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
+                bottom[sl] = np.array(t.render(Rf.forest_ground(x + Rf.CG_OFFSET, y - H)).convert('RGB')); flat[sl] = 0
                 continue
             if x in Rf.BAND_KIT:
                 m = Rf.BAND_KIT[x][0][y % 2]
@@ -667,7 +674,7 @@ def compose(phg, engine):
     # Rock terraces over the ground (bottom keeps the plain block beyond each edge).
     d, isrock = Rk.terraces(ncells, FLOOR)
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH])
-    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex)
+    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
     owner = np.full((H * PX, W * PX), '', object)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)
@@ -693,8 +700,11 @@ def compose(phg, engine):
         bottom[a] = art[a][:, :3]
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
     tree, shadow = cherry_tree(engine, tex[G.GRASS])
+    # The seam forest: the band's lattice, and the crowns of Cherrygrove's first lattice row reaching up
+    # into the band's last row.
+    seam = Rf.BAND_ROOTS + [(cx - Rf.CG_OFFSET, H + cy) for cx, cy in Rf.CG_ROOTS if cy == 0 and 0 <= cx - Rf.CG_OFFSET < W - 1]
     objs = [dict(name=f'tree_{i}', master='local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)', xy=[x * PX, (y - 1) * PX], art=tree, root=[x, y])
-            for i, (x, y) in enumerate(roots)]
+            for i, (x, y) in enumerate(list(roots) + seam)]
     hs = houses(shadow, grid)
     fa = fences(phg, grid)
     # Local HGSS art: the buildings and fences share 15 tones (Mahogany's rule); the flower heads and the
@@ -761,8 +771,8 @@ def compose(phg, engine):
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
-    # Nothing of Route 30's own is drawn over Cherrygrove's band.
-    top[PAD0 * PX:] = 0; owner[PAD0 * PX:] = ''
+    # In the band only the seam forest's trees stand (nothing else reaches it).
+    assert all(n.startswith('tree_') for n in set(owner[PAD0 * PX:].ravel().tolist()) - {''})
     return dict(bottom=bottom, flat=flat, flat_owner=flat_owner, top=top, owner=owner, objs=objs, ledges=ledge_list,
                 stairs=stair_list, n_g15=n_g15, q=q, runs=runs, band=band_ids, terrace=d, rock_piece=piece)
 

@@ -24,10 +24,11 @@ words and events (`pack.py ENGINE --install-words FILE`).
     palettes.
   * Tiles CherrygrovePrimary already has in a kept palette are reused; the rest go into the map's
     secondary (512 tiles), then into its primary's free slots.
-  * A map's mirror cells (Route 30: its west wall in the south band, which Cherrygrove can see) take
-    secondary ids from the map's mirror base (596, after Cherrygrove's own 84), one per distinct cell, and
-    the map's own cells with the same art share them; cherrygrove_wall.py defines the same ids in
-    Cherrygrove's secondary with Cherrygrove's tiles and palettes.
+  * A map's mirror cells (Route 30: its south band's wall and forest, which Cherrygrove can see) and mirror
+    arts (Cherrygrove's new cells Route 30 can see, as ground and object layers) take secondary ids from the
+    map's mirror base (596, after Cherrygrove's own 84), one per distinct cell, and the map's own cells with
+    the same art share them; cherrygrove_wall.py defines the same ids in Cherrygrove's secondary with
+    Cherrygrove's tiles and palettes (source/pack/mirror-ids.json).
 """
 from __future__ import annotations
 import json, struct, sys
@@ -122,6 +123,25 @@ def plan_cells(spec, jobs):
             plan[(x, y)] = q
     return plan
 
+def plan_art(jobs, name, ground, top):
+    """Quadrant jobs for a cell of the other map given as its two layers (ground RGB, objects RGBA)."""
+    def job(px, mask, layer):
+        k5 = rgb5(px).astype(np.int16)
+        if mask is not None:
+            k5 = np.where(mask[..., None], k5, -1)
+        key = (k5.tobytes(), layer)
+        if key not in jobs:
+            jobs[key] = dict(k5=k5, layer=layer, n=0, maps=set())
+        jobs[key]['n'] += 1; jobs[key]['maps'].add(name)
+        return key
+    q = []
+    for qi in range(4):
+        sl = np.s_[(qi // 2) * 8:(qi // 2) * 8 + 8, (qi % 2) * 8:(qi % 2) * 8 + 8]
+        up = top[sl][..., 3] > 0
+        upx = np.zeros((8, 8, 3), np.uint8); upx[up] = top[sl][..., :3][up]
+        q.append((job(ground[sl].copy(), None, 0), job(upx, up, 1) if up.any() else None))
+    return q
+
 def setof(j):
     return frozenset(map(tuple, j['k5'][j['k5'][..., 0] >= 0].reshape(-1, 3).tolist()))
 
@@ -158,6 +178,7 @@ def pack_pair(engine, specs, maps, upper, lower, offset):
     (the upper map's column 0 at the lower map's column `offset`)."""
     jobs = {}
     plans = {n: plan_cells(s, jobs) for n, s in specs.items()}
+    art_plans = {n: [plan_art(jobs, n, a['ground'], a['top']) for a in s['mirror_arts']] for n, s in specs.items()}
     # Seam cells of both maps (never placed-by-id cells: the band is not near this seam). Each map also
     # draws the other's.
     seam = {upper: seam_cells(specs[upper], specs[lower], offset), lower: seam_cells(specs[upper], specs[lower], offset, rev=True)}
@@ -238,10 +259,19 @@ def pack_pair(engine, specs, maps, upper, lower, offset):
             base = s['mirror_base'] - 512
             assert base >= len(rows), (n, 'mirror base inside the seam block')
             rows += [None] * (base - len(rows))
+            mirror = dict(band={}, other={})
             for (x, y) in sorted(s['mirror_cells'], key=lambda c: (c[1], c[0])):
                 key = (defn(plans[n][(x, y)]), attr(n, x, y))
                 if key not in by_key:
                     by_key[key] = 512 + len(rows); rows.append(key)
+                mirror['band'][f'{x},{y}'] = by_key[key]
+            for a, q in zip(s['mirror_arts'], art_plans[n]):
+                key = (defn(q), COVERED << 12)
+                if key not in by_key:
+                    by_key[key] = 512 + len(rows); rows.append(key)
+                mirror['other'][f'{a["cell"][0]},{a["cell"][1]}'] = by_key[key]
+        else:
+            mirror = None
         holes = deque(i for i, r in enumerate(rows) if r is None)
         def new_id(key):
             if holes:
@@ -267,9 +297,9 @@ def pack_pair(engine, specs, maps, upper, lower, offset):
                 words[y, x] = mid | (int(s['collision'][y, x]) << 10) | (int(s['elevation'][y, x]) << 12)
         assert len(rows) <= 512, (n, 'secondary metatiles over budget', len(rows))
         rows = [r if r is not None else (tuple([0] * 8), 0) for r in rows]
-        mirror_ids = sorted({int(words[y, x]) & 1023 for x, y in s['mirror_cells']})
+        mirror_ids = sorted(set(mirror['band'].values()) | set(mirror['other'].values())) if mirror else []
         rgb = lambda b: list(s['fixed_pal'][b]) if b in s['fixed_pal'] else [tuple(v << 3 for v in c) for c in order[b]]
-        out[n] = dict(sec_tiles=sec, words=words, meta_rows=rows, pals={b: rgb(b) for b in SEC_BANKS if b in order},
+        out[n] = dict(sec_tiles=sec, words=words, meta_rows=rows, pals={b: rgb(b) for b in SEC_BANKS if b in order}, mirror=mirror,
                       primary=dict(tiles=pri_tiles, pals={b: rgb(b) for b in maps[n]['free']}, keep_tiles=sorted(keep), keep_metatiles=sorted(keep_meta)))
         report['maps'][n] = dict(jobs=len(mine), primary_reused=sum(r is not None for r in reuse.values()), secondary_tiles=len(sec),
                                  primary_slots=dict(free=len(free_slots), used=len(pri_tiles)), secondary_metatiles=len(rows), mirror_ids=mirror_ids,
@@ -354,15 +384,20 @@ def load_spec(path):
     s['plains'] = [s['plain0'], s['plain1']]
     s['mirror_cells'] = [tuple(c) for c in meta.get('mirror_cells', [])]
     s['mirror_base'] = meta.get('mirror_base')
+    s['mirror_arts'] = [dict(cell=tuple(int(v) for v in c), ground=g, top=t)
+                        for c, g, t in zip(s.get('art_cells', []), s.get('art_ground', []), s.get('art_top', []))]
     return s
 
 def save_spec(path, name, W, H, ground, flat, top, owner, above, behavior, collision, elevation, placed, fixed_pal, keep_meta, plains,
-              mirror_cells=(), mirror_base=None):
+              mirror_cells=(), mirror_base=None, mirror_arts=()):
     meta = dict(name=name, W=W, H=H, placed={f'{x},{y}': int(m) for (x, y), m in placed.items()},
                 fixed_pal={str(b): [list(c) for c in p] for b, p in fixed_pal.items()}, keep_meta=sorted(int(m) for m in keep_meta),
                 mirror_cells=[[int(x), int(y)] for x, y in mirror_cells], mirror_base=mirror_base)
+    arts = dict(art_cells=np.array([a['cell'] for a in mirror_arts], int).reshape(-1, 2),
+                art_ground=np.array([a['ground'] for a in mirror_arts], np.uint8).reshape(-1, 16, 16, 3),
+                art_top=np.array([a['top'] for a in mirror_arts], np.uint8).reshape(-1, 16, 16, 4))
     np.savez_compressed(path, ground=ground, flat=flat, top=top, owner=np.asarray(owner).astype(str), above=above, behavior=behavior,
-                        collision=collision, elevation=elevation, plain0=plains[0], plain1=plains[1], meta=json.dumps(meta))
+                        collision=collision, elevation=elevation, plain0=plains[0], plain1=plains[1], meta=json.dumps(meta), **arts)
 
 # --------------------------------------------------------------------------- driver
 ROOT = HERE.parents[3]
@@ -394,6 +429,11 @@ def main(engine, install):
     for n, m in MAPS.items():
         (m['art'] / 'evidence/pack').mkdir(parents=True, exist_ok=True); (m['art'] / 'source/pack').mkdir(parents=True, exist_ok=True)
         (m['art'] / 'evidence/pack/pair-pack.json').write_text(json.dumps(report, indent=1, default=int) + '\n')
+        if out[n]['mirror']:
+            (m['art'] / 'source/pack/mirror-ids.json').write_text(json.dumps(dict(
+                note=('Secondary ids this map and Cherrygrove both define (cherrygrove_wall.py --install defines them in '
+                      "Cherrygrove's): band = this map's cells, other = Cherrygrove's cells this map can see."),
+                **out[n]['mirror']), indent=0) + '\n')
         p = out[n]['primary']
         (m['art'] / 'source/pack/primary-state.json').write_text(json.dumps(dict(
             note=f'{m["pri"][0]}: CherrygrovePrimary with palettes {list(m["free"])} and these tile slots holding route art.',
