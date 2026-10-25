@@ -1,16 +1,16 @@
 {
-  "tiles": 809,
+  "tiles": 796,
   "primary_tiles": 512,
-  "secondary_tiles": 297,
+  "secondary_tiles": 284,
   "secondary_tile_limit": 496,
-  "metatiles": 523,
+  "metatiles": 519,
   "metatiles_in_primary": 260,
-  "metatiles_in_secondary": 263,
+  "metatiles_in_secondary": 259,
   "art_cells": 433,
-  "colours": 194,
+  "colours": 192,
   "colour_rgb5": {
-    "exact": 839616,
-    "total": 839616
+    "exact": 840256,
+    "total": 840256
   },
   "adaptations": {
     "34,5": "door or gate warp: solid until its interior or route is built",
@@ -130,7 +130,6 @@
     "25,14": "the Magnet Train station door: solid until its interior is built",
     "26,14": "station stands here",
     "27,14": "station stands here",
-    "34,14": "silph stands here",
     "29,15": "silph stands here",
     "30,15": "silph stands here",
     "31,15": "silph stands here",
@@ -343,9 +342,6 @@
     "40,31": "lamp_lab_w stands here",
     "44,31": "lamp_lab_e stands here",
     "43,38": "door or gate warp: solid until its interior or route is built",
-    "33,40": "fountain stands here",
-    "34,40": "fountain stands here",
-    "35,40": "fountain stands here",
     "33,41": "fountain stands here",
     "34,41": "fountain stands here",
     "35,41": "fountain stands here",

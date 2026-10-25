@@ -56,11 +56,12 @@ STATION_X, STATION_BASE_ROW = 288, 14           # the station: sprite left edge 
 STATION_DOOR = (25, 14)
 # Lots cleared to paving before the new buildings stand on them (x0, y0, x1, y1 inclusive).
 CLEARED = [(37, 8, 49, 13),                     # FireRed's Fighting Dojo and Gym
-           (29, 16, 37, 30),                    # FireRed's Silph
+           (29, 14, 37, 30),                    # FireRed's Silph, and the railings and old city sign behind it, under the taller roof's back
            (38, 22, 47, 31)]                    # the east inner block's apartments, their fence and Silph's east railing
 GYM_SIGNS = [(42, 13), (50, 13)]                # red Gym signposts (top cell; the post is the row below)
 COPYCAT_HOUSE = (18, 20)                        # its front's top-left: two rows take the door front
 CITY_SIGN = (30, 12)                            # moved from (29, 14), which Silph's crown covers
+SILPH_RAIL_END = (38, 14)                       # the railing east of Silph now starts here (its end post was at (37, 14))
 # Parts: name, sprite, left edge (px), foot row. Buildings block what they stand on; props
 # block their foot cell.
 PLACED = [('dojo', 'dojo', 36 * 16, 12), ('silph', 'silph', 29 * 16, 30), ('lab', 'lab', 38 * 16, 30),
@@ -113,6 +114,7 @@ def edit_grid(grid):
         g[y, x] = cell(OLIVE, OPEN)
         g[y + 1, x] = cell(SIGNPOST, BLOCKED)
     g[CITY_SIGN[1], CITY_SIGN[0]] = cell(SIGNPOST, BLOCKED)
+    g[SILPH_RAIL_END[1], SILPH_RAIL_END[0]] = grid[SILPH_RAIL_END[1], SILPH_RAIL_END[0] - 1]   # the east railing's end post, one cell east
     hx, hy = COPYCAT_HOUSE
     for j in range(2):
         for i in range(3):

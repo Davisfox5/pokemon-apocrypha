@@ -97,6 +97,19 @@ def exact_banks(jobs, nbanks, size=15, steps=3_000_000, seeds=8):
     lost = sum(j['weight'] for j, a in zip(jobs, assign) if a is None)
     return banks, assign, lost
 
+DOOR_CELL = (24, 38)                            # the Center's door; the Mart's draws the same metatile
+
+def door_frame_colours(engine):
+    """The 5-bit colours of FireRed's sliding-door frames, per door tile (TL, TR, BL, BR)."""
+    im = Image.open(engine / 'graphics/door_anims/sliding_single.png')
+    ix, rgb = np.array(im), np.array(im.getpalette()[:48]).reshape(16, 3) >> 3
+    out = [set() for _ in range(4)]
+    for f in range(ix.shape[0] // 16):
+        for q in range(4):
+            t = ix[f * 16 + (q // 2) * 8:f * 16 + (q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
+            out[q] |= {tuple(int(v) for v in rgb[i]) for i in np.unique(t) if i}
+    return out
+
 def key5(px, mask=None):
     k = B.rgb5(px).astype(np.int16)
     if mask is not None:
@@ -104,6 +117,11 @@ def key5(px, mask=None):
     return k.tobytes()
 
 def traversal(pair, g, art, owner, cover, feet):
+    """Each cell's behaviour, collision and elevation. A building blocks the cells it covers
+    by half or more, except its back row (the top row its pixels reach): there the roof's
+    back stands in front of the street behind it, so the cell keeps its ground's collision
+    and, the building's foot being south of it, draws above the player, who walks behind."""
+    back = {o: int(min(np.nonzero(owner == o)[0])) for o in C.BUILDINGS if (owner == o).any()}
     out = {}
     for y in range(H):
         for x in range(W):
@@ -118,7 +136,7 @@ def traversal(pair, g, art, owner, cover, feet):
             elif (x, y) in SOLID_DOORS:
                 c.update(behavior=MB['normal'], collision=1, elevation=3,
                          adaptation=f'{SOLID_DOORS[(x, y)]} door: solid until its interior is built')
-            elif o and (o in C.BUILDINGS and cover[y, x] >= BLOCK_COVER or o.startswith('lamp') and y == feet[o]):
+            elif o and (o in C.BUILDINGS and cover[y, x] >= BLOCK_COVER and y != back[o] or o.startswith('lamp') and y == feet[o]):
                 c.update(behavior=MB['normal'], collision=1, elevation=3)
                 if not coll:
                     c['adaptation'] = f'{o} stands here'
@@ -169,8 +187,19 @@ def main(engine):
                 j['weight'] += 1
                 lay[(cell, q, layer)] = k
     order = list(jobs.values())
-    packed, assign, lost = exact_banks(order, len(BANKS))
+    # The Center's and Mart's door plays FireRed's sliding door in its own tiles' banks
+    # (install.move_door): each door tile's bank must also hold that tile's frame colours.
+    door = [jobs[lay[(('map',) + DOOR_CELL, q, 0)]] for q in range(4)]
+    frames = door_frame_colours(engine)
+    ghosts = [dict(px=np.array(sorted(set(map(tuple, j['px'].astype(int).tolist())) | frames[q])), weight=0, layer=0)
+              for q, j in enumerate(door)]
+    for gh in ghosts:
+        gh['mask'] = np.ones(len(gh['px']), np.uint8)
+    packed, assign, lost = exact_banks(order + ghosts, len(BANKS))
     assert not lost, ('tiles whose colours fit no bank', lost)
+    for q, j in enumerate(door):
+        assign[next(i for i, o in enumerate(order) if o is j)] = assign[len(order) + q]
+    assign = assign[:len(order)]
     banks = {}
     for b, cols in zip(BANKS, packed):
         cols = cols or [(0, 0, 0)]

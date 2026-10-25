@@ -70,8 +70,8 @@ and empty.
 | --- | --- |
 | Map | `KantoSaffronCity`, 66x55, `gMapGroup_Kanto` (group 81) id 0; Center 1, Center upstairs 2, Mart 3, Dojo 4, lab 5; `MAPSEC_SAFFRON_CITY`, `REGION_KANTO` |
 | Primary | `gTileset_KantoSaffronPrimary`: 512 tiles, 260 metatiles (every cell FireRed drew as it was, and the border) |
-| Secondary | `gTileset_KantoSaffronCity`: 297 of 496 tiles (16 kept for door animation), 263 metatiles (the 433 art cells) |
-| Palettes | 13 banks, 194 of 195 colours, one pixel-exact fit over the whole map |
+| Secondary | `gTileset_KantoSaffronCity`: 284 of 496 tiles (16 kept for door animation), 259 metatiles (the 433 art cells) |
+| Palettes | 13 banks, 192 of 195 colours, one pixel-exact fit over the whole map |
 | Rooms | `KantoSaffronDojo` (81 tiles, 51 metatiles) and `KantoSaffronSilphLab` (114 tiles, 70 metatiles), each on `gTileset_Building` and its own secondary |
 | Border | FireRed's |
 | Music | `MUS_RG_PEWTER` (FireRed's Saffron theme); the lab `MUS_RG_SILPH` |
@@ -92,9 +92,13 @@ and empty.
   any flip. Cells FireRed drew as they were go in the primary with FireRed's behaviour and
   layer type; art cells go in the secondary. Every bottom-layer pixel is opaque, so the
   engine's BG3 fill never shows.
-- A building blocks the cells it covers by half or more; a lamp blocks its foot cell. In
-  an art cell the player can walk, the part draws above the player when its foot row is
-  south of the cell, below it otherwise.
+- A building blocks the cells it covers by half or more, except its back row (the top row
+  its pixels reach), which keeps its ground's collision: the street behind Silph is
+  walkable its whole length, and the player walks behind the roof and the dome. A lamp
+  blocks its foot cell. In an art cell the player can walk, the part draws above the player
+  when its foot row is south of the cell, below it otherwise.
+- The door's banks must also hold the sliding door's frame colours, so the packer fits each
+  door tile together with its frames' colours (`pack.door_frame_colours`).
 - The Center's and Mart's door metatile moved banks in the repack (now 10 and 11), so
   `install.py` indexes FireRed's sliding-door frames into those banks, tile by tile, every
   colour exact (`graphics/door_anims/kanto_saffron_sliding.png`).
@@ -119,9 +123,10 @@ Dojo's wall. No connections: Routes 5-8 are not built.
   door's banks and its frames' colours are FireRed's. Both rooms' blocks are the packed
   ones, every exit mat is an arrow warp back to its door, and every door lands on a mat.
   Budgets hold; existing map ids are preserved; only Saffron files changed.
-- **Headless mGBA** (`runtime.py`, `evidence/gameplay/`): 49 captures; the map layers
+- **Headless mGBA** (`runtime.py`, `evidence/gameplay/`): 51 captures; the map layers
   rebuilt from VRAM match the native map with 0 mismatched pixels, in the city, the Dojo's
-  hall and the lab; BG1 covers the player behind the lab's roof, the station, the Dojo's
+  hall and the lab; Silph's back walked end to end; BG1 covers the player behind Silph's
+  roof and its dome, the lab's roof, the station, the Dojo's
   west end, a grove tree, the Copycat's house, the Center and the Mart; BG1 clear at 16 fronts;
   the station, Silph's lobby, the Copycat's door and two gates solid; the ten signs read;
   the Center's door plays the sliding door (frames 0-2 seen in VRAM); Center (both floors)
@@ -134,7 +139,7 @@ Dojo's wall. No connections: Routes 5-8 are not built.
 - **Deterministic**: two runs of parts, compose, pack and interiors under different
   `PYTHONHASHSEED` give identical arrays and sprites.
 
-Local ROM `6a170344` on engine `claude/saffron-city`.
+Local ROM `01371404` on engine `claude/saffron-city`.
 
 ## Rebuild
 
@@ -160,6 +165,8 @@ map it is regenerated from these tools each round; after that, edit natively.
   column, trees closed walkways, Silph's sides were hard; all three fixed.
 - Owner review, round 2 (2026-10-25): Silph's tower was Emerald's Battle Tower wall, deep blue,
   "pasted right on top of the old building". Rebuilt in FireRed Silph's own materials.
+- Owner review, round 3 (2026-10-25): walk behind Silph, not on it. FireRed's railings and
+  old city sign behind its roof cleared; the back row walkable, the roof drawn over the player.
 - The station is still v1's (HGSS's model at C06's angle); it is the one part not cut from
   Gen 3 map art.
 - Interiors other than the Center, the Mart, the Dojo's hall and the lab (Silph's lobby,
@@ -169,4 +176,4 @@ map it is regenerated from these tools each round; after that, edit natively.
   students, Sabrina and Bruno, the Copycat) comes with its scenes.
 - The café and hidden items in KANTO_ITEMS.md are not placed.
 - The Center and Mart interiors are Cherrygrove's (the same clerk and nurse sprites).
-- One palette slot is free: a further part with new colours needs colours freed first.
+- Three palette slots are free: a further part with new colours needs colours freed first.

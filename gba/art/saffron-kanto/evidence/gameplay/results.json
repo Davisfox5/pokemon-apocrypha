@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "6a1703444b869bc75ddf2c7d36923efc16d59ba7db4754c31e14cfdf8f4dcaea",
+  "rom_sha256": "01371404d026d9f40064646318ea21ad7b6790b4d8f604670408e4ee59c5b8b9",
   "phases": [
     {
       "phase": "write",
@@ -208,6 +208,71 @@
           "map": 0,
           "x": 57,
           "y": 27,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-silph-roof",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 30,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-30-14",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 30,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:behind-silph-dome",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 33,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-33-14",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 33,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "at-54-37-14",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 37,
+          "y": 14,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -1335,6 +1400,26 @@
         216
       ],
       "bg1_pixels_over_player_cell": 224
+    },
+    {
+      "frame": "behind-silph-dome",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        416,
+        152
+      ],
+      "bg1_pixels_over_player_cell": 222
+    },
+    {
+      "frame": "behind-silph-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        368,
+        152
+      ],
+      "bg1_pixels_over_player_cell": 64
     },
     {
       "frame": "behind-station",
