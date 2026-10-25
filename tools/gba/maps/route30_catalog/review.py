@@ -30,7 +30,7 @@ from tiles import Tileset                                    # noqa: E402
 ART = Rf.ART
 OUT = ART / 'evidence/review'
 MAP = dict(name='CherrygroveRoute30Approach', ts='route30_hgss') if ROUTE == '30' else dict(name='JohtoRoute31', ts='route31_hgss')
-NEIGHBOURS = [('CherrygroveRoute30Approach', 'route30_hgss', 'route30_31', 36), ('JohtoRoute31', 'route31_hgss', 'route30_31', 64),
+NEIGHBOURS = [('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route30', 36), ('JohtoRoute31', 'route31_hgss', 'cherrygrove_route31', 64),
               ('CherrygroveCity', 'cherrygrove', 'cherrygrove', 80)]
 # HGSS label -> native codes it may become, the native foot, and the art the cell must hold.
 EXPECT = {'F': ('tko', 'blocked', 'tree'), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),
@@ -118,7 +118,7 @@ def main(engine, run, pory):
     (OUT / 'porymap.json').write_text(json.dumps(dict(porymap='6.3.1', method="Porymap's own Project::loadMap and Layout::render "
                                                        "(tools/gba/maps/route29_catalog/porymap_probe.cpp), compared in RGB555", maps=pm), indent=1) + '\n')
     files = [engine / f'data/layouts/{MAP["name"]}/map.bin', engine / f'data/maps/{MAP["name"]}/map.json', engine / 'data/layouts/layouts.json'] + \
-            sorted((engine / f'data/tilesets/secondary/{MAP["ts"]}').rglob('*.*')) + sorted((engine / 'data/tilesets/primary/route30_31').rglob('*.*')) + \
+            sorted((engine / f'data/tilesets/secondary/{MAP["ts"]}').rglob('*.*')) + sorted((engine / 'data/tilesets/primary/' + ('cherrygrove_route30' if ROUTE == '30' else 'cherrygrove_route31') + '').rglob('*.*')) + \
             [engine / 'pokeemerald.gba', engine / 'pokeemerald.elf']
     hashes = {str(f.relative_to(engine)): hashlib.sha256(f.read_bytes()).hexdigest() for f in files if f.exists()}
     (OUT / 'hashes.json').write_text(json.dumps(hashes, indent=1) + '\n')

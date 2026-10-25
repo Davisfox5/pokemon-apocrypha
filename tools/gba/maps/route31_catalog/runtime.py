@@ -244,8 +244,8 @@ def world(engine):
     def img(layout, sec, pri, w):
         b = (engine / f'data/layouts/{layout}/map.bin').read_bytes()
         return np.array(Tileset(engine, sec, pri).map_image(list(struct.unpack('<%dH' % (len(b) // 2), b)), w).convert('RGB'))
-    r31 = img('JohtoRoute31', 'route31_hgss', 'route30_31', W)
-    r30 = img('CherrygroveRoute30Approach', 'route30_hgss', 'route30_31', R30_W)
+    r31 = img('JohtoRoute31', 'route31_hgss', 'cherrygrove_route31', W)
+    r30 = img('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route30', R30_W)
     pad = 16 * 16
     canvas = np.zeros((pad + r31.shape[0] + r30.shape[0] + pad, pad + r31.shape[1] + pad, 3), np.int16) - 1
     canvas[pad:pad + r31.shape[0], pad:pad + r31.shape[1]] = r31

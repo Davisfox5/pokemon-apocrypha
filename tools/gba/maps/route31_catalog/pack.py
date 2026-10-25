@@ -32,7 +32,7 @@ SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'pack', EV / 'pack'
 MAP, LAYOUT = 'JohtoRoute31', 'LAYOUT_JOHTO_ROUTE31'
 TS_NAME, TS_SYM = 'route31_hgss', 'Route31Hgss'
-PRI_NAME, PRI_SYM = 'route30_31', 'Route30Route31Primary'
+PRI_NAME, PRI_SYM = 'cherrygrove_route31', 'CherrygroveRoute31Primary'
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'
 # JOHTO_ITEMS.md: Route 31's Poke Ball and Potion balls (HGSS's two item balls).
 ITEMS = dict(poke_ball=('FLAG_ITEM_APOC_ROUTE31_POKE_BALL', 'FLAG_UNUSED_0x268', 'ITEM_POKE_BALL'),
