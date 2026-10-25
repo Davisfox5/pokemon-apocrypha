@@ -74,9 +74,9 @@ PLACED = [('rail', 'rail', 0, 14), ('dojo', 'dojo', 36 * 16, 12), ('silph', 'sil
 BUILDINGS = ('dojo', 'silph', 'lab', 'station', 'fountain')
 # The Magnet Train's deck runs from the station's west platform (x 288) to the map's west
 # edge at the platform's height, over the forest, the city fence and the west walkway
-# (cols 15-16), which stays open under it, the deck drawn over the player, with a 40 px
-# shadow on the street below it (as Goldenrod's deck casts).
-RAIL_SHADOW = (14 * 16, 14 * 16, 4 * 16, 40)   # x, y, width, height (px): the fence, the walkway and the street west of the station; the forest's crowns stay as they are
+# (cols 15-16), which stays open under it, the deck drawn over the player, with a shadow
+# on the ground beneath it that ends level with the station's foot, where the deck meets it.
+RAIL_SHADOW = (14 * 16, 14 * 16, 4 * 16, 12)   # x, y, width, height (px): under the deck, from its underside to the station's foot line (y 235), over the fence, the walkway and the street west of the station
 # The deck is Saffron's own, in Kanto's colours, not Goldenrod's (the owner, 2026-10-25): its
 # palette is one of Saffron's banks (the Dojo's wood and slate). So every deck tile
 # fits a bank the map already has (Saffron's 13 banks are full). 5-bit colours.
