@@ -424,7 +424,7 @@ def frlg_pieces(engine):
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0), water=(16, 0))   # flattest 8x8 block of each Cherrygrove texture (Blackthorn's)
 
-def rock_frlg(cells, base, pieces, tex, extra_plain=None):
+def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None):
     """Blob autotiling from FRLG's set (Blackthorn's rock_frlg). A cell whose only lower
     neighbours are diagonal takes FRLG's whole inner-corner piece (two of them split down
     the middle when both lower diagonals are on one side), which joins the face and the
@@ -435,8 +435,12 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None):
     top-layer overlay: its clear pixels show the bottom layer, which carries the plainest
     8x8 block of the ground beyond that edge, and its cast shadow is Cherrygrove's border
     grey. Under a fully opaque quadrant the bottom is the rock top itself. extra_plain adds
-    ground classes of a map's own (Route 45: the Mt. Mortar ledge's cave-floor dirt), so the
-    ground past an edge is the ground actually there."""
+    ground classes of a map's own (Route 45: Route 46's dirt), so the ground past an edge is
+    the ground actually there. topped: {cell: ground class} for wall cells whose top is level
+    with the ground beside them (Route 45's river banks and steps): their light rock top on
+    that side (ramp tones 1-3 reaching the cell's edge where no lower neighbour lies, and the
+    specks of darker tone left inside it) is that ground's plain block, so the wall reads as ground, face, then the lower side, not as a
+    raised ridge."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
@@ -449,7 +453,9 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None):
     plain = {k: np.tile(tex[k][oy:oy + 8, ox:ox + 8], (2, 2, 1)) for k, (oy, ox) in PLAIN.items()}
     plain.update(extra_plain or {})
     def beyond(x, y):
-        """(pixels, ground class) of what lies past an edge toward cell (x, y)."""
+        """(pixels, ground class) of what lies past an edge toward cell (x, y): lawn off the map."""
+        if not (0 <= x < W and 0 <= y < H):
+            return plain['grass'], 'grass'
         cx, cy = clamp(x, y)
         if isrock[cy, cx]:
             return fill, 'rock'
@@ -465,8 +471,16 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None):
                 continue
             me = d[y, x]
             lo = {k: lvl(x + dx, y + dy) < me for k, (dx, dy) in DIRS.items()}
+            # A face cell on the map's edge facing off it (Route 45's slope down to Route 46)
+            # faces lower ground beyond the edge.
+            off = dict(w=x == 0, e=x == W - 1, n=y == 0, s=y == H - 1)
+            for k, face in dict(w='W', e='E', n='N', s='S').items():
+                if off[k] and cells[y][x]['lab'] == face:
+                    lo[k] = True
             X0, Y0 = x * 16, y * 16
             cell, ov = out[Y0:Y0 + 16, X0:X0 + 16], over[Y0:Y0 + 16, X0:X0 + 16]
+            cix = np.full((16, 16), CLEAR, int)
+            inner_bg = np.zeros((16, 16), bool)                 # clear pixels showing this cell's own rock top
             diag = [k for k in ('ne', 'se', 'sw', 'nw') if lo[k]]
             whole = None
             if not any(lo[k] for k in 'nesw') and diag:
@@ -505,6 +519,29 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None):
                             q[yy, xx] = cast[kind] + (255,)
                     if (q[..., 3] > 0).all():
                         cell[sl] = fill[sl]
+                    cix[sl] = ix
+                    inner_bg[sl] = toward is None
+            if topped and (x, y) in topped:
+                from scipy.ndimage import label
+                lb, _ = label(((cix >= 1) & (cix <= 3)) | ((cix == CLEAR) & inner_bg))
+                edge = dict(n=lb[0], s=lb[-1], w=lb[:, 0], e=lb[:, -1])
+                keep = set().union(*(set(edge[k].tolist()) for k in 'nesw' if not lo[k])) - {0}
+                m = np.isin(lb, list(keep))
+                # specks of darker top texture left inside that ground go with it
+                rest, _ = label((cix >= 0) & ~m)
+                sizes = np.bincount(rest.ravel())
+                m |= (rest > 0) & (sizes[rest] <= 6)
+                ov[m] = 0
+                top = plain[topped[(x, y)]]
+                cell[m] = top[m]
+                # Under the face left on a quadrant whose visible ground is all that top, the
+                # hidden bottom is that top too, so the quadrant's bottom tile is the plain block.
+                for qy in (0, 1):
+                    for qx in (0, 1):
+                        sl = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
+                        vis = ov[sl][..., 3] == 0
+                        if vis.any() and (cell[sl][vis] == top[sl][vis]).all():
+                            cell[sl] = top[sl]
             piece[y, x] = ''.join(k for k in DIRS if lo[k])
     return out, over, d, piece
 

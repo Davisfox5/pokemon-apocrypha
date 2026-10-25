@@ -383,9 +383,9 @@ def new_quadrants(mah, seam, lay):
                         missing.append(((x, y), q, l, sorted(cs - set().union(*map(set, sets.values())))))
                         ents.append(0)
                         continue
-                    ix = np.array([[sets[b].index(tuple(c)) + 1 for c in row] for row in px.tolist()], np.uint8)
-                    if l == 1:
-                        ix = np.where(L['mask'], ix, 0).astype(np.uint8)
+                    # clear top-layer pixels index 0, whatever colour the layer plan left under them
+                    ix = np.array([[sets[b].index(tuple(c)) + 1 if (l == 0 or L['mask'][i, j]) else 0
+                                    for j, c in enumerate(row)] for i, row in enumerate(px.tolist())], np.uint8)
                     vs = B.flips(ix)
                     o = min(range(4), key=lambda i: vs[i].tobytes())
                     k = vs[o].tobytes()

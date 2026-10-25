@@ -1876,11 +1876,11 @@
     "S05.png": true
   },
   "budgets": {
-    "secondary_tiles": 480,
-    "secondary_metatiles": 475,
+    "secondary_tiles": 496,
+    "secondary_metatiles": 400,
     "primary_metatiles": 512,
     "blackthorn_secondary_metatiles": 351,
-    "blackthorn_secondary_tiles": 480
+    "blackthorn_secondary_tiles": 496
   },
   "existing_map_ids_preserved": true,
   "changed_files_within_scope": true,

@@ -6,7 +6,8 @@ accepted for Mahogany, Routes 43, 44 and 42 and the Lake of Rage: decoded HGSS t
 art, Blackthorn's FRLG rock terraces, water and bridge, the Cherrygrove ground painter, the natural water
 banks approved on Route 43, lossless pack. Joined to Blackthorn by a map connection, as HGSS joins them,
 with every Blackthorn pixel kept. Engine branch `claude/route-45` (stacked on `claude/blackthorn-city`,
-engine PR #26). Owner visual review pending.
+engine PR #26). Owner review 2026-10-25 fixed the river banks, bridges, stairs and cascades (below); owner
+visual review of those fixes pending.
 
 ![HGSS beside the installed native map, numbered by cell](evidence/review3/whole.png)
 
@@ -26,7 +27,7 @@ Detail sheets (HGSS beside native, numbered by cell):
 | | |
 | --- | --- |
 | Map | `Route45`, 32x160, `gMapGroup_Cherrygrove` id 47, `MAPSEC_JOHTO_ROUTE_45` |
-| Tilesets | Blackthorn's primary `gTileset_CherrygrovePrimary` (52 of its tiles reused, its animated sea among them) + own secondary `gTileset_Route45` (226 new tiles, 54 copied from Blackthorn; 475 metatiles) |
+| Tilesets | Blackthorn's primary `gTileset_CherrygrovePrimary` (54 of its tiles reused, its animated sea among them) + own secondary `gTileset_Route45` (237 new tiles, 58 copied from Blackthorn; 400 metatiles) |
 | Colour | 13 banks, each colour exact: all 1,310,720 native pixels equal the assembled art in RGB555 |
 | Material audit | 5,057 of 5,120 cells show HGSS's material, 4 mismatches (declared below), 59 cells where a foreground object differs |
 
@@ -50,13 +51,13 @@ Shared masters copied byte for byte into `source/shared-art/` with hashes (`prov
 | Lawn, road | Cherrygrove/Route 36 painter, its road Cherrygrove's own sand (Blackthorn's), lawn and road one 16 px quarter of Cherrygrove's block, the rim wave over 16 px | one material per cell, from HGSS's flat ground colours |
 | River, pond | CherrygrovePrimary's animated sea, Blackthorn's lake water, on its 32 px phase (Blackthorn's carries on across the seam) | HGSS's water cells, running on under the rock beside it |
 | Banks | Route 43's owner-approved natural bank (local, `source/local-art/water-banks.png`) | the pond and the river's few shores onto lawn; the canyon walls meet the water directly, as in HGSS |
-| Cascades | HGSS's own falling sheet and foam (local, `source/local-art/cascades.png`) | HGSS's three drops, (12-14, 55), (11-13, 96), (13-15, 123) |
+| Cascades | HGSS's own falling sheet and foam (local, `source/local-art/cascades.png`), the sheet's top two rows in HGSS's foam blues as a bright lip | HGSS's three drops, (12-14, 55), (11-13, 96), (13-15, 123), the foam the river's full width |
 | Bridges | Blackthorn's plank bridge in CherrygrovePrimary's wood ramp, turned to run east-west | HGSS's seven decks |
 | Tall grass | G15, the whole-cell piece | every HGSS tall-grass cell |
 | Stairs | S01-S03, the catalog's straight flight; S04 and S05, its diagonal flights descending west and east | HGSS's flights: straight down a south face (5-7, 37), (6-8, 55), (25-27, 23), (15-17, 96), (26-28, 96), (5-7, 122-123), (20-22, 131); diagonal at (19, 57-59), (8, 117-119), (0, 138-140) |
 | Trees | T01 | as above |
 | Signs | P14 green rounded sign (model 32), P13 grey plaque (model 31) | (24,7) route sign, (12,7) Dark Cave plaque |
-| Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs |
+| Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs; a wall showing a face (lower ground east, south or west) has the ground beside it as its top, so it reads as ground, face, then the lower side |
 | Dark Cave mouth | FRLG General's cave mouth (metatile 0xA9), as Blackthorn's Dragon's Den | (10, 6), on its face |
 | Boulders | FRLG General's boulder (0x9F's top layer) in the Johto ramp | one on the middle of each HGSS boulder footprint; the footprint cells take the ground round them, collision HGSS's |
 | Route 46's dirt | HGSS's road05, its commonest tone (local) | (0-1, 148-151) |
@@ -67,8 +68,27 @@ under a diagonal flight the cliff it cuts through is on the ground layer. A stra
 itself. Under G15 and under flower patches on open lawn the ground is plain lawn, the same in every such
 cell. Local tone reductions are in `source/local-art/reductions.json`.
 
-Rock levels count from Route 45's lowest ground (the river's mouth, HGSS height 2), so every HGSS height
-step is a wall of its own.
+Every cell stands at its own HGSS height, counted from Route 45's lowest ground (the river's mouth, HGSS
+height 2): rock at its peak, ground at its ground, a bridge deck at its deck, water at its surface. So every
+HGSS height step is a wall of its own, and a wall has a face only toward ground that is really lower.
+
+## Owner review (2026-10-25)
+
+- **River banks read as raised spikes.** Ground had been level 0 under every wall, so each one-cell bank
+  was drawn higher than the road beside it, with an edge on both sides and rounded tips at the bridges.
+  Ground and water now take their HGSS heights: a bank faces the river and its top is the road or lawn
+  beside it; a slope falling north stays rock, as HGSS shows it (`assemble.terraces`, `assemble.topped`,
+  `elements.rock_frlg`).
+- **Bridges.** The decks now meet the banks flush; the banks run under them instead of ending in tips
+  with stubs of deck below.
+- **Walls in line with the cascades.** The step walls either side of each drop now fall to the lower
+  ground with a face, level with the drop, instead of a thin ledge-like strip; the banks step down with
+  the river.
+- **Cascades.** The foam runs the river's full width, and the sheet starts at a bright lip where the
+  river tips over.
+- **Stairs.** The diagonal flights keep their whole cliff, as on Route 42, topped with lawn by tall grass
+  instead of road sand; the west-edge flight down to Route 46 has its face back; the sign cells, which
+  HGSS blocks for its models, are road under the signs (a rock square had shown behind both).
 
 ## 3. Beside Blackthorn's tilesets (`pack_fixed.py`)
 
@@ -77,9 +97,10 @@ of what the Blackthorn cells its tilesets ever draw use (Blackthorn's south rows
 and their palette slots in bank 6). The part of Route 45 Blackthorn's tilesets ever draw (rows 0-5 round
 the road and the river, every standing view from Blackthorn and the rows that scroll out while crossing
 north) is drawn with Blackthorn's metatiles: 124 of its 130 cells are Blackthorn metatiles as they are. The
-other 6, the rock column between the river and the road (21, 0-5), are metatiles appended to Blackthorn's
-secondary table (ids 857-862), built from Blackthorn's own quadrants; no tiles were appended. No Blackthorn
-cell uses them. Both maps use Blackthorn's border block (metatile 512, which Route 45 carries whole).
+other 6, the bank between the river and the road (21, 0-5), are metatiles appended to Blackthorn's
+secondary table (ids 857-862); where no Blackthorn tile drew a quadrant, 4 tiles are appended to its
+secondary tile sheet after its own 480 (indices 992-995), drawn with Blackthorn's palettes as installed. No
+Blackthorn cell uses any of them. Both maps use Blackthorn's border block (metatile 512, which Route 45 carries whole).
 
 The packer proves: Route 45 decoded with its pair equals its assembled art; every Route 45 pixel
 Blackthorn's tilesets draw equals it too; every Blackthorn pixel Route 45's tilesets draw equals
@@ -104,13 +125,15 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
 - **Grass on slopes.** HGSS draws its tall grass texture on three slope cells (14-16, 38) and one cell
   without encounters (13, 77); they are lawn here, so tall grass always means encounters. 4 material
   mismatches.
+- **North-facing slopes.** Gen 3 draws a slope falling north as a rim; these stay rock on top, as
+  HGSS shows them.
 - **Foreground.** T01 and the signs differ in size and offset from HGSS's; these are the 59 "foreground
   differs" cells in `evidence/pack3/material-audit.json`.
 
 ## Verification
 
 - **Build**: engine `claude/route-45`, ROM sha256
-  `93e9ff343fd16def8b8fe6922309c2062f04b569ed67d6f31476bc05455a2a43` (not committed).
+  `91b250d8c783c9c0bbb76cb742369688a2bfce7fbc88b982d1016b6e468b616a` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 45 equals the pack decode
   and its assembled art; Blackthorn's installed decode equals its decode as committed on
   `claude/blackthorn-city`; both seam views exact from the installed files; connections (Blackthorn joins
@@ -118,8 +141,8 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
   on every cell; collision and elevation match across the seam (crossing at the road, x 22-24, and on the
   river, x 18-19); the cells reached from Blackthorn on foot and with Surf are exactly the cells HGSS's own
   permissions reach (less the Dark Cave warp); walk-behind layering; budgets; shared masters
-  byte-identical; Blackthorn's own metatiles and tiles unchanged, its map.json changing only by the new
-  connection; only Route 45 files otherwise.
+  byte-identical; Blackthorn's own metatiles and tiles unchanged (its tile sheet only grows), its map.json
+  changing only by the new connection; only Route 45 files otherwise.
 - **Material audit**: 5,057 match, 4 mismatch, 59 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 37 captures with map layers rebuilt from
   VRAM equal to the native decodes, Blackthorn beyond the seam included, the animated sea counted apart;

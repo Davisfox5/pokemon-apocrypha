@@ -160,7 +160,8 @@ def flights(cells):
 def rock_cells(cells):
     """The ledger for the rock pass: the Dark Cave mouth is a face cell of the cliff it is cut
     into (FRLG's cave mouth goes over the face), and every stair cell is part of the cliff it
-    cuts through, so the cliff runs on unbroken and the flight goes over it (stairs()).
+    cuts through, so the cliff runs on unbroken and the flight goes over it (stairs()). The
+    signs' cells, which HGSS blocks for their models, are ground under the sign.
     Floors: water for the river, the pond and the blocked river cells by the bridges, bridge
     for the decks, dirt for Route 46's red dirt."""
     fl = {(x + (k if kind == 'row' else 0), y + (0 if kind == 'row' else k)): face
@@ -171,8 +172,10 @@ def rock_cells(cells):
         for c in row:
             if c['lab'] == 'D':
                 c = dict(c, lab='S')
+            elif (c['x'], c['y']) in SIGNS and c['lab'] in E.ROCK:
+                c = dict(c, lab='.')                  # a sign's own cell: HGSS blocks it for the model, it is road
             elif c['lab'] == 's':
-                c = dict(c, lab=fl[(c['x'], c['y'])])
+                c = dict(c, lab=fl[(c['x'], c['y'])], stair=True)
             if is_water(c):
                 c = dict(c, floor='water')
             elif c['lab'] == 'b':
@@ -186,18 +189,31 @@ def rock_cells(cells):
 def with_xy(cells):
     return [[dict(c, x=x, y=y) for x, c in enumerate(row)] for y, row in enumerate(cells)]
 
+def level(v):
+    """An HGSS height as a terrace level above Route 45's lowest ground (half-up rounding)."""
+    return int(np.floor(v + 0.5)) - ROCK_BASE
+
 def terraces(cells):
-    """Blackthorn's rock structure: every HGSS height layer is one Gen 3 terrace. A rock cell
-    (ledger label T, E, S, W or N: HGSS's cliff cells, decoded flat) stands at its rock peak
-    above Route 45's lowest ground (ROCK_BASE), so every HGSS step is a wall of its own (AGENTS.md:
-    count the original's wall levels); every other cell is ground, 0."""
+    """Every HGSS height layer is one Gen 3 terrace, the ground's as well as the rock's. A rock
+    cell (ledger label T, E, S, W or N: HGSS's cliff cells, decoded flat) stands at its rock
+    peak, every other cell at its own ground height (a bridge deck at its deck, water at its
+    surface, rounded down), all counted from Route 45's lowest ground (ROCK_BASE). So every HGSS
+    step is a wall of its own (AGENTS.md: count the original's wall levels), and a wall has a
+    face only toward ground that is really lower: a river bank faces the river, not the road
+    level with its top (owner review: the banks read as raised spikes)."""
     lab = np.array([[c['lab'] for c in row] for row in cells])
     rock = np.isin(lab, list(E.ROCK))
     d = np.zeros((H, W), int)
     for y in range(H):
         for x in range(W):
+            c = cells[y][x]
             if rock[y, x]:
-                d[y, x] = max(1, round(cells[y][x]['peak']) - ROCK_BASE)
+                d[y, x] = level(c['peak'])
+            elif c['floor'] == 'water':
+                d[y, x] = int(np.floor(c['level'])) - ROCK_BASE
+            else:
+                d[y, x] = level(c['ground'])
+    d = np.maximum(d, 0)
     pad = np.pad(d, 1, mode='edge')
     lower = np.zeros((H, W), bool)
     for dy in (-1, 0, 1):
@@ -205,6 +221,36 @@ def terraces(cells):
             if dy or dx:
                 lower |= pad[1 + dy:1 + dy + H, 1 + dx:1 + dx + W] < d
     return d, rock & lower, rock
+
+def topped(cells, d, rock):
+    """Wall cells whose top is the ground beside them: a rock cell showing a face (a lower
+    neighbour east, south or west) with a lawn, road or dirt neighbour (north, east, south or
+    west) at its own level or above. Returns {cell: that
+    ground's class}, the highest such neighbour's, lawn or road as the painter drew that cell
+    (compose sets each floor from GROUND_CLASS), so a wall by tall grass is topped with lawn
+    (elements.rock_frlg draws the wall's top as it). A stair's cliff keeps its whole face, as on Route 42 (owner review there:
+    the flight stands on an unbroken cliff)."""
+    out = {}
+    for y in range(H):
+        for x in range(W):
+            if not rock[y, x] or cells[y][x].get('stair'):
+                continue
+            # only a wall that shows a face (lower ground east, south or west); a slope falling
+            # north is a back edge in Gen 3, and HGSS shows it as rock, so it keeps its rock top
+            if not any(0 <= x + dx < W and 0 <= y + dy < H and d[y + dy, x + dx] < d[y, x]
+                       for dx, dy in ((1, 0), (0, 1), (-1, 0))):
+                continue
+            best = None
+            for dx, dy in ((0, -1), (1, 0), (0, 1), (-1, 0)):
+                nx, ny = x + dx, y + dy
+                if not (0 <= nx < W and 0 <= ny < H) or rock[ny, nx]:
+                    continue
+                f = cells[ny][nx]['floor']
+                if f in ('grass', 'sand', 'dirt') and d[ny, nx] >= d[y, x] and (best is None or d[ny, nx] > best[0]):
+                    best = (d[ny, nx], f)
+            if best:
+                out[(x, y)] = best[1]
+    return out
 
 CAVE = (10, 6)                              # HGSS warp 0 into Dark Cave
 
@@ -219,7 +265,7 @@ def frlg_rock(rc, ground, dirt):
     d, face, isrock = terraces(rc)
     E.layers = lambda _cells: (d, face, isrock)
     pieces = E.frlg_pieces(ENGINE)
-    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt))
+    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt), topped(rc, d, isrock))
     ledge = E.ledges_frlg(rc, pieces)
     a = ledge[..., 3] > 0
     over[a] = ledge[a]
@@ -406,13 +452,19 @@ def water(cells, ground):
     Image.fromarray(art).save(LOCAL / 'water-banks.png')
     return art
 
+LIP = ((148, 222, 255), (99, 181, 255))     # HGSS's foam blues, lightest first
+
 def cascades(cells, bottom):
     """HGSS's three cascades, its own pixels from the decoded true-heights render (HGSS stands a
-    model on the drop row, with no land mesh under it): every pixel over the river's cells from
-    half a row above the drop row to the foot of the row below that is not one of HGSS's river
-    texture colours, so the falling sheet, its dark lip and the foam at its foot come over the
-    river's own water. The tones merge toward Blackthorn's palettes as the other local pieces
-    do (REDUCE). Surf as HGSS: the cells stay river."""
+    model on the drop row, with no land mesh under it), over the river's cells from half a row
+    above the drop row to the foot of the row below: every pixel that is not one of HGSS's river
+    texture colours (the falling sheet, its dark lip and the foam), and the light blue foam
+    pixels joined to them that share a colour with the texture's sparkle, so the foam runs the
+    river's full width as in HGSS. The sheet's top two rows take HGSS's foam blues (LIP), a
+    bright lip where the river tips over (owner review). They go over the river's own water. The tones
+    merge toward Blackthorn's palettes as the other local pieces do (REDUCE). Surf as HGSS: the
+    cells stay river."""
+    from scipy.ndimage import label
     ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
     z = np.load(SRC / 'hgss/hgss-ground-materials.npz')
     river = np.isin(z['material'], [list(z['names']).index(n) for n in ('river', 'river_r')])
@@ -426,9 +478,19 @@ def cascades(cells, bottom):
         x0, x1 = xs[0] * PX, (xs[-1] + 1) * PX
         y0, y1 = y * PX - PX // 2, (y + 2) * PX
         box = ref[y0:y1, x0:x1]
-        fall = ~np.array([[tuple(c) in texture for c in row] for row in box])
+        c = box.astype(int)
+        fall = ~np.array([[tuple(v) in texture for v in row] for row in box])
+        foam = (c[..., 2] >= 230) & (c[..., 1] >= 170)
+        lb, _ = label(fall | foam)
+        fall = np.isin(lb, np.unique(lb[fall])) & (lb > 0)
         sub = art[y0:y1, x0:x1]
         sub[fall, :3] = box[fall]; sub[fall, 3] = 255
+        # The lip where the river tips over: the sheet's top two rows in HGSS's own foam blues,
+        # so the drop starts at a bright edge, not a hard stripe across the water (owner review).
+        top = int(np.argmax(fall.any(1)))
+        for k, tone in enumerate(LIP):
+            row = fall[top + k]
+            sub[top + k][row, :3] = tone
         out.append(dict(row=y, cells=[xs[0], xs[-1]]))
     art, merged = reduce_local(art, *(REDUCE['cascades'][0], neighbour_tones(REDUCE['cascades'][1])))
     a = art[..., 3] > 0
@@ -660,7 +722,14 @@ def compose(phg):
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
     rc = rock_cells(cells)
     rclab = np.array([[c['lab'] for c in row] for row in rc])
-    ground, _ = paint_ground(ground_quadrants(rc, np.isin(rclab, list(E.ROCK))))
+    global GROUND_CLASS
+    q = ground_quadrants(rc, np.isin(rclab, list(E.ROCK)))
+    GROUND_CLASS = np.where(q[::2, ::2] == G.PATH, 'sand', 'grass')        # one material per cell (ground_quadrants)
+    ground, _ = paint_ground(q)
+    # The rock pass reads each cell's ground as painted (tall grass is lawn, whatever HGSS's
+    # material count called its floor).
+    rc = [[dict(c, floor=str(GROUND_CLASS[y, x])) if c['floor'] in ('grass', 'sand') else c for x, c in enumerate(row)]
+          for y, row in enumerate(rc)]
     ground = ground[..., :3].copy()
     reductions = {}
     lim = lambda k: (REDUCE[k][0], neighbour_tones(REDUCE[k][1]))
@@ -680,9 +749,9 @@ def compose(phg):
     falls, reductions['cascades'] = cascades(rc, ground)
     bottom, rock, d, isrock, piece = frlg_rock(rc, ground, dirt)
     (OUT / 'terrace-grid.txt').write_text(
-        '# Route 45 rock terraces (assemble.terraces), one line per cell row: level 0-9, rock cells upper-case A-I\n'
-        '# (the first to ninth terrace), from HGSS land_data 108-112 decoded flat (elements.ledger).\n' +
-        ''.join(f'{y:03d}    ' + ''.join(('ABCDEFGHI'[min(d[y, x], 9) - 1] if isrock[y, x] else str(d[y, x])) for x in range(W)) + '\n'
+        '# Route 45 terraces (assemble.terraces), one line per cell row: ground and water levels 0-9 as digits, rock cells\n'
+        '# as letters (A = level 0, B = 1 and so on), from HGSS land_data 108-112 decoded flat (elements.ledger).\n' +
+        ''.join(f'{y:03d}    ' + ''.join((chr(65 + d[y, x]) if isrock[y, x] else str(d[y, x])) for x in range(W)) + '\n'
                 for y in range(H)))
     view, nb_view = views()
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
@@ -737,6 +806,7 @@ def compose(phg):
 ENGINE = None
 PHG = None
 TEX = None
+GROUND_CLASS = None
 
 def main(phg, catalog, engine):
     global ENGINE
