@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": 38,
+      "cells": 2048,
+      "decoded_RGB5_pixels_exact": true,
+      "no_forbidden_behavior": true,
+      "open_height_seams": 0,
+      "wall_cells": 189
+    },
+    {
+      "route": 39,
+      "cells": 2048,
+      "decoded_RGB5_pixels_exact": true,
+      "no_forbidden_behavior": true,
+      "open_height_seams": 0,
+      "wall_cells": 294
+    }
+  ],
+  "boundary_probes": 798
+}

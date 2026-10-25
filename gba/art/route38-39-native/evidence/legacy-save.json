@@ -1,0 +1,73 @@
+{
+  "original_save_sha256": "ea30e70ba710c7db6e50ebd737008159ff40444ce5f12e3e985cddef6173ee15",
+  "rom_sha256": "bcca7f4b89c796de099be01fe131f5d00bce5bade1d6fd4a7b09cf9a59229f0c",
+  "original_preserved": true,
+  "phases": [
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-reload-corrected-route39",
+          "region": 3,
+          "group": 80,
+          "map": 54,
+          "x": 25,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 229
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 3,
+          "group": 80,
+          "map": 54,
+          "x": 25,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 229
+        },
+        {
+          "step": "legacy-save-walk-left",
+          "region": 3,
+          "group": 80,
+          "map": 54,
+          "x": 23,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 229
+        },
+        {
+          "step": "legacy-save-walk-south",
+          "region": 3,
+          "group": 80,
+          "map": 54,
+          "x": 23,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 229
+        }
+      ]
+    }
+  ]
+}

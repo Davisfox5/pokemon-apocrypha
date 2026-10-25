@@ -1,0 +1,77 @@
+{
+  "source_repository": "Davisfox5/pokeemerald-expansion",
+  "source_branch": "codex/route38-39-hgss-native",
+  "source_commit": "cbb5a4d038b9546bc9cde861892eecb11b3d1479",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/41",
+  "previous_source": "eb8d6bb9f85c511f0b21e0e0b2d7f038beb47f6c",
+  "rom_sha256": "bcca7f4b89c796de099be01fe131f5d00bce5bade1d6fd4a7b09cf9a59229f0c",
+  "rom_bytes": 33554432,
+  "instructions_main": "67ec55804eb4b56ba40ff7635f1f39e30a8e7f4e",
+  "instructions_sha256": {
+    "AGENTS.md": "38724510f3e0b8147ed3ad16c6f168389ffb59a17bbbbc1ebdf33f3702a23aa0",
+    "docs/GBA_MAP_RECONSTRUCTION.md": "5b5c78714c397cb4b59170b49d6dd44eeaedcb40e550ed64b46688ae17963cdd"
+  },
+  "tools": {
+    "gcc": "14.2.1",
+    "porymap": "6.3.1",
+    "porytiles": "2.0.0 legacy",
+    "mgba": "0.10.5"
+  },
+  "original_registration": {
+    "px_per_cell": 16,
+    "offset": [
+      0,
+      0
+    ],
+    "route38": [
+      64,
+      32
+    ],
+    "route39": [
+      32,
+      64
+    ],
+    "ground_grid_px": 8
+  },
+  "material_review": {
+    "defined_original_ground_quadrants": 9684,
+    "mismatches": 0,
+    "uncertain_adapted_ground_quadrants": 4684,
+    "rock_stair_ramp_quadrants_reviewed_separately": 2016
+  },
+  "native_cells": 4096,
+  "open_elevation_seams": 0,
+  "boundary_probes": 798,
+  "gameplay_RGB5_pixels": 460000,
+  "gameplay_pixel_differences": 0,
+  "porymap_pixel_differences": 0,
+  "packing": {
+    "metatiles": 94,
+    "allocated_glyphs": 208,
+    "palettes_used": [
+      0,
+      12
+    ]
+  },
+  "stable_map_ids": {
+    "JohtoRoute38": [
+      80,
+      53
+    ],
+    "JohtoRoute39": [
+      80,
+      54
+    ]
+  },
+  "unchanged_other_maps": true,
+  "earlier_drafts_and_saves_preserved": true,
+  "hosted_checks": "No check runs; current project handoff states Actions disabled.",
+  "owner_visual_acceptance": "Pending",
+  "limits": [
+    "Terrain-only preview; foreground trees, fences, houses, tall grass, jump ledges, props and NPCs intentionally absent.",
+    "Unknown removed-foreground ground is explicitly inferred lawn, not counted as original material agreement.",
+    "Original clearings/path geometry is quantized to 8px native quadrants and uses straight Cherrygrove profiles (wave disabled per owner).",
+    "Cliffs use the accepted native FRLG terrace vocabulary and Johto ramp, a declared Gen3 art adaptation of the source planes.",
+    "Exterior city exits, campaign progression and HM hooks are unwired; preview perimeter bounded except the internal crossing."
+  ]
+}

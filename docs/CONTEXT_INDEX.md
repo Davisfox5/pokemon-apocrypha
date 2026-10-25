@@ -1,4 +1,4 @@
-Current terrain review: [fresh Routes 38/39 rebuild](../gba/art/route38-39-rebuild/README.md). Original HGSS material/height/traversal layers, complete native cliff kit, source `eb8d6bb9`; 798 boundary probes plus stairs/ramps/junction/save and legacy save passed. Terrain only; city endpoints pending. Earlier route drafts remain preserved.
+Current terrain review: [Routes 38/39 from original texture grids](../gba/art/route38-39-native/README.md). Fresh HGSS renders and 8px material registration; accepted Cherrygrove ground and shared terrace kit; source `cbb5a4d0`, PR #41. 798 boundary probes, stairs/ramps/connections and ordinary/legacy saves pass. Terrain only; exterior exits pending. Previous drafts preserved.
 
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 

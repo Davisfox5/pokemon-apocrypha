@@ -1,0 +1,28 @@
+[
+  {
+    "route": 38,
+    "original_quadrants": 8192,
+    "reviewed_ground_quadrants": 7424,
+    "original_ground_defined_reviewed": 4568,
+    "original_ground_undefined_reviewed": 2856,
+    "native_road_quadrants": 1548,
+    "original_material_matches": 4568,
+    "adapted_undefined_ground_quadrants": 2856,
+    "material_mismatches": 0,
+    "excluded_rock_stair_ramp_quadrants": 768,
+    "note": "Undefined original backing is lawn by explicit adaptation. Wall/stair/ramp squares are reviewed separately, not counted as ground material matches."
+  },
+  {
+    "route": 39,
+    "original_quadrants": 8192,
+    "reviewed_ground_quadrants": 6944,
+    "original_ground_defined_reviewed": 5116,
+    "original_ground_undefined_reviewed": 1828,
+    "native_road_quadrants": 1471,
+    "original_material_matches": 5116,
+    "adapted_undefined_ground_quadrants": 1828,
+    "material_mismatches": 0,
+    "excluded_rock_stair_ramp_quadrants": 1248,
+    "note": "Undefined original backing is lawn by explicit adaptation. Wall/stair/ramp squares are reviewed separately, not counted as ground material matches."
+  }
+]

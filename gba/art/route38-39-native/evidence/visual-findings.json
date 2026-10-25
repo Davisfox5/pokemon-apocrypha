@@ -1,0 +1,68 @@
+[
+  {
+    "route": 38,
+    "coordinates": [
+      0,
+      11,
+      0,
+      13
+    ],
+    "issue": "Original slope texture is an east-facing stair, previously drawn as an earth ramp",
+    "correction": "Complete gray stair rotated to the original axis; all three lanes verified both ways"
+  },
+  {
+    "route": 39,
+    "coordinates": [
+      12,
+      38,
+      21,
+      49
+    ],
+    "issue": "Road-mesh bounds and whole-cell ledge removal inflated or pinched the path",
+    "correction": "Read actual dirt colors at 8px from foreground-free original textures; preserve road backing when the ledge is removed"
+  },
+  {
+    "route": 38,
+    "coordinates": [
+      7,
+      15,
+      9,
+      18
+    ],
+    "issue": "Custom corner outlines were not coherent with adjoining face planes",
+    "correction": "Shared native whole-turn and over-rock corner vocabulary selected by original terrace levels"
+  },
+  {
+    "route": 38,
+    "coordinates": [
+      32,
+      22,
+      34,
+      24
+    ],
+    "issue": "South bank concave turn needed continuous cap and side treatment",
+    "correction": "Shared inner corners and quadrant roles follow the same original height grid"
+  },
+  {
+    "route": 39,
+    "coordinates": [
+      15,
+      26,
+      21,
+      27
+    ],
+    "issue": "Stair shoulders and transparent tread noses left grass showing through",
+    "correction": "Shared terrace join around all stair cells; restore white tread noses opaque"
+  },
+  {
+    "route": 39,
+    "coordinates": [
+      25,
+      44,
+      31,
+      63
+    ],
+    "issue": "Eastern terrace courses require separate heights and grass tops",
+    "correction": "Original measured cap levels retained independently; complete over-rock and ground-facing pieces, no filling measured grass with stone"
+  }
+]

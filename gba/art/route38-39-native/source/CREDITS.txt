@@ -1,0 +1,7 @@
+Original Pokemon HeartGold/SoulSilver map models, textures and geography: Game Freak / Nintendo / Creatures. Original game data is read-only reference material from pret/pokeheartgold, revision 6988158691eb6178cff697cda0428045ddcba5fb; archive hashes are recorded alongside each rendered reference.
+
+Native mountain nine-slice and inner-corner art: original FireRed/LeafGreen General tileset, already present in the shared pokeemerald-expansion source. Gray stair art: original Emerald Mossdeep tiles, reused from the existing route donor. Original game art remains credited to its original creators; no new license or ownership of that art is asserted.
+
+Shared Apocrypha art and methods: accepted Cherrygrove ground; the Mahogany/Route43 FRLG terrace method as preserved in route31_catalog/rock.py; the original-data renderer in route29_catalog/hgss_render.py. Source code retains its existing repository notices.
+
+This work reuses those assets within the owner's Apocrypha project. Local work: original Route38/39 registration, foreground-free texture interpretation, native terrain assembly, stair-mask/axis repair, per-cell adaptations and validation. No full original archive or tool binary is included.
