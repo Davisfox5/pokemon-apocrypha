@@ -218,5 +218,16 @@
     "native_pixels_checked": 32000,
     "differences": 0,
     "exclusions": "Player rectangle; map-name popup at crossing; outside native map bounds."
+  },
+  {
+    "frame": "northeast-boulder",
+    "route": 38,
+    "player": [
+      59,
+      5
+    ],
+    "native_pixels_checked": 28320,
+    "differences": 0,
+    "exclusions": "Player rectangle; map-name popup at crossing; outside native map bounds."
   }
 ]

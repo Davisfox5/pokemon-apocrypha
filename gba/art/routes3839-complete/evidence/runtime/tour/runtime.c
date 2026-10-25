@@ -174,6 +174,7 @@ read_sign(54,22,50,"sign-39-22-50");
 read_sign(54,9,4,"farmhouse-label");read_sign(54,4,4,"stable-label");
 go(53,20,6);step(DOWN,12);need(overworld()&&!locked(),"grass-walk-38");shot("grass-38");
 go(54,7,36);step(DOWN,10);need(overworld()&&!locked(),"grass-walk-39");shot("grass-39");
+go(53,59,5);shot("northeast-boulder");
 go(54,19,23);at(54,19,23,"save-route39");shot("save-route39");
   unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }

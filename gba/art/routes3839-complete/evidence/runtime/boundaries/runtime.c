@@ -402,6 +402,7 @@ go(54,20,56);step(LEFT,1);at(54,20,56,"boundary-357");
 go(54,21,56);step(DOWN,1);at(54,21,56,"boundary-358");
 go(54,25,56);step(RIGHT,1);at(54,25,56,"boundary-359");
 go(54,25,58);step(RIGHT,1);at(54,25,58,"boundary-360");
+go(53,59,5);shot("northeast-boulder");
 go(54,19,23);at(54,19,23,"save-route39");shot("save-route39");
   unsigned status=call("TrySavingData",0);void*data=NULL;size_t size=c->savedataClone(c,&data);f=fopen(flash,"wb");if(status!=1||size!=131072||!f||fwrite(data,1,size,f)!=size)return 11;fclose(f);free(data);printf("{\"save_status\":%u,\"flash_bytes\":%zu}\n",status,size);
  }

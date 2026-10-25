@@ -69,6 +69,7 @@ else:
     x,y=e['cell'];steps+=f'read_sign({n+15},{x},{y},"sign-{n}-{x}-{y}");\n'
  steps+='read_sign(54,9,4,"farmhouse-label");read_sign(54,4,4,"stable-label");\n'
  for n,x,y,key,count in [(38,20,6,'DOWN',12),(39,7,36,'DOWN',10)]:steps+=f'go({n+15},{x},{y});step({key},{count});need(overworld()&&!locked(),"grass-walk-{n}");shot("grass-{n}");\n'
+steps+='go(53,59,5);shot("northeast-boulder");\n'
 steps+='go(54,19,23);'+at((39,19,23),'save-route39')+'shot("save-route39");\n'
 start=r.MAIN[:r.MAIN.index('  // Actual east connection')];end=r.MAIN[r.MAIN.index('  unsigned status=call("TrySavingData"'):]
 r.MAIN=(start+steps+end).replace('at(11,27,18','at(54,19,23').replace('cold-reload-new-bark','cold-reload-route39')

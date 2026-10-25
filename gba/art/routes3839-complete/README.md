@@ -6,7 +6,7 @@ any of those attempts. No earlier route layout, tile bank or cliff generator is 
 Earlier branches and saves remain intact. This is a complete outdoor architecture proposal; visual acceptance is pending.
 
 Editable native source: [engine branch](https://github.com/Davisfox5/pokeemerald-expansion/tree/codex/routes3839-complete),
-commit **9f06a7098c54c966940071a2068ef51ce6c26bc2**. Open that checkout in Porymap.
+commit **7cf7ce296f2cf8fc51bc2ad0181d24efab7908ac**. Open that checkout in Porymap.
 The maps are `JohtoRoute38` (64×32, ID 80.53) and `JohtoRoute39` (32×64, ID 80.54).
 They connect directly, west/east at offset 0, on one private shared primary/secondary tileset.
 Existing maps, palette/metatile IDs and layouts are unchanged.
@@ -68,8 +68,9 @@ story scripts or reward flags were imported. Existing Ecruteak is preserved, not
 ## Verification and concrete findings
 
 - Native source built locally with ARM GCC 14.2.1. ROM SHA-256:
-  `9b695e38a81f8a5e9e69ff5db39d94b7e91d6cc6de66f559f9960166f6eeb415`.
-- Porytiles 2.0.0 legacy compiles 539 metatiles into 688 allocated tile slots and 13 palettes.
+  `ff5932fa2321c493841f615ec48ab16cda8b08093b0b52f18fdb971382500dcb`.
+- Porytiles 2.0.0 legacy compiles 539 metatiles; a local native boulder repair appends four, for 543 total.
+  The final banks use 688 allocated tile slots and 13 palettes.
   Exact RGB555 packing; no nearest-image or silhouette substitution. Both routes share all seam definitions.
 - Porymap 6.3.1 opened/exported both native maps. Exports equal the independent native decoder pixel for pixel.
 - All 4,096 cells retain original solid/open status; all 247 tall-grass and 79 ledge cells have the correct native
@@ -80,14 +81,17 @@ story scripts or reward flags were imported. Existing Ecruteak is preserved, not
 - All 365 distinct obstacle-metatile/direction cases blocked correctly. Five signs and both farm labels open
   and close. Tall-grass walking with the preview's empty party remains in the field.
 - Ordinary 128 KiB flash save, fresh-process load and title-menu Continue pass in both test runs.
-- 691,520 actual game pixels across 20 positioned frames equal the native RGB555 maps. The player rectangle,
+- 719,840 actual game pixels across 21 positioned frames equal the native RGB555 maps. The player rectangle,
   crossing map-name popup and pixels outside defined map bounds are excluded explicitly.
 
 Whole maps and numbered 16×16-cell source/native sheets were reviewed. Specific repairs: the east wall's
 Rock Climb material at Route 39 (25–27,31) is included in the continuous wall; west-facing ledges and their
 southern corners are mirrored as joined runs; Route 38's four shoulder woodland cells are now under complete
 roots; farmhouse cell (9,4) keeps its original solid flag rather than becoming an unsupported walk-through door.
-The farm roof/door alignment, silo footprint, pasture fences, stair approaches and both route seam views were
+The original northeastern rock01 boulder at Route 38 (58–59,0–1) was restored through a local native edit,
+  appending eleven glyphs and four metatiles without changing existing palette slots or repacking owner source.
+  See `boulder-repair.json`; all gameplay checks were rerun on the resulting ROM.
+  The farm roof/door alignment, silo footprint, pasture fences, stair approaches and both route seam views were
 inspected again in actual gameplay. These checks support review; they do not assert owner visual acceptance.
 
 See `evidence/audit.json`, `packing.json`, `runtime-plan.json`, `runtime/`, `gameplay-pixels.json`,
@@ -103,9 +107,10 @@ maps directly in Porymap rather than replaying these generators.
 
 To reproduce separately, check out the engine baseline above and this hub revision. Set `ROUTES_ENGINE` to the
 isolated engine path and `HGSS_SOURCE` to a pinned original-data checkout. Run `reference.py HGSS_SOURCE`,
-`build.py`, `native.py`, `integrate.py`, then the normal serial `make generated` and parallel engine build.
+`build.py`, `native.py`, `integrate.py`, `boulder.py`, then the normal serial `make generated` and parallel engine build.
 `native.py` uses the installed legacy Porytiles path recorded in `packing.json`; adjust that local executable
 path if necessary. Export Porymap maps, then run `review.py`, `runtime.py ENGINE OUTPUT --toolchain TOOLCHAIN`,
 a separate `runtime.py ... --boundaries`, and `gameplay.py TOUR_OUTPUT`.
+The final local repair is recorded by `boulder.py` and refuses to run if those native cells have changed.
 ROMs, saves and tool executables are deliberately outside both repositories. The downloadable preview contains
 an ordinary save positioned on Route 39, the ROM, the native map images and its build identity.

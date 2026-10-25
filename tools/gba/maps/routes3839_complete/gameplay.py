@@ -6,9 +6,10 @@ from PIL import Image,ImageDraw
 ROOT=Path(__file__).resolve().parents[4];E=ROOT/'gba/art/routes3839-complete/evidence';RUN=Path(sys.argv[1]);OUT=E/'gameplay';OUT.mkdir(exist_ok=True)
 ims={n:np.array(Image.open(E/f'route{n}/native.png').convert('RGB')) for n in [38,39]}
 locations=[(39,23,55),(39,14,50),(39,14,38),(39,19,29),(39,19,24),(39,9,30),(39,9,13),(39,9,5),(39,19,12),(38,2,12),(38,12,5),(38,20,6),(38,20,20),(38,21,25),(38,34,21),(38,52,12),(38,58,7),(38,62,7),(38,52,12),(39,28,12)]
-proof=[];gallery=Image.new('RGB',(4*240,5*180),(25,30,35));draw=ImageDraw.Draw(gallery)
-for i,(n,x,y) in enumerate(locations):
- name=f'tour-{i:02}';frame=np.array(Image.open(RUN/f'{name}.png').convert('RGB'));expected=np.zeros_like(frame);valid=np.zeros((160,240),bool);ox,oy=x*16-112,y*16-72
+proof=[];gallery=Image.new('RGB',(4*240,6*180),(25,30,35));draw=ImageDraw.Draw(gallery)
+cases=[(f'tour-{i:02}',*p) for i,p in enumerate(locations)]+[('northeast-boulder',38,59,5)]
+for i,(name,n,x,y) in enumerate(cases):
+ frame=np.array(Image.open(RUN/f'{name}.png').convert('RGB'));expected=np.zeros_like(frame);valid=np.zeros((160,240),bool);ox,oy=x*16-112,y*16-72
  for sy,sx in np.ndindex((160,240)):
   wx,wy=ox+sx,oy+sy;a=ims[n]
   if n==38 and wx<0 and 0<=wy<1024:wx+=512;a=ims[39]

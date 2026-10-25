@@ -4,12 +4,19 @@ rmdir poryscript-linux 2>/dev/null || true
 chmod +x poryscript
 ./poryscript -v
 3.6.1
-/workspace/deps/root/usr/bin/../lib/gcc/arm-none-eabi/14.2.1/cc1 -quiet <flags> -o build/emerald/src/tilesets.o src/tilesets.c
+tools/gbagfx/gbagfx data/tilesets/primary/routes3839_complete/palettes/01.pal build/assets/data/tilesets/primary/routes3839_complete/palettes/01.pal.gbapal
+tools/gbagfx/gbagfx data/tilesets/primary/routes3839_complete/tiles.png build/assets/data/tilesets/primary/routes3839_complete/tiles.png.4bpp
+tools/gbagfx/gbagfx data/tilesets/secondary/routes3839_complete/palettes/07.pal build/assets/data/tilesets/secondary/routes3839_complete/palettes/07.pal.gbapal
+tools/gbagfx/gbagfx data/tilesets/secondary/routes3839_complete/palettes/08.pal build/assets/data/tilesets/secondary/routes3839_complete/palettes/08.pal.gbapal
+tools/gbagfx/gbagfx data/tilesets/secondary/routes3839_complete/tiles.png build/assets/data/tilesets/secondary/routes3839_complete/tiles.png.4bpp
 tools/preproc/preproc -s data/maps.s charmap.txt | arm-none-eabi-cpp -iquote include -Wno-trigraphs -DMODERN=1 -DTESTING=0 -DEMERALD -std=gnu17 -I include - | tools/preproc/preproc -ie data/maps.s charmap.txt | arm-none-eabi-as -mcpu=arm7tdmi -march=armv4t -meabi=5 --defsym MODERN=1 --defsym EMERALD=1 -o build/emerald/data/maps.o
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/primary/routes3839_complete/tiles.png.4bpp build/assets/data/tilesets/primary/routes3839_complete/tiles.png.4bpp.fastSmol false false false
+tools/compresSmol/compresSmol -w build/assets/data/tilesets/secondary/routes3839_complete/tiles.png.4bpp build/assets/data/tilesets/secondary/routes3839_complete/tiles.png.4bpp.fastSmol false false false
+/workspace/deps/root/usr/bin/../lib/gcc/arm-none-eabi/14.2.1/cc1 -quiet <flags> -o build/emerald/src/tilesets.o src/tilesets.c
 Memory region         Used Size  Region Size  %age Used
            EWRAM:      226760 B       256 KB     86.50%
            IWRAM:       28392 B        32 KB     86.65%
-             ROM:    20316908 B        32 MB     60.55%
+             ROM:    20317284 B        32 MB     60.55%
 cd build/emerald && arm-none-eabi-ld -Map ../../pokeemerald.map --print-memory-usage --gc-sections -T ../../ld_script_modern.ld -o ../../pokeemerald.elf <objs> <libs> | cat
 tools/gbafix/gbafix pokeemerald.elf -t"POKEMON EMER" -cBPEE -m01 -r0 --silent
 arm-none-eabi-objcopy -O binary pokeemerald.elf pokeemerald.gba

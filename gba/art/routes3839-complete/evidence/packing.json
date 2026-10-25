@@ -1,5 +1,5 @@
 {
-  "metatiles": 539,
+  "metatiles": 543,
   "allocated_glyphs": 688,
   "palettes_used": [
     0,
@@ -29,5 +29,7 @@
     "/workspace/routes3839-complete-review/gba/art/routes3839-complete/source/porytiles",
     "/workspace/routes3839-complete/include/constants/metatile_behaviors.h"
   ],
-  "exact_rgb555_match": true
+  "exact_rgb555_match": true,
+  "porytiles_base_metatiles": 539,
+  "local_native_repair": "boulder-repair.json"
 }
