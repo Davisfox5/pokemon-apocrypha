@@ -1,0 +1,82 @@
+{
+ "phases": [
+  {
+   "phase": "write",
+   "exit": 0,
+   "observations": 877
+  },
+  {
+   "phase": "read",
+   "exit": 0,
+   "observations": 2
+  },
+  {
+   "phase": "menu",
+   "exit": 0,
+   "observations": 3
+  }
+ ],
+ "frame_parity": {
+  "write": {
+   "frames": 62,
+   "fully_identical": 47,
+   "below_99_5": [
+    [
+     "cherrygrove-start",
+     0.9939
+    ],
+    [
+     "cross-into-route30",
+     0.9089
+    ],
+    [
+     "cross-back-into-cherrygrove",
+     0.9089
+    ],
+    [
+     "item-ball-14-56",
+     0.7214
+    ],
+    [
+     "item-ball-24-83",
+     0.7214
+    ],
+    [
+     "hidden-potion",
+     0.7226
+    ],
+    [
+     "read-sign-9-33",
+     0.724
+    ],
+    [
+     "read-sign-14-77",
+     0.7258
+    ],
+    [
+     "read-sign-21-46",
+     0.7214
+    ],
+    [
+     "read-sign-26-8",
+     0.7169
+    ]
+   ]
+  },
+  "read": {
+   "frames": 1,
+   "fully_identical": 1,
+   "below_99_5": []
+  },
+  "menu": {
+   "frames": 2,
+   "fully_identical": 1,
+   "below_99_5": [
+    [
+     "continue-menu",
+     0.0
+    ]
+   ]
+  }
+ }
+}

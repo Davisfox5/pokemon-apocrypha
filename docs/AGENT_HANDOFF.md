@@ -1,4 +1,31 @@
-## Latest: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)
+## Latest: Routes 30 and 31 by the Mahogany/Route 43 process (October 25)
+
+Owner: "do the routes between Cherrygrove and Violet City in the same manner" as Route 29. Both are HGSS
+only, rendered from DS data at 16 px per cell, and traced square by square. Trees sit on non-overlapping
+2x2 roots, the ground is the Cherrygrove painter, and the catalog art and terrain are Blackthorn's FRLG
+rock, Route 43's pond and the catalog stairs.
+
+- Route 30 = HGSS + (4,2), 36x104. Cherrygrove's band sits south and two rows north repeat HGSS row 0, its
+  stairs as road.
+- Route 31 = HGSS, 64x32. G02 gatehouse and Dark Cave warps sit on HGSS's cells.
+
+Each route has its own CherrygrovePrimary copy (`cherrygrove_route30`, `cherrygrove_route31`), packed
+jointly by `tools/gba/maps/route30_catalog/pair_pack.py`. The cells visible across the 30/31 seam are
+secondary ids both secondaries define.
+
+Engine change (PR #39): a crossing into a map on another primary loads that primary and redraws the whole
+view. The cells on screen otherwise keep the old tilesets' tile numbers.
+
+Checks:
+- Audits are clean: Route 31 has 6 declared gatehouse-base cells.
+- Walkable areas equal HGSS. Route 30 adds the 6 pad road cells.
+- All four seam directions are clean.
+- Porymap 6.3.1 exports equal the native decodes.
+- Both headless runs pass: walks, gate and cave warps, ledges, blocks, items and saves.
+
+Read `gba/art/route30-catalog/README.md` and `gba/art/route31-catalog/README.md`. Next: owner visual review.
+
+## Previous: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)
 
 The owner rejected the October 24 draft: placement, overlapping trees, paths, missing grass, ledges,
 borders and walking routes were wrong. Root causes:

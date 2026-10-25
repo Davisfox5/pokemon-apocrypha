@@ -1,0 +1,499 @@
+[
+ {
+  "phase": "write",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 877,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "cherrygrove-start",
+     "map": 0,
+     "x": 44,
+     "y": 3,
+     "identical": 0.9939
+    },
+    {
+     "shot": "cross-into-route30",
+     "map": 10,
+     "x": 9,
+     "y": 103,
+     "identical": 0.9089
+    },
+    {
+     "shot": "route-007",
+     "map": 10,
+     "x": 11,
+     "y": 97,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-015",
+     "map": 10,
+     "x": 12,
+     "y": 90,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-023",
+     "map": 10,
+     "x": 19,
+     "y": 89,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-031",
+     "map": 10,
+     "x": 19,
+     "y": 81,
+     "identical": 0.9969
+    },
+    {
+     "shot": "route-039",
+     "map": 10,
+     "x": 19,
+     "y": 73,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-047",
+     "map": 10,
+     "x": 19,
+     "y": 65,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-055",
+     "map": 10,
+     "x": 19,
+     "y": 57,
+     "identical": 0.9969
+    },
+    {
+     "shot": "route-063",
+     "map": 10,
+     "x": 13,
+     "y": 55,
+     "identical": 0.9974
+    },
+    {
+     "shot": "route-071",
+     "map": 10,
+     "x": 12,
+     "y": 48,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-079",
+     "map": 10,
+     "x": 11,
+     "y": 41,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-087",
+     "map": 10,
+     "x": 8,
+     "y": 36,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-095",
+     "map": 10,
+     "x": 8,
+     "y": 28,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-103",
+     "map": 10,
+     "x": 7,
+     "y": 21,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-111",
+     "map": 10,
+     "x": 10,
+     "y": 16,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-119",
+     "map": 10,
+     "x": 13,
+     "y": 11,
+     "identical": 0.9955
+    },
+    {
+     "shot": "route-127",
+     "map": 10,
+     "x": 11,
+     "y": 5,
+     "identical": 1.0
+    },
+    {
+     "shot": "route-132",
+     "map": 10,
+     "x": 11,
+     "y": 0,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-015",
+     "map": 10,
+     "x": 10,
+     "y": 16,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-031",
+     "map": 10,
+     "x": 10,
+     "y": 34,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-047",
+     "map": 10,
+     "x": 9,
+     "y": 50,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-063",
+     "map": 10,
+     "x": 9,
+     "y": 67,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-079",
+     "map": 10,
+     "x": 9,
+     "y": 83,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-095",
+     "map": 10,
+     "x": 9,
+     "y": 100,
+     "identical": 1.0
+    },
+    {
+     "shot": "cross-back-into-cherrygrove",
+     "map": 0,
+     "x": 44,
+     "y": 0,
+     "identical": 0.9089
+    },
+    {
+     "shot": "area-6-83",
+     "map": 10,
+     "x": 6,
+     "y": 83,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-9-65",
+     "map": 10,
+     "x": 9,
+     "y": 65,
+     "identical": 1.0
+    },
+    {
+     "shot": "door-front-15-69",
+     "map": 10,
+     "x": 15,
+     "y": 70,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-21-74",
+     "map": 10,
+     "x": 21,
+     "y": 74,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-25-90",
+     "map": 10,
+     "x": 25,
+     "y": 90,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-23-54",
+     "map": 10,
+     "x": 23,
+     "y": 54,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-19-43",
+     "map": 10,
+     "x": 19,
+     "y": 43,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-25-34",
+     "map": 10,
+     "x": 25,
+     "y": 34,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-32-24",
+     "map": 10,
+     "x": 32,
+     "y": 24,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-19-21",
+     "map": 10,
+     "x": 19,
+     "y": 21,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-6-16",
+     "map": 10,
+     "x": 6,
+     "y": 16,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-9-31",
+     "map": 10,
+     "x": 9,
+     "y": 31,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-7-47",
+     "map": 10,
+     "x": 7,
+     "y": 47,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-12-0",
+     "map": 10,
+     "x": 12,
+     "y": 0,
+     "identical": 1.0
+    },
+    {
+     "shot": "door-front-28-8",
+     "map": 10,
+     "x": 28,
+     "y": 9,
+     "identical": 1.0
+    },
+    {
+     "shot": "area-30-9",
+     "map": 10,
+     "x": 30,
+     "y": 9,
+     "identical": 1.0
+    },
+    {
+     "shot": "item-ball-14-56",
+     "map": 10,
+     "x": 14,
+     "y": 57,
+     "identical": 0.7214
+    },
+    {
+     "shot": "item-ball-14-56-gone",
+     "map": 10,
+     "x": 14,
+     "y": 56,
+     "identical": 1.0
+    },
+    {
+     "shot": "item-ball-24-83",
+     "map": 10,
+     "x": 24,
+     "y": 84,
+     "identical": 0.7214
+    },
+    {
+     "shot": "item-ball-24-83-gone",
+     "map": 10,
+     "x": 24,
+     "y": 83,
+     "identical": 1.0
+    },
+    {
+     "shot": "hidden-potion",
+     "map": 10,
+     "x": 15,
+     "y": 34,
+     "identical": 0.7226
+    },
+    {
+     "shot": "house-door-15-69-shut",
+     "map": 10,
+     "x": 15,
+     "y": 70,
+     "identical": 1.0
+    },
+    {
+     "shot": "house-door-28-8-shut",
+     "map": 10,
+     "x": 28,
+     "y": 9,
+     "identical": 1.0
+    },
+    {
+     "shot": "cut-tree-19-9",
+     "map": 10,
+     "x": 19,
+     "y": 10,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-14-77",
+     "map": 10,
+     "x": 14,
+     "y": 78,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-21-46",
+     "map": 10,
+     "x": 21,
+     "y": 47,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-9-33",
+     "map": 10,
+     "x": 9,
+     "y": 34,
+     "identical": 1.0
+    },
+    {
+     "shot": "sign-26-8",
+     "map": 10,
+     "x": 26,
+     "y": 9,
+     "identical": 0.9955
+    },
+    {
+     "shot": "north-pond-edge",
+     "map": 10,
+     "x": 21,
+     "y": 62,
+     "identical": 1.0
+    },
+    {
+     "shot": "south-pond-edge",
+     "map": 10,
+     "x": 25,
+     "y": 90,
+     "identical": 1.0
+    },
+    {
+     "shot": "tall-grass",
+     "map": 10,
+     "x": 6,
+     "y": 18,
+     "identical": 1.0
+    },
+    {
+     "shot": "read-sign-9-33",
+     "map": 10,
+     "x": 9,
+     "y": 34,
+     "identical": 0.724
+    },
+    {
+     "shot": "read-sign-14-77",
+     "map": 10,
+     "x": 14,
+     "y": 78,
+     "identical": 0.7258
+    },
+    {
+     "shot": "read-sign-21-46",
+     "map": 10,
+     "x": 21,
+     "y": 47,
+     "identical": 0.7214
+    },
+    {
+     "shot": "read-sign-26-8",
+     "map": 10,
+     "x": 26,
+     "y": 9,
+     "identical": 0.7169
+    },
+    {
+     "shot": "save-spot",
+     "map": 10,
+     "x": 9,
+     "y": 96,
+     "identical": 1.0
+    }
+   ]
+  }
+ },
+ {
+  "phase": "read",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 2,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "cold-reload",
+     "map": 10,
+     "x": 9,
+     "y": 96,
+     "identical": 1.0
+    }
+   ]
+  }
+ },
+ {
+  "phase": "menu",
+  "exit_code": 0,
+  "stderr": "",
+  "observations": 3,
+  "parity": {
+   "camera_offset": [
+    -112,
+    -72
+   ],
+   "frames": [
+    {
+     "shot": "continue-menu",
+     "map": 10,
+     "x": 9,
+     "y": 96,
+     "identical": 0.0
+    },
+    {
+     "shot": "title-continue",
+     "map": 10,
+     "x": 9,
+     "y": 96,
+     "identical": 1.0
+    }
+   ]
+  }
+ }
+]
