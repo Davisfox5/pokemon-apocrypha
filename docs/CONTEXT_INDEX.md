@@ -12,7 +12,7 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
-| Pallet Town — native GBA redesign | AGENT_HANDOFF.md | Owner rejected both native drafts; rebuild HGSS architecture, town spacing and interiors directly in native GBA. Show actual map previews inline. |
+| Pallet Town — native GBA revision | ../gba/art/pallet-native/README.md | Expanded lots, complete HGSS model conversion, furnished interiors, native Porymap/gameplay evidence. Owner visual review pending. |
 | Rejected Pallet Town proposal | ../gba/art/pallet-town/README.md | Historical only; superseded by the fresh rebuild above |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |

@@ -1,13 +1,17 @@
-## Current owner direction: Pallet visual redesign, GBA retained
+## Current: Pallet Town native GBA revision
 
-The owner rejected the second Pallet build as visually unacceptable: distorted/unclean
-houses, inadequate space, excessive pixelation and crude interiors. They explicitly
-confirmed keeping GBA while dramatically improving art and spatial design. PR #42 and
-hub PR #37 are rejected visual proposals, not accepted work. Do not cite their passing
-technical checks as visual readiness. New work is on `codex/pallet-art-redesign`.
-Use clean, consistently proportioned HGSS architecture, expanded receiving space,
-coherent contemporary interior design, and actual 240x160 gameplay-scale review.
-Work directly in native GBA maps and converted HGSS assets. The owner requires actual native previews and no preliminary artwork requests.
+The owner requires direct native GBA work, HGSS model conversions with FRLG as
+reference, and inline actual map previews. Do not reopen the platform choice.
+Both preceding native drafts are rejected. Current source is
+`codex/pallet-native-revision`; evidence and process are in
+`gba/art/pallet-native/README.md`. Engine PR #45 at
+`14f116de7bb0aa020357e3be34f47264c9b8577f` passes all 19 local runtime phases,
+including 709 blocked edges, actor visibility/palettes and ordinary saves. No remote
+CI runs/checks were returned. See its publication/runtime records for exact
+identities and review status. It expands the receiving layout, retains full
+building geometry and vertex colors, furnishes all four interiors, animates water,
+and continues the inlet in the southern camera border. Source IDs remain stable.
+Technical verification does not establish owner visual acceptance.
 
 ## Latest: Pallet Town rebuilt after owner rejection (October 25)
 

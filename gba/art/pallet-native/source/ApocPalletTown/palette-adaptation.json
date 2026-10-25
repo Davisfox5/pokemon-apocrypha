@@ -1,0 +1,59 @@
+{
+  "initial_banks": 13,
+  "final_banks": 12,
+  "global_color_merges": [
+    {
+      "source": [
+        144,
+        168,
+        176
+      ],
+      "target": [
+        144,
+        160,
+        176
+      ],
+      "distance": 64.0
+    },
+    {
+      "source": [
+        168,
+        176,
+        176
+      ],
+      "target": [
+        176,
+        176,
+        168
+      ],
+      "distance": 102.4
+    },
+    {
+      "source": [
+        152,
+        136,
+        112
+      ],
+      "target": [
+        160,
+        136,
+        112
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        200,
+        176,
+        152
+      ],
+      "target": [
+        192,
+        176,
+        144
+      ],
+      "distance": 102.4
+    }
+  ],
+  "protected_canopy_and_water": true
+}

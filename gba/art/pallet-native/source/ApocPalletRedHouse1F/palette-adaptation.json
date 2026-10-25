@@ -1,0 +1,98 @@
+{
+  "initial_banks": 13,
+  "final_banks": 12,
+  "global_color_merges": [
+    {
+      "source": [
+        32,
+        120,
+        160
+      ],
+      "target": [
+        32,
+        120,
+        168
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        40,
+        128,
+        168
+      ],
+      "target": [
+        40,
+        128,
+        176
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        40,
+        136,
+        184
+      ],
+      "target": [
+        40,
+        136,
+        192
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        232,
+        192,
+        96
+      ],
+      "target": [
+        232,
+        200,
+        96
+      ],
+      "distance": 64.0
+    },
+    {
+      "source": [
+        64,
+        64,
+        56
+      ],
+      "target": [
+        64,
+        64,
+        64
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        184,
+        192,
+        208
+      ],
+      "target": [
+        192,
+        192,
+        208
+      ],
+      "distance": 51.2
+    },
+    {
+      "source": [
+        16,
+        24,
+        56
+      ],
+      "target": [
+        16,
+        24,
+        48
+      ],
+      "distance": 51.2
+    }
+  ],
+  "protected_canopy_and_water": false
+}
