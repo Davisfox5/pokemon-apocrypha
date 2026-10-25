@@ -32,6 +32,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 from tiles import Tileset                            # noqa: E402
+from banks import pack_sets                          # noqa: E402
 
 PRI_NAME, PRI_SYM = 'route30_31', 'Route30Route31Primary'
 PRI_KEEP = (0, 1, 2, 3)              # CherrygrovePrimary's palettes kept as they are
@@ -117,11 +118,29 @@ def plan_cells(spec, jobs):
 def setof(j):
     return frozenset(map(tuple, j['k5'][j['k5'][..., 0] >= 0].reshape(-1, 3).tolist()))
 
+def greedy_banks(groups, shared, own, order):
+    """Route 43's greedy packer, map by map in `order`: each map fills the shared banks' remaining room
+    and its own banks; the next map keeps what the shared banks already hold. Returns as joint_banks."""
+    held = {b: set() for b in shared}
+    out = {}
+    for n in order:
+        sets = next(g for g, allowed in groups if (n, own[n][0]) in allowed)
+        banks = pack_sets(sets, len(shared) + len(own[n]), init=[held[b] for b in shared])
+        if banks is None:
+            return None
+        banks = list(banks) + [set()] * (len(shared) + len(own[n]) - len(banks))
+        for b, c in zip(shared, banks):
+            assert c >= held[b]; held[b] = set(c)
+        for b, c in zip(own[n], banks[len(shared):]):
+            out[(n, b)] = frozenset(c)
+    out.update({('shared', b): frozenset(c) for b, c in held.items()})
+    return out
+
 def joint_banks(groups, shared, own, size=15, time_limit=900):
     """Every colour set of both maps in one integer program (scipy / HiGHS): groups is a list of (sets,
     allowed virtual banks); a virtual bank is ('shared', b) for a primary bank both maps draw, or (map, b)
     for a map's own secondary bank. Each set lies inside one allowed bank, each bank holds at most `size`
-    colours, and the colours placed are as few as can be. Returns {virtual bank: colour set} or None."""
+    colours. Returns {virtual bank: colour set} or None."""
     from scipy.optimize import milp, LinearConstraint, Bounds
     from scipy.sparse import lil_matrix
     vbanks = [('shared', b) for b in shared] + [(n, b) for n, bs in own.items() for b in bs]
@@ -146,7 +165,7 @@ def joint_banks(groups, shared, own, size=15, time_limit=900):
     for b in range(len(vbanks)):
         for c in range(len(cols)): A[r, Y(c, b)] = 1
         lo[r] = 0; hi[r] = size; r += 1
-    cost = np.zeros(nv); cost[nx:] = 1
+    cost = np.zeros(nv)
     res = milp(c=cost, constraints=LinearConstraint(A.tocsr(), lo, hi), integrality=np.ones(nv),
                bounds=Bounds(np.zeros(nv), np.ones(nv)), options=dict(time_limit=time_limit, disp=False))
     print('joint milp', res.status, res.message)
@@ -204,7 +223,13 @@ def pack_pair(engine, specs, upper, lower, offset):
                 if not any(st <= f for f in fixed[n].values())}
         assert all(len(st) <= 15 for st in mine), (n, 'a tile holds more than 15 colours')
         groups.append(([c for c in mine if not any(c < d for d in mine)], [('shared', b) for b in SHARED_BANKS] + [(n, b) for b in own[n]]))
-    vb = joint_banks(groups, SHARED_BANKS, own)
+    vb = None
+    for order in (tuple(specs), tuple(specs)[::-1]):
+        vb = greedy_banks(groups, SHARED_BANKS, own, order)
+        if vb is not None:
+            print('greedy banks, order', order); break
+    if vb is None:
+        vb = joint_banks(groups, SHARED_BANKS, own)
     assert vb is not None, 'the two routes do not fit their banks'
     shared = {b: vb[('shared', b)] for b in SHARED_BANKS}
     pal = {n: {**{b: vb[(n, b)] for b in own[n]}, **shared} for n in specs}
