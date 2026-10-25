@@ -1,0 +1,140 @@
+{
+ "events": {
+  "moves": [
+   {
+    "event": "CherrygroveRoute30Approach_RouteSign",
+    "cell": [
+     14,
+     77
+    ],
+    "hgss": [
+     10,
+     75
+    ],
+    "text": "Rt. 30 South to Cherrygrove City"
+   },
+   {
+    "event": "CherrygroveRoute30Approach_JunctionSign",
+    "cell": [
+     21,
+     46
+    ],
+    "hgss": [
+     17,
+     44
+    ],
+    "text": "Mr. Pok\u00e9mon\u2019s House Straight Ahead!"
+   },
+   {
+    "event": "CherrygroveRoute30Approach_TrainerTips",
+    "cell": [
+     9,
+     33
+    ],
+    "hgss": [
+     5,
+     31
+    ],
+    "text": "Trainer Tips No stealing other people\u2019s Pok\u00e9mon! Pok\u00e9 Balls are to be thrown only at wild Pok\u00e9mon!"
+   },
+   {
+    "event": "CherrygroveRoute30Approach_MrPokemonSign",
+    "cell": [
+     26,
+     8
+    ],
+    "hgss": [
+     22,
+     6
+    ],
+    "text": "Mr. Pok\u00e9mon\u2019s House"
+   },
+   {
+    "event": "hidden Potion",
+    "cell": [
+     15,
+     33
+    ],
+    "hgss": [
+     11,
+     31
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE30_POTION"
+   },
+   {
+    "event": "std_hiddenitem_r29_r30_t21_nugget",
+    "hgss": [
+     28,
+     102
+    ],
+    "note": "outside Route 30 (the Route 29/30/Cherrygrove border Nugget): not placed"
+   },
+   {
+    "event": "item ball ITEM_ANTIDOTE",
+    "cell": [
+     14,
+     56
+    ],
+    "hgss": [
+     10,
+     54
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE30_ANTIDOTE",
+    "hgss_flag": "FLAG_HIDE_ITEMBALL_R30_ANTIDOTE"
+   },
+   {
+    "event": "item ball ITEM_POTION",
+    "cell": [
+     24,
+     83
+    ],
+    "hgss": [
+     20,
+     81
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE30_POTION",
+    "hgss_flag": "FLAG_HIDE_ITEMBALL_R30_POTION"
+   }
+  ],
+  "cut_trees": [
+   [
+    19,
+    9
+   ]
+  ]
+ },
+ "native_pixels_differing": 0,
+ "reach": {
+  "native_with_cut": 1335,
+  "native_before_cut": 1334,
+  "hgss": 1329,
+  "native_only": [
+   [
+    10,
+    0
+   ],
+   [
+    10,
+    1
+   ],
+   [
+    11,
+    0
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    12,
+    1
+   ]
+  ],
+  "hgss_only": [],
+  "north_edge_reached": true
+ }
+}
