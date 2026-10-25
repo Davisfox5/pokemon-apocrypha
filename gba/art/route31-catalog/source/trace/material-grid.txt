@@ -1,0 +1,56 @@
+# Route 31 native material grid (64x32), one code per 16x16 cell. Native = HGSS.
+#   g  lawn
+#   d  dirt road
+#   f  lawn with flowers
+#   l  light lawn patch
+#   G  tall grass (G15)
+#   t  tree root (T01)
+#   o  woods cell no root fits: blocked lawn under the woods edge
+#   k  woods cell under the crown of the tree south of it (blocked)
+#   L  jump ledge south
+#   Q  jump ledge west
+#   E  jump ledge east
+#   J  ledge end (blocked)
+#   ~  pond water (Surf)
+#   ^  stairs
+#   R  rock (terrace, FRLG faces)
+#   B  Violet gatehouse (G02)
+#   W  gatehouse doorway (warp)
+#   C  cave mouth
+#   V  Dark Cave entrance (warp)
+#   s  sign
+#   c  cuttable tree (object)
+#   X  other blocked
+#   x: 0123456789012345678901234567890123456789012345678901234567890123
+000   ttttttttttttttttttttttttttttttttttttttttttttRRRRRRRRRRRRRRRRRRRR
+001   ttttttttttttttttttttttttttttttttttttttttttttRRRRRRRRRRRRRRRRRRRR
+002   ttttttttttttttttttttttttttttttttttttttttttttRRRRRRRRRRRRRRRRRRRR
+003   ttttttttttttttttttttttttttttttttttttttttttttRRRRRRRRRRRRRRRRRRRR
+004   tttttttttttttttttttttttttt~~~~~~~~RRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+005   tttttttttttttttttttttttttt~~~~~~~~RRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+006   tttttttttttttttttttttttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+007   tttttttttttttttttttttttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+008   tttttttttttttttttttttttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+009   tttttttttttttttttttttttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+010   XXXXXXgggggggffffgggtttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+011   BBBBBBggggggggffggggtttttt~~~~~~~~RRttttttttttttRRRRRRRRRRRRRRRR
+012   BBBBBBddddsdddddddddgcgggg~~~~~~~~RRttttttttffggRRRRCCCRRRRRRRRR
+013   BBBBBBWddddddddddddddEdddgggggg~~~RRttttttttfgggRRRRCVCRRRRRRRRR
+014   BBBBBBWddddddddddddddEdddgggggg~~~RRttttttttgggggggsddddtttttttt
+015   BBBBBBdddddddddddddddEdddgggggggggRRttttttttgggggggdddddtttttttt
+016   BBBBBBgggggggggggggggEdddddddddddd^^llllllllggggggggdddgtttttttt
+017   kkkkkkkkgggggggggggggEdddddddddddd^^llllllllggggggggggfftttttttt
+018   ttttttttLLLggLLLLLLLLJkkdddddddddd^^llllllllgggggggggffftttttttt
+019   ttttttttGGGGGGGGGGGGGGttggggggggggRRkkkklkkkkkkkkkkggffftttttttt
+020   ttttttttGGGGGGGGGGGGGGttLLLggLLLLLRRttttgttttttttttgggfftttttttt
+021   ttttttttkkkkGGGGGGGGGGggGGGGggggggRRttttcttttttttttgggggtttttttt
+022   ttttttttttttGGGGGGGGGGggGGGGggggggRRttgggttttttttttgggggtttttttt
+023   ttttttttttttkkkkGGGGggGGGGGGggggggRRttgggttttttttttGGGGGtttttttt
+024   ttttttttttttttttGGGGggGGGGGGGGGGGgRRttgggggttttttttGGGGGtttttttt
+025   ttttttttttttttttkkkkkkkkkkkkGGGGGgRRttgggggttttttttGGGkktttttttt
+026   ttttttttttttttttttttttttttttGGGGRRRRttdddggGGGGGGGGGGGtttttttttt
+027   ttttttttttttttttttttttttttttkkkkRRRRttdddggGGGGGGGGGGGtttttttttt
+028   ttttttttttttttttttttttttttttttttRRttttdddggGGGGGGGGGGGtttttttttt
+029   ttttttttttttttttttttttttttttttttRRttttdddggGGGGGGGGGGGtttttttttt
+030   ttttttttttttttttttttttttttttttttRRttttdddggggGGGGGGGGGtttttttttt
+031   ttttttttttttttttttttttttttttttttRRttttdddggggGGGGGGGGGtttttttttt

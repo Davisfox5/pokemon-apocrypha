@@ -1,0 +1,76 @@
+{
+  "catalog": {
+    "repository": "pokemon-apocrypha",
+    "branch": "codex/violet-city",
+    "commit": "de5d8cfb707f8614c25977c6d186ddfaaa8fc035",
+    "rule": "Masters copied byte for byte; native tile ids and palette slots may differ, visible colours do not."
+  },
+  "P13.png": {
+    "source": "gba/art/johto-common/scenery/source/P13.png",
+    "sha256": "5e22313c97bb29ff0ed2784a22cc05749972f6bbe22d340b74cf40ae04171c7c"
+  },
+  "P14.png": {
+    "source": "gba/art/johto-common/scenery/source/P14.png",
+    "sha256": "f738448bf45e632435a39f680f855b780e2f4f81d4ab1b8410ee57cf951e03a4"
+  },
+  "L11.png": {
+    "source": "gba/art/johto-common/scenery/source/L11.png",
+    "sha256": "0ffad8862837284f5436cb3d61afdffc2651f52ce69a93f3a05aef322c704f42"
+  },
+  "L12.png": {
+    "source": "gba/art/johto-common/scenery/source/L12.png",
+    "sha256": "0a0d7c4afc968a63361ae14efa0a897fe1a22b89ef76e2f72a309553d3f74b8f"
+  },
+  "L13.png": {
+    "source": "gba/art/johto-common/scenery/source/L13.png",
+    "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
+  },
+  "G15.png": {
+    "source": "gba/art/johto-common/scenery/source/G15.png",
+    "sha256": "20d6b662ad421000b4e5b6950f4fb050b5a05da5397fe99610a8340281690d54"
+  },
+  "S04.png": {
+    "source": "gba/art/johto-common/scenery/source/S04.png",
+    "sha256": "90fd9afe50ecbc29485328588a6e66e387c17b351f3e1696ea716a33ab5adc46"
+  },
+  "S05.png": {
+    "source": "gba/art/johto-common/scenery/source/S05.png",
+    "sha256": "c9d4624138b837abacf63cb6d9dda9322c455c6110a22c3f4e4d16f1ded6616f"
+  },
+  "T01.png": {
+    "source": "gba/art/johto-common/trees/source/T01.png",
+    "sha256": "906396840faaa3f4f19d8c9d1c43f98e689f3436362d5c7cd368feab0c9a058a"
+  },
+  "G02.png": {
+    "source": "gba/art/johto-common-review/gates/refinement-4/G02.png",
+    "sha256": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6"
+  },
+  "pond/pond-15-0.png": {
+    "source": "gba/art/route-43/source/shared-art/pond/pond-15-0.png",
+    "branch": "claude/route-43",
+    "commit": "b9eb369cb4b867297d42033efbf0cbd60a13a09b",
+    "original": "gba/art/route30-hgss-blocks/source/materials/pond-15-0.png",
+    "sha256": "87939ef6230f5330ef8ddcb8046b1a037190ad67d3d3b295bc52ea9a23e09fba"
+  },
+  "pond/pond-15-1.png": {
+    "source": "gba/art/route-43/source/shared-art/pond/pond-15-1.png",
+    "branch": "claude/route-43",
+    "commit": "b9eb369cb4b867297d42033efbf0cbd60a13a09b",
+    "original": "gba/art/route30-hgss-blocks/source/materials/pond-15-1.png",
+    "sha256": "97aa0889c8587413b0157386ad0d99b08137e80fa4827aab2b80b115cf772659"
+  },
+  "pond/pond-15-2.png": {
+    "source": "gba/art/route-43/source/shared-art/pond/pond-15-2.png",
+    "branch": "claude/route-43",
+    "commit": "b9eb369cb4b867297d42033efbf0cbd60a13a09b",
+    "original": "gba/art/route30-hgss-blocks/source/materials/pond-15-2.png",
+    "sha256": "0b2a74f4ac09fdf4ee8ab20017fbdad45f0d2bb213e0145c17c5acd3b4f786e7"
+  },
+  "pond/pond-15-3.png": {
+    "source": "gba/art/route-43/source/shared-art/pond/pond-15-3.png",
+    "branch": "claude/route-43",
+    "commit": "b9eb369cb4b867297d42033efbf0cbd60a13a09b",
+    "original": "gba/art/route30-hgss-blocks/source/materials/pond-15-3.png",
+    "sha256": "8bbe1922f4fd96a51a6c901e236d63fe1098f475b38aef5b840168f8fe424d36"
+  }
+}

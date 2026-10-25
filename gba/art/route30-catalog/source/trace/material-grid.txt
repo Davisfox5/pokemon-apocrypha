@@ -1,0 +1,127 @@
+# Route 30 native material grid (36x102), one code per 16x16 cell. Native = HGSS + (4, 0); 4 rock-side columns west, 6 padding rows south.
+#   g  lawn
+#   d  dirt road
+#   f  lawn with flowers
+#   l  light lawn patch
+#   G  tall grass (G15)
+#   t  tree root (T01)
+#   o  woods cell no root fits: blocked lawn under the woods edge
+#   k  woods cell under the crown of the tree south of it (blocked)
+#   L  jump ledge south
+#   Q  jump ledge west
+#   E  jump ledge east
+#   J  ledge end (blocked)
+#   ~  pond water (Surf)
+#   ^  stairs
+#   R  rock (terrace, FRLG faces)
+#   H  house
+#   D  house door
+#   n  fence
+#   s  sign
+#   c  cuttable tree (object)
+#   X  other blocked
+#   P  Cherrygrove's north forest band (its metatiles, south padding)
+#   p  Cherrygrove's road in the band
+#   x: 012345678901234567890123456789012345
+000   ttttRRRRRR^^^RRRRRRRRRRRRRRRRRRRRRRR
+001   ttttRRRRRR^^^RRRRRRRRRRRRRRRRRRRRRRR
+002   ttttttttttdddgttRRRRRRRRRRRRRRRRRRRR
+003   ttttttttttdddgttRttttggggnHHHHHttRRR
+004   ttttttttttLLLgttRttttggggnHHHHHttRRR
+005   ttttttttttdddgttRttttggggnHHHHHttRRR
+006   ttttttttttdddgggRttttggggnsHDHHttRRR
+007   ttttttttttdddggg^ggcgggggggggggttRRR
+008   ttttttttGGdddggg^gggkkgggllllgfttRRR
+009   ttttttttGGdddgkkRgggttggfllllffttRRR
+010   ttttttGGGGdddgttRkkkttgfgllllgfttRRR
+011   ttttttGGGGdddgttRttttggggllllggttRRR
+012   ttttttGGGGdddgttRttttggggllllggttRRR
+013   ttttttGGGgdddgttRttggggggggggggttRRR
+014   ttttttGGggdddgttRttggggggggGGGGttRRR
+015   ttttttGGLLLLLLttRttggggggggGGGGGGRRR
+016   ttttttGGggdddgttRttGGGGkkkkGGGGGGRRR
+017   ttttttGGggdddgttRttGGGGttttGGGGGGRRR
+018   ttttttGGggdddgttRttGGggttttkkGGGGRRR
+019   ttttttGGGGdddgttRttggggttttttGGGGRRR
+020   ttttttGGGGdddgttRttggggttttttkkGGRRR
+021   ttttttGGGGdddgttRttggggttttttttGGRRR
+022   ttttttGGGGdddgttRttggggttttttttGGRRR
+023   ttttttkkggdddgttRggggggttttGGGGGGRRR
+024   ttttttttggdddgttRggGGkkttttGGGGGGRRR
+025   ttttttttggdddgttRGGGGttttttGGGGGGRRR
+026   ttttttttgLLLLLttRGGGGttttttGGGGGGRRR
+027   ttttttttggdddgttRGGGGttttttggggkkRRR
+028   ttttttttggdddgggRGGGGttttttllllttRRR
+029   ttttttttggdddfffRGGGGttttggllllttRRR
+030   ttttttttggdddfffRGGGGttttggllllttRRR
+031   ttttttttgsdddfffRggggttttggllllttRRR
+032   ttttttttggdddgffRggggttttggggggttRRR
+033   ttttttttggdddgggRggggGGGGGGGGkkttRRR
+034   ttttttttggdddgggRkkggGGGGGGGGttttRRR
+035   ttttttttRR^^^RRRXttggGGGGGGGGttttRRR
+036   ttttttttRgdddkkkkttkkGGGGGGGGttttRRR
+037   ttttttttRgdddttttttttkkkkggggttttRRR
+038   ttttttttRgdddttttttttttttggggttttRRR
+039   ttttttttRgdddttttttttttttggggttttRRR
+040   ttttttttRLLLdttttttttggggggggttttRRR
+041   ttttttttRgdddGGttttgggfffdddgttttRRR
+042   ttttttttRgdddGGttttgggfffdddgttttRRR
+043   ttttttttRgdddGGGGttgggfffdddgttttRRR
+044   ttttRRRRXgdddGGGGttggsgggdddgttttRRR
+045   ttttRkkgggdddggggggdddddddddgttttRRR
+046   ttttRttgggdddggggffdddddddddgttttRRR
+047   ttttRttgggdddggggffdddddddddgttttRRR
+048   ttttRttdddddddddddddddGGGGGggttttRRR
+049   ttttRttdddddddddddddddGGGGGkkttttRRR
+050   ttttRttdddddddddddddddGGGGGttttttRRR
+051   ttttRttdddggggggggggggGGGGGttttttRRR
+052   ttttRttdddgkkgggggggggGGGGGttttttRRR
+053   ttttRttdddgttggGGGGGGGGGGkkttttttRRR
+054   ttttRttdddgttggGGGGGGGGGGttttttttRRR
+055   ttttRttdddgttggGGGGGGGGGGttttttttRRR
+056   ttttRttdddgttkkkkkkGGGGGGttttttttRRR
+057   ttttRttdddgttttttttGGGGGGttttttttRRX
+058   ttttRttdddgttttttttGGGGGGttttttttRRR
+059   ttttRttdddgttttttttGGGGGGttttttttXRR
+060   ttttRttdddgttttttttGGG~~~~~~tttttttt
+061   ttttRttdddgttttttttGGG~~~~~~tttttttt
+062   ttttRttdddgttttttttGGG~~~~~~tttttttt
+063   ttttRttdddgttttttttGGG~~~~~~tttttttt
+064   ttttRttLLLLttttttttGGG~~~~~~tttttttt
+065   ttttRttdddggnHHHHHgggg~~~~~~tttttttt
+066   ttttRttdddggngHHHHgggg~~~~~~tttttttt
+067   ttttRttdddggngHDHHgggg~~~~~~tttttttt
+068   ttttRttdddggggggggffgg~~~~~~tttttttt
+069   ttttRttdddddddddddfffg~~~~~~tttttttt
+070   ttttRttdddddddddddfffg~~~~~~tttttttt
+071   ttttRttdddddddddddfffg~~~~~~tttttttt
+072   ttttRttgggggffgdddgffg~~~~~~tttttttt
+073   ttttRttggggfffgdddgggg~~~~~~tttttttt
+074   ttttRttggggffggdddgggg~~~~~~tttttttt
+075   ttttRttgggggggsdddggggkkkkkktttttttt
+076   ttttRttdddddddddddggggtttttttttttttt
+077   ttttRttdddddddddddggggtttttttttttttt
+078   ttttRttdddddddddddggggtttttttttttttt
+079   ttttRttddddgggggggggggtttttttttttttt
+080   ttttRRR^^^^RRRRRRR^^^^RRRRRRRRRRRRRR
+081   ttttRRgddddgggggGGGGGgggggkkkkkkkkkk
+082   ttttRRgddddggggggGGGGGGgggtttttttttt
+083   ttttRRgddddggggggGGGGGGgggtttttttttt
+084   ttttRRgddddggggggGGGGGGGggtttttttttt
+085   ttttRRLLLLLLLLLLLGGGGGkkggtttttttttt
+086   ttttRRgddddgGGGGGGGGGGttggtttttttttt
+087   ttttRRgddddgGGGGGGGGGGttggtttttttttt
+088   ttttRRgddddgGGGGGGGGGGttgg~~~~~~~~tt
+089   ttttRRgddddgkkkkkkkkkkttkk~~~~~~~~tt
+090   ttttRRgddddgtttttttttttttt~~~~~~~~tt
+091   ttttRRgddddgtttttttttttttt~~~~~~~~tt
+092   ttttRRgddddgtttttttttttttt~~~~~~~~tt
+093   ttttRRgddddgtttttttttttttt~~~~~~~~tt
+094   ttttRRgddddgtttttttttttttt~~~~~~~~tt
+095   ttttRRggggggtttttttttttttt~~~~~~~~tt
+096   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP
+097   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP
+098   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP
+099   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP
+100   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP
+101   PPPPPPPPpppPPPPPPPPPPPPPPPPPPPPPPPPP

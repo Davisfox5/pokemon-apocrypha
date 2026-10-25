@@ -1,0 +1,195 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/032_R31.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0230_R31.s",
+      "files/msgdata/msg/msg_0378_R31.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 16,
+        "z": 8,
+        "land_data": 9
+      },
+      {
+        "x": 17,
+        "z": 8,
+        "land_data": 10
+      }
+    ],
+    "origin": [
+      512,
+      256
+    ],
+    "size": [
+      64,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        73
+      ],
+      "east": [],
+      "north": [],
+      "south": [
+        34
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        6,
+        13
+      ],
+      "dest": "MAP_ROUTE_31_VIOLET_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        6,
+        14
+      ],
+      "dest": "MAP_ROUTE_31_VIOLET_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 2,
+      "cell": [
+        53,
+        13
+      ],
+      "dest": "MAP_DARK_CAVE_ROUTE_31_SIDE",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "script": "scr_seq_R31_002",
+      "bg_type": 1,
+      "text": "Rt. 31 West to Violet City"
+    },
+    {
+      "cell": [
+        51,
+        14
+      ],
+      "script": "scr_seq_R31_003",
+      "bg_type": 1,
+      "text": "Dark Cave"
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R31_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        52,
+        17
+      ],
+      "facing": 0,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R31_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        40,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_R31_gsbigman",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        28,
+        15
+      ],
+      "facing": 0,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R31_tree_2",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        21,
+        12
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_011"
+    },
+    {
+      "id": "obj_R31_gsboy1",
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        16,
+        12
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R31_gsboy3",
+      "sprite": "SPRITE_GSBOY3",
+      "cell": [
+        28,
+        23
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R31_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        45,
+        13
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R31_POTION"
+    },
+    {
+      "id": "obj_R31_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        33,
+        25
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R31_POKE_BALL"
+    },
+    {
+      "id": "obj_R31_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        26,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    }
+  ]
+}
