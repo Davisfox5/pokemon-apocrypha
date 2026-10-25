@@ -4,7 +4,7 @@ The owner requires direct native GBA work, HGSS model conversions with FRLG as
 reference, and inline actual map previews. Do not reopen the platform choice.
 Both preceding native drafts are rejected. Current source is
 `codex/pallet-native-revision`; evidence and process are in
-`gba/art/pallet-native/README.md`. Engine PR #45 at
+`gba/art/pallet-native/README.md`. Evidence PR #41; engine PR #45 at
 `14f116de7bb0aa020357e3be34f47264c9b8577f` passes all 19 local runtime phases,
 including 709 blocked edges, actor visibility/palettes and ordinary saves. No remote
 CI runs/checks were returned. See its publication/runtime records for exact

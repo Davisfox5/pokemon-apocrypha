@@ -35,6 +35,8 @@ own material/traversal trace. All 2,368 receiving cells have independent ground,
 foreground, collision, elevation and behavior records. No original-reference
 cell is counted as a traversal match merely because a new layout exists.
 
+Evidence: [draft PR #41](https://github.com/Davisfox5/pokemon-apocrypha/pull/41).
+
 ## Editable source and process
 
 Engine: [draft PR #45](https://github.com/Davisfox5/pokeemerald-expansion/pull/45),
