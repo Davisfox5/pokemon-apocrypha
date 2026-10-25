@@ -1,0 +1,43 @@
+{
+  "map": "KantoSaffronCity",
+  "group": "gMapGroup_Kanto",
+  "size": [
+    66,
+    55
+  ],
+  "primary": "gTileset_KantoSaffronPrimary",
+  "secondary": "gTileset_KantoSaffronCity",
+  "primary_tiles": 512,
+  "secondary_tiles": 338,
+  "secondary_tile_limit": 496,
+  "primary_metatiles": 263,
+  "secondary_metatiles": 300,
+  "colours": 194,
+  "door_metatile": 134,
+  "interiors": {
+    "KantoSaffronDojo": {
+      "size": [
+        25,
+        16
+      ],
+      "tiles": 81,
+      "metatiles": 51
+    },
+    "KantoSaffronSilphLab": {
+      "size": [
+        15,
+        11
+      ],
+      "tiles": 114,
+      "metatiles": 70
+    }
+  },
+  "map_ids": {
+    "KantoSaffronCity": 0,
+    "KantoSaffronPokemonCenter": 1,
+    "KantoSaffronCenterUpstairs": 2,
+    "KantoSaffronMart": 3,
+    "KantoSaffronDojo": 4,
+    "KantoSaffronSilphLab": 5
+  }
+}

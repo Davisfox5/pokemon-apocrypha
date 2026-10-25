@@ -238,6 +238,57 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
+## Kanto towns: FireRed's map, new buildings from Gen 3 art
+
+Owner, Saffron, 2026-10-24 (third round): FireRed's Gen 3 Saffron is the base. The second
+round's HGSS plan with buildings rendered from HGSS's models was turned down as a
+regression ("made for a 1980s game", "boring"). The worked example is
+`gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+
+- Keep every cell FireRed draws and change only what ten years and the story change, each
+  change answering the owner's brief or a DESIGN.md line.
+- A new building is real Gen 3 map art: cells of FireRed's or Emerald's own maps, as the
+  game draws them, cut and put together into a building of the town's own
+  (`saffron/parts.py`). No 3D model renders.
+- Two buildings combined must read as one: one roof line, one facade, one crest, the
+  difference carried by details (Saffron: each school's door curtain). Two halves under a
+  shared roof is the failure the owner named. A wing must change the silhouette of what it
+  joins, built onto it, not set beside it.
+- The ground needs life: lawns, flowers and trees in FireRed's own General pieces (no new
+  colours), with Celadon's lawn edge drawn in the town's colours. A lawn replaces paving
+  or grass only, never a building's cell or a tree's crown (`compose.lawn_ground`). Trees
+  go where they close no walkway: none may make a route between doors, gates and signs
+  longer (`check.py`); flowers and lawns are walkable, so use them on walkways.
+- One building is one material language. Never stack another game's facade under a
+  building's own roof (Silph's Battle Tower wall under FireRed's crown read as pasted on);
+  build the new storeys from the building's own pieces and make it new with its own
+  elements (Silph: the roof atrium's glass carried down the front).
+- Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
+  snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
+  Never ship an inexact colour. If a repack moves a door metatile's banks, index its door
+  frames into the new banks (`saffron/install.py`).
+- A piece another region also has (the Magnet Train's deck) may take its form from that
+  town's native art (kept as a source file with its branch and commit), but Kanto's is its
+  own: recolour it in the Kanto town's palette (Saffron: one of its own banks). Check open PRs for
+  towns other agents built before saying one does not exist.
+- Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
+  FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
+- An interior Kanto needs is FireRed's room, or a room built from FireRed's rooms cell by
+  cell with other rooms' objects laid on by their own pixels, packed into its own
+  secondary on `gTileset_Building` (`saffron/interiors.py`). Exit mats keep
+  `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until their scripts
+  exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
+- Where a line (a track, a bridge) meets a building, the building takes it in: build the
+  meeting in the building's own pieces and carry the line's lines on into it (Saffron's
+  station: a glass platform shed, open at the track, the deck's bed running on inside, its
+  girder becoming the shed's band). A line that stops against a wall reads as dumped there.
+- A building's back row (the top row its pixels reach) is walkable wherever its ground is,
+  drawn above the player, so the player walks behind the roof, never on it. A tall building
+  is not deep: give it more back rows (`compose.BACK_ROWS`; Silph two) and keep a real
+  street behind it, lowering the building if the street is too thin. Clear whatever FireRed
+  had there (railings, signs) when a taller building's roof reaches it.
+- Doors to unbuilt interiors and gates to unbuilt routes are solid.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.

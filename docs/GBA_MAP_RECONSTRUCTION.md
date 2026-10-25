@@ -409,6 +409,56 @@ tools are marked as Blackthorn's.
   and keep the tower's own two sides. A barrel roof's stripes curve, so making each row
   repeat wipes them out; mirror about the door instead.
 
+### Kanto towns
+
+Saffron (`gba/art/saffron-kanto/README.md`) first edited FireRed's map, then (owner,
+2026-10-24) tried HGSS's plan with buildings rendered from HGSS's models, which the owner
+turned down; the third round is FireRed's map again with new buildings cut from Gen 3 map
+art (`saffron/parts.py`). Traps hit there:
+
+- A cut part keeps the ground it was cut from. Flood-fill the ground colours from the
+  part's edges to transparent (`parts.clear_from_edges`), then look at the part on grass
+  as well as on paving: Rustboro's lamp carried pale paving speckles and a grey cast shadow
+  that only showed once a lawn went under it.
+- A roof widened by repeating columns needs its period: the Battle Palace's roof repeats
+  every 8 px, so widening it by whole 8 px bays keeps the tiles shared.
+- Thirteen banks hold about 195 colours, and a whole city repacked from pixels fills them.
+  What made Saffron fit, in order: snapping each part's colours to a colour FireRed already
+  draws within 2.5 5-bit steps, merging colours one step apart in every channel, and an
+  annealed exact fit over maximal colour sets with seed restarts (a greedy fit left 740 tile
+  uses unplaced). Green spaces from FireRed's own grass, flowers and trees cost no colours.
+- A lawn edge drawn on both cells keeps each cell's colours in its own family: the grass
+  rim in a grass colour, the kerb in the paving's own darkest and lightest colours, so no
+  tile mixes the two.
+- After a repack the Center's door metatile drew from banks 10 and 11, not FireRed's 3;
+  the sliding door then played in the wrong colours. Index the door frames into the
+  metatile's banks and name them in the door's palette list (`install.move_door`).
+- A part's colours can all pass the palette fit and still clash: Emerald's deep-blue Battle
+  Tower glass under FireRed's purple and teal Silph crown read as a second building. Judge
+  a combined part at 1x beside its neighbours, not only by its seams.
+- A taller building's roof reaches the row FireRed kept behind the old one: Silph's back
+  row still held FireRed's railings and its old city sign, showing above the roof and
+  blocking the street behind it. Clear the new roof's back row too.
+- A sliding door plays its frames in its own tiles' banks. Once a repack fills every slot,
+  the door's bank can lose a frame-only colour, so give the packer the frames' colours with
+  the door tiles (`pack.door_frame_colours`).
+- With every bank full, a new part's colours cannot simply be snapped to the map's nearest:
+  they land in many banks and leave hundreds of tile uses unplaced (Saffron's deck: 580).
+  One bank's colours fit (the deck in the Dojo's bank, which the owner chose as Kanto's own);
+  so did the part in few of its own colours (Goldenrod's six). Lines that fall on the cell
+  grid help either way.
+- A lawn rectangle drawn by eye ran one column into a house and one cell into a tree's
+  crown poking up from the row below. Check every lawn cell's FireRed picture holds only
+  paving and grass colours before painting it.
+- Trees in pairs filled whole walkways though each alone cost two steps at most. Measure
+  routes with all trees in, against all trees out, not one at a time.
+- A building's foot row can overhang a cell by a pixel or two; such a cell stays
+  walkable and draws below the player, so test the solid front one row higher.
+- FireRed rooms: a decoder that draws a bottom-layer pixel of colour 0 in its tile's bank
+  colour 0 is wrong. On hardware a normal-layer metatile's bottom sits on BG2 over BG3,
+  which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
+  Packing a room from its pixels with every bottom pixel opaque sidesteps it.
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,
