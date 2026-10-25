@@ -18,6 +18,12 @@ at HGSS's south forest border. The Potion is HGSS's item ball at (82,5), `FLAG_I
 (0x264). Crown cells stay solid, so the walkable area equals HGSS. DESIGN.md's Route 29 entry still
 names the ridge and a hidden Potion; it was not edited.
 
+Seam follow-up (owner: "fix the weird borders on the left and right"): HGSS's road met both town roads
+half a cell off, with a wavy edge against the towns' straight kits, and the route's palettes were written
+with a different 8-bit rounding than the towns', so the seam strips showed a shade darker in Porymap. The
+straight runs next to each window now sit on the towns' road rows with the kits' own edge, the windows
+carry the lawn rims, and palettes are written as 5-bit value x 8.
+
 Checks: material audit 3,072/3,072, walkable area equal to HGSS, seams clean, Porymap 6.3.1 export equal
 to the native decode. Headless mGBA walks the route step by step and tours every area; all ledges,
 blocks, grass, signs, the item ball and saves pass. Engine `claude/route29-hgss-decoded` (PR #34). Read

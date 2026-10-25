@@ -53,7 +53,9 @@ CATALOG = {
     'T01.png': 'gba/art/johto-common/trees/source/T01.png',
 }
 TREE_BOX = (896, 80, 928, 128)      # Cherrygrove's standalone tree (cells 56-57, 5-7), as Mahogany's elements.cherry_tree
-ROAD_ROWS = (17, 18, 19)            # Cherrygrove's and New Bark's road rows at the seam (both towns, this map's rows)
+# The towns' roads at the seam, in this map's rows: Cherrygrove's runs on rows 17-19, New Bark's on rows 18-19.
+SEAM_ROAD = {'west': (17, 19), 'east': (18, 19)}
+FLAT_RUN = 2 * PX                   # the painter's edge wave fades out over this many px towards each window
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def rgba(p): return np.array(Image.open(p).convert('RGBA'))
@@ -107,8 +109,10 @@ def road_texture(engine):
     return np.frombuffer(blocks.most_common(1)[0][0], np.uint8).reshape(32, 32, 3)
 
 # --------------------------------------------------------------------------- ground
-def paint_ground(q, road):
-    """The approved painter (Mahogany/Route 43 assemble.paint_ground) on an 8 px material grid."""
+def paint_ground(q, road, runs=(), kits=None):
+    """The approved painter (Mahogany/Route 43 assemble.paint_ground) on an 8 px material grid. Along the
+    straight runs next to the seam windows (`runs`, from ground_quadrants) the edge is the town's own: no
+    wave, and the town kit's edge profile (`kits`, from town_kits), so the two roads meet without a seam."""
     U = 8
     hq, wq = q.shape
     h, w = hq * U, wq * U
@@ -116,7 +120,15 @@ def paint_ground(q, road):
     tex[G.PATH] = road
     ys, xs = np.mgrid[0:h, 0:w]
     wave = np.array(G.WAVE)
-    dx = wave[ys % 32]; dy = wave[(xs + 11) % 32]
+    # The wave fades out over FLAT_RUN px towards the windows and the straight runs, so edges arrive straight.
+    near = np.zeros((h, w))
+    near = np.maximum(near, np.clip(1 - (xs - WINDOW * PX) / FLAT_RUN, 0, 1))
+    near = np.maximum(near, np.clip(1 - ((W - WINDOW) * PX - 1 - xs) / FLAT_RUN, 0, 1))
+    for r in runs:
+        dxr = np.maximum(np.maximum(r['x0'] - xs, xs - (r['x1'] - 1)), 0)
+        near = np.maximum(near, np.clip(1 - dxr / FLAT_RUN, 0, 1) * np.clip(1 - np.abs(ys - r['y']) / FLAT_RUN, 0, 1))
+    fade = 1 - near
+    dx = np.rint(wave[ys % 32] * fade).astype(int); dy = np.rint(wave[(xs + 11) % 32] * fade).astype(int)
     sx = np.clip(xs + dx, 0, w - 1) // U; sy = np.clip(ys + dy, 0, h - 1) // U
     mat = q[sy, sx]
     out = np.zeros((h, w, 3), np.uint8)
@@ -130,6 +142,15 @@ def paint_ground(q, road):
             out[(mat == a) & (dist[b] == k + 1)] = c
         for k, c in enumerate(pb):
             out[(mat == b) & (dist[a] == k + 1)] = c
+    # The straight runs: the town kit's edge pixels, by distance from the edge and x phase.
+    for r in runs:
+        prof = kits[r['side']][r['edge']]                  # {'grass': (32, n, 3|None), 'path': ...}
+        for x in range(r['x0'], r['x1']):
+            for part, sgn in (('grass', -1 if r['edge'] == 'top' else 1), ('path', 1 if r['edge'] == 'top' else -1)):
+                for k, c in enumerate(prof[part][x % 32]):
+                    y = r['y'] + (k if sgn > 0 else -1 - k)
+                    t = tex[G.GRASS if part == 'grass' else G.PATH]
+                    out[y, x] = t[y % t.shape[0], x % t.shape[1]] if c is None else c
     return out, mat
 
 def ground_quadrants(phg, grid):
@@ -165,21 +186,80 @@ def ground_quadrants(phg, grid):
                 q[2 * y:2 * y + 2, 2 * x + 1] = q[2 * y:2 * y + 2, 2 * x]
             elif ch == 'Q':
                 q[2 * y:2 * y + 2, 2 * x] = q[2 * y:2 * y + 2, 2 * x + 1]
+    # HGSS's road meets each seam half a cell lower than the town's road (and, at New Bark, a row taller).
+    # Its straight run next to the window takes the town's road rows, so the two roads meet edge to edge.
+    band = range(2 * (SEAM_ROAD['west'][0] - 3), 2 * (SEAM_ROAD['west'][1] + 4))
+    runs = []
+    for side, start, step in (('west', 2 * WINDOW, 1), ('east', 2 * (W - WINDOW) - 1, -1)):
+        want_top, want_bot = 2 * SEAM_ROAD[side][0], 2 * SEAM_ROAD[side][1] + 1
+        path = [r for r in band if q[r, start] == G.PATH]
+        top0, bot0 = path[0], path[-1]
+        for edge, have, want in (('top', top0, want_top), ('bottom', bot0, want_bot)):
+            qx = start
+            while 0 <= qx < 2 * W:
+                rows = [r for r in band if q[r, qx] == G.PATH]
+                if not rows or (rows[0] if edge == 'top' else rows[-1]) != have:
+                    break                                   # the straight run ends where HGSS's edge turns
+                lo, hi = sorted((have, want))
+                fill = G.PATH if (want < have) == (edge == 'top') else G.GRASS
+                q[lo:hi + 1, qx] = fill
+                q[want, qx] = G.PATH                        # the town's edge row itself is road
+                qx += step
+            # The run's pixels stop one quadrant short of the turn, which the painter rounds as usual.
+            a, b = sorted((start, qx - step))
+            a, b = (a, b - 1) if step > 0 else (a + 1, b)
+            y = want * 8 if edge == 'top' else (want + 1) * 8
+            runs.append(dict(side=side, edge=edge, x0=a * 8, x1=(b + 1) * 8, y=y))
     # Seam windows: the road runs on the towns' road rows; everything else there is lawn.
-    for x in list(range(WINDOW)) + list(range(W - WINDOW, W)):
-        q[:, 2 * x:2 * x + 2] = G.GRASS
-        for y in ROAD_ROWS:
-            q[2 * y:2 * y + 2, 2 * x:2 * x + 2] = G.PATH
-    return q
+    for side, cols in (('west', range(WINDOW)), ('east', range(W - WINDOW, W))):
+        r0, r1 = SEAM_ROAD[side]
+        for x in cols:
+            q[:, 2 * x:2 * x + 2] = G.GRASS
+            q[2 * r0:2 * r1 + 2, 2 * x:2 * x + 2] = G.PATH
+    for r in runs:                                          # the run continues to the window edge
+        if r['side'] == 'west':
+            r['x0'] = WINDOW * PX
+        else:
+            r['x1'] = (W - WINDOW) * PX
+    return q, runs
+
+def town_kits(engine):
+    """Each town's road kit at the seam: {side: (tileset, {row: (even-column id, odd-column id)})}.
+    Rows 16 and 20 (west) and 17 and 20 (east) are the lawn rims either side of each road: plain-lawn
+    primary rim metatiles on the west, picked for the lawn's 2x2 phase (Cherrygrove's own rims there hold
+    trees), and New Bark's own rims on the east."""
+    from tiles import Tileset
+    cg = Tileset(engine, 'cherrygrove', 'cherrygrove'); nb = Tileset(engine, 'new_bark', 'cherrygrove')
+    return {'west': (cg, {16: (0x147, 0x09F), 17: (0x0B4, 0x0B3), 18: (0x004, 0x0C3), 19: (0x0DB, 0x0DA), 20: (0x185, 0x0FB)}),
+            'east': (nb, {17: (0x206, 0x207), 18: (0x154, 0x153), 19: (0x0DB, 0x0DA), 20: (0x209, 0x20B)})}
+
+def kit_profiles(kit):
+    """Each kit's edge pixels as the painter's ring profiles: for the top and bottom road edges, the grass-side
+    and path-side colours by distance from the edge (5 and 4 px, as the painter's), per x phase (32 px). Plain
+    lawn and plain road pixels are None: the painter's own textures fill them."""
+    lawn = {(104, 200, 152), (104, 208, 152)}
+    body = {(224, 200, 128), (216, 184, 128)}
+    out = {}
+    for side, (ts, rows) in kit.items():
+        r0, r1 = SEAM_ROAD[side]
+        strip = np.zeros(((r1 - r0 + 3) * PX, 32, 3), np.uint8)
+        for i, y in enumerate(range(r0 - 1, r1 + 2)):
+            for p in (0, 1):
+                strip[i * PX:(i + 1) * PX, p * PX:(p + 1) * PX] = np.array(ts.render(rows[y][p]).convert('RGB'))
+        yt, yb = PX, (r1 - r0 + 2) * PX                     # first road px row, first rim px row below the road
+        def col(x, ys, plain):
+            return [None if tuple(strip[y, x]) in plain else tuple(int(v) for v in strip[y, x]) for y in ys]
+        out[side] = {'top': {'grass': [col(x, range(yt - 1, yt - 6, -1), lawn) for x in range(32)],
+                             'path': [col(x, range(yt, yt + 4), body) for x in range(32)]},
+                     'bottom': {'grass': [col(x, range(yb, yb + 5), lawn) for x in range(32)],
+                                'path': [col(x, range(yb - 1, yb - 5, -1), body) for x in range(32)]}}
+    return out
 
 def seam_windows(engine, bottom, flat):
     """The seam windows carry the towns' own road: Cherrygrove's road kit on the west side and New Bark's on
     the east side, on both towns' road rows, plain lawn elsewhere; flat details are left out (a town draws
     these cells with its own tilesets, which hold no tall grass or HGSS flowers)."""
-    from tiles import Tileset
-    cg = Tileset(engine, 'cherrygrove', 'cherrygrove'); nb = Tileset(engine, 'new_bark', 'cherrygrove')
-    kit = {'west': (cg, {17: (0x0B4, 0x0B3), 18: (0x004, 0x0C3), 19: (0x0DB, 0x0DA)}),
-           'east': (nb, {17: (0x206, 0x207), 18: (0x154, 0x153), 19: (0x0DB, 0x0DA)})}
+    kit = town_kits(engine)
     lawn = G.textures()[G.GRASS]
     ys, xs = np.mgrid[0:PX, 0:PX]
     for side, cols in (('west', range(WINDOW)), ('east', range(W - WINDOW, W))):
@@ -301,8 +381,8 @@ def compose(phg, engine):
     roots = [tuple(r) for r in json.loads((TRACE / 'trees.json').read_text())['roots']]
     tex = G.textures()
     road = road_texture(engine)
-    q = ground_quadrants(phg, grid)
-    bottom, mat = paint_ground(q, road)
+    q, runs = ground_quadrants(phg, grid)
+    bottom, mat = paint_ground(q, road, runs, kit_profiles(town_kits(engine)))
     # Flat ground details (light lawn, flowers, tall grass, ledges) form their own layer: the packer puts
     # them over the plain lawn on the upper tile layer, or into the ground under a cell drawn above the player.
     owner = np.full((H * PX, W * PX), '', object)

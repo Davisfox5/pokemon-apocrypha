@@ -52,10 +52,14 @@ the owner accepted for Mahogany Town (PR #28) and reviewed on Route 43 (PR #33).
 5. **Seams** (`pack.py`, `seams.py`): Gen 3 draws a connected map's 7 nearest columns with the current map's
    tilesets. So Route 29 keeps CherrygrovePrimary unchanged, and its 8-column windows hold only
    metatiles both towns draw identically.
-   - The windows use the towns' own road kits on their road rows.
+   - The windows use the towns' own road kits on their road rows, with the lawn rims either side
+     (Cherrygrove's road on rows 17-19, New Bark's on rows 18-19).
+   - The straight run of HGSS road next to each window takes the town's road rows and the town kit's
+     straight, dashed edge, so the roads meet edge to edge. The painter's wavy edge fades in from there.
    - New Bark's 10 edge metatiles are carried with their own definitions, palettes included.
 6. **Pack**: exact. Every native pixel keeps its assembled colour. Tiles already in CherrygrovePrimary
-   are reused. 392 secondary tiles, 256 metatiles, banks 6-11.
+   are reused. 433 secondary tiles, 271 metatiles, banks 6-11. Palettes are written as the towns' are
+   (5-bit value x 8), so Porymap shows the route and the seam windows in the same shades.
 7. **Events**: both signs, both cuttable trees and the gatehouse warp sit on HGSS's cells. HGSS's item ball
    (`obj_R29_monstarball`, a Potion) is an Emerald item ball at (82,5), flag
    `FLAG_ITEM_APOC_ROUTE29_POTION` (0x264, the flag the hidden Potion used).
@@ -101,6 +105,10 @@ popup, sprites and the Continue menu.
 - **Padding.** Three rows above HGSS row 0, four columns west and two east are forest, so the seams
   and connections line up.
 - **Seam windows.** In the windows, a crown over a woods cell is solid, as on both towns' forest edges.
+- **Seam roads.** HGSS's road meets the west seam half a cell lower than Cherrygrove's, and at the east seam
+  it is a cell taller than New Bark's (half a cell above and below). Its straight runs there (columns 8-14 on the
+  north edge and 8-11 on the south edge in the west, columns 90-93 in the east) sit on the towns' rows.
+  Walking is unchanged.
 - **Gatehouse.** The doorway stays shut: no Route 46 gatehouse interior exists.
 - **Cuttable trees.** HGSS's cuttable trees are native cuttable-tree objects (`EventScript_CutTree`).
 - **West sign.** It reuses the route's existing sign script; its text names Cherrygrove.

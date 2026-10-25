@@ -425,7 +425,8 @@ def pack(engine):
     meta_rows = [(tuple([0] * 8), 0)] * n_sec
     for key, mid in sec_meta.items():
         meta_rows[mid - 512] = key
-    pals = {b: [tuple((v << 3) | (v >> 2) for v in c) for c in order5[b]] for b in order5}
+    # 8-bit values as the towns' palettes write them (v << 3), so Porymap shows both in the same shades
+    pals = {b: [tuple(v << 3 for v in c) for c in order5[b]] for b in order5}
     for b in fixed_pal:
         pals[b] = list(fixed_pal[b])
     return dict(words=words, trav=trav, sec_tiles=sec_tiles, pals=pals, meta_rows=meta_rows, pins=pins,
