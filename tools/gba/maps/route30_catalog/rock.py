@@ -83,14 +83,15 @@ def rock_frlg(cells, d, isrock, base, pieces, tex):
     clamp = lambda x, y: (min(max(x, 0), W - 1), min(max(y, 0), H - 1))
     lvl = lambda x, y: d[clamp(x, y)[1], clamp(x, y)[0]]
     fill = np.array([ROCK_RAMP[i] for i in nine[('M', 'M')].ravel()], np.uint8).reshape(16, 16, 3)
-    plain = {k: np.tile(tex[k][oy:oy + 8, ox:ox + 8], (2, 2, 1)) for k, (oy, ox) in PLAIN.items()}
+    plain = {k: np.tile(tex[k][oy:oy + 8, ox:ox + 8], (2, 2, 1)) for k, (oy, ox) in PLAIN.items() if k in tex}
+    plain.update({k: v for k, v in tex.items() if k not in PLAIN})   # other floors (water) come as 16x16 blocks
     def beyond(x, y):
         cx, cy = clamp(x, y)
         if isrock[cy, cx]:
             return fill, 'rock'
         k = cells[cy][cx]['floor']
         return plain[k], k
-    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None)
+    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None, water=None)   # no cast shadow on water
     piece = np.full((H, W), '', object)
     for y in range(H):
         for x in range(W):

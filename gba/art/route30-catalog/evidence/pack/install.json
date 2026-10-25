@@ -4,7 +4,7 @@
    {
     "event": "CherrygroveRoute30Approach_RouteSign",
     "cell": [
-     14,
+     15,
      77
     ],
     "hgss": [
@@ -16,7 +16,7 @@
    {
     "event": "CherrygroveRoute30Approach_JunctionSign",
     "cell": [
-     21,
+     22,
      46
     ],
     "hgss": [
@@ -28,7 +28,7 @@
    {
     "event": "CherrygroveRoute30Approach_TrainerTips",
     "cell": [
-     9,
+     10,
      33
     ],
     "hgss": [
@@ -40,7 +40,7 @@
    {
     "event": "CherrygroveRoute30Approach_MrPokemonSign",
     "cell": [
-     26,
+     27,
      8
     ],
     "hgss": [
@@ -52,7 +52,7 @@
    {
     "event": "hidden Potion",
     "cell": [
-     15,
+     16,
      33
     ],
     "hgss": [
@@ -72,7 +72,7 @@
    {
     "event": "item ball ITEM_ANTIDOTE",
     "cell": [
-     14,
+     15,
      56
     ],
     "hgss": [
@@ -85,7 +85,7 @@
    {
     "event": "item ball ITEM_POTION",
     "cell": [
-     24,
+     25,
      83
     ],
     "hgss": [
@@ -98,7 +98,7 @@
   ],
   "cut_trees": [
    [
-    19,
+    20,
     9
    ]
   ]
@@ -110,14 +110,6 @@
   "hgss": 1329,
   "native_only": [
    [
-    10,
-    0
-   ],
-   [
-    10,
-    1
-   ],
-   [
     11,
     0
    ],
@@ -131,6 +123,14 @@
    ],
    [
     12,
+    1
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    13,
     1
    ]
   ],

@@ -10,9 +10,9 @@ is Route 30 alone, kept for comparison.
 
 Route 30 keeps its live connections to Cherrygrove (south, offset 35) and Route 31 (north, offset -27). A
 Gen 3 map draws a connected map's nearest 7 rows with its own tilesets, so Route 30's primary is
-CherrygrovePrimary with only its palettes 4 and 5 changed (`cherrygrove_route30`): every Cherrygrove tile
-and metatile a Cherrygrove cell visible from Route 30 uses keeps its index and look in palettes 0-3;
-palettes 4-5 and the free tile slots hold route art. The route's own art goes in one secondary tileset
+CherrygrovePrimary with palettes 1, 2, 4 and 5 changed (`cherrygrove_route30`): every Cherrygrove tile and
+metatile a Cherrygrove cell visible from Route 30 uses keeps its index and look in palettes 0 and 3 (and
+the pinned blossom bank 10); the freed palettes and the free tile slots hold route art. The route's own art goes in one secondary tileset
 (`route30_hgss`, banks 6-12):
   * the south band (reference.py) is Cherrygrove's own primary metatiles, so Cherrygrove draws it exactly,
     and Cherrygrove's own top rows are primary metatiles, which Route 30 draws exactly; the west wall runs
@@ -50,8 +50,8 @@ MAP, LAYOUT = 'CherrygroveRoute30Approach', 'LAYOUT_CHERRYGROVE_ROUTE30_APPROACH
 TS_NAME, TS_SYM = 'route30_hgss', 'Route30Hgss'
 R31_OFFSET = -27                     # Route 30's "up" connection (route31_catalog/reference.py R30_OFFSET)
 PRI_NAME, PRI_SYM = 'cherrygrove_route30', 'CherrygroveRoute30Primary'
-PRI_KEEP = (0, 1, 2, 3)              # CherrygrovePrimary's palettes kept as they are
-PRI_FREE = (4, 5)                    # palettes the route art takes (no Cherrygrove cell near either seam uses them)
+PRI_KEEP = (0, 3)                    # CherrygrovePrimary's palettes kept as they are
+PRI_FREE = (1, 2, 4, 5)              # palettes the route art takes (no Cherrygrove cell near either seam uses them)
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'
 SEC_TILES = 512
 BANKS = list(PRI_FREE) + list(range(6, 13))

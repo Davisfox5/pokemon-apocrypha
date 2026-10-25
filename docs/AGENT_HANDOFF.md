@@ -31,10 +31,13 @@ Owner review (October 25), refined the same day:
 - The road meets each flight on the flight's own columns.
 - HGSS moved one column east, so the trees stand in the Cherrygrove band's columns. Route 30/31 offsets
   are -27/27.
-- Cherrygrove's east-west cliff turns north at Cherrygrove columns 40-41 and runs through the band into
-  Route 30's west wall (`cherrygrove_wall.py`, run after the pack). The wall's cells sit at secondary ids
+- Johto rock colouring: the owner-locked Mahogany's, Blackthorn's FRLG terraces in the HGSS ramp
+  (`rock.py` ROCK_RAMP, identical in Mahogany, Route 43, Blackthorn and Route 30). Use it for Johto rock.
+- Cherrygrove's sea cliff is redrawn in it and turns north at Cherrygrove columns 40-41 into Route 30's west
+  wall, at HGSS's levels (`cherrygrove_wall.py`, run after the pack). The wall's cells sit at secondary ids
   from 596, defined in both Route 30's and Cherrygrove's secondaries. CherrygrovePrimary palette 5's seven
-  unused slots now hold the HGSS rock ramp.
+  unused slots now hold the ramp. Route 30's primary now keeps only palettes 0 and 3 (all its visible
+  Cherrygrove cells use) and frees 1, 2, 4 and 5 for route art.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

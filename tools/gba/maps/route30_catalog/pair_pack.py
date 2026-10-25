@@ -8,9 +8,10 @@ assembled RGB555 colour) and the seam rule, then installs the tilesets and has e
 words and events (`pack.py ENGINE --install-words FILE`).
 
   * Each map's primary is CherrygrovePrimary with the palettes the map draws from kept as they are and its
-    other palettes and free tile slots holding route art. Route 30 keeps palettes 0-3 (Cherrygrove's cells
-    across its south seam draw from all four) and every Cherrygrove tile those cells and its south band
-    use, so Cherrygrove draws the same in either primary (seams.py checks). Route 31 never draws
+    other palettes and free tile slots holding route art. Route 30 keeps palettes 0 and 3 (the Cherrygrove
+    cells it can see across its south seam, and its south band, draw only from those and the pinned blossom
+    bank) and every Cherrygrove tile those cells use, so Cherrygrove draws the same in either primary
+    (seams.py checks); palettes 1, 2, 4 and 5 hold route art. Route 31 never draws
     Cherrygrove's sea palette (1), so it keeps 0, 2 and 3 and takes 1, 4 and 5 for route art. Crossing
     between the two loads the other primary (the engine reloads a primary that differs).
   * A Gen 3 map draws a connected map's nearest rows with its own tilesets. Every cell of either route
@@ -366,7 +367,7 @@ def save_spec(path, name, W, H, ground, flat, top, owner, above, behavior, colli
 # --------------------------------------------------------------------------- driver
 ROOT = HERE.parents[3]
 MAPS = dict(route30=dict(tool=HERE / 'pack.py', ts=('route30_hgss', 'Route30Hgss'), pri=('cherrygrove_route30', 'CherrygroveRoute30Primary'),
-                         keep=(0, 1, 2, 3), free=(4, 5), art=ROOT / 'gba/art/route30-catalog'),
+                         keep=(0, 3), free=(1, 2, 4, 5), art=ROOT / 'gba/art/route30-catalog'),
             route31=dict(tool=HERE.parent / 'route31_catalog/pack.py', ts=('route31_hgss', 'Route31Hgss'), pri=('cherrygrove_route31', 'CherrygroveRoute31Primary'),
                          keep=(0, 2, 3), free=(1, 4, 5), art=ROOT / 'gba/art/route31-catalog'))
 UPPER, LOWER, OFFSET = 'route31', 'route30', -27     # Route 30's "up" connection: Route 31 column 0 at Route 30 column -27
