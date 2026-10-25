@@ -1,0 +1,1513 @@
+{
+  "method": "lossless pack on Blackthorn City's tilesets: Blackthorn's primary (tiles 0-511, palettes 0-5, metatiles 0-511); a secondary carrying exact copies of what Blackthorn's visible edge uses, then Route 45's own art",
+  "native_pixels_exact": 1310720,
+  "route45_pixels_in_blackthorn_view": 30080,
+  "route45_pixels_in_blackthorn_view_exact": true,
+  "blackthorn_pixels_in_route45_view": 29568,
+  "blackthorn_pixels_in_route45_view_exact": true,
+  "blackthorn_unchanged_with_appended_metatiles": true,
+  "reserved_metatiles": {
+    "512": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "514": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "516": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "519": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "525": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "540": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "541": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "544": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "545": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "546": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "547": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "611": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "613": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "614": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "628": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "768": [
+      2,
+      3
+    ],
+    "803": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "827": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "831": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "832": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "833": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "838": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "839": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "842": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "843": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "845": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "846": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "847": [
+      2,
+      3
+    ],
+    "848": [
+      2,
+      3
+    ],
+    "849": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "850": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "851": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "852": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "853": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "854": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "855": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "856": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "reserved_tiles": [
+    513,
+    514,
+    515,
+    516,
+    519,
+    520,
+    522,
+    524,
+    525,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    536,
+    537,
+    556,
+    557,
+    558,
+    559,
+    564,
+    565,
+    566,
+    584,
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    594,
+    595,
+    596,
+    597,
+    598,
+    599,
+    703,
+    704,
+    705,
+    706,
+    707,
+    708,
+    709,
+    968,
+    971,
+    972,
+    973,
+    974,
+    975,
+    976
+  ],
+  "reserved_palette_slots": {
+    "6": [
+      3,
+      5,
+      6,
+      8,
+      10,
+      12,
+      14
+    ]
+  },
+  "banks": [
+    15,
+    15,
+    15,
+    12,
+    15,
+    14,
+    15,
+    15,
+    15,
+    15,
+    15,
+    4,
+    1
+  ],
+  "primary_tiles_reused": 52,
+  "new_secondary_tiles": 226,
+  "secondary_tile_slots": 442,
+  "secondary_metatiles": 475,
+  "primary_metatiles_used": 6,
+  "blackthorn_new_tiles": {
+    "first": 992,
+    "count": 0
+  },
+  "blackthorn_appended": {
+    "primary": [],
+    "secondary": [
+      857,
+      858,
+      859,
+      860,
+      861,
+      862
+    ]
+  },
+  "seam": [
+    {
+      "cell": [
+        7,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        8,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        9,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        10,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        11,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        12,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        13,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        14,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        15,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 59
+    },
+    {
+      "cell": [
+        19,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 58
+    },
+    {
+      "cell": [
+        20,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        0
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 857,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          526,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        22,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        27,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        28,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        29,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        30,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        31,
+        0
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        11,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        12,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        13,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        14,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        15,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 76
+    },
+    {
+      "cell": [
+        19,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 75
+    },
+    {
+      "cell": [
+        20,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        1
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 858,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          526,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        22,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        27,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        28,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        29,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        30,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        31,
+        1
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        11,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        12,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        13,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 525
+    },
+    {
+      "cell": [
+        14,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        15,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 59
+    },
+    {
+      "cell": [
+        19,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 58
+    },
+    {
+      "cell": [
+        20,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        2
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 859,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          526,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        22,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        28,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        29,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        30,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        31,
+        2
+      ],
+      "kind": "blackthorn metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        11,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        12,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        13,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        14,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        15,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 76
+    },
+    {
+      "cell": [
+        19,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 75
+    },
+    {
+      "cell": [
+        20,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        3
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 860,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          526,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        22,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        29,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        30,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        3
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        11,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        12,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        13,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        14,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        15,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 59
+    },
+    {
+      "cell": [
+        19,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 58
+    },
+    {
+      "cell": [
+        20,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        4
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 861,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          526,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        22,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        29,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        30,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        4
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        11,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        12,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        13,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        14,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 525
+    },
+    {
+      "cell": [
+        15,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        16,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        17,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 541
+    },
+    {
+      "cell": [
+        18,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 76
+    },
+    {
+      "cell": [
+        19,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 75
+    },
+    {
+      "cell": [
+        20,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 544
+    },
+    {
+      "cell": [
+        21,
+        5
+      ],
+      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
+      "id": 862,
+      "quads": [
+        0,
+        1
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          629,
+          1
+        ],
+        null,
+        null
+      ]
+    },
+    {
+      "cell": [
+        22,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        23,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        24,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 4
+    },
+    {
+      "cell": [
+        25,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 628
+    },
+    {
+      "cell": [
+        26,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        29,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        30,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        5
+      ],
+      "kind": "blackthorn metatile",
+      "id": 512
+    }
+  ],
+  "blackthorn_counts": {
+    "primary_tiles": 512,
+    "primary_metatiles": 512,
+    "secondary_tiles": 480,
+    "secondary_metatiles": 345
+  }
+}

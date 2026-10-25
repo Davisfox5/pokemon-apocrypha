@@ -1,0 +1,1051 @@
+{
+ "note": "Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots (T01 bottom on the root bottom, crown one row behind); the signs stand on HGSS's own.",
+ "objects": [
+  {
+   "name": "sign_12_7",
+   "master": "shared-art/P13.png",
+   "xy": [
+    184,
+    88
+   ],
+   "cell": [
+    12,
+    7
+   ],
+   "base": 118
+  },
+  {
+   "name": "sign_24_7",
+   "master": "shared-art/P14.png",
+   "xy": [
+    376,
+    96
+   ],
+   "cell": [
+    24,
+    7
+   ],
+   "base": 126
+  },
+  {
+   "name": "tree_0",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    2160
+   ],
+   "root": [
+    14,
+    136
+   ],
+   "base": 2202
+  },
+  {
+   "name": "tree_1",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2160
+   ],
+   "root": [
+    16,
+    136
+   ],
+   "base": 2202
+  },
+  {
+   "name": "tree_2",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    2192
+   ],
+   "root": [
+    14,
+    138
+   ],
+   "base": 2234
+  },
+  {
+   "name": "tree_3",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2192
+   ],
+   "root": [
+    16,
+    138
+   ],
+   "base": 2234
+  },
+  {
+   "name": "tree_4",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2224
+   ],
+   "root": [
+    16,
+    140
+   ],
+   "base": 2266
+  },
+  {
+   "name": "tree_5",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2256
+   ],
+   "root": [
+    16,
+    142
+   ],
+   "base": 2298
+  },
+  {
+   "name": "tree_6",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    2288
+   ],
+   "root": [
+    22,
+    144
+   ],
+   "base": 2330
+  },
+  {
+   "name": "tree_7",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    2288
+   ],
+   "root": [
+    24,
+    144
+   ],
+   "base": 2330
+  },
+  {
+   "name": "tree_8",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    2288
+   ],
+   "root": [
+    26,
+    144
+   ],
+   "base": 2330
+  },
+  {
+   "name": "tree_9",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    2320
+   ],
+   "root": [
+    22,
+    146
+   ],
+   "base": 2362
+  },
+  {
+   "name": "tree_10",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    2320
+   ],
+   "root": [
+    24,
+    146
+   ],
+   "base": 2362
+  },
+  {
+   "name": "tree_11",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    2320
+   ],
+   "root": [
+    26,
+    146
+   ],
+   "base": 2362
+  },
+  {
+   "name": "tree_12",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    2352
+   ],
+   "root": [
+    22,
+    148
+   ],
+   "base": 2394
+  },
+  {
+   "name": "tree_13",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    2352
+   ],
+   "root": [
+    24,
+    148
+   ],
+   "base": 2394
+  },
+  {
+   "name": "tree_14",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    2352
+   ],
+   "root": [
+    26,
+    148
+   ],
+   "base": 2394
+  },
+  {
+   "name": "tree_15",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    2384
+   ],
+   "root": [
+    6,
+    150
+   ],
+   "base": 2426
+  },
+  {
+   "name": "tree_16",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    2384
+   ],
+   "root": [
+    8,
+    150
+   ],
+   "base": 2426
+  },
+  {
+   "name": "tree_17",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    2384
+   ],
+   "root": [
+    10,
+    150
+   ],
+   "base": 2426
+  },
+  {
+   "name": "tree_18",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    2416
+   ],
+   "root": [
+    6,
+    152
+   ],
+   "base": 2458
+  },
+  {
+   "name": "tree_19",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    2416
+   ],
+   "root": [
+    8,
+    152
+   ],
+   "base": 2458
+  },
+  {
+   "name": "tree_20",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    2416
+   ],
+   "root": [
+    10,
+    152
+   ],
+   "base": 2458
+  },
+  {
+   "name": "tree_21",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    2448
+   ],
+   "root": [
+    6,
+    154
+   ],
+   "base": 2490
+  },
+  {
+   "name": "tree_22",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    2448
+   ],
+   "root": [
+    8,
+    154
+   ],
+   "base": 2490
+  },
+  {
+   "name": "tree_23",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    2448
+   ],
+   "root": [
+    10,
+    154
+   ],
+   "base": 2490
+  },
+  {
+   "name": "tree_24",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    2448
+   ],
+   "root": [
+    12,
+    154
+   ],
+   "base": 2490
+  },
+  {
+   "name": "tree_25",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    2480
+   ],
+   "root": [
+    6,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_26",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    2480
+   ],
+   "root": [
+    8,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_27",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    2480
+   ],
+   "root": [
+    10,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_28",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    2480
+   ],
+   "root": [
+    12,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_29",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    2480
+   ],
+   "root": [
+    14,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_30",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2480
+   ],
+   "root": [
+    16,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_31",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    2480
+   ],
+   "root": [
+    18,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_32",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    2480
+   ],
+   "root": [
+    20,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_33",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    2480
+   ],
+   "root": [
+    22,
+    156
+   ],
+   "base": 2522
+  },
+  {
+   "name": "tree_34",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    2512
+   ],
+   "root": [
+    6,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_35",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    2512
+   ],
+   "root": [
+    8,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_36",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    2512
+   ],
+   "root": [
+    10,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_37",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    2512
+   ],
+   "root": [
+    12,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_38",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    2512
+   ],
+   "root": [
+    14,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_39",
+   "master": "shared-art/T01.png",
+   "xy": [
+    256,
+    2512
+   ],
+   "root": [
+    16,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_40",
+   "master": "shared-art/T01.png",
+   "xy": [
+    288,
+    2512
+   ],
+   "root": [
+    18,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_41",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    2512
+   ],
+   "root": [
+    20,
+    158
+   ],
+   "base": 2554
+  },
+  {
+   "name": "tree_42",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    2512
+   ],
+   "root": [
+    22,
+    158
+   ],
+   "base": 2554
+  }
+ ],
+ "flower_cells": [
+  [
+   1,
+   135
+  ],
+  [
+   2,
+   135
+  ],
+  [
+   4,
+   83
+  ],
+  [
+   5,
+   129
+  ],
+  [
+   5,
+   130
+  ],
+  [
+   5,
+   131
+  ],
+  [
+   5,
+   132
+  ],
+  [
+   6,
+   130
+  ],
+  [
+   6,
+   131
+  ],
+  [
+   6,
+   146
+  ],
+  [
+   6,
+   147
+  ],
+  [
+   6,
+   148
+  ],
+  [
+   6,
+   149
+  ],
+  [
+   7,
+   148
+  ],
+  [
+   7,
+   149
+  ],
+  [
+   8,
+   138
+  ],
+  [
+   8,
+   139
+  ],
+  [
+   9,
+   97
+  ],
+  [
+   9,
+   98
+  ],
+  [
+   9,
+   99
+  ],
+  [
+   9,
+   103
+  ],
+  [
+   9,
+   104
+  ],
+  [
+   9,
+   121
+  ],
+  [
+   9,
+   122
+  ],
+  [
+   9,
+   138
+  ],
+  [
+   9,
+   139
+  ],
+  [
+   10,
+   50
+  ],
+  [
+   10,
+   53
+  ],
+  [
+   10,
+   122
+  ],
+  [
+   10,
+   124
+  ],
+  [
+   11,
+   124
+  ],
+  [
+   11,
+   125
+  ],
+  [
+   17,
+   132
+  ],
+  [
+   17,
+   133
+  ],
+  [
+   19,
+   110
+  ],
+  [
+   19,
+   111
+  ],
+  [
+   20,
+   140
+  ],
+  [
+   20,
+   149
+  ],
+  [
+   21,
+   119
+  ],
+  [
+   21,
+   140
+  ],
+  [
+   21,
+   148
+  ],
+  [
+   21,
+   149
+  ],
+  [
+   22,
+   118
+  ],
+  [
+   22,
+   119
+  ],
+  [
+   24,
+   110
+  ],
+  [
+   24,
+   111
+  ],
+  [
+   26,
+   132
+  ],
+  [
+   26,
+   133
+  ],
+  [
+   26,
+   141
+  ],
+  [
+   27,
+   132
+  ],
+  [
+   27,
+   133
+  ],
+  [
+   27,
+   134
+  ],
+  [
+   27,
+   140
+  ]
+ ],
+ "tall_grass_pieces": {
+  "G15": 497
+ },
+ "stairs": [
+  {
+   "kind": "row",
+   "cell": [
+    25,
+    23
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    5,
+    37
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    6,
+    55
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "column",
+   "cell": [
+    19,
+    57
+   ],
+   "length": 3,
+   "face": "W"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    15,
+    96
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    26,
+    96
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "column",
+   "cell": [
+    8,
+    117
+   ],
+   "length": 3,
+   "face": "E"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    5,
+    122
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    5,
+    123
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    20,
+    131
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "column",
+   "cell": [
+    0,
+    138
+   ],
+   "length": 3,
+   "face": "W"
+  }
+ ],
+ "cave_mouth": [
+  10,
+  6
+ ],
+ "bridges": [
+  [
+   16,
+   7,
+   22,
+   10
+  ],
+  [
+   8,
+   16,
+   14,
+   19
+  ],
+  [
+   9,
+   41,
+   14,
+   44
+  ],
+  [
+   11,
+   61,
+   16,
+   64
+  ],
+  [
+   11,
+   84,
+   16,
+   87
+  ],
+  [
+   12,
+   117,
+   17,
+   120
+  ],
+  [
+   12,
+   146,
+   18,
+   149
+  ]
+ ],
+ "cascades": [
+  {
+   "row": 55,
+   "cells": [
+    12,
+    14
+   ]
+  },
+  {
+   "row": 96,
+   "cells": [
+    11,
+    13
+   ]
+  },
+  {
+   "row": 123,
+   "cells": [
+    13,
+    15
+   ]
+  }
+ ],
+ "boulders": [
+  {
+   "hgss_xy": [
+    449,
+    213
+   ],
+   "xy": [
+    448,
+    208
+   ],
+   "frlg_xy": [
+    456,
+    216
+   ]
+  },
+  {
+   "hgss_xy": [
+    305,
+    421
+   ],
+   "xy": [
+    304,
+    416
+   ],
+   "frlg_xy": [
+    312,
+    424
+   ]
+  },
+  {
+   "hgss_xy": [
+    337,
+    533
+   ],
+   "xy": [
+    336,
+    528
+   ],
+   "frlg_xy": [
+    344,
+    536
+   ]
+  },
+  {
+   "hgss_xy": [
+    433,
+    1205
+   ],
+   "xy": [
+    432,
+    1200
+   ],
+   "frlg_xy": [
+    440,
+    1208
+   ]
+  },
+  {
+   "hgss_xy": [
+    353,
+    1589
+   ],
+   "xy": [
+    352,
+    1584
+   ],
+   "frlg_xy": [
+    360,
+    1592
+   ]
+  }
+ ]
+}

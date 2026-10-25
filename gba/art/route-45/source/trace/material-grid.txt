@@ -1,0 +1,183 @@
+# Route 45 material and structure grid, one code per native 16x16 cell (x across, y down).
+# Traced from decoded HGSS land_data chunks 108-112 (trace.py), then reviewed. Codes:
+#   g  lawn
+#   d  dirt road
+#   f  lawn with white flowers
+#   r  rock plateau top
+#   F  rock front face (mountain)
+#   E  rock side facing east
+#   W  rock side facing west
+#   N  rock rear rim
+#   w  low wall, front (grass-topped)
+#   e  low wall side facing east
+#   x  low wall side facing west
+#   n  low wall rear rim
+#   L  jump ledge south
+#   Q  jump ledge west
+#   J  ledge corner (blocked)
+#   t  tree root (T01)
+#   B  building / prop footprint
+#   C  Pokemon Center (C06)
+#   G  gatehouse (none on Route 45)
+#   s  sign
+#   x: 01234567890123456789012345678901
+00    rrrrrrrrrrrrrEEEEEggWxdddxgnnnWW
+01    rrrrFFFFFFFFFeEEEEggWxdddWxgnnnW
+02    rrrrEFFFFFFFFwEEEEggWxdddWWxgggg
+03    rFFFerrrrrrrrrEEEEggWxdddWWWrrrr
+04    rEFFFFFFFFFFFFeEEEggWxdddWWWrrrr
+05    rEEFFFFFFFFFFFFeEEggWxdddWWWrrrr
+06    rEEEFFFFFFFFFFFweennxxdddWWWrrrr
+07    rEEEgdddddddsdddeeggxxddsWWWrrrr
+08    rEEEddddddddddddeeggxxdddWWWrrrr
+09    rEEEddddwwwwwwwwwewwxxdddWWWrrrr
+10    rEEEddddewwwwwwwweggWxdddWWxFFFr
+11    rEEEddddeEwwwwwwwFggWxdddWWwFFWr
+12    rEEEddddeEggggggggggWxdddWWrrrWr
+13    rEEEddddeEggnnnnnnnnWxddgWWrrrWr
+14    rEEEgdddeEggxgnnnnnnnxddgWWrggWr
+15    rEEEgdddeennxnggggggggddgWWrrrWr
+16    rEEEgdddeeggxxddddddddddgWWrrrWr
+17    rEEEgdddeeggxxddddddddddgWxFFFWr
+18    rEEEggddeewwxxdddddddddddxwFFWWr
+19    rEEEggggeEggWxLLLLLLLLLLLwwFWWxF
+20    rEEEggggeEggWxdddgggggggggggWxwW
+21    rEEEggggeEggWxdddgggggggggggxwxW
+22    rEEEggggeEggWxdddgnnnnngwgggwxWW
+23    rEEEggggeEggWxLLLxgggggeegggxWWW
+24    rEEEggggeEggWxdddWrrrrrEEdddWWWW
+25    rEEEggggeEggWxdddWrrrrrEELLLWWWW
+26    rEEEggggeEggWxdddWrrrrrEEdddWWWW
+27    rEEEggggeEggWxdddWrggrrEEdddWWWW
+28    rEEEggggeEggWxddgWrrrrrEEddgWWWW
+29    rEEEggggeEggWxddgWrrrrrEEdddWWWW
+30    rEEEggggeEggWxdggWrrrrrEEdddWWWW
+31    rEEEggggeEggWxLLLWrrrrrEEdddWWWW
+32    rEEEggggeEggWxgggWrrrrrEEdddWWWW
+33    rEEEggggeEggWxgggWrrrrrEELLLWWWW
+34    rEEEgggdeEggWxgggWrrrggEEdddWWWW
+35    rEEEddddeEggWxgggWrFFFrEEdddWWWW
+36    rEEEwdddeEggWxgggxFFFWrEEdddWWWW
+37    rEEEegggwEggWxgggwFFrWrEEdddWWWW
+38    rEEEEddddeggxwgggwFWrWFEEdddWWWW
+39    rEEEELLLLeggwxgggggWrFFFEgddWWWW
+40    rEEEEddddennnxgggggxFFFFedddWWWW
+41    rEEEEddddegggxgggggFFFFFwdddWWWW
+42    rEEEEgdddegggxgggggggggdddddWWWW
+43    rEEEEgdddewwwxggggggggggddddWWWW
+44    rEEEEddddegggxggggggggggnnnnWWWW
+45    rEEEELLLLegggxwwgggggddxgnnnnWWW
+46    rEEEEddddegggwwxdddddddWxgnnnnWW
+47    rEEEEggddegggggxLLLLLLLWWxgnnnnW
+48    rEEEEggddenngggxdddddddWWWxggggg
+49    rEEEEddgdggegggxdddddddWWWWrrrrr
+50    rEEEEddddgfegggxdnnddddWWWWrrrrr
+51    rEEEEdddddgegggWxggeLLLWWWWrrrrr
+52    rEEEEdddddgegggWWrrEgggWWWWrrrrr
+53    rEEEEdddddfegggWxFFegggWWWWrrrrr
+54    rEEEEwdddwwegggxwFFwgggWWWWrrrrr
+55    rEEEEegggwwwgggwwFFxgggWWWWrrrrr
+56    rEEEEEdddddegggxgggwgggWWWxFrrrr
+57    rEEEEEdddddegggxgggggggWWWwWrrrr
+58    rEEEEEdddddegggxgggggggWWWrWrrrr
+59    rEEEEELLLLLegggxgggwwwwWWWrWrrrr
+60    rEEEEEdddddennnxgggwwwxWWWrWrrrr
+61    rEEEEEdddddegggxggggggWWWxFWrrrr
+62    rEEEEEdddddegggxggggggWWxwWWrrrr
+63    rEEEEEnddddewwwxggggggWxwxWWrrrr
+64    rEEEEngedddegggxdgggggxwxWWWrrrr
+65    rEEEggeEdddegggxdgggggFxWWWWrrrr
+66    rEEErrEEdddegggxwwddggdWWWWWrrrr
+67    rEEErrEELLLegggwwxdddddWWWWWrrrr
+68    rEEErrEEgggegggggxdddddWWWWxFFFF
+69    rEEErrEEgggegggggxwwdddWWWWwFFFF
+70    rEEErrEEgggenngggwwxdddWWWWrrrrr
+71    rEEErrEEgggggegggggxLLLWWWxFFFFF
+72    rEEErrEEgggggegggggxdddWWWwFFFFF
+73    FeEErrEEgggggenngggxdddWWxFFFFFF
+74    FFEErrEEgggggggegggxLLLWWwFFFFFF
+75    FFFErrEEgggggggegggxdddWWrrrrrrr
+76    rrrErrEEgggggggegggxdddWWrrnnnnr
+77    rrrErrEEgggggggegggxLLLWWrxgggge
+78    rFFErrEEgggwwwwegggxdddWWrWrrrrE
+79    rEFFrrEEgggewwwwgggxdddWWrxFFrrE
+80    rEFFFFeEgggegggggggxdddWxFwFWrrE
+81    rEEFFFFegggegggnnnnxdddxwFwWWrrE
+82    rEEEFFFwgggegggxggggdddwwFxWWrrE
+83    rEEEfgggggdennnxdddQddddddWWWrrE
+84    rEEEggdddddegggxdddQddddddWWWrrE
+85    rEEEgddddddegggxdddQddddddWWxFFe
+86    rEEEdddddddewwwxdddQddddddWWwFFw
+87    rEEELLLLLLLegggxdddQddddddWWrrrr
+88    rEEEdddddddegggxdddQddddddWWrrrr
+89    rEEEddddddwegggxdddJLLLLLLWxFFFr
+90    rEEEgdddddewgggxdddgggggggWwFFWr
+91    rEEEddddddegggnxddggggggggxFFFWr
+92    rEEELLLLLLegggxgddggggggggFFFWxF
+93    rEEEggggggegggxddggggggggggggWwW
+94    rEEEggggggegggxggggggggggggggxFW
+95    rEEEggggwwegggxdddwgnnnngwgggwWW
+96    rEEEggggewwgggwgggxxggggeegggxWW
+97    rEEEggggesegggxdddWWrrrrEEdddWWW
+98    rEEEggggegegggxdddWWrrrrEEgddWWW
+99    rEEEggggegegggxLLLWWrrrrEELLLWWW
+100    rEEEggggegegggxgggWWrrggEEgddWWW
+101    rEEEggggegegggxgggWWrrrrEEgddWWW
+102    rEEEggggegegggxLLLWWrrrrEEgddWWW
+103    rEEEgggdefegggxgggWWrrrrEEddgWWW
+104    rEEEddddefegggxgggWWrrrrEEddgWWW
+105    rEEELLLLegegggxLLLWWrrFFeEddgWWW
+106    rEEEggggegegggxgggWWrrEFFeddgWWW
+107    rEEEggggegegggxgggWxFFeEFwdddWWW
+108    rEEEggggegegggxgggxwFFwEgddddWWW
+109    rEEEggggegegggxgggwwWrrEgdddgWWW
+110    rEEEggggegegggxggggfWrrEfggggWWW
+111    rEEEggggegegggxwwggfxFFefggggWWW
+112    rEEEggggegegggwwxgggwFFFLLLLLWWW
+113    rEEEggddegegggggxggggggggggggWWW
+114    rEEEddddegenngggxggggggggggggWWW
+115    rEEELLLLegggegggxggggggggggggWWW
+116    rEEEddddwdggennnxgggggggnnnnnWWW
+117    rEEEddddgddgegggxggggggxgnnnnnWW
+118    FeEEddddgddgegggxggggggWxggggnnW
+119    EFeEddddwddgewwwxggggggWWrrrxggg
+120    EEFeddddedggegggxLLLLLLWWrnnWrrr
+121    EEEFwdddegggegggxggggggWWxgggrrr
+122    EEEEwgggwwwwegggxwgggggWWWrrrrrr
+123    EEEEegggwwwwwgggwxgggggWWWrrrrrr
+124    EEEEEddddgggegggxxgggggWWWrrrrrr
+125    EEEEEddddgggegggWxgggggWWWrrrrrr
+126    EEEEEgdddgggegggWxgggggWWWrrrrrr
+127    EEEEEgggggggegggWxgggggWWxFFFFFF
+128    EEEEEgggggggegggWxgggggWxwFFFFFW
+129    eEEEEfggggggegggWxgggggxwwFFFFWW
+130    FeEEEffgggwwegggWxwwgggwwwFFFWWW
+131    FFeEEffgggewwgggWwwwgggwwwFFWWWW
+132    FFFeEfggggegggggxgggggggggffWWWW
+133    FFFFegggggeggnnnxgggwwwwwwffWWWW
+134    FFFFwgggggeggxgggggggggggggfWWWW
+135    xffgQgggggeggxggggggggggggggWWWW
+136    xgggQgggggeggxttttggggggggggWWWW
+137    wgggJLLLLLeggxttttggggggggggWWWW
+138    ggggggggffeggxttttggggggggggWWWW
+139    ggggggggffeggxttttgggnnnngggWWWW
+140    wgggggggggeggwwxttggffggggggWWWW
+141    xgggggggggeggggxttggggggggggWWWW
+142    xgggggggggeggggxttggggggggggWWWW
+143    nnnnngggggennggxttggggggggggWWWW
+144    nnnngeggggggeggwwxggggttttttWWWW
+145    nnngeEggggggennnnxLLLLttttttWWWW
+146    nngeEEfgggggeggggxggggttttttWWWW
+147    ggeEEEfgggggeggggxggggttttttWWWW
+148    ddEEEEffggggewwwwxggggttttttWWWW
+149    sdEEEEffggggeggggxwwwwttttttWWWW
+150    ddEEEEtttttteggggwwwwwwwwwwxWWWW
+151    ndEEEEttttttennggggggggggggWWWWW
+152    geEEEEttttttggeggggggggggggWWWWx
+153    rEEEEEttttttggennnnnnnnnnggWWWxw
+154    rEEEEEttttttttggggggggggeggWWxww
+155    rEEEEEttttttttggggggggggeggWxwww
+156    rEEEEEtttttttttttttttttteggxwwww
+157    rEEEEEtttttttttttttttttteggwwwww
+158    rEEEEEtttttttttttttttttteggggggg
+159    rEEEeetttttttttttttttttteggggggg

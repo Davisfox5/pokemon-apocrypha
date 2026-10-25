@@ -1,0 +1,276 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/044_R45.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0258_R45.s",
+      "files/msgdata/msg/msg_0405_R45.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 20,
+        "z": 6,
+        "land_data": 108
+      },
+      {
+        "x": 20,
+        "z": 7,
+        "land_data": 109
+      },
+      {
+        "x": 20,
+        "z": 8,
+        "land_data": 110
+      },
+      {
+        "x": 20,
+        "z": 9,
+        "land_data": 111
+      },
+      {
+        "x": 20,
+        "z": 10,
+        "land_data": 112
+      }
+    ],
+    "origin": [
+      640,
+      192
+    ],
+    "size": [
+      32,
+      160
+    ],
+    "neighbour_headers": {
+      "west": [
+        48
+      ],
+      "east": [],
+      "north": [
+        89
+      ],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        10,
+        6
+      ],
+      "dest": "MAP_DARK_CAVE_ROUTE_45_SIDE",
+      "anchor": 1
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        24,
+        7
+      ],
+      "script": "scr_seq_R45_000",
+      "bg_type": 1,
+      "text": "Rt. 45 Mountain Road ahead"
+    },
+    {
+      "cell": [
+        9,
+        97
+      ],
+      "script": "std_hiddenitem_r45_pp_up",
+      "bg_type": 2,
+      "text": ""
+    },
+    {
+      "cell": [
+        12,
+        7
+      ],
+      "script": "scr_seq_R45_004",
+      "bg_type": 1,
+      "text": "Dark Cave"
+    },
+    {
+      "cell": [
+        0,
+        149
+      ],
+      "script": "std_hiddenitem_r45_r46_pp_max",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R45_mount_2",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        16,
+        30
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_gsman3",
+      "sprite": "SPRITE_GSMAN3",
+      "cell": [
+        25,
+        32
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_mount_2_2",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        7,
+        51
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_gswoman3",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        17,
+        61
+      ],
+      "facing": 3,
+      "movement": 5,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_gsfighter",
+      "sprite": "SPRITE_GSFIGHTER",
+      "cell": [
+        22,
+        86
+      ],
+      "facing": 0,
+      "movement": 2,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_mount_2_3",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        17,
+        108
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_mount_2_4",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        25,
+        109
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        26,
+        140
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        5,
+        34
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R45_ELIXIR"
+    },
+    {
+      "id": "obj_R45_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        22,
+        50
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R45_MAX_POTION"
+    },
+    {
+      "id": "obj_R45_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        13,
+        77
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R45_FULL_HEAL"
+    },
+    {
+      "id": "obj_R45_monstarball_4",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        7,
+        90
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R45_NUGGET"
+    },
+    {
+      "id": "obj_R45_monstarball_5",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        5,
+        110
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R45_REVIVE"
+    },
+    {
+      "id": "obj_R45_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        8,
+        127
+      ],
+      "facing": 0,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R45_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        8,
+        66
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    }
+  ]
+}
