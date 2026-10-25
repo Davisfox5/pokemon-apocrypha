@@ -1,0 +1,80 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "2ffdfbed5027d52d7439e3a0a4f876ac8906733a",
+  "export_vs_native": {
+    "Route42": {
+      "size": [
+        1536,
+        512
+      ],
+      "differing_pixels": 0
+    },
+    "MahoganyTown": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels": 0
+    }
+  },
+  "route42_or_mahogany_files_rewritten": [
+    "data/layouts/MahoganyTown/border.bin",
+    "data/layouts/MahoganyTown/map.bin",
+    "data/layouts/Route42/border.bin",
+    "data/layouts/Route42/map.bin",
+    "data/maps/MahoganyTown/map.json",
+    "data/maps/Route42/map.json",
+    "data/tilesets/primary/mahogany/metatile_attributes.bin",
+    "data/tilesets/primary/mahogany/metatiles.bin",
+    "data/tilesets/primary/mahogany/palettes/00.pal",
+    "data/tilesets/primary/mahogany/palettes/01.pal",
+    "data/tilesets/primary/mahogany/palettes/02.pal",
+    "data/tilesets/primary/mahogany/palettes/03.pal",
+    "data/tilesets/primary/mahogany/palettes/04.pal",
+    "data/tilesets/primary/mahogany/palettes/05.pal",
+    "data/tilesets/primary/mahogany/palettes/06.pal",
+    "data/tilesets/primary/mahogany/palettes/07.pal",
+    "data/tilesets/primary/mahogany/palettes/08.pal",
+    "data/tilesets/primary/mahogany/palettes/09.pal",
+    "data/tilesets/primary/mahogany/palettes/10.pal",
+    "data/tilesets/primary/mahogany/palettes/11.pal",
+    "data/tilesets/primary/mahogany/palettes/12.pal",
+    "data/tilesets/secondary/route_42/metatile_attributes.bin",
+    "data/tilesets/secondary/route_42/metatiles.bin",
+    "data/tilesets/secondary/route_42/palettes/00.pal",
+    "data/tilesets/secondary/route_42/palettes/01.pal",
+    "data/tilesets/secondary/route_42/palettes/02.pal",
+    "data/tilesets/secondary/route_42/palettes/03.pal",
+    "data/tilesets/secondary/route_42/palettes/04.pal",
+    "data/tilesets/secondary/route_42/palettes/05.pal",
+    "data/tilesets/secondary/route_42/palettes/06.pal",
+    "data/tilesets/secondary/route_42/palettes/07.pal",
+    "data/tilesets/secondary/route_42/palettes/08.pal",
+    "data/tilesets/secondary/route_42/palettes/09.pal",
+    "data/tilesets/secondary/route_42/palettes/10.pal",
+    "data/tilesets/secondary/route_42/palettes/11.pal",
+    "data/tilesets/secondary/route_42/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_route42_or_mahogany": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Route 42 or Mahogany are Porymap normalising entries that predate it (key order, \\u escapes)."
+}
