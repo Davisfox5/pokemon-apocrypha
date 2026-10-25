@@ -29,8 +29,12 @@ Owner review (October 25), refined the same day:
 - Second review: the stairs reuse the Johto pieces (`stair_pieces.py`). North-south flights take the earlier
   Route 30's grey treads; east-west flights take Route 36's plank flight.
 - The road meets each flight on the flight's own columns.
-- HGSS moved one column east, so the trees stand in the Cherrygrove band's columns, and the west wall ends
-  above the band. Route 30/31 offsets are -27/27.
+- HGSS moved one column east, so the trees stand in the Cherrygrove band's columns. Route 30/31 offsets
+  are -27/27.
+- Cherrygrove's east-west cliff turns north at Cherrygrove columns 40-41 and runs through the band into
+  Route 30's west wall (`cherrygrove_wall.py`, run after the pack). The wall's cells sit at secondary ids
+  from 596, defined in both Route 30's and Cherrygrove's secondaries. CherrygrovePrimary palette 5's seven
+  unused slots now hold the HGSS rock ramp.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

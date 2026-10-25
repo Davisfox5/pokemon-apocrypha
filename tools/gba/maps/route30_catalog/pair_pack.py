@@ -23,10 +23,14 @@ words and events (`pack.py ENGINE --install-words FILE`).
     palettes.
   * Tiles CherrygrovePrimary already has in a kept palette are reused; the rest go into the map's
     secondary (512 tiles), then into its primary's free slots.
+  * A map's mirror cells (Route 30: its west wall in the south band, which Cherrygrove can see) take
+    secondary ids from the map's mirror base (596, after Cherrygrove's own 84), one per distinct cell, and
+    the map's own cells with the same art share them; cherrygrove_wall.py defines the same ids in
+    Cherrygrove's secondary with Cherrygrove's tiles and palettes.
 """
 from __future__ import annotations
 import json, struct, sys
-from collections import Counter
+from collections import Counter, deque
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -228,6 +232,22 @@ def pack_pair(engine, specs, maps, upper, lower, offset):
             rows[mid - 512] = (defn(q), a)
         prim_index = {(P.metatiles[m], P.attrs[m]): m for m in keep_meta}
         by_key, seam_set = {}, set(seam[n])
+        # Mirror cells: their own block of ids from the mirror base; the ids between take this map's own.
+        if s['mirror_cells']:
+            base = s['mirror_base'] - 512
+            assert base >= len(rows), (n, 'mirror base inside the seam block')
+            rows += [None] * (base - len(rows))
+            for (x, y) in sorted(s['mirror_cells'], key=lambda c: (c[1], c[0])):
+                key = (defn(plans[n][(x, y)]), attr(n, x, y))
+                if key not in by_key:
+                    by_key[key] = 512 + len(rows); rows.append(key)
+        holes = deque(i for i, r in enumerate(rows) if r is None)
+        def new_id(key):
+            if holes:
+                i = holes.popleft(); rows[i] = key
+            else:
+                i = len(rows); rows.append(key)
+            return 512 + i
         words = np.zeros((s['H'], s['W']), np.uint16)
         for y in range(s['H']):
             for x in range(s['W']):
@@ -241,15 +261,17 @@ def pack_pair(engine, specs, maps, upper, lower, offset):
                         mid = prim_index[key]
                     else:
                         if key not in by_key:
-                            by_key[key] = 512 + len(rows); rows.append(key)
+                            by_key[key] = new_id(key)
                         mid = by_key[key]
                 words[y, x] = mid | (int(s['collision'][y, x]) << 10) | (int(s['elevation'][y, x]) << 12)
         assert len(rows) <= 512, (n, 'secondary metatiles over budget', len(rows))
+        rows = [r if r is not None else (tuple([0] * 8), 0) for r in rows]
+        mirror_ids = sorted({int(words[y, x]) & 1023 for x, y in s['mirror_cells']})
         rgb = lambda b: list(s['fixed_pal'][b]) if b in s['fixed_pal'] else [tuple(v << 3 for v in c) for c in order[b]]
         out[n] = dict(sec_tiles=sec, words=words, meta_rows=rows, pals={b: rgb(b) for b in SEC_BANKS if b in order},
                       primary=dict(tiles=pri_tiles, pals={b: rgb(b) for b in maps[n]['free']}, keep_tiles=sorted(keep), keep_metatiles=sorted(keep_meta)))
         report['maps'][n] = dict(jobs=len(mine), primary_reused=sum(r is not None for r in reuse.values()), secondary_tiles=len(sec),
-                                 primary_slots=dict(free=len(free_slots), used=len(pri_tiles)), secondary_metatiles=len(rows),
+                                 primary_slots=dict(free=len(free_slots), used=len(pri_tiles)), secondary_metatiles=len(rows), mirror_ids=mirror_ids,
                                  banks={b: len(order[b]) for b in sorted(order) if b not in P.keep})
     return out, report, seam
 
@@ -329,11 +351,15 @@ def load_spec(path):
     s['fixed_pal'] = {int(b): [tuple(c) for c in p] for b, p in meta['fixed_pal'].items()}
     s['keep_meta'] = set(meta['keep_meta'])
     s['plains'] = [s['plain0'], s['plain1']]
+    s['mirror_cells'] = [tuple(c) for c in meta.get('mirror_cells', [])]
+    s['mirror_base'] = meta.get('mirror_base')
     return s
 
-def save_spec(path, name, W, H, ground, flat, top, owner, above, behavior, collision, elevation, placed, fixed_pal, keep_meta, plains):
+def save_spec(path, name, W, H, ground, flat, top, owner, above, behavior, collision, elevation, placed, fixed_pal, keep_meta, plains,
+              mirror_cells=(), mirror_base=None):
     meta = dict(name=name, W=W, H=H, placed={f'{x},{y}': int(m) for (x, y), m in placed.items()},
-                fixed_pal={str(b): [list(c) for c in p] for b, p in fixed_pal.items()}, keep_meta=sorted(int(m) for m in keep_meta))
+                fixed_pal={str(b): [list(c) for c in p] for b, p in fixed_pal.items()}, keep_meta=sorted(int(m) for m in keep_meta),
+                mirror_cells=[[int(x), int(y)] for x, y in mirror_cells], mirror_base=mirror_base)
     np.savez_compressed(path, ground=ground, flat=flat, top=top, owner=np.asarray(owner).astype(str), above=above, behavior=behavior,
                         collision=collision, elevation=elevation, plain0=plains[0], plain1=plains[1], meta=json.dumps(meta))
 

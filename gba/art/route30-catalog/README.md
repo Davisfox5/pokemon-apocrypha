@@ -19,7 +19,8 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
      metatiles), so Cherrygrove's camera sees its own cells across the seam. The band's two blossom trees take
      the green tree beside them.
    - Two rows north repeat HGSS row 0 with its stairs as road (see Seams).
-   - The band sits at the floor, so the west wall ends above it with its own rounded south end.
+   - The west wall runs on through the band into Cherrygrove, where the town's east-west cliff turns north
+     to meet it (see Cherrygrove's wall, below).
 2. **Trees**: an integer program places 360 non-overlapping 2x2 roots on HGSS's woods cells; each is the
    Cherrygrove tree (T01 plus the town's contact shadow), crown one row north of its root.
 3. **Ground** (`assemble.py`): the approved Cherrygrove/Route 36 painter on an 8 px lawn/road grid read from
@@ -66,13 +67,35 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
    (`FLAG_ITEM_APOC_ROUTE30_ANTIDOTE` 0x265, `FLAG_ITEM_APOC_ROUTE30_POTION` 0x266); the hidden Potion near the
    Trainer Tips board (`FLAG_HIDDEN_ITEM_APOC_ROUTE30_POTION` 0x267); the cuttable tree.
 
+## Cherrygrove's wall
+
+Cherrygrove's east-west cliff (its rows 7-9) now turns north at its east end and runs up the town's north
+edge into Route 30's west wall, so the two read as one wall (`cherrygrove_wall.py`, after the pack).
+
+- **Art**: Route 30's rock render carried on 11 rows into Cherrygrove (`assemble.py`,
+  `source/local-art/cherrygrove-wall.png`). The wall takes Cherrygrove's columns 40-41 from the town's north
+  edge to the cliff's foot (row 9), at the route's two terrace steps; the cliff's east end piece becomes its
+  middle piece, so the cliff runs into the wall's side.
+- **Beside it**: column 39 (rows 0-5) is Cherrygrove's lawn, blocked, the plateau beside the wall as on the
+  route; column 42 is the road's left rim, open. The band's columns 4 and 7 carry the same metatiles.
+- **Ids**: Route 30's band wall cells take secondary ids from 596 (after Cherrygrove's own 84), and
+  Cherrygrove's secondary defines the same ids with its own tiles: the lawn and cast shadow in bank 0 below,
+  the rock above in bank 5. CherrygrovePrimary's palette 5 takes the HGSS rock ramp in the seven slots no
+  layout on CherrygrovePrimary draws (the tool checks every metatile of the primary and of those layouts'
+  secondaries).
+- **What gave way**: a green tree and the blossom tree at Cherrygrove (39-42, 0-5), and the band's tree pair
+  in the same columns. The cliff-top lawn west of the wall (Cherrygrove row 6) no longer connects to the road;
+  nothing stood there.
+- Evidence: `evidence/cherrygrove-wall/`.
+
 ## Seams
 
 A Gen 3 map draws a connected map's nearest rows with its own tilesets, and on a crossing it keeps the cells
 already on screen as they were drawn.
 
-- **Cherrygrove (south)**: the band is Cherrygrove's own metatiles, and every Cherrygrove cell visible from
-  Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. Clean both ways.
+- **Cherrygrove (south)**: the band is Cherrygrove's own metatiles, and every other Cherrygrove cell visible
+  from Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. The wall's cells on
+  both sides sit at the ids both secondaries define. Clean both ways.
 - **Route 31 (north, offset -27)**: each route's palettes are full, so the cells either route can see across
   the seam (Route 30: 160, Route 31: 96) get 53 secondary metatile ids defined in both secondaries. Each map
   draws the other's cells pixel for pixel with its own tiles. Clean both ways.
@@ -119,8 +142,9 @@ the map: dialogue boxes, the map-name popup, the item balls and the cuttable tre
 
 ## Declared adaptations
 
-- **Padding**: five woods columns west, Cherrygrove's band south, two rows north (HGSS row 0, its stairs as road
-  at the plateau's height: six walkable road cells HGSS doesn't have).
+- **Padding**: five woods columns west, Cherrygrove's band south (the west wall running on through it), two rows
+  north (HGSS row 0, its stairs as road at the plateau's height: six walkable road cells HGSS doesn't have).
+- **Cherrygrove**: its cliff turns north into the route's wall (Cherrygrove's wall, above).
 - **Houses**: both doors stay shut; no interiors exist yet.
 - **Mailbox**: HGSS model 30 is Mr. Pokemon's mailbox. It's a sprite of its own beside his house, and its sign reads his house.
 - **Woods**: cells under a crown stay solid, as HGSS has them.
@@ -143,6 +167,7 @@ python3 tools/gba/maps/route30_catalog/reference.py PHG
 python3 tools/gba/maps/route30_catalog/assemble.py PHG CATALOG ENGINE      # CATALOG: checkout of codex/violet-city de5d8cfb
 # then Route 31's trace and assembly (its README)
 python3 tools/gba/maps/route30_catalog/pair_pack.py ENGINE --install       # both routes
+python3 tools/gba/maps/route30_catalog/cherrygrove_wall.py ENGINE          # Cherrygrove's half of the wall
 python3 tools/gba/maps/route30_catalog/seams.py ENGINE
 make -C ENGINE -j4
 MGBA_FLAGS=... python3 tools/gba/maps/route30_catalog/runtime.py ENGINE OUT

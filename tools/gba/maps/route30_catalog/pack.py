@@ -15,7 +15,9 @@ and metatile a Cherrygrove cell visible from Route 30 uses keeps its index and l
 palettes 4-5 and the free tile slots hold route art. The route's own art goes in one secondary tileset
 (`route30_hgss`, banks 6-12):
   * the south band (reference.py) is Cherrygrove's own primary metatiles, so Cherrygrove draws it exactly,
-    and Cherrygrove's own top rows are primary metatiles, which Route 30 draws exactly;
+    and Cherrygrove's own top rows are primary metatiles, which Route 30 draws exactly; the west wall runs
+    on through both, at secondary ids from 596 that Route 30's secondary and Cherrygrove's both define
+    (pair_pack.py's mirror cells, cherrygrove_wall.py);
   * the cells either map can see across the Route 30/31 seam sit at secondary ids both secondaries define
     (pair_pack.py); seams.py checks both seams from both sides.
 Everything else packs exactly (Mahogany's lossless rule): every native pixel keeps its assembled RGB555
@@ -111,7 +113,11 @@ def traversal(engine, grid, cells):
             c = dict(x=x, y=y, code=ch)
             if 0 <= hz < Rf.HH and 0 <= hx < Rf.HW:
                 c['hgss'] = dict(type=cells[hz][hx]['type'], collision=cells[hz][hx]['collision'], label=cells[hz][hx]['lab'])
-            if ch in 'Pp':
+            if ch in 'Pp' and x in Rf.BAND_KIT:          # beside the wall: Cherrygrove's lawn or road rim
+                ids, k = Rf.BAND_KIT[x]
+                c.update(foot='open' if k == 0 else 'blocked', behavior=None, collision=k, elevation=3, metatile=ids[y % 2],
+                         source=f'Cherrygrove metatile {ids[y % 2]:#05x} (column {x + Rf.CG_OFFSET}, its rows 0-5)')
+            elif ch in 'Pp':
                 cx, cy = Rf.pad_source(x, y)
                 v = int(cg[cy, cx])
                 c.update(foot='open' if (v >> 10) & 3 == 0 else 'blocked', behavior=None, collision=(v >> 10) & 3,
@@ -207,7 +213,7 @@ def visible_cherrygrove(engine, trav=None):
                 cx, cy = x + dx + Rf.CG_OFFSET, y + dy - H
                 if 0 <= cy < cg.shape[0] and 0 <= cx < cg.shape[1]:
                     out.add(int(cg[cy, cx]) & 1023)
-    return out
+    return {m for m in out if m < Rf.CG_WALL_ID0}     # the wall's ids are this map's own (mirror_cells)
 
 def prepare(engine):
     """Layers, traversal, layer types, the band placed by id and the banks it pins (the joint pack and
@@ -223,10 +229,12 @@ def prepare(engine):
     for layer in (flat, top):
         a = layer[..., 3] > 0; want[a] = layer[a, :3]
     fixed_pal, placed = {}, {}
-    # The south band: Cherrygrove's own metatile ids (primary), with Cherrygrove's collision and elevation.
+    # The south band: Cherrygrove's own metatile ids (primary), with Cherrygrove's collision and elevation;
+    # the west wall's cells in it are packed as route art at ids Cherrygrove's secondary also defines.
     for y in range(PAD0, H):
         for x in range(W):
-            placed[(x, y)] = trav[y, x]['metatile']
+            if grid[y][x] in 'Pp':
+                placed[(x, y)] = trav[y, x]['metatile']
     # Primary metatiles placed by id may draw primary tiles in secondary palette banks (the towns' blossom
     # trees use bank 10): those banks take the towns' palettes.
     cg_pals = [[tuple(c) for c in p] for p in P.t.pals[1]]
@@ -257,7 +265,8 @@ def save_pair_spec(engine, path):
     get = lambda k: np.array([[trav[y, x][k] if trav[y, x].get(k) is not None else 0 for x in range(W)] for y in range(H)])
     PP.save_spec(path, 'route30', W, H, d['ground'], d['flat'], d['top'], d['owner'], d['above'], get('behavior_id'),
                  get('collision'), get('elevation'), d['placed'], d['fixed_pal'],
-                 d['visible'] | {m for m in d['placed'].values() if m < 512}, d['plains'])
+                 d['visible'] | {m for m in d['placed'].values() if m < 512}, d['plains'],
+                 mirror_cells=[(x, y) for y in range(PAD0, H) for x in Rf.WALL_COLS], mirror_base=Rf.CG_WALL_ID0)
 
 def pack(engine):
     OUT.mkdir(parents=True, exist_ok=True); OEV.mkdir(parents=True, exist_ok=True)

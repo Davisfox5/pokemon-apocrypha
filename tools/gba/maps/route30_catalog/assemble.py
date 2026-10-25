@@ -23,7 +23,9 @@ angle), the stairs, fences, flower heads and light lawn patches. The houses' con
 Cherrygrove tree shadow's green.
 
 The south padding (reference.py) is Cherrygrove's own north forest band, drawn as Cherrygrove's
-primary metatiles. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
+primary metatiles. The west wall runs on through it: the rock render continues 11 rows into Cherrygrove,
+and its Cherrygrove rows (columns 5-6) are the town's half of the wall (local-art/cherrygrove-wall.png,
+installed by cherrygrove_wall.py), down to the foot of the town's east-west cliff. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
 east) with the painter's wavy edge; only its last cell before the band takes the kit's straight edge.
 
 Writes source/assemble/layers.npz, placements.json and evidence/assemble/*.png.
@@ -156,9 +158,9 @@ def native_cells(cells, grid):
         row = []
         for x in range(W):
             hx, hz = Rf.to_hgss(x, y)
-            if y >= PAD0:                                 # Cherrygrove's band, at the floor: the west wall ends above it
+            if y >= PAD0:                                 # Cherrygrove's band at the floor, the west wall running on through it
                 c = dict(cells[HH - 1][min(max(hx, 0), HW - 1)])
-                c.update(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass', ground=float(FLOOR), peak=float(FLOOR))
+                c.update(band_cell(x))
             elif hx < 0:                                  # woods beyond HGSS's west edge, at the height of what stands there:
                 c = dict(cells[max(hz, 0)][0])             # where column 0 is HGSS's west wall, the wall's top, so the wall
                 if c['lab'] == 'R':                        # keeps only its own east face, as at HGSS's map edge
@@ -181,6 +183,31 @@ def native_cells(cells, grid):
                 if rk:
                     c.update(lab='R', peak=max(n['peak'] for n in rk))
     return out
+
+def band_cell(x):
+    """A band or Cherrygrove cell beside the west wall: the wall's rock at its terrace level, the woods west of
+    it at the wall's top (so the wall keeps only its east faces, as on the route), the floor east of it."""
+    lo = min(Rf.WALL_COLS)
+    if x in Rf.WALL_COLS:
+        return dict(lab='R', floor='grass', ground=float(FLOOR), peak=float(FLOOR + Rf.WALL_COLS[x]))
+    top = FLOOR + Rf.WALL_COLS[lo] if x < lo else FLOOR
+    return dict(lab='P', floor='sand' if x in Rf.ROAD_COLS else 'grass', ground=float(top), peak=float(top))
+
+CG_CLIFF = range(7, 10)              # Cherrygrove's east-west cliff rows, which the wall's foot meets
+
+def cherrygrove_rows():
+    """Cherrygrove's rows 0-10 under Route 30's columns, for the rock render: the wall at columns 5-6 down
+    to the foot of the town's cliff (rows 7-9, at the plateau's height west of the wall), the floor below."""
+    rows = []
+    for r in range(CG_CLIFF.stop + 1):
+        row = []
+        for x in range(W):
+            c = band_cell(x) if r < CG_CLIFF.stop else dict(lab='.', floor='grass', ground=float(FLOOR), peak=float(FLOOR))
+            if r in CG_CLIFF and x < min(Rf.WALL_COLS):
+                c = dict(c, lab='R', ground=float(FLOOR))
+            row.append(dict(c, blocked=c['lab'] != '.'))
+        rows.append(row)
+    return rows
 
 def ground_quadrants(phg, ncells):
     """Lawn or road per 8 px quadrant from HGSS's own flat ground colours (Route 43's rule); woods, tall
@@ -326,13 +353,19 @@ def paint_ground(q, road, runs, kits, flats=()):
     return out, mat, tex
 
 def band(engine, bottom, flat):
-    """The south padding: Cherrygrove's rows 0-2, drawn as its own metatiles."""
+    """The south padding: Cherrygrove's rows 0-2, drawn as its own metatiles; beside the west wall, which runs
+    on through it, Cherrygrove's lawn and road rim."""
     t, words, _ = cherrygrove(engine)
     ids = {}
     for y in range(PAD0, H):
         for x in range(W):
-            cx, cy = Rf.pad_source(x, y)
-            m = int(words[cy, cx]) & 1023
+            if x in Rf.WALL_COLS:
+                continue
+            if x in Rf.BAND_KIT:
+                m = Rf.BAND_KIT[x][0][y % 2]
+            else:
+                cx, cy = Rf.pad_source(x, y)
+                m = int(words[cy, cx]) & 1023
             sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
             bottom[sl] = np.array(t.render(m).convert('RGB')); flat[sl] = 0
             ids[(x, y)] = m
@@ -649,10 +682,21 @@ def compose(phg, engine):
     q, runs, flats = ground_quadrants(phg, ncells)
     bottom, mat, tex = paint_ground(q, road, runs, kit_profiles(engine), flats)
     # Rock terraces over the ground (bottom keeps the plain block beyond each edge).
-    d, isrock = Rk.terraces(ncells, FLOOR)
+    # The render runs on into Cherrygrove's rows 0-10, so the town's half of the wall (cherrygrove_wall.py)
+    # comes out of the same terraces as the route's.
+    ext = ncells + cherrygrove_rows()
+    d, isrock = Rk.terraces(ext, FLOOR)
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH])
-    rcells = [[dict(c, lab='.' if c['lab'] in 'LJ' and False else c['lab']) for c in row] for row in ncells]
-    bottom, rock_over, piece = Rk.rock_frlg(rcells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex)
+    yy, xx = np.mgrid[H * PX:len(ext) * PX, 0:W * PX]
+    base = np.concatenate([bottom, tex[G.GRASS][(yy + YPHASE) % 32, (xx + XPHASE) % 32].astype(np.uint8)], 0)
+    full, full_over, piece = Rk.rock_frlg(ext, d, isrock, base, Rk.frlg_pieces(engine), plain_tex)
+    bottom, rock_over = full[:H * PX].copy(), full_over[:H * PX].copy()
+    cg_wall = full[H * PX:(H + CG_CLIFF.stop) * PX].copy()
+    a = full_over[H * PX:(H + CG_CLIFF.stop) * PX, ..., 3] > 0
+    cg_wall[a] = full_over[H * PX:(H + CG_CLIFF.stop) * PX][a][:, :3]
+    lo, hi = min(Rf.WALL_COLS), max(Rf.WALL_COLS) + 1
+    Image.fromarray(cg_wall[:, lo * PX:hi * PX]).save(LOCAL / 'cherrygrove-wall.png')
+    d, isrock, piece = d[:H], isrock[:H], piece[:H]
     owner = np.full((H * PX, W * PX), '', object)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)
