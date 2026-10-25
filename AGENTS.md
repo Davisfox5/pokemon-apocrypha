@@ -289,6 +289,38 @@ regression ("made for a 1980s game", "boring"). The worked example is
   had there (railings, signs) when a taller building's roof reaches it.
 - Doors to unbuilt interiors and gates to unbuilt routes are solid.
 
+## Planning a new town: the change plot
+
+Owner, Celadon, 2026-10-25: plan every new or remade town this way, and show the owner the
+plot before building anything. Worked example: `gba/art/celadon-kanto/README.md`.
+
+1. **Story brief.** Read only the town's own lines: DESIGN.md (grep the town name), its
+   chapter's `CHAPTERn_SCENES_SPEC.md` section and retheme stubs, and its rows in the
+   region's `*_ITEMS.md` and `*_BATTLES.md`. Note every building, character, sign text and
+   service the story needs there.
+2. **Other agents' work.** Search open and closed PRs and branches in the hub and the
+   engine for the town before planning (Saffron's Magnet Train deck came from Codex's
+   Goldenrod).
+3. **Decode both maps.** Render the base map as the game draws it (Kanto: FireRed's
+   `_Frlg` layout; `parts.source`) with its warps, signs and objects. Decode HGSS's version
+   from pokeheartgold (`celadon/hgss_source.py`: header id and area bank from
+   `src/data/map_headers.h`, events from `zone_event/NNN_ZONE.json`). Never skip HGSS: it is
+   Game Freak's own ten-years-later revision of the plan.
+4. **Compare.** List what HGSS moved, added or removed against the base (Celadon: the pond
+   became a canal with a footbridge, the fountain plaza opened out, the gym got a paved
+   forecourt, the restaurant an awning front, no hotel). HGSS informs the plan. The build
+   still uses the base map and Gen 3 art (Kanto rules above).
+5. **Source art.** For each new building or prop, find the Gen 3 map it can be cut from and
+   render it (Celadon: Slateport's market stalls, Lilycove's Contest Hall roof as glass).
+6. **Change list.** Number each change and tie it to a DESIGN.md line, a scene spec line or
+   an HGSS letter. Say where every displaced door, interior and warp goes so none goes
+   dead. End with what is out of this pass (dialogue, unbuilt interiors and gates).
+7. **Plot.** One image: HGSS's town area on the left with lettered zones, the base map on
+   the right with numbered zones, each borrowed change carrying its HGSS letter, paths
+   (a bike lane, a canal) as lines. Save it as the town's `evidence/plan.png`.
+8. **Owner's call.** Send the plot and the list. Build only after the owner approves; a
+   revised plan gets a revised plot.
+
 ## Ownership and autonomy
 
 - Owner: story, creative direction, visual review, playtesting, approval/revisions.
