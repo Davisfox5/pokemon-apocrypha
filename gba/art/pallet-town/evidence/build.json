@@ -1,0 +1,23 @@
+{
+  "engine_commit": "550cdf32f1f58b846477df52b9a46ddd25054126",
+  "rom_sha256": "ba3b060a902a17dee85806e228c65d73766f84257921616fe1f098f9ceb6cc8a",
+  "rom_padded_bytes": 33554432,
+  "compiler": "GNU Arm Embedded GCC 14.2.1 (Debian 15:14.2.rel1-1)",
+  "host_os": "Debian 13 amd64",
+  "porytiles": "2.0.0 legacy CLI",
+  "porymap": "6.3.1 source 139eda92b3b06a5fd675a9825a07ac62e98c1566",
+  "mgba": "0.10.5",
+  "commands": [
+    "make -j8 tools",
+    "make -j1 generated",
+    "make -j8"
+  ],
+  "exit_code": 0,
+  "memory": [
+    "EWRAM:      226760 B       256 KB     86.50%",
+    "IWRAM:       28392 B        32 KB     86.65%",
+    "ROM:    20029384 B        32 MB     59.69%"
+  ],
+  "warnings": [],
+  "ci": "Local CI-equivalent checks pass; remote PR check status recorded separately. Actions settings API returns 403; no settings changed."
+}

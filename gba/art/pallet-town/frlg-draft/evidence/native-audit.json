@@ -1,0 +1,52 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "cells": 480,
+    "layout_bytes_equal": true,
+    "original_native_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_collision_elevation_layers_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "events/canon and disconnected region sockets; no terrain changes"
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "cells": 130,
+    "layout_bytes_equal": true,
+    "original_native_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_collision_elevation_layers_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "events/canon and disconnected region sockets; no terrain changes"
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "cells": 108,
+    "layout_bytes_equal": true,
+    "original_native_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_collision_elevation_layers_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "events/canon and disconnected region sockets; no terrain changes"
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "cells": 130,
+    "layout_bytes_equal": true,
+    "original_native_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_collision_elevation_layers_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "events/canon and disconnected region sockets; no terrain changes"
+  },
+  {
+    "map": "ApocPalletLab",
+    "cells": 182,
+    "layout_bytes_equal": true,
+    "original_native_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_collision_elevation_layers_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "events/canon and disconnected region sockets; no terrain changes"
+  }
+]

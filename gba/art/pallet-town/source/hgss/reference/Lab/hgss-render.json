@@ -1,0 +1,427 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/fielddata/build_model/bm_room.narc": "5b1bbc59de9751db0fd037e702c006ac7b0a21600b850a284551683a358fd466"
+    }
+  },
+  "meta": {
+    "area_bank": 43,
+    "map_texture_set": 43,
+    "building_texture_set": 41,
+    "matrix": 250,
+    "top_down_fill_pixels": 0,
+    "filled_seam_pixels": 198120
+  },
+  "size_cells": [
+    32,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 31,
+      "chunk": 366,
+      "pos": [
+        14.0,
+        0.0,
+        11.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        13.0625,
+        10.0,
+        15.0,
+        11.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 366,
+      "pos": [
+        12.0,
+        0.0,
+        11.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        11.0625,
+        10.0,
+        13.0,
+        11.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 366,
+      "pos": [
+        2.0,
+        0.0,
+        11.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        1.0625,
+        10.0,
+        3.0,
+        11.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 366,
+      "pos": [
+        4.0,
+        0.0,
+        11.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        3.0625,
+        10.0,
+        5.0,
+        11.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 1,
+      "chunk": 366,
+      "pos": [
+        8.5,
+        0.0,
+        13.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "d_mat01"
+      ],
+      "footprint": [
+        7.625,
+        13.25,
+        9.375,
+        14.25
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 24,
+      "chunk": 366,
+      "pos": [
+        6.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "pc_moni.1",
+        "table_l01"
+      ],
+      "footprint": [
+        5.0,
+        2.875,
+        7.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 91,
+      "chunk": 366,
+      "pos": [
+        8.5,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "table01"
+      ],
+      "footprint": [
+        7.0,
+        3.0,
+        10.0,
+        4.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 95,
+      "chunk": 366,
+      "pos": [
+        12.5,
+        0.0,
+        7.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "table01"
+      ],
+      "footprint": [
+        11.0,
+        6.0,
+        14.0,
+        8.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 30,
+      "chunk": 366,
+      "pos": [
+        14.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        13.0625,
+        2.875,
+        15.0,
+        4.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 30,
+      "chunk": 366,
+      "pos": [
+        12.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "shelf09"
+      ],
+      "footprint": [
+        11.0625,
+        2.875,
+        13.0,
+        4.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 366,
+      "pos": [
+        8.5,
+        0.0,
+        4.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        8.0,
+        4.0,
+        9.0,
+        5.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 53,
+      "chunk": 366,
+      "pos": [
+        5.5,
+        0.0,
+        4.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "chair01"
+      ],
+      "footprint": [
+        5.0,
+        4.0,
+        6.0,
+        5.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 27,
+      "chunk": 366,
+      "pos": [
+        4.5,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "ma_l01_1",
+        "ma_l01_2"
+      ],
+      "footprint": [
+        4.0625,
+        3.0,
+        5.0,
+        3.9375
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 29,
+      "chunk": 366,
+      "pos": [
+        3.5,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "ma_l03_1",
+        "ma_l03_2"
+      ],
+      "footprint": [
+        3.0625,
+        3.0,
+        4.0,
+        3.9468994140625
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 66,
+      "chunk": 366,
+      "pos": [
+        2.0,
+        0.0,
+        3.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "shelf03"
+      ],
+      "footprint": [
+        1.0,
+        2.875,
+        3.0,
+        3.875
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 210,
+      "chunk": 366,
+      "pos": [
+        2.5,
+        0.0,
+        6.75
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "labo_sele01",
+        "labo_sele02",
+        "labo_sele03",
+        "o_kido_obj1"
+      ],
+      "footprint": [
+        1.1829833984375,
+        5.75,
+        3.81982421875,
+        7.75
+      ],
+      "replaced_by": null
+    }
+  ],
+  "scope": "Off-room nearest fill excluded; only original mesh surfaces and isolated props are used."
+}

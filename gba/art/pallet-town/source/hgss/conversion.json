@@ -1,0 +1,522 @@
+{
+  "reference": "FRLG 24x20 origin (0,0), no expansion",
+  "models": [
+    {
+      "asset": "house",
+      "source_projected_size": [
+        92,
+        155
+      ],
+      "target_size": [
+        80,
+        80
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "lab",
+      "source_projected_size": [
+        108,
+        117
+      ],
+      "target_size": [
+        112,
+        80
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "house-sign",
+      "source_projected_size": [
+        12,
+        37
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "memorial-sign",
+      "source_projected_size": [
+        14,
+        28
+      ],
+      "target_size": [
+        16,
+        16
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "lab-sign",
+      "source_projected_size": [
+        16,
+        29
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "plant",
+      "source_projected_size": [
+        22,
+        32
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red1F-prop-5",
+      "source_projected_size": [
+        28,
+        27
+      ],
+      "target_size": [
+        48,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red1F-prop-4",
+      "source_projected_size": [
+        14,
+        42
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red1F-prop-3",
+      "source_projected_size": [
+        28,
+        40
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red1F-mat",
+      "source_projected_size": [
+        28,
+        16
+      ],
+      "target_size": [
+        48,
+        16
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-prop-0",
+      "source_projected_size": [
+        26,
+        51
+      ],
+      "target_size": [
+        32,
+        48
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-prop-2",
+      "source_projected_size": [
+        30,
+        39
+      ],
+      "target_size": [
+        32,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-prop-3",
+      "source_projected_size": [
+        14,
+        14
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-prop-5",
+      "source_projected_size": [
+        45,
+        43
+      ],
+      "target_size": [
+        32,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-prop-7",
+      "source_projected_size": [
+        13,
+        14
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Red2F-mat",
+      "source_projected_size": [
+        13,
+        14
+      ],
+      "target_size": [
+        16,
+        16
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "OakHouse-prop-5",
+      "source_projected_size": [
+        28,
+        27
+      ],
+      "target_size": [
+        48,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "OakHouse-prop-4",
+      "source_projected_size": [
+        14,
+        42
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "OakHouse-prop-3",
+      "source_projected_size": [
+        28,
+        40
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "oak-bookshelf",
+      "source_projected_size": [
+        14,
+        43
+      ],
+      "target_size": [
+        32,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "OakHouse-mat",
+      "source_projected_size": [
+        28,
+        16
+      ],
+      "target_size": [
+        48,
+        16
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-12",
+      "source_projected_size": [
+        61,
+        40
+      ],
+      "target_size": [
+        64,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-15",
+      "source_projected_size": [
+        42,
+        78
+      ],
+      "target_size": [
+        32,
+        48
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-8",
+      "source_projected_size": [
+        60,
+        50
+      ],
+      "target_size": [
+        64,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-7",
+      "source_projected_size": [
+        46,
+        38
+      ],
+      "target_size": [
+        48,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-0",
+      "source_projected_size": [
+        60,
+        60
+      ],
+      "target_size": [
+        80,
+        48
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-2",
+      "source_projected_size": [
+        60,
+        60
+      ],
+      "target_size": [
+        80,
+        48
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-14",
+      "source_projected_size": [
+        28,
+        43
+      ],
+      "target_size": [
+        16,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-prop-6",
+      "source_projected_size": [
+        46,
+        25
+      ],
+      "target_size": [
+        32,
+        32
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    },
+    {
+      "asset": "Lab-mat",
+      "source_projected_size": [
+        28,
+        16
+      ],
+      "target_size": [
+        48,
+        16
+      ],
+      "reduction": "per-family 15 colors, RGB555, nearest resampling; no dither"
+    }
+  ],
+  "tree_roots": [
+    [
+      0,
+      0
+    ],
+    [
+      22,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      22,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      22,
+      4
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      22,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      22,
+      8
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      22,
+      10
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      22,
+      12
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      22,
+      14
+    ],
+    [
+      0,
+      16
+    ],
+    [
+      22,
+      16
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      22,
+      18
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      20
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      20
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      14,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      18,
+      0
+    ],
+    [
+      18,
+      20
+    ],
+    [
+      20,
+      0
+    ],
+    [
+      20,
+      20
+    ]
+  ],
+  "rooms": {
+    "ApocPalletRedHouse1F": {
+      "width": 13,
+      "height": 10,
+      "source_matrix": "Red1F"
+    },
+    "ApocPalletRedHouse2F": {
+      "width": 12,
+      "height": 9,
+      "source_matrix": "Red2F"
+    },
+    "ApocPalletOakHouse": {
+      "width": 13,
+      "height": 10,
+      "source_matrix": "OakHouse"
+    },
+    "ApocPalletLab": {
+      "width": 13,
+      "height": 14,
+      "source_matrix": "Lab"
+    }
+  },
+  "hgss_source_revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "cells": 480,
+    "source": "HGSS models/textures and accepted shared lawn/trees",
+    "reference": "FRLG layout",
+    "collision_elevation_equal": true,
+    "hgss_converted_rgb555_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "HGSS models/palettes, house roof overhang, coherent shared lawn, independent fresh canon events; route sockets disconnected"
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "cells": 130,
+    "source": "HGSS models/textures and accepted shared lawn/trees",
+    "reference": "FRLG layout",
+    "collision_elevation_equal": true,
+    "hgss_converted_rgb555_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "HGSS models/palettes, house roof overhang, coherent shared lawn, independent fresh canon events; route sockets disconnected"
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "cells": 108,
+    "source": "HGSS models/textures and accepted shared lawn/trees",
+    "reference": "FRLG layout",
+    "collision_elevation_equal": true,
+    "hgss_converted_rgb555_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "HGSS models/palettes, house roof overhang, coherent shared lawn, independent fresh canon events; route sockets disconnected"
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "cells": 130,
+    "source": "HGSS models/textures and accepted shared lawn/trees",
+    "reference": "FRLG layout",
+    "collision_elevation_equal": true,
+    "hgss_converted_rgb555_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "HGSS models/palettes, house roof overhang, coherent shared lawn, independent fresh canon events; route sockets disconnected"
+  },
+  {
+    "map": "ApocPalletLab",
+    "cells": 182,
+    "source": "HGSS models/textures and accepted shared lawn/trees",
+    "reference": "FRLG layout",
+    "collision_elevation_equal": true,
+    "hgss_converted_rgb555_pixel_match": true,
+    "porymap_pixel_match": true,
+    "behavior_equal": true,
+    "uncertain_cells": 0,
+    "adaptations": "HGSS models/palettes, house roof overhang, coherent shared lawn, independent fresh canon events; route sockets disconnected"
+  }
+]

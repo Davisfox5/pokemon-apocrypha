@@ -1,3 +1,23 @@
+## Latest: Pallet Town from HGSS models with FRLG reference (October 25)
+
+Owner requested Pallet Town under AGENTS.md, then specified HGSS models converted using FRLG as reference.
+Five new native maps append at group 80 / 43–47; existing maps, layouts, shared assets, campaign flags
+and saves remain intact. Field models 313/314/310/311 and Pallet bm_room data supply the new art;
+accepted Cherrygrove lawn/T01 trees remain shared. The prior FRLG-only draft is preserved.
+
+Source: `Davisfox5/pokeemerald-expansion@codex/pallet-town`, commit
+`550cdf32f1f58b846477df52b9a46ddd25054126`, against `apocrypha`. Porytiles 2.0.0 compiles;
+Porymap 6.3.1 opens/renders/saves all floors. All 1,030 native squares match converted source at
+RGB555; actual ROM/VRAM/palettes checked. Nineteen headless mGBA phases pass: continuous walking,
+all doors/stairs/returns, dialogue, 311 blocked edges, water/dismount, ordinary saves, cold reload
+and title-screen Continue on every map. Final native/engine screenshots were inspected.
+
+Read `gba/art/pallet-town/README.md` and its preservation/build/runtime records. Current limits:
+static water, unwired Route 1/21 and campaign acquisition/travel, proposed dialogue/model-footprint
+adaptations, owner visual approval pending. The normal start is preserved; use R+START's existing
+debug warp menu, group 80/map 43. Do not replay the provenance generators over later owner edits.
+Remote CI is not claimed green; source/evidence are draft PRs pending available checks and review.
+
 ## Latest: Route 29 by the Mahogany/Route 43 process (October 25, owner review fixes)
 
 The owner rejected the October 24 draft: placement, overlapping trees, paths, missing grass, ledges,

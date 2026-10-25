@@ -1,0 +1,15 @@
+{
+  "engine_repository": "Davisfox5/pokeemerald-expansion",
+  "engine_base": "2722eaf7601ec02dc5a684fa8cdef9206c0dc377",
+  "engine_branch": "codex/pallet-town",
+  "engine_commit": "550cdf32f1f58b846477df52b9a46ddd25054126",
+  "hgss_source": "Davisfox5/pokeheartgold",
+  "hgss_revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+  "reference": "FRLG decoded layouts, 16px cells, origin 0,0, no expansion",
+  "rom_sha256": "ba3b060a902a17dee85806e228c65d73766f84257921616fe1f098f9ceb6cc8a",
+  "elf_sha256": "d69ba3aef2c118e5c967283f8ff78eef24468ba0269e40c47a694f191d1f8a8c",
+  "manifest": "source-manifest.json",
+  "palette_hash_normalization": "CRLF normalized to LF for text palette files",
+  "untouched_existing_map_layout_ids_preserved": true,
+  "owner_visual_acceptance": false
+}

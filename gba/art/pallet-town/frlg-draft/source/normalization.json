@@ -1,0 +1,62 @@
+[
+  {
+    "tileset": "PalletOutdoor",
+    "tiles": 512,
+    "metatiles": 512,
+    "originals": [
+      "data/tilesets/primary/general_frlg",
+      "data/tilesets/secondary/pallet_town_frlg"
+    ],
+    "part": 0
+  },
+  {
+    "tileset": "ApocPallet",
+    "tiles": 208,
+    "metatiles": 217,
+    "originals": [
+      "data/tilesets/primary/general_frlg",
+      "data/tilesets/secondary/pallet_town_frlg"
+    ],
+    "part": 1
+  },
+  {
+    "tileset": "PalletIndoor",
+    "tiles": 512,
+    "metatiles": 512,
+    "originals": [
+      "data/tilesets/primary/building_frlg",
+      "data/tilesets/secondary/generic_building_1_frlg"
+    ],
+    "part": 0
+  },
+  {
+    "tileset": "PalletRedHouse",
+    "tiles": 192,
+    "metatiles": 152,
+    "originals": [
+      "data/tilesets/primary/building_frlg",
+      "data/tilesets/secondary/generic_building_1_frlg"
+    ],
+    "part": 1
+  },
+  {
+    "tileset": "PalletOakHouse",
+    "tiles": 288,
+    "metatiles": 312,
+    "originals": [
+      "data/tilesets/primary/building_frlg",
+      "data/tilesets/secondary/generic_building_2_frlg"
+    ],
+    "part": 1
+  },
+  {
+    "tileset": "PalletLab",
+    "tiles": 240,
+    "metatiles": 303,
+    "originals": [
+      "data/tilesets/primary/building_frlg",
+      "data/tilesets/secondary/lab_frlg"
+    ],
+    "part": 1
+  }
+]

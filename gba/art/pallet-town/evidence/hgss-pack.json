@@ -1,0 +1,42 @@
+[
+  {
+    "map": "ApocPalletTown",
+    "secondary": "pallettown",
+    "secondary_tiles": 336,
+    "metatiles": 484,
+    "layout_cells": 480,
+    "collision_elevation_behavior_preserved": true
+  },
+  {
+    "map": "ApocPalletRedHouse1F",
+    "secondary": "palletredhouse",
+    "secondary_tiles": 112,
+    "metatiles": 134,
+    "layout_cells": 130,
+    "collision_elevation_behavior_preserved": true
+  },
+  {
+    "map": "ApocPalletRedHouse2F",
+    "secondary": "palletbedroom",
+    "secondary_tiles": 80,
+    "metatiles": 112,
+    "layout_cells": 108,
+    "collision_elevation_behavior_preserved": true
+  },
+  {
+    "map": "ApocPalletOakHouse",
+    "secondary": "palletoakhouse",
+    "secondary_tiles": 96,
+    "metatiles": 134,
+    "layout_cells": 130,
+    "collision_elevation_behavior_preserved": true
+  },
+  {
+    "map": "ApocPalletLab",
+    "secondary": "palletlab",
+    "secondary_tiles": 144,
+    "metatiles": 186,
+    "layout_cells": 182,
+    "collision_elevation_behavior_preserved": true
+  }
+]

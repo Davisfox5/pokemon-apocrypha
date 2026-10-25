@@ -1,0 +1,8 @@
+{
+  "generated_c_sha256": "07db2b211e81adda7730c7e7a1b4f0fcb40ec28bb6ce8a8e7992ee0efd26af2a",
+  "test_kind": "instrumented mGBA 0.10.5, ordinary ROM, directional/A/B input, normal flash writes, fresh processes for reload/Continue",
+  "phases": 19,
+  "all_passed": true,
+  "collision_edge_probes": 311,
+  "scope": "five appended Pallet maps; campaign route/HM acquisition not wired"
+}

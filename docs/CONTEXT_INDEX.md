@@ -12,6 +12,7 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
+| Pallet Town — HGSS models converted with FRLG reference (October 25) | ../gba/art/pallet-town/README.md | Five native maps, Porytiles/Porymap, 1,030-cell audit, mGBA doors/stairs/water/311 blocks/save/Continue; source `codex/pallet-town` against `apocrypha`; owner review pending |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Route 29, Mahogany/Route 43 process (October 25) | ../gba/art/route29-catalog/README.md | Current proposal after owner review, HGSS only (no coast, item-ball Potion): HGSS rendered from its DS data 1:1, non-overlapping tree roots, catalog G15/L11-13/G01a/P14, Cherrygrove painter ground, jump-east/west ledges, seam-safe windows; tools `tools/gba/maps/route29_catalog/`; PR #34 (`claude/route29-hgss-decoded`); owner visual review pending |
