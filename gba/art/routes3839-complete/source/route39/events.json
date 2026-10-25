@@ -1,0 +1,162 @@
+{
+  "signs": [
+    {
+      "cell": [
+        22,
+        10
+      ],
+      "bg_type": 1
+    },
+    {
+      "cell": [
+        14,
+        6
+      ],
+      "bg_type": 1
+    },
+    {
+      "cell": [
+        22,
+        50
+      ],
+      "bg_type": 1
+    },
+    {
+      "cell": [
+        10,
+        31
+      ],
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        3,
+        16
+      ],
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        15,
+        20
+      ],
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        29,
+        71
+      ],
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "cell": [
+        17,
+        40
+      ],
+      "sprite": "SPRITE_SEAMAN_2"
+    },
+    {
+      "cell": [
+        22,
+        43
+      ],
+      "sprite": "SPRITE_GSMIDDLEMAN1"
+    },
+    {
+      "cell": [
+        13,
+        46
+      ],
+      "sprite": "SPRITE_MIDDLEWOMAN1_2"
+    },
+    {
+      "cell": [
+        21,
+        17
+      ],
+      "sprite": "SPRITE_MYSTERY_2"
+    },
+    {
+      "cell": [
+        8,
+        15
+      ],
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MILTANK"
+    },
+    {
+      "cell": [
+        16,
+        17
+      ],
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MILTANK"
+    },
+    {
+      "cell": [
+        6,
+        21
+      ],
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MILTANK"
+    },
+    {
+      "cell": [
+        12,
+        18
+      ],
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MILTANK"
+    },
+    {
+      "cell": [
+        19,
+        12
+      ],
+      "sprite": "SPRITE_GSGENTLEMAN"
+    },
+    {
+      "cell": [
+        13,
+        3
+      ],
+      "sprite": "SPRITE_BONGURI"
+    },
+    {
+      "cell": [
+        1,
+        27
+      ],
+      "sprite": "SPRITE_MONSTARBALL"
+    },
+    {
+      "cell": [
+        6,
+        12
+      ],
+      "sprite": "SPRITE_GSMIDDLEMAN1"
+    },
+    {
+      "cell": [
+        7,
+        28
+      ],
+      "sprite": "SPRITE_GSLEADER9"
+    }
+  ],
+  "warps": [
+    {
+      "cell": [
+        9,
+        4
+      ],
+      "destination": "MAP_ROUTE_39_MOOMOO_FARM_HOUSE"
+    },
+    {
+      "cell": [
+        4,
+        4
+      ],
+      "destination": "MAP_ROUTE_39_MOOMOO_FARM_STABLE"
+    }
+  ]
+}

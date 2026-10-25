@@ -1,0 +1,3977 @@
+{
+  "tour_steps": 344,
+  "ledge_pairs": 79,
+  "boundary_cases": [
+    {
+      "route": 38,
+      "x": 9,
+      "y": 0,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 0,
+      "direction": "LEFT",
+      "obstacle": [
+        8,
+        0
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 1,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        1
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 1,
+      "direction": "LEFT",
+      "obstacle": [
+        8,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        11,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 1,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        1
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 12,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        12,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 15,
+      "y": 1,
+      "direction": "DOWN",
+      "obstacle": [
+        15,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 16,
+      "y": 1,
+      "direction": "DOWN",
+      "obstacle": [
+        16,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 17,
+      "y": 1,
+      "direction": "DOWN",
+      "obstacle": [
+        17,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 1,
+      "direction": "DOWN",
+      "obstacle": [
+        30,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 33,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        33,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 33,
+      "y": 1,
+      "direction": "RIGHT",
+      "obstacle": [
+        34,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 2,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        2
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 2,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        2
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 2,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 2,
+      "direction": "LEFT",
+      "obstacle": [
+        30,
+        2
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 34,
+      "y": 2,
+      "direction": "UP",
+      "obstacle": [
+        34,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 35,
+      "y": 2,
+      "direction": "UP",
+      "obstacle": [
+        35,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 36,
+      "y": 2,
+      "direction": "DOWN",
+      "obstacle": [
+        36,
+        3
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 37,
+      "y": 2,
+      "direction": "DOWN",
+      "obstacle": [
+        37,
+        3
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 49,
+      "y": 2,
+      "direction": "RIGHT",
+      "obstacle": [
+        50,
+        2
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        3
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 3,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        3
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        3
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 3,
+      "direction": "LEFT",
+      "obstacle": [
+        30,
+        3
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 35,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        36,
+        3
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 3,
+      "direction": "LEFT",
+      "obstacle": [
+        45,
+        3
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 49,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        50,
+        3
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        30,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        45,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 58,
+      "y": 4,
+      "direction": "DOWN",
+      "obstacle": [
+        58,
+        5
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 59,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        60,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 5,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 15,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        15,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 16,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        16,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        45,
+        5
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 56,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        55,
+        5
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 57,
+      "y": 5,
+      "direction": "RIGHT",
+      "obstacle": [
+        58,
+        5
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 59,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        58,
+        5
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 60,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        60,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 61,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        61,
+        4
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 6,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 6,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 58,
+      "y": 6,
+      "direction": "UP",
+      "obstacle": [
+        58,
+        5
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 7,
+      "direction": "LEFT",
+      "obstacle": [
+        8,
+        7
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 15,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        15,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 16,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        16,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 24,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        24,
+        8
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 25,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        25,
+        8
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 26,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        26,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 27,
+      "y": 7,
+      "direction": "DOWN",
+      "obstacle": [
+        27,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 8,
+      "direction": "UP",
+      "obstacle": [
+        1,
+        7
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 8,
+      "direction": "LEFT",
+      "obstacle": [
+        0,
+        8
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 2,
+      "y": 8,
+      "direction": "UP",
+      "obstacle": [
+        2,
+        7
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 8,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 19,
+      "y": 8,
+      "direction": "LEFT",
+      "obstacle": [
+        18,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 8,
+      "direction": "LEFT",
+      "obstacle": [
+        29,
+        8
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        1,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 2,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        2,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 3,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        3,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        30,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 9,
+      "direction": "LEFT",
+      "obstacle": [
+        29,
+        9
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 32,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        32,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 55,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        55,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 10,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 10,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        10
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 19,
+      "y": 10,
+      "direction": "LEFT",
+      "obstacle": [
+        18,
+        10
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 56,
+      "y": 10,
+      "direction": "LEFT",
+      "obstacle": [
+        55,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 0,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        0,
+        10
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        1,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 2,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        2,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 3,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        3,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 10,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        10,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 29,
+      "y": 11,
+      "direction": "RIGHT",
+      "obstacle": [
+        30,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        31,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 11,
+      "direction": "LEFT",
+      "obstacle": [
+        30,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 32,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        32,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 55,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        55,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 23,
+      "y": 12,
+      "direction": "RIGHT",
+      "obstacle": [
+        24,
+        12
+      ],
+      "code": "k"
+    },
+    {
+      "route": 38,
+      "x": 29,
+      "y": 12,
+      "direction": "RIGHT",
+      "obstacle": [
+        30,
+        12
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 12,
+      "direction": "LEFT",
+      "obstacle": [
+        30,
+        12
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 0,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        0,
+        14
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        1,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 2,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        2,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 3,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        3,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 10,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        10,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 23,
+      "y": 13,
+      "direction": "RIGHT",
+      "obstacle": [
+        24,
+        13
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 32,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        32,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 44,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        44,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 45,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        45,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        46,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 57,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        57,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 58,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        58,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 59,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        59,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 26,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        25,
+        14
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 29,
+      "y": 14,
+      "direction": "RIGHT",
+      "obstacle": [
+        30,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 33,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        32,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 35,
+      "y": 14,
+      "direction": "RIGHT",
+      "obstacle": [
+        36,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 51,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        50,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        1,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 2,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        2,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 3,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        3,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 15,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 15,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        30,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        31,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 32,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        32,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 44,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        44,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 45,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        45,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        46,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 57,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        57,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 58,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        58,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 59,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        59,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 16,
+      "direction": "DOWN",
+      "obstacle": [
+        1,
+        17
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 8,
+      "y": 16,
+      "direction": "DOWN",
+      "obstacle": [
+        8,
+        17
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 16,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        16
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 16,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        16
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 17,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        17
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 17,
+      "direction": "LEFT",
+      "obstacle": [
+        8,
+        17
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 17,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        17
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 18,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        18
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 18,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        18
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 13,
+      "y": 18,
+      "direction": "DOWN",
+      "obstacle": [
+        13,
+        19
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 23,
+      "y": 18,
+      "direction": "RIGHT",
+      "obstacle": [
+        24,
+        18
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 40,
+      "y": 18,
+      "direction": "LEFT",
+      "obstacle": [
+        39,
+        18
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 6,
+      "y": 19,
+      "direction": "UP",
+      "obstacle": [
+        6,
+        18
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 6,
+      "y": 19,
+      "direction": "RIGHT",
+      "obstacle": [
+        7,
+        19
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 19,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        19
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 19,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        19
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 12,
+      "y": 19,
+      "direction": "RIGHT",
+      "obstacle": [
+        13,
+        19
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 14,
+      "y": 19,
+      "direction": "LEFT",
+      "obstacle": [
+        13,
+        19
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 24,
+      "y": 19,
+      "direction": "UP",
+      "obstacle": [
+        24,
+        18
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 39,
+      "y": 19,
+      "direction": "UP",
+      "obstacle": [
+        39,
+        18
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 13,
+      "y": 20,
+      "direction": "UP",
+      "obstacle": [
+        13,
+        19
+      ],
+      "code": "s"
+    },
+    {
+      "route": 38,
+      "x": 47,
+      "y": 20,
+      "direction": "RIGHT",
+      "obstacle": [
+        48,
+        20
+      ],
+      "code": "t"
+    },
+    {
+      "route": 38,
+      "x": 31,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 32,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        32,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 33,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        33,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 34,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        34,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 45,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        45,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 46,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        46,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 47,
+      "y": 21,
+      "direction": "DOWN",
+      "obstacle": [
+        47,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 22,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 22,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 22,
+      "direction": "RIGHT",
+      "obstacle": [
+        31,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 23,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 17,
+      "y": 23,
+      "direction": "LEFT",
+      "obstacle": [
+        16,
+        23
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 23,
+      "direction": "RIGHT",
+      "obstacle": [
+        31,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 24,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 24,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 16,
+      "y": 24,
+      "direction": "UP",
+      "obstacle": [
+        16,
+        23
+      ],
+      "code": "J"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 24,
+      "direction": "RIGHT",
+      "obstacle": [
+        31,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 11,
+      "y": 25,
+      "direction": "LEFT",
+      "obstacle": [
+        10,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 12,
+      "y": 25,
+      "direction": "DOWN",
+      "obstacle": [
+        12,
+        26
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 20,
+      "y": 25,
+      "direction": "DOWN",
+      "obstacle": [
+        20,
+        26
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 25,
+      "direction": "RIGHT",
+      "obstacle": [
+        31,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 30,
+      "y": 25,
+      "direction": "DOWN",
+      "obstacle": [
+        30,
+        26
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 9,
+      "y": 26,
+      "direction": "RIGHT",
+      "obstacle": [
+        10,
+        26
+      ],
+      "code": "X"
+    },
+    {
+      "route": 38,
+      "x": 6,
+      "y": 28,
+      "direction": "RIGHT",
+      "obstacle": [
+        7,
+        28
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 7,
+      "y": 29,
+      "direction": "UP",
+      "obstacle": [
+        7,
+        28
+      ],
+      "code": "R"
+    },
+    {
+      "route": 38,
+      "x": 0,
+      "y": 30,
+      "direction": "DOWN",
+      "obstacle": [
+        0,
+        31
+      ],
+      "code": "o"
+    },
+    {
+      "route": 38,
+      "x": 1,
+      "y": 30,
+      "direction": "DOWN",
+      "obstacle": [
+        1,
+        31
+      ],
+      "code": "o"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        12,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 1,
+      "direction": "LEFT",
+      "obstacle": [
+        11,
+        1
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 13,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        13,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 1,
+      "direction": "UP",
+      "obstacle": [
+        16,
+        0
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 1,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        1
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 2,
+      "direction": "LEFT",
+      "obstacle": [
+        11,
+        2
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 2,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        2
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 2,
+      "direction": "UP",
+      "obstacle": [
+        18,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 2,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        2
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 19,
+      "y": 2,
+      "direction": "UP",
+      "obstacle": [
+        19,
+        1
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 2,
+      "direction": "RIGHT",
+      "obstacle": [
+        22,
+        2
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 3,
+      "direction": "LEFT",
+      "obstacle": [
+        11,
+        3
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        3
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 3,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        3
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 3,
+      "direction": "RIGHT",
+      "obstacle": [
+        22,
+        3
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 4,
+      "direction": "UP",
+      "obstacle": [
+        4,
+        3
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        5,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        3,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        11,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 4,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 4,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        4
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        3,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 5,
+      "direction": "DOWN",
+      "obstacle": [
+        3,
+        6
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 5,
+      "direction": "DOWN",
+      "obstacle": [
+        4,
+        6
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        5,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 6,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        6,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 7,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        7,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 8,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        8,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 9,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        9,
+        4
+      ],
+      "code": "g"
+    },
+    {
+      "route": 39,
+      "x": 10,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        10,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 11,
+      "y": 5,
+      "direction": "UP",
+      "obstacle": [
+        11,
+        4
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 5,
+      "direction": "DOWN",
+      "obstacle": [
+        14,
+        6
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 15,
+      "y": 5,
+      "direction": "DOWN",
+      "obstacle": [
+        15,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 5,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 5,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 5,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        5
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 25,
+      "y": 5,
+      "direction": "RIGHT",
+      "obstacle": [
+        26,
+        5
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 6,
+      "direction": "LEFT",
+      "obstacle": [
+        4,
+        6
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 13,
+      "y": 6,
+      "direction": "RIGHT",
+      "obstacle": [
+        14,
+        6
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 6,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 6,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 6,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 7,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        7
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 7,
+      "direction": "UP",
+      "obstacle": [
+        14,
+        6
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 15,
+      "y": 7,
+      "direction": "UP",
+      "obstacle": [
+        15,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 7,
+      "direction": "UP",
+      "obstacle": [
+        17,
+        6
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 8,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        8
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 9,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        9
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        22,
+        10
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        24,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 9,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        9
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 31,
+      "y": 9,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 10,
+      "direction": "DOWN",
+      "obstacle": [
+        3,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 10,
+      "direction": "DOWN",
+      "obstacle": [
+        4,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 10,
+      "direction": "DOWN",
+      "obstacle": [
+        17,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 10,
+      "direction": "RIGHT",
+      "obstacle": [
+        22,
+        10
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 11,
+      "direction": "LEFT",
+      "obstacle": [
+        4,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 11,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 11,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        22,
+        10
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 23,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        23,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        24,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 31,
+      "y": 11,
+      "direction": "UP",
+      "obstacle": [
+        31,
+        10
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 12,
+      "direction": "UP",
+      "obstacle": [
+        3,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 12,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        12
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 12,
+      "direction": "UP",
+      "obstacle": [
+        4,
+        11
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 12,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        12
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 12,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        12
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 13,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        13
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 13,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        13
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 13,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        13
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 23,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        23,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 30,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        30,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 31,
+      "y": 13,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 14,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 14,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 14,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 15,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 15,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 15,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 15,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 15,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        15
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 30,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        30,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 31,
+      "y": 15,
+      "direction": "UP",
+      "obstacle": [
+        31,
+        14
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 16,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        16
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 16,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        16
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 17,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        17
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 17,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        17
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 27,
+      "y": 17,
+      "direction": "DOWN",
+      "obstacle": [
+        27,
+        18
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 18,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        18
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 18,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        18
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 26,
+      "y": 18,
+      "direction": "RIGHT",
+      "obstacle": [
+        27,
+        18
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 19,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        19
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 19,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        19
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 19,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        19
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 26,
+      "y": 19,
+      "direction": "RIGHT",
+      "obstacle": [
+        27,
+        19
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 20,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        20
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 11,
+      "y": 20,
+      "direction": "DOWN",
+      "obstacle": [
+        11,
+        21
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 20,
+      "direction": "DOWN",
+      "obstacle": [
+        12,
+        21
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 10,
+      "y": 21,
+      "direction": "RIGHT",
+      "obstacle": [
+        11,
+        21
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 15,
+      "y": 21,
+      "direction": "LEFT",
+      "obstacle": [
+        14,
+        21
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 22,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 10,
+      "y": 22,
+      "direction": "RIGHT",
+      "obstacle": [
+        11,
+        22
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 15,
+      "y": 22,
+      "direction": "LEFT",
+      "obstacle": [
+        14,
+        22
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 22,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 22,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        22
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 23,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 10,
+      "y": 23,
+      "direction": "RIGHT",
+      "obstacle": [
+        11,
+        23
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 15,
+      "y": 23,
+      "direction": "LEFT",
+      "obstacle": [
+        14,
+        23
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 23,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 23,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 23,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 23,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        23
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 24,
+      "direction": "DOWN",
+      "obstacle": [
+        3,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 24,
+      "direction": "LEFT",
+      "obstacle": [
+        2,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 24,
+      "direction": "DOWN",
+      "obstacle": [
+        4,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 24,
+      "direction": "DOWN",
+      "obstacle": [
+        5,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 11,
+      "y": 24,
+      "direction": "UP",
+      "obstacle": [
+        11,
+        23
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 24,
+      "direction": "UP",
+      "obstacle": [
+        12,
+        23
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 24,
+      "direction": "RIGHT",
+      "obstacle": [
+        17,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 24,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 24,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 24,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        24
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 6,
+      "y": 25,
+      "direction": "LEFT",
+      "obstacle": [
+        5,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 25,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 25,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 25,
+      "direction": "DOWN",
+      "obstacle": [
+        21,
+        26
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 25,
+      "direction": "RIGHT",
+      "obstacle": [
+        23,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 25,
+      "direction": "LEFT",
+      "obstacle": [
+        23,
+        25
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 26,
+      "y": 25,
+      "direction": "DOWN",
+      "obstacle": [
+        26,
+        26
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 6,
+      "y": 26,
+      "direction": "LEFT",
+      "obstacle": [
+        5,
+        26
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 26,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        26
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 26,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        26
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 20,
+      "y": 26,
+      "direction": "RIGHT",
+      "obstacle": [
+        21,
+        26
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 27,
+      "direction": "UP",
+      "obstacle": [
+        1,
+        26
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 27,
+      "direction": "RIGHT",
+      "obstacle": [
+        2,
+        27
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 27,
+      "direction": "UP",
+      "obstacle": [
+        5,
+        26
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 27,
+      "direction": "LEFT",
+      "obstacle": [
+        4,
+        27
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 27,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        27
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 27,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        27
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 28,
+      "direction": "RIGHT",
+      "obstacle": [
+        2,
+        28
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 28,
+      "direction": "LEFT",
+      "obstacle": [
+        4,
+        28
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 28,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        28
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 28,
+      "direction": "UP",
+      "obstacle": [
+        17,
+        27
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 28,
+      "direction": "LEFT",
+      "obstacle": [
+        16,
+        28
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 29,
+      "direction": "RIGHT",
+      "obstacle": [
+        2,
+        29
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 29,
+      "direction": "LEFT",
+      "obstacle": [
+        4,
+        29
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 30,
+      "direction": "DOWN",
+      "obstacle": [
+        1,
+        31
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 2,
+      "y": 30,
+      "direction": "UP",
+      "obstacle": [
+        2,
+        29
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 3,
+      "y": 30,
+      "direction": "UP",
+      "obstacle": [
+        3,
+        29
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 4,
+      "y": 30,
+      "direction": "UP",
+      "obstacle": [
+        4,
+        29
+      ],
+      "code": "B"
+    },
+    {
+      "route": 39,
+      "x": 28,
+      "y": 30,
+      "direction": "LEFT",
+      "obstacle": [
+        27,
+        30
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 30,
+      "y": 30,
+      "direction": "DOWN",
+      "obstacle": [
+        30,
+        31
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 31,
+      "y": 30,
+      "direction": "DOWN",
+      "obstacle": [
+        31,
+        31
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 2,
+      "y": 31,
+      "direction": "LEFT",
+      "obstacle": [
+        1,
+        31
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 14,
+      "y": 31,
+      "direction": "RIGHT",
+      "obstacle": [
+        15,
+        31
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 29,
+      "y": 31,
+      "direction": "RIGHT",
+      "obstacle": [
+        30,
+        31
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 2,
+      "y": 32,
+      "direction": "LEFT",
+      "obstacle": [
+        1,
+        32
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 5,
+      "y": 32,
+      "direction": "DOWN",
+      "obstacle": [
+        5,
+        33
+      ],
+      "code": "X"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 34,
+      "direction": "LEFT",
+      "obstacle": [
+        16,
+        34
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 16,
+      "y": 35,
+      "direction": "UP",
+      "obstacle": [
+        16,
+        34
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 8,
+      "y": 41,
+      "direction": "RIGHT",
+      "obstacle": [
+        9,
+        41
+      ],
+      "code": "J"
+    },
+    {
+      "route": 39,
+      "x": 8,
+      "y": 44,
+      "direction": "RIGHT",
+      "obstacle": [
+        9,
+        44
+      ],
+      "code": "J"
+    },
+    {
+      "route": 39,
+      "x": 29,
+      "y": 46,
+      "direction": "LEFT",
+      "obstacle": [
+        28,
+        46
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 9,
+      "y": 48,
+      "direction": "UP",
+      "obstacle": [
+        9,
+        47
+      ],
+      "code": "J"
+    },
+    {
+      "route": 39,
+      "x": 24,
+      "y": 48,
+      "direction": "RIGHT",
+      "obstacle": [
+        25,
+        48
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 49,
+      "direction": "DOWN",
+      "obstacle": [
+        22,
+        50
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 25,
+      "y": 49,
+      "direction": "UP",
+      "obstacle": [
+        25,
+        48
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 50,
+      "direction": "RIGHT",
+      "obstacle": [
+        22,
+        50
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 23,
+      "y": 50,
+      "direction": "LEFT",
+      "obstacle": [
+        22,
+        50
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 22,
+      "y": 51,
+      "direction": "UP",
+      "obstacle": [
+        22,
+        50
+      ],
+      "code": "s"
+    },
+    {
+      "route": 39,
+      "x": 28,
+      "y": 52,
+      "direction": "UP",
+      "obstacle": [
+        28,
+        51
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 12,
+      "y": 54,
+      "direction": "DOWN",
+      "obstacle": [
+        12,
+        55
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 17,
+      "y": 54,
+      "direction": "DOWN",
+      "obstacle": [
+        17,
+        55
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 28,
+      "y": 54,
+      "direction": "RIGHT",
+      "obstacle": [
+        29,
+        54
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 6,
+      "y": 55,
+      "direction": "UP",
+      "obstacle": [
+        6,
+        54
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 7,
+      "y": 55,
+      "direction": "UP",
+      "obstacle": [
+        7,
+        54
+      ],
+      "code": "t"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 55,
+      "direction": "DOWN",
+      "obstacle": [
+        18,
+        56
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 18,
+      "y": 55,
+      "direction": "LEFT",
+      "obstacle": [
+        17,
+        55
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 19,
+      "y": 55,
+      "direction": "DOWN",
+      "obstacle": [
+        19,
+        56
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 1,
+      "y": 56,
+      "direction": "UP",
+      "obstacle": [
+        1,
+        55
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 20,
+      "y": 56,
+      "direction": "DOWN",
+      "obstacle": [
+        20,
+        57
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 20,
+      "y": 56,
+      "direction": "LEFT",
+      "obstacle": [
+        19,
+        56
+      ],
+      "code": "k"
+    },
+    {
+      "route": 39,
+      "x": 21,
+      "y": 56,
+      "direction": "DOWN",
+      "obstacle": [
+        21,
+        57
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 25,
+      "y": 56,
+      "direction": "RIGHT",
+      "obstacle": [
+        26,
+        56
+      ],
+      "code": "R"
+    },
+    {
+      "route": 39,
+      "x": 25,
+      "y": 58,
+      "direction": "RIGHT",
+      "obstacle": [
+        26,
+        58
+      ],
+      "code": "R"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "signs": [
+    {
+      "cell": [
+        58,
+        5
+      ],
+      "bg_type": 1
+    },
+    {
+      "cell": [
+        13,
+        19
+      ],
+      "bg_type": 1
+    },
+    {
+      "cell": [
+        3,
+        15
+      ],
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "cell": [
+        11,
+        1
+      ],
+      "sprite": "SPRITE_GSBOY1"
+    },
+    {
+      "cell": [
+        32,
+        13
+      ],
+      "sprite": "SPRITE_GSMAN2"
+    },
+    {
+      "cell": [
+        33,
+        2
+      ],
+      "sprite": "SPRITE_GSGIRL1"
+    },
+    {
+      "cell": [
+        22,
+        8
+      ],
+      "sprite": "SPRITE_GSWOMAN2"
+    },
+    {
+      "cell": [
+        48,
+        6
+      ],
+      "sprite": "SPRITE_SEAMAN_2"
+    },
+    {
+      "cell": [
+        27,
+        12
+      ],
+      "sprite": "SPRITE_BONGURI"
+    },
+    {
+      "cell": [
+        41,
+        17
+      ],
+      "sprite": "SPRITE_MONSTARBALL"
+    },
+    {
+      "cell": [
+        9,
+        26
+      ],
+      "sprite": "SPRITE_MONSTARBALL"
+    }
+  ],
+  "warps": [
+    {
+      "cell": [
+        63,
+        6
+      ],
+      "destination": "MAP_ROUTE_38_ECRUTEAK_GATEHOUSE"
+    },
+    {
+      "cell": [
+        63,
+        7
+      ],
+      "destination": "MAP_ROUTE_38_ECRUTEAK_GATEHOUSE"
+    }
+  ]
+}

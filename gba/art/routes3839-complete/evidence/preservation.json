@@ -1,0 +1,27 @@
+{
+  "engine_commit": "9f06a7098c54c966940071a2068ef51ce6c26bc2",
+  "engine_branch": "codex/routes3839-complete",
+  "baseline": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3",
+  "hub_baseline": "cef1a26c7a6de76e4d73e8ad76033f16737c2406",
+  "original_reference": "pret/pokeheartgold@6988158691eb6178cff697cda0428045ddcba5fb",
+  "rom_sha256": "9b695e38a81f8a5e9e69ff5db39d94b7e91d6cc6de66f559f9960166f6eeb415",
+  "rom_bytes": 33554432,
+  "porymap": "6.3.1",
+  "porytiles": "2.0.0 legacy",
+  "libmgba": "0.10.5",
+  "gcc": "14.2.1",
+  "source_tree": "833cdf202f3295646c66275abd5d0085ff117e6f",
+  "map_ids": {
+    "JohtoRoute38": [
+      80,
+      53
+    ],
+    "JohtoRoute39": [
+      80,
+      54
+    ]
+  },
+  "prior_route_banks_present": false,
+  "unrelated_native_maps_changed": false,
+  "notes": "Fresh accepted Ecruteak baseline; no rejected Route 38/39 generator or native art used. Shared catalog routines reused. Prior branches, drafts and saves retained."
+}
