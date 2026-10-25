@@ -30,7 +30,7 @@ PR #39 against `apocrypha`. Visual acceptance stays with the owner.
 6. **Pack** (`route30_catalog/pair_pack.py`, joint with Route 30): exact, 0 native pixels differ.
    - Primary `cherrygrove_route31`: CherrygrovePrimary with palettes 0, 2 and 3 kept. Route 31 never draws
      Cherrygrove's sea palette, so palettes 1, 4 and 5 hold route art.
-   - Secondary `route31_hgss`: 486 tiles and 278 metatiles (55 of them the seam cells shared with Route 30),
+   - Secondary `route31_hgss`: 494 tiles and 284 metatiles (61 of them the seam cells shared with Route 30),
      banks 6-12.
 7. **Events** on HGSS's cells:
    - Warps:

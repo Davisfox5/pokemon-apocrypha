@@ -67,10 +67,10 @@ Built together with [Route 31](../route31-catalog/README.md), which shares its n
 8. **Pack** (`pair_pack.py`, joint with Route 31): exact, 0 native pixels differ from the assembled art.
    - Primary `cherrygrove_route30`: CherrygrovePrimary with palettes 0 and 3 and every tile Cherrygrove's
      visible cells and the band use kept (those cells draw from nothing else but bank 10); palettes 1, 2, 4
-     and 5 and 180 of its 435 free tile slots hold route art.
-   - Secondary `route30_hgss`: 512 tiles, 435 metatiles (596-597 are the wall cells Cherrygrove also
-     defines), banks 6-11. Bank 10 is Cherrygrove's own blossom palette, which Cherrygrove's visible trees
-     need.
+     and 5 and 194 of its 441 free tile slots hold route art.
+   - Secondary `route30_hgss`: 512 tiles, 461 metatiles (596-619 are the wall and forest cells Cherrygrove
+     also defines), banks 6-11. No blossom stands where either map sees the other now, so bank 10 is route
+     art too.
 9. **Events**: the four signs on HGSS's cells with HGSS's text; the Antidote and Potion balls
    (`FLAG_ITEM_APOC_ROUTE30_ANTIDOTE` 0x265, `FLAG_ITEM_APOC_ROUTE30_POTION` 0x266); the hidden Potion near the
    Trainer Tips board (`FLAG_HIDDEN_ITEM_APOC_ROUTE30_POTION` 0x267); the cuttable tree.
@@ -121,7 +121,7 @@ already on screen as they were drawn.
   from Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. The wall's cells on
   both sides sit at the ids both secondaries define. Clean both ways.
 - **Route 31 (north, offset -27)**: each route's palettes are full, so the cells either route can see across
-  the seam (Route 30: 160, Route 31: 96) get 55 secondary metatile ids defined in both secondaries. Each map
+  the seam (Route 30: 160, Route 31: 96) get 61 secondary metatile ids defined in both secondaries. Each map
   draws the other's cells pixel for pixel with its own tiles. Clean both ways.
   - Without the two north rows, Route 31's camera would see Mr. Pokemon's roof. Route 31's banks can't
     hold its colours beside Route 31's own art (the integer program proves it infeasible), so the pad moves
