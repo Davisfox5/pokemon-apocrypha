@@ -30,7 +30,7 @@ Chapters 4 and 5).
 | Change | Source art | Story |
 | --- | --- | --- |
 | The Saffron Dojo: one building on FireRed's Fighting Dojo and Gym lots, 14 cells wide, a door for each school, Fighting (40, 12) and Psychic (45, 12), into one shared hall | Emerald's Battle Palace hall (Battle Frontier) widened under one dark tiled roof, its periodic roof bay repeated; a second roof tier over the centre bay with a shoji band and the shared crest (half Fighting red, half Psychic purple); a noren over each door in its school's colour, a fist on the red, an eye on the purple | The owner's brief: both dojos "each with an individual entrance but a shared interior", one original building. Canon has no Saffron Gym |
-| Silph Co.: a new glass tower under FireRed's crown, eight floors of curtain wall, its own entrance canopy at the foot; the tower and podium set in under the crown, outlined, the glass darkening towards each side as round glass does, the podium's foot corners cut round | FireRed's Silph crown (purple roof panels, glass atrium); Emerald's Battle Tower curtain wall and base; FireRed's Silph door canopy | "Silph Co. dominates the skyline" |
+| Silph Co.: FireRed's own Silph, two floors taller, the roof atrium's glass carried down the whole front as one spine to the entrance canopy (which is the atrium's width), its mullions on the floor lines | FireRed's Silph throughout: purple roof panels, white rounded sides, pale teal glass, a floor line every 16 px | "Silph Co. dominates the skyline" |
 | Silph's research lab, built onto the tower's east side, its own door (42, 30) into an open, empty lab | Emerald's Mossdeep Space Center (observatory dome, roof-deck dish, glass stair column) recoloured to Silph's lavender | The owner's brief: a wing on Silph with a separate entrance, "Open, empty lab" |
 | Green spaces: a fountain garden on the south avenue out to the south gate's grass; lawns and flower beds before Silph and the lab (paths kept to both doors); the east fence's green north and south of the east gate and the strip west of the station, in flowers; a grove of trees in the fenced corner by the Center, the one place trees close no walkway | FireRed's own General grass, flowers and trees (Celadon's), Celadon's fountain; Celadon's lawn edge drawn in Saffron's colours (a darker grass rim, a mortar-and-highlight kerb on the paving) | "The floor looks boring": Celadon's Gen 3 vocabulary, no new colours |
 | Street lamps at Silph's and the lab's doors | Rustboro's lamp (Emerald), its paving left behind | |
@@ -70,8 +70,8 @@ and empty.
 | --- | --- |
 | Map | `KantoSaffronCity`, 66x55, `gMapGroup_Kanto` (group 81) id 0; Center 1, Center upstairs 2, Mart 3, Dojo 4, lab 5; `MAPSEC_SAFFRON_CITY`, `REGION_KANTO` |
 | Primary | `gTileset_KantoSaffronPrimary`: 512 tiles, 260 metatiles (every cell FireRed drew as it was, and the border) |
-| Secondary | `gTileset_KantoSaffronCity`: 306 of 496 tiles (16 kept for door animation), 267 metatiles (the 433 art cells) |
-| Palettes | 13 banks, 192 of 195 colours, one pixel-exact fit over the whole map |
+| Secondary | `gTileset_KantoSaffronCity`: 297 of 496 tiles (16 kept for door animation), 263 metatiles (the 433 art cells) |
+| Palettes | 13 banks, 194 of 195 colours, one pixel-exact fit over the whole map |
 | Rooms | `KantoSaffronDojo` (81 tiles, 51 metatiles) and `KantoSaffronSilphLab` (114 tiles, 70 metatiles), each on `gTileset_Building` and its own secondary |
 | Border | FireRed's |
 | Music | `MUS_RG_PEWTER` (FireRed's Saffron theme); the lab `MUS_RG_SILPH` |
@@ -134,7 +134,7 @@ Dojo's wall. No connections: Routes 5-8 are not built.
 - **Deterministic**: two runs of parts, compose, pack and interiors under different
   `PYTHONHASHSEED` give identical arrays and sprites.
 
-Local ROM `30a54f75` on engine `claude/saffron-city`.
+Local ROM `6a170344` on engine `claude/saffron-city`.
 
 ## Rebuild
 
@@ -158,6 +158,8 @@ map it is regenerated from these tools each round; after that, edit natively.
 
 - Owner review, round 1 (2026-10-25): the east lawn covered the League office house's east
   column, trees closed walkways, Silph's sides were hard; all three fixed.
+- Owner review, round 2 (2026-10-25): Silph's tower was Emerald's Battle Tower wall, deep blue,
+  "pasted right on top of the old building". Rebuilt in FireRed Silph's own materials.
 - The station is still v1's (HGSS's model at C06's angle); it is the one part not cut from
   Gen 3 map art.
 - Interiors other than the Center, the Mart, the Dojo's hall and the lab (Silph's lobby,
@@ -167,4 +169,4 @@ map it is regenerated from these tools each round; after that, edit natively.
   students, Sabrina and Bruno, the Copycat) comes with its scenes.
 - The café and hidden items in KANTO_ITEMS.md are not placed.
 - The Center and Mart interiors are Cherrygrove's (the same clerk and nurse sprites).
-- Three palette slots are free: a further part with new colours needs colours freed first.
+- One palette slot is free: a further part with new colours needs colours freed first.

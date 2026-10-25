@@ -259,8 +259,10 @@ regression ("made for a 1980s game", "boring"). The worked example is
   or grass only, never a building's cell or a tree's crown (`compose.lawn_ground`). Trees
   go where they close no walkway: none may make a route between doors, gates and signs
   longer (`check.py`); flowers and lawns are walkable, so use them on walkways.
-- A tall building's sides must not stop dead: set the body in under its roof, outline it,
-  shade towards the edge, cut the foot corners round (`parts.round_sides`).
+- One building is one material language. Never stack another game's facade under a
+  building's own roof (Silph's Battle Tower wall under FireRed's crown read as pasted on);
+  build the new storeys from the building's own pieces and make it new with its own
+  elements (Silph: the roof atrium's glass carried down the front).
 - Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
   snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
   Never ship an inexact colour. If a repack moves a door metatile's banks, index its door

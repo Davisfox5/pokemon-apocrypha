@@ -11,9 +11,9 @@ a part (water, grass, paving) are made transparent, so a part stands on Saffron'
                   entrance each, (40, 12) and (45, 12), its noren curtain in its
                   discipline's colour: a fist on the Fighting red, an eye on the Psychic
                   purple.
-    silph()       Silph Co. ten years on: FireRed's own crown (the purple roof panels and
-                  the glass atrium) over a new glass curtain wall (the Battle Tower's), its
-                  own entrance canopy and doors at the foot.
+    silph()       Silph Co. ten years on: FireRed's own Silph in its own materials, two
+                  floors taller, its roof atrium's glass carried down the front as one spine
+                  to the entrance canopy.
     lab()         Silph's research lab, built onto the tower's east side with its own glass
                   door: Mossdeep's Space Center (the observatory dome and the dish on its
                   roof deck, the glass stair column), in Silph's lavender.
@@ -167,63 +167,29 @@ def dojo(engine):
     return out
 
 # --------------------------------------------------------------------------- Silph Co.
-SILPH_FLOORS = 8
+SILPH_EXTRA_FLOORS = 2                          # floors added to FireRed's nine
+FLOOR = 16                                      # FireRed's Silph: one floor every 16 px
+FIRST_FLOOR, CANOPY_FROM_FOOT = 85, 35          # its first floor's top row; its entrance canopy's top, from the sprite's foot
+ATRIUM = (48, 96)                               # the roof atrium's columns, which the entrance canopy shares
+ATRIUM_BAND, ATRIUM_MULLION = 41, 12            # a 16-row band of the atrium's glass and its mullion within it
 
 def silph(engine):
+    """FireRed's own Silph Co., in its own materials throughout (purple roof panels, white
+    rounded sides, pale teal glass, a floor line every 16 px), two floors taller; the roof
+    atrium's glass carried down the whole front as one spine to the entrance canopy, which is
+    the atrium's width, its mullions on the floor lines."""
     s = source(engine, 'SaffronCity')
-    bf = source(engine, 'BattleFrontier_OutsideEast')
-    crown = rgba(cells(s, 29, 16, 38, 22))          # FireRed's crown: the roof panels, the atrium, the ledge
-    clear_from_edges(crown, colours(cells(s, 28, 15, 39, 16)), 'tlr')
-    body = rgba(np.tile(cells(bf, 12, 4, 21, 5), (SILPH_FLOORS, 1, 1)))
-    base = rgba(cells(bf, 12, 12, 21, 15))          # the canopy band and the entrance row
-    g = base[..., :3].astype(int)
-    lower = np.arange(base.shape[0])[:, None] >= 40
-    base[((g[..., 1] > g[..., 0] + 25) & (g[..., 1] > g[..., 2] - 10)) |
-         (lower & (abs(g[..., 0] - g[..., 1]) < 12) & (g[..., 0] > 170)), 3] = 0
-    door = rgba(cells(s, 32, 29, 35, 31))           # Silph's own canopy and glass doors
-    clear_from_edges(door, colours(cells(s, 31, 31, 36, 32)), 'b')
-    m = door[..., 3] > 0
-    base[16:48, 48:96][m] = door[m]
-    base[16:48, 48:96][~m & lower[16:48, :1].repeat(48, 1)] = 0
-    t = np.concatenate([crown, body, base], 0)
-    round_sides(t, crown.shape[0])
-    return t
-
-SIDE_INSET, SIDE_SHADE = 4, (2, 2, 1, 1, 1)     # px set in under the crown; darkening steps, outermost first
-
-def darker(c, palette):
-    """The part's own colour nearest c at about four-fifths of its brightness (a step down
-    its ramp), so a shaded pixel adds no colour."""
-    c = np.array(c, float)
-    cands = [p for p in palette if sum(p) < c.sum() - 12]
-    if not cands:
-        return tuple(int(v) for v in c)
-    return min(cands, key=lambda p: ((np.array(p, float) - c * 0.8) ** 2).sum())
-
-def round_sides(t, y0):
-    """Silph's tower and podium below the crown (rows y0 on), rounded at both sides: set in
-    under the crown's ledge, an outline on the edge, the glass and concrete darkening
-    towards it as round glass does, the podium's foot corners cut round."""
-    a = t[..., 3] > 0
-    palette = sorted({tuple(int(v) for v in c) for c in t[a][:, :3]})
-    h, w = t.shape[:2]
-    for side in (1, -1):
-        xs = list(range(w)) if side == 1 else list(range(w - 1, -1, -1))
-        out, edge, shade = xs[:SIDE_INSET], xs[SIDE_INSET], xs[SIDE_INSET + 1:SIDE_INSET + 1 + len(SIDE_SHADE)]
-        for y in range(y0, h):
-            if not a[y, edge]:
-                continue
-            t[y, out, 3] = 0
-            t[y, edge, :3] = OUTLINE
-            for x, n in zip(shade, SIDE_SHADE):
-                if t[y, x, 3]:
-                    c = tuple(int(v) for v in t[y, x, :3])
-                    for _ in range(n):
-                        c = darker(c, palette)
-                    t[y, x, :3] = c
-        for dy, dx in ((1, 0), (1, 1), (2, 0)):         # the podium's foot corner, cut round
-            t[h - dy, xs[SIDE_INSET + dx], 3] = 0
-        t[h - 1, xs[SIDE_INSET + 2], :3] = OUTLINE
+    fr = cells(s, 29, 16, 38, 31)                   # the building and the street row under it
+    floor = fr[FIRST_FLOOR + FLOOR:FIRST_FLOOR + 2 * FLOOR]
+    t = np.concatenate([fr[:FIRST_FLOOR + FLOOR]] + [floor] * SILPH_EXTRA_FLOORS + [fr[FIRST_FLOOR + FLOOR:]], 0).copy()
+    h = t.shape[0]
+    x0, x1 = ATRIUM
+    for y in range(FIRST_FLOOR, h - CANOPY_FROM_FOOT):
+        t[y, x0:x1] = fr[ATRIUM_BAND + (y - (FIRST_FLOOR - 1) % FLOOR + ATRIUM_MULLION) % FLOOR, x0:x1]
+    t = rgba(t)
+    ground = (colours(cells(s, 28, 15, 39, 16)) | colours(cells(s, 28, 30, 29, 31)) | colours(cells(s, 38, 30, 39, 31))
+              | colours(cells(s, 31, 31, 36, 32)))
+    return clear_from_edges(t, ground, 'tlrb')
 
 def lab(engine):
     ms = source(engine, 'MossdeepCity')

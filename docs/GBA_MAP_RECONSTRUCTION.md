@@ -433,6 +433,9 @@ art (`saffron/parts.py`). Traps hit there:
 - After a repack the Center's door metatile drew from banks 10 and 11, not FireRed's 3;
   the sliding door then played in the wrong colours. Index the door frames into the
   metatile's banks and name them in the door's palette list (`install.move_door`).
+- A part's colours can all pass the palette fit and still clash: Emerald's deep-blue Battle
+  Tower glass under FireRed's purple and teal Silph crown read as a second building. Judge
+  a combined part at 1x beside its neighbours, not only by its seams.
 - A lawn rectangle drawn by eye ran one column into a house and one cell into a tree's
   crown poking up from the row below. Check every lawn cell's FireRed picture holds only
   paving and grass colours before painting it.
