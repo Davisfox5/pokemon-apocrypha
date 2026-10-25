@@ -1,0 +1,292 @@
+{
+  "map": "Route44",
+  "primary": "gTileset_MahoganyPrimary (Mahogany Town's)",
+  "secondary": "gTileset_Route44",
+  "build": "shared Johto art + Blackthorn FRLG rock + natural water banks, lossless pack on Mahogany's tilesets (assemble.py, pack_fixed.py)",
+  "pack": {
+    "method": "lossless pack on Mahogany Town's tilesets: Mahogany's primary (tiles 0-511, palettes 0-5, metatiles 0-511); a secondary carrying exact copies of what Mahogany's visible edge uses, then Route 44's own art",
+    "native_pixels_exact": 786432,
+    "route44_pixels_in_mahogany_view": 24576,
+    "route44_pixels_in_mahogany_view_exact": true,
+    "mahogany_pixels_in_route44_view": 28672,
+    "mahogany_pixels_in_route44_view_exact": true,
+    "mahogany_unchanged_with_appended_metatiles": true,
+    "reserved_metatiles": {
+      "513": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "514": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "515": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "519": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "528": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "529": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "530": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "531": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "532": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "533": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "534": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "536": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "537": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "538": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "539": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "540": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "541": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "542": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "548": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "556": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "565": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "566": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "567": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "568": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "581": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "582": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "583": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "584": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "599": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "619": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "632": [
+        0,
+        1
+      ],
+      "633": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "reserved_palette_slots": {
+      "6": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "9": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "10": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "12": [
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+      ]
+    },
+    "banks": [
+      15,
+      14,
+      15,
+      15,
+      15,
+      15,
+      13,
+      15,
+      14,
+      13,
+      15,
+      14,
+      15
+    ],
+    "primary_tiles_reused": 146,
+    "new_secondary_tiles": 385,
+    "secondary_tile_slots": 420,
+    "secondary_metatiles": 330,
+    "primary_metatiles_used": 44,
+    "mahogany_appended": {
+      "primary": [],
+      "secondary": [
+        672,
+        673
+      ]
+    },
+    "mahogany_counts": {
+      "primary_tiles": 512,
+      "primary_metatiles": 210,
+      "secondary_tiles": 400,
+      "secondary_metatiles": 160
+    }
+  },
+  "map_id": 50
+}
