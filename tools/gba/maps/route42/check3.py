@@ -31,6 +31,7 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent))
 import build as B                                   # noqa: E402
 import pack as P                                    # noqa: E402
+import elements as E                                # noqa: E402
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-42'
@@ -264,9 +265,14 @@ def main(g, phg):
     # is not built, so Surf. The pockets behind HGSS's Rock Climb wall are not reached (Gen 3
     # has no Rock Climb).
     by_surf = {k: p for k, p in dict(east_pond=(62, 12), middle_lawn=(45, 18), middle_cave_front=(48, 16), west_pond=(30, 12),
-                                     west_road=(12, 14), gate_front=(7, 15), west_route_sign=(11, 18), west_cave_front=(20, 12),
+                                     west_road=(12, 14), gate_front=(7, 16), west_route_sign=(11, 18), west_cave_front=(20, 12),
                                      north_west_lawn=(15, 10)).items() if p not in surfed}
     assert not by_surf, ('unreachable with Surf', by_surf)
+    # The woods close on the gate (AGENTS.md; owner review, Route 42): G02's footprint is solid,
+    # and so is every cell along its north and south sides, so no one walks round it.
+    (c0, c1), (r0, r1) = E.GATE_COLS, E.GATE_ROWS
+    round_gate = [(x, y) for x in range(c0, c1 + 1) for y in range(r0 - 1, r1 + 2) if walk(foot[(x, y)])]
+    assert not round_gate, ('walkable cells in or beside the gate', round_gate)
     # Walk-behind layering.
     top, owner = z['objects'], z['owner']
     walkable = np.array([[walk(foot[(x, y)]) for x in range(W)] for y in range(H)])

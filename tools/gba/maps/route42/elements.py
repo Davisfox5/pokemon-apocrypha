@@ -135,12 +135,44 @@ def route42_labels(cells, m, nm):
     for y in range(H):
         if cells[y][TRIM_X]['lab'] == 'G':
             cells[y][TRIM_X]['lab'], cells[y][TRIM_X]['trimmed'] = '.', True
-    # The Ecruteak gate (G02, assemble.GATE) covers x 0-6, rows 11-17: no tree roots under it.
-    for y in range(11, 18):
-        for x in range(0, 7):
-            if cells[y][x]['lab'] != 'd':
+    # The Ecruteak gate: G02 (assemble.GATE) stands on x 0-6, rows 12-18, one row south of
+    # HGSS's own doorway (6, 15-16), so the woods north and south close on it with their own
+    # lattices (owner review, Route 42); its stairs, the doorway, are GATE_DOOR. No tree
+    # roots under it.
+    for y in range(H):
+        for x in range(W):
+            if cells[y][x]['lab'] == 'd':
                 cells[y][x]['lab'] = 'X'
+    for y in range(GATE_ROWS[0], GATE_ROWS[1] + 1):
+        for x in range(GATE_COLS[0], GATE_COLS[1] + 1):
+            cells[y][x]['lab'] = 'd' if (x, y) in GATE_DOOR else 'X'
+            if (x, y) in GATE_DOOR:
+                cells[y][x]['hgss_door'] = [x, y - 1]
+    # HGSS's taller gate model covers cells beyond G02's footprint, between it and the woods:
+    # they are woods, so the trees close on G02 (AGENTS.md, woods close tight on buildings).
+    for y in list(range(0, GATE_ROWS[0])) + list(range(GATE_ROWS[1] + 1, H)):
+        for x in range(GATE_COLS[0], GATE_COLS[1] + 1):
+            if cells[y][x]['lab'] == 'X':
+                cells[y][x]['lab'], cells[y][x]['gate_woods'] = 'F', True
     return cells
+
+GATE_COLS, GATE_ROWS = (0, 6), (12, 18)          # G02's footprint (assemble.GATE), inclusive
+GATE_DOOR = {(6, 16), (6, 17)}                   # G02's stairs: HGSS's doorway (6, 15-16), one row south
+
+def gate_anchors():
+    """Where the woods beside G02 must reach, and where they must not. North, the woods stand
+    behind the gate: their roots may end on its top footprint row (gate_behind; assemble hides
+    what falls inside the footprint), so the crowns meet the roof. South, they stand in front:
+    the crowns fill the row under its base and stay out of the footprint, as HGSS's trees meet
+    its gate. Returns (reach, keep_out)."""
+    xs = range(GATE_COLS[0], GATE_COLS[1] + 1)
+    return ({(x, GATE_ROWS[0]) for x in xs} | {(x, GATE_ROWS[1] + 1) for x in xs},
+            {(x, GATE_ROWS[1]) for x in xs})
+
+def gate_behind():
+    """Cells a tree root's lower row may take although they are not woods: G02's top
+    footprint row, where a trunk stands just behind the roof's top edge."""
+    return {(x, GATE_ROWS[0]) for x in range(GATE_COLS[0], GATE_COLS[1] + 1)}
 
 def tree_footprints(cells):
     """HGSS trees stand on 2 x 2 footprints: a crown row (tree01gs / tree01_re) over a trunk
@@ -148,8 +180,13 @@ def tree_footprints(cells):
     roots, so its trees line up in rows and columns as HGSS draws them (owner review, Route 42:
     a packing that maximised the tree count staggered them). The lattice phase is the one that
     covers the most woods cells, counting the T01 crown that fills the row above each root,
-    then the one on HGSS's own trunk rows. Woods cells the lattice leaves bare are HGSS crown
-    overhang (pack.traversal)."""
+    then the one on HGSS's own trunk rows. A block that meets a building first takes the phase
+    whose trees close on it (gate_anchors: reaching the cells along its sides, its trunks just
+    behind the roof's top edge, gate_behind), so no lawn shows and no path runs between the
+    woods and the building (AGENTS.md; owner review, Route 42). Such a block may root its last
+    row on the map's bottom edge, the trunks beyond it, as its first row puts crowns beyond the
+    top edge. Woods cells the lattice leaves bare are HGSS crown overhang (pack.traversal)."""
+    (reach, keep_out), behind = gate_anchors(), gate_behind()
     detected = set()
     for y in range(1, H):
         x = 0
@@ -167,13 +204,16 @@ def tree_footprints(cells):
     roots = []
     for comp in _components(isf.copy()):
         comp = {(x, y) for y, x in comp}
-        cand = [(x, y) for x, y in comp if all((x + dx, y + dy) in comp for dx in (0, 1) for dy in (0, 1))]
+        near = any((x + dx, y + dy) in reach | keep_out for x, y in comp for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+        edge = {(x, H) for x in range(W)} if near else set()
+        cand = [(x, y) for x, y in comp if (x + 1, y) in comp and all((x + dx, y + 1) in comp | behind | edge for dx in (0, 1))]
         best = None
         for px in (0, 1):
             for py in (0, 1):
                 rs = [(x, y) for x, y in cand if x % 2 == px and y % 2 == py]
-                cover = {(x + dx, y + dy) for x, y in rs for dx in (0, 1) for dy in (-1, 0, 1)} & comp
-                key = (len(cover), sum(r in detected for r in rs), -px, -py)
+                art = {(x + dx, y + dy) for x, y in rs for dx in (0, 1) for dy in (-1, 0, 1)}
+                cover = art & comp
+                key = (len(art & reach), -len(art & keep_out), len(cover), sum(r in detected for r in rs), -px, -py)
                 if best is None or key > best[0]:
                     best = (key, rs)
         roots += [(int(x), int(y)) for x, y in best[1]]
@@ -401,7 +441,7 @@ def frlg_pieces(engine):
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0))   # flattest 8x8 block of each Cherrygrove texture
 
-def rock_frlg(cells, base, pieces, tex):
+def rock_frlg(cells, base, pieces, tex, extra_plain=None):
     """Blob autotiling from FRLG's set (Blackthorn's rock_frlg). A cell whose only lower
     neighbours are diagonal takes FRLG's whole inner-corner piece (two of them split down
     the middle when both lower diagonals are on one side), which joins the face and the
@@ -411,7 +451,9 @@ def rock_frlg(cells, base, pieces, tex):
     as ground: a wall seen from below them shows the lawn past its edge). The rock is a
     top-layer overlay: its clear pixels show the bottom layer, which carries the plainest
     8x8 block of the ground beyond that edge, and its cast shadow is Cherrygrove's border
-    grey. Under a fully opaque quadrant the bottom is the rock top itself."""
+    grey. Under a fully opaque quadrant the bottom is the rock top itself. extra_plain adds
+    ground classes of a map's own (Route 42: the Mt. Mortar ledge's cave-floor dirt), so the
+    ground past an edge is the ground actually there."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
@@ -422,6 +464,7 @@ def rock_frlg(cells, base, pieces, tex):
     lvl = lambda x, y: d[clamp(x, y)[1], clamp(x, y)[0]]
     fill = np.array([ROCK_RAMP[i] for i in nine[('M', 'M')].ravel()], np.uint8).reshape(16, 16, 3)
     plain = {k: np.tile(tex[k][oy:oy + 8, ox:ox + 8], (2, 2, 1)) for k, (oy, ox) in PLAIN.items()}
+    plain.update(extra_plain or {})
     def beyond(x, y):
         """(pixels, ground class) of what lies past an edge toward cell (x, y)."""
         cx, cy = clamp(x, y)
@@ -429,7 +472,7 @@ def rock_frlg(cells, base, pieces, tex):
             return fill, 'rock'
         k = cells[cy][cx]['floor']
         return plain[k], k
-    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None)
+    cast = dict(grass=BORDER_GRAY, sand=BORDER_GRAY, rock=None, **{k: BORDER_GRAY for k in extra_plain or {}})
     piece = np.full((H, W), '', object)
     for y in range(H):
         for x in range(W):

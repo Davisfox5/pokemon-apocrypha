@@ -11,8 +11,8 @@ sides and part way through each crossing step (just after the secondary tileset 
 the road's top and bottom rows; views on Mahogany's west road; walk-behind captures on both
 route signs (BG1 must cover the player's cell) and in front of the east one (BG1 clear); the
 stairs; a Mt. Mortar mouth, the Ecruteak gate's doorway, a tree and the pond's edge blocking a
-player on foot; all four signs read; Mahogany, Route 44 and Cherrygrove regression views;
-ordinary flash save, cold reload and Continue.
+player on foot; no way round the gate past the woods; all four signs read; Mahogany, Route 44
+and Cherrygrove regression views; ordinary flash save, cold reload and Continue.
 """
 from __future__ import annotations
 import sys
@@ -45,8 +45,11 @@ RC.STEPS = [
     # The stairs down to the lower lawn and back.
     ('go', R, 72, 13), ('west', 3, 'stairs-descended'), ('at', R, 69, 13), ('east', 3, None), ('at', R, 72, 13),
     # Blocked on foot: a Mt. Mortar mouth, the gate's doorway (interiors not built), a tree, the pond.
+    # The woods close on the gate: no way round it north or south of its east face.
     ('go', R, 77, 12), ('north', 1, None), ('at', R, 77, 12),
-    ('go', R, 7, 15), ('west', 1, None), ('at', R, 7, 15),
+    ('go', R, 7, 16), ('west', 1, None), ('at', R, 7, 16),
+    ('go', R, 7, 13), ('north', 1, None), ('at', R, 7, 13), ('west', 1, None), ('at', R, 7, 13),
+    ('go', R, 7, 18), ('west', 1, None), ('at', R, 7, 18), ('south', 1, None), ('at', R, 7, 18),
     ('go', R, 41, 19), ('east', 1, None), ('at', R, 41, 19),
     ('go', R, 67, 13), ('west', 1, None), ('at', R, 67, 13),
     # Signs.

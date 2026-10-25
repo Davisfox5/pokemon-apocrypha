@@ -35,68 +35,8 @@
     15
   ],
   "reachable_foot_cells": 213,
-  "open_cells": 546,
+  "open_cells": 531,
   "unreachable_open_cells": [
-    [
-      0,
-      11
-    ],
-    [
-      0,
-      18
-    ],
-    [
-      1,
-      18
-    ],
-    [
-      2,
-      18
-    ],
-    [
-      3,
-      18
-    ],
-    [
-      4,
-      18
-    ],
-    [
-      5,
-      11
-    ],
-    [
-      5,
-      18
-    ],
-    [
-      6,
-      11
-    ],
-    [
-      6,
-      12
-    ],
-    [
-      6,
-      14
-    ],
-    [
-      6,
-      17
-    ],
-    [
-      6,
-      18
-    ],
-    [
-      7,
-      11
-    ],
-    [
-      7,
-      12
-    ],
     [
       7,
       13
@@ -1370,7 +1310,7 @@
       22
     ]
   ],
-  "surf_reachable_cells": 767,
+  "surf_reachable_cells": 753,
   "water_cells": 252,
   "approaches": {
     "seam_road": [
@@ -1407,8 +1347,7 @@
     ]
   },
   "walk_behind_cells": {
-    "sign": 7,
-    "gate": 4
+    "sign": 7
   },
   "seam_cells_walkable_layer": [
     [
@@ -1436,7 +1375,7 @@
   },
   "budgets": {
     "secondary_tiles": 496,
-    "secondary_metatiles": 355,
+    "secondary_metatiles": 351,
     "primary_metatiles": 210,
     "mahogany_secondary_metatiles": 173
   },
@@ -1445,7 +1384,7 @@
   "mahogany_metatiles_unchanged": true,
   "mahogany_map_json_only_connection": true,
   "material_cells": 3072,
-  "material_matches": 2860,
+  "material_matches": 2866,
   "material_mismatches": [
     [
       54,
@@ -1458,24 +1397,6 @@
     [
       56,
       5
-    ],
-    [
-      88,
-      18
-    ],
-    [
-      88,
-      19
-    ],
-    [
-      88,
-      20
-    ]
-  ],
-  "foreground_differs": [
-    [
-      0,
-      10
     ],
     [
       1,
@@ -1494,17 +1415,35 @@
       10
     ],
     [
-      5,
-      10
+      1,
+      11
     ],
     [
-      6,
-      10
+      2,
+      11
     ],
     [
-      7,
-      10
+      3,
+      11
     ],
+    [
+      4,
+      11
+    ],
+    [
+      88,
+      18
+    ],
+    [
+      88,
+      19
+    ],
+    [
+      88,
+      20
+    ]
+  ],
+  "foreground_differs": [
     [
       10,
       10
@@ -1524,22 +1463,6 @@
     [
       88,
       10
-    ],
-    [
-      0,
-      11
-    ],
-    [
-      5,
-      11
-    ],
-    [
-      6,
-      11
-    ],
-    [
-      7,
-      11
     ],
     [
       10,
@@ -1564,6 +1487,14 @@
     [
       86,
       11
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      5,
+      12
     ],
     [
       6,
@@ -1602,12 +1533,20 @@
       13
     ],
     [
+      6,
+      15
+    ],
+    [
       11,
       15
     ],
     [
       11,
       16
+    ],
+    [
+      6,
+      17
     ],
     [
       18,
@@ -1640,30 +1579,6 @@
     [
       25,
       17
-    ],
-    [
-      0,
-      18
-    ],
-    [
-      1,
-      18
-    ],
-    [
-      2,
-      18
-    ],
-    [
-      3,
-      18
-    ],
-    [
-      4,
-      18
-    ],
-    [
-      5,
-      18
     ],
     [
       0,

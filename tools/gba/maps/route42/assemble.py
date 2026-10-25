@@ -86,10 +86,28 @@ def stage_shared(catalog):
     (SHARED / 'provenance.json').write_text(json.dumps(prov, indent=2) + '\n')
 
 # --------------------------------------------------------------------------- rock
+CAVE_FLOOR = ('road05', 'road05_sub')       # HGSS's dark cave-floor dirt on the Mt. Mortar ledge
+
 def rock_cells(cells):
     """The ledger for the rock pass: a Mt. Mortar mouth is a face cell of the cliff it is cut
-    into (its art goes over the face), and so is HGSS's Rock Climb wall (Gen 3 has none)."""
-    return [[dict(c, lab='S') if c['lab'] in 'DK' else c for c in row] for row in cells]
+    into (its art goes over the face), and so is HGSS's Rock Climb wall (Gen 3 has none). The
+    stair cells are part of the cliff they cut through: S04 is a transparent flight that needs
+    its cliff behind it (Johto catalog), so the cliff runs on unbroken and the flight goes over
+    it (stairs(); the cells stay walkable). The Mt. Mortar ledge's cave-floor cells are their own
+    ground class, so a rock edge onto the ledge shows its dirt (owner review, Route 42)."""
+    out = []
+    for row in cells:
+        r = []
+        for c in row:
+            if c['lab'] in 'DK':
+                c = dict(c, lab='S')
+            elif c['lab'] == 's':
+                c = dict(c, lab='W')
+            if c['material'] in CAVE_FLOOR and c['lab'] not in E.ROCK:
+                c = dict(c, floor='cave')
+            r.append(c)
+        out.append(r)
+    return out
 
 def terraces(cells):
     """Blackthorn's rock structure: every HGSS height layer is one Gen 3 terrace. A rock cell
@@ -111,7 +129,7 @@ def terraces(cells):
                 lower |= pad[1 + dy:1 + dy + H, 1 + dx:1 + dx + W] < d
     return d, rock & lower, rock
 
-def frlg_rock(cells, ground):
+def frlg_rock(cells, ground, dirt):
     """Blackthorn's installed rock (elements.rock_frlg): FRLG General's mountain nine-slice, its
     over-rock version where an edge drops to a lower terrace, and its four inner corners,
     recoloured to the Johto rock ramp, one face per metatile. The rock is a top-layer overlay;
@@ -122,7 +140,7 @@ def frlg_rock(cells, ground):
     d, face, isrock = terraces(rc)
     E.layers = lambda _cells: (d, face, isrock)
     pieces = E.frlg_pieces(ENGINE)
-    out, over, _, piece = E.rock_frlg(rc, ground, pieces, E.cherry_textures())
+    out, over, _, piece = E.rock_frlg(rc, ground, pieces, E.cherry_textures(), dict(cave=dirt))
     ledge = E.ledges_frlg(rc, pieces)
     a = ledge[..., 3] > 0
     over[a] = ledge[a]
@@ -424,7 +442,24 @@ SIGNS = {(11, 17): ('P14.png', 11 * PX - 8, 16 * PX), (86, 12): ('P14.png', 86 *
          (16, 11): ('P13.png', 16 * PX - 8, int(9.5 * PX)), (75, 12): ('P13.png', 75 * PX - 8, int(10.5 * PX))}
 HGSS_SIGN_CELLS = {(86, 12): (88, 12)}
 STAIRS = (70, 12)                          # S04 (one cell wide, three tall) over HGSS's slope cells (70, 13-14)
-GATE = (0, 11 * PX)                        # G02's stairs on HGSS's gate doorway (6, 15-16)
+GATE = (0, 12 * PX)                        # G02 on x 0-6, rows 12-18 (elements.GATE_ROWS): its stairs one row south of HGSS's doorway (6, 15-16)
+
+def stairs(bottom, rock):
+    """S04 over the cliff it cuts through (rock_cells): in S04's cells the cliff comes down to
+    the ground layer, and the flight (stairs_art) goes over it on the top layer as a flat ground
+    detail, so a player on the stairs stands on them (pack.FLAT). The rock and the stone treads
+    keep palettes of their own."""
+    x0, y0 = STAIRS[0] * PX, STAIRS[1] * PX
+    h, w = rgba(SHARED / 'S04.png').shape[:2]
+    sl = np.s_[y0:y0 + h, x0:x0 + w]
+    a = rock[sl][..., 3] > 0
+    bottom[sl][a] = rock[sl][a, :3]
+    rock[sl] = 0
+
+def stairs_art():
+    art = np.zeros((H * PX, W * PX, 4), np.uint8)
+    over(art, rgba(SHARED / 'S04.png'), STAIRS[0] * PX, STAIRS[1] * PX)
+    return art
 
 MAH_DX = 96                                # Route 42 x = Mahogany x + 96 (Mahogany is east of the route)
 
@@ -467,7 +502,17 @@ def compose(phg):
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
     lab = np.array([[c['lab'] for c in row] for row in cells])
     ground, _ = paint_ground(ground_quadrants(cells, np.isin(lab, list(E.ROCK) + ['D', 'K'])))
-    bottom, rock, d, isrock, piece = frlg_rock(cells, ground[..., :3].copy())
+    reductions = {}
+    lim = lambda k: (REDUCE[k][0], mahogany_tones(REDUCE[k][1]))
+    fd, reductions['cave_floor'] = reduce_local(hgss_material(list(CAVE_FLOOR)), *lim('cave_floor'))
+    Image.fromarray(fd).save(LOCAL / 'cave-floor.png')
+    # The Mt. Mortar ledge is cave-floor dirt edge to edge (its commonest tone under HGSS's own
+    # pixels), and it is what a rock edge onto the ledge shows past it.
+    cols, cnt = np.unique(fd[fd[..., 3] > 0, :3], axis=0, return_counts=True)
+    dirt = np.tile(cols[np.argmax(cnt)], (16, 16, 1)).astype(np.uint8)
+    for y, x in zip(*np.nonzero(np.array([[c['material'] in CAVE_FLOOR and c['lab'] not in E.ROCK for c in row] for row in cells]))):
+        ground[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX, :3] = dirt
+    bottom, rock, d, isrock, piece = frlg_rock(cells, ground[..., :3].copy(), dirt)
     owner = np.full((H * PX, W * PX), '', object)
     (OUT / 'terrace-grid.txt').write_text(
         '# Route 42 rock terraces (assemble.terraces), one line per cell row: level 0-3, rock cells upper-case A/B/C\n'
@@ -479,13 +524,9 @@ def compose(phg):
     wa = water(cells, bottom, view)
     a = wa[..., 3] > 0
     bottom[a] = wa[a, :3]; owner[a] = 'water'
-    reductions = {}
-    lim = lambda k: (REDUCE[k][0], mahogany_tones(REDUCE[k][1]))
-    fd, reductions['cave_floor'] = reduce_local(hgss_material(['road05', 'road05_sub']), *lim('cave_floor'))
-    Image.fromarray(fd).save(LOCAL / 'cave-floor.png')
     a = fd[..., 3] > 0
     bottom[a] = fd[a, :3]; owner[a] = 'cave_floor'
-    over(bottom, rgba(SHARED / 'S04.png'), STAIRS[0] * PX, STAIRS[1] * PX, owner, 'stairs')
+    stairs(bottom, rock)
     fl, fcells = flowers(phg)
     fl, reductions['flowers'] = reduce_local(fl, *lim('flowers'))
     Image.fromarray(fl).save(LOCAL / 'flowers.png')
@@ -509,8 +550,9 @@ def compose(phg):
     # Tall grass and flower heads are flat ground details on the top layer, never above the
     # player (pack.FLAT), as the Lake's driftwood: their tiles then hold only their own tones
     # over a plain lawn bottom, and the colours fit Mahogany's free palette slots.
-    # The Mt. Mortar mouths are too: their dark openings over the cliff faces.
-    for art, name in ((tg, 'flat_tall_grass'), (fl, 'flat_flowers'), (cave, 'flat_cave')):
+    # The Mt. Mortar mouths are too (their dark openings over the cliff faces), and S04 over
+    # the cliff it cuts through (stairs()).
+    for art, name in ((tg, 'flat_tall_grass'), (fl, 'flat_flowers'), (cave, 'flat_cave'), (stairs_art(), 'flat_stairs')):
         a = art[..., 3] > 0
         top[a] = art[a]; owner[a] = name
     objs = []
@@ -524,6 +566,25 @@ def compose(phg):
     for o in objs:
         a = o['art'][..., 3] > 0
         o['base'] = o['xy'][1] + int(np.nonzero(a.any(1))[0].max())
+    # The trees rooted on G02's top footprint row stand behind the gate (elements.gate_behind):
+    # in every 8 px tile the gate draws in, the gate hides them, so their crowns meet the roof
+    # with no lawn between, their trunks show beside it, and no tile mixes gate and tree.
+    gate = next(o for o in objs if o['name'] == 'gate_ecruteak')
+    gm = np.zeros((H * PX, W * PX), bool)
+    gh, gw = gate['art'].shape[:2]
+    gm[gate['xy'][1]:gate['xy'][1] + gh, gate['xy'][0]:gate['xy'][0] + gw] = gate['art'][..., 3] > 0
+    gm = np.repeat(np.repeat(gm.reshape(H * 2, 8, W * 2, 8).any(axis=(1, 3)), 8, 0), 8, 1)
+    for o in objs:
+        if o['name'].startswith('tree_') and o['base'] < gate['base']:
+            ah, aw = o['art'].shape[:2]
+            x0, y0 = o['xy']
+            hid = np.zeros((ah, aw), bool)
+            sy0, sx0 = max(0, -y0), max(0, -x0)
+            hid[sy0:, sx0:] = gm[y0 + sy0:y0 + ah, x0 + sx0:x0 + aw]
+            if (hid & (o['art'][..., 3] > 0)).any():
+                art = o['art'].copy()
+                art[hid] = 0
+                o['art'], o['behind_gate'] = art, True
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])

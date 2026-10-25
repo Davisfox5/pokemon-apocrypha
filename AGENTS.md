@@ -78,6 +78,15 @@ rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#na
 - Pond and lake shores look natural, not manicured: an irregular bank of uneven
   width with grass breaking into it, never a straight, even rim like a city or
   park pool (owner review, Route 43, 2026-10-24). Keep the Surf boundary on cell edges.
+- Woods close tight on gates and buildings: where the original's trees meet a
+  building, the native trees meet it too, with no lawn band between them and no
+  walkable cell that lets the player walk round it (owner review, Route 42,
+  2026-10-25). Keep the woods' regular tree lattice and close it on the building:
+  trunks behind a roof's top edge, crowns starting right under its base. Where the
+  Gen 3 building is smaller than the original model, the leftover model cells
+  become woods, and the building may shift within the original footprint so both
+  sides close; keep its whole footprint solid. Check it in the audit and in
+  headless movement.
 - Validate actual decoded native tiles/palettes/layers and Porymap output, plus
   relevant headless movement, gates, connections, water, doors/stairs and ordinary
   saves. Review all affected floors/maps and both sides of transitions. Record

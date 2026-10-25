@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "3a14224e400b650e84ae6c8ea65270565c6a198de45a1420db04f68e28cf0d7f",
+  "rom_sha256": "616f60a5259a10def3974f2f90d17bd7b67bb162c148aa9570c2e498789207ca",
   "phases": [
     {
       "phase": "write",
@@ -514,12 +514,64 @@
           "mapsec": 227
         },
         {
-          "step": "at-51-7-15",
+          "step": "at-51-7-16",
           "region": 2,
           "group": 80,
           "map": 51,
           "x": 7,
-          "y": 15,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "at-51-7-13",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 7,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "at-51-7-13",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 7,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "at-51-7-18",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 7,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "at-51-7-18",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 7,
+          "y": 18,
           "frlg_layout": 0,
           "width": 96,
           "height": 32,

@@ -10,6 +10,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import build as B                                             # noqa: E402
+from elements import GATE_COLS, GATE_ROWS                     # noqa: E402
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-42'
@@ -32,7 +33,8 @@ GATE_DOORS, ARROW_WARPS = {}, {}                              # Route 42 has no 
 # is not built), the Ecruteak gate's doorway (0x6D; the gate interior is not built) and the
 # Rock Climb wall (0x4C; Gen 3 has no Rock Climb).
 SOLID = {'D': 'HGSS warps into Mt. Mortar here; Mt. Mortar is not built, so the mouth is solid',
-         'd': 'HGSS warps into the Ecruteak gate here; its interior is not built, so the doorway is solid',
+         'd': "the Ecruteak gate's doorway, G02's stairs one row south of HGSS's (elements.GATE_DOOR); "
+              'its interior is not built, so the doorway is solid',
          'K': 'HGSS has a Rock Climb wall here; Gen 3 has no Rock Climb, so it is solid rock'}
 
 def traversal(engine, cells, art, edge):
@@ -91,6 +93,10 @@ def traversal(engine, cells, art, edge):
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3)
             else:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3)
+            if lab == 'X' and GATE_COLS[0] <= x <= GATE_COLS[1] and GATE_ROWS[0] <= y <= GATE_ROWS[1]:
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                         adaptation="the Ecruteak gate's G02 footprint is solid throughout, so no one walks round the gate "
+                                    "between it and the woods (owner review, Route 42)")
             if (x, y) in SIGN_MOVED:                      # the east route sign's new cell (assemble.SIGNS)
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
                          adaptation=f"the route sign stands here, moved from HGSS's {SIGN_MOVED[(x, y)]} out of the columns Mahogany's tilesets draw")
