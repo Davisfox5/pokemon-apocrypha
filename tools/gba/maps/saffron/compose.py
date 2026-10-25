@@ -13,7 +13,8 @@ buildings are real Gen 3 art put together into buildings of Saffron's own (parts
                  a floor taller; the street behind it four cells deep, the back two behind its roof.
     lab          Silph's research lab, built onto the tower's east side on the east inner
                  block's lot, its own door (42, 30).
-    station      The Magnet Train station, the player's way into Kanto (Chapter 4's end),
+    station      The Magnet Train station, the player's way into Kanto (Chapter 4's end), its
+                 west end a platform shed the deck runs into (parts.station),
                  in the north-west block where HGSS puts it (sprites.py).
     fountain, lamps   a fountain on the south avenue's plaza; street lamps at Silph's and
                  the lab's doors.
@@ -67,7 +68,7 @@ SILPH_RAIL_END = (38, 14)                       # the railing east of Silph now 
 # Parts: name, sprite, left edge (px), foot row. Buildings block what they stand on; props
 # block their foot cell.
 PLACED = [('rail', 'rail', 0, 14), ('dojo', 'dojo', 36 * 16, 12), ('silph', 'silph', 29 * 16, 30), ('lab', 'lab', 38 * 16, 30),
-          ('station', 'station', STATION_X, STATION_BASE_ROW), ('fountain', 'fountain', 33 * 16, 42),
+          ('station', 'station-shed', STATION_X, STATION_BASE_ROW), ('fountain', 'fountain', 33 * 16, 42),
           ('lamp_silph_w', 'lamp', 31 * 16, 31), ('lamp_silph_e', 'lamp', 35 * 16, 31),
           ('lamp_lab_w', 'lamp', 40 * 16, 31), ('lamp_lab_e', 'lamp', 44 * 16, 31)]
 BUILDINGS = ('dojo', 'silph', 'lab', 'station', 'fountain')
@@ -77,7 +78,7 @@ BUILDINGS = ('dojo', 'silph', 'lab', 'station', 'fountain')
 # shadow on the street below it (as Goldenrod's deck casts).
 RAIL_SHADOW = (14 * 16, 14 * 16, 4 * 16, 40)   # x, y, width, height (px): the fence, the walkway and the street west of the station; the forest's crowns stay as they are
 # The deck is Saffron's own, in Kanto's colours, not Goldenrod's (the owner, 2026-10-25): its
-# palette is one of Saffron's banks, the station's, which it runs into. So every deck tile
+# palette is one of Saffron's banks (the Dojo's wood and slate). So every deck tile
 # fits a bank the map already has (Saffron's 13 banks are full). 5-bit colours.
 SNAPS = {'rail': None}                          # a part's snap distance; None: every colour to its palette's nearest
 RAIL_PALETTE = np.array([(3, 5, 10), (5, 6, 11), (8, 9, 13), (11, 7, 8), (11, 11, 14), (15, 9, 9), (15, 15, 16),

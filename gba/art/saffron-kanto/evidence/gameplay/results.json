@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "86a276b7b3eaf928aa9a235a0bb8ff84cb663baeba83603ecf1774040d7df8f5",
+  "rom_sha256": "23ffa4cf06ba70f454425b1192d4f332043f943c90069429e38e669736a5bc15",
   "phases": [
     {
       "phase": "write",
@@ -362,8 +362,8 @@
           "region": 1,
           "group": 81,
           "map": 0,
-          "x": 19,
-          "y": 10,
+          "x": 28,
+          "y": 13,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -371,12 +371,12 @@
           "mapsec": 98
         },
         {
-          "step": "at-54-19-10",
+          "step": "at-54-28-13",
           "region": 1,
           "group": 81,
           "map": 0,
-          "x": 19,
-          "y": 10,
+          "x": 28,
+          "y": 13,
           "frlg_layout": 0,
           "width": 66,
           "height": 55,
@@ -1488,10 +1488,10 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        192,
-        88
+        336,
+        136
       ],
-      "bg1_pixels_over_player_cell": 31
+      "bg1_pixels_over_player_cell": 96
     },
     {
       "frame": "center-approach",

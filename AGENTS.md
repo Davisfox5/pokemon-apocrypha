@@ -269,7 +269,7 @@ regression ("made for a 1980s game", "boring"). The worked example is
   frames into the new banks (`saffron/install.py`).
 - A piece another region also has (the Magnet Train's deck) may take its form from that
   town's native art (kept as a source file with its branch and commit), but Kanto's is its
-  own: recolour it in the Kanto town's palette (Saffron: its station's). Check open PRs for
+  own: recolour it in the Kanto town's palette (Saffron: one of its own banks). Check open PRs for
   towns other agents built before saying one does not exist.
 - Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
   FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
@@ -278,6 +278,10 @@ regression ("made for a 1980s game", "boring"). The worked example is
   secondary on `gTileset_Building` (`saffron/interiors.py`). Exit mats keep
   `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until their scripts
   exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
+- Where a line (a track, a bridge) meets a building, the building takes it in: build the
+  meeting in the building's own pieces and carry the line's lines on into it (Saffron's
+  station: a glass platform shed, open at the track, the deck's bed running on inside, its
+  girder becoming the shed's band). A line that stops against a wall reads as dumped there.
 - A building's back row (the top row its pixels reach) is walkable wherever its ground is,
   drawn above the player, so the player walks behind the roof, never on it. A tall building
   is not deep: give it more back rows (`compose.BACK_ROWS`; Silph two) and keep a real

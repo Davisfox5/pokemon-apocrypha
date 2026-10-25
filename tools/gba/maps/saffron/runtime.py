@@ -61,7 +61,7 @@ STEPS = [
     ('go', CITY, 15, 12), ('shot', 'under-magnet-train'),
     ('go', CITY, 16, 15), ('north', 5, None), ('at', CITY, 16, 10),             # under the Magnet Train's deck, end to end
     ('go', CITY, 40, 23), ('shot', 'behind-lab-roof'), ('south', 1, None), ('at', CITY, 40, 23),
-    ('go', CITY, 19, 10), ('shot', 'behind-station'), ('south', 1, None), ('at', CITY, 19, 10),
+    ('go', CITY, 28, 13), ('shot', 'behind-station'), ('west', 1, None), ('at', CITY, 28, 13),
     ('go', CITY, 36, 6), ('shot', 'behind-dojo-west-end'), ('east', 1, None), ('at', CITY, 36, 6),
     ('go', CITY, 15, 40), ('shot', 'behind-grove-tree'), ('south', 1, None), ('at', CITY, 15, 40),
     ('go', CITY, 19, 17), ('shot', 'behind-copycat-house'), ('south', 1, None), ('at', CITY, 19, 17),
@@ -99,7 +99,7 @@ STEPS = [
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', OLIVINE, 16, 35, 'regression-olivine'),
     ('view', CITY, 24, 40, 'return-to-saffron'),
 ]
-WALK_BEHIND = {'under-magnet-train': (15, 12), 'behind-silph-roof': (30, 15), 'behind-silph-roof-deep': (30, 16), 'behind-silph-dome': (33, 16), 'behind-lab-roof': (40, 23), 'behind-station': (19, 10), 'behind-dojo-west-end': (36, 6),
+WALK_BEHIND = {'under-magnet-train': (15, 12), 'behind-silph-roof': (30, 15), 'behind-silph-roof-deep': (30, 16), 'behind-silph-dome': (33, 16), 'behind-lab-roof': (40, 23), 'behind-station': (28, 13), 'behind-dojo-west-end': (36, 6),
                'behind-grove-tree': (15, 40), 'behind-copycat-house': (19, 17), 'behind-center': (24, 34), 'behind-mart': (40, 18)}
 IN_FRONT = ('station-front', 'silph-front', 'lab-front', 'fighting-door-front', 'psychic-door-front', 'league-office-front',
             'copycat-house-front', 'mr-psychic-front', 'center-approach', 'center-exit', 'mart-approach', 'mart-exit',

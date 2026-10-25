@@ -21,6 +21,8 @@ a part (water, grass, paving) are made transparent, so a part stands on Saffron'
                   lamps (Emerald).
     rail()        the Magnet Train's elevated deck, the form of Goldenrod's (Codex's native
                   Goldenrod), from the station west to the map's edge.
+    station()     the station (v1's, sprites.py) with its west annex rebuilt as the platform
+                  shed the deck runs into (station-shed.png).
 
     python3 tools/gba/maps/saffron/parts.py ENGINE_CHECKOUT    # writes source/sprites/*.png
 """
@@ -243,10 +245,58 @@ def rail(engine):
     flat middle band left out so it fills four cells exactly."""
     deck = np.array(Image.open(OUT.parent / 'goldenrod-deck.png').convert('RGB'))[:, ::-1]
     deck = np.concatenate([deck[:RAIL_TRIM[0]], deck[RAIL_TRIM[1]:]], 0)
+    deck[:, -2:] = deck[:, -3:-2]                   # Goldenrod's end cap left out: the deck runs on into Saffron's station
     t = rgba(deck)
     return np.concatenate([t, np.zeros((RAIL_PAD,) + t.shape[1:], np.uint8)], 0)
 
-PARTS = dict(dojo=dojo, silph=silph, lab=lab, fountain=fountain, lamp=lamp, rail=rail)
+SHED_W = 56                                     # the station's west end, rebuilt as the platform shed the deck runs into
+SHED_TOP, SHED_GLASS, SHED_BAND, SHED_BASE, SHED_FOOT = 48, 54, 93, 107, 130    # its rows: cap, glass (the deck's rail and bed), band (its girder), plinth, outline (the hall's foot line)
+SHED_MULLIONS = (21, 37, 53)                    # vertical glazing bars (x), 3 px each, as the hall's
+SHED_TRANSOMS = ((72, 74), (84, 87))            # horizontal glazing bars (rows), as the hall's
+STATION_Y = 15 * 16 - 135                       # the station sprite's top row on the map (its foot row is 14)
+
+def station(engine):
+    """The Magnet Train station: v1's station (sprites.py, source/sprites/station.png) with its
+    west annex rebuilt as the platform shed the deck runs into, in the station's own pieces:
+    the hall's yellow pilaster at its west end (open where the deck runs in), a yellow cap, the hall's glazing (its blues,
+    its bars every 16 px, its transoms), the hall's riveted yellow band and its panelled plinth. Through
+    the glass the deck runs on inside, seen in the hall's three glass blues by its brightness,
+    its dark bed in the glazing bars' colour, so the line plainly runs in; every tile of the
+    shed keeps the station's colours."""
+    t = np.array(Image.open(OUT / 'station.png').convert('RGBA'))
+    deck = rail(engine)[:, :, :3].astype(int)
+    hall = t.copy()
+    t[:, :SHED_W] = 0
+    blues = [tuple(int(v) for v in hall[y, x, :3]) for y, x in ((74, 77), (74, 80), (74, 82))]   # the hall glass: dark, mid, light
+    blues.sort(key=sum)
+    bar = tuple(int(v) for v in hall[73, 77, :3])                    # its glazing bars
+    for y in range(SHED_GLASS, SHED_BAND):
+        for x in range(0, SHED_W):
+            if any(m <= x < m + 3 for m in SHED_MULLIONS) or any(a <= y < b for a, b in SHED_TRANSOMS):
+                t[y, x, :3] = bar
+            else:
+                dy = y + STATION_Y - (16 * 15 - deck.shape[0])             # the deck's own row (its foot row is 14 too)
+                lum = deck[dy, (x + deck.shape[1] - 128) % deck.shape[1]].sum() / 765 if 0 <= dy < deck.shape[0] - RAIL_PAD else 0.55
+                t[y, x, :3] = bar if lum < 0.45 else blues[0] if lum < 0.62 else blues[1] if lum < 0.78 else blues[2]
+            t[y, x, 3] = 255
+    for y in range(SHED_BAND, SHED_BASE):                            # the riveted band (the hall's, rows 98-111, period 8), level with the deck's girder
+        for x in range(6, SHED_W):
+            t[y, x] = hall[98 + y - SHED_BAND, 64 + (x - 6) % 8]
+    for y in range(SHED_BASE, SHED_FOOT):                            # the plinth: the hall's recessed panels (rows 112-128, period 10), drawn to its depth
+        hy = 112 + (y - SHED_BASE) * 17 // (SHED_FOOT - SHED_BASE)
+        for x in range(0, SHED_W):
+            t[y, x] = hall[hy, 96 + (x - 6) % 10]
+        t[y, 0] = hall[SHED_FOOT, 96]
+    t[SHED_FOOT, :SHED_W] = hall[SHED_FOOT, 96]                      # the outline along its foot
+    for i, y in enumerate(range(SHED_TOP, SHED_GLASS)):              # the cap: outline, the hall's yellows, a shadow line
+        c = hall[45, 56] if i in (0, 5) else hall[46, 57] if i < 3 else hall[46, 59]
+        t[y, :SHED_W] = c
+    for y in list(range(SHED_TOP, SHED_GLASS)) + list(range(SHED_BAND, SHED_BASE)):   # the west pilaster (the hall's own west edge), open at the track
+        t[y, 0:6] = hall[min(max(y, 46), 111), 56:62]
+    t[SHED_GLASS:SHED_BAND, 0, :3] = hall[45, 56, :3]                 # a dark edge where the deck runs in
+    return t
+
+PARTS = {'dojo': dojo, 'silph': silph, 'lab': lab, 'fountain': fountain, 'lamp': lamp, 'rail': rail, 'station-shed': station}
 
 def main(engine):
     OUT.mkdir(parents=True, exist_ok=True)
