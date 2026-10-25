@@ -1,0 +1,35 @@
+{
+  "metatiles": 543,
+  "allocated_glyphs": 688,
+  "palettes_used": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "command": [
+    "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+    "compile-primary",
+    "-dual-layer",
+    "-tiles-primary-override=1008",
+    "-tiles-total-override=1024",
+    "-metatiles-primary-override=1024",
+    "-pals-primary-override=13",
+    "-o",
+    "/workspace/routes3839-complete-review/gba/art/routes3839-complete/evidence/compiled",
+    "/workspace/routes3839-complete-review/gba/art/routes3839-complete/source/porytiles",
+    "/workspace/routes3839-complete/include/constants/metatile_behaviors.h"
+  ],
+  "exact_rgb555_match": true,
+  "porytiles_base_metatiles": 539,
+  "local_native_repair": "boulder-repair.json"
+}

@@ -1,3 +1,17 @@
+## Latest: complete Routes 38 and 39, fresh HGSS reconstruction (October 25)
+
+Owner explicitly chose complete routes after rejecting the terrain-only attempts. Fresh engine baseline is the
+accepted Ecruteak revision before all rejected Route 38/39 work. Source `codex/routes3839-complete`, commit
+`7cf7ce296f2cf8fc51bc2ad0181d24efab7908ac`; native maps 80.53/54, shared private banks, original dimensions.
+Trees, fences, tall grass, directional ledges, stairs, pasture and original-model farm buildings are included.
+Latest shared Johto catalog routines and Porytiles used. Porymap/native pixels match; local build, a continuous
+344-step tour, 79 ledges, 365 obstacle cases, signs, ordinary saves and cold Continue pass. Twenty-one real game
+frames match 719,840 native RGB555 pixels after explicit exclusions. Owner visual review remains pending.
+
+Read [complete-route evidence](../gba/art/routes3839-complete/README.md). Farm interiors, Ecruteak gatehouse,
+Olivine connection and campaign actors/rewards remain unwired; this is full outdoor architecture. Prior drafts
+and saves preserved. Do not replay the authoring scripts over the committed native maps.
+
 ## Latest: Routes 30 and 31 by the Mahogany/Route 43 process (October 25)
 
 Owner: "do the routes between Cherrygrove and Violet City in the same manner" as Route 29. Both are HGSS

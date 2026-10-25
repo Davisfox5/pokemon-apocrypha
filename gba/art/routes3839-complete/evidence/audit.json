@@ -1,0 +1,24 @@
+{
+  "38": {
+    "cells": 2048,
+    "original_solid_cells": 1153,
+    "collision_differences": 0,
+    "tall_grass_cells": 205,
+    "ledge_cells": 33,
+    "behavior_differences": 0,
+    "porymap_exact": true,
+    "unknown_ground_cells": [],
+    "material_review": "Original terrain-material ledger, native decoded pixels and numbered original/native sheets. Pixel equality establishes packing fidelity, not independent material accuracy or owner acceptance."
+  },
+  "39": {
+    "cells": 2048,
+    "original_solid_cells": 1004,
+    "collision_differences": 0,
+    "tall_grass_cells": 42,
+    "ledge_cells": 46,
+    "behavior_differences": 0,
+    "porymap_exact": true,
+    "unknown_ground_cells": [],
+    "material_review": "Original terrain-material ledger, native decoded pixels and numbered original/native sheets. Pixel equality establishes packing fidelity, not independent material accuracy or owner acceptance."
+  }
+}

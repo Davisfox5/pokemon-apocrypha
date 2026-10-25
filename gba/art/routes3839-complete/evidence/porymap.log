@@ -1,0 +1,26 @@
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-agent'
+[WARNING] Unable to lex unknown char: '?' (0x3f)
+[WARNING] Unable to lex unknown char: ':' (0x3a)
+[WARNING] Unable to lex unknown char: '!' (0x21)
+2026-10-25 22:58:14  [[32mINFO[0m] Successfully monitoring 34/34 project files
+[WARNING] Unable to lex unknown char: '?' (0x3f)
+[WARNING] Unable to lex unknown char: ':' (0x3a)
+[WARNING] Unable to lex unknown char: '!' (0x21)
+[WARNING] Unable to lex unknown char: '?' (0x3f)
+[WARNING] Unable to lex unknown char: ':' (0x3a)
+[WARNING] Unable to lex unknown char: '!' (0x21)
+{
+    "maps": [
+        {
+            "height_px": 512,
+            "map": "JohtoRoute38",
+            "width_px": 1024
+        },
+        {
+            "height_px": 1024,
+            "map": "JohtoRoute39",
+            "width_px": 512
+        }
+    ],
+    "porymap": "6.3.1"
+}
