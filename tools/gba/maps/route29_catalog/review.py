@@ -20,14 +20,14 @@ from PIL import Image, ImageDraw
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 import reference as Rf                                       # noqa: E402
-from reference import W, H, PX, COL0, ROW0, HW, HH, COAST_ROW  # noqa: E402
+from reference import W, H, PX, COL0, ROW0, HW, HH  # noqa: E402
 from tiles import Tileset                                    # noqa: E402
 
 ART = Rf.ART
 OUT = ART / 'evidence/review'
 
 def hgss_in_frame():
-    """The decoded HGSS render placed in the native frame (padding and coast left dark)."""
+    """The decoded HGSS render placed in the native frame (padding left dark)."""
     ref = np.array(Image.open(ART / 'source/hgss/hgss-render.png').convert('RGB'))
     out = np.full((H * PX, W * PX, 3), 24, np.uint8)
     out[ROW0 * PX:ROW0 * PX + HH * PX, COL0 * PX:COL0 * PX + HW * PX] = ref
@@ -51,9 +51,6 @@ def audit(engine):
     for hz in range(HH):
         for hx in range(HW):
             x, y = Rf.to_map(hx, hz)
-            if y >= COAST_ROW:
-                counts['coast (declared: replaces HGSS forest border rows 29-31)'] += 1
-                continue
             c, t = cells[hz][hx], trav[(x, y)]
             sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
             own = set(owner[sl].ravel().tolist()) - {''}
@@ -108,7 +105,7 @@ def main(engine, run, pory):
     whole = Image.new('RGB', (W * PX + 16, 2 * H * PX + 60), (24, 26, 30)); d = ImageDraw.Draw(whole)
     d.text((4, 4), 'HGSS Route 29, decoded and rendered 1:1, in the native frame (HGSS cell = native cell - (4, 3))', fill='white')
     whole.paste(Image.fromarray(a), (8, 20))
-    d.text((4, H * PX + 30), 'native Route 29 as installed (rows 32-50: the accepted Cherrygrove coast)', fill='white')
+    d.text((4, H * PX + 30), 'native Route 29 as installed', fill='white')
     whole.paste(Image.fromarray(b), (8, H * PX + 46))
     whole.resize((whole.width // 2, whole.height // 2), Image.Resampling.LANCZOS).save(OUT / 'whole.png')
     for i, (x0, y0, x1, y1) in enumerate(Rf.SHEETS, 1):

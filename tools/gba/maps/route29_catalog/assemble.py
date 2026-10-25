@@ -21,7 +21,7 @@ not lawn green) and the light lawn patches (grass02 family), as Mahogany's flowe
 
 The 8-column seam windows (columns 0-7 and 94-101) are drawn by the neighbouring town with its own
 tilesets, so their ground follows the town's road rows and their art must resolve to primary
-metatiles (checked in pack.py). Rows 32-50 are the accepted coast, carried as metatile ids.
+metatiles (checked in pack.py). The map is HGSS Route 29 only.
 
 Writes source/assemble/layers.npz, placements.json and evidence/assemble/*.png.
 """
@@ -34,7 +34,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 import reference as Rf                               # noqa: E402
-from reference import W, H, PX, COL0, ROW0, HW, HH, COAST_ROW, WINDOW   # noqa: E402
+from reference import W, H, PX, COL0, ROW0, HW, HH, WINDOW   # noqa: E402
 from claude_cherrygrove import ground as G           # noqa: E402
 
 ROOT = HERE.parents[3]
@@ -142,7 +142,7 @@ def ground_quadrants(phg, grid):
     sand = (r >= g) & (r > 180) & (b < 175)
     q = np.zeros((H * 2, W * 2), np.int8)
     q[:] = G.GRASS
-    for qy in range(ROW0 * 2, COAST_ROW * 2):
+    for qy in range(ROW0 * 2, H * 2):
         for qx in range(W * 2):
             x, y = qx // 2, qy // 2
             hx, hz = Rf.to_hgss(x, y)
@@ -185,7 +185,7 @@ def seam_windows(engine, bottom, flat):
     for side, cols in (('west', range(WINDOW)), ('east', range(W - WINDOW, W))):
         ts, rows = kit[side]
         for x in cols:
-            for y in range(COAST_ROW):
+            for y in range(H):
                 sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
                 flat[sl] = 0
                 if y in rows:
@@ -204,7 +204,6 @@ def lift(phg, names, keep):
     sl = np.s_[ROW0 * PX:ROW0 * PX + HH * PX, COL0 * PX:COL0 * PX + HW * PX]   # padding columns hold no details
     a = art[sl]
     a[m, :3] = rgb[m]; a[m, 3] = 255
-    art[COAST_ROW * PX:] = 0
     return art
 
 def hgss_lawn_colours(phg):
@@ -344,7 +343,6 @@ def compose(phg, engine):
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
-    bottom[COAST_ROW * PX:] = 0; top[COAST_ROW * PX:] = 0; owner[COAST_ROW * PX:] = ''; flat[COAST_ROW * PX:] = 0
     return bottom, flat, flat_owner, top, owner, objs, ledge_list, n_g15, q
 
 def main(phg, catalog, engine):

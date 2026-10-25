@@ -1,4 +1,4 @@
-# Route 29 native material grid (102x51), one code per 16x16 cell. Native = HGSS + (4, 3); two padding columns east.
+# Route 29 native material grid (102x35), one code per 16x16 cell. Native = HGSS + (4, 3); two padding columns east.
 #   g  lawn
 #   d  dirt road
 #   f  lawn with flowers
@@ -16,7 +16,6 @@
 #   s  route sign (P14)
 #   c  cuttable tree (object)
 #   X  other blocked
-#   ~  coast (carried)
 #   x: 012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901
 00    tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
 01    ttttttttttttttttttttttttttttttttttttttttttttttttttttBBBBBBtttttttttttttttttttttttttttttttttttttttttttt
@@ -40,32 +39,16 @@
 19    gggggdddddddddddQgggggggggggggggggttttffggffttttttttgggttgttttttttGGttttGGGGgggEGGGGGGgggddddddddddggg
 20    gggggdddddddddddXLLLLLgggLLLLLLLLLttttggggggttttttttLLLttcttttttttGGttttGGGGgggEGGGGGGGggddddddddddggg
 21    ggggggggggGGddddddddddddddddddggggggggggggggggffttttgggQgggggggfffggggggGGGGgggEGGGGGGGGgggggggggggggg
-22    kkkkkkkkttGGddddddddddddddddddgggggggggkkkkgggggttttgggQggggggggfffgggggGGGGgggEGGGGGGGGggggggkkkkkkkk
+22    kkkkkkkkkkGGddddddddddddddddddgggggggggkkkkgggggttttgggQggggggggfffgggggGGGGgggEGGGGGGGGggggggkkkkkkkk
 23    ttttttttttGGddddddddddddddddddgggggggggttttgggggttffgggQgggggggggfkkkkggGGGGgggEGGGGGGGGGGGGGGtttttttt
-24    ttttttttttGGGGGGGGttttttttttttttttgggggttttkkkkcttffgggQggggggggggttttgggggggggEGGGGGGGGGGGGGGtttttttt
-25    ttttttttttGGGGGGGGttttttttttttttttgggggttttttttggggggggQggggggggggttttgggggggggEddgGGGGGGGGGGGttttttkk
-26    ttttttttttGGGGGGttttttttttttttttttLLLLLttttttttgglllllgXLLLLggLLLLttttLLLLLLLLLJdddGGGtttttttttttttttt
-27    kkkkttttttGGGGGGttttttttttttttttttgggggggggggffgglllllgggggdddggffttttGGGGGGGddddddGGGtttttttttttttttt
-28    ttttttttttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddgggfttttGGGGGGGddddddGtttttttttttttttttt
-29    ttttkkkkttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddggggttttGGGGGGGGGGGGGGttttttttttkkkkkktt
-30    ttttttttttGGGGGGttttttttttttttttttttttttttttttgggggggggggggddddddddddddggGGGGGtttttttttttttttttttttttt
+24    ttttttttttGGGGGGGGkkkkkkkkkkkkkkkkgggggttttkkkkcttffgggQggggggggggttttgggggggggEGGGGGGGGGGGGGGtttttttt
+25    ttkkttttttGGGGGGGGttttttttttttttttgggggttttttttggggggggQggggggggggttttgggggggggEddgGGGGGGGGGGGtttttttt
+26    ttttttttttGGGGGGkkttttttttttttttttLLLLLttttttttgglllllgXLLLLggLLLLttttLLLLLLLLLJdddGGGkkkkkkkktttttttt
+27    ttttttttttGGGGGGttttttttttttttttttgggggggggggffgglllllgggggdddggffttttGGGGGGGddddddGGGtttttttttttttttt
+28    ttkkttttttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddgggfttttGGGGGGGddddddGkktttttttttttttttt
+29    kkttttttttGGGGGGttttttttttttttttttggggggggggggggglllllgggggdddggggttttGGGGGGGGGGGGGGttttttttttttttttkk
+30    ttttttttttGGGGGGttttttttttttttttttkkkkkkkkkkkkgggggggggggggddddddddddddggGGGGGkkkkkktttttttttttttttttt
 31    ttttttttttGGGGGGttttttttttttttttttttttttttttttgggggggggggggddddddddddddggGGGGGtttttttttttttttttttttttt
-32    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-33    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-34    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-35    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-36    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-37    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-38    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-39    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-40    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-41    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-42    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-43    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-44    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-45    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-46    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-47    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-48    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-49    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-50    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+32    kkttttttttkkkkkkttttttttttttttttttttttttttttttkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkttttttttttttttttttttttkk
+33    tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+34    tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt

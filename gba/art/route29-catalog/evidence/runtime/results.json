@@ -3,7 +3,7 @@
   "phase": "write",
   "exit_code": 0,
   "stderr": "",
-  "observations": 589,
+  "observations": 635,
   "parity": {
    "camera_offset": [
     -112,
@@ -90,29 +90,29 @@
     {
      "shot": "route-079",
      "map": 9,
-     "x": 68,
-     "y": 23,
+     "x": 67,
+     "y": 22,
      "identical": 1.0
     },
     {
      "shot": "route-087",
      "map": 9,
-     "x": 76,
-     "y": 23,
+     "x": 75,
+     "y": 22,
      "identical": 1.0
     },
     {
      "shot": "route-095",
      "map": 9,
-     "x": 85,
-     "y": 23,
+     "x": 84,
+     "y": 22,
      "identical": 1.0
     },
     {
      "shot": "route-103",
      "map": 9,
-     "x": 93,
-     "y": 23,
+     "x": 92,
+     "y": 22,
      "identical": 1.0
     },
     {
@@ -167,15 +167,15 @@
     {
      "shot": "back-063",
      "map": 9,
-     "x": 66,
-     "y": 23,
+     "x": 65,
+     "y": 22,
      "identical": 1.0
     },
     {
      "shot": "back-079",
      "map": 9,
-     "x": 55,
-     "y": 18,
+     "x": 56,
+     "y": 17,
      "identical": 0.9955
     },
     {
@@ -188,15 +188,22 @@
     {
      "shot": "back-111",
      "map": 9,
-     "x": 29,
+     "x": 31,
      "y": 16,
      "identical": 1.0
     },
     {
      "shot": "back-127",
      "map": 9,
-     "x": 13,
+     "x": 15,
      "y": 17,
+     "identical": 1.0
+    },
+    {
+     "shot": "back-143",
+     "map": 9,
+     "x": 0,
+     "y": 18,
      "identical": 1.0
     },
     {
@@ -270,25 +277,32 @@
      "identical": 0.9955
     },
     {
-     "shot": "lookout",
+     "shot": "south-pocket",
      "map": 9,
      "x": 60,
      "y": 30,
      "identical": 1.0
     },
     {
-     "shot": "by-the-potion",
+     "shot": "by-the-item-ball",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 1.0
     },
     {
-     "shot": "potion-found",
+     "shot": "item-ball-potion",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 0.7214
+    },
+    {
+     "shot": "item-ball-gone",
+     "map": 9,
+     "x": 82,
+     "y": 5,
+     "identical": 1.0
     },
     {
      "shot": "gatehouse-door-shut",
@@ -349,8 +363,8 @@
     {
      "shot": "save-spot",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 1.0
     }
    ]
@@ -370,8 +384,8 @@
     {
      "shot": "cold-reload",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 1.0
     }
    ]
@@ -391,15 +405,15 @@
     {
      "shot": "continue-menu",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 0.0
     },
     {
      "shot": "title-continue",
      "map": 9,
-     "x": 65,
-     "y": 30,
+     "x": 82,
+     "y": 6,
      "identical": 1.0
     }
    ]
