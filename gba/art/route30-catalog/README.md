@@ -1,0 +1,125 @@
+# Route 30, rebuilt by the Mahogany / Route 43 process
+
+October 25, 2026. Route 30 (engine map `CherrygroveRoute30Approach`), Cherrygrove City to Route 31, built
+the way the owner accepted for Route 29 (PR #34): HGSS's own map data rendered 1:1, a square-by-square
+trace, catalog art, the Cherrygrove painter, an exact pack, seam checks and a headless mGBA run. HGSS only.
+Built together with [Route 31](../route31-catalog/README.md), which shares its north seam. Engine branch
+`claude/routes-30-31-catalog`, draft PR #39 against `apocrypha`. Visual acceptance stays with the owner.
+
+## The method
+
+1. **Reference** (`reference.py`, `hgss_render.py`, `hgss_events.py`): HGSS Route 30 (EVERYWHERE matrix cells
+   (17, 9..11), land_data, zone events R30) rendered at 16 px per cell. Native cell = HGSS cell + (4, 2);
+   the map is 36x104.
+   - Four columns west are woods beyond HGSS's west wall. They put HGSS's south road on Cherrygrove's road
+     (connection offset 35, unchanged).
+   - Six rows south are Cherrygrove's own north forest band (its rows 0-2, twice, as Cherrygrove's primary
+     metatiles), so Cherrygrove's camera sees its own cells across the seam. The band's two blossom trees take
+     the green tree beside them.
+   - Two rows north repeat HGSS row 0 with its stairs as road (see Seams).
+2. **Trees**: an integer program places 360 non-overlapping 2x2 roots on HGSS's woods cells; each is the
+   Cherrygrove tree (T01 plus the town's contact shadow), crown one row north of its root.
+3. **Ground** (`assemble.py`): the approved Cherrygrove/Route 36 painter on an 8 px lawn/road grid read from
+   HGSS's flat ground colours, at Cherrygrove's texture phase. Next to the band, HGSS's road takes the
+   town's road columns with the kit's straight edge, so the roads meet edge to edge.
+4. **Terrain**: Blackthorn's FRLG rock terraces (`rock.py`), one terrace per HGSS height layer; Route 43's
+   natural pond (HGSS freshwater texture, rough banks) on both ponds; stairs S01-S03 on the horizontal flights
+   and S05 on the side flight. Terrain is drawn into the bottom layer.
+5. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb): G15 on all 338 tall-grass cells,
+   L11/L12/L13 on the 32 jump-south ledge cells, P14 on the route sign, P16 on the Trainer Tips board.
+6. **Local art** cut from HGSS's render: Mr. Pokemon's house (with its mailbox) and the Apricorn house, 15
+   tones each; the fences, 4; flower heads, 6; light lawn patches, 3 (`source/local-art/reductions.json`).
+7. **Pack** (`pair_pack.py`, joint with Route 31): exact, 0 native pixels differ from the assembled art.
+   - Primary `cherrygrove_route30`: CherrygrovePrimary with palettes 0-3 and every tile Cherrygrove's visible
+     cells and the band use kept; palettes 4-5 and 181 of its 435 free tile slots hold route art.
+   - Secondary `route30_hgss`: 512 tiles, 401 metatiles, banks 6-12. Bank 10 is Cherrygrove's own blossom
+     palette, which Cherrygrove's visible trees need.
+8. **Events**: the four signs on HGSS's cells with HGSS's text; the Antidote and Potion balls
+   (`FLAG_ITEM_APOC_ROUTE30_ANTIDOTE` 0x265, `FLAG_ITEM_APOC_ROUTE30_POTION` 0x266); the hidden Potion near the
+   Trainer Tips board (`FLAG_HIDDEN_ITEM_APOC_ROUTE30_POTION` 0x267); the cuttable tree.
+
+## Seams
+
+A Gen 3 map draws a connected map's nearest rows with its own tilesets, and on a crossing it keeps the cells
+already on screen as they were drawn.
+
+- **Cherrygrove (south)**: the band is Cherrygrove's own metatiles, and every Cherrygrove cell visible from
+  Route 30 is a primary metatile whose tiles and palettes Route 30's primary keeps. Clean both ways.
+- **Route 31 (north, offset -28)**: each route's palettes are full, so the cells either route can see across
+  the seam (Route 30: 160, Route 31: 96) get 65 secondary metatile ids defined in both secondaries. Each map
+  draws the other's cells pixel for pixel with its own tiles. Clean both ways.
+  - Without the two north rows, Route 31's camera would see Mr. Pokemon's roof. Route 31's banks can't
+    hold its colours beside Route 31's own art (the integer program proves it infeasible), so the pad moves
+    the house out of that view.
+- **Engine change** (PR #39):
+  - A crossing into a map on another primary now loads that primary's tiles, palettes 0-5 (with weather)
+    and animation. Before, only the secondary and palettes 6-12 were reloaded.
+  - When it does, the camera redraws the whole view once it has moved. Without the redraw, the cells on
+    screen keep the old tilesets' tile numbers, which the first build showed as scrambled tiles.
+
+## Review
+
+- [Whole map](evidence/review/whole.png): HGSS left, native right.
+- [Sheets 1-4](evidence/review/): HGSS left, native right, numbered cells.
+- [Gameplay](evidence/review/gameplay.png): 65 headless mGBA frames.
+- [Material grid over HGSS](evidence/trace/) and the [ledger](source/trace/material-grid.txt).
+
+## Checks
+
+| Check | Result |
+| --- | --- |
+| Material audit, every HGSS cell (`material-audit.json`) | 3,072 match, 0 mismatch |
+| Native decode vs assembled art | 0 pixels differ |
+| Walkable area vs HGSS (`source/pack/traversal.json`, `evidence/pack/install.json`) | HGSS's 1,329 cells, plus the 6 road cells of the north padding |
+| Seams, both directions, every cell a player can see (`seams.py`) | clean: Cherrygrove and Route 31 |
+| Porymap 6.3.1 export vs native decode (`porymap.json`) | 0 pixels differ: Route 30, Route 31, Cherrygrove |
+| ROM build | passes; sha256 in `hashes.json` |
+| Headless mGBA (`runtime-summary.json`) | all three phases exit 0 |
+
+The headless run covers:
+
+- Cherrygrove to Route 30's north end and back, walked with every step checked.
+- A walking tour into every area HGSS reaches, both house fronts included.
+- Every ledge run jumps and refuses the climb back.
+- Both house doors, the cuttable tree, the four signs and both ponds block.
+- Six tall-grass steps with an empty party start no battle.
+- The four signs read. Both item balls give their item and are gone. The hidden Potion is found once.
+- The flags survive an ordinary save, a cold reload and title Continue.
+
+47 of 62 write-phase frames are identical to the native decode. The rest differ only where something covers
+the map: dialogue boxes, the map-name popup, the item balls and the cuttable tree.
+
+## Declared adaptations
+
+- **Padding**: four woods columns west, Cherrygrove's band south, two rows north (HGSS row 0, its stairs as road
+  at the plateau's height: six walkable road cells HGSS doesn't have).
+- **Houses**: both doors stay shut; no interiors exist yet.
+- **Mailbox**: HGSS model 30 is Mr. Pokemon's mailbox. It's drawn with his house, and its sign reads his house.
+- **Woods**: cells under a crown stay solid, as HGSS has them.
+- **Not placed**: the Apricorn tree, NPCs and trainers (objects or campaign work), and HGSS's Nugget, which
+  sits on the Route 29/30/Cherrygrove border, outside this map.
+- **Encounters**: the route's existing land table is kept; no surf table was added for the ponds.
+
+## Not verified
+
+- No desktop Porymap save round trip; Porymap's own loader and renderer ran headlessly.
+- `apocrypha build` CI can't run: GitHub Actions is disabled on the engine repository.
+- Owner visual acceptance.
+
+## Reproduce
+
+```sh
+python3 tools/gba/maps/route30_catalog/hgss_render.py PHG gba/art/route30-catalog/source/hgss
+python3 tools/gba/maps/route30_catalog/hgss_events.py PHG gba/art/route30-catalog/source/hgss-events.json
+python3 tools/gba/maps/route30_catalog/reference.py PHG
+python3 tools/gba/maps/route30_catalog/assemble.py PHG CATALOG ENGINE      # CATALOG: checkout of codex/violet-city de5d8cfb
+# then Route 31's trace and assembly (its README)
+python3 tools/gba/maps/route30_catalog/pair_pack.py ENGINE --install       # both routes
+python3 tools/gba/maps/route30_catalog/seams.py ENGINE
+make -C ENGINE -j4
+MGBA_FLAGS=... python3 tools/gba/maps/route30_catalog/runtime.py ENGINE OUT
+python3 tools/gba/maps/route30_catalog/review.py 30 ENGINE OUT PORYMAP_OUT
+```
+
+PHG is a pokeheartgold checkout with its archives. Treat these tools as provenance. Once the owner edits the
+map in Porymap, edit the native files and don't replay the generator over them.

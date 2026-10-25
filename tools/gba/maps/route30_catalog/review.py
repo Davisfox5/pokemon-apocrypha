@@ -29,16 +29,21 @@ from tiles import Tileset                                    # noqa: E402
 
 ART = Rf.ART
 OUT = ART / 'evidence/review'
-MAP = dict(name='CherrygroveRoute30Approach', ts='route30_hgss') if ROUTE == '30' else dict(name='JohtoRoute31', ts='route31_hgss')
+MAP = dict(name='CherrygroveRoute30Approach', ts='route30_hgss', pri='cherrygrove_route30') if ROUTE == '30' else \
+      dict(name='JohtoRoute31', ts='route31_hgss', pri='cherrygrove_route31')
 NEIGHBOURS = [('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route30', 36), ('JohtoRoute31', 'route31_hgss', 'cherrygrove_route31', 64),
               ('CherrygroveCity', 'cherrygrove', 'cherrygrove', 80)]
-# HGSS label -> native codes it may become, the native foot, and the art the cell must hold.
-EXPECT = {'F': ('tko', 'blocked', 'tree'), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),
+# HGSS label -> native codes it may become, the native foot, and the art the cell must hold (any one of;
+# art drawn over a cell counts: a roof over the woods behind a house, Mr. Pokemon's mailbox in his house art).
+EXPECT = {'F': ('tko', 'blocked', ('tree', 'house')), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),
           'L': ('L', 'ledge_south', 'ledge'), 'E': ('E', 'ledge_east', 'ledge'), 'Q': ('Q', 'ledge_west', 'ledge'),
-          'J': ('J', 'blocked', None), '^': ('^', 'open', None), 's': ('s', 'blocked', 'sign'), 'R': ('R', 'blocked', None),
-          'X': ('XR', 'blocked', None), 'H': ('H', 'blocked', 'house'), 'D': ('D', 'blocked', 'house'), 'n': ('n', 'blocked', 'fence'),
+          'J': ('J', 'blocked', None), '^': ('^', 'open', None), 's': ('s', 'blocked', ('sign', 'house')), 'R': ('R', 'blocked', None),
+          'X': ('XR', 'blocked', None), 'H': ('H', 'blocked', ('house', 'fence')), 'D': ('D', 'blocked', 'house'), 'n': ('n', 'blocked', 'fence'),
           'B': ('B', 'blocked', 'gate'), 'W': ('W', 'open', 'gate'), 'V': ('V', 'open', None), 'C': ('C', 'blocked', None),
           '.': ('gdflc', 'open', None)}
+# Declared: HGSS's Route 31 gatehouse base reaches row 16; G02 is seven rows (9-15, its stairs on HGSS's two
+# gate warps), so row 16 under the base is lawn and stays solid as HGSS's footprint.
+DECLARED = {'31': {(x, 16): 'gatehouse base row: lawn, solid as HGSS' for x in range(6)}}.get(ROUTE, {})
 
 def hgss_in_frame():
     ref = np.array(Image.open(ART / 'source/hgss/hgss-render.png').convert('RGB'))
@@ -68,9 +73,12 @@ def audit():
             art = {o.rstrip('0123456789_').split('_')[0] if not o.endswith('house') else 'house' for o in set(owner[sl].ravel().tolist()) - {''}}
             art |= set(flat_owner[sl].ravel().tolist()) - {''}
             codes, foot, need = EXPECT[c['lab']]
-            ok = t['code'] in codes and t['foot'] == foot and (need is None or need in art)
+            ok = t['code'] in codes and t['foot'] == foot and (need is None or bool(set((need,) if isinstance(need, str) else need) & art))
             if c['lab'] == '.' and c['blocked']:
                 ok = t['foot'] == 'blocked'
+            if not ok and (x, y) in DECLARED and t['code'] in codes and t['foot'] == foot:
+                counts['declared: ' + DECLARED[(x, y)]] += 1
+                continue
             counts[('match' if ok else 'MISMATCH') + ': ' + c['lab']] += 1
             if not ok:
                 rows.append(dict(hgss=[hx, hz], native=[x, y], label=c['lab'], native_code=t['code'], native_foot=t['foot'],
@@ -118,7 +126,7 @@ def main(engine, run, pory):
     (OUT / 'porymap.json').write_text(json.dumps(dict(porymap='6.3.1', method="Porymap's own Project::loadMap and Layout::render "
                                                        "(tools/gba/maps/route29_catalog/porymap_probe.cpp), compared in RGB555", maps=pm), indent=1) + '\n')
     files = [engine / f'data/layouts/{MAP["name"]}/map.bin', engine / f'data/maps/{MAP["name"]}/map.json', engine / 'data/layouts/layouts.json'] + \
-            sorted((engine / f'data/tilesets/secondary/{MAP["ts"]}').rglob('*.*')) + sorted((engine / 'data/tilesets/primary/' + ('cherrygrove_route30' if ROUTE == '30' else 'cherrygrove_route31') + '').rglob('*.*')) + \
+            sorted((engine / f'data/tilesets/secondary/{MAP["ts"]}').rglob('*.*')) + sorted((engine / f'data/tilesets/primary/{MAP["pri"]}').rglob('*.*')) + \
             [engine / 'pokeemerald.gba', engine / 'pokeemerald.elf']
     hashes = {str(f.relative_to(engine)): hashlib.sha256(f.read_bytes()).hexdigest() for f in files if f.exists()}
     (OUT / 'hashes.json').write_text(json.dumps(hashes, indent=1) + '\n')
