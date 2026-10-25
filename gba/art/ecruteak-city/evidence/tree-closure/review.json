@@ -1,0 +1,1279 @@
+{
+  "baseline_source": "c8a8267606411bd62a6274ed0e5f430b1b2f7e80",
+  "tree_count": 494,
+  "added": 47,
+  "moved": 64,
+  "master_art_unchanged": true,
+  "building_placements_unchanged": true,
+  "visible_RGB_changes_outside_tree_neighborhoods": 0,
+  "gate_checks": {
+    "west_closed_forest_wall_column": 6,
+    "east_closed_forest_wall_column": 66,
+    "side_gate_city_approaches_reachable": true,
+    "torii_cross_section_row": 45,
+    "torii_only_open_columns": [
+      40,
+      41,
+      42
+    ],
+    "torii_central_path_reachable": true,
+    "torii_path_unreachable_when_center_blocked": true
+  },
+  "collision_changes": [
+    {
+      "x": 22,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 23,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 24,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 26,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 27,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 28,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 30,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 31,
+      "y": 5,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 22,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 23,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 24,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 25,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 26,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 27,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 28,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 29,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 30,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 31,
+      "y": 6,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 7,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 7,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 9,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 10,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 34,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 35,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 36,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 37,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 40,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 41,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 42,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 43,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 11,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 34,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 35,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 36,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 37,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 40,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 41,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 42,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 43,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 12,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 13,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 14,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 14,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 15,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 15,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 18,
+      "y": 16,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 19,
+      "y": 16,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 7,
+      "y": 23,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 7,
+      "y": 24,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 25,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 26,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 27,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 64,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 65,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 29,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 1,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 2,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 3,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 4,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 5,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 6,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 7,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 64,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 65,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 30,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 31,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 31,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 31,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 31,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 31,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 32,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 32,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 32,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 32,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 32,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 33,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 33,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 33,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 33,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 33,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 34,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 34,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 34,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 34,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 34,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 35,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 35,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 35,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 35,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 35,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 64,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 65,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 66,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 67,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 68,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 69,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 70,
+      "y": 38,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 44,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 45,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 46,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 47,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 48,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 49,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 38,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 39,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 44,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 45,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 46,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 47,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 48,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 49,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 50,
+      "y": 50,
+      "before": false,
+      "after": true
+    },
+    {
+      "x": 51,
+      "y": 50,
+      "before": false,
+      "after": true
+    }
+  ],
+  "owner_direction": "Bring complete trees closer to both towers; fill gate/forest gaps and prevent walking around gates.",
+  "limits": [
+    "Existing side gates/interiors/routes remain unwired and closed. Southern torii passage remains open.",
+    "Tree placements are owner-requested refinements to the HGSS interpretation, not new extracted DS data."
+  ],
+  "source_commit": "d5405cdcbddf65a0f9b5e19130cbd29db66cefe0",
+  "ROM_SHA256": "122858fdc48fa5be3484c9e152f76b0856a2e0fc37f4e23ae3544ccd14614ece"
+}

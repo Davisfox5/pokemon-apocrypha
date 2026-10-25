@@ -1,0 +1,181 @@
+{
+  "baseline_source": "103874452f101ba3f597cafcca73c1aa1e32998d",
+  "native_cells": 3744,
+  "reachable_cells": 1314,
+  "isolated_walkable_cells": 0,
+  "tree_count": 489,
+  "cleared_pond_trees": 4,
+  "identical_foliage_geometry": true,
+  "unchanged_building_masters": true,
+  "one_red_lantern_master": true,
+  "gate_visual_center_x": 672,
+  "gate_passage_columns": [
+    41,
+    42
+  ],
+  "normal_layer_alpha_checks": 2688,
+  "boundary_cases": 559,
+  "paired_native_crossings": 53,
+  "crossing_approaches_clear": true,
+  "static_architecture_objects": 2,
+  "interactions": [
+    {
+      "name": "Restoration",
+      "map": 52,
+      "x": 27,
+      "y": 17,
+      "text": "BURNED TOWER RESTORATION\\nThe city and the tower sages are\\lrepairing the old timberwork.\\pThe surviving beams are being\\nreinforced before rebuilding.\\lPlease keep clear of the scaffold.",
+      "approach": {
+        "map": 52,
+        "x": 27,
+        "y": 18,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "BellRecords",
+      "map": 52,
+      "x": 44,
+      "y": 17,
+      "text": "BELL TOWER APPROACH\\nThe sages preserve the city's\\lrecords and sacred traditions.\\pVisitors seeking historical texts\\nshould ask at the archive.",
+      "approach": {
+        "map": 52,
+        "x": 44,
+        "y": 18,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "Archive",
+      "map": 52,
+      "x": 35,
+      "y": 25,
+      "text": "ECRUTEAK HISTORICAL ARCHIVE\\nRecords of the towers and the\\lcity's traditions are kept here.\\pVisits to the reading room are\\narranged with the tower sages.",
+      "approach": {
+        "map": 52,
+        "x": 35,
+        "y": 26,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "WaysideShrine",
+      "map": 51,
+      "x": 35,
+      "y": 5,
+      "text": "A small shrine tended by the city.\\nIts wooden panel depicts the\\ltwo towers above ECRUTEAK.\\pA place to pause and remember\\nthose who cared for them.",
+      "approach": {
+        "map": 51,
+        "x": 35,
+        "y": 6,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "OfferingCounter",
+      "map": 51,
+      "x": 32,
+      "y": 6,
+      "text": "Neatly wrapped shrine offerings\\nrest on the wooden counter.\\pThe stall is unattended.\\nPlease leave the parcels here.",
+      "approach": {
+        "map": 51,
+        "x": 32,
+        "y": 7,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "HeritageBoard",
+      "map": 51,
+      "x": 38,
+      "y": 6,
+      "text": "ECRUTEAK HERITAGE COURT\\nThe shrine and offering stall\\lkeep local traditions close\\lto everyday city life.",
+      "approach": {
+        "map": 51,
+        "x": 38,
+        "y": 7,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "PondShrine",
+      "map": 52,
+      "x": 59,
+      "y": 18,
+      "text": "A quiet shrine beside the spring.\\nWater glimmers beneath its\\lweathered offering shelf.\\pThe path and lanterns have been\\nrenewed by the city's caretakers.",
+      "approach": {
+        "map": 52,
+        "x": 59,
+        "y": 19,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "PondBoard",
+      "map": 52,
+      "x": 61,
+      "y": 22,
+      "text": "SPRING SHRINE\\nA quiet place for reflection.\\pPlease stay on the stone approach\\nand keep the spring clear.",
+      "approach": {
+        "map": 52,
+        "x": 61,
+        "y": 23,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "Gym",
+      "map": 51,
+      "x": 27,
+      "y": 14,
+      "text": "ECRUTEAK CITY GYM\\nLEADER: WILL\\lA student of Psychic discipline\\land spiritual meditation.",
+      "approach": {
+        "map": 51,
+        "x": 27,
+        "y": 15,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    },
+    {
+      "name": "Theater",
+      "map": 51,
+      "x": 45,
+      "y": 6,
+      "text": "ECRUTEAK DANCE THEATER\\nTraditional dance and music\\lcontinue here, passed from\\lone generation to the next.",
+      "approach": {
+        "map": 51,
+        "x": 45,
+        "y": 7,
+        "facing": "UP"
+      },
+      "reachable_south_approach": true,
+      "blocked_fixture": true
+    }
+  ],
+  "NPCs_added": 0,
+  "persistent_flags_added": 0,
+  "limits": [
+    "Existing building interiors and adjoining routes remain unwired.",
+    "Offering counter is unattended: inspection only, no commerce or rewards.",
+    "Shrines/signs provide repeatable public descriptions; campaign actors remain owner-placed."
+  ],
+  "source_commit": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3"
+}

@@ -1,0 +1,163 @@
+{
+  "buildings": [
+    {
+      "asset": "burned-tower",
+      "box": [
+        336,
+        88,
+        512,
+        256
+      ],
+      "evidence": "burned-tower.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "bell-entrance",
+      "box": [
+        528,
+        184,
+        752,
+        320
+      ],
+      "evidence": "bell-entrance.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "house",
+      "box": [
+        336,
+        336,
+        464,
+        448
+      ],
+      "evidence": "house-1.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "house",
+      "box": [
+        496,
+        336,
+        624,
+        448
+      ],
+      "evidence": "house-2.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "house-entry",
+      "box": [
+        336,
+        448,
+        464,
+        568
+      ],
+      "evidence": "house-entry.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "house-green",
+      "box": [
+        520,
+        568,
+        648,
+        688
+      ],
+      "evidence": "house-green.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "house-southeast",
+      "box": [
+        856,
+        568,
+        984,
+        688
+      ],
+      "evidence": "house-southeast.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "dance-theater",
+      "box": [
+        672,
+        424,
+        832,
+        576
+      ],
+      "evidence": "dance-theater.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "gym",
+      "box": [
+        336,
+        544,
+        496,
+        696
+      ],
+      "evidence": "gym.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "center",
+      "box": [
+        704,
+        552,
+        816,
+        672
+      ],
+      "evidence": "center.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "mart",
+      "box": [
+        848,
+        432,
+        992,
+        568
+      ],
+      "evidence": "mart.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "south-gate",
+      "box": [
+        608,
+        672,
+        720,
+        776
+      ],
+      "evidence": "south-gate.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "gate",
+      "box": [
+        0,
+        352,
+        144,
+        504
+      ],
+      "evidence": "gate-1.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    },
+    {
+      "asset": "gate",
+      "box": [
+        1024,
+        472,
+        1152,
+        624
+      ],
+      "evidence": "gate-2.png",
+      "review": "roof silhouette, eave ends, wall planes, windows/doors, footing, receiving court and path seam"
+    }
+  ],
+  "source": "HGSS Ecruteak overview",
+  "tree_source_masks": "../../source/refinement/tree-reconstruction.json",
+  "rock_source_catalog": "../../source/refinement/shared-rocks/catalog.json",
+  "native_ground_repair": "Hidden foreground backing restored from preserved independent material layer before mask changes.",
+  "review_limits": "Original hidden rock planes inferred from neighboring faces; native adaptations remain for owner visual review."
+}

@@ -1199,3 +1199,31 @@ Do not apply again in this already-patched checkout. Use `git apply --reverse
 dirty `disasm/pokeheartgold`, `tools/omni/`, `tools/omni-editor` and other existing
 work. The staged submodule/gitmodules additions predate this handoff. Avoid
 committing ROMs, saves, binaries or ignored toolchain/log directories.
+
+
+## Azalea exterior — 2026-10-18
+
+Owner moved this thread to Azalea; leave Route33 refinement to the other thread.
+New exterior engine source: `codex/azalea-town` at `a322750485`, based on
+`eb15d89234`; source/evidence entry: [Azalea](../gba/art/azalea-town/README.md).
+Hub evidence branches from main, without altering Route33 evidence. Map ID50
+appended; no prior IDs or unrelated art changed. HGSS overview registered at
++64,+16; shared Center/Mart/gate/trees/props, native terrain, missing local
+Azalea architecture. Porymap/native2112-cell equality, full tree footprints,
+headless movement/ledges/barriers/closed approaches and ordinary save/reload/
+Continue verified; a copied prior Route33 save remains compatible. Source is
+authoritative: never replay first-authoring tools over the committed map.
+Interiors, Slowpoke Well descent, Ilex/Route33 connections and campaign actors
+remain pending; visual approval stays with the owner.
+
+### Azalea individual house cleanup, 2026-10-18
+
+Engine `codex/azalea-town` commit `76a8e5f16b` refines Kurt’s house and the southeast house separately. Evidence and full commit are in `gba/art/azalea-town/README.md`; per-house before/after images are under its evidence directory. The guarded `tools/gba/maps/azalea_town/house_cleanup.py` is a narrow direct native patch against the preserved a322750485 baseline, not a layout generator. Two redundant house outline shades were consolidated to restore violet window glass without spending another palette. Southeast vents, chimney and stray cutout edges are corrected. Porymap/native RGB match, unchanged collision/elevation, zero changed pixels outside the two house regions, and headless walking/save/cold-reload/Continue pass. Route33 and shared building/tree art are untouched. Exterior only; interiors and adjacent-map integration remain pending.
+
+Kurt-only eave follow-up: `8beab42d99def1e39eb37ba076e837d1be13da31` on codex/azalea-town. Attached log fragments removed and side smoothed; separate logs and owner-approved regular house untouched. See azalea-town/evidence/kurt-edge-before-after.png and guarded kurt_edge_cleanup.py. Native/Porymap and headless save/reload pass.
+
+Kurt structure follow-up: engine `0c0d2cff899438dcf0663762c2b2675e8d6cea5c` restores clipped upper roof and full left column/stone footing. Current comparison: `gba/art/azalea-town/evidence/kurt-structure-original-current.png`. Narrow guarded native patch `kurt_structure_cleanup.py`; no collision or visible outside-house changes. Porymap/native and headless save/reload pass. Regular house remains approved and untouched.
+
+Kurt roof correction supersedes rejected structure patch: `e365b1821260897eea1463485fdadea741658510`. User rejected the additive yellow extension over the old outline. `kurt_roof_rebuild.py` replaces the whole upper section using clean HGSS same-plane thatch donors, excluding canopy colors; retains central ridge and a single outside border. Current comparison `gba/art/azalea-town/evidence/kurt-roof-original-current.png`; owner visual acceptance pending. No visible changes outside the upper roof; Porymap/native and headless save/reload pass.
+
+Kurt texture/contrast pass: engine `d822306675e15abe67c85235d9faf8d6e676d449`. Same roof silhouette, isolated thatch speckle cleanup, original crossed-log gray facets restored with existing native charcoal palette and separated native layers. Source/previous/current close-up `gba/art/azalea-town/evidence/kurt-texture-detail.png`; guarded patch `kurt_roof_texture.py`, baseline e365b18212. No changed palette, collision or visible pixels outside the roof. Porymap/native plus headless save/reload pass. Owner visual approval pending.

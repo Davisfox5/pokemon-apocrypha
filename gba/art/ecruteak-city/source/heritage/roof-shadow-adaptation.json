@@ -1,0 +1,66 @@
+{
+  "affected_trees": [
+    [
+      352,
+      64,
+      "tree-autumn-burned-shadow"
+    ],
+    [
+      384,
+      64,
+      "tree-autumn-burned-shadow"
+    ],
+    [
+      416,
+      64,
+      "tree-autumn-burned-shadow"
+    ],
+    [
+      448,
+      64,
+      "tree-autumn-burned-shadow"
+    ],
+    [
+      480,
+      64,
+      "tree-autumn-burned-shadow"
+    ],
+    [
+      544,
+      160,
+      "tree-autumn-bell-shadow"
+    ],
+    [
+      576,
+      160,
+      "tree-autumn-bell-shadow"
+    ],
+    [
+      608,
+      160,
+      "tree-autumn-bell-shadow"
+    ],
+    [
+      640,
+      160,
+      "tree-autumn-bell-shadow"
+    ],
+    [
+      672,
+      160,
+      "tree-autumn-bell-shadow"
+    ],
+    [
+      704,
+      160,
+      "tree-autumn-bell-shadow"
+    ]
+  ],
+  "foot_band": [
+    40,
+    48
+  ],
+  "geometry_unchanged": true,
+  "texture_shade_order_preserved": true,
+  "reason": "Complete tree feet sit under Burned/Bell roof shadow; reuse the receiving dark roof ramp at this occlusion band. Upper foliage remains identical to normal autumn master."
+}

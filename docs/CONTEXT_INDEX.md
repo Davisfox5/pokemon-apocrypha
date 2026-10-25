@@ -1,3 +1,5 @@
+Current terrain review: [Routes 38/39 from original texture grids](../gba/art/route38-39-native/README.md). Fresh HGSS renders and 8px material registration; accepted Cherrygrove ground and shared terrace kit; source `cbb5a4d0`, PR #41. 798 boundary probes, stairs/ramps/connections and ordinary/legacy saves pass. Terrain only; exterior exits pending. Previous drafts preserved.
+
 Current Cherrygrove work: [B/C/E detail refinement](../gba/art/cherrygrove-synthesis/README.md). Latest revision centers the Pokemon Center doorway/animation, runs dirt to the dock, and uses tighter wall footprints with native roof overlap.
 
 Accepted New Bark laboratory: [native Johto refinement](../gba/art/johto-native-refinement/README.md). Preserve the lab; the Cherrygrove reference question is resolved by the B/C/E synthesis above.
@@ -13,6 +15,7 @@ optional, never part of routine startup.
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
 | Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Azalea Town exterior / HGSS reconstruction | ../gba/art/azalea-town/README.md | Separate codex/azalea-town branch from eb15d89234; shared service buildings/trees, local town architecture, native exterior review; interiors and connections pending; Route33 untouched |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Routes 30 and 31, Mahogany/Route 43 process (October 25) | ../gba/art/route30-catalog/README.md, ../gba/art/route31-catalog/README.md | HGSS only, built like Route 29: one CherrygrovePrimary copy per route, joint pack with shared seam ids (`tools/gba/maps/route30_catalog/pair_pack.py`), Route 30's two north padding rows, engine primary reload and redraw on crossing; tools `tools/gba/maps/route30_catalog/`, `route31_catalog/`; PR #39 (`claude/routes-30-31-catalog`); owner visual review pending |
 | Route 29, Mahogany/Route 43 process (October 25) | ../gba/art/route29-catalog/README.md | Current proposal after owner review, HGSS only (no coast, item-ball Potion): HGSS rendered from its DS data 1:1, non-overlapping tree roots, catalog G15/L11-13/G01a/P14, Cherrygrove painter ground, jump-east/west ledges, seam-safe windows; tools `tools/gba/maps/route29_catalog/`; PR #34 (`claude/route29-hgss-decoded`); owner visual review pending |

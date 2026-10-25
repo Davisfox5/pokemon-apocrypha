@@ -1,0 +1,48 @@
+{
+  "source_repository": "Davisfox5/pokeemerald-expansion",
+  "source_branch": "codex/route38-39-terrain",
+  "source_commit": "fee08659d8f68d735ac48e507554526a9d72e9d3",
+  "source_parent": "2d7689a9c420e1af075d6c29c0d069d1aaa04fe3",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/24",
+  "rom_sha256": "2b774e9f6b581c895c410572f27223bd6e98a06bd6e18d28d92cb60a0b90ddb4",
+  "rom_bytes": 33554432,
+  "flash_bytes": 131072,
+  "tools": {
+    "arm_gcc": "14.2.1 Debian14.2.rel1",
+    "porytiles": "2.0.0 legacy",
+    "porymap": "6.3.1 139eda9",
+    "libmgba": "0.10.5"
+  },
+  "budget": {
+    "metatiles": 258,
+    "glyphs": 480,
+    "palette_banks": 13
+  },
+  "checks": {
+    "native_cells": 4372,
+    "native_pixels_match_authored_RGB5": true,
+    "porymap_exports_match": true,
+    "all_prior_layouts_and_tilesets_unchanged": true,
+    "boundary_input_probes": 788,
+    "stairs_both_ways": true,
+    "junction_lanes_both_ways": 3,
+    "ordinary_flash_save_cold_reload_title_continue": true,
+    "gameplay_RGB5_pixels_matched": 206400
+  },
+  "review_findings": [
+    "Retained visible farm terrace, west valley contour, east cleft and two stairs; inspected all reference/native coordinate grids.",
+    "Used intact approved directional rock modules; joined caps, turns and original Emerald stair treads.",
+    "Cleared fence gaps at farm stair approach; dirt reaches both tread ends.",
+    "No jump/grass/water behaviors, actors or foreground assets remain.",
+    "Every open nonzero height change meets a wall or stair transition; 788 blocked interfaces checked.",
+    "Native/Porymap grids and six actual gameplay material frames agree."
+  ],
+  "limitations": [
+    "Overview trace, not original collision/elevation extraction.",
+    "Occluded ground and forest-covered cliff continuations/caps inferred; conservative coverage ledger retained.",
+    "Small projected wall differences fitted to native16px modules.",
+    "External city connections unwired; bounded terrain-only preview.",
+    "No encounters or story actors.",
+    "Owner terrain review and hosted CI pending."
+  ]
+}

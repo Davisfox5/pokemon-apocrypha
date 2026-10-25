@@ -1,0 +1,168 @@
+{
+  "source_repository": "Davisfox5/pokeemerald-expansion",
+  "source_branch": "codex/route38-39-terrain",
+  "source_commit": "9e1c0466b9ff16b4b1cdc29d5d402567bd9c0553",
+  "source_parent": "fee08659d8f68d735ac48e507554526a9d72e9d3",
+  "source_pr": "https://github.com/Davisfox5/pokeemerald-expansion/pull/24",
+  "original_source": {
+    "repository": "pret/pokeheartgold",
+    "land_path": "files/a/0/6/5",
+    "land_sha256": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+    "matrix_path": "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+    "matrix_sha256": "a6012ac34ae879b5f85f21642a78afcff617112813c4cf1e6327054735c56d2d",
+    "members": [
+      {
+        "member": 54,
+        "model": "map09_05c",
+        "original_chunk_sha256": "013f313e0a1f9313c689446372e5ae97d707793e67a500e5e04929c5c2102cd9",
+        "bdhc_sha256": "85a17085ee3583561b37caa97f42cbe685167bf2118dd26535868fc634f0f6a7",
+        "building_height_anchors": [
+          {
+            "model": 34,
+            "x": 13.5,
+            "y": 3.0,
+            "z": 19.5
+          }
+        ],
+        "coordinate_rule": "model XYZ /16 world units; BDHC point/65536 gives16-unit tiles, normal/4096; y=-(nx*x+nz*z+d)/ny; local origin+16"
+      },
+      {
+        "member": 55,
+        "model": "map10_05c",
+        "original_chunk_sha256": "e3461a8c947a696b619324ad341fdaba0dfcdd3d81425009910184dfc6fcbcf1",
+        "bdhc_sha256": "dfbeae793513d03eab0b0cdb65cf3df9b9d82c9d98e5ed34953327f921051f45",
+        "building_height_anchors": [
+          {
+            "model": 32,
+            "x": 26.5,
+            "y": 3.0,
+            "z": 5.5
+          }
+        ],
+        "coordinate_rule": "model XYZ /16 world units; BDHC point/65536 gives16-unit tiles, normal/4096; y=-(nx*x+nz*z+d)/ny; local origin+16"
+      },
+      {
+        "member": 56,
+        "model": "map08_05c",
+        "original_chunk_sha256": "d77c327f7f594eee9e91b10c274784812def037e5f13c683325bc137c6b21c2c",
+        "bdhc_sha256": "f4e1d7dd996871e9ac6e3e939aee28f98bcead2e672208117ace7ded3b0b35f7",
+        "building_height_anchors": [
+          {
+            "model": 32,
+            "x": 22.5,
+            "y": 4.0,
+            "z": 10.5
+          },
+          {
+            "model": 31,
+            "x": 14.5,
+            "y": 4.0,
+            "z": 6.5
+          },
+          {
+            "model": 113,
+            "x": 3.5,
+            "y": 3.0,
+            "z": 28.0
+          },
+          {
+            "model": 112,
+            "x": 7.5,
+            "y": 4.0,
+            "z": 3.625
+          },
+          {
+            "model": 114,
+            "x": 10.246444702148438,
+            "y": 4.0,
+            "z": 4.08941650390625
+          }
+        ],
+        "coordinate_rule": "model XYZ /16 world units; BDHC point/65536 gives16-unit tiles, normal/4096; y=-(nx*x+nz*z+d)/ny; local origin+16"
+      },
+      {
+        "member": 57,
+        "model": "map08_06c",
+        "original_chunk_sha256": "9e2c84d583bbc3dbd41645951bf65c008ff18b9070e99bfdf0fc581d6230b6ff",
+        "bdhc_sha256": "9214b62ae6f3946fa2fbcf8684d9f009ae91197b4dd13eb263e149cf0c77b8d8",
+        "building_height_anchors": [
+          {
+            "model": 34,
+            "x": 22.5,
+            "y": 2.0,
+            "z": 18.5
+          }
+        ],
+        "coordinate_rule": "model XYZ /16 world units; BDHC point/65536 gives16-unit tiles, normal/4096; y=-(nx*x+nz*z+d)/ny; local origin+16"
+      }
+    ],
+    "scope": "only map members54..57; no original terrain collision claim for cleared foreground",
+    "mesh_conversion": "apicula 0.1.1-dev glTF, source revision recorded in README",
+    "source_commit": "6988158691eb6178cff697cda0428045ddcba5fb",
+    "land_git_blob": "33105ab54c804a33503fb52db0ffa93a4d38191a",
+    "apicula_commit": "3d4e91e14045392a49c89e86dab8cb936225588c"
+  },
+  "rom_sha256": "d255d5fe6504d18f3811f8fcab701b2744fc7505afbd82bb6f1a8e066c72bb76",
+  "rom_bytes": 33554432,
+  "save_bytes": 131072,
+  "budget": {
+    "metatiles": 327,
+    "allocated_glyphs": 496,
+    "palette_indices": [
+      0,
+      1,
+      12
+    ],
+    "command": [
+      "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+      "compile-primary",
+      "-dual-layer",
+      "-tiles-primary-override=1008",
+      "-tiles-total-override=1024",
+      "-metatiles-primary-override=1024",
+      "-pals-primary-override=13",
+      "-o",
+      "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/evidence/refinement/compiled",
+      "/workspace/pokemon-apocrypha/gba/art/route38-39-terrain/source/refinement/porytiles",
+      "/workspace/apocrypha-src/include/constants/metatile_behaviors.h"
+    ]
+  },
+  "checks": {
+    "native_cells": 4096,
+    "decoded_pixels_exact": true,
+    "porymap_exports_match": true,
+    "gameplay_RGB5_pixels_matched": 358080,
+    "wall_boundary_probes": 770,
+    "stair_lanes_each_direction": 3,
+    "grass_ramp_lanes_each_direction": 9,
+    "earth_junction_lanes_each_direction": 3,
+    "ordinary_save_reload_continue": true,
+    "older_save_continue_and_movement": true
+  },
+  "direction_review": {
+    "route38_height_order": "southern banks5 above route3; junction rises to Route39 upper4",
+    "route39_height_order": "outer5 / upper farm4 / lower paddock3 / valley2 / south1",
+    "native_plane_encoding": "flat original height h -> native2h-1; source slope cells ->0",
+    "normal_samples_classified": {
+      "route38": 42507,
+      "route39": 58777
+    },
+    "reversed_straight_runs": 0,
+    "compound_corner_cross_samples_excluded": {
+      "count": 10,
+      "reason": "24px normal sample crosses the three-plane farm/east-bank corner; original triangle winding and actual gameplay corner inspected"
+    },
+    "rock_components": {
+      "route38": 3,
+      "route39": 2
+    },
+    "tiny_disconnected_rock_fragments": 0
+  },
+  "limits": [
+    "Native footprints are adapted to GBA16px cells, with small rounded path corners.",
+    "Undefined/inaccessible BDHC backing uses adjacent planes; closed rock pocket height comes from surrounding model rim.",
+    "Cleared objects remain absent; original foreground collision is not reused.",
+    "City exits and campaign/encounter/HM hooks remain unwired.",
+    "Owner visual review and hosted CI pending."
+  ]
+}

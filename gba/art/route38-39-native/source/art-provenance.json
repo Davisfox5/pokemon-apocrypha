@@ -1,0 +1,53 @@
+{
+  "rock_source": "native general_frlg primary tileset, complete mountain nine-slice, over-rock and concave corners",
+  "rock_method": "shared route31_catalog/rock.py, same method as accepted Mahogany/Route43",
+  "rock_ramp": [
+    [
+      82,
+      58,
+      52
+    ],
+    [
+      239,
+      189,
+      140
+    ],
+    [
+      222,
+      173,
+      123
+    ],
+    [
+      198,
+      148,
+      115
+    ],
+    [
+      165,
+      115,
+      99
+    ],
+    [
+      132,
+      90,
+      74
+    ],
+    [
+      99,
+      70,
+      66
+    ]
+  ],
+  "ground": "accepted Cherrygrove lawn and actual native 32px road core",
+  "stairs": "existing Emerald gray Mossdeep donor 0xcf",
+  "path_adaptation": "8px original material registration; native straight edge with Cherrygrove profiles, wave disabled per owner",
+  "stair_local_repair": "Historical donor alpha keyed out white tread nosings; restore opaque RGB5 white and rotate the complete flight for the Route38 east-facing stair.",
+  "source_hashes": {
+    "data/tilesets/primary/general_frlg/tiles.png": "9ff889d1b9da5383a0cd0c85ac7b791812867804f3a38566b46172087419e0b9",
+    "data/tilesets/primary/general_frlg/metatiles.bin": "8d950c1a1f151f5e1bded1ecee165b815c3a4d62b69a4a9cec4f676283f9041e"
+  },
+  "ground_hashes": {
+    "shared-lawn.png": "9607f34ec5720cc26200237a930039b962d6ff390068242056335588ea23ee6b",
+    "shared-road.png": "6e18ad754579d6f9d6b783fde1a0a47e96dfe3e30cf691289444443f253b7517"
+  }
+}

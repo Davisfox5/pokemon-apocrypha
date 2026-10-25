@@ -1,0 +1,858 @@
+{
+  "reference": "hgss-route38.png",
+  "reference_sha256": "836db0b047a145772dfeed6414172da03d2b9773a5a1516be387c716dff6b765",
+  "native_size": [
+    68,
+    33
+  ],
+  "reference_origin_native_px": [
+    0,
+    0
+  ],
+  "path_polygons": [
+    [
+      [
+        0,
+        192
+      ],
+      [
+        168,
+        192
+      ],
+      [
+        168,
+        64
+      ],
+      [
+        544,
+        64
+      ],
+      [
+        544,
+        96
+      ],
+      [
+        240,
+        96
+      ],
+      [
+        240,
+        232
+      ],
+      [
+        228,
+        244
+      ],
+      [
+        0,
+        244
+      ]
+    ],
+    [
+      [
+        1077,
+        144
+      ],
+      [
+        926,
+        144
+      ],
+      [
+        914,
+        153
+      ],
+      [
+        902,
+        184
+      ],
+      [
+        490,
+        192
+      ],
+      [
+        490,
+        240
+      ],
+      [
+        720,
+        247
+      ],
+      [
+        714,
+        285
+      ],
+      [
+        699,
+        303
+      ],
+      [
+        491,
+        303
+      ],
+      [
+        463,
+        315
+      ],
+      [
+        455,
+        345
+      ],
+      [
+        368,
+        345
+      ],
+      [
+        363,
+        319
+      ],
+      [
+        340,
+        316
+      ],
+      [
+        328,
+        328
+      ],
+      [
+        328,
+        350
+      ],
+      [
+        170,
+        355
+      ],
+      [
+        170,
+        395
+      ],
+      [
+        504,
+        395
+      ],
+      [
+        509,
+        346
+      ],
+      [
+        740,
+        346
+      ],
+      [
+        750,
+        304
+      ],
+      [
+        775,
+        271
+      ],
+      [
+        857,
+        248
+      ],
+      [
+        930,
+        244
+      ],
+      [
+        942,
+        187
+      ],
+      [
+        962,
+        170
+      ],
+      [
+        1077,
+        170
+      ]
+    ]
+  ],
+  "rock_and_stair_modules": [
+    {
+      "x": 7,
+      "y": 17,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 18,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 19,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 20,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 21,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 22,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 23,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 24,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 25,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 26,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 27,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 28,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 29,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 30,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 31,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 7,
+      "y": 32,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 17,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 18,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 19,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 20,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 21,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 22,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 23,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 24,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 25,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 26,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 27,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 28,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 29,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 30,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 31,
+      "asset": "R11",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "asset": "R12",
+      "mirror": false,
+      "lawn_cap": false
+    },
+    {
+      "x": 0,
+      "y": 16,
+      "asset": "R05",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 1,
+      "y": 16,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 2,
+      "y": 16,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 3,
+      "y": 16,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 4,
+      "y": 16,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 5,
+      "y": 16,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 6,
+      "y": 16,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 7,
+      "y": 16,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 8,
+      "y": 16,
+      "asset": "R10",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 32,
+      "y": 22,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 23,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 24,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 25,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 26,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 27,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 28,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 29,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 30,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 31,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 22,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 23,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 24,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 25,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 26,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 27,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 28,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 29,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 30,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 31,
+      "asset": "R11",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 33,
+      "y": 32,
+      "asset": "R12",
+      "mirror": true,
+      "lawn_cap": false
+    },
+    {
+      "x": 34,
+      "y": 21,
+      "asset": "R05",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 35,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 36,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 37,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 38,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 39,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 40,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 41,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 42,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 43,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 44,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 45,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 46,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 47,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 48,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 49,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 50,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 51,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 52,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 53,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 54,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 55,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 56,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 57,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 58,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 59,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 60,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 61,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 62,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 63,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 64,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 65,
+      "y": 21,
+      "asset": "R02",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 66,
+      "y": 21,
+      "asset": "R04",
+      "mirror": false,
+      "lawn_cap": true
+    },
+    {
+      "x": 67,
+      "y": 21,
+      "asset": "R10",
+      "mirror": false,
+      "lawn_cap": true
+    }
+  ],
+  "adaptations": [
+    "all trees/fences/buildings/props/NPCs/tall grass/jump ledges removed",
+    "hidden terrain inferred from adjacent lawns and contour continuity",
+    "occluded rock banks completed to boundary; upper forest terrain inferred",
+    "external city endpoints bounded and unwired; native Route38/39 connection retained"
+  ],
+  "elevation_units": "relative native planes: south/outer clefts1, valley3, farm/route5; stair cells0 bridge planes. Hidden outer planes are inferred, not decoded original heights"
+}

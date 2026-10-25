@@ -1,0 +1,21 @@
+{
+  "metatiles": 94,
+  "allocated_glyphs": 208,
+  "palettes_used": [
+    0,
+    12
+  ],
+  "command": [
+    "/workspace/deps/porytiles/porytiles-linux-amd64/porytiles-legacy",
+    "compile-primary",
+    "-dual-layer",
+    "-tiles-primary-override=1008",
+    "-tiles-total-override=1024",
+    "-metatiles-primary-override=1024",
+    "-pals-primary-override=13",
+    "-o",
+    "/workspace/route38-39-native-review/gba/art/route38-39-native/evidence/compiled",
+    "/workspace/route38-39-native-review/gba/art/route38-39-native/source/porytiles",
+    "/workspace/route38-39-native-source/include/constants/metatile_behaviors.h"
+  ]
+}

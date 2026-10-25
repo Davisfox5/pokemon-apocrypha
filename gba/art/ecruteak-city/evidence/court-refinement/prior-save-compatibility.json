@@ -1,0 +1,48 @@
+{
+  "original_source_commit": "c8f961fc5a84cce6f3c71c0db58b19f8e3a9dd29",
+  "original_save_sha256": "a12ee3f545867104415b761b58b72a82622beabac17ea4662f6ba19869d74431",
+  "original_save_unchanged": true,
+  "ROM_sha256": "c8b86a59f19f986331317efb729adc5e90ef04c68f9d2e0a2356779464337572",
+  "phases": [
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "cold-reload-Ecruteak",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "observations": [
+        {
+          "step": "ordinary-title-continue",
+          "region": 3,
+          "group": 80,
+          "map": 51,
+          "x": 41,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 72,
+          "height": 25,
+          "interaction": 0,
+          "mapsec": 227
+        }
+      ],
+      "stderr": ""
+    }
+  ]
+}
