@@ -7,6 +7,7 @@ native animated water replace the rejected conversion. Original 24x20 core regis
 in a 24x23 exterior; 72 canopy-apron cells are explicit. Interior registration stays unchanged.
 
 Engine `codex/pallet-town-rebuild`, commit `b02c5c97c070368592fc1b60c0c679aa816d5a79`.
+Source PR #42; evidence PR #37. Both are drafts; no remote CI checks returned.
 The 1,030 original cells preserve collision/elevation/behavior; all 1,102 native cells match source
 RGB5 pixels and actual Porymap output. ROM/VRAM/palettes and 19 mGBA phases pass (walking, three
 animated doors/returns, both stairs, dialogue, 317 blocked edges, water animation/Surf/dismount,
