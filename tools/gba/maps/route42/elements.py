@@ -135,44 +135,38 @@ def route42_labels(cells, m, nm):
     for y in range(H):
         if cells[y][TRIM_X]['lab'] == 'G':
             cells[y][TRIM_X]['lab'], cells[y][TRIM_X]['trimmed'] = '.', True
-    # The Ecruteak gate: G02 (assemble.GATE) stands on x 0-6, rows 12-18, one row south of
-    # HGSS's own doorway (6, 15-16), so the woods north and south close on it with their own
-    # lattices (owner review, Route 42); its stairs, the doorway, are GATE_DOOR. No tree
-    # roots under it.
-    for y in range(H):
-        for x in range(W):
-            if cells[y][x]['lab'] == 'd':
-                cells[y][x]['lab'] = 'X'
+    # The Ecruteak gate (G02, assemble.GATE) covers x 0-6, rows 11-17, its stairs on HGSS's
+    # doorway (6, 15-16): no tree roots of its own woods under it, and solid throughout.
     for y in range(GATE_ROWS[0], GATE_ROWS[1] + 1):
         for x in range(GATE_COLS[0], GATE_COLS[1] + 1):
-            cells[y][x]['lab'] = 'd' if (x, y) in GATE_DOOR else 'X'
-            if (x, y) in GATE_DOOR:
-                cells[y][x]['hgss_door'] = [x, y - 1]
+            if cells[y][x]['lab'] != 'd':
+                cells[y][x]['lab'] = 'X'
     # HGSS's taller gate model covers cells beyond G02's footprint, between it and the woods:
     # they are woods, so the trees close on G02 (AGENTS.md, woods close tight on buildings).
     for y in list(range(0, GATE_ROWS[0])) + list(range(GATE_ROWS[1] + 1, H)):
         for x in range(GATE_COLS[0], GATE_COLS[1] + 1):
             if cells[y][x]['lab'] == 'X':
                 cells[y][x]['lab'], cells[y][x]['gate_woods'] = 'F', True
+    # The row under the gate is woods across its whole width, its stairs' corner included (the
+    # last tree's pair reaching one column past it), so the crowns close on its base with no
+    # cell left beside it (owner review, Route 42).
+    y = GATE_ROWS[1] + 1
+    for x in range(GATE_COLS[0], GATE_COLS[1] + 2):
+        if cells[y][x]['lab'] == '.' and cells[y + 1][x]['lab'] == 'F':
+            cells[y][x]['lab'], cells[y][x]['gate_woods'] = 'F', True
     return cells
 
-GATE_COLS, GATE_ROWS = (0, 6), (12, 18)          # G02's footprint (assemble.GATE), inclusive
-GATE_DOOR = {(6, 16), (6, 17)}                   # G02's stairs: HGSS's doorway (6, 15-16), one row south
+GATE_COLS, GATE_ROWS = (0, 6), (11, 17)          # G02's footprint (assemble.GATE), inclusive
 
 def gate_anchors():
-    """Where the woods beside G02 must reach, and where they must not. North, the woods stand
-    behind the gate: their roots may end on its top footprint row (gate_behind; assemble hides
-    what falls inside the footprint), so the crowns meet the roof. South, they stand in front:
-    the crowns fill the row under its base and stay out of the footprint, as HGSS's trees meet
-    its gate. Returns (reach, keep_out)."""
+    """The rows the woods beside G02 must reach, as the owner-approved Route 36 gate surround
+    has them: north, a row of trees stands behind the gate's top two rows (the gate drawn over
+    them, the trees seen round its roof); south, the first row's crowns are pasted over its
+    base row. Returns (reach, behind): reach, the gate's top and base rows; behind, the cells
+    a rear tree's roots may take (the top two footprint rows)."""
     xs = range(GATE_COLS[0], GATE_COLS[1] + 1)
-    return ({(x, GATE_ROWS[0]) for x in xs} | {(x, GATE_ROWS[1] + 1) for x in xs},
-            {(x, GATE_ROWS[1]) for x in xs})
-
-def gate_behind():
-    """Cells a tree root's lower row may take although they are not woods: G02's top
-    footprint row, where a trunk stands just behind the roof's top edge."""
-    return {(x, GATE_ROWS[0]) for x in range(GATE_COLS[0], GATE_COLS[1] + 1)}
+    return ({(x, GATE_ROWS[0]) for x in xs} | {(x, GATE_ROWS[1]) for x in xs},
+            {(x, y) for x in xs for y in (GATE_ROWS[0], GATE_ROWS[0] + 1)})
 
 def tree_footprints(cells):
     """HGSS trees stand on 2 x 2 footprints: a crown row (tree01gs / tree01_re) over a trunk
@@ -181,12 +175,11 @@ def tree_footprints(cells):
     a packing that maximised the tree count staggered them). The lattice phase is the one that
     covers the most woods cells, counting the T01 crown that fills the row above each root,
     then the one on HGSS's own trunk rows. A block that meets a building first takes the phase
-    whose trees close on it (gate_anchors: reaching the cells along its sides, its trunks just
-    behind the roof's top edge, gate_behind), so no lawn shows and no path runs between the
-    woods and the building (AGENTS.md; owner review, Route 42). Such a block may root its last
-    row on the map's bottom edge, the trunks beyond it, as its first row puts crowns beyond the
-    top edge. Woods cells the lattice leaves bare are HGSS crown overhang (pack.traversal)."""
-    (reach, keep_out), behind = gate_anchors(), gate_behind()
+    whose trees overlap it (gate_anchors: rear trees behind its top rows, crowns over its base),
+    so no lawn shows and no path runs between the woods and the building (AGENTS.md; owner
+    review, Route 42). A rear tree's roots lie on the building's top two rows, wholly or partly
+    inside its footprint; its crown row is woods. Woods cells the lattice leaves bare are HGSS crown overhang (pack.traversal)."""
+    reach, behind = gate_anchors()
     detected = set()
     for y in range(1, H):
         x = 0
@@ -204,16 +197,19 @@ def tree_footprints(cells):
     roots = []
     for comp in _components(isf.copy()):
         comp = {(x, y) for y, x in comp}
-        near = any((x + dx, y + dy) in reach | keep_out for x, y in comp for dx in (-1, 0, 1) for dy in (-1, 0, 1))
-        edge = {(x, H) for x in range(W)} if near else set()
-        cand = [(x, y) for x, y in comp if (x + 1, y) in comp and all((x + dx, y + 1) in comp | behind | edge for dx in (0, 1))]
+        root = lambda x, y: all((x + dx, y + dy) in comp for dx in (0, 1) for dy in (0, 1))
+        rear = lambda x, y: y == min(b[1] for b in behind) and \
+            all((x + dx, y + dy) in comp | behind for dx in (0, 1) for dy in (0, 1)) and \
+            any((x + dx, y + dy) in behind for dx in (0, 1) for dy in (0, 1)) and all((x + dx, y - 1) in comp for dx in (0, 1))
+        cand = [(x, y) for x, y in comp if root(x, y)] + \
+            [(x, y + 1) for x, y in comp if rear(x, y + 1)]
         best = None
         for px in (0, 1):
             for py in (0, 1):
                 rs = [(x, y) for x, y in cand if x % 2 == px and y % 2 == py]
                 art = {(x + dx, y + dy) for x, y in rs for dx in (0, 1) for dy in (-1, 0, 1)}
                 cover = art & comp
-                key = (len(art & reach), -len(art & keep_out), len(cover), sum(r in detected for r in rs), -px, -py)
+                key = (len(art & reach), len(cover), sum(r in detected for r in rs), -px, -py)
                 if best is None or key > best[0]:
                     best = (key, rs)
         roots += [(int(x), int(y)) for x, y in best[1]]

@@ -33,8 +33,7 @@ GATE_DOORS, ARROW_WARPS = {}, {}                              # Route 42 has no 
 # is not built), the Ecruteak gate's doorway (0x6D; the gate interior is not built) and the
 # Rock Climb wall (0x4C; Gen 3 has no Rock Climb).
 SOLID = {'D': 'HGSS warps into Mt. Mortar here; Mt. Mortar is not built, so the mouth is solid',
-         'd': "the Ecruteak gate's doorway, G02's stairs one row south of HGSS's (elements.GATE_DOOR); "
-              'its interior is not built, so the doorway is solid',
+         'd': 'HGSS warps into the Ecruteak gate here; its interior is not built, so the doorway is solid',
          'K': 'HGSS has a Rock Climb wall here; Gen 3 has no Rock Climb, so it is solid rock'}
 
 def traversal(engine, cells, art, edge):
@@ -74,6 +73,10 @@ def traversal(engine, cells, art, edge):
                 c.update(foot='ledge_west', behavior='MB_JUMP_WEST', collision=1, elevation=0)
             elif t == 0x10:
                 c.update(foot='surf', behavior='MB_POND_WATER', collision=0, elevation=1)
+            elif lab == 'F' and cells[y][x].get('gate_woods'):
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                         adaptation='woods closing on the Ecruteak gate where HGSS has its taller gate model or the lawn at its '
+                                    'stairs\' corner (owner review, Route 42)')
             elif lab == 'F' and (x, y) not in rooted:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
                          adaptation="HGSS's offset tree crowns overhang this woods cell; no non-overlapping Gen 3 tree root fits it")

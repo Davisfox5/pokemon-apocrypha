@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "616f60a5259a10def3974f2f90d17bd7b67bb162c148aa9570c2e498789207ca",
+  "rom_sha256": "2dca2c6483734837af6103bcf792d6c85ef31b56f62ce1d9e4c1d53ee5f6301f",
   "phases": [
     {
       "phase": "write",
@@ -514,12 +514,25 @@
           "mapsec": 227
         },
         {
-          "step": "at-51-7-16",
+          "step": "at-51-7-15",
           "region": 2,
           "group": 80,
           "map": 51,
           "x": 7,
-          "y": 16,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 227
+        },
+        {
+          "step": "at-51-7-12",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 7,
+          "y": 12,
           "frlg_layout": 0,
           "width": 96,
           "height": 32,
@@ -540,12 +553,12 @@
           "mapsec": 227
         },
         {
-          "step": "at-51-7-13",
+          "step": "at-51-7-17",
           "region": 2,
           "group": 80,
           "map": 51,
           "x": 7,
-          "y": 13,
+          "y": 17,
           "frlg_layout": 0,
           "width": 96,
           "height": 32,
@@ -553,25 +566,12 @@
           "mapsec": 227
         },
         {
-          "step": "at-51-7-18",
+          "step": "at-51-7-17",
           "region": 2,
           "group": 80,
           "map": 51,
           "x": 7,
-          "y": 18,
-          "frlg_layout": 0,
-          "width": 96,
-          "height": 32,
-          "interaction": 0,
-          "mapsec": 227
-        },
-        {
-          "step": "at-51-7-18",
-          "region": 2,
-          "group": 80,
-          "map": 51,
-          "x": 7,
-          "y": 18,
+          "y": 17,
           "frlg_layout": 0,
           "width": 96,
           "height": 32,

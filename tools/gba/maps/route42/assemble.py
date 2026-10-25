@@ -205,6 +205,10 @@ def ground_quadrants(cells, rock):
         for x in range(W):
             if cells[y][x]['lab'] in 'LJ':
                 q[2 * y + 1, 2 * x:2 * x + 2] = q[2 * y, 2 * x:2 * x + 2]
+    # G02 stands on lawn, and so does the row under it: the road meets its stairs, it does not
+    # run under its base or round its foot.
+    (c0, c1), (r0, r1) = E.GATE_COLS, E.GATE_ROWS
+    q[2 * r0:2 * r1 + 4, 2 * c0:2 * c1 + 2] = G.GRASS
     return q
 
 def tall_grass(cells):
@@ -442,7 +446,7 @@ SIGNS = {(11, 17): ('P14.png', 11 * PX - 8, 16 * PX), (86, 12): ('P14.png', 86 *
          (16, 11): ('P13.png', 16 * PX - 8, int(9.5 * PX)), (75, 12): ('P13.png', 75 * PX - 8, int(10.5 * PX))}
 HGSS_SIGN_CELLS = {(86, 12): (88, 12)}
 STAIRS = (70, 12)                          # S04 (one cell wide, three tall) over HGSS's slope cells (70, 13-14)
-GATE = (0, 12 * PX)                        # G02 on x 0-6, rows 12-18 (elements.GATE_ROWS): its stairs one row south of HGSS's doorway (6, 15-16)
+GATE = (0, 11 * PX)                        # G02's stairs on HGSS's gate doorway (6, 15-16)
 
 def stairs(bottom, rock):
     """S04 over the cliff it cuts through (rock_cells): in S04's cells the cliff comes down to
@@ -566,29 +570,25 @@ def compose(phg):
     for o in objs:
         a = o['art'][..., 3] > 0
         o['base'] = o['xy'][1] + int(np.nonzero(a.any(1))[0].max())
-    # The trees rooted on G02's top footprint row stand behind the gate (elements.gate_behind):
-    # in every 8 px tile the gate draws in, the gate hides them, so their crowns meet the roof
-    # with no lawn between, their trunks show beside it, and no tile mixes gate and tree.
+    # Round the gate the trees overlap it, as on the owner-approved Route 36 gate surround: the
+    # rear row stands behind its top rows and the gate, painted later by base row, draws over
+    # them with the trees seen round its roof; the first southern row's crowns are pasted onto
+    # its base, their narrow tips under its foundation strip, so the crowns start on the
+    # foundation line and the gate keeps its own tiles (elements.gate_anchors).
     gate = next(o for o in objs if o['name'] == 'gate_ecruteak')
-    gm = np.zeros((H * PX, W * PX), bool)
-    gh, gw = gate['art'].shape[:2]
-    gm[gate['xy'][1]:gate['xy'][1] + gh, gate['xy'][0]:gate['xy'][0] + gw] = gate['art'][..., 3] > 0
-    gm = np.repeat(np.repeat(gm.reshape(H * 2, 8, W * 2, 8).any(axis=(1, 3)), 8, 0), 8, 1)
     for o in objs:
-        if o['name'].startswith('tree_') and o['base'] < gate['base']:
-            ah, aw = o['art'].shape[:2]
-            x0, y0 = o['xy']
-            hid = np.zeros((ah, aw), bool)
-            sy0, sx0 = max(0, -y0), max(0, -x0)
-            hid[sy0:, sx0:] = gm[y0 + sy0:y0 + ah, x0 + sx0:x0 + aw]
-            if (hid & (o['art'][..., 3] > 0)).any():
-                art = o['art'].copy()
-                art[hid] = 0
-                o['art'], o['behind_gate'] = art, True
+        if o['name'].startswith('tree_') and o['root'][1] == E.GATE_ROWS[1] + 1 and o['root'][0] <= E.GATE_COLS[1]:
+            o['base'], o['tips_under_gate_base'] = gate['base'] - 1, True
     objs.sort(key=lambda o: (o['base'], o['xy'][0]))
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
     compose.boulders, compose.caves = boulder_moves, cave_moves
+    # The trees alone, whole: where a tree and the gate share a tile, the packer keeps the
+    # trees' hidden pixels whole under the gate, so those tiles repeat from tree to tree.
+    compose.trees = np.zeros_like(top)
+    for o in objs:
+        if o['name'].startswith('tree_'):
+            over(compose.trees, o['art'], o['xy'][0], o['xy'][1])
     return bottom, rock, top, owner, d, objs, fcells, tg_used, view, mah_view
 
 ENGINE = None
@@ -610,7 +610,7 @@ def main(phg, catalog, engine):
     Image.fromarray(ground).save(OEV / 'ground.png')
     Image.fromarray(rock).save(OEV / 'rock.png')
     Image.fromarray(top).save(OEV / 'objects.png')
-    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), levels=levels,
+    np.savez_compressed(OUT / 'layers.npz', ground=ground, rock=rock, objects=top, owner=owner.astype(str), levels=levels, trees=compose.trees,
                         mahogany_view=view, route_view_of_mahogany=mah_view)
     (OUT / 'placements.json').write_text(json.dumps(dict(
         note='Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots '

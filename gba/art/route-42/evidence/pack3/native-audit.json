@@ -35,7 +35,7 @@
     15
   ],
   "reachable_foot_cells": 213,
-  "open_cells": 531,
+  "open_cells": 530,
   "unreachable_open_cells": [
     [
       7,
@@ -56,10 +56,6 @@
     [
       7,
       17
-    ],
-    [
-      7,
-      18
     ],
     [
       8,
@@ -1310,7 +1306,7 @@
       22
     ]
   ],
-  "surf_reachable_cells": 753,
+  "surf_reachable_cells": 752,
   "water_cells": 252,
   "approaches": {
     "seam_road": [
@@ -1347,7 +1343,8 @@
     ]
   },
   "walk_behind_cells": {
-    "sign": 7
+    "sign": 7,
+    "tree": 1
   },
   "seam_cells_walkable_layer": [
     [
@@ -1375,7 +1372,7 @@
   },
   "budgets": {
     "secondary_tiles": 496,
-    "secondary_metatiles": 351,
+    "secondary_metatiles": 358,
     "primary_metatiles": 210,
     "mahogany_secondary_metatiles": 173
   },
@@ -1384,7 +1381,7 @@
   "mahogany_metatiles_unchanged": true,
   "mahogany_map_json_only_connection": true,
   "material_cells": 3072,
-  "material_matches": 2866,
+  "material_matches": 2864,
   "material_mismatches": [
     [
       54,
@@ -1415,20 +1412,28 @@
       10
     ],
     [
+      0,
+      18
+    ],
+    [
       1,
-      11
+      18
     ],
     [
       2,
-      11
+      18
     ],
     [
       3,
-      11
+      18
     ],
     [
       4,
-      11
+      18
+    ],
+    [
+      5,
+      18
     ],
     [
       88,
@@ -1489,14 +1494,6 @@
       11
     ],
     [
-      0,
-      12
-    ],
-    [
-      5,
-      12
-    ],
-    [
       6,
       12
     ],
@@ -1533,10 +1530,6 @@
       13
     ],
     [
-      6,
-      15
-    ],
-    [
       11,
       15
     ],
@@ -1546,6 +1539,10 @@
     ],
     [
       6,
+      17
+    ],
+    [
+      7,
       17
     ],
     [
@@ -1579,6 +1576,14 @@
     [
       25,
       17
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      7,
+      18
     ],
     [
       0,

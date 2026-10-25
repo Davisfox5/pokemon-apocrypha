@@ -47,9 +47,9 @@ RC.STEPS = [
     # Blocked on foot: a Mt. Mortar mouth, the gate's doorway (interiors not built), a tree, the pond.
     # The woods close on the gate: no way round it north or south of its east face.
     ('go', R, 77, 12), ('north', 1, None), ('at', R, 77, 12),
-    ('go', R, 7, 16), ('west', 1, None), ('at', R, 7, 16),
-    ('go', R, 7, 13), ('north', 1, None), ('at', R, 7, 13), ('west', 1, None), ('at', R, 7, 13),
-    ('go', R, 7, 18), ('west', 1, None), ('at', R, 7, 18), ('south', 1, None), ('at', R, 7, 18),
+    ('go', R, 7, 15), ('west', 1, None), ('at', R, 7, 15),
+    ('go', R, 7, 12), ('west', 1, None), ('at', R, 7, 12), ('go', R, 7, 13), ('west', 1, None), ('at', R, 7, 13),
+    ('go', R, 7, 17), ('west', 1, None), ('at', R, 7, 17), ('south', 1, None), ('at', R, 7, 17),
     ('go', R, 41, 19), ('east', 1, None), ('at', R, 41, 19),
     ('go', R, 67, 13), ('west', 1, None), ('at', R, 67, 13),
     # Signs.

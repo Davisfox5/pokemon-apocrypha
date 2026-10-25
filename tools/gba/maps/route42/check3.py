@@ -265,7 +265,7 @@ def main(g, phg):
     # is not built, so Surf. The pockets behind HGSS's Rock Climb wall are not reached (Gen 3
     # has no Rock Climb).
     by_surf = {k: p for k, p in dict(east_pond=(62, 12), middle_lawn=(45, 18), middle_cave_front=(48, 16), west_pond=(30, 12),
-                                     west_road=(12, 14), gate_front=(7, 16), west_route_sign=(11, 18), west_cave_front=(20, 12),
+                                     west_road=(12, 14), gate_front=(7, 15), west_route_sign=(11, 18), west_cave_front=(20, 12),
                                      north_west_lawn=(15, 10)).items() if p not in surfed}
     assert not by_surf, ('unreachable with Surf', by_surf)
     # The woods close on the gate (AGENTS.md; owner review, Route 42): G02's footprint is solid,

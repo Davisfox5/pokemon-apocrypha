@@ -23,9 +23,9 @@ Detail sheets (HGSS beside native, numbered by cell):
 | | |
 | --- | --- |
 | Map | `Route42`, 96x32, `gMapGroup_Cherrygrove` id 51, `MAPSEC_JOHTO_ROUTE_42` |
-| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (138 of its tiles reused) + own secondary `gTileset_Route42` (496 tiles: 434 new, 51 copied from Mahogany; 351 metatiles) |
+| Tilesets | Mahogany's primary `gTileset_MahoganyPrimary` (138 of its tiles reused) + own secondary `gTileset_Route42` (496 tiles: 445 new, 51 copied from Mahogany; 358 metatiles) |
 | Colour | 13 banks, each colour exact: all 786,432 native pixels equal the assembled art in RGB555 |
-| Material audit | 2,866 of 3,072 cells show HGSS's material, 14 mismatches (declared below), 192 cells where a foreground object differs |
+| Material audit | 2,864 of 3,072 cells show HGSS's material, 16 mismatches (declared below), 192 cells where a foreground object differs |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
 
@@ -34,13 +34,14 @@ Detail sheets (HGSS beside native, numbered by cell):
   is native cell (x, y), 16 px, origin (0,0). Route 42 x 96 is Mahogany x 0, rows aligned.
 - Ledger: rock cells by slope, woods `F`, tall grass `G`, water `~` (type 0x10), and Route 42's own features:
   the stairs `s` (HGSS slope cells (70, 13-14)), the four Mt. Mortar mouths `D` (warps 0x6E), the Ecruteak
-  gate's doorway `d` (warps 0x6D, HGSS (6, 15-16), here G02's stairs (6, 16-17)) and the Rock Climb wall `K`
-  (0x4C, (54-56, 5)). The gate's G02 footprint (x 0-6, rows 12-18) holds no tree roots; the cells HGSS's
-  taller gate model covers beyond it (rows 10-11 and 19) are woods.
-- Trees: one regular lattice of 2x2 roots per woods block (the rule from the Route 44 review): 192. The
-  blocks north and south of the gate take the phase that closes on it (AGENTS.md, woods close on buildings):
-  north, the last row's trunks stand just behind the roof's top edge; south, the first row's crowns start
-  right under its base, as HGSS's trees meet its gate.
+  gate's doorway `d` (warps 0x6D, (6, 15-16)) and the Rock Climb wall `K` (0x4C, (54-56, 5)). The gate's
+  G02 footprint (x 0-6, rows 11-17) is solid; the cells HGSS's taller gate model covers beyond it (rows
+  18-19), and the row under it across its stairs' corner, are woods.
+- Trees: one regular lattice of 2x2 roots per woods block (the rule from the Route 44 review): 196. Round
+  the gate the woods overlap it as on the owner-approved Route 36 gate surround (AGENTS.md, woods close on
+  gates and buildings): a row of four trees stands behind its top two rows, the gate drawn over them with
+  the trees seen round its roof, and the first southern row's four crowns sit on its foundation line, the
+  stairs' corner included. Both woods keep their own lattices.
 
 ## 2. Art (`assemble.py`)
 
@@ -53,7 +54,7 @@ Shared masters copied byte for byte into `source/shared-art/` with hashes (`prov
 | Banks | Route 43's owner-approved natural bank (local, `source/local-art/water-banks.png`) | every shore onto lawn; rock in the water meets it directly, as in HGSS |
 | Tall grass | G15, the whole-cell piece | every HGSS tall-grass cell |
 | Stairs | S04, the catalog's diagonal flight descending west | HGSS's slope (70, 12-14), over the one-cell cliff it cuts through, which runs unbroken from the north rock (row 11) to the south rock (row 19) |
-| Gatehouse | G02, the owner-approved east-west gate, stairs east | HGSS's Ecruteak gate (model 36), x 0-6, rows 12-18: its stairs one row south of HGSS's doorway (6, 15-16) |
+| Gatehouse | G02, the owner-approved east-west gate, stairs east, transparent round its walls | HGSS's Ecruteak gate (model 36), its stairs on HGSS's doorway (6, 15-16), over the trees behind it |
 | Trees | T01 | as above |
 | Signs | P14 green rounded sign (model 32), P13 grey plaque (model 31) | (11,17) and (86,12) route signs, (16,11) and (75,12) Mt. Mortar plaques |
 | Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs |
@@ -89,10 +90,11 @@ Mahogany with the appended metatiles and tiles is unchanged.
   with it.
 - **Tall grass edge.** The tall grass's last column (88, 18-20) is lawn: it scrolls out under Mahogany's
   tilesets when crossing east, and Mahogany has no tall grass colours. 3 material mismatches.
-- **Ecruteak gate.** G02 is shorter than HGSS's gate model, so it stands one row south of HGSS's doorway
-  (rows 12-18, stairs (6, 16-17)): the woods north and south then close on it with their own lattices, and
-  no one walks round it (owner review, 2026-10-25). HGSS's gate roof cells (1-4, 10-11) are woods: 8
-  material mismatches. G02's footprint is solid throughout.
+- **Ecruteak gate.** G02 is shorter than HGSS's gate model. As on Route 36, trees stand behind its top
+  rows and crowns sit on its foundation, so no lawn shows and no one walks round it (owner review,
+  2026-10-25): HGSS's gate roof cells (1-4, 10) and gate base cells (0-5, 18) show trees, 10 material
+  mismatches. The narrow crown tips sit under G02's foundation strip, so the gate keeps its own tiles; the
+  tree under the stairs' corner covers (6-7, 18), which HGSS leaves open.
 - **Rock Climb.** HGSS's Rock Climb wall (54-56, 5) is plain FRLG cliff face and solid: Gen 3 has no Rock
   Climb. The two pockets behind it (the cave floor by the north Mt. Mortar mouth, and a pool) are not
   reached. 3 material mismatches.
@@ -108,7 +110,7 @@ Mahogany with the appended metatiles and tiles is unchanged.
 ## Verification
 
 - **Build**: engine `claude/route-42`, ROM sha256
-  `616f60a5259a10def3974f2f90d17bd7b67bb162c148aa9570c2e498789207ca` (not committed).
+  `2dca2c6483734837af6103bcf792d6c85ef31b56f62ce1d9e4c1d53ee5f6301f` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 42 equals the pack decode
   and its assembled art; Mahogany's installed decode equals its accepted native; both seam views exact from
   the installed files; connections (Mahogany now joins Route 44 east and Route 42 west, offset 0); shared
@@ -117,14 +119,14 @@ Mahogany with the appended metatiles and tiles is unchanged.
   G02's footprint and the rows along its north and south sides solid;
   walk-behind layering; budgets; shared masters byte-identical; Mahogany's own metatiles and tiles
   unchanged, its map.json changing only by the new connection; only Route 42 files otherwise.
-- **Material audit**: 2,866 match, 14 mismatch, 192 foreground differences.
+- **Material audit**: 2,864 match, 16 mismatch, 192 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 35 captures with map layers rebuilt from
   VRAM equal to the native decodes, connected maps beyond the seam included; the seam walked both ways on
   the road's middle, top and bottom rows, with captures 3 px into each crossing step matching too; BG1
   covers the player behind both route signs and leaves the player clear in front of the east one; the
   stairs descend and climb; a Mt. Mortar mouth, the gate's doorway, a tree and the pond's edge block a
-  player on foot; no way round the gate north or south of its east face; all four signs read; Mahogany, Route 44 and Cherrygrove regression views; ordinary flash
-  save, cold reload and title Continue.
+  player on foot; no way round the gate north or south of its east face; all four signs read; Mahogany,
+  Route 44 and Cherrygrove regression views; ordinary flash save, cold reload and title Continue.
 - **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves Route 42 and Mahogany on a fresh
   clone of the engine commit; both exports equal the native decodes with 0 differing pixels; saving
   rewrites no Route 42 or Mahogany line.

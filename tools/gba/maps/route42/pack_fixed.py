@@ -151,7 +151,7 @@ def plan_layers(z, layer_of):
     """pack_lossless's per-8x8 layer plan: objects on the top layer over the terrain, part-rock
     tiles split onto the top layer where the cell draws under the player, overlapping objects
     split back and front, hidden bottom pixels compacted (Lake of Rage's pack_pair.plan_layers)."""
-    ground, rock, top, owner = z['ground'], z['rock'], z['objects'].copy(), z['owner'].astype(object)
+    ground, rock, top, owner, trees = z['ground'], z['rock'], z['objects'].copy(), z['owner'].astype(object), z['trees']
     terrain = ground.copy()
     rk_all = rock[..., 3] > 0
     terrain[rk_all] = rock[rk_all, :3]
@@ -194,6 +194,11 @@ def plan_layers(z, layer_of):
         return b
 
     full = np.ones((8, 8), bool)
+    def want_top_rgb(sl):
+        w = terrain[sl].copy()
+        a = top[sl][..., 3] > 0
+        w[a] = top[sl][a, :3]
+        return w
     for ty in range(H * 2):
         for tx in range(W * 2):
             sl = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
@@ -202,11 +207,22 @@ def plan_layers(z, layer_of):
             fs = set(fam[sl][ob].ravel().tolist())
             if len(fs) > 1 and not above[ty // 2, tx // 2]:
                 front = fam[sl][ob].ravel()[np.argmax(base[sl][ob].ravel())]
+                gate_tree = fs == {'tree', 'gate'}
+                if gate_tree:
+                    # Round the gate (the Route 36 surround) the picture is already composed and
+                    # the cell is solid, so either part may take the top layer: the gate does, and
+                    # the trees join the lawn below it, whole under the gate, in the palettes
+                    # trees and lawn already share, the same tiles from tree to tree.
+                    front = 'gate'
                 fm = ob & (fam[sl] == front)
                 bm = ob & ~fm
                 b = terrain[sl].copy(); b[bm] = top[sl][bm, :3]
+                if gate_tree:
+                    ta = trees[sl][..., 3] > 0
+                    b[ta] = trees[sl][ta, :3]
+                    assert (b[~fm] == want_top_rgb(sl)[~fm]).all()
                 hide = bool(fm.all())
-                lay[(tx, ty, 0)] = dict(px=filler if hide else backing(b, ~fm, sl), mask=full)
+                lay[(tx, ty, 0)] = dict(px=filler if hide and not gate_tree else b if gate_tree else backing(b, ~fm, sl), mask=full)
                 lay[(tx, ty, 1)] = dict(px=top[sl][..., :3], mask=fm)
             elif ob.any():
                 hide = bool(ob.all())
