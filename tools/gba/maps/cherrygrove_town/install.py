@@ -3,8 +3,15 @@ other map on CherrygrovePrimary and both seams exactly as they draw.
 
 Tilesets. Cherrygrove moves to its own copy of CherrygrovePrimary (cherrygrove_town, the way Routes 30 and 31
 have theirs). The copy keeps every metatile id and every tile the town's camera draws (its own cells, Route
-29's window, Route 30's band, the sea's animated tiles 1-92) and frees the other slots for the town's new
-art. CherrygrovePrimary changes only where Route 29 draws the town.
+29's window, Route 30's band, the sea's animated tiles 1-87, all it draws of the 92) and frees the other
+slots for the town's new art; its sea animation writes those 87 tiles only. CherrygrovePrimary changes only
+where Route 29 draws the town. The two regional preview maps draw a frozen copy of Cherrygrove's secondary
+at the base revision (cherrygrove_preview), so the town's sheet takes the slots only they used.
+
+Folds. When the slots run out, a new texture tile may take an existing one up to k pixels away (k as small
+as fits, FOLD_STEPS). Edge and feature cells (shore, beach edges, paths, boats, pier, flowers, the Center's
+and Mart's lawn) fold only a ground texture's inner dither, to another tone of that texture (DITHER_K);
+the Center and Mart art, doors, and cells Route 29 or Route 30 also draw never fold.
 
 Ids. Unchanged cells keep theirs. New cells Route 29 can see (its camera draws Cherrygrove's last 8 columns
 with CherrygrovePrimary and its own secondary) take primary metatile ids no map draws, defined the same in
@@ -36,6 +43,8 @@ PAL5_EXTRA = {13: Rk.BORDER_GRAY, 15: Rk.FRINGE_RIM}   # with the rock, above th
 LAWN_EXT = {12: (104, 208, 152), 13: (104, 200, 152), 15: (88, 176, 136)}   # the lawn in palettes 3 and 10
 SEA = {(0, 0): 0x03B, (1, 0): 0x03A, (0, 1): 0x04C, (1, 1): 0x04B}
 TOWN_SYM, TOWN_DIR = 'CherrygroveTownPrimary', 'cherrygrove_town'
+TP_ANIM = 87                                         # the sea tiles the town draws (1-87): its copy animates only these
+PREVIEW_SYM, PREVIEW_DIR = 'CherrygrovePreview', 'cherrygrove_preview'   # the two regional previews' secondary, frozen
 R29_SHEET = 'data/tilesets/secondary/claude_route29/tiles.png'
 
 # --------------------------------------------------------------------------- what is drawn, what is free
@@ -98,21 +107,19 @@ def free_cp_tiles(engine, town, cv):
 
 def free_tp_tiles(engine, town, cv):
     """The town's copy: primary tile slots its camera does not draw (kept cells, border, neighbours' strips,
-    the sea animation's tiles 1-92)."""
+    the sea animation's tiles 1-TP_ANIM, all the town draws of CherrygrovePrimary's 1-92)."""
     pb, sb = town.t.blocks
-    ref = set(range(0, 93))
-    for m in view_ids(engine, town, cv):
+    ref = set(range(0, TP_ANIM + 1))
+    for m in view_ids(engine, town, cv) | set(SEA.values()):
         blk = pb[m] if m < 512 else (sb[m - 512] if m - 512 < B.OWN else ())
         ref |= {e & 1023 for e in blk if (e & 1023) < 512}
+    assert not ref & set(range(TP_ANIM + 1, 93)), ('the town draws a sea tile its copy does not animate', sorted(ref & set(range(TP_ANIM + 1, 93))))
     return [i for i in range(512) if i not in ref]
 
 def free_secondary_tiles(engine, town, cv):
-    """Cherrygrove secondary sheet slots nothing drawn with it uses (the metatiles its camera draws, its preview
-    maps), then the sheet's growth to 512."""
-    L = B.layouts(engine)
+    """Cherrygrove secondary sheet slots nothing drawn with it uses (the metatiles its camera draws; the
+    preview maps draw a frozen copy, register_preview), then the sheet's growth to 512."""
     used = view_ids(engine, town, cv)
-    for lid in ('LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_29', 'LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_30'):
-        used |= B.map_ids(engine, L[lid])
     pb, sb = town.t.blocks
     ref = {0}
     for m in used:
@@ -234,6 +241,8 @@ class Encoder:
         self.ramp5 = {tuple(int(v) >> 3 for v in c) for c in Rk.ROCK_RAMP}
         self.extra5 = {tuple(int(v) >> 3 for v in c) for c in PAL5_EXTRA.values()}
         self.sentinel = tuple(v >> 3 for v in E.SENTINEL)
+        self.family = {tuple(int(v) >> 3 for v in c): f for f, t in E.G.textures().items()   # the ground's dither tones
+                       if f in (E.G.GRASS, E.G.PATH, E.G.SAND) for c in np.unique(t.reshape(-1, 3), axis=0)}
         t = town.t
         have = [np.array(x, np.uint8).reshape(8, 8) & 15 for x in t.tiles[0]] + [np.array(x, np.uint8).reshape(8, 8) & 15 for x in t.tiles[1]]
         self.have_ix = list(range(len(t.tiles[0]))) + [512 + i for i in range(len(t.tiles[1]))]
@@ -251,6 +260,7 @@ class Encoder:
         self.placed, self.lookup = {}, {}
         self.cp_used, self.shared = set(), set()     # written to CherrygrovePrimary too / to Route 29's sheet too
         self.budget = dict(copy=len(self.tpfree), both_primaries=len(self.cpfree), secondary=len(self.sfree))
+        self.fold_k, self.foldable, self.folded = 0, False, 0   # see near()
     @staticmethod
     def _index(pal):
         out = {}
@@ -267,6 +277,39 @@ class Encoder:
             if not only or self.have_ix[k] < 512:
                 return self.have_ix[k], int(f)
         return None
+    def near(self, px5, care, bank, opaque):
+        """A tile in this bank (the town's or one placed for it) within fold_k pixels of these, with the same
+        silhouette: the texture-family fold (docs/GBA_MAP_RECONSTRUCTION.md, native visual cleanup 2-3). In
+        an edge or feature cell (foldable == 'texture') only a dither pixel inside one ground texture moves,
+        to another tone of that texture: rims, foam, outlines and art stay exact."""
+        pal = np.array([tuple(int(v) >> 3 for v in c) for c in self.pals[bank]])
+        if self.foldable == 'texture':
+            fam = np.array([[self.family.get(tuple(int(v) for v in px5[y, x]), -1) for x in range(8)] for y in range(8)])
+            p = np.pad(fam, 1, mode='edge')             # (the tile's own edge stands in for its neighbour's)
+            inner = (fam >= 0) & (p[:-2, 1:-1] == fam) & (p[2:, 1:-1] == fam) & (p[1:-1, :-2] == fam) & (p[1:-1, 2:] == fam)
+            pal_fam = np.array([self.family.get(tuple(int(v) for v in c), -1) for c in pal])
+        stacks = [(self.flipped, self.have_ix)]
+        if self.placed:
+            ids = list(self.placed)
+            p = np.array([self.placed[i] for i in ids])
+            stacks.append((np.stack([p, p[:, :, ::-1], p[:, ::-1, :], p[:, ::-1, ::-1]], 1), ids))
+        best = None
+        for arr, ids in stacks:
+            op = arr > 0
+            if opaque:
+                shape_ok = (op | ~care[None, None]).all((2, 3))
+            else:
+                shape_ok = (op == care[None, None]).all((2, 3))
+            moved = (pal[arr] != px5[None, None]).any(-1) & care[None, None]
+            diff = moved.sum((2, 3))
+            if self.foldable == 'texture':
+                shape_ok &= ~(moved & ~(inner[None, None] & (pal_fam[arr] == fam[None, None]))).any((2, 3))
+            diff = np.where(shape_ok, diff, 99)
+            k, f = np.unravel_index(int(np.argmin(diff)), diff.shape)
+            limit = DITHER_K if self.foldable == 'texture' else self.fold_k
+            if diff[k, f] <= limit and (best is None or diff[k, f] < best[0]):
+                best = (int(diff[k, f]), ids[k], int(f))
+        return best
     def put(self, ix, only):
         for f in range(4):
             v = ix[:, ::-1] if f & 1 else ix
@@ -293,6 +336,18 @@ class Encoder:
         hit = self.reuse(px5, care, bank, opaque, only)
         if hit:
             return entry(hit[0], hit[1], bank)
+        # the same pixels may already exist as a tile in another bank that holds these colours
+        need = {tuple(int(v) for v in px5[y, x]) for y, x in zip(*np.nonzero(care))}
+        for b in self.index:
+            if b != bank and need <= set(self.index[b]) and not (only and b >= 6 and b != 10):
+                hit = self.reuse(px5, care, b, opaque, only)
+                if hit:
+                    return entry(hit[0], hit[1], b)
+        if self.fold_k and self.foldable and not only:
+            hit = self.near(px5, care, bank, opaque)
+            if hit:
+                self.folded += hit[0]
+                return entry(hit[1], hit[2], bank)
         ix = np.zeros((8, 8), np.uint8) + (1 if opaque else 0)
         idx = self.index[bank]
         for yy, xx in zip(*np.nonzero(care)):
@@ -307,9 +362,25 @@ class Encoder:
         if wet.any():
             up = ~wet
             need = {keys[y][x] for y, x in zip(*np.nonzero(up))}
-            assert need <= set(self.index[5]), ('rock over the sea outside bank 5', need)
-            top = self.tile(px5, up, 5, False, only) if up.any() else 0
-            return self.town.t.blocks[0][sea_id][self.q], top
+            over_sea = (5,) + (() if only else (4, 1, 0, 3, 2, 6, 7, 8, 9, 10, 11, 12))   # the rock; the shore's foam and sand
+            bank = next((b for b in over_sea if need <= set(self.index[b])), None)
+            if bank is not None:
+                top = self.tile(px5, up, bank, False, only) if up.any() else 0
+                return self.town.t.blocks[0][sea_id][self.q], top
+            assert not only, ('art over the sea outside any bank', need)
+            # art over the sea in two banks: the sea there stays as its first frame, drawn below like the rest
+            q = self.q
+            still = rgb5(self.town.render_id(sea_id))[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
+            px5 = px5.copy(); px5[wet] = still[wet]
+            keys = [[tuple(int(v) for v in px5[yy, xx]) for xx in range(8)] for yy in range(8)]
+            rocky = any(k in self.ramp5 for row in keys for k in row)
+        # one bank holds the whole quadrant: one tile, nothing above (but a crown the player walks behind)
+        lows_one = (0, 3, 10, 1, 2, 4) + (() if only else (5, 6, 7, 8, 9, 11, 12))
+        if not walk_behind:
+            allk = {k for row in keys for k in row}
+            one = next((b for b in lows_one if allk <= set(self.index[b]) and not (only and b == 5)), None)
+            if one is not None:
+                return self.tile(px5, np.ones((8, 8), bool), one, True, only), 0
         # the lawn's banks first, then any other the ground may keep from the base town (Route 29's columns:
         # the primary's banks and 10, which Route 29 shares)
         lows = (0, 3, 10, 1, 2, 4) + (() if only else (6, 7, 8, 9, 11, 12))
@@ -350,13 +421,23 @@ def cell_info(town, cv, x, r):
     g, tp = cv.layers(x, r)
     comp = composite(g, tp)
     wet = (comp == E.SENTINEL).all(-1).any()
-    walkable = (int(town.words[r, x]) >> 10) & 3 == 0
+    walkable = (cell_bits(cv, x, r) >> 10) & 3 == 0
     walk_behind = walkable and (tp[..., 3] > 0).any()
     return comp, tp[..., 3] > 0, SEA[(x % 2, r % 2)] if wet else None, walk_behind
 
 def base_mb(town, x, r):
     """A cell's behaviour in the base town (the pond stays ocean water, as the owner's town has it)."""
     return town.attr(int(town.words[r, x]) & 1023) & 0xFF if 0 <= r < H else B.MB_NORMAL
+
+def cell_mb(cv, x, r):
+    """The behaviour a cell installs with: the base town's, unless an element changes it (cv.traverse)."""
+    t = cv.traverse.get((x, r))
+    return t[2] if t else base_mb(cv.town, x, r)
+
+def cell_bits(cv, x, r):
+    """The collision and elevation bits a cell installs with (map word bits 10-15)."""
+    t = cv.traverse.get((x, r))
+    return (t[0] << 10) | (t[1] << 12) if t else int(cv.town.words[r, x]) & 0xFC00
 
 # --------------------------------------------------------------------------- writing
 def primary_cells(cv):
@@ -372,7 +453,7 @@ def encode_primary(engine, town, cv, enc):
     ids, defs = {}, {}
     for x, r in cells:
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        key = enc.metatile(comp, obj, sea, wb, 'primary' if seen((x, r)) else 'shared', base_mb(town, x, r))
+        key = enc.metatile(comp, obj, sea, wb, 'primary' if seen((x, r)) else 'shared', cell_mb(cv, x, r))
         if key not in defs:
             assert len(defs) < len(free), 'no free primary metatile ids'
             defs[key] = free[len(defs)]
@@ -423,14 +504,38 @@ def write_town_primary(engine, town, enc, pdefs, cv, tp_defs):
         if b < 6:
             (d / 'palettes' / f'{b:02d}.pal').write_text(B.jasc(bank_pal(cols)))
 
+TOWN_ANIM = '''static void TilesetAnim_CherrygroveTownPrimary(u16 timer);
+void InitTilesetAnim_CherrygroveTownPrimary(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_CherrygroveTownPrimary;
+}
+static void TilesetAnim_CherrygroveTownPrimary(u16 timer)
+{
+    if (timer % 16 == 1)
+        AppendTilesetAnimToBuffer(gTilesetAnims_Cherrygrove_Sea[(timer / 16) % 8], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(1)), TP_ANIM * TILE_SIZE_4BPP);
+}
+'''.replace('TP_ANIM', str(TP_ANIM))
+
 def register_town(engine):
-    """The copy's tileset (with CherrygrovePrimary's sea animation) and the town's layout on it."""
+    """The copy's tileset (CherrygrovePrimary's sea animation over the tiles the town draws, TP_ANIM) and the
+    town's layout on it."""
     sym, name = TOWN_SYM, TOWN_DIR
     h = engine / 'src/data/tilesets/headers.h'; s = h.read_text()
     if f'gTileset_{sym} =' not in s:
         line = next(l for l in s.splitlines(True) if l.startswith('const struct Tileset gTileset_CherrygrovePrimary ='))
         s = s.replace(line, line + line.replace('CherrygrovePrimary =', f'{sym} =').replace('_CherrygrovePrimary,', f'_{sym},'), 1)
-        h.write_text(s)
+    s = re.sub(r'(const struct Tileset gTileset_%s = .*?\.callback = )\w+' % sym, r'\1InitTilesetAnim_%s' % sym, s, count=1)
+    h.write_text(s)
+    a = engine / 'src/tileset_anims.c'; s = a.read_text()
+    s = re.sub(r'static void TilesetAnim_CherrygroveTownPrimary\(u16 timer\);.*?\n}\n.*?\n}\n', '', s, count=1, flags=re.S)
+    s = s.replace('// End Claude Cherrygrove sea', TOWN_ANIM + '// End Claude Cherrygrove sea', 1)
+    a.write_text(s)
+    d = engine / 'include/tileset_anims.h'; s = d.read_text()
+    if f'InitTilesetAnim_{sym}(void);' not in s:
+        s = s.replace('void InitTilesetAnim_CherrygrovePrimary(void);\n', f'void InitTilesetAnim_CherrygrovePrimary(void);\nvoid InitTilesetAnim_{sym}(void);\n', 1)
+        d.write_text(s)
     g = engine / 'src/data/tilesets/graphics.h'; s = g.read_text()
     if f'gTilesetTiles_{sym}[]' not in s:
         s = s.rstrip('\n') + f'\n\nconst u32 gTilesetTiles_{sym}[] = INCGFX_U32("data/tilesets/primary/{name}/tiles.png", ".4bpp.fastSmol");\nconst u16 gTilesetPalettes_{sym}[][16] = {{\n' + ''.join(f'INCGFX_U16("data/tilesets/primary/{name}/palettes/{i:02}.pal", ".gbapal"),\n' for i in range(16)) + '};\n'
@@ -444,6 +549,33 @@ def register_town(engine):
     if s2 != s:
         lj.write_text(s2)
     assert B.layouts(engine)['LAYOUT_CHERRYGROVE_CITY']['primary_tileset'] == f'gTileset_{sym}'
+
+def register_preview(engine, town):
+    """The two regional preview maps (dev warps from Sandgem and Floccesy) draw Cherrygrove's secondary as
+    it was at the base revision, from a frozen copy, so the town's sheet can take the slots only they used."""
+    sym, d = PREVIEW_SYM, engine / 'data/tilesets/secondary' / PREVIEW_DIR
+    if d.exists():
+        shutil.rmtree(d)
+    shutil.copytree(town.base / 'data/tilesets/secondary/cherrygrove', d)
+    h = engine / 'src/data/tilesets/headers.h'; s = h.read_text()
+    if f'gTileset_{sym} =' not in s:
+        line = next(l for l in s.splitlines(True) if l.startswith('const struct Tileset gTileset_Cherrygrove ='))
+        s = s.replace(line, line + line.replace('Cherrygrove =', f'{sym} =').replace('_Cherrygrove,', f'_{sym},'), 1)
+        h.write_text(s)
+    g = engine / 'src/data/tilesets/graphics.h'; s = g.read_text()
+    if f'gTilesetTiles_{sym}[]' not in s:
+        s = s.rstrip('\n') + f'\n\nconst u32 gTilesetTiles_{sym}[] = INCGFX_U32("data/tilesets/secondary/{PREVIEW_DIR}/tiles.png", ".4bpp.fastSmol");\nconst u16 gTilesetPalettes_{sym}[][16] = {{\n' + ''.join(f'INCGFX_U16("data/tilesets/secondary/{PREVIEW_DIR}/palettes/{i:02}.pal", ".gbapal"),\n' for i in range(16)) + '};\n'
+        g.write_text(s)
+    m = engine / 'src/data/tilesets/metatiles.h'; s = m.read_text()
+    if f'gMetatiles_{sym}[]' not in s:
+        s = s.rstrip('\n') + f'\nconst u16 gMetatiles_{sym}[] = INCBIN_U16("data/tilesets/secondary/{PREVIEW_DIR}/metatiles.bin");\nconst u16 gMetatileAttributes_{sym}[] = INCBIN_U16("data/tilesets/secondary/{PREVIEW_DIR}/metatile_attributes.bin");\n'
+        m.write_text(s)
+    lj = engine / 'data/layouts/layouts.json'; s = lj.read_text()
+    for lid in ('LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_29', 'LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_30'):
+        s = re.sub(r'("id": "%s",(?:[^{}]*?)"secondary_tileset": )"gTileset_Cherrygrove"' % lid, r'\1"gTileset_%s"' % sym, s, count=1)
+    lj.write_text(s)
+    L = B.layouts(engine)
+    assert all(L[l]['secondary_tileset'] == f'gTileset_{sym}' for l in ('LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_29', 'LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_30'))
 
 def render(engine, town, cv, img):
     """Before Route 30's pack: the new cells it can see (ground and object layers), and the cells placed by
@@ -484,14 +616,15 @@ def other_maps_unchanged(engine, town):
             continue
         sec = B.tileset_dir(engine, l['secondary_tileset']).name
         words = B.words_of((engine / l['blockdata_filepath']).read_bytes(), l['width']).ravel().tolist()
-        before = np.array(spliced(engine, town, sec, sec in ('cherrygrove', 'claude_route29')).map_image(words, l['width']).convert('RGB'))
+        was = 'cherrygrove' if sec == PREVIEW_DIR else sec       # the previews drew the town's secondary at the base revision
+        before = np.array(spliced(engine, town, was, was in ('cherrygrove', 'claude_route29')).map_image(words, l['width']).convert('RGB'))
         after = np.array(Tileset(engine, sec, 'cherrygrove').map_image(words, l['width']).convert('RGB'))
         out[lid] = int((rgb5(before) != rgb5(after)).any(-1).sum())
     assert not any(out.values()), ('another map draws differently', out)
     return out
 
 # --------------------------------------------------------------------------- the doors
-DOOR_ANIMS = dict(player='PlayerHouse', gold='GoldHouse', neighbor='NeighborHouse', harbor='HarborHouse', garden='GardenHouse')
+DOOR_ANIMS = dict(mart='Mart', player='PlayerHouse', gold='GoldHouse', neighbor='NeighborHouse', harbor='HarborHouse', garden='GardenHouse')
 DOOR_DIR = 'graphics/door_anims/johto_restart'
 
 def door_frames(engine, cv, img, pals):
@@ -534,6 +667,7 @@ def door_frames(engine, cv, img, pals):
 # --------------------------------------------------------------------------- the steps
 def primary(engine, town, cv, img):
     """Before Route 30's pack: Route 29's columns as primary metatiles, the new palettes."""
+    register_preview(engine, town)
     pals = palettes(engine, town, cv)
     enc = Encoder(engine, town, cv, pals)
     pids, pdefs = encode_primary(engine, town, cv, enc)
@@ -543,8 +677,23 @@ def primary(engine, town, cv, img):
     print('primary:', len(pids), 'cells,', len(pdefs), 'metatiles,', len(enc.cp_used), 'tiles in both primaries,',
           len(enc.shared), 'shared with Route 29')
 
-def install(engine, town, cv, img):
-    """After Route 30's pack: everything."""
+FOLD_STEPS = tuple(range(9))                         # pixels a texture tile may move to reuse another (near())
+DITHER_K = 8                                         # in edge cells, where only a ground texture's inner dither moves
+
+def no_fold(cv):
+    """(cells whose tiles never fold, edge cells where only ground dither folds). Never: the shared Center
+    and Mart, the doors, the cells Route 30 sees (Route 30's pack encodes them too), Route 29's columns
+    (both primaries draw them). Dither only: the edges and features (cv.exact: shore, beach edges, paths,
+    boats, pier, flowers, the lawn the Center and Mart redrew)."""
+    out = set(cv.fixed)
+    out |= {(x, r) for r in range(B.R30_SEEN[0]) for x in B.R30_SEEN[1]}
+    out |= {(x, r) for r in range(H) for x in B.R29_SEEN}
+    boxes = set()
+    for (x0, y0), (w, h) in ((E.CENTER_AT, (7, 6)), (E.MART_AT, (7, 6))):
+        boxes |= {(x, r) for x in range(x0, x0 + w) for r in range(y0, y0 + h + 1)}
+    return out, (cv.exact | boxes) - out
+
+def encode_all(engine, town, cv, fold_k):
     pals = palettes(engine, town, cv)
     enc = Encoder(engine, town, cv, pals)
     report = dict(budget=dict(enc.budget))
@@ -570,14 +719,14 @@ def install(engine, town, cv, img):
     for k, m in mid['other'].items():
         x, r = map(int, k.split(','))
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        define(m, comp, obj, sea, wb, base_mb(town, x, r))
+        define(m, comp, obj, sea, wb, cell_mb(cv, x, r))
     mirror = sorted(defs)
     assert mirror == list(range(Rf.CG_WALL_ID0, Rf.CG_WALL_ID0 + len(mirror))), ('the mirror block is not contiguous', mirror)
     # the door cells keep their ids (the door table's): the copy's primary ones, the secondary's own
     tp_defs, own_defs = {}, {}
     for (x, r), m in sorted(cv.fixed.items()):
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        key = enc.metatile(comp, obj, sea, wb, None, base_mb(town, x, r))
+        key = enc.metatile(comp, obj, sea, wb, None, cell_mb(cv, x, r))
         into = tp_defs if m < 512 else own_defs
         k = m if m < 512 else m - 512
         assert m < 512 or k < B.OWN, ('a door id outside the town\'s own metatiles', m)
@@ -587,7 +736,7 @@ def install(engine, town, cv, img):
     prim = set(pids) | set(cv.fixed)
     for x, r in sorted((c for c in cv.changed if 0 <= c[1] < H and c not in prim), key=lambda c: (c[1], c[0])):
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        mb = base_mb(town, x, r)
+        mb = cell_mb(cv, x, r)
         m = mid['other'].get(f'{x},{r}')
         if m is None:
             m = next((m for m, d in defs.items() if d[3] == sea and d[2] == wb and d[4] == mb and (rgb5(d[0]) == rgb5(comp)).all()), None)
@@ -595,10 +744,40 @@ def install(engine, town, cv, img):
             assert not (r < B.R30_SEEN[0] and x in B.R30_SEEN[1]), ('a cell Route 30 can see has no id in its secondary', x, r)
             m = Rf.CG_WALL_ID0 + len(defs); defs[m] = (comp, obj, wb, sea, mb)
         cell_id[(x, r)] = m
-    rows = [enc.metatile(defs[m][0], defs[m][1], defs[m][3], defs[m][2], None, defs[m][4]) for m in sorted(defs)]
+    exact, dither = no_fold(cv)
+    cells_of = {}
+    for c, m in cell_id.items():
+        cells_of.setdefault(m, []).append(c)
+    enc.fold_k = fold_k
+    rows, folded_ids = [], set()
+    for m in sorted(defs):
+        cs = cells_of.get(m, [])
+        enc.foldable = bool(cs) and m not in set(mirror) and all(c not in exact for c in cs) and (
+            'texture' if any(c in dither for c in cs) else True)
+        before = enc.folded
+        rows.append(enc.metatile(defs[m][0], defs[m][1], defs[m][3], defs[m][2], None, defs[m][4]))
+        if enc.folded > before:
+            folded_ids.add(m)
+    enc.foldable = False
     sea = {e for m in SEA.values() for e in town.t.blocks[0][m]}
     for ent, _ in rows + list(pdefs.values()) + list(tp_defs.values()) + list(own_defs.values()):
-        assert all(e in sea for e in ent if 1 <= (e & 1023) <= 92), 'a new metatile draws an animated sea tile outside the sea'
+        assert all(e in sea for e in ent if 1 <= (e & 1023) <= 92 and (e & 1023) not in enc.placed), 'a new metatile draws an animated sea tile outside the sea'
+    return dict(pals=pals, enc=enc, report=report, pids=pids, pdefs=pdefs, defs=defs, mirror=mirror, tp_defs=tp_defs,
+                own_defs=own_defs, cell_id=cell_id, rows=rows, folded_ids=folded_ids, fold_k=fold_k)
+
+def install(engine, town, cv, img):
+    """After Route 30's pack: everything. Texture tiles fold only as far as the tile budget needs."""
+    register_preview(engine, town)
+    for k in FOLD_STEPS:
+        try:
+            st = encode_all(engine, town, cv, k)
+            break
+        except AssertionError as e:
+            if 'free tile slots' not in str(e) or k == FOLD_STEPS[-1]:
+                raise
+    pals, enc, report, pids, pdefs, defs, mirror, tp_defs, own_defs, cell_id, rows = (st[n] for n in (
+        'pals', 'enc', 'report', 'pids', 'pdefs', 'defs', 'mirror', 'tp_defs', 'own_defs', 'cell_id', 'rows'))
+    report['fold'] = dict(max_pixels_per_tile=st['fold_k'], pixels=enc.folded, metatiles=len(st['folded_ids']))
     report['mirror_ids'] = [mirror[0], mirror[-1]]
     report['secondary_ids'] = [Rf.CG_WALL_ID0, Rf.CG_WALL_ID0 + len(rows) - 1]
     # the tilesets
@@ -617,7 +796,7 @@ def install(engine, town, cv, img):
     # the map
     w = target_words(town, cv)
     for (x, r), m in list(cell_id.items()) + list(pids.items()):
-        w[r, x] = m | (int(town.words[r, x]) & 0xFC00)   # the base cell's collision and elevation
+        w[r, x] = m | cell_bits(cv, x, r)                # the base cell's collision and elevation, or the element's
     assert (w >= 0).all()
     (engine / 'data/layouts/CherrygroveCity/map.bin').write_bytes(struct.pack('<%dH' % w.size, *w.ravel().tolist()))
     report['cells_changed'] = int((w != town.words).sum())
@@ -626,12 +805,26 @@ def install(engine, town, cv, img):
     t = Tileset(engine, 'cherrygrove', TOWN_DIR)
     mb = lambda m: t.attrs[int(m >= 512)][m - 512 if m >= 512 else m] & 0xFF
     moved = [[x, r] for r in range(H) for x in range(W) if (x, r) not in cv.kit and (
-             (int(w[r, x]) & 0xFC00) != (int(town.words[r, x]) & 0xFC00) or mb(int(w[r, x]) & 1023) != base_mb(town, x, r))]
+             (int(w[r, x]) & 0xFC00) != cell_bits(cv, x, r) or mb(int(w[r, x]) & 1023) != cell_mb(cv, x, r))]
+    report['traversal_changed'] = sorted([list(c) + list(v) for c, v in cv.traverse.items()])
     assert not moved, ('a cell\'s collision, elevation or behaviour moved', moved[:10], len(moved))
     got = np.array(t.map_image(w.ravel().tolist(), W).convert('RGB'))
-    diff = (rgb5(got) != rgb5(img)).any(-1).reshape(H, 16, W, 16).any((1, 3))
-    bad = [[int(x), int(r)] for r, x in zip(*np.nonzero(diff))]
+    per = (rgb5(got) != rgb5(img)).any(-1).reshape(H, 16, W, 16).sum((1, 3))
+    folded = {c for c, m in cell_id.items() if m in st['folded_ids']}
+    exact, dither = no_fold(cv)
+    bad = [[int(x), int(r)] for r, x in zip(*np.nonzero(per)) if (int(x), int(r)) not in folded or (int(x), int(r)) in exact
+           or per[r, x] > 8 * (DITHER_K if (int(x), int(r)) in dither else st['fold_k'])]
     assert not bad, ('cells draw wrongly', bad[:20], len(bad))
+    # in the edge cells a fold only moves a ground texture's inner dither to another tone of that texture
+    want5, got5 = rgb5(img), rgb5(got)
+    fam = lambda c: enc.family.get(tuple(int(v) for v in c), -1)
+    for x, r in dither:
+        sl = np.s_[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
+        for y, xx in zip(*np.nonzero((want5[sl] != got5[sl]).any(-1))):
+            a, b = want5[sl][y, xx], got5[sl][y, xx]
+            assert fam(a) >= 0 and fam(a) == fam(b), ('an edge cell\'s fold moved more than dither', x, r)
+    report['fold']['edge_cells_dither_only'] = len([c for c in dither if per[c[1], c[0]]])
+    report['fold']['cells'] = len([1 for r, x in zip(*np.nonzero(per))])
     for m in mirror:
         assert (rgb5(np.array(t.render(m).convert('RGB'))) == rgb5(defs[m][0])).all(), ('mirror id draws wrongly', m)
     t29 = Tileset(engine, 'claude_route29', 'cherrygrove')
@@ -640,7 +833,7 @@ def install(engine, town, cv, img):
     assert (rgb5(got29) == rgb5(got.reshape(H * 16, W * 16, 3)[:, B.R29_SEEN.start * 16:])).all(), 'Route 29 draws the town\'s columns differently'
     report['other_maps_differing'] = other_maps_unchanged(engine, town)
     report['doors'] = door_frames(engine, cv, got, pals)
-    report['cells_differing'] = 0
+    report['cells_differing_outside_folds'] = 0
     out = B.ART / 'evidence'; out.mkdir(parents=True, exist_ok=True)
     Image.fromarray(got).save(out / 'installed.png')
     (out / 'install.json').write_text(json.dumps(report, indent=1) + '\n')

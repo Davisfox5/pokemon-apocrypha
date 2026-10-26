@@ -25,9 +25,20 @@ def compose(engine):
     E.north_edge(cv, engine)
     E.islands(cv, engine)
     E.pond(cv)
-    E.beach_edges(cv)
+    exact = lambda f, *a: cv.exactly(f, *a)          # edges and features: their tiles never fold (install.py)
+    exact(E.beach_edges)
+    kit = E.GroundKit(town, E.path_grid(town))
+    exact(E.path_rims, kit)
+    exact(E.center, kit)
+    exact(E.mart, kit)
+    exact(E.boardwalk)
+    exact(E.boats)
+    exact(E.flower_bed, kit)
     E.forests(cv)
+    exact(E.shore)
     E.draw_trees(cv, E.tree_sprites(town))
+    E.keep_sea(cv)
+    E.settle(cv)
     return town, cv
 
 def picture(town, cv):

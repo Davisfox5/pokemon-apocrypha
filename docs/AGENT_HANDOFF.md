@@ -46,7 +46,11 @@ Owner review (October 25), refined the same day:
   CherrygrovePrimary copy (`cherrygrove_town`); forests on the overlapping lattice; the islands in Johto rock;
   the pond with Route 30's natural bank; the beach's sand wedges cleared. The houses are the owner's accepted
   architecture: keep them. Traversal, warps and every other
-  CherrygrovePrimary map unchanged. 17 copy tile slots and no secondary slots are left.
+  CherrygrovePrimary map unchanged. Second round (owner's list): the shared Johto Mart and the cleaned Center
+  prefab, the shore strip on the beach's edge, the boardwalk's planks turned, boat speckle cleared, the flower
+  bed's rims, path rims and door approaches. The tile budget is full (1 copy slot left): the copy animates
+  only sea tiles 1-87, the regional previews draw a frozen secondary (`cherrygrove_preview`), and texture
+  folds reach 7 px, edge cells moving dither only. Any further art there needs slots freed first.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
