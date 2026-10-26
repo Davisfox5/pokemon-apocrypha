@@ -1,0 +1,312 @@
+{
+  "cells_audited": 2400,
+  "installed_matches_compose": true,
+  "installed_matches_packer_decode": true,
+  "palettes_match_packer": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "bottom_layer_opaque": true,
+  "art_cells": 251,
+  "art_cells_sharing_a_primary_metatile": 2,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "frlg_layer_types_outside_parts": true,
+  "reachable_foot_cells": 1012,
+  "open_cells": 1024,
+  "unreachable_open_cells": [
+    [
+      24,
+      19
+    ],
+    [
+      24,
+      20
+    ],
+    [
+      25,
+      19
+    ],
+    [
+      25,
+      20
+    ],
+    [
+      26,
+      19
+    ],
+    [
+      26,
+      20
+    ],
+    [
+      27,
+      19
+    ],
+    [
+      27,
+      20
+    ],
+    [
+      28,
+      19
+    ],
+    [
+      28,
+      20
+    ],
+    [
+      29,
+      19
+    ],
+    [
+      29,
+      20
+    ]
+  ],
+  "approaches": {
+    "door_center": [
+      48,
+      12
+    ],
+    "door_services_w": [
+      11,
+      15
+    ],
+    "door_services_e": [
+      15,
+      15
+    ],
+    "door_condominiums": [
+      30,
+      12
+    ],
+    "door_game_corner": [
+      34,
+      22
+    ],
+    "door_prize_room": [
+      39,
+      21
+    ],
+    "door_gardens": [
+      11,
+      31
+    ],
+    "door_cafe": [
+      17,
+      30
+    ],
+    "door_hotel": [
+      48,
+      30
+    ],
+    "market": [
+      13,
+      23
+    ],
+    "fountain_lawn": [
+      11,
+      18
+    ],
+    "pocket_stall": [
+      5,
+      15
+    ],
+    "produce_walk": [
+      22,
+      19
+    ],
+    "gardens_gate": [
+      5,
+      25
+    ],
+    "gardens_forecourt": [
+      12,
+      32
+    ],
+    "gardens_south": [
+      10,
+      36
+    ],
+    "bridge_west": [
+      24,
+      24
+    ],
+    "bridge_east": [
+      29,
+      25
+    ],
+    "canal_east_walk": [
+      30,
+      30
+    ],
+    "route7_edge": [
+      59,
+      13
+    ],
+    "route16_edge": [
+      0,
+      23
+    ],
+    "sign_CitySign": [
+      22,
+      19
+    ],
+    "sign_ServicesSign": [
+      18,
+      15
+    ],
+    "sign_CondominiumsSign": [
+      26,
+      12
+    ],
+    "sign_TrainerTipsXAccuracy": [
+      33,
+      15
+    ],
+    "sign_GameCornerSign": [
+      33,
+      24
+    ],
+    "sign_PrizeExchangeSign": [
+      38,
+      24
+    ],
+    "sign_TrainerTipsGuardSpec": [
+      45,
+      24
+    ],
+    "sign_GardensSign": [
+      16,
+      32
+    ],
+    "sign_HotelSign": [
+      45,
+      31
+    ],
+    "sign_CafeSign": [
+      19,
+      31
+    ]
+  },
+  "canal_water_and_bridge": true,
+  "signs": 10,
+  "open_doors": {
+    "48,11": "MAP_KANTO_CELADON_POKEMON_CENTER",
+    "11,14": "MAP_KANTO_CELADON_MARKET_SERVICES",
+    "15,14": "MAP_KANTO_CELADON_MARKET_SERVICES",
+    "30,11": "MAP_KANTO_CELADON_CONDOMINIUMS",
+    "34,21": "MAP_KANTO_CELADON_GAME_CORNER",
+    "39,20": "MAP_KANTO_CELADON_PRIZE_ROOM",
+    "11,30": "MAP_KANTO_CELADON_GARDENS",
+    "17,29": "MAP_KANTO_CELADON_CAFE",
+    "48,29": "MAP_KANTO_CELADON_HOTEL_LOBBY"
+  },
+  "solid_doors": {
+    "37,29": "FireRed's restaurant (the caf\u00e9 moved next to the market)",
+    "41,29": "a house",
+    "29,5": "the condominiums' back door",
+    "30,4": "the condominiums' roof",
+    "31,5": "the condominiums' back door"
+  },
+  "door_metatile": 137,
+  "door_banks": [
+    3,
+    3,
+    2,
+    2
+  ],
+  "interiors": {
+    "KantoCeladonMarketServices": {
+      "size": [
+        13,
+        16
+      ],
+      "warps": 6,
+      "tiles": 106,
+      "metatiles": 85
+    },
+    "KantoCeladonCondominiums": {
+      "size": [
+        17,
+        11
+      ],
+      "warps": 3,
+      "tiles": 78,
+      "metatiles": 50
+    },
+    "KantoCeladonGameCorner": {
+      "size": [
+        18,
+        15
+      ],
+      "warps": 3,
+      "tiles": 116,
+      "metatiles": 68
+    },
+    "KantoCeladonPrizeRoom": {
+      "size": [
+        9,
+        10
+      ],
+      "warps": 3,
+      "tiles": 60,
+      "metatiles": 43
+    },
+    "KantoCeladonGardens": {
+      "size": [
+        13,
+        20
+      ],
+      "warps": 3,
+      "tiles": 85,
+      "metatiles": 60
+    },
+    "KantoCeladonCafe": {
+      "size": [
+        15,
+        11
+      ],
+      "warps": 3,
+      "tiles": 81,
+      "metatiles": 49
+    },
+    "KantoCeladonHotelLobby": {
+      "size": [
+        15,
+        20
+      ],
+      "warps": 5,
+      "tiles": 98,
+      "metatiles": 75
+    },
+    "KantoCeladonHotelUpstairs": {
+      "size": [
+        15,
+        20
+      ],
+      "warps": 2,
+      "tiles": 113,
+      "metatiles": 74
+    }
+  },
+  "primary_tiles": 512,
+  "secondary_tiles": 151,
+  "secondary_tile_limit": 496,
+  "primary_metatiles": 512,
+  "secondary_metatiles": 150,
+  "metatile_limit": 512,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

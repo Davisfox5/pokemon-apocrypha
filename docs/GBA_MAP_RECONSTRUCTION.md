@@ -459,6 +459,30 @@ art (`saffron/parts.py`). Traps hit there:
   which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
   Packing a room from its pixels with every bottom pixel opaque sidesteps it.
 
+Celadon (`gba/art/celadon-kanto/README.md`) followed the same method; traps hit there:
+
+- The bank fit failed from a random start (1,229 tile uses unplaced) though the map draws
+  only 77 colours. Start the anneal from FireRed's own banks as the map's unchanged cells use
+  them (`celadon/pack.exact_banks(start=...)`): it then fits in seconds.
+- Under a part, the ground's pixels never show, yet they cost colours in the cell's bottom
+  tiles. Fill each art cell's hidden bottom pixels with a colour the tile still shows
+  (`celadon/compose.hide_ground`), and skip a bottom tile wholly under a part.
+- A part's colours snapped to the map's nearest one at a time still spread over many banks.
+  Lay a canvas's ramp onto one of the town's own ramps (`compose.lay_ramp`: the tents) and
+  drop stray pixels the cut carries (the sea under the Bond Bridge's side, a white glint).
+- A painted ground strip (the bike lane) must stop where a cell holds anything but paving
+  (a kerb, a sign's post), or each such cell needs its own mixed tile.
+- A footbridge is a ground part: its deck cells keep the street's behaviour and collision
+  under it, and the cells under its side stay the canal's water. Giving a ground part
+  MB_NORMAL made the bridge's lip walkable over the water.
+- FireRed's rooms put the exit mat at either end or the middle of their three exit warps
+  (the Game Corner's is the first). Land a door on the warp whose cell keeps the mat's
+  behaviour, never by position in the list.
+- FireRed's side stairs (MB_UP_RIGHT_STAIR_WARP and friends) warp when the player stands on
+  them and walks east (west for the left ones), not when stepping onto them.
+- A tool module that inserts another town's folder at the front of sys.path shadows its
+  own siblings (`import interiors` loaded Saffron's). Append borrowed folders instead.
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,

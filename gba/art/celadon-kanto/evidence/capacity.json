@@ -1,0 +1,104 @@
+{
+  "map": "KantoCeladonCity",
+  "group": "gMapGroup_Kanto",
+  "size": [
+    60,
+    40
+  ],
+  "primary": "gTileset_KantoCeladonPrimary",
+  "secondary": "gTileset_KantoCeladonCity",
+  "primary_tiles": 512,
+  "secondary_tiles": 151,
+  "secondary_tile_limit": 496,
+  "primary_metatiles": 260,
+  "secondary_metatiles": 150,
+  "colours": 194,
+  "door_metatile": 137,
+  "interiors": {
+    "KantoCeladonMarketServices": {
+      "size": [
+        13,
+        16
+      ],
+      "tiles": 106,
+      "metatiles": 85,
+      "warps": 6
+    },
+    "KantoCeladonCondominiums": {
+      "size": [
+        17,
+        11
+      ],
+      "tiles": 78,
+      "metatiles": 50,
+      "warps": 3
+    },
+    "KantoCeladonGameCorner": {
+      "size": [
+        18,
+        15
+      ],
+      "tiles": 116,
+      "metatiles": 68,
+      "warps": 3
+    },
+    "KantoCeladonPrizeRoom": {
+      "size": [
+        9,
+        10
+      ],
+      "tiles": 60,
+      "metatiles": 43,
+      "warps": 3
+    },
+    "KantoCeladonGardens": {
+      "size": [
+        13,
+        20
+      ],
+      "tiles": 85,
+      "metatiles": 60,
+      "warps": 3
+    },
+    "KantoCeladonCafe": {
+      "size": [
+        15,
+        11
+      ],
+      "tiles": 81,
+      "metatiles": 49,
+      "warps": 3
+    },
+    "KantoCeladonHotelLobby": {
+      "size": [
+        15,
+        20
+      ],
+      "tiles": 98,
+      "metatiles": 75,
+      "warps": 5
+    },
+    "KantoCeladonHotelUpstairs": {
+      "size": [
+        15,
+        20
+      ],
+      "tiles": 113,
+      "metatiles": 74,
+      "warps": 2
+    }
+  },
+  "map_ids": {
+    "KantoCeladonCity": 6,
+    "KantoCeladonPokemonCenter": 7,
+    "KantoCeladonCenterUpstairs": 8,
+    "KantoCeladonMarketServices": 9,
+    "KantoCeladonCondominiums": 10,
+    "KantoCeladonGameCorner": 11,
+    "KantoCeladonPrizeRoom": 12,
+    "KantoCeladonGardens": 13,
+    "KantoCeladonCafe": 14,
+    "KantoCeladonHotelLobby": 15,
+    "KantoCeladonHotelUpstairs": 16
+  }
+}

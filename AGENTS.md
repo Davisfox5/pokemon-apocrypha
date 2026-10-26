@@ -266,7 +266,10 @@ regression ("made for a 1980s game", "boring"). The worked example is
 - Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
   snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
   Never ship an inexact colour. If a repack moves a door metatile's banks, index its door
-  frames into the new banks (`saffron/install.py`).
+  frames into the new banks (`saffron/install.py`). Start the fit from FireRed's own banks
+  as the unchanged cells use them, and fill the ground hidden under a part with a colour its
+  tile still shows (`celadon/pack.py`, `celadon/compose.hide_ground`); lay a part's canvas
+  onto one of the town's own colour ramps rather than snapping it pixel by pixel.
 - A piece another region also has (the Magnet Train's deck) may take its form from that
   town's native art (kept as a source file with its branch and commit), but Kanto's is its
   own: recolour it in the Kanto town's palette (Saffron: one of its own banks). Check open PRs for

@@ -1,0 +1,1765 @@
+{
+  "rom_sha256": "2e0f36592ed9bb3a15c8a9dba82b04cffdf2ad7d6650b99112a7b056900ff1bb",
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:center-approach",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:services-west-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 11,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:services-east-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 15,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:condominiums-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 30,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:game-corner-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 34,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:prize-room-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 39,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:glasshouse-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 11,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:cafe-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 17,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:hotel-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:market",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 13,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:gardens-gate",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 5,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:gardens-south",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 10,
+          "y": 36,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:footbridge",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 26,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:route7-edge",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 59,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:route16-edge",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 0,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-30-24",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 30,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-23-25",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 23,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-30-28",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 30,
+          "y": 28,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:behind-hotel-roof",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 47,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-47-24",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 47,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:behind-glasshouse-roof",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 12,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-12-26",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 12,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:old-restaurant-solid",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 37,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-37-30",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 37,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-41-30",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 41,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-city",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 22,
+          "y": 19,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-services",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 18,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-condominiums",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 26,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-tips-x-accuracy",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 33,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-game-corner",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 33,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-prize-exchange",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 38,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-tips-guard-spec",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 45,
+          "y": 24,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-gardens",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 16,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-hotel",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 45,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:sign-cafe",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 19,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-00",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-01",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-02",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-03",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-04",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-05",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-06",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-07",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-08",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-09",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-10",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-11",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-12",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-13",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-door-14",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "center-entry",
+          "region": 1,
+          "group": 81,
+          "map": 7,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-interior",
+          "region": 1,
+          "group": 81,
+          "map": 7,
+          "x": 7,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "center-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 8,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 8,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "center-stair-return",
+          "region": 1,
+          "group": 81,
+          "map": 7,
+          "x": 2,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 14,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-48-12",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:center-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-63-2-14",
+          "region": 1,
+          "group": 81,
+          "map": 9,
+          "x": 2,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 13,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-services",
+          "region": 1,
+          "group": 81,
+          "map": 9,
+          "x": 2,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 13,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-15-15",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 15,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:services-out-east",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 15,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-63-10-14",
+          "region": 1,
+          "group": 81,
+          "map": 9,
+          "x": 10,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 13,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-11-15",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 11,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-64-4-9",
+          "region": 1,
+          "group": 81,
+          "map": 10,
+          "x": 4,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 17,
+          "height": 11,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-residents",
+          "region": 1,
+          "group": 81,
+          "map": 10,
+          "x": 4,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 17,
+          "height": 11,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-30-12",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 30,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-65-9-13",
+          "region": 1,
+          "group": 81,
+          "map": 11,
+          "x": 9,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 18,
+          "height": 15,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-game-corner",
+          "region": 1,
+          "group": 81,
+          "map": 11,
+          "x": 9,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 18,
+          "height": 15,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-34-22",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 34,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-66-4-8",
+          "region": 1,
+          "group": 81,
+          "map": 12,
+          "x": 4,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-prize-room",
+          "region": 1,
+          "group": 81,
+          "map": 12,
+          "x": 4,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 9,
+          "height": 10,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-39-21",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 39,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-67-6-18",
+          "region": 1,
+          "group": 81,
+          "map": 13,
+          "x": 6,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 13,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-gardens",
+          "region": 1,
+          "group": 81,
+          "map": 13,
+          "x": 6,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 13,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-11-31",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 11,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:glasshouse-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 11,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-68-6-9",
+          "region": 1,
+          "group": 81,
+          "map": 14,
+          "x": 6,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 11,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-cafe",
+          "region": 1,
+          "group": 81,
+          "map": 14,
+          "x": 6,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 11,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-17-30",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 17,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:cafe-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 17,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-69-12-18",
+          "region": 1,
+          "group": 81,
+          "map": 15,
+          "x": 12,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-hotel-lobby",
+          "region": 1,
+          "group": 81,
+          "map": 15,
+          "x": 12,
+          "y": 18,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "hotel-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-hotel-upstairs",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "hotel-stair-return",
+          "region": 1,
+          "group": 81,
+          "map": 15,
+          "x": 4,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-48-30",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:hotel-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:regression-cherrygrove",
+          "region": 2,
+          "group": 80,
+          "map": 0,
+          "x": 50,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 80,
+          "height": 48,
+          "interaction": 0,
+          "mapsec": 214
+        },
+        {
+          "step": "shot:regression-olivine",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 16,
+          "y": 35,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 225
+        },
+        {
+          "step": "shot:regression-saffron",
+          "region": 1,
+          "group": 81,
+          "map": 0,
+          "x": 24,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 66,
+          "height": 55,
+          "interaction": 0,
+          "mapsec": 98
+        },
+        {
+          "step": "shot:return-to-celadon",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "save-in-town",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:save-in-town",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 48,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 40,
+          "interaction": 0,
+          "mapsec": 94
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "behind-glasshouse-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        80,
+        344
+      ],
+      "bg1_pixels_over_player_cell": 256
+    },
+    {
+      "frame": "behind-hotel-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        640,
+        312
+      ],
+      "bg1_pixels_over_player_cell": 128
+    },
+    {
+      "frame": "cafe-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        160,
+        408
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "cafe-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        160,
+        408
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "center-approach",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        120
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "center-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        120
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "cold-flash-reload",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        136
+      ]
+    },
+    {
+      "frame": "condominiums-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        368,
+        120
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "footbridge",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        304,
+        312
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "game-corner-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        432,
+        280
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "gardens-gate",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -32,
+        344
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "gardens-south",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        48,
+        504
+      ]
+    },
+    {
+      "frame": "glasshouse-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        64,
+        424
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "glasshouse-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        64,
+        424
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "hotel-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        408
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "hotel-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        408
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "market",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        96,
+        296
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "old-restaurant-solid",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        480,
+        408
+      ]
+    },
+    {
+      "frame": "ordinary-continue",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        136
+      ]
+    },
+    {
+      "frame": "prize-room-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        512,
+        264
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "regression-cherrygrove",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2048,
+      "camera_origin_px": [
+        688,
+        200
+      ]
+    },
+    {
+      "frame": "regression-olivine",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 2496,
+      "camera_origin_px": [
+        144,
+        488
+      ]
+    },
+    {
+      "frame": "regression-saffron",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        272,
+        568
+      ]
+    },
+    {
+      "frame": "return-to-celadon",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        136
+      ]
+    },
+    {
+      "frame": "room-cafe",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -16,
+        72
+      ]
+    },
+    {
+      "frame": "room-game-corner",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        32,
+        136
+      ]
+    },
+    {
+      "frame": "room-gardens",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -16,
+        216
+      ]
+    },
+    {
+      "frame": "room-hotel-lobby",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        80,
+        216
+      ]
+    },
+    {
+      "frame": "room-prize-room",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -48,
+        56
+      ]
+    },
+    {
+      "frame": "room-residents",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -48,
+        72
+      ]
+    },
+    {
+      "frame": "room-services",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -80,
+        152
+      ]
+    },
+    {
+      "frame": "route16-edge",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        -112,
+        296
+      ]
+    },
+    {
+      "frame": "route7-edge",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        832,
+        136
+      ]
+    },
+    {
+      "frame": "save-in-town",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        656,
+        136
+      ]
+    },
+    {
+      "frame": "services-east-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        128,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "services-out-east",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        128,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "services-west-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        64,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
+      "frame": "sign-cafe",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        192,
+        424
+      ]
+    },
+    {
+      "frame": "sign-city",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        240,
+        232
+      ]
+    },
+    {
+      "frame": "sign-condominiums",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        304,
+        120
+      ]
+    },
+    {
+      "frame": "sign-game-corner",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        416,
+        312
+      ]
+    },
+    {
+      "frame": "sign-gardens",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        144,
+        440
+      ]
+    },
+    {
+      "frame": "sign-hotel",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        608,
+        424
+      ]
+    },
+    {
+      "frame": "sign-prize-exchange",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        496,
+        312
+      ]
+    },
+    {
+      "frame": "sign-services",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        176,
+        168
+      ]
+    },
+    {
+      "frame": "sign-tips-guard-spec",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        608,
+        312
+      ]
+    },
+    {
+      "frame": "sign-tips-x-accuracy",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        416,
+        200
+      ]
+    }
+  ],
+  "center_door_frames": {
+    "center-door-00": null,
+    "center-door-01": null,
+    "center-door-02": 0,
+    "center-door-03": 0,
+    "center-door-04": 1,
+    "center-door-05": 1,
+    "center-door-06": 2,
+    "center-door-07": 2,
+    "center-door-08": 2,
+    "center-door-09": 2,
+    "center-door-10": 2,
+    "center-door-11": 2,
+    "center-door-12": 2,
+    "center-door-13": 2,
+    "center-door-14": 2
+  }
+}
