@@ -1,5 +1,9 @@
 # Route 45: reconstruction guide, Blackthorn's tilesets
 
+**Owner-accepted 2026-10-26** ("Perfect. This looks really good."), engine `cc8ecc5324`, hub
+`acb4c66e`. Treat this map as locked: edit its committed native source in Porymap, never
+regenerate it from these tools.
+
 Route 45 as one native Gen 3 map south of Blackthorn City, built strictly to `AGENTS.md` and
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md) by the process the owner
 accepted for Mahogany, Routes 43, 44 and 42 and the Lake of Rage: decoded HGSS trace, shared Johto catalog
@@ -11,7 +15,7 @@ engine PR #26). Owner review 2026-10-25 fixed the river banks, bridges, stairs a
 the road round the row 47 ledge; owner review 2026-10-27 turned the river's south walls to face the
 water and gave the side walls FRLG's plain side face; owner review 2026-10-28 put stairs down to the
 water at both ends of the Surf route and lifted the bridge decks over the river onto the top layer, so
-surfers pass under them (below). Owner visual review of the 2026-10-28 changes pending.
+surfers pass under them (below).
 
 ![HGSS beside the installed native map, numbered by cell](evidence/review3/whole.png)
 
