@@ -34,14 +34,19 @@ Owner review (October 25), refined the same day:
 - Johto rock colouring: the owner-locked Mahogany's, Blackthorn's FRLG terraces in the HGSS ramp
   (`rock.py` ROCK_RAMP, identical in Mahogany, Route 43, Blackthorn and Route 30). Use it for Johto rock.
 - Cherrygrove's sea cliff is redrawn in it and turns north at Cherrygrove columns 40-41 into Route 30's west
-  wall, at HGSS's levels (`cherrygrove_wall.py`, run after the pack). The wall's cells sit at secondary ids
+  wall, at HGSS's levels (`tools/gba/maps/cherrygrove_town/`, installed after the pack). The wall's cells sit at secondary ids
   from 596, defined in both Route 30's and Cherrygrove's secondaries. CherrygrovePrimary palette 5's seven
   unused slots now hold the ramp. Route 30's primary now keeps only palettes 0 and 3 (all its visible
   Cherrygrove cells use) and frees 1, 2, 4 and 5 for route art.
 - The route's tree lattice runs on through the band and Cherrygrove's north forest (the seam forest,
   `reference.py` BAND_ROOTS / CG_ROOTS), crowns overlapping. Rock tops meeting same-height grass take
-  `rock.py`'s soft fringe. Order: `cherrygrove_wall.py --render`, Route 30 assembly, `pair_pack.py --install`,
-  `cherrygrove_wall.py --install`.
+  `rock.py`'s soft fringe. Order: `cherrygrove_town/town.py --render` and `--primary`, Route 30 assembly,
+  `pair_pack.py --install`, `town.py --install`.
+- Whole-town cleanup (October 26, `gba/art/cherrygrove-town/README.md`): Cherrygrove moves to its own
+  CherrygrovePrimary copy (`cherrygrove_town`); forests on the overlapping lattice; the islands in Johto rock;
+  the pond with Route 30's natural bank; the beach's sand wedges cleared; the houses as HGSS's models 37 and 38
+  by Blackthorn's method, doors on their warp cells with new open frames. Traversal, warps and every other
+  CherrygrovePrimary map unchanged. 17 copy tile slots and no secondary slots are left.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

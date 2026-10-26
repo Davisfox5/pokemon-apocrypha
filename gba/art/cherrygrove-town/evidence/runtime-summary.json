@@ -1,0 +1,40 @@
+{
+ "exit_code": 0,
+ "frames": 33,
+ "fully_identical": 12,
+ "lowest": [
+  [
+   0.9089,
+   "east-5"
+  ],
+  [
+   0.9089,
+   "east-6"
+  ],
+  [
+   0.9089,
+   "east-7"
+  ],
+  [
+   0.9089,
+   "west-2"
+  ],
+  [
+   0.9089,
+   "west-3"
+  ],
+  [
+   0.9089,
+   "west-4"
+  ],
+  [
+   0.9693,
+   "GoldHouse-back-outside"
+  ],
+  [
+   0.9696,
+   "PlayerHouse-back-outside"
+  ]
+ ],
+ "note": "Frames compared with the installed native decode outside the player sprite; the lowest carry the Route 29 sign popup or walking NPCs."
+}

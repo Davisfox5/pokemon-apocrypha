@@ -27,7 +27,7 @@ words and events (`pack.py ENGINE --install-words FILE`).
   * A map's mirror cells (Route 30: its south band's wall and forest, which Cherrygrove can see) and mirror
     arts (Cherrygrove's new cells Route 30 can see, as ground and object layers) take secondary ids from the
     map's mirror base (596, after Cherrygrove's own 84), one per distinct cell, and the map's own cells with
-    the same art share them; cherrygrove_wall.py defines the same ids in Cherrygrove's secondary with
+    the same art share them; cherrygrove_town/install.py defines the same ids in Cherrygrove's secondary with
     Cherrygrove's tiles and palettes (source/pack/mirror-ids.json).
 """
 from __future__ import annotations
@@ -431,7 +431,7 @@ def main(engine, install):
         (m['art'] / 'evidence/pack/pair-pack.json').write_text(json.dumps(report, indent=1, default=int) + '\n')
         if out[n]['mirror']:
             (m['art'] / 'source/pack/mirror-ids.json').write_text(json.dumps(dict(
-                note=('Secondary ids this map and Cherrygrove both define (cherrygrove_wall.py --install defines them in '
+                note=('Secondary ids this map and Cherrygrove both define (cherrygrove_town/town.py --install defines them in '
                       "Cherrygrove's): band = this map's cells, other = Cherrygrove's cells this map can see."),
                 **out[n]['mirror']), indent=0) + '\n')
         p = out[n]['primary']

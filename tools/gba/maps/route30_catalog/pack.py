@@ -17,7 +17,7 @@ the pinned blossom bank 10); the freed palettes and the free tile slots hold rou
   * the south band's road and kit (reference.py) are Cherrygrove's own primary metatiles, and Cherrygrove's
     other visible cells are primary metatiles, so each map draws them exactly; the west wall and the seam
     forest run on through both, at secondary ids from 596 that Route 30's secondary and Cherrygrove's both
-    define (pair_pack.py's mirror cells and arts, cherrygrove_wall.py);
+    define (pair_pack.py's mirror cells and arts, cherrygrove_town/install.py);
   * the cells either map can see across the Route 30/31 seam sit at secondary ids both secondaries define
     (pair_pack.py); seams.py checks both seams from both sides.
 Everything else packs exactly (Mahogany's lossless rule): every native pixel keeps its assembled RGB555
@@ -98,7 +98,7 @@ def entry(tile, flip, bank):
     return tile | ((flip & 1) << 10) | ((flip >> 1) << 11) | (bank << 12)
 
 def cherrygrove_words(engine, target=False):
-    """Cherrygrove's map at the engine's base revision; target: as cherrygrove_wall.py installs it, its
+    """Cherrygrove's map at the engine's base revision; target: as cherrygrove_town/install.py installs it, its
     primary metatiles placed by id applied and its new art cells (secondary ids) -1."""
     b = subprocess.check_output(['git', '-C', str(engine), 'show', f'{BASE_REV}:data/layouts/CherrygroveCity/map.bin'])
     w = np.array(struct.unpack('<%dH' % (len(b) // 2), b)).reshape(-1, 80)
@@ -278,7 +278,7 @@ def save_pair_spec(engine, path):
                  mirror_base=Rf.CG_WALL_ID0, mirror_arts=cherrygrove_arts())
 
 def cherrygrove_arts():
-    """Cherrygrove's new cells Route 30 can see across the seam (cherrygrove_wall.py --render), ground and
+    """Cherrygrove's new cells Route 30 can see across the seam (cherrygrove_town/town.py --render), ground and
     object layers: they take ids in the mirror block too, so Route 30 draws them."""
     z = np.load(SRC / 'seam/cherrygrove-cells.npz')
     return [dict(cell=tuple(int(v) for v in c), ground=g, top=t) for c, g, t, v in zip(z['cells'], z['ground'], z['top'], z['visible']) if v]

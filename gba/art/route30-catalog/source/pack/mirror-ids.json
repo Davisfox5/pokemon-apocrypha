@@ -1,5 +1,5 @@
 {
-"note": "Secondary ids this map and Cherrygrove both define (cherrygrove_wall.py --install defines them in Cherrygrove's): band = this map's cells, other = Cherrygrove's cells this map can see.",
+"note": "Secondary ids this map and Cherrygrove both define (cherrygrove_town/town.py --install defines them in Cherrygrove's): band = this map's cells, other = Cherrygrove's cells this map can see.",
 "band": {
 "0,98": 596,
 "1,98": 597,

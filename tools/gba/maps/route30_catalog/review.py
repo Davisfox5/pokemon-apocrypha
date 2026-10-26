@@ -32,7 +32,7 @@ OUT = ART / 'evidence/review'
 MAP = dict(name='CherrygroveRoute30Approach', ts='route30_hgss', pri='cherrygrove_route30') if ROUTE == '30' else \
       dict(name='JohtoRoute31', ts='route31_hgss', pri='cherrygrove_route31')
 NEIGHBOURS = [('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route30', 37), ('JohtoRoute31', 'route31_hgss', 'cherrygrove_route31', 64),
-              ('CherrygroveCity', 'cherrygrove', 'cherrygrove', 80)]
+              ('CherrygroveCity', 'cherrygrove', 'cherrygrove_town', 80)]
 # HGSS label -> native codes it may become, the native foot, and the art the cell must hold (any one of;
 # art drawn over a cell counts: a roof over the woods behind a house, Mr. Pokemon's mailbox in his house art).
 EXPECT = {'F': ('tko', 'blocked', ('tree', 'house')), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),

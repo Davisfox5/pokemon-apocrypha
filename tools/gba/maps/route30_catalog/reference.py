@@ -17,7 +17,7 @@ Native frame: HGSS tile (hx, hz) is native cell (hx + COL0, hz + ROW0), 16 px, n
     tileset. The band continues the town's forest across the seam; its two blossom trees take the
     green tree beside them (the blossom's palette would cost a whole secondary bank). The route's west
     wall (native columns 5-6) runs on through the band into Cherrygrove, where the town's east-west cliff
-    turns north to meet it (WALL_COLS, cherrygrove_wall.py).
+    turns north to meet it (WALL_COLS, cherrygrove_town/elements.py).
   * NORTH_PAD = 2 rows above HGSS row 0 continue its north edge: the rock at Route 31's plateau height with
     the road on through it from the top of the stairs (HGSS row 0 with its stairs as road). Route 31's
     camera sees five rows into Route 30, and each map draws the other's visible cells with its own
@@ -156,7 +156,7 @@ PAD0 = HH + ROW0
 ROAD_COLS = range(43 - CG_OFFSET, 46 - CG_OFFSET)     # native 8-10: Cherrygrove's road; 7 and 11 hold its rims
 BLOSSOM = {48: 50, 49: 51, 62: 64, 63: 65}   # Cherrygrove's two blossom trees in the band take the green pair beside them
 # Route 30's west wall runs on south through the band into Cherrygrove, where Cherrygrove's east-west cliff
-# (its rows 7-9) turns north to meet it (cherrygrove_wall.py): native columns 5-6 (Cherrygrove 40-41) are
+# (its rows 7-9) turns north to meet it (cherrygrove_town/elements.py): native columns 5-6 (Cherrygrove 40-41) are
 # rock at 2 and 1 terrace levels above the floor, as on the route. Beside the wall, the band's columns 4 and 7
 # (Cherrygrove 39 and 42, its rows 0-5) are Cherrygrove's blocked lawn and its road's left rim: (even-row,
 # odd-row) metatile, collision.

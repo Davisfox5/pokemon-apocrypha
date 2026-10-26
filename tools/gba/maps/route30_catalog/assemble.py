@@ -25,7 +25,7 @@ Cherrygrove tree shadow's green.
 The south padding (reference.py) is Cherrygrove's own north forest band, drawn as Cherrygrove's
 primary metatiles where it is Cherrygrove's road and kit. The west wall runs on through it (columns 5-6,
 reference.py WALL_COLS) into Cherrygrove, and the route's tree lattice runs on through it on both sides of the
-road (the seam forest, reference.py BAND_ROOTS / CG_ROOTS): cherrygrove_wall.py renders Cherrygrove's side the
+road (the seam forest, reference.py BAND_ROOTS / CG_ROOTS): cherrygrove_town/town.py renders Cherrygrove's side the
 same way. Rock tops meeting grass at their own height take rock.py's soft grass fringe. HGSS's straight south section of road sits on Cherrygrove's road columns (a quadrant
 east) with the painter's wavy edge; only its last cell before the band takes the kit's straight edge.
 
