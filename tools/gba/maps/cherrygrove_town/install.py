@@ -72,7 +72,7 @@ def view_ids(engine, town, cv):
     return ids | neighbour_ids(engine)
 
 def free_primary_ids(engine, town, cv):
-    kept = others_ids(engine) | view_ids(engine, town, cv)
+    kept = others_ids(engine) | view_ids(engine, town, cv) | set(cv.fixed.values())
     return [m for m in range(1, 512) if m not in kept]
 
 def free_cp_tiles(engine, town, cv):
@@ -140,14 +140,15 @@ def palettes(engine, town, cv):
     secondary), after checking no map draws those slots."""
     pri = engine / 'data/tilesets/primary/cherrygrove'
     bpri = town.base / 'data/tilesets/primary/cherrygrove'
+    sec_banks, tp_banks = tuple(b for b in cv.pals if b >= 6), tuple(b for b in cv.pals if b < 6)
     used = drawn_slots(engine, town, cv, (3, 5, 10))
-    used.update(drawn_slots(engine, town, cv, tuple(cv.pals), secondary='gTileset_Cherrygrove'))
+    used.update(drawn_slots(engine, town, cv, sec_banks, secondary='gTileset_Cherrygrove'))
+    used.update(view_slots(engine, town, cv, tp_banks))
     for bank, slots in ((5, set(PAL5_RAMP) | set(PAL5_EXTRA)), (3, set(LAWN_EXT)), (10, set(LAWN_EXT))) + tuple(
             (b, set(range(1, len(c) + 1))) for b, c in cv.pals.items()):
         assert not used[bank] & slots, ('palette slots in use', bank, sorted(used[bank] & slots))
-    for b, cols in cv.pals.items():
-        assert b >= 6, 'a new bank in the shared primary'
-        (engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal').write_text(B.jasc([(0, 0, 0)] + list(cols) + [(0, 0, 0)] * (15 - len(cols))))
+    for b in sec_banks:                              # the copy's banks: write_town_primary
+        (engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal').write_text(B.jasc(bank_pal(cv.pals[b])))
     p5 = B.read_pal(bpri / 'palettes/05.pal')
     for s, c in list(zip(PAL5_RAMP, Rk.ROCK_RAMP)) + list(PAL5_EXTRA.items()):
         p5[s] = B.gba(c)
@@ -164,8 +165,28 @@ def palettes(engine, town, cv):
     out = {b: B.read_pal(bpri / f'palettes/{b:02d}.pal') for b in range(6)}
     out.update({b: B.read_pal(town.base / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal') for b in range(6, 13)})
     out.update({3: p3, 5: p5, 10: B.read_pal(engine / 'data/tilesets/secondary/cherrygrove/palettes/10.pal')})
-    out.update({b: B.read_pal(engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal') for b in cv.pals})
+    out.update({b: bank_pal(c) for b, c in cv.pals.items()})
     return out
+
+def bank_pal(cols):
+    assert len(cols) <= 15, ('a bank of more than 15 colours', len(cols))
+    return [(0, 0, 0)] + [tuple(c) for c in cols] + [(0, 0, 0)] * (15 - len(cols))
+
+def view_slots(engine, town, cv, banks):
+    """Palette slots the town's camera draws in banks of its own copy (its kept cells, its border, its
+    neighbours' strips)."""
+    pb, sb = town.t.blocks
+    out = {b: set() for b in banks}
+    for m in view_ids(engine, town, cv):
+        blk = pb[m] if m < 512 else (sb[m - 512] if m - 512 < B.OWN else ())
+        for e in blk:
+            if e and (e >> 12) in out:
+                i = e & 1023
+                tiles = town.t.tiles[int(i >= 512)]
+                j = i - 512 if i >= 512 else i
+                if j < len(tiles):
+                    out[e >> 12] |= {v % 16 for v in tiles[j]}
+    return {b: s - {0} for b, s in out.items()}
 
 def drawn_slots(engine, town, cv, banks, secondary=None):
     """Palette slots any map on CherrygrovePrimary (and on the given secondary) draws in the given banks: every
@@ -383,14 +404,21 @@ def write_primary(engine, town, enc, pdefs):
     write_sheet(pri / 'tiles.png', bpri / 'tiles.png', {i: enc.placed[i] for i in enc.cp_used})
     write_sheet(engine / R29_SHEET, town.base / R29_SHEET, {i - 512: enc.placed[i] for i in enc.shared})
 
-def write_town_primary(engine, town, enc, pdefs):
-    """The town's copy: CherrygrovePrimary's metatiles and palettes, its sheet with every new primary tile."""
+def write_town_primary(engine, town, enc, pdefs, cv, tp_defs):
+    """The town's copy: CherrygrovePrimary's metatiles and palettes, its sheet with every new primary tile,
+    the door metatiles it redraws at their own ids (tp_defs) and the banks only the town draws (cv.pals)."""
     d, bpri = engine / 'data/tilesets/primary' / TOWN_DIR, town.base / 'data/tilesets/primary/cherrygrove'
     (d / 'palettes').mkdir(parents=True, exist_ok=True)
-    write_metatiles(d, *primary_blocks(town, pdefs))
+    blocks, attrs = primary_blocks(town, pdefs)
+    for m, (ent, a) in tp_defs.items():
+        blocks[m], attrs[m] = ent, a
+    write_metatiles(d, blocks, attrs)
     write_sheet(d / 'tiles.png', bpri / 'tiles.png', {i: tl for i, tl in enc.placed.items() if i < 512})
     for p in sorted((engine / 'data/tilesets/primary/cherrygrove/palettes').glob('*.pal')):
         shutil.copyfile(p, d / 'palettes' / p.name)
+    for b, cols in cv.pals.items():
+        if b < 6:
+            (d / 'palettes' / f'{b:02d}.pal').write_text(B.jasc(bank_pal(cols)))
 
 def register_town(engine):
     """The copy's tileset (with CherrygrovePrimary's sea animation) and the town's layout on it."""
@@ -459,6 +487,47 @@ def other_maps_unchanged(engine, town):
     assert not any(out.values()), ('another map draws differently', out)
     return out
 
+# --------------------------------------------------------------------------- the doors
+DOOR_ANIMS = dict(player='PlayerHouse', gold='GoldHouse', neighbor='NeighborHouse', harbor='HarborHouse', garden='GardenHouse')
+DOOR_DIR = 'graphics/door_anims/johto_restart'
+
+def door_frames(engine, cv, img, pals):
+    """Each house door's open animation, cut from the town as installed: the door's 2x2 block (its cell, the
+    cell beside it on the door's side, the row above) in three frames, the panel going dark from its far edge
+    (as the town's doors open), every tile in the house's bank (field_door.c draws one layer, one bank per
+    tile). field_door.c takes the block's side and the bank."""
+    src = (engine / 'src/field_door.c').read_text()
+    out = {}
+    for d in cv.doors:
+        x, y = d['cell']; bank = d['bank']
+        pal = np.array(pals[bank][1:16], int)
+        x0 = (x if d['size'] == 'LEFT' else x - 1) * 16; y0 = (y - 1) * 16
+        block = img[y0:y0 + 32, x0:x0 + 32].astype(int)
+        px0, py0, px1, py1 = d['panel']
+        dark = pal[int(np.argmin(pal.sum(1)))]
+        data = bytearray()
+        for k in range(3):
+            f = block.copy()
+            cut = px1 - int(round((px1 - px0) * (k + 1) / 3))
+            f[py0 - y0:py1 - y0, cut - x0:px1 - x0] = dark
+            idx = 1 + ((f[..., None, :] - pal[None, None]) ** 2).sum(-1).argmin(-1)
+            for cx, cy in ((0, 0), (0, 1), (1, 0), (1, 1)):          # top left, bottom left, top right, bottom right
+                for q in range(4):
+                    t = idx[cy * 16 + (q // 2) * 8:cy * 16 + (q // 2) * 8 + 8, cx * 16 + (q % 2) * 8:cx * 16 + (q % 2) * 8 + 8]
+                    for row in t:
+                        data += bytes(int(row[i]) | (int(row[i + 1]) << 4) for i in range(0, 8, 2))
+        name = DOOR_ANIMS[d['name']]
+        (engine / DOOR_DIR / f'{name}.4bpp').write_bytes(bytes(data))
+        arr = '{' + ','.join([str(bank)] * 16 + ['0'] * 4) + '}'
+        src, n = re.subn(r'(static const u8 sRestartDoorPal_%s\[20\] = )\{[^}]*\}' % name, r'\g<1>' + arr, src)
+        assert n == 1, ('no palette line for the door', name)
+        src, n = re.subn(r'(\.metatileNum=%d, \.tileset=&gTileset_Cherrygrove, \.sound=DOOR_SOUND_NORMAL, \.size=)DOOR_SIZE_2x2_\w+(, \.tiles=sRestartDoor_%s,)'
+                         % (cv.fixed[(x, y)], name), r'\g<1>DOOR_SIZE_2x2_%s\g<2>' % d['size'], src)
+        assert n == 1, ('no door table entry', name)
+        out[name] = dict(cell=[x, y], size=d['size'], bank=bank, metatile=cv.fixed[(x, y)])
+    (engine / 'src/field_door.c').write_text(src)
+    return out
+
 # --------------------------------------------------------------------------- the steps
 def primary(engine, town, cv, img):
     """Before Route 30's pack: Route 29's columns as primary metatiles, the new palettes."""
@@ -501,8 +570,18 @@ def install(engine, town, cv, img):
         define(m, comp, obj, sea, wb, base_mb(town, x, r))
     mirror = sorted(defs)
     assert mirror == list(range(Rf.CG_WALL_ID0, Rf.CG_WALL_ID0 + len(mirror))), ('the mirror block is not contiguous', mirror)
-    cell_id = {}
-    prim = set(pids)
+    # the door cells keep their ids (the door table's): the copy's primary ones, the secondary's own
+    tp_defs, own_defs = {}, {}
+    for (x, r), m in sorted(cv.fixed.items()):
+        comp, obj, sea, wb = cell_info(town, cv, x, r)
+        key = enc.metatile(comp, obj, sea, wb, None, base_mb(town, x, r))
+        into = tp_defs if m < 512 else own_defs
+        k = m if m < 512 else m - 512
+        assert m < 512 or k < B.OWN, ('a door id outside the town\'s own metatiles', m)
+        assert into.get(k, key) == key, ('one door id, two looks', m)
+        into[k] = key
+    cell_id = {c: m for c, m in cv.fixed.items()}
+    prim = set(pids) | set(cv.fixed)
     for x, r in sorted((c for c in cv.changed if 0 <= c[1] < H and c not in prim), key=lambda c: (c[1], c[0])):
         comp, obj, sea, wb = cell_info(town, cv, x, r)
         mb = base_mb(town, x, r)
@@ -515,16 +594,19 @@ def install(engine, town, cv, img):
         cell_id[(x, r)] = m
     rows = [enc.metatile(defs[m][0], defs[m][1], defs[m][3], defs[m][2], None, defs[m][4]) for m in sorted(defs)]
     sea = {e for m in SEA.values() for e in town.t.blocks[0][m]}
-    for ent, _ in rows + list(pdefs.values()):
+    for ent, _ in rows + list(pdefs.values()) + list(tp_defs.values()) + list(own_defs.values()):
         assert all(e in sea for e in ent if 1 <= (e & 1023) <= 92), 'a new metatile draws an animated sea tile outside the sea'
     report['mirror_ids'] = [mirror[0], mirror[-1]]
     report['secondary_ids'] = [Rf.CG_WALL_ID0, Rf.CG_WALL_ID0 + len(rows) - 1]
     # the tilesets
     write_primary(engine, town, enc, pdefs)
-    write_town_primary(engine, town, enc, pdefs)
+    write_town_primary(engine, town, enc, pdefs, cv, tp_defs)
     sec, bsec = engine / 'data/tilesets/secondary/cherrygrove', town.base / 'data/tilesets/secondary/cherrygrove'
     write_sheet(sec / 'tiles.png', bsec / 'tiles.png', {i - 512: tl for i, tl in enc.placed.items() if i >= 512})
-    write_metatiles(sec, list(town.t.blocks[1])[:B.OWN] + [r[0] for r in rows], list(town.t.attrs[1])[:B.OWN] + [r[1] for r in rows])
+    own_b, own_a = list(town.t.blocks[1])[:B.OWN], list(town.t.attrs[1])[:B.OWN]
+    for k, (ent, a) in own_defs.items():
+        own_b[k], own_a[k] = ent, a
+    write_metatiles(sec, own_b + [r[0] for r in rows], own_a + [r[1] for r in rows])
     register_town(engine)
     report['tiles'] = dict(secondary=len([i for i in enc.placed if i >= 512]) - len(enc.shared), shared_with_route29=len(enc.shared),
                            both_primaries=len(enc.cp_used), copy_only=len([i for i in enc.placed if i < 512]) - len(enc.cp_used))
@@ -554,6 +636,7 @@ def install(engine, town, cv, img):
     got29 = np.array(t29.map_image(win.ravel().tolist(), win.shape[1]).convert('RGB'))
     assert (rgb5(got29) == rgb5(got.reshape(H * 16, W * 16, 3)[:, B.R29_SEEN.start * 16:])).all(), 'Route 29 draws the town\'s columns differently'
     report['other_maps_differing'] = other_maps_unchanged(engine, town)
+    report['doors'] = door_frames(engine, cv, got, pals)
     report['cells_differing'] = 0
     out = B.ART / 'evidence'; out.mkdir(parents=True, exist_ok=True)
     Image.fromarray(got).save(out / 'installed.png')
