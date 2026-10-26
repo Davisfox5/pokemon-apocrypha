@@ -10,8 +10,10 @@ whole of Route 45 (its bridges, the three cascades, the pond and the woods at it
 seam walked from Route 45 into Blackthorn and back, with captures on both sides and part way
 through each crossing step (just after the secondary tileset swaps); a view on Blackthorn's
 south shore; walk-behind under the route sign (BG1 must cover the player's cell) and in front of
-it (BG1 clear); a jump ledge; a straight and a diagonal flight of stairs; the Dark Cave mouth,
-a bridge pier and a tree blocking a player on foot; both signs read; Blackthorn and Cherrygrove
+it (BG1 clear); a jump ledge; a straight and a diagonal flight of stairs; the Dark Cave mouth
+and a tree blocking a player on foot; a bridge walked end to end with the
+river below it out of reach on foot, the Surf route's landing and shore walked to, and the road
+beside the row 47 ledge ending at rock (owner review); both signs read; Blackthorn and Cherrygrove
 regression views; ordinary flash save, cold reload and Continue.
 """
 from __future__ import annotations
@@ -47,10 +49,18 @@ RC.STEPS = [
     ('go', R, 16, 18), ('south', 1, None), ('at', R, 16, 20), ('shot', 'ledge-jumped'),
     ('go', R, 26, 22), ('south', 2, 'stairs-descended'), ('at', R, 26, 24),
     ('go', R, 20, 58), ('west', 2, 'diagonal-stairs-descended'), ('at', R, 18, 58), ('east', 2, None), ('at', R, 20, 58),
-    # Blocked on foot: the Dark Cave mouth (Dark Cave's Route 45 side is not built), a bridge pier, a tree.
+    # Blocked on foot: the Dark Cave mouth (Dark Cave's Route 45 side is not built), a tree.
     ('go', R, 10, 7), ('north', 1, None), ('at', R, 10, 7),
-    ('go', R, 11, 41), ('north', 1, None), ('at', R, 11, 41),
     ('go', R, 8, 148), ('south', 1, None), ('at', R, 8, 148),
+    # Owner review (2026-10-26): a bridge walked end to end through its elevation steps (road 3,
+    # end 0, deck 4 and 15), and no step from the deck onto the river; the Surf route's landing
+    # below Blackthorn and its shore at the foot are walkable, the water beside them is not on
+    # foot; the road beside the row 47 ledge's east end ends at rock.
+    ('go', R, 8, 41), ('east', 3, None), ('at', R, 11, 41), ('north', 1, None), ('at', R, 11, 41), ('shot', 'on-third-bridge'),
+    ('east', 3, None), ('at', R, 14, 41), ('west', 6, None), ('at', R, 8, 41),
+    ('go', R, 22, 11), ('west', 2, None), ('at', R, 20, 11), ('shot', 'river-landing'), ('west', 1, None), ('at', R, 20, 11),
+    ('go', R, 19, 148), ('south', 2, None), ('at', R, 19, 150), ('shot', 'river-shore'), ('south', 1, None), ('at', R, 19, 150),
+    ('go', R, 23, 44), ('south', 2, None), ('at', R, 23, 46), ('shot', 'ledge-end-road'), ('south', 1, None), ('at', R, 23, 46),
     # Signs.
     ('sign', R, 24, 7, 'route-sign-read'), ('sign', R, 12, 7, 'dark-cave-sign-read'),
     ('view', N, 25, 40, 'regression-blackthorn'), ('view', 0, 50, 17, 'regression-cherrygrove'),

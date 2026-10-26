@@ -132,6 +132,19 @@ def route45_labels(cells, m, nm):
                 c['lab'], c['floor'] = 'b', 'grass'
     return cells
 
+# Owner review (2026-10-26): cells HGSS has as cliff that Route 45 makes walkable ground, shared
+# by assemble.py (art) and pack.py (traversal), and the river's Surf route back up to Blackthorn.
+LEDGE_END_GROUND = {(23, 45), (24, 45), (23, 46), (24, 46)}   # road: the rock top beside the row 47 ledge's east end
+RIVER_SHORE = {(18, 150), (19, 150), (20, 150), (21, 150)}     # lawn: the river's one shore, at the bottom
+RIVER_LANDING = {(20, 11), (21, 11)}                           # road: where the Surf route back up lands, below Blackthorn
+OWNER_GROUND = {**{c: 'sand' for c in LEDGE_END_GROUND}, **{c: 'grass' for c in RIVER_SHORE},
+                **{c: 'sand' for c in RIVER_LANDING}}
+CASCADE_ROWS = (55, 96, 123)        # HGSS's waterfall rows: no land mesh under them (a model), the river drops one level
+
+def is_river(c):
+    """HGSS river or pond water, and the blocked river cells either side of a bridge."""
+    return c['lab'] == '~' or (c['lab'] == 'X' and c['material'] in ('river', 'river_r'))
+
 GATE_COLS = GATE_ROWS = None                     # Route 45 has no gatehouse
 
 def gate_anchors():
@@ -424,7 +437,7 @@ def frlg_pieces(engine):
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0), water=(16, 0))   # flattest 8x8 block of each Cherrygrove texture (Blackthorn's)
 
-def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None):
+def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_face=()):
     """Blob autotiling from FRLG's set (Blackthorn's rock_frlg). A cell whose only lower
     neighbours are diagonal takes FRLG's whole inner-corner piece (two of them split down
     the middle when both lower diagonals are on one side), which joins the face and the
@@ -439,8 +452,10 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None):
     the ground actually there. topped: {cell: ground class} for wall cells whose top is level
     with the ground beside them (Route 45's river banks and steps): their light rock top on
     that side (ramp tones 1-3 reaching the cell's edge where no lower neighbour lies, and the
-    specks of darker tone left inside it) is that ground's plain block, so the wall reads as ground, face, then the lower side, not as a
-    raised ridge."""
+    specks of darker tone left inside it) is that ground's plain block, so the wall reads as
+    ground, face, then the lower side, not as a raised ridge. south_face: cells drawn as a face
+    looking south onto the ground there though their slope falls north (a river bank, a back
+    slope above a road), so the ground below meets a wall, not a strip of rock floor."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
@@ -477,6 +492,8 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None):
             for k, face in dict(w='W', e='E', n='N', s='S').items():
                 if off[k] and cells[y][x]['lab'] == face:
                     lo[k] = True
+            if (x, y) in south_face:
+                lo.update(n=False, ne=False, nw=False, s=True)
             X0, Y0 = x * 16, y * 16
             cell, ov = out[Y0:Y0 + 16, X0:X0 + 16], over[Y0:Y0 + 16, X0:X0 + 16]
             cix = np.full((16, 16), CLEAR, int)

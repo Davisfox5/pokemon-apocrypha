@@ -95,11 +95,9 @@ def stage_shared(catalog):
 # --------------------------------------------------------------------------- ledger
 DIRT = ('road05', 'road05_sub')             # Route 46's red dirt, where it reaches Route 45's west edge
 ROCK_BASE = 2                               # HGSS height of Route 45's lowest ground (by the river's mouth)
-CASCADE_ROWS = (55, 96, 123)                # HGSS's waterfall rows: no land mesh under them (a model), the river drops one level
+CASCADE_ROWS = E.CASCADE_ROWS
 
-def is_water(c):
-    """HGSS river or pond water, and the blocked river cells either side of a bridge."""
-    return c['lab'] == '~' or (c['lab'] == 'X' and c['material'] in ('river', 'river_r'))
+is_water = E.is_river
 
 def boulder_cells():
     """The cells HGSS's boulders (rock01) stand on: a quarter of a cell's pixels or more."""
@@ -161,7 +159,8 @@ def rock_cells(cells):
     """The ledger for the rock pass: the Dark Cave mouth is a face cell of the cliff it is cut
     into (FRLG's cave mouth goes over the face), and every stair cell is part of the cliff it
     cuts through, so the cliff runs on unbroken and the flight goes over it (stairs()). The
-    signs' cells, which HGSS blocks for their models, are ground under the sign.
+    signs' cells, which HGSS blocks for their models, are ground under the sign. The cells the
+    owner review made ground (elements.OWNER_GROUND) are that ground (owner_ground).
     Floors: water for the river, the pond and the blocked river cells by the bridges, bridge
     for the decks, dirt for Route 46's red dirt."""
     fl = {(x + (k if kind == 'row' else 0), y + (0 if kind == 'row' else k)): face
@@ -176,6 +175,8 @@ def rock_cells(cells):
                 c = dict(c, lab='.')                  # a sign's own cell: HGSS blocks it for the model, it is road
             elif c['lab'] == 's':
                 c = dict(c, lab=fl[(c['x'], c['y'])], stair=True)
+            if (c['x'], c['y']) in E.OWNER_GROUND:
+                c = owner_ground(cells, c)
             if is_water(c):
                 c = dict(c, floor='water')
             elif c['lab'] == 'b':
@@ -184,6 +185,29 @@ def rock_cells(cells):
                 c = dict(c, floor='dirt')
             r.append(c)
         out.append(r)
+    return out
+
+def owner_ground(cells, c):
+    """An HGSS cliff cell the owner review made walkable ground (elements.OWNER_GROUND): road
+    beside the row 47 ledge's east end, the lawn shore at the river's foot, the road where the
+    Surf route lands below Blackthorn. It takes the height of the nearest walkable ground."""
+    x, y = c['x'], c['y']
+    near = sorted((abs(dx) + abs(dy), cells[y + dy][x + dx]['ground']) for dx in range(-2, 3) for dy in range(-2, 3)
+                  if 0 <= x + dx < W and 0 <= y + dy < H and cells[y + dy][x + dx]['lab'] == '.')
+    return dict(c, lab='.', floor=E.OWNER_GROUND[(x, y)], ground=near[0][1], owner_ground=True)
+
+def south_faces(cells, d, rock):
+    """Rock cells whose slope falls north (to the river or a lower rock step) with walkable
+    ground south of them: drawn as a face looking south onto that ground (elements.rock_frlg),
+    so the river is bordered by rock faces and no strip of rock floor lies beside a road
+    (owner review, 2026-10-26)."""
+    out = set()
+    for y in range(1, H - 1):
+        for x in range(W):
+            s_ = cells[y + 1][x]
+            if (rock[y, x] and not cells[y][x].get('stair') and d[y - 1, x] < d[y, x] and not rock[y + 1, x]
+                    and s_['floor'] in ('grass', 'sand', 'dirt') and s_['lab'] not in 'LJQ'):
+                out.add((x, y))
     return out
 
 def with_xy(cells):
@@ -224,8 +248,8 @@ def terraces(cells):
 
 def topped(cells, d, rock):
     """Wall cells whose top is the ground beside them: a rock cell showing a face (a lower
-    neighbour east, south or west) with a lawn, road or dirt neighbour (north, east, south or
-    west) at its own level or above. Returns {cell: that
+    neighbour east, south or west), not on the river (a bank stays rock), with a lawn, road or
+    dirt neighbour (north, east, south or west) at its own level or above. Returns {cell: that
     ground's class}, the highest such neighbour's, lawn or road as the painter drew that cell
     (compose sets each floor from GROUND_CLASS), so a wall by tall grass is topped with lawn
     (elements.rock_frlg draws the wall's top as it). A stair's cliff keeps its whole face, as on Route 42 (owner review there:
@@ -234,6 +258,10 @@ def topped(cells, d, rock):
     for y in range(H):
         for x in range(W):
             if not rock[y, x] or cells[y][x].get('stair'):
+                continue
+            # a river bank stays rock, a regular face down to the water (owner review, 2026-10-26)
+            if any(0 <= x + dx < W and 0 <= y + dy < H and cells[y + dy][x + dx]['floor'] == 'water'
+                   for dx, dy in ((0, -1), (1, 0), (0, 1), (-1, 0))):
                 continue
             # only a wall that shows a face (lower ground east, south or west); a slope falling
             # north is a back edge in Gen 3, and HGSS shows it as rock, so it keeps its rock top
@@ -265,7 +293,8 @@ def frlg_rock(rc, ground, dirt):
     d, face, isrock = terraces(rc)
     E.layers = lambda _cells: (d, face, isrock)
     pieces = E.frlg_pieces(ENGINE)
-    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt), topped(rc, d, isrock))
+    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt), topped(rc, d, isrock),
+                                       south_faces(rc, d, isrock))
     ledge = E.ledges_frlg(rc, pieces)
     a = ledge[..., 3] > 0
     over[a] = ledge[a]

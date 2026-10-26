@@ -10,8 +10,11 @@ pixel changed); every Route 45 pixel Blackthorn's tilesets ever draw (assemble.v
 with Blackthorn's installed pair the way the engine draws a connection, equals Route 45's; every
 Blackthorn pixel Route 45's tilesets ever draw equals Blackthorn's; the connection both ways and
 matching collision and elevation across the seam; behaviour, collision, elevation and layer
-type per cell against the traversal ledger; reachability on foot (ledges one way) and with
-Surf; walk-behind layering; budgets; shared masters byte-identical; only Route 45 files,
+type per cell against the traversal ledger; movement as Gen 3 moves (gen3_reach: elevation,
+ledges, Surf on and off, waterfalls): on foot HGSS's own reach plus the owner review's ground,
+every ledge one way, the river entered and left only at its shore at the foot and the landing
+below Blackthorn, and the Surf route from the one up the cascades and under the bridges to the
+other; walk-behind layering; budgets; shared masters byte-identical; only Route 45 files,
 Blackthorn's connection and its appended metatiles, and the shared registration files changed.
 
 Material audit (docs/GBA_MAP_RECONSTRUCTION.md section 4): every decoded Route 45 pixel is
@@ -230,6 +233,62 @@ def hgss_reach():
                         else 'blocked' if coll[y, x] & 0x80 else 'open')
     return reach(foot, [(x, 0) for x in range(W) if foot[(x, 0)] in ('open', 'surf')], True)
 
+def gen3_reach(beh, coll, elev, walk_starts, surf=True):
+    """Where a player gets on the installed Route 45, moving as Gen 3 moves: a step needs
+    collision 0 and no elevation mismatch (the player's elevation and the cell's differ, neither
+    0 nor 15 for the cell, the player's not 0); entering a cell takes its elevation unless it or
+    the cell left is 15; a ledge jumps one way when the cell beyond is a step; Surf starts from
+    elevation 3 onto surfable water across a mismatch, and stops onto an elevation-3 cell; a
+    waterfall is climbed north and slid down south (HM Waterfall). Off the map is blocked.
+    Returns (walked cells, surfed cells, surf entries as (land, water), dismounts as
+    (water, land))."""
+    names = {v: k for k, v in B.behaviors(ENGINE).items()}
+    b = lambda x, y: names[int(beh[y, x])]
+    inside = lambda x, y: 0 <= x < W and 0 <= y < H
+    mismatch = lambda e, x, y: e != 0 and elev[y, x] not in (0, 15) and elev[y, x] != e
+    surfable = lambda x, y: b(x, y) in ('MB_OCEAN_WATER', 'MB_POND_WATER', 'MB_WATERFALL')
+    jumps = {(0, 1): 'MB_JUMP_SOUTH', (-1, 0): 'MB_JUMP_WEST', (1, 0): 'MB_JUMP_EAST', (0, -1): 'MB_JUMP_NORTH'}
+    start = [(x, y, 'walk', int(elev[y, x])) for x, y in walk_starts]
+    seen = set(start); q = deque(start)
+    walked, surfed, entries, dismounts = set(), set(), set(), set()
+    while q:
+        x, y, mode, e = q.popleft()
+        (walked if mode == 'walk' else surfed).add((x, y))
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            nx, ny = x + dx, y + dy
+            if not inside(nx, ny):
+                continue
+            nxt = None
+            if mode == 'walk':
+                if b(nx, ny) == jumps[(dx, dy)]:
+                    lx, ly = nx + dx, ny + dy
+                    if inside(lx, ly) and not coll[ly, lx] and not mismatch(e, lx, ly) and not surfable(lx, ly):
+                        nxt = (lx, ly, 'walk', e if elev[ly, lx] == 15 else int(elev[ly, lx]))
+                elif not coll[ny, nx] and not mismatch(e, nx, ny) and not surfable(nx, ny):
+                    keep = elev[ny, nx] == 15 or elev[y, x] == 15
+                    nxt = (nx, ny, 'walk', e if keep else int(elev[ny, nx]))
+                elif surf and e == 3 and not coll[ny, nx] and mismatch(e, nx, ny) and surfable(nx, ny):
+                    nxt = (nx, ny, 'surf', 1); entries.add(((x, y), (nx, ny)))
+            else:
+                if not coll[ny, nx] and not mismatch(1, nx, ny):
+                    nxt = (nx, ny, 'surf', 1)
+                elif not coll[ny, nx] and elev[ny, nx] == 3:
+                    nxt = (nx, ny, 'walk', 3); dismounts.add(((x, y), (nx, ny)))
+            if nxt and nxt not in seen:
+                seen.add(nxt); q.append(nxt)
+    return walked, surfed, entries, dismounts
+
+def hgss_foot_reach():
+    """The cells HGSS's own permissions reach from Blackthorn's edge on foot (ledges one way)."""
+    perm = np.load(SRC / 'hgss/hgss-permissions.npz')
+    types, coll = perm['types'], perm['collision']
+    foot = {}
+    for y, x in np.ndindex(H, W):
+        t = int(types[y, x])
+        foot[(x, y)] = ('ledge_south' if t == 0x3B else 'ledge_west' if t == 0x39 else 'surf' if t in (0x10, 0x15)
+                        else 'blocked' if coll[y, x] & 0x80 else 'open')
+    return reach(foot, [(x, 0) for x in range(W) if foot[(x, 0)] == 'open'], False)
+
 ENGINE = None
 
 # Places along HGSS's road, from Blackthorn down to the river's mouth, the player reaches on foot
@@ -290,16 +349,48 @@ def main(g, phg):
     assert not seam_diff, ('collision or elevation differs across the seam', seam_diff)
     walk = lambda f: f in ('open', 'door')
     crossing = [x for x in range(W) if foot[(x, 0)] in ('open', 'surf') and not nbc[NH - 1, x]]
-    # Reachability from the seam.
-    starts = [(x, 0) for x in crossing if walk(foot[(x, 0)])]
-    seen, surfed = reach(foot, starts, False), reach(foot, [(x, 0) for x in crossing], True)
+    # Reachability from the seam, moving as Gen 3 moves (gen3_reach).
+    road = [(x, 0) for x in crossing if walk(foot[(x, 0)])]
+    seen = gen3_reach(beh, coll, elev, road, surf=False)[0]
+    walked, surfed, entries, dismounts = gen3_reach(beh, coll, elev, road)
     open_cells = {k for k, v in foot.items() if walk(v)}
-    hgss_seen = hgss_reach() - {tuple(c['cell']) for c in json.loads((SRC / 'hgss-events.json').read_text())['warps']}
-    # HGSS's own reach, less the Dark Cave warp (solid here, pack.SOLID), is the native's.
-    assert seen | surfed == hgss_seen, ('reachability differs from HGSS\'s', sorted(hgss_seen ^ (seen | surfed))[:20])
+    water = {k for k, v in foot.items() if v == 'surf'}
+    # On foot, HGSS's own reach, less the Dark Cave warp (solid here, pack.SOLID), plus the
+    # cells the owner review made ground (elements.OWNER_GROUND) that the road reaches.
+    warps = {tuple(c['cell']) for c in json.loads((SRC / 'hgss-events.json').read_text())['warps']}
+    hgss_foot = hgss_foot_reach() - warps
+    assert hgss_foot <= seen and seen - hgss_foot <= set(E.OWNER_GROUND), \
+        ('reach on foot differs from HGSS\'s beyond the owner review\'s ground', sorted(hgss_foot ^ seen)[:20])
+    # The ledges are one way on foot: from below a ledge, nothing above it is reached.
+    for c in trav:
+        if c['behavior'] in ('MB_JUMP_SOUTH', 'MB_JUMP_WEST'):
+            x, y = c['x'], c['y']
+            up, down = ((x, y - 1), (x, y + 1)) if c['behavior'] == 'MB_JUMP_SOUTH' else ((x + 1, y), (x - 1, y))
+            if walk(foot.get(up)) and walk(foot.get(down)):
+                assert up not in gen3_reach(beh, coll, elev, [down], surf=False)[0], ('a ledge can be walked round', (x, y))
+    # The river (owner review): Surf gets on and off it only at its shore at the foot and at the
+    # landing below Blackthorn (the pond is HGSS's own, apart from it); no one surfs off a bridge.
+    river_ends = set(E.RIVER_SHORE) | set(E.RIVER_LANDING)
+    names = {v: k for k, v in MB.items()}
+    on_river = lambda w: names[int(beh[w[1], w[0]])] != 'MB_POND_WATER'
+    bad_in = sorted(l for l, w in entries if on_river(w) and l not in river_ends)
+    bad_out = sorted(l for w, l in dismounts if on_river(w) and l not in river_ends)
+    assert not bad_in and not bad_out, ('the river is entered or left elsewhere', bad_in, bad_out)
+    # The return route: from the shore at the foot, Surf, Waterfall up the three cascades and
+    # under the seven bridges, land below Blackthorn and walk on into it; on foot alone the
+    # ledges keep the shore from Blackthorn.
+    shore = sorted(E.RIVER_SHORE)[0]
+    up_walk, up_surf, _, up_out = gen3_reach(beh, coll, elev, [shore])
+    falls = {(c['x'], c['y']) for c in trav if c['behavior'] == 'MB_WATERFALL'}
+    decks = {(c['x'], c['y']) for c in trav if c['behavior'] == 'MB_BRIDGE_OVER_OCEAN'}
+    assert falls <= up_surf and decks <= up_surf, ('the Surf route misses a cascade or a bridge', sorted(falls - up_surf), sorted(decks - up_surf))
+    assert set(E.RIVER_LANDING) & {l for _, l in up_out} and set(road) <= up_walk, 'the Surf route does not reach Blackthorn'
+    assert not set(road) & gen3_reach(beh, coll, elev, [shore], surf=False)[0], 'the shore reaches Blackthorn on foot'
+    surf_route = dict(start=list(shore), landing=sorted(l for _, l in up_out if l in E.RIVER_LANDING), waterfalls=len(falls),
+                      bridge_deck_cells_passed_under=len(decks), river_entries=sorted({l for l, w in entries if on_river(w)}),
+                      river_exits=sorted({l for w, l in dismounts if on_river(w)}))
     missing = {k: p for k, p in APPROACHES.items() if p not in seen}
     assert not missing, ('unreachable approach', missing)
-    water = {k for k, v in foot.items() if v == 'surf'}
     # Walk-behind layering.
     top, owner = z['objects'], z['owner']
     walkable = np.array([[walk(foot[(x, y)]) for x in range(W)] for y in range(H)])
@@ -371,7 +462,7 @@ def main(g, phg):
                   ledger_behaviour_collision_elevation_layer=True, seam_crossing_columns=crossing, seam_collision_elevation_match=True,
                   reachable_foot_cells=len(seen), open_cells=len(open_cells), unreachable_open_cells=sorted(open_cells - seen),
                   surf_reachable_cells=len(surfed), water_cells=len(water), unreached_water_cells=sorted(water - surfed),
-                  reachability_equals_hgss=True,
+                  reach_on_foot_is_hgss_plus_owner_ground=True, ledges_one_way=True, surf_route=surf_route,
                   approaches=APPROACHES, walk_behind_cells=dict(walk_behind),
                   seam_cells_walkable_layer=[[k[0], k[1], n] for k, n in sorted(seam_layers.items())],
                   shared_masters_byte_identical=shared_ok, budgets=budgets,

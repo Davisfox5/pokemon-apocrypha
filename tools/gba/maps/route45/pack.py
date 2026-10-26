@@ -10,6 +10,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import build as B                                             # noqa: E402
+import elements as E                                          # noqa: E402
 
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-45'
@@ -30,6 +31,30 @@ def key5(px, mask=None):
 # Route 45 side, which is not built).
 SOLID = {'D': "HGSS warps into Dark Cave's Route 45 side here; that map is not built, so the mouth is solid"}
 
+def river_route(cells):
+    """The Surf route back up to Blackthorn (owner review, 2026-10-26): the river runs on under
+    every bridge. Returns (deck cells over the river, the bridges' other deck cells, the road
+    cells either side of each bridge, the cascade cells). Walkers cross a bridge at elevation
+    4 (Gen 3 offers Surf only from elevation 3, so no one surfs off a bridge), stepping on and
+    off through the road cell either side at elevation 0 (a transition: none touches water);
+    the deck over the river is elevation 15, which walkers at 4 and surfers at 1 both pass,
+    and MB_BRIDGE_OVER_OCEAN, as Emerald's Routes 110 and 119."""
+    deck = {(x, y) for y in range(H) for x in range(W) if cells[y][x]['lab'] == 'b'}
+    over_river, rest, ends = set(), set(), set()
+    for x, y in deck:
+        top = min(yy for xx, yy in deck if xx == x and abs(yy - y) <= 2)
+        bottom = max(yy for xx, yy in deck if xx == x and abs(yy - y) <= 2)
+        wet = [cells[yy][x] for yy in (top - 1, bottom + 1) if 0 <= yy < H]
+        (over_river if any(E.is_river(c) for c in wet) else rest).add((x, y))
+        for dx in (-1, 1):
+            if (x + dx, y) not in deck and 0 <= x + dx < W:
+                ends.add((x + dx, y))
+    for x, y in ends:
+        assert not any(E.is_river(cells[y + dy][x + dx]) for dx, dy in ((0, -1), (1, 0), (0, 1), (-1, 0))
+                       if 0 <= x + dx < W and 0 <= y + dy < H), ('a bridge transition cell touches water', (x, y))
+    falls = {(x, y) for y in E.CASCADE_ROWS for x in range(W) if E.is_river(cells[y][x])}
+    return over_river, rest, ends, falls
+
 def traversal(engine, cells, art, edge):
     """Gen 3 behaviour, collision and elevation per cell from the HGSS permissions. art is
     the per-cell 'has object art' grid (top layer, plus the sign cells); edge marks cells
@@ -40,6 +65,7 @@ def traversal(engine, cells, art, edge):
     rooted |= {(x + dx, y - 1) for x, y in trees for dx in (0, 1)}   # a T01 crown fills the row above its root
     perm = np.load(SRC / 'hgss/hgss-permissions.npz')
     types, coll = perm['types'], perm['collision']
+    over_river, deck_rest, deck_ends, falls = river_route(cells)
     out = []
     for y in range(H):
         for x in range(W):
@@ -65,6 +91,28 @@ def traversal(engine, cells, art, edge):
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3)
             else:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3)
+            # Owner review (2026-10-26): ground in place of cliff, and the river's Surf route.
+            if (x, y) in E.OWNER_GROUND:
+                c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
+                         adaptation={**{p: 'the rock top beside the row 47 ledge\'s east end is road, so the ledge meets a wall'
+                                        for p in E.LEDGE_END_GROUND},
+                                     **{p: 'the river\'s one shore, at its foot, where the Surf route back up starts'
+                                        for p in E.RIVER_SHORE},
+                                     **{p: 'where the Surf route back up lands, on the road below Blackthorn'
+                                        for p in E.RIVER_LANDING}}[(x, y)])
+            elif (x, y) in falls:
+                c.update(foot='surf', behavior='MB_WATERFALL', collision=0, elevation=1,
+                         adaptation='HGSS\'s cascade, a Gen 3 waterfall: Surf slides down it, Waterfall climbs it')
+            elif lab == 'X' and E.is_river(cells[y][x]):
+                c.update(foot='surf', behavior='MB_OCEAN_WATER', collision=0, elevation=1,
+                         adaptation='HGSS blocks the river beside a bridge; it runs on here, for the Surf route back up')
+            elif (x, y) in over_river:
+                c.update(foot='open', behavior='MB_BRIDGE_OVER_OCEAN', collision=0, elevation=15, bridge=True,
+                         adaptation='bridge deck over the river: walkers cross it, surfers pass under')
+            elif (x, y) in deck_rest:
+                c.update(elevation=4, adaptation='bridge deck: walkers cross at elevation 4, so no one surfs off a bridge')
+            elif (x, y) in deck_ends:
+                c.update(elevation=0, adaptation='road at a bridge end: the step between elevation 3 and the deck\'s 4')
             c['behavior_id'] = MB[c['behavior']]
             out.append(c)
     return out
