@@ -483,6 +483,23 @@ Celadon (`gba/art/celadon-kanto/README.md`) followed the same method; traps hit 
 - A tool module that inserts another town's folder at the front of sys.path shadows its
   own siblings (`import interiors` loaded Saffron's). Append borrowed folders instead.
 
+Celadon's second round (HGSS's plan drawn in FireRed's pieces):
+
+- FireRed's 0x0D6/0x0D7 fence is the fence drawn over a forest's top; on grass Celadon uses
+  its railing 0x0E7. Render a FireRed piece alone before using it on new ground.
+- FireRed's trees are two cells wide and overlap a row: a forest's columns must start even
+  and end odd, its top and trunk rows be odd, or the pieces will not join. `compose.check_plan`
+  fails the plan before it is drawn.
+- FireRed's paving has no piece for grass on two opposite sides: make every paved strip two
+  cells wide or more (`compose.build_grid` asserts it).
+- Flattening FireRed's buildings into one sprite layer left 208 tile uses unplaced: a
+  building cell's two layers draw from different banks. Copy FireRed's metatile into the
+  grid wherever the sprite's cell is whole and unedited (`compose.frlg_cells`).
+- A door metatile that warps the player straight in plays its slide while the player walks;
+  capture the door from the key press (`celadon/runtime.py`), not after the step.
+- FireRed's tall buildings keep their own walk-behind rows (the Dept Store two, the gym's
+  glass one): test the walk-behind on the building's own back rows, read from the ledger.
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,

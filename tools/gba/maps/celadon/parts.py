@@ -1,26 +1,30 @@
-"""Celadon's new buildings and street furniture, cut from Gen 3's own maps.
+"""Celadon's buildings and street furniture, cut from Gen 3's own maps.
 
-Every part is real Gen 3 pixel art: cells of a FireRed or Emerald map as the game draws
-them, cut out and put together into a piece of Celadon's own (AGENTS.md, Kanto towns). Ground
-pixels round a part are made transparent, so it stands on Celadon's ground. Colours are
-brought into FireRed Celadon's own palette in compose.py (snapped, or a part's ramp laid onto
-one of Celadon's ramps), so the map keeps FireRed's colours.
+Celadon stands on HGSS's plan (compose.py); every piece drawn on it is real Gen 3 pixel art:
+cells of a FireRed or Emerald map as the game draws them, cut out and, where the story needs
+it, put together into a piece of Celadon's own (AGENTS.md, Kanto towns). Ground pixels round
+a part are made transparent, so it stands on the new ground. compose.py brings each part's
+colours into FireRed Celadon's palette.
 
-    glass()       the Botanical Gardens' glasshouse roof, on FireRed's Celadon Gym (the
-                  gardens take the gym's site, DESIGN.md): Cerulean's Bike Shop glass (FireRed)
-                  widened to the gym's eight cells, the planting under it showing through the
-                  panes in Celadon's own greens
-    porch()       the gym's porch over the door with its Poke Ball crest painted out for a
-                  leaf, and the GYM plate on its wall painted out
-    awning()      the café's striped awning on its posts: the Bike Shop's (FireRed)
-    tent_*()      market stalls: Slateport Market's tents with their goods (Emerald), one per
-                  stall, the canvas laid onto one of Celadon's colour ramps in compose.py
-    produce_*()   Slateport Market's baskets and crates, one cell each
-    hotel()       the Pokemon Hotel: two of FireRed's Celadon houses made one building eight
-                  cells wide under one roof, a floor taller, balconies on the upper floors and
-                  one entrance in the middle
-    bridge()      the canal's footbridge: Three Island's Bond Bridge (FireRed), six cells
-    hedge()       a clipped hedge, Cerulean's (FireRed), any length
+FireRed's Celadon, each building on the HGSS lot it now stands on:
+    dept          the Dept Store, now the market's services
+    hotel         FireRed's Celadon Mansion as the Pokemon Hotel (the spec: Condominiums ->
+                  Pokemon Hotel), on HGSS's Condominiums lot, balconies under its upper windows
+    center        the Pokemon Center
+    game_corner   the Game Corner and its prize room
+    house, house_door, house_chimney   FireRed's Celadon houses, for HGSS's houses
+    glasshouse    the Botanical Gardens on HGSS's gym lot: FireRed's Celadon Gym under
+                  Cerulean's Bike Shop glass (FireRed), Celadon's tree crowns showing through
+                  the panes in Celadon's teal, its Poke Ball crest a leaf, its GYM plate gone
+    fountain      FireRed's Celadon fountain, for HGSS's plaza fountain
+New pieces:
+    awning        the café's striped awning on its posts: the Bike Shop's (FireRed)
+    tent_*        market stalls: Slateport Market's tents with their goods (Emerald); compose.py
+                  lays each canvas onto one of Celadon's colour ramps
+    produce_*     Slateport Market's baskets and crates, one cell each
+    bridge        the canal's footbridge: Three Island's Bond Bridge planks (FireRed), six
+                  cells wide, three rows of deck for the three-row street
+    hedge*        a clipped hedge, Cerulean's (FireRed), for HGSS's ledges below the gym
 
     python3 tools/gba/maps/celadon/parts.py ENGINE_CHECKOUT    # writes source/sprites/*.png
 """
@@ -67,6 +71,9 @@ def px(img, x0, y0, x1, y1):
     """A pixel rectangle (x1, y1 exclusive)."""
     return img[y0:y1, x0:x1].copy()
 
+def cells(img, x0, y0, x1, y1):
+    return img[y0 * 16:y1 * 16, x0 * 16:x1 * 16].copy()
+
 def rgba(a):
     return np.concatenate([a, np.full(a.shape[:2] + (1,), 255, np.uint8)], 2)
 
@@ -109,40 +116,82 @@ def paint(img, art, x0, y0, cols):
             if ch in cols:
                 img[y0 + j, x0 + i] = tuple(cols[ch]) + (255,)
 
+_ground = {}
+def celadon_ground(engine):
+    """FireRed Celadon's grass, paving and lawn-edge colours, from their own metatiles."""
+    if not _ground:
+        pair = frlg.Pair(engine, 'general_frlg', 'celadon_city_frlg')
+        mt = lambda ids: set().union(*[colours(frlg.flat(*frlg.render(pair, np.array([[m]], np.uint16)))) for m in ids])
+        _ground['g'] = mt([0x008, 0x009, 0x010, 0x011]) | mt([0x16E, 0x166, 0x317]) | \
+            mt([0x166, 0x176, 0x16D, 0x16F, 0x165, 0x167, 0x175, 0x177, 0x19D, 0x19E, 0x195, 0x196])
+    return _ground['g']
+
+def frlg_cut(engine, x0, y0, x1, y1, edges='tb', top_px=0):
+    """FireRed Celadon's cells (x1, y1 exclusive) with their ground cleared from the given
+    edges; top_px rows of the first cell left out (a fence behind a roof)."""
+    cel = source(engine, 'CeladonCity')
+    t = rgba(cells(cel, x0, y0, x1, y1))
+    if top_px:
+        t[:top_px, :, 3] = 0
+    return clear_from_edges(t, celadon_ground(engine), edges)
+
 # Celadon's own greens (FireRed's General and Celadon banks), light to dark
 TEAL = [(189, 230, 222), (148, 205, 180), (115, 172, 148), (106, 148, 139), (74, 115, 106)]
 LEAF = [(189, 255, 139), (131, 213, 98), (57, 148, 49), (57, 90, 16)]
+BALCONY = [(222, 222, 230), (172, 189, 205), (123, 123, 131), (82, 82, 106)]   # Celadon's railing greys, light to dark
+
+# --------------------------------------------------------------------------- FireRed's buildings
+def dept(engine):
+    return frlg_cut(engine, 9, 4, 18, 15)
+
+def center(engine):
+    return frlg_cut(engine, 46, 6, 51, 12, 'tlrb')
+
+def game_corner(engine):
+    """The Game Corner and its prize room (cols 31-41, rows 17-22), the fence behind their
+    roofs left out."""
+    return frlg_cut(engine, 31, 17, 42, 23, 'tb', top_px=9)
+
+def house(engine):
+    return frlg_cut(engine, 32, 25, 36, 30)
+
+def house_door(engine):
+    return frlg_cut(engine, 36, 25, 40, 30)
+
+def house_chimney(engine):
+    return frlg_cut(engine, 40, 25, 44, 30)
+
+def hotel(engine):
+    """FireRed's Celadon Mansion (cols 27-33, rows 4-11) as the Pokemon Hotel: a balcony slab
+    and railing in Celadon's railing greys under each window row above the ground floor."""
+    t = frlg_cut(engine, 27, 4, 34, 12, 'tlrb', top_px=9)       # the trees and roof exit behind its roof's top edge left out
+    glass = (t[..., 2].astype(int) > 200) & (t[..., 0].astype(int) < 180) & (t[..., 3] > 0)
+    rows = [y for y in range(t.shape[0]) if glass[y].sum() >= 8]
+    bands = [r for i, r in enumerate(rows) if i == 0 or r != rows[i - 1] + 1]        # each window row's first glass line
+    ends = [r for i, r in enumerate(rows) if i == len(rows) - 1 or rows[i + 1] != r + 1]
+    for top, bot in list(zip(bands, ends))[:-1]:          # every window row but the ground floor's
+        yb = bot + 3
+        for x in range(4, t.shape[1] - 4):
+            if t[yb, x, 3] == 0:
+                continue
+            t[yb, x, :3] = BALCONY[0]
+            t[yb + 1, x, :3] = BALCONY[2]
+            t[yb - 4, x, :3] = BALCONY[1]
+            if x % 4 == 2:
+                t[yb - 3:yb, x, :3] = BALCONY[3]
+    return t
+
+def fountain(engine):
+    c = source(engine, 'CeladonCity')
+    t = rgba(cells(c, 12, 19, 15, 22))
+    clear_from_edges(t, colours(cells(c, 11, 19, 12, 22)) | colours(cells(c, 15, 19, 16, 22)), 'tlrb')
+    g = t[..., :3].astype(int)
+    t[(g[..., 1] > g[..., 0] + 30) & (g[..., 1] > g[..., 2] + 10), 3] = 0        # the lawn's grass tufts
+    return t
 
 # --------------------------------------------------------------------------- the gardens
 GLASS_W = 128                                       # eight cells, the gym's roof
 GLASS_LIGHT, GLASS_DARK, GLASS_EDGE = (172, 222, 238), (139, 189, 213), (115, 164, 189)
-
-def glass(engine):
-    """The Bike Shop's glass roof (Cerulean, FireRed) widened to the gym's eight cells. The
-    panes show the planting under them: the Celadon trees' crowns (FireRed's own, from the
-    city's west edge) behind the glass, in Celadon's teal greens, the panes' checker one
-    step lighter on its light squares, so the roof reads as glass over a garden."""
-    c = source(engine, 'CeruleanCity')
-    roof = px(c, 192, 375, 256, 424)                # the frame and its glass, 64 x 49
-    roof = widen(roof, 24, 24, GLASS_W, 8)
-    t = rgba(roof)
-    clear_from_edges(t, colours(px(c, 176, 370, 192, 424)) | colours(px(c, 256, 370, 272, 424)), 'tlr')
-    cel = source(engine, 'CeladonCity')
-    crowns = px(cel, 0, 176, 64, 336)               # the west edge's trees, cols 0-3, rows 11-20
-    lum = crowns.astype(int).sum(-1)
-    ramp = np.digitize(lum, np.quantile(lum, [0.2, 0.45, 0.7, 0.9]))      # 0 darkest .. 4 lightest
-    rgb = t[..., :3]
-    glassy = np.zeros(rgb.shape[:2], bool)
-    for col in (GLASS_LIGHT, GLASS_DARK, GLASS_EDGE):
-        glassy |= (rgb == col).all(-1)
-    light = (rgb == GLASS_LIGHT).all(-1)
-    for y, x in zip(*np.nonzero(glassy)):
-        k = int(ramp[(y + 7) % crowns.shape[0], (x * 3 + y // 16 * 13) % crowns.shape[1]])   # 0 dark .. 4 light
-        k = min(4, k + (1 if light[y, x] else 0))
-        rgb[y, x] = TEAL[4 - k]
-    t[(t[..., :3] == (255, 255, 255)).all(-1), :3] = (205, 205, 222)     # a glint on the frame, in the frame's own light grey
-    return t
-
 LEAF_MARK = ["..g..",
              ".gLg.",
              "gLLLg",
@@ -150,33 +199,56 @@ LEAF_MARK = ["..g..",
              ".gdg.",
              "..d.."]
 
-def porch(engine):
-    """The gym's porch and wall row (FireRed, rows 29-30 of the gym, cols 8-15) with its
-    Poke Ball crest painted out in the porch's gold for a leaf, and the GYM plate on the wall
-    painted out in the wall's own rows."""
+def glass(engine):
+    """The Bike Shop's glass roof (Cerulean, FireRed) widened to the gym's eight cells, the
+    planting under it showing through the panes: Celadon's tree crowns in Celadon's teal, the
+    checker one step lighter on its light squares."""
+    c = source(engine, 'CeruleanCity')
+    roof = widen(px(c, 192, 375, 256, 424), 24, 24, GLASS_W, 8)
+    t = rgba(roof)
+    clear_from_edges(t, colours(px(c, 176, 370, 192, 424)) | colours(px(c, 256, 370, 272, 424)), 'tlr')
     cel = source(engine, 'CeladonCity')
-    t = rgba(px(cel, 128, 462, 256, 496))           # under the roof: walls, porch and door, 128 x 34
-    gold = tuple(int(v) for v in cel[470, 176])     # the porch's face
-    # the crest: the porch face between its trim, x 172-196, y 465-479
+    crowns = px(cel, 0, 176, 64, 336)
+    lum = crowns.astype(int).sum(-1)
+    ramp = np.digitize(lum, np.quantile(lum, [0.2, 0.45, 0.7, 0.9]))
+    rgb = t[..., :3]
+    glassy = np.zeros(rgb.shape[:2], bool)
+    for col in (GLASS_LIGHT, GLASS_DARK, GLASS_EDGE):
+        glassy |= (rgb == col).all(-1)
+    light = (rgb == GLASS_LIGHT).all(-1)
+    for y, x in zip(*np.nonzero(glassy)):
+        k = int(ramp[(y + 7) % crowns.shape[0], (x * 3 + y // 16 * 13) % crowns.shape[1]])
+        k = min(4, k + (1 if light[y, x] else 0))
+        rgb[y, x] = TEAL[4 - k]
+    t[(t[..., :3] == (255, 255, 255)).all(-1), :3] = (205, 205, 222)
+    return t
+
+def glasshouse(engine):
+    """FireRed's Celadon Gym (cols 8-15, rows 25-30) under the glass roof, its porch's Poke
+    Ball crest painted out in the porch's gold for a leaf, its GYM plate painted out in the
+    wall's own column."""
+    cel = source(engine, 'CeladonCity')
+    t = frlg_cut(engine, 8, 25, 16, 31, 'tb')        # 128 x 96, y0 = 400
+    g = glass(engine)
+    m = g[..., 3] > 0
+    t[16:16 + g.shape[0]][m] = g[m]                  # the roof, y 416-465
+    gold = tuple(int(v) for v in cel[470, 176])
     for y in range(465, 479):
         for x in range(172, 197):
             v = tuple(int(c) for c in cel[y, x])
             if v in {(255, 255, 255), (222, 222, 230), (246, 246, 255), (197, 197, 205), (189, 148, 139), (123, 74, 74)} \
                     or sum(v) > sum(gold) + 40:
-                t[y - 462, x - 128, :3] = gold
-    paint(t, LEAF_MARK, 184 - 128 - 2, 466 - 462, dict(g=LEAF[2], L=LEAF[1], d=LEAF[3]))
-    # the plate: the plain wall column just west of it, carried across
+                t[y - 400, x - 128, :3] = gold
+    paint(t, LEAF_MARK, 184 - 128 - 2, 466 - 400, dict(g=LEAF[2], L=LEAF[1], d=LEAF[3]))
     for y in range(472, 486):
         for x in range(146, 168):
-            t[y - 462, x - 128, :3] = cel[y, 145]
-    clear_from_edges(t, colours(px(cel, 144, 496, 240, 512)), 'lrb')        # the lawn in front (row 31)
+            t[y - 400, x - 128, :3] = cel[y, 145]
     return t
 
-def hedge(engine, cells):
-    """Cerulean's clipped hedge (FireRed), `cells` long: its rounded ends and the middle repeated."""
+def hedge(engine, n):
+    """Cerulean's clipped hedge (FireRed), n cells long: its rounded ends and the middle repeated."""
     c = source(engine, 'CeruleanCity')
-    h = px(c, 112, 512, 272, 528)                   # cols 7-16, row 32
-    out = widen(h, 16, 16, cells * 16, 16)
+    out = widen(px(c, 112, 512, 272, 528), 16, 16, n * 16, 16)
     t = rgba(out)
     return clear_from_edges(t, colours(px(c, 96, 512, 112, 528)) | colours(px(c, 112, 528, 272, 544)), 'tlrb')
 
@@ -184,13 +256,13 @@ def hedge(engine, cells):
 def awning(engine):
     """The Bike Shop's striped awning and its two posts (Cerulean, FireRed), four cells."""
     c = source(engine, 'CeruleanCity')
-    t = rgba(px(c, 192, 438, 256, 470))             # the awning (y 440-455) and posts to the ground
+    t = rgba(px(c, 192, 438, 256, 470))
     keep = np.zeros(t.shape[:2], bool)
-    keep[:18] = True                                # the canvas and its valance
+    keep[:18] = True
     g = t[..., :3].astype(int)
-    post = g[..., 2] > g[..., 0] + 20               # the posts' blue-grey
+    post = g[..., 2] > g[..., 0] + 20
     cols = np.zeros(t.shape[1], bool)
-    cols[3:10] = cols[54:61] = True                 # the posts, at either end
+    cols[3:10] = cols[54:61] = True
     keep |= post & cols[None, :]
     t[~keep, 3] = 0
     return t
@@ -200,7 +272,6 @@ TENTS = {'tent_a': (40, 656), 'tent_b': (168, 656), 'tent_c': (40, 720), 'tent_d
 TENT_W, TENT_H = 64, 48
 
 def slateport_ground(s):
-    """Slateport's paving and the tents' shade on it (all left behind)."""
     g = colours(px(s, 32, 640, 240, 656))            # row 40, bare paving
     shade = colours(px(s, 80, 688, 96, 704)) - g      # cell (5, 43): only the shade on the paving
     return g, shade
@@ -224,60 +295,15 @@ def produce(engine, at):
     ground, shade = slateport_ground(s)
     return clear_from_edges(t, ground | shade, 'tlrb')
 
-# --------------------------------------------------------------------------- the hotel
-HOTEL_W = 128                                       # eight cells, two houses' lots
-HOUSE = (704, 400, 768, 480)                        # FireRed's Celadon house at cols 44-47, rows 25-29 (px, x1/y1 exclusive)
-ROOF_ROWS = (8, 40)                                 # the roof's rows within the house picture
-WINDOW_BAND = (48, 64)                              # one storey of the wall: a window row, 16 px
-BALCONY = [(222, 222, 230), (172, 189, 205), (123, 123, 131), (82, 82, 106)]   # Celadon's railing greys, light to dark
-
-def hotel(engine):
-    """Two of FireRed's Celadon houses (cols 44-51) made one building: one roof eight cells
-    wide (the house roof's ends, its middle repeated, one chimney at the centre), the wall a
-    storey taller (the house's own window band repeated), a balcony slab and railing under each
-    upper window row in Celadon's railing greys, and one entrance in the middle: FireRed's
-    house door, the door itself in col 48."""
-    cel = source(engine, 'CeladonCity')
-    x0, y0, x1, y1 = HOUSE
-    house = px(cel, x0, y0, x1, y1)                 # 64 x 80: roof rows 8-39, wall 40-79
-    chimney_house = px(cel, 768, y0, 832, y1)       # the next house, whose roof has the chimney
-    roof = widen(house[:ROOF_ROWS[1]], 16, 16, HOTEL_W, 16)
-    cx = HOTEL_W // 2 - 16
-    roof[:, cx:cx + 32] = chimney_house[:ROOF_ROWS[1], 28:60]      # the chimney, mid-roof
-    wall = house[ROOF_ROWS[1]:]                     # 40 rows: top trim, window rows at 48 and 64, base
-    # its windows every 32 px from x 9: the left edge, three window bays, the last bay and edge
-    wall = np.concatenate([wall[:, :9], wall[:, 9:41], wall[:, 9:41], wall[:, 9:41], wall[:, 41:64]], 1)
-    band = wall[WINDOW_BAND[0] - ROOF_ROWS[1]:WINDOW_BAND[1] - ROOF_ROWS[1]]
-    body = np.concatenate([wall[:WINDOW_BAND[0] - ROOF_ROWS[1]], band, wall[WINDOW_BAND[0] - ROOF_ROWS[1]:]], 0)
-    # the ground floor: its two middle windows walled up for the entrance in the middle
-    gy = body.shape[0] - 24
-    plain = body[gy:gy + 16, 26:27]                 # a window-free wall column of the same rows
-    body[gy:gy + 16, 41:87] = np.repeat(plain, 46, 1)
-    # the entrance: FireRed's house door front (the house at cols 36-39), the door itself in col 48
-    door = px(cel, 584, 456, 608, 480)              # 24 x 24, the frame and door
-    dx = 56
-    body[body.shape[0] - 24:, dx:dx + 24] = door
-    t = rgba(np.concatenate([roof, body], 0))
-    # balconies under the two upper window rows (not the ground floor)
-    top = ROOF_ROWS[1] + (WINDOW_BAND[0] - ROOF_ROWS[1])
-    for row in (top, top + 16):
-        yb = row + 13
-        for x in range(6, HOTEL_W - 6):
-            t[yb, x, :3] = BALCONY[0]                   # the slab's lit edge
-            t[yb + 1, x, :3] = BALCONY[2]
-            t[yb - 5, x, :3] = BALCONY[1]               # the rail
-            if x % 4 == 2:
-                t[yb - 4:yb, x, :3] = BALCONY[3]        # the balusters
-    ground = colours(px(cel, 688, 480, 704, 496)) | colours(px(cel, 832, 480, 848, 496)) | colours(px(cel, 704, 384, 832, 400))
-    return clear_from_edges(t, ground, 'tlrb')
-
 # --------------------------------------------------------------------------- the canal
 def bridge(engine):
-    """The Bond Bridge's planks (Three Island, FireRed), six cells: its west end, three
-    middle cells and its east end, the deck two rows and its side under it."""
+    """The Bond Bridge's planks (Three Island, FireRed), six cells wide: its west end, two
+    middle cells and its east end; three rows of deck (its second plank row repeated) and its
+    south side."""
     b = source(engine, 'ThreeIsland_BondBridge')
-    deck = px(b, 544, 144, 704, 184)                # cols 34-43, rows 9-11: the deck and its south side
+    deck = px(b, 544, 144, 704, 184)
     deck = np.concatenate([deck[:, :32], deck[:, 32:64], deck[:, 128:160]], 1)    # 96 px
+    deck = np.concatenate([deck[:32], deck[16:32], deck[32:]], 0)                 # 56 px: three plank rows and the side
     t = rgba(deck)
     water = colours(px(b, 544, 128, 704, 144)) | colours(px(b, 544, 186, 704, 200))
     clear_from_edges(t, water, 'tlrb')
@@ -285,17 +311,21 @@ def bridge(engine):
     t[g[..., 2] > g[..., 0] + 60, 3] = 0            # the sea showing under the side
     return t
 
-PARTS = {'glass': glass, 'porch': porch, 'awning': awning, 'hotel': hotel, 'bridge': bridge,
+PARTS = {'dept': dept, 'center': center, 'game_corner': game_corner, 'house': house, 'house_door': house_door,
+         'house_chimney': house_chimney, 'hotel': hotel, 'fountain': fountain, 'glasshouse': glasshouse,
+         'awning': awning, 'bridge': bridge,
          **{n: (lambda e, a=a: tent(e, a)) for n, a in TENTS.items()},
          **{n: (lambda e, a=a: produce(e, a)) for n, a in PRODUCE.items()},
-         **{f'hedge{n}': (lambda e, n=n: hedge(e, n)) for n in (3, 4, 5, 6)}}
+         **{f'hedge{n}': (lambda e, n=n: hedge(e, n)) for n in (2, 4, 6, 8)}}
 
 def main(engine):
     OUT.mkdir(parents=True, exist_ok=True)
+    for p in OUT.glob('*.png'):
+        p.unlink()
     for name, fn in PARTS.items():
         img = fn(engine)
         Image.fromarray(img).save(OUT / f'{name}.png')
-        print(name, img.shape[1], 'x', img.shape[0], 'colours', len(colours(img[img[..., 3] > 0][:, :3][None])))
+        print(name, img.shape[1], 'x', img.shape[0])
 
 if __name__ == '__main__':
     main(Path(sys.argv[1]).resolve())

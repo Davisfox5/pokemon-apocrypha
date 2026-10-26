@@ -1,10 +1,10 @@
 {
   "porymap": "Launching Porymap v6.3.1 (26b919d)",
-  "engine_commit": "b41e6b9a01ea360cee7200cd364e1d597961a25f",
+  "engine_commit": "efcc5ab63c6e2c3e516cc3931501eedb71ba5a92",
   "city_export_vs_native": {
     "size": [
       960,
-      640
+      800
     ],
     "differing_pixels": 0
   },
@@ -13,8 +13,6 @@
     "data/layouts/KantoCeladonCafe/map.bin",
     "data/layouts/KantoCeladonCity/border.bin",
     "data/layouts/KantoCeladonCity/map.bin",
-    "data/layouts/KantoCeladonCondominiums/border.bin",
-    "data/layouts/KantoCeladonCondominiums/map.bin",
     "data/layouts/KantoCeladonGameCorner/border.bin",
     "data/layouts/KantoCeladonGameCorner/map.bin",
     "data/layouts/KantoCeladonGardens/border.bin",
@@ -27,10 +25,11 @@
     "data/layouts/KantoCeladonMarketServices/map.bin",
     "data/layouts/KantoCeladonPrizeRoom/border.bin",
     "data/layouts/KantoCeladonPrizeRoom/map.bin",
+    "data/layouts/KantoCeladonResidence/border.bin",
+    "data/layouts/KantoCeladonResidence/map.bin",
     "data/maps/KantoCeladonCafe/map.json",
     "data/maps/KantoCeladonCenterUpstairs/map.json",
     "data/maps/KantoCeladonCity/map.json",
-    "data/maps/KantoCeladonCondominiums/map.json",
     "data/maps/KantoCeladonGameCorner/map.json",
     "data/maps/KantoCeladonGardens/map.json",
     "data/maps/KantoCeladonHotelLobby/map.json",
@@ -38,6 +37,7 @@
     "data/maps/KantoCeladonMarketServices/map.json",
     "data/maps/KantoCeladonPokemonCenter/map.json",
     "data/maps/KantoCeladonPrizeRoom/map.json",
+    "data/maps/KantoCeladonResidence/map.json",
     "data/tilesets/primary/kanto_celadon/metatile_attributes.bin",
     "data/tilesets/primary/kanto_celadon/metatiles.bin",
     "data/tilesets/primary/kanto_celadon/palettes/00.pal",

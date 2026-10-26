@@ -13,10 +13,10 @@ Porymap project as the Johto towns, beside them in the Emerald build:
   - every cell keeps FireRed's layer type and behaviour; an art cell takes the rule below
   - FireRed's animated flowers in General_Frlg are drawn static
 
-Traversal is FireRed's grid, with Apocrypha's doors: the Center (cloned from Cherrygrove's)
-and the rooms interiors.py converts from FireRed's own (the market services, the
-condominiums, the gardens, the café, the hotel, the Game Corner and its prize room) open;
-every other door solid until its interior exists. A building blocks every cell it covers
+Traversal is compose.py's grid (HGSS's plan in FireRed's metatiles), with Apocrypha's doors:
+the Center (cloned from Cherrygrove's) and the rooms interiors.py converts from FireRed's own
+(the market services, the hotel, the residence, the gardens, the café, the Game Corner and
+its prize room) open. A building blocks every cell it covers
 half or more of (its back row aside); a tent, a hedge or a crate every cell it covers; the
 footbridge lies under the player and keeps the grid's collision. A part's cell the player
 can walk draws the part above the player when the part stands further south (walking behind
@@ -46,8 +46,7 @@ CLEAR = -1
 # Doors with interiors (install.py clones Cherrygrove's Center and its upstairs; interiors.py
 # converts FireRed's own rooms).
 OPEN_DOORS = {xy: name for name, xy in C.DOORS.items()}
-SOLID_DOORS = {(37, 29): "FireRed's restaurant (the café moved next to the market)", (41, 29): 'a house',
-               (29, 5): "the condominiums' back door", (30, 4): "the condominiums' roof", (31, 5): "the condominiums' back door"}
+SOLID_DOORS = {}                                # the grid is built from HGSS's plan: every door is a building part's
 BLOCK_COVER = 0.5
 MB = dict(normal=0x00, door=0x69, sign=0x1D)
 WARP_BEHAVIOURS = {0x60, 0x62, 0x63, 0x64, 0x65, 0x69}

@@ -12,7 +12,8 @@ each cell's layer type and collision FireRed's.
                  the salon, the move tutor and EV training), both exit mats
     hotel_1f     the Pokemon Hotel's lobby and hotel_2f its upper floor (Looker's room):
                  FireRed's Condominiums 1F and 2F, the stairs between them
-    residents    the condominiums' lobby (FireRed's Pokemon Hotel room, the hotel having moved)
+    residents    a residence in the south-east row (FireRed's Pokemon Hotel room, the hotel
+                 having moved into the Mansion on HGSS's Condominiums lot)
     cafe         FireRed's Restaurant
     gardens      the glasshouse: FireRed's Celadon Gym, its garden as it is
     game_corner  FireRed's Game Corner, and prize_room its prize room
@@ -20,7 +21,7 @@ each cell's layer type and collision FireRed's.
 Behaviour: the exit mats keep MB_SOUTH_ARROW_WARP and the hotel's stairs their stair warps;
 every other cell is MB_NORMAL (FireRed's counters, slot machines and signposts need scripts the
 rooms do not have yet). A warp cell to a place not built (the store's upper floors and
-elevator, the condominiums' 3F and back door, the Game Corner's stairs down) is solid.
+elevator, the old condominiums' 3F and back door, the Game Corner's stairs down) is solid.
 
 Writes gba/art/celadon-kanto/source/interiors/*.npz, events.json and evidence/interiors/*.png.
 """
@@ -56,7 +57,7 @@ ROOMS = {
     'hotel_2f': ('CeladonCity_Condominiums_2F_Frlg', 'condominiums_frlg',
                  {(4, 2): 'hotel_1f:3', (12, 2): 'hotel_1f:4'}),
     'residents': ('CeladonCity_Hotel_Frlg', 'restaurant_hotel_frlg',
-                  {(3, 10): 'city:condominiums', (4, 9): 'city:condominiums', (5, 10): 'city:condominiums'}),
+                  {(3, 10): 'city:residence', (4, 9): 'city:residence', (5, 10): 'city:residence'}),
     'cafe': ('CeladonCity_Restaurant_Frlg', 'restaurant_hotel_frlg',
              {(5, 9): 'city:cafe', (6, 9): 'city:cafe', (7, 9): 'city:cafe'}),
     'gardens': ('CeladonCity_Gym_Frlg', 'celadon_gym_frlg',

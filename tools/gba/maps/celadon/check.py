@@ -35,7 +35,7 @@ SRC, EV = ART / 'source', ART / 'evidence'
 W, H = C.W, C.H
 NAME, PFOLDER, FOLDER = I.NAME, I.PFOLDER, I.FOLDER
 C_MAP = I.map_id(NAME)
-START = (48, 12)                                    # in front of the Center door
+START = (47, 15)                                    # on the main road below the Center door
 BASE = 'origin/claude/saffron-city'                 # the engine branch Celadon builds on
 STAIRS = ('MB_UP_RIGHT_STAIR_WARP', 'MB_DOWN_RIGHT_STAIR_WARP', 'MB_UP_LEFT_STAIR_WARP', 'MB_DOWN_LEFT_STAIR_WARP')
 
@@ -168,9 +168,10 @@ def main(g):
     open_cells = {k for k, v in foot.items() if v in ('open', 'door')}
     m = json.loads((g / f'data/maps/{NAME}/map.json').read_text())
     approaches = {f'door_{k}': (x, y + 1) for k, (x, y) in C.DOORS.items()}
-    approaches.update(market=(13, 23), fountain_lawn=(11, 18), pocket_stall=(5, 15), produce_walk=(22, 19),
-                      gardens_gate=(5, 25), gardens_forecourt=(12, 32), gardens_south=(10, 36), bridge_west=(24, 24),
-                      bridge_east=(29, 25), canal_east_walk=(30, 30), route7_edge=(59, 13), route16_edge=(0, 23))
+    approaches.update(plaza=(17, 27), fountain_lawn=(15, 24), produce_walk=(23, 25), north_terrace=(27, 12),
+                      gardens_forecourt=(17, 43), gardens_west_path=(12, 38), gardens_east_path=(23, 38), gardens_south=(18, 46),
+                      bridge_west=(25, 34), bridge_east=(30, 34), south_east_loop=(42, 40), game_corner_lawn=(36, 20),
+                      route7_edge=(59, 16), route16_edge=(0, 34))
     for k, p in approaches.items():
         assert p in seen, ('unreachable approach', k, p)
     # every sign has a reachable cell beside it to read it from (most from below; the fenced
@@ -182,10 +183,10 @@ def main(g):
         approaches[f'sign_{bg["script"].split("_", 1)[1]}'] = side
     # The canal: its water is FireRed's pond water (surfable, not walkable), its rims solid;
     # the footbridge's deck walkable, drawn under the player.
-    x0, x1, r0, r1 = C.CANAL
+    (x0, x1), r0, r1, (b0, b1) = C.CANAL['x'], C.CANAL['top'] + 1, C.CANAL['bottom'] - 1, C.CANAL['bridge']
     for y in range(r0, r1 + 1):
         for x in range(x0 + 1, x1):
-            if y in C.BRIDGE_ROWS:
+            if b0 <= y <= b1:
                 assert d['coll'][y, x] == 0 and d['beh'][y, x] == MB['MB_NORMAL'] and d['layer'][y, x] == 1, ('bridge', x, y)
             else:
                 assert d['beh'][y, x] == MB['MB_POND_WATER'], ('canal water', x, y)
@@ -202,9 +203,10 @@ def main(g):
     cx, cy = C.DOORS['center']
     door_mid = int(d['mid'][cy, cx])
     fd = (g / 'src/field_door.c').read_text()
-    entry = f'{{.metatileNum={door_mid}, .tileset=&gTileset_{I.PSYM}, .sound=DOOR_SOUND_SLIDING, .size=DOOR_SIZE_1x1, '
-    pm = tileset(g / f'data/tilesets/primary/{PFOLDER}')[1]
-    banks = [int(e) >> 12 for e in pm[door_mid][:4]]
+    sym = I.PSYM if door_mid < 512 else I.SYM
+    entry = f'{{.metatileNum={door_mid}, .tileset=&gTileset_{sym}, .sound=DOOR_SOUND_SLIDING, .size=DOOR_SIZE_1x1, '
+    metas = tileset(g / (f'data/tilesets/primary/{PFOLDER}' if door_mid < 512 else f'data/tilesets/secondary/{FOLDER}'))[1]
+    banks = [int(e) >> 12 for e in metas[door_mid % 512][:4]]
     assert entry in fd and f'sKantoCeladonDoorPal_Sliding[] = {{{", ".join(map(str, banks + banks))}}};' in fd, 'door entry'
     frlg_door = Image.open(g / 'graphics/door_anims/sliding_single.png')
     fi, fp = np.array(frlg_door), np.array(frlg_door.getpalette()[:48]).reshape(16, 3)

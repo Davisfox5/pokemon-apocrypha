@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "2e0f36592ed9bb3a15c8a9dba82b04cffdf2ad7d6650b99112a7b056900ff1bb",
+  "rom_sha256": "6a5c680881589e240336d84f0dfb7d6780d4437b7b7351de2902313cbe691db1",
   "phases": [
     {
       "phase": "write",
@@ -11,11 +11,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -24,11 +24,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 11,
-          "y": 15,
+          "x": 16,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -37,24 +37,24 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 15,
-          "y": 15,
+          "x": 20,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "shot:condominiums-front",
+          "step": "shot:hotel-front",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 30,
-          "y": 12,
+          "x": 31,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -64,10 +64,10 @@
           "group": 81,
           "map": 6,
           "x": 34,
-          "y": 22,
+          "y": 26,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -77,10 +77,10 @@
           "group": 81,
           "map": 6,
           "x": 39,
-          "y": 21,
+          "y": 25,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -89,11 +89,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 11,
-          "y": 31,
+          "x": 17,
+          "y": 42,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -102,24 +102,24 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 17,
-          "y": 30,
+          "x": 27,
+          "y": 26,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "shot:hotel-front",
+          "step": "shot:residence-front",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 30,
+          "x": 40,
+          "y": 38,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -128,24 +128,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 13,
-          "y": 23,
+          "x": 17,
+          "y": 27,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "shot:gardens-gate",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 5,
-          "y": 26,
-          "frlg_layout": 0,
-          "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -154,11 +141,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 10,
-          "y": 36,
+          "x": 18,
+          "y": 46,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -167,11 +154,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 26,
-          "y": 24,
+          "x": 27,
+          "y": 34,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -181,10 +168,10 @@
           "group": 81,
           "map": 6,
           "x": 59,
-          "y": 13,
+          "y": 16,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -194,75 +181,49 @@
           "group": 81,
           "map": 6,
           "x": 0,
-          "y": 23,
+          "y": 34,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-30-24",
+          "step": "at-60-31-33",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 30,
-          "y": 24,
+          "x": 31,
+          "y": 33,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-23-25",
+          "step": "at-60-24-35",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 23,
-          "y": 25,
+          "x": 24,
+          "y": 35,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-30-28",
+          "step": "at-60-31-38",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 30,
-          "y": 28,
+          "x": 31,
+          "y": 38,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "shot:behind-hotel-roof",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 47,
-          "y": 24,
-          "frlg_layout": 0,
-          "width": 60,
-          "height": 40,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "at-60-47-24",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 47,
-          "y": 24,
-          "frlg_layout": 0,
-          "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -271,63 +232,76 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 12,
-          "y": 26,
+          "x": 17,
+          "y": 37,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-12-26",
+          "step": "at-60-17-37",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 12,
-          "y": 26,
+          "x": 17,
+          "y": 37,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "shot:old-restaurant-solid",
+          "step": "shot:behind-hotel-roof",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 37,
-          "y": 30,
+          "x": 30,
+          "y": 6,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-37-30",
+          "step": "at-60-30-6",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 37,
-          "y": 30,
+          "x": 30,
+          "y": 6,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "at-60-41-30",
+          "step": "shot:behind-services-roof",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 41,
-          "y": 30,
+          "x": 18,
+          "y": 4,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-18-4",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 18,
+          "y": 4,
+          "frlg_layout": 0,
+          "width": 60,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -336,11 +310,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 22,
-          "y": 19,
+          "x": 17,
+          "y": 23,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -353,33 +327,20 @@
           "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
         {
-          "step": "shot:sign-condominiums",
+          "step": "shot:sign-hotel",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 26,
-          "y": 12,
+          "x": 35,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "shot:sign-tips-x-accuracy",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 33,
-          "y": 17,
-          "frlg_layout": 0,
-          "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -388,11 +349,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 33,
-          "y": 24,
+          "x": 35,
+          "y": 29,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -402,10 +363,10 @@
           "group": 81,
           "map": 6,
           "x": 38,
-          "y": 24,
+          "y": 29,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -415,10 +376,10 @@
           "group": 81,
           "map": 6,
           "x": 45,
-          "y": 24,
+          "y": 29,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -427,24 +388,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 16,
-          "y": 32,
+          "x": 21,
+          "y": 45,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "shot:sign-hotel",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 45,
-          "y": 31,
-          "frlg_layout": 0,
-          "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -453,11 +401,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 19,
-          "y": 31,
+          "x": 29,
+          "y": 27,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -466,11 +414,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -479,11 +427,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -492,11 +440,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -505,11 +453,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -518,11 +466,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -531,11 +479,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -544,11 +492,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -557,11 +505,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -570,11 +518,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -583,11 +531,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -596,11 +544,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 13,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -609,11 +557,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 13,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -622,11 +570,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 13,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -635,11 +583,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 13,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -648,11 +596,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 11,
+          "x": 47,
+          "y": 13,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -722,15 +670,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-48-12",
+          "step": "at-60-47-14",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -739,11 +687,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 12,
+          "x": 47,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -774,15 +722,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-15-15",
+          "step": "at-60-20-14",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 15,
-          "y": 15,
+          "x": 20,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -791,11 +739,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 15,
-          "y": 15,
+          "x": 20,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -813,15 +761,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-11-15",
+          "step": "at-60-16-14",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 11,
-          "y": 15,
+          "x": 16,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -852,15 +800,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-30-12",
+          "step": "at-60-40-38",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 30,
-          "y": 12,
+          "x": 40,
+          "y": 38,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -891,15 +839,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-34-22",
+          "step": "at-60-34-26",
           "region": 1,
           "group": 81,
           "map": 6,
           "x": 34,
-          "y": 22,
+          "y": 26,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -930,15 +878,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-39-21",
+          "step": "at-60-39-25",
           "region": 1,
           "group": 81,
           "map": 6,
           "x": 39,
-          "y": 21,
+          "y": 25,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -969,15 +917,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-11-31",
+          "step": "at-60-17-42",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 11,
-          "y": 31,
+          "x": 17,
+          "y": 42,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -986,11 +934,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 11,
-          "y": 31,
+          "x": 17,
+          "y": 42,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1021,15 +969,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-17-30",
+          "step": "at-60-27-26",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 17,
-          "y": 30,
+          "x": 27,
+          "y": 26,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1038,11 +986,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 17,
-          "y": 30,
+          "x": 27,
+          "y": 26,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1112,15 +1060,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-48-30",
+          "step": "at-60-31-14",
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 30,
+          "x": 31,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1129,11 +1077,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 30,
+          "x": 31,
+          "y": 14,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1181,11 +1129,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1194,11 +1142,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1207,11 +1155,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1231,11 +1179,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1244,11 +1192,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         }
@@ -1264,8 +1212,8 @@
           "region": 3,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 2,
           "width": 3848192002,
           "height": 3848192002,
@@ -1277,11 +1225,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1290,11 +1238,11 @@
           "region": 1,
           "group": 81,
           "map": 6,
-          "x": 48,
-          "y": 13,
+          "x": 47,
+          "y": 15,
           "frlg_layout": 0,
           "width": 60,
-          "height": 40,
+          "height": 50,
           "interaction": 0,
           "mapsec": 94
         }
@@ -1307,28 +1255,38 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        80,
-        344
+        160,
+        520
       ],
-      "bg1_pixels_over_player_cell": 256
+      "bg1_pixels_over_player_cell": 240
     },
     {
       "frame": "behind-hotel-roof",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        640,
-        312
+        368,
+        24
       ],
-      "bg1_pixels_over_player_cell": 128
+      "bg1_pixels_over_player_cell": 112
+    },
+    {
+      "frame": "behind-services-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        176,
+        -8
+      ],
+      "bg1_pixels_over_player_cell": 256
     },
     {
       "frame": "cafe-exit",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        160,
-        408
+        320,
+        344
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1337,8 +1295,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        160,
-        408
+        320,
+        344
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1347,8 +1305,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        120
+        640,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1357,8 +1315,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        120
+        640,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1367,27 +1325,17 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        136
+        640,
+        168
       ]
-    },
-    {
-      "frame": "condominiums-front",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 0,
-      "camera_origin_px": [
-        368,
-        120
-      ],
-      "bg1_pixels_over_player": 0
     },
     {
       "frame": "footbridge",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        304,
-        312
+        320,
+        472
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1397,16 +1345,6 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         432,
-        280
-      ],
-      "bg1_pixels_over_player": 0
-    },
-    {
-      "frame": "gardens-gate",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 0,
-      "camera_origin_px": [
-        -32,
         344
       ],
       "bg1_pixels_over_player": 0
@@ -1416,8 +1354,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        48,
-        504
+        176,
+        664
       ]
     },
     {
@@ -1425,8 +1363,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        64,
-        424
+        160,
+        600
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1435,8 +1373,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        64,
-        424
+        160,
+        600
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1445,8 +1383,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        408
+        384,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1455,8 +1393,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        408
+        384,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1465,27 +1403,18 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        96,
-        296
+        160,
+        360
       ],
       "bg1_pixels_over_player": 0
-    },
-    {
-      "frame": "old-restaurant-solid",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 0,
-      "camera_origin_px": [
-        480,
-        408
-      ]
     },
     {
       "frame": "ordinary-continue",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        136
+        640,
+        168
       ]
     },
     {
@@ -1494,7 +1423,7 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         512,
-        264
+        328
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1526,12 +1455,22 @@
       ]
     },
     {
+      "frame": "residence-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated_water": 0,
+      "camera_origin_px": [
+        528,
+        536
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
       "frame": "return-to-celadon",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        136
+        640,
+        168
       ]
     },
     {
@@ -1603,7 +1542,7 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         -112,
-        296
+        472
       ]
     },
     {
@@ -1612,7 +1551,7 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         832,
-        136
+        184
       ]
     },
     {
@@ -1620,8 +1559,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        656,
-        136
+        640,
+        168
       ]
     },
     {
@@ -1629,8 +1568,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        128,
-        168
+        208,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1639,8 +1578,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        128,
-        168
+        208,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1649,8 +1588,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        64,
-        168
+        144,
+        152
       ],
       "bg1_pixels_over_player": 0
     },
@@ -1659,8 +1598,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        192,
-        424
+        352,
+        360
       ]
     },
     {
@@ -1668,17 +1607,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        240,
-        232
-      ]
-    },
-    {
-      "frame": "sign-condominiums",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 0,
-      "camera_origin_px": [
-        304,
-        120
+        160,
+        296
       ]
     },
     {
@@ -1686,8 +1616,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        416,
-        312
+        448,
+        392
       ]
     },
     {
@@ -1695,8 +1625,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        144,
-        440
+        224,
+        648
       ]
     },
     {
@@ -1704,8 +1634,8 @@
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
-        608,
-        424
+        448,
+        152
       ]
     },
     {
@@ -1714,7 +1644,7 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         496,
-        312
+        392
       ]
     },
     {
@@ -1732,28 +1662,19 @@
       "pixels_on_animated_water": 0,
       "camera_origin_px": [
         608,
-        312
-      ]
-    },
-    {
-      "frame": "sign-tips-x-accuracy",
-      "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 0,
-      "camera_origin_px": [
-        416,
-        200
+        392
       ]
     }
   ],
   "center_door_frames": {
     "center-door-00": null,
     "center-door-01": null,
-    "center-door-02": 0,
+    "center-door-02": null,
     "center-door-03": 0,
-    "center-door-04": 1,
+    "center-door-04": 0,
     "center-door-05": 1,
-    "center-door-06": 2,
-    "center-door-07": 2,
+    "center-door-06": 1,
+    "center-door-07": 1,
     "center-door-08": 2,
     "center-door-09": 2,
     "center-door-10": 2,

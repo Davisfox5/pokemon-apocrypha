@@ -26,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 EV = ROOT / 'gba/art/celadon-kanto/evidence'
 CITY = 'KantoCeladonCity'
-INTERIORS = ['KantoCeladonPokemonCenter', 'KantoCeladonCenterUpstairs', 'KantoCeladonMarketServices', 'KantoCeladonCondominiums',
+INTERIORS = ['KantoCeladonPokemonCenter', 'KantoCeladonCenterUpstairs', 'KantoCeladonMarketServices', 'KantoCeladonResidence',
              'KantoCeladonGameCorner', 'KantoCeladonPrizeRoom', 'KantoCeladonGardens', 'KantoCeladonCafe', 'KantoCeladonHotelLobby',
              'KantoCeladonHotelUpstairs']
 DISPLAY = ':99'

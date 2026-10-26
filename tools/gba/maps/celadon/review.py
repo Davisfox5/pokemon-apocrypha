@@ -1,10 +1,10 @@
-"""Review images for Celadon City ten years on: FireRed's Celadon versus the installed map.
+"""Review images for Celadon City ten years on: HGSS's Celadon (the plan) beside the installed map.
 
     python3 tools/gba/maps/celadon/review.py ENGINE_CHECKOUT
 
 Run check.py first (it confirms evidence/native.png is what the engine files decode to).
-Writes evidence/review/*.png: each changed area, FireRed (as FireRed draws it) beside the
-native map, at 2x with cell numbers along the edges.
+Writes evidence/review/*.png: each area, HGSS's render beside the native map at the same cells,
+at 2x with cell numbers along the edges.
 """
 from __future__ import annotations
 import sys
@@ -13,17 +13,15 @@ from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE), str(HERE.parent / 'saffron')]
-import frlg                                         # noqa: E402
 import compose as C                                 # noqa: E402
 
-EV = C.EV
+EV, SRC = C.EV, C.SRC
 REGIONS = {  # cells x0, y0, x1, y1 (exclusive)
-    'market': (3, 10, 24, 25), 'gardens': (2, 23, 22, 38), 'canal-and-bridge': (20, 16, 34, 35), 'hotel': (40, 22, 54, 32),
-    'bike-lane-east': (16, 10, 60, 18),
+    'north-row': (8, 1, 54, 19), 'market': (8, 13, 27, 37), 'game-corner-and-cafe': (22, 16, 56, 30),
+    'canal-and-bridge': (20, 26, 36, 46), 'gardens': (6, 32, 28, 48), 'south-east': (28, 26, 58, 46),
 }
 
 def labelled(img, b, scale):
-    """Cells b of img at scale, with cell numbers along the top and left edges."""
     x0, y0, x1, y1 = b
     big = img.crop((x0 * 16, y0 * 16, x1 * 16, y1 * 16)).resize(((x1 - x0) * 16 * scale, (y1 - y0) * 16 * scale),
                                                                Image.Resampling.NEAREST)
@@ -36,18 +34,19 @@ def labelled(img, b, scale):
     return big
 
 def main(engine):
-    pair = frlg.Pair(engine, C.PRIMARY, C.SECONDARY)
-    grid, _ = frlg.layout(engine, C.LAYOUT)
-    before = Image.fromarray(frlg.flat(*frlg.render(pair, grid)))
+    before = Image.open(SRC / 'hgss/hgss-render.png').convert('RGB')
     after = Image.open(EV / 'native.png').convert('RGB')
-    (EV / 'review').mkdir(exist_ok=True)
+    out = EV / 'review'
+    out.mkdir(exist_ok=True)
+    for p in out.glob('*.png'):
+        p.unlink()
     for name, b in REGIONS.items():
         w, h = (b[2] - b[0]) * 32, (b[3] - b[1]) * 32
         o = Image.new('RGB', (w * 2 + 12, h + 20), (28, 32, 38)); d = ImageDraw.Draw(o)
         o.paste(labelled(before, b, 2), (0, 20)); o.paste(labelled(after, b, 2), (w + 12, 20))
-        d.text((4, 4), f'FireRed (CeladonCity_Frlg)   cells x{b[0]}-{b[2] - 1}, y{b[1]}-{b[3] - 1}', fill='white')
-        d.text((w + 16, 4), 'Ten years on, as installed', fill='white')
-        o.save(EV / 'review' / f'{name}.png')
+        d.text((4, 4), f'HGSS (pokeheartgold T07)   cells x{b[0]}-{b[2] - 1}, y{b[1]}-{b[3] - 1}', fill='white')
+        d.text((w + 16, 4), 'Ten years on, in Gen 3, as installed', fill='white')
+        o.save(out / f'{name}.png')
     print('review images written')
 
 if __name__ == '__main__':

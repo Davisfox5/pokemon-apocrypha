@@ -238,15 +238,32 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
-## Kanto towns: FireRed's map, new buildings from Gen 3 art
+## Kanto towns: HGSS's plan, drawn in Gen 3
 
-Owner, Saffron, 2026-10-24 (third round): FireRed's Gen 3 Saffron is the base. The second
-round's HGSS plan with buildings rendered from HGSS's models was turned down as a
-regression ("made for a 1980s game", "boring"). The worked example is
-`gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+Owner, Celadon, 2026-10-26: "start with HGSS and work backward". A Kanto town takes HGSS's
+map as its plan, cell for cell in HGSS's own coordinates (its streets, lots, lawns, water and
+woods), and draws every cell in Gen 3: FireRed's own metatiles for the ground (its paving
+with its lawn edges, grass, flowers, trees, pond, railing) and FireRed's buildings on HGSS's
+lots, with the story's changes on top. The worked example is
+`gba/art/celadon-kanto/README.md` (tools in `tools/gba/maps/celadon/`). Celadon's first
+round, FireRed's map with the changes painted on, was turned down. Saffron
+(`gba/art/saffron-kanto/README.md`, FireRed's map; its HGSS round with buildings rendered from
+HGSS's models was turned down as "made for a 1980s game") stays as accepted; the rules below
+that it set still apply.
 
-- Keep every cell FireRed draws and change only what ten years and the story change, each
-  change answering the owner's brief or a DESIGN.md line.
+- Every building and prop is Gen 3 art, never a render of HGSS's 3D models. HGSS gives where
+  things stand; FireRed (or Emerald) gives what they look like.
+- Build the ground from FireRed's pieces chosen by their neighbours, not painted: paving takes
+  the edge piece for the sides where grass meets it (FireRed Celadon: 0x16E plain, 0x166 N,
+  0x176 S, 0x16D W, 0x16F E, 0x165/0x167/0x175/0x177 corners, 0x196/0x195/0x19E/0x19D inner);
+  a forest takes its tops, second rows, fill, left and right edges and trunks from its shape,
+  which FireRed's two-cell trees need on even columns and odd rows (`celadon/compose.py`).
+- Where a building sprite's cell is whole and as FireRed draws it, put FireRed's metatile in
+  the grid (both layers, its own banks, collision and behaviour); pack only the outline cells
+  and edited cells from pixels. Flattening a FireRed building into one layer mixes its
+  layers' banks and the city no longer fits 13 banks.
+- Change only what ten years and the story change, each change answering the owner's brief
+  or a DESIGN.md line.
 - A new building is real Gen 3 map art: cells of FireRed's or Emerald's own maps, as the
   game draws them, cut and put together into a building of the town's own
   (`saffron/parts.py`). No 3D model renders.
@@ -304,23 +321,21 @@ plot before building anything. Worked example: `gba/art/celadon-kanto/README.md`
 2. **Other agents' work.** Search open and closed PRs and branches in the hub and the
    engine for the town before planning (Saffron's Magnet Train deck came from Codex's
    Goldenrod).
-3. **Decode both maps.** Render the base map as the game draws it (Kanto: FireRed's
-   `_Frlg` layout; `parts.source`) with its warps, signs and objects. Decode HGSS's version
-   from pokeheartgold (`celadon/hgss_source.py`: header id and area bank from
-   `src/data/map_headers.h`, events from `zone_event/NNN_ZONE.json`). Never skip HGSS: it is
-   Game Freak's own ten-years-later revision of the plan.
-4. **Compare.** List what HGSS moved, added or removed against the base (Celadon: the pond
-   became a canal with a footbridge, the fountain plaza opened out, the gym got a paved
-   forecourt, the restaurant an awning front, no hotel). HGSS informs the plan. The build
-   still uses the base map and Gen 3 art (Kanto rules above).
+3. **Decode both maps.** Decode HGSS's version from pokeheartgold (`celadon/hgss_source.py`:
+   header id and area bank from `src/data/map_headers.h`, events from
+   `zone_event/NNN_ZONE.json`): it is the base, Game Freak's own ten-years-later revision of
+   the plan. Render the Gen 3 map as the game draws it (Kanto: FireRed's `_Frlg` layout;
+   `parts.source`) with its warps, signs and objects: it is the art the town is drawn in.
+4. **Ledger.** List HGSS's elements (streets, lots, lawns, water, woods, each building) and
+   the Gen 3 piece each becomes (Celadon's README has the table): FireRed's own metatiles for
+   the ground, FireRed's buildings on HGSS's lots, the story's changes on top.
 5. **Source art.** For each new building or prop, find the Gen 3 map it can be cut from and
-   render it (Celadon: Slateport's market stalls, Lilycove's Contest Hall roof as glass).
+   render it (Celadon: Slateport's market stalls, Cerulean's Bike Shop glass, the Bond Bridge).
 6. **Change list.** Number each change and tie it to a DESIGN.md line, a scene spec line or
    an HGSS letter. Say where every displaced door, interior and warp goes so none goes
    dead. End with what is out of this pass (dialogue, unbuilt interiors and gates).
-7. **Plot.** One image: HGSS's town area on the left with lettered zones, the base map on
-   the right with numbered zones, each borrowed change carrying its HGSS letter, paths
-   (a bike lane, a canal) as lines. Save it as the town's `evidence/plan.png`.
+7. **Plot.** One image: HGSS's town area with its zones, the story's numbered changes on
+   it, paths (a bike lane, a canal) as lines. Save it as the town's `evidence/plan.png`.
 8. **Owner's call.** Send the plot and the list. Build only after the owner approves; a
    revised plan gets a revised plot.
 

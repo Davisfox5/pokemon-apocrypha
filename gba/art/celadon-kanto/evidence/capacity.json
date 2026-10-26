@@ -3,17 +3,17 @@
   "group": "gMapGroup_Kanto",
   "size": [
     60,
-    40
+    50
   ],
   "primary": "gTileset_KantoCeladonPrimary",
   "secondary": "gTileset_KantoCeladonCity",
   "primary_tiles": 512,
-  "secondary_tiles": 151,
+  "secondary_tiles": 69,
   "secondary_tile_limit": 496,
-  "primary_metatiles": 260,
-  "secondary_metatiles": 150,
+  "primary_metatiles": 144,
+  "secondary_metatiles": 181,
   "colours": 194,
-  "door_metatile": 137,
+  "door_metatile": 103,
   "interiors": {
     "KantoCeladonMarketServices": {
       "size": [
@@ -24,7 +24,7 @@
       "metatiles": 85,
       "warps": 6
     },
-    "KantoCeladonCondominiums": {
+    "KantoCeladonResidence": {
       "size": [
         17,
         11
@@ -93,7 +93,7 @@
     "KantoCeladonPokemonCenter": 7,
     "KantoCeladonCenterUpstairs": 8,
     "KantoCeladonMarketServices": 9,
-    "KantoCeladonCondominiums": 10,
+    "KantoCeladonResidence": 10,
     "KantoCeladonGameCorner": 11,
     "KantoCeladonPrizeRoom": 12,
     "KantoCeladonGardens": 13,

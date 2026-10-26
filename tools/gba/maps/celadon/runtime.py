@@ -2,11 +2,10 @@
 
 Each phase is a fresh emulator process:
     write  new game; stand in front of the Center, both doors of the market services, the
-           condominiums, the Game Corner and its prize room, the glasshouse, the café and the
-           hotel, in the market, at the gardens' north gate and on the canal's footbridge;
-           cross the footbridge end to end; stand behind the hotel's roof and the
-           glasshouse's; bump the old restaurant's door and the house beside it (solid);
-           read the ten signs; watch the Center's door slide open; enter and leave the Center
+           hotel, the Game Corner and its prize room, the glasshouse, the café and the
+           residence, in the market, below the gardens and on the canal's footbridge; cross
+           the footbridge end to end; stand behind the glasshouse's, the hotel's and the
+           services' roofs; read the eight signs; watch the Center's door slide open; enter and leave the Center
            (both floors); enter and leave every room (the services by one door and out by the
            other, the hotel up its stairs and down again); visit Cherrygrove, Olivine and
            Saffron and come back; ordinary flash save
@@ -42,66 +41,63 @@ CITY, CENTER, UPSTAIRS, SERVICES, RESIDENTS, GAME_CORNER, PRIZE_ROOM, GARDENS, C
 SAFFRON = 54
 KANTO_GROUP, CHERRYGROVE_GROUP = 81, 80
 OLIVINE = 50
-SAVE = (CITY, 48, 13)
+SAVE = (CITY, 47, 15)
 DOOR_SHOTS = 15
 
 STEPS = [
     # In front of every building: BG1 clear over the player.
-    ('view', CITY, 48, 12, 'center-approach'), ('view', CITY, 11, 15, 'services-west-front'),
-    ('view', CITY, 15, 15, 'services-east-front'), ('view', CITY, 30, 12, 'condominiums-front'),
-    ('view', CITY, 34, 22, 'game-corner-front'), ('view', CITY, 39, 21, 'prize-room-front'),
-    ('view', CITY, 11, 31, 'glasshouse-front'), ('view', CITY, 17, 30, 'cafe-front'), ('view', CITY, 48, 30, 'hotel-front'),
-    ('view', CITY, 13, 23, 'market'), ('view', CITY, 5, 26, 'gardens-gate'), ('view', CITY, 10, 36, 'gardens-south'),
-    ('view', CITY, 26, 24, 'footbridge'), ('view', CITY, 59, 13, 'route7-edge'), ('view', CITY, 0, 23, 'route16-edge'),
-    # Over the canal on the footbridge, end to end, and back along its other row.
-    ('go', CITY, 23, 24), ('east', 7, None), ('at', CITY, 30, 24), ('go', CITY, 30, 25), ('west', 7, None), ('at', CITY, 23, 25),
-    # The canal stops the player at its rims.
-    ('go', CITY, 30, 28), ('west', 1, None), ('at', CITY, 30, 28),
+    ('view', CITY, 47, 14, 'center-approach'), ('view', CITY, 16, 14, 'services-west-front'),
+    ('view', CITY, 20, 14, 'services-east-front'), ('view', CITY, 31, 14, 'hotel-front'),
+    ('view', CITY, 34, 26, 'game-corner-front'), ('view', CITY, 39, 25, 'prize-room-front'),
+    ('view', CITY, 17, 42, 'glasshouse-front'), ('view', CITY, 27, 26, 'cafe-front'), ('view', CITY, 40, 38, 'residence-front'),
+    ('view', CITY, 17, 27, 'market'), ('view', CITY, 18, 46, 'gardens-south'), ('view', CITY, 27, 34, 'footbridge'),
+    ('view', CITY, 59, 16, 'route7-edge'), ('view', CITY, 0, 34, 'route16-edge'),
+    # Over the canal on the footbridge, end to end, and back along another row.
+    ('go', CITY, 24, 33), ('east', 7, None), ('at', CITY, 31, 33), ('go', CITY, 31, 35), ('west', 7, None), ('at', CITY, 24, 35),
+    # The canal stops the player at its rim.
+    ('go', CITY, 31, 38), ('west', 1, None), ('at', CITY, 31, 38),
     # Walk behind: the top layer covers the player's cell, what is below stays solid.
-    ('go', CITY, 47, 24), ('shot', 'behind-hotel-roof'), ('south', 1, None), ('at', CITY, 47, 24),
-    ('go', CITY, 12, 26), ('shot', 'behind-glasshouse-roof'), ('south', 1, None), ('at', CITY, 12, 26),
-    # Solid: FireRed's restaurant door and the house beside it.
-    ('go', CITY, 37, 30), ('north', 1, 'old-restaurant-solid'), ('at', CITY, 37, 30),
-    ('go', CITY, 41, 30), ('north', 1, None), ('at', CITY, 41, 30),
-    # The ten signs.
-    ('sign', CITY, 22, 18, 'sign-city'), ('sign', CITY, 18, 14, 'sign-services'), ('sign', CITY, 26, 11, 'sign-condominiums'),
-    ('sign', CITY, 33, 16, 'sign-tips-x-accuracy'), ('sign', CITY, 33, 23, 'sign-game-corner'), ('sign', CITY, 38, 23, 'sign-prize-exchange'),
-    ('sign', CITY, 45, 23, 'sign-tips-guard-spec'), ('sign', CITY, 16, 31, 'sign-gardens'), ('sign', CITY, 45, 30, 'sign-hotel'),
-    ('sign', CITY, 19, 30, 'sign-cafe'),
+    ('go', CITY, 17, 37), ('shot', 'behind-glasshouse-roof'), ('south', 1, None), ('at', CITY, 17, 37),
+    ('go', CITY, 30, 6), ('shot', 'behind-hotel-roof'), ('south', 1, None), ('at', CITY, 30, 6),
+    ('go', CITY, 18, 4), ('shot', 'behind-services-roof'), ('south', 1, None), ('at', CITY, 18, 4),
+    # The signs.
+    ('sign', CITY, 17, 22, 'sign-city'), ('sign', CITY, 18, 14, 'sign-services'), ('sign', CITY, 35, 13, 'sign-hotel'),
+    ('sign', CITY, 35, 28, 'sign-game-corner'), ('sign', CITY, 38, 28, 'sign-prize-exchange'),
+    ('sign', CITY, 45, 28, 'sign-tips-guard-spec'), ('sign', CITY, 21, 44, 'sign-gardens'), ('sign', CITY, 29, 26, 'sign-cafe'),
     # The Center's door slides open; in, upstairs and back, out.
-    ('door', CITY, 48, 12, 'center-door'), ('wait', 400), ('map', CENTER, 'center-entry'), ('shot', 'center-interior'),
+    ('door', CITY, 47, 13, 'center-door'), ('wait', 400), ('map', CENTER, 'center-entry'), ('shot', 'center-interior'),
     ('go', CENTER, 2, 6), ('west', 1, None), ('wait', 400), ('map', UPSTAIRS, 'center-upstairs'), ('shot', 'center-upstairs'),
     ('west', 1, None), ('wait', 400), ('map', CENTER, 'center-stair-return'),
-    ('go', CENTER, 7, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 48, 12), ('shot', 'center-exit'),
+    ('go', CENTER, 7, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 47, 14), ('shot', 'center-exit'),
     # The market services: in by the west door, out by the east mat.
-    ('go', CITY, 11, 15), ('north', 1, None), ('wait', 400), ('at', SERVICES, 2, 14), ('shot', 'room-services'),
-    ('go', SERVICES, 10, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 15, 15), ('shot', 'services-out-east'),
-    ('go', CITY, 15, 15), ('north', 1, None), ('wait', 400), ('at', SERVICES, 10, 14),
-    ('go', SERVICES, 2, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 11, 15),
-    # The condominiums, the Game Corner, its prize room, the glasshouse and the café: in and out.
-    ('go', CITY, 30, 12), ('north', 1, None), ('wait', 400), ('at', RESIDENTS, 4, 9), ('shot', 'room-residents'),
-    ('go', RESIDENTS, 4, 8), ('south', 2, None), ('wait', 400), ('at', CITY, 30, 12),
-    ('go', CITY, 34, 22), ('north', 1, None), ('wait', 400), ('at', GAME_CORNER, 9, 13), ('shot', 'room-game-corner'),
-    ('go', GAME_CORNER, 9, 12), ('south', 2, None), ('wait', 400), ('at', CITY, 34, 22),
-    ('go', CITY, 39, 21), ('north', 1, None), ('wait', 400), ('at', PRIZE_ROOM, 4, 8), ('shot', 'room-prize-room'),
-    ('go', PRIZE_ROOM, 4, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 39, 21),
-    ('go', CITY, 11, 31), ('north', 1, None), ('wait', 400), ('at', GARDENS, 6, 18), ('shot', 'room-gardens'),
-    ('go', GARDENS, 6, 17), ('south', 2, None), ('wait', 400), ('at', CITY, 11, 31), ('shot', 'glasshouse-exit'),
-    ('go', CITY, 17, 30), ('north', 1, None), ('wait', 400), ('at', CAFE, 6, 9), ('shot', 'room-cafe'),
-    ('go', CAFE, 6, 8), ('south', 2, None), ('wait', 400), ('at', CITY, 17, 30), ('shot', 'cafe-exit'),
+    ('go', CITY, 16, 14), ('north', 1, None), ('wait', 400), ('at', SERVICES, 2, 14), ('shot', 'room-services'),
+    ('go', SERVICES, 10, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 20, 14), ('shot', 'services-out-east'),
+    ('go', CITY, 20, 14), ('north', 1, None), ('wait', 400), ('at', SERVICES, 10, 14),
+    ('go', SERVICES, 2, 13), ('south', 2, None), ('wait', 400), ('at', CITY, 16, 14),
+    # The residence, the Game Corner, its prize room, the glasshouse and the café: in and out.
+    ('go', CITY, 40, 38), ('north', 1, None), ('wait', 400), ('at', RESIDENTS, 4, 9), ('shot', 'room-residents'),
+    ('go', RESIDENTS, 4, 8), ('south', 2, None), ('wait', 400), ('at', CITY, 40, 38),
+    ('go', CITY, 34, 26), ('north', 1, None), ('wait', 400), ('at', GAME_CORNER, 9, 13), ('shot', 'room-game-corner'),
+    ('go', GAME_CORNER, 9, 12), ('south', 2, None), ('wait', 400), ('at', CITY, 34, 26),
+    ('go', CITY, 39, 25), ('north', 1, None), ('wait', 400), ('at', PRIZE_ROOM, 4, 8), ('shot', 'room-prize-room'),
+    ('go', PRIZE_ROOM, 4, 7), ('south', 2, None), ('wait', 400), ('at', CITY, 39, 25),
+    ('go', CITY, 17, 42), ('north', 1, None), ('wait', 400), ('at', GARDENS, 6, 18), ('shot', 'room-gardens'),
+    ('go', GARDENS, 6, 17), ('south', 2, None), ('wait', 400), ('at', CITY, 17, 42), ('shot', 'glasshouse-exit'),
+    ('go', CITY, 27, 26), ('north', 1, None), ('wait', 400), ('at', CAFE, 6, 9), ('shot', 'room-cafe'),
+    ('go', CAFE, 6, 8), ('south', 2, None), ('wait', 400), ('at', CITY, 27, 26), ('shot', 'cafe-exit'),
     # The hotel: in, up the stairs, down again, out.
-    ('go', CITY, 48, 30), ('north', 1, None), ('wait', 400), ('at', HOTEL, 12, 18), ('shot', 'room-hotel-lobby'),
+    ('go', CITY, 31, 14), ('north', 1, None), ('wait', 400), ('at', HOTEL, 12, 18), ('shot', 'room-hotel-lobby'),
     # (FireRed's side stairs warp when the player stands on them and walks east)
     ('go', HOTEL, 4, 2), ('east', 1, None), ('wait', 400), ('map', HOTEL_UP, 'hotel-upstairs'), ('shot', 'room-hotel-upstairs'),
     ('go', HOTEL_UP, 4, 2), ('east', 1, None), ('wait', 400), ('map', HOTEL, 'hotel-stair-return'),
-    ('go', HOTEL, 12, 17), ('south', 2, None), ('wait', 400), ('at', CITY, 48, 30), ('shot', 'hotel-exit'),
+    ('go', HOTEL, 12, 17), ('south', 2, None), ('wait', 400), ('at', CITY, 31, 14), ('shot', 'hotel-exit'),
     # Other towns through the ordinary renderer, then back.
     ('view', 0, 50, 17, 'regression-cherrygrove'), ('view', OLIVINE, 16, 35, 'regression-olivine'),
-    ('view', SAFFRON, 24, 40, 'regression-saffron'), ('view', CITY, 48, 13, 'return-to-celadon'),
+    ('view', SAFFRON, 24, 40, 'regression-saffron'), ('view', CITY, 47, 15, 'return-to-celadon'),
 ]
-WALK_BEHIND = {'behind-hotel-roof': (47, 24), 'behind-glasshouse-roof': (12, 26)}
-IN_FRONT = ('center-approach', 'services-west-front', 'services-east-front', 'condominiums-front', 'game-corner-front',
-            'prize-room-front', 'glasshouse-front', 'cafe-front', 'hotel-front', 'market', 'gardens-gate', 'footbridge',
+WALK_BEHIND = {'behind-glasshouse-roof': (17, 37), 'behind-hotel-roof': (30, 6), 'behind-services-roof': (18, 4)}
+IN_FRONT = ('center-approach', 'services-west-front', 'services-east-front', 'hotel-front', 'game-corner-front',
+            'prize-room-front', 'glasshouse-front', 'cafe-front', 'residence-front', 'market', 'footbridge',
             'center-exit', 'services-out-east', 'glasshouse-exit', 'cafe-exit', 'hotel-exit')
 ROOM_TAGS = {'room-services': 'services', 'room-residents': 'residents', 'room-game-corner': 'game_corner',
              'room-prize-room': 'prize_room', 'room-gardens': 'gardens', 'room-cafe': 'cafe',
@@ -122,9 +118,9 @@ def body():
             out.append(f'at({s[1]},{s[2]},{s[3]},"at-{s[1]}-{s[2]}-{s[3]}");')
         elif k == 'sign':   # face the sign from below, then wait for the whole text to print
             out.append(f'go({s[1]},{s[2]},{s[3]}+1);tap(UP);frames(1,A);frames(360,0);need(locked(),"{s[4]}");shot("{s[4]}");close_dialog();')
-        elif k == 'door':   # walk up to the door (facing it), press into it, capture every two frames
-            out.append(f'go({s[1]},{s[2]},{s[3]}+1);step(UP,1);frames(2,UP);' +
-                       ''.join(f'frames(2,0);shot("{s[4]}-{i:02}");' for i in range(DOOR_SHOTS)))
+        elif k == 'door':   # stand below the door, hold up into it, capturing every two frames from the press
+            out.append(f'go({s[1]},{s[2]},{s[3]}+1);' +
+                       ''.join(f'frames(2,UP);shot("{s[4]}-{i:02}");' for i in range(DOOR_SHOTS)))
         elif k == 'wait':
             out.append(f'frames({s[1]},0);')
         elif k == 'map':

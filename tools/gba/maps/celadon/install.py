@@ -2,8 +2,8 @@
 
     python3 tools/gba/maps/celadon/install.py ENGINE_CHECKOUT
 
-Reads pack.py's and interiors.py's output. KantoCeladonCity is a 60x40 map (FireRed's
-CeladonCity_Frlg, cell for cell, with the new parts) on its own Emerald-format pair:
+Reads pack.py's and interiors.py's output. KantoCeladonCity is a 60x50 map (HGSS's Celadon
+rebuilt in FireRed's metatiles and buildings, compose.py) on its own Emerald-format pair:
 gTileset_KantoCeladonPrimary (FireRed's unchanged cells, repacked) and gTileset_KantoCeladonCity
 (the art cells). It joins gMapGroup_Kanto beside Saffron; FireRed's own Celadon maps stay as they
 are. New with it:
@@ -11,7 +11,7 @@ are. New with it:
     KantoCeladonPokemonCenter, KantoCeladonCenterUpstairs   cloned from Cherrygrove's, the
                          Center's door playing FireRed's sliding door
     KantoCeladonMarketServices   the market's services (FireRed's Dept Store 1F)
-    KantoCeladonCondominiums     the condominiums' lobby (FireRed's Pokemon Hotel room)
+    KantoCeladonResidence        a residence (FireRed's Pokemon Hotel room)
     KantoCeladonGameCorner, KantoCeladonPrizeRoom
     KantoCeladonGardens          the glasshouse (FireRed's Celadon Gym)
     KantoCeladonCafe             FireRed's Restaurant
@@ -32,44 +32,40 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/celadon-kanto'
 SRC, EV = ART / 'source', ART / 'evidence'
-W, H = 60, 40
 NAME, GROUP = 'KantoCeladonCity', 'gMapGroup_Kanto'
 PFOLDER, PSYM = 'kanto_celadon', 'KantoCeladonPrimary'
 FOLDER, SYM = 'kanto_celadon_city', 'KantoCeladonCity'
 MAPSEC, MUSIC = 'MAPSEC_CELADON_CITY', 'MUS_RG_CELADON'
 CENTER = [('CherrygrovePokemonCenter', 'KantoCeladonPokemonCenter'), ('CherrygroveCenterUpstairs', 'KantoCeladonCenterUpstairs')]
 # interiors.py room: (map name, music)
-ROOMS = {'services': ('KantoCeladonMarketServices', MUSIC), 'residents': ('KantoCeladonCondominiums', MUSIC),
+ROOMS = {'services': ('KantoCeladonMarketServices', MUSIC), 'residents': ('KantoCeladonResidence', MUSIC),
          'game_corner': ('KantoCeladonGameCorner', 'MUS_RG_GAME_CORNER'), 'prize_room': ('KantoCeladonPrizeRoom', 'MUS_RG_GAME_CORNER'),
          'gardens': ('KantoCeladonGardens', MUSIC), 'cafe': ('KantoCeladonCafe', MUSIC),
          'hotel_1f': ('KantoCeladonHotelLobby', MUSIC), 'hotel_2f': ('KantoCeladonHotelUpstairs', MUSIC)}
-NOTES = {'services': "the market's services (FireRed's Dept Store 1F)", 'residents': "the condominiums' lobby (FireRed's Pokemon Hotel room)",
+NOTES = {'services': "the market's services (FireRed's Dept Store 1F)", 'residents': "a residence (FireRed's Pokemon Hotel room)",
          'game_corner': "the Game Corner (FireRed's)", 'prize_room': "the Game Corner's prize room (FireRed's)",
          'gardens': "the Botanical Gardens' glasshouse (FireRed's Celadon Gym)", 'cafe': "the café (FireRed's Restaurant)",
          'hotel_1f': "the Pokemon Hotel's lobby (FireRed's Condominiums 1F)", 'hotel_2f': "the Pokemon Hotel's upper floor (FireRed's Condominiums 2F)"}
 # The city's warps, in order: (compose.DOORS key, destination room ('center' for the Center))
-WARPS = [('center', 'center'), ('services_w', 'services'), ('services_e', 'services'), ('condominiums', 'residents'),
+WARPS = [('center', 'center'), ('services_w', 'services'), ('services_e', 'services'), ('residence', 'residents'),
          ('game_corner', 'game_corner'), ('prize_room', 'prize_room'), ('gardens', 'gardens'), ('cafe', 'cafe'), ('hotel', 'hotel_1f')]
 SIGNS = [
-    ('CitySign', (22, 18), 'CELADON CITY\\nThe City of Rainbow Dreams.\\pRebuilt by its people.'),
+    ('CitySign', (17, 22), 'CELADON CITY\\nThe City of Rainbow Dreams.\\pRebuilt by its people.'),
     ('ServicesSign', (18, 14), 'CELADON MARKET SERVICES\\pSALON, MOVE TUTOR and\\nEV TRAINING inside.'),
-    ('CondominiumsSign', (26, 11), 'CELADON CONDOMINIUMS'),
-    ('TrainerTipsXAccuracy', (33, 16), 'TRAINER TIPS\\pX ACCURACY boosts the accuracy of\\ntechniques.\\p'
-                                       'DIRE HIT jacks up the likelihood\\nof critical hits.\\p'
-                                       'Find them at the CELADON MARKET!'),
-    ('GameCornerSign', (33, 23), 'CELADON GAME CORNER\\nA fun place for everyone!'),
-    ('PrizeExchangeSign', (38, 23), 'COINS exchanged for prizes!\\nPRIZE EXCHANGE'),
-    ('TrainerTipsGuardSpec', (45, 23), 'TRAINER TIPS\\pGUARD SPEC. protects POKéMON\\nfrom status-reduction moves during\\l'
+    ('HotelSign', (35, 13), 'POKéMON HOTEL\\nRooms for travelers from every region.'),
+    ('GameCornerSign', (35, 28), 'CELADON GAME CORNER\\nA fun place for everyone!'),
+    ('PrizeExchangeSign', (38, 28), 'COINS exchanged for prizes!\\nPRIZE EXCHANGE'),
+    ('TrainerTipsGuardSpec', (45, 28), 'TRAINER TIPS\\pGUARD SPEC. protects POKéMON\\nfrom status-reduction moves during\\l'
                                        'battle.\\pFind it at the CELADON MARKET!'),
-    ('GardensSign', (16, 31), 'CELADON BOTANICAL GARDENS\\nOpen to everyone. Mind the BELLOSSOM.'),
-    ('HotelSign', (45, 30), 'POKéMON HOTEL\\nRooms for travelers from every region.'),
-    ('CafeSign', (19, 30), 'CELADON CAFé\\nFresh from the market every morning.'),
+    ('GardensSign', (21, 44), 'CELADON BOTANICAL GARDENS\\nOpen to everyone. Mind the BELLOSSOM.'),
+    ('CafeSign', (29, 26), 'CELADON CAFé\\nFresh from the market every morning.'),
 ]
 DOOR_PNG = 'graphics/door_anims/kanto_celadon_sliding.png'
 DOOR_ANCHOR = 'static const struct DoorGraphics sDoorAnimGraphicsTable[] =\n{\n'
 
 sys.path.insert(0, str(HERE))
-import compose as C                             # noqa: E402  (the doors)
+import compose as C                             # noqa: E402  (the doors, the map's size)
+W, H = C.W, C.H
 import interiors as I                           # noqa: E402  (each room's warps)
 
 def read(p): return json.loads(p.read_text())
@@ -127,14 +123,15 @@ def register(g, sym, kind, folder, note):
         assert f'_{sym}[]' not in s and f'gTileset_{sym} ' not in s, (path, sym)
         p.write_text(s + text)
 
-def door(g, grid, meta, pal):
-    """The Center's door metatile (a FireRed cell, in the primary) plays FireRed's sliding door:
-    its frames (sliding_single.png) indexed tile by tile into the door tiles' banks, every
-    colour exact (pack.py fitted the frames' colours into those banks)."""
+def door(g, grid, prim_meta, sec_meta, pal):
+    """The Center's door metatile plays FireRed's sliding door: its frames (sliding_single.png)
+    indexed tile by tile into the door tiles' banks, every colour exact (pack.py fitted the
+    frames' colours into those banks). The Center is a part, so its door is in the secondary."""
     x, y = C.DOORS['center']
     mid = int(grid[y, x]) & 0x3FF
-    assert mid < 512, ('the Center door is not a primary metatile', mid)
-    banks = [int(e) >> 12 for e in meta[mid][:4]]
+    sym = PSYM if mid < 512 else SYM
+    row = prim_meta[mid] if mid < 512 else sec_meta[mid - 512]
+    banks = [int(e) >> 12 for e in row[:4]]
     src = Image.open(g / 'graphics/door_anims/sliding_single.png')
     ix, rgb = np.array(src), np.array(src.getpalette()[:48]).reshape(16, 3) >> 3
     out = np.zeros_like(ix)
@@ -149,10 +146,10 @@ def door(g, grid, meta, pal):
     im.save(g / DOOR_PNG, bits=4)
     p = g / 'src/field_door.c'; s = p.read_text()
     assert DOOR_ANCHOR in s and 'sKantoCeladonDoor_Sliding' not in s
-    block = (f"// Kanto Celadon doors: FireRed's sliding door, on the Center\nextern const struct Tileset gTileset_{PSYM};\n"
+    block = (f"// Kanto Celadon doors: FireRed's sliding door, on the Center\nextern const struct Tileset gTileset_{sym};\n"
              f'static const u8 sKantoCeladonDoor_Sliding[] = INCGFX_U8("{DOOR_PNG}", ".4bpp");\n'
              f'static const u8 sKantoCeladonDoorPal_Sliding[] = {{{", ".join(map(str, banks + banks))}}};\n// End Kanto Celadon doors\n')
-    s = s.replace(DOOR_ANCHOR, block + DOOR_ANCHOR + f'    {{.metatileNum={mid}, .tileset=&gTileset_{PSYM}, .sound=DOOR_SOUND_SLIDING, '
+    s = s.replace(DOOR_ANCHOR, block + DOOR_ANCHOR + f'    {{.metatileNum={mid}, .tileset=&gTileset_{sym}, .sound=DOOR_SOUND_SLIDING, '
                   f'.size=DOOR_SIZE_1x1, .tiles=sKantoCeladonDoor_Sliding, .palettes=sKantoCeladonDoorPal_Sliding}},\n', 1)
     p.write_text(s)
     return mid
@@ -208,7 +205,7 @@ def city(g, layouts):
                    f'\n{NAME}_{label}_Text:\n    .string "{text}$"\n')
     write(g / f'data/maps/{NAME}/map.json', porymap_order(m))
     (g / f'data/maps/{NAME}/scripts.inc').write_text(script)
-    return door(g, grid, z['prim_meta'], pal)
+    return door(g, grid, z['prim_meta'], z['sec_meta'], pal)
 
 def center(g):
     renames = [('CherrygrovePokemonCenter', 'KantoCeladonPokemonCenter'), ('CherrygroveCenterUpstairs', 'KantoCeladonCenterUpstairs'),
