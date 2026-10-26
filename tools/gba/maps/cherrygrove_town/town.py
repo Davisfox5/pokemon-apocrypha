@@ -23,6 +23,9 @@ def compose(engine):
     town = B.Town(engine)
     cv = E.Canvas(town)
     E.north_edge(cv, engine)
+    E.islands(cv, engine)
+    E.pond(cv)
+    E.beach_edges(cv)
     E.forests(cv)
     E.draw_trees(cv, E.tree_sprites(town))
     return town, cv

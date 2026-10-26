@@ -1,5 +1,5 @@
 {
- "jobs": 1186,
+ "jobs": 1200,
  "seam_cells": {
   "route31": 96,
   "route30": 160
@@ -7,14 +7,14 @@
  "seam_metatiles": 61,
  "maps": {
   "route30": {
-   "jobs": 834,
+   "jobs": 848,
    "primary_reused": 68,
    "secondary_tiles": 512,
    "primary_slots": {
     "free": 440,
-    "used": 196
+    "used": 210
    },
-   "secondary_metatiles": 467,
+   "secondary_metatiles": 479,
    "mirror_ids": [
     596,
     597,
@@ -45,7 +45,19 @@
     622,
     623,
     624,
-    625
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637
    ],
    "banks": {
     "1": 15,

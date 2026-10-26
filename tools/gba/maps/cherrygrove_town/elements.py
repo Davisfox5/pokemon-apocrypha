@@ -27,6 +27,7 @@ class Canvas:
         self.changed = set()                         # (x, r) cells drawn anew
         self.kit = {}                                # (x, r) -> (metatile, (collision, elevation)): placed by id
         self.trees = []                              # (x, root row, kind)
+        self.pals = {}                               # bank -> colours, for banks the town's art fills anew
         self.notes = []
     def sl(self, x, r):
         return np.s_[(r - R0) * 16:(r - R0 + 1) * 16, x * 16:(x + 1) * 16]
@@ -128,6 +129,171 @@ def north_edge(cv, engine):
         cv.changed.discard((x, r))
     cv.trees += [(x, y, 'g') for x, y in Rf.CG_ROOTS]
     cv.trees += [(x + Rf.CG_OFFSET, y - Rf.H, 'g') for x, y in Rf.BAND_ROOTS]   # the band's, for their crowns' reach
+
+# --------------------------------------------------------------------------- the sea islands
+SEA_ROCKS = (0x097, 0x0AB)                           # the grey boulders (and the buoy line), kept as they are
+ISLAND_ROWS = range(10, 30)
+
+def island_cells(town):
+    """Each island's footprint (its blocked cells in the bay that are not a boulder), split as HGSS's islands
+    are: the upper plateau over the island's first two rows as far as its first row reaches, the lower ledge
+    on the rest (south and east)."""
+    foot = np.zeros((H, W), bool)
+    for r in ISLAND_ROWS:
+        for x in range(20):                          # west of the pier and its boats
+            v = int(town.words[r, x])
+            foot[r, x] = (v >> 10) & 3 != 0 and v & 1023 not in SEA_ROCKS and town.attr(v & 1023) & 0xFF != B.WATER_MB
+    lab, n = label(foot)
+    out = []
+    for i in range(1, n + 1):
+        ys, xs = np.nonzero(lab == i)
+        top = ys.min(); reach = xs[ys == top].max()
+        cells = list(zip(xs.tolist(), ys.tolist()))
+        out.append(({c for c in cells if c[1] <= top + 1 and c[0] <= reach}, set(cells)))
+    return out
+
+def islands(cv, engine):
+    """The bay's islands in Johto rock (rock.py's terraces in the HGSS ramp, as the cliff): two levels, the
+    sea under every rim (its animated tiles), the boulders and the buoy line kept."""
+    town = cv.town
+    up = set(); every = set()
+    for u, a in island_cells(town):
+        up |= u; every |= a
+    rows = ISLAND_ROWS
+    def cell(x, r):
+        if (x, r) in every:
+            return dict(lab='R', floor='water', ground=float(FLOOR), peak=float(FLOOR + (2 if (x, r) in up else 1)))
+        return dict(lab='.', floor='water', ground=float(FLOOR), peak=float(FLOOR))
+    cells = [[cell(x, r) for x in range(W)] for r in rows]
+    d, isrock = Rk.terraces(cells, FLOOR)
+    water = np.zeros((16, 16, 3), np.uint8); water[:] = SENTINEL
+    region = np.s_[(rows.start - R0) * 16:(rows.stop - R0) * 16]
+    pieces = Rk.frlg_pieces(engine)
+    ground, over_, _ = Rk.rock_frlg(cells, d, isrock, cv.ground[region].copy(), pieces, dict(water=water))
+    a = over_[..., 3] > 0
+    ground[a] = over_[a, :3]
+    # The plateau's lower corner over the sea on one side and the ledge below: rock.py takes the over-rock
+    # piece, whose lip runs past the ledge's sea rim. Clip that quadrant to the ledge's own rim line.
+    for x, r in up:
+        for dx, q, side in ((-1, 0, 'W'), (1, 8, 'E')):
+            if (x + dx, r) not in every and (x, r + 1) in every and (x, r + 1) not in up:
+                rim = pieces['nine'][('M', side)][8:16, q:q + 8] >= 0
+                y0 = (r - rows.start) * 16 + 8
+                sub = ground[y0:y0 + 8, x * 16 + q:x * 16 + q + 8]
+                sub[~rim] = SENTINEL
+    cv.ground[region] = ground
+    cv.changed |= every
+    cv.notes.append(f'{len(every)} island cells, {len(up)} on the upper plateau')
+
+# --------------------------------------------------------------------------- the beach's grass edges
+WEDGE = (222, 206, 148)                              # a sand tone left in 8x8 wedges on the grass side of the edge
+RIM = G.PROFILES[(G.GRASS, G.SAND)][0][0]            # the lawn's pale rim against the beach
+
+def beach_edges(cv):
+    """The beach's diagonal edges against the lawn: old tile reuse filled the wedge between the beach's 8 px
+    steps and the diagonal with a darker sand (the only pixels of WEDGE in town). The wedges are beach again,
+    and the edge takes the ground painter's beach/lawn rim (ground.py PROFILES) along the diagonal."""
+    town = cv.town
+    m = (town.img == WEDGE).all(-1)
+    tex = G.textures()
+    sand_tones = {tuple(c) for c in G.PROFILES[(G.GRASS, G.SAND)][1]} | {tuple(c) for c in tex[G.SAND].reshape(-1, 3)}
+    lawn_tones = {tuple(c) for c in tex[G.GRASS].reshape(-1, 3)} | {RIM}
+    grass_side, sand_side = G.PROFILES[(G.GRASS, G.SAND)]
+    cells = sorted({(int(x) // 16, int(y) // 16) for y, x in zip(*np.nonzero(m))})
+    for x, r in cells:
+        y0, x0 = max(0, r * 16 - 8), max(0, x * 16 - 8)
+        img = town.img[y0:(r + 1) * 16 + 8, x0:(x + 1) * 16 + 8]
+        wedge = m[y0:(r + 1) * 16 + 8, x0:(x + 1) * 16 + 8]
+        sand = wedge | np.array([[tuple(p) in sand_tones for p in row] for row in img])
+        grass = ~wedge & np.array([[tuple(p) in lawn_tones for p in row] for row in img])
+        to_grass, to_sand = G._chamfer(grass), G._chamfer(sand)
+        yy, xx = np.mgrid[y0:y0 + img.shape[0], x0:x0 + img.shape[1]]
+        px = img.copy()
+        px[wedge] = tex[G.SAND][yy[wedge] % 32, xx[wedge] % 32]
+        old_rim = sand & ~wedge & (to_grass > len(sand_side)) & np.isin(
+            img.view([('r', 'u1'), ('g', 'u1'), ('b', 'u1')])[..., 0], np.array([tuple(c) for c in sand_side], dtype=[('r', 'u1'), ('g', 'u1'), ('b', 'u1')]))
+        px[old_rim] = tex[G.SAND][yy[old_rim] % 32, xx[old_rim] % 32]   # the rim the old steps left inside the beach
+        for i, c in enumerate(sand_side):
+            px[sand & (to_grass == i + 1)] = c
+        rim = grass & (to_sand == 1)
+        px[rim] = grass_side[0]
+        stale = grass & (to_sand > 1) & (img == RIM).all(-1)   # a rim pixel the old steps left inland
+        px[stale] = tex[G.GRASS][yy[stale] % 32, xx[stale] % 32]
+        oy, ox = r * 16 - y0, x * 16 - x0
+        cv.put_ground(x, r, px[oy:oy + 16, ox:ox + 16]); cv.changed.add((x, r))
+    cv.notes.append(f'beach edges: {len(cells)} cells, the sand wedges beach again')
+
+# --------------------------------------------------------------------------- the pond
+POND_SEED = 29
+POND_BANK = 12                                       # the town's free secondary palette: the pond's tones
+
+def pond(cv):
+    """The pond as Route 30's ponds are (Route 43's pond(): Route 30's HGSS freshwater texture, a rough mud
+    and grass bank, the shore about two pixels inside the water cells so the Surf boundary stays the cell
+    edge). The old stone rim is lawn again first. The forest's lawn row above (placed by id) and the Center
+    stay as they are; the bank forms below that row as if land stood there."""
+    import assemble as As
+    from scipy.ndimage import distance_transform_edt, gaussian_filter
+    town = cv.town
+    wet = np.zeros((H, W), bool)
+    for r in range(0, 10):
+        for x in range(60, 72):
+            wet[r, x] = town.attr(int(town.words[r, x]) & 1023) & 0xFF == B.WATER_MB
+    rs, xs = np.nonzero(wet)
+    rows, cols = range(rs.min(), rs.max() + 2), range(xs.min() - 1, xs.max() + 2)
+    win = np.s_[(rows.start - R0) * 16:(rows.stop - R0) * 16, cols.start * 16:cols.stop * 16]
+    water = np.repeat(np.repeat(wet[rows.start - 1:rows.stop, cols.start:cols.stop], 16, 0), 16, 1)   # a land row above
+    rng = np.random.default_rng(POND_SEED)
+    h, w = water.shape
+    soft = gaussian_filter(water.astype(float), 5, mode='nearest') > 0.5
+    d = distance_transform_edt(soft) - distance_transform_edt(~soft)
+    shore = d - 2 + 2.6 * As.smooth_noise(h, w, 14, rng) + 1.2 * As.smooth_noise(h, w, 6, rng) + 0.5 * As.smooth_noise(h, w, 3, rng)
+    tuft = As.smooth_noise(h, w, 3, rng) + 0.5 * rng.uniform(-1, 1, (h, w))
+    broken = As.smooth_noise(h, w, 5, rng)
+    tex = np.concatenate([np.concatenate([As.rgba(As.SHARED / f'pond/pond-15-{r * 2 + c}.png')[..., :3] for c in (0, 1)], 1)
+                          for r in (0, 1)], 0)
+    ys, xs_ = np.mgrid[0:h, 0:w]
+    yy, xx = ys + (rows.start - 1) * 16, xs_ + cols.start * 16                   # town pixels
+    lawn = G.textures()[G.GRASS][yy % 32, xx % 32]
+    img = town.img[(rows.start - 1) * 16:rows.stop * 16, cols.start * 16:cols.stop * 16]
+    art = np.where(((distance_transform_edt(~water) <= 13) | water)[..., None], lawn, img).astype(np.uint8)   # the rim, lawn again
+    def put(m, col):
+        art[m] = col
+    deep = tex[ys % 32, xs_ % 32]
+    near = d > -6
+    put(near & (shore >= 4.5), deep[near & (shore >= 4.5)])
+    put(near & (shore >= 3.2) & (shore < 4.5) & (broken > -0.35), As.SHALLOW)
+    m = near & (shore >= 3.2) & (shore < 4.5) & (broken <= -0.35); art[m] = deep[m]
+    put(near & (shore >= 2.2) & (shore < 3.2), As.BANK)
+    mud = near & (shore >= 0.3) & (shore < 2.2)
+    put(mud, As.MUD)
+    put(mud & (tuft > 0.75), As.GRASS_EDGE)
+    put(mud & (tuft < -0.95), As.BANK)
+    put(near & (shore >= -0.6) & (shore < 0.3), As.GRASS_DARK)
+    centre = water & (ys % 16 == 8) & (xs_ % 16 == 8)
+    assert (shore[centre] >= 3.2).all(), 'a water cell centre is not open water'
+    # A cell holding other art away from the pond (the Center's edge) keeps its pixels but the old rim's,
+    # which take the plain lawn tone, so the cell's own bank still fits it.
+    tones = {tuple(c) for c in G.textures()[G.GRASS].reshape(-1, 3)} | {As.GRASS_EDGE, As.GRASS_DARK}
+    is_lawn = np.array([[tuple(p) in tones for p in row] for row in img])
+    other = ~is_lawn & (distance_transform_edt(~water) > 13) & ~water
+    art, other, lawn = art[16:], other[16:], lawn[16:]   # drop the land row above
+    cols5 = set()
+    for r in rows:
+        for x in cols:
+            sl = np.s_[(r - rows.start) * 16:(r - rows.start + 1) * 16, (x - cols.start) * 16:(x - cols.start + 1) * 16]
+            a = art[sl]
+            if other[sl].any():                      # the old rim only, in the plain lawn tone
+                a = town.img[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16].copy()
+                rim = ~np.array([[tuple(p) in tones for p in row] for row in a]) & ~other[sl]
+                a[rim] = As.GRASS_EDGE
+            else:
+                cols5 |= {tuple(int(v) >> 3 for v in c) for c in a.reshape(-1, 3)}
+            if (a != town.img[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]).any():
+                cv.put_ground(x, r, a); cv.changed.add((x, r))
+    assert len(cols5) <= 15, ('the pond needs more than one bank', len(cols5))
+    cv.pals[POND_BANK] = sorted(tuple(v << 3 for v in c) for c in cols5)
+    cv.notes.append(f'pond: water x{cols.start + 1}-{cols.stop - 2} rows {rows.start}-{rows.stop - 2}, {len(cols5)} tones in bank {POND_BANK}')
 
 # --------------------------------------------------------------------------- the forests
 def woods_mask(town):

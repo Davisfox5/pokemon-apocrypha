@@ -1,8 +1,8 @@
 {
  "budget": {
-  "copy": 63,
-  "both_primaries": 19,
-  "secondary": 37
+  "copy": 80,
+  "both_primaries": 35,
+  "secondary": 141
  },
  "primary_ids": [
   2,
@@ -15,40 +15,40 @@
   33,
   34,
   37,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
   47,
+  57,
+  60,
   61,
   62,
   65,
-  93,
-  94,
-  95,
-  117,
-  132,
-  133,
-  134,
-  135,
-  311,
-  376
+  74,
+  77
  ],
  "mirror_ids": [
   596,
-  625
+  637
  ],
  "secondary_ids": [
   596,
-  661
+  725
  ],
  "tiles": {
-  "secondary": 16,
+  "secondary": 120,
   "shared_with_route29": 21,
   "both_primaries": 10,
-  "copy_only": 12
+  "copy_only": 54
  },
  "left": {
-  "copy": 41,
+  "copy": 16,
   "secondary": 0
  },
- "cells_changed": 1476,
+ "cells_changed": 1559,
  "other_maps_differing": {
   "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH": 0,
   "LAYOUT_NEW_BARK_TOWN": 0,

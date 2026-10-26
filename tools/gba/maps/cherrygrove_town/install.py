@@ -134,14 +134,20 @@ def free_route29_tiles(engine, town, cv):
     return [i for i in range(512) if i not in ref]
 
 # --------------------------------------------------------------------------- palettes
-def palettes(engine, town):
+def palettes(engine, town, cv):
     """Write CherrygrovePrimary's palettes 3 and 5, the town's palette 10 and Route 29's (identical to the
-    town's) from the base revision with the new slots, after checking no map draws those slots."""
+    town's) from the base revision with the new slots, and the town's banks its art fills anew (cv.pals,
+    secondary), after checking no map draws those slots."""
     pri = engine / 'data/tilesets/primary/cherrygrove'
     bpri = town.base / 'data/tilesets/primary/cherrygrove'
-    used = drawn_slots(engine, town, (3, 5, 10))
-    for bank, slots in ((5, set(PAL5_RAMP) | set(PAL5_EXTRA)), (3, set(LAWN_EXT)), (10, set(LAWN_EXT))):
+    used = drawn_slots(engine, town, cv, (3, 5, 10))
+    used.update(drawn_slots(engine, town, cv, tuple(cv.pals), secondary='gTileset_Cherrygrove'))
+    for bank, slots in ((5, set(PAL5_RAMP) | set(PAL5_EXTRA)), (3, set(LAWN_EXT)), (10, set(LAWN_EXT))) + tuple(
+            (b, set(range(1, len(c) + 1))) for b, c in cv.pals.items()):
         assert not used[bank] & slots, ('palette slots in use', bank, sorted(used[bank] & slots))
+    for b, cols in cv.pals.items():
+        assert b >= 6, 'a new bank in the shared primary'
+        (engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal').write_text(B.jasc([(0, 0, 0)] + list(cols) + [(0, 0, 0)] * (15 - len(cols))))
     p5 = B.read_pal(bpri / 'palettes/05.pal')
     for s, c in list(zip(PAL5_RAMP, Rk.ROCK_RAMP)) + list(PAL5_EXTRA.items()):
         p5[s] = B.gba(c)
@@ -158,11 +164,13 @@ def palettes(engine, town):
     out = {b: B.read_pal(bpri / f'palettes/{b:02d}.pal') for b in range(6)}
     out.update({b: B.read_pal(town.base / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal') for b in range(6, 13)})
     out.update({3: p3, 5: p5, 10: B.read_pal(engine / 'data/tilesets/secondary/cherrygrove/palettes/10.pal')})
+    out.update({b: B.read_pal(engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal') for b in cv.pals})
     return out
 
-def drawn_slots(engine, town, banks):
-    """Palette slots any map on CherrygrovePrimary draws in the given banks: every metatile of its map and
-    border, its tiles read from the sheet that map draws them from (Cherrygrove at its base revision)."""
+def drawn_slots(engine, town, cv, banks, secondary=None):
+    """Palette slots any map on CherrygrovePrimary (and on the given secondary) draws in the given banks: every
+    metatile of its map and border, its tiles read from the sheet that map draws them from (the town: the
+    cells it keeps, at its base revision)."""
     L = B.layouts(engine)
     ptiles = B.tiles_of(town.base / 'data/tilesets/primary/cherrygrove')
     pb = town.t.blocks[0]
@@ -170,11 +178,17 @@ def drawn_slots(engine, town, banks):
     for lid, l in L.items():
         if lid != 'LAYOUT_CHERRYGROVE_CITY' and l.get('primary_tileset') != 'gTileset_CherrygrovePrimary':
             continue
+        if secondary and l['secondary_tileset'] != secondary:
+            continue
         d = B.tileset_dir(engine, l['secondary_tileset'])
         root = town.base if d.name in ('cherrygrove', 'claude_route29') else engine
         d = root / 'data/tilesets/secondary' / d.name
         stiles, sm = B.tiles_of(d), B.metatiles_of(d)
-        ids = B.map_ids(engine, l, root=town.base if lid == 'LAYOUT_CHERRYGROVE_CITY' else None)
+        if lid == 'LAYOUT_CHERRYGROVE_CITY':
+            ids = {int(v) & 1023 for v in target_words(town, cv).ravel() if v >= 0}
+            ids |= {v & 1023 for v in struct.unpack('<4H', (town.base / 'data/layouts/CherrygroveCity/border.bin').read_bytes())}
+        else:
+            ids = B.map_ids(engine, l)
         for m in ids:
             blk = pb[m] if m < 512 else (sm[m - 512] if m - 512 < len(sm) else ())
             for e in blk:
@@ -284,7 +298,8 @@ class Encoder:
             if not all(keys[y][x] in self.index[low] for y, x in zip(*np.nonzero(lowpix))):
                 continue
             need = {keys[y][x] for y, x in zip(*np.nonzero(up))}
-            bank = next((b for b in (3, 10, 5) if need <= set(self.index[b])), None) if need else None
+            tops = (3, 10, 5) + (() if only else (1, 2, 4, 6, 7, 8, 9, 11, 12))   # any other: the art the cell keeps
+            bank = next((b for b in tops if need <= set(self.index[b])), None) if need else None
             if need and bank is None:
                 continue
             if only and bank == 5:
@@ -293,7 +308,7 @@ class Encoder:
             top = self.tile(px5, up, bank, False, only) if need else 0
             return bottom, top
         raise AssertionError(('no palette split for a quadrant', walk_behind))
-    def metatile(self, comp, objmask, sea_id, walk_behind, only):
+    def metatile(self, comp, objmask, sea_id, walk_behind, only, mb=B.MB_NORMAL):
         px5 = rgb5(comp)
         ent = [0] * 8
         for q in range(4):
@@ -301,7 +316,7 @@ class Encoder:
             sl = np.s_[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
             ent[q], ent[4 + q] = self.quadrant(px5[sl], objmask[sl], sea_id, walk_behind, only)
         layer = B.NORMAL if walk_behind else B.COVERED
-        return tuple(ent), B.MB_NORMAL | (layer << 12)
+        return tuple(ent), mb | (layer << 12)
 
 def composite(g, tp):
     px = g.copy(); a = tp[..., 3] > 0; px[a] = tp[a, :3]
@@ -314,6 +329,10 @@ def cell_info(town, cv, x, r):
     walkable = (int(town.words[r, x]) >> 10) & 3 == 0
     walk_behind = walkable and (tp[..., 3] > 0).any()
     return comp, tp[..., 3] > 0, SEA[(x % 2, r % 2)] if wet else None, walk_behind
+
+def base_mb(town, x, r):
+    """A cell's behaviour in the base town (the pond stays ocean water, as the owner's town has it)."""
+    return town.attr(int(town.words[r, x]) & 1023) & 0xFF if 0 <= r < H else B.MB_NORMAL
 
 # --------------------------------------------------------------------------- writing
 def primary_cells(cv):
@@ -329,7 +348,7 @@ def encode_primary(engine, town, cv, enc):
     ids, defs = {}, {}
     for x, r in cells:
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        key = enc.metatile(comp, obj, sea, wb, 'primary' if seen((x, r)) else 'shared')
+        key = enc.metatile(comp, obj, sea, wb, 'primary' if seen((x, r)) else 'shared', base_mb(town, x, r))
         if key not in defs:
             assert len(defs) < len(free), 'no free primary metatile ids'
             defs[key] = free[len(defs)]
@@ -413,7 +432,7 @@ def render(engine, town, cv, img):
 
 def kit_json(cv, pids):
     cells = [[int(x), int(r), int(m), ce[0], ce[1]] for (x, r), (m, ce) in sorted(cv.kit.items())]
-    cells += [[int(x), int(r), int(m), B.BLOCKED[0] if (cv.town.words[r, x] >> 10) & 3 else 0, 3] for (x, r), m in sorted(pids.items())]
+    cells += [[int(x), int(r), int(m), int(cv.town.words[r, x] >> 10) & 3, int(cv.town.words[r, x] >> 12)] for (x, r), m in sorted(pids.items())]
     (B.SEAM / 'cherrygrove-kit.json').write_text(json.dumps(dict(
         note='Primary metatiles placed by id: x, row, metatile, collision, elevation.', cells=cells)) + '\n')
 
@@ -443,7 +462,7 @@ def other_maps_unchanged(engine, town):
 # --------------------------------------------------------------------------- the steps
 def primary(engine, town, cv, img):
     """Before Route 30's pack: Route 29's columns as primary metatiles, the new palettes."""
-    pals = palettes(engine, town)
+    pals = palettes(engine, town, cv)
     enc = Encoder(engine, town, cv, pals)
     pids, pdefs = encode_primary(engine, town, cv, enc)
     write_primary(engine, town, enc, pdefs)
@@ -454,7 +473,7 @@ def primary(engine, town, cv, img):
 
 def install(engine, town, cv, img):
     """After Route 30's pack: everything."""
-    pals = palettes(engine, town)
+    pals = palettes(engine, town, cv)
     enc = Encoder(engine, town, cv, pals)
     report = dict(budget=dict(enc.budget))
     pids, pdefs = encode_primary(engine, town, cv, enc)
@@ -468,10 +487,10 @@ def install(engine, town, cv, img):
     for k in ('flat', 'objects'):
         a = z[k][..., 3] > 0; want[a] = z[k][a, :3]
     defs = {}
-    def define(m, comp, obj, sea, wb):
+    def define(m, comp, obj, sea, wb, mb=B.MB_NORMAL):
         if m in defs:
-            assert defs[m][3] == sea and (rgb5(defs[m][0]) == rgb5(comp)).all(), ('one id, two looks', m)
-        defs[m] = (comp, obj, wb, sea)
+            assert defs[m][3] == sea and defs[m][4] == mb and (rgb5(defs[m][0]) == rgb5(comp)).all(), ('one id, two looks', m)
+        defs[m] = (comp, obj, wb, sea, mb)
     for k, m in mid['band'].items():
         x, y = map(int, k.split(','))
         px = want[y * 16:(y + 1) * 16, x * 16:(x + 1) * 16]
@@ -479,21 +498,22 @@ def install(engine, town, cv, img):
     for k, m in mid['other'].items():
         x, r = map(int, k.split(','))
         comp, obj, sea, wb = cell_info(town, cv, x, r)
-        define(m, comp, obj, sea, wb)
+        define(m, comp, obj, sea, wb, base_mb(town, x, r))
     mirror = sorted(defs)
     assert mirror == list(range(Rf.CG_WALL_ID0, Rf.CG_WALL_ID0 + len(mirror))), ('the mirror block is not contiguous', mirror)
     cell_id = {}
     prim = set(pids)
     for x, r in sorted((c for c in cv.changed if 0 <= c[1] < H and c not in prim), key=lambda c: (c[1], c[0])):
         comp, obj, sea, wb = cell_info(town, cv, x, r)
+        mb = base_mb(town, x, r)
         m = mid['other'].get(f'{x},{r}')
         if m is None:
-            m = next((m for m, d in defs.items() if d[3] == sea and d[2] == wb and (rgb5(d[0]) == rgb5(comp)).all()), None)
+            m = next((m for m, d in defs.items() if d[3] == sea and d[2] == wb and d[4] == mb and (rgb5(d[0]) == rgb5(comp)).all()), None)
         if m is None:
             assert not (r < B.R30_SEEN[0] and x in B.R30_SEEN[1]), ('a cell Route 30 can see has no id in its secondary', x, r)
-            m = Rf.CG_WALL_ID0 + len(defs); defs[m] = (comp, obj, wb, sea)
+            m = Rf.CG_WALL_ID0 + len(defs); defs[m] = (comp, obj, wb, sea, mb)
         cell_id[(x, r)] = m
-    rows = [enc.metatile(*defs[m][:2], defs[m][3], defs[m][2], None) for m in sorted(defs)]
+    rows = [enc.metatile(defs[m][0], defs[m][1], defs[m][3], defs[m][2], None, defs[m][4]) for m in sorted(defs)]
     sea = {e for m in SEA.values() for e in town.t.blocks[0][m]}
     for ent, _ in rows + list(pdefs.values()):
         assert all(e in sea for e in ent if 1 <= (e & 1023) <= 92), 'a new metatile draws an animated sea tile outside the sea'
@@ -512,14 +532,17 @@ def install(engine, town, cv, img):
     # the map
     w = target_words(town, cv)
     for (x, r), m in list(cell_id.items()) + list(pids.items()):
-        ce = B.BLOCKED if (int(town.words[r, x]) >> 10) & 3 else B.OPEN
-        w[r, x] = m | (ce[0] << 10) | (ce[1] << 12)
+        w[r, x] = m | (int(town.words[r, x]) & 0xFC00)   # the base cell's collision and elevation
     assert (w >= 0).all()
     (engine / 'data/layouts/CherrygroveCity/map.bin').write_bytes(struct.pack('<%dH' % w.size, *w.ravel().tolist()))
     report['cells_changed'] = int((w != town.words).sum())
     # checks: every cell of the town draws as composed, every mirror id draws the other map's pixels, Route
     # 29's window on the town draws the same with CherrygrovePrimary, every other map draws as before
     t = Tileset(engine, 'cherrygrove', TOWN_DIR)
+    mb = lambda m: t.attrs[int(m >= 512)][m - 512 if m >= 512 else m] & 0xFF
+    moved = [[x, r] for r in range(H) for x in range(W) if (x, r) not in cv.kit and (
+             (int(w[r, x]) & 0xFC00) != (int(town.words[r, x]) & 0xFC00) or mb(int(w[r, x]) & 1023) != base_mb(town, x, r))]
+    assert not moved, ('a cell\'s collision, elevation or behaviour moved', moved[:10], len(moved))
     got = np.array(t.map_image(w.ravel().tolist(), W).convert('RGB'))
     diff = (rgb5(got) != rgb5(img)).any(-1).reshape(H, 16, W, 16).any((1, 3))
     bad = [[int(x), int(r)] for r, x in zip(*np.nonzero(diff))]
