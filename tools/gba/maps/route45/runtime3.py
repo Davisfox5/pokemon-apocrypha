@@ -52,9 +52,9 @@ RC.STEPS = [
     # Blocked on foot: the Dark Cave mouth (Dark Cave's Route 45 side is not built), a tree.
     ('go', R, 10, 7), ('north', 1, None), ('at', R, 10, 7),
     ('go', R, 8, 148), ('south', 1, None), ('at', R, 8, 148),
-    # Owner review (2026-10-26): a bridge walked end to end through its elevation steps (road 3,
-    # end 0, deck 4 and 15), and no step from the deck onto the river; the Surf route's landing
-    # below Blackthorn and its shore at the foot are walkable, the water beside them is not on
+    # Owner review (2026-10-26, 2026-10-27): a bridge walked end to end through its elevation steps (road 3,
+    # end 0, deck 4 and 15), and no step from the deck onto the river; the foot of the stairs down to
+    # the river below Blackthorn and the shore at the foot are walkable, the water beside them is not on
     # foot; the road beside the row 47 ledge's east end ends at rock.
     ('go', R, 8, 41), ('east', 3, None), ('at', R, 11, 41), ('north', 1, None), ('at', R, 11, 41), ('shot', 'on-third-bridge'),
     ('east', 3, None), ('at', R, 14, 41), ('west', 6, None), ('at', R, 8, 41),

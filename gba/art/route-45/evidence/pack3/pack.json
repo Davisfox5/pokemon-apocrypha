@@ -278,11 +278,7 @@
     973,
     974,
     975,
-    976,
-    992,
-    993,
-    994,
-    995
+    976
   ],
   "reserved_palette_slots": {
     "6": [
@@ -305,30 +301,23 @@
     15,
     15,
     15,
-    14,
     15,
-    9,
+    15,
+    3,
     1
   ],
-  "primary_tiles_reused": 54,
-  "new_secondary_tiles": 246,
-  "secondary_tile_slots": 438,
-  "secondary_metatiles": 403,
+  "primary_tiles_reused": 53,
+  "new_secondary_tiles": 239,
+  "secondary_tile_slots": 442,
+  "secondary_metatiles": 386,
   "primary_metatiles_used": 6,
   "blackthorn_new_tiles": {
     "first": 992,
-    "count": 4
+    "count": 0
   },
   "blackthorn_appended": {
     "primary": [],
-    "secondary": [
-      857,
-      858,
-      859,
-      860,
-      861,
-      862
-    ]
+    "secondary": []
   },
   "seam": [
     {
@@ -448,36 +437,8 @@
         21,
         0
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 857,
-      "quads": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          113,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        [
-          "new Blackthorn tiles",
-          114,
-          27618
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          25571
-        ]
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [
@@ -644,36 +605,8 @@
         21,
         1
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 858,
-      "quads": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          112,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          27618
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          25571
-        ]
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [
@@ -840,36 +773,8 @@
         21,
         2
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 859,
-      "quads": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          113,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        [
-          "new Blackthorn tiles",
-          114,
-          27618
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          25571
-        ]
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [
@@ -1036,36 +941,8 @@
         21,
         3
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 860,
-      "quads": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          112,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          27618
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          25571
-        ]
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [
@@ -1232,36 +1109,8 @@
         21,
         4
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 861,
-      "quads": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          113,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        [
-          "new Blackthorn tiles",
-          114,
-          27618
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          25571
-        ]
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [
@@ -1428,26 +1277,8 @@
         21,
         5
       ],
-      "kind": "appended to Blackthorn's secondary, visible quadrants shared",
-      "id": 862,
-      "quads": [
-        0,
-        1
-      ],
-      "sources": [
-        [
-          "new Blackthorn tiles",
-          112,
-          25568
-        ],
-        [
-          "new Blackthorn tiles",
-          112,
-          28641
-        ],
-        null,
-        null
-      ]
+      "kind": "blackthorn metatile",
+      "id": 519
     },
     {
       "cell": [

@@ -806,6 +806,15 @@
  },
  "stairs": [
   {
+   "kind": "column",
+   "cell": [
+    20,
+    10
+   ],
+   "length": 3,
+   "face": "W"
+  },
+  {
    "kind": "row",
    "cell": [
     25,

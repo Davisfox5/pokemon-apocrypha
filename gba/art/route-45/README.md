@@ -8,7 +8,9 @@ banks approved on Route 43, lossless pack. Joined to Blackthorn by a map connect
 with every Blackthorn pixel kept. Engine branch `claude/route-45` (stacked on `claude/blackthorn-city`,
 engine PR #26). Owner review 2026-10-25 fixed the river banks, bridges, stairs and cascades; owner review
 2026-10-26 walled the river in rock, added a Surf landing at each end and a Waterfall return, and closed
-the road round the row 47 ledge (below). Owner visual review of the 2026-10-26 changes pending.
+the road round the row 47 ledge; owner review 2026-10-27 turned the river's south walls to face the
+water, gave the side walls FRLG's plain side face and put stairs down to the landing (below). Owner
+visual review of the 2026-10-27 changes pending.
 
 ![HGSS beside the installed native map, numbered by cell](evidence/review3/whole.png)
 
@@ -28,7 +30,7 @@ Detail sheets (HGSS beside native, numbered by cell):
 | | |
 | --- | --- |
 | Map | `Route45`, 32x160, `gMapGroup_Cherrygrove` id 47, `MAPSEC_JOHTO_ROUTE_45` |
-| Tilesets | Blackthorn's primary `gTileset_CherrygrovePrimary` (54 of its tiles reused, its animated sea among them) + own secondary `gTileset_Route45` (246 new tiles, 58 copied from Blackthorn; 403 metatiles) |
+| Tilesets | Blackthorn's primary `gTileset_CherrygrovePrimary` (53 of its tiles reused, its animated sea among them) + own secondary `gTileset_Route45` (239 new tiles, 54 copied from Blackthorn; 386 metatiles) |
 | Colour | 13 banks, each colour exact: all 1,310,720 native pixels equal the assembled art in RGB555 |
 | Material audit | 5,047 of 5,120 cells show HGSS's material, 14 mismatches (declared below), 59 cells where a foreground object differs |
 
@@ -55,10 +57,10 @@ Shared masters copied byte for byte into `source/shared-art/` with hashes (`prov
 | Cascades | HGSS's own falling sheet and foam (local, `source/local-art/cascades.png`), the sheet's top two rows in HGSS's foam blues as a bright lip | HGSS's three drops, (12-14, 55), (11-13, 96), (13-15, 123), the foam the river's full width; Waterfall cells |
 | Bridges | Blackthorn's plank bridge in CherrygrovePrimary's wood ramp, turned to run east-west | HGSS's seven decks |
 | Tall grass | G15, the whole-cell piece | every HGSS tall-grass cell |
-| Stairs | S01-S03, the catalog's straight flight; S04 and S05, its diagonal flights descending west and east | HGSS's flights: straight down a south face (5-7, 37), (6-8, 55), (25-27, 23), (15-17, 96), (26-28, 96), (5-7, 122-123), (20-22, 131); diagonal at (19, 57-59), (8, 117-119), (0, 138-140) |
+| Stairs | S01-S03, the catalog's straight flight; S04 and S05, its diagonal flights descending west and east | HGSS's flights: straight down a south face (5-7, 37), (6-8, 55), (25-27, 23), (15-17, 96), (26-28, 96), (5-7, 122-123), (20-22, 131); diagonal at (19, 57-59), (8, 117-119), (0, 138-140); and S04 down the bank to the landing below Blackthorn, (20, 10-12) (owner review) |
 | Trees | T01 | as above |
 | Signs | P14 green rounded sign (model 32), P13 grey plaque (model 31) | (24,7) route sign, (12,7) Dark Cave plaque |
-| Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs; a wall showing a face (lower ground east, south or west) has the ground beside it as its top, so it reads as ground, face, then the lower side |
+| Rock | Blackthorn's FRLG terraces in the Johto ramp | HGSS's cliffs; a wall showing a south face has the ground beside it as its top, so it reads as ground, face, then the lower side; a side wall is FRLG's side piece whole; a wall on the river's south bank is FRLG's south face turned to look north at the water |
 | Dark Cave mouth | FRLG General's cave mouth (metatile 0xA9), as Blackthorn's Dragon's Den | (10, 6), on its face |
 | Boulders | FRLG General's boulder (0x9F's top layer) in the Johto ramp | one on the middle of each HGSS boulder footprint; the footprint cells take the ground round them, collision HGSS's |
 | Route 46's dirt | HGSS's road05, its commonest tone (local) | (0-1, 148-151) |
@@ -109,17 +111,36 @@ HGSS height step is a wall of its own, and a wall has a face only toward ground 
   without Surf. The row 47 ledge's east end had a strip of rock top beside the road that went round it;
   (23-24, 45-46) are road now and the ledge ends against the rock face.
 
+## Owner review (2026-10-27)
+
+- **East-west walls along the river.** The walls on the river's south banks were drawn as south faces,
+  looking down onto the road below them, as if the river ran on a ridge. They now face the water: FRLG's
+  south face and its corners turned to look north (`assemble.north_faces`, `elements.rock_frlg`), so
+  every stretch of the river reads as a valley, faces on both sides looking at the water. The north
+  banks already faced it.
+- **Side walls.** A side wall level with the road beside it had its rock top swapped for the road, which
+  left the face's dark stripes standing in the sand (the fuzzy wall by the top of the river, (21, 0-15),
+  and the others like it). Side walls are FRLG's side piece whole now, face band and rock top, as the
+  river's other side walls are. The six Blackthorn metatiles and four tiles appended for (21, 0-5) are
+  gone: those cells are Blackthorn's own metatiles again.
+- **Corners.** Where a south-bank wall turns into a side wall, the inner corner is FRLG's turned the same
+  way, and a stepped bank (a lower wall in front of a higher one, as at (12-21, 14-15)) runs the
+  corner through both steps.
+- **Stairs to the landing.** The way down from the road to the river below Blackthorn is S04, the
+  catalog's flight descending west, over the bank at (20, 10-12). Its middle row is the way down,
+  from the road at (21, 11) to the water at (19, 11); its top and bottom rows stay cliff. The shore at
+  the river's foot is lawn one level above the water, with the natural bank, so it has no stairs.
+
 ## 3. Beside Blackthorn's tilesets (`pack_fixed.py`)
 
 As on Routes 44 and 42: Route 45 uses Blackthorn's primary tileset, and its secondary carries exact copies
 of what the Blackthorn cells its tilesets ever draw use (Blackthorn's south rows: 37 metatiles, 54 tiles
 and their palette slots in bank 6). The part of Route 45 Blackthorn's tilesets ever draw (rows 0-5 round
 the road and the river, every standing view from Blackthorn and the rows that scroll out while crossing
-north) is drawn with Blackthorn's metatiles: 124 of its 130 cells are Blackthorn metatiles as they are. The
-other 6, the bank between the river and the road (21, 0-5), are metatiles appended to Blackthorn's
-secondary table (ids 857-862); where no Blackthorn tile drew a quadrant, 4 tiles are appended to its
-secondary tile sheet after its own 480 (indices 992-995), drawn with Blackthorn's palettes as installed. No
-Blackthorn cell uses any of them. Both maps use Blackthorn's border block (metatile 512, which Route 45 carries whole).
+north) is drawn with Blackthorn's metatiles: all 130 of its cells are Blackthorn metatiles as they are, so
+Blackthorn's tilesets are unchanged (the pack can still append metatiles and tiles to Blackthorn's
+secondary where a cell needs them; none does). Both maps use Blackthorn's border block (metatile 512,
+which Route 45 carries whole).
 
 The packer proves: Route 45 decoded with its pair equals its assembled art; every Route 45 pixel
 Blackthorn's tilesets draw equals it too; every Blackthorn pixel Route 45's tilesets draw equals
@@ -139,8 +160,9 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
   they are Waterfall cells, the owner's return route up the river.
 - **Banks.** HGSS's pond rim is drawn as the natural bank the owner approved on Route 43. HGSS lets a
   player Surf off the road onto the river at a few low banks; here the river is walled in rock except at
-  the shore (18-21, 150) and the landing (20-21, 11), at the owner's request. Those six cells and the
-  road at (23-24, 45-46) are ground where HGSS has river bank or rock: 10 declared material mismatches.
+  the shore (18-21, 150) and the landing (20-21, 11), at the owner's request. The shore, the road at
+  (21, 11), the foot of the landing's stairs at (20, 11) and the road at (23-24, 45-46) are ground or
+  stairs where HGSS has river bank or rock: 10 declared material mismatches.
 - **Bridges.** A deck is elevation 15 over the river; reached by warp or a respawn onto a deck, Gen 3 puts
   the player at elevation 0, which can walk onto water. Emerald's own bridges behave the same way; a player
   walking on never hits it.
@@ -158,7 +180,7 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
 ## Verification
 
 - **Build**: engine `claude/route-45`, ROM sha256
-  `4669dae329279075497fb744604cc31de8712bc06a93a2e85b7f97c3ca0ba092` (not committed).
+  `0420d3f585aff9b9f2965345d5984a3751eac283583d5a580f5d1cd4f727f430` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 45 equals the pack decode
   and its assembled art; Blackthorn's installed decode equals its decode as committed on
   `claude/blackthorn-city`; both seam views exact from the installed files; connections (Blackthorn joins
@@ -168,8 +190,8 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
   plus the owner's new ground; every ledge is one-way; the river is entered and left only at the shore and
   the landing; Surf from the shore passes all 9 Waterfall cells and 60 deck cells, lands at (20, 11) and
   walks to the seam, and the shore can't reach Blackthorn on foot; walk-behind layering; budgets; shared masters
-  byte-identical; Blackthorn's own metatiles and tiles unchanged (its tile sheet only grows), its map.json
-  changing only by the new connection; only Route 45 files otherwise.
+  byte-identical; Blackthorn's tilesets unchanged, its map.json changing only by the new connection;
+  only Route 45 files otherwise.
 - **Material audit**: 5,047 match, 14 mismatch (declared above), 59 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 41 captures with map layers rebuilt from
   VRAM equal to the native decodes, Blackthorn beyond the seam included, the animated sea counted apart;
@@ -178,8 +200,8 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
   frames into each crossing step matching too; BG1 covers the player behind the route sign and leaves the
   player clear in front of it; a ledge jump; a straight and a diagonal flight; the Dark Cave mouth and a
   tree block a player on foot; a bridge walked end to end with no step off the deck onto the river; the
-  landing and the shore walked to, the water beside them blocked on foot; the road beside the row 47
-  ledge ending at rock; both signs read; Blackthorn and Cherrygrove regression views;
+  landing's stairs and the shore walked to, the water beside them blocked on foot; the road beside the
+  row 47 ledge ending at rock; both signs read; Blackthorn and Cherrygrove regression views;
   ordinary flash save, cold reload and title Continue.
 - **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves Route 45 and Blackthorn on a fresh
   clone of the engine commit; both exports equal the native decodes with 0 differing pixels in RGB555;

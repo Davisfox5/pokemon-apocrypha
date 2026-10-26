@@ -136,9 +136,13 @@ def route45_labels(cells, m, nm):
 # by assemble.py (art) and pack.py (traversal), and the river's Surf route back up to Blackthorn.
 LEDGE_END_GROUND = {(23, 45), (24, 45), (23, 46), (24, 46)}   # road: the rock top beside the row 47 ledge's east end
 RIVER_SHORE = {(18, 150), (19, 150), (20, 150), (21, 150)}     # lawn: the river's one shore, at the bottom
-RIVER_LANDING = {(20, 11), (21, 11)}                           # road: where the Surf route back up lands, below Blackthorn
+RIVER_LANDING = {(20, 11), (21, 11)}                           # walkable: where the Surf route back up lands, below Blackthorn
+# Owner review (2026-10-27): a flight of stairs down the bank to the landing's water, S04
+# (descending west) over the bank's west face; its middle row is the way down, (21, 11) the road
+# to it.
+RIVER_STAIRS = ((20, 10), (20, 11), (20, 12))
 OWNER_GROUND = {**{c: 'sand' for c in LEDGE_END_GROUND}, **{c: 'grass' for c in RIVER_SHORE},
-                **{c: 'sand' for c in RIVER_LANDING}}
+                **{c: 'sand' for c in RIVER_LANDING if c not in RIVER_STAIRS}}
 CASCADE_ROWS = (55, 96, 123)        # HGSS's waterfall rows: no land mesh under them (a model), the river drops one level
 
 def is_river(c):
@@ -437,7 +441,7 @@ def frlg_pieces(engine):
 
 PLAIN = dict(sand=(8, 8), grass=(16, 0), water=(16, 0))   # flattest 8x8 block of each Cherrygrove texture (Blackthorn's)
 
-def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_face=()):
+def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_face=(), north_face=()):
     """Blob autotiling from FRLG's set (Blackthorn's rock_frlg). A cell whose only lower
     neighbours are diagonal takes FRLG's whole inner-corner piece (two of them split down
     the middle when both lower diagonals are on one side), which joins the face and the
@@ -454,8 +458,10 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_fac
     that side (ramp tones 1-3 reaching the cell's edge where no lower neighbour lies, and the
     specks of darker tone left inside it) is that ground's plain block, so the wall reads as
     ground, face, then the lower side, not as a raised ridge. south_face: cells drawn as a face
-    looking south onto the ground there though their slope falls north (a river bank, a back
-    slope above a road), so the ground below meets a wall, not a strip of rock floor."""
+    looking south onto the ground there though their slope falls north (a back slope above a
+    road), so the ground below meets a wall, not a strip of rock floor.
+    north_face: cells on a river's south bank, drawn with FRLG's south-face pieces turned to
+    look north (and its inner corners the same way), so the wall faces the water below it."""
     d, face, isrock = layers(cells)
     out = base.copy()
     over = np.zeros(base.shape[:2] + (4,), np.uint8)
@@ -499,13 +505,16 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_fac
             cix = np.full((16, 16), CLEAR, int)
             inner_bg = np.zeros((16, 16), bool)                 # clear pixels showing this cell's own rock top
             diag = [k for k in ('ne', 'se', 'sw', 'nw') if lo[k]]
+            up = (x, y) in north_face
+            # on a river's south bank the north pieces are the south ones turned to look north
+            inr = {k: (inner['s' + k[1]][::-1] if up and k[0] == 'n' else inner[k]) for k in inner}
             whole = None
             if not any(lo[k] for k in 'nesw') and diag:
                 if len(diag) == 1:
-                    whole = inner[diag[0]]
+                    whole = inr[diag[0]]
                 elif sorted(diag) in (['se', 'sw'], ['ne', 'nw']):
                     r, l = ('se', 'sw') if 'se' in diag else ('ne', 'nw')
-                    whole = np.concatenate([inner[l][:, :8], inner[r][:, 8:]], 1)
+                    whole = np.concatenate([inr[l][:, :8], inr[r][:, 8:]], 1)
             for qy in (0, 1):
                 v = ('N', 'S')[qy] if lo['n'] and lo['s'] else 'N' if lo['n'] else 'S' if lo['s'] else 'M'
                 for qx in (0, 1):
@@ -517,7 +526,9 @@ def rock_frlg(cells, base, pieces, tex, extra_plain=None, topped=None, south_fac
                     if whole is not None:
                         ix = whole[sl]
                     elif lo[vk + hk] and not lo[vk] and not lo[hk]:
-                        ix = inner[vk + hk][sl]
+                        ix = inr[vk + hk][sl]
+                    elif up and v == 'N':
+                        ix = (nine_rock if kind == 'rock' else nine)[('S', h)][::-1][sl]
                     else:
                         ix = (nine_rock if kind == 'rock' else nine)[(v, h)][sl]
                     if qy == 1 and is_ledge(x + (1 if qx else -1), y):

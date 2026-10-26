@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "4669dae329279075497fb744604cc31de8712bc06a93a2e85b7f97c3ca0ba092",
+  "rom_sha256": "0420d3f585aff9b9f2965345d5984a3751eac283583d5a580f5d1cd4f727f430",
   "phases": [
     {
       "phase": "write",
@@ -956,7 +956,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 5696,
-      "animated_water_pixels_differing_from_frame_0": 2350,
+      "animated_water_pixels_differing_from_frame_0": 2440,
       "camera_origin_px": [
         272,
         24
@@ -979,7 +979,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 6272,
-      "animated_water_pixels_differing_from_frame_0": 3116,
+      "animated_water_pixels_differing_from_frame_0": 3216,
       "camera_origin_px": [
         256,
         56
@@ -1000,8 +1000,8 @@
       "frame": "dark-cave-sign-read",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8256,
-      "animated_water_pixels_differing_from_frame_0": 4259,
+      "pixels_on_animated_water": 8512,
+      "animated_water_pixels_differing_from_frame_0": 4411,
       "camera_origin_px": [
         80,
         56
@@ -1033,8 +1033,8 @@
       "frame": "fifth-bridge",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 8448,
-      "animated_water_pixels_differing_from_frame_0": 4571,
+      "pixels_on_animated_water": 8832,
+      "animated_water_pixels_differing_from_frame_0": 4546,
       "camera_origin_px": [
         96,
         1288
@@ -1045,7 +1045,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 8832,
-      "animated_water_pixels_differing_from_frame_0": 4170,
+      "animated_water_pixels_differing_from_frame_0": 4310,
       "camera_origin_px": [
         176,
         56
@@ -1077,8 +1077,8 @@
       "frame": "island-road",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 11264,
-      "animated_water_pixels_differing_from_frame_0": 5927,
+      "pixels_on_animated_water": 11392,
+      "animated_water_pixels_differing_from_frame_0": 5908,
       "camera_origin_px": [
         32,
         1688
@@ -1088,8 +1088,8 @@
       "frame": "last-bridge",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 9216,
-      "animated_water_pixels_differing_from_frame_0": 4828,
+      "pixels_on_animated_water": 9472,
+      "animated_water_pixels_differing_from_frame_0": 4786,
       "camera_origin_px": [
         112,
         2280
@@ -1163,7 +1163,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 6272,
-      "animated_water_pixels_differing_from_frame_0": 2706,
+      "animated_water_pixels_differing_from_frame_0": 2881,
       "camera_origin_px": [
         256,
         56
@@ -1207,7 +1207,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 7104,
-      "animated_water_pixels_differing_from_frame_0": 3125,
+      "animated_water_pixels_differing_from_frame_0": 3215,
       "camera_origin_px": [
         208,
         104
@@ -1217,8 +1217,8 @@
       "frame": "river-mouth",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 10368,
-      "animated_water_pixels_differing_from_frame_0": 5510,
+      "pixels_on_animated_water": 10496,
+      "animated_water_pixels_differing_from_frame_0": 5491,
       "camera_origin_px": [
         208,
         2280
@@ -1228,8 +1228,8 @@
       "frame": "river-shore",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 15936,
-      "animated_water_pixels_differing_from_frame_0": 8570,
+      "pixels_on_animated_water": 17216,
+      "animated_water_pixels_differing_from_frame_0": 8528,
       "camera_origin_px": [
         192,
         2328
@@ -1252,7 +1252,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 5760,
-      "animated_water_pixels_differing_from_frame_0": 2615,
+      "animated_water_pixels_differing_from_frame_0": 2733,
       "camera_origin_px": [
         272,
         56
@@ -1263,7 +1263,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 6272,
-      "animated_water_pixels_differing_from_frame_0": 2925,
+      "animated_water_pixels_differing_from_frame_0": 3065,
       "camera_origin_px": [
         256,
         56
@@ -1274,7 +1274,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 6272,
-      "animated_water_pixels_differing_from_frame_0": 2725,
+      "animated_water_pixels_differing_from_frame_0": 2858,
       "camera_origin_px": [
         256,
         56
@@ -1329,7 +1329,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 8192,
-      "animated_water_pixels_differing_from_frame_0": 4122,
+      "animated_water_pixels_differing_from_frame_0": 4079,
       "camera_origin_px": [
         48,
         200
@@ -1340,7 +1340,7 @@
       "map": 47,
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated_water": 8000,
-      "animated_water_pixels_differing_from_frame_0": 3997,
+      "animated_water_pixels_differing_from_frame_0": 3995,
       "camera_origin_px": [
         144,
         1480
@@ -1350,8 +1350,8 @@
       "frame": "sixth-bridge",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 7040,
-      "animated_water_pixels_differing_from_frame_0": 3741,
+      "pixels_on_animated_water": 7168,
+      "animated_water_pixels_differing_from_frame_0": 3720,
       "camera_origin_px": [
         112,
         1816
@@ -1361,8 +1361,8 @@
       "frame": "south-woods",
       "map": 47,
       "mismatched_map_layer_pixels": 0,
-      "pixels_on_animated_water": 5696,
-      "animated_water_pixels_differing_from_frame_0": 2937,
+      "pixels_on_animated_water": 5952,
+      "animated_water_pixels_differing_from_frame_0": 2895,
       "camera_origin_px": [
         16,
         2296

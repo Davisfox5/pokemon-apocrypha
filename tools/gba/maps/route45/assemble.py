@@ -152,6 +152,8 @@ def flights(cells):
             above = cells[y - 1][x]['lab'] if y else ''
             below = cells[y + m][x]['lab'] if y + m < H else ''
             face = above if above in 'WE' else below if below in 'WE' else 'W'
+            if (x, y) in E.RIVER_STAIRS:
+                face = 'W'                                  # the landing's flight, down the bank's west face
             out.append(('column', x, y, m, face))
     return out
 
@@ -196,18 +198,41 @@ def owner_ground(cells, c):
                   if 0 <= x + dx < W and 0 <= y + dy < H and cells[y + dy][x + dx]['lab'] == '.')
     return dict(c, lab='.', floor=E.OWNER_GROUND[(x, y)], ground=near[0][1], owner_ground=True)
 
-def south_faces(cells, d, rock):
-    """Rock cells whose slope falls north (to the river or a lower rock step) with walkable
-    ground south of them: drawn as a face looking south onto that ground (elements.rock_frlg),
-    so the river is bordered by rock faces and no strip of rock floor lies beside a road
-    (owner review, 2026-10-26)."""
+def south_faces(cells, d, rock, north):
+    """Rock cells whose slope falls north (to a lower rock step) with walkable ground south of
+    them, off the river: drawn as a face looking south onto that ground (elements.rock_frlg),
+    so no strip of rock floor lies beside a road (owner review, 2026-10-26). The river's own
+    south banks face the river instead (north_faces)."""
     out = set()
     for y in range(1, H - 1):
         for x in range(W):
             s_ = cells[y + 1][x]
-            if (rock[y, x] and not cells[y][x].get('stair') and d[y - 1, x] < d[y, x] and not rock[y + 1, x]
-                    and s_['floor'] in ('grass', 'sand', 'dirt') and s_['lab'] not in 'LJQ'):
+            if (rock[y, x] and (x, y) not in north and not cells[y][x].get('stair') and d[y - 1, x] < d[y, x]
+                    and not rock[y + 1, x] and s_['floor'] in ('grass', 'sand', 'dirt') and s_['lab'] not in 'LJQ'):
                 out.add((x, y))
+    return out
+
+def north_faces(cells, d, rock):
+    """The river's south banks (owner review, 2026-10-27: the east-west walls along the river
+    face the water): rock cells whose slope falls north to the river, straight or down a lower
+    bank cell that does, drawn as a face looking north onto the water (elements.rock_frlg, FRLG's
+    south face turned to look north), so the valley's walls face the river from both sides; and
+    the cells where such a wall turns into a side wall (only a diagonal neighbour north of them
+    lower, and on the bank), drawn with the inner corner turned the same way."""
+    wet = lambda x, y: 0 <= x < W and 0 <= y < H and cells[y][x]['floor'] == 'water'
+    out = set()
+    for y in range(1, H):
+        for x in range(W):
+            if not rock[y, x] or cells[y][x].get('stair'):
+                continue
+            on_bank = lambda nx: wet(nx, y - 1) or (nx, y - 1) in out
+            if d[y - 1, x] < d[y, x]:
+                if on_bank(x):
+                    out.add((x, y))
+            elif not any(0 <= x + dx < W and 0 <= y + dy < H and d[y + dy, x + dx] < d[y, x]
+                         for dx, dy in ((1, 0), (0, 1), (-1, 0))):
+                if any(0 <= x + dx < W and d[y - 1, x + dx] < d[y, x] and on_bank(x + dx) for dx in (-1, 1)):
+                    out.add((x, y))
     return out
 
 def with_xy(cells):
@@ -246,9 +271,9 @@ def terraces(cells):
                 lower |= pad[1 + dy:1 + dy + H, 1 + dx:1 + dx + W] < d
     return d, rock & lower, rock
 
-def topped(cells, d, rock):
+def topped(cells, d, rock, north=()):
     """Wall cells whose top is the ground beside them: a rock cell showing a face (a lower
-    neighbour east, south or west), not on the river (a bank stays rock), with a lawn, road or
+    neighbour south, alone or with one east or west), not on the river (a bank stays rock), with a lawn, road or
     dirt neighbour (north, east, south or west) at its own level or above. Returns {cell: that
     ground's class}, the highest such neighbour's, lawn or road as the painter drew that cell
     (compose sets each floor from GROUND_CLASS), so a wall by tall grass is topped with lawn
@@ -257,16 +282,20 @@ def topped(cells, d, rock):
     out = {}
     for y in range(H):
         for x in range(W):
-            if not rock[y, x] or cells[y][x].get('stair'):
+            if not rock[y, x] or cells[y][x].get('stair') or (x, y) in north:
                 continue
             # a river bank stays rock, a regular face down to the water (owner review, 2026-10-26)
             if any(0 <= x + dx < W and 0 <= y + dy < H and cells[y + dy][x + dx]['floor'] == 'water'
                    for dx, dy in ((0, -1), (1, 0), (0, 1), (-1, 0))):
                 continue
-            # only a wall that shows a face (lower ground east, south or west); a slope falling
-            # north is a back edge in Gen 3, and HGSS shows it as rock, so it keeps its rock top
-            if not any(0 <= x + dx < W and 0 <= y + dy < H and d[y + dy, x + dx] < d[y, x]
-                       for dx, dy in ((1, 0), (0, 1), (-1, 0))):
+            # only a wall that shows a face (lower ground south, or a corner of one); a slope
+            # falling north is a back edge in Gen 3, and HGSS shows it as rock, so it keeps its
+            # rock top; a side wall (lower ground east or west only) is FRLG's side piece whole,
+            # its face band and rock top (owner review, 2026-10-27: a side wall topped with the
+            # road read as rock mixed with sand)
+            low = {k for k, (dx, dy) in dict(e=(1, 0), s=(0, 1), w=(-1, 0)).items()
+                   if 0 <= x + dx < W and 0 <= y + dy < H and d[y + dy, x + dx] < d[y, x]}
+            if not low or low in ({'e'}, {'w'}):
                 continue
             best = None
             for dx, dy in ((0, -1), (1, 0), (0, 1), (-1, 0)):
@@ -293,8 +322,9 @@ def frlg_rock(rc, ground, dirt):
     d, face, isrock = terraces(rc)
     E.layers = lambda _cells: (d, face, isrock)
     pieces = E.frlg_pieces(ENGINE)
-    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt), topped(rc, d, isrock),
-                                       south_faces(rc, d, isrock))
+    north = north_faces(rc, d, isrock)
+    out, over, _, piece = E.rock_frlg(rc, ground, pieces, TEX, dict(dirt=dirt), topped(rc, d, isrock, north),
+                                       south_faces(rc, d, isrock, north), north)
     ledge = E.ledges_frlg(rc, pieces)
     a = ledge[..., 3] > 0
     over[a] = ledge[a]
@@ -748,6 +778,8 @@ def compose(phg):
     PHG = phg
     TEX = E.cherry_textures()
     cells = with_xy(E.ledger(phg))
+    for x, y in E.RIVER_STAIRS:                       # the landing's flight (owner review, 2026-10-27)
+        cells[y][x] = dict(cells[y][x], lab='s')
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
     rc = rock_cells(cells)
     rclab = np.array([[c['lab'] for c in row] for row in rc])

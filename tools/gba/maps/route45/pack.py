@@ -92,14 +92,16 @@ def traversal(engine, cells, art, edge):
             else:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3)
             # Owner review (2026-10-26): ground in place of cliff, and the river's Surf route.
-            if (x, y) in E.OWNER_GROUND:
+            if (x, y) in E.OWNER_GROUND or (x, y) in E.RIVER_LANDING:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
                          adaptation={**{p: 'the rock top beside the row 47 ledge\'s east end is road, so the ledge meets a wall'
                                         for p in E.LEDGE_END_GROUND},
                                      **{p: 'the river\'s one shore, at its foot, where the Surf route back up starts'
                                         for p in E.RIVER_SHORE},
-                                     **{p: 'where the Surf route back up lands, on the road below Blackthorn'
-                                        for p in E.RIVER_LANDING}}[(x, y)])
+                                     **{p: 'the road to the stairs down to the river, below Blackthorn'
+                                        for p in E.RIVER_LANDING},
+                                     **{p: 'the foot of the stairs down to the river, where the Surf route back up lands'
+                                        for p in E.RIVER_LANDING if p in E.RIVER_STAIRS}}[(x, y)])
             elif (x, y) in falls:
                 c.update(foot='surf', behavior='MB_WATERFALL', collision=0, elevation=1,
                          adaptation='HGSS\'s cascade, a Gen 3 waterfall: Surf slides down it, Waterfall climbs it')

@@ -9,12 +9,12 @@
     11
    ],
    "status": "mismatch",
-   "native_lead": "road",
+   "native_lead": "stairs",
    "hgss_lead": "rock",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "stairs": 240,
+    "sign": 32,
+    "rock": 16
    },
    "hgss": {
     "rock": 208,
@@ -1541,8 +1541,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -1558,8 +1558,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -1575,8 +1575,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -1593,8 +1593,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -1610,9 +1610,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -2043,8 +2041,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -2060,8 +2058,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -2077,8 +2075,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -2095,8 +2093,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -2112,9 +2110,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -2544,8 +2540,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -2561,8 +2557,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -2578,8 +2574,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -2596,8 +2592,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -2613,9 +2609,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -3043,8 +3037,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -3060,8 +3054,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -3077,8 +3071,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -3095,8 +3089,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -3112,9 +3106,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -3543,8 +3535,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -3560,8 +3552,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -3577,8 +3569,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -3595,8 +3587,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -3612,9 +3604,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -4046,8 +4036,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -4063,8 +4053,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -4080,8 +4070,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -4098,8 +4088,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -4115,9 +4105,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -4574,8 +4562,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -4591,8 +4579,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -4608,8 +4596,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -4626,8 +4614,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -4643,9 +4631,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -6647,8 +6633,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -6664,8 +6650,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -6678,12 +6664,11 @@
     10
    ],
    "status": "match",
-   "native_lead": "bank",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 253,
-    "water": 224,
-    "lawn": 3
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -6696,12 +6681,13 @@
     10
    ],
    "status": "match",
-   "native_lead": "rock",
+   "native_lead": "stairs",
    "hgss_lead": "rock",
    "native": {
-    "rock": 218,
-    "bank": 38,
-    "water": 38
+    "stairs": 164,
+    "rock": 74,
+    "sign": 23,
+    "water": 18
    },
    "hgss": {
     "rock": 208,
@@ -6717,9 +6703,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -7017,9 +7001,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -7051,8 +7033,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 222,
@@ -7069,8 +7051,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7087,8 +7069,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7105,8 +7087,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7123,8 +7105,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7141,8 +7123,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7159,8 +7141,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -7177,8 +7159,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 203,
-    "bank": 53,
-    "water": 53
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -7195,8 +7177,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7209,13 +7191,11 @@
     11
    ],
    "status": "match",
-   "native_lead": "bank",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 222,
-    "water": 165,
-    "lawn": 30,
-    "rock": 6
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7228,12 +7208,12 @@
     11
    ],
    "status": "mismatch",
-   "native_lead": "road",
+   "native_lead": "stairs",
    "hgss_lead": "rock",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "stairs": 240,
+    "sign": 32,
+    "rock": 16
    },
    "hgss": {
     "rock": 208,
@@ -7552,9 +7532,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -7570,8 +7548,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 219,
@@ -7587,8 +7565,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -7604,8 +7582,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7621,8 +7599,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7638,8 +7616,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7655,8 +7633,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7672,8 +7650,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7689,8 +7667,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7706,8 +7684,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -7723,8 +7701,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -7737,12 +7715,11 @@
     12
    ],
    "status": "match",
-   "native_lead": "bank",
+   "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 254,
-    "water": 226,
-    "lawn": 2
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -7758,9 +7735,10 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 218,
-    "bank": 38,
-    "water": 38
+    "rock": 185,
+    "stairs": 47,
+    "water": 24,
+    "bank": 24
    },
    "hgss": {
     "rock": 208,
@@ -7776,9 +7754,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -8080,9 +8056,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -8098,8 +8072,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -8115,8 +8089,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8132,8 +8106,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -8149,8 +8123,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -8166,8 +8140,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8183,8 +8157,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8200,8 +8174,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8217,8 +8191,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8234,8 +8208,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8251,8 +8225,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8268,8 +8242,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -8286,8 +8260,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 219,
@@ -8303,9 +8277,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -8606,9 +8578,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -8624,8 +8594,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -8641,8 +8611,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8658,8 +8628,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -8675,9 +8645,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 130,
-    "bank": 126,
-    "water": 126
+    "rock": 197,
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -8694,9 +8664,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8712,9 +8682,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8730,9 +8700,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8748,9 +8718,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8766,9 +8736,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8784,9 +8754,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -8802,9 +8772,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 242,
-    "bank": 14,
-    "water": 14
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 222,
@@ -8836,9 +8806,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9140,9 +9108,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9158,8 +9124,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -9175,8 +9141,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -9192,8 +9158,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -9210,8 +9176,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -9243,8 +9209,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9259,8 +9224,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9275,8 +9239,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9291,8 +9254,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9307,8 +9269,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9323,8 +9284,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -9339,8 +9299,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -11185,8 +11144,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -11203,8 +11161,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -11220,8 +11178,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -11237,8 +11195,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -11255,8 +11213,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -11272,9 +11230,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -11739,8 +11695,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -11757,8 +11712,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -11774,8 +11729,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -11791,8 +11746,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -11809,8 +11764,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -11826,9 +11781,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -12260,8 +12213,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -12278,8 +12230,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -12295,8 +12247,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -12312,8 +12264,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -12330,8 +12282,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -12347,9 +12299,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -12781,8 +12731,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -12799,8 +12748,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -12816,8 +12765,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -12833,8 +12782,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -12851,8 +12800,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -12868,9 +12817,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -13303,8 +13250,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -13321,8 +13267,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -13338,8 +13284,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -13355,8 +13301,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -13373,8 +13319,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -13390,9 +13336,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -13845,8 +13789,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -13863,8 +13806,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -13880,8 +13823,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -13897,8 +13840,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -13915,8 +13858,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -13932,9 +13875,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -14359,8 +14300,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -14377,8 +14317,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -14394,8 +14334,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -14411,8 +14351,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -14429,8 +14369,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -14446,9 +14386,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -14880,8 +14818,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -14898,8 +14835,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -14915,8 +14852,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -14932,8 +14869,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -14950,8 +14887,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -14967,9 +14904,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -15401,8 +15336,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -15419,8 +15353,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -15436,8 +15370,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -15453,8 +15387,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -15471,8 +15405,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -15488,9 +15422,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -15925,8 +15857,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -15943,8 +15874,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -15960,8 +15891,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -15977,8 +15908,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -15995,8 +15926,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -16012,9 +15943,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -16441,8 +16370,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -16459,8 +16387,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -16476,8 +16404,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16493,8 +16421,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -16511,8 +16439,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -16528,9 +16456,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "road": 97,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -16960,8 +16886,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -16978,8 +16903,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -16995,8 +16920,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17012,8 +16937,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17030,8 +16955,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -17047,8 +16972,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -17474,8 +17398,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -17492,8 +17415,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -17509,8 +17432,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17526,8 +17449,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -17544,8 +17467,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -17561,8 +17484,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 254,
@@ -17994,8 +17916,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 198,
@@ -18012,8 +17933,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -18029,8 +17950,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18046,8 +17967,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18064,8 +17985,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -18081,8 +18002,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -18510,8 +18430,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 244,
@@ -18528,8 +18447,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -18545,8 +18464,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18562,8 +18481,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -18580,8 +18499,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -18597,8 +18516,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -19033,8 +18951,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -19050,8 +18967,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -19067,8 +18984,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -19084,8 +19001,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -19102,8 +19019,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -19119,8 +19036,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -19553,9 +19469,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -19571,8 +19485,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -19588,8 +19502,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -19605,8 +19519,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -19623,8 +19537,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -19640,8 +19554,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -20068,9 +19981,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "road": 68,
-    "lawn": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -20086,8 +19997,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -20103,8 +20014,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -20120,8 +20031,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -20138,8 +20049,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -20155,8 +20066,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -20602,8 +20512,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -20619,8 +20529,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -20636,8 +20546,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -20654,8 +20564,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -20671,8 +20581,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -21116,8 +21025,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -21133,8 +21042,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -21150,8 +21059,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -21168,8 +21077,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -21648,8 +21557,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -21665,8 +21574,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -21682,8 +21591,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -21700,8 +21609,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 216,
@@ -22165,8 +22074,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -22199,8 +22108,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -22234,8 +22143,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 172,
@@ -24223,8 +24132,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -24257,8 +24166,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24273,8 +24182,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -24291,8 +24200,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -24754,8 +24663,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -24771,8 +24680,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -24788,8 +24697,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -24804,8 +24713,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -24822,8 +24731,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -25293,8 +25202,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -25310,8 +25219,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -25327,8 +25236,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25343,8 +25252,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -25361,8 +25270,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 164,
@@ -25381,8 +25290,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 129,
@@ -25828,8 +25737,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -25845,8 +25754,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -25862,8 +25771,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -25878,8 +25787,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -25895,8 +25804,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -25930,8 +25839,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -26360,8 +26269,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 222,
@@ -26377,8 +26286,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -26394,8 +26303,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26411,8 +26320,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -26428,8 +26337,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26444,8 +26353,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26462,8 +26371,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -26895,8 +26804,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -26912,9 +26822,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 173,
@@ -26931,8 +26841,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -26948,8 +26858,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -26964,8 +26874,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -26982,8 +26892,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -27432,8 +27342,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -27449,8 +27359,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -27466,8 +27376,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -27482,8 +27392,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -27500,8 +27410,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 190,
@@ -27951,8 +27861,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -27968,8 +27878,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -27985,8 +27895,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28001,8 +27911,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -28019,8 +27929,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -28482,8 +28392,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -28499,8 +28409,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -28516,8 +28426,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -28532,8 +28442,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -28550,8 +28460,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -28991,8 +28901,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -29008,8 +28918,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -29025,8 +28935,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -29041,8 +28951,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -29059,8 +28969,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -29501,8 +29411,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -29569,8 +29479,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -30012,8 +29922,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 192,
@@ -30081,8 +29991,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 195,
@@ -30530,8 +30440,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 197,
@@ -30598,8 +30508,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 182,
@@ -30665,8 +30575,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 141,
-    "lawn": 135
+    "rock": 238,
+    "lawn": 38
    },
    "hgss": {
     "rock": 120,
@@ -31043,8 +30953,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -31060,8 +30970,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -31077,8 +30987,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31093,8 +31003,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -31111,8 +31021,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -31556,8 +31466,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -31573,8 +31483,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -31590,8 +31500,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -31606,8 +31516,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -31624,8 +31534,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -32076,8 +31986,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -32093,8 +32003,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -32110,8 +32020,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32144,8 +32054,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -32588,8 +32498,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -32622,8 +32532,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -32656,8 +32566,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -34599,8 +34509,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -34633,8 +34543,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -34649,8 +34559,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -34667,8 +34577,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 201,
@@ -35111,8 +35021,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -35128,8 +35038,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35145,8 +35055,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35161,8 +35071,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35179,8 +35089,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -35626,8 +35536,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -35643,8 +35553,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35660,8 +35570,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -35676,8 +35586,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -35694,8 +35604,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -36159,8 +36069,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 206,
@@ -36177,8 +36087,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -36194,8 +36104,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -36210,8 +36120,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -36228,8 +36138,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -36247,8 +36157,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -36676,8 +36586,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -36694,8 +36604,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -36711,8 +36621,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -36727,8 +36637,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -36744,8 +36654,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -36761,8 +36671,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -36779,8 +36689,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -37184,8 +37094,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -37202,8 +37112,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -37219,8 +37129,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37235,8 +37145,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37251,8 +37161,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37267,8 +37177,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -37285,8 +37195,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -37691,8 +37601,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 164,
@@ -37709,8 +37619,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -37726,8 +37636,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -37743,8 +37653,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -37760,8 +37670,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -37776,8 +37686,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -37794,8 +37704,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -37813,8 +37723,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -38219,8 +38129,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 173,
@@ -38237,9 +38148,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 178,
@@ -38257,8 +38168,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -38274,8 +38185,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38290,8 +38201,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -38307,8 +38218,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -38342,8 +38253,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -38753,8 +38664,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -38771,8 +38682,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -38788,8 +38699,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38804,8 +38715,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38820,8 +38731,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -38836,8 +38747,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -38854,8 +38765,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -39260,8 +39171,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 164,
@@ -39278,8 +39189,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -39295,8 +39206,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -39312,8 +39223,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -39329,8 +39240,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -39345,8 +39256,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -39363,8 +39274,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -39785,8 +39696,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 173,
@@ -39803,9 +39715,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 178,
@@ -39823,8 +39735,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -39840,8 +39752,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -39856,8 +39768,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -39874,8 +39786,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -40318,8 +40230,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -40336,8 +40248,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -40353,8 +40265,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -40387,8 +40299,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -40825,8 +40737,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -40843,8 +40755,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -40860,8 +40772,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -40876,8 +40788,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -40894,8 +40806,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -41334,8 +41246,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -41352,8 +41264,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -41369,8 +41281,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -41385,8 +41297,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -41403,8 +41315,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -41848,8 +41760,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -41866,8 +41778,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -41883,8 +41795,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -41899,8 +41811,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -41917,8 +41829,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -42308,8 +42220,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 132,
@@ -42327,8 +42239,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 118,
@@ -42346,8 +42258,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 118,
@@ -42365,8 +42277,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 203,
-    "bank": 53,
-    "water": 53
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 168,
@@ -42384,8 +42296,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -42401,8 +42313,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -42435,8 +42347,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -42809,8 +42721,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 161,
@@ -42827,8 +42739,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -42844,8 +42756,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -42861,8 +42773,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -42878,8 +42790,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -42895,8 +42807,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -42912,8 +42824,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -42928,8 +42840,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -42946,8 +42858,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -43324,8 +43236,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -43342,8 +43254,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -43359,8 +43271,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -43375,8 +43287,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -43392,8 +43304,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -43409,8 +43321,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -43426,8 +43338,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -43443,8 +43355,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -43461,8 +43373,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 219,
@@ -43843,8 +43755,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -43861,8 +43773,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -43878,8 +43790,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -43894,8 +43806,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -43911,9 +43823,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 130,
-    "bank": 126,
-    "water": 126
+    "rock": 197,
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -43930,8 +43842,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -43947,8 +43860,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -43964,8 +43878,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 222,
@@ -44375,8 +44290,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 196,
@@ -44410,8 +44325,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -44444,8 +44359,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -46442,8 +46357,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -46459,8 +46374,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -46476,8 +46391,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -46510,8 +46425,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -46958,8 +46873,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -46975,8 +46890,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -46992,8 +46907,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -47008,8 +46923,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -47026,8 +46941,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -47475,8 +47390,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -47492,8 +47407,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -47509,8 +47424,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -47525,8 +47440,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -47543,8 +47458,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -48018,8 +47933,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 203,
-    "bank": 53,
-    "water": 53
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 189,
@@ -48036,8 +47951,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -48053,8 +47968,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -48069,8 +47984,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -48087,8 +48002,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -48525,8 +48440,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 218,
@@ -48559,8 +48474,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -48576,8 +48491,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 248,
@@ -48611,8 +48526,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 218,
@@ -49064,8 +48979,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 206,
@@ -49082,8 +48997,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -49099,8 +49014,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -49115,8 +49030,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -49132,9 +49047,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 130,
-    "bank": 126,
-    "water": 126
+    "rock": 197,
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 164,
@@ -49592,8 +49507,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -49610,8 +49525,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -49627,8 +49542,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -49643,8 +49558,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -49661,8 +49576,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -50114,8 +50029,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -50132,8 +50047,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -50149,8 +50064,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -50165,8 +50080,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -50183,8 +50098,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -50633,8 +50548,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 150,
@@ -50702,8 +50617,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -51160,8 +51075,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 180,
@@ -51230,8 +51145,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 149,
@@ -51663,8 +51578,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -51699,8 +51614,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 196,
@@ -51767,8 +51682,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 224,
@@ -52185,8 +52100,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -52221,8 +52136,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -52238,8 +52153,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -52255,8 +52170,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -52271,8 +52186,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -52289,8 +52204,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -52708,8 +52623,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -52744,8 +52659,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -52778,8 +52693,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -52794,8 +52709,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -52812,8 +52727,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -53229,8 +53144,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -53264,8 +53179,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -53281,8 +53196,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -53298,8 +53213,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -53314,8 +53229,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -53332,8 +53247,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -53747,8 +53662,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -53782,8 +53697,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -53799,8 +53714,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -53816,8 +53731,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -53832,8 +53747,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -53850,8 +53765,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -54264,8 +54179,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -54299,8 +54214,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -54316,8 +54231,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -54333,8 +54248,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -54349,8 +54264,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -54367,8 +54282,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -54792,8 +54707,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 244,
@@ -54827,8 +54742,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -54861,8 +54776,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -54877,8 +54792,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -54895,8 +54810,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -55316,9 +55231,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 256
@@ -55351,8 +55265,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -55368,8 +55282,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -55385,8 +55299,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -55401,8 +55315,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -55419,8 +55333,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -55848,9 +55762,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 254,
@@ -55884,8 +55797,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -55901,8 +55814,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -55918,8 +55831,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -55934,8 +55847,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -55952,8 +55865,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -56368,8 +56281,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -56403,8 +56316,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -56420,8 +56333,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -56437,8 +56350,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -56453,8 +56366,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -56471,8 +56384,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -56886,8 +56799,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -56921,8 +56834,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -56955,8 +56868,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -56971,8 +56884,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -56989,8 +56902,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -57407,8 +57320,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -57442,8 +57355,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -57459,8 +57372,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -57476,8 +57389,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -57492,8 +57405,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -57510,8 +57423,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -57931,8 +57844,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -57966,8 +57879,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -57983,8 +57896,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -58000,8 +57913,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -58016,8 +57929,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -58034,8 +57947,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -58453,8 +58366,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -58488,8 +58401,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -58505,8 +58418,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -58522,8 +58435,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -58538,8 +58451,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -58556,8 +58469,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -58968,8 +58881,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -59003,8 +58916,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -59037,8 +58950,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -59053,8 +58966,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -59071,8 +58984,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -59483,8 +59396,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 198,
@@ -59518,8 +59431,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -59535,8 +59448,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -59552,8 +59465,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -59568,8 +59481,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -59586,8 +59499,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -59605,8 +59518,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -60030,9 +59943,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 234,
@@ -60067,8 +59979,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -60084,8 +59996,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -60101,8 +60013,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -60117,8 +60029,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -60134,8 +60046,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -60151,8 +60063,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -60169,8 +60081,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -60557,9 +60469,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 256
@@ -60592,8 +60503,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 222,
@@ -60609,8 +60520,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -60626,8 +60537,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -60643,8 +60554,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -60660,8 +60571,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -60676,8 +60587,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -60694,8 +60605,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -61084,9 +60995,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 256
@@ -61134,8 +61044,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -61151,9 +61062,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -61170,8 +61081,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -61187,8 +61098,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -61203,8 +61114,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -61221,8 +61132,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -61603,9 +61514,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 208,
@@ -61674,8 +61584,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -61708,8 +61618,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -61742,8 +61652,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -63650,9 +63560,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 208,
@@ -63719,8 +63628,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -63736,8 +63645,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -63753,8 +63662,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -63787,8 +63696,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 206,
@@ -64180,9 +64089,8 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 190,
-    "lawn": 101,
-    "road": 64
+    "rock": 254,
+    "lawn": 37
    },
    "hgss": {
     "rock": 256
@@ -64248,8 +64156,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -64265,8 +64173,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -64282,8 +64190,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -64298,8 +64206,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -64316,8 +64224,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -64769,8 +64677,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -64837,8 +64745,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 158,
@@ -65279,8 +65187,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 192,
@@ -65348,8 +65256,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 239,
-    "bank": 17,
-    "water": 17
+    "water": 17,
+    "bank": 17
    },
    "hgss": {
     "rock": 190,
@@ -65802,8 +65710,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 197,
@@ -65870,8 +65778,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 225,
@@ -65888,8 +65796,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -66319,8 +66226,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -66336,8 +66243,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -66353,8 +66260,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -66369,8 +66276,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -66387,8 +66294,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -66404,8 +66311,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -66833,8 +66739,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -66850,8 +66756,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -66867,8 +66773,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -66883,8 +66789,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -66901,8 +66807,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -66918,8 +66824,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -67340,8 +67245,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -67374,8 +67279,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -67390,8 +67295,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -67408,8 +67313,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -67425,8 +67330,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -67845,8 +67749,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -67862,8 +67766,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -67879,8 +67783,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -67895,8 +67799,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -67913,8 +67817,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -67930,8 +67834,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -68352,8 +68255,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -68369,8 +68272,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -68386,8 +68289,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -68402,8 +68305,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -68420,8 +68323,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -68437,8 +68340,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -68863,8 +68765,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -68880,8 +68782,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -68897,8 +68799,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -68913,8 +68815,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -68931,8 +68833,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -68948,8 +68850,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 159,
-    "lawn": 97
+    "rock": 256
    },
    "hgss": {
     "rock": 206,
@@ -69357,8 +69258,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 222,
@@ -69375,8 +69276,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 203,
-    "bank": 53,
-    "water": 53
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -69393,8 +69294,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -69410,8 +69311,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -69426,8 +69327,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -69444,8 +69345,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -69866,8 +69767,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 219,
@@ -69883,8 +69784,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -69900,8 +69801,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -69917,8 +69818,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -69934,8 +69835,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -69950,8 +69851,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -69968,8 +69869,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -70391,8 +70292,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -70408,8 +70309,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -70425,8 +70326,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -70442,8 +70343,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -70459,8 +70360,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -70476,8 +70377,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -70494,8 +70395,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 219,
@@ -70907,8 +70808,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -70924,8 +70825,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -70941,8 +70842,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -70958,9 +70859,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 130,
-    "bank": 126,
-    "water": 126
+    "rock": 197,
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -70977,8 +70878,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -70994,8 +70896,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 222,
@@ -71440,8 +71343,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -71492,8 +71395,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -71632,8 +71535,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -71648,8 +71551,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -71664,8 +71567,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -71680,8 +71583,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -71966,8 +71869,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -71983,8 +71886,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -72000,8 +71903,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -72018,8 +71921,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 169,
@@ -72150,8 +72053,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72166,8 +72069,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72182,8 +72085,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72198,8 +72101,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72494,8 +72397,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -72511,8 +72414,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -72528,8 +72431,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -72546,8 +72449,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 205,
@@ -72678,8 +72581,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72694,8 +72597,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72710,8 +72613,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -72726,8 +72629,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -73012,8 +72915,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -73029,8 +72932,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -73046,8 +72949,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -73064,8 +72967,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 169,
@@ -73533,8 +73436,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -73585,8 +73488,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 205,
@@ -74056,8 +73959,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -74073,8 +73976,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -74090,8 +73993,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -74108,8 +74011,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -74127,8 +74030,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -74565,8 +74468,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -74582,8 +74485,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -74599,8 +74502,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -74616,8 +74519,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -74633,8 +74536,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -74651,8 +74554,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 219,
@@ -75072,8 +74975,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -75089,8 +74992,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -75106,8 +75009,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -75122,8 +75025,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -75138,8 +75041,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -75156,8 +75059,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 169,
@@ -75584,8 +75487,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 222,
@@ -75618,8 +75521,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -75635,8 +75538,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -75670,8 +75573,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 205,
@@ -76125,8 +76028,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -76142,9 +76046,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -76161,8 +76065,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -76178,8 +76082,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -76196,8 +76100,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -76215,8 +76119,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -76658,8 +76562,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -76675,8 +76579,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -76692,8 +76596,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -76709,8 +76613,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -76726,8 +76630,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -76744,8 +76648,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -78006,8 +77910,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "dirt": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -78503,8 +78406,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "dirt": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -78672,8 +78574,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -78706,8 +78608,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -78722,8 +78624,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -78756,8 +78658,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -79040,8 +78942,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "dirt": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -79200,8 +79101,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 169,
@@ -79218,8 +79119,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -79235,8 +79136,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -79251,8 +79152,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -79267,8 +79168,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -79285,8 +79186,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 180,
@@ -79372,8 +79273,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -79390,8 +79291,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -79408,8 +79309,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -79426,8 +79327,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -79444,8 +79345,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -79567,8 +79468,7 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 188,
-    "dirt": 68
+    "rock": 256
    },
    "hgss": {
     "rock": 256
@@ -79727,8 +79627,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 219,
@@ -79762,8 +79662,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -79779,8 +79679,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -79796,8 +79696,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -79919,8 +79819,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -79936,8 +79836,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -79953,8 +79853,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -79970,8 +79870,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -79988,8 +79888,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 222,
@@ -80273,8 +80173,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -80290,9 +80191,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -80309,8 +80210,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -80326,8 +80227,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80342,8 +80243,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80358,8 +80259,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80374,8 +80275,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80390,8 +80291,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80406,8 +80307,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80422,8 +80323,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80438,8 +80339,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80454,8 +80355,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80470,8 +80371,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -80486,8 +80387,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80504,8 +80405,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -80807,8 +80708,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 222,
@@ -80824,8 +80725,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 152,
@@ -80841,8 +80742,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80858,8 +80759,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80875,8 +80776,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80892,8 +80793,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80909,8 +80810,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80926,8 +80827,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80943,8 +80844,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80960,8 +80861,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80977,8 +80878,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -80994,8 +80895,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -81011,8 +80912,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -81029,8 +80930,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -81344,8 +81245,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 219,
@@ -81361,8 +81263,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81378,8 +81281,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81395,8 +81299,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81412,8 +81317,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81429,8 +81335,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81446,8 +81353,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81463,8 +81371,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81480,8 +81389,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 256,
-    "lawn": 8
+    "rock": 248,
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -81497,9 +81407,9 @@
    "native_lead": "rock",
    "hgss_lead": "rock",
    "native": {
-    "rock": 136,
-    "bank": 120,
-    "water": 120
+    "rock": 203,
+    "water": 53,
+    "bank": 53
    },
    "hgss": {
     "rock": 180,
@@ -81516,8 +81426,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -81533,8 +81443,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -81551,8 +81461,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -82038,8 +81948,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 208,
@@ -82072,8 +81982,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -82090,8 +82000,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -82549,8 +82459,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 169,
@@ -82567,8 +82477,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -82584,8 +82494,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -82602,8 +82512,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 218,
-    "bank": 38,
-    "water": 38
+    "water": 38,
+    "bank": 38
    },
    "hgss": {
     "rock": 208,
@@ -83061,8 +82971,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 205,
@@ -83079,8 +82989,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83096,8 +83006,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 185,
@@ -83114,8 +83024,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 197,
-    "bank": 59,
-    "water": 59
+    "water": 59,
+    "bank": 59
    },
    "hgss": {
     "rock": 173,
@@ -83133,8 +83043,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -83151,8 +83061,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -83169,8 +83079,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -83187,8 +83097,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 248,
-    "bank": 8,
-    "water": 8
+    "water": 8,
+    "bank": 8
    },
    "hgss": {
     "rock": 208,
@@ -83585,8 +83495,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 169,
@@ -83603,8 +83513,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83620,8 +83530,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 247,
@@ -83637,8 +83547,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83654,8 +83564,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83671,8 +83581,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83688,8 +83598,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -83705,8 +83615,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 186,
@@ -84103,8 +84013,8 @@
    "hgss_lead": "rock",
    "native": {
     "rock": 219,
-    "bank": 37,
-    "water": 37
+    "water": 37,
+    "bank": 37
    },
    "hgss": {
     "rock": 205,
@@ -84138,8 +84048,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -84154,8 +84064,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -84170,8 +84080,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -84186,8 +84096,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -84202,8 +84112,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
@@ -84218,8 +84128,8 @@
    "native_lead": "water",
    "hgss_lead": "water",
    "native": {
-    "bank": 256,
-    "water": 256
+    "water": 256,
+    "bank": 256
    },
    "hgss": {
     "water": 256
