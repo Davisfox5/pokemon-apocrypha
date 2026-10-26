@@ -148,8 +148,8 @@ def step(ramp, i, d):
     f = fam[fi]
     return f[int(np.clip(pos + d, 0, len(f) - 1))]
 
-def convert(models, parts, scale=SCALE, retex=None, skip=('h_kage',), n=8, light=True):
-    cv, faces, normals, to_px = raster(models, parts, scale=scale, retex=retex, skip=skip)
+def convert(models, parts, scale=SCALE, retex=None, skip=('h_kage',), n=8, light=True, pitch=PITCH, finish=False):
+    cv, faces, normals, to_px = raster(models, parts, scale=scale, retex=retex, skip=skip, pitch=pitch)
     face, col = downsample(cv)
     uid, rp = ramps(face, col, faces, n)
     H, W = face.shape
@@ -185,8 +185,59 @@ def convert(models, parts, scale=SCALE, retex=None, skip=('h_kage',), n=8, light
                     continue                                   # one surface split into triangles
                 j = step(ramp, level[y, x], -1)
                 out[y, x, :3] = [(v << 3) | (v >> 2) for v in ramp[0][j]]
+    if finish:
+        gen3_finish(out, face, uid, rp, level, normals)
     a = out[..., 3] > 0
     pad = np.pad(a, 1)
     edge = a & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
     out[edge, :3] = OUTLINE
     return out, to_px
+
+def gen3_finish(out, face, uid, rp, level, normals):
+    """The Gen 3 artist's pass over a converted building:
+
+        eaves       the two rows of a wall under a roof or an overhang take one step darker
+                    (the shade the overhang throws)
+        lit edges   the row of a roof or a top just inside its upper edge, and the column of
+                    a face just inside its left edge where it meets the sky, take one step
+                    lighter (Gen 3's light from the upper left catching the edge)
+        flats       a lone pixel whose colour no neighbour on its face shares takes the
+                    colour most of its neighbours have, so textures don't crumble into noise
+    """
+    H, W = face.shape
+    cls = lambda f: 1 if normals[f][1] > 0.55 else (-2 if normals[f][1] < -0.55 else 0)
+    put = lambda y, x, j: out[y, x, :3].__setitem__(slice(None), [(v << 3) | (v >> 2) for v in rp[int(uid[y, x])][0][j]])
+    base = level.copy()
+    for y in range(H):
+        for x in range(W):
+            f = face[y, x]
+            if f < 0:
+                continue
+            ramp = rp[int(uid[y, x])]
+            c = cls(f)
+            if c == 0:
+                for dy in (1, 2):
+                    yy = y - dy
+                    if yy >= 0 and face[yy, x] >= 0 and face[yy, x] != f and cls(face[yy, x]) != 0:
+                        put(y, x, step(ramp, base[y, x], -1))
+                        break
+            up = face[y - 2, x] if y >= 2 else -1
+            if c == 1 and up < 0 and (y < 1 or face[y - 1, x] >= 0):
+                put(y, x, step(ramp, base[y, x], 1))
+            left = face[y, x - 2] if x >= 2 else -1
+            if left < 0 and (x < 1 or face[y, x - 1] >= 0):
+                put(y, x, step(ramp, base[y, x], 1))
+    # lone pixels
+    rgb = out[..., :3].copy()
+    for y in range(1, H - 1):
+        for x in range(1, W - 1):
+            f = face[y, x]
+            if f < 0:
+                continue
+            nb = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))]
+            same = [n for n in nb if face[n] == f]
+            if len(same) == 4 and all(tuple(rgb[n]) != tuple(rgb[y, x]) for n in same):
+                cols = [tuple(rgb[n]) for n in same]
+                best = max(set(cols), key=cols.count)
+                if cols.count(best) >= 3:
+                    out[y, x, :3] = best

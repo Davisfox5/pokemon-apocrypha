@@ -535,3 +535,99 @@ def plant_bench():
     img[6:22, 12:36][a] = b[a]
     outline(img)
     return img
+
+# --------------------------------------------------------------------------- round 6: stalls with pitch
+def _poly(img, pts, colour):
+    """Fill a polygon (screen points) with one colour, no anti-aliasing."""
+    from PIL import Image, ImageDraw
+    m = Image.new('L', (img.shape[1], img.shape[0]), 0)
+    ImageDraw.Draw(m).polygon([(float(x), float(y)) for x, y in pts], fill=255)
+    a = np.array(m) > 0
+    img[a, :3] = colour
+    img[a, 3] = 255
+    return a
+
+def crate_row(img, X0, Yb, n, ramps, step=10):
+    """A row of crates heaped with produce, their fronts on screen row Yb."""
+    for i in range(n):
+        ramp = ramps[i % len(ramps)]
+        x0 = X0 + i * step
+        rect(img, x0, Yb - 3, x0 + step - 1, Yb + 2, WOOD[3]); rect(img, x0 + 1, Yb - 2, x0 + step - 2, Yb + 1, WOOD[1])
+        rect(img, x0 + 1, Yb - 2, x0 + step - 2, Yb - 1, WOOD[0])
+        for (fx, fy) in ((2.5, -4.0), (step - 3.5, -4.0), (step / 2 - 0.5, -6.5)):
+            fruit(img, x0 + fx, Yb + fy, 2.1, ramp)
+
+def stall3d(colour='red', facing='south'):
+    """A market stall seen at 45 degrees as Gen 3 sees a tent (Slateport's market): the whole
+    top of its striped canopy, sloping a little to the front, the scalloped valance hanging
+    from its front edge, the front posts; its produce set out in crates on a low trestle in
+    front of it, where the shoppers stand. Facing south 48 x 60; east or west 48 x 64."""
+    import math
+    s = c = math.sqrt(0.5)
+    A_ = AWNING[colour]
+    def canopy_top(img, top, band_of):
+        a = _poly(img, top, A_[1])
+        ys, xs = np.nonzero(a)
+        y0, y1 = ys.min(), ys.max()
+        for y, x in zip(ys, xs):
+            r = A_ if band_of(x, y) else CREAM
+            d = (y - y0) / max(1, y1 - y0)
+            px(img, x, y, r[0] if d < 0.1 else r[1] if d < 0.8 else r[2])
+    def valance(img, xs, y0, band_of_x):
+        for x in xs:
+            r = A_ if band_of_x(x) else CREAM
+            for y in range(y0, y0 + 4):
+                px(img, x, y, r[2] if y < y0 + 2 else r[1])
+            depth = [1, 2, 3, 3, 2, 1][x % 6]
+            for d in range(depth):
+                px(img, x, y0 + 4 + d, r[2] if d < depth - 1 else r[3])
+        rect(img, xs[0], y0, xs[-1] + 1, y0 + 1, A_[3])
+    if facing == 'south':
+        w, h, oy = 48, 60, 31
+        P = lambda x, y, z: (x, oy + z * s - y * c)
+        img = canvas(w, h)
+        for X in (3, 43):                                          # front posts
+            rect(img, X, int(P(0, 34, 28)[1]), X + 2, int(P(0, 0, 28)[1]), WOOD[2]); rect(img, X, int(P(0, 34, 28)[1]), X + 1, int(P(0, 0, 28)[1]), WOOD[1])
+        # the trestle in front: its top and its front, and the crates on it
+        _poly(img, [P(4, 8, 32), P(44, 8, 32), P(44, 8, 40), P(4, 8, 40)], WOOD[1])
+        _poly(img, [P(4, 8, 40), P(44, 8, 40), P(44, 2, 40), P(4, 2, 40)], WOOD[2])
+        for X in (5, 42):
+            rect(img, X, int(P(0, 2, 40)[1]), X + 2, int(P(0, 0, 40)[1]) + 1, WOOD[3])
+        crate_row(img, 4, int(P(0, 8, 37)[1]), 4, (APPLE, ORANGE, GREENS, LEMON))
+        # the canopy over all, and its valance
+        canopy_top(img, [P(0, 42, 0), P(48, 42, 0), P(48, 36, 28), P(0, 36, 28)], lambda x, y: (x // 6) % 2 == 0)
+        valance(img, list(range(0, w)), int(P(0, 36, 28)[1]), lambda x: (x // 6) % 2 == 0)
+        outline(img)
+        return img
+    # facing east (west is its mirror): a flat canopy, stripes running east-west, the valance
+    # down its east edge, the trestle of produce out on the east side
+    w, h, oy = 48, 64, 31
+    P = lambda x, y, z: (x, oy + z * s - y * c)
+    img = canvas(w, h)
+    for X in (2, 28):                                              # south posts
+        rect(img, X, int(P(0, 38, 42)[1]), X + 2, int(P(0, 0, 42)[1]), WOOD[2]); rect(img, X, int(P(0, 38, 42)[1]), X + 1, int(P(0, 0, 42)[1]), WOOD[1])
+    _poly(img, [P(34, 8, 4), P(46, 8, 4), P(46, 8, 40), P(34, 8, 40)], WOOD[1])       # trestle top, its south end
+    _poly(img, [P(34, 8, 40), P(46, 8, 40), P(46, 2, 40), P(34, 2, 40)], WOOD[2])
+    for i, ramp in enumerate((APPLE, ORANGE, LEMON, GREENS)):
+        Yc = int(P(0, 8, 9 + i * 8.5)[1])
+        rect(img, 35, Yc - 2, 45, Yc + 3, WOOD[3]); rect(img, 36, Yc - 1, 44, Yc + 2, WOOD[0])
+        for fx, fy in ((37.5, -1.5), (42.5, -1.5), (40, -3.5)):
+            fruit(img, fx, Yc + fy, 2.0, ramp)
+    top = [P(0, 38, 0), P(32, 38, 0), P(32, 38, 44), P(0, 38, 44)]
+    a = _poly(img, top, A_[1])
+    ys, xs = np.nonzero(a)
+    y0 = ys.min()
+    for y, x in zip(ys, xs):
+        r = A_ if ((y - y0) // 5) % 2 == 0 else CREAM
+        px(img, x, y, r[0] if x < 3 else r[1] if x < 24 else r[2])
+    Yb = int(P(0, 38, 44)[1])
+    valance(img, list(range(0, 33)), Yb, lambda x: True)          # the scalloped valance along its south edge
+    for y in range(y0, Yb + 2):                                    # the valance down the east edge
+        r = A_ if ((y - y0) // 5) % 2 == 0 else CREAM
+        rect(img, 32, y, 35, y + 1, r[2])
+        if (y - y0) % 5 in (2, 3):
+            px(img, 35, y, r[3])
+    outline(img)
+    if facing == 'west':
+        img = img[:, ::-1].copy()
+    return img

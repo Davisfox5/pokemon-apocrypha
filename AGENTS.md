@@ -251,9 +251,9 @@ from its own HGSS model at C06's angle). The worked example is
 Saffron (`gba/art/saffron-kanto/README.md`, FireRed's map) stays as accepted; its rules
 below on new maps, rooms, combined buildings and lines still apply.
 
-- Kanto's own colours: HGSS's Kanto textures (Celadon's map texture set) are the town's
-  palette, not Cherrygrove's or FireRed's. Celadon's lawn is HGSS's mint grass, its tree
-  HGSS's round tree01gs crown with tree01_un under it (`props.tree`), not Cherrygrove's.
+- Kanto's own colours: HGSS's Kanto textures (Celadon's map texture set) give the streets
+  their paving and brick. Grass, trees and flowers come from the games' own tilesets
+  (below), not from resampled or recoloured HGSS crowns.
 - Its ground at 1:1: each HGSS texture repeats at its own size in the world's phase (one
   16 px quadrant where an edge runs over it), joins drawn the Gen 3 way (Celadon's lawn edge:
   HGSS's tama_fuch bands on the lawn side, the cell mask blurred so corners round).
@@ -286,6 +286,32 @@ below on new maps, rooms, combined buildings and lines still apply.
   own: recolour it in the Kanto town's palette. Check open PRs for towns other agents built
   before saying one does not exist.
 - Doors to unbuilt interiors and gates to unbuilt routes are solid.
+
+Owner, Celadon rounds 5 and 6, 2026-10-26. Buildings drawn from scratch read as "something out
+of a game for the SNES"; flat elevations as "very 2D"; invented trees and flat flowers as
+custom; hard ground joins and English signs as tacky. These rules hold for every town:
+
+- **No text on buildings.** No English lettering on any building, awning, marquee or canopy
+  (no shop names, no "HOTEL", no "CAFE"); a building's name belongs in its sign event. The one
+  exception the owner allowed: Japanese lettering where HGSS's own building carries it
+  (Celadon's Dept Store banners, タマムシ / デパート). Symbols are fine (a Poke Ball, a seven).
+- **The HGSS model is the base, always.** Every building starts as its own HGSS model brought
+  down to Gen 3 (`celadon_elements/hgss_gen3.py`): rendered at 45 degrees, unsqueezed, at the
+  scale its role asks, with the Gen 3 finish (`gen3_art.gen3_finish`: shade under eaves, lit
+  upper and left edges). The story changes it slightly, on its own textures or the converted
+  art (a door, a colourway, repainted banners); never redraw a building that HGSS has. A town's
+  houses are that town's own HGSS houses, not another region's.
+- **Pitch.** Hand-drawn props (market stalls) are drawn at the buildings' 45 degrees, their
+  tops visible (`custom_art.stall3d`).
+- **Nature from the games.** Trees and flowers are cut from the games' tilesets with their
+  ground keyed out (`celadon_elements/nature.py`): Hoenn's round tree, Kanto's cone tree,
+  Viridian Forest's great tree, Fortree's palm, Gen 3's flowers (recoloured petal ramps for
+  more colours). A park may mix regions. Never invent a tree or recolour one into a new kind.
+- **Smooth joins.** Grass meets every other ground (dirt, paving, brick, a cycleway, a pond's
+  coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
+  Flowers stand on whole grass cells, never cut by an edge.
+- **Neighbours.** Houses stand wall to wall in rows, not each in its own yard, a cell back
+  from the road they face.
 
 ## Planning a new town: the change plot
 

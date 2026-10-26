@@ -1,12 +1,16 @@
-"""Concept render of the fifth-round plan (plan.py) with its real art, for the owner's call.
+"""Concept render of the plan (plan.py) with its real art, for the owner's call (round 6).
 
     python3 tools/gba/maps/celadon_elements/concept.py
 
-Ground from HGSS's textures (ground.py's pieces: the hexagon paving, the terrace brick and
-kerb, the lawns and their edge), the straight canal and its pond with stone quays, the
-cycleway, gravel walks and flower beds; trees (Celadon's round tree, Cherrygrove's conifer, a
-blossom tree); the buildings as Gen 3 pixel art (gen3_kit.py), the C06 Center; the props
-(custom_art.py) and the borrowed pieces (borrowed.py). Writes evidence/v5/concept.png,
+The ground is Kanto's own (nature.py): FireRed's grass, Viridian Forest's dirt for the walks,
+and wherever grass meets anything else (dirt, paving, brick, the cycleway, the pond's coping)
+FireRed's path edge laid over it quadrant by quadrant; HGSS's hexagon paving and terrace brick
+for the streets; the straight canal and its pond with stone quays; the cycleway. Trees are the
+games' own (Hoenn's round tree, Kanto's cone tree, Viridian Forest's great tree, Fortree's
+palm), flowers Gen 3's own in their colours. Buildings are HGSS's Celadon models brought down
+to Gen 3 at 45 degrees (hgss_gen3.py); the Game Corner is round 5's drawing without its
+lettering; the C06 Center; the stalls drawn at the same pitch (custom_art.stall3d); Olivine's
+lamps and Hoenn's secret base plants (borrowed.py). Writes evidence/v6/concept.png,
 concept-2x.png, plot.png and art.png.
 """
 from __future__ import annotations
@@ -22,10 +26,12 @@ import custom_art as A
 import gen3_kit as K
 import borrowed as B
 import plan as PL
+import nature as N
+import hgss_gen3 as H6
 
 W, H = PL.W, PL.H
 G.W, G.H = W, H                     # ground.py's helpers work on the plan's size
-OUT = C.EV / 'v5'
+OUT = C.EV / 'v6'
 
 def h(*a):
     return int(hashlib.md5(' '.join(map(str, a)).encode()).hexdigest(), 16)
@@ -64,7 +70,13 @@ def ground(fl, t):
     t = G.textures(t)
     ys, xs = np.mgrid[0:H * 16, 0:W * 16]
     cell = np.array(fl)
-    out = G.tile(t['grass'], ys, xs).copy()
+    gr = N.grass()
+    out = np.zeros((H * 16, W * 16, 3), np.uint8)
+    for y in range(H):
+        for x in range(W):
+            k = h('grass', x, y) % 10
+            out[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = gr[0 if k < 8 else k - 7]
+    grass_px = out.copy()
     for k, tex in (('pave', 'tama_yuka'), ('bridge', 'tama_yuka'), ('cycle', 'tama_yuka'), ('brick', 'tama_yuka2')):
         m = px_mask(cell == k)
         out[m] = G.tile(t[tex], ys, xs)[m]
@@ -72,26 +84,20 @@ def ground(fl, t):
     for y, x in zip(*np.nonzero(cell == 'kerb')):
         c = kc.copy(); c[:3] = G.tile(t['tama_yuka2'], ys, xs)[y * 16:y * 16 + 3, x * 16:x * 16 + 16]
         out[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = c
-    # gravel walks
-    rnd = (np.sin(xs * 12.9898 + ys * 78.233) * 43758.5453) % 1
     gm = px_mask(cell == 'gravel')
-    g = np.full((H * 16, W * 16, 3), GRAVEL[1], np.uint8)
-    g[rnd > 0.93] = GRAVEL[0]; g[(rnd > 0.88) & (rnd < 0.9)] = GRAVEL[2]; g[(rnd > 0.86) & (rnd < 0.865)] = GRAVEL[3]
-    out[gm] = g[gm]
-    # the lawn's HGSS edge against paving and gravel
-    grassy = np.isin(cell, ('forest', 'meadow', 'lawn', 'grass', 'garden'))
-    lawnfloor = np.where(grassy, 'grass', np.where(np.isin(cell, ('water',)), 'water', 'pave'))
-    G.lawn_edges(out, lawnfloor)
+    out[gm] = N.dirt_texture(H, W)[gm]
     cycleway(out)
     pre = out.copy()
     water(out, cell)
     deck = px_mask(cell == 'bridge')
     out[deck] = pre[deck]                                   # the streets run on over their bridges
-    # flower beds and meadow flowers
+    grassy = np.isin(cell, ('forest', 'meadow', 'lawn', 'grass', 'garden'))
+    N.grass_edges(out, ~grassy, grass_px)
+    fl_ = list(N.flowers().values())
     for y in range(H):
         for x in range(W):
-            if cell[y, x] == 'garden' or (cell[y, x] == 'meadow' and h('flower', x, y) % 6 == 0):
-                put(out, t[('flower01', 'flower02', 'flower03')[h('kind', x, y) % 3]], x * 16, y * 16)
+            if (cell[y, x] == 'garden' and h('bed', x, y) % 10 < 7) or (cell[y, x] == 'meadow' and h('flower', x, y) % 7 == 0):
+                put(out, fl_[h('kind', x, y) % len(fl_)], x * 16, y * 16)
     return out
 
 def cycleway(out):
@@ -213,53 +219,47 @@ def bridge_art(name):
     return img, x0, by0 * 16
 
 # --------------------------------------------------------------------------- trees
-def trees(fl, t, taken):
+def trees(fl, taken):
+    """The forest round the town in Hoenn's and Kanto's trees; the Arboretum's groves in all
+    four, Viridian Forest's great trees and Fortree's palms among them."""
     cell = np.array(fl)
-    round_ = Pr.tree(t)
-    blossom = round_.copy()
-    a = blossom[..., 3] > 0
-    crown = a & (np.arange(48)[:, None] < 38) & (blossom[..., 1].astype(int) > blossom[..., 0].astype(int) + 10)
-    lum = blossom[..., :3].astype(int).sum(-1)
-    pink = np.array([(255, 208, 224), (248, 168, 200), (224, 120, 168), (176, 80, 128)], np.uint8)
-    q = np.digitize(lum, [180, 280, 380])
-    blossom[crown, :3] = pink[3 - q[crown]]
-    conifer = cherrygrove_tree()
+    T = N.trees()
     items = []
-    free = lambda x, y, kinds: all(0 <= xx < W and 0 <= yy < H and cell[yy, xx] in kinds and not taken[yy, xx]
-                                   for xx in (x, x + 1) for yy in (y, y + 1))
+    def free(x, y, w, hh, kinds):
+        return all(0 <= xx < W and 0 <= yy < H and cell[yy, xx] in kinds and not taken[yy, xx]
+                   for xx in range(x, x + w) for yy in range(y, y + hh))
+    def place(x, y, img):
+        w, hh = img.shape[1] // 16, img.shape[0] // 16
+        items.append((x * 16, (y + hh) * 16 - img.shape[0], img))
+        taken[y:y + hh, x:x + w] = True
+    for y in range(36, H - 1):                             # the Arboretum: its great trees and palms first,
+        for x in range(4, W - 1):                          # then the round and cone trees between them
+            k = h('grove', x, y) % 9
+            img = T['viridian'] if k < 2 else T['palm'] if k == 2 else None
+            if img is not None and free(x, y, img.shape[1] // 16, img.shape[0] // 16, ('meadow',)):
+                place(x, y, img)
+    for y in range(36, H - 1):
+        for x in range(4, W - 1):
+            k = h('small', x, y) % 10
+            img = T['hoenn'] if k < 5 else T['kanto'] if k < 9 else None
+            if img is not None and free(x, y, 2, 2, ('meadow',)):
+                place(x, y, img)
     for y in range(0, H - 1, 2):
         for x in range(0, W - 1, 2):
-            if free(x, y, ('forest',)):
-                items.append((x * 16, (y + 2) * 16 - 48, round_))
-    # the Arboretum's groves: dense, three kinds, off the walks, the beds and the water
-    for y in range(37, H - 1):
-        for x in range(4, W - 1):
-            if free(x, y, ('meadow',)) and h('grove', x, y) % 6 < 5:
-                kind = (round_, conifer, blossom, blossom, conifer)[h('kind', x, y) % 5]
-                items.append((x * 16, (y + 2) * 16 - 48, kind))
-                taken[y:y + 2, x:x + 2] = True
-    # street trees along the verge between the lamps
+            if free(x, y, 2, 2, ('forest',)):
+                place(x, y, T['hoenn'] if h('wood', x, y) % 3 else T['kanto'])
     return items
-
-def cherrygrove_tree():
-    import importlib.util
-    from pathlib import Path
-    spec = importlib.util.spec_from_file_location('olv_el', C.OLIVINE / 'elements.py')
-    m = importlib.util.module_from_spec(spec)
-    sys.modules['olv_el'] = m
-    try:
-        spec.loader.exec_module(m)
-        return m.cherrygrove_tree(Path('/home/user/pokeemerald-expansion'))
-    except Exception:
-        return Pr.tree(C.textures())
 
 # --------------------------------------------------------------------------- the picture
 def sprites():
     c06 = np.array(Image.open(C.SRC / 'shared-art/pokemon-center.png').convert('RGBA'))
-    s = dict(dept_store=K.dept_store(), apartments=K.apartments(), hotel=K.hotel(), game_corner=K.game_corner(),
-             prize_corner=K.prize_corner(), cafe=K.cafe(), center=c06, fountain=A.fountain(), blossom_pool=A.blossom_pool())
-    for i, kind in enumerate(('red', 'green', 'orange', 'teal')):
-        s['cottage_' + kind] = K.cottage(kind, chimney=kind in ('red', 'orange'), gable=kind in ('green', 'teal'))
+    m = H6.models()
+    s = dict(dept_store=H6.dept_store(m), apartments=H6.apartments(m), hotel=H6.hotel(m), prize_corner=H6.prize_corner(m),
+             cafe=H6.cafe(m), flat=H6.flat(m), game_corner=K.game_corner(), center=c06, fountain=A.fountain(),
+             blossom_pool=A.blossom_pool())
+    base = H6.convert(m, 'house', H6.HOUSE_SCALE)
+    for colour in H6.HUES:
+        s['house_' + colour] = H6.house(m, colour, base)
     return s
 
 def compose():
@@ -276,12 +276,12 @@ def compose():
     sp = sprites()
     for name, kind, x, base in PL.PLACES:
         img = sp[kind]
-        X, Y = int(x * 16), int((base + 1) * 16) - img.shape[0]
+        X, Y = int(round(x * 16)), int((base + 1) * 16) - img.shape[0]
         items.append((X, Y, img))
-        taken[max(0, int(base) - 3):int(base) + 2, max(0, int(x) - 1):int(x) + (img.shape[1] + 15) // 16 + 1] = True   # trees may stand behind
+        taken[max(0, int(base) - 3):int(base) + 2, max(0, int(x)):int(x) + (img.shape[1] + 15) // 16] = True   # trees may stand behind
     for x, base, colour, facing in PL.STALLS:
-        s = A.stall(colour) if facing == 'south' else A.side_stall(colour, facing)
-        items.append((x * 16, (base + 1) * 16 - s.shape[0], s))
+        s = A.stall3d(colour, facing)
+        items.append((int(x * 16), (base + 1) * 16 - s.shape[0], s))
     lamp = B.olivine_lamp()
     for x, base in PL.LAMPS:
         items.append((x * 16 + (16 - lamp.shape[1]) // 2, (base + 1) * 16 - lamp.shape[0], lamp))
@@ -295,30 +295,32 @@ def compose():
         p = plants[kind]
         items.append((x * 16, (base + 1) * 16 - p.shape[0], p))
         taken[base - 1:base + 1, x:x + p.shape[1] // 16] = True
-    items += trees(fl, t, taken)
+    items += trees(fl, taken)
     items = [it if len(it) == 4 else it + (0,) for it in items]
     items.sort(key=lambda it: (it[3], it[1] + it[2].shape[0], it[0]))
     for X, Y, img, _ in items:
         put(out, img, X, Y)
     return out
 
-LABELS = [('Dept Store', 6, 4), ('Apartments', 26, 4), ('Pokemon Hotel', 34, 4), ('Center', 44, 8), ('Canal', 20, 1),
-          ('Market square', 10, 23), ('Game Corner', 27, 23), ('Prize corner', 39, 24), ('Cottages', 45, 22),
-          ('Cafe', 45, 30), ('Arboretum', 4, 43), ('Arboretum', 48, 46), ('Blossom pool', 37, 48), ('Pond', 16, 45),
-          ('Promenade', 26, 40),
-          ('Cycleway', 40, 19), ('Cycleway', 4, 26), ('to Route 16 / Cycling Road', 0, 36), ('to Route 7 / Saffron', 52, 17),
-          ('Bridge', 20, 16), ('Bridge', 20, 34), ('Footbridge', 20, 42)]
+LABELS = [('Dept Store', 5, 3), ('Apartments', 25, 3), ('Pokemon Hotel', 33, 3), ('Center', 43, 8), ('Canal', 20, 1),
+          ('Houses', 50, 9), ('Market square', 9, 26), ('Game Corner', 27, 23), ('Prize corner', 39, 24),
+          ('Houses (terrace)', 45, 22), ('Cafe', 45, 30), ('Houses', 51, 30), ('Arboretum', 4, 43), ('Arboretum', 48, 46),
+          ('Blossom pool', 37, 46), ('Pond', 16, 45), ('Promenade', 26, 40), ('Cycleway', 40, 19), ('Cycleway', 4, 26),
+          ('to Route 16 / Cycling Road', 0, 36), ('to Route 7 / Saffron', 52, 17), ('Bridge', 20, 16), ('Bridge', 20, 34),
+          ('Footbridge', 20, 42)]
 
 def art_sheet():
     """Every new piece at 1:1 on one sheet, for review."""
     sp = sprites()
-    rows = [[sp[k] for k in ('dept_store', 'apartments', 'hotel', 'center')],
-            [sp[k] for k in ('game_corner', 'prize_corner', 'cafe', 'cottage_red', 'cottage_green', 'cottage_orange', 'cottage_teal')],
-            [A.stall('red'), A.side_stall('green', 'east'), A.side_stall('violet', 'west'), sp['fountain'], sp['blossom_pool'],
-             A.plant_bench(), B.olivine_lamp()] + list(B.plants().values())]
+    T, F, P = N.trees(), N.flowers(), B.plants()
+    rows = [[sp[k] for k in ('dept_store', 'apartments', 'hotel', 'center', 'game_corner')],
+            [sp[k] for k in ('prize_corner', 'cafe', 'flat')] + [sp['house_' + c] for c in H6.HUES],
+            [A.stall3d('red'), A.stall3d('blue'), A.stall3d('green', 'east'), A.stall3d('violet', 'west'), sp['fountain'],
+             sp['blossom_pool'], A.plant_bench(), B.olivine_lamp()] + list(T.values()),
+            list(F.values()) + list(P.values())]
     W_ = max(sum(p.shape[1] + 8 for p in r) + 8 for r in rows)
     H_ = sum(max(p.shape[0] for p in r) + 12 for r in rows) + 8
-    s = np.zeros((H_, W_, 4), np.uint8); s[..., :3] = (112, 200, 160); s[..., 3] = 255
+    s = np.zeros((H_, W_, 4), np.uint8); s[..., :3] = N.grass()[0][0, 0]; s[..., 3] = 255
     y = 8
     for r in rows:
         rh = max(p.shape[0] for p in r)

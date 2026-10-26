@@ -486,8 +486,27 @@ def game_corner():
     for Y in range(2, 22):
         if Y % 3 == 0:
             px(img, mx0 + 1, Y, GOLD[0]); px(img, mx1 - 2, Y, GOLD[1])
-    s = 'GAME CORNER'
-    text(img, s, cx - text_width(s) // 2, 9, PINK[0], PINK[2])
+    # no lettering (AGENTS.md): the marquee shows the machines' own symbols, a seven between
+    # two Poke Balls, in neon
+    for gy, row in enumerate(SEVEN):
+        for gx, v in enumerate(row):
+            if v == '1':
+                for dx in (0, 1):
+                    px(img, cx - 6 + gx * 2 + dx, 5 + gy * 2, PINK[0]); px(img, cx - 6 + gx * 2 + dx, 6 + gy * 2, PINK[1])
+    for bx in (cx - 26, cx + 26):
+        for y in range(5, 20):
+            for x in range(bx - 8, bx + 8):
+                d = ((x + 0.5 - bx) ** 2 + (y + 0.5 - 12) ** 2) ** 0.5
+                if d <= 7:
+                    px(img, x, y, (RED[1] if y < 12 else WHITE[1]) if d < 6 else PURPLE[4])
+        for x in range(bx - 7, bx + 7):
+            px(img, x, 12, PURPLE[4])
+        for y in range(10, 15):
+            for x in range(bx - 2, bx + 2):
+                d = ((x + 0.5 - bx) ** 2 + (y + 0.5 - 12) ** 2) ** 0.5
+                if d <= 2.3:
+                    px(img, x, y, PURPLE[4] if d > 1.3 else WHITE[0])
+        px(img, bx - 3, 8, WHITE[0])
     for X in (mx0 + 9, mx1 - 10):                                     # coins
         for y in range(6, 18):
             for x in range(X - 6, X + 7):
