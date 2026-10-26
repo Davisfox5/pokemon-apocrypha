@@ -1,7 +1,15 @@
 # Celadon City (Kanto, GBA): HGSS's Celadon as Gen 3 elements
 
-Status: third round built and installed. Engine branch `claude/celadon-city` (on
-`claude/saffron-city`), hub branch `claude/celadon-city`. Owner visual review pending.
+Status: third round built and installed (engine branch `claude/celadon-city`, on
+`claude/saffron-city`; hub branch `claude/celadon-city`). The owner turned it down; round 4's
+plan (`evidence/v4/`) was revised by the owner into round 5's (`evidence/v5/`: `plot.png`,
+`concept.png`, `art.png`), which waits on the owner's approval before it is built. Round 5:
+a 64 x 52 map drawn on the cell grid (no curves), a straight canal ending in a small pond in
+the Arboretum, the cycleway from Route 7 along the main road and down the west avenue to
+Route 16, the market square framed by stalls facing in, the buildings drawn as Gen 3 pixel art
+part by part (`tools/gba/maps/celadon_elements/gen3_kit.py`) at full size, Olivine's lamps and
+Hoenn's secret base plants borrowed (`borrowed.py`), the Arboretum a wood with walks, benches,
+the pond and the blossom pool, no building.
 
 The owner turned down two rounds: FireRed's Celadon with the changes painted on, then HGSS's
 plan drawn in FireRed's own pieces ("a slightly updated version of the FRLG maps", its palette

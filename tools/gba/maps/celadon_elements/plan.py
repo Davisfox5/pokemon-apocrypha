@@ -1,150 +1,106 @@
-"""Celadon City, fourth round: the revised plan (owner, 2026-10-26).
+"""Celadon City, fifth round: the revised plan (owner, 2026-10-26).
 
-HGSS's Celadon is the skeleton (the north row of big buildings on its brick terrace, the
-main road east to Route 7, the west avenue and the west road to Route 16, the fountain plaza
-west, the Game Corner in the middle), grown by ten years and the owner's brief:
+Round 4's winding canal and its curving cycleway went back: "curved objects don't really work
+with the Gen 3 games". This plan is drawn on the cell grid, every edge straight, and pressed
+together the way HGSS and FireRed pack their Celadon (64 x 52 cells against round 4's 84 x 64):
 
-    canal       one canal winds through the whole city on a smooth curve: down from the north
-                woods beside the Dept Store, under the main road, past the market, under the
-                cross street, south and east into the Arboretum where it opens into a lake
-                with an island, then east and north up the east side, under the east lane and
-                the main road again, and away into the north-east woods. Six bridges.
-    cycleway    along the canal's bank the whole way, joined by the west road to Route 16
-                (the Cycling Road) and the main road to Route 7
-    arboretum   the Gym is gone. Its block is the Arboretum's entrance garden (hedged flower
-                beds), and the woods south of the town are the Arboretum itself: the lake and
-                its island, groves of three kinds of tree, meadows, gravel walks, benches,
-                the glass conservatory
-    market      stalls in a ring round the fountain plaza, lamps and bunting
-    buildings   bigger: the Dept Store the tallest building in town, the Game Corner with its
-                marquee, the Pokemon Hotel (the Condominiums) and the apartment tower; the
-                houses one family of timber cottages (Fuchsia's HGSS models, the cafe's
-                kind), roofs in Celadon's colours
+    canal       one straight canal down from the north woods beside the Dept Store, past the
+                market square and the Game Corner, into a small pond in the Arboretum;
+                three bridges (the main road, the cross street, the Arboretum footbridge)
+    cycleway    two lanes from Route 7 (east, to Saffron) along the main road, down the west
+                avenue and out west on the road to Route 16 and the Cycling Road; nothing to
+                the north
+    market      the square framed by its stalls: two along the north edge facing south, two
+                down each side facing in, the fountain in the middle, open to the cross
+                street
+    north row   the big buildings at full size on the brick terrace: the Dept Store (12 x 10
+                cells), the apartments (7 x 10), the Pokemon Hotel (9 x 10), the Center
+    Game Corner 12 x 8.5 with its marquee, the prize corner beside it
+    houses      timber cottages, the cafe's family, lower than the Center; the cafe on the
+                cross street facing the Arboretum
+    Arboretum   the whole south of the town from the Gym's old block east: groves of three
+                kinds of tree round the pond, a gravel promenade with a footbridge over the
+                canal, walks, benches between planters, Hoenn's secret base plants, flower
+                beds along the cross street, and in a gravel plaza the blossom pool (a stone
+                blossom for what Erika made of the Gym); no building
+    lamps       Olivine's posts, along the kerbs and verges, never on the road or the
+                cycleway
 
-Cell floors (grass, pave, brick, kerb, meadow, garden, gravel) come from rectangles; the
-canal, the lake and the cycleway are curves at pixel level (masks), and a cell takes water
-or cycleway where most of its pixels do. W x H = 84 x 64 cells.
+Cells: forest, brick, kerb, pave, cycle, lawn, grass, garden, gravel, meadow, water, bridge.
 """
 from __future__ import annotations
-import numpy as np
 
-W, H = 84, 64
-CANAL = [(27, -3), (27, 6), (25.5, 14), (24.5, 22), (23.5, 30), (25, 38), (29, 45), (36, 49.5), (46, 50),
-         (54, 47), (59.5, 40), (60.5, 32), (59.5, 24), (60, 16), (63, 8), (67, -3)]
-CANAL_R = 30.0                       # half-width, px (about four cells of water)
-LAKE = ((41, 56), (9.5, 4.8))        # centre, radii (cells)
-ISLAND = ((41, 56.3), (3.0, 1.6))
-CYCLE_OFFSET = (CANAL_R + 6, CANAL_R + 36)   # the cycleway's band beside the canal, px from its centre line
-CYCLE_SIDE = 1                       # the canal's outer bank: the market side, the Arboretum side, the east side
+W, H = 64, 52
 
-def spline(points, step=0.05):
-    """Catmull-Rom through the points, in cells."""
-    p = np.array(points, float)
-    p = np.vstack([p[0] * 2 - p[1], p, p[-1] * 2 - p[-2]])
-    out = []
-    for i in range(1, len(p) - 2):
-        p0, p1, p2, p3 = p[i - 1], p[i], p[i + 1], p[i + 2]
-        for t in np.arange(0, 1, step):
-            t2, t3 = t * t, t * t * t
-            out.append(0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t2 + (-p0 + 3 * p1 - 3 * p2 + p3) * t3))
-    out.append(p[-2])
-    return np.array(out)
-
-def masks():
-    """Pixel masks: water (canal and lake), island, cycleway; and the canal's centre line."""
-    from scipy import ndimage
-    line = spline(CANAL) * 16
-    hh, ww = H * 16, W * 16
-    ys, xs = np.mgrid[0:hh, 0:ww]
-    # distance to the centre line, and which side of it each pixel lies on
-    pts = np.zeros((hh, ww), bool)
-    dense = spline(CANAL, 0.005) * 16
-    for x, y in dense:
-        if 0 <= int(y) < hh and 0 <= int(x) < ww:
-            pts[int(y), int(x)] = True
-    dist, (iy, ix) = ndimage.distance_transform_edt(~pts, return_indices=True)
-    along = np.zeros((hh, ww))
-    run = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(dense, axis=0).T))])
-    for k, (x, y) in enumerate(dense):
-        if 0 <= int(y) < hh and 0 <= int(x) < ww:
-            along[int(y), int(x)] = run[k]
-    along = along[iy, ix]                                 # distance along the canal of each pixel's nearest point
-    # tangent at the nearest point, for the side
-    tang = np.zeros((hh, ww, 2))
-    for k in range(len(dense) - 1):
-        x, y = dense[k]
-        if 0 <= int(y) < hh and 0 <= int(x) < ww:
-            tang[int(y), int(x)] = dense[k + 1] - dense[k]
-    t = tang[iy, ix]
-    side = np.sign(t[..., 0] * (ys - iy) - t[..., 1] * (xs - ix))
-    water = dist <= CANAL_R
-    (cx, cy), (rx, ry) = LAKE
-    lake = ((xs / 16 - cx) / rx) ** 2 + ((ys / 16 - cy) / ry) ** 2 <= 1
-    (ix0, iy0), (irx, iry) = ISLAND
-    island = ((xs / 16 - ix0) / irx) ** 2 + ((ys / 16 - iy0) / iry) ** 2 <= 1
-    water = (water | lake) & ~island
-    cycle = (dist >= CYCLE_OFFSET[0]) & (dist <= CYCLE_OFFSET[1]) & (side == CYCLE_SIDE) & ~lake & ~island
-    return dict(water=water, island=island, cycle=cycle, dist=dist, side=side, line=line, along=along)
-
-def rect(grid, x0, y0, x1, y1, v):
+def rect(g, x0, y0, x1, y1, v):
     for y in range(max(0, y0), min(H, y1)):
         for x in range(max(0, x0), min(W, x1)):
-            grid[y][x] = v
+            g[y][x] = v
 
-def floors(m=None):
-    m = m or masks()
+CANAL = (20, 0, 24, 42)             # x0, y0, x1, y1 (cells): the canal's water
+POND = (15, 42, 28, 48)             # the pond it ends in
+BRIDGES = dict(main=((19, 16, 25, 21), 'ew'), cross=((19, 34, 25, 37), 'ew'), arboretum=((19, 40, 25, 42), 'ew'))
+CYCLE = [(4, 19, W, 21), (4, 19, 6, 38), (0, 36, 6, 38)]           # the cycleway's three straight runs
+WALKS = [(4, 40, 60, 42),                                          # the promenade
+         (11, 37, 13, 50), (4, 48, 13, 50), (52, 37, 54, 50), (29, 48, 60, 50), (40, 46, 42, 50),
+         (35, 42, 46, 46)]                                         # the blossom plaza
+def floors():
     g = [['forest'] * W for _ in range(H)]
-    rect(g, 6, 5, 80, 16, 'brick')                       # the terrace the north row stands on
-    rect(g, 6, 16, 80, 17, 'kerb')
-    rect(g, 4, 17, W, 22, 'pave')                        # the main road, east to Route 7
-    rect(g, 4, 17, 10, 42, 'pave')                       # the west avenue
-    rect(g, 0, 36, 10, 40, 'pave')                       # the west road, west to Route 16
-    rect(g, 10, 22, 22, 36, 'pave')                      # the market plaza
-    rect(g, 12, 24, 20, 34, 'lawn')
-    rect(g, 10, 36, 58, 40, 'pave')                      # the cross street
-    rect(g, 29, 22, 57, 36, 'pave')                      # the Game Corner's square and its block
-    rect(g, 30, 33, 56, 36, 'grass')
-    rect(g, 29, 40, 56, 46, 'grass')                     # cottages south of the cross street
-    rect(g, 29, 40, 56, 41, 'pave')
-    rect(g, 63, 22, 80, 46, 'grass')                     # cottages east of the canal
-    rect(g, 63, 30, 80, 33, 'pave')                      # the east lane
-    rect(g, 56, 30, 63, 33, 'pave')
-    rect(g, 4, 42, 22, 48, 'garden')                     # the Arboretum's entrance garden (the Gym's block)
-    rect(g, 4, 48, 80, 62, 'meadow')                     # the Arboretum
-    rect(g, 22, 44, 30, 48, 'meadow')
-    for x0, y0, x1, y1 in WALKS:
-        rect(g, x0, y0, x1, y1, 'gravel')
-    share = lambda k: m[k].reshape(H, 16, W, 16).mean(axis=(1, 3))
-    wat, cyc, isl = share('water'), share('cycle'), share('island')
-    for y in range(H):
-        for x in range(W):
-            if wat[y, x] > 0.5:
-                g[y][x] = 'water'
-            elif cyc[y, x] > 0.4:
-                g[y][x] = 'cycle'
-            elif isl[y, x] > 0.4:
-                g[y][x] = 'meadow'
+    rect(g, 4, 9, 60, 15, 'brick')                       # the terrace under the north row
+    rect(g, 4, 15, 60, 16, 'kerb')
+    rect(g, 4, 16, W, 19, 'pave')                        # the main road east to Route 7
+    rect(g, 6, 16, 9, 37, 'pave')                        # the west avenue
+    rect(g, 0, 34, 6, 36, 'pave')                        # the road west to Route 16
+    rect(g, 9, 21, W - 4, 22, 'lawn')                    # the verge between the cycleway and the blocks
+    rect(g, 9, 22, 19, 34, 'brick')                      # the market square, in the terrace's brick
+    rect(g, 24, 22, 45, 34, 'pave')                      # the Game Corner's block
+    rect(g, 25, 31, 31, 33, 'lawn')                      # lawn beds either side of its entrance walk
+    rect(g, 34, 31, 44, 33, 'lawn')
+    rect(g, 45, 22, 60, 34, 'grass')                     # cottages east, the cafe on the cross street
+    rect(g, 45, 27, 60, 29, 'pave')                      # their lane
+    rect(g, 6, 34, 59, 37, 'pave')                       # the cross street
+    rect(g, 4, 37, 60, 50, 'meadow')                     # the Arboretum
+    rect(g, 6, 37, 11, 40, 'garden')                     # flower beds along the cross street
+    rect(g, 13, 37, 19, 40, 'garden')
+    rect(g, 25, 37, 52, 40, 'garden')
+    rect(g, 54, 37, 59, 40, 'garden')
+    for r in WALKS:
+        rect(g, *r, 'gravel')
+    for r in CYCLE:
+        rect(g, *r, 'cycle')
+    rect(g, *CANAL, 'water')
+    rect(g, *POND, 'water')
+    rect(g, 19, 22, 20, 34, 'pave')                      # quay walks either side of the canal
+    rect(g, 24, 22, 25, 34, 'pave')
     for (x0, y0, x1, y1), _ in BRIDGES.values():
-        rect(g, x0, y0, x1, y1, 'bridge')
+        for y in range(y0, y1):
+            for x in range(x0, x1):
+                if CANAL[0] <= x < CANAL[2]:
+                    g[y][x] = 'bridge'
     return g
 
-WALKS = [(12, 42, 14, 62), (4, 47, 22, 48), (14, 52, 30, 54), (52, 52, 80, 54), (44, 46, 46, 52), (64, 46, 66, 52),
-         (30, 60, 52, 62), (70, 54, 72, 62)]
-# Bridges: name, cells (x0, y0, x1, y1) of the deck, the way the street runs ('ew' or 'ns').
-BRIDGES = dict(main_west=((22, 17, 29, 22), 'ew'), main_east=((56, 17, 64, 22), 'ew'), cross=((21, 36, 30, 40), 'ew'),
-               arboretum=((44, 44, 47, 54), 'ns'), east=((56, 30, 65, 33), 'ew'), island=((40, 51, 42, 55), 'ns'))
-
-# What stands where: name, kind, left cell, base row (the row the art's foot stands on).
+# What stands where: name, kind, left cell (may be fractional), base row (the art's foot).
 PLACES = [
-    ('house_n0', 'cottage_red', 6, 15), ('services', 'services', 11, 15), ('tower', 'tower', 30, 15),
-    ('hotel', 'hotel', 36, 15), ('center', 'center', 44, 15), ('house_n1', 'cottage_green', 50, 15),
-    ('house_n2', 'cottage_orange', 65, 15), ('house_n3', 'cottage_teal', 70, 15), ('house_n4', 'cottage_red', 75, 15),
-    ('gamecorner', 'gamecorner', 31, 29), ('prize', 'prize', 44, 29), ('flat', 'cottage_teal', 50, 29),
-    ('cafe', 'cafe', 30, 45), ('house_s0', 'cottage_green', 36, 45), ('house_s1', 'cottage_orange', 41, 45),
-    ('house_s2', 'cottage_red', 48, 45),
-    ('house_e0', 'cottage_orange', 64, 28), ('house_e1', 'cottage_teal', 69, 28), ('house_e2', 'cottage_green', 74, 28),
-    ('house_e3', 'cottage_red', 64, 44), ('house_e4', 'cottage_orange', 69, 44), ('house_e5', 'cottage_teal', 74, 44),
-    ('conservatory', 'conservatory', 4, 59), ('fountain', 'fountain', 13, 31),
+    ('dept_store', 'dept_store', 5, 14), ('apartments', 'apartments', 26, 14), ('hotel', 'hotel', 34, 14),
+    ('center', 'center', 44, 14), ('house_n0', 'cottage_red', 50, 14), ('house_n1', 'cottage_teal', 55, 14),
+    ('gamecorner', 'game_corner', 26, 29), ('prize', 'prize_corner', 39, 29),
+    ('house_e0', 'cottage_orange', 45, 26), ('house_e1', 'cottage_green', 50, 26), ('house_e2', 'cottage_red', 55, 26),
+    ('cafe', 'cafe', 45, 33), ('house_e3', 'cottage_teal', 51, 33), ('house_e4', 'cottage_orange', 56, 33),
+    ('fountain', 'fountain', 11.5, 31), ('blossom', 'blossom_pool', 38, 45.5),
 ]
-STALLS = [(10, 26, 'red'), (18, 26, 'orange'), (10, 35, 'green'), (18, 35, 'blue'), (14, 24, 'violet')]
-DOORS = dict(services=(17, 15), hotel=(40, 15), center=(46, 15), gamecorner=(36, 29), prize=(46, 29), cafe=(32, 45))
+# Stalls framing the square: (left cell, base row, colour, facing).
+STALLS = [(10, 24, 'red', 'south'), (16, 24, 'orange', 'south'),
+          (9, 28, 'green', 'east'), (9, 32, 'blue', 'east'),
+          (18, 28, 'violet', 'west'), (18, 32, 'red', 'west')]
+DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(46, 14), gamecorner=(32, 29),
+             prize=(42, 29), cafe=(48, 33))
+# Olivine's lamps: on the terrace kerb, the verge, the quays, the square's corners, the
+# Game Corner's forecourt and along the promenade's south edge.
+LAMPS = [(x, 15) for x in (18, 25, 33, 43, 49, 59)] + [(x, 21) for x in (9, 25, 31, 37, 43, 49, 55, 61)] + \
+        [(19, 27), (24, 27), (9, 33), (18, 33)] + [(x, 33) for x in (31, 33)] + \
+        [(x, 42) for x in (5, 10, 13, 30, 34, 47, 51, 55)]
+BENCHES = [(12, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (36, 45), (44, 45), (6, 49)]
+PLANTS = [('big_plant', 26, 32), ('big_plant', 29, 32), ('big_plant', 35, 32), ('gorgeous_plant', 38, 32), ('big_plant', 42, 32),
+          ('gorgeous_plant', 35, 43), ('gorgeous_plant', 44, 43), ('colorful_plant', 37, 47), ('colorful_plant', 42, 47),
+          ('red_plant', 10, 39), ('red_plant', 13, 39), ('tropical_plant', 51, 39), ('tropical_plant', 54, 39),
+          ('pretty_flowers', 13, 44), ('pretty_flowers', 10, 47), ('pretty_flowers', 54, 45), ('red_plant', 51, 46)]

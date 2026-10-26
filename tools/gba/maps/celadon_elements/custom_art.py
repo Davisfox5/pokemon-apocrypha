@@ -389,3 +389,149 @@ def casino_lights(img):
     rim = deep & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
     img[rim, :3] = NEON_PINK[1]
     return img
+
+# --------------------------------------------------------------------------- round 5
+def side_stall(colour='red', facing='east'):
+    """A market stall turned to face east or west across the square, 32 x 64: its striped
+    canopy seen from above (the stripes run front to back), the scalloped valance down its
+    front edge, the produce counter's end and its crates under the canopy's south edge, the
+    back cloth, two posts."""
+    w, h = 32, 64
+    img = canvas(w, h)
+    A_ = AWNING[colour]
+    # back cloth, posts
+    rect(img, 1, 30, 5, 52, A_[3]); rect(img, 1, 30, 2, 52, A_[2])
+    for x0 in (3, 26):
+        rect(img, x0, 30, x0 + 2, 58, WOOD[2]); rect(img, x0, 30, x0 + 1, 58, WOOD[1])
+    # the counter's end and top, crates of produce along its front
+    rect(img, 5, 46, 27, 58, WOOD[2]); rect(img, 5, 46, 27, 47, WOOD[0])
+    for y in (50, 54):
+        rect(img, 5, y, 27, y + 1, WOOD[3])
+    for x in (5, 16, 26):
+        rect(img, x, 46, x + 1, 58, WOOD[3])
+    for i, ramp in enumerate((APPLE, ORANGE, LEMON)):
+        cy = 40.5 - i * 0.0
+        x0 = 7 + i * 7
+        rect(img, x0, 42, x0 + 7, 46, WOOD[3]); rect(img, x0 + 1, 43, x0 + 6, 45, WOOD[1])
+        fruit(img, x0 + 2.5, 40.5, 2.2, ramp); fruit(img, x0 + 5.5, 40.5, 2.2, ramp); fruit(img, x0 + 4, 37.5, 2.2, ramp)
+    # canopy: stripes running front to back (across the picture), lit from the upper left
+    for y in range(0, 30):
+        band = (y // 4) % 2 == 0
+        r = A_ if band else CREAM
+        for x in range(0, 27):
+            px(img, x, y, r[1] if x < 20 else r[2])
+        px(img, 0, y, r[0])
+    for y in range(0, 30, 4):
+        rect(img, 0, y, 27, y + 1, (A_ if (y // 4) % 2 == 0 else CREAM)[0])
+    # the valance down the front edge, a scallop per stripe
+    for y in range(0, 32):
+        r = A_ if (y // 4) % 2 == 0 else CREAM
+        rect(img, 27, y, 31, y + 1, r[2])
+        if y % 4 in (1, 2):
+            px(img, 31, y, r[3])
+        px(img, 27, y, r[3])
+    rect(img, 0, 29, 27, 31, A_[3])                                    # the canopy's south edge
+    # a price board hung on the valance
+    rect(img, 22, 33, 30, 39, WOOD[3]); rect(img, 23, 34, 29, 38, (56, 72, 64))
+    px(img, 24, 36, CREAM[0]); px(img, 26, 36, LEMON[1]); px(img, 27, 35, CREAM[0])
+    outline(img)
+    if facing == 'west':
+        img = img[:, ::-1].copy()
+    return img
+
+PINKS = [(255, 232, 240), (255, 184, 216), (240, 128, 184), (200, 80, 144), (144, 48, 104)]
+BRONZE = [(248, 224, 168), (224, 184, 112), (184, 136, 72), (128, 88, 48)]
+
+def blossom_pool():
+    """The Arboretum's centrepiece, 80 x 72: a square stone pool, lily pads on it, and in the
+    middle on a stepped plinth a great blossom of five pink stone petals round a gold heart,
+    for what Erika made of the Gym; water falls from the petal tips. A plaque in front."""
+    w, h = 80, 72
+    img = canvas(w, h)
+    # the pool: stone kerb (lit top, front face), water inside
+    rect(img, 2, 30, 78, 66, STONE[1]); rect(img, 2, 30, 78, 32, STONE[0])
+    rect(img, 2, 62, 78, 70, STONE[2]); rect(img, 2, 62, 78, 63, STONE[1]); rect(img, 2, 69, 78, 70, STONE[3])
+    for x in range(10, 78, 12):
+        rect(img, x, 63, x + 1, 69, STONE[3])
+    rect(img, 6, 34, 74, 61, WATER[2]); rect(img, 6, 34, 74, 37, WATER[3])
+    for (x0, y0, n) in ((10, 44, 6), (54, 50, 7), (16, 56, 5), (60, 40, 4), (36, 58, 6)):
+        rect(img, x0, y0, x0 + n, y0 + 1, WATER[1]); px(img, x0 + n // 2, y0 - 1, WATER[0])
+    for (x0, y0) in ((12, 50), (62, 54), (20, 40), (58, 44)):                  # lily pads
+        for yy in range(-2, 3):
+            for xx in range(-4, 5):
+                if (xx / 4.5) ** 2 + (yy / 2.5) ** 2 <= 1 and not (xx > 0 and yy == 0):
+                    px(img, x0 + xx, y0 + yy, GREENS[2] if yy > 0 else GREENS[1])
+        px(img, x0 - 1, y0 - 1, PINKS[1])
+    # the plinth
+    rect(img, 30, 44, 50, 58, STONE[2]); rect(img, 30, 44, 50, 46, STONE[0]); rect(img, 30, 44, 31, 58, STONE[1])
+    rect(img, 49, 46, 50, 58, STONE[3])
+    rect(img, 34, 34, 46, 46, STONE[1]); rect(img, 34, 34, 46, 35, STONE[0]); rect(img, 45, 35, 46, 46, STONE[3])
+    # the blossom: five petals round the heart
+    cx, cy = 40, 20
+    import math
+    for k in range(5):
+        a = math.radians(-90 + k * 72)
+        px0, py0 = cx + math.cos(a) * 10, cy + math.sin(a) * 9
+        for yy in range(int(py0 - 9), int(py0 + 10)):
+            for xx in range(int(px0 - 9), int(px0 + 10)):
+                d = ((xx + 0.5 - px0) / 8.5) ** 2 + ((yy + 0.5 - py0) / 8) ** 2
+                if d <= 1:
+                    lit = (xx - px0) * -0.6 + (yy - py0) * -0.8
+                    px(img, xx, yy, PINKS[1] if lit > 2 else PINKS[2] if lit > -3 else PINKS[3])
+    for k in range(5):                                                         # the cleft at each petal's tip
+        a = math.radians(-90 + k * 72)
+        tx, ty = cx + math.cos(a) * 18, cy + math.sin(a) * 16.5
+        px(img, int(tx), int(ty), (0, 0, 0)); img[int(ty), int(tx), 3] = 0
+        mx, my = cx + math.cos(a) * 14, cy + math.sin(a) * 12.5
+        px(img, int(mx), int(my), PINKS[4])
+    for k in range(5):                                                         # seams between petals
+        a = math.radians(-54 + k * 72)
+        for r in range(4, 12):
+            px(img, int(cx + math.cos(a) * r), int(cy + math.sin(a) * r * 0.9), PINKS[4])
+    for yy in range(cy - 5, cy + 6):
+        for xx in range(cx - 5, cx + 6):
+            d = ((xx + 0.5 - cx) ** 2 + (yy + 0.5 - cy) ** 2) ** 0.5
+            if d <= 5:
+                px(img, xx, yy, BRONZE[0] if d < 2 else BRONZE[1] if d < 3.5 else BRONZE[2])
+    for k in range(8):
+        a = math.radians(k * 45)
+        px(img, int(cx + math.cos(a) * 3.5), int(cy + math.sin(a) * 3.5), LEMON[1])
+    for k in range(5):                                                         # a highlight on each petal
+        a = math.radians(-90 + k * 72)
+        px(img, int(cx + math.cos(a) * 10 - 2), int(cy + math.sin(a) * 9 - 2), PINKS[0])
+    # leaves under the blossom
+    for sx in (-1, 1):
+        for i in range(10):
+            for t in range(-2, 3):
+                X, Y = cx + sx * (6 + i), cy + 13 - i // 3 + t * (1 if i < 7 else 0)
+                if abs(t) < 3 - i // 4:
+                    px(img, int(X), int(Y), GREENS[1] if t < 0 else GREENS[2])
+    outline(img)
+    # water falling from the petal tips into the pool (after the outline, so it stays light)
+    for k in (1, 2, 3, 4):
+        a = math.radians(-90 + k * 72)
+        tx, ty = int(cx + math.cos(a) * 16), int(cy + math.sin(a) * 15)
+        for yy in range(ty + 2, 46):
+            px(img, tx + (1 if tx > cx else -1) * ((yy - ty) // 6), yy, WATER[0] if yy % 3 else WATER[1])
+    # the plaque
+    rect(img, 33, 64, 47, 70, BRONZE[3]); rect(img, 34, 65, 46, 69, BRONZE[1]); rect(img, 34, 65, 46, 66, BRONZE[0])
+    for x in range(36, 45, 2):
+        px(img, x, 67, BRONZE[3])
+    return img
+
+def plant_bench():
+    """A bench between two planters of flowers, 48 x 24."""
+    w, h = 48, 24
+    img = canvas(w, h)
+    b = bench()
+    for x0 in (0, 36):
+        rect(img, x0, 12, x0 + 12, 23, STONE[2]); rect(img, x0, 12, x0 + 12, 14, STONE[0]); rect(img, x0, 22, x0 + 12, 23, STONE[3])
+        rect(img, x0 + 2, 14, x0 + 10, 16, (104, 80, 56))
+        for k, c in enumerate((APPLE[1], LEMON[1], (255, 184, 216), APPLE[1])):
+            fruit(img, x0 + 2.5 + k * 2.4, 11 - (k % 2) * 2, 1.6, [c, c, tuple(int(v * 0.8) for v in c), tuple(int(v * 0.55) for v in c)])
+        for k in range(5):
+            px(img, x0 + 2 + k * 2, 13, GREENS[2]); px(img, x0 + 3 + k * 2, 12, GREENS[1])
+    a = b[..., 3] > 0
+    img[6:22, 12:36][a] = b[a]
+    outline(img)
+    return img
