@@ -267,12 +267,14 @@ def generate(engine):
 
 # --------------------------------------------------------------------------- frame parity
 def world(engine):
-    """Route 30's native decode with Cherrygrove below it, as the connection joins them."""
-    def img(layout, sec, pri, w):
-        b = (engine / f'data/layouts/{layout}/map.bin').read_bytes()
-        return np.array(Tileset(engine, sec, pri).map_image(list(struct.unpack('<%dH' % (len(b) // 2), b)), w).convert('RGB'))
-    r = img('CherrygroveRoute30Approach', 'route30_hgss', 'cherrygrove_route30', W)
-    cg = img('CherrygroveCity', 'cherrygrove', 'cherrygrove', TOWN_W)
+    """Route 30's native decode with Cherrygrove below it, as the connection joins them (each on the
+    tilesets its layout names)."""
+    from seams import layout
+    def img(layout_id):
+        words, t = layout(engine, layout_id)
+        return np.array(t.map_image(words.ravel().tolist(), words.shape[1]).convert('RGB'))
+    r = img('LAYOUT_CHERRYGROVE_ROUTE30_APPROACH')
+    cg = img('LAYOUT_CHERRYGROVE_CITY')
     pad = 16 * 16
     canvas = np.zeros((pad + r.shape[0] + cg.shape[0] + pad, pad + cg.shape[1] + pad, 3), np.int16) - 1
     ox = pad + Rf.CG_OFFSET * 16

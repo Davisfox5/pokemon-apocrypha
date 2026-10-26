@@ -1,0 +1,60 @@
+{
+ "budget": {
+  "copy": 63,
+  "both_primaries": 19,
+  "secondary": 37
+ },
+ "primary_ids": [
+  2,
+  6,
+  15,
+  25,
+  26,
+  27,
+  31,
+  33,
+  34,
+  37,
+  47,
+  61,
+  62,
+  65,
+  93,
+  94,
+  95,
+  117,
+  132,
+  133,
+  134,
+  135,
+  311,
+  376
+ ],
+ "mirror_ids": [
+  596,
+  625
+ ],
+ "secondary_ids": [
+  596,
+  661
+ ],
+ "tiles": {
+  "secondary": 16,
+  "shared_with_route29": 21,
+  "both_primaries": 10,
+  "copy_only": 12
+ },
+ "left": {
+  "copy": 41,
+  "secondary": 0
+ },
+ "cells_changed": 1476,
+ "other_maps_differing": {
+  "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH": 0,
+  "LAYOUT_NEW_BARK_TOWN": 0,
+  "LAYOUT_VIOLET_CITY_ENTRANCE": 0,
+  "LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_29": 0,
+  "LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_30": 0
+ },
+ "cells_differing": 0
+}
