@@ -1,0 +1,65 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "2effda2a74e9bddca7671be9e53c754e0230e520",
+  "export_vs_native": {
+    "Route46": {
+      "size": [
+        512,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "Route45": {
+      "size": [
+        512,
+        2560
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "route46_or_route45_files_rewritten": [
+    "data/layouts/Route45/border.bin",
+    "data/layouts/Route45/map.bin",
+    "data/layouts/Route46/border.bin",
+    "data/layouts/Route46/map.bin",
+    "data/maps/Route45/map.json",
+    "data/maps/Route46/map.json",
+    "data/tilesets/secondary/route_46/metatile_attributes.bin",
+    "data/tilesets/secondary/route_46/metatiles.bin",
+    "data/tilesets/secondary/route_46/palettes/00.pal",
+    "data/tilesets/secondary/route_46/palettes/01.pal",
+    "data/tilesets/secondary/route_46/palettes/02.pal",
+    "data/tilesets/secondary/route_46/palettes/03.pal",
+    "data/tilesets/secondary/route_46/palettes/04.pal",
+    "data/tilesets/secondary/route_46/palettes/05.pal",
+    "data/tilesets/secondary/route_46/palettes/06.pal",
+    "data/tilesets/secondary/route_46/palettes/07.pal",
+    "data/tilesets/secondary/route_46/palettes/08.pal",
+    "data/tilesets/secondary/route_46/palettes/09.pal",
+    "data/tilesets/secondary/route_46/palettes/10.pal",
+    "data/tilesets/secondary/route_46/palettes/11.pal",
+    "data/tilesets/secondary/route_46/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_route46_or_route45": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Route 46 or Route 45 are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

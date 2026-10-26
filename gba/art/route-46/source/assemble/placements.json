@@ -1,0 +1,2003 @@
+{
+ "note": "Every placed object: master file, top-left pixel, base row. Trees sit on their decoded HGSS 2x2 roots (T01 bottom on the root bottom, crown one row behind); the signs stand on HGSS's own.",
+ "objects": [
+  {
+   "name": "sign_22_10",
+   "master": "shared-art/P13.png",
+   "xy": [
+    344,
+    136
+   ],
+   "cell": [
+    22,
+    10
+   ],
+   "base": 166
+  },
+  {
+   "name": "tree_0",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    144
+   ],
+   "root": [
+    1,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_1",
+   "master": "shared-art/T01.png",
+   "xy": [
+    48,
+    144
+   ],
+   "root": [
+    3,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_2",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    144
+   ],
+   "root": [
+    5,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_3",
+   "master": "shared-art/T01.png",
+   "xy": [
+    176,
+    144
+   ],
+   "root": [
+    11,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_4",
+   "master": "shared-art/T01.png",
+   "xy": [
+    208,
+    144
+   ],
+   "root": [
+    13,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_5",
+   "master": "shared-art/T01.png",
+   "xy": [
+    240,
+    144
+   ],
+   "root": [
+    15,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_6",
+   "master": "shared-art/T01.png",
+   "xy": [
+    272,
+    144
+   ],
+   "root": [
+    17,
+    10
+   ],
+   "base": 186
+  },
+  {
+   "name": "tree_7",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    176
+   ],
+   "root": [
+    1,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_8",
+   "master": "shared-art/T01.png",
+   "xy": [
+    48,
+    176
+   ],
+   "root": [
+    3,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_9",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    176
+   ],
+   "root": [
+    5,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_10",
+   "master": "shared-art/T01.png",
+   "xy": [
+    176,
+    176
+   ],
+   "root": [
+    11,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_11",
+   "master": "shared-art/T01.png",
+   "xy": [
+    208,
+    176
+   ],
+   "root": [
+    13,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_12",
+   "master": "shared-art/T01.png",
+   "xy": [
+    240,
+    176
+   ],
+   "root": [
+    15,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_13",
+   "master": "shared-art/T01.png",
+   "xy": [
+    272,
+    176
+   ],
+   "root": [
+    17,
+    12
+   ],
+   "base": 218
+  },
+  {
+   "name": "tree_14",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    208
+   ],
+   "root": [
+    1,
+    14
+   ],
+   "base": 250
+  },
+  {
+   "name": "tree_15",
+   "master": "shared-art/T01.png",
+   "xy": [
+    48,
+    208
+   ],
+   "root": [
+    3,
+    14
+   ],
+   "base": 250
+  },
+  {
+   "name": "tree_16",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    208
+   ],
+   "root": [
+    5,
+    14
+   ],
+   "base": 250
+  },
+  {
+   "name": "tree_17",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    240
+   ],
+   "root": [
+    1,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_18",
+   "master": "shared-art/T01.png",
+   "xy": [
+    48,
+    240
+   ],
+   "root": [
+    3,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_19",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    240
+   ],
+   "root": [
+    5,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_20",
+   "master": "shared-art/T01.png",
+   "xy": [
+    112,
+    240
+   ],
+   "root": [
+    7,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_21",
+   "master": "shared-art/T01.png",
+   "xy": [
+    144,
+    240
+   ],
+   "root": [
+    9,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_22",
+   "master": "shared-art/T01.png",
+   "xy": [
+    176,
+    240
+   ],
+   "root": [
+    11,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_23",
+   "master": "shared-art/T01.png",
+   "xy": [
+    208,
+    240
+   ],
+   "root": [
+    13,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_24",
+   "master": "shared-art/T01.png",
+   "xy": [
+    240,
+    240
+   ],
+   "root": [
+    15,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_25",
+   "master": "shared-art/T01.png",
+   "xy": [
+    272,
+    240
+   ],
+   "root": [
+    17,
+    16
+   ],
+   "base": 282
+  },
+  {
+   "name": "tree_26",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    272
+   ],
+   "root": [
+    1,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_27",
+   "master": "shared-art/T01.png",
+   "xy": [
+    48,
+    272
+   ],
+   "root": [
+    3,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_28",
+   "master": "shared-art/T01.png",
+   "xy": [
+    80,
+    272
+   ],
+   "root": [
+    5,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_29",
+   "master": "shared-art/T01.png",
+   "xy": [
+    112,
+    272
+   ],
+   "root": [
+    7,
+    18
+   ],
+   "base": 314
+  },
+  {
+   "name": "tree_30",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    304
+   ],
+   "root": [
+    1,
+    20
+   ],
+   "base": 346
+  },
+  {
+   "name": "tree_31",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    336
+   ],
+   "root": [
+    1,
+    22
+   ],
+   "base": 378
+  },
+  {
+   "name": "tree_32",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    368
+   ],
+   "root": [
+    1,
+    24
+   ],
+   "base": 410
+  },
+  {
+   "name": "tree_33",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    400
+   ],
+   "root": [
+    1,
+    26
+   ],
+   "base": 442
+  },
+  {
+   "name": "tree_34",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    416
+   ],
+   "root": [
+    20,
+    27
+   ],
+   "base": 458
+  },
+  {
+   "name": "tree_35",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    432
+   ],
+   "root": [
+    1,
+    28
+   ],
+   "base": 474
+  },
+  {
+   "name": "tree_36",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    448
+   ],
+   "root": [
+    20,
+    29
+   ],
+   "base": 490
+  },
+  {
+   "name": "tree_37",
+   "master": "shared-art/T01.png",
+   "xy": [
+    16,
+    464
+   ],
+   "root": [
+    1,
+    30
+   ],
+   "base": 506
+  },
+  {
+   "name": "tree_38",
+   "master": "shared-art/T01.png",
+   "xy": [
+    320,
+    480
+   ],
+   "root": [
+    20,
+    31
+   ],
+   "base": 522
+  },
+  {
+   "name": "tree_39",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    528
+   ],
+   "root": [
+    0,
+    34
+   ],
+   "base": 570
+  },
+  {
+   "name": "tree_40",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    528
+   ],
+   "root": [
+    2,
+    34
+   ],
+   "base": 570
+  },
+  {
+   "name": "tree_41",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    560
+   ],
+   "root": [
+    0,
+    36
+   ],
+   "base": 602
+  },
+  {
+   "name": "tree_42",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    560
+   ],
+   "root": [
+    2,
+    36
+   ],
+   "base": 602
+  },
+  {
+   "name": "tree_43",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    592
+   ],
+   "root": [
+    0,
+    38
+   ],
+   "base": 634
+  },
+  {
+   "name": "tree_44",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    592
+   ],
+   "root": [
+    2,
+    38
+   ],
+   "base": 634
+  },
+  {
+   "name": "tree_45",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    624
+   ],
+   "root": [
+    0,
+    40
+   ],
+   "base": 666
+  },
+  {
+   "name": "tree_46",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    624
+   ],
+   "root": [
+    2,
+    40
+   ],
+   "base": 666
+  },
+  {
+   "name": "tree_47",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    656
+   ],
+   "root": [
+    0,
+    42
+   ],
+   "base": 698
+  },
+  {
+   "name": "tree_48",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    656
+   ],
+   "root": [
+    2,
+    42
+   ],
+   "base": 698
+  },
+  {
+   "name": "tree_49",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    688
+   ],
+   "root": [
+    0,
+    44
+   ],
+   "base": 730
+  },
+  {
+   "name": "tree_50",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    688
+   ],
+   "root": [
+    2,
+    44
+   ],
+   "base": 730
+  },
+  {
+   "name": "tree_51",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    720
+   ],
+   "root": [
+    0,
+    46
+   ],
+   "base": 762
+  },
+  {
+   "name": "tree_52",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    720
+   ],
+   "root": [
+    2,
+    46
+   ],
+   "base": 762
+  },
+  {
+   "name": "tree_53",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    752
+   ],
+   "root": [
+    0,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_54",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    752
+   ],
+   "root": [
+    2,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_55",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    752
+   ],
+   "root": [
+    22,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_56",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    752
+   ],
+   "root": [
+    24,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_57",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    752
+   ],
+   "root": [
+    26,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_58",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    752
+   ],
+   "root": [
+    28,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "tree_59",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    752
+   ],
+   "root": [
+    30,
+    48
+   ],
+   "base": 794
+  },
+  {
+   "name": "sign_20_50",
+   "master": "shared-art/P14.png",
+   "xy": [
+    312,
+    784
+   ],
+   "cell": [
+    20,
+    50
+   ],
+   "base": 814
+  },
+  {
+   "name": "tree_60",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    784
+   ],
+   "root": [
+    0,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_61",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    784
+   ],
+   "root": [
+    2,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_62",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    784
+   ],
+   "root": [
+    4,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_63",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    784
+   ],
+   "root": [
+    22,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_64",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    784
+   ],
+   "root": [
+    24,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_65",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    784
+   ],
+   "root": [
+    26,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_66",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    784
+   ],
+   "root": [
+    28,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_67",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    784
+   ],
+   "root": [
+    30,
+    50
+   ],
+   "base": 826
+  },
+  {
+   "name": "tree_68",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    816
+   ],
+   "root": [
+    0,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_69",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    816
+   ],
+   "root": [
+    2,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_70",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    816
+   ],
+   "root": [
+    4,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_71",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    816
+   ],
+   "root": [
+    22,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_72",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    816
+   ],
+   "root": [
+    24,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_73",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    816
+   ],
+   "root": [
+    26,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_74",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    816
+   ],
+   "root": [
+    28,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_75",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    816
+   ],
+   "root": [
+    30,
+    52
+   ],
+   "base": 858
+  },
+  {
+   "name": "tree_76",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    848
+   ],
+   "root": [
+    0,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_77",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    848
+   ],
+   "root": [
+    2,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_78",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    848
+   ],
+   "root": [
+    4,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_79",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    848
+   ],
+   "root": [
+    6,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_80",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    848
+   ],
+   "root": [
+    22,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_81",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    848
+   ],
+   "root": [
+    24,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_82",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    848
+   ],
+   "root": [
+    26,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_83",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    848
+   ],
+   "root": [
+    28,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_84",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    848
+   ],
+   "root": [
+    30,
+    54
+   ],
+   "base": 890
+  },
+  {
+   "name": "tree_85",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    880
+   ],
+   "root": [
+    0,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_86",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    880
+   ],
+   "root": [
+    2,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_87",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    880
+   ],
+   "root": [
+    4,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_88",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    880
+   ],
+   "root": [
+    6,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_89",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    880
+   ],
+   "root": [
+    22,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_90",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    880
+   ],
+   "root": [
+    24,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_91",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    880
+   ],
+   "root": [
+    26,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_92",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    880
+   ],
+   "root": [
+    28,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_93",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    880
+   ],
+   "root": [
+    30,
+    56
+   ],
+   "base": 922
+  },
+  {
+   "name": "tree_94",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    912
+   ],
+   "root": [
+    0,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_95",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    912
+   ],
+   "root": [
+    2,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_96",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    912
+   ],
+   "root": [
+    4,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_97",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    912
+   ],
+   "root": [
+    6,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_98",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    912
+   ],
+   "root": [
+    8,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_99",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    912
+   ],
+   "root": [
+    10,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_100",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    912
+   ],
+   "root": [
+    12,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_101",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    912
+   ],
+   "root": [
+    14,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_102",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    912
+   ],
+   "root": [
+    22,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_103",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    912
+   ],
+   "root": [
+    24,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_104",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    912
+   ],
+   "root": [
+    26,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_105",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    912
+   ],
+   "root": [
+    28,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_106",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    912
+   ],
+   "root": [
+    30,
+    58
+   ],
+   "base": 954
+  },
+  {
+   "name": "tree_107",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    944
+   ],
+   "root": [
+    0,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_108",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    944
+   ],
+   "root": [
+    2,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_109",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    944
+   ],
+   "root": [
+    4,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_110",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    944
+   ],
+   "root": [
+    6,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_111",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    944
+   ],
+   "root": [
+    8,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_112",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    944
+   ],
+   "root": [
+    10,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_113",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    944
+   ],
+   "root": [
+    12,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_114",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    944
+   ],
+   "root": [
+    14,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_115",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    944
+   ],
+   "root": [
+    22,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_116",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    944
+   ],
+   "root": [
+    24,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_117",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    944
+   ],
+   "root": [
+    26,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_118",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    944
+   ],
+   "root": [
+    28,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_119",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    944
+   ],
+   "root": [
+    30,
+    60
+   ],
+   "base": 986
+  },
+  {
+   "name": "tree_120",
+   "master": "shared-art/T01.png",
+   "xy": [
+    0,
+    976
+   ],
+   "root": [
+    0,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_121",
+   "master": "shared-art/T01.png",
+   "xy": [
+    32,
+    976
+   ],
+   "root": [
+    2,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_122",
+   "master": "shared-art/T01.png",
+   "xy": [
+    64,
+    976
+   ],
+   "root": [
+    4,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_123",
+   "master": "shared-art/T01.png",
+   "xy": [
+    96,
+    976
+   ],
+   "root": [
+    6,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_124",
+   "master": "shared-art/T01.png",
+   "xy": [
+    128,
+    976
+   ],
+   "root": [
+    8,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_125",
+   "master": "shared-art/T01.png",
+   "xy": [
+    160,
+    976
+   ],
+   "root": [
+    10,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_126",
+   "master": "shared-art/T01.png",
+   "xy": [
+    192,
+    976
+   ],
+   "root": [
+    12,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_127",
+   "master": "shared-art/T01.png",
+   "xy": [
+    224,
+    976
+   ],
+   "root": [
+    14,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_128",
+   "master": "shared-art/T01.png",
+   "xy": [
+    352,
+    976
+   ],
+   "root": [
+    22,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_129",
+   "master": "shared-art/T01.png",
+   "xy": [
+    384,
+    976
+   ],
+   "root": [
+    24,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_130",
+   "master": "shared-art/T01.png",
+   "xy": [
+    416,
+    976
+   ],
+   "root": [
+    26,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_131",
+   "master": "shared-art/T01.png",
+   "xy": [
+    448,
+    976
+   ],
+   "root": [
+    28,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "tree_132",
+   "master": "shared-art/T01.png",
+   "xy": [
+    480,
+    976
+   ],
+   "root": [
+    30,
+    62
+   ],
+   "base": 1018
+  },
+  {
+   "name": "gate_route29",
+   "master": "shared-art/G01a.png",
+   "xy": [
+    256,
+    992
+   ],
+   "base": 1119
+  }
+ ],
+ "flower_cells": [
+  [
+   3,
+   24
+  ],
+  [
+   3,
+   25
+  ],
+  [
+   3,
+   26
+  ],
+  [
+   4,
+   24
+  ],
+  [
+   4,
+   25
+  ],
+  [
+   5,
+   24
+  ],
+  [
+   7,
+   11
+  ],
+  [
+   7,
+   12
+  ],
+  [
+   8,
+   11
+  ],
+  [
+   8,
+   12
+  ],
+  [
+   11,
+   27
+  ],
+  [
+   12,
+   27
+  ],
+  [
+   13,
+   39
+  ],
+  [
+   13,
+   40
+  ],
+  [
+   14,
+   39
+  ],
+  [
+   14,
+   40
+  ],
+  [
+   15,
+   39
+  ],
+  [
+   15,
+   40
+  ],
+  [
+   16,
+   39
+  ],
+  [
+   16,
+   40
+  ],
+  [
+   20,
+   35
+  ],
+  [
+   20,
+   36
+  ],
+  [
+   21,
+   34
+  ],
+  [
+   21,
+   35
+  ],
+  [
+   21,
+   36
+  ],
+  [
+   26,
+   8
+  ],
+  [
+   27,
+   8
+  ],
+  [
+   28,
+   8
+  ],
+  [
+   28,
+   14
+  ],
+  [
+   29,
+   8
+  ],
+  [
+   29,
+   14
+  ],
+  [
+   30,
+   14
+  ],
+  [
+   31,
+   14
+  ]
+ ],
+ "tall_grass_pieces": {
+  "G15": 175
+ },
+ "stairs": [
+  {
+   "kind": "row",
+   "cell": [
+    4,
+    32
+   ],
+   "length": 3,
+   "face": "S"
+  },
+  {
+   "kind": "row",
+   "cell": [
+    17,
+    37
+   ],
+   "length": 3,
+   "face": "S"
+  }
+ ],
+ "cave_mouth": [
+  20,
+  9
+ ],
+ "gates": {
+  "gate_route29": [
+   256,
+   992
+  ]
+ },
+ "seam_rows": [
+  10,
+  11,
+  12,
+  20,
+  21,
+  22,
+  23
+ ],
+ "boulders": [
+  {
+   "hgss_xy": [
+    257,
+    309
+   ],
+   "xy": [
+    256,
+    304
+   ],
+   "frlg_xy": [
+    264,
+    312
+   ]
+  },
+  {
+   "hgss_xy": [
+    65,
+    341
+   ],
+   "xy": [
+    64,
+    336
+   ],
+   "frlg_xy": [
+    72,
+    344
+   ]
+  },
+  {
+   "hgss_xy": [
+    177,
+    517
+   ],
+   "xy": [
+    176,
+    512
+   ],
+   "frlg_xy": [
+    184,
+    520
+   ]
+  },
+  {
+   "hgss_xy": [
+    198,
+    536
+   ],
+   "xy": [
+    192,
+    544
+   ],
+   "frlg_xy": [
+    200,
+    552
+   ]
+  }
+ ]
+}

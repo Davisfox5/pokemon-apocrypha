@@ -1,0 +1,182 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/045_R46.json",
+      "files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin",
+      "files/fielddata/script/scr_seq/scr_seq_0259_R46.s",
+      "files/msgdata/msg/msg_0406_R46.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 19,
+        "z": 10,
+        "land_data": 113
+      },
+      {
+        "x": 19,
+        "z": 11,
+        "land_data": 114
+      }
+    ],
+    "origin": [
+      608,
+      320
+    ],
+    "size": [
+      32,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [],
+      "east": [
+        47
+      ],
+      "north": [],
+      "south": [
+        33
+      ]
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        18,
+        60
+      ],
+      "dest": "MAP_ROUTE_29_ROUTE_46_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        19,
+        60
+      ],
+      "dest": "MAP_ROUTE_29_ROUTE_46_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 2,
+      "cell": [
+        20,
+        9
+      ],
+      "dest": "MAP_DARK_CAVE_ROUTE_31_SIDE",
+      "anchor": 2
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        20,
+        50
+      ],
+      "script": "scr_seq_R46_001",
+      "bg_type": 1,
+      "text": "Rt. 46 Mountain Road ahead"
+    },
+    {
+      "cell": [
+        22,
+        10
+      ],
+      "script": "scr_seq_R46_002",
+      "bg_type": 1,
+      "text": "Dark Cave"
+    },
+    {
+      "cell": [
+        32,
+        21
+      ],
+      "script": "std_hiddenitem_r45_r46_pp_max",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R46_mount_2",
+      "sprite": "SPRITE_MOUNT_2",
+      "cell": [
+        20,
+        33
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R46_campboy_2",
+      "sprite": "SPRITE_CAMPBOY_2",
+      "cell": [
+        7,
+        24
+      ],
+      "facing": 3,
+      "movement": 9,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R46_picnicgirl_2",
+      "sprite": "SPRITE_PICNICGIRL_2",
+      "cell": [
+        7,
+        28
+      ],
+      "facing": 0,
+      "movement": 6,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R46_bonguri",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        9,
+        11
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R46_bonguri_2",
+      "sprite": "SPRITE_BONGURI",
+      "cell": [
+        8,
+        12
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_R46_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        3,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R46_X_SPEED"
+    },
+    {
+      "id": "obj_R46_gsman1",
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        10,
+        46
+      ],
+      "facing": 2,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    }
+  ]
+}
