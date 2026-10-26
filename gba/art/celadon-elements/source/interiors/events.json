@@ -1,0 +1,253 @@
+{
+ "services": {
+  "source": "CeladonCity_DepartmentStore_1F_Frlg",
+  "size": [
+   13,
+   16
+  ],
+  "tiles": 106,
+  "metatiles": 85,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 1,
+    "y": 15,
+    "to": "city:services"
+   },
+   {
+    "x": 2,
+    "y": 14,
+    "to": "city:services"
+   },
+   {
+    "x": 3,
+    "y": 15,
+    "to": "city:services"
+   },
+   {
+    "x": 9,
+    "y": 15,
+    "to": "city:services"
+   },
+   {
+    "x": 10,
+    "y": 14,
+    "to": "city:services"
+   },
+   {
+    "x": 11,
+    "y": 15,
+    "to": "city:services"
+   }
+  ],
+  "solid_warps": [
+   [
+    6,
+    1
+   ],
+   [
+    4,
+    2
+   ]
+  ],
+  "walkable": 124
+ },
+ "hotel_1f": {
+  "source": "CeladonCity_Condominiums_1F_Frlg",
+  "size": [
+   15,
+   20
+  ],
+  "tiles": 97,
+  "metatiles": 75,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 11,
+    "y": 19,
+    "to": "city:hotel"
+   },
+   {
+    "x": 12,
+    "y": 18,
+    "to": "city:hotel"
+   },
+   {
+    "x": 13,
+    "y": 19,
+    "to": "city:hotel"
+   },
+   {
+    "x": 4,
+    "y": 2,
+    "to": "hotel_2f:0"
+   },
+   {
+    "x": 12,
+    "y": 2,
+    "to": "hotel_2f:1"
+   }
+  ],
+  "solid_warps": [
+   [
+    2,
+    1
+   ]
+  ],
+  "walkable": 170
+ },
+ "hotel_2f": {
+  "source": "CeladonCity_Condominiums_2F_Frlg",
+  "size": [
+   15,
+   20
+  ],
+  "tiles": 113,
+  "metatiles": 74,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 4,
+    "y": 2,
+    "to": "hotel_1f:3"
+   },
+   {
+    "x": 12,
+    "y": 2,
+    "to": "hotel_1f:4"
+   }
+  ],
+  "solid_warps": [
+   [
+    2,
+    2
+   ],
+   [
+    11,
+    2
+   ]
+  ],
+  "walkable": 161
+ },
+ "cafe": {
+  "source": "CeladonCity_Restaurant_Frlg",
+  "size": [
+   15,
+   11
+  ],
+  "tiles": 81,
+  "metatiles": 49,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 5,
+    "y": 9,
+    "to": "city:cafe"
+   },
+   {
+    "x": 6,
+    "y": 9,
+    "to": "city:cafe"
+   },
+   {
+    "x": 7,
+    "y": 9,
+    "to": "city:cafe"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 97
+ },
+ "gardens": {
+  "source": "CeladonCity_Gym_Frlg",
+  "size": [
+   13,
+   20
+  ],
+  "tiles": 85,
+  "metatiles": 60,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 5,
+    "y": 18,
+    "to": "city:gardens"
+   },
+   {
+    "x": 6,
+    "y": 18,
+    "to": "city:gardens"
+   },
+   {
+    "x": 7,
+    "y": 18,
+    "to": "city:gardens"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 150
+ },
+ "game_corner": {
+  "source": "CeladonCity_GameCorner_Frlg",
+  "size": [
+   18,
+   15
+  ],
+  "tiles": 116,
+  "metatiles": 68,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 9,
+    "y": 13,
+    "to": "city:gamecorner"
+   },
+   {
+    "x": 10,
+    "y": 13,
+    "to": "city:gamecorner"
+   },
+   {
+    "x": 11,
+    "y": 13,
+    "to": "city:gamecorner"
+   }
+  ],
+  "solid_warps": [
+   [
+    15,
+    2
+   ]
+  ],
+  "walkable": 161
+ },
+ "prize_room": {
+  "source": "CeladonCity_GameCorner_PrizeRoom_Frlg",
+  "size": [
+   9,
+   10
+  ],
+  "tiles": 61,
+  "metatiles": 43,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 3,
+    "y": 9,
+    "to": "city:prize"
+   },
+   {
+    "x": 4,
+    "y": 8,
+    "to": "city:prize"
+   },
+   {
+    "x": 5,
+    "y": 9,
+    "to": "city:prize"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 48
+ }
+}

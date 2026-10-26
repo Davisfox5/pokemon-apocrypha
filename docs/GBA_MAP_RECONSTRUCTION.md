@@ -459,46 +459,37 @@ art (`saffron/parts.py`). Traps hit there:
   which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
   Packing a room from its pixels with every bottom pixel opaque sidesteps it.
 
-Celadon (`gba/art/celadon-kanto/README.md`) followed the same method; traps hit there:
+Celadon (`gba/art/celadon-elements/README.md`, tools in `tools/gba/maps/celadon_elements/`) is
+the Olivine method in Kanto, after two rounds in FireRed's pieces were turned down as boring.
+Traps hit there:
 
-- The bank fit failed from a random start (1,229 tile uses unplaced) though the map draws
-  only 77 colours. Start the anneal from FireRed's own banks as the map's unchanged cells use
-  them (`celadon/pack.exact_banks(start=...)`): it then fits in seconds.
-- Under a part, the ground's pixels never show, yet they cost colours in the cell's bottom
-  tiles. Fill each art cell's hidden bottom pixels with a colour the tile still shows
-  (`celadon/compose.hide_ground`), and skip a bottom tile wholly under a part.
-- A part's colours snapped to the map's nearest one at a time still spread over many banks.
-  Lay a canvas's ramp onto one of the town's own ramps (`compose.lay_ramp`: the tents) and
-  drop stray pixels the cut carries (the sea under the Bond Bridge's side, a white glint).
-- A painted ground strip (the bike lane) must stop where a cell holds anything but paving
-  (a kerb, a sign's post), or each such cell needs its own mixed tile.
-- A footbridge is a ground part: its deck cells keep the street's behaviour and collision
-  under it, and the cells under its side stay the canal's water. Giving a ground part
-  MB_NORMAL made the bridge's lip walkable over the water.
-- FireRed's rooms put the exit mat at either end or the middle of their three exit warps
-  (the Game Corner's is the first). Land a door on the warp whose cell keeps the mat's
-  behaviour, never by position in the list.
-- FireRed's side stairs (MB_UP_RIGHT_STAIR_WARP and friends) warp when the player stands on
-  them and walks east (west for the left ones), not when stepping onto them.
-- A tool module that inserts another town's folder at the front of sys.path shadows its
-  own siblings (`import interiors` loaded Saffron's). Append borrowed folders instead.
-
-Celadon's second round (HGSS's plan drawn in FireRed's pieces):
-
-- FireRed's 0x0D6/0x0D7 fence is the fence drawn over a forest's top; on grass Celadon uses
-  its railing 0x0E7. Render a FireRed piece alone before using it on new ground.
-- FireRed's trees are two cells wide and overlap a row: a forest's columns must start even
-  and end odd, its top and trunk rows be odd, or the pieces will not join. `compose.check_plan`
-  fails the plan before it is drawn.
-- FireRed's paving has no piece for grass on two opposite sides: make every paved strip two
-  cells wide or more (`compose.build_grid` asserts it).
-- Flattening FireRed's buildings into one sprite layer left 208 tile uses unplaced: a
-  building cell's two layers draw from different banks. Copy FireRed's metatile into the
-  grid wherever the sprite's cell is whole and unedited (`compose.frlg_cells`).
-- A door metatile that warps the player straight in plays its slide while the player walks;
-  capture the door from the key press (`celadon/runtime.py`), not after the step.
-- FireRed's tall buildings keep their own walk-behind rows (the Dept Store two, the gym's
-  glass one): test the walk-behind on the building's own back rows, read from the ledger.
+- A town of many HGSS buildings overflows one tileset pair unless every slot is its own:
+  Celadon's primary borrows nothing (tile 0 blank, 511 tiles), its secondary keeps only the 8
+  slots a 1x1 door animation would need (504), 1015 in all.
+- A free exact fit left 230 tile kinds unplaced at 184 colours. Seed every bank with a job
+  (`pack.bank_seeds`): four ground banks (lawn and paving; terrace, kerb, bridge and posts;
+  canal and ledges; flower beds), the trees, six building palette groups, the Center's two.
+  Put the grass and lawn-edge colours in every ground bank, so an edge tile fits whichever
+  bank its material uses. A group's k-means count is one under its 15: the outline adds one.
+- Snap HGSS's ground textures onto shared ramps (one grey for kerbs, bridge and posts, one
+  brown for the canal rim and ledges, one water ramp): the ground went from 72 colours to 47.
+- A 32 px texture under an edge multiplies the edge's tiles by its phase. Take one 16 px
+  quadrant of the lawn and the water; keep 32 px only where the pattern needs it (hexagon
+  paving, brick).
+- Four colour variants of one prop cost four sets of tiles (the stalls, 66). One prop drawn
+  once in all the colours (a rainbow parasol, 32) costs one.
+- Mirror an almost symmetric building with a `keep` box over the part that differs (the Dept
+  Store's red banner): 101 tiles to 88.
+- hgss-render.json's footprints include the shadow quad: size a sprite from its model's own
+  width without `h_kage`, rounded to whole cells (C06: the Center's 5.25 units in 5 cells).
+- An emblem decal has a soft grey edge; cut it by low saturation, not by near-white only.
+- A fenced pocket by the canal is reached only by Surf (HGSS's own): count Surf in the
+  audit's reachability as the packer does, and report those cells apart.
+- Olivine's `runtime_elements` puts its folder first on sys.path; import a town's own
+  `check`, `pack` and `install` before it, then move Olivine's folder to the end.
+- FireRed's rooms put the exit mat at either end or the middle of their three exit warps;
+  land a door on the warp whose cell keeps the mat's behaviour. FireRed's side stairs warp
+  when the player stands on them and walks east (west for the left ones).
 
 ## Worked example
 
