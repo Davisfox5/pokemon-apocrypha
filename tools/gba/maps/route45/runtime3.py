@@ -11,9 +11,10 @@ seam walked from Route 45 into Blackthorn and back, with captures on both sides 
 through each crossing step (just after the secondary tileset swaps); a view on Blackthorn's
 south shore; walk-behind under the route sign (BG1 must cover the player's cell) and in front of
 it (BG1 clear); a jump ledge; a straight and a diagonal flight of stairs; the Dark Cave mouth
-and a tree blocking a player on foot; a bridge walked end to end with the
-river below it out of reach on foot, the Surf route's landing and shore walked to, and the road
-beside the row 47 ledge ending at rock (owner review); both signs read; Blackthorn and Cherrygrove
+and a tree blocking a player on foot; a bridge walked end to end (the walker drawn over the deck)
+with the river below it out of reach on foot, and passed under by a surfer (wholly under the deck),
+the stairs down to the river at both ends of the Surf route walked down and reached from the
+water, and the road beside the row 47 ledge ending at rock (owner review); both signs read; Blackthorn and Cherrygrove
 regression views; ordinary flash save, cold reload and Continue.
 """
 from __future__ import annotations
@@ -52,14 +53,23 @@ RC.STEPS = [
     # Blocked on foot: the Dark Cave mouth (Dark Cave's Route 45 side is not built), a tree.
     ('go', R, 10, 7), ('north', 1, None), ('at', R, 10, 7),
     ('go', R, 8, 148), ('south', 1, None), ('at', R, 8, 148),
-    # Owner review (2026-10-26, 2026-10-27): a bridge walked end to end through its elevation steps (road 3,
-    # end 0, deck 4 and 15), and no step from the deck onto the river; the foot of the stairs down to
-    # the river below Blackthorn and the shore at the foot are walkable, the water beside them is not on
-    # foot; the road beside the row 47 ledge's east end ends at rock.
-    ('go', R, 8, 41), ('east', 3, None), ('at', R, 11, 41), ('north', 1, None), ('at', R, 11, 41), ('shot', 'on-third-bridge'),
-    ('east', 3, None), ('at', R, 14, 41), ('west', 6, None), ('at', R, 8, 41),
+    # Owner review (2026-10-26 to 2026-10-28): a bridge walked end to end through its elevation
+    # steps (road 3, end 0, deck 4 and 15), drawn over the deck, and no step from the deck onto the
+    # river; the same bridge passed under by a surfer, wholly under the deck; the stairs down to the
+    # river below Blackthorn and at its foot walked down to the water's edge (the water blocks a
+    # walker) and reached from the water (a surfer steps off onto them); the road beside the row 47
+    # ledge's east end ends at rock.
+    ('go', R, 8, 41), ('east', 3, None), ('at', R, 11, 41), ('north', 1, None), ('at', R, 11, 41),
+    ('east', 1, None), ('at', R, 12, 41), ('shot', 'walking-on-third-bridge'),
+    ('east', 2, None), ('at', R, 14, 41), ('west', 6, None), ('at', R, 8, 41),
+    ('go', R, 11, 45), ('surfing', True, 'south-of-third-bridge'), ('north', 3, None), ('at', R, 11, 42),
+    ('shot', 'surfing-under-third-bridge'), ('north', 2, None), ('at', R, 11, 40), ('surfing', True, 'north-of-third-bridge'),
     ('go', R, 22, 11), ('west', 2, None), ('at', R, 20, 11), ('shot', 'river-landing'), ('west', 1, None), ('at', R, 20, 11),
+    ('go', R, 22, 12), ('west', 2, None), ('at', R, 20, 12), ('surfing', False, 'landing-stairs'),
+    ('go', R, 19, 12), ('surfing', True, 'below-landing'), ('east', 1, None), ('at', R, 20, 12), ('surfing', False, 'off-at-landing'),
+    ('east', 2, None), ('at', R, 22, 12),
     ('go', R, 19, 148), ('south', 2, None), ('at', R, 19, 150), ('shot', 'river-shore'), ('south', 1, None), ('at', R, 19, 150),
+    ('go', R, 19, 152), ('surfing', True, 'below-shore'), ('north', 2, None), ('at', R, 19, 150), ('surfing', False, 'off-at-shore'),
     ('go', R, 23, 44), ('south', 2, None), ('at', R, 23, 46), ('shot', 'ledge-end-road'), ('south', 1, None), ('at', R, 23, 46),
     # Signs.
     ('sign', R, 24, 7, 'route-sign-read'), ('sign', R, 12, 7, 'dark-cave-sign-read'),
@@ -67,6 +77,8 @@ RC.STEPS = [
 ]
 RC.WALK_BEHIND = {'behind-route-sign': (24, 6)}
 RC.IN_FRONT = ('route-sign-front',)
+RC.PLAYER_HIDDEN = ('surfing-under-third-bridge',)
+RC.PLAYER_SHOWN = ('walking-on-third-bridge',)
 
 if __name__ == '__main__':
     RC.main(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())

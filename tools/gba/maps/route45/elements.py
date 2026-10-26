@@ -135,14 +135,18 @@ def route45_labels(cells, m, nm):
 # Owner review (2026-10-26): cells HGSS has as cliff that Route 45 makes walkable ground, shared
 # by assemble.py (art) and pack.py (traversal), and the river's Surf route back up to Blackthorn.
 LEDGE_END_GROUND = {(23, 45), (24, 45), (23, 46), (24, 46)}   # road: the rock top beside the row 47 ledge's east end
-RIVER_SHORE = {(18, 150), (19, 150), (20, 150), (21, 150)}     # lawn: the river's one shore, at the bottom
-RIVER_LANDING = {(20, 11), (21, 11)}                           # walkable: where the Surf route back up lands, below Blackthorn
-# Owner review (2026-10-27): a flight of stairs down the bank to the landing's water, S04
-# (descending west) over the bank's west face; its middle row is the way down, (21, 11) the road
-# to it.
-RIVER_STAIRS = ((20, 10), (20, 11), (20, 12))
-OWNER_GROUND = {**{c: 'sand' for c in LEDGE_END_GROUND}, **{c: 'grass' for c in RIVER_SHORE},
-                **{c: 'sand' for c in RIVER_LANDING if c not in RIVER_STAIRS}}
+# Owner review (2026-10-27, 2026-10-28): stairs down to the river at both ends of the Surf route.
+# Below Blackthorn the bank has two levels (the road's, 5, and the lower bank's, 4), and each
+# level has its flight of S04 (descending west), the lower one a row further south, so the
+# stairs run down from the road at (22, 10-12) to the water at (19, 11-13). At the river's foot
+# the shore is S01-S03, a straight flight down to the water. (kind, x, y, length, face), as
+# assemble.flights.
+RIVER_FLIGHTS = (('column', 21, 10, 3, 'W'), ('column', 20, 11, 3, 'W'), ('row', 18, 150, 4, 'S'))
+RIVER_STAIRS = {(x + (k if kind == 'row' else 0), y + (0 if kind == 'row' else k))
+                for kind, x, y, n, _ in RIVER_FLIGHTS for k in range(n)}
+RIVER_SHORE = {(18, 150), (19, 150), (20, 150), (21, 150)}     # walkable: the shore's flight, where the Surf route back up starts
+RIVER_LANDING = {(21, 10), (21, 11), (21, 12), (20, 11), (20, 12), (20, 13)}   # walkable: the landing's flights, where it lands
+OWNER_GROUND = {c: 'sand' for c in LEDGE_END_GROUND}
 CASCADE_ROWS = (55, 96, 123)        # HGSS's waterfall rows: no land mesh under them (a model), the river drops one level
 
 def is_river(c):

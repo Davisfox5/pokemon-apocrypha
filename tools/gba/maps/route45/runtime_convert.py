@@ -16,6 +16,11 @@ animation moves them on from frame 0, which the decodes show. Captures named mid
 the secondary tileset swaps: their layers must match the joined maps at the frame's own scroll
 (the best of every horizontal offset within a cell must be exact). For walk-behind captures BG1
 must cover the player's cell; in front of a sign BG1 must leave the player's two cells clear.
+A warp onto water starts the player surfing (overworld.c GetAdjustedInitialTransitionFlags), so
+the Surf route is walked too: 'surfing' steps read PLAYER_AVATAR_FLAG_SURFING, and for the
+captures in PLAYER_HIDDEN (a surfer under a bridge deck) the screen must equal the rebuilt map
+layers over the player's two cells (the sprite is wholly under BG1), for those in PLAYER_SHOWN
+(a walker on a deck) it must not.
 
     python3 tools/gba/maps/route45/runtime3.py ENGINE_CHECKOUT OUT_DIR
 """
@@ -38,6 +43,7 @@ NATIVE = {ROUTE: ROOT / 'gba/art/route-45/evidence/pack3/native.png'}   # Blackt
 CONNECTIONS = {BLACKTHORN: [('down', ROUTE, 0)], ROUTE: [('up', BLACKTHORN, 0)]}
 INTERIOR = ('continue-menu',)                       # captures on maps this harness does not decode
 STEPS, WALK_BEHIND, IN_FRONT = [], {}, ()           # set by runtime3.py
+PLAYER_HIDDEN, PLAYER_SHOWN = (), ()                 # set by runtime3.py
 
 MAIN = r'''
 int main(int argc,char**argv){
@@ -79,6 +85,8 @@ def body():
             out.append(f'at({s[1]},{s[2]},{s[3]},"at-{s[1]}-{s[2]}-{s[3]}");')
         elif k == 'sign':   # face the sign from below, then wait for the whole text to print
             out.append(f'go({s[1]},{s[2]},{s[3]}+1);tap(UP);frames(1,A);frames(360,0);need(locked(),"{s[4]}");shot("{s[4]}");close_dialog();')
+        elif k == 'surfing':  # PLAYER_AVATAR_FLAG_SURFING (1 << 3) in gPlayerAvatar.flags
+            out.append(f'need(((c->busRead8(c,sym("gPlayerAvatar"))&8)!=0)=={int(s[1])},"surfing-{int(s[1])}-{s[2]}");')
         elif k == 'wait':
             out.append(f'frames({s[1]},0);')
         elif k == 'map':
@@ -247,6 +255,9 @@ def check_frames(out, game, phases):
             r['bg1_pixels_over_player_cell'] = int(bg1(p)[72:88, 112:128].sum())
         if tag in IN_FRONT:                                 # head cell (112, 56) and feet cell (112, 72)
             r['bg1_pixels_over_player'] = int(bg1(p)[56:88, 112:128].sum())
+        if tag in PLAYER_HIDDEN or tag in PLAYER_SHOWN:     # the screen against the map layers alone, player's two cells
+            screen = np.array(Image.open(out / f'{tag}.png').convert('RGB')).astype(np.int32) >> 3
+            r['player_cells_differing_from_map_layers'] = int((screen[56:88, 112:128] != shot[56:88, 112:128]).any(-1).sum())
         results.append(r)
     return results
 
@@ -258,7 +269,7 @@ def main(game, out):
     raw = subprocess.check_output([os.environ.get('ARM_NM', 'arm-none-eabi-nm'), str(game / 'pokeemerald.elf')], text=True)
     wanted = {'MapProof_Boot', 'MapProof_Enter', 'MapProof_ReadState', 'MapProof_Resume', 'gMapProofState', 'TrySavingData',
               'LoadGameSave', 'ArePlayerFieldControlsLocked', 'gMain', 'CB2_Overworld', 'gSaveBlock2Ptr', 'sGpuRegBuffer',
-              'sWarpDestination', 'DoWarp'}
+              'sWarpDestination', 'DoWarp', 'gPlayerAvatar'}
     syms = {r[2]: r[0] for line in raw.splitlines() if len(r := line.split()) == 3 and r[2] in wanted}
     assert syms.keys() == wanted, wanted - syms.keys()
     (out / 'symbols.txt').write_text(''.join(f'{k} {v}\n' for k, v in syms.items()))
@@ -279,8 +290,10 @@ def main(game, out):
     bad = [f for f in frames if f['mismatched_map_layer_pixels']]
     behind = {f['frame']: f.get('bg1_pixels_over_player_cell') for f in frames if 'bg1_pixels_over_player_cell' in f}
     front = {f['frame']: f['bg1_pixels_over_player'] for f in frames if 'bg1_pixels_over_player' in f}
+    sprite = {f['frame']: f['player_cells_differing_from_map_layers'] for f in frames if 'player_cells_differing_from_map_layers' in f}
     print(json.dumps(dict(rom_sha256=rom, frames=len(frames), frames_with_background_mismatch=len(bad), walk_behind_bg1=behind,
-                          in_front_bg1_over_player=front)))
+                          in_front_bg1_over_player=front, player_sprite_pixels_on_screen=sprite)))
     for f in bad:
         print('  mismatch', f)
     assert not bad and all(behind.values()) and not any(front.values()), (len(bad), behind, front)
+    assert not any(sprite[t] for t in PLAYER_HIDDEN) and all(sprite[t] for t in PLAYER_SHOWN), sprite

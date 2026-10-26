@@ -92,16 +92,14 @@ def traversal(engine, cells, art, edge):
             else:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3)
             # Owner review (2026-10-26): ground in place of cliff, and the river's Surf route.
-            if (x, y) in E.OWNER_GROUND or (x, y) in E.RIVER_LANDING:
+            if (x, y) in E.OWNER_GROUND or (x, y) in E.RIVER_LANDING or (x, y) in E.RIVER_SHORE:
                 c.update(foot='open', behavior='MB_NORMAL', collision=0, elevation=3,
                          adaptation={**{p: 'the rock top beside the row 47 ledge\'s east end is road, so the ledge meets a wall'
                                         for p in E.LEDGE_END_GROUND},
-                                     **{p: 'the river\'s one shore, at its foot, where the Surf route back up starts'
+                                     **{p: 'stairs down the shore at the river\'s foot, where the Surf route back up starts'
                                         for p in E.RIVER_SHORE},
-                                     **{p: 'the road to the stairs down to the river, below Blackthorn'
-                                        for p in E.RIVER_LANDING},
-                                     **{p: 'the foot of the stairs down to the river, where the Surf route back up lands'
-                                        for p in E.RIVER_LANDING if p in E.RIVER_STAIRS}}[(x, y)])
+                                     **{p: 'stairs down the bank to the river below Blackthorn, where the Surf route back up lands'
+                                        for p in E.RIVER_LANDING}}[(x, y)])
             elif (x, y) in falls:
                 c.update(foot='surf', behavior='MB_WATERFALL', collision=0, elevation=1,
                          adaptation='HGSS\'s cascade, a Gen 3 waterfall: Surf slides down it, Waterfall climbs it')
@@ -128,7 +126,8 @@ def above_player(walkable, top, shared, owner):
     on it or south of it and stays below the player (covered), like every blocked cell.
     Top-layer art that belongs to no object keeps the plain rule (walkable means above).
     Flat ground details (HGSS draws its stones and sand tufts into the terrain mesh) lie
-    under the player wherever they are."""
+    under the player wherever they are. A bridge deck over the river (owner bridge_deck) is
+    above: a surfer passes under it, and a walker on it, at elevation 4, is drawn over it."""
     art = (top[..., 3] > 0) | (shared[..., 3] > 0)
     base = {}
     for name in set(owner[art].ravel().tolist()) - {''}:
@@ -141,7 +140,7 @@ def above_player(walkable, top, shared, owner):
             if not (walkable[y, x] and a.any()):
                 continue
             names = set(owner[sl][a].ravel().tolist())
-            out[y, x] = ('' in names and (top[sl][..., 3] > 0).any()) or \
+            out[y, x] = ('' in names and (top[sl][..., 3] > 0).any()) or 'bridge_deck' in names or \
                 any(base[n] > y for n in names - {''} if not n.startswith(FLAT))
     return out
 

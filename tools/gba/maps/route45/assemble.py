@@ -133,7 +133,9 @@ def flights(cells):
     south face (S01-S03), runs down a column are diagonal flights down the face either side
     of them (S04 descending west, S05 east). Returns [(kind, x, y, length, face)]."""
     s = np.array([[c['lab'] == 's' for c in row] for row in cells])
-    seen, out = np.zeros_like(s), []
+    seen, out = np.zeros_like(s), list(E.RIVER_FLIGHTS)      # the owner review's flights down to the river
+    for x, y in E.RIVER_STAIRS:
+        seen[y, x] = True
     for y in range(H):
         for x in range(W):
             if not s[y, x] or seen[y, x]:
@@ -152,8 +154,6 @@ def flights(cells):
             above = cells[y - 1][x]['lab'] if y else ''
             below = cells[y + m][x]['lab'] if y + m < H else ''
             face = above if above in 'WE' else below if below in 'WE' else 'W'
-            if (x, y) in E.RIVER_STAIRS:
-                face = 'W'                                  # the landing's flight, down the bank's west face
             out.append(('column', x, y, m, face))
     return out
 
@@ -190,13 +190,26 @@ def rock_cells(cells):
     return out
 
 def owner_ground(cells, c):
-    """An HGSS cliff cell the owner review made walkable ground (elements.OWNER_GROUND): road
-    beside the row 47 ledge's east end, the lawn shore at the river's foot, the road where the
-    Surf route lands below Blackthorn. It takes the height of the nearest walkable ground."""
+    """An HGSS cliff cell the owner review made walkable ground (elements.OWNER_GROUND): the road
+    beside the row 47 ledge's east end. It takes the height of the nearest walkable ground."""
     x, y = c['x'], c['y']
     near = sorted((abs(dx) + abs(dy), cells[y + dy][x + dx]['ground']) for dx in range(-2, 3) for dy in range(-2, 3)
                   if 0 <= x + dx < W and 0 <= y + dy < H and cells[y + dy][x + dx]['lab'] == '.')
     return dict(c, lab='.', floor=E.OWNER_GROUND[(x, y)], ground=near[0][1], owner_ground=True)
+
+def river_stairs(cells):
+    """The owner review's flights down to the river (elements.RIVER_FLIGHTS) as stair cells of
+    the cliff they cut through: each at the height of the nearest rock cell beside it along its
+    run's cross direction that is not a stair (the bank level it cuts: the column's own for a
+    diagonal flight, the row's for the straight one), so the bank either side runs on into it."""
+    for kind, x0, y0, n, _ in E.RIVER_FLIGHTS:
+        for k in range(n):
+            x, y = (x0 + k, y0) if kind == 'row' else (x0, y0 + k)
+            steps = [(d, 0) for d in range(1, W)] if kind == 'row' else [(0, d) for d in range(1, H)]
+            ref = next(cells[y + sy * s][x + sx * s] for sx, sy in steps for s in (-1, 1)
+                       if 0 <= x + sx * s < W and 0 <= y + sy * s < H and (x + sx * s, y + sy * s) not in E.RIVER_STAIRS
+                       and cells[y + sy * s][x + sx * s]['lab'] in E.ROCK)
+            cells[y][x] = dict(cells[y][x], lab='s', peak=ref['peak'])
 
 def south_faces(cells, d, rock, north):
     """Rock cells whose slope falls north (to a lower rock step) with walkable ground south of
@@ -567,6 +580,16 @@ def decks(cells):
     lb, _ = label(b)
     return [(sl[1].start, sl[0].start, sl[1].stop, sl[0].stop) for sl in find_objects(lb)]
 
+def river_decks(cells, boxes):
+    """The deck cells over the river (pack.river_route's): every cell of a deck column with the
+    river beyond either end of it."""
+    out = set()
+    for x0, y0, x1, y1 in boxes:
+        for x in range(x0, x1):
+            if any(E.is_river(cells[yy][x]) for yy in (y0 - 1, y1) if 0 <= yy < H):
+                out |= {(x, y) for y in range(y0, y1)}
+    return out
+
 def bridges(bottom, boxes):
     """Blackthorn's plank bridge (blackthorn/elements.bridge) turned to run east-west: boards
     along the river, a beam down each side with a post every 32 px, nail heads by the beams."""
@@ -778,8 +801,7 @@ def compose(phg):
     PHG = phg
     TEX = E.cherry_textures()
     cells = with_xy(E.ledger(phg))
-    for x, y in E.RIVER_STAIRS:                       # the landing's flight (owner review, 2026-10-27)
-        cells[y][x] = dict(cells[y][x], lab='s')
+    river_stairs(cells)
     trees = json.loads((TRACE / 'trees.json').read_text())['trees']
     rc = rock_cells(cells)
     rclab = np.array([[c['lab'] for c in row] for row in rc])
@@ -803,6 +825,14 @@ def compose(phg):
     plain_lawn(ground, rc, phg)
     boxes = decks(rc)
     bridges(ground, boxes)
+    # Over the river the deck is on the top layer, the river under it on the bottom (owner review,
+    # 2026-10-28): a Gen 3 surfer (elevation 1, sprite priority 2) passes under BG1, a walker on
+    # the deck (elevation 4, priority 1) is drawn over it (pack.above_player).
+    over_river = river_decks(rc, boxes)
+    deck_top = np.zeros((H * PX, W * PX, 4), np.uint8)
+    for x, y in over_river:
+        sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
+        deck_top[sl][..., :3] = ground[sl]; deck_top[sl][..., 3] = 255
     owner = np.full((H * PX, W * PX), '', object)
     wa = water(rc, ground)
     a = wa[..., 3] > 0
@@ -816,6 +846,10 @@ def compose(phg):
                 for y in range(H)))
     view, nb_view = views()
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
+    a = deck_top[..., 3] > 0
+    top[a] = deck_top[a]; owner[a] = 'bridge_deck'
+    ys, xs = np.mgrid[0:H * PX, 0:W * PX]
+    bottom[a] = TEX['water'][ys % 32, xs % 32][a]                # the river runs on under the deck
     fl = flights(cells)
     stairs(bottom, rock, top, owner, fl)
     fla, fcells = flowers(phg)

@@ -359,7 +359,7 @@ def main(g, phg):
     # cells the owner review made ground (elements.OWNER_GROUND) that the road reaches.
     warps = {tuple(c['cell']) for c in json.loads((SRC / 'hgss-events.json').read_text())['warps']}
     hgss_foot = hgss_foot_reach() - warps
-    assert hgss_foot <= seen and seen - hgss_foot <= set(E.OWNER_GROUND) | E.RIVER_LANDING, \
+    assert hgss_foot <= seen and seen - hgss_foot <= set(E.OWNER_GROUND) | E.RIVER_LANDING | E.RIVER_SHORE, \
         ('reach on foot differs from HGSS\'s beyond the owner review\'s ground', sorted(hgss_foot ^ seen)[:20])
     # The ledges are one way on foot: from below a ledge, nothing above it is reached.
     for c in trav:
