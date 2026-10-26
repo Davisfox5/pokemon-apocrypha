@@ -1,8 +1,8 @@
 {
  "budget": {
-  "copy": 220,
+  "copy": 80,
   "both_primaries": 35,
-  "secondary": 147
+  "secondary": 141
  },
  "primary_ids": [
   2,
@@ -36,19 +36,19 @@
  ],
  "secondary_ids": [
   596,
-  813
+  725
  ],
  "tiles": {
-  "secondary": 126,
+  "secondary": 120,
   "shared_with_route29": 21,
   "both_primaries": 10,
-  "copy_only": 193
+  "copy_only": 54
  },
  "left": {
-  "copy": 17,
+  "copy": 16,
   "secondary": 0
  },
- "cells_changed": 1675,
+ "cells_changed": 1559,
  "other_maps_differing": {
   "LAYOUT_CHERRYGROVE_ROUTE29_APPROACH": 0,
   "LAYOUT_NEW_BARK_TOWN": 0,
@@ -56,52 +56,6 @@
   "LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_29": 0,
   "LAYOUT_CHERRYGROVE_REGIONAL_PREVIEW_30": 0
  },
- "doors": {
-  "PlayerHouse": {
-   "cell": [
-    43,
-    17
-   ],
-   "size": "RIGHT",
-   "bank": 6,
-   "metatile": 325
-  },
-  "GoldHouse": {
-   "cell": [
-    54,
-    19
-   ],
-   "size": "LEFT",
-   "bank": 6,
-   "metatile": 352
-  },
-  "NeighborHouse": {
-   "cell": [
-    64,
-    24
-   ],
-   "size": "LEFT",
-   "bank": 2,
-   "metatile": 456
-  },
-  "HarborHouse": {
-   "cell": [
-    52,
-    31
-   ],
-   "size": "LEFT",
-   "bank": 2,
-   "metatile": 456
-  },
-  "GardenHouse": {
-   "cell": [
-    65,
-    31
-   ],
-   "size": "LEFT",
-   "bank": 6,
-   "metatile": 542
-  }
- },
+ "doors": {},
  "cells_differing": 0
 }

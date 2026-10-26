@@ -44,8 +44,8 @@ Owner review (October 25), refined the same day:
   `pair_pack.py --install`, `town.py --install`.
 - Whole-town cleanup (October 26, `gba/art/cherrygrove-town/README.md`): Cherrygrove moves to its own
   CherrygrovePrimary copy (`cherrygrove_town`); forests on the overlapping lattice; the islands in Johto rock;
-  the pond with Route 30's natural bank; the beach's sand wedges cleared; the houses as HGSS's models 37 and 38
-  by Blackthorn's method, doors on their warp cells with new open frames. Traversal, warps and every other
+  the pond with Route 30's natural bank; the beach's sand wedges cleared. The houses are the owner's accepted
+  architecture: keep them. Traversal, warps and every other
   CherrygrovePrimary map unchanged. 17 copy tile slots and no secondary slots are left.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.

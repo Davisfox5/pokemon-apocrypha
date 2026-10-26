@@ -26,7 +26,6 @@ def compose(engine):
     E.islands(cv, engine)
     E.pond(cv)
     E.beach_edges(cv)
-    E.houses(cv)
     E.forests(cv)
     E.draw_trees(cv, E.tree_sprites(town))
     return town, cv

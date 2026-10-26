@@ -188,7 +188,6 @@ the map: dialogue boxes, the map-name popup, the item balls and the cuttable tre
 python3 tools/gba/maps/route30_catalog/hgss_render.py PHG gba/art/route30-catalog/source/hgss
 python3 tools/gba/maps/route30_catalog/hgss_events.py PHG gba/art/route30-catalog/source/hgss-events.json
 python3 tools/gba/maps/route30_catalog/reference.py PHG
-python3 tools/gba/maps/cherrygrove_town/houses.py PHG                       # the town's houses (Blackthorn's method)
 python3 tools/gba/maps/cherrygrove_town/town.py ENGINE --render             # Cherrygrove, from its base revision
 python3 tools/gba/maps/cherrygrove_town/town.py ENGINE --primary            # Route 29's columns, before the pack
 python3 tools/gba/maps/route30_catalog/assemble.py PHG CATALOG ENGINE      # CATALOG: checkout of codex/violet-city de5d8cfb

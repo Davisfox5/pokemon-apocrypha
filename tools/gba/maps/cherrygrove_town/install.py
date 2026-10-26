@@ -147,6 +147,9 @@ def palettes(engine, town, cv):
     for bank, slots in ((5, set(PAL5_RAMP) | set(PAL5_EXTRA)), (3, set(LAWN_EXT)), (10, set(LAWN_EXT))) + tuple(
             (b, set(range(1, len(c) + 1))) for b, c in cv.pals.items()):
         assert not used[bank] & slots, ('palette slots in use', bank, sorted(used[bank] & slots))
+    for b in range(16):                              # every run starts from the base town's palettes
+        f = f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal'
+        shutil.copyfile(town.base / f, engine / f)
     for b in sec_banks:                              # the copy's banks: write_town_primary
         (engine / f'data/tilesets/secondary/cherrygrove/palettes/{b:02d}.pal').write_text(B.jasc(bank_pal(cv.pals[b])))
     p5 = B.read_pal(bpri / 'palettes/05.pal')

@@ -23,16 +23,7 @@ from pokeheartgold's own data).
   surfable ocean water, as the owner's town has it.
 - **Beach edges**: old tile reuse had left darker sand wedges (222, 206, 148) along the beach's diagonal
   lawn edges, 18 cells. They are beach sand again with the ground painter's beach and lawn rim.
-- **Houses**: HGSS Cherrygrove's own models by Blackthorn's method (`houses.py`, which reuses
-  `route30_catalog/buildings.py`): orthographic at the owner-locked C06 Center's angle, door model 50 at HGSS's
-  offsets, 13 colours plus C06's outline. The skylight house is HGSS model 37 (mirrored for the player's
-  house, which has its door on its third column as the town had it; in the town's teal for the neighbour and
-  harbour houses). The gable house is model 38 (Gold's and the garden house).
-  ![houses](evidence/houses.png)
-- **Doors**: each door stands on its warp cell and keeps its metatile id (325, 352, 456, 542), so the door
-  table still finds it. Its open animation is cut from the new art: the 2x2 block, three frames, the panel
-  going dark from its far edge, every tile in the house's bank. The player's house anchors right.
-  ![doors in game](evidence/doors-in-game.png)
+- **Houses**: unchanged. They are the owner's accepted Cherrygrove architecture.
 
 The Pokemon Center (C06) and the Mart are owner-locked and unchanged.
 
@@ -46,8 +37,7 @@ The Pokemon Center (C06) and the Mart are owner-locked and unchanged.
   map draws, defined the same in both primaries, from tile slots free in both (10) or secondary slots free in
   both Cherrygrove's and Route 29's sheets (21). Every other map on CherrygrovePrimary draws exactly as before.
 - Cells Route 30 can see take the ids its pack gave them, from 596 (`../route30-catalog/source/pack/mirror-ids.json`).
-- Banks: 0 lawn, 3 trees, 10 blossoms (both with the lawn's tones in three free slots), 5 rock, 6 the pink
-  and red houses, 2 the teal houses (free in the copy), 12 the pond.
+- Banks: 0 lawn, 3 trees, 10 blossoms (both with the lawn's tones in three free slots), 5 rock, 12 the pond.
 - New tiles: 126 in Cherrygrove's sheet, 193 in the copy, 10 in both primaries, 21 shared with Route 29.
   Left: 17 copy slots, no secondary slots. The installer never reuses a tile from slots 1-92: the sea
   animation rewrites them.
@@ -68,13 +58,11 @@ The Pokemon Center (C06) and the Mart are owner-locked and unchanged.
 ## Limits
 
 - The transplant house's warp (42, 32) sits inside the south forest, as it does in the base town.
-- The houses have no contact shadow; the town's old houses had none either.
 - Owner visual acceptance.
 
 ## Reproduce
 
 ```sh
-python3 tools/gba/maps/cherrygrove_town/houses.py PHG              # the house sprites
 python3 tools/gba/maps/cherrygrove_town/town.py ENGINE --preview   # draw the town (evidence/preview.png)
 ```
 
