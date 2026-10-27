@@ -171,8 +171,10 @@ def stamp_bike(out, cx, cy):
     put(out, e, cx - w_ // 2, cy - h_ // 2)
 
 def paint_cycleway(deck, X, Y):
-    """The cycleway across a bridge: where its band crosses the deck, the logs take the lane's
-    teal shade for shade (their grain kept), with its white edge lines and dashed centre."""
+    """The cycleway painted across a bridge's planks: where its band crosses the deck, a flat
+    coat of the lane's teal (lit a shade at its top edge, a shade darker at its foot), the
+    boards' seams showing through it as fine darker lines the way paint lies on planks, and
+    the white edge lines and dashed centre painted solid over it."""
     for x0, y0, x1, y1 in PL.CYCLE:
         if not (x1 - x0 > y1 - y0) or x1 * 16 <= X or x0 * 16 >= X + deck.shape[1]:
             continue                                         # an east-west run that crosses this deck
@@ -182,9 +184,10 @@ def paint_cycleway(deck, X, Y):
         band = deck[max(r0, 0):min(r1, deck.shape[0])]
         a = band[..., 3] > 0
         lum = band[..., :3].astype(int) @ [3, 4, 2]
-        q = np.digitize(lum, [np.percentile(lum[a], 30), np.percentile(lum[a], 70)]) if a.any() else lum
-        ramp = np.array([CYCLE[3], CYCLE[2], CYCLE[1]], np.uint8)
-        band[a, :3] = ramp[q[a]]
+        seam = a & (lum < np.percentile(lum[a], 12))         # the boards' joints, darkest in the grain
+        band[a, :3] = CYCLE[1]
+        band[seam, :3] = CYCLE[2]
+        band[0, a[0], :3] = CYCLE[0]; band[-1, a[-1], :3] = CYCLE[3]
         for rr in (3, 4, band.shape[0] - 5, band.shape[0] - 4):
             band[rr, a[rr], :3] = LINE
         xs = np.arange(band.shape[1]) + X
@@ -362,7 +365,8 @@ def compose():
     cell = np.array(fl)
     taken |= cell == 'water'
     for name, ((bx0, by0, bx1, by1), _) in PL.BRIDGES.items():
-        b = B.log_bridge(by1 - by0)
+        crossed = any(x1 - x0 > y1 - y0 and y0 < by1 and y1 > by0 and x0 <= PL.CANAL[0] for x0, y0, x1, y1 in PL.CYCLE)
+        b = B.plank_bridge(by1 - by0, posts=('nw', 'ne') if crossed else ('nw', 'ne', 'sw', 'se'))   # no post on the cycleway
         X, Y = PL.CANAL[0] * 16 - 8, by0 * 16
         paint_cycleway(b, X, Y)
         items.append((X, Y, b, -1))
@@ -448,7 +452,7 @@ def art_sheet():
     rows = [[sp[k] for k in ('dept_store', 'apartments', 'hotel', 'center', 'game_corner')],
             [sp[k] for k in ('prize_corner', 'cafe', 'flat')] + [sp['house_' + c] for c in H6.HUES],
             [A.stall3d('red'), A.stall3d('blue'), A.stall3d('green', 'east'), A.stall3d('violet', 'west'), sp['fountain'],
-             sp['blossom_pool'], A.plant_bench(), A.street_lamp(), bike_emblem(), B.log_bridge(5)] + list(T.values()),
+             sp['blossom_pool'], A.plant_bench(), A.street_lamp(), bike_emblem(), B.plank_bridge(3)] + list(T.values()),
             list(F.values()) + list(P.values())]
     W_ = max(sum(p.shape[1] + 8 for p in r) + 8 for r in rows)
     H_ = sum(max(p.shape[0] for p in r) + 12 for r in rows) + 8

@@ -136,7 +136,7 @@ def game_corner(mods):
     marquee = drawn[0:36, cx - 53:cx + 53].copy()              # the board and its struts down to the roof
     struts = (marquee[29, :, 3] > 0)
     marquee[30:, ~struts, 3] = 0                               # not the drawn roof's parapet under them
-    lift = 14                                                  # the board stands on the roof's back edge
+    lift = 3                                                   # the board stands on the roof, clear of the cycleway
     out = np.zeros((g.shape[0] + lift, max(g.shape[1], marquee.shape[1]), 4), np.uint8)
     ox = (out.shape[1] - g.shape[1]) // 2
     out[lift:, ox:ox + g.shape[1]] = g

@@ -15,7 +15,8 @@ together the way HGSS and FireRed pack their Celadon (64 x 52 cells against roun
                 street
     north row   the big buildings at full size on the brick terrace: the Dept Store (12 x 10
                 cells), the apartments (7 x 10), the Pokemon Hotel (9 x 10), the Center
-    Game Corner 12 x 8.5 with its marquee, the prize corner beside it
+    Game Corner 12 x 8.5 with its marquee, against the canal's east quay, the prize counter
+                inside it; two terrace houses beside it
     houses      timber cottages, the cafe's family, lower than the Center; the cafe on the
                 cross street facing the Arboretum
     Arboretum   the whole south of the town from the Gym's old block east: groves of three
@@ -23,8 +24,8 @@ together the way HGSS and FireRed pack their Celadon (64 x 52 cells against roun
                 canal, walks, benches between planters, Hoenn's secret base plants, flower
                 beds along the cross street, and in a gravel plaza the blossom pool (a stone
                 blossom for what Erika made of the Gym); no building
-    lamps       Olivine's posts, along the kerbs and verges, never on the road or the
-                cycleway
+    lamps       HGSS's city lamp, few and in pattern, never on the road or the cycleway
+    bridges     the flat wood bridge (Cherrygrove's pier deck), the cycleway painted on
 
 Round 6 (the owner on round 5): the market's fountain in the middle of the square, the blossom
 pool three cells up and one right in a gravel plaza the promenade runs through, and the houses
@@ -60,8 +61,8 @@ def floors():
     rect(g, 8, 21, W - 4, 22, 'lawn')                    # the verge between the cycleway and the blocks
     rect(g, 8, 22, 19, 34, 'brick')                      # the market square, in the terrace's brick
     rect(g, 24, 22, 45, 34, 'pave')                      # the Game Corner's block
-    rect(g, 25, 32, 31, 34, 'lawn')                      # lawn beds either side of its entrance walk
-    rect(g, 34, 32, 44, 34, 'lawn')
+    rect(g, 25, 31, 29, 33, 'lawn')                      # lawn beds either side of its entrance walk
+    rect(g, 32, 31, 44, 33, 'lawn')
     rect(g, 45, 22, 60, 34, 'pave')                      # the east terraces: two rows of houses, a lane between
     rect(g, 6, 34, 59, 37, 'pave')                       # the cross street
     rect(g, 4, 37, 60, 50, 'meadow')                     # the Arboretum
@@ -89,7 +90,8 @@ PLACES = [
     ('dept_store', 'dept_store', 4.5, 14), ('apartments', 'apartments', 25, 14), ('hotel', 'hotel', 33, 14),
     ('center', 'center', 43, 14),
     ('house_n0', 'house_coral', 49, 14), ('house_n1', 'house_teal', 49 + HOUSE, 14), ('house_n2', 'house_amber', 49 + 2 * HOUSE, 14),
-    ('gamecorner', 'game_corner', 26, 30), ('prize', 'prize_corner', 39, 30),
+    ('gamecorner', 'game_corner', 24, 29),                # against the canal's east quay; the prize counter is inside
+    ('house_g0', 'house_plum', 37.5, 29), ('house_g1', 'house_amber', 37.5 + HOUSE, 29),
     ('house_a0', 'house_blue', 45, 25), ('house_a1', 'house_plum', 45 + HOUSE, 25),
     ('house_a2', 'house_teal', 45 + 2 * HOUSE, 25), ('house_a3', 'house_green', 45 + 3 * HOUSE, 25),
     ('cafe', 'cafe', 45, 32), ('flat', 'flat', 49.9, 32), ('house_b0', 'house_coral', 55.1, 32),
@@ -99,8 +101,7 @@ PLACES = [
 STALLS = [(9.5, 24, 'red', 'south'), (14.5, 24, 'orange', 'south'),
           (8, 28, 'green', 'east'), (8, 32, 'blue', 'east'),
           (16, 28, 'violet', 'west'), (16, 32, 'red', 'west')]
-DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(45, 14), gamecorner=(32, 30),
-             prize=(41, 30), cafe=(47, 32))
+DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(45, 14), gamecorner=(30, 29), house_g0=(39, 29), cafe=(47, 32))
 # The street lamps (custom_art.street_lamp, HGSS's city lamp): either side of the main road
 # bridge's north end, a lamp at each corner of the cross street's bridge, four along the
 # promenade; none over the cycleway, none in front of a building or a stall
@@ -108,8 +109,8 @@ DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(4
 LAMPS = [(18, 15), (24, 15),                                # the main road's bridge, either side of its north end
          (19, 33), (24, 33), (19, 37), (24, 37),             # the cross street's bridge, a lamp at each corner
          (5, 42), (29, 42), (47, 42), (55, 42)]              # the promenade, between its benches
-BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (37, 45), (45, 45), (6, 49)]
-PLANTS = [('big_plant', 26, 33), ('big_plant', 29, 33), ('big_plant', 35, 33), ('gorgeous_plant', 38, 33), ('big_plant', 42, 33),
+BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (37, 45), (45, 45)]
+PLANTS = [('big_plant', 25, 32), ('big_plant', 27, 32), ('big_plant', 33, 32), ('gorgeous_plant', 36, 32), ('big_plant', 42, 32),
           ('gorgeous_plant', 36, 39), ('gorgeous_plant', 45, 39), ('colorful_plant', 37, 43), ('colorful_plant', 44, 43),
           ('red_plant', 10, 39), ('red_plant', 13, 39), ('tropical_plant', 51, 39), ('tropical_plant', 54, 39),
           ('pretty_flowers', 13, 44), ('pretty_flowers', 10, 47), ('pretty_flowers', 54, 45), ('red_plant', 51, 46)]

@@ -92,3 +92,32 @@ def log_bridge(rows, tiles=5):
     h = rows * 16
     col = np.concatenate([top[:8]] + [body] * ((h - 16) // 4) + [bot[8:]], 0)
     return np.concatenate([col] * tiles, 1)
+
+PIER = C.ROOT / 'gba/art/claude-cherrygrove/source/pier.png'
+
+def plank_bridge(rows, tiles=5, posts=('nw', 'ne', 'sw', 'se')):
+    """The flat wood bridge: Cherrygrove's pier deck (gba/art/claude-cherrygrove, built from
+    HGSS's bridge plank texture, its grain and staggered boards) laid as one deck over the
+    whole crossing, `rows` cells deep and `tiles` cells across: the deck's dark rim and lit
+    top edge, the planks repeated down its depth, its rim and dark edge along the south side,
+    and Cherrygrove's short log posts at the four corners."""
+    from PIL import Image
+    p = np.array(Image.open(PIER).convert('RGBA'))
+    w, h = tiles * 16, rows * 16
+    out = np.zeros((h + 2, w, 4), np.uint8)
+    tex = p[2:28, 8:120]                                   # the plank field, 26 rows of boards
+    for y in range(0, h):
+        for x0 in range(0, w, tex.shape[1]):
+            seg = tex[(y - 2) % tex.shape[0], :min(tex.shape[1], w - x0)]
+            out[y, x0:x0 + seg.shape[0]] = seg
+    out[0] = p[0, 8]; out[1] = p[1, 8]                     # the rim and the lit top edge
+    out[h - 2] = p[28, 8]; out[h - 1] = p[29, 8]           # the south rim
+    out[h:h + 2] = p[30, 8]                                # its shade on the water
+    out[:h, 0] = p[0, 8]; out[:h, w - 1] = p[0, 8]         # the deck's ends
+    post = p[0:12, 0:10]                                   # Cherrygrove's log post
+    at = dict(nw=(0, 0), ne=(w - post.shape[1], 0), sw=(0, h - post.shape[0]), se=(w - post.shape[1], h - post.shape[0]))
+    for k in posts:
+        X, Y = at[k]
+        m = post[..., 3] > 0
+        out[Y:Y + post.shape[0], X:X + post.shape[1]][m] = post[m]
+    return out

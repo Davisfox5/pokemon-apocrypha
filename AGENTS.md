@@ -318,13 +318,24 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
   Flowers stand on whole grass cells, never cut by an edge.
 - **Neighbours.** Houses stand wall to wall in rows, not each in its own yard, a cell back
-  from the road they face.
-- **Bridges from the games.** A bridge is a Gen 3 bridge taken from its tileset and built to
-  cover its whole crossing as one deck: Celadon's is Fortree's dark log bridge
-  (`borrowed.log_bridge`, Emerald Route 120), each log capped at both ends with its body
-  stretched to the street's full depth, never short bridges stacked. A cycleway crossing it
-  is painted onto the deck (the lane's teal shade for shade over the grain, its white lines).
-  The water is shaded under the south edge.
+  from the road they face. A filler house beside a landmark is a condo with no door; before
+  adding one, check whether a story house (a named NPC's home) still needs a lot, and give
+  that one the door.
+- **Landmarks stay put.** Once the owner has seen a landmark's place, keep it there between
+  passes; move it only when the owner asks, and then by the cells asked. A landmark big enough
+  to hold a small service takes it inside (Celadon's prize counter is in the Game Corner; no
+  separate prize house).
+- **Bridges from the games.** A town bridge is the flat wood bridge: Cherrygrove's pier deck
+  (`borrowed.plank_bridge`, from HGSS's bridge plank texture; a Gen 4 piece converted is
+  fine), laid as one deck over the whole crossing at any depth, its rim and lit edge along
+  the north side, its dark rim along the south, short log posts at the corners but none on a
+  cycleway. Never short bridges stacked, never Route 104's boardwalk, never Fortree's dark
+  log bridge (owner, Celadon, 2026-10-27). The water is shaded under the south edge.
+- **Painted lanes.** A cycleway crossing a bridge is its own custom tiles, painted flat onto
+  the deck (`concept.paint_cycleway`): one solid coat of the lane's teal, the planks' seams
+  showing through a shade darker, a lit top row and a dark bottom row, the white edge lines
+  and centre dashes painted over it. Never the lane laid on the wood as a see-through
+  overlay; the wood's grain need not show.
 - **Street furniture.** Celadon's street lamp is HGSS's city lamp (model 95) drawn at Gen 3
   quality (`custom_art.street_lamp`); Olivine's flag-line post is not a lamp. Lamps stand few
   and in pattern (bridge ends, a promenade between its benches), never over a cycleway. A
