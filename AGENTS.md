@@ -306,7 +306,9 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
 - **Nature from the games.** Flowers are cut from the games' tilesets with their ground keyed
   out (`celadon_elements/nature.py`; Gen 3's flowers, recoloured petal ramps for more colours).
   Trees are the repo's own cut-outs, whole crowns on clear backgrounds (`nature.TREE_ART`:
-  Cherrygrove's, the Johto restart crown, Sandgem's cone, Floccesy's great trees). Never key a
+  Cherrygrove's, Sandgem's cone, Floccesy's great trees). A town's border tree line is the
+  standard Kanto/Johto tree only (Cherrygrove's), never a feature tree; the Johto restart
+  crown (yellow-green to teal) is out (owner, Celadon, 2026-10-27). Never key a
   tree out of a tileset by its grass colours: every leaf sharing a grass colour goes and the
   neighbouring cells' shadows stay, so crowns arrive holed and boxed (owner, Celadon,
   2026-10-27). Forests stand in staggered rows two cells apart, drawn by foot so each crown

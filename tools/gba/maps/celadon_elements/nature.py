@@ -13,8 +13,9 @@ and street must be smooth, not hard lines.
                     touches grass takes, quadrant by quadrant, the path piece's grass and its
                     light rim over its own ground, so dirt, paving, brick and the pond's
                     coping all meet the grass the way Viridian Forest's paths do
-    trees           the repo's own cut-out trees (TREE_ART): Cherrygrove's, the lighter Johto
-                    crown, Sandgem's cone tree, Floccesy's great trees in sun and shade; whole
+    trees           the repo's own cut-out trees (TREE_ART): Cherrygrove's (the standard
+                    Kanto/Johto tree, the only one in the town's border), Sandgem's cone tree,
+                    Floccesy's great trees in sun and shade (the Arboretum's); whole
                     crowns on clear backgrounds (round 6's tileset cuts lost leaves to the key)
     flowers         Kanto's red flowers (FireRed 0x004) and Hoenn's (Emerald 0x004), each also
                     in Gen 3's other flower colours (yellow, white, blue, pink: the same art,
@@ -141,7 +142,6 @@ def dirt_texture(H, W):
 # whole crowns on clear backgrounds, already shown to the owner in other towns.
 TREE_ART = dict(
     johto=('gba/art/cherrygrove-synthesis/refined/tree.png', "Cherrygrove's tree (HGSS's own, cropped whole from its render)"),
-    johto_light=('gba/art/johto-restart/native/tree.png', 'the Johto restart tree, a lighter crown'),
     sinnoh=('gba/art/sandgem-v1/native/tree.png', "Sandgem's cone tree"),
     grove_sun=('gba/art/floccesy-v4/native/tree-sun.png', "Floccesy's great tree in sunlit greens"),
     grove_shade=('gba/art/floccesy-v4/native/tree-shade.png', "Floccesy's great tree in shaded greens"),

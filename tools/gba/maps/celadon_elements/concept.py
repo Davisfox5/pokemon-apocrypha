@@ -231,8 +231,8 @@ def trees(fl, taken, objects):
     A tree's foot is its bottom two cells (trunk and lower crown); its crown rises over the
     cells above. The forest round the town stands in staggered rows two cells apart, each row
     shifted a cell from the one above, so every crown is whole and overlaps only the trunks
-    behind it. The Arboretum's groves mix Floccesy's great trees, Cherrygrove's, the lighter
-    Johto crown and Sandgem's cone tree. No tree is placed where its pixels would cover a
+    behind it, all Cherrygrove's standard Kanto/Johto tree. The Arboretum's groves mix
+    Floccesy's great trees, Cherrygrove's and Sandgem's cone tree. No tree is placed where its pixels would cover a
     lamp, bench, plant, stall, sign or fountain, or stand in front of a building."""
     cell = np.array(fl)
     T = N.trees()
@@ -268,7 +268,7 @@ def trees(fl, taken, objects):
         w = (img.shape[1] + 15) // 16
         taken[y:y + 2, x:x + w] = True
         return True
-    grove = [T['grove_sun'], T['grove_shade'], T['johto'], T['johto_light'], T['sinnoh']]
+    grove = [T['grove_sun'], T['grove_shade'], T['johto'], T['johto'], T['sinnoh']]
     for y in range(36, H - 1):                             # the Arboretum: great trees first, then the rest
         for x in range(4, W - 2):
             if h('grove', x, y) % 7 < 2:
@@ -280,7 +280,7 @@ def trees(fl, taken, objects):
     for y in range(0, H - 1, 2):                           # the forest, rows staggered
         for x in range((y // 2) % 2 - 1, W - 1, 2):
             if x >= 0:
-                place(x, y, T['johto'] if h('wood', x, y) % 4 else T['johto_light'], ('forest',))
+                place(x, y, T['johto'], ('forest',))   # the border: the standard Kanto/Johto tree only
     return items
 
 # --------------------------------------------------------------------------- the picture
