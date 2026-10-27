@@ -101,12 +101,13 @@ STALLS = [(9.5, 24, 'red', 'south'), (14.5, 24, 'orange', 'south'),
           (16, 28, 'violet', 'west'), (16, 32, 'red', 'west')]
 DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(45, 14), gamecorner=(32, 30),
              prize=(41, 30), cafe=(47, 32))
-# Olivine's lamps: in the terrace kerb's gaps between buildings, on the verge where nothing
-# stands over it, on the quays, at the Game Corner's walk and along the promenade's south edge
-# between its benches; none in front of a building or a stall (concept.overlaps checks).
-LAMPS = [(x, 15) for x in (18, 24)] + [(x, 21) for x in (8, 25, 43)] + \
-        [(19, 27), (24, 27)] + [(x, 33) for x in (31, 33)] + \
-        [(x, 42) for x in (5, 14, 29, 35, 47, 55)]
+# The street lamps (custom_art.street_lamp, HGSS's city lamp): either side of the main road
+# bridge's north end, a lamp at each corner of the cross street's bridge, four along the
+# promenade; none over the cycleway, none in front of a building or a stall
+# (concept.overlaps checks).
+LAMPS = [(18, 15), (24, 15),                                # the main road's bridge, either side of its north end
+         (19, 33), (24, 33), (19, 37), (24, 37),             # the cross street's bridge, a lamp at each corner
+         (5, 42), (29, 42), (47, 42), (55, 42)]              # the promenade, between its benches
 BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (37, 45), (45, 45), (6, 49)]
 PLANTS = [('big_plant', 26, 33), ('big_plant', 29, 33), ('big_plant', 35, 33), ('gorgeous_plant', 38, 33), ('big_plant', 42, 33),
           ('gorgeous_plant', 36, 39), ('gorgeous_plant', 45, 39), ('colorful_plant', 37, 43), ('colorful_plant', 44, 43),

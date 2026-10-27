@@ -319,9 +319,20 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   Flowers stand on whole grass cells, never cut by an edge.
 - **Neighbours.** Houses stand wall to wall in rows, not each in its own yard, a cell back
   from the road they face.
-- **Bridges from the games.** A bridge is a Gen 3 bridge taken from its tileset (Celadon's
-  are Route 104's boardwalk, `borrowed.boardwalk`, its middle row repeated for a wider
-  street), with the water shaded under its south edge.
+- **Bridges from the games.** A bridge is a Gen 3 bridge taken from its tileset and built to
+  cover its whole crossing as one deck: Celadon's is Fortree's dark log bridge
+  (`borrowed.log_bridge`, Emerald Route 120), each log capped at both ends with its body
+  stretched to the street's full depth, never short bridges stacked. A cycleway crossing it
+  is painted onto the deck (the lane's teal shade for shade over the grain, its white lines).
+  The water is shaded under the south edge.
+- **Street furniture.** Celadon's street lamp is HGSS's city lamp (model 95) drawn at Gen 3
+  quality (`custom_art.street_lamp`); Olivine's flag-line post is not a lamp. Lamps stand few
+  and in pattern (bridge ends, a promenade between its benches), never over a cycleway. A
+  cycleway is marked by a few bold painted bicycles in the middle of its lanes, the dashes
+  cleared round them, not small icons along its edges.
+- **Moving water.** Fountains animate as Gen 3 animates water and flowers: four frames swapped
+  by a tileset animation (jets bobbing, spray running out along its arcs, rings where it
+  lands; `custom_art.fountain(frame)`, `blossom_pool(frame)`).
 - **Layering.** No standing object's pixels may cover another's (a lamp on a stall, a bench
   under a lamp, a sign over a marquee) except trees behind a building or behind each other;
   flowers stand only on cells nothing stands over. Run the overlap check

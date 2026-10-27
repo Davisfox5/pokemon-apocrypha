@@ -166,7 +166,9 @@ def lamp():
 STONE = [(248, 244, 224), (224, 216, 192), (184, 176, 152), (136, 128, 112)]
 WATER = [(224, 248, 255), (136, 216, 248), (80, 168, 232), (48, 112, 200)]
 
-def fountain():
+def fountain(frame=0):
+    """The market's fountain; frame 0-3 animates its jets, spray and ripples (a tileset
+    animation in the engine, as Gen 3 animates its water and flowers)."""
     w, h = 80, 64
     img = canvas(w, h)
     cx = w / 2
@@ -192,6 +194,7 @@ def fountain():
         if y < 37:
             px(img, x, y, WATER[3])                                          # the inner wall's shade on the water
     for (x0, y0, n) in ((14, 46, 6), (52, 49, 5), (22, 52, 4), (58, 42, 4), (30, 40, 3)):
+        x0 += [0, 1, 2, 1][frame % 4] * (1 if x0 < 40 else -1)
         for k in range(n):
             px(img, x0 + k, y0, WATER[1])
         px(img, x0 + n // 2, y0 - 1, WATER[0])
@@ -216,17 +219,30 @@ def fountain():
     rect(img, int(cx - 13), 17, int(cx + 13), 18, STONE[0])
     rect(img, int(cx - 12), 18, int(cx + 12), 20, WATER[2])
     outline(img)
-    # jets and spray
-    for x0, peak in ((33, 5), (39, 0), (45, 5)):                           # three jets, lit on the left
+    # jets and spray: the jets rise and fall a pixel or two by turns, the spray runs out along
+    # its arcs from the jets' tops to the basin a step each frame, splashes ring where it lands
+    import math
+    bob = [0, 1, 2, 1]
+    for j, (x0, peak) in enumerate(((33, 5), (39, 0), (45, 5))):
+        peak = peak + bob[(frame + j) % 4]
         for y in range(peak, 18):
             px(img, x0, y, WATER[0])
             px(img, x0 + 1, y, WATER[1] if y > peak + 1 else WATER[0])
             px(img, x0 + 2, y, WATER[2] if y > peak + 3 else WATER[1])
-    for (x, y) in ((28, 10), (30, 6), (32, 3), (48, 3), (50, 6), (52, 10), (26, 16), (54, 16), (24, 24), (56, 24),
-                   (22, 30), (58, 30), (20, 36), (60, 36), (37, 2), (43, 2)):
-        px(img, x, y, WATER[0]); px(img, x + 1, y + 1, WATER[1])
-    for (x, y) in ((21, 38), (59, 38), (19, 40), (61, 40)):                  # splashes where the spray lands
-        px(img, x, y, WATER[0]); px(img, x - 1, y, WATER[1]); px(img, x + 1, y, WATER[1])
+    for side in (-1, 1):
+        for arc, (sx, sy, lx, ly, lift) in enumerate(((40, 1, 18, 38, 10), (40 + side * 6, 6, 24, 30, 6))):
+            lx = 40 + side * (40 - lx)
+            n = 6
+            for k in range(n):
+                t = (k + frame / 4.0) / n
+                x = sx + (lx - sx) * t
+                y = sy + (ly - sy) * t * t - lift * t * (1 - t)
+                px(img, int(round(x)), int(round(y)), WATER[0])
+                px(img, int(round(x)) + side, int(round(y)) + 1, WATER[1])
+        r = 1 + frame % 3                                                    # splash rings where the spray lands
+        lx = 40 + side * 22
+        for dx in range(-r, r + 1):
+            px(img, lx + dx, 38 - (1 if abs(dx) < r else 0), WATER[0] if abs(dx) == r else WATER[1])
     return img
 
 # --------------------------------------------------------------------------- marquee
@@ -442,7 +458,7 @@ def side_stall(colour='red', facing='east'):
 PINKS = [(255, 232, 240), (255, 184, 216), (240, 128, 184), (200, 80, 144), (144, 48, 104)]
 BRONZE = [(248, 224, 168), (224, 184, 112), (184, 136, 72), (128, 88, 48)]
 
-def blossom_pool():
+def blossom_pool(frame=0):
     """The Arboretum's centrepiece, 80 x 72: a square stone pool, lily pads on it, and in the
     middle on a stepped plinth a great blossom of five pink stone petals round a gold heart,
     for what Erika made of the Gym; water falls from the petal tips. A plaque in front."""
@@ -455,6 +471,7 @@ def blossom_pool():
         rect(img, x, 63, x + 1, 69, STONE[3])
     rect(img, 6, 34, 74, 61, WATER[2]); rect(img, 6, 34, 74, 37, WATER[3])
     for (x0, y0, n) in ((10, 44, 6), (54, 50, 7), (16, 56, 5), (60, 40, 4), (36, 58, 6)):
+        x0 += [0, 1, 2, 1][frame % 4] * (1 if x0 < 40 else -1)
         rect(img, x0, y0, x0 + n, y0 + 1, WATER[1]); px(img, x0 + n // 2, y0 - 1, WATER[0])
     for (x0, y0) in ((12, 50), (62, 54), (20, 40), (58, 44)):                  # lily pads
         for yy in range(-2, 3):
@@ -507,12 +524,19 @@ def blossom_pool():
                 if abs(t) < 3 - i // 4:
                     px(img, int(X), int(Y), GREENS[1] if t < 0 else GREENS[2])
     outline(img)
-    # water falling from the petal tips into the pool (after the outline, so it stays light)
+    # water falling from the petal tips into the pool (after the outline, so it stays light): the
+    # streams' droplets run down a step each frame, a ring spreads where each stream lands
     for k in (1, 2, 3, 4):
         a = math.radians(-90 + k * 72)
         tx, ty = int(cx + math.cos(a) * 16), int(cy + math.sin(a) * 15)
         for yy in range(ty + 2, 46):
-            px(img, tx + (1 if tx > cx else -1) * ((yy - ty) // 6), yy, WATER[0] if yy % 3 else WATER[1])
+            X = tx + (1 if tx > cx else -1) * ((yy - ty) // 6)
+            px(img, X, yy, WATER[0] if (yy - frame) % 3 else WATER[1])
+        r = 1 + frame % 3
+        X = tx + (1 if tx > cx else -1) * ((46 - ty) // 6)
+        for dx in range(-r, r + 1):
+            if img[46, X + dx, 3] and tuple(img[46, X + dx, :3]) in (WATER[2], WATER[3], WATER[1], WATER[0]):
+                px(img, X + dx, 46 + (0 if abs(dx) == r else 1), WATER[0] if abs(dx) == r else WATER[1])
     # the plaque
     rect(img, 33, 64, 47, 70, BRONZE[3]); rect(img, 34, 65, 46, 69, BRONZE[1]); rect(img, 34, 65, 46, 66, BRONZE[0])
     for x in range(36, 45, 2):
@@ -630,4 +654,43 @@ def stall3d(colour='red', facing='south'):
     outline(img)
     if facing == 'west':
         img = img[:, ::-1].copy()
+    return img
+
+# --------------------------------------------------------------------------- round 6: the street lamp
+LAMP_IRON = [(165, 214, 222), (99, 156, 173), (74, 132, 156), (57, 99, 132), (41, 74, 107)]   # HGSS's ko_light teals, lit to dark
+LAMP_GLASS = [(255, 255, 239), (255, 239, 165), (247, 206, 90), (214, 165, 66)]              # the lantern lit: white, warm, amber
+
+def street_lamp():
+    """Celadon's street lamp, 16 x 52: HGSS's own city lamp (model 95, its teal ko_light iron,
+    the white lantern) drawn at Gen 3 quality: a domed cap with a finial, the lantern lit warm
+    inside its frame, a slim post with a collar, a flared stepped foot; light from the upper
+    left, C06's outline."""
+    w, h = 16, 52
+    img = canvas(w, h)
+    I, G = LAMP_IRON, LAMP_GLASS
+    rect(img, 7, 0, 9, 3, I[1]); px(img, 7, 0, I[0])                       # finial
+    for y, (x0, x1) in zip(range(3, 9), ((5, 11), (3, 13), (2, 14), (2, 14), (2, 14), (3, 13))):
+        rect(img, x0, y, x1, y + 1, I[1])
+        px(img, x0, y, I[0]); px(img, x0 + 1, y, I[0] if y < 6 else I[1]); px(img, x1 - 1, y, I[3])
+    rect(img, 4, 3, 7, 4, I[0])                                            # the dome's highlight
+    rect(img, 2, 8, 14, 9, I[3])                                           # the cap's rim
+    # the lantern: frame and glass, lit
+    rect(img, 3, 9, 13, 19, I[3])
+    rect(img, 4, 10, 12, 18, G[1])
+    rect(img, 4, 10, 12, 11, G[0]); rect(img, 4, 10, 5, 18, G[0])          # light from the upper left on the glass
+    rect(img, 6, 12, 10, 16, G[2]); rect(img, 7, 13, 9, 15, G[0])          # the flame's glow at the heart
+    rect(img, 11, 11, 12, 18, G[3])
+    rect(img, 8, 10, 9, 18, I[2])                                          # the frame's mullion
+    rect(img, 3, 19, 13, 21, I[2]); rect(img, 3, 19, 13, 20, I[1]); px(img, 3, 19, I[0])   # lower rim
+    rect(img, 6, 21, 10, 23, I[2]); rect(img, 6, 21, 7, 23, I[1])          # the neck
+    # the post with a collar
+    rect(img, 7, 23, 9, 42, I[2]); rect(img, 7, 23, 8, 42, I[1])
+    rect(img, 6, 31, 10, 33, I[2]); rect(img, 6, 31, 7, 33, I[0]); rect(img, 9, 31, 10, 33, I[3])
+    # the flared, stepped foot
+    for y, (x0, x1) in zip(range(42, 51), ((6, 10), (6, 10), (5, 11), (5, 11), (4, 12), (4, 12), (3, 13), (3, 13), (3, 13))):
+        rect(img, x0, y, x1, y + 1, I[2])
+        px(img, x0, y, I[1]); px(img, x1 - 1, y, I[3])
+    rect(img, 3, 48, 13, 49, I[1]); rect(img, 3, 50, 13, 51, I[4])         # the plinth's lit top step, its foot
+    rect(img, 2, 51, 14, 52, I[4])
+    outline(img)
     return img

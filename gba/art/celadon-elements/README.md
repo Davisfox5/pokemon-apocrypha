@@ -12,7 +12,10 @@ on any building; grass, trees and flowers are the games' own (`nature.py`) and e
 join takes FireRed's path edge; the stalls are drawn at the buildings' pitch. Its second pass
 (owner, 2026-10-27): the bridges Route 104's boardwalk, the Game Corner its HGSS model at the
 same pitch with round 5's marquee and lights on it, every overlap between objects cleared,
-the trees the repo's whole cut-out crowns in staggered rows.
+the trees the repo's whole cut-out crowns in staggered rows. Third pass: the border all
+Cherrygrove's tree, Fortree's log bridges over the full crossings with the cycleway painted
+across, bold painted bicycles in the lanes, HGSS's city lamp redrawn and placed in pattern, the
+fountains animated in four frames (`evidence/v6/fountains.gif`).
 
 The owner turned down two rounds: FireRed's Celadon with the changes painted on, then HGSS's
 plan drawn in FireRed's own pieces ("a slightly updated version of the FRLG maps", its palette

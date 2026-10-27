@@ -108,7 +108,8 @@ def flowers(out, cell, covered):
 
 def cycleway(out):
     """Two lanes in teal between white edge lines, a grey kerb on the road side, a dashed
-    centre line, a bicycle painted every ten cells; the runs meet square at the corners."""
+    centre line, and a few bicycles painted in the middle of the lanes (BIKE_MARKS); the runs
+    meet square at the corners."""
     m = np.zeros((H * 16, W * 16), bool)
     for x0, y0, x1, y1 in PL.CYCLE:
         m[y0 * 16:y1 * 16, x0 * 16:x1 * 16] = True
@@ -126,15 +127,71 @@ def cycleway(out):
     # texture: a fine speckle in the surface
     rnd = (np.sin(xs * 7.13 + ys * 91.7) * 43758.5453) % 1
     out[m & (d > 6) & (d < 15) & (rnd > 0.96)] = CYCLE[0]
-    bike = bike_icon()
+    for (cx, cy) in BIKE_MARKS:                                # a few painted bicycles in the middle of the lanes
+        stamp_bike(out, cx, cy)
+
+BIKE_MARKS = [(13 * 16, 20 * 16), (34 * 16, 20 * 16), (50 * 16, 20 * 16), (5 * 16, 28 * 16)]
+
+def bike_emblem():
+    """The cycleway's bicycle, 32 x 18: painted white in two-pixel strokes (two wheels, the
+    frame, the seat and the bars), its outline a step darker than the lane, so it reads on the
+    ground from across the street without shouting."""
+    w, h = 30, 16
+    a = np.zeros((h, w), bool)
+    yy, xx = np.mgrid[0:h, 0:w]
+    for cx in (6.5, 23.5):                                   # the wheels
+        d = np.hypot(xx + 0.5 - cx, yy + 0.5 - 10.0)
+        a |= (d <= 6.0) & (d >= 4.0)
+    def line(x0, y0, x1, y1, t=1.0):
+        n = int(max(abs(x1 - x0), abs(y1 - y0)) * 3) + 1
+        for k in range(n + 1):
+            x = x0 + (x1 - x0) * k / n; y = y0 + (y1 - y0) * k / n
+            a[(np.hypot(xx + 0.5 - x, yy + 0.5 - y) <= t)] = True
+    line(6.5, 10, 13, 10)                                    # chain stay
+    line(13, 10, 10, 4)                                      # seat tube
+    line(10, 4, 20, 4)                                       # top tube
+    line(20, 4, 13, 10)                                      # down tube
+    line(20, 4, 23.5, 10)                                    # fork
+    line(18.5, 1.5, 21.5, 1.5, 0.8); line(20, 1.5, 20, 4, 0.8)   # the bars
+    line(8, 2.5, 12, 2.5, 0.8)                               # the seat
+    img = np.zeros((h + 2, w + 2, 4), np.uint8)
+    A = np.pad(a, 1)
+    p = np.pad(A, 1)
+    ring = ~A & (p[:-2, 1:-1] | p[2:, 1:-1] | p[1:-1, :-2] | p[1:-1, 2:])
+    img[ring, :3] = CYCLE[3]; img[ring, 3] = 255
+    img[A, :3] = LINE; img[A, 3] = 255
+    return img
+
+def stamp_bike(out, cx, cy):
+    """A bicycle centred at (cx, cy) on the lane, the dashes cleared round it."""
+    e = bike_emblem()
+    h_, w_ = e.shape[:2]
+    clear = out[cy - 3:cy + 3, cx - w_ // 2 - 10:cx + w_ // 2 + 10]
+    clear[np.all(clear == LINE, -1)] = CYCLE[1]
+    put(out, e, cx - w_ // 2, cy - h_ // 2)
+
+def paint_cycleway(deck, X, Y):
+    """The cycleway across a bridge: where its band crosses the deck, the logs take the lane's
+    teal shade for shade (their grain kept), with its white edge lines and dashed centre."""
     for x0, y0, x1, y1 in PL.CYCLE:
-        horiz = (x1 - x0) > (y1 - y0)
-        if horiz:
-            for X in range(x0 * 16 + 40, x1 * 16 - 24, 160):
-                put(out, bike, X, y0 * 16 + 4); put(out, bike, X + 64, y0 * 16 + 20)
-        else:
-            for Y in range(y0 * 16 + 48, y1 * 16 - 40, 160):
-                put(out, bike, x0 * 16 + 8, Y)
+        if not (x1 - x0 > y1 - y0) or x1 * 16 <= X or x0 * 16 >= X + deck.shape[1]:
+            continue                                         # an east-west run that crosses this deck
+        r0, r1 = y0 * 16 - Y, y1 * 16 - Y
+        if r1 <= 0 or r0 >= deck.shape[0]:
+            continue
+        band = deck[max(r0, 0):min(r1, deck.shape[0])]
+        a = band[..., 3] > 0
+        lum = band[..., :3].astype(int) @ [3, 4, 2]
+        q = np.digitize(lum, [np.percentile(lum[a], 30), np.percentile(lum[a], 70)]) if a.any() else lum
+        ramp = np.array([CYCLE[3], CYCLE[2], CYCLE[1]], np.uint8)
+        band[a, :3] = ramp[q[a]]
+        for rr in (3, 4, band.shape[0] - 5, band.shape[0] - 4):
+            band[rr, a[rr], :3] = LINE
+        xs = np.arange(band.shape[1]) + X
+        mid = band.shape[0] // 2
+        for rr in (mid - 1, mid):
+            m = a[rr] & (((xs + (y0 * 16 + rr)) // 8) % 2 == 0)
+            band[rr, m, :3] = LINE
 
 def bike_icon():
     rows = ["..........ww....", "....w.....w.....", "...www...www....", ".wwww.www..w....",
@@ -249,7 +306,9 @@ def trees(fl, taken, objects):
     items = []
     def fits(x, y, img, kinds):
         w = (img.shape[1] + 15) // 16
-        if not all(0 <= xx < W and 0 <= yy < H and cell[yy, xx] in kinds and not taken[yy, xx]
+        edge_ok = 'forest' in kinds                          # the border runs on off the map's edges
+        if not all(((0 <= xx < W and 0 <= yy < H) and cell[yy, xx] in kinds and not taken[yy, xx]) or
+                   (edge_ok and not (0 <= xx < W and 0 <= yy < H))
                    for xx in range(x, x + w) for yy in range(y, y + 2)):
             return False
         X, Y = x * 16 + (w * 16 - img.shape[1]) // 2, (y + 2) * 16 - img.shape[0]
@@ -266,7 +325,7 @@ def trees(fl, taken, objects):
             return False
         items.append((at[0], at[1], img))
         w = (img.shape[1] + 15) // 16
-        taken[y:y + 2, x:x + w] = True
+        taken[max(y, 0):y + 2, max(x, 0):x + w] = True
         return True
     grove = [T['grove_sun'], T['grove_shade'], T['johto'], T['johto'], T['sinnoh']]
     for y in range(36, H - 1):                             # the Arboretum: great trees first, then the rest
@@ -278,9 +337,8 @@ def trees(fl, taken, objects):
             if h('small', x, y) % 10 < 8:
                 place(x, y, grove[2 + h('kind', x, y) % 3], ('meadow',))
     for y in range(0, H - 1, 2):                           # the forest, rows staggered
-        for x in range((y // 2) % 2 - 1, W - 1, 2):
-            if x >= 0:
-                place(x, y, T['johto'], ('forest',))   # the border: the standard Kanto/Johto tree only
+        for x in range((y // 2) % 2 - 1, W + 1, 2):
+            place(x, y, T['johto'], ('forest',))   # the border: the standard Kanto/Johto tree only
     return items
 
 # --------------------------------------------------------------------------- the picture
@@ -304,12 +362,12 @@ def compose():
     cell = np.array(fl)
     taken |= cell == 'water'
     for name, ((bx0, by0, bx1, by1), _) in PL.BRIDGES.items():
-        b = B.boardwalk(by1 - by0)
+        b = B.log_bridge(by1 - by0)
         X, Y = PL.CANAL[0] * 16 - 8, by0 * 16
+        paint_cycleway(b, X, Y)
         items.append((X, Y, b, -1))
         sh = out[by1 * 16:by1 * 16 + 6, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
-        wet = sh.astype(int).sum(-1) > 0
-        sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]             # the boardwalk's shade on the water
+        sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]             # the bridge's shade on the water
     sp = sprites()
     for name, kind, x, base in PL.PLACES:
         img = sp[kind]
@@ -319,7 +377,7 @@ def compose():
     for x, base, colour, facing in PL.STALLS:
         s = A.stall3d(colour, facing)
         items.append((int(x * 16), (base + 1) * 16 - s.shape[0], s))
-    lamp = B.olivine_lamp()
+    lamp = A.street_lamp()
     for x, base in PL.LAMPS:
         items.append((x * 16 + (16 - lamp.shape[1]) // 2, (base + 1) * 16 - lamp.shape[0], lamp))
         taken[max(0, base - 2):base + 1, x] = True
@@ -390,7 +448,7 @@ def art_sheet():
     rows = [[sp[k] for k in ('dept_store', 'apartments', 'hotel', 'center', 'game_corner')],
             [sp[k] for k in ('prize_corner', 'cafe', 'flat')] + [sp['house_' + c] for c in H6.HUES],
             [A.stall3d('red'), A.stall3d('blue'), A.stall3d('green', 'east'), A.stall3d('violet', 'west'), sp['fountain'],
-             sp['blossom_pool'], A.plant_bench(), B.olivine_lamp()] + list(T.values()),
+             sp['blossom_pool'], A.plant_bench(), A.street_lamp(), bike_emblem(), B.log_bridge(5)] + list(T.values()),
             list(F.values()) + list(P.values())]
     W_ = max(sum(p.shape[1] + 8 for p in r) + 8 for r in rows)
     H_ = sum(max(p.shape[0] for p in r) + 12 for r in rows) + 8
@@ -417,6 +475,12 @@ def main():
         d.rectangle((x * 16, y * 16, x * 16 + tw, y * 16 + 12), fill=(0, 0, 0, 200))
         d.text((x * 16 + 2, y * 16), txt, fill=(255, 255, 120))
     plot.save(OUT / 'plot.png')
+    frames = []                                              # the fountains' four frames, as the engine will cycle them
+    for f in range(4):
+        fr = np.zeros((80, 176, 4), np.uint8); fr[..., :3] = N.grass()[0][0, 0]; fr[..., 3] = 255
+        put(fr, A.fountain(f), 4, 4); put(fr, A.blossom_pool(f), 92, 4)
+        frames.append(Image.fromarray(fr).resize((176 * 4, 80 * 4), Image.Resampling.NEAREST))
+    frames[0].save(OUT / 'fountains.gif', save_all=True, append_images=frames[1:], duration=160, loop=0)
     a = art_sheet()
     Image.fromarray(a).resize((a.shape[1] * 2, a.shape[0] * 2), Image.Resampling.NEAREST).save(OUT / 'art.png')
     print('concept written', pic.shape)

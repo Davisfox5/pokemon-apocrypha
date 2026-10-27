@@ -77,3 +77,18 @@ def boardwalk(rows):
     row = lambda m: np.concatenate([ts.meta(m, layers=(1,))] * 5, 1)
     parts = [row(0x344)] + [row(0x34C)] * (rows - 1) + [row(0x34D)[:4]]
     return np.concatenate(parts, 0)
+
+def log_bridge(rows, tiles=5):
+    """Fortree's log bridge (Emerald Route 120, Fortree's tileset 0x297 over 0x29F): dark logs
+    laid north-south across an east-west crossing, two to a cell, each capped at both ends.
+    Built to any depth: the top tile's capped upper half, then the log's body repeated, then
+    the bottom tile's capped lower half, so each log runs whole from the street's north edge to
+    its south edge and the bridge reads as one deck over the full crossing. Top layer only;
+    `tiles` cells across (the canal and half a quay each side)."""
+    import metatiles as MT
+    ts = MT.Tileset(ENGINE / 'data/tilesets/primary/general', ENGINE / 'data/tilesets/secondary/fortree')
+    top, bot = ts.meta(0x297, layers=(1,)), ts.meta(0x29F, layers=(1,))
+    body = top[8:12]
+    h = rows * 16
+    col = np.concatenate([top[:8]] + [body] * ((h - 16) // 4) + [bot[8:]], 0)
+    return np.concatenate([col] * tiles, 1)
