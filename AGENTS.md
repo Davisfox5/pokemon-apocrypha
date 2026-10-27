@@ -303,10 +303,15 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   houses are that town's own HGSS houses, not another region's.
 - **Pitch.** Hand-drawn props (market stalls) are drawn at the buildings' 45 degrees, their
   tops visible (`custom_art.stall3d`).
-- **Nature from the games.** Trees and flowers are cut from the games' tilesets with their
-  ground keyed out (`celadon_elements/nature.py`): Hoenn's round tree, Kanto's cone tree,
-  Viridian Forest's great tree, Fortree's palm, Gen 3's flowers (recoloured petal ramps for
-  more colours). A park may mix regions. Never invent a tree or recolour one into a new kind.
+- **Nature from the games.** Flowers are cut from the games' tilesets with their ground keyed
+  out (`celadon_elements/nature.py`; Gen 3's flowers, recoloured petal ramps for more colours).
+  Trees are the repo's own cut-outs, whole crowns on clear backgrounds (`nature.TREE_ART`:
+  Cherrygrove's, the Johto restart crown, Sandgem's cone, Floccesy's great trees). Never key a
+  tree out of a tileset by its grass colours: every leaf sharing a grass colour goes and the
+  neighbouring cells' shadows stay, so crowns arrive holed and boxed (owner, Celadon,
+  2026-10-27). Forests stand in staggered rows two cells apart, drawn by foot so each crown
+  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building.
+  A park may mix regions. Never invent a tree or recolour one into a new kind.
 - **Smooth joins.** Grass meets every other ground (dirt, paving, brick, a cycleway, a pond's
   coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
   Flowers stand on whole grass cells, never cut by an edge.

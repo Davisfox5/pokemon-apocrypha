@@ -13,10 +13,9 @@ and street must be smooth, not hard lines.
                     touches grass takes, quadrant by quadrant, the path piece's grass and its
                     light rim over its own ground, so dirt, paving, brick and the pond's
                     coping all meet the grass the way Viridian Forest's paths do
-    trees           Hoenn's round tree (Emerald general 0x1D4/0x1E4), Kanto's cone tree
-                    (FireRed general 0x00E/0x01E), Viridian Forest's great tree (3 x 4 cells),
-                    Fortree's palm (3 x 3), each cut from its tileset with the ground keyed out
-                    and its own shadow kept
+    trees           the repo's own cut-out trees (TREE_ART): Cherrygrove's, the lighter Johto
+                    crown, Sandgem's cone tree, Floccesy's great trees in sun and shade; whole
+                    crowns on clear backgrounds (round 6's tileset cuts lost leaves to the key)
     flowers         Kanto's red flowers (FireRed 0x004) and Hoenn's (Emerald 0x004), each also
                     in Gen 3's other flower colours (yellow, white, blue, pink: the same art,
                     the petals' ramp swapped); HGSS's flat flower textures stay out
@@ -135,13 +134,27 @@ def dirt_texture(H, W):
     return np.tile(c, (H, W, 1))
 
 # --------------------------------------------------------------------------- trees
+# The owner, round 6: "so many trees are either cut off or cut off something ... There are
+# already trees with transparent backgrounds in the repo, so use those." Trees cut from a
+# tileset by keying out its grass lose every leaf that shares a grass colour and keep the
+# shadow squares of the cells round them, so Celadon's trees are the repo's own cut-outs:
+# whole crowns on clear backgrounds, already shown to the owner in other towns.
+TREE_ART = dict(
+    johto=('gba/art/cherrygrove-synthesis/refined/tree.png', "Cherrygrove's tree (HGSS's own, cropped whole from its render)"),
+    johto_light=('gba/art/johto-restart/native/tree.png', 'the Johto restart tree, a lighter crown'),
+    sinnoh=('gba/art/sandgem-v1/native/tree.png', "Sandgem's cone tree"),
+    grove_sun=('gba/art/floccesy-v4/native/tree-sun.png', "Floccesy's great tree in sunlit greens"),
+    grove_shade=('gba/art/floccesy-v4/native/tree-shade.png', "Floccesy's great tree in shaded greens"),
+)
+
 def trees():
-    return dict(
-        hoenn=keyed(EM, [[0x1D4, 0x1D5], [0x1E4, 0x1E5]], [0x001]),
-        kanto=keyed(FR, [[0x00E, 0x00F], [0x01E, 0x01F]], [0x001]),
-        viridian=keyed(VF, [[0x001, 0x281, 0x001], [0x288, 0x299, 0x28A], [0x2A0, 0x2A1, 0x2A2], [0x2A3, 0x2A4, 0x2A5]], [0x001, 0x008, 0x009]),
-        palm=keyed(FO, [[0x248, 0x249, 0x24A], [0x250, 0x251, 0x252], [0x0C7, 0x241, 0x0C7]], [0x0C7, 0x0C6]),
-    )
+    from PIL import Image
+    out = {}
+    for k, (path, _) in TREE_ART.items():
+        a = np.array(Image.open(C.ROOT / path).convert('RGBA'))
+        a[..., 3] = np.where(a[..., 3] >= 128, 255, 0)
+        out[k] = a
+    return out
 
 # --------------------------------------------------------------------------- flowers
 PETALS = dict(yellow=[(255, 247, 140), (247, 214, 57), (206, 165, 16)], white=[(255, 255, 255), (231, 231, 239), (181, 181, 198)],

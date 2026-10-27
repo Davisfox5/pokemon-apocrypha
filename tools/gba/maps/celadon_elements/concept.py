@@ -6,8 +6,8 @@ The ground is Kanto's own (nature.py): FireRed's grass, Viridian Forest's dirt f
 and wherever grass meets anything else (dirt, paving, brick, the cycleway, the pond's coping)
 FireRed's path edge laid over it quadrant by quadrant; HGSS's hexagon paving and terrace brick
 for the streets; the straight canal and its pond with stone quays; the cycleway. Trees are the
-games' own (Hoenn's round tree, Kanto's cone tree, Viridian Forest's great tree), flowers
-Gen 3's own in their colours; the bridges Route 104's boardwalk. Buildings are HGSS's Celadon models brought down
+repo's own cut-outs (nature.TREE_ART: whole crowns, clear backgrounds), flowers Gen 3's own in
+their colours; the bridges Route 104's boardwalk. Buildings are HGSS's Celadon models brought down
 to Gen 3 at 45 degrees (hgss_gen3.py); the Game Corner is round 5's drawing without its
 lettering; the C06 Center; the stalls drawn at the same pitch (custom_art.stall3d); Olivine's
 lamps and Hoenn's secret base plants (borrowed.py). Writes evidence/v6/concept.png,
@@ -225,35 +225,62 @@ def bridge_art(name):
     return img, x0, by0 * 16
 
 # --------------------------------------------------------------------------- trees
-def trees(fl, taken):
-    """The forest round the town in Hoenn's and Kanto's trees; the Arboretum's groves in all
-    four, Viridian Forest's great trees and Fortree's palms among them."""
+def trees(fl, taken, objects):
+    """Whole trees (nature.trees) round the town and through the Arboretum.
+
+    A tree's foot is its bottom two cells (trunk and lower crown); its crown rises over the
+    cells above. The forest round the town stands in staggered rows two cells apart, each row
+    shifted a cell from the one above, so every crown is whole and overlaps only the trunks
+    behind it. The Arboretum's groves mix Floccesy's great trees, Cherrygrove's, the lighter
+    Johto crown and Sandgem's cone tree. No tree is placed where its pixels would cover a
+    lamp, bench, plant, stall, sign or fountain, or stand in front of a building."""
     cell = np.array(fl)
     T = N.trees()
+    props = np.zeros((H * 16, W * 16), bool)
+    fronts = np.full((H * 16, W * 16), -1, int)              # each building pixel: the building's foot row (px)
+    for X, Y, img, layer in objects:
+        if layer < 0:
+            continue
+        if img.shape[0] >= 64 and img.shape[1] >= 60:        # a building
+            m = np.zeros_like(props); stamp(m, img, X, Y)
+            fronts[m] = np.maximum(fronts[m], Y + img.shape[0])
+        else:
+            stamp(props, img, X, Y)
     items = []
-    def free(x, y, w, hh, kinds):
-        return all(0 <= xx < W and 0 <= yy < H and cell[yy, xx] in kinds and not taken[yy, xx]
-                   for xx in range(x, x + w) for yy in range(y, y + hh))
-    def place(x, y, img):
-        w, hh = img.shape[1] // 16, img.shape[0] // 16
-        items.append((x * 16, (y + hh) * 16 - img.shape[0], img))
-        taken[y:y + hh, x:x + w] = True
-    for y in range(36, H - 1):                             # the Arboretum: its great trees and palms first,
-        for x in range(4, W - 1):                          # then the round and cone trees between them
-            k = h('grove', x, y) % 9
-            img = T['viridian'] if k < 2 else None
-            if img is not None and free(x, y, img.shape[1] // 16, img.shape[0] // 16, ('meadow',)):
-                place(x, y, img)
+    def fits(x, y, img, kinds):
+        w = (img.shape[1] + 15) // 16
+        if not all(0 <= xx < W and 0 <= yy < H and cell[yy, xx] in kinds and not taken[yy, xx]
+                   for xx in range(x, x + w) for yy in range(y, y + 2)):
+            return False
+        X, Y = x * 16 + (w * 16 - img.shape[1]) // 2, (y + 2) * 16 - img.shape[0]
+        m = np.zeros_like(props); stamp(m, img, X, Y)
+        if (m & props).any():
+            return False
+        foot = (y + 2) * 16
+        if (m & (fronts >= 0) & (fronts <= foot)).any():     # in front of a building: no
+            return False
+        return X, Y
+    def place(x, y, img, kinds):
+        at = fits(x, y, img, kinds)
+        if not at:
+            return False
+        items.append((at[0], at[1], img))
+        w = (img.shape[1] + 15) // 16
+        taken[y:y + 2, x:x + w] = True
+        return True
+    grove = [T['grove_sun'], T['grove_shade'], T['johto'], T['johto_light'], T['sinnoh']]
+    for y in range(36, H - 1):                             # the Arboretum: great trees first, then the rest
+        for x in range(4, W - 2):
+            if h('grove', x, y) % 7 < 2:
+                place(x, y, grove[h('g', x, y) % 2], ('meadow',))
     for y in range(36, H - 1):
         for x in range(4, W - 1):
-            k = h('small', x, y) % 10
-            img = T['hoenn'] if k < 5 else T['kanto'] if k < 9 else None
-            if img is not None and free(x, y, 2, 2, ('meadow',)):
-                place(x, y, img)
-    for y in range(0, H - 1, 2):
-        for x in range(0, W - 1, 2):
-            if free(x, y, 2, 2, ('forest',)):
-                place(x, y, T['hoenn'] if h('wood', x, y) % 3 else T['kanto'])
+            if h('small', x, y) % 10 < 8:
+                place(x, y, grove[2 + h('kind', x, y) % 3], ('meadow',))
+    for y in range(0, H - 1, 2):                           # the forest, rows staggered
+        for x in range((y // 2) % 2 - 1, W - 1, 2):
+            if x >= 0:
+                place(x, y, T['johto'] if h('wood', x, y) % 4 else T['johto_light'], ('forest',))
     return items
 
 # --------------------------------------------------------------------------- the picture
@@ -306,7 +333,7 @@ def compose():
         items.append((x * 16, (base + 1) * 16 - p.shape[0], p))
         taken[base - 1:base + 1, x:x + p.shape[1] // 16] = True
     tagged = [(it[0], it[1], it[2], it[3] if len(it) == 4 else 0) for it in items]
-    tagged += [(X, Y, img, 1) for X, Y, img in trees(fl, taken)]            # layer 1: trees, for the checks only
+    tagged += [(X, Y, img, 1) for X, Y, img in trees(fl, taken, tagged)]    # layer 1: trees, for the checks only
     covered = np.zeros((H * 16, W * 16), bool)
     for X, Y, img, layer in tagged:
         if layer >= 0:

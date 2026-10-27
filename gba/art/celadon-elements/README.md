@@ -11,7 +11,8 @@ the houses HGSS Celadon's own in terraces, the Dept Store's banners in kana, no 
 on any building; grass, trees and flowers are the games' own (`nature.py`) and every grass
 join takes FireRed's path edge; the stalls are drawn at the buildings' pitch. Its second pass
 (owner, 2026-10-27): the bridges Route 104's boardwalk, the Game Corner its HGSS model at the
-same pitch with round 5's marquee and lights on it, every overlap between objects cleared.
+same pitch with round 5's marquee and lights on it, every overlap between objects cleared,
+the trees the repo's whole cut-out crowns in staggered rows.
 
 The owner turned down two rounds: FireRed's Celadon with the changes painted on, then HGSS's
 plan drawn in FireRed's own pieces ("a slightly updated version of the FRLG maps", its palette
