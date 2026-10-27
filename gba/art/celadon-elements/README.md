@@ -16,8 +16,9 @@ the trees the repo's whole cut-out crowns in staggered rows. Third pass: the bor
 Cherrygrove's tree, Fortree's log bridges over the full crossings with the cycleway painted
 across, bold painted bicycles in the lanes, HGSS's city lamp redrawn and placed in pattern, the
 fountains animated in four frames (`evidence/v6/fountains.gif`). Fourth pass: the border's
-bottom-left row filled (a bench there was blocking it), the flat wood bridge (Cherrygrove's
-pier deck) on every crossing with the cycleway painted on as its own flat tiles, the Game
+bottom-left row filled (a bench there was blocking it), HGSS's flat wood bridge from Route 27
+(the owner's pick from the bridge catalogue) on every crossing, with the cycleway painted on as
+its own tiles and the planks' grain showing through the paint, the Game
 Corner moved up and west against the canal's east quay with the prize counter inside it (the
 prize house is gone), and two terrace houses beside it.
 

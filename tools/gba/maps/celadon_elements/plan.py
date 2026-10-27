@@ -25,7 +25,7 @@ together the way HGSS and FireRed pack their Celadon (64 x 52 cells against roun
                 beds along the cross street, and in a gravel plaza the blossom pool (a stone
                 blossom for what Erika made of the Gym); no building
     lamps       HGSS's city lamp, few and in pattern, never on the road or the cycleway
-    bridges     the flat wood bridge (Cherrygrove's pier deck), the cycleway painted on
+    bridges     HGSS's flat wood bridge (Route 27's), the cycleway painted on
 
 Round 6 (the owner on round 5): the market's fountain in the middle of the square, the blossom
 pool three cells up and one right in a gravel plaza the promenade runs through, and the houses
@@ -107,7 +107,7 @@ DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(4
 # promenade; none over the cycleway, none in front of a building or a stall
 # (concept.overlaps checks).
 LAMPS = [(18, 15), (24, 15),                                # the main road's bridge, either side of its north end
-         (19, 33), (24, 33), (19, 37), (24, 37),             # the cross street's bridge, a lamp at each corner
+         (19, 33), (24, 33), (18, 37), (25, 37),             # the cross street's bridge, a lamp at each corner, clear of its end boards
          (5, 42), (29, 42), (47, 42), (55, 42)]              # the promenade, between its benches
 BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (37, 45), (45, 45)]
 PLANTS = [('big_plant', 25, 32), ('big_plant', 27, 32), ('big_plant', 33, 32), ('gorgeous_plant', 36, 32), ('big_plant', 42, 32),

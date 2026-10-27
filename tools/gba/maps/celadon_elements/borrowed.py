@@ -93,31 +93,28 @@ def log_bridge(rows, tiles=5):
     col = np.concatenate([top[:8]] + [body] * ((h - 16) // 4) + [bot[8:]], 0)
     return np.concatenate([col] * tiles, 1)
 
-PIER = C.ROOT / 'gba/art/claude-cherrygrove/source/pier.png'
+HGSS_BRIDGE = C.ROOT / 'gba/art/celadon-elements/source/hgss-bridge'
 
-def plank_bridge(rows, tiles=5, posts=('nw', 'ne', 'sw', 'se')):
-    """The flat wood bridge: Cherrygrove's pier deck (gba/art/claude-cherrygrove, built from
-    HGSS's bridge plank texture, its grain and staggered boards) laid as one deck over the
-    whole crossing, `rows` cells deep and `tiles` cells across: the deck's dark rim and lit
-    top edge, the planks repeated down its depth, its rim and dark edge along the south side,
-    and Cherrygrove's short log posts at the four corners."""
+def boardwalk27(rows, tiles=5):
+    """HGSS's flat wood bridge, as Route 27 lays it over the sea (pokeheartgold header 31;
+    route27-boardwalk.png is its render at 16 px per cell, bridge_c.png its plank texture):
+    the dark rim and grey rail with its posts along the north edge, the strip of board ends
+    under it, the deck of light planks laid north-south (bridge_c turned a quarter, tiled
+    1:1 where HGSS stretches it, so it runs seamless to any depth), an end board down each
+    side and the dark edge along the south. `rows` cells deep, `tiles` cells across."""
     from PIL import Image
-    p = np.array(Image.open(PIER).convert('RGBA'))
+    r = np.array(Image.open(HGSS_BRIDGE / 'route27-boardwalk.png').convert('RGBA'))
+    tex = np.rot90(np.array(Image.open(HGSS_BRIDGE / 'bridge_c.png').convert('RGBA')), 1)[:, ::-1]
     w, h = tiles * 16, rows * 16
-    out = np.zeros((h + 2, w, 4), np.uint8)
-    tex = p[2:28, 8:120]                                   # the plank field, 26 rows of boards
-    for y in range(0, h):
-        for x0 in range(0, w, tex.shape[1]):
-            seg = tex[(y - 2) % tex.shape[0], :min(tex.shape[1], w - x0)]
-            out[y, x0:x0 + seg.shape[0]] = seg
-    out[0] = p[0, 8]; out[1] = p[1, 8]                     # the rim and the lit top edge
-    out[h - 2] = p[28, 8]; out[h - 1] = p[29, 8]           # the south rim
-    out[h:h + 2] = p[30, 8]                                # its shade on the water
-    out[:h, 0] = p[0, 8]; out[:h, w - 1] = p[0, 8]         # the deck's ends
-    post = p[0:12, 0:10]                                   # Cherrygrove's log post
-    at = dict(nw=(0, 0), ne=(w - post.shape[1], 0), sw=(0, h - post.shape[0]), se=(w - post.shape[1], h - post.shape[0]))
-    for k in posts:
-        X, Y = at[k]
-        m = post[..., 3] > 0
-        out[Y:Y + post.shape[0], X:X + post.shape[1]][m] = post[m]
+    out = np.zeros((h, w, 4), np.uint8)
+    xs = np.arange(8, w - 8)
+    out[:16, 8:w - 8] = r[32:48, 64 + (xs - 8) % 32]           # rim, rail and board ends (clear of HGSS's lamp post)
+    ys = np.arange(16, h - 1)
+    out[16:h - 1, 8:w - 8] = tex[(ys - 16)[:, None] % 32, (xs[None] - 24) % 32]
+    out[h - 1, 8:w - 8] = r[88, 64 + (xs - 8) % 32]           # the south edge
+    for X, sx in ((0, 40), (w - 8, 432)):                      # the end boards
+        out[:16, X:X + 8] = r[32:48, sx:sx + 8]
+        out[16:h - 1, X:X + 8] = r[48, sx:sx + 8]
+        out[h - 1, X:X + 8] = r[88, sx:sx + 8]
+    out[..., 3] = 255
     return out

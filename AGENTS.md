@@ -325,15 +325,18 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   passes; move it only when the owner asks, and then by the cells asked. A landmark big enough
   to hold a small service takes it inside (Celadon's prize counter is in the Game Corner; no
   separate prize house).
-- **Bridges from the games.** A town bridge is the flat wood bridge: Cherrygrove's pier deck
-  (`borrowed.plank_bridge`, from HGSS's bridge plank texture; a Gen 4 piece converted is
-  fine), laid as one deck over the whole crossing at any depth, its rim and lit edge along
-  the north side, its dark rim along the south, short log posts at the corners but none on a
-  cycleway. Never short bridges stacked, never Route 104's boardwalk, never Fortree's dark
-  log bridge (owner, Celadon, 2026-10-27). The water is shaded under the south edge.
+- **Bridges from the games.** A town bridge is HGSS's flat wood bridge as Route 27 lays it
+  (`borrowed.boardwalk27`; source art in `gba/art/celadon-elements/source/hgss-bridge/`): the
+  dark rim and grey rail with its posts along the north edge, the strip of board ends under
+  it, light planks laid across the crossing (HGSS's `bridge_c` tiled 1:1, so the deck runs to
+  any depth as one piece), an end board down each side, the dark edge along the south. Never
+  short bridges stacked, never Route 104's boardwalk, Fortree's dark log bridge or
+  Cherrygrove's pier deck (owner, Celadon, 2026-10-27). Before choosing a bridge for a new
+  map, show the owner the bridge catalogue (Gen 3, HGSS and the repo's own) and let them
+  pick. The water is shaded under the south edge; lamps stand clear of the end boards.
 - **Painted lanes.** A cycleway crossing a bridge is its own custom tiles, painted flat onto
   the deck (`concept.paint_cycleway`): one solid coat of the lane's teal, the planks' seams
-  showing through a shade darker, a lit top row and a dark bottom row, the white edge lines
+  and grain showing through a shade darker, a lit top row and a dark bottom row, the white edge lines
   and centre dashes painted over it. Never the lane laid on the wood as a see-through
   overlay; the wood's grain need not show.
 - **Street furniture.** Celadon's street lamp is HGSS's city lamp (model 95) drawn at Gen 3
