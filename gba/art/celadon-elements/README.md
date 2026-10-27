@@ -9,7 +9,9 @@ stall-framed square, the Arboretum) and changes its art: every building is its H
 model brought down to Gen 3 at 45 degrees (`tools/gba/maps/celadon_elements/hgss_gen3.py`),
 the houses HGSS Celadon's own in terraces, the Dept Store's banners in kana, no English text
 on any building; grass, trees and flowers are the games' own (`nature.py`) and every grass
-join takes FireRed's path edge; the stalls are drawn at the buildings' pitch.
+join takes FireRed's path edge; the stalls are drawn at the buildings' pitch. Its second pass
+(owner, 2026-10-27): the bridges Route 104's boardwalk, the Game Corner its HGSS model at the
+same pitch with round 5's marquee and lights on it, every overlap between objects cleared.
 
 The owner turned down two rounds: FireRed's Celadon with the changes painted on, then HGSS's
 plan drawn in FireRed's own pieces ("a slightly updated version of the FRLG maps", its palette

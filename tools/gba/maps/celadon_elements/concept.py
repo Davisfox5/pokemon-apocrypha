@@ -6,8 +6,8 @@ The ground is Kanto's own (nature.py): FireRed's grass, Viridian Forest's dirt f
 and wherever grass meets anything else (dirt, paving, brick, the cycleway, the pond's coping)
 FireRed's path edge laid over it quadrant by quadrant; HGSS's hexagon paving and terrace brick
 for the streets; the straight canal and its pond with stone quays; the cycleway. Trees are the
-games' own (Hoenn's round tree, Kanto's cone tree, Viridian Forest's great tree, Fortree's
-palm), flowers Gen 3's own in their colours. Buildings are HGSS's Celadon models brought down
+games' own (Hoenn's round tree, Kanto's cone tree, Viridian Forest's great tree), flowers
+Gen 3's own in their colours; the bridges Route 104's boardwalk. Buildings are HGSS's Celadon models brought down
 to Gen 3 at 45 degrees (hgss_gen3.py); the Game Corner is round 5's drawing without its
 lettering; the C06 Center; the stalls drawn at the same pitch (custom_art.stall3d); Olivine's
 lamps and Hoenn's secret base plants (borrowed.py). Writes evidence/v6/concept.png,
@@ -93,12 +93,18 @@ def ground(fl, t):
     out[deck] = pre[deck]                                   # the streets run on over their bridges
     grassy = np.isin(cell, ('forest', 'meadow', 'lawn', 'grass', 'garden'))
     N.grass_edges(out, ~grassy, grass_px)
+    return out
+
+def flowers(out, cell, covered):
+    """Gen 3's flowers on the beds and here and there in the Arboretum's grass, only on cells
+    no object stands over (covered: H x W, any object's pixel in the cell)."""
     fl_ = list(N.flowers().values())
     for y in range(H):
         for x in range(W):
+            if covered[y, x]:
+                continue
             if (cell[y, x] == 'garden' and h('bed', x, y) % 10 < 7) or (cell[y, x] == 'meadow' and h('flower', x, y) % 7 == 0):
                 put(out, fl_[h('kind', x, y) % len(fl_)], x * 16, y * 16)
-    return out
 
 def cycleway(out):
     """Two lanes in teal between white edge lines, a grey kerb on the road side, a dashed
@@ -235,7 +241,7 @@ def trees(fl, taken):
     for y in range(36, H - 1):                             # the Arboretum: its great trees and palms first,
         for x in range(4, W - 1):                          # then the round and cone trees between them
             k = h('grove', x, y) % 9
-            img = T['viridian'] if k < 2 else T['palm'] if k == 2 else None
+            img = T['viridian'] if k < 2 else None
             if img is not None and free(x, y, img.shape[1] // 16, img.shape[0] // 16, ('meadow',)):
                 place(x, y, img)
     for y in range(36, H - 1):
@@ -255,7 +261,7 @@ def sprites():
     c06 = np.array(Image.open(C.SRC / 'shared-art/pokemon-center.png').convert('RGBA'))
     m = H6.models()
     s = dict(dept_store=H6.dept_store(m), apartments=H6.apartments(m), hotel=H6.hotel(m), prize_corner=H6.prize_corner(m),
-             cafe=H6.cafe(m), flat=H6.flat(m), game_corner=K.game_corner(), center=c06, fountain=A.fountain(),
+             cafe=H6.cafe(m), flat=H6.flat(m), game_corner=H6.game_corner(m), center=c06, fountain=A.fountain(),
              blossom_pool=A.blossom_pool())
     base = H6.convert(m, 'house', H6.HOUSE_SCALE)
     for colour in H6.HUES:
@@ -270,9 +276,13 @@ def compose():
     items = []
     cell = np.array(fl)
     taken |= cell == 'water'
-    for name in PL.BRIDGES:
-        b, X, Y = bridge_art(name)
+    for name, ((bx0, by0, bx1, by1), _) in PL.BRIDGES.items():
+        b = B.boardwalk(by1 - by0)
+        X, Y = PL.CANAL[0] * 16 - 8, by0 * 16
         items.append((X, Y, b, -1))
+        sh = out[by1 * 16:by1 * 16 + 6, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
+        wet = sh.astype(int).sum(-1) > 0
+        sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]             # the boardwalk's shade on the water
     sp = sprites()
     for name, kind, x, base in PL.PLACES:
         img = sp[kind]
@@ -295,12 +305,49 @@ def compose():
         p = plants[kind]
         items.append((x * 16, (base + 1) * 16 - p.shape[0], p))
         taken[base - 1:base + 1, x:x + p.shape[1] // 16] = True
-    items += trees(fl, taken)
-    items = [it if len(it) == 4 else it + (0,) for it in items]
-    items.sort(key=lambda it: (it[3], it[1] + it[2].shape[0], it[0]))
-    for X, Y, img, _ in items:
+    tagged = [(it[0], it[1], it[2], it[3] if len(it) == 4 else 0) for it in items]
+    tagged += [(X, Y, img, 1) for X, Y, img in trees(fl, taken)]            # layer 1: trees, for the checks only
+    covered = np.zeros((H * 16, W * 16), bool)
+    for X, Y, img, layer in tagged:
+        if layer >= 0:
+            stamp(covered, img, X, Y)
+    flowers(out, cell, covered.reshape(H, 16, W, 16).any(axis=(1, 3)))
+    overlaps(tagged)
+    tagged.sort(key=lambda it: (it[3] < 0 and -1 or 0, it[1] + it[2].shape[0], it[0]))
+    for X, Y, img, _ in tagged:
         put(out, img, X, Y)
     return out
+
+def stamp(mask, img, X, Y):
+    h_, w_ = img.shape[:2]
+    y0, x0, y1, x1 = max(Y, 0), max(X, 0), min(Y + h_, mask.shape[0]), min(X + w_, mask.shape[1])
+    if y1 > y0 and x1 > x0:
+        mask[y0:y1, x0:x1] |= img[y0 - Y:y1 - Y, x0 - X:x1 - X, 3] > 0
+
+def overlaps(tagged):
+    """Every pair of standing objects whose pixels overlap, but a tree behind a building or
+    another tree (Gen 3's forests overlap; a building stands in front of the woods)."""
+    objs = [(X, Y, img, layer) for X, Y, img, layer in tagged if layer >= 0]
+    bad = []
+    for i in range(len(objs)):
+        for j in range(i + 1, len(objs)):
+            (X1, Y1, a, l1), (X2, Y2, b, l2) = objs[i], objs[j]
+            if l1 == 1 and l2 == 1:
+                continue
+            x0, y0 = max(X1, X2), max(Y1, Y2)
+            x1, y1 = min(X1 + a.shape[1], X2 + b.shape[1]), min(Y1 + a.shape[0], Y2 + b.shape[0])
+            if x1 <= x0 or y1 <= y0:
+                continue
+            ov = (a[y0 - Y1:y1 - Y1, x0 - X1:x1 - X1, 3] > 0) & (b[y0 - Y2:y1 - Y2, x0 - X2:x1 - X2, 3] > 0)
+            if ov.any():
+                foot1, foot2 = Y1 + a.shape[0], Y2 + b.shape[0]
+                tree_behind = (l1 == 1 and foot1 <= foot2 and a.shape[0] <= b.shape[0] * 4) or (l2 == 1 and foot2 <= foot1)
+                if (l1 == 1) != (l2 == 1) and tree_behind:
+                    continue
+                bad.append(((X1 // 16, foot1 // 16 - 1, a.shape), (X2 // 16, foot2 // 16 - 1, b.shape), int(ov.sum())))
+    for b in bad:
+        print('overlap', b)
+    return bad
 
 LABELS = [('Dept Store', 5, 3), ('Apartments', 25, 3), ('Pokemon Hotel', 33, 3), ('Center', 43, 8), ('Canal', 20, 1),
           ('Houses', 50, 9), ('Market square', 9, 26), ('Game Corner', 27, 23), ('Prize corner', 39, 24),

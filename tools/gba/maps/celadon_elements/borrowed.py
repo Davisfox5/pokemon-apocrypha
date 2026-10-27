@@ -66,3 +66,14 @@ def plants():
                 img[r * 16:r * 16 + 16, c * 16:c * 16 + 16] = ts.meta(mt, layers=(1,))
         out[name] = img
     return out
+
+def boardwalk(rows):
+    """Route 104's boardwalk (Emerald, Rustboro's tileset): planks laid north-south across an
+    east-west crossing, nailed, each plank lit on its left; 0x344 its top row, 0x34C the rows
+    under it, 0x34D the dark line along its south edge. Its top layer only (the water under it
+    is the canal's own); five cells across, a cell of water plus half a quay each side."""
+    import metatiles as MT
+    ts = MT.Tileset(ENGINE / 'data/tilesets/primary/general', ENGINE / 'data/tilesets/secondary/rustboro')
+    row = lambda m: np.concatenate([ts.meta(m, layers=(1,))] * 5, 1)
+    parts = [row(0x344)] + [row(0x34C)] * (rows - 1) + [row(0x34D)[:4]]
+    return np.concatenate(parts, 0)

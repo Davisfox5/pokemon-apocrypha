@@ -312,6 +312,13 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   Flowers stand on whole grass cells, never cut by an edge.
 - **Neighbours.** Houses stand wall to wall in rows, not each in its own yard, a cell back
   from the road they face.
+- **Bridges from the games.** A bridge is a Gen 3 bridge taken from its tileset (Celadon's
+  are Route 104's boardwalk, `borrowed.boardwalk`, its middle row repeated for a wider
+  street), with the water shaded under its south edge.
+- **Layering.** No standing object's pixels may cover another's (a lamp on a stall, a bench
+  under a lamp, a sign over a marquee) except trees behind a building or behind each other;
+  flowers stand only on cells nothing stands over. Run the overlap check
+  (`celadon_elements/concept.overlaps`) and clear every pair before showing the owner.
 
 ## Planning a new town: the change plot
 

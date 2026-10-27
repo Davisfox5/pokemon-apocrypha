@@ -18,6 +18,10 @@ or on the converted art, never by redrawing the building:
                     crisp Gen 3 panes in the texture's own four blues
     hotel           244 with its door (15), 24 px: the Pokemon Hotel
     apartments      238, 24 px
+    game_corner     241 with its door (15), 26 px (round 5's drawing had the wrong pitch): its
+                    flair carried over from that drawing, the marquee on the roof (a seven
+                    between two Poke Balls, coins, chasing bulbs; no lettering), bulbs along
+                    its pale neon bands and a pink neon edge round its arch
     prize_corner    240 with its door (24), 17 px
     cafe            243 with its door (133), 16 px
     house(colour)   237, HGSS Celadon's teal house, 15 px (60 x 78), both its storeys as HGSS has them
@@ -122,6 +126,24 @@ def hotel(mods):
 
 def apartments(mods):
     return convert(mods, 'tower', 24.0)
+
+def game_corner(mods):
+    import custom_art as A
+    import gen3_kit as K
+    g = A.casino_lights(convert(mods, 'gamecorner', 26.0, n=12))
+    drawn = K.game_corner()
+    cx = drawn.shape[1] // 2
+    marquee = drawn[0:36, cx - 53:cx + 53].copy()              # the board and its struts down to the roof
+    struts = (marquee[29, :, 3] > 0)
+    marquee[30:, ~struts, 3] = 0                               # not the drawn roof's parapet under them
+    lift = 14                                                  # the board stands on the roof's back edge
+    out = np.zeros((g.shape[0] + lift, max(g.shape[1], marquee.shape[1]), 4), np.uint8)
+    ox = (out.shape[1] - g.shape[1]) // 2
+    out[lift:, ox:ox + g.shape[1]] = g
+    mx = (out.shape[1] - marquee.shape[1]) // 2
+    a = marquee[..., 3] > 0
+    out[0:marquee.shape[0], mx:mx + marquee.shape[1]][a] = marquee[a]
+    return out
 
 def prize_corner(mods):
     return convert(mods, 'prize', 17.0)

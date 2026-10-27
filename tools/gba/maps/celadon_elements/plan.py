@@ -60,8 +60,8 @@ def floors():
     rect(g, 8, 21, W - 4, 22, 'lawn')                    # the verge between the cycleway and the blocks
     rect(g, 8, 22, 19, 34, 'brick')                      # the market square, in the terrace's brick
     rect(g, 24, 22, 45, 34, 'pave')                      # the Game Corner's block
-    rect(g, 25, 31, 31, 33, 'lawn')                      # lawn beds either side of its entrance walk
-    rect(g, 34, 31, 44, 33, 'lawn')
+    rect(g, 25, 32, 31, 34, 'lawn')                      # lawn beds either side of its entrance walk
+    rect(g, 34, 32, 44, 34, 'lawn')
     rect(g, 45, 22, 60, 34, 'pave')                      # the east terraces: two rows of houses, a lane between
     rect(g, 6, 34, 59, 37, 'pave')                       # the cross street
     rect(g, 4, 37, 60, 50, 'meadow')                     # the Arboretum
@@ -89,7 +89,7 @@ PLACES = [
     ('dept_store', 'dept_store', 4.5, 14), ('apartments', 'apartments', 25, 14), ('hotel', 'hotel', 33, 14),
     ('center', 'center', 43, 14),
     ('house_n0', 'house_coral', 49, 14), ('house_n1', 'house_teal', 49 + HOUSE, 14), ('house_n2', 'house_amber', 49 + 2 * HOUSE, 14),
-    ('gamecorner', 'game_corner', 26, 29), ('prize', 'prize_corner', 39, 29),
+    ('gamecorner', 'game_corner', 26, 30), ('prize', 'prize_corner', 39, 30),
     ('house_a0', 'house_blue', 45, 25), ('house_a1', 'house_plum', 45 + HOUSE, 25),
     ('house_a2', 'house_teal', 45 + 2 * HOUSE, 25), ('house_a3', 'house_green', 45 + 3 * HOUSE, 25),
     ('cafe', 'cafe', 45, 32), ('flat', 'flat', 49.9, 32), ('house_b0', 'house_coral', 55.1, 32),
@@ -99,15 +99,16 @@ PLACES = [
 STALLS = [(9.5, 24, 'red', 'south'), (14.5, 24, 'orange', 'south'),
           (8, 28, 'green', 'east'), (8, 32, 'blue', 'east'),
           (16, 28, 'violet', 'west'), (16, 32, 'red', 'west')]
-DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(45, 14), gamecorner=(32, 29),
-             prize=(41, 29), cafe=(47, 32))
-# Olivine's lamps: on the terrace kerb, the verge, the quays, the square's corners, the
-# Game Corner's forecourt and along the promenade's south edge; none in front of the houses.
-LAMPS = [(x, 15) for x in (18, 24, 33, 42)] + [(x, 21) for x in (9, 25, 31, 37, 43)] + \
-        [(19, 27), (24, 27), (8, 33), (18, 33)] + [(x, 33) for x in (31, 33)] + \
-        [(x, 42) for x in (5, 10, 14, 30, 34, 49, 56)]
-BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (51, 42), (58, 42), (37, 45), (45, 45), (6, 49)]
-PLANTS = [('big_plant', 26, 32), ('big_plant', 29, 32), ('big_plant', 35, 32), ('gorgeous_plant', 38, 32), ('big_plant', 42, 32),
+DOORS = dict(dept_store=(11, 14), apartments=(28, 14), hotel=(38, 14), center=(45, 14), gamecorner=(32, 30),
+             prize=(41, 30), cafe=(47, 32))
+# Olivine's lamps: in the terrace kerb's gaps between buildings, on the verge where nothing
+# stands over it, on the quays, at the Game Corner's walk and along the promenade's south edge
+# between its benches; none in front of a building or a stall (concept.overlaps checks).
+LAMPS = [(x, 15) for x in (18, 24)] + [(x, 21) for x in (8, 25, 43)] + \
+        [(19, 27), (24, 27)] + [(x, 33) for x in (31, 33)] + \
+        [(x, 42) for x in (5, 14, 29, 35, 47, 55)]
+BENCHES = [(11, 33), (15, 33), (7, 42), (32, 42), (49, 42), (57, 42), (37, 45), (45, 45), (6, 49)]
+PLANTS = [('big_plant', 26, 33), ('big_plant', 29, 33), ('big_plant', 35, 33), ('gorgeous_plant', 38, 33), ('big_plant', 42, 33),
           ('gorgeous_plant', 36, 39), ('gorgeous_plant', 45, 39), ('colorful_plant', 37, 43), ('colorful_plant', 44, 43),
           ('red_plant', 10, 39), ('red_plant', 13, 39), ('tropical_plant', 51, 39), ('tropical_plant', 54, 39),
           ('pretty_flowers', 13, 44), ('pretty_flowers', 10, 47), ('pretty_flowers', 54, 45), ('red_plant', 51, 46)]
