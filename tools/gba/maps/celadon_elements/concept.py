@@ -369,7 +369,7 @@ def compose():
         X, Y = PL.CANAL[0] * 16 - 8, by0 * 16
         paint_cycleway(b, X, Y)
         items.append((X, Y, b, -1))
-        sh = out[by1 * 16:by1 * 16 + 6, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
+        sh = out[by1 * 16 + B.RAIL:by1 * 16 + B.RAIL + 4, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
         sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]             # the bridge's shade on the water
     sp = sprites()
     for name, kind, x, base in PL.PLACES:
