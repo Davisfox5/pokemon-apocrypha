@@ -50,6 +50,12 @@ MEADOW = (99, 189, 140)
 def px_mask(cells):
     return cells.repeat(16, 0).repeat(16, 1)
 
+def px_rect(r):
+    x0, y0, x1, y1 = r
+    m = np.zeros((H * 16, W * 16), bool)
+    m[y0 * 16:y1 * 16, x0 * 16:x1 * 16] = True
+    return m
+
 def water_mask(cell):
     wat = px_mask(cell == 'water') | px_mask(cell == 'bridge')
     # the pond's corners rounded a little (Gen 3 ponds turn their corners in a cell's quarter)
@@ -91,8 +97,11 @@ def ground(fl, t):
     water(out, cell)
     deck = px_mask(cell == 'bridge')
     out[deck] = pre[deck]                                   # the streets run on over their bridges
+    wet = out.copy()
     grassy = np.isin(cell, ('forest', 'meadow', 'lawn', 'grass', 'garden'))
     N.grass_edges(out, ~grassy, grass_px)
+    canal = water_mask(cell) & px_rect(PL.CANAL)
+    out[canal] = wet[canal]                                 # the canal's seawall runs unbroken past the grass banks
     return out
 
 def flowers(out, cell, covered):
@@ -365,8 +374,8 @@ def compose():
     cell = np.array(fl)
     taken |= cell == 'water'
     for name, ((bx0, by0, bx1, by1), _) in PL.BRIDGES.items():
-        b = B.boardwalk27(by1 - by0)
-        X, Y = PL.CANAL[0] * 16 - 8, by0 * 16
+        b = B.boardwalk27(by1 - by0, (PL.CANAL[2] - PL.CANAL[0]) * 16)       # wall to wall
+        X, Y = PL.CANAL[0] * 16, by0 * 16
         paint_cycleway(b, X, Y)
         items.append((X, Y, b, -1))
         sh = out[by1 * 16 + B.RAIL:by1 * 16 + B.RAIL + 4, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
@@ -451,7 +460,7 @@ def art_sheet():
     rows = [[sp[k] for k in ('dept_store', 'apartments', 'hotel', 'center', 'game_corner')],
             [sp[k] for k in ('prize_corner', 'cafe', 'flat')] + [sp['house_' + c] for c in H6.HUES],
             [A.stall3d('red'), A.stall3d('blue'), A.stall3d('green', 'east'), A.stall3d('violet', 'west'), sp['fountain'],
-             sp['blossom_pool'], A.plant_bench(), A.street_lamp(), bike_emblem(), B.boardwalk27(3)] + list(T.values()),
+             sp['blossom_pool'], A.plant_bench(), A.street_lamp(), bike_emblem(), B.boardwalk27(3, 64)] + list(T.values()),
             list(F.values()) + list(P.values())]
     W_ = max(sum(p.shape[1] + 8 for p in r) + 8 for r in rows)
     H_ = sum(max(p.shape[0] for p in r) + 12 for r in rows) + 8

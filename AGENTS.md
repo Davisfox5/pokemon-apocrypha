@@ -335,6 +335,12 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   (owner, Celadon, 2026-10-27). Before choosing a bridge for a new map, show the owner the
   bridge catalogue (Gen 3, HGSS and the repo's own) and let them pick. The water is shaded
   under the south edge; lamps stand clear of the end boards.
+- **Fit, don't drop on.** A bridge, pier or any piece laid over existing ground is built to
+  that ground's exact size and joins what is already there: a canal bridge spans wall to
+  wall, its end boards on the coping, the seawall running unbroken up to it and on past it
+  (grass banks included). If the source tiles are not as wide or deep as the place needs,
+  make them that wide; never lay a stock-size piece over a wall, kerb or edge and leave the
+  seams (owner, Celadon, 2026-10-28).
 - **Painted lanes.** A cycleway crossing a bridge is its own custom tiles, painted flat onto
   the deck (`concept.paint_cycleway`): one solid coat of the lane's teal, the planks' seams
   and grain showing through a shade darker, a lit top row and a dark bottom row, the white edge lines
