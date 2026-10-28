@@ -326,15 +326,15 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   to hold a small service takes it inside (Celadon's prize counter is in the Game Corner; no
   separate prize house).
 - **Bridges from the games.** A town bridge is HGSS's flat wood bridge as Route 27 lays it
-  (`borrowed.boardwalk27`; source art in `gba/art/celadon-elements/source/hgss-bridge/`): the
-  dark rim and grey rail with its posts along the north edge, the strip of board ends under
-  it, light planks laid across the crossing (HGSS's `bridge_c` tiled 1:1, so the deck runs to
-  any depth as one piece), an end board down each side, and the same rail and rim along
-  the south, so both long sides carry a border (owner, Celadon, 2026-10-28). Never
-  short bridges stacked, never Route 104's boardwalk, Fortree's dark log bridge or
-  Cherrygrove's pier deck (owner, Celadon, 2026-10-27). Before choosing a bridge for a new
-  map, show the owner the bridge catalogue (Gen 3, HGSS and the repo's own) and let them
-  pick. The water is shaded under the south edge; lamps stand clear of the end boards.
+  (`borrowed.boardwalk27`; source art in `gba/art/celadon-elements/source/hgss-bridge/`), with
+  its light wood border only: the strip of board ends along the north and south edges, an
+  end board down each side, light planks laid across the crossing (HGSS's `bridge_c` tiled
+  1:1, so the deck runs to any depth as one piece). No dark borders: HGSS's dark rim, grey
+  rail and dark south edge stay off (owner, Celadon, 2026-10-28). Never short bridges
+  stacked, never Route 104's boardwalk, Fortree's dark log bridge or Cherrygrove's pier deck
+  (owner, Celadon, 2026-10-27). Before choosing a bridge for a new map, show the owner the
+  bridge catalogue (Gen 3, HGSS and the repo's own) and let them pick. The water is shaded
+  under the south edge; lamps stand clear of the end boards.
 - **Painted lanes.** A cycleway crossing a bridge is its own custom tiles, painted flat onto
   the deck (`concept.paint_cycleway`): one solid coat of the lane's teal, the planks' seams
   and grain showing through a shade darker, a lit top row and a dark bottom row, the white edge lines

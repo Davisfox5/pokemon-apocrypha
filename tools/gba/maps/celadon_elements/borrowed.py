@@ -95,34 +95,29 @@ def log_bridge(rows, tiles=5):
 
 HGSS_BRIDGE = C.ROOT / 'gba/art/celadon-elements/source/hgss-bridge'
 
-RAIL = 8                                                       # the rail and rim's depth in rows
+RAIL = 8                                                       # the south border's depth in rows, past the crossing
 
 def boardwalk27(rows, tiles=5):
     """HGSS's flat wood bridge, as Route 27 lays it over the sea (pokeheartgold header 31;
-    route27-boardwalk.png is its render at 16 px per cell, bridge_c.png its plank texture):
-    the dark rim and grey rail with its posts along the north edge, the strip of board ends
-    under it, the deck of light planks laid north-south (bridge_c turned a quarter, tiled
-    1:1 where HGSS stretches it, so it runs seamless to any depth), an end board down each
-    side, and along the south the same rail and rim turned to face it, standing out over the
-    water below the crossing (RAIL rows past `rows` cells; the owner, 2026-10-28: the bottom
-    sides need their border). `rows` cells deep, `tiles` cells across."""
+    route27-boardwalk.png is its render at 16 px per cell, bridge_c.png its plank texture),
+    with its light wood border only (the owner, 2026-10-28: no dark borders): the strip of
+    board ends along the north edge, the deck of light planks laid north-south (bridge_c
+    turned a quarter, tiled 1:1 where HGSS stretches it, so it runs seamless to any depth),
+    an end board down each side, and the same strip along the south, standing out over the
+    water below the crossing (RAIL rows past `rows` cells). HGSS's dark rim, grey rail and
+    dark south edge are left off. `rows` cells deep, `tiles` cells across."""
     from PIL import Image
     r = np.array(Image.open(HGSS_BRIDGE / 'route27-boardwalk.png').convert('RGBA'))
     tex = np.rot90(np.array(Image.open(HGSS_BRIDGE / 'bridge_c.png').convert('RGBA')), 1)[:, ::-1]
     w, h = tiles * 16, rows * 16
     out = np.zeros((h + RAIL, w, 4), np.uint8)
     xs = np.arange(8, w - 8)
-    out[:16, 8:w - 8] = r[32:48, 64 + (xs - 8) % 32]           # rim, rail and board ends (clear of HGSS's lamp post)
-    ys = np.arange(16, h - 1)
-    out[16:h - 1, 8:w - 8] = tex[(ys - 16)[:, None] % 32, (xs[None] - 24) % 32]
-    out[h - 1, 8:w - 8] = r[88, 64 + (xs - 8) % 32]           # the south edge
-    for X, sx in ((0, 40), (w - 8, 432)):                      # the end boards
-        out[:16, X:X + 8] = r[32:48, sx:sx + 8]
-        out[16:h - 1, X:X + 8] = r[48, sx:sx + 8]
-        out[h - 1, X:X + 8] = r[88, sx:sx + 8]
-    rail = r[32:32 + RAIL][::-1]                               # the south rail and rim: the north's, facing south
-    out[h:, 8:w - 8] = rail[:, 64 + (xs - 8) % 32]
-    out[h:, :8] = rail[:, 40:48]
-    out[h:, w - 8:] = rail[:, 432:440]
+    strip = r[40:48, 64 + (xs - 8) % 32]                       # the board ends (clear of HGSS's lamp post)
+    out[:8, 8:w - 8] = strip
+    ys = np.arange(8, h)
+    out[8:h, 8:w - 8] = tex[(ys - 8)[:, None] % 32, (xs[None] - 24) % 32]
+    out[h:, 8:w - 8] = strip[::-1]                             # the same strip along the south, facing it
+    for X, sx in ((0, 40), (w - 8, 432)):                      # the end boards, the full depth
+        out[:, X:X + 8] = r[48, sx:sx + 8]
     out[..., 3] = 255
     return out
