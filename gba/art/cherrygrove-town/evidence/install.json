@@ -28,8 +28,8 @@
  ],
  "fold": {
   "max_pixels_per_tile": 1,
-  "pixels": 598,
-  "metatiles": 113,
+  "pixels": 572,
+  "metatiles": 109,
   "edge_cells_dither_only": 213,
   "cells": 444
  },
@@ -39,16 +39,16 @@
  ],
  "secondary_ids": [
   596,
-  978
+  974
  ],
  "tiles": {
   "secondary": 317,
   "shared_with_route29": 26,
   "both_primaries": 15,
-  "copy_only": 192
+  "copy_only": 189
  },
  "left": {
-  "copy": 23,
+  "copy": 26,
   "secondary": 0
  },
  "cells_changed": 2100,

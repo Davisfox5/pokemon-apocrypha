@@ -41,7 +41,8 @@ Owner revisions ([before and after](evidence/round3-fixes.png)):
   place of the dashed grey rims and speckle, its corners rounded as HGSS's are (6 px). Only lawn and path
   pixels change: houses, signs, fences, flowers and shadows keep every pixel. The notches run up under the
   Mart's and Center's doors. The texture's darkest pebble tone is its next tone (no primary bank has it,
-  and the town's path never drew it). The edges are straight: the painter's wobble made every corner and
+  and the town's path never drew it). The old shore path's pale dashes beside the boardwalk are its rim
+  too. The edges are straight: the painter's wobble made every corner and
   run unique, more tiles than the sheets hold.
 - **Shore**: the forest's sea strip (x38, rows 28-47) was a flat grey band with white dots. It takes the
   beach's own edge (sea, foam, sand rim, sand) over the animated sea, wobbling as the beach does, and turns
@@ -71,10 +72,10 @@ Owner revisions ([before and after](evidence/round3-fixes.png)):
 - Cells Route 30 can see take the ids its pack gave them, from 596 (`../route30-catalog/source/pack/mirror-ids.json`).
 - Banks: 0 lawn and paths, 2 the Mart, 3 trees, 10 blossoms (both with the lawn's tones in three free
   slots), 5 rock, 8 and 9 the Center (9 with the wood), 11 the boats, 12 the pond.
-- New tiles: 317 in Cherrygrove's sheet, 192 in the copy, 15 in both primaries, 26 shared with Route 29.
-  Left: 23 copy slots, no secondary slots. The installer never reuses a tile the sea animation rewrites.
-- **Folds**: a new texture tile may take an existing one a pixel away where the sheets run short (598 pixels
-  over 113 metatiles). Edge and feature cells (paths, shore, beach edges, boats, dock, the buildings' lawn)
+- New tiles: 317 in Cherrygrove's sheet, 189 in the copy, 15 in both primaries, 26 shared with Route 29.
+  Left: 26 copy slots, no secondary slots. The installer never reuses a tile the sea animation rewrites.
+- **Folds**: a new texture tile may take an existing one a pixel away where the sheets run short (572 pixels
+  over 109 metatiles). Edge and feature cells (paths, shore, beach edges, boats, dock, the buildings' lawn)
   fold only a ground texture's inner dither, to another tone of the same texture; rims, foam, outlines and
   art stay exact. The building art, the doors and every cell Route 29 or Route 30 also draws never fold.
 

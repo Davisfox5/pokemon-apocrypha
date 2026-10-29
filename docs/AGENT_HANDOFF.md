@@ -51,7 +51,7 @@ Owner review (October 25), refined the same day:
   road ground with rounded corners, HGSS Route 32's pier boards on the dock, the two small boats redrawn
   (`boats.py`), the large boat as the base draws it. The copy animates only sea tiles 1-87, the previews
   draw a frozen secondary (`cherrygrove_preview`), and the town's sheet stops at slot 495 (tiles 1008-1023
-  are the door frames'). 23 copy slots left.
+  are the door frames'). 26 copy slots left.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

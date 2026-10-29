@@ -313,6 +313,7 @@ def pond(cv):
 # islands, pond, beach and forests drew keep their art.
 GROUND_RIMS = {tuple(c) for side in G.PROFILES[(G.GRASS, G.PATH)] for c in side}
 OLD_RIMS = {(128, 136, 120), (152, 144, 112)}        # the town's dashed rim and its dark sand line
+BEACH_RIM = {(168, 216, 152)}                        # the lawn's pale rim against the beach
 ROUND = 6                                            # corner radius, px
 PATH_SNAP = {(216, 168, 128): (216, 184, 128)}        # the texture's darkest pebbles, which the town's path never drew (no primary bank has them)
 
@@ -388,6 +389,15 @@ def paths(cv, lots=()):
         for c in cs:
             clear[c] = banks
             near[c[1], c[0]] = True
+    def beachy(x, r):                                # the cell or a neighbour draws sand or sea
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                xx, rr = x + dx, r + dy
+                if 0 <= xx < W and 0 <= rr < H:
+                    cell = town.img[rr * 16:(rr + 1) * 16, xx * 16:(xx + 1) * 16].reshape(-1, 3)
+                    if {tuple(int(v) for v in c) for c in cell} & sand_sea:
+                        return True
+        return False
     n = px = 0
     for r in range(H):
         for x in range(W):
@@ -397,7 +407,8 @@ def paths(cv, lots=()):
             keys = [[tuple(int(v) for v in p) for p in row] for row in g]
             if any(k in sand_sea for row in keys for k in row) and (x, r) not in clear:
                 continue                             # the beach's and the sea's edges keep their art
-            mask = np.array([[k in tones for k in row] for row in keys])
+            here = tones | (BEACH_RIM if not beachy(x, r) else set())   # the beach's lawn rim, left by the old shore path
+            mask = np.array([[k in here for k in row] for row in keys])
             if (x, r) in clear:
                 mask |= np.isin(bank_map(town, x, r), clear[(x, r)])
             new = paint[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
