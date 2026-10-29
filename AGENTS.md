@@ -364,6 +364,18 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   flowers stand only on cells nothing stands over. Run the overlap check
   (`celadon_elements/concept.overlaps`) and clear every pair before showing the owner.
 
+- **Streamed towns.** When an approved town's art will not fit one tileset pair (tiles or
+  colours), stream it rather than cut it: the Celadon method (`celadon_elements/stream6.py`,
+  `install6.py`, engine `src/celadon_view.c`). Per cell, eight entries name glyphs and
+  palettes; a reference-counted cache holds the 16 x 16 cell view in VRAM slots 1-1007
+  (the top 16 stay the door animations'; animated glyphs keep pinned slots); each element
+  family gets palettes of its own, and every palette a fixed bank chosen so no two that
+  share a screen (7 cells either side of the player, 5 above and below) or a step between
+  screens share one, loaded as each step begins. Split tall buildings' roof and front into
+  banks of their own when a view needs it. Never fold shades that share a tile (texture
+  flattens). Porymap shows stand-in metatiles for traversal. Prove it with VRAM parity over
+  long walks in every direction, not standing views alone.
+
 ## Planning a new town: the change plot
 
 Owner, Celadon, 2026-10-25: plan every new or remade town this way, and show the owner the

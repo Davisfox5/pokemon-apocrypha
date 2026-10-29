@@ -194,7 +194,7 @@
    15
   ],
   "tiles": 116,
-  "metatiles": 68,
+  "metatiles": 69,
   "pixels_exact": true,
   "warps": [
    {
@@ -211,15 +211,15 @@
     "x": 11,
     "y": 13,
     "to": "city:gamecorner"
+   },
+   {
+    "x": 15,
+    "y": 2,
+    "to": "prize_room:1"
    }
   ],
-  "solid_warps": [
-   [
-    15,
-    2
-   ]
-  ],
-  "walkable": 161
+  "solid_warps": [],
+  "walkable": 162
  },
  "prize_room": {
   "source": "CeladonCity_GameCorner_PrizeRoom_Frlg",
@@ -234,17 +234,17 @@
    {
     "x": 3,
     "y": 9,
-    "to": "city:prize"
+    "to": "game_corner:3"
    },
    {
     "x": 4,
     "y": 8,
-    "to": "city:prize"
+    "to": "game_corner:3"
    },
    {
     "x": 5,
     "y": 9,
-    "to": "city:prize"
+    "to": "game_corner:3"
    }
   ],
   "solid_warps": [],

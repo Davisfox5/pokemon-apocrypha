@@ -1,26 +1,38 @@
 # Celadon City (Kanto, GBA): HGSS's Celadon as Gen 3 elements
 
-Status: third round built and installed (engine branch `claude/celadon-city`, on
-`claude/saffron-city`; hub branch `claude/celadon-city`). The owner turned it down. Rounds 4
-and 5 were plans the owner revised; round 6 (`evidence/v6/`: `plot.png`, `concept.png`,
-`art.png`) waits on the owner's approval before it is built. Round 6 keeps round 5's plan
-(64 x 52 cells, the straight canal and its pond, the cycleway from Route 7 to Route 16, the
-stall-framed square, the Arboretum) and changes its art: every building is its HGSS Celadon
-model brought down to Gen 3 at 45 degrees (`tools/gba/maps/celadon_elements/hgss_gen3.py`),
-the houses HGSS Celadon's own in terraces, the Dept Store's banners in kana, no English text
-on any building; grass, trees and flowers are the games' own (`nature.py`) and every grass
-join takes FireRed's path edge; the stalls are drawn at the buildings' pitch. Its second pass
-(owner, 2026-10-27): the bridges Route 104's boardwalk, the Game Corner its HGSS model at the
-same pitch with round 5's marquee and lights on it, every overlap between objects cleared,
-the trees the repo's whole cut-out crowns in staggered rows. Third pass: the border all
-Cherrygrove's tree, Fortree's log bridges over the full crossings with the cycleway painted
-across, bold painted bicycles in the lanes, HGSS's city lamp redrawn and placed in pattern, the
-fountains animated in four frames (`evidence/v6/fountains.gif`). Fourth pass: the border's
-bottom-left row filled (a bench there was blocking it), HGSS's flat wood bridge from Route 27
-(the owner's pick from the bridge catalogue) on every crossing, with the cycleway painted on as
-its own tiles and the planks' grain showing through the paint, the Game
-Corner moved up and west against the canal's east quay with the prize counter inside it (the
-prize house is gone), and two terrace houses beside it.
+Status: round 6 approved by the owner (2026-10-29) and built in the engine (engine branch
+`claude/celadon-city`, hub branch `claude/celadon-city`), replacing the third round's install.
+Round 6 (`evidence/v6/`: `plot.png`, `concept.png`, `art.png`) keeps round 5's plan (64 x 52
+cells, the straight canal and its pond, the cycleway from Route 7 to Route 16, the
+stall-framed square, the Arboretum) with every building its HGSS Celadon model brought down
+to Gen 3 at 45 degrees (`tools/gba/maps/celadon_elements/hgss_gen3.py`), the houses HGSS
+Celadon's own in terraces, the Dept Store's banners in kana, no English text on any building,
+the games' own grass, trees and flowers (`nature.py`) with FireRed's path edge at every grass
+join, stalls at the buildings' pitch, HGSS's Route 27 flat wood bridge fitted wall to wall on
+every crossing (the footbridge edged with the pond's stone ledge), the cycleway painted on
+the deck, HGSS's city lamp in pattern, bold painted bicycles, the fountains in four frames,
+the Game Corner on the canal's east quay with the prize counter up its stairs.
+
+**In the engine** (`evidence/v6/engine/`). The concept holds about 3,100 unique 8x8 glyphs in
+285 colours (after near-identical shades are folded), far past one tileset pair's 1,024 tiles
+and 13 banks of 15, so the city streams, glyphs and palettes both (`src/celadon_view.c`, the
+Goldenrod method extended):
+
+- `stream6.py` splits the concept into Gen 3's two layers per 8x8 tile (the frontmost
+  object and its palette group's neighbours on top, the ground under it), sets traversal and
+  depth per cell, packs each element family into its own palettes (27 in all; the C06
+  Center exact), and gives every palette a bank so no two palettes that ever share a screen,
+  or a step between screens, share one. Worst 16 x 16 view: 684 glyphs of 956 cache slots;
+  worst step: 13 palettes. About 94% of pixels keep their exact colour; the rest moved into
+  their family's banks (`stream.json` per family).
+- `install6.py` writes the tables into the engine and rewrites round 3's files in place:
+  KantoCeladonCity on stand-in metatiles (one flat colour per kind of cell, so Porymap shows
+  traversal, not the art), its doors, signs and rooms (the prize room up the Game Corner's
+  stairs; the apartments and the house beside the Game Corner shut until they have rooms).
+- `check6.py` (audit), `runtime6.py` (headless mGBA: 107 captures, every map layer equal to
+  the decode in 5-bit colour across five long walks, depth, signs, every room, save, reload,
+  Continue) and `porymap6.py` (round trip). `fountain-ingame.gif` and `blossom-ingame.gif`
+  are the emulator's own frames.
 
 The owner turned down two rounds: FireRed's Celadon with the changes painted on, then HGSS's
 plan drawn in FireRed's own pieces ("a slightly updated version of the FRLG maps", its palette

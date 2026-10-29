@@ -58,10 +58,13 @@ ROOMS = {
              {(5, 9): 'city:cafe', (6, 9): 'city:cafe', (7, 9): 'city:cafe'}),
     'gardens': ('CeladonCity_Gym_Frlg', 'celadon_gym_frlg',
                 {(5, 18): 'city:gardens', (6, 18): 'city:gardens', (7, 18): 'city:gardens'}),
+    # Round 6 (owner, 2026-10-27): no prize house; the prize counter is in the Game Corner,
+    # up its stairs (FireRed's stairs down to the hideout) in FireRed's prize room.
     'game_corner': ('CeladonCity_GameCorner_Frlg', 'game_corner_frlg',
-                    {(9, 13): 'city:gamecorner', (10, 13): 'city:gamecorner', (11, 13): 'city:gamecorner'}),
+                    {(9, 13): 'city:gamecorner', (10, 13): 'city:gamecorner', (11, 13): 'city:gamecorner',
+                     (15, 2): 'prize_room:1'}),
     'prize_room': ('CeladonCity_GameCorner_PrizeRoom_Frlg', 'game_corner_frlg',
-                   {(3, 9): 'city:prize', (4, 8): 'city:prize', (5, 9): 'city:prize'}),
+                   {(3, 9): 'game_corner:3', (4, 8): 'game_corner:3', (5, 9): 'game_corner:3'}),
 }
 KEEP = ('MB_SOUTH_ARROW_WARP', 'MB_UP_RIGHT_STAIR_WARP', 'MB_DOWN_RIGHT_STAIR_WARP', 'MB_UP_LEFT_STAIR_WARP',
         'MB_DOWN_LEFT_STAIR_WARP')

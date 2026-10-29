@@ -1,0 +1,48 @@
+{
+ "tables": {
+  "entries": true,
+  "layers": true,
+  "banks": true,
+  "glyphs": true
+ },
+ "budgets": {
+  "worst_view_glyphs": 684,
+  "glyph_budget": 956,
+  "worst_step_palettes": 13,
+  "banks": 13,
+  "unbanked": [],
+  "palettes": 27,
+  "glyphs": 3137,
+  "data_bytes": 264219
+ },
+ "traversal": {
+  "cells": 3328,
+  "wrong": [],
+  "open": 1384,
+  "solid": 1733,
+  "water": 206,
+  "doors": 5,
+  "walk_behind": 242
+ },
+ "reach": {
+  "targets": 12,
+  "unreached": [],
+  "open_cells_walled_in": 0
+ },
+ "warps": {
+  "city": 5,
+  "mismatched": [],
+  "prize_room_by_the_stairs": true,
+  "doors_with_no_room_solid": {
+   "apartments": true,
+   "house_g0": true
+  }
+ },
+ "scope": {
+  "map_ids_unchanged": true,
+  "layout_ids_unchanged": true,
+  "files_changed": 62,
+  "outside_celadon_and_hooks": []
+ },
+ "failures": []
+}

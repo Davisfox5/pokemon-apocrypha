@@ -379,7 +379,9 @@ def sprites():
         s['house_' + colour] = H6.house(m, colour, base)
     return s
 
-def compose():
+def compose(layers=False):
+    """The concept picture; with layers, the ground (bridges, flowers and painted lanes in it)
+    and every standing object as (X, Y, img, family, name), for the engine's packer."""
     t = C.textures()
     fl = PL.floors()
     out = ground(fl, t)
@@ -403,7 +405,7 @@ def compose():
         if len(painted) and painted[-1] >= b.shape[0] - B.RAIL and not footpath:
             foot = painted[-1] - 2                               # the lane's lower white line ends 3 rows above the foot
             b[foot:] = bare[foot:]                               # the wood edging below the lane's white line
-        items.append((X, Y, b, -1))
+        items.append((X, Y, b, -1, 'bridge', 'bridge_' + name))
         if not footpath:
             sh = out[by1 * 16:by1 * 16 + 4, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
             sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]         # the bridge's shade on the water
@@ -411,34 +413,42 @@ def compose():
     for name, kind, x, base in PL.PLACES:
         img = sp[kind]
         X, Y = int(round(x * 16)), int((base + 1) * 16) - img.shape[0]
-        items.append((X, Y, img))
+        items.append((X, Y, img, 0, kind if not kind.startswith('house_') else 'house', name))
         taken[max(0, int(base) - 3):int(base) + 2, max(0, int(x)):int(x) + (img.shape[1] + 15) // 16] = True   # trees may stand behind
     for x, base, colour, facing in PL.STALLS:
         s = A.stall3d(colour, facing)
-        items.append((int(x * 16), (base + 1) * 16 - s.shape[0], s))
+        items.append((int(x * 16), (base + 1) * 16 - s.shape[0], s, 0, 'stall', f'stall_{int(x)}_{base}'))
     lamp = A.street_lamp()
     for x, base in PL.LAMPS:
-        items.append((x * 16 + (16 - lamp.shape[1]) // 2, (base + 1) * 16 - lamp.shape[0], lamp))
+        items.append((x * 16 + (16 - lamp.shape[1]) // 2, (base + 1) * 16 - lamp.shape[0], lamp, 0, 'lamp', f'lamp_{x}_{base}'))
         taken[max(0, base - 2):base + 1, x] = True
     bench = A.plant_bench()
     for x, base in PL.BENCHES:
-        items.append((x * 16 - 8, (base + 1) * 16 - bench.shape[0], bench))
+        items.append((x * 16 - 8, (base + 1) * 16 - bench.shape[0], bench, 0, 'bench', f'bench_{x}_{base}'))
         taken[base - 1:base + 1, x - 1:x + 3] = True
     plants = B.plants()
     for kind, x, base in PL.PLANTS:
         p = plants[kind]
-        items.append((x * 16, (base + 1) * 16 - p.shape[0], p))
+        items.append((x * 16, (base + 1) * 16 - p.shape[0], p, 0, 'plant', f'plant_{x}_{base}'))
         taken[base - 1:base + 1, x:x + p.shape[1] // 16] = True
-    tagged = [(it[0], it[1], it[2], it[3] if len(it) == 4 else 0) for it in items]
-    tagged += [(X, Y, img, 1) for X, Y, img in trees(fl, taken, tagged)]    # layer 1: trees, for the checks only
+    tagged = [it[:4] for it in items]
+    names = [it[4:] for it in items]
+    for X, Y, img in trees(fl, taken, tagged):                # layer 1: trees, for the checks only
+        tagged.append((X, Y, img, 1)); names.append(('tree', f'tree_{X}_{Y}'))
     covered = np.zeros((H * 16, W * 16), bool)
     for X, Y, img, layer in tagged:
         if layer >= 0:
             stamp(covered, img, X, Y)
     flowers(out, cell, covered.reshape(H, 16, W, 16).any(axis=(1, 3)))
     overlaps(tagged)
-    tagged.sort(key=lambda it: (it[3] < 0 and -1 or 0, it[1] + it[2].shape[0], it[0]))
-    for X, Y, img, _ in tagged:
+    order = sorted(range(len(tagged)), key=lambda i: (tagged[i][3] < 0 and -1 or 0, tagged[i][1] + tagged[i][2].shape[0], tagged[i][0]))
+    if layers:
+        for i in order:
+            if tagged[i][3] < 0:
+                put(out, tagged[i][2], tagged[i][0], tagged[i][1])
+        return dict(ground=out, cells=cell, objects=[tagged[i][:3] + names[i] for i in order if tagged[i][3] >= 0])
+    for i in order:
+        X, Y, img, _ = tagged[i]
         put(out, img, X, Y)
     return out
 
