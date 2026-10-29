@@ -95,31 +95,34 @@ def log_bridge(rows, tiles=5):
 
 HGSS_BRIDGE = C.ROOT / 'gba/art/celadon-elements/source/hgss-bridge'
 
-RAIL = 8                                                       # the south border's depth in rows, past the crossing
+RAIL = 8                                                       # a wood edging strip's depth in rows
 END = 3                                                        # an end board's width: the canal coping's own
 
-def boardwalk27(rows, width):
+def boardwalk27(rows, width, north=True, south=True):
     """HGSS's flat wood bridge, as Route 27 lays it over the sea (pokeheartgold header 31;
     route27-boardwalk.png is its render at 16 px per cell, bridge_c.png its plank texture),
-    with its light wood border only (the owner, 2026-10-28: no dark borders), built to the
-    crossing's exact width (`width` px: the canal from wall to wall) so it sits on the
-    seawall instead of being laid over it: an end board down each side as wide as the
-    canal's coping (END px, HGSS's end board narrowed to its outer edge, light middle and
-    inner edge) standing on the wall's top, the strip of board ends along the north edge,
-    the deck of light planks laid north-south (bridge_c turned a quarter, tiled 1:1 where
-    HGSS stretches it, so it runs seamless to any depth), and the same strip along the
-    south, standing out over the water below the crossing (RAIL rows past `rows` cells)."""
+    with its light wood edging only (the owner, 2026-10-28: no dark borders), built to the
+    crossing's exact size (`rows` cells deep, `width` px: the canal from wall to wall) so it
+    sits on the seawall: an end board down each side as wide as the canal's coping (END px,
+    HGSS's end board narrowed to its outer edge, light middle and inner edge), the deck of
+    light planks laid north-south (bridge_c turned a quarter, tiled 1:1 where HGSS stretches
+    it, so it runs seamless to any depth), and the strip of board ends (RAIL rows) inside
+    the crossing along its north edge and, the owner 2026-10-29, along its south edge where
+    the last half cell was, so the bridge ends flush with the street. north / south False
+    leave those rows planked for another edging (the Arboretum's stone ledge)."""
     from PIL import Image
     r = np.array(Image.open(HGSS_BRIDGE / 'route27-boardwalk.png').convert('RGBA'))
     tex = np.rot90(np.array(Image.open(HGSS_BRIDGE / 'bridge_c.png').convert('RGBA')), 1)[:, ::-1]
     w, h = width, rows * 16
-    out = np.zeros((h + RAIL, w, 4), np.uint8)
+    out = np.zeros((h, w, 4), np.uint8)
     xs = np.arange(END, w - END)
+    ys = np.arange(h)
+    out[:, END:w - END] = tex[(ys - RAIL)[:, None] % 32, (xs[None] - END - 16) % 32]
     strip = r[40:48, 64 + (xs - END) % 32]                     # the board ends (clear of HGSS's lamp post)
-    out[:8, END:w - END] = strip
-    ys = np.arange(8, h)
-    out[8:h, END:w - END] = tex[(ys - 8)[:, None] % 32, (xs[None] - END - 16) % 32]
-    out[h:, END:w - END] = strip[::-1]                         # the same strip along the south, facing it
+    if north:
+        out[:RAIL, END:w - END] = strip
+    if south:
+        out[h - RAIL:, END:w - END] = strip[::-1]              # facing south
     out[:, :END] = r[48, [40, 42, 47]]                         # the end boards, on the coping, the full depth
     out[:, w - END:] = r[48, [432, 434, 439]]
     out[..., 3] = 255

@@ -248,6 +248,20 @@ def water(out, cell):
     out[low] = QUAY[1]; out[wat & (bot == 1)] = QUAY[2]; out[wat & (bot == 3) & (side > 3)] = QUAY[0]
     out[cope & (((ys // 12) % 2 == 0) & ((ys % 12) == 0))] = QUAY[3]
 
+def ledge(xs):
+    """The pond's stone ledge (RAIL rows of the wall face water() draws under land's south
+    edge: its lit top, its block joints, its dark foot) for the columns xs, so a piece laid
+    across the pond's edge carries the ledge on unbroken."""
+    t = np.arange(1, B.RAIL + 1)[:, None]
+    X = np.asarray(xs)[None]
+    img = np.zeros((B.RAIL, X.shape[1], 3), np.uint8)
+    img[...] = QUAY[3]
+    img[np.broadcast_to((t == 1) | (t == 2), img.shape[:2])] = QUAY[1]
+    img[np.broadcast_to(t == 8, img.shape[:2])] = QUAY[4]
+    img[(((X // 8 + (t > 4)) % 2 == 0) & ((X % 8) == 0))] = QUAY[4]
+    img[np.broadcast_to(t == 5, img.shape[:2])] = QUAY[4]
+    return img
+
 def bridge_art(name):
     """A Gen 3 stone bridge over the canal: the street's deck runs on over it (already in the
     ground), balustrades along its north and south edges over the water, the south face below
@@ -374,12 +388,25 @@ def compose():
     cell = np.array(fl)
     taken |= cell == 'water'
     for name, ((bx0, by0, bx1, by1), _) in PL.BRIDGES.items():
-        b = B.boardwalk27(by1 - by0, (PL.CANAL[2] - PL.CANAL[0]) * 16)       # wall to wall
         X, Y = PL.CANAL[0] * 16, by0 * 16
+        footpath = name == 'arboretum'                       # the promenade's footbridge: the pond's stone ledge for edging
+        b = B.boardwalk27(by1 - by0, (PL.CANAL[2] - PL.CANAL[0]) * 16, north=not footpath, south=not footpath)
+        if footpath:
+            xs = np.arange(X, X + b.shape[1])
+            b = np.concatenate([b, np.zeros((B.RAIL,) + b.shape[1:], np.uint8)])
+            b[:B.RAIL, :, :3] = ledge(xs)                      # along its top, in place of the wood edging
+            b[-B.RAIL:, :, :3] = ledge(xs)                     # along its foot, the pond's ledge carried across
+            b[..., 3] = 255
+        bare = b.copy()
         paint_cycleway(b, X, Y)
+        painted = np.nonzero((b != bare).any((1, 2)))[0]
+        if len(painted) and painted[-1] >= b.shape[0] - B.RAIL and not footpath:
+            foot = painted[-1] - 2                               # the lane's lower white line ends 3 rows above the foot
+            b[foot:] = bare[foot:]                               # the wood edging below the lane's white line
         items.append((X, Y, b, -1))
-        sh = out[by1 * 16 + B.RAIL:by1 * 16 + B.RAIL + 4, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
-        sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]             # the bridge's shade on the water
+        if not footpath:
+            sh = out[by1 * 16:by1 * 16 + 4, PL.CANAL[0] * 16:PL.CANAL[2] * 16]
+            sh[(sh[..., 2] > 150) & (sh[..., 0] < 150)] = G.WATER[4]         # the bridge's shade on the water
     sp = sprites()
     for name, kind, x, base in PL.PLACES:
         img = sp[kind]

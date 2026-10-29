@@ -334,7 +334,12 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   stacked, never Route 104's boardwalk, Fortree's dark log bridge or Cherrygrove's pier deck
   (owner, Celadon, 2026-10-27). Before choosing a bridge for a new map, show the owner the
   bridge catalogue (Gen 3, HGSS and the repo's own) and let them pick. The water is shaded
-  under the south edge; lamps stand clear of the end boards.
+  under the south edge; lamps stand clear of the end boards. The wood edging sits inside the
+  crossing, so the bridge ends flush with the street it carries, never a strip hanging past
+  it; where a lane is painted across, the edging runs below the lane's white line. A
+  footbridge where the canal meets the pond takes the pond's stone ledge along its top and
+  foot in place of the wood edging, the ledge carried across unbroken, so it reads as the
+  footpath crossing (owner, Celadon, 2026-10-29).
 - **Fit, don't drop on.** A bridge, pier or any piece laid over existing ground is built to
   that ground's exact size and joins what is already there: a canal bridge spans wall to
   wall, its end boards on the coping, the seawall running unbroken up to it and on past it
