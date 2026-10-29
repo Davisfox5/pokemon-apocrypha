@@ -238,56 +238,173 @@ square inner water corners as unfinished.
   edge. The curve starts in the edge cells beside the corner; one drawn inside a single
   cell reads square. Wet sand runs as one even band along the tide line.
 
-## Kanto towns: FireRed's map, new buildings from Gen 3 art
+## Kanto towns: HGSS's Kanto, the Olivine way
 
-Owner, Saffron, 2026-10-24 (third round): FireRed's Gen 3 Saffron is the base. The second
-round's HGSS plan with buildings rendered from HGSS's models was turned down as a
-regression ("made for a 1980s game", "boring"). The worked example is
-`gba/art/saffron-kanto/README.md` (tools in `tools/gba/maps/saffron/`).
+Owner, Celadon, 2026-10-26. Two rounds were turned down: FireRed's map with the changes
+painted on ("pretty terrible"), then HGSS's plan drawn in FireRed's own pieces ("a slightly
+updated version of the FRLG maps"; its palette and features "horribly, horribly boring").
+The owner then chose HGSS's own look, made the way Olivine was. A Kanto town is converted
+from HGSS as a Johto one is: follow "Converting a Gen 4 map" above (element ledger from
+HGSS's map data, HGSS's ground textures at 1:1 on the Gen 3 grid, every building rendered
+from its own HGSS model at C06's angle). The worked example is
+`gba/art/celadon-elements/README.md` (tools in `tools/gba/maps/celadon_elements/`).
+Saffron (`gba/art/saffron-kanto/README.md`, FireRed's map) stays as accepted; its rules
+below on new maps, rooms, combined buildings and lines still apply.
 
-- Keep every cell FireRed draws and change only what ten years and the story change, each
-  change answering the owner's brief or a DESIGN.md line.
-- A new building is real Gen 3 map art: cells of FireRed's or Emerald's own maps, as the
-  game draws them, cut and put together into a building of the town's own
-  (`saffron/parts.py`). No 3D model renders.
-- Two buildings combined must read as one: one roof line, one facade, one crest, the
-  difference carried by details (Saffron: each school's door curtain). Two halves under a
-  shared roof is the failure the owner named. A wing must change the silhouette of what it
-  joins, built onto it, not set beside it.
-- The ground needs life: lawns, flowers and trees in FireRed's own General pieces (no new
-  colours), with Celadon's lawn edge drawn in the town's colours. A lawn replaces paving
-  or grass only, never a building's cell or a tree's crown (`compose.lawn_ground`). Trees
-  go where they close no walkway: none may make a route between doors, gates and signs
-  longer (`check.py`); flowers and lawns are walkable, so use them on walkways.
-- One building is one material language. Never stack another game's facade under a
-  building's own roof (Silph's Battle Tower wall under FireRed's crown read as pasted on);
-  build the new storeys from the building's own pieces and make it new with its own
-  elements (Silph: the roof atrium's glass carried down the front).
-- Pack the whole map from its pixels into 13 banks with one exact fit (`saffron/pack.py`):
-  snap a part's colours to FireRed's within 2.5 5-bit steps, merge colours one step apart.
-  Never ship an inexact colour. If a repack moves a door metatile's banks, index its door
-  frames into the new banks (`saffron/install.py`).
-- A piece another region also has (the Magnet Train's deck) may take its form from that
-  town's native art (kept as a source file with its branch and commit), but Kanto's is its
-  own: recolour it in the Kanto town's palette (Saffron: one of its own banks). Check open PRs for
-  towns other agents built before saying one does not exist.
+- Kanto's own colours: HGSS's Kanto textures (Celadon's map texture set) give the streets
+  their paving and brick. Grass, trees and flowers come from the games' own tilesets
+  (below), not from resampled or recoloured HGSS crowns.
+- Its ground at 1:1: each HGSS texture repeats at its own size in the world's phase (one
+  16 px quadrant where an edge runs over it), joins drawn the Gen 3 way (Celadon's lawn edge:
+  HGSS's tama_fuch bands on the lawn side, the cell mask blurred so corners round).
+- The story's changes are HGSS's own models where the game has one, retextured where the
+  story asks (the Gym's roof glazed with its own window glass as the Botanical Gardens, its
+  emblem replaced by a leaf; the Olivine parasol bench recoloured as a rainbow market stall),
+  placed on HGSS's lots. Change only what ten years and the story change, each change
+  answering the owner's brief or a DESIGN.md line.
+- A town with many buildings gets a tileset pair wholly its own (no borrowed primary): seed
+  every palette bank with a job before the exact fit (`celadon_elements/pack.bank_seeds`), snap
+  the ground's textures onto shared ramps, and spend tiles where they show (one prop in all
+  its colours rather than a variant per colour; a mirrored building with a `keep` box over
+  what differs). The traps are in the reconstruction workflow.
 - Make a new Emerald-format map beside FireRed's (its own name, `gMapGroup_Kanto`,
   FireRed's MAPSEC, `REGION_KANTO`, `build_target` emerald); never edit the `_Frlg` maps.
 - An interior Kanto needs is FireRed's room, or a room built from FireRed's rooms cell by
   cell with other rooms' objects laid on by their own pixels, packed into its own
-  secondary on `gTileset_Building` (`saffron/interiors.py`). Exit mats keep
-  `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until their scripts
-  exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
+  secondary on `gTileset_Building` (`saffron/interiors.py`, `celadon_elements/interiors.py`).
+  Exit mats keep `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until
+  their scripts exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
+- Two buildings combined must read as one: one roof line, one facade, one crest, the
+  difference carried by details (Saffron: each school's door curtain). Two halves under a
+  shared roof is the failure the owner named. A wing must change the silhouette of what it
+  joins, built onto it, not set beside it.
 - Where a line (a track, a bridge) meets a building, the building takes it in: build the
   meeting in the building's own pieces and carry the line's lines on into it (Saffron's
-  station: a glass platform shed, open at the track, the deck's bed running on inside, its
-  girder becoming the shed's band). A line that stops against a wall reads as dumped there.
-- A building's back row (the top row its pixels reach) is walkable wherever its ground is,
-  drawn above the player, so the player walks behind the roof, never on it. A tall building
-  is not deep: give it more back rows (`compose.BACK_ROWS`; Silph two) and keep a real
-  street behind it, lowering the building if the street is too thin. Clear whatever FireRed
-  had there (railings, signs) when a taller building's roof reaches it.
+  station). A line that stops against a wall reads as dumped there.
+- A piece another region also has (the Magnet Train's deck) may take its form from that
+  town's native art (kept as a source file with its branch and commit), but Kanto's is its
+  own: recolour it in the Kanto town's palette. Check open PRs for towns other agents built
+  before saying one does not exist.
 - Doors to unbuilt interiors and gates to unbuilt routes are solid.
+
+Owner, Celadon rounds 5 and 6, 2026-10-26. Buildings drawn from scratch read as "something out
+of a game for the SNES"; flat elevations as "very 2D"; invented trees and flat flowers as
+custom; hard ground joins and English signs as tacky. These rules hold for every town:
+
+- **No text on buildings.** No English lettering on any building, awning, marquee or canopy
+  (no shop names, no "HOTEL", no "CAFE"); a building's name belongs in its sign event. The one
+  exception the owner allowed: Japanese lettering where HGSS's own building carries it
+  (Celadon's Dept Store banners, タマムシ / デパート). Symbols are fine (a Poke Ball, a seven).
+- **The HGSS model is the base, always.** Every building starts as its own HGSS model brought
+  down to Gen 3 (`celadon_elements/hgss_gen3.py`): rendered at 45 degrees, unsqueezed, at the
+  scale its role asks, with the Gen 3 finish (`gen3_art.gen3_finish`: shade under eaves, lit
+  upper and left edges). The story changes it slightly, on its own textures or the converted
+  art (a door, a colourway, repainted banners); never redraw a building that HGSS has. A town's
+  houses are that town's own HGSS houses, not another region's.
+- **Pitch.** Hand-drawn props (market stalls) are drawn at the buildings' 45 degrees, their
+  tops visible (`custom_art.stall3d`).
+- **Nature from the games.** Flowers are cut from the games' tilesets with their ground keyed
+  out (`celadon_elements/nature.py`; Gen 3's flowers, recoloured petal ramps for more colours).
+  Trees are the repo's own cut-outs, whole crowns on clear backgrounds (`nature.TREE_ART`:
+  Cherrygrove's, Sandgem's cone, Floccesy's great trees). A town's border tree line is the
+  standard Kanto/Johto tree only (Cherrygrove's), never a feature tree; the Johto restart
+  crown (yellow-green to teal) is out (owner, Celadon, 2026-10-27). Never key a
+  tree out of a tileset by its grass colours: every leaf sharing a grass colour goes and the
+  neighbouring cells' shadows stay, so crowns arrive holed and boxed (owner, Celadon,
+  2026-10-27). Forests stand in staggered rows two cells apart, drawn by foot so each crown
+  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building.
+  A park may mix regions. Never invent a tree or recolour one into a new kind.
+- **Smooth joins.** Grass meets every other ground (dirt, paving, brick, a cycleway, a pond's
+  coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
+  Flowers stand on whole grass cells, never cut by an edge.
+- **Neighbours.** Houses stand wall to wall in rows, not each in its own yard, a cell back
+  from the road they face. A filler house beside a landmark is a condo with no door; before
+  adding one, check whether a story house (a named NPC's home) still needs a lot, and give
+  that one the door.
+- **Landmarks stay put.** Once the owner has seen a landmark's place, keep it there between
+  passes; move it only when the owner asks, and then by the cells asked. A landmark big enough
+  to hold a small service takes it inside (Celadon's prize counter is in the Game Corner; no
+  separate prize house).
+- **Bridges from the games.** A town bridge is HGSS's flat wood bridge as Route 27 lays it
+  (`borrowed.boardwalk27`; source art in `gba/art/celadon-elements/source/hgss-bridge/`), with
+  its light wood border only: the strip of board ends along the north and south edges, an
+  end board down each side, light planks laid across the crossing (HGSS's `bridge_c` tiled
+  1:1, so the deck runs to any depth as one piece). No dark borders: HGSS's dark rim, grey
+  rail and dark south edge stay off (owner, Celadon, 2026-10-28). Never short bridges
+  stacked, never Route 104's boardwalk, Fortree's dark log bridge or Cherrygrove's pier deck
+  (owner, Celadon, 2026-10-27). Before choosing a bridge for a new map, show the owner the
+  bridge catalogue (Gen 3, HGSS and the repo's own) and let them pick. The water is shaded
+  under the south edge; lamps stand clear of the end boards. The wood edging sits inside the
+  crossing, so the bridge ends flush with the street it carries, never a strip hanging past
+  it; where a lane is painted across, the edging runs below the lane's white line. A
+  footbridge where the canal meets the pond takes the pond's stone ledge along its top and
+  foot in place of the wood edging, the ledge carried across unbroken, so it reads as the
+  footpath crossing (owner, Celadon, 2026-10-29).
+- **Fit, don't drop on.** A bridge, pier or any piece laid over existing ground is built to
+  that ground's exact size and joins what is already there: a canal bridge spans wall to
+  wall, its end boards on the coping, the seawall running unbroken up to it and on past it
+  (grass banks included). If the source tiles are not as wide or deep as the place needs,
+  make them that wide; never lay a stock-size piece over a wall, kerb or edge and leave the
+  seams (owner, Celadon, 2026-10-28).
+- **Painted lanes.** A cycleway crossing a bridge is its own custom tiles, painted flat onto
+  the deck (`concept.paint_cycleway`): one solid coat of the lane's teal, the planks' seams
+  and grain showing through a shade darker, a lit top row and a dark bottom row, the white edge lines
+  and centre dashes painted over it. Never the lane laid on the wood as a see-through
+  overlay; the wood's grain need not show.
+- **Street furniture.** Celadon's street lamp is HGSS's city lamp (model 95) drawn at Gen 3
+  quality (`custom_art.street_lamp`); Olivine's flag-line post is not a lamp. Lamps stand few
+  and in pattern (bridge ends, a promenade between its benches), never over a cycleway. A
+  cycleway is marked by a few bold painted bicycles in the middle of its lanes, the dashes
+  cleared round them, not small icons along its edges.
+- **Moving water.** Fountains animate as Gen 3 animates water and flowers: four frames swapped
+  by a tileset animation (jets bobbing, spray running out along its arcs, rings where it
+  lands; `custom_art.fountain(frame)`, `blossom_pool(frame)`).
+- **Layering.** No standing object's pixels may cover another's (a lamp on a stall, a bench
+  under a lamp, a sign over a marquee) except trees behind a building or behind each other;
+  flowers stand only on cells nothing stands over. Run the overlap check
+  (`celadon_elements/concept.overlaps`) and clear every pair before showing the owner.
+
+- **Streamed towns.** When an approved town's art will not fit one tileset pair (tiles or
+  colours), stream it rather than cut it: the Celadon method (`celadon_elements/stream6.py`,
+  `install6.py`, engine `src/celadon_view.c`). Per cell, eight entries name glyphs and
+  palettes; a reference-counted cache holds the 16 x 16 cell view in VRAM slots 1-1007
+  (the top 16 stay the door animations'; animated glyphs keep pinned slots); each element
+  family gets palettes of its own, and every palette a fixed bank chosen so no two that
+  share a screen (7 cells either side of the player, 5 above and below) or a step between
+  screens share one, loaded as each step begins. Split tall buildings' roof and front into
+  banks of their own when a view needs it. Never fold shades that share a tile (texture
+  flattens). Porymap shows stand-in metatiles for traversal. Prove it with VRAM parity over
+  long walks in every direction, not standing views alone.
+
+## Planning a new town: the change plot
+
+Owner, Celadon, 2026-10-25: plan every new or remade town this way, and show the owner the
+plot before building anything. Worked example: `gba/art/celadon-elements/README.md`.
+
+1. **Story brief.** Read only the town's own lines: DESIGN.md (grep the town name), its
+   chapter's `CHAPTERn_SCENES_SPEC.md` section and retheme stubs, and its rows in the
+   region's `*_ITEMS.md` and `*_BATTLES.md`. Note every building, character, sign text and
+   service the story needs there.
+2. **Other agents' work.** Search open and closed PRs and branches in the hub and the
+   engine for the town before planning (Saffron's Magnet Train deck came from Codex's
+   Goldenrod).
+3. **Decode HGSS's map.** Decode HGSS's version from pokeheartgold
+   (`celadon_elements/hgss_source.py`: header id and area bank from `src/data/map_headers.h`,
+   events from `zone_event/NNN_ZONE.json`): it is the base, Game Freak's own ten-years-later
+   revision of the town, and its textures and models are what the town is drawn with.
+4. **Ledger.** List HGSS's elements (streets, lots, lawns, water, woods, each building) and
+   the Gen 3 element each becomes (Celadon's README has the table), the story's changes on top.
+5. **Source art.** For each new building or prop, find the HGSS model it can be rendered
+   from and render it at C06's angle (Celadon: the parasol bench as market stalls, the Gym's
+   own window glass for the Gardens' roof); list HGSS's other bm_field models first
+   (`celadon_elements` README: lamps, banners, planters, flower shops).
+6. **Change list.** Number each change and tie it to a DESIGN.md line, a scene spec line or
+   an HGSS letter. Say where every displaced door, interior and warp goes so none goes
+   dead. End with what is out of this pass (dialogue, unbuilt interiors and gates).
+7. **Plot.** One image: HGSS's town area with its zones, the story's numbered changes on
+   it, paths (a bike lane, a canal) as lines. Save it as the town's `evidence/plan.png`.
+8. **Owner's call.** Send the plot and the list. Build only after the owner approves; a
+   revised plan gets a revised plot.
 
 ## Ownership and autonomy
 

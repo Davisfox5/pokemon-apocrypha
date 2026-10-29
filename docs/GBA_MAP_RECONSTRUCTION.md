@@ -459,6 +459,38 @@ art (`saffron/parts.py`). Traps hit there:
   which `DrawMetatile` fills with tile 0x14 in bank 3 (`0x3014`); decode with `frlg.under`.
   Packing a room from its pixels with every bottom pixel opaque sidesteps it.
 
+Celadon (`gba/art/celadon-elements/README.md`, tools in `tools/gba/maps/celadon_elements/`) is
+the Olivine method in Kanto, after two rounds in FireRed's pieces were turned down as boring.
+Traps hit there:
+
+- A town of many HGSS buildings overflows one tileset pair unless every slot is its own:
+  Celadon's primary borrows nothing (tile 0 blank, 511 tiles), its secondary keeps only the 8
+  slots a 1x1 door animation would need (504), 1015 in all.
+- A free exact fit left 230 tile kinds unplaced at 184 colours. Seed every bank with a job
+  (`pack.bank_seeds`): four ground banks (lawn and paving; terrace, kerb, bridge and posts;
+  canal and ledges; flower beds), the trees, six building palette groups, the Center's two.
+  Put the grass and lawn-edge colours in every ground bank, so an edge tile fits whichever
+  bank its material uses. A group's k-means count is one under its 15: the outline adds one.
+- Snap HGSS's ground textures onto shared ramps (one grey for kerbs, bridge and posts, one
+  brown for the canal rim and ledges, one water ramp): the ground went from 72 colours to 47.
+- A 32 px texture under an edge multiplies the edge's tiles by its phase. Take one 16 px
+  quadrant of the lawn and the water; keep 32 px only where the pattern needs it (hexagon
+  paving, brick).
+- Four colour variants of one prop cost four sets of tiles (the stalls, 66). One prop drawn
+  once in all the colours (a rainbow parasol, 32) costs one.
+- Mirror an almost symmetric building with a `keep` box over the part that differs (the Dept
+  Store's red banner): 101 tiles to 88.
+- hgss-render.json's footprints include the shadow quad: size a sprite from its model's own
+  width without `h_kage`, rounded to whole cells (C06: the Center's 5.25 units in 5 cells).
+- An emblem decal has a soft grey edge; cut it by low saturation, not by near-white only.
+- A fenced pocket by the canal is reached only by Surf (HGSS's own): count Surf in the
+  audit's reachability as the packer does, and report those cells apart.
+- Olivine's `runtime_elements` puts its folder first on sys.path; import a town's own
+  `check`, `pack` and `install` before it, then move Olivine's folder to the end.
+- FireRed's rooms put the exit mat at either end or the middle of their three exit warps;
+  land a door on the warp whose cell keeps the mat's behaviour. FireRed's side stairs warp
+  when the player stands on them and walks east (west for the left ones).
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,
