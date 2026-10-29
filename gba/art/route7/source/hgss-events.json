@@ -1,0 +1,91 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/012_R07.json",
+      "files/msgdata/msg/msg_0336_R07.gmm",
+      "files/fielddata/script/scr_seq/scr_seq_0186_R07.s"
+    ]
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 39,
+        "z": 7,
+        "land_data": 169
+      }
+    ],
+    "origin": [
+      1248,
+      224
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "neighbour_headers": {
+      "west": [
+        55
+      ],
+      "east": [
+        59
+      ],
+      "north": [],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        25,
+        16
+      ],
+      "dest": "MAP_ROUTE_7_SAFFRON_GATEHOUSE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        25,
+        17
+      ],
+      "dest": "MAP_ROUTE_7_SAFFRON_GATEHOUSE",
+      "anchor": 1
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        12,
+        24
+      ],
+      "script": "_EV_scr_seq_R07_000 + 1",
+      "bg_type": 1,
+      "text": "There is a notice! ...Uncouth Trainers have been holding battles in the Underground Path. Because of rising complaints by local residents, the Underground Path has been sealed indefinitely.            Signed, the Celadon Police"
+    },
+    {
+      "cell": [
+        13,
+        23
+      ],
+      "script": "_EV_scr_seq_R07_001 + 1",
+      "bg_type": 0,
+      "text": "It won’t open! It’s locked..."
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_R07_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        15,
+        2
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_R07_MENTAL_HERB"
+    }
+  ]
+}
