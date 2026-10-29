@@ -17,12 +17,19 @@
       19,
       10
     ],
+    "south": {
+      "header": 33,
+      "area_bank": 2,
+      "map_texture_set": 2,
+      "rows": 6
+    },
+    "rows": 70,
     "top_down_fill_pixels": 9806,
     "filled_seam_pixels": 1011
   },
   "size_cells": [
     32,
-    64
+    70
   ],
   "px_per_cell": 16,
   "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
@@ -74,6 +81,34 @@
         50.3125,
         21.25,
         50.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 35,
+      "chunk": 2,
+      "pos": [
+        19.0,
+        1.0,
+        67.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gate",
+        "gate_2",
+        "gate_3",
+        "gate_p2",
+        "h_kage"
+      ],
+      "footprint": [
+        16.0,
+        62.744384765625,
+        22.25,
+        70.5
       ],
       "replaced_by": null
     }

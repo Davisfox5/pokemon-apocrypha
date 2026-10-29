@@ -39,7 +39,7 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-46'
 SRC, EV = ART / 'source', ART / 'evidence'
 OUT = EV / 'pack3'
-W, H = 32, 64
+W, H = 32, 70
 NW, NH, NDY = 32, 160, 128                          # Route 45 (locked), east of Route 46: its (x, y) = Route 46's (x - 32, y + 128)
 BASE = 'origin/claude/route-45'
 NB_SEC = 'data/tilesets/secondary/route_45'
@@ -143,7 +143,7 @@ OBJECTS = ('tree', 'sign', 'gate')
 TERRAIN = ('lawn', 'road', 'rock', 'tall', 'stairs', 'cave', 'dirt')
 WATER_MATERIALS = ('river', 'river_r', 'pond_un', 'none')         # 'none': HGSS's cascades, a model over the river
 RIM_MATERIALS = ('pond_line',)                                    # HGSS's pond rim: drawn as the natural bank
-MODEL_CLASS = {31: 'sign', 32: 'sign'}
+MODEL_CLASS = {31: 'sign', 32: 'sign', 35: 'gate'}
 
 def hgss_classes(phg):
     """Per pixel, what HGSS shows, decoded flat: water, its rim (the bank class: the native

@@ -5,7 +5,8 @@ Route 46 as one native Gen 3 map west of Route 45's foot, built to `AGENTS.md` a
 decoded HGSS trace, shared Johto catalog art, Blackthorn's FRLG rock terraces, the Cherrygrove ground
 painter, lossless pack. Joined to Route 45 by a map connection, as HGSS joins them, with every Route
 45 pixel kept (Route 45 is owner-accepted and locked). Engine branch `claude/route-46` (stacked on
-`claude/route-45`, engine PR #43). Owner visual review pending.
+`claude/route-45`, engine PR #43). Owner review 2026-10-29 put the whole Route 29 gatehouse on the map
+with the woods closing on it (below); owner visual review of that pending.
 
 ![HGSS beside the installed native map, numbered by cell](evidence/review3/whole.png)
 
@@ -20,16 +21,18 @@ Detail sheets (HGSS beside native, numbered by cell):
 
 | | |
 | --- | --- |
-| Map | `Route46`, 32x64, `gMapGroup_Cherrygrove` id 48, `MAPSEC_JOHTO_ROUTE_46` |
-| Tilesets | Route 45's primary `gTileset_CherrygrovePrimary` (30 of its tiles reused) + own secondary `gTileset_Route46` (109 new tiles, the rest copies of Route 45's; 238 metatiles) |
-| Colour | 13 banks, each colour exact: all 524,288 native pixels equal the assembled art in RGB555 |
-| Material audit | 1,931 of 2,048 cells show HGSS's material, 0 mismatches, 117 cells where a foreground object differs |
+| Map | `Route46`, 32x70 (HGSS's 32x64 and six rows of Route 29's chunk below it), `gMapGroup_Cherrygrove` id 48, `MAPSEC_JOHTO_ROUTE_46` |
+| Tilesets | Route 45's primary `gTileset_CherrygrovePrimary` + own secondary `gTileset_Route46` (217 new tiles, the rest copies of Route 45's; 278 metatiles) |
+| Colour | 13 banks, each colour exact: all 573,440 native pixels equal the assembled art in RGB555 |
+| Material audit | 2,111 of 2,240 cells show HGSS's material, 2 mismatches (declared below), 127 cells where a foreground object differs |
 
 ## 1. Reference (`trace.py`, `elements.ledger`)
 
 - Authority: HGSS land_data chunks 113-114 (1 x 2) decoded from pret/pokeheartgold (header 48, area bank 9,
-  matrix origin [19,10]), events zone R46 (`source/hgss-events.json`). Registration exact: HGSS tile (x, z)
-  is native cell (x, y), 16 px, origin (0,0). Route 46 (x, y) is Route 45 (x - 32, y + 128).
+  matrix origin [19,10]), and the top six rows of the chunk below them, Route 29's (header 33, area bank 2,
+  its own map textures; `hgss_render.SOUTH_ROWS`), which hold the Route 29 gatehouse and its woods; events
+  zone R46 (`source/hgss-events.json`). Registration exact: HGSS tile (x, z) is native cell (x, y), 16 px,
+  origin (0,0). Route 46 (x, y) is Route 45 (x - 32, y + 128).
 - Ledger: rock cells by slope, woods `F` (HGSS's Headbutt trees, and the woods at (26-31, 47-53) HGSS
   does not mark for Headbutt: a blocked cell whose dominant material is a tree, and the crown row above
   it), tall grass `G`, jump ledges south `L` and west `Q`, the stairs `s` (HGSS slope cells), the Dark
@@ -53,11 +56,24 @@ Shared masters copied byte for byte into `source/shared-art/` with hashes (`prov
 | Stairs | S01-S03, the catalog's straight flight | HGSS's flights down a south face: (4-6, 32), (17-19, 37) |
 | Trees | T01 | as above |
 | Signs | P14 green rounded sign (model 32), P13 grey plaque (model 31) | (20, 50) route sign, (22, 10) Dark Cave plaque |
-| Route 29 gatehouse | G01a, the owner-approved front gate, its top two rows | origin (16, 62), its doorway under HGSS's warps (18-19, 60), as Route 43 shows Mahogany's gate |
+| Route 29 gatehouse | G01a, the owner-approved front gate, whole | on HGSS's gate (rows 62-69), 4 px west of the cell grid so its walls stand centred between the woods; the woods close on it, two of their trees standing behind its roof either side of its doorway (`elements.gate_anchors`, the Route 36 surround), and the road narrows to the doorway |
 | Flowers | HGSS's flower heads (local) | HGSS's flower cells |
 
 Every cell stands at its own HGSS height, counted from Route 45's lowest ground (HGSS height 2), so the
 terraces on both sides of the seam share one scale.
+
+## Owner review (2026-10-29)
+
+- **Space beside the gate.** Only G01a's top two rows were on the map, narrower than the road, so road
+  showed on both sides of the roof and seemed to run on past it. Route 46 now takes six more rows, HGSS's
+  own Route 29 rows below it, so the whole gate stands on the map with the woods either side of it, as
+  HGSS has them. Two trees of the woods' own lattice stand behind the gate's roof at (16, 62) and
+  (20, 62), the gate drawn over them, so the road's last row narrows to the doorway, (18-19, 61); the ground
+  under and beside the gate is the woods' lawn. The player can't pass the gate on either side (checked in
+  mGBA).
+- **The border below the gate.** The map now ends under the gate's front steps. The furthest south a
+  player stands is the doorway row, 61, and the camera there reaches row 66, so the border (Route 45's
+  rock) never comes into view.
 
 ## 3. Beside Route 45's tilesets (`pack_fixed.py`)
 
@@ -91,34 +107,37 @@ rows 20-23 (Route 45 rows 148-151). Route 45's map.json changes only by its conn
   `evidence/pack3/native-audit.json`.
 - **Dark Cave.** Not built: the mouth is solid.
 - **Route 29 gatehouse.** Its interior and Route 29's side are not built in this style (the engine's
-  Route 29 is the older `CherrygroveRoute29Approach`), so G01a's roof has no doorway and Route 46 has no
-  connection south. HGSS blocks (16-21, 61) for its taller gate model; G01a's roof covers rows 62-63, so
-  that row is open road up to the roof, as on Route 43 (`elements.GATE_APRON`).
+  Route 29 is the older `CherrygroveRoute29Approach`), so its doorways are solid and Route 46 has no
+  connection south. HGSS blocks (16-21, 61) for its taller gate model; G01a starts at row 62, so the
+  doorway's two cells of that row are open road up to its roof, as on Route 43 (`elements.GATE_APRON`).
+  The two trees behind the roof stand where HGSS has road at (17, 61) and (20, 61): the 2 material
+  mismatches.
 - **Region map.** `MAPSEC_JOHTO_ROUTE_46` sits at (5, 5) on the proof region map, the free square next to
   Route 45's (the squares west of Route 45 are taken).
-- **Foreground.** T01, the signs and the gate differ in size and offset from HGSS's; these are the 117
+- **Foreground.** T01, the signs and the gate differ in size and offset from HGSS's; these are the 127
   "foreground differs" cells in `evidence/pack3/material-audit.json`.
 
 ## Verification
 
 - **Build**: engine `claude/route-46`, ROM sha256
-  `b470e3f97d5c7b6c7bd3fc46e4a43a3d1aab1cd857df074d2aaf2133789d59d3` (not committed).
+  `d766cd994cb9990e6d944f2d165feebb269924465dee3dace1f474a2f139d10e` (not committed).
 - **Audit** (`check3.py`, `evidence/pack3/native-audit.json`): the installed Route 46 equals the pack decode
   and its assembled art; Route 45's installed decode equals its decode as committed on `claude/route-45`;
   both seam views exact from the installed files; connections both ways, Route 45's map.json changing only
   by its connection west; shared border; behaviour, collision, elevation and layer type match the ledger
   on every cell; the seam open on exactly the rows HGSS opens on both sides, at one elevation; the cells
   reached on foot from Route 45's stairs are exactly HGSS's (its Rock Climb wall blocked, less the Dark
-  Cave warp) plus the road under HGSS's taller gate; every ledge one-way; walk-behind layering; budgets;
+  Cave warp) plus the doorway's road under HGSS's taller gate; every ledge one-way; walk-behind layering; budgets;
   shared masters byte-identical; Route 45's metatiles and tiles unchanged (its tables only grow); only
   Route 46 files otherwise.
-- **Material audit**: 1,931 match, 0 mismatch, 117 foreground differences.
+- **Material audit**: 2,111 match, 2 mismatch (declared above), 127 foreground differences.
 - **Headless mGBA** (`runtime3.py`, `evidence/pack3/runtime/`): 33 captures with map layers rebuilt from
   VRAM equal to the native decodes, Route 45 beyond the seam included; views down the whole route; the
   seam walked from Route 45's stairs into Route 46 and back on all three rows, with captures 4 frames into
   each crossing step matching too; BG1 covers the player behind the route sign and leaves the player clear
   in front of it; a south and a west ledge jumped and refusing the climb back; both flights; the Dark Cave
-  mouth, the Rock Climb wall, the gate's roof and a tree block a player on foot; both signs read; Route 45,
+  mouth, the Rock Climb wall, the gate, the trees either side of its doorway and a tree block a player on
+  foot; both signs read; Route 45,
   Blackthorn and Cherrygrove regression views; ordinary flash save, cold reload and title Continue.
 - **Porymap 6.3.1** (`evidence/pack3/porymap/`): opens, exports and saves Route 46 and Route 45 on a fresh
   clone of the engine commit; both exports equal the native decodes with 0 differing pixels in RGB555;

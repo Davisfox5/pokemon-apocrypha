@@ -1,4 +1,5 @@
-"""Render HGSS Route 46 from the game's own map data, 1:1 at 16 px per tile.
+"""Render HGSS Route 46 from the game's own map data, 1:1 at 16 px per tile, with the top
+SOUTH_ROWS rows of Route 29's chunk below it (the Route 29 gatehouse and its woods).
 
 Inputs are pret/pokeheartgold's packed archives, read only:
 
@@ -29,6 +30,10 @@ from nsbtx import Tex0                  # noqa: E402
 
 AREA_BANK = 9
 HEADER_ID = 48                          # MAP_ROUTE_46
+# Owner review (2026-10-29): the native map runs on SOUTH_ROWS rows into the chunk below it,
+# MAP_ROUTE_29's (area bank 2, its own map textures), so the whole Route 29 gatehouse and the woods
+# closing on it are on Route 46 and its south border never comes into view.
+SOUTH_HEADER, SOUTH_AREA_BANK, SOUTH_ROWS = 33, 2, 6
 PX = 16                                 # pixels per tile
 SNAP = True                             # stretch cliff/ledge fronts to whole 8 px rows
 
@@ -235,6 +240,8 @@ def load(phg):
     area = narc.load(a / '0/4/2')[AREA_BANK]
     bld_set, map_set = struct.unpack_from('<HH', area, 0)
     tex0 = Tex0(narc.load(a / '0/4/4')[map_set])
+    south_set = struct.unpack_from('<HH', narc.load(a / '0/4/2')[SOUTH_AREA_BANK], 0)[1]
+    south_tex0 = Tex0(narc.load(a / '0/4/4')[south_set])
     models = narc.load(a / '0/4/0')
     d = (phg / 'files/fielddata/mapmatrix/map_matrix/map_matrix_0000_EVERYWHERE.bin').read_bytes()
     w, h, _, has_alt, nl = d[:5]
@@ -244,9 +251,15 @@ def load(phg):
     lid = struct.unpack_from('<%dH' % (w * h), d, p)
     cells = [(x, z) for z in range(h) for x in range(w) if hdr[z * w + x] == HEADER_ID]
     x0, z0 = min(c[0] for c in cells), min(c[1] for c in cells)
-    chunks = [dict(cx=x - x0, cz=z - z0, land=lid[z * w + x]) for x, z in cells]
+    chunks = [dict(cx=x - x0, cz=z - z0, land=lid[z * w + x], tex0=tex0) for x, z in cells]
+    z1 = max(c[1] for c in cells) + 1
+    for x in sorted({c[0] for c in cells}):
+        assert hdr[z1 * w + x] == SOUTH_HEADER, ('the chunk south of Route 46 is not Route 29\'s', x, z1)
+        chunks.append(dict(cx=x - x0, cz=z1 - z0, land=lid[z1 * w + x], tex0=south_tex0, south=True))
+    rows = (z1 - z0) * 32 + SOUTH_ROWS
     return land, tex0, models, chunks, dict(area_bank=AREA_BANK, map_texture_set=map_set, building_texture_set=bld_set,
-                                            matrix_origin=[x0, z0])
+                                            matrix_origin=[x0, z0], south=dict(header=SOUTH_HEADER, area_bank=SOUTH_AREA_BANK,
+                                            map_texture_set=south_set, rows=SOUTH_ROWS), rows=rows)
 
 # The shared Gen 3 Center and Mart replace these HGSS models (and their door
 # panels); everything else is HGSS art.
@@ -265,6 +278,7 @@ def render(phg):
     land, tex0, models, chunks, meta = load(phg)
     W = (max(c['cx'] for c in chunks) + 1) * 32
     H = (max(c['cz'] for c in chunks) + 1) * 32
+    HO = meta['rows']                       # the rows kept: Route 46's own and SOUTH_ROWS of Route 29's
     ground = Canvas(W * PX, H * PX)
     under = Canvas(W * PX, H * PX)        # pure top-down terrain, fills what lifted faces uncover
     fg = Canvas(W * PX, H * PX)
@@ -279,8 +293,8 @@ def render(phg):
         coll[oz:oz + 32, ox:ox + 32] = np.array(ch.collisions, np.uint8).reshape(32, 32)
         terrain = mdlview.Model(ch.model)
         place = lambda x, y, z, ox=ox, oz=oz: (x + 16 + ox, y, z + 16 + oz)
-        draw_model(under, terrain, tex0, place, -1, None, flat=True)
-        terrain_clear += draw_model(ground, terrain, tex0, place, -1, None)
+        draw_model(under, terrain, c['tex0'], place, -1, None, flat=True)
+        terrain_clear += draw_model(ground, terrain, c['tex0'], place, -1, None)
         for i in range(len(ch.buildings) // 48):
             e = ch.buildings[i * 48:i * 48 + 48]
             mid, = struct.unpack_from('<I', e, 0)
@@ -343,11 +357,12 @@ def render(phg):
     hc = ground.height.reshape(H, PX, W, PX)
     with np.errstate(all='ignore'):
         cell_height = np.nanmedian(hc.transpose(0, 2, 1, 3).reshape(H, W, -1), axis=2)
-    img = lambda a: Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
-    return dict(full=img(full.rgb), ground=img(ground.rgb), terrain=img(terrain_only), fg=Image.fromarray(rgba, 'RGBA'),
-                fg_owner=np.where(m, fg.owner, -1), ground_mat=ground.mat, ground_over=ground.over,
-                ground_steep=ground.steep, materials=list(MATERIAL_NAMES), types=types, collision=coll, buildings=buildings, meta=meta,
-                cell_height=cell_height, holes=holes)
+    img = lambda a: Image.fromarray(np.clip(a[:HO * PX], 0, 255).astype(np.uint8))
+    keep = [b for b in buildings if b['footprint'][1] < HO]
+    return dict(full=img(full.rgb), ground=img(ground.rgb), terrain=img(terrain_only), fg=Image.fromarray(rgba[:HO * PX], 'RGBA'),
+                fg_owner=np.where(m, fg.owner, -1)[:HO * PX], ground_mat=ground.mat[:HO * PX], ground_over=ground.over[:HO * PX],
+                ground_steep=ground.steep[:HO * PX], materials=list(MATERIAL_NAMES), types=types[:HO], collision=coll[:HO],
+                buildings=keep, meta=meta, cell_height=cell_height[:HO], holes=holes[:HO * PX])
 
 def main(phg, out):
     out.mkdir(parents=True, exist_ok=True)

@@ -22,7 +22,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-46'
 SRC, EV = ART / 'source', ART / 'evidence'
-W, H = 32, 64
+W, H = 32, 70
 ROCK = set('TESWN')
 LEDGES = set('LQJ')                  # jump south, jump west, the blocked corner where they meet
 FLOOR_HEIGHT = 4                     # HGSS height of the walkable town floor
@@ -41,7 +41,7 @@ def topdown(phg):
     for c in chunks:
         ch = R.hgss_map.MapChunk.parse(land[c['land']])
         ox, oz = c['cx'] * 32, c['cz'] * 32
-        R.draw_model(cv, R.mdlview.Model(ch.model), tex0, lambda x, y, z, ox=ox, oz=oz: (x + 16 + ox, y, z + 16 + oz), -1, None, flat=True)
+        R.draw_model(cv, R.mdlview.Model(ch.model), c['tex0'], lambda x, y, z, ox=ox, oz=oz: (x + 16 + ox, y, z + 16 + oz), -1, None, flat=True)
     h = np.nan_to_num(cv.height, nan=float(np.nanmin(cv.height)))
     return h, cv.mat, list(R.MATERIAL_NAMES), cv.rgb.astype(np.uint8)
 
@@ -120,7 +120,7 @@ def route46_labels(cells, m, nm):
             c = cells[y][x]
             if slope[y, x] >= 128 and not c['blocked']:
                 c['lab'] = 's'
-            elif c['type'] == 0x6E:
+            elif c['type'] == 0x6E and y < 64:
                 c['lab'] = 'D'
             elif c['type'] == 0x4C:
                 c['lab'] = 'K'
@@ -139,6 +139,16 @@ def route46_labels(cells, m, nm):
             c, below = cells[y][x], cells[y + 1][x]
             if c['blocked'] and c['type'] == 0 and c['lab'] == 'X' and below['lab'] == 'F' and below['type'] == 0:
                 c['lab'] = 'F'
+    # The Route 29 gatehouse (G01a, assemble.GATES) fills GATE_COLS x GATE_ROWS, HGSS's gate and its
+    # south doorway included: solid. The road narrows to the gate's doorway at its last row: the
+    # cells beside the doorway there are woods, so the trees close on the gate's roof (owner
+    # review, 2026-10-29; AGENTS.md, woods close tight on gates).
+    for y in range(GATE_ROWS[0], GATE_ROWS[1] + 1):
+        for x in range(GATE_COLS[0], GATE_COLS[1] + 1):
+            cells[y][x]['lab'] = 'X'
+    for x in GATE_SIDES:
+        c = cells[GATE_ROWS[0] - 1][x]
+        c['lab'], c['gate_woods'] = 'F', True
     return cells
 
 # Route 45's owner-review features (ground in place of cliff, stairs and shores for the Surf route,
@@ -149,23 +159,29 @@ RIVER_FLIGHTS = ()
 RIVER_STAIRS = set()
 RIVER_SHORE = set()
 RIVER_LANDING = set()
-# The road under HGSS's gatehouse model: HGSS blocks (16-21, 61) for its taller gate, and G01a's
-# roof (assemble.GATES) covers rows 62-63 only, so that row is open road up to the roof, as on
-# Route 43.
-GATE_APRON = {(x, 61) for x in range(16, 22)}
+# The road before HGSS's gatehouse model: HGSS blocks (16-21, 61) for its taller gate; G01a starts
+# at row 62, so the road's last row is open up to its roof where it meets the gate's doorway, as
+# on Route 43, and woods beside it (GATE_SIDES).
+GATE_APRON = {(18, 61), (19, 61)}
 OWNER_GROUND = {c: 'sand' for c in GATE_APRON}
-OWNER_REASON = {c: "HGSS's gate model is taller than G01a: open road up to G01a's roof" for c in GATE_APRON}
+OWNER_REASON = {c: "HGSS's gate model is taller than G01a: open road up to G01a's roof, at its doorway" for c in GATE_APRON}
 CASCADE_ROWS = ()
 
 def is_river(c):
     """HGSS river or pond water, and the blocked river cells either side of a bridge."""
     return c['lab'] == '~' or (c['lab'] == 'X' and c['material'] in ('river', 'river_r'))
 
-GATE_COLS = GATE_ROWS = None                     # Route 46 has no gatehouse
+GATE_COLS, GATE_ROWS = (16, 21), (62, 69)        # G01a's footprint (assemble.GATES), inclusive
+GATE_SIDES = (16, 17, 20, 21)                     # row 61 beside the doorway: woods
 
 def gate_anchors():
-    """No gatehouse on Route 46: nothing for the woods to close on."""
-    return set(), set()
+    """The rows the woods beside G01a must reach, as the owner-approved Route 36 gate surround
+    has them: a row of trees stands behind the gate's top two rows (the gate drawn over them, the
+    trees seen round its roof). Returns (reach, behind): reach, the gate's top and base rows;
+    behind, the cells a rear tree's roots may take (the top two footprint rows)."""
+    xs = range(GATE_COLS[0], GATE_COLS[1] + 1)
+    return ({(x, GATE_ROWS[0]) for x in xs} | {(x, GATE_ROWS[1]) for x in xs},
+            {(x, y) for x in xs for y in (GATE_ROWS[0], GATE_ROWS[0] + 1)})
 
 def tree_footprints(cells):
     """HGSS trees stand on 2 x 2 footprints: a crown row (tree01gs / tree01_re) over a trunk

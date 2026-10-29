@@ -11,8 +11,8 @@ tall grass, the road and the gate's roof); the seam walked from Route 45's west-
 Route 46 and back on all three rows, with captures on both sides and part way through each
 crossing step (just after the secondary tileset swaps); walk-behind under the route sign (BG1
 must cover the player's cell) and in front of it (BG1 clear); the jump ledges, south and west,
-one way; both straight flights; the Dark Cave mouth, the Rock Climb wall, the gate's roof and a
-tree blocking a player on foot; both signs read; Route 45, Blackthorn and Cherrygrove
+one way; both straight flights; the Dark Cave mouth, the Rock Climb wall, the gate's roof, the
+trees closing on it either side of its doorway, and a tree blocking a player on foot; both signs read; Route 45, Blackthorn and Cherrygrove
 regression views; ordinary flash save, cold reload and Continue.
 """
 from __future__ import annotations
@@ -48,10 +48,12 @@ RC.STEPS = [
     ('go', R, 5, 31), ('south', 2, 'west-stairs-descended'), ('at', R, 5, 33),
     ('go', R, 18, 36), ('south', 2, 'east-stairs-descended'), ('at', R, 18, 38),
     # Blocked on foot: the Dark Cave mouth (Dark Cave is not built), the Rock Climb wall (Gen 3 has
-    # no Rock Climb), the gate's roof (its interior is not built), a tree.
+    # no Rock Climb), the gate's roof (its interior is not built) and the trees closing on it either side
+    # of its doorway, a tree.
     ('go', R, 20, 10), ('north', 1, None), ('at', R, 20, 10),
     ('go', R, 23, 23), ('east', 1, None), ('at', R, 23, 23),
-    ('go', R, 18, 61), ('south', 1, 'gate-roof'), ('at', R, 18, 61),
+    ('go', R, 18, 61), ('south', 1, 'gate-roof'), ('at', R, 18, 61), ('west', 1, None), ('at', R, 18, 61),
+    ('go', R, 19, 61), ('east', 1, None), ('at', R, 19, 61),
     ('go', R, 21, 52), ('east', 1, None), ('at', R, 21, 52),
     # Signs.
     ('sign', R, 20, 50, 'route-sign-read'), ('sign', R, 22, 10, 'dark-cave-sign-read'),

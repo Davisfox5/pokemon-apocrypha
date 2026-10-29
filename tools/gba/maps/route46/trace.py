@@ -36,7 +36,7 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-46'
 SRC, EV = ART / 'source', ART / 'evidence'
 OUT, OEV = SRC / 'trace', EV / 'trace'
-W, H = 32, 64
+W, H = 32, 70
 PX = 16
 TREES = ('tree01gs', 'tree01_un', 'tree01_re')
 FACES = ('wall01_d', 'wall01_g')
@@ -257,7 +257,7 @@ def main(phg):
         cells=trav)) + '\n')
     # Reference sheets: decoded HGSS render at true heights, numbered; role map; grid over the reference.
     ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
-    for i, (x0, y0, x1, y1) in enumerate([(x, y, x + 16, y + 16) for y in range(0, H, 16) for x in range(0, W, 16)], 1):
+    for i, (x0, y0, x1, y1) in enumerate([(x, y, x + 16, min(H, y + 16)) for y in range(0, H, 16) for x in range(0, W, 16)], 1):
         numbered(ref, x0, y0, x1, y1, 3, title=f'HGSS Route 46, decoded land_data at true heights; cells x{x0}-{x1 - 1}, y{y0}-{y1 - 1}').save(OEV / f'hgss-numbered-{i}.png')
         numbered(ref, x0, y0, x1, y1, 3, grid=grid, title=f'Material grid over HGSS; cells x{x0}-{x1 - 1}, y{y0}-{y1 - 1}').save(OEV / f'grid-over-hgss-{i}.png')
     rv = rgb.copy()

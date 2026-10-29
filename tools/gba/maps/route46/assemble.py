@@ -55,7 +55,7 @@ ART = ROOT / 'gba/art/route-46'
 SRC, EV = ART / 'source', ART / 'evidence'
 TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
-W, H = 32, 64
+W, H = 32, 70
 PX = 16
 
 CATALOG = {  # local name -> catalog path (branch codex/violet-city)
@@ -427,6 +427,12 @@ def ground_quadrants(cells, rock):
             n = int((q[2 * y:2 * y + 2, 2 * x:2 * x + 2] == G.PATH).sum())
             road = n > 2 or (n == 2 and cells[y][x]['floor'] == 'sand')
             q[2 * y:2 * y + 2, 2 * x:2 * x + 2] = G.PATH if road else G.GRASS
+    # Under and beside the gate the ground is the woods' lawn, the road running on only to its
+    # doorway, so no strip of road shows beside the gate's roof (owner review, 2026-10-29).
+    for y in range(E.GATE_ROWS[0], E.GATE_ROWS[1] + 1):
+        for x in range(E.GATE_COLS[0], E.GATE_COLS[1] + 1):
+            if not (y == E.GATE_ROWS[0] and (x, y - 1) in E.GATE_APRON):
+                q[2 * y:2 * y + 2, 2 * x:2 * x + 2] = G.GRASS
     return q
 
 def plain_lawn(ground, cells, phg):
@@ -767,9 +773,12 @@ def over(dst, src, x, y, owner=None, name=''):
 # Signs on their HGSS models, as Route 43, the Lake and Route 42 placed them: P14 (model 32)
 # top-left (x * 16 - 8, (y - 1) * 16), P13 (model 31) top-left (x * 16 - 8, (y - 1.5) * 16).
 SIGNS = {(20, 50): ('P14.png', 20 * PX - 8, 49 * PX), (22, 10): ('P13.png', 22 * PX - 8, int(8.5 * PX))}
-# The Route 29 gatehouse: G01a, the owner-approved front gate, its doorway (its cells (2, 7) and (3, 7))
-# under HGSS's gate warps (18, 60)/(19, 60); only its top two rows fall on Route 46, as on Route 43.
-GATES = {'gate_route29': (16 * PX, 62 * PX)}
+# The Route 29 gatehouse: G01a, the owner-approved front gate, on HGSS's gate (rows 62-69) under HGSS's
+# Route 46 gate warps (18, 60)/(19, 60).
+# G01a's walls fill 5.5 of its 7 columns (px 7-95): 4 px west of the cell grid, the gate stands
+# centred between the woods either side of the road, 3 px from the trees on each side (owner
+# review, 2026-10-29). The whole gate is on Route 46 (hgss_render.SOUTH_ROWS).
+GATES = {'gate_route29': (16 * PX - 4, 62 * PX)}
 
 def stairs(bottom, rock, top, owner, fl):
     """HGSS's flights over the cliff they cut through (rock_cells). A straight flight is

@@ -28,7 +28,7 @@ ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-46'
 SRC, EV = ART / 'source', ART / 'evidence'
 OUT_SRC, OUT_EV = SRC / 'pack-alone', EV / 'pack-alone'
-W, H = 32, 64
+W, H = 32, 70
 BANKS = 13
 PRIMARY_TILES, SECONDARY_TILES = 512, 496
 def traversal(engine, phg, top, owner):

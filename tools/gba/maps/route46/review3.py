@@ -26,12 +26,12 @@ EV = ART / 'evidence'
 OUT = EV / 'review3'
 NB_REF = ROOT / 'gba/art/route-45/source/hgss/hgss-reference-true-heights.png'
 REGIONS = {  # name: (x0, y0, x1, y1) in cells
-    'dark-cave-north-lawn': (0, 0, 32, 24), 'terraces-rock-climb': (0, 16, 32, 42), 'tall-grass-road-gate': (0, 38, 32, 64),
+    'dark-cave-north-lawn': (0, 0, 32, 24), 'terraces-rock-climb': (0, 16, 32, 42), 'tall-grass-road-gate': (0, 40, 32, 70),
 }
 
 def pair(ref, nat, box, scale, title):
     x0, y0, x1, y1 = box
-    a = T.numbered(ref, x0, y0, x1, y1, scale, title=f'HGSS (decoded land_data 113-114): {title}')
+    a = T.numbered(ref, x0, y0, x1, y1, scale, title=f'HGSS (decoded land_data 113-114, Route 29 rows 0-5): {title}')
     b = T.numbered(nat, x0, y0, x1, y1, scale, title=f'Native (installed decode): {title}')
     out = Image.new('RGB', (a.width + b.width + 12, max(a.height, b.height)), (24, 26, 30))
     out.paste(a, (0, 0)); out.paste(b, (a.width + 12, 0))
@@ -68,7 +68,7 @@ def main(engine):
     OUT.mkdir(parents=True, exist_ok=True)
     ref = np.array(Image.open(ART / 'source/hgss/hgss-reference-true-heights.png').convert('RGB'))
     nat = np.array(Image.open(EV / 'pack3/native.png').convert('RGB'))
-    pair(ref, nat, (0, 0, 32, 64), 1, 'whole route, cells x0-31 y0-63').save(OUT / 'whole.png')
+    pair(ref, nat, (0, 0, 32, 70), 1, 'whole route, cells x0-31 y0-69').save(OUT / 'whole.png')
     seam(ref, nat, engine).save(OUT / 'route45-seam.png')
     for name, box in REGIONS.items():
         pair(ref, nat, box, 2, f'{name}, cells x{box[0]}-{box[2] - 1} y{box[1]}-{box[3] - 1}').save(OUT / f'{name}.png')

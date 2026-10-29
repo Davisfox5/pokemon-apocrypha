@@ -15,7 +15,7 @@ import elements as E                                          # noqa: E402
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/route-46'
 SRC = ART / 'source'
-W, H = 32, 64
+W, H = 32, 70
 CLEAR = -1                                                    # transparent pixel marker in keys
 FLAT = ('flat_',)                                             # ground details, never above the player: tall grass, flowers, the diagonal stairs
 EVENTS = json.loads((SRC / 'hgss-events.json').read_text())
@@ -75,6 +75,9 @@ def traversal(engine, cells, art, edge):
             c = dict(x=x, y=y, hgss_type=t, hgss_collision=k, element=lab + cells[y][x]['floor'][0])
             if lab in SOLID:
                 c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3, adaptation=SOLID[lab])
+            elif E.GATE_COLS[0] <= x <= E.GATE_COLS[1] and E.GATE_ROWS[0] <= y <= E.GATE_ROWS[1]:
+                c.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                         adaptation='the Route 29 gatehouse (G01a): its interior and Route 29\'s side are not built, so its doorways are solid')
             elif t == 0x3B:
                 c.update(foot='ledge_south', behavior='MB_JUMP_SOUTH', collision=1, elevation=0)
             elif t == 0x39:

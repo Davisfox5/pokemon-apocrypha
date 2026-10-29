@@ -1,8 +1,45 @@
 {
  "method": "Square by square: native classes from decoded colours (each colour votes for every\nvocabulary that holds it), HGSS classes from the flat decode. A terrain cell matches when\nthe native's leading terrain material is one HGSS shows there (at least 24 px); an object\ncell when the same kind of object leads in both. Cells where an object leads in one but\nterrain in the other are foreground differences, not counted as matches.",
- "cells": 2048,
- "matches": 1931,
- "mismatches": [],
+ "cells": 2240,
+ "matches": 2111,
+ "mismatches": [
+  {
+   "cell": [
+    17,
+    61
+   ],
+   "status": "mismatch",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
+   "native": {
+    "tree": 147,
+    "lawn": 97,
+    "rock": 20,
+    "road": 16
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    61
+   ],
+   "status": "mismatch",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
+   "native": {
+    "tree": 147,
+    "lawn": 97,
+    "rock": 19,
+    "road": 16
+   },
+   "hgss": {
+    "gate": 256
+   }
+  }
+ ],
  "foreground_differs": [
   {
    "cell": [
@@ -1503,42 +1540,266 @@
   },
   {
    "cell": [
-    18,
-    62
+    17,
+    60
    ],
    "status": "foreground differs",
-   "native_lead": "gate",
-   "hgss_lead": "road",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
-    "gate": 144,
-    "road": 112,
-    "lawn": 112
+    "road": 248,
+    "lawn": 246,
+    "rock": 7
    },
    "hgss": {
-    "road": 256
+    "gate": 203,
+    "road": 53
+   }
+  },
+  {
+   "cell": [
+    18,
+    60
+   ],
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
+   "native": {
+    "road": 256,
+    "lawn": 254
+   },
+   "hgss": {
+    "gate": 256
    }
   },
   {
    "cell": [
     19,
+    60
+   ],
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
+   "native": {
+    "road": 256,
+    "lawn": 255
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    60
+   ],
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
+   "native": {
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
+   },
+   "hgss": {
+    "gate": 203,
+    "road": 53
+   }
+  },
+  {
+   "cell": [
+    16,
+    61
+   ],
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
+   "native": {
+    "tree": 147,
+    "lawn": 103,
+    "rock": 10,
+    "road": 8
+   },
+   "hgss": {
+    "lawn": 104,
+    "gate": 64,
+    "road": 45,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    18,
+    61
+   ],
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
+   "native": {
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    61
+   ],
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
+   "native": {
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    61
+   ],
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
+   "native": {
+    "tree": 147,
+    "lawn": 103,
+    "rock": 10,
+    "road": 8
+   },
+   "hgss": {
+    "lawn": 105,
+    "gate": 64,
+    "road": 45,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    16,
     62
    ],
    "status": "foreground differs",
-   "native_lead": "gate",
-   "hgss_lead": "road",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
    "native": {
-    "gate": 144,
-    "road": 112,
-    "lawn": 112
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
-    "road": 256
+    "lawn": 69,
+    "gate": 64,
+    "road": 45,
+    "tree": 39
+   }
+  },
+  {
+   "cell": [
+    21,
+    62
+   ],
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "lawn": 68,
+    "gate": 64,
+    "road": 45,
+    "tree": 39
+   }
+  },
+  {
+   "cell": [
+    16,
+    63
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 146,
+    "tree": 55,
+    "gate": 55
+   },
+   "hgss": {
+    "gate": 176,
+    "lawn": 69,
+    "road": 4,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    21,
+    63
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 142,
+    "tree": 70,
+    "gate": 44
+   },
+   "hgss": {
+    "gate": 176,
+    "lawn": 65,
+    "road": 6,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    16,
+    64
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 135,
+    "gate": 121
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    21,
+    64
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 153,
+    "gate": 103
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
    }
   },
   {
    "cell": [
     0,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1554,7 +1815,7 @@
   {
    "cell": [
     1,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1570,7 +1831,7 @@
   {
    "cell": [
     2,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1586,7 +1847,7 @@
   {
    "cell": [
     3,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1602,7 +1863,7 @@
   {
    "cell": [
     4,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1618,7 +1879,7 @@
   {
    "cell": [
     5,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1634,7 +1895,7 @@
   {
    "cell": [
     6,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1650,7 +1911,7 @@
   {
    "cell": [
     7,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1666,7 +1927,7 @@
   {
    "cell": [
     8,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1682,7 +1943,7 @@
   {
    "cell": [
     9,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1698,7 +1959,7 @@
   {
    "cell": [
     10,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1714,7 +1975,7 @@
   {
    "cell": [
     11,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1730,7 +1991,7 @@
   {
    "cell": [
     12,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1746,7 +2007,7 @@
   {
    "cell": [
     13,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1762,7 +2023,7 @@
   {
    "cell": [
     14,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1778,16 +2039,14 @@
   {
    "cell": [
     15,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "lawn": 157,
-    "tree": 93,
-    "rock": 10,
-    "road": 8
+    "lawn": 163,
+    "tree": 93
    },
    "hgss": {
     "tree": 256
@@ -1796,78 +2055,48 @@
   {
    "cell": [
     17,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "lawn",
    "native": {
-    "gate": 231,
-    "road": 25,
-    "lawn": 25
+    "gate": 131,
+    "lawn": 125
    },
    "hgss": {
-    "road": 256
-   }
-  },
-  {
-   "cell": [
-    18,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "gate",
-   "hgss_lead": "road",
-   "native": {
-    "gate": 256
-   },
-   "hgss": {
-    "road": 256
-   }
-  },
-  {
-   "cell": [
-    19,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "gate",
-   "hgss_lead": "road",
-   "native": {
-    "gate": 256
-   },
-   "hgss": {
-    "road": 256
+    "lawn": 136,
+    "gate": 120
    }
   },
   {
    "cell": [
     20,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "lawn",
    "native": {
-    "gate": 256
+    "gate": 136,
+    "lawn": 120
    },
    "hgss": {
-    "road": 256
+    "lawn": 136,
+    "gate": 120
    }
   },
   {
    "cell": [
     22,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "lawn": 174,
-    "tree": 76,
-    "rock": 10,
-    "road": 8
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 256
@@ -1876,7 +2105,7 @@
   {
    "cell": [
     23,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1892,7 +2121,7 @@
   {
    "cell": [
     24,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1908,7 +2137,7 @@
   {
    "cell": [
     25,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1924,7 +2153,7 @@
   {
    "cell": [
     26,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1934,13 +2163,14 @@
     "tree": 76
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     27,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1950,13 +2180,14 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     28,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1966,13 +2197,14 @@
     "tree": 76
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     29,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -1982,13 +2214,14 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     30,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -2004,7 +2237,7 @@
   {
    "cell": [
     31,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -2014,7 +2247,8 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 249,
+    "tall": 7
    }
   }
  ],
@@ -7251,8 +7485,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 251,
@@ -28557,8 +28791,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -28573,8 +28807,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -28589,8 +28823,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -28605,8 +28839,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29084,8 +29318,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29100,8 +29334,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29116,8 +29350,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29132,8 +29366,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29598,8 +29832,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 206,
@@ -29615,8 +29849,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29631,8 +29865,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29647,8 +29881,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -29663,8 +29897,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30089,8 +30323,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30105,8 +30339,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30121,8 +30355,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30137,8 +30371,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30153,8 +30387,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30169,8 +30403,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30185,8 +30419,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30666,8 +30900,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30682,8 +30916,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30698,8 +30932,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -30714,8 +30948,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31205,8 +31439,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31221,8 +31455,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31237,8 +31471,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31253,8 +31487,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31727,8 +31961,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31743,8 +31977,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31759,8 +31993,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -31775,8 +32009,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -32249,8 +32483,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -32265,8 +32499,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -32281,8 +32515,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -32297,8 +32531,8 @@
    "native_lead": "lawn",
    "hgss_lead": "road",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "lawn": 256,
+    "road": 256
    },
    "hgss": {
     "road": 256
@@ -32736,7 +32970,7 @@
    "native": {
     "tree": 242,
     "lawn": 13,
-    "rock": 2,
+    "rock": 1,
     "road": 1
    },
    "hgss": {
@@ -32752,14 +32986,15 @@
    "native_lead": "road",
    "hgss_lead": "road",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "road": 240,
+    "lawn": 239,
+    "rock": 11
    },
    "hgss": {
-    "road": 109,
+    "road": 101,
     "lawn": 69,
-    "tree": 39
+    "tree": 39,
+    "gate": 8
    }
   },
   {
@@ -32767,15 +33002,17 @@
     17,
     60
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "road": 248,
+    "lawn": 246,
+    "rock": 7
    },
    "hgss": {
-    "road": 256
+    "gate": 203,
+    "road": 53
    }
   },
   {
@@ -32783,15 +33020,15 @@
     18,
     60
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "road": 256,
-    "lawn": 256
+    "lawn": 254
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -32799,15 +33036,15 @@
     19,
     60
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "road": 256,
-    "lawn": 256
+    "lawn": 255
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -32815,15 +33052,17 @@
     20,
     60
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
    },
    "hgss": {
-    "road": 256
+    "gate": 203,
+    "road": 53
    }
   },
   {
@@ -32835,14 +33074,15 @@
    "native_lead": "road",
    "hgss_lead": "road",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "road": 240,
+    "lawn": 237,
+    "rock": 12
    },
    "hgss": {
-    "road": 109,
+    "road": 101,
     "lawn": 68,
-    "tree": 39
+    "tree": 39,
+    "gate": 8
    }
   },
   {
@@ -33257,9 +33497,7 @@
    "hgss_lead": "tree",
    "native": {
     "tree": 187,
-    "lawn": 63,
-    "rock": 10,
-    "road": 8
+    "lawn": 69
    },
    "hgss": {
     "tree": 256
@@ -33270,17 +33508,19 @@
     16,
     61
    ],
-   "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "tree": 147,
+    "lawn": 103,
+    "rock": 10,
+    "road": 8
    },
    "hgss": {
-    "road": 109,
     "lawn": 104,
+    "gate": 64,
+    "road": 45,
     "tree": 3
    }
   },
@@ -33289,15 +33529,17 @@
     17,
     61
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "mismatch",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "tree": 147,
+    "lawn": 97,
+    "rock": 20,
+    "road": 16
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33305,15 +33547,16 @@
     18,
     61
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33321,15 +33564,16 @@
     19,
     61
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "road",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "road": 248,
+    "lawn": 246,
+    "rock": 6
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33337,15 +33581,17 @@
     20,
     61
    ],
-   "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "status": "mismatch",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
    "native": {
-    "road": 256,
-    "lawn": 256
+    "tree": 147,
+    "lawn": 97,
+    "rock": 19,
+    "road": 16
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33353,17 +33599,19 @@
     21,
     61
    ],
-   "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "tree": 147,
+    "lawn": 103,
+    "rock": 10,
+    "road": 8
    },
    "hgss": {
-    "road": 109,
     "lawn": 105,
+    "gate": 64,
+    "road": 45,
     "tree": 3
    }
   },
@@ -33377,9 +33625,7 @@
    "hgss_lead": "tree",
    "native": {
     "tree": 176,
-    "lawn": 74,
-    "rock": 9,
-    "road": 8
+    "lawn": 80
    },
    "hgss": {
     "tree": 256
@@ -33779,9 +34025,7 @@
    "hgss_lead": "tree",
    "native": {
     "tree": 242,
-    "lawn": 13,
-    "rock": 2,
-    "road": 1
+    "lawn": 14
    },
    "hgss": {
     "tree": 256
@@ -33792,17 +34036,17 @@
     16,
     62
    ],
-   "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
    "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
+    "tree": 233,
+    "lawn": 23
    },
    "hgss": {
-    "road": 109,
     "lawn": 69,
+    "gate": 64,
+    "road": 45,
     "tree": 39
    }
   },
@@ -33812,15 +34056,16 @@
     62
    ],
    "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
    "native": {
-    "road": 187,
-    "lawn": 187,
-    "gate": 69
+    "tree": 149,
+    "gate": 105,
+    "lawn": 1,
+    "rock": 1
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33828,16 +34073,16 @@
     18,
     62
    ],
-   "status": "foreground differs",
+   "status": "match",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "gate": 144,
     "road": 112,
-    "lawn": 112
+    "lawn": 111
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33845,16 +34090,17 @@
     19,
     62
    ],
-   "status": "foreground differs",
+   "status": "match",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "gate": 144,
-    "road": 112,
-    "lawn": 112
+    "lawn": 105,
+    "road": 104,
+    "rock": 6
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
@@ -33863,571 +34109,3645 @@
     62
    ],
    "status": "match",
-   "native_lead": "lawn",
-   "hgss_lead": "road",
+   "native_lead": "tree",
+   "hgss_lead": "gate",
    "native": {
-    "road": 136,
+    "tree": 167,
+    "gate": 84,
+    "lawn": 5,
+    "rock": 1
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    62
+   ],
+   "status": "foreground differs",
+   "native_lead": "tree",
+   "hgss_lead": "lawn",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "lawn": 68,
+    "gate": 64,
+    "road": 45,
+    "tree": 39
+   }
+  },
+  {
+   "cell": [
+    22,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    62
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    0,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    63
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 146,
+    "tree": 55,
+    "gate": 55
+   },
+   "hgss": {
+    "gate": 176,
+    "lawn": 69,
+    "road": 4,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    17,
+    63
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 251,
+    "tree": 5
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    63
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    63
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    63
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 236,
+    "tree": 20
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    63
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 142,
+    "tree": 70,
+    "gate": 44
+   },
+   "hgss": {
+    "gate": 176,
+    "lawn": 65,
+    "road": 6,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    22,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    63
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    0,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    64
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 135,
+    "gate": 121
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    17,
+    64
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    64
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    64
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    64
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    64
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "gate",
+   "native": {
+    "lawn": 153,
+    "gate": 103
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    22,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    64
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    0,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 208,
+    "lawn": 48
+   },
+   "hgss": {
+    "gate": 192,
+    "lawn": 61,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    17,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    65
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 192,
+    "lawn": 64
+   },
+   "hgss": {
+    "gate": 192,
+    "lawn": 61,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    22,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    65
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    0,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 208,
+    "lawn": 48
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    17,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    66
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 192,
+    "lawn": 64
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    22,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    66
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 253,
+    "tall": 3
+   }
+  },
+  {
+   "cell": [
+    0,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 208,
+    "lawn": 48
+   },
+   "hgss": {
+    "gate": 192,
+    "lawn": 61,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    17,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    67
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 192,
+    "lawn": 64
+   },
+   "hgss": {
+    "gate": 192,
+    "lawn": 61,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    22,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 176,
+    "lawn": 80
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    67
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 187,
+    "lawn": 69
+   },
+   "hgss": {
+    "tree": 249,
+    "tall": 7
+   }
+  },
+  {
+   "cell": [
+    0,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 208,
+    "lawn": 48
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    17,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    18,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    19,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    20,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 256
+   },
+   "hgss": {
+    "gate": 256
+   }
+  },
+  {
+   "cell": [
+    21,
+    68
+   ],
+   "status": "match",
+   "native_lead": "gate",
+   "hgss_lead": "gate",
+   "native": {
+    "gate": 192,
+    "lawn": 64
+   },
+   "hgss": {
+    "gate": 192,
+    "tree": 37,
+    "lawn": 27
+   }
+  },
+  {
+   "cell": [
+    22,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    23,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    24,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    25,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    26,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    27,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    28,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    29,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    30,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 233,
+    "lawn": 23
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    31,
+    68
+   ],
+   "status": "match",
+   "native_lead": "tree",
+   "hgss_lead": "tree",
+   "native": {
+    "tree": 242,
+    "lawn": 14
+   },
+   "hgss": {
+    "tree": 253,
+    "tall": 3
+   }
+  },
+  {
+   "cell": [
+    0,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    1,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    2,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    3,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    4,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    5,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    6,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    7,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    8,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    9,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    10,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    11,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    12,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    13,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    14,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 180,
+    "tree": 76
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    15,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "lawn",
+   "hgss_lead": "tree",
+   "native": {
+    "lawn": 163,
+    "tree": 93
+   },
+   "hgss": {
+    "tree": 256
+   }
+  },
+  {
+   "cell": [
+    16,
+    69
+   ],
+   "status": "match",
+   "native_lead": "lawn",
+   "hgss_lead": "lawn",
+   "native": {
+    "lawn": 142,
+    "gate": 114
+   },
+   "hgss": {
+    "lawn": 133,
+    "gate": 120,
+    "tree": 3
+   }
+  },
+  {
+   "cell": [
+    17,
+    69
+   ],
+   "status": "foreground differs",
+   "native_lead": "gate",
+   "hgss_lead": "lawn",
+   "native": {
+    "gate": 131,
+    "lawn": 125
+   },
+   "hgss": {
     "lawn": 136,
     "gate": 120
-   },
-   "hgss": {
-    "road": 256
-   }
-  },
-  {
-   "cell": [
-    21,
-    62
-   ],
-   "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
-   "native": {
-    "road": 248,
-    "lawn": 246,
-    "rock": 6
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 68,
-    "tree": 39
-   }
-  },
-  {
-   "cell": [
-    22,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 233,
-    "lawn": 17,
-    "rock": 8,
-    "road": 8
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    23,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 242,
-    "lawn": 14
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    24,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 233,
-    "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    25,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 242,
-    "lawn": 14
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    26,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 233,
-    "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    27,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 242,
-    "lawn": 14
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    28,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 233,
-    "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    29,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 242,
-    "lawn": 14
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    30,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 233,
-    "lawn": 23
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    31,
-    62
-   ],
-   "status": "match",
-   "native_lead": "tree",
-   "hgss_lead": "tree",
-   "native": {
-    "tree": 242,
-    "lawn": 14
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    0,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    1,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    2,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    3,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    4,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    5,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    6,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    7,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    8,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    9,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    10,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    11,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    12,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    13,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 163,
-    "tree": 93
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    14,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 180,
-    "tree": 76
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    15,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "lawn",
-   "hgss_lead": "tree",
-   "native": {
-    "lawn": 157,
-    "tree": 93,
-    "rock": 10,
-    "road": 8
-   },
-   "hgss": {
-    "tree": 256
-   }
-  },
-  {
-   "cell": [
-    16,
-    63
-   ],
-   "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
-   "native": {
-    "road": 237,
-    "lawn": 235,
-    "gate": 11,
-    "rock": 6
-   },
-   "hgss": {
-    "road": 109,
-    "lawn": 104,
-    "tree": 3
-   }
-  },
-  {
-   "cell": [
-    17,
-    63
-   ],
-   "status": "foreground differs",
-   "native_lead": "gate",
-   "hgss_lead": "road",
-   "native": {
-    "gate": 231,
-    "road": 25,
-    "lawn": 25
-   },
-   "hgss": {
-    "road": 256
    }
   },
   {
    "cell": [
     18,
-    63
+    69
    ],
-   "status": "foreground differs",
+   "status": "match",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "gate": 256
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
    "cell": [
     19,
-    63
+    69
    ],
-   "status": "foreground differs",
+   "status": "match",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "gate",
    "native": {
     "gate": 256
    },
    "hgss": {
-    "road": 256
+    "gate": 256
    }
   },
   {
    "cell": [
     20,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "gate",
-   "hgss_lead": "road",
+   "hgss_lead": "lawn",
    "native": {
-    "gate": 256
+    "gate": 136,
+    "lawn": 120
    },
    "hgss": {
-    "road": 256
+    "lawn": 136,
+    "gate": 120
    }
   },
   {
    "cell": [
     21,
-    63
+    69
    ],
    "status": "match",
-   "native_lead": "road",
-   "hgss_lead": "road",
+   "native_lead": "lawn",
+   "hgss_lead": "lawn",
    "native": {
-    "road": 160,
-    "lawn": 158,
-    "gate": 88,
-    "rock": 6
+    "lawn": 150,
+    "gate": 106
    },
    "hgss": {
-    "road": 109,
-    "lawn": 105,
+    "lawn": 133,
+    "gate": 120,
     "tree": 3
    }
   },
   {
    "cell": [
     22,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
    "hgss_lead": "tree",
    "native": {
-    "lawn": 174,
-    "tree": 76,
-    "rock": 10,
-    "road": 8
+    "lawn": 180,
+    "tree": 76
    },
    "hgss": {
     "tree": 256
@@ -34436,7 +37756,7 @@
   {
    "cell": [
     23,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34452,7 +37772,7 @@
   {
    "cell": [
     24,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34468,7 +37788,7 @@
   {
    "cell": [
     25,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34484,7 +37804,7 @@
   {
    "cell": [
     26,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34494,13 +37814,14 @@
     "tree": 76
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     27,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34510,13 +37831,14 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     28,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34526,13 +37848,14 @@
     "tree": 76
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     29,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34542,13 +37865,14 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 240,
+    "tall": 16
    }
   },
   {
    "cell": [
     30,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34564,7 +37888,7 @@
   {
    "cell": [
     31,
-    63
+    69
    ],
    "status": "foreground differs",
    "native_lead": "lawn",
@@ -34574,7 +37898,8 @@
     "tree": 93
    },
    "hgss": {
-    "tree": 256
+    "tree": 249,
+    "tall": 7
    }
   }
  ]
