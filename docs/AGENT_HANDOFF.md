@@ -46,11 +46,12 @@ Owner review (October 25), refined the same day:
   CherrygrovePrimary copy (`cherrygrove_town`); forests on the overlapping lattice; the islands in Johto rock;
   the pond with Route 30's natural bank; the beach's sand wedges cleared. The houses are the owner's accepted
   architecture: keep them. Traversal, warps and every other
-  CherrygrovePrimary map unchanged. Second round (owner's list): the shared Johto Mart and the cleaned Center
-  prefab, the shore strip on the beach's edge, the boardwalk's planks turned, boat speckle cleared, the flower
-  bed's rims, path rims and door approaches. The tile budget is full (1 copy slot left): the copy animates
-  only sea tiles 1-87, the regional previews draw a frozen secondary (`cherrygrove_preview`), and texture
-  folds reach 7 px, edge cells moving dither only. Any further art there needs slots freed first.
+  CherrygrovePrimary map unchanged. Owner revisions: the approved C06 Center and M01 Mart
+  (`gba/art/johto-common/approved-buildings.json`; the tower Mart is gone), every dirt path on Route 30's
+  road ground with rounded corners, HGSS Route 32's pier boards on the dock, the two small boats redrawn
+  (`boats.py`), the large boat as the base draws it. The copy animates only sea tiles 1-87, the previews
+  draw a frozen secondary (`cherrygrove_preview`), and the town's sheet stops at slot 495 (tiles 1008-1023
+  are the door frames'). 23 copy slots left.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

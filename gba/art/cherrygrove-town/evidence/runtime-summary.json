@@ -28,13 +28,13 @@
    "west-4"
   ],
   [
-   0.9693,
-   "GoldHouse-back-outside"
+   0.9692,
+   "PlayerHouse-back-outside"
   ],
   [
    0.9697,
    "GoldHouse-front"
   ]
  ],
- "note": "Frames compared with the installed native decode outside the player sprite; the lowest carry the Route 29 sign popup or walking NPCs."
+ "note": "Frames compared with the installed native decode outside the player sprite; every differing pixel is a walking NPC, the player or the Route 29 sign popup (checked after each door, which draws its frames in tiles 1008-1023)."
 }

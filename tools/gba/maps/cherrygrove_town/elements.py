@@ -305,15 +305,20 @@ def pond(cv):
     cv.pals[POND_BANK] = sorted(tuple(v << 3 for v in c) for c in cols5)
     cv.notes.append(f'pond: water x{cols.start + 1}-{cols.stop - 2} rows {rows.start}-{rows.stop - 2}, {len(cols5)} tones in bank {POND_BANK}')
 
-# --------------------------------------------------------------------------- the town's own ground pieces
-# Cherrygrove's paths have straight, dashed rims (not the ground painter's wobble). A cell is redrawn from a
-# base cell of pure ground with the same path/lawn neighbourhood and the same texture phase (the 32 px path
-# and lawn textures repeat every two cells), so a repaired edge is the town's own edge.
+# --------------------------------------------------------------------------- the dirt paths
+# Cherrygrove's paths had dashed grey rims and square corners. They take Route 30's road ground now: the
+# ground painter's sand and its soft lawn rim (claude_cherrygrove/ground.py), the corners rounded as HGSS's
+# are. Only lawn and path pixels change: houses, signs, fences, flowers and
+# shadows keep every pixel. The path network is the town's own (path_grid); the cells the north edge,
+# islands, pond, beach and forests drew keep their art.
 GROUND_RIMS = {tuple(c) for side in G.PROFILES[(G.GRASS, G.PATH)] for c in side}
+OLD_RIMS = {(128, 136, 120), (152, 144, 112)}        # the town's dashed rim and its dark sand line
+ROUND = 6                                            # corner radius, px
+PATH_SNAP = {(216, 168, 128): (216, 184, 128)}        # the texture's darkest pebbles, which the town's path never drew (no primary bank has them)
 
 def ground_tones():
     tex = G.textures()
-    return {tuple(c) for c in tex[G.GRASS].reshape(-1, 3)} | {tuple(c) for c in tex[G.PATH].reshape(-1, 3)} | GROUND_RIMS
+    return {tuple(c) for c in tex[G.GRASS].reshape(-1, 3)} | {tuple(c) for c in tex[G.PATH].reshape(-1, 3)} | GROUND_RIMS | OLD_RIMS
 
 def path_grid(town):
     """'p' where a base cell's middle is mostly path, else 'g'."""
@@ -328,156 +333,150 @@ def path_grid(town):
                 out[r, x] = 'p'
     return out
 
-class GroundKit:
-    def __init__(self, town, grid):
-        self.grid = grid
-        tones = ground_tones()
-        from collections import Counter
-        lib, loose, arrays = {}, {}, {}
-        for r in range(1, H - 1):
-            for x in range(1, W - 1):
-                px = town.img[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
-                if all(tuple(c) in tones for c in px.reshape(-1, 3)):
-                    k = self.sig(grid, x, r)
-                    b = px.tobytes(); arrays[b] = px.copy()
-                    lib.setdefault((k, x % 2, r % 2), Counter())[b] += 1
-                    loose.setdefault(k, Counter())[b] += 1
-        self.lib = {k: [arrays[b] for b, _ in c.most_common()] for k, c in lib.items()}
-        self.loose = {k: [arrays[b] for b, _ in c.most_common()] for k, c in loose.items()}
-    @staticmethod
-    def sig(grid, x, r):
-        return tuple(grid[min(max(r + dy, 0), H - 1), min(max(x + dx, 0), W - 1)] for dy in (-1, 0, 1) for dx in (-1, 0, 1))
-    def cell(self, grid, x, r, like=None):
-        """The town's cell for this neighbourhood and phase; of several, the one closest to like (the cell it
-        replaces), else the most common."""
-        k = self.sig(grid, x, r)
-        cands = self.lib.get((k, x % 2, r % 2)) or self.loose.get(k)
-        assert cands, ('no ground piece for', x, r, k)
-        if like is None or len(cands) == 1:
-            return cands[0]
-        return min(cands, key=lambda c: int((c.astype(int) != like.astype(int)).any(-1).sum()))
+def disk(r):
+    yy, xx = np.mgrid[-r:r + 1, -r:r + 1]
+    return xx * xx + yy * yy <= r * r
 
-def path_rims(cv, kit):
-    """The path from the boardwalk to the player's house street (x38-40, rows 18-19) was drawn without its
-    rims; it takes the town's own path cells."""
-    grid = kit.grid.copy()
-    for x in range(26, 38):                          # the boardwalk joins it: path, no rim on that side
-        grid[18, x] = grid[19, x] = 'p'
+def path_pixels(cells):
+    """Per-pixel path mask over the town (rows 0..H-1): the cell grid, opened and closed with a disk so its
+    convex and concave corners round off. The edges stay straight (the painter's wobble made every corner
+    and run unique: more tiles than the sheets hold)."""
+    from scipy.ndimage import binary_closing, binary_opening
+    path = np.repeat(np.repeat(cells, 16, 0), 16, 1)
+    pad = 2 * ROUND
+    p = np.pad(path, pad, mode='edge')               # the roads run on past the map's edges
+    p = binary_opening(binary_closing(p, disk(ROUND)), disk(ROUND))
+    return p[pad:-pad, pad:-pad]
+
+def paint_ground(path):
+    """The painter's lawn and sand by absolute pixel, and its grass/path rim profile either side of the edge."""
+    tex = G.textures()
+    sand = tex[G.PATH].copy()
+    for c, to in PATH_SNAP.items():
+        sand[(sand == c).all(-1)] = to
+    h, w = path.shape
+    ys, xs = np.mgrid[0:h, 0:w]
+    out = np.where(path[..., None], sand[ys % 32, xs % 32], tex[G.GRASS][ys % 32, xs % 32]).astype(np.uint8)
+    pa, pb = G.PROFILES[(G.GRASS, G.PATH)]
+    to_path, to_lawn = G._chamfer(path), G._chamfer(~path)
+    for i, c in enumerate(pa):
+        out[~path & (to_path == i + 1)] = c
+    for i, c in enumerate(pb):
+        out[path & (to_lawn == i + 1)] = c
+    return out
+
+def paths(cv, lots=()):
+    """lots: (cells, banks) whose pixels in those banks (old buildings) are ground again too."""
+    town = cv.town
+    grid = path_grid(town)
+    cells = grid == 'p'
+    for x in BOARDWALK[0]:                           # the boardwalk joins the shore path: no rim on that side
+        for r in BOARDWALK[1]:
+            cells[r, x] = True
+    for (x, r), w in DOOR_NOTCHES.items():           # each notch runs on under its building's bottom row
+        cells[r - 1, x:x + w] = True
+    path = path_pixels(cells)
+    paint = paint_ground(path)
     tones = ground_tones()
-    for r in range(17, 21):
-        for x in range(38, 42):
-            here = cv.ground[cv.sl(x, r)]
-            if not all(tuple(int(v) for v in c) in tones for c in here.reshape(-1, 3)):
-                continue                             # the cell holds other art (the house's corner): left as it is
-            cv.put_ground(x, r, kit.cell(grid, x, r, here)); cv.changed.add((x, r))
+    sand_sea = {tuple(c) for c in G.textures()[G.SAND].reshape(-1, 3)} | sea_tones(town)
+    near = np.zeros((H, W), bool)
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            near |= np.roll(np.roll(cells, dy, 0), dx, 1)
+    clear = {}
+    for cs, banks in lots:
+        for c in cs:
+            clear[c] = banks
+            near[c[1], c[0]] = True
+    n = px = 0
+    for r in range(H):
+        for x in range(W):
+            if not near[r, x] or (x, r) in cv.changed or (x, r) in cv.kit or x in BOARDWALK[0] and r in BOARDWALK[1]:
+                continue
+            g = cv.ground[cv.sl(x, r)]
+            keys = [[tuple(int(v) for v in p) for p in row] for row in g]
+            if any(k in sand_sea for row in keys for k in row) and (x, r) not in clear:
+                continue                             # the beach's and the sea's edges keep their art
+            mask = np.array([[k in tones for k in row] for row in keys])
+            if (x, r) in clear:
+                mask |= np.isin(bank_map(town, x, r), clear[(x, r)])
+            new = paint[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
+            diff = mask & (g != new).any(-1)
+            if diff.any():
+                g[diff] = new[diff]; cv.changed.add((x, r)); n += 1; px += int(diff.sum())
+    cv.notes.append(f'paths: the road painter in {n} cells ({px} pixels), corners rounded {ROUND} px')
 
-# --------------------------------------------------------------------------- the shared Center and Mart
-# docs/GBA_SHARED_BUILDING_ART.md (hub 94bb239d): copy the canonical Center (Route 32's cleaned Violet
-# prefab) and the established Johto Mart. source/shared/ holds the copies and their provenance.
-SHARED = B.ART / 'source/shared'
-CENTER_AT = (58, 4)                                  # the Center's top-left cell (its prefab matches there)
-MART_AT, MART_DOOR = (49, 4), (51, 9)               # the door on the prefab's third column, bottom row, on the warp
-MART_PANEL = (33, 72, 51, 90)                        # the prefab's glass doors (x0, y0, x1, y1)
+# --------------------------------------------------------------------------- the approved Center and Mart
+# gba/art/johto-common/approved-buildings.json (owner, October 15): C06 is the Johto Center, M01 the Johto
+# Mart, both at Cherrygrove's own lots. The masters are transparent; the ground under them is the town's
+# (paths()), the art draws on the object layer, pixel for pixel.
+JOHTO = B.ART.parent
+CENTER_ART, CENTER_AT, CENTER_DOOR = JOHTO / 'johto-center/source/building.png', (59, 5), (61, 9)
+CENTER_PANEL = (32, 64, 48, 74)                      # C06's glass doors in the master (x0, y0, x1, y1)
+CENTER_BANKS = (8, 9)                                # the old Center's and old Mart's secondary banks, free with them gone
+MART_ART, MART_PAL = JOHTO / 'johto-mart/source/building.png', JOHTO / 'johto-mart/source/palette.pal'
+MART_AT, MART_DOOR = (49, 4), (51, 9)
+MART_PANEL = (35, 69, 49, 89)                        # M01's glass doors
 MART_BANK = 2                                        # free in the town's copy
-OLD_MART = (range(49, 57), range(5, 11), (9,))       # the old Mart and its flag sign: cells, rows, its bank
+DOOR_NOTCHES = {(51, 10): 2, (61, 10): 2}            # the path notch below each door (its first cell, width)
+OLD_LOTS = (({(x, r) for x in range(46, 58) for r in range(3, 12)}, (9,)),    # the old Mart and its flag sign
+            ({(x, r) for x in range(56, 67) for r in range(3, 11)}, (8,)))    # the old Center
 
 def rgba(p):
     from PIL import Image
     return np.array(Image.open(p).convert('RGBA'))
 
-def center(cv, kit):
-    """The Center as the canonical prefab, pixel for pixel (its roof line and outline were off by 95 pixels)."""
-    art = rgba(SHARED / 'pokemon-center.png')
-    x0, y0 = CENTER_AT[0] * 16, CENTER_AT[1] * 16
-    a = art[..., 3] > 0
-    g = cv.ground[y0 - R0 * 16:y0 - R0 * 16 + art.shape[0], x0:x0 + art.shape[1]]
-    changed = (g[a] != art[..., :3][a]).any(-1)
-    g[a] = art[..., :3][a]
-    ys, xs = np.nonzero(a)
-    cells = {(x0 // 16 + int(x) // 16, y0 // 16 + int(y) // 16) for y, x in zip(ys[changed], xs[changed])}
-    cv.changed |= cells
-    door_approach(cv, kit, (61, 9), 2)
-    # East of it, the old pond rim's outer line (lawn tones, so the pond's restore kept it): lawn again,
-    # beyond the pond's own bank.
-    from scipy.ndimage import distance_transform_edt
-    lawn = G.textures()[G.GRASS]
-    water = np.zeros((H * 16, W * 16), bool)
-    for r in range(0, 10):
-        for x in range(60, 72):
-            if town_water(cv.town, x, r):
-                water[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16] = True
-    far = distance_transform_edt(~water) > 6         # the pond bank reaches 6 px
-    tones = {tuple(c) for c in lawn.reshape(-1, 3)} | GROUND_RIMS   # the rim's grey as well
-    fixed = 0
-    for r in range(3, 11):
-        for x in range(62, 66):
-            if kit.grid[r, x] != 'g':
-                continue                             # lawn cells only
-            sl = cv.sl(x, r)
-            g, t = cv.ground[sl], cv.top[sl]
-            yy, xx = np.mgrid[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
-            want = lawn[yy % 32, xx % 32]
-            ga = np.zeros((16, 16), bool)
-            a = art[..., 3] > 0
-            oy, ox = r * 16 - y0, x * 16 - x0
-            for yy_ in range(16):
-                for xx_ in range(16):
-                    if 0 <= oy + yy_ < art.shape[0] and 0 <= ox + xx_ < art.shape[1]:
-                        ga[yy_, xx_] = a[oy + yy_, ox + xx_]
-            bad = np.array([[tuple(p) in tones for p in row] for row in g]) & (g != want).any(-1) & ~ga & far[yy, xx]
-            if bad.any():
-                g[bad] = want[bad]; cv.changed.add((x, r)); fixed += int(bad.sum())
-    cv.notes.append(f'center: the canonical prefab, {int(changed.sum())} pixels in {len(cells)} cells; {fixed} old pond-rim pixels lawn again')
-
-def town_water(town, x, r):
-    return town.attr(int(town.words[r, x]) & 1023) & 0xFF == B.WATER_MB
-
-def door_approach(cv, kit, door, width):
-    """The path runs up to a door: the notch below it takes the town's straight path edges, the building row
-    counted as path so the edges run up to the wall."""
-    x, r = door
-    grid = kit.grid.copy()
-    for dx in range(-1, width + 1):
-        grid[r, x + dx] = grid[r + 1, x + dx]        # the notch's edges continue straight up
-    for xx in range(x, x + width):
-        cv.put_ground(xx, r + 1, kit.cell(grid, xx, r + 1, cv.ground[cv.sl(xx, r + 1)])); cv.changed.add((xx, r + 1))
-
-def mart(cv, kit):
-    """The shared Johto Mart on the old Mart's lot, its door on the warp. The old Mart and its flag sign (bank
-    9, which it shared with the Center) are lawn and path again from the town's own ground cells. The Mart's
-    cells are blocked but its top row (drawn above the player, as the old Mart's was) and the door."""
+def building(cv, art, at, door, blocked_from):
+    """The master on the object layer; its cells blocked from row blocked_from (the rows above draw over the
+    player), but the door, which keeps its id (the door table's) and its behaviour."""
     town = cv.town
-    cols, rows, banks = OLD_MART
-    for r in rows:
-        for x in cols:
-            from_old = np.isin(bank_map(town, x, r), banks)
-            if from_old.any():
-                cv.put_ground(x, r, kit.cell(kit.grid, x, r, cv.ground[cv.sl(x, r)])); cv.changed.add((x, r))
-    art = rgba(SHARED / 'poke-mart.png')
-    x0, y0 = MART_AT[0] * 16, MART_AT[1] * 16
+    x0, y0 = at[0] * 16, at[1] * 16
     over(cv.top, art, x0, y0 - R0 * 16)
     h, w = art.shape[0] // 16, art.shape[1] // 16
-    for r in range(MART_AT[1], MART_AT[1] + h):
-        for x in range(MART_AT[0], MART_AT[0] + w):
+    for r in range(at[1], at[1] + h):
+        for x in range(at[0], at[0] + w):
             cv.changed.add((x, r))
-            if r == MART_AT[1]:
-                bits = (0, 3)
-            elif (x, r) == MART_DOOR:
-                continue                             # the door keeps its base collision and behaviour
-            else:
-                bits = (1, 3)
-            cv.traverse[(x, r)] = bits + (B.MB_NORMAL,)
-    for x, r in ((54, 10), (55, 10)):                # the flag sign's foot, lawn again
-        cv.traverse[(x, r)] = (0, 3, B.MB_NORMAL)
-    door_approach(cv, kit, MART_DOOR, 2)
-    cv.fixed[MART_DOOR] = int(town.words[MART_DOOR[1], MART_DOOR[0]]) & 1023
-    px0, py0, px1, py1 = MART_PANEL
-    cv.doors.append(dict(name='mart', cell=MART_DOOR, size='LEFT', bank=MART_BANK, panel=(x0 + px0, y0 + py0, x0 + px1, y0 + py1)))
-    pal = [tuple(int(v) for v in l.split()) for l in (SHARED / 'poke-mart.pal').read_text().splitlines()[4:19]]
+            if (x, r) == door:
+                continue
+            cv.traverse[(x, r)] = ((1, 3) if r >= blocked_from else (0, 3)) + (B.MB_NORMAL,)
+    cv.fixed[door] = int(town.words[door[1], door[0]]) & 1023
+
+def center(cv):
+    art = rgba(CENTER_ART)
+    a = art[..., 3] > 0
+    cols = sorted({tuple(int(v) for v in c) for c in art[a][:, :3]})
+    edge = set()                                     # colours of quadrants with ground showing: one bank holds them
+    for y in range(0, art.shape[0], 8):
+        for x in range(0, art.shape[1], 8):
+            q = a[y:y + 8, x:x + 8]
+            if q.any() and not q.all():
+                edge |= {tuple(int(v) for v in c) for c in art[y:y + 8, x:x + 8][q][:, :3]}
+    rest = [c for c in cols if c not in edge]
+    assert len(edge) <= 15 and len(rest) <= 15, ('the Center needs a third bank', len(edge), len(rest))
+    cv.pals[CENTER_BANKS[0]] = sorted(edge)
+    cv.pals[CENTER_BANKS[1]] = rest
+    building(cv, art, CENTER_AT, CENTER_DOOR, CENTER_AT[1] + 1)
+    px0, py0, px1, py1 = CENTER_PANEL
+    x0, y0 = CENTER_AT[0] * 16, CENTER_AT[1] * 16
+    cv.doors.append(dict(name='center', cell=CENTER_DOOR, size='LEFT', banks=CENTER_BANKS + (0,),
+                         panel=(x0 + px0, y0 + py0, x0 + px1, y0 + py1)))
+    cv.notes.append(f'center: C06 at {CENTER_AT}, door {CENTER_DOOR}, banks {CENTER_BANKS}')
+
+def mart(cv):
+    """M01: its top row draws over the player, its wall rows are solid (johto-mart/README.md); the two cells
+    the old Mart's flag sign blocked east of it are lawn and walkable."""
+    art = rgba(MART_ART)
+    pal = [tuple(int(v) for v in l.split()) for l in MART_PAL.read_text().splitlines()[4:19]]
     used = {tuple(int(v) for v in c) for c in art[art[..., 3] > 0][:, :3]}
     assert used <= set(pal), 'the Mart draws a colour outside its palette'
-    cv.pals[MART_BANK] = [c for c in pal if c in used] + [(104, 208, 152)]
-    cv.notes.append(f'mart: the shared Johto Mart at {MART_AT}, door {MART_DOOR}')
+    cv.pals[MART_BANK] = [c for c in pal if c in used]
+    building(cv, art, MART_AT, MART_DOOR, MART_AT[1] + 1)
+    for x, r in ((54, 10), (55, 10)):
+        cv.traverse[(x, r)] = (0, 3, B.MB_NORMAL)
+    px0, py0, px1, py1 = MART_PANEL
+    x0, y0 = MART_AT[0] * 16, MART_AT[1] * 16
+    cv.doors.append(dict(name='mart', cell=MART_DOOR, size='LEFT', banks=(MART_BANK, 0), panel=(x0 + px0, y0 + py0, x0 + px1, y0 + py1)))
+    cv.notes.append(f'mart: M01 at {MART_AT}, door {MART_DOOR}')
 
 def bank_map(town, x, r):
     """The palette bank each pixel of a base cell draws in (-1 where nothing draws)."""
@@ -554,19 +553,50 @@ BOULDER_FOAM = (214, 222, 222)                      # the boulders' bank (4) has
 E_SEA = object()
 
 # --------------------------------------------------------------------------- the pier, the boats, the sea
-PIER_TILE = (25, 16)                                 # one plank cell of the north-south pier
+PIER = (range(25, 27), range(15, 23))               # the north-south pier, its post cap on row 15, its foot on the islet
 BOARDWALK = (range(27, 38), (18, 19))                # the east-west run to the shore path
+PIER_TEX = B.ART / 'source/hgss/pier.png'            # HGSS Route 32's pier (hgss_pier.py): 8 px rails, 32 px of boards
+PIER_COLS = list(range(0, 8)) + list(range(16, 32)) + list(range(40, 48))   # the rails and the boards' middle 16 px
+JOIN_COLS = list(range(0, 8)) + list(range(16, 40))  # where the boardwalk joins: the boards run on to the east edge
+WOOD_MERGE = {(198, 165, 123): (206, 173, 132)}      # its rarest tone into the next, so the wood takes six slots
+BEAM = (165, 132, 90)                                # its darkest tone: the end beams
+WOOD_BANK = 9                                        # with the Center's roof tones (CENTER_BANKS)
 
-def boardwalk(cv):
-    """The east-west boardwalk took the pier's plank cell unturned, its planks running along the walk. It
-    takes the same cell turned a quarter, planks across the walk as on the pier."""
-    x0, r0 = PIER_TILE
-    tile = cv.town.img[r0 * 16:(r0 + 1) * 16, x0 * 16:(x0 + 1) * 16].transpose(1, 0, 2).copy()
+def dock(cv):
+    """The pier and boardwalk had dark plank seams every three pixels and a nail every few: they take HGSS's
+    own pier (Route 32), a rail down each side and cross boards with their grain between, the boardwalk the
+    same turned a quarter (its rails along the walk), a beam across each end."""
+    tex = rgba(PIER_TEX)[..., :3].copy()
+    for a, b in WOOD_MERGE.items():
+        tex[(tex == a).all(-1)] = b
+    wood = sorted({tuple(int(v) for v in c) for c in tex.reshape(-1, 3)})
+    pier, join = tex[:, PIER_COLS], tex[:, JOIN_COLS]
+    x0, y0, y1 = PIER[0].start * 16, PIER[1].start * 16, PIER[1].stop * 16
+    for y in range(y0, y1):
+        src = join if BOARDWALK[1][0] * 16 <= y < (BOARDWALK[1][-1] + 1) * 16 else pier
+        row = src[y % 32].copy()
+        if y < y0 + 2 or y >= y1 - 2:
+            row[:] = BEAM
+        cv.ground[y - R0 * 16, x0:x0 + 32] = row
+    bx0, bx1 = BOARDWALK[0].start * 16, BOARDWALK[0].stop * 16
+    by0 = BOARDWALK[1][0] * 16
+    for x in range(bx0, bx1):
+        col = pier[x % 32].copy()                    # turned: the rails run along the walk
+        if x >= bx1 - 2:
+            col[:] = BEAM
+        cv.ground[by0 - R0 * 16:by0 - R0 * 16 + 32, x] = col
+    for r in PIER[1]:
+        for x in PIER[0]:
+            cv.changed.add((x, r))
     for r in BOARDWALK[1]:
         for x in BOARDWALK[0]:
-            cv.put_ground(x, r, tile); cv.changed.add((x, r))
+            cv.changed.add((x, r))
+    pal = cv.pals.setdefault(WOOD_BANK, [])
+    pal += [c for c in wood if c not in pal]
+    assert len(pal) <= 15, ('the wood does not fit its bank', len(pal))
+    cv.notes.append(f'dock: HGSS Route 32 pier boards, {len(wood)} tones in bank {WOOD_BANK}')
 
-BOATS = dict(ferry=(22, 14, 25, 21), fishing=(27, 14, 29, 18), barge=(28, 23, 32, 26))   # cell boxes
+BOATS = dict(fishing=(27, 14, 29, 18), motorboat=(28, 23, 32, 26))   # the two small boats' cell boxes (boats.py)
 
 def sea_tones(town):
     """Every colour the base town's open sea draws (its first frame)."""
@@ -574,48 +604,24 @@ def sea_tones(town):
     return {tuple(int(v) for v in c) for c in np.unique(a, axis=0)}
 
 def boats(cv):
-    """The three boats lose their resampling speckle: a pixel unlike all four neighbours, three of which
-    agree, takes their colour; inside the hull a pixel takes its 3x3 majority (twice over each, within each
-    boat's own pixels), so decks, cargo and hulls read as surfaces and the outlines stay whole."""
+    """The two small boats, redrawn clean on their own silhouettes in their own bank (boats.py). Where the
+    old boat drew and the new one does not, the sea animates again. The large boat west of the pier is as
+    the base town draws it."""
+    import boats as Bt
     town = cv.town
     sea = sea_tones(town)
-    total = 0
     for name, (x0, r0, x1, r1) in BOATS.items():
-        sl = np.s_[(r0 - R0) * 16:(r1 - R0) * 16, x0 * 16:x1 * 16]
-        g = cv.ground[sl]
-        was = g.copy()
-        boat = ~np.array([[tuple(int(v) for v in p) in sea for p in row] for row in g])
-        for _ in range(2):
-            out = g.copy()
-            for y, x in zip(*np.nonzero(boat)):
-                nb = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))
-                      if 0 <= y + dy < g.shape[0] and 0 <= x + dx < g.shape[1] and boat[y + dy, x + dx]]
-                if len(nb) < 3:
-                    continue
-                cols = [tuple(int(v) for v in g[p]) for p in nb]
-                me = tuple(int(v) for v in g[y, x])
-                if me in cols:
-                    continue
-                best = max(set(cols), key=cols.count)
-                if cols.count(best) >= 3:
-                    out[y, x] = best; total += 1
-            g[:] = out
-        for _ in range(2):                           # inside the hull: a pixel takes its 3x3 majority (5 of 8)
-            out = g.copy()
-            for y, x in zip(*np.nonzero(boat)):
-                if not (0 < y < g.shape[0] - 1 and 0 < x < g.shape[1] - 1) or not boat[y - 1:y + 2, x - 1:x + 2].all():
-                    continue
-                cols = [tuple(int(v) for v in g[y + dy, x + dx]) for dy in (-1, 0, 1) for dx in (-1, 0, 1) if dy or dx]
-                best = max(set(cols), key=cols.count)
-                if cols.count(best) >= 5 and best != tuple(int(v) for v in g[y, x]):
-                    out[y, x] = best; total += 1
-            g[:] = out
+        base = town.img[r0 * 16:r1 * 16, x0 * 16:x1 * 16]
+        old = ~np.array([[tuple(int(v) for v in p) in sea for p in row] for row in base])
+        art = Bt.fishing() if name == 'fishing' else Bt.motorboat(old)
+        g = cv.ground[(r0 - R0) * 16:(r1 - R0) * 16, x0 * 16:x1 * 16]
+        a = art[..., 3] > 0
+        g[old & ~a] = SENTINEL
+        g[a] = art[..., :3][a]
         for r in range(r0, r1):
             for x in range(x0, x1):
-                c = np.s_[(r - r0) * 16:(r - r0 + 1) * 16, (x - x0) * 16:(x - x0 + 1) * 16]
-                if (g[c] != was[c]).any():           # cells the cleanup left as they were keep their ids
-                    cv.changed.add((x, r))
-    cv.notes.append(f'boats: {total} speckle pixels cleared')
+                cv.changed.add((x, r))
+        cv.notes.append(f'boats: the {name} redrawn, {int(a.sum())} pixels')
 
 def keep_sea(cv):
     """In every redrawn cell, a pixel the base town drew from the sea's animated tiles and the cleanup left
@@ -674,30 +680,6 @@ def anim_map(town, x, r):
             sub = out[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
             sub[t > 0] = 1 <= i <= 92
     return out
-
-# --------------------------------------------------------------------------- the flower bed
-FLOWER_BED = (range(63, 67), range(12, 15))          # the fenced bed east of the Center's path
-
-def flower_bed(cv, kit):
-    """The bed's outer flowers and the fence's end post covered its lawn patch's rim. The rim runs whole round
-    the bed again: each bed cell takes the rim pixels of the nearest cell above or below it in its column with
-    the same sides (the patch's own rim), where the flowers covered them."""
-    tones = ground_tones()
-    rims = GROUND_RIMS - {tuple(c) for c in G.textures()[G.GRASS].reshape(-1, 3)}
-    g = kit.grid
-    side = lambda x, r: (g[r, x - 1], g[r, x + 1])
-    for r in FLOWER_BED[1]:
-        for x in FLOWER_BED[0]:
-            refs = [rr for rr in sorted(range(H), key=lambda rr: abs(rr - r)) if rr not in FLOWER_BED[1] and g[rr, x] == 'g' and side(x, rr) == side(x, r)]
-            if not refs:
-                continue
-            ref = cv.ground[cv.sl(x, refs[0])]
-            cell = cv.ground[cv.sl(x, r)]
-            art = ~np.array([[tuple(int(v) for v in p) in tones for p in row] for row in cell])
-            rim = np.array([[tuple(int(v) for v in p) in rims for p in row] for row in ref])
-            put = art & rim
-            if put.any():
-                cell[put] = ref[put]; cv.changed.add((x, r))
 
 # --------------------------------------------------------------------------- the forests
 def woods_mask(town):
@@ -788,3 +770,4 @@ def draw_trees(cv, sprites):
             c = (int(x) + dx, y - 1)
             if 0 <= c[0] < W and 0 <= c[1] < H and c not in cv.kit:
                 cv.changed.add(c)
+

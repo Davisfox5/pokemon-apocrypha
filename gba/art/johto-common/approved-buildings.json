@@ -1,0 +1,74 @@
+{
+  "region": "Johto",
+  "rule": "Reuse approved artwork across cities. Keep master art unchanged and ground/tree layers separate. Native tile IDs and palette indices may differ without changing visible colors.",
+  "approved_date": "2026-10-15",
+  "buildings": {
+    "pokemon_center": {
+      "review_id": "C06",
+      "master": "gba/art/johto-center/source/building.png",
+      "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+      "approval": "gba/art/johto-center/source/approval.json",
+      "placements": [
+        {
+          "map": "CherrygroveCity",
+          "origin": [
+            59,
+            5
+          ],
+          "door": [
+            61,
+            9
+          ]
+        },
+        {
+          "map": "VioletCity",
+          "origin": [
+            47,
+            51
+          ],
+          "door": [
+            49,
+            55
+          ]
+        }
+      ]
+    },
+    "poke_mart": {
+      "review_id": "M01",
+      "master": "gba/art/johto-mart/source/building.png",
+      "sha256": "03aa370bc2d4b1d7f869dde3dd318324d2484254f432a4f24ca9abf356a48ca8",
+      "approval": "gba/art/johto-mart/source/approval.json",
+      "placements": [
+        {
+          "map": "CherrygroveCity",
+          "origin": [
+            49,
+            4
+          ],
+          "door": [
+            51,
+            9
+          ]
+        },
+        {
+          "map": "VioletCity",
+          "origin": [
+            19,
+            35
+          ],
+          "door": [
+            21,
+            40
+          ]
+        }
+      ]
+    },
+    "gatehouses": {
+      "front_master": "gba/art/johto-common-review/gates/refinement-4/G01a.png",
+      "side_master": "gba/art/johto-common-review/gates/refinement-4/G02.png",
+      "review_state": "gba/art/johto-common-review/gates/review-state.json",
+      "tree_layers": "gba/art/route36/gate-surround/source"
+    }
+  },
+  "terrain_rule": "Building masters remain transparent. Author the destination ground independently under the sprite, matching neighboring material, texture phase and transition edges. Never bake donor terrain into a building or cut a path at its import boundary. Composite constrained door animation frames from the actual destination ground."
+}

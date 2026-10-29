@@ -116,9 +116,12 @@ def free_tp_tiles(engine, town, cv):
     assert not ref & set(range(TP_ANIM + 1, 93)), ('the town draws a sea tile its copy does not animate', sorted(ref & set(range(TP_ANIM + 1, 93))))
     return [i for i in range(512) if i not in ref]
 
+DOOR_SLOTS = range(496, 512)                          # tiles 1008-1023: field_door.c draws the door frames there
+
 def free_secondary_tiles(engine, town, cv):
     """Cherrygrove secondary sheet slots nothing drawn with it uses (the metatiles its camera draws; the
-    preview maps draw a frozen copy, register_preview), then the sheet's growth to 512."""
+    preview maps draw a frozen copy, register_preview), then the sheet's growth to 496: the last 16 slots are
+    the door animations' (DOOR_SLOTS)."""
     used = view_ids(engine, town, cv)
     pb, sb = town.t.blocks
     ref = {0}
@@ -126,7 +129,7 @@ def free_secondary_tiles(engine, town, cv):
         blk = pb[m] if m < 512 else (sb[m - 512] if m - 512 < B.OWN else ())
         ref |= {(e & 1023) - 512 for e in blk if (e & 1023) >= 512}
     n = len(town.t.tiles[1])
-    return [i for i in range(n) if i not in ref] + list(range(n, 512))
+    return [i for i in range(min(n, DOOR_SLOTS.start)) if i not in ref] + list(range(n, DOOR_SLOTS.start))
 
 def free_route29_tiles(engine, town, cv):
     """Route 29's secondary sheet slots its map, its border and its window on the town do not draw."""
@@ -624,43 +627,53 @@ def other_maps_unchanged(engine, town):
     return out
 
 # --------------------------------------------------------------------------- the doors
-DOOR_ANIMS = dict(mart='Mart', player='PlayerHouse', gold='GoldHouse', neighbor='NeighborHouse', harbor='HarborHouse', garden='GardenHouse')
+DOOR_ANIMS = dict(mart='Mart', center='PokemonCenter', player='PlayerHouse', gold='GoldHouse', neighbor='NeighborHouse', harbor='HarborHouse', garden='GardenHouse')
 DOOR_DIR = 'graphics/door_anims/johto_restart'
 
 def door_frames(engine, cv, img, pals):
     """Each house door's open animation, cut from the town as installed: the door's 2x2 block (its cell, the
     cell beside it on the door's side, the row above) in three frames, the panel going dark from its far edge
     (as the town's doors open), every tile in the house's bank (field_door.c draws one layer, one bank per
-    tile). field_door.c takes the block's side and the bank."""
+    tile, each tile the bank of the door's banks that draws it best). field_door.c takes the block's side and
+    the banks."""
     src = (engine / 'src/field_door.c').read_text()
     out = {}
     for d in cv.doors:
-        x, y = d['cell']; bank = d['bank']
-        pal = np.array(pals[bank][1:16], int)
+        x, y = d['cell']; banks = d['banks']
         x0 = (x if d['size'] == 'LEFT' else x - 1) * 16; y0 = (y - 1) * 16
         block = img[y0:y0 + 32, x0:x0 + 32].astype(int)
         px0, py0, px1, py1 = d['panel']
-        dark = pal[int(np.argmin(pal.sum(1)))]
-        data = bytearray()
+        first = np.array(pals[banks[0]][1:16], int)
+        dark = first[int(np.argmin(first.sum(1)))]
+        frames = []
         for k in range(3):
             f = block.copy()
             cut = px1 - int(round((px1 - px0) * (k + 1) / 3))
             f[py0 - y0:py1 - y0, cut - x0:px1 - x0] = dark
-            idx = 1 + ((f[..., None, :] - pal[None, None]) ** 2).sum(-1).argmin(-1)
-            for cx, cy in ((0, 0), (0, 1), (1, 0), (1, 1)):          # top left, bottom left, top right, bottom right
-                for q in range(4):
-                    t = idx[cy * 16 + (q // 2) * 8:cy * 16 + (q // 2) * 8 + 8, cx * 16 + (q % 2) * 8:cx * 16 + (q % 2) * 8 + 8]
-                    for row in t:
-                        data += bytes(int(row[i]) | (int(row[i + 1]) << 4) for i in range(0, 8, 2))
+            frames.append(f)
+        data, tile_banks = bytearray(), []
+        order = [(cx, cy, q) for cx, cy in ((0, 0), (0, 1), (1, 0), (1, 1)) for q in range(4)]   # top left, bottom left, top right, bottom right
+        for k, f in enumerate(frames):
+            for i, (cx, cy, q) in enumerate(order):
+                t = f[cy * 16 + (q // 2) * 8:cy * 16 + (q // 2) * 8 + 8, cx * 16 + (q % 2) * 8:cx * 16 + (q % 2) * 8 + 8]
+                if k == 0:                           # the bank drawing this tile best over all three frames
+                    def err(b):
+                        pal = np.array(pals[b][1:16], int)
+                        return sum(int(((g[cy * 16 + (q // 2) * 8:cy * 16 + (q // 2) * 8 + 8, cx * 16 + (q % 2) * 8:cx * 16 + (q % 2) * 8 + 8][..., None, :] - pal[None, None]) ** 2).sum(-1).min(-1).sum()) for g in frames)
+                    tile_banks.append(min(banks, key=err))
+                pal = np.array(pals[tile_banks[i]][1:16], int)
+                idx = 1 + ((t[..., None, :] - pal[None, None]) ** 2).sum(-1).argmin(-1)
+                for row in idx:
+                    data += bytes(int(row[j]) | (int(row[j + 1]) << 4) for j in range(0, 8, 2))
         name = DOOR_ANIMS[d['name']]
         (engine / DOOR_DIR / f'{name}.4bpp').write_bytes(bytes(data))
-        arr = '{' + ','.join([str(bank)] * 16 + ['0'] * 4) + '}'
+        arr = '{' + ','.join([str(b) for b in tile_banks] + ['0'] * 4) + '}'
         src, n = re.subn(r'(static const u8 sRestartDoorPal_%s\[20\] = )\{[^}]*\}' % name, r'\g<1>' + arr, src)
         assert n == 1, ('no palette line for the door', name)
         src, n = re.subn(r'(\.metatileNum=%d, \.tileset=&gTileset_Cherrygrove, \.sound=DOOR_SOUND_NORMAL, \.size=)DOOR_SIZE_2x2_\w+(, \.tiles=sRestartDoor_%s,)'
                          % (cv.fixed[(x, y)], name), r'\g<1>DOOR_SIZE_2x2_%s\g<2>' % d['size'], src)
         assert n == 1, ('no door table entry', name)
-        out[name] = dict(cell=[x, y], size=d['size'], bank=bank, metatile=cv.fixed[(x, y)])
+        out[name] = dict(cell=[x, y], size=d['size'], banks=tile_banks, metatile=cv.fixed[(x, y)])
     (engine / 'src/field_door.c').write_text(src)
     return out
 
@@ -689,7 +702,7 @@ def no_fold(cv):
     out |= {(x, r) for r in range(B.R30_SEEN[0]) for x in B.R30_SEEN[1]}
     out |= {(x, r) for r in range(H) for x in B.R29_SEEN}
     boxes = set()
-    for (x0, y0), (w, h) in ((E.CENTER_AT, (7, 6)), (E.MART_AT, (7, 6))):
+    for (x0, y0), (w, h) in ((E.CENTER_AT, (5, 5)), (E.MART_AT, (7, 6))):
         boxes |= {(x, r) for x in range(x0, x0 + w) for r in range(y0, y0 + h + 1)}
     return out, (cv.exact | boxes) - out
 

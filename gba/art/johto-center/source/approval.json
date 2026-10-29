@@ -1,0 +1,24 @@
+{
+  "status": "approved",
+  "approved_date": "2026-10-15",
+  "review_id": "C06",
+  "owner_statement": "For the Pok\u00e9mon Center, go ahead and use C06. It looks pretty good.",
+  "scope": "Shared Johto Pok\u00e9mon Center exterior",
+  "source": "gba/art/johto-common-review/service-buildings/assets/C06.png",
+  "original_source": "gba/art/johto-v2/native/center.png",
+  "source_revision": "de9e3638",
+  "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54",
+  "native_size": [
+    80,
+    80
+  ],
+  "door_tile": [
+    2,
+    4
+  ],
+  "approach_tile": [
+    2,
+    5
+  ],
+  "policy": "Reuse this exact transparent artwork across Johto; terrain, trees and native packing are destination-specific."
+}
