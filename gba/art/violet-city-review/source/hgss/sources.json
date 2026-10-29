@@ -1,0 +1,26 @@
+{
+ "source": "pret/pokeheartgold (Davisfox5 fork), MAP_VIOLET rendered by tools/gba/maps/route30_catalog/hgss_render.py",
+ "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+ "files": {
+  "lake-bank.png": {
+   "layer": "full",
+   "box": [
+    400,
+    122,
+    16,
+    11
+   ],
+   "sha256": "a39ec714a4d28f22e7a4ec70c3c2d0116a4291b85ec4b1e2dd1ddb10ad796c8b"
+  },
+  "landing.png": {
+   "layer": "ground",
+   "box": [
+    488,
+    232,
+    208,
+    112
+   ],
+   "sha256": "3695abc806b0821e53ac4264c452a7e238c011ec4fc8b17fec8af143ebb39c3a"
+  }
+ }
+}

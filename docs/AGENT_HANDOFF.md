@@ -52,6 +52,12 @@ Owner review (October 25), refined the same day:
   (`boats.py`), the large boat as the base draws it. The copy animates only sea tiles 1-87, the previews
   draw a frozen secondary (`cherrygrove_preview`), and the town's sheet stops at slot 495 (tiles 1008-1023
   are the door frames'). 26 copy slots left.
+- Violet City (October 29, `gba/art/violet-city-review/README.md`): the newest Violet, Route 36 and the west
+  gate ported from `codex/johto-editor-consolidation` 8eb43845f6 into PR #39's engine branch unchanged
+  (engine 42cd9d1a53), then cleaned: cobble streets with a sand verge and rounded corners, HGSS's north
+  lake bank, HGSS's landing border and ring, the islet's teal top grass. Both private tilesets repacked
+  from scratch (`tools/gba/maps/violet_city`); 1 tile slot left, door slots 496-511 used while Violet has
+  no animated door.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

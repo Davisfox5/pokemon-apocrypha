@@ -1,0 +1,34 @@
+{
+ "exit_code": 0,
+ "frames": 34,
+ "fully_identical": 33,
+ "lowest": [
+  [
+   0.9973,
+   "lake-blocks"
+  ],
+  [
+   1.0,
+   "east-front"
+  ],
+  [
+   1.0,
+   "west-front"
+  ],
+  [
+   1.0,
+   "north-road"
+  ],
+  [
+   1.0,
+   "south-0"
+  ]
+ ],
+ "checks": [
+  "east gate in",
+  "west gate in",
+  "north road to the main street over both bridges and the landing (30 steps)",
+  "the lake blocks on foot"
+ ],
+ "note": "Frames compared with the installed native decode outside the player sprite."
+}

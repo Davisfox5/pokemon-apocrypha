@@ -1,0 +1,24 @@
+{
+ "tiles": {
+  "primary": 512,
+  "secondary": 511,
+  "left": 1,
+  "door_slots_used": true
+ },
+ "metatiles": 656,
+ "cells_redrawn": 655,
+ "traversal_changed": 0,
+ "fold": {
+  "max_pixels_per_tile": 4,
+  "pixels_moved": 1264,
+  "cells": 389,
+  "note": "every moved pixel is another tone of its own texture"
+ },
+ "notes": [
+  "paths: cobble with a 8 px sand verge in 476 cells, corners rounded 3 px",
+  "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
+  "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
+  "islet: its teal top grass (763 px)",
+  "4022 two-layer quadrants drawn as one"
+ ]
+}
