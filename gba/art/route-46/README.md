@@ -1,12 +1,16 @@
 # Route 46: reconstruction guide, beside Route 45's tilesets
 
+**Owner-accepted 2026-10-30** ("Oh yeah, way better. We can move on from this route."), engine
+`f4d5ab678a`, hub `0074426a`. Treat this map as locked: edit its committed native source in Porymap,
+never regenerate it from these tools.
+
 Route 46 as one native Gen 3 map west of Route 45's foot, built to `AGENTS.md` and
 [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTION.md) by Route 45's process:
 decoded HGSS trace, shared Johto catalog art, Blackthorn's FRLG rock terraces, the Cherrygrove ground
 painter, lossless pack. Joined to Route 45 by a map connection, as HGSS joins them, with every Route
 45 pixel kept (Route 45 is owner-accepted and locked). Engine branch `claude/route-46` (stacked on
 `claude/route-45`, engine PR #43). Owner review 2026-10-29 put the whole Route 29 gatehouse on the map
-with the woods closing on it (below); owner visual review of that pending.
+with the woods closing on it (below).
 
 ![HGSS beside the installed native map, numbered by cell](evidence/review3/whole.png)
 
