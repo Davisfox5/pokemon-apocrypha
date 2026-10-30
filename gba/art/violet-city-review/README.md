@@ -22,7 +22,9 @@ from pokeheartgold's own data. Every cell keeps its collision, elevation, behavi
   ground layer, so no bridge or lantern), in Violet's own grey ramp, and the deeper ring HGSS draws in the
   water round it. The walkways stay open where the bridges land; the lanterns stay.
 - **Lake, islet**: its teal top read as a pool of water round the tree. It is grass, in the islet's own
-  greens (its palette is shared with the west gatehouse's teal, which stays).
+  greens (its palette is shared with the west gatehouse's teal, which stays). Its east half is its west
+  half mirrored (it was all but symmetric), so every east tile is a flipped west one: that frees the door
+  frames' slots (below).
 - Unchanged: Sprout Tower, the university and clock tower, the lecture hall, the practice court, the
   approved C06 Center and M01 Mart, the houses, the west gatehouse, the forests (already the overlapping
   lattice), bridges, lanterns, signs, ducks.
@@ -34,14 +36,12 @@ lays both out anew from the town's two decoded layers: each quadrant takes the b
 identical quadrants share one tile in any flip, identical cells one metatile. The 13 banks are Violet's,
 with colours its art no longer draws freed for the new ones.
 
-- 1,023 of 1,024 tiles (512 primary, 511 secondary), 656 metatiles.
-- The secondary uses slots 496-511: `field_door.c` draws door frames there, but Violet has no animated door
-  (its warps are a plain doorway and an arrow warp, and the door table names neither tileset). The
-  installer checks both and reserves the 16 slots as soon as either changes; adding a door to Violet then
-  needs 16 tiles freed first.
+- 1,008 of 1,008 tiles (512 primary, 496 secondary), 652 metatiles.
+- Secondary slots 496-511 (tiles 1008-1023) stay empty: `field_door.c` draws door frames there, so Violet's
+  doors can animate. The installer always reserves them.
 - Where both of a cell's layers draw below the player, a quadrant one bank can draw takes one tile, not
   two (4,022 quadrants).
-- **Folds**: a new texture tile may take an existing one up to 4 px away (1,264 pixels in 389 cells), each
+- **Folds**: a new texture tile may take an existing one up to 3 px away (742 pixels in 298 cells), each
   moved pixel another tone of its own texture. Lawn, cobble, water and canopy move anywhere within
   themselves; the verge, the bank and the landing's stone only inside, never their lines or edges. Building
   art never moves.
@@ -58,7 +58,9 @@ with colours its art no longer draws freed for the new ones.
 
 ## Limits
 
-- The tile budget is spent (1 slot left).
+- The tile budget is spent: the 16 door-frame slots are free, no others. Where the tiles go (exclusive to
+  each part): Sprout Tower 236, C06 Center 94, lecture hall 82, university and clock tower 81, M01 Mart 77,
+  lake water, banks and ducks 55, the streets and lawn 35. Houses share almost everything.
 - Interiors and onward routes are as the source branch left them.
 - Owner visual acceptance.
 

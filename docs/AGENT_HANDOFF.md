@@ -56,8 +56,9 @@ Owner review (October 25), refined the same day:
   gate ported from `codex/johto-editor-consolidation` 8eb43845f6 into PR #39's engine branch unchanged
   (engine 42cd9d1a53), then cleaned: cobble streets with a sand verge and rounded corners, HGSS's north
   lake bank, HGSS's landing border and ring, the islet's teal top grass. Both private tilesets repacked
-  from scratch (`tools/gba/maps/violet_city`); 1 tile slot left, door slots 496-511 used while Violet has
-  no animated door.
+  from scratch (`tools/gba/maps/violet_city`). October 30: the islet's east half mirrors its west half, so
+  the sheet fits 1,008 tiles and door slots 496-511 stay free for door animations (always reserved now).
+  No other free slots; Sprout Tower (236 exclusive tiles) is the largest user.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

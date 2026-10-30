@@ -277,7 +277,7 @@ def landing(cv):
 # The islet east of the landing (x47-50, rows 22-26) carried its tree on a teal top that read as a pool of
 # water inside it. Its top is grass: each teal tone takes the green of its own depth from the islet's own
 # palette (bank 2, which the west gatehouse's teal shares, so the slots stay), the earth sides and the tree
-# stay.
+# stay. Its east half mirrors its west half, which frees the tiles field_door.c needs for door frames.
 ISLET = (range(47, 51), range(22, 27))
 ISLET_TOP = {(120, 208, 176): (120, 168, 40), (72, 176, 168): (120, 168, 40), (48, 160, 152): (96, 128, 32),
              (40, 144, 136): (96, 128, 32), (40, 112, 104): (80, 96, 48)}
@@ -294,7 +294,15 @@ def islet(cv):
                         m &= layer[..., 3] > 0
                     if m.any():
                         layer[..., :3][m] = b; n += int(m.sum()); cv.changed.add((x, r))
-    cv.notes.append(f'islet: its teal top grass ({n} px)')
+    # its east half the west half mirrored (the islet is centred on x49's west edge and all but symmetric
+    # already): every east tile is a flipped west one, so the islet draws in half the tiles
+    xs, rs = ISLET
+    mid = (xs[0] + len(xs) // 2) * 16
+    Y0, Y1 = rs[0] * 16, (rs[-1] + 1) * 16
+    for layer in (cv.lower, cv.upper):
+        layer[Y0:Y1, mid:mid + len(xs) * 8] = layer[Y0:Y1, mid - len(xs) * 8:mid][:, ::-1]
+    cv.changed |= {(x, r) for r in rs for x in xs}
+    cv.notes.append(f'islet: its teal top grass ({n} px), its east half the west half mirrored')
 
 # --------------------------------------------------------------------------- one layer where two are not needed
 def flatten(cv):

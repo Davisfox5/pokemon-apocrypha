@@ -1,24 +1,41 @@
 {
  "tiles": {
   "primary": 512,
-  "secondary": 511,
-  "left": 1,
-  "door_slots_used": true
+  "secondary": 496,
+  "left": 0,
+  "door_slots_reserved": [
+   1008,
+   1009,
+   1010,
+   1011,
+   1012,
+   1013,
+   1014,
+   1015,
+   1016,
+   1017,
+   1018,
+   1019,
+   1020,
+   1021,
+   1022,
+   1023
+  ]
  },
- "metatiles": 656,
- "cells_redrawn": 655,
+ "metatiles": 652,
+ "cells_redrawn": 664,
  "traversal_changed": 0,
  "fold": {
-  "max_pixels_per_tile": 4,
-  "pixels_moved": 1264,
-  "cells": 389,
+  "max_pixels_per_tile": 3,
+  "pixels_moved": 742,
+  "cells": 298,
   "note": "every moved pixel is another tone of its own texture"
  },
  "notes": [
   "paths: cobble with a 8 px sand verge in 476 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
-  "islet: its teal top grass (763 px)",
+  "islet: its teal top grass (763 px), its east half the west half mirrored",
   "4022 two-layer quadrants drawn as one"
  ]
 }

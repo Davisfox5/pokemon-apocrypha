@@ -50,16 +50,6 @@ def families(v):
     fams = [canopy, earth, stone, lawn, cobble, sand, water]
     return fams, [0, 3, 4, 6]
 
-MB_ANIMATED_DOOR = 0x69
-
-def animated_doors(engine, v):
-    """Whether a door animation can play in Violet (field_door.c draws its frames in tiles 1008-1023): a cell
-    with the animated-door behaviour, or a door table entry for Violet's tilesets. Violet's two warps are a
-    plain doorway and an arrow warp, so its sheet may use those 16 slots until a door is added."""
-    cells = any(v.attr(int(w) & 1023) & 0xFF == MB_ANIMATED_DOOR for w in v.words.ravel())
-    src = (engine / 'src/field_door.c').read_text()
-    return cells or 'gTileset_VioletCity' in src
-
 FOLD_STEPS = range(0, 9)                             # pixels a texture tile may move to reuse another, as few as fit
 
 def install(engine, v, cv):
@@ -69,7 +59,6 @@ def install(engine, v, cv):
         m = w & 1023; low, up = v.layers(m)
         border.append((low, up, v.attr(m), w & 0xFC00, [[e >> 12] for e in v.block(m)]))
     fams, free = families(v)
-    P.S_TILES = 512 if not animated_doors(engine, v) else 496
     for k in FOLD_STEPS:
         try:
             words, bwords, pk = P.pack(v, cells, [list(b) for b in v.banks], border, k, fams, free)
@@ -91,7 +80,7 @@ def install(engine, v, cv):
              if (int(w[r, x]) & 0xFC00) != (int(v.words[r, x]) & 0xFC00) or attrs(int(w[r, x]) & 1023) != v.attr(int(v.words[r, x]) & 1023)]
     assert not moved, ('traversal changed', moved[:20])
     report = dict(tiles=dict(primary=min(len(pk.tiles), P.P_TILES), secondary=max(0, len(pk.tiles) - P.P_TILES),
-                             left=P.P_TILES + P.S_TILES - len(pk.tiles), door_slots_used=P.S_TILES == 512),
+                             left=P.P_TILES + P.S_TILES - len(pk.tiles), door_slots_reserved=list(range(1008, 1024))),
                   metatiles=len(pk.metas), cells_redrawn=len(cv.changed), traversal_changed=0,
                   fold=dict(max_pixels_per_tile=k, pixels_moved=int(diff.sum()), cells=int((per > 0).sum()),
                             note='every moved pixel is another tone of its own texture'),
