@@ -58,6 +58,11 @@ ROOMS = dict(dept_store='MAP_KANTO_CELADON_MARKET_SERVICES', apartments=None, ho
              center='MAP_KANTO_CELADON_POKEMON_CENTER', gamecorner='MAP_KANTO_CELADON_GAME_CORNER', house_g0=None,
              cafe='MAP_KANTO_CELADON_CAFE')
 START = (45, 15)                      # in front of the Center, for reachability
+# A caller streaming more than the city (route7/world.py: Celadon and Route 7 as one world) sets
+# these: where the tables go, which foot kinds a player stands on, and a hook over the tile jobs.
+NPZ = C.SRC / 'stream6.npz'
+WALKABLE = ('open', 'door')
+JOB_HOOK = None
 
 def rgb5(a):
     return (np.asarray(a)[..., :3] >> 3).astype(np.uint8)
@@ -198,7 +203,7 @@ def split(ground, objs, imgs, foot):
     conflicts = []
     for y in range(H):
         for x in range(W):
-            if foot[y, x] not in ('open', 'door'):
+            if foot[y, x] not in WALKABLE:
                 continue
             tops = [top.get((2 * x + a, 2 * y + b)) for b in (0, 1) for a in (0, 1)]
             over = set().union(*[t[3] for t in tops if t is not None])
@@ -498,6 +503,8 @@ def main():
                 px, m = (v, None) if l == 0 else (v[0], v[1])
                 j.setdefault('frames', {})[f] = (rgb5(px), m)
                 j['cols'] = j['cols'] | colour_set(px, m)
+    if JOB_HOOK is not None:
+        JOB_HOOK(jobs)
     pals, lossy = pack_palettes(jobs)
     pal_arr = [np.array(p, int) for p in pals]
 
@@ -625,7 +632,7 @@ def main():
     colours = dict(open=(120, 200, 120), blocked=(90, 60, 60), water=(60, 90, 200), door=(250, 220, 60))
     for y in range(H):
         for x in range(W):
-            tv[y, x] = colours[foot[y, x]]
+            tv[y, x] = colours.get(foot[y, x], (230, 200, 90))       # a route's tall grass, ledges, arrow warps
             if layer[y, x] == NORMAL:
                 tv[y, x] = (200, 250, 200)
     Image.fromarray(tv).resize((W * 8, H * 8), Image.Resampling.NEAREST).save(OUT / 'traversal.png')
@@ -654,7 +661,7 @@ def main():
     for (x, y), u in win.items():
         u = sorted(u)
         screens[y, x, :len(u)] = u
-    np.savez_compressed(C.SRC / 'stream6.npz', glyphs=np.array(all_glyphs, np.uint8), anim_frames=anim_frames, screens=screens,
+    np.savez_compressed(NPZ, glyphs=np.array(all_glyphs, np.uint8), anim_frames=anim_frames, screens=screens,
                         entries=entries, layers=layer, palettes=pal_rgb, banks=np.array([bank.get(p, 0) % 256 for p in range(len(pals))], np.uint8),
                         foot=foot, why=why, n_static=n_static)
     print(json.dumps({k: v for k, v in report.items() if k not in ('palette_groups', 'depth_conflicts', 'groups')}))
