@@ -1,8 +1,8 @@
 {
  "tiles": {
   "primary": 512,
-  "secondary": 496,
-  "left": 0,
+  "secondary": 488,
+  "left": 8,
   "door_slots_reserved": [
    1008,
    1009,
@@ -22,20 +22,20 @@
    1023
   ]
  },
- "metatiles": 652,
- "cells_redrawn": 664,
- "traversal_changed": 0,
+ "metatiles": 631,
+ "cells_redrawn": 794,
+ "traversal_changed": 154,
  "fold": {
-  "max_pixels_per_tile": 3,
-  "pixels_moved": 742,
-  "cells": 298,
+  "max_pixels_per_tile": 1,
+  "pixels_moved": 25,
+  "cells": 25,
   "note": "every moved pixel is another tone of its own texture"
  },
  "notes": [
-  "paths: cobble with a 8 px sand verge in 476 cells, corners rounded 3 px",
+  "university: a Johto hall in Sprout Tower materials, 15 cells wide, 109 cells",
+  "paths: cobble with a 8 px sand verge in 474 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
-  "islet: its teal top grass (763 px), its east half the west half mirrored",
-  "4022 two-layer quadrants drawn as one"
+  "3880 two-layer quadrants drawn as one"
  ]
 }

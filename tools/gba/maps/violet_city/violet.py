@@ -21,10 +21,10 @@ import pack as P                                     # noqa: E402
 def compose(engine):
     v = B.Violet(engine)
     cv = E.Canvas(v)
+    E.university(cv)
     E.paths(cv)
     E.lake_bank(cv)
     E.landing(cv)
-    E.islet(cv)
     E.flatten(cv)
     return v, cv
 
@@ -77,11 +77,14 @@ def install(engine, v, cv):
     per = diff.reshape(B.H, 16, B.W, 16).sum((1, 3))
     attrs = lambda m: t.attrs[int(m >= 512)][m - 512 if m >= 512 else m]
     moved = [[x, r] for r in range(B.H) for x in range(B.W)
-             if (int(w[r, x]) & 0xFC00) != (int(v.words[r, x]) & 0xFC00) or attrs(int(w[r, x]) & 1023) != v.attr(int(v.words[r, x]) & 1023)]
-    assert not moved, ('traversal changed', moved[:20])
+             if (int(w[r, x]) & 0xFC00) != int(cv.bits[r, x]) or attrs(int(w[r, x]) & 1023) != int(cv.attr[r, x])]
+    assert not moved, ('traversal not as composed', moved[:20])
+    outside = [[x, r] for r in range(B.H) for x in range(B.W) if (x, r) not in cv.retraverse
+               and (int(cv.bits[r, x]) != int(v.words[r, x]) & 0xFC00 or int(cv.attr[r, x]) != v.attr(int(v.words[r, x]) & 1023))]
+    assert not outside, ('traversal changed outside the redrawn buildings', outside[:20])
     report = dict(tiles=dict(primary=min(len(pk.tiles), P.P_TILES), secondary=max(0, len(pk.tiles) - P.P_TILES),
                              left=P.P_TILES + P.S_TILES - len(pk.tiles), door_slots_reserved=list(range(1008, 1024))),
-                  metatiles=len(pk.metas), cells_redrawn=len(cv.changed), traversal_changed=0,
+                  metatiles=len(pk.metas), cells_redrawn=len(cv.changed), traversal_changed=len(cv.retraverse),
                   fold=dict(max_pixels_per_tile=k, pixels_moved=int(diff.sum()), cells=int((per > 0).sum()),
                             note='every moved pixel is another tone of its own texture'),
                   notes=cv.notes)

@@ -33,6 +33,7 @@ class Canvas:
                 self.attr[r, x] = v.attr(m); self.bits[r, x] = w & 0xFC00
                 self.prefer[(x, r)] = [[e >> 12] for e in v.block(m)]
         self.changed = set()
+        self.retraverse = set()             # cells whose collision or behaviour an element changes on purpose
         self.notes = []
     def sl(self, x, r):
         return np.s_[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
@@ -273,36 +274,88 @@ def landing(cv):
     cv.changed |= cells
     cv.notes.append(f'landing: HGSS stone border and floor, the deeper ring round it ({int(put.sum())} px)')
 
-# --------------------------------------------------------------------------- the lake's islet
-# The islet east of the landing (x47-50, rows 22-26) carried its tree on a teal top that read as a pool of
-# water inside it. Its top is grass: each teal tone takes the green of its own depth from the islet's own
-# palette (bank 2, which the west gatehouse's teal shares, so the slots stay), the earth sides and the tree
-# stay. Its east half mirrors its west half, which frees the tiles field_door.c needs for door frames.
-ISLET = (range(47, 51), range(22, 27))
-ISLET_TOP = {(120, 208, 176): (120, 168, 40), (72, 176, 168): (120, 168, 40), (48, 160, 152): (96, 128, 32),
-             (40, 144, 136): (96, 128, 32), (40, 112, 104): (80, 96, 48)}
+# --------------------------------------------------------------------------- the university
+# The port's university (x47-66, rows 33-41) was a western hall: slate roof, cream walls, a clock tower, in
+# a style and at a scale apart from the rest of Violet. It becomes a Johto hall in Sprout Tower's own
+# materials (owner request): the tower's two lower roof tiers, stretched by repeating their middle columns,
+# its top tier as a raised centre roof, its dark wall with the gold panels repeated along the front and the
+# tower's door emblem in the middle. Every piece moves by whole cells (or 8 px columns inside them) with
+# both layers, so it draws with the tower's own tiles; the lawn under its edges is the lawn of its new
+# place. The hall is 15 cells wide (was 20) and stands on the old base line; the cells it gives back are
+# lawn, walkable.
+OLD_UNIVERSITY = [(range(47, 67), range(35, 42)), (range(55, 61), range(33, 35))]
+HALL_X, HALL_DY = 800, 464                           # the hall's left edge (px); the tower's rows moved down (px)
+HALL_K = 5                                           # 32 px repeats of the roof's middle
+TOWER_ROOF = (576, 616, 648, 688)                    # the tower's roof columns: left end, middle, right end
+TIERS = (122, 174)                                   # its two lower tiers (rows)
+TOP_EDGE, TOP_BODY = (40, 48), (80, 122)             # its top tier: the eave line and the body below the spire
+TOP_EDGE_COLS = [576, 584, 592, 600, 608, 600, 608, 600, 608, 648, 656, 664, 672, 680]   # the spire's columns taken from beside it
+WALL = (174, 198)
+WALL_BLACK, WALL_GOLD, WALL_BASE = (32, 32, 32), (96, 80, 56), (128, 152, 128)
+DOOR_SPUR = (54, 60, 43)                             # the street's spur to the door: x from, x to, the street's first row
 
-def islet(cv):
-    n = 0
-    for r in ISLET[1]:
-        for x in ISLET[0]:
-            sl = cv.sl(x, r)
-            for layer in (cv.lower[sl], cv.upper[sl]):
-                for a, b in ISLET_TOP.items():
-                    m = (layer[..., :3] == a).all(-1)
-                    if layer.shape[-1] == 4:
-                        m &= layer[..., 3] > 0
-                    if m.any():
-                        layer[..., :3][m] = b; n += int(m.sum()); cv.changed.add((x, r))
-    # its east half the west half mirrored (the islet is centred on x49's west edge and all but symmetric
-    # already): every east tile is a flipped west one, so the islet draws in half the tiles
-    xs, rs = ISLET
-    mid = (xs[0] + len(xs) // 2) * 16
-    Y0, Y1 = rs[0] * 16, (rs[-1] + 1) * 16
-    for layer in (cv.lower, cv.upper):
-        layer[Y0:Y1, mid:mid + len(xs) * 8] = layer[Y0:Y1, mid - len(xs) * 8:mid][:, ::-1]
-    cv.changed |= {(x, r) for r in rs for x in xs}
-    cv.notes.append(f'islet: its teal top grass ({n} px), its east half the west half mirrored')
+def university(cv):
+    lawn = G.textures()[G.GRASS]
+    ys, xs = np.mgrid[0:H * 16, 0:W * 16]
+    lawn_at = lawn[ys % 32, xs % 32]
+    src_low, src_up = cv.lower.copy(), cv.upper.copy()
+    cob = cobble_texture(cv.image())
+    src_is_lawn = (src_low == lawn_at).all(-1)
+    blocked, freed = 0x3C00, 0x3000                  # elevation 3, collision 3 / 0
+    old = set()
+    for xr, rr in OLD_UNIVERSITY:
+        for r in rr:
+            for x in xr:
+                sl = cv.sl(x, r)
+                cv.lower[sl] = lawn_at[sl]; cv.upper[sl] = 0
+                old.add((x, r))
+    def column(x, y0, y1, flip=False):
+        """A source 8 px column as an RGBA strip: the tower's upper layer, and its lower where not lawn."""
+        up = src_up[y0:y1, x:x + 8].copy()
+        low, ll = src_low[y0:y1, x:x + 8], src_is_lawn[y0:y1, x:x + 8]
+        m = (up[..., 3] == 0) & ~ll
+        up[m, :3] = low[m]; up[m, 3] = 255
+        return up[:, ::-1] if flip else up
+    def plain():
+        a = np.zeros((WALL[1] - WALL[0], 8, 4), np.uint8); a[..., 3] = 255
+        a[..., :3] = WALL_BLACK; a[1:3, :, :3] = WALL_GOLD; a[21:, :, :3] = WALL_BASE
+        return a
+    def put(spec, y0, y1, x, y):
+        for c in spec:
+            a = plain() if c == 'P' else column(*((c[0], y0, y1, True) if isinstance(c, tuple) else (c, y0, y1)))
+            t = cv.upper[y:y + a.shape[0], x:x + 8]
+            m = a[..., 3] > 0
+            t[m] = a[m]
+            x += 8
+    l, m, r, e = TOWER_ROOF
+    roof = list(range(l, m, 8)) + list(range(m, r, 8)) * HALL_K + list(range(r, e, 8))
+    width = len(roof) * 8
+    cx = HALL_X + (width - (e - l)) // 2 // 16 * 16
+    put(list(range(l, e, 8)), *TOP_BODY, cx, TOP_BODY[0] + HALL_DY)
+    put(TOP_EDGE_COLS, *TOP_EDGE, cx, TOP_BODY[0] - 8 + HALL_DY)
+    put(roof, *TIERS, HALL_X, TIERS[0] + HALL_DY)
+    side = ['P', 600, 608, 616] * 2
+    mirror = [c if c == 'P' else (c, True) for c in side][::-1]
+    put([592] + side + list(range(600, 664, 8)) + ['P'] + mirror + [(592, True)], *WALL, HALL_X + 16, WALL[0] + HALL_DY)
+    # no shadow where the spire stood: the brown above the top eave is the spire's shadow on the lawn
+    y0 = TOP_BODY[0] - 8 + HALL_DY
+    band = cv.upper[y0:y0 + 4, cx:cx + (e - l)]
+    band[(band[..., 2].astype(int) < band[..., 1]) & (band[..., 3] > 0), 3] = 0
+    band[0, :, 3] = 0                                # and the spire's foot above the eave line
+    # the street's spur runs on up to the door
+    y0, y1 = WALL[1] + HALL_DY, DOOR_SPUR[2] * 16
+    x0, x1 = DOOR_SPUR[0] * 16, DOOR_SPUR[1] * 16
+    cv.lower[y0:y1, x0:x1] = cob[ys[y0:y1, x0:x1] % 32, xs[y0:y1, x0:x1] % 32]
+    cv.upper[y0:y1, x0:x1, 3] = 0
+    top, bottom = (TOP_EDGE[0] + 32 + HALL_DY) // 16, (WALL[1] - 1 + HALL_DY) // 16
+    hall = {(x, r) for r in range(top, bottom + 1) for x in range(HALL_X // 16, (HALL_X + width - 1) // 16 + 1)
+            if cv.upper[cv.sl(x, r)][..., 3].any()}
+    for x, r in old | hall:
+        cv.attr[r, x] = B.COVERED << 12
+        cv.bits[r, x] = blocked if (x, r) in hall else freed
+    cv.changed |= old | hall
+    cv.retraverse |= old | hall
+    cv.notes.append(f'university: a Johto hall in Sprout Tower materials, {width // 16} cells wide, {len(hall)} cells')
 
 # --------------------------------------------------------------------------- one layer where two are not needed
 def flatten(cv):

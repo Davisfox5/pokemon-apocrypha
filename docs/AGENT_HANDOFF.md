@@ -55,10 +55,10 @@ Owner review (October 25), refined the same day:
 - Violet City (October 29, `gba/art/violet-city-review/README.md`): the newest Violet, Route 36 and the west
   gate ported from `codex/johto-editor-consolidation` 8eb43845f6 into PR #39's engine branch unchanged
   (engine 42cd9d1a53), then cleaned: cobble streets with a sand verge and rounded corners, HGSS's north
-  lake bank, HGSS's landing border and ring, the islet's teal top grass. Both private tilesets repacked
-  from scratch (`tools/gba/maps/violet_city`). October 30: the islet's east half mirrors its west half, so
-  the sheet fits 1,008 tiles and door slots 496-511 stay free for door animations (always reserved now).
-  No other free slots; Sprout Tower (236 exclusive tiles) is the largest user.
+  lake bank, HGSS's landing border and ring. Both private tilesets repacked
+  from scratch (`tools/gba/maps/violet_city`). October 30: door slots 496-511 always reserved for door
+  animations; the islet back as the port had it (owner's choice); the university rebuilt as a Johto hall
+  in Sprout Tower's materials, 15 x 8 cells (was 20 x 9), saving 39 tiles. 8 tiles free.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
