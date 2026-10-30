@@ -56,6 +56,9 @@ WILD = [('RATTATA', 16, 17), ('SPEAROW', 16, 17), ('GROWLITHE', 16, 17), ('RATTA
         ('GROWLITHE', 17, 18), ('RATTATA', 18, 19), ('SPEAROW', 18, 19), ('RATICATE', 19, 19), ('SHINX', 17, 17),
         ('PLUSLE', 17, 17), ('MINUN', 17, 17)]
 WILD_RATE = 21                                              # FireRed's Route 7
+if not any(k[0] == 'tall' for k in I6.KINDS):              # the stand-ins: Celadon's kinds, then the route's
+    I6.KINDS += ROUTE_KINDS
+I6.KIND_INDEX = {k[0]: i for i, k in enumerate(I6.KINDS)}
 
 def kind(foot, layer):
     behind = layer == S.NORMAL
@@ -250,9 +253,6 @@ def main(g):
     z = dict(np.load(WD.NPZ))
     layouts = read(g / 'data/layouts/layouts.json')
     groups = read(g / 'data/maps/map_groups.json')
-    if not any(k[0] == 'tall' for k in I6.KINDS):
-        I6.KINDS += ROUTE_KINDS
-    I6.KIND_INDEX = {k[0]: i for i, k in enumerate(I6.KINDS)}
     rep = dict(view=view_data(g, z))
     kinds = I6.stand_ins(g, MB)
     rep['ids'] = register_maps(g, groups)

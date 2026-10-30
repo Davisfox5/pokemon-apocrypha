@@ -1,0 +1,639 @@
+{
+ "glyphs_static": 3429,
+ "glyphs_pinned": 51,
+ "glyph_slots": 1008,
+ "worst_view_glyphs": 684,
+ "worst_view_at": [
+  45,
+  10
+ ],
+ "worst_view_budget": 956,
+ "palettes": 32,
+ "worst_step_palettes": 13,
+ "worst_step_at": [
+  48,
+  37,
+  0,
+  1
+ ],
+ "banks": 13,
+ "unbanked_palettes": [],
+ "tile_layers": 26416,
+ "colours": 329,
+ "groups": {
+  "apartments": {
+   "tiles": 302,
+   "drawn": 11,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "blossom_pool": {
+   "tiles": 74,
+   "drawn": 21,
+   "how": "fit",
+   "unplaced": null,
+   "error": 3.011
+  },
+  "cafe": {
+   "tiles": 83,
+   "drawn": 17,
+   "how": "exact",
+   "unplaced": 1,
+   "error": 0.181
+  },
+  "center": {
+   "tiles": 100,
+   "drawn": 21,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "dept_store": {
+   "tiles": 574,
+   "drawn": 39,
+   "how": "fit",
+   "unplaced": null,
+   "error": 5.133
+  },
+  "flat": {
+   "tiles": 103,
+   "drawn": 11,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "fountain": {
+   "tiles": 59,
+   "drawn": 8,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "game_corner_front": {
+   "tiles": 230,
+   "drawn": 22,
+   "how": "fit",
+   "unplaced": null,
+   "error": 5.032
+  },
+  "game_corner_top": {
+   "tiles": 192,
+   "drawn": 24,
+   "how": "fit",
+   "unplaced": null,
+   "error": 2.392
+  },
+  "gate": {
+   "tiles": 184,
+   "drawn": 20,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "ground": {
+   "tiles": 10836,
+   "drawn": 66,
+   "how": "exact",
+   "unplaced": 2,
+   "error": 0.001
+  },
+  "hotel": {
+   "tiles": 401,
+   "drawn": 16,
+   "how": "fit",
+   "unplaced": null,
+   "error": 0.153
+  },
+  "house_a": {
+   "tiles": 290,
+   "drawn": 18,
+   "how": "fit",
+   "unplaced": null,
+   "error": 0.888
+  },
+  "house_b": {
+   "tiles": 291,
+   "drawn": 22,
+   "how": "fit",
+   "unplaced": null,
+   "error": 1.482
+  },
+  "house_c": {
+   "tiles": 148,
+   "drawn": 21,
+   "how": "fit",
+   "unplaced": null,
+   "error": 2.091
+  },
+  "plant": {
+   "tiles": 200,
+   "drawn": 23,
+   "how": "fit",
+   "unplaced": null,
+   "error": 5.162
+  },
+  "route_ground": {
+   "tiles": 951,
+   "drawn": 24,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  },
+  "stall": {
+   "tiles": 260,
+   "drawn": 48,
+   "how": "fit",
+   "unplaced": null,
+   "error": 11.161
+  },
+  "street": {
+   "tiles": 268,
+   "drawn": 29,
+   "how": "fit",
+   "unplaced": null,
+   "error": 6.536
+  },
+  "tree": {
+   "tiles": 10809,
+   "drawn": 57,
+   "how": "exact",
+   "unplaced": 66,
+   "error": 0.284
+  },
+  "underground": {
+   "tiles": 61,
+   "drawn": 37,
+   "how": "exact",
+   "unplaced": 0,
+   "error": 0.0
+  }
+ },
+ "exact_pixels": 1240900,
+ "pixels": 1291264,
+ "worst_rgb5_error": 18,
+ "doors": {
+  "dept_store": [
+   11,
+   14
+  ],
+  "hotel": [
+   38,
+   14
+  ],
+  "center": [
+   45,
+   14
+  ],
+  "gamecorner": [
+   30,
+   29
+  ],
+  "cafe": [
+   47,
+   32
+  ]
+ },
+ "walled_in_cells": 9,
+ "depth_conflicts": [],
+ "walk_behind": {
+  "r7_tree_78_6": [
+   79,
+   5
+  ],
+  "r7_tree_80_6": [
+   80,
+   5
+  ],
+  "r7_tree_82_6": [
+   82,
+   5
+  ],
+  "house_n0": [
+   52,
+   10
+  ],
+  "house_n1": [
+   52,
+   10
+  ],
+  "house_n2": [
+   56,
+   10
+  ],
+  "lamp_18_15": [
+   18,
+   12
+  ],
+  "stall_9_24": [
+   9,
+   21
+  ],
+  "stall_14_24": [
+   14,
+   21
+  ],
+  "house_a0": [
+   48,
+   21
+  ],
+  "house_a1": [
+   48,
+   21
+  ],
+  "house_a2": [
+   52,
+   21
+  ],
+  "house_a3": [
+   56,
+   21
+  ],
+  "r7_underground": [
+   76,
+   21
+  ],
+  "stall_8_28": [
+   8,
+   25
+  ],
+  "stall_16_28": [
+   16,
+   25
+  ],
+  "house_g0": [
+   37,
+   25
+  ],
+  "house_g1": [
+   41,
+   25
+  ],
+  "flat": [
+   51,
+   27
+  ],
+  "r7_tree_77_28": [
+   77,
+   27
+  ],
+  "r7_tree_79_28": [
+   79,
+   27
+  ],
+  "r7_tree_81_28": [
+   81,
+   27
+  ],
+  "r7_tree_83_28": [
+   83,
+   27
+  ],
+  "r7_tree_85_28": [
+   85,
+   27
+  ],
+  "r7_tree_87_28": [
+   87,
+   27
+  ],
+  "cafe": [
+   46,
+   28
+  ],
+  "stall_8_32": [
+   8,
+   29
+  ],
+  "stall_16_32": [
+   16,
+   29
+  ],
+  "lamp_19_33": [
+   19,
+   30
+  ],
+  "lamp_24_33": [
+   24,
+   30
+  ],
+  "plant_25_32": [
+   25,
+   31
+  ],
+  "plant_27_32": [
+   27,
+   31
+  ],
+  "plant_33_32": [
+   33,
+   31
+  ],
+  "plant_36_32": [
+   36,
+   31
+  ],
+  "plant_42_32": [
+   42,
+   31
+  ],
+  "bench_11_33": [
+   11,
+   32
+  ],
+  "bench_15_33": [
+   14,
+   32
+  ],
+  "lamp_18_37": [
+   18,
+   34
+  ],
+  "lamp_25_37": [
+   25,
+   34
+  ],
+  "tree_0_592": [
+   0,
+   37
+  ],
+  "tree_32_592": [
+   2,
+   37
+  ],
+  "tree_64_600": [
+   4,
+   37
+  ],
+  "plant_10_39": [
+   10,
+   38
+  ],
+  "plant_13_39": [
+   13,
+   38
+  ],
+  "plant_36_39": [
+   36,
+   38
+  ],
+  "plant_45_39": [
+   45,
+   38
+  ],
+  "plant_51_39": [
+   51,
+   38
+  ],
+  "plant_54_39": [
+   54,
+   38
+  ],
+  "lamp_29_42": [
+   29,
+   39
+  ],
+  "blossom": [
+   40,
+   39
+  ],
+  "lamp_47_42": [
+   47,
+   39
+  ],
+  "lamp_55_42": [
+   55,
+   39
+  ],
+  "lamp_5_42": [
+   5,
+   40
+  ],
+  "bench_7_42": [
+   6,
+   41
+  ],
+  "bench_32_42": [
+   31,
+   41
+  ],
+  "bench_49_42": [
+   48,
+   41
+  ],
+  "bench_57_42": [
+   56,
+   41
+  ],
+  "tree_480_680": [
+   30,
+   42
+  ],
+  "plant_37_43": [
+   37,
+   42
+  ],
+  "plant_44_43": [
+   44,
+   42
+  ],
+  "tree_64_696": [
+   4,
+   43
+  ],
+  "tree_112_696": [
+   7,
+   43
+  ],
+  "plant_13_44": [
+   13,
+   43
+  ],
+  "tree_448_688": [
+   28,
+   43
+  ],
+  "tree_528_696": [
+   33,
+   43
+  ],
+  "tree_768_696": [
+   48,
+   43
+  ],
+  "tree_880_688": [
+   55,
+   43
+  ],
+  "tree_912_688": [
+   57,
+   43
+  ],
+  "tree_496_704": [
+   32,
+   44
+  ],
+  "bench_37_45": [
+   36,
+   44
+  ],
+  "bench_45_45": [
+   44,
+   44
+  ],
+  "plant_54_45": [
+   54,
+   44
+  ],
+  "tree_208_720": [
+   13,
+   45
+  ],
+  "tree_672_720": [
+   42,
+   45
+  ],
+  "plant_51_46": [
+   51,
+   45
+  ],
+  "plant_10_47": [
+   10,
+   46
+  ],
+  "tree_64_784": [
+   4,
+   49
+  ],
+  "tree_96_784": [
+   6,
+   49
+  ],
+  "tree_128_784": [
+   8,
+   49
+  ],
+  "tree_160_784": [
+   10,
+   49
+  ],
+  "tree_192_784": [
+   12,
+   49
+  ],
+  "tree_448_784": [
+   29,
+   49
+  ],
+  "tree_480_784": [
+   30,
+   49
+  ],
+  "tree_512_784": [
+   32,
+   49
+  ],
+  "tree_544_784": [
+   34,
+   49
+  ],
+  "tree_576_784": [
+   36,
+   49
+  ],
+  "tree_608_784": [
+   38,
+   49
+  ],
+  "tree_640_784": [
+   40,
+   49
+  ],
+  "tree_672_784": [
+   42,
+   49
+  ],
+  "tree_704_784": [
+   44,
+   49
+  ],
+  "tree_736_784": [
+   46,
+   49
+  ],
+  "tree_768_784": [
+   48,
+   49
+  ],
+  "tree_800_784": [
+   50,
+   49
+  ],
+  "tree_832_784": [
+   52,
+   49
+  ],
+  "tree_864_784": [
+   54,
+   49
+  ],
+  "tree_896_784": [
+   56,
+   49
+  ],
+  "tree_928_784": [
+   58,
+   49
+  ]
+ },
+ "palette_groups": [
+  "apartments",
+  "blossom_pool",
+  "cafe",
+  "center",
+  "center",
+  "dept_store",
+  "dept_store",
+  "flat",
+  "fountain",
+  "game_corner_front",
+  "game_corner_top",
+  "gate",
+  "ground",
+  "ground",
+  "ground",
+  "ground",
+  "ground",
+  "hotel",
+  "house_a",
+  "house_b",
+  "house_c",
+  "plant",
+  "route_ground",
+  "route_ground",
+  null,
+  "stall",
+  "stall",
+  "street",
+  "tree",
+  "tree",
+  "tree",
+  "underground"
+ ],
+ "world": {
+  "width": 97,
+  "height": 52,
+  "celadon": [
+   0,
+   0,
+   64,
+   52
+  ],
+  "route7": [
+   64,
+   1,
+   33,
+   32
+  ]
+ }
+}

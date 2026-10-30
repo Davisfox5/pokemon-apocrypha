@@ -1,0 +1,162 @@
+{
+ "view": {
+  "world": [
+   97,
+   52
+  ],
+  "glyphs": 3480,
+  "static": 3429,
+  "pinned": 51,
+  "palettes": 32,
+  "bytes": 356012
+ },
+ "ids": {
+  "KantoRoute7": 16,
+  "KantoRoute7Gatehouse": 17
+ },
+ "celadon": {
+  "warps": [
+   [
+    "center",
+    "center"
+   ],
+   [
+    "dept_store",
+    "services"
+   ],
+   [
+    "hotel",
+    "hotel_1f"
+   ],
+   [
+    "gamecorner",
+    "game_corner"
+   ],
+   [
+    "cafe",
+    "cafe"
+   ]
+  ],
+  "signs": {
+   "CitySign": [
+    12,
+    30
+   ],
+   "ServicesSign": [
+    12,
+    14
+   ],
+   "HotelSign": [
+    39,
+    14
+   ],
+   "GameCornerSign": [
+    31,
+    29
+   ],
+   "CafeSign": [
+    48,
+    32
+   ]
+  }
+ },
+ "route": {
+  "size": [
+   33,
+   32
+  ],
+  "warps": 5,
+  "notice": [
+   12,
+   25
+  ],
+  "kinds": {
+   "open": 229,
+   "behind": 19,
+   "solid": 736,
+   "tall": 52,
+   "tall_behind": 1,
+   "jump_s": 11,
+   "jump_e": 3,
+   "arrow_e": 5
+  }
+ },
+ "saffron": {
+  "cell": [
+   8,
+   27
+  ],
+  "metatile": 263,
+  "warp": 5
+ },
+ "room": {
+  "size": [
+   13,
+   9
+  ],
+  "tiles": 36,
+  "metatiles": 45
+ },
+ "wild": [
+  [
+   "RATTATA",
+   16,
+   17
+  ],
+  [
+   "SPEAROW",
+   16,
+   17
+  ],
+  [
+   "GROWLITHE",
+   16,
+   17
+  ],
+  [
+   "RATTATA",
+   17,
+   18
+  ],
+  [
+   "SPEAROW",
+   17,
+   18
+  ],
+  [
+   "GROWLITHE",
+   17,
+   18
+  ],
+  [
+   "RATTATA",
+   18,
+   19
+  ],
+  [
+   "SPEAROW",
+   18,
+   19
+  ],
+  [
+   "RATICATE",
+   19,
+   19
+  ],
+  [
+   "SHINX",
+   17,
+   17
+  ],
+  [
+   "PLUSLE",
+   17,
+   17
+  ],
+  [
+   "MINUN",
+   17,
+   17
+  ]
+ ]
+}

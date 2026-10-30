@@ -375,6 +375,14 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   banks of their own when a view needs it. Never fold shades that share a tile (texture
   flattens). Porymap shows stand-in metatiles for traversal. Prove it with VRAM parity over
   long walks in every direction, not standing views alone.
+- **A map beside a streamed town streams with it.** Gen 3 draws a connected map with the current
+  map's tiles, and a streamed town's map holds stand-ins, so a route connected to it joins the
+  stream as one world (Route 7 beside Celadon: `route7/world.py`, engine `celadon_view.c`): each map
+  reads the world from its own origin (the connection's offset), the cache and banks carry on when
+  the player crosses (no tileset reload), and VRAM parity is proved across the seam both ways. The
+  route's own palettes go only to the tiles the town's banks cannot hold, or the seam's views
+  outgrow 13 banks. A gatehouse the neighbouring town already draws (FireRed's Saffron) is reached
+  through its room, not a second map connection.
 
 ## Planning a new town: the change plot
 

@@ -124,6 +124,8 @@ def check_frames(out, game, phases):
     results = []
     for p in sorted(out.glob('vram-*.bin')):
         tag = p.stem[5:]
+        if 'continue-menu' in tag:                          # the title screen's menu, not a map
+            continue
         o = positions[tag]
         m = R6.KANTO0 + o['map'] if o['group'] == R6.KANTO_GROUP else None
         if m == GATE:

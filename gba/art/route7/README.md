@@ -1,8 +1,62 @@
 # Route 7: Celadon to Saffron
 
-Status: **plan for the owner's call** (AGENTS.md, "Planning a new town: the change plot"). Nothing
-is built yet. The plot is `evidence/plan.png`; HGSS's own models at 45 degrees are
-`evidence/art-samples.png`.
+Status: **built in the engine, owner visual review pending.** The plot (`evidence/plan.png`) was
+approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
+shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
+solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.
+
+## What was built
+
+- `KantoRoute7` (Kanto 16, `MAPSEC_ROUTE_7`, 33 x 32), from HGSS's ledger in Gen 3 elements
+  (`compose.py`): FireRed's grass, HGSS's road01 at 1:1 with FireRed's path edges and its
+  pebbles, Celadon's paving and two-lane cycleway run on from the city and into the gate under its
+  west wing and step, a painted bicycle, whole-cell tall grass (G15), FRLG ledges and FRLG rock in
+  HGSS's cliff ramp (the step down from Celadon, both outcrops), Cherrygrove's tree on Celadon's
+  staggered lattice, HGSS's gate (247), Underground Path entrance (339) and notice board (31) at 45
+  degrees. Evidence: `evidence/review.png` (HGSS beside native, coordinate grid),
+  `review-seam.png`, `compose-2x.png`.
+- Streamed with Celadon as one 97 x 52 world (`world.py`; engine `celadon_view.c`): either map's
+  view shows the other's real art across the connection, and the cache and banks carry on when the
+  player crosses (`LoadMapFromCameraTransition` skips the tileset reload for a streamed map).
+  32 palettes, the worst step 13, all banked; the busiest view 684 of 956 glyph slots.
+- `KantoRoute7Gatehouse` (Kanto 17): FireRed's Route 7 gate room, every pixel exact
+  (`gate_room.py`); its east arrow lands on Saffron's west gate (8, 27), opened natively (a copy
+  of its metatile with FireRed's west arrow behaviour, metatile 263).
+- FireRed's Underground Path sign on the board; the wild table from KANTO_BATTLES' R07 row
+  (`install7.WILD`: Rattata, Spearow, Growlithe; Raticate 4%, Shinx 4%, Plusle and Minun 1%; FireRed's
+  rate 21).
+
+## Adaptations from HGSS
+
+- The road widened from 4 rows to 5 so Celadon's road comes on at its own width (lane rows 18-19).
+- HGSS's x 0-3 row 14 is woods: Celadon's woods at x 60-63 run on there.
+- HGSS's gate warps sit on its wall cell (25, 16-17); the Gen 3 sprite fills that cell, so the five
+  road cells in front of it, (24, 15-19), are east arrow warps, as FireRed's Route 7 does it.
+- The notice board a row south, (12, 25): at (12, 24) its top covered the entrance's foot.
+- The gate overhangs HGSS's block by three quarters of a cell: the map is 33 columns.
+- HGSS's pale lawn in front of the entrance is FireRed's grass, as Celadon's lawns are.
+
+## Checks
+
+- Audit (`check7.py`, `evidence/engine/audit.json`): tables byte for byte; budgets; the walkable
+  cells against HGSS's, 0 unexplained of 1,024; traversal on both maps; every route cell reached
+  from Celadon's Center door; warps both ways through the gate room; connections; the seam; scope.
+- Headless mGBA (`runtime7.py`, `evidence/engine/gameplay/`, `ingame-montage.png`): 48 frames,
+  0 map-layer pixels wrong against the decode, across the seam both ways, along the road, in the
+  gate room and at Saffron's west gate; walk-behind (a tree, the entrance) and in-front depth; the
+  south ledge jumps and neither ledge climbs; the entrance's door holds; the sign reads; ordinary
+  save on the route, cold reload, Continue.
+- Porymap 6.3.1 round trip (`porymap7.py`): the export equals the stand-in decode (0 pixels
+  differ); saving changes no Route 7 or Celadon file.
+- Pixels: the route 99.3% exact in 5-bit colour (the trees' shared palettes); Celadon's own decode
+  differs from round 6 in 2,583 of 851,968 pixels, from the shared tree palettes being repacked.
+
+## Limits
+
+- Tall grass covers the player's feet with Emerald's own grass sprite (the engine's field effect).
+- Not built: the gate guard and his line, trainers, the Mental Herb and the hidden item (flags),
+  the cafe's honey, the Underground Path's inside, music beyond FireRed's.
+- Night tint and weather on the route are not checked.
 
 ## Story brief
 
@@ -43,7 +97,7 @@ notice at (12, 24) ("the Underground Path has been sealed indefinitely"); the lo
 | Ledges (allpeak) | row 13, row 21, x 15 rows 10-13 | FRLG ledges, jumping as HGSS's behaviours say |
 | Rock outcrops (cliff01) | NE x 21-27 rows 0-5; SW x 5-11 rows 20-31 | FRLG General mountain set in HGSS's cliff ramp, one terrace |
 | Saffron gate (model 247) | x 25.25-32.75, rows 14-20 | HGSS's model at 45 degrees; the map is 33 cells wide for its east wall |
-| Underground Path entrance (339) | x 12-16, rows 21-23 | HGSS's model at 45 degrees, door solid |
+| Underground Path entrance (339) | x 12-16, rows 21-23 | HGSS's model at 45 degrees, door solid until its inside is built |
 | Notice board (31) | (12, 24) | HGSS's model at 45 degrees, sign event |
 | Lawn (grass01gs) | x 12-20, rows 23-27 | Celadon's lawn with its smooth edge |
 
@@ -60,8 +114,9 @@ between Celadon and the route; read as HGSS's walkable slope.
    its west door. The door warps into a new gatehouse room (FireRed's Route 7 gate room, as a new
    Emerald map); its east exit lands at Saffron's west gate (8, 27), which opens (Saffron's native
    files: the warp and the door cell).
-5. The Underground Path entrance, sealed as HGSS has it, with HGSS's notice and locked-door sign
-   (CHAPTER5 5.5c: the long way round is blocked).
+5. The Underground Path entrance on HGSS's lot. Owner, 2026-10-30: unsealed, its inside to come
+   later; HGSS's "sealed" notice and locked-door sign left out, FireRed's Underground Path sign on
+   the board, the door solid until the inside exists.
 6. Whole-cell tall grass with KANTO_BATTLES' R07 table.
 7. Cherrygrove's trees, FRLG ledges, FRLG rock in HGSS's ramp.
 8. A map connection to Celadon (Route 7 row = Celadon row - 1). Gen 3 draws a connected map with
