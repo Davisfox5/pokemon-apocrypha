@@ -1,0 +1,2735 @@
+{
+  "method": "lossless pack on Route 45 City's tilesets: Route 45's primary (tiles 0-511, palettes 0-5, metatiles 0-511); a secondary carrying exact copies of what Route 45's visible edge uses, then Route 46's own art",
+  "native_pixels_exact": 573440,
+  "route46_pixels_in_route45_view": 52992,
+  "route46_pixels_in_route45_view_exact": true,
+  "route45_pixels_in_route46_view": 50688,
+  "route45_pixels_in_route46_view_exact": true,
+  "route45_unchanged_with_appended_metatiles": true,
+  "reserved_metatiles": {
+    "512": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "513": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "514": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "515": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "516": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "517": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "518": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "519": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "520": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "522": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "536": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "540": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "545": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "584": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "589": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "610": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "611": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "613": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "627": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "644": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "655": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "658": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "660": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "663": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "672": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "685": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "693": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "718": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "720": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "725": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "726": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "727": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "731": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "733": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "734": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "741": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "755": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "756": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "779": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "787": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "799": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "801": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "807": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "810": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "818": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "828": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "829": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "830": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "834": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "841": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "844": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "857": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "871": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "873": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "875": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "876": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "879": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "882": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "883": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "reserved_tiles": [
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    522,
+    524,
+    525,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    536,
+    537,
+    540,
+    541,
+    547,
+    552,
+    553,
+    554,
+    556,
+    557,
+    558,
+    559,
+    564,
+    565,
+    566,
+    569,
+    570,
+    571,
+    577,
+    582,
+    584,
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    593,
+    594,
+    597,
+    598,
+    599,
+    605,
+    609,
+    610,
+    611,
+    612,
+    615,
+    622,
+    623,
+    627,
+    628,
+    643,
+    650,
+    652,
+    655,
+    662,
+    668,
+    669,
+    675,
+    680,
+    681,
+    693,
+    694,
+    696,
+    699,
+    700,
+    703,
+    704,
+    705,
+    706,
+    707,
+    708,
+    709,
+    710,
+    711,
+    712,
+    713,
+    716,
+    717,
+    718,
+    719,
+    742,
+    743,
+    746,
+    747,
+    750,
+    753,
+    754,
+    755,
+    779,
+    782,
+    785,
+    786,
+    992,
+    993,
+    994,
+    995,
+    996,
+    997,
+    998
+  ],
+  "reserved_palette_slots": {
+    "6": [
+      3,
+      5,
+      6,
+      8,
+      10,
+      12,
+      13,
+      14
+    ],
+    "9": [
+      3,
+      4,
+      5,
+      8,
+      10,
+      11,
+      13,
+      14,
+      15
+    ],
+    "10": [
+      8,
+      13,
+      14,
+      15
+    ]
+  },
+  "banks": [
+    15,
+    15,
+    15,
+    12,
+    15,
+    14,
+    15,
+    15,
+    15,
+    15,
+    15,
+    12,
+    1
+  ],
+  "primary_tiles_reused": 30,
+  "new_secondary_tiles": 217,
+  "secondary_tile_slots": 387,
+  "secondary_metatiles": 278,
+  "primary_metatiles_used": 2,
+  "route45_new_tiles": {
+    "first": 992,
+    "count": 7
+  },
+  "route45_appended": {
+    "primary": [],
+    "secondary": [
+      892,
+      893,
+      894,
+      895,
+      896,
+      897,
+      898,
+      899,
+      900,
+      901,
+      902,
+      903,
+      904,
+      905,
+      906,
+      907,
+      908,
+      909
+    ]
+  },
+  "seam": [
+    {
+      "cell": [
+        30,
+        0
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        0
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        30,
+        1
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        1
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        26,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        27,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        28,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        29,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        30,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        31,
+        2
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        26,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        27,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        28,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        29,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        30,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        31,
+        3
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        26,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        27,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        28,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        29,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        30,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        31,
+        4
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        24,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        25,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        26,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        27,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        28,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        29,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        30,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        31,
+        5
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        24,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 515
+    },
+    {
+      "cell": [
+        25,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        26,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        27,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        28,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        29,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        30,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        31,
+        6
+      ],
+      "kind": "route45 metatile",
+      "id": 514
+    },
+    {
+      "cell": [
+        24,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 516
+    },
+    {
+      "cell": [
+        25,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 515
+    },
+    {
+      "cell": [
+        26,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        27,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        28,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        29,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        30,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        31,
+        7
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        24,
+        8
+      ],
+      "kind": "route45 metatile",
+      "id": 520
+    },
+    {
+      "cell": [
+        25,
+        8
+      ],
+      "kind": "route45 metatile",
+      "id": 536
+    },
+    {
+      "cell": [
+        26,
+        8
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 892,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          757,
+          0
+        ],
+        [
+          801,
+          1
+        ],
+        [
+          757,
+          2
+        ],
+        [
+          794,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        27,
+        8
+      ],
+      "kind": "route45 metatile",
+      "id": 801
+    },
+    {
+      "cell": [
+        28,
+        8
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 893,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          802,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          3625,
+          38605
+        ],
+        [
+          795,
+          2
+        ],
+        [
+          797,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        29,
+        8
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 894,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          802,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          3625,
+          38605
+        ],
+        [
+          795,
+          2
+        ],
+        [
+          797,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        30,
+        8
+      ],
+      "kind": "route45 metatile",
+      "id": 734
+    },
+    {
+      "cell": [
+        31,
+        8
+      ],
+      "kind": "route45 metatile",
+      "id": 734
+    },
+    {
+      "cell": [
+        24,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        25,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 731
+    },
+    {
+      "cell": [
+        26,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 655
+    },
+    {
+      "cell": [
+        27,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        28,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        29,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        30,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        31,
+        9
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        24,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 734
+    },
+    {
+      "cell": [
+        25,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 655
+    },
+    {
+      "cell": [
+        26,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        27,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        28,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        29,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        30,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        31,
+        10
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        24,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        25,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        26,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        27,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        28,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        29,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        30,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        31,
+        11
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        24,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        25,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        26,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        27,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        28,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        29,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        30,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        31,
+        12
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        24,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        25,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        26,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        27,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        28,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        29,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        30,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        31,
+        13
+      ],
+      "kind": "route45 metatile",
+      "id": 39
+    },
+    {
+      "cell": [
+        24,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 741
+    },
+    {
+      "cell": [
+        25,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 663
+    },
+    {
+      "cell": [
+        26,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 663
+    },
+    {
+      "cell": [
+        27,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 663
+    },
+    {
+      "cell": [
+        28,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 799
+    },
+    {
+      "cell": [
+        29,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 879
+    },
+    {
+      "cell": [
+        30,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 799
+    },
+    {
+      "cell": [
+        31,
+        14
+      ],
+      "kind": "route45 metatile",
+      "id": 879
+    },
+    {
+      "cell": [
+        24,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 787
+    },
+    {
+      "cell": [
+        25,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        26,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        27,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        28,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        29,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        30,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        31,
+        15
+      ],
+      "kind": "route45 metatile",
+      "id": 611
+    },
+    {
+      "cell": [
+        24,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        26,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        27,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        28,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        29,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        30,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        31,
+        16
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        24,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        27,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        28,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        29,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        30,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        31,
+        17
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        24,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        28,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        29,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        30,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        31,
+        18
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        24,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        29,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        30,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        31,
+        19
+      ],
+      "kind": "route45 metatile",
+      "id": 522
+    },
+    {
+      "cell": [
+        24,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        30,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        31,
+        20
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        24,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 660
+    },
+    {
+      "cell": [
+        25,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        30,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        31,
+        21
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        24,
+        22
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 895,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          589,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          589,
+          2
+        ],
+        [
+          "new Route 45 tiles",
+          28640,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        25,
+        22
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 896,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          "new Route 45 tiles",
+          28641,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28640,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        26,
+        22
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 897,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          "new Route 45 tiles",
+          28641,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28640,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        27,
+        22
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 898,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          "new Route 45 tiles",
+          28641,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28640,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        28,
+        22
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 899,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          519,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          "new Route 45 tiles",
+          28641,
+          0
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        29,
+        22
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        30,
+        22
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        31,
+        22
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        24,
+        23
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 900,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          589,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28642,
+          0
+        ],
+        [
+          589,
+          2
+        ],
+        [
+          "new Route 45 tiles",
+          26595,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        25,
+        23
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 901,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          26596,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28642,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          27621,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          26595,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        26,
+        23
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 902,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          26596,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28642,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          27621,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          26595,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        27,
+        23
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 903,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          26596,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          28642,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          27621,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          26595,
+          0
+        ]
+      ]
+    },
+    {
+      "cell": [
+        28,
+        23
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 904,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          26596,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          "new Route 45 tiles",
+          27621,
+          0
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        29,
+        23
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        30,
+        23
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        31,
+        23
+      ],
+      "kind": "route45 metatile",
+      "id": 873
+    },
+    {
+      "cell": [
+        24,
+        24
+      ],
+      "kind": "route45 metatile",
+      "id": 589
+    },
+    {
+      "cell": [
+        25,
+        24
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 905,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          25574,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        26,
+        24
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 906,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          25574,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        27,
+        24
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 907,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          25574,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        28,
+        24
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 908,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          "new Route 45 tiles",
+          25574,
+          0
+        ],
+        [
+          519,
+          1
+        ],
+        [
+          519,
+          2
+        ],
+        [
+          519,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        29,
+        24
+      ],
+      "kind": "appended to Route 45's secondary, visible quadrants shared",
+      "id": 909,
+      "quads": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sources": [
+        [
+          873,
+          0
+        ],
+        [
+          "new Route 45 tiles",
+          41739,
+          25160
+        ],
+        [
+          545,
+          2
+        ],
+        [
+          545,
+          3
+        ]
+      ]
+    },
+    {
+      "cell": [
+        30,
+        24
+      ],
+      "kind": "route45 metatile",
+      "id": 882
+    },
+    {
+      "cell": [
+        31,
+        24
+      ],
+      "kind": "route45 metatile",
+      "id": 882
+    },
+    {
+      "cell": [
+        24,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        25,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        30,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        25
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        24,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 613
+    },
+    {
+      "cell": [
+        25,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        26,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        27,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        30,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        26
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        24,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        25,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        26,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        27,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        28,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        30,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        27
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        24,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        25,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        26,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 545
+    },
+    {
+      "cell": [
+        27,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 540
+    },
+    {
+      "cell": [
+        28,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        29,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 519
+    },
+    {
+      "cell": [
+        30,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    },
+    {
+      "cell": [
+        31,
+        28
+      ],
+      "kind": "route45 metatile",
+      "id": 512
+    }
+  ],
+  "route45_counts": {
+    "primary_tiles": 512,
+    "primary_metatiles": 512,
+    "secondary_tiles": 480,
+    "secondary_metatiles": 380
+  }
+}

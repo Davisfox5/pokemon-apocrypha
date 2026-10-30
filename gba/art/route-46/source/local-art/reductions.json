@@ -1,0 +1,136 @@
+{
+ "note": "Local HGSS pieces: closest RGB555 tones merge (the rarer into the commoner, or onto the nearest tone Route 45's palettes hold) until at most the limit of tones Route 45 lacks remain; shapes untouched. Entries: [dropped tone, kept tone, pixels].",
+ "limits": {
+  "flowers": {
+   "new_tones": 2,
+   "route45_banks": [
+    0
+   ]
+  },
+  "dirt": {
+   "new_tones": 1,
+   "route45_banks": [
+    1
+   ]
+  },
+  "cascades": {
+   "new_tones": 4,
+   "route45_banks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  }
+ },
+ "dirt": [
+  [
+   [
+    192,
+    120,
+    104
+   ],
+   [
+    168,
+    120,
+    112
+   ],
+   36
+  ],
+  [
+   [
+    152,
+    112,
+    96
+   ],
+   [
+    168,
+    120,
+    112
+   ],
+   136
+  ]
+ ],
+ "flowers": [
+  [
+   [
+    240,
+    152,
+    112
+   ],
+   [
+    232,
+    144,
+    104
+   ],
+   96
+  ],
+  [
+   [
+    232,
+    224,
+    208
+   ],
+   [
+    232,
+    232,
+    192
+   ],
+   84
+  ],
+  [
+   [
+    216,
+    240,
+    216
+   ],
+   [
+    232,
+    232,
+    192
+   ],
+   888
+  ],
+  [
+   [
+    248,
+    200,
+    112
+   ],
+   [
+    224,
+    200,
+    128
+   ],
+   112
+  ],
+  [
+   [
+    240,
+    176,
+    112
+   ],
+   [
+    216,
+    184,
+    128
+   ],
+   224
+  ],
+  [
+   [
+    152,
+    176,
+    144
+   ],
+   [
+    184,
+    168,
+    128
+   ],
+   196
+  ]
+ ]
+}

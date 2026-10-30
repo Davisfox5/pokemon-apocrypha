@@ -1,0 +1,93 @@
+# Route 46 material and structure grid, one code per native 16x16 cell (x across, y down).
+# Traced from decoded HGSS land_data chunks 108-112 (trace.py), then reviewed. Codes:
+#   g  lawn
+#   d  dirt road
+#   f  lawn with white flowers
+#   r  rock plateau top
+#   F  rock front face (mountain)
+#   E  rock side facing east
+#   W  rock side facing west
+#   N  rock rear rim
+#   w  low wall, front (grass-topped)
+#   e  low wall side facing east
+#   x  low wall side facing west
+#   n  low wall rear rim
+#   L  jump ledge south
+#   Q  jump ledge west
+#   J  ledge corner (blocked)
+#   t  tree root (T01)
+#   B  building / prop footprint
+#   C  Pokemon Center (C06)
+#   G  gatehouse (none on Route 46)
+#   s  sign
+#   x: 01234567890123456789012345678901
+00    xWWWWrWrrrWrrrrrrrrrrrrrrrrrrrrr
+01    xWWWWrWrrrxFFFFFFFFFFFFFFFFFFFFF
+02    xWWWWrWFFFwFFFFFFFFFFFFFFFFFFFFF
+03    xWWWWrFFFWrrrrrrrrrEFFFFFFFFFFFF
+04    xWWWxFFrrxFFFFFFFFFerrEFFFFFFFFF
+05    xWWWwFFFFwFFFFFFFFFFFFeEFFFFFFFF
+06    xWWxFFwFFwFFFFFFFFFFFFFeEFFFFFFF
+07    xWxwFFwFFwFFFFFFFFFFFFFFeEFFFFFF
+08    xxwwFFwFFwFFFFFFFFFwFFFFFegggggg
+09    xwwwFFwFFwFFFFFFFFFwFFFFFwgggggg
+10    xttttttggggttttttttdddsggggggggg
+11    xttttttggggttttttttddddggggggggg
+12    xttttttggggttttttttdddgggggggggg
+13    xttttttggggttttttttggggggggggggg
+14    xttttttggggggggggggggggggnnnnnnn
+15    xttttttgggggggggggggggggxgnnnnnn
+16    xttttttttttttttttttgggggWxgnnnnn
+17    xttttttttttttttttttgggggWWxgnnnn
+18    xttttttttxgggNNgggegggggWWWxgnnn
+19    xttttttttWrrxrrErrEgggggWWWWxggg
+20    xttxggggggrrWFFEggEgggggWWWWWddd
+21    xttWrrrrrrrrFFFFrrELLLLLWWWWWddd
+22    xttxwwFFFFFFFFFFFFegggggWWWWWddd
+23    xttwwwFFFFFFFFFFFFwgggggxxxxxdnn
+24    xttggggggggggggQgggggggnWWWWWxgg
+25    xttggggggggggggQggggggxgnWWWWWrr
+26    xttgggggggggggnQggggggWxggWWWWrr
+27    xttggggggnnnnnggeLLLttWWrxgWWWrr
+28    xttgggggxgnnnnrrEgggttWWrWxgWWrr
+29    xttgggggWxggggErEgggttWWrWWxgWrr
+30    xttgggggWWrrrrErEgggttWWrWWWxgrr
+31    xttwgggwWWrrrrgeEgggttWxFWWWWrrr
+32    wwwwgggxWWrrrrrEEgggttWwWWWWWrrr
+33    gggggggWWWrgwFFeEgggggWrWWWWWrrr
+34    ttttgggWWxFFwFFwEggggfWrWWWWWrrr
+35    ttttgggWxwFFFFFFegggffxFWWWWxFrr
+36    ttttgggxwwFFFFFFwgggwwwWWWWWwWrr
+37    ttttLLLwwwFFFFFFwgggwwxWWWWWrxFF
+38    ttttgggggggQggggggggggWWWWWxFwFF
+39    ttttgggggggQggggggggggWWWWWwFwFF
+40    ttttgggggggQggggggggggWWWWxFFFFF
+41    ttttgggggggQggggggggggWWWWwFFFFF
+42    ttttgggggggJLLLLLLLLLLWWWxFFFFFF
+43    ttttggggggggggggggggggWWxwFFFFFF
+44    ttttggggggggggggggggggWxwwFFFFFF
+45    ttttggggggggggggggggggxwwwFFFFFF
+46    ttttggggggggggggggggggwwwwFFFFFF
+47    ttttgggggggggggggggggggggggggggg
+48    ttttggggggggggggggggggtttttttttt
+49    ttttggggggggggggggggggtttttttttt
+50    ttttttggggggggggggggsgtttttttttt
+51    ttttttggggggggggddddddtttttttttt
+52    ttttttggggggggggddddddtttttttttt
+53    ttttttggggggggggddddddtttttttttt
+54    ttttttttgggggdddddddddtttttttttt
+55    ttttttttggggddddddddddtttttttttt
+56    ttttttttggggddddddddddtttttttttt
+57    ttttttttggggggggddddddtttttttttt
+58    ttttttttttttttttddddddtttttttttt
+59    ttttttttttttttttddddddtttttttttt
+60    ttttttttttttttttddddddtttttttttt
+61    ttttttttttttttttddddddtttttttttt
+62    ttttttttttttttttttGGtttttttttttt
+63    ttttttttttttttttttGGtttttttttttt
+64    ttttttttttttttttGGGGGGtttttttttt
+65    ttttttttttttttttGGGGGGtttttttttt
+66    ttttttttttttttttGGGGGGtttttttttt
+67    ttttttttttttttttGGGGGGtttttttttt
+68    ttttttttttttttttGGGGGGtttttttttt
+69    ttttttttttttttttGGggGGtttttttttt
