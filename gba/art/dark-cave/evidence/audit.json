@@ -32,11 +32,11 @@
       "objects": {},
       "unwired": {},
       "tiles": [
-        304,
+        240,
         16
       ],
       "metatiles": [
-        179,
+        114,
         1
       ]
     },
@@ -81,11 +81,11 @@
         "5,26": "HGSS's exit to Route 31: Route 31 and the Dark Cave entrance beside it are another agent's maps, so this exit stays solid until they are joined"
       },
       "tiles": [
-        304,
+        240,
         16
       ],
       "metatiles": [
-        179,
+        114,
         1
       ]
     }
@@ -192,11 +192,11 @@
     "src/data/tilesets/metatiles.h"
   ],
   "budget": {
-    "patterns": 291,
-    "primary_tiles": 291,
+    "patterns": 237,
+    "primary_tiles": 237,
     "secondary_tiles": 0,
-    "metatiles": 179,
-    "primary_metatiles": 179,
+    "metatiles": 114,
+    "primary_metatiles": 114,
     "secondary_metatiles": 0
   },
   "failures": []

@@ -93,7 +93,9 @@ def ledger(side):
                 if major[y, x] == BOULDER:
                     c.update(boulder=True)                       # FRLG boulder on the floor
                 elif major[y, x] in (FLOOR, WATER):
-                    c.update(blocked_floor=True)                 # HGSS blocks it; its art is floor
+                    # HGSS's small moss rocks (d_rock01s, too small to be the cell's main material):
+                    # blocked, so drawn as the routes' boulder, on the water where HGSS has them in it
+                    c.update(boulder=True, floor='water' if major[y, x] == WATER else 'sand')
                 else:
                     c.update(lab='T')                            # rock (walls, pillars, exit rims)
             elif major[y, x] == STAIRS:
@@ -105,7 +107,7 @@ def ledger(side):
     # A blocked floor cell or boulder stands on the floor beside it: the height of its lowest open neighbour.
     for row in cells:
         for c in row:
-            if c.get('boulder') or c.get('blocked_floor') or c['lab'] in 'LQ':
+            if c.get('boulder') or c['lab'] in 'LQ':
                 near = [cells[c['y'] + dy][c['x'] + dx]['ground'] for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
                         if 0 <= c['x'] + dx < W and 0 <= c['y'] + dy < H and cells[c['y'] + dy][c['x'] + dx]['lab'] == '.']
                 if near:
@@ -163,7 +165,124 @@ def rock_cells(cells, fl):
             out[y][x] = dict(out[y][x], lab='S' if kind == 'row' else face, peak=peak, stair=True)
     return out
 
+def regularise(rc, d, isrock):
+    """Clean-up on the mapped shapes, so every cell is one the routes' pieces draw cleanly with the
+    cells round it (owner review: go tile by tile). Repeats until nothing changes:
+
+    wall rock   a moss rock HGSS sets into a wall's edge (two or more sides rock) is that wall,
+                at the lowest of those rocks' heights, not a boulder notched into it
+    floor       a floor cell whose height matches none of the floor beside it (HGSS's height noise:
+                a cell one level up or down in an even corridor) takes the height most of them have
+    spine       a one-cell ridge of higher rock along the top of a lower rock mass is that mass's top
+    bump        a small raised patch (up to BUMP cells) with lower rock all round it is that rock's top
+    nub         a rock cell standing proud of its wall with three or four sides lower has no FRLG
+                piece: it becomes the routes' boulder on the floor beside it, still blocked
+
+    deep rock   outer rock (joined to HGSS's void) more than DEEP cells from any floor, water, ledge
+                or boulder (Chebyshev) is the rock top all round the cave, at the void's height: HGSS shows at most three tiers of a
+                wall before its dark, and the far tiers of the big outer masses otherwise draw as
+                stacks of rounded columns
+    island      a rock formation standing free inside the cave is one block at its full height
+
+    Returns {kind: [cells changed]}."""
+    changed = dict(wall_rock=[], floor=[], nub=[], deep_rock=[], island=[], spine=[], bump=[])
+    open_ = np.array([[not isrock[y, x] for x in range(W)] for y in range(H)])
+    from scipy.ndimage import distance_transform_cdt
+    from scipy.ndimage import label
+    comp, _ = label(~open_, structure=np.ones((3, 3), bool))
+    voids = np.array([[bool(c.get('void')) for c in row] for row in rc])
+    outer = np.isin(comp, np.unique(comp[voids & (comp > 0)]))         # rock joined to the dark round the cave
+    far = (distance_transform_cdt(~open_, metric='chessboard') > DEEP) & outer
+    top = max(c['peak'] for row in rc for c in row)
+    for y, x in zip(*np.nonzero(far & isrock)):
+        if not rc[y][x].get('void') and not rc[y][x].get('stair'):
+            rc[y][x] = dict(rc[y][x], peak=top, regularised='deep_rock')
+            changed['deep_rock'].append([int(x), int(y)])
+    # island: a rock formation standing free inside the cave (not joined to its outer walls) is one block
+    # at its full height, so its inside tier steps (HGSS's 45-degree slopes) do not draw as rounded bumps
+    for k in np.unique(comp[(comp > 0) & ~outer]):
+        m = comp == k
+        peak = max(rc[y][x]['peak'] for y, x in zip(*np.nonzero(m)))
+        for y, x in zip(*np.nonzero(m)):
+            if rc[y][x]['peak'] != peak:
+                rc[y][x] = dict(rc[y][x], peak=peak, regularised='island')
+                changed['island'].append([int(x), int(y)])
+    d[:], _, isrock[:] = terraces(rc)
+    orth = ((0, -1), (1, 0), (0, 1), (-1, 0))
+    inside = lambda x, y: 0 <= x < W and 0 <= y < H
+    is_floor = lambda c: c['lab'] == '.' and c['floor'] == 'sand' and not c.get('boulder')
+    for _ in range(20):
+        moved = False
+        for y in range(H):
+            for x in range(W):
+                c = rc[y][x]
+                if c.get('boulder') and c['floor'] == 'sand':
+                    rocks = [rc[y + dy][x + dx] for dx, dy in orth if inside(x + dx, y + dy) and isrock[y + dy, x + dx]
+                             and not rc[y + dy][x + dx].get('void')]
+                    if len(rocks) >= 2:
+                        rc[y][x] = dict(c, lab='T', boulder=False, peak=min(r['peak'] for r in rocks), regularised='wall_rock')
+                        changed['wall_rock'].append([x, y]); moved = True
+                elif is_floor(c) and not c.get('exit'):
+                    lv = [level(rc[y + dy][x + dx]['ground']) for dx, dy in orth if inside(x + dx, y + dy) and is_floor(rc[y + dy][x + dx])]
+                    if lv and level(c['ground']) not in lv:
+                        g = Counter(lv).most_common(1)[0][0] + ROCK_BASE
+                        rc[y][x] = dict(c, ground=float(g), regularised='floor')
+                        changed['floor'].append([x, y]); moved = True
+        d[:], _, isrock[:] = terraces(rc)
+        # spine: a one-cell ridge of higher rock along the top of a lower rock mass (lower rock on two
+        # opposite sides) draws as a pointed spike; it is that mass's top
+        for y in range(1, H - 1):
+            for x in range(1, W - 1):
+                c = rc[y][x]
+                if not isrock[y, x] or c.get('void') or c.get('stair'):
+                    continue
+                for (ax, ay), (bx, by) in (((-1, 0), (1, 0)), ((0, -1), (0, 1))):
+                    A, B = (x + ax, y + ay), (x + bx, y + by)
+                    if all(isrock[q[1], q[0]] and not rc[q[1]][q[0]].get('void') and d[q[1], q[0]] < d[y, x] for q in (A, B)):
+                        peak = max(rc[A[1]][A[0]]['peak'], rc[B[1]][B[0]]['peak'])
+                        rc[y][x] = dict(c, peak=peak, regularised='spine')
+                        changed['spine'].append([x, y]); moved = True
+                        break
+        d[:], _, isrock[:] = terraces(rc)
+        # bump: a small raised patch (up to BUMP cells) sitting on a rock top, lower rock all round it,
+        # draws as a lone knob; it is that top
+        from scipy.ndimage import label as _label
+        for lv in sorted(set(d[isrock].tolist()), reverse=True):
+            lab_, n = _label(isrock & (d == lv), structure=np.ones((3, 3), bool))
+            for k in range(1, n + 1):
+                m = lab_ == k
+                if m.sum() > BUMP:
+                    continue
+                ys, xs = np.nonzero(m)
+                ring = {(x + dx, y + dy) for y, x in zip(ys, xs) for dx in (-1, 0, 1) for dy in (-1, 0, 1)} - set(zip(xs, ys))
+                if not all(inside(*q) and isrock[q[1], q[0]] and not rc[q[1]][q[0]].get('void') and d[q[1], q[0]] < lv for q in ring):
+                    continue
+                if any(rc[y][x].get('stair') or rc[y][x].get('void') for y, x in zip(ys, xs)):
+                    continue
+                peak = max(rc[q[1]][q[0]]['peak'] for q in ring)
+                for y, x in zip(ys, xs):
+                    rc[y][x] = dict(rc[y][x], peak=peak, regularised='bump')
+                    changed['bump'].append([int(x), int(y)]); moved = True
+            d[:], _, isrock[:] = terraces(rc)
+        for y in range(H):
+            for x in range(W):
+                c = rc[y][x]
+                if not isrock[y, x] or c.get('void') or c.get('stair'):
+                    continue
+                low = [(dx, dy) for dx, dy in orth if inside(x + dx, y + dy) and d[y + dy, x + dx] < d[y, x]]
+                if len(low) >= 3:
+                    floors = [rc[y + dy][x + dx] for dx, dy in low if is_floor(rc[y + dy][x + dx])]
+                    g = min((f['ground'] for f in floors), default=c['ground'])
+                    rc[y][x] = dict(c, lab='.', floor='sand', ground=g, boulder=True, regularised='nub')
+                    changed['nub'].append([x, y]); moved = True
+        d[:], _, isrock[:] = terraces(rc)
+        if not moved:
+            break
+    return changed
+
 ROCK_BASE = None
+DEEP = 3
+BUMP = 6
 def level(v):
     return int(np.floor(v + 0.5)) - ROCK_BASE
 
@@ -250,6 +369,73 @@ def paint_ground(q, tex):
             out[(mat == G.SEA) & (dist[G.PATH] == k + 1)] = c
     return out
 
+# --------------------------------------------------------------------------- water
+# FRLG General's rock-edged pond (Icefall Cave's and Berry Forest's): still water with a brown rock lip
+# inside the water cell along every edge that meets land, so it never depends on the floor beside it.
+# The lip is on FRLG's mountain bank (the rock ramp), the water on bank 3.
+POND_NINE = {('N', 'W'): 419, ('N', 'M'): 422, ('N', 'E'): 420, ('M', 'W'): 429, ('M', 'M'): 430, ('M', 'E'): 431,
+             ('S', 'W'): 548, ('S', 'M'): 549, ('S', 'E'): 550}
+POND_INNER = dict(nw=436, ne=435)                       # only a diagonal is land; the south pair are these turned over
+
+def pond_pieces(engine):
+    """{key: (water rgb 16x16x3, lip index map 16x16 into the rock ramp, -1 clear)} from general_frlg."""
+    d = engine / 'data/tilesets/primary/general_frlg'
+    a = np.array(Image.open(d / 'tiles.png')) & 15
+    tiles = [a[y:y + 8, x:x + 8] for y in range(0, a.shape[0], 8) for x in range(0, a.shape[1], 8)]
+    blocks = np.frombuffer((d / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
+    pal = lambda b: np.array([tuple(map(int, l.split())) for l in (d / 'palettes' / f'{b:02}.pal').read_text().replace('\r', '').splitlines()[3:19]], np.uint8)
+    def piece(m):
+        water = np.zeros((16, 16, 3), np.uint8); lip = np.full((16, 16), E.CLEAR, int)
+        for li in range(8):
+            e = int(blocks[m][li]); b = e >> 12
+            t = tiles[e & 1023]
+            if e & 0x400: t = t[:, ::-1]
+            if e & 0x800: t = t[::-1]
+            q = li % 4
+            sl = np.s_[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
+            if li < 4:
+                water[sl] = pal(b)[t]
+            elif e:
+                assert b == 1, (m, hex(e))
+                sub = lip[sl]
+                for (yy, xx), v in np.ndenumerate(t):
+                    if v:
+                        sub[yy, xx] = E.FRLG_RAMP.get(int(v), E.SHADOW)
+        return water, lip
+    out = {k: piece(v) for k, v in POND_NINE.items()}
+    for k, v in POND_INNER.items():
+        out[k] = piece(v)
+    out['sw'] = tuple(x[::-1] for x in out['nw'])                # turned over: the lip's corner at the bottom
+    out['se'] = tuple(x[::-1] for x in out['ne'])
+    return out
+
+def ponds(cells, pieces):
+    """Every water cell from the pond pieces, per 8x8 quadrant as the rock nine-slice is composed:
+    a land neighbour (anything not water) north, south, east or west puts the lip on that side; a
+    land diagonal alone puts the inner corner there. Returns RGBA (lip pixels in the rock ramp)."""
+    out = np.zeros((H * PX, W * PX, 4), np.uint8)
+    wet = lambda x, y: not (0 <= x < W and 0 <= y < H) or cells[y][x]['floor'] == 'water'
+    for y in range(H):
+        for x in range(W):
+            if cells[y][x]['floor'] != 'water':
+                continue
+            land = {k: not wet(x + dx, y + dy) for k, (dx, dy) in E.DIRS.items()}
+            cell = np.zeros((16, 16, 4), np.uint8); cell[..., 3] = 255
+            for qy in (0, 1):
+                v = ('N', 'S')[qy] if land['n'] and land['s'] else 'N' if land['n'] else 'S' if land['s'] else 'M'
+                for qx in (0, 1):
+                    h = ('W', 'E')[qx] if land['w'] and land['e'] else 'W' if land['w'] else 'E' if land['e'] else 'M'
+                    q = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
+                    vk, hk = 'ns'[qy], 'we'[qx]
+                    key = vk + hk if land[vk + hk] and not land[vk] and not land[hk] else (v, h)
+                    water, lip = pieces[key]
+                    cell[q][..., :3] = water[q]
+                    for (yy, xx), k in np.ndenumerate(lip[q]):
+                        if k >= 0:
+                            cell[q][yy, xx, :3] = E.ROCK_RAMP[k]
+            out[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = cell
+    return out
+
 # --------------------------------------------------------------------------- recolour
 def recolour(img, tex):
     """Colour for colour: the Johto rock ramp to CAVE_RAMP, the routes' road and shore tones to
@@ -261,8 +447,8 @@ def recolour(img, tex):
         return {s: dst[min(len(dst) - 1, round(i * (len(dst) - 1) / max(1, len(src) - 1)))] for i, s in enumerate(src)}
     hg_floor = [tuple(int(v) for v in c) for c in np.unique(FLOOR_TEX.reshape(-1, 3), axis=0)]
     hg_water = [tuple(int(v) for v in c) for c in np.unique(WATER_TEX.reshape(-1, 3), axis=0)]
-    road = [tuple(int(v) for v in c) for c in np.unique(quarter(tex, 'sand').reshape(-1, 3), axis=0)] + list(G.PROFILES[(G.PATH, G.SEA)][0])
-    sea = [tuple(int(v) for v in c) for c in np.unique(tex['water'].reshape(-1, 3), axis=0)] + list(G.PROFILES[(G.PATH, G.SEA)][1])
+    road = [tuple(int(v) for v in c) for c in np.unique(quarter(tex, 'sand').reshape(-1, 3), axis=0)]
+    sea = sorted({tuple(int(v) for v in c) for w, _ in POND.values() for c in w.reshape(-1, 3)})
     cmap = {tuple(s): tuple(d) for s, d in zip(E.ROCK_RAMP, CAVE_RAMP)}
     cmap.update(ranked(road, hg_floor))
     cmap.update(ranked(sea, hg_water))
@@ -280,6 +466,8 @@ def recolour(img, tex):
     return out, {f'{s}': d for s, d in cmap.items() if s in cols}
 
 FLOOR_TEX = WATER_TEX = None
+POND = None
+PIECES = {}
 STAIR_STRAIGHT = {(131, 131, 139), (164, 164, 164), (189, 189, 189), (213, 213, 213), (255, 255, 255)}   # S01-S03's tones
 
 def main(phg, engine):
@@ -289,10 +477,13 @@ def main(phg, engine):
     dec = {e.name: e for e in tex0.textures}
     FLOOR_TEX = R.decode(tex0, dec['droad01'], 'droad01_pl')[..., :3]
     WATER_TEX = R.decode(tex0, dec['driver'], 'driver_pl')[..., :3]
-    exit_names = {'chole_in', 'chole_out', 'chole_light', 'light'}
+    exit_names = {'chole_in', 'chole_light', 'light'}                  # the glow and the hole, not chole_out's rubble rim
     out_dir = SRC / 'assemble'; out_dir.mkdir(parents=True, exist_ok=True)
     (EV / 'assemble').mkdir(parents=True, exist_ok=True)
     tex = E.cherry_textures()
+    global POND
+    POND = pond_pieces(engine)
+    tex['water'] = quarter(tex, 'sand')                      # past a rock edge toward a pond: floor, then the pond's own lip
     pieces = E.frlg_pieces(engine)
     boulder = E.frlg_boulder(engine)
     report = {}
@@ -302,12 +493,19 @@ def main(phg, engine):
         fl = flights(cells)
         rc = rock_cells(cells, fl)
         d, face, isrock = terraces(rc)
+        nubs = regularise(rc, d, isrock)
+        d, face, isrock = terraces(rc)
         E.layers = lambda _cells, _d=d, _f=face, _r=isrock: (_d, _f, _r)
         # ground: road everywhere but the water
-        q = np.repeat(np.repeat(np.array([[G.SEA if c['floor'] == 'water' else G.PATH for c in row] for row in rc]), 2, 0), 2, 1).astype(np.int8)
+        q = np.full((H * 2, W * 2), G.PATH, np.int8)            # the floor is road edge to edge; the ponds go over it
         ground = paint_ground(q, tex)
+        pond = ponds(rc, POND)
+        a = pond[..., 3] > 0
+        ground[a] = pond[a, :3]
+        main.piece = None
         bottom, over, _, piece = E.rock_frlg(rc, ground, pieces, tex, None, topped(rc, d, isrock), south_faces(rc, d, isrock), ())
         ledge = E.ledges_frlg(rc, pieces)
+        PIECES[side] = (piece, d, isrock, rc)
         a = ledge[..., 3] > 0
         over[a] = ledge[a]
         top = np.zeros((H * PX, W * PX, 4), np.uint8)
@@ -327,7 +525,7 @@ def main(phg, engine):
             over[sl] = 0
             m = art[..., 3] > 0
             top[sl][m] = art[m]
-        for row in cells:
+        for row in rc:
             for c in row:
                 if c.get('boulder'):
                     sl = np.s_[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX]
@@ -362,8 +560,8 @@ def main(phg, engine):
         both = Image.new('RGB', (W * 32 + 12, H * 16), (24, 26, 30))
         both.paste(Image.fromarray(ref), (0, 0)); both.paste(Image.fromarray(comp), (W * 16 + 12, 0))
         both.save(EV / f'assemble/{side}-before-after.png')
-        report[side] = dict(flights=len(fl), rock_cells=int(isrock.sum()), colour_map=cmap)
-        print(side, len(fl), 'flights', int(isrock.sum()), 'rock cells')
+        report[side] = dict(flights=len(fl), rock_cells=int(isrock.sum()), regularised=nubs, colour_map=cmap)
+        print(side, len(fl), 'flights', int(isrock.sum()), 'rock cells', {k: len(v) for k, v in nubs.items()})
     return report
 
 if __name__ == '__main__':
