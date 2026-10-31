@@ -1,5 +1,5 @@
 {
- "glyphs_static": 3346,
+ "glyphs_static": 3506,
  "glyphs_pinned": 51,
  "glyph_slots": 1008,
  "worst_view_glyphs": 684,
@@ -18,8 +18,8 @@
  ],
  "banks": 13,
  "unbanked_palettes": [],
- "tile_layers": 26425,
- "colours": 325,
+ "tile_layers": 26224,
+ "colours": 324,
  "groups": {
   "apartments": {
    "tiles": 302,
@@ -92,7 +92,7 @@
    "error": 0.0
   },
   "ground": {
-   "tiles": 10744,
+   "tiles": 10629,
    "drawn": 66,
    "how": "exact",
    "unplaced": 2,
@@ -134,7 +134,7 @@
    "error": 5.162
   },
   "route_ground": {
-   "tiles": 1030,
+   "tiles": 1400,
    "drawn": 24,
    "how": "exact",
    "unplaced": 0,
@@ -155,11 +155,11 @@
    "error": 6.536
   },
   "tree": {
-   "tiles": 10831,
+   "tiles": 10375,
    "drawn": 57,
    "how": "exact",
    "unplaced": 66,
-   "error": 0.283
+   "error": 0.296
   },
   "underground": {
    "tiles": 61,
@@ -169,7 +169,7 @@
    "error": 0.0
   }
  },
- "exact_pixels": 1242385,
+ "exact_pixels": 1239664,
  "pixels": 1291264,
  "worst_rgb5_error": 18,
  "doors": {

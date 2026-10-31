@@ -63,6 +63,7 @@ UNDERGROUND = (12.0, 23)            # left edge, base row; its door (13, 23)
 UNDERGROUND_DOOR = (13, 23)
 NOTICE = (12, 25)                   # HGSS's (12, 24) a row south: there its top would cover the entrance's foot
 PEBBLES = [(8, 17), (16, 16)]       # HGSS's road01_sub (its third is on Celadon's paving now)
+NORTH = (4, 14)                     # the north barrier's west arm: its west column, the row it stops above
 
 def h(*a):
     return int(hashlib.md5(' '.join(map(str, a)).encode()).hexdigest(), 16)
@@ -100,7 +101,12 @@ def ledger():
     Y = OY
     rock[Y + 0:Y + 4, 21:24] = True; rock[Y + 0:Y + 6, 24:28] = True        # the north-east outcrop
     rock[Y + 20:Y + 32, 4:8] = True; rock[Y + 28:Y + 32, 8:12] = True       # the south-west outcrop
-    rock[Y + 0:Y + 15, 4] = True                                            # the step down from Celadon, under the woods
+    # The north barrier (owner, 2026-10-31): the step down from Celadon made an outcrop as wide as
+    # the south-west one, up to the map's top edge where it ends on its own rim, then four rows
+    # deep along the top of the map east to the north-east outcrop, through the woods and the
+    # meadow's top rows: the route's north edge is rock the player cannot leave by.
+    rock[Y + 0:Y + NORTH[1], NORTH[0]:NORTH[0] + 4] = True
+    rock[Y + 0:Y + 4, NORTH[0]:24] = True
     kind[rock] = 'rock'
     kind[Y + ROAD[0]:Y + ROAD[1], 0:W] = 'road'
     kind[Y + 14:Y + 21, 27:W] = 'forest'                    # behind the gate: HGSS's woods (no road beyond it)
@@ -255,31 +261,112 @@ def ground(kind):
             out[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = gr[0 if k < 8 else k - 7]
     grass_px = out.copy()
     ys, xs = world_grid()
-    road = np.isin(kind, ('road',)).repeat(16, 0).repeat(16, 1)
-    road[:, int(ROAD_END * 16):] = False
-    out[road] = G.tile(tex['road01'], ys, xs)[road]
-    for x, y in PEBBLES:                                      # HGSS's pebbles, on the 8 px grid
-        p = tex['road01_sub']
-        a = p[..., 3] > 0
-        cell = out[(y + OY) * 16:(y + OY) * 16 + 16, x * 16:x * 16 + 16]
-        cell[a] = p[..., :3][a]
     pave = (kind == 'pave').repeat(16, 0).repeat(16, 1)
     out[pave] = G.tile(t['tama_yuka'], ys, xs)[pave]
-    # the paving's end at the foot of the slope: Celadon's kerb, three pixels, down its east edge
-    X = PAVE_X * 16
-    r0, r1 = (OY + ROAD[0]) * 16, (OY + LANE[0]) * 16
-    out[r0:r1, X - 3:X - 2] = K.KERB[0]
-    out[r0:r1, X - 2:X - 1] = K.KERB[1]
-    out[r0:r1, X - 1:X] = K.KERB[2]
     lane(out)
     gtall = tall_grass()
     for y, x in zip(*np.nonzero(kind == 'tall')):
         out[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = gtall[..., :3]
     grassy = np.isin(kind, ('grass', 'forest', 'rock', 'ledge_s', 'ledge_e', 'ledge_se', 'tall'))
     N.grass_edges(out, ~grassy, grass_px)
+    rough_road(out, kind, grass_px, tex, t)
     rock(out, kind)
     ledges(out, kind)
     return out
+
+# --------------------------------------------------------------------------- the rough road
+WEAR = [(231, 198, 148), (231, 181, 148)]      # road01's two darker shades, for worn patches
+
+def edges8(out, ground8, grass_px, paint):
+    """FireRed's path edge laid on an 8 px grid: every painted 8 px block of ground that touches
+    grass takes, from the path piece its neighbours call for, the quadrant facing that grass, so
+    an edge that steps in or out by half a cell still meets the grass the way Viridian Forest's
+    paths do (nature.grass_edges, at half the grain)."""
+    H8, W8 = ground8.shape
+    inside = lambda x, y: (not (0 <= x < W8 and 0 <= y < H8)) or ground8[y, x]
+    pieces, cls = N.path_pieces(), N.classes()
+    for sy, sx in zip(*np.nonzero(paint)):
+        gw, ge, gn, gs = (not inside(sx - 1, sy)), (not inside(sx + 1, sy)), (not inside(sx, sy - 1)), (not inside(sx, sy + 1))
+        qx = 0 if gw else 1 if ge else None
+        qy = 0 if gn else 1 if gs else None
+        if qx is None or qy is None:                          # a corner: face the grass diagonal
+            for dx, dy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
+                if not inside(sx + dx, sy + dy) and (qx in (None, (dx + 1) // 2)) and (qy in (None, (dy + 1) // 2)):
+                    qx, qy = (dx + 1) // 2 if qx is None else qx, (dy + 1) // 2 if qy is None else qy
+                    break
+        if qx is None or qy is None:
+            continue
+        k = N.piece_for(inside, sx, sy, qx, qy)
+        if k == 'c':
+            continue
+        ps = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
+        sl = np.s_[sy * 8:sy * 8 + 8, sx * 8:sx * 8 + 8]
+        cl = cls[k][ps]
+        out[sl][cl == 1] = grass_px[sl][cl == 1]
+        out[sl][cl == 2] = pieces[k][ps][cl == 2]
+
+def rough_road(out, kind, grass_px, tex, t):
+    """The dirt road as a rough country road (owner, 2026-10-31): HGSS's road01 at 1:1, its edges
+    notched and bulged by half cells along its length (a fixed hash in world cells, the bulges only
+    onto open grass verges), FireRed's path edge laid on the 8 px grid round them, worn patches in
+    road01's own darker shades, HGSS's pebbles scattered, and Celadon's paving breaking up into
+    the dirt at its end instead of stopping on a straight kerb."""
+    H8, W8 = H * 2, W * 2
+    road = np.zeros((H8, W8), bool)
+    r0, r1 = (OY + ROAD[0]) * 2, (OY + ROAD[1]) * 2
+    x0, x1 = PAVE_X * 2, int(ROAD_END * 2)
+    road[r0:r1, x0:x1] = True
+    verge = lambda sy, sx: kind[sy // 2, sx // 2] == 'grass'
+    for sx in range(x0 + 1, min(x1, 25 * 2)):
+        for edge, inward, deeper, outward in ((r0, r0, r0 + 1, r0 - 1), (r1 - 1, r1 - 1, r1 - 2, r1)):
+            v = h('rough', edge, sx + OX * 2) % 9
+            if v in (0, 1):
+                road[inward, sx] = False                          # grass breaking in
+                if v == 0 and h('deep', edge, sx) % 3 == 0:
+                    road[deeper, sx] = False                      # and further, here and there
+            elif v in (2, 3) and verge(outward, sx):
+                road[outward, sx] = True                          # the road worn wider
+    # the paving's last column breaks up into the dirt (its lane rows stay whole)
+    pave_end = np.zeros((H8, W8), bool)
+    for sy in range((OY + ROAD[0]) * 2, (OY + LANE[0]) * 2):
+        for sx in (x0 - 2, x0 - 1):
+            if h('slab', sy, sx) % 3 == 0 or (sx == x0 - 1 and h('slab', sy, sx) % 3 == 1):
+                pave_end[sy, sx] = True
+    ys, xs = world_grid()
+    big = lambda m: m.repeat(8, 0).repeat(8, 1)
+    region = np.zeros((H8, W8), bool)
+    region[r0 - 2:r1 + 2, x0:x1] = True
+    rg = big(region) & ~big(np.isin(kind, ('forest', 'rock', 'ledge_s', 'ledge_e', 'ledge_se', 'tall')).repeat(2, 0).repeat(2, 1))
+    out[rg] = grass_px[rg]                                        # the verges, repainted as plain grass first
+    dirt = big(road | pave_end)
+    out[dirt] = G.tile(tex['road01'], ys, xs)[dirt]
+    # the broken slabs' edges: a dark crack where paving meets the dirt that took its place
+    paved = (kind == 'pave').repeat(16, 0).repeat(16, 1) & ~dirt
+    crack = paved & (np.roll(dirt, 1, 1) | np.roll(dirt, -1, 1) | np.roll(dirt, 1, 0) | np.roll(dirt, -1, 0))
+    out[crack] = K.KERB[2]
+    # worn patches: small irregular blots of the road's darker shades, dithered at their rims
+    ry0, ry1 = r0 * 8, r1 * 8
+    for i in range(int((x1 - x0) * 1.2)):
+        cx = x0 * 8 + h('wear x', i) % ((x1 - x0) * 8)
+        cy = ry0 + 6 + h('wear y', i) % max(1, ry1 - ry0 - 12)
+        rx, rh = 3 + h('wear w', i) % 6, 1 + h('wear h', i) % 3
+        shade = WEAR[h('wear c', i) % len(WEAR)]
+        for yy in range(cy - rh, cy + rh + 1):
+            for xx in range(cx - rx, cx + rx + 1):
+                if not (0 <= yy < H * 16 and 0 <= xx < W * 16) or not road[yy // 8, xx // 8]:
+                    continue
+                d = ((xx - cx) / rx) ** 2 + ((yy - cy) / (rh + 0.5)) ** 2
+                if d <= 0.55 or (d <= 1.0 and (xx + yy) % 2 == 0):
+                    out[yy, xx] = shade
+    # HGSS's pebbles, scattered on the 8 px grid off the edges
+    p = tex['road01_sub']; pa = p[..., 3] > 0
+    for sy in range(r0 + 1, r1 - 2):
+        for sx in range(x0 + 2, x1 - 3):
+            if h('pebble', sx + OX * 2, sy) % 23 == 0 and road[sy:sy + 2, sx:sx + 2].all():
+                cell = out[sy * 8:sy * 8 + 16, sx * 8:sx * 8 + 16]
+                cell[pa] = p[..., :3][pa]
+    ground8 = road | pave_end | np.isin(kind, ('pave', 'lane')).repeat(2, 0).repeat(2, 1)
+    edges8(out, ground8, grass_px, road | pave_end)
 
 # --------------------------------------------------------------------------- objects
 def sprites():

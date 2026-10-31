@@ -45,6 +45,9 @@ ADAPTED = {
     "Celadon's woods at x 60-63 run on": [(x, 14) for x in range(0, 4)],
     'arrow warps in front of the gate (HGSS warps on its wall cell)': [(25, y) for y in range(15, 19)],
     'notice board a row south': [(12, 24), (12, 25)],
+    'the north rock barrier (owner, 2026-10-31)': [(x, y) for y in range(0, 14) for x in range(R.NORTH[0], R.NORTH[0] + 4)]
+    + [(x, y) for y in range(0, 4) for x in range(R.NORTH[0], 24)],
+    'rough road edges (owner, 2026-10-31): walkable grass, as HGSS': [],
 }
 
 def git(g, *a):

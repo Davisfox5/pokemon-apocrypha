@@ -386,6 +386,14 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   the edges facing a neighbour's ground at the same height (a one-cell ridge is edged on both sides);
   side ledges are FireRed's top, middle and corner pieces, so a ledge runs as one piece (owner,
   Route 7, 2026-10-31).
+- **Routes are rough.** A route's dirt road between towns is a country road, not a tidy strip: its
+  edges notched and bulged by half cells, FireRed's path edge laid on the 8 px grid round them,
+  worn patches in the road's own darker shades, pebbles scattered, and a town's paving breaking up
+  into it rather than stopping on a straight kerb (`route7/compose.rough_road`; owner, Route 7,
+  2026-10-31).
+- **Rock has a job.** Rock that only decorates a strip of woods reads as pointless: make it a whole
+  outcrop that bounds the map (Route 7's north edge, as wide as its south-west outcrop, ending on its
+  own rim at the map's edge, never running off it; owner, 2026-10-31).
 - **A map beside a streamed town streams with it.** Gen 3 draws a connected map with the current
   map's tiles, and a streamed town's map holds stand-ins, so a route connected to it joins the
   stream as one world (Route 7 beside Celadon: `route7/world.py`, engine `celadon_view.c`): each map

@@ -4,7 +4,12 @@ Status: **built in the engine, round 2 after the owner's review (2026-10-31), ow
 pending.** Round 2: the Kanto gatehouse (option B, `evidence/gate-options.png`: HGSS's gate in
 FireRed's Kanto gatehouse metal and yellow brick); Celadon's lane ends where the paving meets the
 dirt road, and the road is HGSS's four rows again; every rock edge takes its edge piece (no rock top
-ends in grass on a hard line); the east ledge is FireRed's top, middle and corner pieces. The plot (`evidence/plan.png`) was
+ends in grass on a hard line); the east ledge is FireRed's top, middle and corner pieces.
+Round 3 (owner, 2026-10-31): the step down from Celadon becomes a four-wide outcrop like the
+south-west one, up to the map's top edge on its own rim, and a four-row rock band along the top of
+the map east to the north-east outcrop (the trees and the meadow's top rows there go): the route's
+north edge. The road is rough (ragged edges at half-cell steps with FireRed's path edges, worn
+patches, scattered pebbles) and Celadon's paving breaks up into it. The plot (`evidence/plan.png`) was
 approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
 shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
 solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.
@@ -38,6 +43,8 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
   road cells in front of it, (24, 15-18), are east arrow warps, as FireRed's Route 7 does it.
 - The gate is HGSS's model in FireRed's Kanto gatehouse materials (owner's choice), not HGSS's teal.
 - The notice board a row south, (12, 25): at (12, 24) its top covered the entrance's foot.
+- The north rock barrier (owner): rows 0-3 from x 4 to the north-east outcrop and x 4-7 down to row
+  13 are rock where HGSS has woods, a strip of meadow and the tall grass's top rows.
 - The gate overhangs HGSS's block by three quarters of a cell: the map is 33 columns.
 - HGSS's pale lawn in front of the entrance is FireRed's grass, as Celadon's lawns are.
 
