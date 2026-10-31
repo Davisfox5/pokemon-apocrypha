@@ -5,7 +5,7 @@
 
 Into the east gate and back out, into the west gate and back out, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
-hall's front blocking at its door and the lawn its old west wing gave back walkable.
+hall's front blocking at its door, the back path behind it open and the lawn its old west wing gave back walkable.
 Every capture is compared with the installed native decode outside the player sprite: results.json
 records the share of identical pixels per frame.
 """
@@ -60,7 +60,8 @@ int main(int argc,char**argv){
  // the lake blocks on foot
  go(VIOLET,30,15);step(DOWN);at(VIOLET_NUM,30,15,"lake-blocks");shot("lake-blocks");
  // the hall: its door blocks from the spur, the lawn its old west wing gave back is open
- go(VIOLET,57,42);step(UP);at(VIOLET_NUM,57,42,"hall-blocks");shot("hall-front");
+ go(VIOLET,58,43);step(UP);at(VIOLET_NUM,58,43,"hall-blocks");shot("hall-front");
+ go(VIOLET,54,33);step(RIGHT);step(RIGHT);at(VIOLET_NUM,56,33,"back-path-open");shot("back-path");
  go(VIOLET,47,40);step(RIGHT);step(RIGHT);at(VIOLET_NUM,49,40,"old-wing-open");shot("old-wing");
  c->deinit(c);return 0;
 }

@@ -1,7 +1,7 @@
 {
  "exit_code": 0,
- "frames": 36,
- "fully_identical": 35,
+ "frames": 37,
+ "fully_identical": 36,
  "lowest": [
   [
    0.9973,
@@ -30,6 +30,7 @@
   "north road to the main street over both bridges and the landing (30 steps)",
   "the lake blocks on foot",
   "the hall blocks at its door",
+  "the back path behind the hall is open, the roof drawn over the player",
   "the lawn of the old west wing is walkable"
  ],
  "note": "Frames compared with the installed native decode outside the player sprite."

@@ -378,25 +378,27 @@ def tower_tones(cv):
 # --------------------------------------------------------------------------- the university
 # The port's university (x47-66, rows 33-41) was a western hall: slate roof, cream walls, a clock tower, in
 # a style and at a scale apart from the rest of Violet. It becomes a two-storey Johto hall in Sprout
-# Tower's own materials (owner requests), every part centred on its door: the ground floor is the tower's
-# front with three window bays each side of the door under the tower's lowest roof tier, stretched; the
-# upper floor is three window bays of the same front, its sills behind the lower roof, under the tower's
-# top tier (its hip roof). Every piece moves by 8 px columns with the tower's rows (a whole number of
-# tiles), so it draws with the tower's own tiles; the lawn under its edges is the lawn of its new place. The
-# hall is 14 cells wide (was 20) and stands on the old base line; the cells it gives back are lawn, walkable.
+# Tower's materials (owner requests), every part centred on its door. Both roofs are the tower's top tier,
+# a whole hip roof at the tower's own pitch (the spire's foot filled with the front face below it, mirrored):
+# the lower one stretched across the ground floor, its side slopes running back past the upper floor so it
+# wraps round it; the upper one over the upper floor, one column wider to centre. The ground floor is the
+# tower's front with three window bays each side of the door; the upper floor is three window bays of the
+# same front. Every piece moves by whole tiles with the tower's rows, so it draws with the tower's own
+# tiles; the lawn under its edges is the lawn of its new place. The hall stands a little further forward
+# than the port's (its base 8 px short of the street) to give the roofs their height; the cells it gives
+# back are lawn, walkable, and the back path behind it (row 33) stays open under the top roof's ridge.
 OLD_UNIVERSITY = [(range(47, 67), range(35, 42)), (range(55, 61), range(33, 35))]
-HALL_DOOR = 916                                      # the door's centre (px): every part centres on it
+HALL_DOOR = 924                                      # the door's centre (px): every part centres on it
 HALL_BAYS = 3                                        # window bays each side of the door, ground floor
-TOWER_ROOF = (576, 616, 648, 688)                    # the tower's roof columns: left end, middle, right end
-LOWER_TIER = (149, 174)                              # the tower's lowest roof tier (rows): the ground floor's roof
-LOWER_ROOF_K = 4                                     # 32 px repeats of its middle (and one 8 px column, to centre on the door)
-TOP_EDGE, TOP_BODY = (40, 48), (80, 122)             # its top tier: the eave line and the body below the spire
-TOP_COLS = [576, 584, 592, 600, 608, 616, 624, 632, 632, 640, 648, 656, 664, 672, 680]   # 15 columns: one more in the middle, to centre
-TOP_EDGE_COLS = [576, 584, 592, 600, 608, 600, 608, 600, 600, 608, 648, 656, 664, 672, 680]   # the spire's columns taken from beside it
+TIER = (576, 616, 648, 688)                          # the tower's top tier columns: left slope, front face, right slope
+TIER_ROWS = (40, 122)                                # its rows: the back eave to the front eave
+SPIRE = (range(616, 648), range(48, 80), 32)         # the spire's columns, rows, and how far below them the fill comes from (mirrored up: no seam)
+SPIRE_EDGE = [600, 608, 600, 608]                    # the back eave line under the spire, taken from beside it
+LOWER_K = 4                                          # 32 px repeats of the front face in the lower roof (and one 8 px column, to centre)
 WALL = (174, 200)                                    # the eave's shadow and the front
-HALL_DY = 464                                        # the tower's rows moved down to the hall's ground floor (px)
-UPPER_DY, TOP_DY = 424, 480                          # the upper floor's front and the top roof (px)
-DOOR_SPUR = (54, 60, 43)                             # the street's spur to the door: x from, x to, the street's first row
+GROUND_DY, LOWER_DY, UPPER_DY, TOP_DY = 480, 536, 432, 488   # the tower's rows moved down to: ground floor, lower roof, upper floor, top roof
+BACK_PATH = 33                                       # the row behind the hall: walkable, the top roof drawn over the player
+DOOR_SPUR = (55, 61, 43)                             # the street's spur to the door: x from, x to, the street's first row
 
 def university(cv):
     lawn = G.textures()[G.GRASS]
@@ -405,6 +407,12 @@ def university(cv):
     src_low, src_up = cv.lower.copy(), cv.upper.copy()
     cob = cobble_texture(cv.image())
     src_is_lawn = (src_low == lawn_at).all(-1)
+    # the tier without its spire: the front face's own rows (whole tiles) fill the spire's foot
+    sx, sy, below = SPIRE
+    for arr in (src_low, src_up, src_is_lawn):
+        arr[sy[0]:sy[-1] + 1, sx[0]:sx[-1] + 1] = arr[sy[0] + below:sy[-1] + 1 + below, sx[0]:sx[-1] + 1][::-1]
+        for i, c in enumerate(SPIRE_EDGE):
+            arr[TIER_ROWS[0]:sy[0], sx[0] + 8 * i:sx[0] + 8 * i + 8] = arr[TIER_ROWS[0]:sy[0], c:c + 8]
     blocked, freed = 0x3C00, 0x3000                  # elevation 3, collision 3 / 0
     old = set()
     for xr, rr in OLD_UNIVERSITY:
@@ -413,53 +421,55 @@ def university(cv):
                 sl = cv.sl(x, r)
                 cv.lower[sl] = lawn_at[sl]; cv.upper[sl] = 0
                 old.add((x, r))
-    def column(x, y0, y1, flip=False):
+    def column(x, y0, y1):
         """A source 8 px column as an RGBA strip: the tower's upper layer, and its lower where not lawn."""
         up = src_up[y0:y1, x:x + 8].copy()
         low, ll = src_low[y0:y1, x:x + 8], src_is_lawn[y0:y1, x:x + 8]
         m = (up[..., 3] == 0) & ~ll
         up[m, :3] = low[m]; up[m, 3] = 255
-        return up[:, ::-1] if flip else up
-    def put(spec, y0, y1, dy):
-        """Columns side by side, centred on the door, the tower's rows y0..y1 moved down by dy."""
+        return up
+    def put(spec, y0, y1, dy, layer):
+        """Columns side by side, centred on the door, the tower's rows y0..y1 moved down by dy. A wall goes on
+        the lower layer (clearing the roof over it), a roof on the upper: where a roof's eave crosses a wall
+        inside one tile, each layer keeps its own palette."""
         x = HALL_DOOR - len(spec) * 4
-        assert x % 8 == 0, 'not on the tile grid'
+        assert x % 8 == 0 and dy % 8 == 0, 'not on the tile grid'
         for c in spec:
-            a = column(*((c[0], y0, y1, True) if isinstance(c, tuple) else (c, y0, y1)))
-            t = cv.upper[y0 + dy:y1 + dy, x:x + 8]
+            a = column(c, y0, y1)
             m = a[..., 3] > 0
-            t[m] = a[m]
+            up = cv.upper[y0 + dy:y1 + dy, x:x + 8]
+            if layer == 'lower':
+                cv.lower[y0 + dy:y1 + dy, x:x + 8][m] = a[m][:, :3]; up[m, 3] = 0
+            else:
+                up[m] = a[m]
             x += 8
         return len(spec) * 8
-    l, m, r, e = TOWER_ROOF
+    l, m, r, e = TIER
+    face = list(range(m, r, 8))
     bay_l, door, bay_r = list(range(600, 624, 8)), list(range(624, 648, 8)), list(range(648, 672, 8))
-    post_l, post_r = [592], [672]
-    # back to front: the upper floor's front, its hip roof, the lower roof over the upper front's foot, the ground floor
-    put(post_l + bay_l + bay_l + bay_r + post_r, *WALL, UPPER_DY)
-    put(TOP_COLS, *TOP_BODY, TOP_DY)
-    put(TOP_EDGE_COLS, TOP_EDGE[0], TOP_EDGE[1], TOP_BODY[0] - TOP_EDGE[0] - 8 + TOP_DY)
-    width = put(list(range(l, m, 8)) + list(range(m, r, 8)) * LOWER_ROOF_K + [m + 8] + list(range(r, e, 8)), *LOWER_TIER, HALL_DY)
-    put(post_l + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + post_r, *WALL, HALL_DY)
-    # no shadow where the spire stood, and the spire's foot above the eave line
-    y0, x0 = TOP_BODY[0] - 8 + TOP_DY, HALL_DOOR - len(TOP_COLS) * 4
-    band = cv.upper[y0:y0 + 4, x0:x0 + len(TOP_COLS) * 8]
-    band[(band[..., 2].astype(int) < band[..., 1]) & (band[..., 3] > 0), 3] = 0
-    band[0, :, 3] = 0
+    # back to front: the ground floor, the lower roof over its eave, the upper floor on the lower roof, the top roof
+    put([592] + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + [672], *WALL, GROUND_DY, 'lower')
+    width = put(list(range(l, m, 8)) + face * LOWER_K + [m + 8] + list(range(r, e, 8)), *TIER_ROWS, LOWER_DY, 'upper')
+    put([592] + bay_l + bay_l + bay_r + [672], *WALL, UPPER_DY, 'lower')
+    put(list(range(l, m, 8)) + face[:2] + [face[1]] + face[2:] + list(range(r, e, 8)), *TIER_ROWS, TOP_DY, 'upper')
     # the street's spur runs on up to the door
-    y0, y1 = WALL[1] + HALL_DY, DOOR_SPUR[2] * 16
+    y0, y1 = WALL[1] + GROUND_DY, DOOR_SPUR[2] * 16
     x0, x1 = DOOR_SPUR[0] * 16, DOOR_SPUR[1] * 16
     cv.lower[y0:y1, x0:x1] = cob[ys[y0:y1, x0:x1] % 32, xs[y0:y1, x0:x1] % 32]
     cv.upper[y0:y1, x0:x1, 3] = 0
     left = HALL_DOOR - width // 2
-    top, bottom = (TOP_EDGE[0] + TOP_DY + 32) // 16, (WALL[1] - 1 + HALL_DY) // 16
-    hall = {(x, r) for r in range(top, bottom + 1) for x in range(left // 16, (left + width - 1) // 16 + 1)
-            if cv.upper[cv.sl(x, r)][..., 3].any()}
-    for x, r in old | hall:
-        cv.attr[r, x] = B.COVERED << 12
+    top, bottom = (TIER_ROWS[0] + TOP_DY) // 16, (WALL[1] - 1 + GROUND_DY) // 16
+    cells = {(x, r) for r in range(top, bottom + 1) for x in range(left // 16, (left + width - 1) // 16 + 1)
+             if cv.upper[cv.sl(x, r)][..., 3].any() or not (cv.lower[cv.sl(x, r)] == lawn_at[cv.sl(x, r)]).all()}
+    back = {(x, r) for x, r in cells if r == BACK_PATH}
+    hall = cells - back
+    for x, r in old | cells:
+        cv.attr[r, x] = (B.NORMAL if (x, r) in back else B.COVERED) << 12
         cv.bits[r, x] = blocked if (x, r) in hall else freed
-    cv.changed |= old | hall
-    cv.retraverse |= old | hall
-    cv.notes.append(f'university: a two-storey Johto hall in Sprout Tower materials, {width} px wide, {len(hall)} cells')
+    cv.changed |= old | cells
+    cv.retraverse |= old | cells
+    cv.notes.append(f'university: a two-storey Johto hall in Sprout Tower materials, {width} px wide, {len(hall)} cells, '
+                    f'{len(back)} on the back path under its ridge')
 
 # --------------------------------------------------------------------------- one layer where two are not needed
 def flatten(cv):
