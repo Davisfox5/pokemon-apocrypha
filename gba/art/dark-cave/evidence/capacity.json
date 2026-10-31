@@ -1,0 +1,91 @@
+{
+  "maps": [
+    "DarkCaveRoute45Side",
+    "DarkCaveRoute31Side"
+  ],
+  "primary": "gTileset_DarkCavePrimary",
+  "secondary": "gTileset_DarkCave",
+  "build": "HGSS Dark Cave render, fitted banks and medoid tile reuse (pack.py)",
+  "pack": {
+    "method": "HGSS render, 13 fitted palette banks, medoid tile reuse under a material-class penalty (lambda 300.0), one bottom layer per cell",
+    "distinct_hgss_tiles": 2413,
+    "representatives": 1007,
+    "patterns": 1008,
+    "primary_tiles": 512,
+    "secondary_tiles": 496,
+    "metatiles": 809,
+    "primary_metatiles": 512,
+    "secondary_metatiles": 297,
+    "colours_per_bank": [
+      15,
+      15,
+      15,
+      2,
+      15,
+      15,
+      15,
+      15,
+      15,
+      11,
+      15,
+      15,
+      15
+    ],
+    "sides": {
+      "route45-side": {
+        "pixels": 756224,
+        "exact": 0.9594,
+        "within_1": 0.9911,
+        "within_2": 0.9983,
+        "max_level_diff": 11,
+        "metatiles_used": 556
+      },
+      "route31-side": {
+        "pixels": 655872,
+        "exact": 0.9565,
+        "within_1": 0.991,
+        "within_2": 0.9983,
+        "max_level_diff": 11,
+        "metatiles_used": 481
+      }
+    }
+  },
+  "map_ids": {
+    "DarkCaveRoute45Side": 49,
+    "DarkCaveRoute31Side": 50
+  },
+  "route_edits": {
+    "Route45": {
+      "cell": [
+        10,
+        6
+      ],
+      "metatile": 523,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "warp": {
+        "x": 10,
+        "y": 6,
+        "elevation": 0,
+        "dest_map": "MAP_DARK_CAVE_ROUTE45_SIDE",
+        "dest_warp_id": "1"
+      }
+    },
+    "Route46": {
+      "cell": [
+        20,
+        9
+      ],
+      "metatile": 538,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "warp": {
+        "x": 20,
+        "y": 9,
+        "elevation": 0,
+        "dest_map": "MAP_DARK_CAVE_ROUTE31_SIDE",
+        "dest_warp_id": "1"
+      }
+    }
+  }
+}
