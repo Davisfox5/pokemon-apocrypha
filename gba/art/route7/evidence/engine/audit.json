@@ -13,8 +13,8 @@
   "banks": 13,
   "unbanked": [],
   "palettes": 32,
-  "glyphs": 3533,
-  "exact_pixels": 1239893,
+  "glyphs": 3536,
+  "exact_pixels": 1240430,
   "pixels": 1291264
  },
  "ledger": {
@@ -23,7 +23,7 @@
   "adaptations": {
    "Celadon's lane runs on to the paving's end": 5,
    "Celadon's woods at x 60-63 run on": 4,
-   "arrow warps in front of the gate (HGSS warps on its wall cell)": 4,
+   "arrow warps in front of the gate (HGSS warps on its wall cell), the road a row lower there (owner)": 5,
    "notice board a row south": 2,
    "the north rock barrier (owner, 2026-10-31)": 136,
    "rough road edges (owner, 2026-10-31): walkable grass, as HGSS": 0
@@ -32,16 +32,16 @@
  "traversal": {
   "wrong": [],
   "route": {
-   "open": 234,
+   "open": 235,
    "tall": 51,
    "jump_s": 11,
    "jump_e": 3,
    "arrow_e": 4,
-   "blocked": 753
+   "blocked": 752
   }
  },
  "reach": {
-  "route_walkable": 289,
+  "route_walkable": 290,
   "unreached": [],
   "targets_missed": []
  },
@@ -96,7 +96,7 @@
  "scope": {
   "map_ids_appended": true,
   "layout_ids_appended": true,
-  "files_changed": 5,
+  "files_changed": 3,
   "stray": []
  },
  "failures": []

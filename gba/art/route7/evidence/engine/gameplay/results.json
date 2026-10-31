@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "d668a907d6985279d3a3c2c92710d3c4da17199dbb25469954cdccf6b1457cf6",
+  "rom_sha256": "b2ba4c41d898c2133515eedc31ec9f9db323e96e155bf7606ac9de129e231226",
   "phases": [
     {
       "phase": "write",
@@ -527,12 +527,12 @@
           "mapsec": 107
         },
         {
-          "step": "at-70-24-17",
+          "step": "at-70-24-18",
           "region": 1,
           "group": 81,
           "map": 16,
           "x": 24,
-          "y": 17,
+          "y": 18,
           "frlg_layout": 0,
           "width": 33,
           "height": 32,
@@ -545,7 +545,7 @@
           "group": 81,
           "map": 16,
           "x": 24,
-          "y": 17,
+          "y": 18,
           "frlg_layout": 0,
           "width": 33,
           "height": 32,
@@ -979,7 +979,7 @@
       "pixels_on_animated": 0,
       "camera_origin_px": [
         1296,
-        216
+        232
       ],
       "bg1_pixels_over_player": 0
     },

@@ -312,7 +312,8 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   tree out of a tileset by its grass colours: every leaf sharing a grass colour goes and the
   neighbouring cells' shadows stay, so crowns arrive holed and boxed (owner, Celadon,
   2026-10-27). Forests stand in staggered rows two cells apart, drawn by foot so each crown
-  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building.
+  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building (a
+  gatehouse's south row excepted, below).
   A park may mix regions. Never invent a tree or recolour one into a new kind.
 - **Smooth joins.** Grass meets every other ground (dirt, paving, brick, a cycleway, a pond's
   coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
@@ -380,6 +381,13 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   seamed grey-blue metal, the facade band in FireRed's yellow brick laid back course by course, the
   window band kept (owner chose this over HGSS's teal and a steel-and-glass version, Route 7,
   2026-10-31; `route7/gates.py`, option B). It matches the FireRed gatehouses Saffron already draws.
+- **Gatehouses are closed in, and the road meets the door.** Woods close on every gatehouse so no
+  walkable cell runs round it: the trees behind it stand behind its roof, and the row south of it
+  stands a row up from the woods' lattice with its crowns over the gatehouse's bottom row, one
+  tile (the one place a tree stands in front of a building). The road arrives on the gatehouse's
+  entrance rows, stepping down or up a row where it has to (its feathered edges carried round the
+  step), and the cells beside the entrance under the gatehouse's wings are its lot, solid
+  (owner, Route 7, 2026-10-31; the Route 36 gate surround is the Johto precedent).
 - **Lanes stay in town.** A town's cycleway ends where its paving ends; it does not run on along a
   route's dirt road (owner, Route 7, 2026-10-31).
 - **Rock never ends in a hard line.** Every edge of a rock top takes FireRed's edge piece, including

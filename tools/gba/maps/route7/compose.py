@@ -58,7 +58,9 @@ W, H = MW, PL.H                     # the canvas: the map's columns, Celadon's r
 ROAD, LANE, PAVE_X = (15, 19), (18, 20), 5       # HGSS's road rows; Celadon's lane rows; the paving and lane end at x 5
 ROAD_END = 26.5                     # the road runs in under the gate's west wing and step
 GATE_X, GATE_BASE = 25.25, 19       # the gatehouse: HGSS's west wall, base row
-ARROWS = [(24, y) for y in range(ROAD[0], ROAD[1])]  # the road's four cells in front of the gate's west face, pressing east
+SHIFT_X, EAST_ROAD = 12, (16, 20)   # past the tree south of the road it runs a row lower, onto the gate's entrance (owner)
+ARROWS = [(24, y) for y in range(*EAST_ROAD)]  # the road's four cells in front of the gate's west face, pressing east
+SURROUND = [25, 27, 29, 31]         # the gate's south trees: their crowns over its bottom row (owner)
 UNDERGROUND = (12.0, 23)            # left edge, base row; its door (13, 23)
 UNDERGROUND_DOOR = (13, 23)
 NOTICE = (12, 25)                   # HGSS's (12, 24) a row south: there its top would cover the entrance's foot
@@ -82,6 +84,10 @@ def hgss():
     types = np.zeros((H, W), np.uint8); coll = np.full((H, W), 128, np.uint8)
     types[OY:OY + 32, :32], coll[OY:OY + 32, :32] = p['types'], p['collision']
     return types, coll, mat
+
+def road_rows(x):
+    """The road's rows at column x: HGSS's to the tree south of it, then a row lower to the gate."""
+    return ROAD if x < SHIFT_X else EAST_ROAD
 
 def on_map(x, y):
     """Canvas cell (x, y) lies on Route 7's map."""
@@ -108,7 +114,9 @@ def ledger():
     rock[Y + 0:Y + NORTH[1], NORTH[0]:NORTH[0] + 4] = True
     rock[Y + 0:Y + 4, NORTH[0]:24] = True
     kind[rock] = 'rock'
-    kind[Y + ROAD[0]:Y + ROAD[1], 0:W] = 'road'
+    for x in range(W):
+        r0, r1 = road_rows(x)
+        kind[Y + r0:Y + r1, x] = 'road'
     kind[Y + 14:Y + 21, 27:W] = 'forest'                    # behind the gate: HGSS's woods (no road beyond it)
     kind[Y + ROAD[0]:Y + LANE[0], 0:PAVE_X] = 'pave'
     kind[Y + LANE[0]:Y + LANE[1], 0:PAVE_X] = 'lane'        # Celadon's lane, ending where the paving meets the dirt road (owner)
@@ -277,31 +285,57 @@ def ground(kind):
 # --------------------------------------------------------------------------- the rough road
 WEAR = [(231, 198, 148), (231, 181, 148)]      # road01's two darker shades, for worn patches
 
-def hgss_edges(out, road, grass_px, tex):
-    """The road's top and bottom edges feathered with HGSS's own road edge (road01_r, the texture
-    HGSS lays along this road's edge rows): its vertical edge strip (texels 0-15 across, grass
-    to the west) turned to run along the road, at 1:1 in the world's phase, mirrored for the south
-    edge; its grass texels take the map's grass, its sand the road's own texture, its feathered
+BAND = [(140, 148, 140), (198, 181, 148)]     # road01_r's feathered band, its grass side and its sand side
+
+def hgss_edges(out, road, ground, grass_px, tex):
+    """The road's edges feathered with HGSS's own road edge (road01_r, the texture HGSS lays along
+    this road's edge rows): its vertical edge strip (texels 0-15 across, grass to the west) as it
+    is for a west edge and mirrored for an east one (where the road steps down a row), turned to
+    run along the road for its north edge and mirrored for its south one, at 1:1 in the world's
+    phase; its grass texels take the map's grass, its sand the road's own texture, its feathered
     grey-brown band kept as HGSS draws it (owner, 2026-10-31: feathered, from tiles that exist)."""
     t = tex['road01_r'][..., :3].astype(int)
-    strip = t[:, 0:16].transpose(1, 0, 2)                          # 16 rows (grass at the top) x 32 along
     sand = {tuple(c) for c in tex['road01'][..., :3].reshape(-1, 3).tolist()}
-    green = (strip[..., 1] > strip[..., 0] + 20)
-    sandy = np.array([[tuple(c) in sand for c in row] for row in strip.tolist()])
+    vert = t[:, 0:16]                                              # 32 down x 16 across, grass to the west
+    def classes(a):
+        return a[..., 1] > a[..., 0] + 20, np.array([[tuple(c) in sand for c in row] for row in a.tolist()])
     Hh, Ww = road.shape
+    other = lambda x, y: not (0 <= x < Ww and 0 <= y < Hh) or not ground[y, x]
     for y, x in zip(*np.nonzero(road)):
-        for south in (False, True):
-            ny = y + (1 if south else -1)
-            if 0 <= ny < Hh and road[ny, x]:
-                continue
-            st, g, sd = (strip[::-1], green[::-1], sandy[::-1]) if south else (strip, green, sandy)
-            cols = (np.arange(16) + (x + OX) * 16) % 32
-            sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
-            cell, gp = out[sl], grass_px[sl]
-            gm, sm = g[:, cols], sd[:, cols]
-            rim = ~gm & ~sm
+        along = (np.arange(16) + (x + OX) * 16) % 32
+        down = (np.arange(16) + y * 16) % 32
+        r, c = np.mgrid[0:16, 0:16]
+        road_at = lambda xx, yy: not other(xx, yy)
+        def taper(depth, along_lo, along_hi, lo_diag, hi_diag):
+            # where the road carries on round a corner past this edge's end, the edge thins to nothing
+            # at that end, so it meets the next edge on a slant instead of a square notch; the band's
+            # own two tones (road01_r's) run along the slant
+            thr = np.full((16, 16), 99.0)
+            if lo_diag: thr = np.minimum(thr, 16 * np.minimum(1, along_lo / 8))
+            if hi_diag: thr = np.minimum(thr, 16 * np.minimum(1, along_hi / 8))
+            return depth < thr, (depth >= thr) & (depth < thr + 1), (depth >= thr + 1) & (depth < thr + 3)
+        sides = []
+        if other(x, y - 1):
+            sides.append((vert.transpose(1, 0, 2)[:, along], taper(r, c, 15 - c, road_at(x - 1, y - 1), road_at(x + 1, y - 1))))
+        if other(x, y + 1):
+            sides.append((vert.transpose(1, 0, 2)[::-1][:, along], taper(15 - r, c, 15 - c, road_at(x - 1, y + 1), road_at(x + 1, y + 1))))
+        if other(x - 1, y):
+            sides.append((vert[down], taper(c, r, 15 - r, road_at(x - 1, y - 1), road_at(x - 1, y + 1))))
+        if other(x + 1, y):
+            sides.append((vert[down][:, ::-1], taper(15 - c, r, 15 - r, road_at(x + 1, y - 1), road_at(x + 1, y + 1))))
+        sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+        cell, gp = out[sl], grass_px[sl]
+        grassed = np.zeros((16, 16), bool)
+        for st, (keep, outer, inner) in sides:                    # at a corner, no band laid over grass already laid
+            gm, sm = classes(st)
+            edge = ~sm                                            # where the strip has grass or band
+            gm &= keep
+            rim = ~gm & ~sm & ~grassed & keep
             cell[gm] = gp[gm]
-            cell[rim] = st[:, cols][rim].astype(np.uint8)
+            cell[rim] = st[rim].astype(np.uint8)
+            for m, colour in ((edge & outer & ~grassed, BAND[0]), (edge & inner & ~grassed, BAND[1])):
+                cell[m] = colour
+            grassed |= gm
 
 def rough_road(out, kind, grass_px, tex, t):
     """The dirt road as a rough country road (owner, 2026-10-31): HGSS's road01 at 1:1 on HGSS's
@@ -309,10 +343,10 @@ def rough_road(out, kind, grass_px, tex, t):
     note), worn patches in road01's own darker shades, HGSS's pebbles scattered, and Celadon's
     paving breaking up into the dirt at its end instead of stopping on a straight kerb."""
     H8, W8 = H * 2, W * 2
-    road = np.zeros((H8, W8), bool)
-    r0, r1 = (OY + ROAD[0]) * 2, (OY + ROAD[1]) * 2
+    road = (kind == 'road').repeat(2, 0).repeat(2, 1)
     x0, x1 = PAVE_X * 2, int(ROAD_END * 2)
-    road[r0:r1, x0:x1] = True
+    road[:, :x0] = False; road[:, x1:] = False
+    r0, r1 = (OY + ROAD[0]) * 2, (OY + EAST_ROAD[1]) * 2
     # the paving's last column breaks up into the dirt (its lane rows stay whole)
     pave_end = np.zeros((H8, W8), bool)
     for sy in range((OY + ROAD[0]) * 2 + 1, (OY + LANE[0]) * 2):      # its top row stays whole, under the grass's edge
@@ -352,7 +386,7 @@ def rough_road(out, kind, grass_px, tex, t):
             if h('pebble', sx + OX * 2, sy) % 23 == 0 and road[sy:sy + 2, sx:sx + 2].all():
                 cell = out[sy * 8:sy * 8 + 16, sx * 8:sx * 8 + 16]
                 cell[pa] = p[..., :3][pa]
-    hgss_edges(out, road[::2, ::2], grass_px, tex)
+    hgss_edges(out, road[::2, ::2], road[::2, ::2] | np.isin(kind, ('pave', 'lane')), grass_px, tex)
 
 # --------------------------------------------------------------------------- objects
 def sprites():
@@ -373,6 +407,14 @@ def objects(kind):
     objs.append(dict(X=NOTICE[0] * 16, Y=(OY + NOTICE[1] + 1) * 16 - n.shape[0], img=n, fam='notice', name='notice'))
     tree = N.trees()['johto']
     taken = np.zeros((H, W), bool)
+    # The gate's south row (AGENTS.md, gatehouses closed in by woods): whole trees a row up from
+    # the woods' lattice, their crowns over the gatehouse's bottom row, so no gap runs round it.
+    surround = []
+    for x in SURROUND:
+        y = OY + GATE_BASE + 1
+        surround.append(dict(X=x * 16 + (32 - tree.shape[1]) // 2, Y=(y + 2) * 16 - tree.shape[0], img=tree, fam='tree',
+                             name=f'gate_surround_{x}'))
+        taken[y:y + 2, x:x + 2] = True
     props = np.zeros((H * 16, W * 16), bool)
     fronts = np.full((H * 16, W * 16), -1, int)
     for o in objs:
@@ -404,6 +446,7 @@ def objects(kind):
             for xx, yy in foot:
                 if 0 <= xx < W and 0 <= yy < H:
                     taken[yy, xx] = True
+    objs += surround
     for o in objs:
         a = o['img'][..., 3] > 0
         o['base'] = (o['Y'] + int(np.nonzero(a.any(1))[0].max())) // 16
@@ -430,6 +473,8 @@ def overlaps(objs):
                 t, o = (a, b) if fi == 'tree' else (b, a)
                 if o['fam'] in ('gate', 'underground') and t['base'] < o['base']:
                     continue                                  # a tree behind a building
+                if o['fam'] == 'gate' and t['name'].startswith('gate_surround'):
+                    continue                                  # the gate's south row, over its bottom row (owner)
             bad.append((a['name'], b['name']))
     return bad
 
@@ -494,6 +539,7 @@ def traversal(kind, objs):
     for x, y in ARROWS:
         assert foot[OY + y, x] == 'open', (x, y, why[OY + y, x])
         foot[OY + y, x] = 'arrow_e'; why[OY + y, x] = 'to the gate room'
+    foot[OY + EAST_ROAD[1] - 1, 25] = 'blocked'; why[OY + EAST_ROAD[1] - 1, 25] = 'gate lot'   # under the west wing: no pocket
     dx, dy = UNDERGROUND_DOOR
     foot[OY + dy, dx] = 'blocked'; why[OY + dy, dx] = 'door to nothing: underground'
     return foot, why

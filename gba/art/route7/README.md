@@ -11,7 +11,10 @@ the map east to the north-east outcrop (the trees and the meadow's top rows ther
 north edge. The road is rough and Celadon's paving breaks up into it. Round 4 (owner): the road's
 half-cell notches read as jagged, so its edges are back on the cells and feathered with HGSS's own
 road edge texture (`road01_r`, the one HGSS lays along this road), its grass and sand texels in the
-map's grass and road; the worn patches and pebbles stay. The plot (`evidence/plan.png`) was
+map's grass and road; the worn patches and pebbles stay. Round 5 (owner): from x 12 (past the tree south of the
+road) the road runs a row lower, rows 16-19, onto the gatehouse's entrance, its feathered edges
+carried round the step; the arrow cells move with it to (24, 16-19); a row of trees south of the
+gatehouse stands a row up, its crowns over the gatehouse's bottom row, so nothing runs round it. The plot (`evidence/plan.png`) was
 approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
 shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
 solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.
@@ -42,7 +45,8 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
   four rows (round 1 widened it to carry the lane to the gate; the owner had the lane stop).
 - HGSS's x 0-3 row 14 is woods: Celadon's woods at x 60-63 run on there.
 - HGSS's gate warps sit on its wall cell (25, 16-17); the Gen 3 sprite fills that cell, so the four
-  road cells in front of it, (24, 15-18), are east arrow warps, as FireRed's Route 7 does it.
+  road cells in front of it, (24, 16-19), are east arrow warps, as FireRed's Route 7 does it; the
+  road runs a row lower from x 12 to meet the entrance (owner).
 - The gate is HGSS's model in FireRed's Kanto gatehouse materials (owner's choice), not HGSS's teal.
 - The notice board a row south, (12, 25): at (12, 24) its top covered the entrance's foot.
 - The north rock barrier (owner): rows 0-3 from x 4 to the north-east outcrop and x 4-7 down to row

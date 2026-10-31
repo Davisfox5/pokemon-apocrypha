@@ -85,7 +85,7 @@ def steps():
             ('at', SAFFRON, sx, sy), ('shot', 'saffron-west-gate'),
             ('west', 1, None), ('wait', 400), ('at', GATE, 11, 5), ('shot', 'room-gate-back'),
             ('go', GATE, 2, 5), ('west', 1, None), ('at', GATE, 1, 5), ('west', 1, None), ('wait', 400),
-            ('at', ROUTE, 24, 17), ('shot', 'gate-exit')]
+            ('at', ROUTE, *R.ARROWS[len(R.ARROWS) // 2]), ('shot', 'gate-exit')]
     # west back across the seam into Celadon
     out += walk(ROUTE, 20, 16, [('west', 4)] * 6, 'walk-seam-west')
     out += [('at', CITY, 60, 17)]
