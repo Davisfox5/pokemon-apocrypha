@@ -1,0 +1,112 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 15,
+    "map_texture_set": 15,
+    "building_texture_set": 14,
+    "matrix_origin": [
+      39,
+      7
+    ],
+    "top_down_fill_pixels": 1754,
+    "filled_seam_pixels": 151
+  },
+  "size_cells": [
+    32,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 247,
+      "chunk": 169,
+      "pos": [
+        29.0,
+        2.0,
+        16.75
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "gate",
+        "gate_2",
+        "gate_3",
+        "gate_p2",
+        "h_kage"
+      ],
+      "footprint": [
+        25.25,
+        14.0,
+        32.75,
+        20.0
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 31,
+      "chunk": 169,
+      "pos": [
+        12.5,
+        2.0,
+        24.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "board_cd",
+        "h_kage"
+      ],
+      "footprint": [
+        11.9375,
+        24.0625,
+        13.125,
+        24.8125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 339,
+      "chunk": 169,
+      "pos": [
+        14.0,
+        2.0,
+        22.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_kage",
+        "kn_chika_a",
+        "kn_chika_b",
+        "r39_door1",
+        "station_c"
+      ],
+      "footprint": [
+        12.0,
+        21.0,
+        16.25,
+        23.875
+      ],
+      "replaced_by": null
+    }
+  ]
+}

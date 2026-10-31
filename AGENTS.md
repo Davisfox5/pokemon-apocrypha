@@ -312,7 +312,8 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   tree out of a tileset by its grass colours: every leaf sharing a grass colour goes and the
   neighbouring cells' shadows stay, so crowns arrive holed and boxed (owner, Celadon,
   2026-10-27). Forests stand in staggered rows two cells apart, drawn by foot so each crown
-  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building.
+  overlaps only the trunks behind it; no tree covers a prop or stands in front of a building (a
+  gatehouse's south row excepted, below).
   A park may mix regions. Never invent a tree or recolour one into a new kind.
 - **Smooth joins.** Grass meets every other ground (dirt, paving, brick, a cycleway, a pond's
   coping) through FireRed's path edge pieces, quadrant by quadrant (`nature.grass_edges`).
@@ -375,6 +376,45 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   banks of their own when a view needs it. Never fold shades that share a tile (texture
   flattens). Porymap shows stand-in metatiles for traversal. Prove it with VRAM parity over
   long walks in every direction, not standing views alone.
+- **Kanto's gatehouse.** HGSS draws one gatehouse (model 247) in Johto and Kanto alike, so Kanto's
+  gates are that model in FireRed's Kanto gatehouse materials: the roof, walls and step in FireRed's
+  seamed grey-blue metal, the facade band in FireRed's yellow brick laid back course by course, the
+  window band kept (owner chose this over HGSS's teal and a steel-and-glass version, Route 7,
+  2026-10-31; `route7/gates.py`, option B). It matches the FireRed gatehouses Saffron already draws.
+- **Gatehouses are closed in, and the road meets the door.** Woods close on every gatehouse so no
+  walkable cell, and no strip of bare grass, runs round it: the trees behind it stand behind its
+  roof, and the woods' own south row (its lattice, not a row of trees moved off it) crowns over the
+  gatehouse's bottom row by one tile (the one place a tree stands in front of a building). If the
+  lattice leaves a row between the gatehouse and its south trees, move the gatehouse down onto
+  them; a tree row moved up instead opens a new row under it (owner, Route 7, 2026-10-31). The road
+  arrives on the gatehouse's entrance rows, stepping down or up where it has to, and the cells
+  beside the entrance under the gatehouse's wings are its lot, solid (the Route 36 gate surround is
+  the Johto precedent).
+- **Lanes stay in town.** A town's cycleway ends where its paving ends; it does not run on along a
+  route's dirt road (owner, Route 7, 2026-10-31).
+- **Rock never ends in a hard line.** Every edge of a rock top takes FireRed's edge piece, including
+  the edges facing a neighbour's ground at the same height (a one-cell ridge is edged on both sides);
+  side ledges are FireRed's top, middle and corner pieces, so a ledge runs as one piece (owner,
+  Route 7, 2026-10-31).
+- **Routes are rough, not jagged.** A route's dirt road between towns is a country road: worn
+  patches in the road's own darker shades, pebbles scattered, and a town's paving breaking up into
+  it rather than stopping on a straight kerb. Its edges are HGSS's own straight road edge cells, the
+  ones Johto's Routes 30, 32 and 36 lay along their paths (`route7/edges.py` cuts them from Route 30;
+  `route7/compose.road_edges` lays them), whole cells on the road's outer ring, with square corners:
+  an outer corner is the two straight cells overlaid, an inner corner the two meeting. Never a
+  diagonal or rounded corner, never a slant at a step, never edge art drawn or feathered by hand,
+  never edges notched by half cells (owner, Route 7, 2026-10-31).
+- **Rock has a job.** Rock that only decorates a strip of woods reads as pointless: make it a whole
+  outcrop that bounds the map (Route 7's north edge, as wide as its south-west outcrop, ending on its
+  own rim at the map's edge, never running off it; owner, 2026-10-31).
+- **A map beside a streamed town streams with it.** Gen 3 draws a connected map with the current
+  map's tiles, and a streamed town's map holds stand-ins, so a route connected to it joins the
+  stream as one world (Route 7 beside Celadon: `route7/world.py`, engine `celadon_view.c`): each map
+  reads the world from its own origin (the connection's offset), the cache and banks carry on when
+  the player crosses (no tileset reload), and VRAM parity is proved across the seam both ways. The
+  route's own palettes go only to the tiles the town's banks cannot hold, or the seam's views
+  outgrow 13 banks. A gatehouse the neighbouring town already draws (FireRed's Saffron) is reached
+  through its room, not a second map connection.
 
 ## Planning a new town: the change plot
 

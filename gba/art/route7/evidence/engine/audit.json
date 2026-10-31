@@ -1,0 +1,103 @@
+{
+ "tables": {
+  "entries": true,
+  "layers": true,
+  "banks": true,
+  "glyphs": true,
+  "header": true
+ },
+ "budgets": {
+  "worst_view_glyphs": 684,
+  "glyph_budget": 956,
+  "worst_step_palettes": 13,
+  "banks": 13,
+  "unbanked": [],
+  "palettes": 32,
+  "glyphs": 3536,
+  "exact_pixels": 1240586,
+  "pixels": 1291264
+ },
+ "ledger": {
+  "cells": 1024,
+  "differ_unexplained": [],
+  "adaptations": {
+   "Celadon's lane runs on to the paving's end": 5,
+   "Celadon's woods at x 60-63 run on": 4,
+   "arrow warps in front of the gate (HGSS warps on its wall cell), the road and gate two rows lower there (owner)": 6,
+   "notice board a row south": 2,
+   "the north rock barrier (owner, 2026-10-31)": 136,
+   "road edges (owner, 2026-10-31): HGSS straight edge cells, walkable as HGSS": 0
+  }
+ },
+ "traversal": {
+  "wrong": [],
+  "route": {
+   "open": 237,
+   "tall": 51,
+   "jump_s": 11,
+   "jump_e": 3,
+   "arrow_e": 4,
+   "blocked": 750
+  }
+ },
+ "reach": {
+  "route_walkable": 292,
+  "unreached": [],
+  "targets_missed": []
+ },
+ "warps": {
+  "route_arrows": 4,
+  "mismatched": [],
+  "saffron_gate_open": true,
+  "underground_door_solid": true
+ },
+ "connections": {
+  "celadon": [
+   {
+    "map": "MAP_KANTO_ROUTE7",
+    "offset": 1,
+    "direction": "right"
+   }
+  ],
+  "route": [
+   {
+    "map": "MAP_KANTO_CELADON_CITY",
+    "offset": -1,
+    "direction": "left"
+   }
+  ],
+  "ok": true
+ },
+ "seam": {
+  "rows": [
+   [
+    15,
+    "open",
+    "open"
+   ],
+   [
+    16,
+    "open",
+    "open"
+   ],
+   [
+    17,
+    "open",
+    "open"
+   ],
+   [
+    18,
+    "open",
+    "open"
+   ]
+  ],
+  "ok": true
+ },
+ "scope": {
+  "map_ids_appended": true,
+  "layout_ids_appended": true,
+  "files_changed": 7,
+  "stray": []
+ },
+ "failures": []
+}

@@ -491,6 +491,23 @@ Traps hit there:
   land a door on the warp whose cell keeps the mat's behaviour. FireRed's side stairs warp
   when the player stands on them and walks east (west for the left ones).
 
+Route 7 (`gba/art/route7/README.md`, tools in `tools/gba/maps/route7/`), the first route streamed with
+its town. Traps hit there:
+
+- HGSS's permission collision byte blocks only at 128; its other values (4, 6) are walkable flags.
+  `hgss_render.py` stores the raw byte, so read `collision != 128`, never `collision > 0`: counted
+  as walls they shut Route 7's whole south lawn and the slope up to Celadon.
+- A town's objects planted past its own edge (Celadon's border trees, invisible in its own picture)
+  land on the neighbour once the two maps are one world: drop the town's objects that start past
+  its edge, and let the lattice cell's owner be the map its trunk stands on.
+- Bank colouring can fail with no screen over 13 palettes: a 14-palette clique formed across
+  overlapping views at the seam once the route's plain grass took route palettes. Tag a route tile
+  for the route's own palettes only when the town's ground banks lack its colours.
+- FireRed's gate rooms put the arrow behaviour on one of each pair of warp cells; keep that cell as
+  the warp and land arrivals on it.
+- A gate's west door seen at 45 degrees is its side wing, not the wall cell HGSS warps on: put the
+  east arrow warps on the road cells in front of the sprite (FireRed's Route 7 does the same).
+
 ## Worked example
 
 Blackthorn City (above) is the reference for converting a Gen 4 map element by element,

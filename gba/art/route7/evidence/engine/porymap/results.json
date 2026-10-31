@@ -1,0 +1,70 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (26b919d)",
+  "engine_commit": "34bc60d2927f456ee677995ec79e3877ef051c36",
+  "city_export_vs_native": {
+    "size": [
+      528,
+      512
+    ],
+    "differing_pixels": 0
+  },
+  "celadon_files_rewritten": [
+    "data/layouts/KantoCeladonCity/border.bin",
+    "data/layouts/KantoCeladonCity/map.bin",
+    "data/maps/KantoCeladonCity/map.json",
+    "data/tilesets/primary/kanto_celadon/metatile_attributes.bin",
+    "data/tilesets/primary/kanto_celadon/metatiles.bin",
+    "data/tilesets/primary/kanto_celadon/palettes/00.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/01.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/02.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/03.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/04.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/05.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/06.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/07.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/08.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/09.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/10.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/11.pal",
+    "data/tilesets/primary/kanto_celadon/palettes/12.pal",
+    "data/tilesets/secondary/kanto_celadon_city/metatile_attributes.bin",
+    "data/tilesets/secondary/kanto_celadon_city/metatiles.bin",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/00.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/01.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/02.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/03.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/04.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/05.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/06.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/07.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/08.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/09.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/10.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/11.pal",
+    "data/tilesets/secondary/kanto_celadon_city/palettes/12.pal"
+  ],
+  "celadon_files_changed": [],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_celadon": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Celadon are Porymap normalising entries that predate it (key order, \\u escapes).",
+  "route7_files_changed": []
+}
