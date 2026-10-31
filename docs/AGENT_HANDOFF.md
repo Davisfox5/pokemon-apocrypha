@@ -59,8 +59,8 @@ Owner review (October 25), refined the same day:
   from scratch (`tools/gba/maps/violet_city`). October 30: door slots 496-511 always reserved for door
   animations; the islet back as the port had it (owner's choice); the university rebuilt as a Johto hall
   in Sprout Tower's materials, 15 x 8 cells (was 20 x 9), saving 39 tiles. October 31: Sprout Tower and
-  the hall in HGSS's lighter roof tones, with HGSS's own carved front (windows, panels, door, stone
-  frame). 19 tiles free.
+  the hall in HGSS's lighter roof tones, with HGSS's own carved front (no stone plinth); the tower's
+  edging cleared; the hall two storeys, centred on its door. 6 tiles free.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

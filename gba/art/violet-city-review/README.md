@@ -22,21 +22,22 @@ from pokeheartgold's own data. Every cell keeps its collision, elevation, behavi
   ground layer, so no bridge or lantern), in Violet's own grey ramp, and the deeper ring HGSS draws in the
   water round it. The walkways stay open where the bridges land; the lanterns stay.
 - **Sprout Tower** (owner requests, October 31): the port drew it near-black, dim purple tiers over a flat
-  black wall with dull gold shapes. HGSS's tower is a bright blue-violet roof over a carved wooden front in
-  a pale stone frame. The roof keeps every pixel's shape and takes a lighter ramp with more step between
-  tones; the black eave lines stay for a crisp edge and lone speckle pixels take their neighbours' tone. The
-  front is HGSS's own (`source/hgss/tower-front.png`): the stone frame, the carved beam, barred windows over
-  tan sills and oval panels, the door with its gold panels, fitted to the tower's 24 px wall by leaving out
-  repeated rows of plain wood and mirrored about the door (a figure standing at the door in HGSS's render
-  is left out). The hall below is cut from the tower, so the two match.
-- **University** (owner request, October 30): the port's western hall (slate roof, cream walls, clock
-  tower, 20 x 9 cells at x47-66) did not match Violet's Johto style. It is now a Johto hall in Sprout
-  Tower's own materials, 15 x 8 cells at x50-64 on the same base line: the tower's two lower roof tiers
-  stretched by repeating their middle columns, its top tier as a raised centre roof, the tower's front with
-  three window bays each side of its door. The pieces move by whole
-  cells (or 8 px columns inside them) with both layers, so they draw with the tower's own tiles. The street
-  runs up to the door. The cells it gave back are walkable lawn; the hall's cells are blocked. The sign
-  at (53, 43) stays.
+  black wall with dull gold shapes. HGSS's tower is a bright blue-violet roof over a carved wooden front.
+  The roof keeps every pixel's shape and takes a lighter ramp with more step between tones; the black eave
+  lines stay for a crisp edge, lone speckle pixels take their neighbours' tone, and the port's drop shadow
+  and grey trim outside the outline (and the spire's shadow on the lawn) are gone. The front is HGSS's own
+  (`source/hgss/tower-front.png`): the carved beam, barred windows over tan sills and oval panels, the door
+  with its gold panels, fitted to the tower's 24 px wall by leaving out repeated rows of plain wood and
+  mirrored about the door (a figure standing at the door in HGSS's render is left out). Wooden corner posts
+  and a dark sill beam stand straight on the lawn; HGSS's stone plinth is left out (owner's call).
+- **University** (owner requests, October 30-31): the port's western hall (slate roof, cream walls, clock
+  tower, 20 x 9 cells at x47-66) did not match Violet's Johto style. It is now a two-storey Johto hall in
+  Sprout Tower's materials, every part centred on its door (x 916 px): the ground floor is the tower's front
+  with three window bays each side of the door under the tower's lowest roof tier, stretched (216 px); the
+  upper floor is three window bays of the same front, its sills behind the lower roof, under the tower's
+  top tier (its hip roof, one column wider to centre). The pieces move by whole tiles with both layers, so
+  they draw with the tower's own tiles. The street runs up to the door. The cells it gave back are walkable
+  lawn; the hall's cells are blocked. The sign at (53, 43) stays.
 - Unchanged: the islet (as the port has it, owner's choice), the lecture hall, the practice court, the
   approved C06 Center and M01 Mart, the houses, the west gatehouse, the forests (already the overlapping
   lattice), bridges, lanterns, signs, ducks.
@@ -48,7 +49,7 @@ lays both out anew from the town's two decoded layers: each quadrant takes the b
 identical quadrants share one tile in any flip, identical cells one metatile. The 13 banks are Violet's,
 with colours its art no longer draws freed for the new ones.
 
-- 989 of 1,008 tiles (512 primary, 477 secondary), 657 metatiles. The hall saves 39 tiles over the port's
+- 1,002 of 1,008 tiles (512 primary, 490 secondary), 651 metatiles. The hall saves 39 tiles over the port's
   university (1,048 against 1,009 before folds).
 - Secondary slots 496-511 (tiles 1008-1023) stay empty: `field_door.c` draws door frames there, so Violet's
   doors can animate. The installer always reserves them.
@@ -64,14 +65,14 @@ with colours its art no longer draws freed for the new ones.
 | Check | Result |
 | --- | --- |
 | Every cell draws as composed (`violet.py --install`) | 0 pixels differ outside the folds; every fold is a tone of its own texture |
-| Collision, elevation, behaviour and layer type | unchanged on every cell outside the university's old and new footprint (154 cells: the hall blocked, the rest walkable lawn) |
+| Collision, elevation, behaviour and layer type | unchanged on every cell outside the university's old and new footprint (the hall blocked, the rest walkable lawn) |
 | Porymap 6.3.1 export vs native decode | 0 pixels differ (Violet City, Route 36, Cherrygrove) |
 | Runtime (`runtime.py`): into the east gate, into the west gate, the north road over both bridges and the landing to the main street (30 steps), the lake blocking on foot, the hall blocking at its door, the old west wing's lawn walkable | passes; 36 frames, every one at least 99.7% identical to the decode outside the player (`evidence/runtime-summary.json`, `evidence/runtime-walk.png`, `evidence/runtime-hall.png`) |
 | Cherrygrove town runtime on the same ROM | passes |
 
 ## Limits
 
-- 19 tiles free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
+- 6 tiles free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
   Tower 236, C06 Center 94, lecture hall 82, the port university 81, M01 Mart 77, lake water, banks and
   ducks 55, islet 55.
 - Interiors and onward routes are as the source branch left them.

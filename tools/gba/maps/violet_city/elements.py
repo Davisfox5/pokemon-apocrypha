@@ -276,29 +276,34 @@ def landing(cv):
 
 # --------------------------------------------------------------------------- Sprout Tower's tones and front
 # The port drew Sprout Tower near-black: dim purple roof tiers over a black wall with dull gold panels.
-# HGSS's tower (its own render) is a bright blue-violet roof over a carved wooden front in a pale stone
-# frame. The roof keeps every pixel's shape and takes a lighter ramp with more step between tones
-# (HGSS's); the black eave lines stay for a crisp edge. The front is HGSS's own (source/hgss/
-# tower-front.png): its stone frame, the carved beam, the barred windows over tan sills and oval panels,
-# the door with its gold panels, fitted to the tower's 24 px wall by leaving out repeated rows of plain
-# wood, mirrored about the door. The hall (below) is cut from the tower after this, so the two match.
+# HGSS's tower (its own render) is a bright blue-violet roof over a carved wooden front. The roof keeps
+# every pixel's shape and takes a lighter ramp with more step between tones (HGSS's); the black eave lines
+# stay for a crisp edge, and the port's drop shadow and grey trim outside them go. The front is HGSS's own
+# (source/hgss/tower-front.png): the carved beam, the barred windows over tan sills and oval panels, the
+# door with its gold panels, fitted to the tower's 24 px wall by leaving out repeated rows of plain wood,
+# mirrored about the door, with wooden corner posts and a dark sill beam standing on the lawn (HGSS's
+# stone plinth left out, owner's call). The hall (below) is cut from the tower after this, so the two match.
 TOWER = (range(35, 44), range(0, 14))
 TOWER_WALL_TOP = 174                                  # the wall's first row (px); the roof above
 TOWER_ROOF_TONES = {(48, 32, 64): (56, 40, 88), (64, 40, 72): (72, 48, 104), (72, 40, 80): (88, 56, 120),
                     (80, 48, 104): (104, 80, 152), (88, 64, 128): (128, 104, 168), (112, 88, 144): (152, 128, 192),
                     (120, 112, 120): (160, 152, 176), (128, 152, 128): (184, 192, 208)}   # the last two: eave grey, spire base and corner studs
 FRONT_TEX = B.ART / 'source/hgss/tower-front.png'
-FRONT_ROWS = [0, 1, 2, 4, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 26, 27, 29, 31, 33, 34, 36]   # HGSS's rows kept
-FRONT_FRAME = [4, 5, 6, 8, 10, 12, 13, 15]            # the stone frame's columns kept (its outline, three greys)
+FRONT_ROWS = [0, 1, 2, 4, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 26, 27, 29, 31, 33, 6, 7]   # HGSS's rows kept; the last two its dark beam, as the sill
+FRONT_POST = [16, 17, 18, 19, 16, 17, 18, 19]        # a corner post: the window bay's own post, twice
 FRONT_BAY, FRONT_DOOR = range(16, 40), range(40, 64)  # a window bay, the door bay (24 px each)
 DOOR_CLEAN = slice(14, 23)                            # the door's rows with the figure
 FRONT_X, FRONT_Y = 592, 176                           # where the front stands; the two rows above it are the eave's shadow
 EAVE_SHADOW = (32, 32, 32)
+ROOF_OUTLINE = (32, 32, 32)                           # the roof's black outline
+ROOF_RIGHT_HALF = 640                                 # the outline searched right of here (the right edge)
+ROOF_TOP_SHADOW = 42                                  # above the roof's top row, right of the spire, everything goes (the spire's shadow)
+SPIRE_RIGHT = 648
 FRONT_TONES = [(72, 48, 32), (80, 56, 40), (96, 72, 56), (112, 80, 40), (136, 104, 64), (152, 120, 48), (168, 136, 88),
                (56, 56, 56), (88, 88, 88), (96, 96, 112), (152, 160, 176), (184, 192, 208), (208, 216, 232)]
 
 def front_parts():
-    """HGSS's front as (frame, window bay, door bay), each 24 rows, in FRONT_TONES (nearest tone)."""
+    """HGSS's front as (corner post, window bay, door bay), each 24 rows, in FRONT_TONES (nearest tone)."""
     from PIL import Image
     t = np.array(Image.open(FRONT_TEX).convert('RGB')).astype(int)[FRONT_ROWS]
     tones = np.array(FRONT_TONES)
@@ -306,7 +311,7 @@ def front_parts():
     t = tones[d.argmin(-1)].astype(np.uint8)
     door = t[:, list(FRONT_DOOR)].copy()
     door[DOOR_CLEAN, :8] = door[DOOR_CLEAN, :15:-1]   # a figure stands at the door's left in HGSS's render: its right side mirrored
-    return t[:, FRONT_FRAME], t[:, list(FRONT_BAY)], door
+    return t[:, FRONT_POST], t[:, list(FRONT_BAY)], door
 
 def tower_tones(cv):
     lawn = G.textures()[G.GRASS]
@@ -324,10 +329,27 @@ def tower_tones(cv):
                     k = (layer == a).all(-1) & m & ~wall
                     layer[k] = b; n += int(k.sum())
             cv.changed.add((x, r))
+    # the roof's edge: the port's drop shadow and grey trim beyond the black outline go, to the lawn
+    x0, x1 = xr[0] * 16, (xr[-1] + 1) * 16
+    edge = 0
+    for y in range(rr[0] * 16, TOWER_WALL_TOP):
+        comp = np.where(cv.upper[y, x0:x1, 3:] > 0, cv.upper[y, x0:x1, :3], cv.lower[y, x0:x1])
+        line = np.nonzero((comp == ROOF_OUTLINE).all(-1))[0]
+        line = line[line >= ROOF_RIGHT_HALF - x0]
+        cut = x0 + (line.max() + 1 if len(line) else x1 - x0)
+        if y < ROOF_TOP_SHADOW:
+            cut = SPIRE_RIGHT
+            k = np.nonzero(~(comp[cut - x0:] == lawn[y % 32, np.arange(cut, x1) % 32]).all(-1))[0] + cut
+            cv.upper[y, k, 3] = 0; cv.lower[y, k] = lawn[y % 32, k % 32]; edge += len(k)
+            continue
+        if len(line):
+            m = cv.upper[y, cut:x1, 3] > 0
+            edge += int(m.sum()); cv.upper[y, cut:x1, 3] = 0
+            cv.lower[y, cut:x1] = lawn[y % 32, np.arange(cut, x1) % 32]
     # the front: the old wall (and its shadow) cleared to lawn, the eave's shadow, HGSS's front below it
     frame, bay, door = front_parts()
     front = np.concatenate([frame, bay, door, bay[:, ::-1], frame[:, ::-1]], 1)
-    y0, x0, x1 = TOWER_WALL_TOP, xr[0] * 16, (xr[-1] + 1) * 16
+    y0 = TOWER_WALL_TOP
     y1 = FRONT_Y + front.shape[0] + 8
     ys, xs = np.mgrid[y0:y1, x0:x1]
     cv.lower[y0:y1, x0:x1] = lawn[ys % 32, xs % 32]; cv.upper[y0:y1, x0:x1, 3] = 0
@@ -351,25 +373,29 @@ def tower_tones(cv):
         ys, xs = np.nonzero(ok)
         for y, x in zip(ys + 1, xs + 1):
             v = int(up[y - 1, x - 1]); a[y, x] = (v >> 16, (v >> 8) & 255, v & 255); lone += 1
-    cv.notes.append(f'Sprout Tower: HGSS tones on the roof ({n} px, {lone} lone pixels cleaned), HGSS front {w} x {front.shape[0]} px')
+    cv.notes.append(f'Sprout Tower: HGSS tones on the roof ({n} px, {lone} lone pixels cleaned, {edge} px of edging cleared), HGSS front {w} x {front.shape[0]} px')
 
 # --------------------------------------------------------------------------- the university
 # The port's university (x47-66, rows 33-41) was a western hall: slate roof, cream walls, a clock tower, in
-# a style and at a scale apart from the rest of Violet. It becomes a Johto hall in Sprout Tower's own
-# materials (owner request): the tower's two lower roof tiers, stretched by repeating their middle columns,
-# its top tier as a raised centre roof, the tower's front with three window bays each side of its door. Every piece moves by whole cells (or 8 px columns inside them) with
-# both layers, so it draws with the tower's own tiles; the lawn under its edges is the lawn of its new
-# place. The hall is 15 cells wide (was 20) and stands on the old base line; the cells it gives back are
-# lawn, walkable.
+# a style and at a scale apart from the rest of Violet. It becomes a two-storey Johto hall in Sprout
+# Tower's own materials (owner requests), every part centred on its door: the ground floor is the tower's
+# front with three window bays each side of the door under the tower's lowest roof tier, stretched; the
+# upper floor is three window bays of the same front, its sills behind the lower roof, under the tower's
+# top tier (its hip roof). Every piece moves by 8 px columns with the tower's rows (a whole number of
+# tiles), so it draws with the tower's own tiles; the lawn under its edges is the lawn of its new place. The
+# hall is 14 cells wide (was 20) and stands on the old base line; the cells it gives back are lawn, walkable.
 OLD_UNIVERSITY = [(range(47, 67), range(35, 42)), (range(55, 61), range(33, 35))]
-HALL_X, HALL_DY = 800, 464                           # the hall's left edge (px); the tower's rows moved down (px)
-HALL_K = 5                                           # 32 px repeats of the roof's middle
-HALL_BAYS = 3                                        # the tower front's window bays each side of the door
+HALL_DOOR = 916                                      # the door's centre (px): every part centres on it
+HALL_BAYS = 3                                        # window bays each side of the door, ground floor
 TOWER_ROOF = (576, 616, 648, 688)                    # the tower's roof columns: left end, middle, right end
-TIERS = (122, 174)                                   # its two lower tiers (rows)
+LOWER_TIER = (149, 174)                              # the tower's lowest roof tier (rows): the ground floor's roof
+LOWER_ROOF_K = 4                                     # 32 px repeats of its middle (and one 8 px column, to centre on the door)
 TOP_EDGE, TOP_BODY = (40, 48), (80, 122)             # its top tier: the eave line and the body below the spire
-TOP_EDGE_COLS = [576, 584, 592, 600, 608, 600, 608, 600, 608, 648, 656, 664, 672, 680]   # the spire's columns taken from beside it
-WALL = (174, 200)                                     # the eave's shadow and the front
+TOP_COLS = [576, 584, 592, 600, 608, 616, 624, 632, 632, 640, 648, 656, 664, 672, 680]   # 15 columns: one more in the middle, to centre
+TOP_EDGE_COLS = [576, 584, 592, 600, 608, 600, 608, 600, 600, 608, 648, 656, 664, 672, 680]   # the spire's columns taken from beside it
+WALL = (174, 200)                                    # the eave's shadow and the front
+HALL_DY = 464                                        # the tower's rows moved down to the hall's ground floor (px)
+UPPER_DY, TOP_DY = 424, 480                          # the upper floor's front and the top roof (px)
 DOOR_SPUR = (54, 60, 43)                             # the street's spur to the door: x from, x to, the street's first row
 
 def university(cv):
@@ -394,41 +420,46 @@ def university(cv):
         m = (up[..., 3] == 0) & ~ll
         up[m, :3] = low[m]; up[m, 3] = 255
         return up[:, ::-1] if flip else up
-    def put(spec, y0, y1, x, y):
+    def put(spec, y0, y1, dy):
+        """Columns side by side, centred on the door, the tower's rows y0..y1 moved down by dy."""
+        x = HALL_DOOR - len(spec) * 4
+        assert x % 8 == 0, 'not on the tile grid'
         for c in spec:
             a = column(*((c[0], y0, y1, True) if isinstance(c, tuple) else (c, y0, y1)))
-            t = cv.upper[y:y + a.shape[0], x:x + 8]
+            t = cv.upper[y0 + dy:y1 + dy, x:x + 8]
             m = a[..., 3] > 0
             t[m] = a[m]
             x += 8
+        return len(spec) * 8
     l, m, r, e = TOWER_ROOF
-    roof = list(range(l, m, 8)) + list(range(m, r, 8)) * HALL_K + list(range(r, e, 8))
-    width = len(roof) * 8
-    cx = HALL_X + (width - (e - l)) // 2 // 16 * 16
-    put(list(range(l, e, 8)), *TOP_BODY, cx, TOP_BODY[0] + HALL_DY)
-    put(TOP_EDGE_COLS, *TOP_EDGE, cx, TOP_BODY[0] - 8 + HALL_DY)
-    put(roof, *TIERS, HALL_X, TIERS[0] + HALL_DY)
     bay_l, door, bay_r = list(range(600, 624, 8)), list(range(624, 648, 8)), list(range(648, 672, 8))
-    put([592] + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + [672], *WALL, HALL_X + 24, WALL[0] + HALL_DY)
-    # no shadow where the spire stood: the brown above the top eave is the spire's shadow on the lawn
-    y0 = TOP_BODY[0] - 8 + HALL_DY
-    band = cv.upper[y0:y0 + 4, cx:cx + (e - l)]
+    post_l, post_r = [592], [672]
+    # back to front: the upper floor's front, its hip roof, the lower roof over the upper front's foot, the ground floor
+    put(post_l + bay_l + bay_l + bay_r + post_r, *WALL, UPPER_DY)
+    put(TOP_COLS, *TOP_BODY, TOP_DY)
+    put(TOP_EDGE_COLS, TOP_EDGE[0], TOP_EDGE[1], TOP_BODY[0] - TOP_EDGE[0] - 8 + TOP_DY)
+    width = put(list(range(l, m, 8)) + list(range(m, r, 8)) * LOWER_ROOF_K + [m + 8] + list(range(r, e, 8)), *LOWER_TIER, HALL_DY)
+    put(post_l + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + post_r, *WALL, HALL_DY)
+    # no shadow where the spire stood, and the spire's foot above the eave line
+    y0, x0 = TOP_BODY[0] - 8 + TOP_DY, HALL_DOOR - len(TOP_COLS) * 4
+    band = cv.upper[y0:y0 + 4, x0:x0 + len(TOP_COLS) * 8]
     band[(band[..., 2].astype(int) < band[..., 1]) & (band[..., 3] > 0), 3] = 0
-    band[0, :, 3] = 0                                # and the spire's foot above the eave line
+    band[0, :, 3] = 0
     # the street's spur runs on up to the door
     y0, y1 = WALL[1] + HALL_DY, DOOR_SPUR[2] * 16
     x0, x1 = DOOR_SPUR[0] * 16, DOOR_SPUR[1] * 16
     cv.lower[y0:y1, x0:x1] = cob[ys[y0:y1, x0:x1] % 32, xs[y0:y1, x0:x1] % 32]
     cv.upper[y0:y1, x0:x1, 3] = 0
-    top, bottom = (TOP_EDGE[0] + 32 + HALL_DY) // 16, (WALL[1] - 1 + HALL_DY) // 16
-    hall = {(x, r) for r in range(top, bottom + 1) for x in range(HALL_X // 16, (HALL_X + width - 1) // 16 + 1)
+    left = HALL_DOOR - width // 2
+    top, bottom = (TOP_EDGE[0] + TOP_DY + 32) // 16, (WALL[1] - 1 + HALL_DY) // 16
+    hall = {(x, r) for r in range(top, bottom + 1) for x in range(left // 16, (left + width - 1) // 16 + 1)
             if cv.upper[cv.sl(x, r)][..., 3].any()}
     for x, r in old | hall:
         cv.attr[r, x] = B.COVERED << 12
         cv.bits[r, x] = blocked if (x, r) in hall else freed
     cv.changed |= old | hall
     cv.retraverse |= old | hall
-    cv.notes.append(f'university: a Johto hall in Sprout Tower materials, {width // 16} cells wide, {len(hall)} cells')
+    cv.notes.append(f'university: a two-storey Johto hall in Sprout Tower materials, {width} px wide, {len(hall)} cells')
 
 # --------------------------------------------------------------------------- one layer where two are not needed
 def flatten(cv):

@@ -1,8 +1,8 @@
 {
  "tiles": {
   "primary": 512,
-  "secondary": 477,
-  "left": 19,
+  "secondary": 490,
+  "left": 6,
   "door_slots_reserved": [
    1008,
    1009,
@@ -22,7 +22,7 @@
    1023
   ]
  },
- "metatiles": 657,
+ "metatiles": 651,
  "cells_redrawn": 914,
  "traversal_changed": 154,
  "fold": {
@@ -32,8 +32,8 @@
   "note": "every moved pixel is another tone of its own texture"
  },
  "notes": [
-  "Sprout Tower: HGSS tones on the roof (12999 px, 19 lone pixels cleaned), HGSS front 88 x 24 px",
-  "university: a Johto hall in Sprout Tower materials, 15 cells wide, 105 cells",
+  "Sprout Tower: HGSS tones on the roof (12999 px, 19 lone pixels cleaned, 319 px of edging cleared), HGSS front 88 x 24 px",
+  "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 84 cells",
   "paths: cobble with a 8 px sand verge in 474 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
