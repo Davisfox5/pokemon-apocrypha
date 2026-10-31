@@ -1,0 +1,100 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "796273541bfe97ea069ac675394561b5b451fec7",
+  "export_vs_native": {
+    "DarkCaveRoute45Side": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "DarkCaveRoute31Side": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "Route45": {
+      "size": [
+        512,
+        2560
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "Route46": {
+      "size": [
+        512,
+        1120
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "dark_cave_or_route_files_rewritten": [
+    "data/layouts/DarkCaveRoute31Side/border.bin",
+    "data/layouts/DarkCaveRoute31Side/map.bin",
+    "data/layouts/DarkCaveRoute45Side/border.bin",
+    "data/layouts/DarkCaveRoute45Side/map.bin",
+    "data/layouts/Route45/border.bin",
+    "data/layouts/Route45/map.bin",
+    "data/layouts/Route46/border.bin",
+    "data/layouts/Route46/map.bin",
+    "data/maps/DarkCaveRoute31Side/map.json",
+    "data/maps/DarkCaveRoute45Side/map.json",
+    "data/maps/Route45/map.json",
+    "data/maps/Route46/map.json",
+    "data/tilesets/primary/dark_cave/metatile_attributes.bin",
+    "data/tilesets/primary/dark_cave/metatiles.bin",
+    "data/tilesets/primary/dark_cave/palettes/00.pal",
+    "data/tilesets/primary/dark_cave/palettes/01.pal",
+    "data/tilesets/primary/dark_cave/palettes/02.pal",
+    "data/tilesets/primary/dark_cave/palettes/03.pal",
+    "data/tilesets/primary/dark_cave/palettes/04.pal",
+    "data/tilesets/primary/dark_cave/palettes/05.pal",
+    "data/tilesets/primary/dark_cave/palettes/06.pal",
+    "data/tilesets/primary/dark_cave/palettes/07.pal",
+    "data/tilesets/primary/dark_cave/palettes/08.pal",
+    "data/tilesets/primary/dark_cave/palettes/09.pal",
+    "data/tilesets/primary/dark_cave/palettes/10.pal",
+    "data/tilesets/primary/dark_cave/palettes/11.pal",
+    "data/tilesets/primary/dark_cave/palettes/12.pal",
+    "data/tilesets/secondary/dark_cave/metatile_attributes.bin",
+    "data/tilesets/secondary/dark_cave/metatiles.bin",
+    "data/tilesets/secondary/dark_cave/palettes/00.pal",
+    "data/tilesets/secondary/dark_cave/palettes/01.pal",
+    "data/tilesets/secondary/dark_cave/palettes/02.pal",
+    "data/tilesets/secondary/dark_cave/palettes/03.pal",
+    "data/tilesets/secondary/dark_cave/palettes/04.pal",
+    "data/tilesets/secondary/dark_cave/palettes/05.pal",
+    "data/tilesets/secondary/dark_cave/palettes/06.pal",
+    "data/tilesets/secondary/dark_cave/palettes/07.pal",
+    "data/tilesets/secondary/dark_cave/palettes/08.pal",
+    "data/tilesets/secondary/dark_cave/palettes/09.pal",
+    "data/tilesets/secondary/dark_cave/palettes/10.pal",
+    "data/tilesets/secondary/dark_cave/palettes/11.pal",
+    "data/tilesets/secondary/dark_cave/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_dark_cave_or_routes": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Dark Cave, Route 45 or Route 46 are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

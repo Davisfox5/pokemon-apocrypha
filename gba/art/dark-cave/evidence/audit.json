@@ -1,0 +1,203 @@
+{
+  "maps": {
+    "DarkCaveRoute45Side": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "exits": [
+        [
+          6,
+          57
+        ],
+        [
+          60,
+          4
+        ]
+      ],
+      "reach_cells": 1259,
+      "hgss_reach_cells": 1259,
+      "exits_reached_from": {
+        "6,57": [
+          "6,57"
+        ],
+        "60,4": [
+          "6,57",
+          "60,4"
+        ]
+      },
+      "walked": 967,
+      "surfed": 292,
+      "foot_only_cells": 198,
+      "reach_with_obstacles_in_place": 1259,
+      "held_back_by_obstacles": 0,
+      "objects": {},
+      "unwired": {},
+      "tiles": [
+        240,
+        16
+      ],
+      "metatiles": [
+        114,
+        1
+      ]
+    },
+    "DarkCaveRoute31Side": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "exits": [
+        [
+          26,
+          4
+        ],
+        [
+          55,
+          56
+        ]
+      ],
+      "reach_cells": 758,
+      "hgss_reach_cells": 758,
+      "exits_reached_from": {
+        "26,4": [
+          "26,4",
+          "55,56"
+        ],
+        "55,56": [
+          "26,4",
+          "55,56"
+        ]
+      },
+      "walked": 651,
+      "surfed": 107,
+      "foot_only_cells": 633,
+      "reach_with_obstacles_in_place": 376,
+      "held_back_by_obstacles": 377,
+      "objects": {
+        "17,17": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+        "40,13": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+        "55,53": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+        "17,18": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+        "28,20": "OBJ_EVENT_GFX_PUSHABLE_BOULDER"
+      },
+      "unwired": {
+        "5,26": "HGSS's exit to Route 31: Route 31 and the Dark Cave entrance beside it are another agent's maps, so this exit stays solid until they are joined"
+      },
+      "tiles": [
+        240,
+        16
+      ],
+      "metatiles": [
+        114,
+        1
+      ]
+    }
+  },
+  "routes": {
+    "Route45": {
+      "pixels_changed": 0,
+      "cell": [
+        10,
+        6
+      ],
+      "metatile": 523,
+      "behavior_was": "MB_NORMAL",
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision_was": 1,
+      "collision": 0,
+      "warp": {
+        "x": 10,
+        "y": 6,
+        "elevation": 0,
+        "dest_map": "MAP_DARK_CAVE_ROUTE45_SIDE",
+        "dest_warp_id": "1"
+      }
+    },
+    "Route46": {
+      "pixels_changed": 0,
+      "cell": [
+        20,
+        9
+      ],
+      "metatile": 538,
+      "behavior_was": "MB_NORMAL",
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision_was": 1,
+      "collision": 0,
+      "warp": {
+        "x": 20,
+        "y": 9,
+        "elevation": 0,
+        "dest_map": "MAP_DARK_CAVE_ROUTE31_SIDE",
+        "dest_warp_id": "1"
+      }
+    }
+  },
+  "changed_files": [
+    "data/event_scripts.s",
+    "data/layouts/DarkCaveRoute31Side/border.bin",
+    "data/layouts/DarkCaveRoute31Side/map.bin",
+    "data/layouts/DarkCaveRoute45Side/border.bin",
+    "data/layouts/DarkCaveRoute45Side/map.bin",
+    "data/layouts/Route45/map.bin",
+    "data/layouts/Route46/map.bin",
+    "data/layouts/layouts.json",
+    "data/maps/DarkCaveRoute31Side/map.json",
+    "data/maps/DarkCaveRoute31Side/scripts.inc",
+    "data/maps/DarkCaveRoute45Side/map.json",
+    "data/maps/DarkCaveRoute45Side/scripts.inc",
+    "data/maps/Route45/map.json",
+    "data/maps/Route46/map.json",
+    "data/maps/map_groups.json",
+    "data/tilesets/primary/dark_cave/metatile_attributes.bin",
+    "data/tilesets/primary/dark_cave/metatiles.bin",
+    "data/tilesets/primary/dark_cave/palettes/00.pal",
+    "data/tilesets/primary/dark_cave/palettes/01.pal",
+    "data/tilesets/primary/dark_cave/palettes/02.pal",
+    "data/tilesets/primary/dark_cave/palettes/03.pal",
+    "data/tilesets/primary/dark_cave/palettes/04.pal",
+    "data/tilesets/primary/dark_cave/palettes/05.pal",
+    "data/tilesets/primary/dark_cave/palettes/06.pal",
+    "data/tilesets/primary/dark_cave/palettes/07.pal",
+    "data/tilesets/primary/dark_cave/palettes/08.pal",
+    "data/tilesets/primary/dark_cave/palettes/09.pal",
+    "data/tilesets/primary/dark_cave/palettes/10.pal",
+    "data/tilesets/primary/dark_cave/palettes/11.pal",
+    "data/tilesets/primary/dark_cave/palettes/12.pal",
+    "data/tilesets/primary/dark_cave/palettes/13.pal",
+    "data/tilesets/primary/dark_cave/palettes/14.pal",
+    "data/tilesets/primary/dark_cave/palettes/15.pal",
+    "data/tilesets/primary/dark_cave/tiles.png",
+    "data/tilesets/secondary/dark_cave/metatile_attributes.bin",
+    "data/tilesets/secondary/dark_cave/metatiles.bin",
+    "data/tilesets/secondary/dark_cave/palettes/00.pal",
+    "data/tilesets/secondary/dark_cave/palettes/01.pal",
+    "data/tilesets/secondary/dark_cave/palettes/02.pal",
+    "data/tilesets/secondary/dark_cave/palettes/03.pal",
+    "data/tilesets/secondary/dark_cave/palettes/04.pal",
+    "data/tilesets/secondary/dark_cave/palettes/05.pal",
+    "data/tilesets/secondary/dark_cave/palettes/06.pal",
+    "data/tilesets/secondary/dark_cave/palettes/07.pal",
+    "data/tilesets/secondary/dark_cave/palettes/08.pal",
+    "data/tilesets/secondary/dark_cave/palettes/09.pal",
+    "data/tilesets/secondary/dark_cave/palettes/10.pal",
+    "data/tilesets/secondary/dark_cave/palettes/11.pal",
+    "data/tilesets/secondary/dark_cave/palettes/12.pal",
+    "data/tilesets/secondary/dark_cave/palettes/13.pal",
+    "data/tilesets/secondary/dark_cave/palettes/14.pal",
+    "data/tilesets/secondary/dark_cave/palettes/15.pal",
+    "data/tilesets/secondary/dark_cave/tiles.png",
+    "data/tilesets/secondary/route_45/metatile_attributes.bin",
+    "data/tilesets/secondary/route_46/metatile_attributes.bin",
+    "src/apocrypha_map_proof.c",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h"
+  ],
+  "budget": {
+    "patterns": 237,
+    "primary_tiles": 237,
+    "secondary_tiles": 0,
+    "metatiles": 114,
+    "primary_metatiles": 114,
+    "secondary_metatiles": 0
+  },
+  "failures": []
+}
