@@ -5,7 +5,8 @@
 
 Into the east gate and back out, into the west gate and back out, a walk down the north road, over the
 north bridge, across the landing and the south bridge to the main street, the lake blocking on foot, the
-hall's front blocking at its door, the back path behind it open and the lawn its old west wing gave back walkable.
+hall's front blocking at its door, the back path behind it open, the lawn its old west wing gave back
+walkable, and every door: its opening frames, the interior loaded, back outside below the door on the way out.
 Every capture is compared with the installed native decode outside the player sprite: results.json
 records the share of identical pixels per frame.
 """
@@ -37,6 +38,11 @@ static void need(int ok,const char*tag){if(!ok){fprintf(stderr,"FAILED %s (map %
 static void at(unsigned map,unsigned x,unsigned y,const char*tag){observe(tag);need(state[2]==map&&state[3]==x&&state[4]==y,tag);}
 static void pos(unsigned*m,unsigned*x,unsigned*y){call("MapProof_ReadState",0);unsigned a=sym("gMapProofState");*m=c->busRead32(c,a+8);*x=c->busRead32(c,a+12);*y=c->busRead32(c,a+16);}
 static void step(unsigned key){unsigned m0,x0,y0,m1,x1,y1;pos(&m0,&x0,&y0);int moved=0;for(int t=0;t<32&&!moved;t++){frames(2,key);pos(&m1,&x1,&y1);moved=(m1!=m0||x1!=x0||y1!=y0);}frames(moved?40:8,0);frames(16,0);}
+static void door(unsigned x,unsigned y,const char*name){char t[64];go(VIOLET,x,y+1);at(VIOLET_NUM,x,y+1,name);
+ frames(2,UP);for(int i=0;i<6;i++){frames(5,UP);sprintf(t,"door-%s-%d",name,i);shot(t);}frames(300,0);observe(name);
+ need(state[2]!=VIOLET_NUM,name);sprintf(t,"inside-%s",name);shot(t);
+ step(DOWN);frames(300,0);observe(name);need(state[2]==VIOLET_NUM&&state[3]==x&&state[4]==y+1,name);sprintf(t,"out-%s",name);shot(t);
+ printf("{\"door\":\"%s\",\"ok\":1}\n",name);fflush(stdout);}
 static void walk(unsigned key,int n,const char*name){char t[64];for(int i=0;i<n;i++){step(key);sprintf(t,"%s-%d",name,i);shot(t);}}
 int main(int argc,char**argv){
  if(argc!=4){fprintf(stderr,"runtime ROM SYMBOLS OUT\n");return 2;}
@@ -63,12 +69,15 @@ int main(int argc,char**argv){
  go(VIOLET,58,43);step(UP);at(VIOLET_NUM,58,43,"hall-blocks");shot("hall-front");
  go(VIOLET,54,33);step(RIGHT);step(RIGHT);at(VIOLET_NUM,56,33,"back-path-open");shot("back-path");
  go(VIOLET,47,40);step(RIGHT);step(RIGHT);at(VIOLET_NUM,49,40,"old-wing-open");shot("old-wing");
- c->deinit(c);return 0;
+ // every door: it opens, the interior loads, walking out puts the player back below the door
+DOOR_TESTS c->deinit(c);return 0;
 }
 '''
 
 def generate():
-    src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c'))
+    import doors as D
+    tests = ''.join(f' door({d["cell"][0]},{d["cell"][1]},"{d["name"]}");\n' for d in D.DOORS)
+    src = TEMPLATE.replace('RUNTIME_C', str(ROOT / 'tools/gba/maps/runtime.c')).replace('DOOR_TESTS', tests)
     return src.replace('#define RIGHT 16\n', f'#define RIGHT 16\n#define VIOLET {VIOLET}\n#define VIOLET_NUM {VIOLET}\n#define EAST_NUM {EAST_GATE}\n#define WEST_NUM {WEST_GATE}\n', 1)
 
 def parity(engine, outdir, shots):

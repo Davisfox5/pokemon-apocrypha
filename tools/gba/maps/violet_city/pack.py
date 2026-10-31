@@ -12,6 +12,7 @@ from PIL import Image
 
 import base as B
 
+UNIQUE = set()                                       # cells that keep a metatile of their own (doors.py)
 P_TILES, S_TILES = 512, 496                          # the secondary's last 16 slots are the door frames' (field_door.c)
 P_META, S_META = 512, 512
 
@@ -140,9 +141,9 @@ class Packer:
         for q in range(4):
             sl = np.s_[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
             ent.append(self.entry(up5[sl], up[sl][..., 3] > 0, False, prefer[4 + q], where))
-        key = (tuple(ent), attr)
+        key = (tuple(ent), attr) + ((where,) if where in UNIQUE else ())   # a door's cell: its own metatile, for the door table
         if key not in self.meta_id:
-            self.meta_id[key] = len(self.metas); self.metas.append(key)
+            self.meta_id[key] = len(self.metas); self.metas.append(key[:2])
         return self.meta_id[key]
 
 def pieces(cells, backdrop5):

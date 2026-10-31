@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import base as B                                     # noqa: E402
 import elements as E                                 # noqa: E402
 import pack as P                                     # noqa: E402
+import doors as D                                    # noqa: E402
 
 def compose(engine):
     v = B.Violet(engine)
@@ -26,6 +27,7 @@ def compose(engine):
     E.paths(cv)
     E.lake_bank(cv)
     E.landing(cv)
+    D.mark(cv)
     E.flatten(cv)
     return v, cv
 
@@ -83,12 +85,13 @@ def install(engine, v, cv):
     outside = [[x, r] for r in range(B.H) for x in range(B.W) if (x, r) not in cv.retraverse
                and (int(cv.bits[r, x]) != int(v.words[r, x]) & 0xFC00 or int(cv.attr[r, x]) != v.attr(int(v.words[r, x]) & 1023))]
     assert not outside, ('traversal changed outside the redrawn buildings', outside[:20])
+    doors, interiors = D.frames(engine, cv, w), D.interiors(engine)
     report = dict(tiles=dict(primary=min(len(pk.tiles), P.P_TILES), secondary=max(0, len(pk.tiles) - P.P_TILES),
                              left=P.P_TILES + P.S_TILES - len(pk.tiles), door_slots_reserved=list(range(1008, 1024))),
                   metatiles=len(pk.metas), cells_redrawn=len(cv.changed), traversal_changed=len(cv.retraverse),
                   fold=dict(max_pixels_per_tile=k, pixels_moved=int(diff.sum()), cells=int((per > 0).sum()),
                             note='every moved pixel is another tone of its own texture'),
-                  notes=cv.notes)
+                  doors=doors, interiors=interiors, notes=cv.notes)
     out = B.ART / 'evidence'; out.mkdir(parents=True, exist_ok=True)
     Image.fromarray(got).save(out / 'installed.png')
     (out / 'install.json').write_text(json.dumps(report, indent=1) + '\n')

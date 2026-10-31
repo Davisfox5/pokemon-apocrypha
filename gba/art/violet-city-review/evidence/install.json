@@ -1,8 +1,8 @@
 {
  "tiles": {
   "primary": 512,
-  "secondary": 479,
-  "left": 17,
+  "secondary": 485,
+  "left": 11,
   "door_slots_reserved": [
    1008,
    1009,
@@ -22,21 +22,323 @@
    1023
   ]
  },
- "metatiles": 685,
- "cells_redrawn": 929,
- "traversal_changed": 174,
+ "metatiles": 695,
+ "cells_redrawn": 952,
+ "traversal_changed": 184,
  "fold": {
   "max_pixels_per_tile": 0,
   "pixels_moved": 0,
   "cells": 0,
   "note": "every moved pixel is another tone of its own texture"
  },
+ "doors": {
+  "SproutTower": {
+   "cell": [
+    39,
+    12
+   ],
+   "metatile": 82,
+   "banks": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "colours_off_palette": 0
+  },
+  "University": {
+   "cell": [
+    57,
+    42
+   ],
+   "metatile": 524,
+   "banks": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "colours_off_palette": 0
+  },
+  "LectureHall": {
+   "cell": [
+    31,
+    41
+   ],
+   "metatile": 496,
+   "banks": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    5
+   ],
+   "colours_off_palette": 0
+  },
+  "Mart": {
+   "cell": [
+    21,
+    40
+   ],
+   "metatile": 464,
+   "banks": [
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "colours_off_palette": 0
+  },
+  "PokemonCenter": {
+   "cell": [
+    49,
+    55
+   ],
+   "metatile": 633,
+   "banks": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "colours_off_palette": 0
+  },
+  "House1": {
+   "cell": [
+    11,
+    27
+   ],
+   "metatile": 222,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  },
+  "House2": {
+   "cell": [
+    10,
+    38
+   ],
+   "metatile": 410,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  },
+  "House3": {
+   "cell": [
+    26,
+    56
+   ],
+   "metatile": 640,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  },
+  "House4": {
+   "cell": [
+    36,
+    61
+   ],
+   "metatile": 679,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  },
+  "House5": {
+   "cell": [
+    56,
+    64
+   ],
+   "metatile": 686,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  },
+  "EastGate": {
+   "cell": [
+    74,
+    56
+   ],
+   "metatile": 651,
+   "banks": [
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    0,
+    0
+   ],
+   "colours_off_palette": 0
+  }
+ },
+ "interiors": [
+  "SproutTower1F",
+  "VioletUniversity",
+  "VioletLectureHall",
+  "VioletMart",
+  "VioletPokemonCenter",
+  "VioletCenterUpstairs",
+  "VioletHouse1",
+  "VioletHouse2",
+  "VioletHouse3",
+  "VioletHouse4",
+  "VioletHouse5"
+ ],
  "notes": [
   "Sprout Tower: HGSS tones on the roof (12999 px, 19 lone pixels cleaned, 319 px of edging cleared), HGSS front 88 x 24 px",
-  "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 115 cells, 11 on the back path under its ridge",
+  "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 119 cells, 11 on the back path under its ridge",
   "paths: cobble with a 8 px sand verge in 471 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
+  "11 animated doors",
   "3371 two-layer quadrants drawn as one"
  ]
 }

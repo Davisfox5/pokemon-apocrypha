@@ -396,7 +396,9 @@ SPIRE = (range(616, 648), range(48, 80), 32)         # the spire's columns, rows
 SPIRE_EDGE = [600, 608, 600, 608]                    # the back eave line under the spire, taken from beside it
 LOWER_K = 4                                          # 32 px repeats of the front face in the lower roof (and one 8 px column, to centre)
 WALL = (174, 200)                                    # the eave's shadow and the front
-GROUND_DY, LOWER_DY, UPPER_DY, TOP_DY = 480, 536, 432, 488   # the tower's rows moved down to: ground floor, lower roof, upper floor, top roof
+GROUND_DY, LOWER_DY, UPPER_DY, TOP_DY = 480, 528, 424, 480   # the tower's rows moved down to: ground floor, lower roof, upper floor, top roof
+EAVE_GAP = 4                                         # px of eave shadow between the lower roof and the ground floor: the door's
+                                                     # 2x2 animation block then holds no roof (field_door.c draws one bank a tile)
 BACK_PATH = 33                                       # the row behind the hall: walkable, the top roof drawn over the player
 DOOR_SPUR = (55, 61, 43)                             # the street's spur to the door: x from, x to, the street's first row
 
@@ -448,7 +450,9 @@ def university(cv):
     face = list(range(m, r, 8))
     bay_l, door, bay_r = list(range(600, 624, 8)), list(range(624, 648, 8)), list(range(648, 672, 8))
     # back to front: the ground floor, the lower roof over its eave, the upper floor on the lower roof, the top roof
-    put([592] + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + [672], *WALL, GROUND_DY, 'lower')
+    ground = put([592] + bay_l * HALL_BAYS + door + bay_r * HALL_BAYS + [672], *WALL, GROUND_DY, 'lower')
+    gx = HALL_DOOR - ground // 2
+    cv.lower[WALL[0] + GROUND_DY - EAVE_GAP:WALL[0] + GROUND_DY, gx:gx + ground] = ROOF_OUTLINE
     width = put(list(range(l, m, 8)) + face * LOWER_K + [m + 8] + list(range(r, e, 8)), *TIER_ROWS, LOWER_DY, 'upper')
     put([592] + bay_l + bay_l + bay_r + [672], *WALL, UPPER_DY, 'lower')
     put(list(range(l, m, 8)) + face[:2] + [face[1]] + face[2:] + list(range(r, e, 8)), *TIER_ROWS, TOP_DY, 'upper')
@@ -462,12 +466,13 @@ def university(cv):
     cells = {(x, r) for r in range(top, bottom + 1) for x in range(left // 16, (left + width - 1) // 16 + 1)
              if cv.upper[cv.sl(x, r)][..., 3].any() or not (cv.lower[cv.sl(x, r)] == lawn_at[cv.sl(x, r)]).all()}
     back = {(x, r) for x, r in cells if r == BACK_PATH}
-    hall = cells - back
-    for x, r in old | cells:
+    behind = {(x, r) for x, r in cells if r < BACK_PATH}   # the trees behind: the roof's back eave over their feet, as they were
+    hall = cells - back - behind
+    for x, r in (old | cells) - behind:
         cv.attr[r, x] = (B.NORMAL if (x, r) in back else B.COVERED) << 12
         cv.bits[r, x] = blocked if (x, r) in hall else freed
     cv.changed |= old | cells
-    cv.retraverse |= old | cells
+    cv.retraverse |= (old | cells) - behind
     cv.notes.append(f'university: a two-storey Johto hall in Sprout Tower materials, {width} px wide, {len(hall)} cells, '
                     f'{len(back)} on the back path under its ridge')
 

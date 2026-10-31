@@ -1,7 +1,7 @@
 {
  "exit_code": 0,
- "frames": 37,
- "fully_identical": 36,
+ "frames": 48,
+ "fully_identical": 47,
  "lowest": [
   [
    0.9973,
@@ -31,7 +31,21 @@
   "the lake blocks on foot",
   "the hall blocks at its door",
   "the back path behind the hall is open, the roof drawn over the player",
-  "the lawn of the old west wing is walkable"
+  "the lawn of the old west wing is walkable",
+  "every door opens, its interior loads, walking out returns below the door"
  ],
- "note": "Frames compared with the installed native decode outside the player sprite."
+ "doors_passed": [
+  "SproutTower",
+  "University",
+  "LectureHall",
+  "Mart",
+  "PokemonCenter",
+  "House1",
+  "House2",
+  "House3",
+  "House4",
+  "House5",
+  "EastGate"
+ ],
+ "note": "Frames compared with the installed native decode outside the player sprite; the door-opening frames (evidence/doors.png) are left out, the camera scrolling as the player walks in."
 }

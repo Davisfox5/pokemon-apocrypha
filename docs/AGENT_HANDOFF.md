@@ -61,8 +61,11 @@ Owner review (October 25), refined the same day:
   in Sprout Tower's materials, 15 x 8 cells (was 20 x 9), saving 39 tiles. October 31: Sprout Tower and
   the hall in HGSS's lighter roof tones, with HGSS's own carved front (no stone plinth); the tower's
   edging cleared; the hall two storeys, centred on its door, both roofs the tower's full hip roof (the
-  lower one wrapping round the upper floor). 17 tiles free. Owner accepted Sprout Tower and the hall
+  lower one wrapping round the upper floor). Owner accepted Sprout Tower and the hall
   (October 31, "lock those in"): don't redraw them without a new request.
+  Doors (October 31): all eleven animate (`tools/gba/maps/violet_city/doors.py`, frames on the top layer via
+  the `layered` door-table flag added to `src/field_door.c`) and lead into working shells (Center, Mart,
+  university, lecture hall, five houses, a Sprout Tower stand-in room). 11 tiles free.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
