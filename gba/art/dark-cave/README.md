@@ -1,6 +1,6 @@
 # Dark Cave: HGSS cave textures, both maps
 
-Owner review pending. Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
+Owner review pending (second pass: rock on the Gen 3 grid). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
 `DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64 each, in HGSS's own
 coordinates. Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
 tiles, the way Union Cave was finished. None of Union Cave's art, palettes or generators are used.
@@ -20,26 +20,29 @@ tiles, the way Union Cave was finished. None of Union Cave's art, palettes or ge
 
 ## Art
 
-The native art is HGSS's own render of both maps (`tools/gba/maps/dark_cave/hgss_render.py`, decoded
-land_data, area bank 87): its rock walls, cliff tops, floor and moss, pools, stairs, boulders and
-exit light, one HGSS tile per native cell. Both maps share one tileset pair of their own,
-`gTileset_DarkCavePrimary` and `gTileset_DarkCave`.
+Gen 3 sizing (owner review, October 31). HGSS builds its cave walls as 45-degree tiers, one tile
+deep and one tile high each, and its camera draws them slanted: side walls came out as diagonal
+wedges, faces started 9 px into a cell, and wall pixels lay on 225 walkable cells. As on the routes,
+`assemble.py` redraws the rock top-down on the Gen 3 grid, in HGSS's own cave textures. Each rock
+cell keeps HGSS's tier height and takes a nine-slice piece from its neighbours:
 
-HGSS's two maps hold 2,413 distinct 8x8 tiles and 80 colours; a Gen 3 tileset pair holds 1,008 tiles
-in 13 banks of 15 colours. `pack.py` fits it in two lossy steps:
+| Lower neighbour | Piece |
+| --- | --- |
+| south | the face: `dwall_s`, one cell tall, on the grid (`dwall_sw` / `dwall_es` halves at its corners) |
+| north, east, west | the rim: `dallpeak_p`'s lip along that edge, turned to face the lower side |
+| none | the top: `dcliff01` where HGSS shows its beige cliff top, its side-wall rock (`dwall_e` / `dwall_w`) where it shows a wall tier, black where it shows the dark above its walls |
 
-1. **Palette banks.** Each distinct tile goes to one of 13 banks, each bank's 15 colours fitted to its
-   tiles.
-2. **Tile reuse.** Representatives are always real HGSS tiles. The one whose loss costs least is
-   dropped, and its users take their nearest remaining representative under any flip, until 1,008
-   patterns remain. A pixel whose HGSS material class differs (floor, wall face, cliff top, rim,
-   boulder, stairs, water, exit) costs heavily, so a wall edge is only drawn by a tile with the same
-   edge.
+Walkable cells keep HGSS's render, with the wall pixels its slant laid on them painted back as floor
+(`droad01` at HGSS's own phase) or water. Ledges, boulders, stairs, exits and water keep HGSS's render.
+[Before and after, Route 45 side](evidence/assemble/route45-side-before-after.png) ·
+[Route 31 side](evidence/assemble/route31-side-before-after.png).
 
-Result ([pack.json](evidence/pack.json)): 1,008 tiles (512 + 496), 809 metatiles (512 + 297). Against
-HGSS's render, in RGB555, about 96% of cave pixels are exact, 99.1% within one level and 99.8% within
-two. The largest moves are in the exit-light glows, which band slightly. Every cell is one bottom
-layer under the player.
+Both maps share one tileset pair of their own, `gTileset_DarkCavePrimary` and `gTileset_DarkCave`.
+On the grid the two maps hold 1,297 distinct 8x8 tiles; a Gen 3 pair holds 1,008 in 13 banks of 15
+colours. `pack.py` fits them with fitted palette banks and reuse of real tiles (a pixel whose
+material class differs costs heavily, so a wall edge is only drawn by a tile with the same edge):
+1,008 tiles, 556 metatiles ([pack.json](evidence/pack.json)). Against `assemble.py`'s art, 98.6% of
+pixels are exact and 99.98% within two RGB555 levels. Every cell is one bottom layer under the player.
 
 ## Traversal
 
@@ -105,6 +108,7 @@ HGSS's do.
 ```sh
 python3 tools/gba/maps/dark_cave/hgss_render.py PHG OUT route45-side   # and route31-side
 python3 tools/gba/maps/dark_cave/hgss_events.py PHG gba/art/dark-cave/source/hgss-events
+python3 tools/gba/maps/dark_cave/assemble.py PHG
 python3 tools/gba/maps/dark_cave/pack.py ENGINE
 python3 tools/gba/maps/dark_cave/install.py ENGINE      # refuses over commits that are not its own
 make -C ENGINE -j8

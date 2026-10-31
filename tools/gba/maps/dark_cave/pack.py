@@ -1,11 +1,11 @@
-"""Dark Cave: pack both HGSS maps (hgss_render.py) onto one tileset pair of their own.
+"""Dark Cave: pack both maps (assemble.py) onto one tileset pair of their own.
 
     python3 tools/gba/maps/dark_cave/pack.py ENGINE_CHECKOUT
 
-The native art is HGSS's own render: its rock walls, cliff tops, floor, water, stairs and
-exits, 1:1 at 16 px per cell. The two maps hold 2,413 distinct 8x8 tiles (flip-deduped) and
-80 RGB555 colours; a Gen 3 tileset pair holds 1,008 tiles in 13 banks of 15. Two lossy steps
-fit it, both recorded in evidence/pack.json:
+The native art is assemble.py's: HGSS's floor, water, stairs and exits as rendered, its rock
+redrawn on the Gen 3 grid in its own cave textures, 1:1 at 16 px per cell. A Gen 3 tileset pair
+holds 1,008 tiles in 13 banks of 15; when the two maps hold more distinct 8x8 tiles (flip-deduped)
+or colours, two lossy steps fit them, both recorded in evidence/pack.json:
 
 1. Palette banks. Every distinct tile is assigned one of 13 banks; each bank's 15 colours are
    fitted to its tiles (weighted k-means over the tiles' own colours, alternating with the
@@ -15,7 +15,8 @@ fit it, both recorded in evidence/pack.json:
    each is drawn) is dropped and its users take their nearest remaining representative under
    any flip, until the patterns fit. Distance is the RGB555 error plus a penalty for every pixel
    whose HGSS material class (floor, wall, cliff top, water, stairs, rock, exit, void) differs,
-   so a wall edge is only ever drawn by a tile with the same wall edge.
+   so a wall edge is only ever drawn by a tile with the same wall edge. Pixel figures in
+pack.json compare the native maps with assemble.py's art.
 
 Every cell is a single bottom layer under the player (Gen 3 caves draw nothing above the
 player). Traversal comes from the HGSS permission grid (traversal()).
@@ -231,12 +232,9 @@ def reduce_tiles(q, cls, w, pattern_of, target):
 def main(engine):
     (SRC / 'pack').mkdir(parents=True, exist_ok=True); EV.mkdir(parents=True, exist_ok=True)
     images, classes = [], []
-    for side in SIDES:
-        images.append(rgb5(np.array(Image.open(SRC / f'hgss/{side}/hgss-render.png').convert('RGB'))))
-        m = np.load(SRC / f'hgss/{side}/hgss-ground-materials.npz')
-        names = [str(v) for v in m['names']]
-        lut = np.array([CLASS[nm] for nm in names] + [0], np.int16)       # -1 (void) -> 0
-        classes.append(lut[m['material']])
+    for side in SIDES:                                     # assemble.py: HGSS's rock on the Gen 3 grid
+        images.append(rgb5(np.array(Image.open(SRC / f'assemble/{side}.png').convert('RGB'))))
+        classes.append(np.load(SRC / f'assemble/{side}-class.npy').astype(np.int16))
     rgb, cls, w, pos = distinct_tiles(images, classes)
     n = len(rgb)
     # 1. palette banks (best of a few seeds)
@@ -306,9 +304,9 @@ def main(engine):
     for k, i in ids.items():
         meta_rows[i] = list(k[0]) + [k[1]]
     # Decode the native result and measure it against the HGSS render.
-    report = dict(method='HGSS render, 13 fitted palette banks, medoid tile reuse under a material-class penalty '
+    report = dict(method='assemble.py art (HGSS rock on the Gen 3 grid), 13 fitted palette banks, medoid tile reuse under a material-class penalty '
                          f'(lambda {LAMBDA}), one bottom layer per cell',
-                  distinct_hgss_tiles=n, representatives=nrep, patterns=len(patterns),
+                  distinct_tiles=n, representatives=nrep, patterns=len(patterns),
                   primary_tiles=min(len(patterns), PRIMARY_TILES), secondary_tiles=max(0, len(patterns) - PRIMARY_TILES),
                   metatiles=nm, primary_metatiles=min(nm, 512), secondary_metatiles=max(0, nm - 512),
                   colours_per_bank=[len({tuple(c) for c in p}) for p in pals], sides={})

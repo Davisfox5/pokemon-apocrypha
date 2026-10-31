@@ -1,24 +1,24 @@
 {
-  "method": "HGSS render, 13 fitted palette banks, medoid tile reuse under a material-class penalty (lambda 300.0), one bottom layer per cell",
-  "distinct_hgss_tiles": 2413,
+  "method": "assemble.py art (HGSS rock on the Gen 3 grid), 13 fitted palette banks, medoid tile reuse under a material-class penalty (lambda 300.0), one bottom layer per cell",
+  "distinct_tiles": 1291,
   "representatives": 1007,
   "patterns": 1008,
   "primary_tiles": 512,
   "secondary_tiles": 496,
-  "metatiles": 809,
+  "metatiles": 550,
   "primary_metatiles": 512,
-  "secondary_metatiles": 297,
+  "secondary_metatiles": 38,
   "colours_per_bank": [
     15,
     15,
     15,
-    2,
     15,
     15,
     15,
     15,
     15,
-    11,
+    15,
+    13,
     15,
     15,
     15
@@ -26,19 +26,19 @@
   "sides": {
     "route45-side": {
       "pixels": 756224,
-      "exact": 0.9594,
-      "within_1": 0.9911,
-      "within_2": 0.9983,
-      "max_level_diff": 11,
-      "metatiles_used": 556
+      "exact": 0.985,
+      "within_1": 0.9992,
+      "within_2": 0.9998,
+      "max_level_diff": 7,
+      "metatiles_used": 377
     },
     "route31-side": {
       "pixels": 655872,
-      "exact": 0.9565,
-      "within_1": 0.991,
-      "within_2": 0.9983,
-      "max_level_diff": 11,
-      "metatiles_used": 481
+      "exact": 0.9817,
+      "within_1": 0.999,
+      "within_2": 0.9998,
+      "max_level_diff": 5,
+      "metatiles_used": 324
     }
   }
 }
