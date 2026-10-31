@@ -8,8 +8,10 @@ ends in grass on a hard line); the east ledge is FireRed's top, middle and corne
 Round 3 (owner, 2026-10-31): the step down from Celadon becomes a four-wide outcrop like the
 south-west one, up to the map's top edge on its own rim, and a four-row rock band along the top of
 the map east to the north-east outcrop (the trees and the meadow's top rows there go): the route's
-north edge. The road is rough (ragged edges at half-cell steps with FireRed's path edges, worn
-patches, scattered pebbles) and Celadon's paving breaks up into it. The plot (`evidence/plan.png`) was
+north edge. The road is rough and Celadon's paving breaks up into it. Round 4 (owner): the road's
+half-cell notches read as jagged, so its edges are back on the cells and feathered with HGSS's own
+road edge texture (`road01_r`, the one HGSS lays along this road), its grass and sand texels in the
+map's grass and road; the worn patches and pebbles stay. The plot (`evidence/plan.png`) was
 approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
 shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
 solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.

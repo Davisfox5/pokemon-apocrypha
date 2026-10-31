@@ -277,58 +277,45 @@ def ground(kind):
 # --------------------------------------------------------------------------- the rough road
 WEAR = [(231, 198, 148), (231, 181, 148)]      # road01's two darker shades, for worn patches
 
-def edges8(out, ground8, grass_px, paint):
-    """FireRed's path edge laid on an 8 px grid: every painted 8 px block of ground that touches
-    grass takes, from the path piece its neighbours call for, the quadrant facing that grass, so
-    an edge that steps in or out by half a cell still meets the grass the way Viridian Forest's
-    paths do (nature.grass_edges, at half the grain)."""
-    H8, W8 = ground8.shape
-    inside = lambda x, y: (not (0 <= x < W8 and 0 <= y < H8)) or ground8[y, x]
-    pieces, cls = N.path_pieces(), N.classes()
-    for sy, sx in zip(*np.nonzero(paint)):
-        gw, ge, gn, gs = (not inside(sx - 1, sy)), (not inside(sx + 1, sy)), (not inside(sx, sy - 1)), (not inside(sx, sy + 1))
-        qx = 0 if gw else 1 if ge else None
-        qy = 0 if gn else 1 if gs else None
-        if qx is None or qy is None:                          # a corner: face the grass diagonal
-            for dx, dy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
-                if not inside(sx + dx, sy + dy) and (qx in (None, (dx + 1) // 2)) and (qy in (None, (dy + 1) // 2)):
-                    qx, qy = (dx + 1) // 2 if qx is None else qx, (dy + 1) // 2 if qy is None else qy
-                    break
-        if qx is None or qy is None:
-            continue
-        k = N.piece_for(inside, sx, sy, qx, qy)
-        if k == 'c':
-            continue
-        ps = np.s_[qy * 8:qy * 8 + 8, qx * 8:qx * 8 + 8]
-        sl = np.s_[sy * 8:sy * 8 + 8, sx * 8:sx * 8 + 8]
-        cl = cls[k][ps]
-        out[sl][cl == 1] = grass_px[sl][cl == 1]
-        out[sl][cl == 2] = pieces[k][ps][cl == 2]
+def hgss_edges(out, road, grass_px, tex):
+    """The road's top and bottom edges feathered with HGSS's own road edge (road01_r, the texture
+    HGSS lays along this road's edge rows): its vertical edge strip (texels 0-15 across, grass
+    to the west) turned to run along the road, at 1:1 in the world's phase, mirrored for the south
+    edge; its grass texels take the map's grass, its sand the road's own texture, its feathered
+    grey-brown band kept as HGSS draws it (owner, 2026-10-31: feathered, from tiles that exist)."""
+    t = tex['road01_r'][..., :3].astype(int)
+    strip = t[:, 0:16].transpose(1, 0, 2)                          # 16 rows (grass at the top) x 32 along
+    sand = {tuple(c) for c in tex['road01'][..., :3].reshape(-1, 3).tolist()}
+    green = (strip[..., 1] > strip[..., 0] + 20)
+    sandy = np.array([[tuple(c) in sand for c in row] for row in strip.tolist()])
+    Hh, Ww = road.shape
+    for y, x in zip(*np.nonzero(road)):
+        for south in (False, True):
+            ny = y + (1 if south else -1)
+            if 0 <= ny < Hh and road[ny, x]:
+                continue
+            st, g, sd = (strip[::-1], green[::-1], sandy[::-1]) if south else (strip, green, sandy)
+            cols = (np.arange(16) + (x + OX) * 16) % 32
+            sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
+            cell, gp = out[sl], grass_px[sl]
+            gm, sm = g[:, cols], sd[:, cols]
+            rim = ~gm & ~sm
+            cell[gm] = gp[gm]
+            cell[rim] = st[:, cols][rim].astype(np.uint8)
 
 def rough_road(out, kind, grass_px, tex, t):
-    """The dirt road as a rough country road (owner, 2026-10-31): HGSS's road01 at 1:1, its edges
-    notched and bulged by half cells along its length (a fixed hash in world cells, the bulges only
-    onto open grass verges), FireRed's path edge laid on the 8 px grid round them, worn patches in
-    road01's own darker shades, HGSS's pebbles scattered, and Celadon's paving breaking up into
-    the dirt at its end instead of stopping on a straight kerb."""
+    """The dirt road as a rough country road (owner, 2026-10-31): HGSS's road01 at 1:1 on HGSS's
+    rows, its edges feathered with HGSS's own road edge texture (not jagged: the owner's second
+    note), worn patches in road01's own darker shades, HGSS's pebbles scattered, and Celadon's
+    paving breaking up into the dirt at its end instead of stopping on a straight kerb."""
     H8, W8 = H * 2, W * 2
     road = np.zeros((H8, W8), bool)
     r0, r1 = (OY + ROAD[0]) * 2, (OY + ROAD[1]) * 2
     x0, x1 = PAVE_X * 2, int(ROAD_END * 2)
     road[r0:r1, x0:x1] = True
-    verge = lambda sy, sx: kind[sy // 2, sx // 2] == 'grass'
-    for sx in range(x0 + 1, min(x1, 25 * 2)):
-        for edge, inward, deeper, outward in ((r0, r0, r0 + 1, r0 - 1), (r1 - 1, r1 - 1, r1 - 2, r1)):
-            v = h('rough', edge, sx + OX * 2) % 9
-            if v in (0, 1):
-                road[inward, sx] = False                          # grass breaking in
-                if v == 0 and h('deep', edge, sx) % 3 == 0:
-                    road[deeper, sx] = False                      # and further, here and there
-            elif v in (2, 3) and verge(outward, sx):
-                road[outward, sx] = True                          # the road worn wider
     # the paving's last column breaks up into the dirt (its lane rows stay whole)
     pave_end = np.zeros((H8, W8), bool)
-    for sy in range((OY + ROAD[0]) * 2, (OY + LANE[0]) * 2):
+    for sy in range((OY + ROAD[0]) * 2 + 1, (OY + LANE[0]) * 2):      # its top row stays whole, under the grass's edge
         for sx in (x0 - 2, x0 - 1):
             if h('slab', sy, sx) % 3 == 0 or (sx == x0 - 1 and h('slab', sy, sx) % 3 == 1):
                 pave_end[sy, sx] = True
@@ -365,8 +352,7 @@ def rough_road(out, kind, grass_px, tex, t):
             if h('pebble', sx + OX * 2, sy) % 23 == 0 and road[sy:sy + 2, sx:sx + 2].all():
                 cell = out[sy * 8:sy * 8 + 16, sx * 8:sx * 8 + 16]
                 cell[pa] = p[..., :3][pa]
-    ground8 = road | pave_end | np.isin(kind, ('pave', 'lane')).repeat(2, 0).repeat(2, 1)
-    edges8(out, ground8, grass_px, road | pave_end)
+    hgss_edges(out, road[::2, ::2], grass_px, tex)
 
 # --------------------------------------------------------------------------- objects
 def sprites():

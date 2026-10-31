@@ -386,11 +386,12 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   the edges facing a neighbour's ground at the same height (a one-cell ridge is edged on both sides);
   side ledges are FireRed's top, middle and corner pieces, so a ledge runs as one piece (owner,
   Route 7, 2026-10-31).
-- **Routes are rough.** A route's dirt road between towns is a country road, not a tidy strip: its
-  edges notched and bulged by half cells, FireRed's path edge laid on the 8 px grid round them,
-  worn patches in the road's own darker shades, pebbles scattered, and a town's paving breaking up
-  into it rather than stopping on a straight kerb (`route7/compose.rough_road`; owner, Route 7,
-  2026-10-31).
+- **Routes are rough, not jagged.** A route's dirt road between towns is a country road: its edges
+  feathered (HGSS's own road edge, `road01_r`, laid along it at 1:1 with the map's grass and road in
+  its grass and sand texels), worn patches in the road's own darker shades, pebbles scattered, and
+  a town's paving breaking up into it rather than stopping on a straight kerb. Its edges stay on
+  the cells: notching them by half cells read as jagged (owner, Route 7, 2026-10-31;
+  `route7/compose.rough_road`). Feather with tiles that already exist; do not draw new edge art.
 - **Rock has a job.** Rock that only decorates a strip of woods reads as pointless: make it a whole
   outcrop that bounds the map (Route 7's north edge, as wide as its south-west outcrop, ending on its
   own rim at the map's edge, never running off it; owner, 2026-10-31).
