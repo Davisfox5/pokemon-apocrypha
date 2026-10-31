@@ -304,7 +304,7 @@ def main(engine):
     for k, i in ids.items():
         meta_rows[i] = list(k[0]) + [k[1]]
     # Decode the native result and measure it against the HGSS render.
-    report = dict(method='assemble.py art (HGSS rock on the Gen 3 grid), 13 fitted palette banks, medoid tile reuse under a material-class penalty '
+    report = dict(method='assemble.py art (the routes\' FRLG rock in HGSS cave colours), 13 fitted palette banks, medoid tile reuse under a material-class penalty '
                          f'(lambda {LAMBDA}), one bottom layer per cell',
                   distinct_tiles=n, representatives=nrep, patterns=len(patterns),
                   primary_tiles=min(len(patterns), PRIMARY_TILES), secondary_tiles=max(0, len(patterns) - PRIMARY_TILES),
