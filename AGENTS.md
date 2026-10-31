@@ -375,6 +375,17 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   banks of their own when a view needs it. Never fold shades that share a tile (texture
   flattens). Porymap shows stand-in metatiles for traversal. Prove it with VRAM parity over
   long walks in every direction, not standing views alone.
+- **Kanto's gatehouse.** HGSS draws one gatehouse (model 247) in Johto and Kanto alike, so Kanto's
+  gates are that model in FireRed's Kanto gatehouse materials: the roof, walls and step in FireRed's
+  seamed grey-blue metal, the facade band in FireRed's yellow brick laid back course by course, the
+  window band kept (owner chose this over HGSS's teal and a steel-and-glass version, Route 7,
+  2026-10-31; `route7/gates.py`, option B). It matches the FireRed gatehouses Saffron already draws.
+- **Lanes stay in town.** A town's cycleway ends where its paving ends; it does not run on along a
+  route's dirt road (owner, Route 7, 2026-10-31).
+- **Rock never ends in a hard line.** Every edge of a rock top takes FireRed's edge piece, including
+  the edges facing a neighbour's ground at the same height (a one-cell ridge is edged on both sides);
+  side ledges are FireRed's top, middle and corner pieces, so a ledge runs as one piece (owner,
+  Route 7, 2026-10-31).
 - **A map beside a streamed town streams with it.** Gen 3 draws a connected map with the current
   map's tiles, and a streamed town's map holds stand-ins, so a route connected to it joins the
   stream as one world (Route 7 beside Celadon: `route7/world.py`, engine `celadon_view.c`): each map

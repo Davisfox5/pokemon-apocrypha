@@ -1,6 +1,10 @@
 # Route 7: Celadon to Saffron
 
-Status: **built in the engine, owner visual review pending.** The plot (`evidence/plan.png`) was
+Status: **built in the engine, round 2 after the owner's review (2026-10-31), owner visual review
+pending.** Round 2: the Kanto gatehouse (option B, `evidence/gate-options.png`: HGSS's gate in
+FireRed's Kanto gatehouse metal and yellow brick); Celadon's lane ends where the paving meets the
+dirt road, and the road is HGSS's four rows again; every rock edge takes its edge piece (no rock top
+ends in grass on a hard line); the east ledge is FireRed's top, middle and corner pieces. The plot (`evidence/plan.png`) was
 approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
 shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
 solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.
@@ -9,11 +13,10 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
 
 - `KantoRoute7` (Kanto 16, `MAPSEC_ROUTE_7`, 33 x 32), from HGSS's ledger in Gen 3 elements
   (`compose.py`): FireRed's grass, HGSS's road01 at 1:1 with FireRed's path edges and its
-  pebbles, Celadon's paving and two-lane cycleway run on from the city and into the gate under its
-  west wing and step, a painted bicycle, whole-cell tall grass (G15), FRLG ledges and FRLG rock in
-  HGSS's cliff ramp (the step down from Celadon, both outcrops), Cherrygrove's tree on Celadon's
-  staggered lattice, HGSS's gate (247), Underground Path entrance (339) and notice board (31) at 45
-  degrees. Evidence: `evidence/review.png` (HGSS beside native, coordinate grid),
+  pebbles, Celadon's paving and two-lane cycleway run on from the city to the paving's end, whole-cell
+  tall grass (G15), FRLG ledges and FRLG rock in HGSS's cliff ramp (the step down from Celadon, both
+  outcrops), Cherrygrove's tree on Celadon's staggered lattice, HGSS's gate (247) in FireRed's Kanto
+  gatehouse materials, Underground Path entrance (339) and notice board (31) at 45 degrees. Evidence: `evidence/review.png` (HGSS beside native, coordinate grid),
   `review-seam.png`, `compose-2x.png`.
 - Streamed with Celadon as one 97 x 52 world (`world.py`; engine `celadon_view.c`): either map's
   view shows the other's real art across the connection, and the cache and banks carry on when the
@@ -28,10 +31,12 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
 
 ## Adaptations from HGSS
 
-- The road widened from 4 rows to 5 so Celadon's road comes on at its own width (lane rows 18-19).
+- Celadon's lane runs on over x 0-4 (rows 18-19) and ends with the paving; the road beyond is HGSS's
+  four rows (round 1 widened it to carry the lane to the gate; the owner had the lane stop).
 - HGSS's x 0-3 row 14 is woods: Celadon's woods at x 60-63 run on there.
-- HGSS's gate warps sit on its wall cell (25, 16-17); the Gen 3 sprite fills that cell, so the five
-  road cells in front of it, (24, 15-19), are east arrow warps, as FireRed's Route 7 does it.
+- HGSS's gate warps sit on its wall cell (25, 16-17); the Gen 3 sprite fills that cell, so the four
+  road cells in front of it, (24, 15-18), are east arrow warps, as FireRed's Route 7 does it.
+- The gate is HGSS's model in FireRed's Kanto gatehouse materials (owner's choice), not HGSS's teal.
 - The notice board a row south, (12, 25): at (12, 24) its top covered the entrance's foot.
 - The gate overhangs HGSS's block by three quarters of a cell: the map is 33 columns.
 - HGSS's pale lawn in front of the entrance is FireRed's grass, as Celadon's lawns are.

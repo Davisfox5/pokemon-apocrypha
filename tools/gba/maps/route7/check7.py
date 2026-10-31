@@ -41,7 +41,7 @@ import install7 as I7          # noqa: E402
 
 # Where Route 7 differs from HGSS's walkable cells, and why (README, adaptations).
 ADAPTED = {
-    'road widened for the lane': [(x, 19) for x in range(0, 25)],
+    "Celadon's lane runs on to the paving's end": [(x, 19) for x in range(0, 5)],
     "Celadon's woods at x 60-63 run on": [(x, 14) for x in range(0, 4)],
     'arrow warps in front of the gate (HGSS warps on its wall cell)': [(25, y) for y in range(15, 19)],
     'notice board a row south': [(12, 24), (12, 25)],

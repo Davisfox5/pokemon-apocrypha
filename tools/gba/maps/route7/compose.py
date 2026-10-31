@@ -55,15 +55,14 @@ ENGINE = ROOT.parent / 'pokeemerald-expansion'
 MW, MH = 33, 32                     # the map: HGSS's block and a column for the gate's east wall
 OX, OY = PL.W, 1                    # where the route sits beside Celadon (Route 7 row = Celadon row - 1)
 W, H = MW, PL.H                     # the canvas: the map's columns, Celadon's rows (woods above and below)
-ROAD, LANE, PAVE_X = (15, 20), (18, 20), 5       # rows; the paving runs to x 5 (HGSS's slope is x 4)
-ROAD_END = 26.5                     # the road and lane run in under the gate's west wing and front step
+ROAD, LANE, PAVE_X = (15, 19), (18, 20), 5       # HGSS's road rows; Celadon's lane rows; the paving and lane end at x 5
+ROAD_END = 26.5                     # the road runs in under the gate's west wing and step
 GATE_X, GATE_BASE = 25.25, 19       # the gatehouse: HGSS's west wall, base row
-ARROWS = [(24, y) for y in range(ROAD[0], ROAD[1])]  # in front of the gate's west face, pressing east
+ARROWS = [(24, y) for y in range(ROAD[0], ROAD[1])]  # the road's four cells in front of the gate's west face, pressing east
 UNDERGROUND = (12.0, 23)            # left edge, base row; its door (13, 23)
 UNDERGROUND_DOOR = (13, 23)
 NOTICE = (12, 25)                   # HGSS's (12, 24) a row south: there its top would cover the entrance's foot
 PEBBLES = [(8, 17), (16, 16)]       # HGSS's road01_sub (its third is on Celadon's paving now)
-BIKE_AT = 14                        # a painted bicycle in the lane
 
 def h(*a):
     return int(hashlib.md5(' '.join(map(str, a)).encode()).hexdigest(), 16)
@@ -106,14 +105,13 @@ def ledger():
     kind[Y + ROAD[0]:Y + ROAD[1], 0:W] = 'road'
     kind[Y + 14:Y + 21, 27:W] = 'forest'                    # behind the gate: HGSS's woods (no road beyond it)
     kind[Y + ROAD[0]:Y + LANE[0], 0:PAVE_X] = 'pave'
+    kind[Y + LANE[0]:Y + LANE[1], 0:PAVE_X] = 'lane'        # Celadon's lane, ending where the paving meets the dirt road (owner)
     kind[Y + 14, 0:4] = 'forest'                            # Celadon's woods at x 60-63 run on
     return kind, types, coll, mat
 
 def levels(kind):
     """Terrace level per cell: Celadon's level (x 0-4 off the road) and the rock are 1."""
-    lv = (kind == 'rock').astype(int)
-    lv[OY:OY + MH, 0:4][~np.isin(kind[OY:OY + MH, 0:4], ('road', 'pave'))] = 1
-    return lv
+    return (kind == 'rock').astype(int)
 
 # --------------------------------------------------------------------------- Gen 3 pieces
 RAMP = [(82, 58, 52), (239, 189, 140), (222, 173, 123), (198, 148, 115), (156, 115, 90), (123, 82, 66), (99, 74, 57)]
@@ -121,7 +119,7 @@ FRLG_RAMP = {9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 6}
 NINE = {('N', 'W'): 0x68, ('N', 'M'): 0x69, ('N', 'E'): 0x6A, ('M', 'W'): 0x70, ('M', 'M'): 0x71,
         ('M', 'E'): 0x72, ('S', 'W'): 0x78, ('S', 'M'): 0x79, ('S', 'E'): 0x7A}
 INNER = dict(se=0xB2, sw=0xB3, ne=0xBA, nw=0xBB)
-LEDGE = dict(s=0x87, s_left=0xB0, s_right=0xB1, e=0x84)
+LEDGE = dict(s=0x87, s_left=0xB0, s_right=0xB1, e_top=0x84, e_mid=0x8C, corner=0x8E)   # FRLG's ledge set
 DIRS = dict(n=(0, -1), ne=(1, -1), e=(1, 0), se=(1, 1), s=(0, 1), sw=(-1, 1), w=(-1, 0), nw=(-1, -1))
 
 def frlg_piece(m):
@@ -158,8 +156,6 @@ def rock(out, kind):
     def lvl(x, y):
         if y >= H:
             return 0
-        if x < 0 and OY <= y < OY + MH:
-            return 1                                          # Celadon's level runs on west
         return lv[min(max(y, 0), H - 1), min(max(x, 0), W - 1)]
     nine = {k: frlg_piece(v) for k, v in NINE.items()}
     inner = {k: frlg_piece(v) for k, v in INNER.items()}
@@ -189,26 +185,28 @@ def rock(out, kind):
                     cell[sl][a] = p[..., :3][a]
 
 def ledges(out, kind):
-    """FRLG's ledges: south ledges with rounded ends where they stop on open ground, the east
-    ledge down its column, the corner where the two meet (the east ledge's piece over the
-    south ledge's lip)."""
-    s, sl_, sr, e = (frlg_piece(LEDGE[k]) for k in ('s', 's_left', 's_right', 'e'))
-    is_s = lambda x, y: 0 <= x < W and kind[y, x] in ('ledge_s', 'ledge_se')
+    """FRLG's ledges: south ledges with rounded ends where they stop on open ground; the east
+    ledge as FireRed lays one down a column (its top piece, then middle pieces) turning into the
+    south ledge through FireRed's own corner piece, so the two read as one ledge."""
+    P = {k: frlg_piece(v) for k, v in LEDGE.items()}
+    K_ = lambda x, y: kind[y, x] if 0 <= x < W and 0 <= y < H else 'forest'
+    south = lambda x, y: K_(x, y) in ('ledge_s', 'ledge_se')
+    east = lambda x, y: K_(x, y) in ('ledge_e', 'ledge_se')
     for y in range(H):
         for x in range(W):
             k = kind[y, x]
             if k not in ('ledge_s', 'ledge_e', 'ledge_se'):
                 continue
-            piece = np.zeros((16, 16, 4), np.uint8)
-            if k in ('ledge_s', 'ledge_se'):
-                piece = s.copy()
-                if not is_s(x - 1, y) and k != 'ledge_se':
-                    piece[:, :8] = sl_[:, :8]
-                if not is_s(x + 1, y) and k != 'ledge_se':
-                    piece[:, 8:] = sr[:, 8:]
-            if k in ('ledge_e', 'ledge_se'):
-                a = e[..., 3] > 0
-                piece[a] = e[a]
+            if k == 'ledge_se':
+                piece = P['corner']
+            elif k == 'ledge_e':
+                piece = P['e_mid'] if east(x, y - 1) else P['e_top']
+            else:
+                piece = P['s'].copy()
+                if not south(x - 1, y):
+                    piece[:, :8] = P['s_left'][:, :8]
+                if not south(x + 1, y):
+                    piece[:, 8:] = P['s_right'][:, 8:]
             a = piece[..., 3] > 0
             cell = out[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
             cell[a] = piece[..., :3][a]
@@ -229,7 +227,7 @@ def lane(out):
     m = np.zeros((HH * 16, WW * 16), bool)
     for x0, y0, x1, y1 in PL.CYCLE:
         m[y0 * 16:y1 * 16, x0 * 16:x1 * 16] = True
-    m[(OY + LANE[0]) * 16:(OY + LANE[1]) * 16, OX * 16:OX * 16 + int(ROAD_END * 16)] = True
+    m[(OY + LANE[0]) * 16:(OY + LANE[1]) * 16, OX * 16:(OX + PAVE_X) * 16] = True
     pad = 40
     d = ndimage.distance_transform_cdt(np.pad(m, pad, mode='edge'), metric='chessboard')[pad:-pad, pad:-pad]
     sl = np.s_[0:H * 16, OX * 16:WW * 16]
@@ -245,7 +243,6 @@ def lane(out):
     out[m & (d >= 15) & ((((xs + ys) // 8) % 2) == 0)] = K.LINE
     rnd = (np.sin(xs * 7.13 + ys * 91.7) * 43758.5453) % 1
     out[m & (d > 6) & (d < 15) & (rnd > 0.96)] = K.CYCLE[0]
-    K.stamp_bike(out, BIKE_AT * 16, (OY + LANE[1]) * 16 - 16)
 
 def ground(kind):
     t = G.textures(C.textures())
@@ -287,7 +284,7 @@ def ground(kind):
 # --------------------------------------------------------------------------- objects
 def sprites():
     a = lambda n: np.array(Image.open(SRC / f'art/{n}.png').convert('RGBA'))
-    return dict(gate=a('gate'), underground=a('underground'), notice=a('notice'))
+    return dict(gate=a('gate-b'), underground=a('underground'), notice=a('notice'))   # the Kanto gate (owner: B)
 
 def objects(kind):
     """The buildings and the notice board, then Cherrygrove's trees on Celadon's lattice in
@@ -403,7 +400,7 @@ def traversal(kind, objs):
     for y in range(OY, OY + MH):
         for x in range(MW):
             k = kind[y, x]
-            f = dict(grass='open', road='open', pave='open', tall='tall', ledge_s='jump_s', ledge_se='jump_s',
+            f = dict(grass='open', road='open', pave='open', lane='open', tall='tall', ledge_s='jump_s', ledge_se='jump_s',
                      ledge_e='jump_e').get(k, 'blocked')
             foot[y, x] = f; why[y, x] = k
     for o in objs:
@@ -424,7 +421,6 @@ def traversal(kind, objs):
     for x, y in ARROWS:
         assert foot[OY + y, x] == 'open', (x, y, why[OY + y, x])
         foot[OY + y, x] = 'arrow_e'; why[OY + y, x] = 'to the gate room'
-    foot[OY + ROAD[1] - 1, 25] = 'blocked'; why[OY + ROAD[1] - 1, 25] = 'gate lot'   # under the west wing, HGSS's blocked lot
     dx, dy = UNDERGROUND_DOOR
     foot[OY + dy, dx] = 'blocked'; why[OY + dy, dx] = 'door to nothing: underground'
     return foot, why

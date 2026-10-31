@@ -13,15 +13,15 @@
   "banks": 13,
   "unbanked": [],
   "palettes": 32,
-  "glyphs": 3480,
-  "exact_pixels": 1240900,
+  "glyphs": 3397,
+  "exact_pixels": 1242385,
   "pixels": 1291264
  },
  "ledger": {
   "cells": 1024,
   "differ_unexplained": [],
   "adaptations": {
-   "road widened for the lane": 25,
+   "Celadon's lane runs on to the paving's end": 5,
    "Celadon's woods at x 60-63 run on": 4,
    "arrow warps in front of the gate (HGSS warps on its wall cell)": 4,
    "notice board a row south": 2
@@ -30,21 +30,21 @@
  "traversal": {
   "wrong": [],
   "route": {
-   "open": 248,
+   "open": 244,
    "tall": 53,
    "jump_s": 11,
    "jump_e": 3,
-   "arrow_e": 5,
-   "blocked": 736
+   "arrow_e": 4,
+   "blocked": 741
   }
  },
  "reach": {
-  "route_walkable": 306,
+  "route_walkable": 301,
   "unreached": [],
   "targets_missed": []
  },
  "warps": {
-  "route_arrows": 5,
+  "route_arrows": 4,
   "mismatched": [],
   "saffron_gate_open": true,
   "underground_door_solid": true
@@ -87,11 +87,6 @@
     18,
     "open",
     "open"
-   ],
-   [
-    19,
-    "open",
-    "open"
    ]
   ],
   "ok": true
@@ -99,7 +94,7 @@
  "scope": {
   "map_ids_appended": true,
   "layout_ids_appended": true,
-  "files_changed": 55,
+  "files_changed": 8,
   "stray": []
  },
  "failures": []

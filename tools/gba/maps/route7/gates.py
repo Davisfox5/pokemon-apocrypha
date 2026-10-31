@@ -79,6 +79,23 @@ def retex_c(glass):
     return {'gate': lambda t: remap(remap(remap(t, teal, STEEL), tan, CONCRETE), brown, STEEL[2:]),
             'gate_p2': lambda t: split(t, lambda u: remap(u, lambda c: True, CONCRETE), glazed)}
 
+# FireRed's gatehouse brick (Saffron's west gate, its native pixels): 4 px courses, 8 px bricks
+# with a one-pixel light joint, every other course offset half a brick and a shade lighter.
+BRICK = ["yyyyyyyy", "ymmmmmmm", "ymmmmmmm", "ymmmmmmm", "yyyyyyyy", "ddddyddd", "ddddyddd", "ddddyddd"]
+BRICK_RGB = dict(y=(231, 222, 165), m=(214, 198, 132), d=(198, 173, 107))
+
+def bricks(img):
+    """B's facade band (the pixels in FireRed's brick colours) laid with FireRed's brick, from the
+    band's own top row, so the gate's front reads as FireRed's gatehouses do."""
+    out = img.copy()
+    band = np.isin(img[..., :3].reshape(-1, 3).view([('', np.uint8)] * 3), np.array(FR_BRICK, np.uint8).view([('', np.uint8)] * 3)).reshape(img.shape[:2])
+    band &= img[..., 3] > 0
+    ys, xs = np.nonzero(band)
+    y0, x0 = ys.min(), xs.min()
+    for y, x in zip(ys, xs):
+        out[y, x, :3] = BRICK_RGB[BRICK[(y - y0) % 8][(x - x0) % 8]]
+    return out
+
 def render(retex=None):
     img, _ = G3.convert(MODS, [(247, (0, 0, 0))], scale=16.0, pitch=45.0, retex=retex, finish=True, n=14)
     return img
@@ -102,7 +119,7 @@ def main():
     import buildings as Bd
     glass = Bd.model_texture(MODS, 247, 'gate_3')
     opts = [('A  HGSS gate as is (Johto and Kanto alike)', render()),
-            ('B  Kanto, FireRed\'s family (metal roof, yellow brick)', render(retex_b())),
+            ('B  Kanto, FireRed\'s family (metal roof, yellow brick)', bricks(render(retex_b()))),
             ('C  Kanto steel and glass (DESIGN.md)', render(retex_c(glass)))]
     Image.fromarray(opts[1][1]).save(R.SRC / 'art/gate-b.png'); Image.fromarray(opts[2][1]).save(R.SRC / 'art/gate-c.png')
     frlg = np.array(Image.open(R.ROOT / 'gba/art/saffron-kanto/evidence/native.png').convert('RGB'))[24 * 16:30 * 16, 1 * 16:9 * 16]
