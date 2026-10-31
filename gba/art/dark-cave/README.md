@@ -38,10 +38,10 @@ Walkable cells keep HGSS's render, with the wall pixels its slant laid on them p
 [Route 31 side](evidence/assemble/route31-side-before-after.png).
 
 Both maps share one tileset pair of their own, `gTileset_DarkCavePrimary` and `gTileset_DarkCave`.
-On the grid the two maps hold 1,297 distinct 8x8 tiles; a Gen 3 pair holds 1,008 in 13 banks of 15
+On the grid the two maps hold 1,291 distinct 8x8 tiles; a Gen 3 pair holds 1,008 in 13 banks of 15
 colours. `pack.py` fits them with fitted palette banks and reuse of real tiles (a pixel whose
 material class differs costs heavily, so a wall edge is only drawn by a tile with the same edge):
-1,008 tiles, 556 metatiles ([pack.json](evidence/pack.json)). Against `assemble.py`'s art, 98.6% of
+1,008 tiles, 550 metatiles ([pack.json](evidence/pack.json)). Against `assemble.py`'s art, about 98% of
 pixels are exact and 99.98% within two RGB555 levels. Every cell is one bottom layer under the player.
 
 ## Traversal
