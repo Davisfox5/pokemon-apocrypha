@@ -21,6 +21,12 @@ from pokeheartgold's own data. Every cell keeps its collision, elevation, behavi
   1 px outline takes HGSS's 12 px stone-block border round its dotted floor (`source/hgss/landing.png`, the
   ground layer, so no bridge or lantern), in Violet's own grey ramp, and the deeper ring HGSS draws in the
   water round it. The walkways stay open where the bridges land; the lanterns stay.
+- **Sprout Tower** (owner request, October 31): the port drew it near-black, dim purple tiers over a black
+  wall with dull gold panels. HGSS's tower is a bright blue-violet roof over warm brown wood with tan panels
+  on a pale stone plinth. Every pixel keeps its shape; the roof takes a lighter ramp with more step between
+  tones, the black eave lines stay for a crisp edge, lone speckle pixels in the roof take their
+  neighbours' tone, and the wall takes HGSS's wood, tan and stone. The hall below is cut from the recoloured
+  tower, so the two match.
 - **University** (owner request, October 30): the port's western hall (slate roof, cream walls, clock
   tower, 20 x 9 cells at x47-66) did not match Violet's Johto style. It is now a Johto hall in Sprout
   Tower's own materials, 15 x 8 cells at x50-64 on the same base line: the tower's two lower roof tiers
@@ -29,7 +35,7 @@ from pokeheartgold's own data. Every cell keeps its collision, elevation, behavi
   cells (or 8 px columns inside them) with both layers, so they draw with the tower's own tiles. The street
   runs up to the door. The cells it gave back are walkable lawn; the hall's cells are blocked. The sign
   at (53, 43) stays.
-- Unchanged: Sprout Tower, the islet (as the port has it, owner's choice), the lecture hall, the practice court, the
+- Unchanged: the islet (as the port has it, owner's choice), the lecture hall, the practice court, the
   approved C06 Center and M01 Mart, the houses, the west gatehouse, the forests (already the overlapping
   lattice), bridges, lanterns, signs, ducks.
 
@@ -40,7 +46,7 @@ lays both out anew from the town's two decoded layers: each quadrant takes the b
 identical quadrants share one tile in any flip, identical cells one metatile. The 13 banks are Violet's,
 with colours its art no longer draws freed for the new ones.
 
-- 1,000 of 1,008 tiles (512 primary, 488 secondary), 631 metatiles. The hall saves 39 tiles over the port's
+- 1,001 of 1,008 tiles (512 primary, 489 secondary), 659 metatiles. The hall saves 39 tiles over the port's
   university (1,048 against 1,009 before folds).
 - Secondary slots 496-511 (tiles 1008-1023) stay empty: `field_door.c` draws door frames there, so Violet's
   doors can animate. The installer always reserves them.
@@ -63,7 +69,7 @@ with colours its art no longer draws freed for the new ones.
 
 ## Limits
 
-- 8 tiles free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
+- 7 tiles free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
   Tower 236, C06 Center 94, lecture hall 82, the port university 81, M01 Mart 77, lake water, banks and
   ducks 55, islet 55.
 - Interiors and onward routes are as the source branch left them.

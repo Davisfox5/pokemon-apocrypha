@@ -58,7 +58,8 @@ Owner review (October 25), refined the same day:
   lake bank, HGSS's landing border and ring. Both private tilesets repacked
   from scratch (`tools/gba/maps/violet_city`). October 30: door slots 496-511 always reserved for door
   animations; the islet back as the port had it (owner's choice); the university rebuilt as a Johto hall
-  in Sprout Tower's materials, 15 x 8 cells (was 20 x 9), saving 39 tiles. 8 tiles free.
+  in Sprout Tower's materials, 15 x 8 cells (was 20 x 9), saving 39 tiles. October 31: Sprout Tower and
+  the hall in HGSS's lighter tones (blue-violet roof, wood wall, stone plinth). 7 tiles free.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

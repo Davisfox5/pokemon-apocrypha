@@ -274,6 +274,58 @@ def landing(cv):
     cv.changed |= cells
     cv.notes.append(f'landing: HGSS stone border and floor, the deeper ring round it ({int(put.sum())} px)')
 
+# --------------------------------------------------------------------------- Sprout Tower's tones
+# The port drew Sprout Tower near-black: dim purple roof tiers over a black wall with dull gold panels.
+# HGSS's tower (its own render) is a bright blue-violet roof over warm brown wood with tan panels on a
+# pale stone plinth. The tower keeps every pixel's shape; its roof takes a lighter ramp with more step
+# between tones (HGSS's), the black eave lines stay for a crisp edge, and the wall takes HGSS's wood, tan
+# and stone. The hall (below) is cut from the tower after this, so the two match.
+TOWER = (range(35, 44), range(0, 14))
+TOWER_WALL_TOP = 174                                  # the wall's first row (px); the roof above
+TOWER_ROOF_TONES = {(48, 32, 64): (56, 40, 88), (64, 40, 72): (72, 48, 104), (72, 40, 80): (88, 56, 120),
+                    (80, 48, 104): (104, 80, 152), (88, 64, 128): (128, 104, 168), (112, 88, 144): (152, 128, 192),
+                    (120, 112, 120): (160, 152, 176), (128, 152, 128): (184, 192, 208)}   # the last two: eave grey, spire base and corner studs
+TOWER_WALL_TONES = {(32, 32, 32): (88, 64, 40), (96, 80, 56): (176, 144, 88), (80, 72, 72): (112, 80, 48),
+                    (128, 152, 128): (200, 208, 224)}
+
+def tower_tones(cv):
+    lawn = G.textures()[G.GRASS]
+    xr, rr = TOWER
+    n = 0
+    for r in rr:
+        for x in xr:
+            sl = cv.sl(x, r)
+            ys, xs = np.mgrid[r * 16:(r + 1) * 16, x * 16:(x + 1) * 16]
+            wall = ys >= TOWER_WALL_TOP
+            low, up = cv.lower[sl], cv.upper[sl]
+            on_lawn = (low == lawn[ys % 32, xs % 32]).all(-1)
+            for a, b in TOWER_ROOF_TONES.items():
+                for layer, m in ((low, ~on_lawn), (up[..., :3], up[..., 3] > 0)):
+                    k = (layer == a).all(-1) & m & ~wall
+                    layer[k] = b; n += int(k.sum())
+            for a, b in TOWER_WALL_TONES.items():
+                for layer, m in ((low, ~on_lawn), (up[..., :3], up[..., 3] > 0)):
+                    k = (layer == a).all(-1) & m & wall
+                    layer[k] = b; n += int(k.sum())
+            cv.changed.add((x, r))
+    # sharper: a lone roof pixel among four of one other roof tone takes that tone (the stripes' speckle)
+    ramp = set(TOWER_ROOF_TONES.values())
+    y0, y1, x0, x1 = rr[0] * 16, TOWER_WALL_TOP, xr[0] * 16, (xr[-1] + 1) * 16
+    lone = 0
+    for layer, alpha in ((cv.upper[..., :3], cv.upper[..., 3]), (cv.lower, None)):
+        a = layer[y0:y1, x0:x1]
+        k = (a[..., 0].astype(np.int64) << 16) | (a[..., 1].astype(np.int64) << 8) | a[..., 2]
+        on = np.isin(k, [(c[0] << 16) | (c[1] << 8) | c[2] for c in ramp])
+        if alpha is not None:
+            on &= alpha[y0:y1, x0:x1] > 0
+        up, dn, lf, rt = k[:-2, 1:-1], k[2:, 1:-1], k[1:-1, :-2], k[1:-1, 2:]
+        same = (up == dn) & (up == lf) & (up == rt) & (up != k[1:-1, 1:-1])
+        ok = same & on[1:-1, 1:-1] & on[:-2, 1:-1] & on[2:, 1:-1] & on[1:-1, :-2] & on[1:-1, 2:]
+        ys, xs = np.nonzero(ok)
+        for y, x in zip(ys + 1, xs + 1):
+            v = int(up[y - 1, x - 1]); a[y, x] = (v >> 16, (v >> 8) & 255, v & 255); lone += 1
+    cv.notes.append(f'Sprout Tower: HGSS tones, lighter roof and wood wall ({n} px), {lone} lone roof pixels cleaned')
+
 # --------------------------------------------------------------------------- the university
 # The port's university (x47-66, rows 33-41) was a western hall: slate roof, cream walls, a clock tower, in
 # a style and at a scale apart from the rest of Violet. It becomes a Johto hall in Sprout Tower's own
@@ -291,7 +343,7 @@ TIERS = (122, 174)                                   # its two lower tiers (rows
 TOP_EDGE, TOP_BODY = (40, 48), (80, 122)             # its top tier: the eave line and the body below the spire
 TOP_EDGE_COLS = [576, 584, 592, 600, 608, 600, 608, 600, 608, 648, 656, 664, 672, 680]   # the spire's columns taken from beside it
 WALL = (174, 198)
-WALL_BLACK, WALL_GOLD, WALL_BASE = (32, 32, 32), (96, 80, 56), (128, 152, 128)
+WALL_BLACK, WALL_GOLD, WALL_BASE = (TOWER_WALL_TONES[c] for c in ((32, 32, 32), (96, 80, 56), (128, 152, 128)))   # the plain wall column, in the tower's wall tones
 DOOR_SPUR = (54, 60, 43)                             # the street's spur to the door: x from, x to, the street's first row
 
 def university(cv):

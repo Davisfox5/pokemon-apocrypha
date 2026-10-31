@@ -21,6 +21,7 @@ import pack as P                                     # noqa: E402
 def compose(engine):
     v = B.Violet(engine)
     cv = E.Canvas(v)
+    E.tower_tones(cv)
     E.university(cv)
     E.paths(cv)
     E.lake_bank(cv)
