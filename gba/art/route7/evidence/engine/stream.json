@@ -18,8 +18,8 @@
  ],
  "banks": 13,
  "unbanked_palettes": [],
- "tile_layers": 26240,
- "colours": 327,
+ "tile_layers": 26231,
+ "colours": 328,
  "groups": {
   "apartments": {
    "tiles": 302,
@@ -92,7 +92,7 @@
    "error": 0.0
   },
   "ground": {
-   "tiles": 10660,
+   "tiles": 10615,
    "drawn": 66,
    "how": "exact",
    "unplaced": 2,
@@ -134,8 +134,8 @@
    "error": 5.162
   },
   "route_ground": {
-   "tiles": 1395,
-   "drawn": 27,
+   "tiles": 1396,
+   "drawn": 28,
    "how": "exact",
    "unplaced": 0,
    "error": 0.0
@@ -155,11 +155,11 @@
    "error": 6.536
   },
   "tree": {
-   "tiles": 10371,
+   "tiles": 10406,
    "drawn": 57,
    "how": "exact",
-   "unplaced": 66,
-   "error": 0.296
+   "unplaced": 64,
+   "error": 0.267
   },
   "underground": {
    "tiles": 61,
@@ -169,7 +169,7 @@
    "error": 0.0
   }
  },
- "exact_pixels": 1240430,
+ "exact_pixels": 1240586,
  "pixels": 1291264,
  "worst_rgb5_error": 18,
  "doors": {
@@ -255,6 +255,10 @@
   ],
   "r7_underground": [
    76,
+   21
+  ],
+  "r7_tree_88_22": [
+   88,
    21
   ],
   "stall_8_28": [

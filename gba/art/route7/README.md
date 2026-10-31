@@ -1,6 +1,6 @@
 # Route 7: Celadon to Saffron
 
-Status: **built in the engine, round 2 after the owner's review (2026-10-31), owner visual review
+Status: **built in the engine, round 6 after the owner's review (2026-10-31), owner visual review
 pending.** Round 2: the Kanto gatehouse (option B, `evidence/gate-options.png`: HGSS's gate in
 FireRed's Kanto gatehouse metal and yellow brick); Celadon's lane ends where the paving meets the
 dirt road, and the road is HGSS's four rows again; every rock edge takes its edge piece (no rock top
@@ -14,7 +14,13 @@ road edge texture (`road01_r`, the one HGSS lays along this road), its grass and
 map's grass and road; the worn patches and pebbles stay. Round 5 (owner): from x 12 (past the tree south of the
 road) the road runs a row lower, rows 16-19, onto the gatehouse's entrance, its feathered edges
 carried round the step; the arrow cells move with it to (24, 16-19); a row of trees south of the
-gatehouse stands a row up, its crowns over the gatehouse's bottom row, so nothing runs round it. The plot (`evidence/plan.png`) was
+gatehouse stands a row up, its crowns over the gatehouse's bottom row, so nothing runs round it. Round 6
+(owner): that tree row left a bare row under it, so the trees are back on the woods' lattice and the
+gatehouse moves down a row onto them (base row 20), their crowns over its bottom row; the road
+drops two rows at x 12, rows 17-20, onto the entrance, and the arrow cells move to (24, 17-20). The
+road's edges are HGSS's straight edge cells from Route 30 (the edge Johto's Routes 30, 32 and 36
+use; `edges.py`), whole cells with square corners, replacing round 4's feathered strip and round
+5's slanted step. The plot (`evidence/plan.png`) was
 approved on 2026-10-30 with one change: the Underground Path is unsealed (its inside, "bars and
 shops", comes later), so HGSS's "sealed" notice and locked-door sign are gone and its door stays
 solid until the inside is built. Engine branch `claude/route-7` on `claude/celadon-city`.
@@ -22,8 +28,8 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
 ## What was built
 
 - `KantoRoute7` (Kanto 16, `MAPSEC_ROUTE_7`, 33 x 32), from HGSS's ledger in Gen 3 elements
-  (`compose.py`): FireRed's grass, HGSS's road01 at 1:1 with FireRed's path edges and its
-  pebbles, Celadon's paving and two-lane cycleway run on from the city to the paving's end, whole-cell
+  (`compose.py`): FireRed's grass, HGSS's road01 at 1:1 with HGSS's straight edge cells (cut from
+  Route 30) and its pebbles, Celadon's paving and two-lane cycleway run on from the city to the paving's end, whole-cell
   tall grass (G15), FRLG ledges and FRLG rock in HGSS's cliff ramp (the step down from Celadon, both
   outcrops), Cherrygrove's tree on Celadon's staggered lattice, HGSS's gate (247) in FireRed's Kanto
   gatehouse materials, Underground Path entrance (339) and notice board (31) at 45 degrees. Evidence: `evidence/review.png` (HGSS beside native, coordinate grid),
@@ -45,8 +51,9 @@ solid until the inside is built. Engine branch `claude/route-7` on `claude/celad
   four rows (round 1 widened it to carry the lane to the gate; the owner had the lane stop).
 - HGSS's x 0-3 row 14 is woods: Celadon's woods at x 60-63 run on there.
 - HGSS's gate warps sit on its wall cell (25, 16-17); the Gen 3 sprite fills that cell, so the four
-  road cells in front of it, (24, 16-19), are east arrow warps, as FireRed's Route 7 does it; the
-  road runs a row lower from x 12 to meet the entrance (owner).
+  road cells in front of it, (24, 17-20), are east arrow warps, as FireRed's Route 7 does it; the
+  gatehouse sits a row lower than HGSS's (base row 20) so the woods' south row crowns over it, and
+  the road runs two rows lower from x 12 to meet the entrance (owner).
 - The gate is HGSS's model in FireRed's Kanto gatehouse materials (owner's choice), not HGSS's teal.
 - The notice board a row south, (12, 25): at (12, 24) its top covered the entrance's foot.
 - The north rock barrier (owner): rows 0-3 from x 4 to the north-east outcrop and x 4-7 down to row

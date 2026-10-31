@@ -43,12 +43,12 @@ import install7 as I7          # noqa: E402
 ADAPTED = {
     "Celadon's lane runs on to the paving's end": [(x, 19) for x in range(0, 5)],
     "Celadon's woods at x 60-63 run on": [(x, 14) for x in range(0, 4)],
-    'arrow warps in front of the gate (HGSS warps on its wall cell), the road a row lower there (owner)':
-        [(25, y) for y in range(15, 19)] + [(24, 19)],
+    'arrow warps in front of the gate (HGSS warps on its wall cell), the road and gate two rows lower there (owner)':
+        [(25, y) for y in range(15, 19)] + [(24, 19), (24, 20)],
     'notice board a row south': [(12, 24), (12, 25)],
     'the north rock barrier (owner, 2026-10-31)': [(x, y) for y in range(0, 14) for x in range(R.NORTH[0], R.NORTH[0] + 4)]
     + [(x, y) for y in range(0, 4) for x in range(R.NORTH[0], 24)],
-    'rough road edges (owner, 2026-10-31): walkable grass, as HGSS': [],
+    'road edges (owner, 2026-10-31): HGSS straight edge cells, walkable as HGSS': [],
 }
 
 def git(g, *a):

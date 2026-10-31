@@ -382,24 +382,28 @@ custom; hard ground joins and English signs as tacky. These rules hold for every
   window band kept (owner chose this over HGSS's teal and a steel-and-glass version, Route 7,
   2026-10-31; `route7/gates.py`, option B). It matches the FireRed gatehouses Saffron already draws.
 - **Gatehouses are closed in, and the road meets the door.** Woods close on every gatehouse so no
-  walkable cell runs round it: the trees behind it stand behind its roof, and the row south of it
-  stands a row up from the woods' lattice with its crowns over the gatehouse's bottom row, one
-  tile (the one place a tree stands in front of a building). The road arrives on the gatehouse's
-  entrance rows, stepping down or up a row where it has to (its feathered edges carried round the
-  step), and the cells beside the entrance under the gatehouse's wings are its lot, solid
-  (owner, Route 7, 2026-10-31; the Route 36 gate surround is the Johto precedent).
+  walkable cell, and no strip of bare grass, runs round it: the trees behind it stand behind its
+  roof, and the woods' own south row (its lattice, not a row of trees moved off it) crowns over the
+  gatehouse's bottom row by one tile (the one place a tree stands in front of a building). If the
+  lattice leaves a row between the gatehouse and its south trees, move the gatehouse down onto
+  them; a tree row moved up instead opens a new row under it (owner, Route 7, 2026-10-31). The road
+  arrives on the gatehouse's entrance rows, stepping down or up where it has to, and the cells
+  beside the entrance under the gatehouse's wings are its lot, solid (the Route 36 gate surround is
+  the Johto precedent).
 - **Lanes stay in town.** A town's cycleway ends where its paving ends; it does not run on along a
   route's dirt road (owner, Route 7, 2026-10-31).
 - **Rock never ends in a hard line.** Every edge of a rock top takes FireRed's edge piece, including
   the edges facing a neighbour's ground at the same height (a one-cell ridge is edged on both sides);
   side ledges are FireRed's top, middle and corner pieces, so a ledge runs as one piece (owner,
   Route 7, 2026-10-31).
-- **Routes are rough, not jagged.** A route's dirt road between towns is a country road: its edges
-  feathered (HGSS's own road edge, `road01_r`, laid along it at 1:1 with the map's grass and road in
-  its grass and sand texels), worn patches in the road's own darker shades, pebbles scattered, and
-  a town's paving breaking up into it rather than stopping on a straight kerb. Its edges stay on
-  the cells: notching them by half cells read as jagged (owner, Route 7, 2026-10-31;
-  `route7/compose.rough_road`). Feather with tiles that already exist; do not draw new edge art.
+- **Routes are rough, not jagged.** A route's dirt road between towns is a country road: worn
+  patches in the road's own darker shades, pebbles scattered, and a town's paving breaking up into
+  it rather than stopping on a straight kerb. Its edges are HGSS's own straight road edge cells, the
+  ones Johto's Routes 30, 32 and 36 lay along their paths (`route7/edges.py` cuts them from Route 30;
+  `route7/compose.road_edges` lays them), whole cells on the road's outer ring, with square corners:
+  an outer corner is the two straight cells overlaid, an inner corner the two meeting. Never a
+  diagonal or rounded corner, never a slant at a step, never edge art drawn or feathered by hand,
+  never edges notched by half cells (owner, Route 7, 2026-10-31).
 - **Rock has a job.** Rock that only decorates a strip of woods reads as pointless: make it a whole
   outcrop that bounds the map (Route 7's north edge, as wide as its south-west outcrop, ending on its
   own rim at the map's edge, never running off it; owner, 2026-10-31).
