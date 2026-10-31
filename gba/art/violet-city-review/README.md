@@ -79,7 +79,10 @@ with colours its art no longer draws freed for the new ones.
   Tower 236, C06 Center 94, lecture hall 82, the port university 81, M01 Mart 77, lake water, banks and
   ducks 55, islet 55.
 - Interiors and onward routes are as the source branch left them.
-- Owner visual acceptance.
+- Owner visual acceptance: Sprout Tower and the hall accepted October 31 ("lock those in"); the rest of the
+  town not yet reviewed as a whole.
+- Door animations: tiles 1008-1023 are free for `field_door.c`'s frames, with 17 more tiles and about 23
+  palette slots spare. Violet has no animated door yet (its only warps are the two gates).
 
 ## Reproduce
 
