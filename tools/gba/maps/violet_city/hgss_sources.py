@@ -5,7 +5,8 @@ read-only), for Violet's lake.
 
 Writes gba/art/violet-city-review/source/hgss/: lake-bank.png (the north bank, one 16 px repeat: its light
 face, dark foot and first water row), landing.png (the central landing with 8 px of lake round it, from
-the ground layer, so no bridge or lantern), sources.json (provenance).
+the ground layer, so no bridge or lantern), tower-front.png (Sprout Tower's wooden front in its stone frame),
+sources.json (provenance).
 Original textures: Game Freak / Nintendo / Creatures (read-only derivation).
 """
 from __future__ import annotations
@@ -21,6 +22,7 @@ import hgss_render as H                              # noqa: E402
 MAP_VIOLET, AREA_BANK = 73, 3                        # MAP_VIOLET and its area data bank (src/data/map_headers.h)
 BANK = ('full', 400, 122, 16, 11)                    # layer, x, y, width, height
 LANDING = ('ground', 488, 232, 208, 112)
+TOWER_FRONT = ('full', 580, 34, 104, 40)                # Sprout Tower's wooden front and stone frame
 OUT = HERE.parents[3] / 'gba/art/violet-city-review/source/hgss'
 
 def main(phg):
@@ -30,7 +32,7 @@ def main(phg):
     rev = subprocess.run(['git', '-C', str(phg), 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
     meta = dict(source='pret/pokeheartgold (Davisfox5 fork), MAP_VIOLET rendered by tools/gba/maps/route30_catalog/hgss_render.py',
                 revision=rev, files={})
-    for name, (layer, x, y, w, h) in (('lake-bank.png', BANK), ('landing.png', LANDING)):
+    for name, (layer, x, y, w, h) in (('lake-bank.png', BANK), ('landing.png', LANDING), ('tower-front.png', TOWER_FRONT)):
         a = np.array(r[layer].convert('RGB'))[y:y + h, x:x + w]
         Image.fromarray(a).save(OUT / name)
         meta['files'][name] = dict(layer=layer, box=[x, y, w, h], sha256=hashlib.sha256((OUT / name).read_bytes()).hexdigest())
