@@ -348,12 +348,16 @@ def render(phg):
     hc = ground.height.reshape(H, PX, W, PX)
     with np.errstate(all='ignore'):
         cell_height = np.nanmedian(hc.transpose(0, 2, 1, 3).reshape(H, W, -1), axis=2)
+        # straight from above: the highest and lowest terrain in each cell (a tier's top and foot)
+        uc = under.height.reshape(H, PX, W, PX).transpose(0, 2, 1, 3).reshape(H, W, -1)
+        cell_peak, cell_foot = np.nanmax(uc, axis=2), np.nanmin(uc, axis=2)
     img = lambda a: Image.fromarray(np.clip(a[:HO * PX], 0, 255).astype(np.uint8))
     keep = [b for b in buildings if b['footprint'][1] < HO]
     return dict(full=img(full.rgb), ground=img(ground.rgb), terrain=img(terrain_only), fg=Image.fromarray(rgba[:HO * PX], 'RGBA'),
                 fg_owner=np.where(m, fg.owner, -1)[:HO * PX], ground_mat=ground.mat[:HO * PX], ground_over=ground.over[:HO * PX],
                 ground_steep=ground.steep[:HO * PX], materials=list(MATERIAL_NAMES), types=types[:HO], collision=coll[:HO],
-                buildings=keep, meta=meta, cell_height=cell_height[:HO], holes=holes[:HO * PX])
+                buildings=keep, meta=meta, cell_height=cell_height[:HO], cell_peak=cell_peak[:HO], cell_foot=cell_foot[:HO],
+                holes=holes[:HO * PX])
 
 def main(phg, out, which):
     global MAP
@@ -370,6 +374,8 @@ def main(phg, out, which):
     r['fg'].save(out / 'hgss-foreground.png')
     np.savez_compressed(out / 'hgss-foreground-owner.npz', owner=r['fg_owner'].astype(np.int16))
     np.save(out / 'hgss-cell-height.npy', r['cell_height'])
+    np.save(out / 'hgss-cell-peak.npy', r['cell_peak'])
+    np.save(out / 'hgss-cell-foot.npy', r['cell_foot'])
     np.savez_compressed(out / 'hgss-ground-materials.npz', material=r['ground_mat'], overlay=r['ground_over'],
                         steep=r['ground_steep'], names=np.array(r['materials']))
     Image.fromarray((r['holes'] * 255).astype(np.uint8)).save(out / 'hgss-seam-fill-mask.png')

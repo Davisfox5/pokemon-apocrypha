@@ -1,6 +1,6 @@
 # Dark Cave: HGSS cave textures, both maps
 
-Owner review pending (third pass: the routes' rock in cave colours). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
+Owner review pending (fourth pass: the Johto routes' tiles, recoloured). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
 `DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64 each, in HGSS's own
 coordinates. Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
 tiles, the way Union Cave was finished. None of Union Cave's art, palettes or generators are used.
@@ -20,37 +20,35 @@ tiles, the way Union Cave was finished. None of Union Cave's art, palettes or ge
 
 ## Art
 
-Owner direction (October 31): HGSS's cave rock is its outdoor rock in cave colours, so the cave
-uses the rock walls accepted on the routes, recoloured. `assemble.py` takes FRLG General's mountain
-pieces exactly as the routes use them (`route46/elements.py` `frlg_pieces`: the nine-slice, its
-over-rock variant, the inner corners and the jump ledge) and swaps the outdoor rock ramp for
-HGSS's cave rock tones:
+Owner direction (October 31): no HGSS render pixels and no blended tiles; the Johto routes' own
+tiles, recoloured. `assemble.py` maps the cave out cell by cell from HGSS's data and draws it with
+exactly the pieces the routes use:
 
-| Ramp | Outdoor (Blackthorn) | Cave (from HGSS's cave textures) |
-| --- | --- | --- |
-| outline | (82, 58, 52) | (66, 57, 41), `dallpeak_p`'s darkest |
-| light 1-3 | (239, 189, 140) (222, 173, 123) (198, 148, 115) | (173, 165, 148) (156, 148, 132) (140, 132, 115), `dcliff01` / `dwall_s` |
-| dark 4-6 | (165, 115, 99) (132, 90, 74) (99, 70, 66) | (115, 107, 90) (99, 90, 74) (82, 74, 57), `dwall_s` |
+- **Mapped shapes** ([Route 45 side](source/assemble/route45-side-terrace-grid.txt),
+  [Route 31 side](source/assemble/route31-side-terrace-grid.txt)): every floor at its own height,
+  every rock cell at its tier top, both read straight down from HGSS's mesh
+  (`hgss-cell-peak.npy`), plus stairs, jump ledges, water, boulders and exits. HGSS's black void is
+  rock, as a Gen 3 cave's surroundings are.
+- **Rock:** FRLG General's mountain nine-slice, over-rock pieces and inner corners, laid out as on the
+  routes (`route46/elements.py` `rock_frlg` with the routes' `terraces`, `topped` and `south_faces`):
+  every HGSS height is a terrace, ground included, and a wall has a face only toward ground that is
+  really lower. A thin wall between two floors is the upper floor's edge, not a free ridge.
+- **Ground:** the routes' road (Cherrygrove's sand quarter) and sea, with the accepted painter's shore.
+- **Ledges, boulders, stairs:** FRLG's jump ledge and boulder, the catalog flights S01-S05.
+- **Colours:** every colour is then swapped one for one: the Johto rock ramp for HGSS's cave rock
+  tones (from `dwall_s`, `dcliff01`, `dallpeak_p`), the road and shore tones for the cave floor tones
+  (`droad01`) and the sea for the cave water (`driver`) by brightness rank, the stairs' grey stone for
+  the cave rock ramp, the cast shadow for the floor's darkest. The exit glows and the hole are HGSS's
+  own exit art over the floor.
 
-The pieces are laid out as on the routes (`rock_frlg`): every rock cell keeps HGSS's tier height,
-and a neighbour lower than it (walkable floor, a lower tier, the void beyond the cave) puts an edge
-on that side, per 8x8 quadrant, with FRLG's whole inner-corner piece where only a diagonal is
-lower. Clear pixels show what lies past the edge (HGSS's floor, its water, or black), and the cast
-shadow is the floor's darkest tone. HGSS's jump ledges are FRLG's ledge in the same ramp, turned on
-its side for the west-facing runs. The earlier passes (HGSS's slanted render; HGSS's textures on
-the grid) were turned down in review.
+Earlier passes (HGSS's slanted render; HGSS's textures on the grid; the route rock over HGSS's floor)
+were turned down in review.
 
-Walkable cells keep HGSS's floor, with the wall pixels HGSS's slanted tiers laid on them painted
-back as floor (`droad01` at HGSS's own phase) or water. Stairs, boulders, exits and water keep
-HGSS's render. [Before and after, Route 45 side](evidence/assemble/route45-side-before-after.png) ·
+Both maps share one tileset pair of their own (`gTileset_DarkCavePrimary`, `gTileset_DarkCave`). The
+pack is lossless: 291 tiles and 179 metatiles, exact palette banks, every pixel as assembled
+([pack.json](evidence/pack.json)). Every cell is one bottom layer under the player.
+[Before and after, Route 45 side](evidence/assemble/route45-side-before-after.png) ·
 [Route 31 side](evidence/assemble/route31-side-before-after.png).
-
-Both maps share one tileset pair of their own, `gTileset_DarkCavePrimary` and `gTileset_DarkCave`.
-The two maps hold 1,317 distinct 8x8 tiles; a Gen 3 pair holds 1,008 in 13 banks of 15 colours.
-`pack.py` fits them with fitted palette banks and reuse of real tiles (a pixel whose material class
-differs costs heavily, so a wall edge is only drawn by a tile with the same edge): 1,008 tiles,
-700 metatiles ([pack.json](evidence/pack.json)). Against `assemble.py`'s art, 99.2% of pixels are
-exact and 99.98% within two RGB555 levels. Every cell is one bottom layer under the player.
 
 ## Traversal
 
@@ -65,7 +63,7 @@ From HGSS's permission grid, cell for cell ([traversal](source/pack/)):
 | hole into the Route 45 side (0x6E) | MB_NON_ANIMATED_DOOR: walked into northward, the player steps out south |
 | wall, rim, void | solid |
 
-The border block is the black void metatile, so past the map edge is black, as in HGSS. Both maps
+The border block is the rock-fill metatile HGSS's void cells carry, so past the map edge is rock. Both maps
 are MAP_TYPE_UNDERGROUND and need Flash, under the existing MAPSEC_DARK_CAVE, music MUS_CAVE_OF_ORIGIN
 (DarkCaveEntrance's).
 

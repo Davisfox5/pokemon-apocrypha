@@ -159,6 +159,29 @@ def fit_banks(px, w, nbanks, seed, rounds=30):
         assign = new
     return [np.array(p if p is not None else [[0, 0, 0]] * 15) for p in pals], assign, float((errs.min(1) * w).sum())
 
+def exact_banks(px):
+    """Exact RGB555 banks (route46/pack_lossless.py pack_sets): every tile's colours inside one bank
+    of at most 15. Returns (palettes, assignment) or (None, None) when they do not fit."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('route46_pack_lossless', HERE.parent / 'route46/pack_lossless.py')
+    sys.path.insert(0, str(HERE.parent / 'route46'))
+    try:
+        L = importlib.util.module_from_spec(spec); spec.loader.exec_module(L)
+    finally:
+        sys.path.remove(str(HERE.parent / 'route46'))
+    sets = [frozenset(map(tuple, t.tolist())) for t in px]
+    if max(len(c) for c in sets) > 15:
+        return None, None
+    banks = L.pack_sets(sets, BANKS)
+    if banks is None:
+        return None, None
+    pals = []
+    for b in list(banks) + [set() for _ in range(BANKS - len(banks))]:
+        cols = sorted(b) or [(0, 0, 0)]
+        pals.append(np.array(cols + [cols[-1]] * (15 - len(cols))))
+    assign = np.array([next(k for k, p in enumerate(pals) if c <= set(map(tuple, p.tolist()))) for c in sets])
+    return pals, assign
+
 def quantize(px, pal):
     d = (((px[:, None, :].astype(float) - pal[None].astype(float)) ** 2) * CH_W).sum(-1)
     ix = d.argmin(1)
@@ -239,8 +262,10 @@ def main(engine):
     n = len(rgb)
     # 1. palette banks (best of a few seeds)
     px = rgb.reshape(n, 64, 3)
-    fits = [fit_banks(px, w, BANKS, s) for s in range(6)]
-    pals, assign, _ = min(fits, key=lambda f: f[2])
+    pals, assign = exact_banks(px)                        # whole route tiles: exact colours when they fit
+    if pals is None:
+        fits = [fit_banks(px, w, BANKS, s) for s in range(6)]
+        pals, assign, _ = min(fits, key=lambda f: f[2])
     ix = np.zeros((n, 64), np.uint8)
     q = np.zeros_like(px)
     for i in range(n):
@@ -304,7 +329,7 @@ def main(engine):
     for k, i in ids.items():
         meta_rows[i] = list(k[0]) + [k[1]]
     # Decode the native result and measure it against the HGSS render.
-    report = dict(method='assemble.py art (the routes\' FRLG rock in HGSS cave colours), 13 fitted palette banks, medoid tile reuse under a material-class penalty '
+    report = dict(method='assemble.py art (the Johto routes\' tiles recoloured to HGSS\'s cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget '
                          f'(lambda {LAMBDA}), one bottom layer per cell',
                   distinct_tiles=n, representatives=nrep, patterns=len(patterns),
                   primary_tiles=min(len(patterns), PRIMARY_TILES), secondary_tiles=max(0, len(patterns) - PRIMARY_TILES),

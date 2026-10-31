@@ -1,44 +1,44 @@
 {
-  "method": "assemble.py art (the routes' FRLG rock in HGSS cave colours), 13 fitted palette banks, medoid tile reuse under a material-class penalty (lambda 300.0), one bottom layer per cell",
-  "distinct_tiles": 1317,
-  "representatives": 1009,
-  "patterns": 1008,
-  "primary_tiles": 512,
-  "secondary_tiles": 496,
-  "metatiles": 700,
-  "primary_metatiles": 512,
-  "secondary_metatiles": 188,
+  "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
+  "distinct_tiles": 291,
+  "representatives": 291,
+  "patterns": 291,
+  "primary_tiles": 291,
+  "secondary_tiles": 0,
+  "metatiles": 179,
+  "primary_metatiles": 179,
+  "secondary_metatiles": 0,
   "colours_per_bank": [
     15,
     15,
     15,
-    7,
-    15,
-    15,
-    15,
+    14,
     14,
     15,
-    14,
-    15,
-    10,
-    15
+    11,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "sides": {
     "route45-side": {
       "pixels": 756224,
-      "exact": 0.9929,
-      "within_1": 0.9989,
-      "within_2": 0.9999,
-      "max_level_diff": 5,
-      "metatiles_used": 501
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 140
     },
     "route31-side": {
       "pixels": 655872,
-      "exact": 0.9923,
-      "within_1": 0.9984,
-      "within_2": 0.9998,
-      "max_level_diff": 5,
-      "metatiles_used": 400
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 133
     }
   }
 }

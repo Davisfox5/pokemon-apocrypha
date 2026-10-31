@@ -26,6 +26,7 @@ placed (campaign content, as on the other routes).
 """
 from __future__ import annotations
 import json, shutil, struct, subprocess, sys
+from collections import Counter
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -86,6 +87,8 @@ def remove_draft(g):
     subprocess.run(['git', '-C', str(g), 'restore', f'--source={BASE}', '--worktree', '--'] + SHARED_FILES + ROUTE_FILES, check=True)
 
 def write_tileset(d, pats, pal, metas):
+    if len(metas) == 0:                                        # the whole cave fits the primary: one blank metatile,
+        metas = np.zeros((1, 9), np.uint16)                    # so the secondary's tables are not empty files
     (d / 'palettes').mkdir(parents=True, exist_ok=True)
     rows = max(1, (len(pats) + 15) // 16)
     buf = np.zeros((rows * 8, 128), np.uint8)
@@ -158,12 +161,9 @@ def main(g):
     for side, name in MAPS.items():
         key = side.replace('-', '_')
         grid, coll, elev = z[f'grid_{key}'], z[f'collision_{key}'], z[f'elevation_{key}']
-        # the border block: the metatile of this map's solid black void cells (beyond the cave, as in HGSS)
-        img = np.array(Image.open(EV / f'{side}-native.png').convert('RGB')).reshape(H, 16, W, 16, 3)
-        black = [(y, x) for y in range(H) for x in range(W) if not img[y, :, x].any()]
-        ids = {int(grid[y, x]) for y, x in black}
-        assert len(ids) == 1, ('black void cells use more than one metatile', ids)
-        border = ids.pop()
+        # the border block: the metatile HGSS's void cells (the rock all round the cave) carry most
+        trav = read(SRC / f'pack/traversal-{side}.json')
+        border = Counter(int(grid[c['y'], c['x']]) for c in trav if c.get('void')).most_common(1)[0][0]
         ld = g / f'data/layouts/{name}'
         ld.mkdir(parents=True)
         cells = grid.astype(np.uint32) | (coll.astype(np.uint32) << 10) | (elev.astype(np.uint32) << 12)
