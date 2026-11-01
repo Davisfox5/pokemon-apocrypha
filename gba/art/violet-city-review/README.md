@@ -72,9 +72,10 @@ the animated-door behaviour and are walkable; everything else keeps its collisio
   opened a step early). A house's door cell is the one its door stands in, the cell below it (the house's
   base reaches 5 px into it) the walkable step up to it. Sprout Tower and the hall stand 8 px lower, their
   bases on the cell edge as Gen 3 buildings are; the Mart, Center and lecture hall already were (3-5 px).
-- Entering: the warp and fade start the moment the player lands on the door cell (owner's fix, November 1).
-  `Task_DoDoorWarp` in `src/field_screen_effect.c` no longer hides the player and waits for the door to
-  close first; the door stays open under the fade. This applies to every door in the game.
+- Entering: the fade starts halfway through the step onto the door cell and the warp follows the moment
+  the player stops (owner's fixes, November 1). `Task_DoDoorWarp` in `src/field_screen_effect.c` no longer
+  holds the player standing on the door, hides them, or waits for the door to close; the door stays open
+  under the fade. This applies to every door in the game.
 
 ![door entry: open, step on, fade](evidence/door-entry.png)
 
