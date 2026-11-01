@@ -142,7 +142,7 @@ def route(g, z, kinds, layouts, groups):
                primary_tileset=f'gTileset_{I6.PSYM}', secondary_tileset=f'gTileset_{I6.SYM}',
                border_filepath=f'data/layouts/{NAME}/border.bin', blockdata_filepath=f'data/layouts/{NAME}/map.bin',
                layout_version='emerald')
-    layouts['layouts'] = [l for l in layouts['layouts'] if not l or l.get('id') != lay['id']] + [lay]
+    put_layout(layouts, lay)
     m = dict(read(g / f'data/maps/{CELADON}/map.json'))
     room_id = map_id(ROOM)
     nx, ny = R.NOTICE
@@ -180,7 +180,7 @@ def gate_room(g, layouts):
     lay = dict(id=layout_id(ROOM), name=f'{ROOM}_Layout', width=w, height=h, primary_tileset='gTileset_Building',
                secondary_tileset=f'gTileset_{ROOM_SYM}', border_filepath=f'data/layouts/{ROOM}/border.bin',
                blockdata_filepath=f'data/layouts/{ROOM}/map.bin', layout_version='emerald')
-    layouts['layouts'] = [l for l in layouts['layouts'] if not l or l.get('id') != lay['id']] + [lay]
+    put_layout(layouts, lay)
     m = dict(read(g / 'data/maps/KantoSaffronMart/map.json'))
     middle = len(R.ARROWS) // 2
     m.update(id=map_id(ROOM), name=ROOM, layout=layout_id(ROOM), music=ROOM_MUSIC, region_map_section=MAPSEC,
@@ -246,6 +246,14 @@ def register_maps(g, groups):
         assert anchor, 'map proof list'
         p.write_text(s.replace(anchor.group(0), anchor.group(1) + ', ' + ', '.join(map_id(n) for n in names) + '};'))
     return {n: groups[GROUP].index(n) for n in (NAME, ROOM)}
+
+def put_layout(layouts, lay):
+    """A layout in place where it already is (its LAYOUT_ id keeps its number), else appended."""
+    ids = [l.get('id') if l else None for l in layouts['layouts']]
+    if lay['id'] in ids:
+        layouts['layouts'][ids.index(lay['id'])] = lay
+    else:
+        layouts['layouts'].append(lay)
 
 def main(g):
     import build as B

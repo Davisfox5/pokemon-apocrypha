@@ -36,7 +36,7 @@ import world as WD             # noqa: E402
 
 RE = R6.RE
 CITY, SAFFRON = R6.CITY, R6.SAFFRON
-ROUTE, GATE = R6.KANTO0 + 16, R6.KANTO0 + 17
+ROUTE, GATE = R6.kanto_id('KantoRoute7'), R6.kanto_id('KantoRoute7Gatehouse')
 REPORT = json.loads((WD.OUT / 'stream.json').read_text())
 INSTALL = json.loads((WD.OUT / 'install.json').read_text())
 SAVE = (ROUTE, 10, 16)
