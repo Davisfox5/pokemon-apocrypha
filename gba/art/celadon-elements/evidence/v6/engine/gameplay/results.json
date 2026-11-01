@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "ead5b478d3efdf4eb37ecad8bdb396fdfd0e65afeb94b7a3f7ffaa6517faff2e",
+  "rom_sha256": "d22535ebe66f23966cab5d3a2c300b32f758d0b40982b86246524baf0ca098fd",
   "phases": [
     {
       "phase": "write",
@@ -12,6 +12,19 @@
           "group": 81,
           "map": 6,
           "x": 11,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:apartments-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 28,
           "y": 15,
           "frlg_layout": 0,
           "width": 64,
@@ -51,6 +64,19 @@
           "group": 81,
           "map": 6,
           "x": 30,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:house_g0-front",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 39,
           "y": 30,
           "frlg_layout": 0,
           "width": 64,
@@ -1151,32 +1177,6 @@
           "mapsec": 94
         },
         {
-          "step": "at-60-28-15",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 28,
-          "y": 15,
-          "frlg_layout": 0,
-          "width": 64,
-          "height": 52,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
-          "step": "at-60-39-30",
-          "region": 1,
-          "group": 81,
-          "map": 6,
-          "x": 39,
-          "y": 30,
-          "frlg_layout": 0,
-          "width": 64,
-          "height": 52,
-          "interaction": 0,
-          "mapsec": 94
-        },
-        {
           "step": "center-entry",
           "region": 1,
           "group": 81,
@@ -1476,6 +1476,110 @@
           "mapsec": 94
         },
         {
+          "step": "at-70-6-12",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 6,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apartments",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 6,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 15,
+          "height": 14,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-28-15",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 28,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:apartments-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 28,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-71-4-7",
+          "region": 1,
+          "group": 81,
+          "map": 17,
+          "x": 4,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 11,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-cades-house",
+          "region": 1,
+          "group": 81,
+          "map": 17,
+          "x": 4,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 11,
+          "height": 9,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "at-60-39-30",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 39,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:cades-house-exit",
+          "region": 1,
+          "group": 81,
+          "map": 6,
+          "x": 39,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
           "step": "at-64-12-18",
           "region": 1,
           "group": 81,
@@ -1732,6 +1836,25 @@
   ],
   "background_parity": [
     {
+      "frame": "apartments-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        336,
+        168
+      ]
+    },
+    {
+      "frame": "apartments-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        336,
+        168
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
       "frame": "behind-bench_7_42",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated": 0,
@@ -1880,6 +2003,15 @@
       "camera_origin_px": [
         544,
         632
+      ]
+    },
+    {
+      "frame": "cades-house-exit",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        512,
+        408
       ]
     },
     {
@@ -2099,6 +2231,16 @@
       "bg1_pixels_over_player": 0
     },
     {
+      "frame": "house_g0-front",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        512,
+        408
+      ],
+      "bg1_pixels_over_player": 0
+    },
+    {
       "frame": "main-bridge",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated": 0,
@@ -2168,6 +2310,24 @@
       "camera_origin_px": [
         608,
         168
+      ]
+    },
+    {
+      "frame": "room-apartments",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        -16,
+        120
+      ]
+    },
+    {
+      "frame": "room-cades-house",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        -48,
+        40
       ]
     },
     {

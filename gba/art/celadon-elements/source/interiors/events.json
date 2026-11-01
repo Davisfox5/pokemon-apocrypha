@@ -249,5 +249,63 @@
   ],
   "solid_warps": [],
   "walkable": 48
+ },
+ "apartments": {
+  "source": "@apartments",
+  "size": [
+   15,
+   14
+  ],
+  "tiles": 61,
+  "metatiles": 39,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 5,
+    "y": 13,
+    "to": "city:apartments"
+   },
+   {
+    "x": 6,
+    "y": 12,
+    "to": "city:apartments"
+   },
+   {
+    "x": 7,
+    "y": 13,
+    "to": "city:apartments"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 126
+ },
+ "cade_house": {
+  "source": "CeladonCity_House1_Frlg",
+  "size": [
+   11,
+   9
+  ],
+  "tiles": 77,
+  "metatiles": 46,
+  "pixels_exact": true,
+  "warps": [
+   {
+    "x": 3,
+    "y": 7,
+    "to": "city:house_g0"
+   },
+   {
+    "x": 4,
+    "y": 7,
+    "to": "city:house_g0"
+   },
+   {
+    "x": 5,
+    "y": 7,
+    "to": "city:house_g0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 60
  }
 }

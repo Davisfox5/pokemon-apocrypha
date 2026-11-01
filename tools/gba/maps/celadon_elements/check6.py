@@ -100,9 +100,11 @@ def main(g):
     gc, pr = load('MAP_KANTO_CELADON_GAME_CORNER'), load('MAP_KANTO_CELADON_PRIZE_ROOM')
     stairs = next(i for i, w in enumerate(gc['warp_events']) if w['dest_map'] == 'MAP_KANTO_CELADON_PRIZE_ROOM')
     prize_ok = all(w['dest_map'] == 'MAP_KANTO_CELADON_GAME_CORNER' and int(w['dest_warp_id']) == stairs for w in pr['warp_events'])
-    shut = {n: bool((cells[PL.DOORS[n][1], PL.DOORS[n][0]] >> 10) & 3) for n in ('apartments', 'house_g0')}
-    out['warps'] = dict(city=len(m['warp_events']), mismatched=bad, prize_room_by_the_stairs=prize_ok, doors_with_no_room_solid=shut)
-    if bad or not prize_ok or not all(shut.values()): fail.append('warps')
+    shut = {n: bool((cells[PL.DOORS[n][1], PL.DOORS[n][0]] >> 10) & 3) for n in PL.DOORS if S.ROOMS.get(n) is None}
+    opened = {n: any((w['x'], w['y']) == tuple(PL.DOORS[n]) for w in m['warp_events']) for n in ('apartments', 'house_g0')}
+    out['warps'] = dict(city=len(m['warp_events']), mismatched=bad, prize_room_by_the_stairs=prize_ok, doors_with_no_room_solid=shut,
+                        apartments_and_cades_house_open=opened)
+    if bad or not prize_ok or not all(shut.values()) or not all(opened.values()): fail.append('warps')
     # scope
     head_groups = json.loads(git(g, 'show', 'HEAD:data/maps/map_groups.json'))
     now_groups = json.loads((g / 'data/maps/map_groups.json').read_text())
@@ -111,11 +113,15 @@ def main(g):
     changed = sorted(set(git(g, 'diff', '--name-only', 'HEAD').split()) | set(git(g, 'ls-files', '--others', '--exclude-standard').split()))
     hooks = {'src/field_camera.c', 'src/fieldmap.c', 'src/malloc.c', 'src/overworld.c', 'src/tileset_anims.c', 'include/tileset_anims.h',
              'src/data/tilesets/headers.h', 'data/layouts/layouts.json', 'src/celadon_view.c', 'include/celadon_view.h',
-             'src/data/celadon_view.h'}
+             'src/data/celadon_view.h', 'src/data/tilesets/graphics.h', 'src/data/tilesets/metatiles.h',
+             'data/maps/map_groups.json', 'data/event_scripts.s', 'src/apocrypha_map_proof.c'}
     stray = [f for f in changed if f not in hooks and 'eladon' not in f and 'celadon' not in f]
-    out['scope'] = dict(map_ids_unchanged=head_groups == now_groups, layout_ids_unchanged=head_layouts == now_layouts,
-                        files_changed=len(changed), outside_celadon_and_hooks=stray)
-    if head_groups != now_groups or head_layouts != now_layouts or stray: fail.append('scope')
+    # map and layout ids already given stay as they are; new ones are Celadon's, appended
+    ids_kept = all(now_groups.get(k, [])[:len(v)] == v for k, v in head_groups.items() if isinstance(v, list)) and \
+        all('Celadon' in n for k, v in head_groups.items() if isinstance(v, list) for n in now_groups[k][len(v):])
+    layouts_kept = now_layouts[:len(head_layouts)] == head_layouts and all('CELADON' in (n or '') for n in now_layouts[len(head_layouts):])
+    out['scope'] = dict(map_ids_kept=ids_kept, layout_ids_kept=layouts_kept, files_changed=len(changed), outside_celadon_and_hooks=stray)
+    if not ids_kept or not layouts_kept or stray: fail.append('scope')
     out['failures'] = fail
     (S.OUT / 'audit.json').write_text(json.dumps(out, indent=1) + '\n')
     print(json.dumps(out, indent=1)[:3000])

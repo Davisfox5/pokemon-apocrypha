@@ -28,7 +28,8 @@ Goldenrod method extended):
 - `install6.py` writes the tables into the engine and rewrites round 3's files in place:
   KantoCeladonCity on stand-in metatiles (one flat colour per kind of cell, so Porymap shows
   traversal, not the art), its doors, signs and rooms (the prize room up the Game Corner's
-  stairs; the apartments and the house beside the Game Corner shut until they have rooms).
+  stairs; since 2026-11-01 the apartments open on HGSS's Condominiums 1F and the plum house
+  beside the Game Corner is Cade's, open on an empty room).
 - `check6.py` (audit), `runtime6.py` (headless mGBA: 107 captures, every map layer equal to
   the decode in 5-bit colour across five long walks, depth, signs, every room, save, reload,
   Continue) and `porymap6.py` (round trip). `fountain-ingame.gif` and `blossom-ingame.gif`
@@ -109,6 +110,8 @@ secondary of its own (`interiors.py`):
 | KantoCeladonGameCorner, KantoCeladonPrizeRoom | Game Corner, prize room | (34, 25), (39, 25) |
 | KantoCeladonGardens | Celadon Gym | (17, 42) |
 | KantoCeladonCafe | Restaurant | (41, 37) |
+| KantoCeladonApartments | HGSS's Condominiums 1F (`hgss_rooms.py`, T07R0201) laid out cell for cell in FireRed's Condominiums pieces: the elevator, directory board, display cabinet and windows on the back wall, two plants, the inner block with the stairs up in its corner; elevator and stairs solid until the floors above exist (owner, 2026-11-01; evidence `interiors/apartments.png`) | round 6's apartments (28, 14) |
+| KantoCeladonCadeHouse | Cade's house: FireRed's Celadon house (House5's layout), empty until Cade's scene is written (owner, 2026-11-01) | the plum house beside the Game Corner (39, 29) |
 
 ## Pipeline
 

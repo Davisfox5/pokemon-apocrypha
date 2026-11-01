@@ -54,8 +54,9 @@ NORMAL, COVERED = 0, 1
 BUILDINGS = ('dept_store', 'apartments', 'hotel', 'center', 'game_corner', 'cafe', 'flat')
 BASE_ONLY = ('lamp', 'bench', 'plant', 'stall')        # AGENTS.md: a stall blocks its counter row, its canopy is walk-behind
 # The doors (plan.DOORS) and the rooms behind them; None: no interior yet, so the door is solid.
-ROOMS = dict(dept_store='MAP_KANTO_CELADON_MARKET_SERVICES', apartments=None, hotel='MAP_KANTO_CELADON_HOTEL_LOBBY',
-             center='MAP_KANTO_CELADON_POKEMON_CENTER', gamecorner='MAP_KANTO_CELADON_GAME_CORNER', house_g0=None,
+# Owner, 2026-11-01: the apartments open (HGSS's Condominiums 1F) and the plum house is Cade's.
+ROOMS = dict(dept_store='MAP_KANTO_CELADON_MARKET_SERVICES', apartments='MAP_KANTO_CELADON_APARTMENTS', hotel='MAP_KANTO_CELADON_HOTEL_LOBBY',
+             center='MAP_KANTO_CELADON_POKEMON_CENTER', gamecorner='MAP_KANTO_CELADON_GAME_CORNER', house_g0='MAP_KANTO_CELADON_CADE_HOUSE',
              cafe='MAP_KANTO_CELADON_CAFE')
 START = (45, 15)                      # in front of the Center, for reachability
 # A caller streaming more than the city (route7/world.py: Celadon and Route 7 as one world) sets

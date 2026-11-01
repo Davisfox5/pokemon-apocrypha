@@ -27,6 +27,14 @@
    [
     "cafe",
     "cafe"
+   ],
+   [
+    "apartments",
+    "apartments"
+   ],
+   [
+    "house_g0",
+    "cade_house"
    ]
   ],
   "signs": {
@@ -52,6 +60,10 @@
    ]
   }
  },
+ "new_rooms": [
+  "KantoCeladonApartments",
+  "KantoCeladonCadeHouse"
+ ],
  "rooms": {
   "KantoCeladonMarketServices": [
    [
@@ -221,6 +233,46 @@
     9,
     "MAP_KANTO_CELADON_CITY",
     "4"
+   ]
+  ],
+  "KantoCeladonApartments": [
+   [
+    5,
+    13,
+    "MAP_KANTO_CELADON_CITY",
+    "5"
+   ],
+   [
+    6,
+    12,
+    "MAP_KANTO_CELADON_CITY",
+    "5"
+   ],
+   [
+    7,
+    13,
+    "MAP_KANTO_CELADON_CITY",
+    "5"
+   ]
+  ],
+  "KantoCeladonCadeHouse": [
+   [
+    3,
+    7,
+    "MAP_KANTO_CELADON_CITY",
+    "6"
+   ],
+   [
+    4,
+    7,
+    "MAP_KANTO_CELADON_CITY",
+    "6"
+   ],
+   [
+    5,
+    7,
+    "MAP_KANTO_CELADON_CITY",
+    "6"
    ]
   ]
  }
