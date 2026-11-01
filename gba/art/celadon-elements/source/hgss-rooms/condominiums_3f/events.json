@@ -1,0 +1,199 @@
+{
+  "warps": [
+    {
+      "cell": [
+        3,
+        2
+      ],
+      "dest": "MAP_CELADON_CONDOMINIUMS_LEFT_ELEVATOR",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        5,
+        2
+      ],
+      "script": "_EV_scr_seq_T07R0203_004 + 1"
+    },
+    {
+      "cell": [
+        5,
+        8
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        5,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        6,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        11,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        10,
+        8
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        11,
+        8
+      ],
+      "script": "_EV_scr_seq_T07R0203_007 + 1"
+    },
+    {
+      "cell": [
+        1,
+        9
+      ],
+      "script": "_EV_scr_seq_T07R0203_005 + 1"
+    },
+    {
+      "cell": [
+        1,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_005 + 1"
+    },
+    {
+      "cell": [
+        14,
+        9
+      ],
+      "script": "_EV_scr_seq_T07R0203_006 + 1"
+    },
+    {
+      "cell": [
+        15,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_006 + 1"
+    },
+    {
+      "cell": [
+        15,
+        9
+      ],
+      "script": "_EV_scr_seq_T07R0203_006 + 1"
+    },
+    {
+      "cell": [
+        14,
+        12
+      ],
+      "script": "_EV_scr_seq_T07R0203_006 + 1"
+    },
+    {
+      "cell": [
+        7,
+        2
+      ],
+      "script": "_EV_scr_seq_T07R0203_013 + 1"
+    }
+  ],
+  "objects": [
+    {
+      "sprite": "SPRITE_GSMAN1",
+      "cell": [
+        1,
+        7
+      ],
+      "facing": 0,
+      "movement": 14
+    },
+    {
+      "sprite": "SPRITE_SUNGLASSES",
+      "cell": [
+        14,
+        10
+      ],
+      "facing": 0,
+      "movement": 14
+    },
+    {
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        6,
+        9
+      ],
+      "facing": 0,
+      "movement": 14
+    },
+    {
+      "sprite": "SPRITE_GSMAN3",
+      "cell": [
+        8,
+        5
+      ],
+      "facing": 2,
+      "movement": 5
+    },
+    {
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        14,
+        6
+      ],
+      "facing": 0,
+      "movement": 0
+    },
+    {
+      "sprite": "SPRITE_VAR_1",
+      "cell": [
+        15,
+        30
+      ],
+      "facing": 2,
+      "movement": 0
+    },
+    {
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MARILL",
+      "cell": [
+        16,
+        30
+      ],
+      "facing": 2,
+      "movement": 0
+    },
+    {
+      "sprite": "SPRITE_SUIT",
+      "cell": [
+        8,
+        12
+      ],
+      "facing": 1,
+      "movement": 0
+    }
+  ],
+  "source": {
+    "header": "MAP_CELADON_CONDOMINIUMS_3F",
+    "area_bank": 39,
+    "matrix": "map_matrix_0223_T07R0203.bin",
+    "events": "zone_event/335_T07R0203.json"
+  }
+}
