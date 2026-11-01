@@ -16,6 +16,13 @@ each cell's layer type and collision FireRed's.
     cafe         FireRed's Restaurant (HGSS's restaurant)
     gardens      the glasshouse: FireRed's Celadon Gym, its garden as it is
     game_corner  FireRed's Game Corner, and prize_room its prize room
+    apartments   the apartment block (HGSS's tower, 238): HGSS's Condominiums 1F (hgss_rooms.py,
+                 T07R0201) cell for cell, drawn in FireRed's Condominiums pieces (owner,
+                 2026-11-01): the elevator, directory board, display cabinet and two windows on its
+                 back wall, the plants, the inner block with the stairs up in its corner, the mat
+                 under HGSS's door; the elevator and stairs solid until the floors above exist
+    cade_house   Cade's house (the plum house beside the Game Corner; owner, 2026-11-01):
+                 FireRed's Celadon house (House5's layout), empty until Cade's scene is written
 
 Behaviour: the exit mats keep MB_SOUTH_ARROW_WARP and the hotel's stairs their stair warps;
 every other cell is MB_NORMAL (FireRed's counters, slot machines and signposts need scripts the
@@ -65,15 +72,63 @@ ROOMS = {
                      (15, 2): 'prize_room:1'}),
     'prize_room': ('CeladonCity_GameCorner_PrizeRoom_Frlg', 'game_corner_frlg',
                    {(3, 9): 'game_corner:3', (4, 8): 'game_corner:3', (5, 9): 'game_corner:3'}),
+    # Owner, 2026-11-01: the apartments open, their room HGSS's Condominiums 1F; the plum house is
+    # Cade's, open with an empty room.
+    'apartments': ('@apartments', 'condominiums_frlg',
+                   {(5, 13): 'city:apartments', (6, 12): 'city:apartments', (7, 13): 'city:apartments'}),
+    'cade_house': ('CeladonCity_House1_Frlg', 'generic_building_1_frlg',
+                   {(3, 7): 'city:house_g0', (4, 7): 'city:house_g0', (5, 7): 'city:house_g0'}),
 }
+LAYOUTS = {'CeladonCity_House1_Frlg': 'House5_Frlg'}     # a FireRed map whose layout has another name
+
 KEEP = ('MB_SOUTH_ARROW_WARP', 'MB_UP_RIGHT_STAIR_WARP', 'MB_DOWN_RIGHT_STAIR_WARP', 'MB_UP_LEFT_STAIR_WARP',
         'MB_DOWN_LEFT_STAIR_WARP')
 
 def room_cells(engine, name):
     mapname, sec, _ = ROOMS[name]
     pair = frlg.Pair(engine, 'building_frlg', sec)
-    grid, _ = frlg.layout(engine, mapname)
+    if mapname.startswith('@'):
+        return pair, BUILT[mapname[1:]]()
+    grid, _ = frlg.layout(engine, LAYOUTS.get(mapname, mapname))
     return pair, grid
+
+# --------------------------------------------------------------------------- rooms built from HGSS's
+# HGSS's Condominiums 1F (gba/art/celadon-elements/source/hgss-rooms/condominiums_1f): its floor
+# x 1-15, rows 3-13 (a Gen 3 room drops HGSS's outer wall column and its top wall row, so a cell
+# is HGSS's less one each way), the back wall two rows high as FireRed draws it. FireRed's
+# Condominiums metatiles: 289/291 wall, 281 floor, 282 the floor's shaded edge, 2db/2dc/2eb and
+# 2e3/2e4/2ec its doorway, 28b/293 the board, 2f8/2f9 a window, 2ba-2bd the display cabinet,
+# 2ca/2c9 over 2d1 a plant, 2a1 floor meeting a wall top, 294 a wall's left side, the stairs
+# 2f1/2ad and 2ae-2bf, 2e8-2ea the mat, 1a-1c the exit.
+def apartments_grid():
+    """HGSS's Condominiums 1F in FireRed's Condominiums pieces: metatile | collision << 10 | elevation << 12."""
+    W, H = 15, 14
+    FLOOR, SHADE = 0x281, 0x282
+    m = np.full((H, W), FLOOR, int); coll = np.zeros((H, W), int)
+    m[2, :] = SHADE; m[:, 0] = SHADE
+    m[0, :] = 0x289; m[1, :] = 0x291; coll[0:2, :] = 1
+    m[0, 2:5] = [0x2db, 0x2dc, 0x2eb]; m[1, 2:5] = [0x2e3, 0x2e4, 0x2ec]   # the elevator (HGSS (3, 2)), FireRed's doorway and frame
+    m[0, 5], m[1, 5] = 0x28b, 0x293                                  # the directory board (HGSS's sign, (5, 2))
+    m[0, 8:10] = [0x2ba, 0x2bb]; m[1, 8:10] = [0x2c2, 0x2c3]; m[2, 8:10] = [0x2bc, 0x2bd]; coll[2, 8:10] = 1   # HGSS's cabinet (9-10, 3)
+    m[0, 11], m[1, 11] = 0x2f8, 0x2f9; m[0, 13], m[1, 13] = 0x2f8, 0x2f9   # HGSS's two windows
+    m[1, 0], m[2, 0] = 0x2ca, 0x2d1; coll[2, 0] = 1                  # plant (HGSS (1, 3))
+    m[11, 0], m[12, 0] = 0x2c9, 0x2d1; coll[12, 0] = 1               # plant (HGSS (1, 12-13))
+    # the inner block, HGSS x 9-16 rows 7-11, the stair nook in its south-east corner
+    m[5, 8:15] = 0x2a1
+    m[6:9, 8:15] = 0x8; coll[6:11, 8:15] = 1
+    m[6:9, 8] = 0x294
+    m[9, 8:12] = 0x289; m[10, 8:12] = 0x291
+    m[9:11, 12:15] = 0x8
+    m[7, 12:15] = [0x289, 0x289, 0x289]; m[8, 12:15] = [0x291, 0x2ae, 0x2af]
+    m[9, 12:15] = [0x2f1, 0x2b6, 0x2b7]; m[10, 12:15] = [0x2ad, 0x2be, 0x2bf]
+    coll[9, 12] = 1                                                   # the stairs up: 2F not built
+    m[11, 8:15] = SHADE
+    m[12, 5:8] = [0x2e8, 0x2e9, 0x2ea]                               # the mat under HGSS's door (7, 13)
+    m[13, :] = 0x8; coll[13, :] = 1; m[13, 5:8] = [0x1a, 0x1b, 0x1c]
+    elev = np.where(coll == 0, 3, 0)
+    return (m | (coll << 10) | (elev << 12)).astype(np.uint16)
+
+BUILT = dict(apartments=apartments_grid)
 
 def draw(pair, grid):
     H, W = grid.shape
@@ -183,7 +238,7 @@ def main(engine):
     for name, (mapname, sec, warps) in ROOMS.items():
         pair, grid = room_cells(engine, name)
         bot, top, info = draw(pair, grid)
-        frlg_warps = [(w['x'], w['y']) for w in json.loads((engine / f'data/maps/{mapname}/map.json').read_text())['warp_events']]
+        frlg_warps = list(warps) if mapname.startswith('@') else             [(w['x'], w['y']) for w in json.loads((engine / f'data/maps/{mapname}/map.json').read_text())['warp_events']]
         keep = {xy for xy in warps if info[xy[1]][xy[0]]['frlg_behavior'] in keep_mb}
         dead = [xy for xy in frlg_warps if xy not in warps]
         for x, y in dead:

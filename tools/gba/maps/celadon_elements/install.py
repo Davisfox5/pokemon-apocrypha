@@ -41,11 +41,14 @@ CENTER = [('CherrygrovePokemonCenter', 'KantoCeladonPokemonCenter'), ('Cherrygro
 ROOMS = {'services': ('KantoCeladonMarketServices', MUSIC), 'hotel_1f': ('KantoCeladonHotelLobby', MUSIC),
          'hotel_2f': ('KantoCeladonHotelUpstairs', MUSIC), 'game_corner': ('KantoCeladonGameCorner', 'MUS_RG_GAME_CORNER'),
          'prize_room': ('KantoCeladonPrizeRoom', 'MUS_RG_GAME_CORNER'), 'gardens': ('KantoCeladonGardens', MUSIC),
-         'cafe': ('KantoCeladonCafe', MUSIC)}
+         'cafe': ('KantoCeladonCafe', MUSIC), 'apartments': ('KantoCeladonApartments', MUSIC),
+         'cade_house': ('KantoCeladonCadeHouse', MUSIC)}
 NOTES = {'services': "the market's services (FireRed's Dept Store 1F)", 'game_corner': "the Game Corner (FireRed's)",
          'prize_room': "the Game Corner's prize room (FireRed's)", 'gardens': "the Botanical Gardens (FireRed's Celadon Gym)",
          'cafe': "the cafe (FireRed's Restaurant)", 'hotel_1f': "the Pokemon Hotel's lobby (FireRed's Condominiums 1F)",
-         'hotel_2f': "the Pokemon Hotel's upper floor (FireRed's Condominiums 2F)"}
+         'hotel_2f': "the Pokemon Hotel's upper floor (FireRed's Condominiums 2F)",
+         'apartments': "the apartments (HGSS's Condominiums 1F in FireRed's Condominiums pieces)",
+         'cade_house': "Cade's house (FireRed's Celadon house)"}
 # The city's warps, in order: (pack.DOORS name, destination room ('center' for the Center))
 WARPS = [('pokemon_center', 'center'), ('services', 'services'), ('hotel', 'hotel_1f'), ('gamecorner', 'game_corner'),
          ('prize', 'prize_room'), ('gardens', 'gardens'), ('cafe', 'cafe')]

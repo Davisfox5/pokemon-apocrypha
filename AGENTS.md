@@ -272,6 +272,11 @@ below on new maps, rooms, combined buildings and lines still apply.
 - An interior Kanto needs is FireRed's room, or a room built from FireRed's rooms cell by
   cell with other rooms' objects laid on by their own pixels, packed into its own
   secondary on `gTileset_Building` (`saffron/interiors.py`, `celadon_elements/interiors.py`).
+  Where the owner asks for a room built off HGSS's building, decode HGSS's room
+  (`celadon_elements/hgss_rooms.py`: its one-chunk matrix, area bank and room models) and lay
+  its walls, furniture, doors and warps out cell for cell in FireRed's pieces for that kind of
+  room (Celadon's apartments: HGSS's Condominiums 1F in FireRed's Condominiums pieces, owner,
+  2026-11-01). A Gen 3 room drops HGSS's outer wall column and top wall row.
   Exit mats keep `MB_SOUTH_ARROW_WARP`; other FireRed behaviours become `MB_NORMAL` until
   their scripts exist (their numbers mean other things in Emerald: FireRed's Gym pads would warp).
 - Two buildings combined must read as one: one roof line, one facade, one crest, the

@@ -40,8 +40,9 @@ ROOT = C.ROOT
 W, H = S.W, S.H
 KANTO0 = 54
 CITY, CENTER, UPSTAIRS, SERVICES, HOTEL, HOTEL_UP, GAME_CORNER, PRIZE_ROOM, GARDENS, CAFE = range(60, 70)
+APARTMENTS, CADE_HOUSE = 70, 71                                  # owner, 2026-11-01
 ROOM_INDEX = dict(services=SERVICES, hotel_1f=HOTEL, hotel_2f=HOTEL_UP, game_corner=GAME_CORNER, prize_room=PRIZE_ROOM,
-                  gardens=GARDENS, cafe=CAFE)
+                  gardens=GARDENS, cafe=CAFE, apartments=APARTMENTS, cade_house=CADE_HOUSE)
 SAFFRON, OLIVINE = 54, 50
 KANTO_GROUP, CHERRYGROVE_GROUP = 81, 80
 REPORT = json.loads((S.OUT / 'stream.json').read_text())
@@ -93,8 +94,8 @@ def steps():
         out += [('go', CITY, x, y), ('shot', tag)]
     for label, (x, y) in INSTALL['city']['signs'].items():
         out.append(('sign', CITY, x, y, 'sign-' + label))
-    # The doors with no room yet stay shut.
-    for name in ('apartments', 'house_g0'):
+    # The doors with no room yet stay shut (none since the apartments and Cade's house opened, 2026-11-01).
+    for name in [n for n in S.PL.DOORS if S.ROOMS.get(n) is None]:
         x, y = S.PL.DOORS[name]
         out += [('go', CITY, x, y + 1), ('north', 1, None), ('wait', 60), ('at', CITY, x, y + 1)]
     cx, cy = DOORS['center']
@@ -109,6 +110,8 @@ def steps():
             ('shot', 'room-prize-room'), ('go', PRIZE_ROOM, 4, 7), ('south', 2, None), ('wait', 400),
             ('map', GAME_CORNER, 'prize-room-return'), ('shot', 'game-corner-stairs')]
     out += room_trip('cafe', 'cafe', 'cafe')
+    out += room_trip('apartments', 'apartments', 'apartments')
+    out += room_trip('cade_house', 'house_g0', 'cades-house')
     hx, hy = DOORS['hotel']
     ax, ay = arrival_xy('hotel_1f')
     out += [('go', CITY, hx, hy + 1), ('north', 1, None), ('wait', 400), ('at', HOTEL, ax, ay), ('shot', 'room-hotel-lobby'),
@@ -122,7 +125,8 @@ def steps():
 STEPS = steps()
 IN_FRONT = tuple(f'{d}-front' for d in DOORS) + ('center-exit', 'services-exit', 'game-corner-exit', 'cafe-exit', 'hotel-exit')
 ROOM_TAGS = {'room-services': 'services', 'room-game-corner': 'game_corner', 'game-corner-stairs': 'game_corner',
-             'room-prize-room': 'prize_room', 'room-cafe': 'cafe', 'room-hotel-lobby': 'hotel_1f', 'room-hotel-upstairs': 'hotel_2f'}
+             'room-prize-room': 'prize_room', 'room-cafe': 'cafe', 'room-hotel-lobby': 'hotel_1f', 'room-hotel-upstairs': 'hotel_2f',
+             'room-apartments': 'apartments', 'room-cades-house': 'cade_house'}
 
 def body():
     keys = dict(north='UP', south='DOWN', east='RIGHT', west='LEFT')

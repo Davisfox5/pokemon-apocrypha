@@ -23,8 +23,9 @@ this rewrites them in place instead of registering anything new:
     rooms       FireRed's rooms as before (interiors.py); the prize room is up the Game
                 Corner's stairs (no prize house), and the Gardens' room, which no door
                 reaches now, leads back to the Center's door
-Doors to buildings with no room yet (the apartments, the house beside the Game Corner) are
-solid. The border is the north-west forest's 2 x 2 tree block.
+The apartments (HGSS's Condominiums 1F in FireRed's pieces) and Cade's house (the plum house
+beside the Game Corner, FireRed's Celadon house) open (owner, 2026-11-01); new_rooms() makes
+their maps, layouts and tilesets the first time. The border is the north-west forest's 2 x 2 tree block.
 """
 from __future__ import annotations
 import json, re, struct, sys
@@ -42,8 +43,10 @@ from install import (read, write, map_id, layout_id, jasc, tiles_png, metatiles,
 W, H = PL.W, PL.H
 EV = C.EV / 'v6' / 'engine'
 # The city's warps, in order: the door (stream6.ROOMS / plan.DOORS) and its room (install.ROOMS key).
-WARPS = [('center', 'center'), ('dept_store', 'services'), ('hotel', 'hotel_1f'), ('gamecorner', 'game_corner'), ('cafe', 'cafe')]
-OLD_DOOR = dict(services='dept_store', hotel='hotel', gamecorner='gamecorner', cafe='cafe', gardens='center')
+WARPS = [('center', 'center'), ('dept_store', 'services'), ('hotel', 'hotel_1f'), ('gamecorner', 'game_corner'), ('cafe', 'cafe'),
+         ('apartments', 'apartments'), ('house_g0', 'cade_house')]
+OLD_DOOR = dict(services='dept_store', hotel='hotel', gamecorner='gamecorner', cafe='cafe', gardens='center',
+                apartments='apartments', house_g0='house_g0')
 SIGNS = [
     ('CitySign', 'fountain', 'CELADON CITY\\nThe City of Rainbow Colors.\\pRebuilt by its people.'),
     ('ServicesSign', 'dept_store', 'CELADON MARKET SERVICES\\pSALON, MOVE TUTOR and\\nEV TRAINING inside.'),
@@ -206,6 +209,35 @@ def city(g, z, kinds, MB, layouts):
 def city_warp_index(door):
     return next(i for i, (d, _) in enumerate(WARPS) if d == door)
 
+def new_rooms(g, layouts):
+    """Rooms added after the first install (owner, 2026-11-01: the apartments, Cade's house):
+    their map, layout, tileset registration, map group entry, script include and map proof entry,
+    made once (install.py's way); rooms() then writes their contents and warps."""
+    import install as IN
+    new = {k: v for k, v in ROOMS.items() if not (g / f'data/maps/{v[0]}/map.json').exists()}
+    if not new:
+        return []
+    keep = IN.ROOMS
+    IN.ROOMS = new
+    real_city_index = IN.city_warp_index
+    IN.city_warp_index = lambda door: 0                    # placeholders; rooms() points them at the doors
+    try:
+        IN.rooms(g, layouts)
+    finally:
+        IN.ROOMS, IN.city_warp_index = keep, real_city_index
+    names = [v[0] for v in new.values()]
+    groups = read(g / 'data/maps/map_groups.json')
+    groups['gMapGroup_Kanto'].extend(n for n in names if n not in groups['gMapGroup_Kanto'])
+    write(g / 'data/maps/map_groups.json', groups)
+    with (g / 'data/event_scripts.s').open('a') as f:
+        for n in names:
+            f.write(f'\n.include "data/maps/{n}/scripts.inc"\n')
+    p = g / 'src/apocrypha_map_proof.c'; s = p.read_text()
+    anchor = re.search(r'(MAP_KANTO_CELADON_CAFE)', s)
+    assert anchor, 'map proof list'
+    p.write_text(s.replace(anchor.group(0), anchor.group(1) + ', ' + ', '.join(map_id(n) for n in names), 1))
+    return names
+
 def rooms(g, layouts):
     """The rooms' files rewritten from interiors.py (tiles, banks, metatiles, blocks) and their
     warps pointed at round 6's doors."""
@@ -246,6 +278,7 @@ def main(g):
     rep = dict(view=view_data(g, z))
     kinds = stand_ins(g, MB)
     rep['city'] = city(g, z, kinds, MB, layouts)
+    rep['new_rooms'] = new_rooms(g, layouts)
     rep['rooms'] = rooms(g, layouts)
     write(g / 'data/layouts/layouts.json', layouts)
     (EV / 'install.json').write_text(json.dumps(rep, indent=1) + '\n')
