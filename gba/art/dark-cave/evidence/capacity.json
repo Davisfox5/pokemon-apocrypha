@@ -8,21 +8,21 @@
   "build": "HGSS Dark Cave render, fitted banks and medoid tile reuse (pack.py)",
   "pack": {
     "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
-    "distinct_tiles": 237,
-    "representatives": 237,
-    "patterns": 237,
-    "primary_tiles": 237,
+    "distinct_tiles": 224,
+    "representatives": 224,
+    "patterns": 225,
+    "primary_tiles": 225,
     "secondary_tiles": 0,
-    "metatiles": 114,
-    "primary_metatiles": 114,
+    "metatiles": 119,
+    "primary_metatiles": 119,
     "secondary_metatiles": 0,
     "colours_per_bank": [
       15,
       14,
+      15,
       14,
       15,
-      10,
-      1,
+      15,
       1,
       1,
       1,
@@ -46,7 +46,7 @@
         "within_1": 1.0,
         "within_2": 1.0,
         "max_level_diff": 0,
-        "metatiles_used": 84
+        "metatiles_used": 89
       }
     }
   },

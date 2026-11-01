@@ -1,6 +1,6 @@
 # Dark Cave: HGSS cave textures, both maps
 
-Owner review pending (fifth pass: clean-up, rock-edged ponds). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
+Owner review pending (sixth pass: HGSS's rock objects, uniform pond lips, formations). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
 `DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64 each, in HGSS's own
 coordinates. Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
 tiles, the way Union Cave was finished. None of Union Cave's art, palettes or generators are used.
@@ -34,18 +34,24 @@ exactly the pieces the routes use:
   every HGSS height is a terrace, ground included, and a wall has a face only toward ground that is
   really lower. A thin wall between two floors is the upper floor's edge, not a free ridge.
 - **Ground:** the routes' road (Cherrygrove's sand quarter), edge to edge.
-- **Water:** FRLG General's rock-edged pond (metatiles 419-431 and 548-550, inner corners 435-436, as in
-  Icefall Cave): still water with a brown rock lip inside the water cell on every side that meets
-  land, the lip in the rock ramp. It matches HGSS's `dpond_line` edging and never depends on the
-  floor beside it (owner review: HGSS's water edging, from the tiles we have).
-- **Ledges, boulders, stairs:** FRLG's jump ledge and boulder, the catalog flights S01-S05.
-- **Clean-up** (owner review, October 31: every cell clean against the cells round it; `regularise`,
-  listed per cell in the assemble report): moss rocks HGSS sets into a wall's edge are that wall;
-  floor cells one level off the floor round them (HGSS height noise) are levelled; lone rock nubs
-  with three sides lower are boulders; outer rock more than three cells from any floor is the rock
-  top (HGSS shows at most three tiers before its dark); free-standing formations are one block;
-  one-cell spines and small raised bumps on a rock top are flattened. Every blocked moss rock shows
-  a boulder (they were invisible walls). Traversal is untouched.
+- **Water:** FRLG General's rock-edged pond (metatiles 419-431, inner corners 435-436, as in Icefall
+  Cave), the lip in the rock ramp. The lip runs only where water meets ground (floor, a ledge, stairs, a
+  rock object), the same brown lip on every side (FRLG's north row turned over for the south edge,
+  since its own south row is a pale strip that met the side lips badly); where a wall meets the water
+  the wall goes straight in, as in HGSS (owner review: consistent water borders).
+- **HGSS's rock objects** (owner review: some stones were rock formations; recolour the rocks): its
+  2x2 rock pile (`d_rock01`) is a small rock formation in the route rock, one tier above its floor; its
+  moss rock (`d_rock01s`) is FRLG General's boulder in HGSS's moss tones (MOSS_RAMP, from its rendered
+  texture), on the floor or water under it. A blocked cell HGSS paints with a floor or pool decal and
+  no rock object is a pillar top, so it is rock.
+- **Clean-up** (`regularise`, listed per cell in the assemble report; traversal is untouched):
+  floor cells one level off the floor round them (HGSS height noise) are levelled; outer rock more
+  than three cells from any floor is the rock top (HGSS shows at most three tiers before its dark);
+  free-standing formations are one block; narrow rock (open ground on two opposite sides within two
+  cells: the lake's diagonal outcrop, thin walls) is one tier per run, except where it meets the wider
+  rock it grows from; one-cell spines and small raised bumps on a rock top are flattened; a rock nub
+  with three sides lower takes the height of the rock it sticks out of, so it draws as that rock's
+  rounded end.
 - **Colours:** every colour is then swapped one for one: the Johto rock ramp for HGSS's cave rock
   tones (from `dwall_s`, `dcliff01`, `dallpeak_p`), the road tones for the cave floor tones
   (`droad01`) and the pond water for the cave water (`driver`) by brightness rank, the stairs' grey stone for
@@ -56,7 +62,7 @@ Earlier passes (HGSS's slanted render; HGSS's textures on the grid; the route ro
 were turned down in review.
 
 Both maps share one tileset pair of their own (`gTileset_DarkCavePrimary`, `gTileset_DarkCave`). The
-pack is lossless: 237 tiles and 114 metatiles, exact palette banks, every pixel as assembled
+pack is lossless: 225 tiles and 119 metatiles, exact palette banks, every pixel as assembled
 ([pack.json](evidence/pack.json)). Every cell is one bottom layer under the player.
 [Before and after, Route 45 side](evidence/assemble/route45-side-before-after.png) ·
 [Route 31 side](evidence/assemble/route31-side-before-after.png).
