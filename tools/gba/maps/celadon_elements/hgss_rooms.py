@@ -10,6 +10,8 @@ gba/art/celadon-elements/source/hgss-rooms/<room>/ (hgss_render's render, permis
 and furniture placements) and events.json (warps, signs, objects in room cells).
 
     condominiums_1f   MAP_CELADON_CONDOMINIUMS_1F (T07R0201): HGSS's Condominiums ground floor
+    condominiums_2f, _3f, _roof, _roof_room, _left_elevator, _right_elevator: the rest of the
+                      building (T07R0202-0207)
 """
 from __future__ import annotations
 import json, re, struct, sys
@@ -21,7 +23,11 @@ sys.path.insert(0, str(HERE.parent / 'olivine_elements'))
 import hgss_render as R        # noqa: E402
 
 OUT = ROOT / 'gba/art/celadon-elements/source/hgss-rooms'
-ROOMS = dict(condominiums_1f='MAP_CELADON_CONDOMINIUMS_1F')
+ROOMS = dict(condominiums_1f='MAP_CELADON_CONDOMINIUMS_1F', condominiums_2f='MAP_CELADON_CONDOMINIUMS_2F',
+             condominiums_3f='MAP_CELADON_CONDOMINIUMS_3F', condominiums_roof='MAP_CELADON_CONDOMINIUMS_ROOF',
+             condominiums_roof_room='MAP_CELADON_CONDOMINIUMS_ROOF_ROOM',
+             condominiums_left_elevator='MAP_CELADON_CONDOMINIUMS_LEFT_ELEVATOR',
+             condominiums_right_elevator='MAP_CELADON_CONDOMINIUMS_RIGHT_ELEVATOR')
 
 def header(phg, name):
     text = (phg / 'src/data/map_headers.h').read_text()
@@ -37,7 +43,8 @@ def loader(matrix_file, area_bank):
         area = R.narc.load(a / '0/4/2')[area_bank]
         bld_set, map_set = struct.unpack_from('<HH', area, 0)
         tex0 = R.Tex0(R.narc.load(a / '0/4/4')[map_set])
-        models = R.narc.load(a / '1/4/8')                 # the room models
+        outdoor = area[6] == 1                           # the area's outdoor flag: field models, else room models
+        models = R.narc.load(a / ('0/4/0' if outdoor else '1/4/8'))
         d = matrix_file.read_bytes()
         w, h, has_hdr, has_alt, nl = d[:5]
         p = 5 + nl
@@ -58,10 +65,10 @@ def main(phg):
         R.main(phg, out)
         evname = h['events'].replace('NARC_zone_event_', '').replace('_bin', '')
         ev = json.loads((phg / f'files/fielddata/eventdata/zone_event/{evname}.json').read_text())
-        keep = dict(warps=[dict(cell=[e['x'], e['z']], dest=e['header'], anchor=e['anchor']) for e in ev['warps']],
-                    signs=[dict(cell=[e['x'], e['z']], script=e['scriptId']) for e in ev['bgs']],
+        keep = dict(warps=[dict(cell=[e['x'], e['z']], dest=e['header'], anchor=e['anchor']) for e in ev.get('warps', [])],
+                    signs=[dict(cell=[e['x'], e['z']], script=e['scriptId']) for e in ev.get('bgs', [])],
                     objects=[dict(sprite=e['spriteId'], cell=[e['x'], e['z']], facing=e['facingDirection'], movement=e['movement'])
-                             for e in ev['objects']],
+                             for e in ev.get('objects', [])],
                     source=dict(header=name, area_bank=h['area'], matrix=mfile.name, events=f'zone_event/{evname}.json'))
         (out / 'events.json').write_text(json.dumps(keep, indent=2) + '\n')
         print(room, h, len(keep['warps']), 'warps')
