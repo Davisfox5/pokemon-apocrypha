@@ -52,7 +52,7 @@ int main(int argc,char**argv){
  c->reset(c);frames(600,0);
  call("MapProof_Boot",0);frames(240,0);observe("new-game");
  // the east gate and back
- go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front");shot("east-front");
+ go(VIOLET,74,56);at(VIOLET_NUM,74,56,"east-front");shot("east-front");
  step(UP);frames(240,0);observe("east-gate");need(state[2]==EAST_NUM,"into-east-gate");shot("east-gate-inside");
  go(VIOLET,74,57);at(VIOLET_NUM,74,57,"east-front-again");
  // the west gate and back

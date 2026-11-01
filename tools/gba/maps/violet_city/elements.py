@@ -295,6 +295,7 @@ FRONT_BAY, FRONT_DOOR = range(16, 40), range(40, 64)  # a window bay, the door b
 DOOR_CLEAN = slice(14, 23)                            # the door's rows with the figure
 FRONT_X, FRONT_Y = 592, 176                           # where the front stands; the two rows above it are the eave's shadow
 EAVE_SHADOW = (32, 32, 32)
+TOWER_DROP = 8                                        # px the finished tower moves down: its base on the cell edge (door, doors.py)
 ROOF_OUTLINE = (32, 32, 32)                           # the roof's black outline
 ROOF_RIGHT_HALF = 640                                 # the outline searched right of here (the right edge)
 ROOF_TOP_SHADOW = 42                                  # above the roof's top row, right of the spire, everything goes (the spire's shadow)
@@ -373,6 +374,14 @@ def tower_tones(cv):
         ys, xs = np.nonzero(ok)
         for y, x in zip(ys + 1, xs + 1):
             v = int(up[y - 1, x - 1]); a[y, x] = (v >> 16, (v >> 8) & 255, v & 255); lone += 1
+    # the tower stands TOWER_DROP lower, its base on the cell edge, so the player below its door stands against it
+    lawn_at = lambda y0, y1: lawn[np.arange(y0, y1)[:, None] % 32, np.arange(x0, x1)[None] % 32]
+    y0, y1 = rr[0] * 16, FRONT_Y + front.shape[0]
+    low, up = cv.lower[y0:y1, x0:x1].copy(), cv.upper[y0:y1, x0:x1].copy()
+    art_low = ~(low == lawn_at(y0, y1)).all(-1)
+    cv.lower[y0:y1 + TOWER_DROP, x0:x1] = lawn_at(y0, y1 + TOWER_DROP); cv.upper[y0:y1 + TOWER_DROP, x0:x1, 3] = 0
+    tl, tu = cv.lower[y0 + TOWER_DROP:y1 + TOWER_DROP, x0:x1], cv.upper[y0 + TOWER_DROP:y1 + TOWER_DROP, x0:x1]
+    tl[art_low] = low[art_low]; tu[up[..., 3] > 0] = up[up[..., 3] > 0]
     cv.notes.append(f'Sprout Tower: HGSS tones on the roof ({n} px, {lone} lone pixels cleaned, {edge} px of edging cleared), HGSS front {w} x {front.shape[0]} px')
 
 # --------------------------------------------------------------------------- the university
@@ -385,7 +394,7 @@ def tower_tones(cv):
 # tower's front with three window bays each side of the door; the upper floor is three window bays of the
 # same front. Every piece moves by whole tiles with the tower's rows, so it draws with the tower's own
 # tiles; the lawn under its edges is the lawn of its new place. The hall stands a little further forward
-# than the port's (its base 8 px short of the street) to give the roofs their height; the cells it gives
+# than the port's (its base on the street's edge, the door's cell its bottom row) to give the roofs their height; the cells it gives
 # back are lawn, walkable, and the back path behind it (row 33) stays open under the top roof's ridge.
 OLD_UNIVERSITY = [(range(47, 67), range(35, 42)), (range(55, 61), range(33, 35))]
 HALL_DOOR = 924                                      # the door's centre (px): every part centres on it
@@ -396,7 +405,7 @@ SPIRE = (range(616, 648), range(48, 80), 32)         # the spire's columns, rows
 SPIRE_EDGE = [600, 608, 600, 608]                    # the back eave line under the spire, taken from beside it
 LOWER_K = 4                                          # 32 px repeats of the front face in the lower roof (and one 8 px column, to centre)
 WALL = (174, 200)                                    # the eave's shadow and the front
-GROUND_DY, LOWER_DY, UPPER_DY, TOP_DY = 480, 528, 424, 480   # the tower's rows moved down to: ground floor, lower roof, upper floor, top roof
+GROUND_DY, LOWER_DY, UPPER_DY, TOP_DY = 488, 536, 432, 488   # the tower's rows moved down to: ground floor, lower roof, upper floor, top roof (base on the street's edge)
 EAVE_GAP = 4                                         # px of eave shadow between the lower roof and the ground floor: the door's
                                                      # 2x2 animation block then holds no roof (field_door.c draws one bank a tile)
 BACK_PATH = 33                                       # the row behind the hall: walkable, the top roof drawn over the player
@@ -409,6 +418,8 @@ def university(cv):
     src_low, src_up = cv.lower.copy(), cv.upper.copy()
     cob = cobble_texture(cv.image())
     src_is_lawn = (src_low == lawn_at).all(-1)
+    # the tower's rows as the constants below name them (before it dropped)
+    src_low, src_up, src_is_lawn = (np.roll(a, -TOWER_DROP, axis=0) for a in (src_low, src_up, src_is_lawn))
     # the tier without its spire: the front face's own rows (whole tiles) fill the spire's foot
     sx, sy, below = SPIRE
     for arr in (src_low, src_up, src_is_lawn):

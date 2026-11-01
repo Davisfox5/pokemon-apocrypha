@@ -22,9 +22,9 @@
    1023
   ]
  },
- "metatiles": 695,
- "cells_redrawn": 952,
- "traversal_changed": 184,
+ "metatiles": 688,
+ "cells_redrawn": 945,
+ "traversal_changed": 190,
  "fold": {
   "max_pixels_per_tile": 0,
   "pixels_moved": 0,
@@ -37,18 +37,18 @@
     39,
     12
    ],
-   "metatile": 82,
+   "metatile": 78,
    "banks": [
+    7,
+    7,
     10,
     10,
     10,
     10,
     10,
     10,
-    10,
-    10,
-    10,
-    10,
+    7,
+    7,
     10,
     10,
     10,
@@ -63,18 +63,18 @@
     57,
     42
    ],
-   "metatile": 524,
+   "metatile": 516,
    "banks": [
+    7,
+    7,
     10,
     10,
     10,
     10,
     10,
     10,
-    10,
-    10,
-    10,
-    10,
+    7,
+    7,
     10,
     10,
     10,
@@ -89,7 +89,7 @@
     31,
     41
    ],
-   "metatile": 496,
+   "metatile": 485,
    "banks": [
     2,
     2,
@@ -115,7 +115,7 @@
     21,
     40
    ],
-   "metatile": 464,
+   "metatile": 453,
    "banks": [
     9,
     9,
@@ -141,7 +141,7 @@
     49,
     55
    ],
-   "metatile": 633,
+   "metatile": 626,
    "banks": [
     8,
     8,
@@ -165,24 +165,24 @@
   "House1": {
    "cell": [
     11,
-    27
+    26
    ],
-   "metatile": 222,
+   "metatile": 202,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -191,24 +191,24 @@
   "House2": {
    "cell": [
     10,
-    38
+    37
    ],
-   "metatile": 410,
+   "metatile": 362,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -217,24 +217,24 @@
   "House3": {
    "cell": [
     26,
-    56
+    55
    ],
-   "metatile": 640,
+   "metatile": 623,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -243,24 +243,24 @@
   "House4": {
    "cell": [
     36,
-    61
+    60
    ],
-   "metatile": 679,
+   "metatile": 666,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -269,24 +269,24 @@
   "House5": {
    "cell": [
     56,
-    64
+    63
    ],
-   "metatile": 686,
+   "metatile": 678,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -295,24 +295,24 @@
   "EastGate": {
    "cell": [
     74,
-    56
+    55
    ],
-   "metatile": 651,
+   "metatile": 632,
    "banks": [
     0,
     0,
     0,
     0,
-    6,
-    6,
     0,
     0,
     0,
     0,
     0,
     0,
-    6,
-    6,
+    0,
+    0,
+    0,
+    0,
     0,
     0
    ],
@@ -334,8 +334,8 @@
  ],
  "notes": [
   "Sprout Tower: HGSS tones on the roof (12999 px, 19 lone pixels cleaned, 319 px of edging cleared), HGSS front 88 x 24 px",
-  "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 119 cells, 11 on the back path under its ridge",
-  "paths: cobble with a 8 px sand verge in 471 cells, corners rounded 3 px",
+  "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 115 cells, 11 on the back path under its ridge",
+  "paths: cobble with a 8 px sand verge in 468 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",
   "11 animated doors",

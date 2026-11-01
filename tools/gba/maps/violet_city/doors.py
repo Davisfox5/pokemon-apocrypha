@@ -26,14 +26,15 @@ BEGIN, END = '// Violet City doors (tools/gba/maps/violet_city/doors.py): begin'
 TABLE_BEGIN, TABLE_END = '    // Violet City door table (doors.py): begin', '    // Violet City door table: end'
 
 def house(cx, ry):
-    """A Violet house's door: the cell on its bottom row, the planked panel in the art's own place."""
-    return dict(cell=(cx, ry + 1), panel=(16 * cx + 2, 16 * ry + 6, 16 * cx + 15, 16 * ry + 19))
+    """A Violet house's door: the cell the planked door stands in (the house's base reaches 5 px into the cell
+    below, which is the step up to it, walkable), the panel in the art's own place."""
+    return dict(cell=(cx, ry), step=(cx, ry + 1), panel=(16 * cx + 2, 16 * ry + 6, 16 * cx + 15, 16 * ry + 19))
 
 # name, door cell, panel (px, x1/y1 exclusive), door sound, interior (None: the warp already there)
 DOORS = [
-    dict(name='SproutTower', cell=(39, 12), panel=(630, 190, 642, 198), sound='NORMAL',
+    dict(name='SproutTower', cell=(39, 12), panel=(630, 198, 642, 206), sound='NORMAL',
          map='SproutTower1F', layout='LAYOUT_RUSTBORO_CITY_HOUSE1', exits=[(5, 7), (6, 7)], music='MUS_LITTLEROOT'),
-    dict(name='University', cell=(57, 42), panel=(918, 670, 930, 678), sound='NORMAL',
+    dict(name='University', cell=(57, 42), panel=(918, 678, 930, 686), sound='NORMAL',
          map='VioletUniversity', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
     dict(name='LectureHall', cell=(31, 41), panel=(496, 651, 514, 666), sound='SLIDING',
          map='VioletLectureHall', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
@@ -63,6 +64,11 @@ def mark(cv):
         cv.bits[y, x] = WALKABLE
         cv.retraverse.add((x, y)); cv.changed.add((x, y))
         P.UNIQUE.add((x, y))
+        if 'step' in d:                              # the step up to the door: ground, walkable
+            sx, sy = d['step']
+            cv.attr[sy, sx] = int(cv.attr[sy, sx]) & 0xF000
+            cv.bits[sy, sx] = WALKABLE
+            cv.retraverse.add((sx, sy)); cv.changed.add((sx, sy))
     cv.notes.append(f'{len(DOORS)} animated doors')
 
 def banks(engine):
@@ -183,8 +189,10 @@ def interiors(engine):
     made = []
     for d in DOORS:
         x, y = d['cell']
-        if d['map'] is None:
-            assert any((w['x'], w['y']) == (x, y) for w in warps), ('a door with no warp', d['name'])
+        if d['map'] is None:                         # the east gate building: its own warp, moved onto the door
+            gate = [w for w in warps if (w['x'], w['y']) in ((x, y), d.get('step'))]
+            assert len(gate) == 1, ('a door with no warp', d['name'])
+            gate[0]['x'], gate[0]['y'] = x, y
             continue
         idx = len(warps)
         warps.append({'x': x, 'y': y, 'elevation': 0, 'dest_map': 'MAP_' + snake(d['map']), 'dest_warp_id': '0'})

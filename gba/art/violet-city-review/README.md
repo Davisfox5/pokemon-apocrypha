@@ -59,8 +59,8 @@ the animated-door behaviour and are walkable; everything else keeps its collisio
 | Lecture hall | (31, 41) | `VioletLectureHall` (`LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL`) |
 | Mart (M01) | (21, 40) | `VioletMart`, clerk with `docs/JOHTO_ITEMS.md`'s Violet stock |
 | Center (C06) | (49, 55) | `VioletPokemonCenter` with its nurse, `VioletCenterUpstairs` |
-| Houses | (11, 27), (10, 38), (26, 56), (36, 61), (56, 64) | `VioletHouse1`-`5` (stock house layouts, empty) |
-| East gate | (74, 56) | `VioletEastGate`, its warp as before |
+| Houses | (11, 26), (10, 37), (26, 55), (36, 60), (56, 63) | `VioletHouse1`-`5` (stock house layouts, empty) |
+| East gate | (74, 55) | `VioletEastGate`, its warp moved onto the door |
 
 - **Frames** (`doors.py`): the door's 2x2 block (its cell, the cell right of it, the row above) in three
   frames cut from the town's own upper layer, the door panel going dark from its far edge. `field_door.c`
@@ -68,8 +68,10 @@ the animated-door behaviour and are walkable; everything else keeps its collisio
   table entry, an engine addition), so the ground under each building stays its own tiles and every frame
   tile has a bank holding all its colours: 0 colours off palette on all eleven.
 - Each door cell has its own metatile, so the door table finds its own frames.
-- The hall's lower roof sits 8 px higher than before, with 4 px of eave shadow between it and the ground
-  floor, so the door's block holds no roof.
+- The player stands against the building when the door opens (owner's fix, November 1: the doors had
+  opened a step early). A house's door cell is the one its door stands in, the cell below it (the house's
+  base reaches 5 px into it) the walkable step up to it. Sprout Tower and the hall stand 8 px lower, their
+  bases on the cell edge as Gen 3 buildings are; the Mart, Center and lecture hall already were (3-5 px).
 - The interiors are working shells: the nurse heals, the clerk sells. Their scenes (`docs/CHAPTER2_SCENES_SPEC.md`)
   are the chapter's implementation pass.
 
