@@ -39,7 +39,7 @@ static void at(unsigned map,unsigned x,unsigned y,const char*tag){observe(tag);n
 static void pos(unsigned*m,unsigned*x,unsigned*y){call("MapProof_ReadState",0);unsigned a=sym("gMapProofState");*m=c->busRead32(c,a+8);*x=c->busRead32(c,a+12);*y=c->busRead32(c,a+16);}
 static void step(unsigned key){unsigned m0,x0,y0,m1,x1,y1;pos(&m0,&x0,&y0);int moved=0;for(int t=0;t<32&&!moved;t++){frames(2,key);pos(&m1,&x1,&y1);moved=(m1!=m0||x1!=x0||y1!=y0);}frames(moved?40:8,0);frames(16,0);}
 static void door(unsigned x,unsigned y,const char*name){char t[64];go(VIOLET,x,y+1);at(VIOLET_NUM,x,y+1,name);
- frames(2,UP);for(int i=0;i<6;i++){frames(5,UP);sprintf(t,"door-%s-%d",name,i);shot(t);}frames(300,0);observe(name);
+ frames(2,UP);for(int i=0;i<24;i++){frames(4,i<8?UP:0);sprintf(t,"door-%s-%d",name,i);screenshot(out,t);}frames(300,0);observe(name);
  need(state[2]!=VIOLET_NUM,name);sprintf(t,"inside-%s",name);shot(t);
  step(DOWN);frames(300,0);observe(name);need(state[2]==VIOLET_NUM&&state[3]==x&&state[4]==y+1,name);sprintf(t,"out-%s",name);shot(t);
  printf("{\"door\":\"%s\",\"ok\":1}\n",name);fflush(stdout);}

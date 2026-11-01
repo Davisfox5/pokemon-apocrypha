@@ -67,6 +67,7 @@ Owner review (October 25), refined the same day:
   the `layered` door-table flag added to `src/field_door.c`) and lead into working shells (Center, Mart,
   university, lecture hall, five houses, a Sprout Tower stand-in room). 11 tiles free. Door cells sit where the player
   stands against the building (house doors one row up from their first cut, Sprout Tower and the hall 8 px lower).
+  Entering a door warps and fades as soon as the player lands on the door cell (engine `Task_DoDoorWarp`, all maps).
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
