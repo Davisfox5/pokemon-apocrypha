@@ -162,7 +162,14 @@ def wire_mouth(g, route, mb):
     m['warp_events'] = warp_events(route)
     write(mp, ordered(m))
 
+ACCEPTED = '0ce719368e'      # owner-accepted and locked 2026-11-03: never replay this installer over it
+
 def main(g):
+    import os
+    accepted = subprocess.run(['git', '-C', str(g), 'merge-base', '--is-ancestor', ACCEPTED, 'HEAD'], capture_output=True).returncode == 0
+    if accepted and os.environ.get('DARK_CAVE_UNLOCK') != 'owner-approved':
+        raise SystemExit(f'Dark Cave is owner-accepted and locked (engine {ACCEPTED}): edit its native source in Porymap; '
+                         'never regenerate it. Set DARK_CAVE_UNLOCK=owner-approved only on the owner\'s instruction.')
     sys.path.insert(0, str(HERE))
     import pack as P
     remove_draft(g)

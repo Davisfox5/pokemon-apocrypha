@@ -1,6 +1,10 @@
 # Dark Cave: HGSS cave textures, ten years on, and Dive
 
-Owner review pending (ten years on, the mine, Dive). Engine branch `claude/dark-cave` (stacked on
+**Owner-accepted 2026-11-03** ("Hey, now we're talking! I love it. Let's lock that in."), engine
+`0ce719368e`, hub `4ec88e1c`. Treat all four maps as locked: edit their committed native source in
+Porymap, never regenerate them from these tools (`install.py` refuses to run over them).
+
+Engine branch `claude/dark-cave` (stacked on
 `claude/route-46`), maps `DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64
 each in HGSS's own coordinates; `DarkCaveGrotto` (id 51, 40x30) and `DarkCaveUnderwater` (id 52,
 64x64, the Route 45 side's coordinates). Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
@@ -161,7 +165,7 @@ HGSS's do.
 - **Route 31 exit** (5, 26) stays solid. Route 31 and `DarkCaveEntrance` are another agent's maps.
 - Placed: the Route 31 side's four Rock Smash rocks and the Strength boulder, at HGSS's cells, as
   Gen 3 field objects. They hold back 374 cells, as in HGSS (the mine is not behind them).
-- Not decided (owner's call): whether the mine is gated (it is open from the west cavern now), what
+- Not decided (owner's call, as native edits on the locked maps): whether the mine is gated (it is open from the west cavern now), what
   the grotto holds, and whether the rockfalls should open later in the campaign.
 - Not placed: the sunglasses NPC, item balls (TM54, Revive, Potion, Hyper Potion, Full Heal, Dire Hit,
   Black Flute), hidden items and wild encounters. All are recorded in
