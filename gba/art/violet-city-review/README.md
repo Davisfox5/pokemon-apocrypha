@@ -41,8 +41,13 @@ from pokeheartgold's own data. Every cell keeps its collision, elevation, behavi
   one tile each keeps its own palette. The hall's base is 8 px short of the street (the street runs up to
   the door); the cells it gave back are walkable lawn, its own cells are blocked, and the back path behind
   it (row 33) stays open with the top roof's ridge drawn over the player. The sign at (53, 43) stays.
+- **Doors of the tower and the hall** (owner request, November 3): HGSS's door at its own height, 17 rows
+  (`DOOR_ROWS`), under one row of the dark recess above it; the window bays keep their rows. Was 9 rows.
+- **Pokemon Center** (owner request, November 3): C06 unchanged, standing on lawn as in Cherrygrove.
+  Every pixel of its footprint outside the master's art is lawn (462 px of the port's street went from
+  under its walls); a street three cells wide, with its verge, runs from the door to the main street.
 - Unchanged: the islet (as the port has it, owner's choice), the lecture hall, the practice court, the
-  approved C06 Center and M01 Mart, the houses, the west gatehouse, the forests (already the overlapping
+  M01 Mart, the houses, the west gatehouse, the forests (already the overlapping
   lattice), bridges, lanterns, signs, ducks.
 
 ## Doors
@@ -112,7 +117,7 @@ with colours its art no longer draws freed for the new ones.
 
 ## Limits
 
-- 11 tiles free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
+- 1 tile free beyond the 16 door-frame slots. The largest users before the hall (exclusive tiles): Sprout
   Tower 236, C06 Center 94, lecture hall 82, the port university 81, M01 Mart 77, lake water, banks and
   ducks 55, islet 55.
 - Interiors and onward routes are as the source branch left them.

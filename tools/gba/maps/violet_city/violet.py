@@ -24,6 +24,7 @@ def compose(engine):
     cv = E.Canvas(v)
     E.tower_tones(cv)
     E.university(cv)
+    E.center_ground(cv)
     E.paths(cv)
     E.lake_bank(cv)
     E.landing(cv)

@@ -74,6 +74,30 @@ VERGE_PROFILE = [(128, 136, 120), (184, 168, 128), (216, 184, 128), (216, 184, 1
                  (216, 184, 128), (184, 168, 128), (152, 144, 112)]   # from the lawn in: its shade line, the sand, the dark line on the cobble
 ROUND = 3                                            # corner radius, px
 LAWN_FLAT = (104, 208, 152)                          # the lawn's main tone
+# The Pokemon Center (C06, origin (47, 51), door (49, 55)) stands on lawn as in Cherrygrove, nothing under
+# its walls; a street three cells wide runs from its door to the main street (owner request).
+CENTER_LAWN = [(x, r) for x in range(47, 52) for r in range(51, 57)]
+CENTER_APPROACH = [(48, 56), (49, 56), (50, 56)]
+CENTER_MASTER, CENTER_ORIGIN = B.ART.parent / 'johto-center/source/building.png', (47, 51)
+
+def center_ground(cv):
+    """Every pixel of the Center's footprint outside the master's own art is lawn (the port's street pieces
+    under its walls go); the master's pixels must be what the town draws."""
+    from PIL import Image
+    m = np.array(Image.open(CENTER_MASTER).convert('RGBA'))
+    x0, y0 = CENTER_ORIGIN[0] * 16, CENTER_ORIGIN[1] * 16
+    h, w = m.shape[:2]
+    lawn = G.textures()[G.GRASS]
+    ys, xs = np.mgrid[y0:y0 + h, x0:x0 + w]
+    art = m[..., 3] > 0
+    comp = cv.image()[y0:y0 + h, x0:x0 + w]
+    assert (comp[art] == m[..., :3][art]).all(), 'the Center differs from C06'
+    low, up = cv.lower[y0:y0 + h, x0:x0 + w], cv.upper[y0:y0 + h, x0:x0 + w]
+    n = int((~art & ~(comp == lawn[ys % 32, xs % 32]).all(-1)).sum())
+    low[~art] = lawn[ys % 32, xs % 32][~art]; up[~art, 3] = 0
+    cv.changed |= {(x, r) for x in range(CENTER_ORIGIN[0], CENTER_ORIGIN[0] + w // 16)
+                   for r in range(CENTER_ORIGIN[1], CENTER_ORIGIN[1] + h // 16)}
+    cv.notes.append(f'Pokemon Center: C06 on lawn, {n} px of street under its walls cleared')
 
 def cobble_texture(img):
     x, r = COBBLE_CELL
@@ -106,12 +130,20 @@ def paths(cv):
     touch = np.zeros_like(street)
     touch[1:] |= street[:-1]; touch[:-1] |= street[1:]; touch[:, 1:] |= street[:, :-1]; touch[:, :-1] |= street[:, 1:]
     street |= covered & touch
+    for x, r in CENTER_LAWN:
+        street[r, x] = False
+    for x, r in CENTER_APPROACH:
+        street[r, x] = True
     p = np.repeat(np.repeat(street, 16, 0), 16, 1)
     pad = 2 * ROUND
     p = np.pad(p, pad, mode='edge')
     p = binary_opening(binary_closing(p, disk(ROUND)), disk(ROUND))[pad:-pad, pad:-pad]
     lawn_px = ground & ~p
-    d_lawn = distance_transform_edt(~(lawn_px & (is_lawn | outline)))   # into the street from the lawn
+    forced = np.zeros((H, W), bool)
+    for x, r in CENTER_LAWN:
+        forced[r, x] = True
+    forced = np.repeat(np.repeat(forced, 16, 0), 16, 1)
+    d_lawn = distance_transform_edt(~(lawn_px & (is_lawn | outline | forced)))   # into the street from the lawn
     # the verge: flat tones by depth, inside the street's outer quadrant, so a straight run draws one tile
     new = np.where(lawn_px[..., None], lawn[ys % 32, xs % 32], img)
     cut = lawn_px & np.repeat(np.repeat(street, 16, 0), 16, 1)   # a street cell's corner the rounding gave back to the lawn
@@ -290,9 +322,10 @@ TOWER_ROOF_TONES = {(48, 32, 64): (56, 40, 88), (64, 40, 72): (72, 48, 104), (72
                     (120, 112, 120): (160, 152, 176), (128, 152, 128): (184, 192, 208)}   # the last two: eave grey, spire base and corner studs
 FRONT_TEX = B.ART / 'source/hgss/tower-front.png'
 FRONT_ROWS = [0, 1, 2, 4, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 26, 27, 29, 31, 33, 6, 7]   # HGSS's rows kept; the last two its dark beam, as the sill
+DOOR_ROWS = [0, 1, 2, 4, 6] + list(range(18, 35)) + [6, 7]   # the door bay's rows: HGSS's door at its own height (owner request)
 FRONT_POST = [16, 17, 18, 19, 16, 17, 18, 19]        # a corner post: the window bay's own post, twice
 FRONT_BAY, FRONT_DOOR = range(16, 40), range(40, 64)  # a window bay, the door bay (24 px each)
-DOOR_CLEAN = slice(14, 23)                            # the door's rows with the figure
+DOOR_CLEAN = slice(5, 22)                             # the door's rows with the figure
 FRONT_X, FRONT_Y = 592, 176                           # where the front stands; the two rows above it are the eave's shadow
 EAVE_SHADOW = (32, 32, 32)
 TOWER_DROP = 8                                        # px the finished tower moves down: its base on the cell edge (door, doors.py)
@@ -304,13 +337,16 @@ FRONT_TONES = [(72, 48, 32), (80, 56, 40), (96, 72, 56), (112, 80, 40), (136, 10
                (56, 56, 56), (88, 88, 88), (96, 96, 112), (152, 160, 176), (184, 192, 208), (208, 216, 232)]
 
 def front_parts():
-    """HGSS's front as (corner post, window bay, door bay), each 24 rows, in FRONT_TONES (nearest tone)."""
+    """HGSS's front as (corner post, window bay, door bay), each 24 rows, in FRONT_TONES (nearest tone). The bays
+    keep FRONT_ROWS; the door bay keeps the door's own 17 rows (DOOR_ROWS) under one row of its recess."""
     from PIL import Image
-    t = np.array(Image.open(FRONT_TEX).convert('RGB')).astype(int)[FRONT_ROWS]
+    src = np.array(Image.open(FRONT_TEX).convert('RGB')).astype(int)
     tones = np.array(FRONT_TONES)
-    d = ((t[..., None, :] - tones[None, None]) ** 2).sum(-1)
-    t = tones[d.argmin(-1)].astype(np.uint8)
-    door = t[:, list(FRONT_DOOR)].copy()
+    def snap(t):
+        d = ((t[..., None, :] - tones[None, None]) ** 2).sum(-1)
+        return tones[d.argmin(-1)].astype(np.uint8)
+    t = snap(src[FRONT_ROWS])
+    door = snap(src[DOOR_ROWS])[:, list(FRONT_DOOR)].copy()
     door[DOOR_CLEAN, :8] = door[DOOR_CLEAN, :15:-1]   # a figure stands at the door's left in HGSS's render: its right side mirrored
     return t[:, FRONT_POST], t[:, list(FRONT_BAY)], door
 

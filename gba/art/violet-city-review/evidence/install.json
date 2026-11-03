@@ -1,8 +1,8 @@
 {
  "tiles": {
   "primary": 512,
-  "secondary": 485,
-  "left": 11,
+  "secondary": 495,
+  "left": 1,
   "door_slots_reserved": [
    1008,
    1009,
@@ -23,7 +23,7 @@
   ]
  },
  "metatiles": 688,
- "cells_redrawn": 945,
+ "cells_redrawn": 969,
  "traversal_changed": 190,
  "fold": {
   "max_pixels_per_tile": 0,
@@ -335,6 +335,7 @@
  "notes": [
   "Sprout Tower: HGSS tones on the roof (12999 px, 19 lone pixels cleaned, 319 px of edging cleared), HGSS front 88 x 24 px",
   "university: a two-storey Johto hall in Sprout Tower materials, 216 px wide, 115 cells, 11 on the back path under its ridge",
+  "Pokemon Center: C06 on lawn, 462 px of street under its walls cleared",
   "paths: cobble with a 8 px sand verge in 468 cells, corners rounded 3 px",
   "lake: HGSS earth bank on the north edges, 4979 pixels in 56 cells",
   "landing: HGSS stone border and floor, the deeper ring round it (3268 px)",

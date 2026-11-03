@@ -32,9 +32,9 @@ def house(cx, ry):
 
 # name, door cell, panel (px, x1/y1 exclusive), door sound, interior (None: the warp already there)
 DOORS = [
-    dict(name='SproutTower', cell=(39, 12), panel=(630, 198, 642, 206), sound='NORMAL',
+    dict(name='SproutTower', cell=(39, 12), panel=(630, 190, 642, 206), sound='NORMAL',
          map='SproutTower1F', layout='LAYOUT_RUSTBORO_CITY_HOUSE1', exits=[(5, 7), (6, 7)], music='MUS_LITTLEROOT'),
-    dict(name='University', cell=(57, 42), panel=(918, 678, 930, 686), sound='NORMAL',
+    dict(name='University', cell=(57, 42), panel=(918, 670, 930, 686), sound='NORMAL',
          map='VioletUniversity', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
     dict(name='LectureHall', cell=(31, 41), panel=(496, 651, 514, 666), sound='SLIDING',
          map='VioletLectureHall', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
