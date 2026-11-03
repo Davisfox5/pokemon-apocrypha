@@ -33,13 +33,16 @@ COL = dict(core=(208, 214, 226), living=(236, 222, 190), kitchen=(222, 232, 208)
 WALL, NWALL = (60, 64, 80), (96, 104, 124)
 
 # furniture: (label, HGSS model, w, h)
-F = dict(bed=('bed', 17, 1, 2), tv=('TV', 19, 1, 1), stove=('stove/sink', 20, 2, 1), fridge=('fridge', 21, 1, 1),
-         plant=('plant', 23, 1, 1), pc=('PC desk', 24, 2, 1), books=('bookcase', 39, 1, 1), shelf=('shelf', 48, 2, 1),
-         wardrobe=('wardrobe', 64, 2, 1), table=('table', 94, 2, 2), dining=('dining table', 98, 3, 2),
-         coffee=('coffee table', 96, 2, 1), stool=('stool', 89, 1, 1), round=('round table', 111, 2, 2),
+# (footprints from each model's own size at the city's 45 degrees: every piece but the fridge, the
+# plants, the stools, the clock and the lamp is two squares wide)
+F = dict(bed=('bed', 17, 2, 2), tv=('TV', 19, 2, 1), stove=('stove/sink', 20, 2, 1), fridge=('fridge', 21, 1, 1),
+         plant=('plant', 23, 1, 1), pc=('PC desk', 24, 2, 1), books=('bookcase', 39, 2, 1), shelf=('shelf', 48, 2, 1),
+         wardrobe=('wardrobe', 64, 2, 1), table=('table', 94, 2, 1), dining=('dining table', 98, 2, 2),
+         coffee=('coffee table', 90, 2, 1), stool=('stool', 89, 1, 1), round=('round table', 111, 2, 1),
          planter=('planter', 114, 2, 1), tree=('tree', 123, 1, 1), painting=('painting', 139, 2, 1),
-         counter=('counter', 9, 3, 1), seat=('seat', 81, 1, 1), cabinet=('cabinet', 37, 2, 1), mail=('mail wall', 49, 2, 1),
-         clock=('clock', 16, 1, 1), lamp=('lamp', 157, 1, 1))
+         counter=('counter', 45, 2, 1), seat=('seat', 81, 1, 1), cabinet=('cabinet', 37, 2, 1), mail=('mail wall', 49, 2, 1),
+         clock=('clock', 16, 1, 1), lamp=('lamp', 157, 1, 1),
+         sofa=('sofa', 'FR', 1, 3))                    # FireRed's sofa, end-on (owner, 2026-11-03: HGSS has none)
 
 def plan_core(p, stairs_up=True, stairs_down=True, elevator=True):
     """The core, x 11-16: elevator and stairs on the north wall, the corridor to the units' doors."""
@@ -61,24 +64,22 @@ def typical():
     plan_core(p)
     p['doors'] += [(10, 12), (17, 12)]                        # the units' front doors off the core
     p['furniture'] += [('plant', 14, 13), ('painting', 13, 8) if False else ('plant', 12, 13)]
-    # the studio, x 0-9: kitchen on the north wall, dining, living, sleeping, bath and closet
-    p['rooms'] += [((0, 2, 9, 9), 'living', 'studio: living / kitchen'), ((5, 10, 9, 14), 'bed', 'sleeping'),
-                   ((0, 10, 3, 14), 'bath', 'bath')]
-    p['walls'] += [(0, 8, 3, 9), (4, 8, 4, 14)]
-    p['doors'] += [(2, 8), (2, 9)]
-    p['furniture'] += [('fridge', 0, 1), ('stove', 1, 1), ('stove', 3, 1), ('tv', 7, 1), ('books', 9, 1),
-                       ('table', 1, 4), ('stool', 0, 5), ('stool', 3, 5), ('seat', 6, 5), ('seat', 8, 5), ('coffee', 6, 3),
-                       ('bed', 8, 11), ('wardrobe', 5, 10), ('plant', 9, 6)]
-    p['notes'] += ['Studio: kitchen along the window wall, a table for two, TV with seats facing it; sleeping', 'area behind, the bath walled off with its own door (a door only: no bath pieces in the game)']
-    # the two-bedroom, x 18-30: bedrooms along the north (windows), bath between, open living to the south
-    p['rooms'] += [((18, 2, 21, 5), 'bed', 'bedroom 1'), ((23, 2, 25, 5), 'bath', 'bath'), ((27, 2, 30, 5), 'bed', 'bedroom 2'),
+    # the studio, x 0-9: kitchen and living by the window wall, the sleeping area behind (no bathrooms: owner)
+    p['rooms'] += [((0, 2, 9, 9), 'living', 'studio: living / kitchen'), ((0, 10, 9, 14), 'bed', 'sleeping')]
+    p['furniture'] += [('fridge', 0, 1), ('stove', 1, 1), ('stove', 3, 1), ('books', 5, 1), ('tv', 7, 1),
+                       ('table', 1, 5), ('stool', 0, 5), ('stool', 3, 5), ('coffee', 7, 4), ('sofa', 9, 3),
+                       ('pc', 1, 10), ('wardrobe', 4, 10), ('bed', 8, 11), ('plant', 0, 13), ('plant', 6, 13)]
+    p['notes'] += ['Studio: the kitchen along the window wall with a table for two; the TV on the wall, a coffee', 'table and the sofa facing it; behind, the sleeping area with a wardrobe, a desk and the bed']
+    # the two-bedroom, x 18-30: two bedrooms along the north (windows), open living to the south
+    p['rooms'] += [((18, 2, 23, 5), 'bed', 'bedroom 1'), ((25, 2, 30, 5), 'bed', 'bedroom 2'),
                    ((18, 8, 30, 14), 'living', 'living / dining / kitchen')]
-    p['walls'] += [(22, 2, 22, 5), (26, 2, 26, 5), (18, 6, 30, 7)]
-    p['doors'] += [(20, 6), (20, 7), (24, 6), (24, 7), (28, 6), (28, 7)]
-    p['furniture'] += [('bed', 18, 3), ('pc', 20, 1), ('wardrobe', 27, 1), ('bed', 30, 3), ('books', 29, 1),
-                       ('stove', 26, 9), ('stove', 28, 9), ('fridge', 30, 9), ('dining', 26, 11), ('stool', 25, 12), ('stool', 29, 12),
-                       ('tv', 20, 9), ('seat', 19, 12), ('seat', 21, 12), ('coffee', 19, 10), ('plant', 18, 14), ('plant', 30, 14)]
-    p['notes'] += ['Two-bedroom: two bedrooms and the bath on the window side off a short hall; one open', 'room for living (TV, seats), dining (table for four) and the kitchen run along its far wall']
+    p['walls'] += [(24, 2, 24, 5), (18, 6, 30, 7)]
+    p['doors'] += [(21, 6), (21, 7), (27, 6), (27, 7)]
+    p['furniture'] += [('bed', 18, 3), ('pc', 20, 1), ('books', 22, 1), ('wardrobe', 25, 1), ('books', 27, 1), ('bed', 29, 3),
+                       ('tv', 18, 8), ('coffee', 18, 10), ('sofa', 20, 9),
+                       ('stove', 26, 8), ('stove', 28, 8), ('fridge', 30, 8), ('dining', 26, 11), ('stool', 25, 12), ('stool', 29, 12),
+                       ('plant', 18, 14), ('plant', 23, 14), ('plant', 30, 14)]
+    p['notes'] += ['Two-bedroom: two bedrooms on the window side; one open room below for living (TV, coffee', 'table, sofa), dining (a table for four) and the kitchen along the bedrooms\' wall']
     return p
 
 def lobby():
@@ -90,8 +91,8 @@ def lobby():
     p['walls'] += [(6, 2, 6, 7), (0, 6, 5, 7)]
     p['doors'] += [(3, 6), (3, 7)]
     p['fixtures'] += [((13, 15, 15, 15), 'street door (28, 14)')]
-    p['furniture'] += [('counter', 7, 8), ('pc', 1, 1), ('shelf', 3, 1), ('mail', 18, 1), ('mail', 20, 1), ('mail', 22, 1),
-                       ('painting', 25, 1), ('round', 24, 9), ('seat', 23, 9), ('seat', 26, 9), ('seat', 24, 11), ('seat', 25, 11),
+    p['furniture'] += [('counter', 7, 8), ('counter', 9, 8), ('pc', 1, 1), ('shelf', 3, 1), ('mail', 18, 1), ('mail', 20, 1), ('mail', 22, 1),
+                       ('painting', 25, 1), ('coffee', 23, 10), ('sofa', 25, 9), ('sofa', 28, 9), ('round', 20, 9),
                        ('tree', 18, 13), ('tree', 30, 13), ('tree', 0, 13), ('plant', 10, 13), ('plant', 17, 13), ('clock', 8, 1)]
     p['notes'] += ['Lobby: in from the street at the south; the concierge desk facing the door with the office', 'behind it; the mail wall and a lounge on the east side; the elevator and stairs straight ahead']
     return p
@@ -103,19 +104,20 @@ def penthouse():
     p['doors'] += [(10, 5), (17, 5), (10, 11), (17, 11)]
     p['fixtures'] = [f for f in p['fixtures'] if f[1] != 'stairs up'] + [((15, 0, 16, 3), 'stairs up to the terrace')]
     p['rooms'] += [((0, 2, 9, 14), 'living', 'great room: living / dining / kitchen')]
-    p['furniture'] += [('fridge', 0, 1), ('stove', 1, 1), ('stove', 3, 1), ('counter', 1, 4), ('stool', 1, 5), ('stool', 3, 5),
-                       ('dining', 6, 3), ('stool', 5, 4), ('stool', 9, 4), ('tv', 7, 1) if False else ('painting', 7, 1),
-                       ('tv', 4, 9), ('seat', 3, 12), ('seat', 5, 12), ('coffee', 3, 10), ('tree', 0, 13), ('tree', 9, 13), ('lamp', 0, 9)]
+    p['furniture'] += [('fridge', 0, 1), ('stove', 1, 1), ('stove', 3, 1), ('table', 1, 4), ('stool', 0, 4), ('stool', 3, 4),
+                       ('tv', 7, 1), ('coffee', 7, 4), ('sofa', 9, 3), ('painting', 5, 1),
+                       ('dining', 2, 8), ('stool', 1, 9), ('stool', 5, 9), ('tree', 0, 13), ('tree', 9, 13), ('lamp', 0, 7)]
     p['rooms'] += [((18, 2, 22, 5), 'study', 'study'), ((24, 2, 30, 5), 'bed', 'master bedroom'), ((18, 8, 30, 8), 'core', 'hall'),
-                   ((18, 11, 22, 14), 'bed', 'guest bedroom'), ((24, 11, 26, 14), 'closet', 'closet'), ((28, 11, 30, 14), 'bath', 'bath')]
-    p['walls'] += [(23, 2, 23, 5), (18, 6, 30, 7), (18, 9, 30, 10), (23, 11, 23, 14), (27, 11, 27, 14)]
+                   ((18, 11, 22, 14), 'bed', 'guest bedroom'), ((24, 11, 30, 14), 'closet', 'walk-in closet')]
+    p['walls'] += [(23, 2, 23, 5), (18, 6, 30, 7), (18, 9, 30, 10), (23, 11, 23, 14)]
     p['doors'] = [d for d in p['doors'] if d not in ((17, 5), (17, 11))] + [(17, 8)]
-    p['doors'] += [(20, 6), (20, 7), (27, 6), (27, 7), (20, 9), (20, 10), (25, 9), (25, 10), (29, 9), (29, 10)]
-    p['furniture'] += [('books', 18, 1), ('books', 19, 1), ('pc', 21, 1), ('cabinet', 18, 4),
+    p['doors'] += [(20, 6), (20, 7), (27, 6), (27, 7), (20, 9), (20, 10), (27, 9), (27, 10)]
+    p['furniture'] += [('books', 18, 1), ('pc', 20, 1), ('plant', 22, 2), ('cabinet', 18, 4),
                        ('wardrobe', 24, 1), ('bed', 29, 2), ('plant', 30, 1) if False else ('painting', 26, 1), ('plant', 24, 5),
-                       ('bed', 22, 11), ('wardrobe', 18, 13), ('plant', 18, 11), ('shelf', 24, 13), ('plant', 30, 8)]
+                       ('bed', 21, 11), ('wardrobe', 18, 13), ('plant', 18, 11), ('wardrobe', 24, 11), ('wardrobe', 29, 11),
+                       ('shelf', 24, 13), ('shelf', 29, 13), ('plant', 30, 8)]
     p['notes'] += ['Penthouse: the elevator and stairs open into a private foyer; the great room to the west (kitchen', 'with an island, dining for six, living); to the east a hall to the study and the master bedroom, the guest',
-                   'room, a closet and the bath; the stairs up go to its own roof terrace']
+                   'room and a walk-in closet; the stairs up go to its own roof terrace']
     return p
 
 def roof():
@@ -124,7 +126,7 @@ def roof():
     p['fixtures'] += [((15, 0, 16, 3), 'stairs down (penthouse)')]
     p['rooms'] += [((11, 2, 17, 5), 'core', 'stair house')]
     p['furniture'] += [('planter', 1, 3), ('planter', 1, 7), ('planter', 1, 11), ('planter', 27, 3), ('planter', 27, 7), ('planter', 27, 11),
-                       ('round', 7, 8), ('seat', 6, 8), ('seat', 9, 8), ('round', 21, 8), ('seat', 20, 8), ('seat', 23, 8),
+                       ('round', 7, 8), ('stool', 6, 8), ('stool', 9, 8), ('round', 21, 8), ('stool', 20, 8), ('stool', 23, 8),
                        ('tree', 14, 12), ('tree', 4, 13), ('tree', 26, 13)]
     p['notes'] += ["Terrace: HGSS's Condominiums roof, the penthouse's own: planters along its edges, two tables"]
     return p
@@ -178,20 +180,25 @@ def furniture_key():
     import numpy as np
     mods = HR.narc.load(ROOT.parent / 'pokeheartgold/files/a/1/4/8')
     FB = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 13)
-    used = sorted({v for v in F.values()}, key=lambda v: v[1])
+    used = sorted({v for v in F.values() if v[1] != 'FR'}, key=lambda v: v[1]) + [F['sofa']]
     T = 150
     cols = 8
     sheet = Image.new('RGB', (cols * T, ((len(used) + cols - 1) // cols) * T + 40), (24, 28, 36)); d = ImageDraw.Draw(sheet)
-    d.text((8, 8), "HGSS's room models in the plans (a/1/4/8), at the city's 45 degrees; HGSS has no sofa: 'seat' is its cushion seat",
+    d.text((8, 8), "HGSS's room models in the plans (a/1/4/8), at the city's 45 degrees; the sofa is FireRed's (HGSS has none)",
            font=FB, fill=(255, 255, 255))
     for n, (label, mid, w, h) in enumerate(used):
-        img, _ = G3.convert(mods, [(mid, (0, 0, 0))], scale=16.0, pitch=45.0, n=10)
+        if mid == 'FR':                                       # FireRed Condominiums 2F's sofa, its own pixels
+            import apartments_plan as AP
+            m = AP.piece_mask('sofa_side'); px = AP.piece_pixels('sofa_side')
+            img = np.zeros(px.shape[:2] + (4,), np.uint8); img[..., :3] = np.clip(px, 0, 255); img[..., 3] = m * 255
+        else:
+            img, _ = G3.convert(mods, [(mid, (0, 0, 0))], scale=16.0, pitch=45.0, n=10)
         im = Image.fromarray(img); z = max(1, min(4, 110 // max(im.size)))
         im = im.resize((im.width * z, im.height * z), Image.NEAREST)
         x, y = (n % cols) * T, 40 + (n // cols) * T
         d.rectangle((x + 3, y + 3, x + T - 3, y + T - 3), fill=(48, 56, 72))
         sheet.paste(im, (x + (T - im.width) // 2, y + T - 26 - im.height), im)
-        d.text((x + 8, y + T - 22), f'{label} ({mid})', font=FB, fill=(255, 230, 120))
+        d.text((x + 8, y + T - 22), f'{label} ({mid})' if mid != 'FR' else 'sofa (FireRed)', font=FB, fill=(255, 230, 120))
     sheet.save(OUT / 'hgss-furniture.png')
 
 def main():
@@ -205,7 +212,7 @@ def main():
     FN = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 13)
     d.text((28, 10), 'Celadon apartments: floor plans (from scratch; one square = one step)', font=FB, fill=(10, 10, 20))
     items = [(NWALL, 'north wall (seen face on, windows)'), (WALL, 'inner walls (E-W face on, N-S from above)'), ((250, 196, 90), 'doorway'),
-             ((120, 150, 210), 'elevator'), ((176, 176, 196), 'stairs')] + [(COL[k], k) for k in ('core', 'living', 'bed', 'bath', 'closet', 'study')]
+             ((120, 150, 210), 'elevator'), ((176, 176, 196), 'stairs')] + [(COL[k], k) for k in ('core', 'living', 'bed', 'closet', 'study', 'terrace')]
     for i, (c, t) in enumerate(items):
         x, y = 28 + (i % 6) * 250, 46 + (i // 6) * 26
         d.rectangle((x, y, x + 18, y + 18), fill=c, outline=(40, 40, 40)); d.text((x + 26, y + 1), t, font=FN, fill=(20, 20, 30))
