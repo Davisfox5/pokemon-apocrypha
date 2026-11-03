@@ -65,10 +65,13 @@ Owner review (October 25), refined the same day:
   (October 31, "lock those in"): don't redraw them without a new request.
   Doors (October 31): all eleven animate (`tools/gba/maps/violet_city/doors.py`, frames on the top layer via
   the `layered` door-table flag added to `src/field_door.c`) and lead into working shells (Center, Mart,
-  university, lecture hall, five houses, a Sprout Tower stand-in room). Door cells sit where the player
+  university, lecture hall, five houses, Sprout Tower). Door cells sit where the player
   stands against the building (house doors one row up from their first cut, Sprout Tower and the hall 8 px lower).
   Entering a door: the fade starts halfway through the step onto the door cell, the warp as the player stops (engine `Task_DoDoorWarp`, all maps).
   November 3: the tower's and hall's doors at HGSS's full 17 rows; the Center on lawn, a 3-cell street to its door. 1 tile free.
+  November 3, interiors (`tools/gba/maps/violet_interiors`, `gba/art/violet-interiors/README.md`): Sprout Tower 1F-3F as
+  HGSS has them, the university (HGSS school plus a library wing), the lecture hall (HGSS gym, the pit a stone practice
+  court), five campus homes; all rendered from HGSS's own room data, each building on a private tileset pair. No NPCs yet.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
