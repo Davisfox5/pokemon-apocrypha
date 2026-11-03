@@ -1,125 +1,275 @@
-"""The apartment block's floors as a plan for the owner (2026-11-01): each floor of HGSS's
-Celadon Condominiums (hgss_rooms.py) beside a draft of it in FireRed's Condominiums pieces,
-stacked as the building, with the stairs and elevators that join them. Only 1F is built
-(interiors.py, `apartments`); the rest is this plan.
+"""The apartment block as a plan for the owner (2026-11-03: "a full apartment complex": an
+upscale lobby on 1F, an elevator and stairs, four floors of two apartments each, and the
+penthouse at the top). Every cell is a FireRed metatile; a piece set on another room's floor has
+its floor pixels swapped for this room's (FireRed's bed on Copycat's cream floor).
 
     python3 tools/gba/maps/celadon_elements/apartments_plan.py
 
-Writes gba/art/celadon-elements/evidence/apartments/draft_*.png and evidence/apartments-plan.png.
+    1F           the lobby: HGSS's Condominiums 1F as built (interiors.apartments_grid), with a
+                 seating area and a painting added
+    2F-5F        one hall on every floor, FireRed's Condominiums pieces: stairs down and up at
+                 either end of the back wall, apartment A's door, the elevator with its call
+                 panel, apartment B's door
+    apartment A  Copycat's house 1F (Saffron): kitchen, dining table on its rug, TV; a bedroom
+                 corner where its stairs were (Copycat 2F's desk, PC and shelves, Pallet's bed)
+    apartment B  Copycat's house 2F: living room with the TV on its rug, desk and PC; a kitchen
+                 where its stairs were (Copycat 1F's fridge and sink), Pallet's bed
+    6F           the penthouse: the whole floor, elevator and stairs opening into it, in
+                 FireRed's Condominiums pieces (lounge, bookcases, desk, bed, display cabinet),
+                 a door out to its roof terrace (HGSS's Condominiums roof, its planters)
+    elevator     one car for every floor (FireRed's Dept Store elevator)
+
+Writes gba/art/celadon-elements/evidence/apartments/*.png and evidence/apartments-plan.png.
 """
-import sys, json
+from __future__ import annotations
+import json, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-sys.path.insert(0,'/home/user/pokemon-apocrypha/tools/gba/maps/celadon_elements')
-import common as C
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import common as C                                  # noqa: E402
 sys.path.append(str(C.HERE.parent / 'saffron'))
-import frlg, interiors as I
-eng=Path('/home/user/pokeemerald-expansion')
-S=str(Path(__file__).resolve().parents[4] / 'gba/art/celadon-elements/evidence/apartments') + '/'
-pair=frlg.Pair(eng,'building_frlg','condominiums_frlg')
-FR={k: frlg.layout(eng, f'CeladonCity_Condominiums_{k}_Frlg')[0] for k in ('1F','2F','3F','Roof')}
-mid=lambda g: (g.astype(int) & 0x3ff)
+import frlg                                         # noqa: E402
+import interiors as I                               # noqa: E402
 
-def shell(W=15,H=14):
-    m=np.full((H,W),0x281); m[2,:]=0x282; m[:,0]=0x282
-    m[0,:]=0x289; m[1,:]=0x291; m[H-1,:]=0x8
-    return m
-def stamp(m, src, sx, sy, w, h, dx, dy):
-    m[dy:dy+h, dx:dx+w]=mid(FR[src])[sy:sy+h, sx:sx+w]
-def door(m,x):        # FireRed's doorway, 3 cells with its frame
-    m[0,x:x+3]=[0x2db,0x2dc,0x2eb]; m[1,x:x+3]=[0x2e3,0x2e4,0x2ec]
-def window(m,x): m[0,x],m[1,x]=0x2f8,0x2f9
-def plant(m,x,y,wall=False): m[y-1,x]=0x2ca if wall else 0x2c9; m[y,x]=0x2d1
-def mat(m,x): m[-2,x:x+3]=[0x2e8,0x2e9,0x2ea]; m[-1,x:x+3]=[0x1a,0x1b,0x1c]
-def divider(m,x,y0,y1):   # FireRed's two-cell wall seen from above, its face and plaque at the south end
-    m[y0:y1-1,x]=0x294; m[y0:y1-1,x+1]=0x290; m[y0,x]=0x28c; m[y0,x+1]=0x288
-    m[y1-2,x:x+2]=[0x2fa,0x2f4]; m[y1-1,x:x+2]=[0x2fb,0x2fc]
+ENG = C.ROOT.parent / 'pokeemerald-expansion'
+OUT = C.EV / 'apartments'
+LAYOUTS = {l['name']: l for l in json.loads((ENG / 'data/layouts/layouts.json').read_text())['layouts'] if l}
+PAIRS = dict(K=frlg.Pair(ENG, 'building_frlg', 'condominiums_frlg'), G=frlg.Pair(ENG, 'building_frlg', 'generic_building_1_frlg'))
+def grid(name):
+    l = LAYOUTS[name]
+    return (np.frombuffer((ENG / l['blockdata_filepath']).read_bytes(), '<u2').reshape(l['height'], l['width']).astype(int) & 0x3FF)
+SRC = dict(K1=('K', grid('CeladonCity_Condominiums_1F_Layout')), K2=('K', grid('CeladonCity_Condominiums_2F_Layout')),
+           K3=('K', grid('CeladonCity_Condominiums_3F_Layout')), KR=('K', grid('CeladonCity_Condominiums_Roof_Layout')),
+           C1=('G', grid('SaffronCity_CopycatsHouse_1F_Layout')), C2=('G', grid('SaffronCity_CopycatsHouse_2F_Layout')),
+           P2=('G', grid('PalletTown_PlayersHouse_2F_FRLG_Layout')))
+FLOOR = dict(K=0x281, G=0xA9)
+FLOOR_SHADES = {}
 
-def f1():
-    return mid(I.apartments_grid())
-def f2():
-    m=shell(); door(m,1); door(m,4); window(m,11); window(m,13)
-    plant(m,0,2,True); plant(m,0,12)
-    divider(m,8,0,10)
-    stamp(m,'2F',5,0,2,4,13,6)               # the stairs down, against the east wall (HGSS (13, 9))
-    for x,y in ((10,3),(10,4),(10,5),(14,3),(14,4),(14,5)):
-        m[y,x]=0x2b4                         # HGSS's chairs along the east room, FireRed's lobby stool
-    return m
-def f3():
-    m=shell(); door(m,1); window(m,6); window(m,11); window(m,13); m[0,4],m[1,4]=0x28b,0x293
-    plant(m,0,2,True); plant(m,13,4)         # HGSS's plant, and a plant where HGSS has its globe
-    stamp(m,'1F',1,9,4,5,5,6)                # HGSS's meeting table: FireRed's lobby table with its stools
-    for x,y in ((0,4),(0,7),(0,10),(12,5),(12,8),(12,11)): # HGSS's desks along both walls: FireRed 3F's desk with its PC
-        stamp(m,'3F',0,8,3,2,x,y)
-    return m
-def roof():
-    g=mid(FR['Roof']); W,H=17,13
-    m=np.full((H,W),0x306); m[0,:]=0x328
-    m[1,:]=0x320; m[1,0]=0x319; m[1,-1]=0x31a; m[2:-1,0]=0x321; m[2:-1,-1]=0x322
-    m[-1,:]=0x320; m[-1,0]=0x329; m[-1,-1]=0x32a
-    m[2:4,1:8]=[[0x289]*7,[0x291]*7]; door(m.__setitem__ and m[2:], 1) if False else None
-    m[2,1:4]=[0x2db,0x2dc,0x2eb]; m[3,1:4]=[0x2e3,0x2e4,0x2ec]; m[2,5:8]=[0x2db,0x2dc,0x2eb]; m[3,5:8]=[0x2e3,0x2e4,0x2ec]
-    m[2:12,4]=0x337                          # HGSS's low wall between the two elevator lobbies
-    m[3:8,11:15]=g[[5,6,7,10,11],1:5]        # the penthouse, FireRed roof's own building, its door at HGSS's (12, 7)
-    for x,y in ((1,6),(1,9),(8,9),(14,9)):
-        m[y:y+2,x:x+2]=g[4:6,11:13]          # planters
-    return m
-def roof_room():
-    m=shell(11,12); window(m,3); window(m,7)
-    stamp(m,'2F',5,5,2,4,1,0); stamp(m,'2F',5,5,2,4,8,0)   # bookcases either side, as HGSS
-    stamp(m,'2F',1,8,4,3,3,4)                # the table
-    plant(m,1,6); plant(m,9,6); plant(m,1,9); plant(m,9,9)
-    mat(m,4); return m
+def shades():
+    """Pallet 2F's floor in all its cells (its shaded edge too), for the floor swap."""
+    pair, g = SRC['P2']
+    out = set()
+    for m in {int(g[y, x]) for y, x in ((3, 0), (6, 0), (7, 0), (3, 5), (8, 5))}:
+        out |= {tuple(v) for v in flat(pair, m).reshape(-1, 3).tolist()}
+    FLOOR_SHADES['G'] = out
+
+def flat(pair, m):
+    b, t = PAIRS[pair].cell(m)
+    out = b.copy(); a = t[..., 3] > 0; out[a] = t[..., :3][a]
+    return out
+
+class Room:
+    """A room as cells, each (pair, metatile) or a piece carried from another floor."""
+    def __init__(self, pair, w, h, fill):
+        self.pair = pair
+        self.img = np.zeros((h * 16, w * 16, 3), np.uint8)
+        self.w, self.h = w, h
+        for y in range(h):
+            for x in range(w):
+                self.put(x, y, pair, fill)
+    def put(self, x, y, pair, m, from_floor=None):
+        c = flat(pair, m)
+        if from_floor is not None:                                 # the source room's floor colours take this room's floor
+            cols = {tuple(v) for v in flat(pair, from_floor).reshape(-1, 3).tolist()} | FLOOR_SHADES.get(pair, set())
+            dst = flat(self.pair, FLOOR[self.pair])
+            same = np.array([[tuple(v) in cols for v in row] for row in c.tolist()])
+            c[same] = dst[same]
+        self.img[y * 16:y * 16 + 16, x * 16:x * 16 + 16] = c
+    def stamp(self, src, sx, sy, w, h, dx, dy, floor=None):
+        pair, g = SRC[src]
+        for yy in range(h):
+            for xx in range(w):
+                self.put(dx + xx, dy + yy, pair, int(g[sy + yy, sx + xx]), floor)
+    def cells(self, xy, pair, m):
+        for x, y in xy:
+            self.put(x, y, pair, m)
+
+def condo_shell(w, h):
+    r = Room('K', w, h, 0x281)
+    for x in range(w):
+        r.put(x, 0, 'K', 0x289); r.put(x, 1, 'K', 0x291); r.put(x, 2, 'K', 0x282); r.put(x, h - 1, 'K', 0x8)
+    for y in range(3, h - 1):
+        r.put(0, y, 'K', 0x282)
+    return r
+def doorway(r, x):
+    for i, (a, b) in enumerate(((0x2db, 0x2e3), (0x2dc, 0x2e4), (0x2eb, 0x2ec))):
+        r.put(x + i, 0, 'K', a); r.put(x + i, 1, 'K', b)
+def panel(r, x): r.put(x, 0, 'K', 0x28b); r.put(x, 1, 'K', 0x293)
+def window(r, x): r.put(x, 0, 'K', 0x2f8); r.put(x, 1, 'K', 0x2f9)
+def painting(r, x): r.stamp('K2', 1, 5, 2, 2, x, 0) if False else (r.put(x, 0, 'K', 0x2b8), r.put(x + 1, 0, 'K', 0x2b9), r.put(x, 1, 'K', 0x2c0), r.put(x + 1, 1, 'K', 0x2c1))
+def plant(r, x, y, wall=False): r.put(x, y - 1, 'K', 0x2ca if wall else 0x2c9); r.put(x, y, 'K', 0x2d1)
+def stairs_down(r, x): r.stamp('K2', 0, 0, 2, 4, x, 0)        # FireRed Condominiums 2F's stairs down
+def stairs_up(r, x):                                           # FireRed Condominiums 1F's stairs up, its window left out
+    r.stamp('K1', 4, 0, 3, 4, x, 0); r.put(x, 0, 'K', 0x289); r.put(x, 1, 'K', 0x291)
+def sofa_set(r, x, y): r.stamp('K2', 1, 7, 5, 4, x, y)        # sofa, octagon table
+def bookcase(r, x, y): r.stamp('K2', 5, 5, 2, 4, x, y)
+def desk(r, x, y): r.stamp('K3', 0, 8, 3, 2, x, y)
+def bed_on(r, x, y): r.stamp('P2', 1, 5, 2, 2, x, y, floor=0x1)  # Pallet's bed, its olive floor swapped
+
+def _init():
+    shades()
+
+def lobby():
+    r = Room('K', 15, 14, 0x281)
+    g = I.apartments_grid().astype(int) & 0x3FF
+    for y in range(14):
+        for x in range(15):
+            r.put(x, y, 'K', int(g[y, x]))
+    painting(r, 6)                                             # upscale: a painting on the back wall
+    sofa_set(r, 1, 4)                                          # and a seating area in the open west half
+    return r
+
+def hall():
+    r = condo_shell(17, 9)
+    stairs_down(r, 0); doorway(r, 3); doorway(r, 7); panel(r, 10); doorway(r, 11); stairs_up(r, 14)
+    plant(r, 6, 3); plant(r, 13, 7); plant(r, 2, 7)
+    return r
+
+def apartment_a():
+    pair, g = SRC['C1']
+    h, w = g.shape
+    r = Room('G', w, h, 0xA9)
+    for y in range(h):
+        for x in range(w):
+            r.put(x, y, 'G', int(g[y, x]))
+    for x in range(9, 13):                                     # the stairs out: a bedroom corner
+        r.put(x, 0, 'G', int(g[0, 9])); r.put(x, 1, 'G', int(g[1, 9])); r.put(x, 2, 'G', int(g[2, 8]))
+        if x >= 10: r.put(x, 3, 'G', 0xA9)
+    r.stamp('C2', 1, 0, 4, 3, 9, 0)                            # Copycat 2F's desk, PC and shelves
+    bed_on(r, 10, 4)
+    return r
+
+def apartment_b():
+    pair, g = SRC['C2']
+    h, w = g.shape
+    a = SRC['C1'][1]
+    r = Room('G', w, h + 1, 0xA9)
+    for y in range(h):
+        for x in range(w):
+            r.put(x, y, 'G', int(g[y, x]))
+    for x in range(7, w):                                      # the stairs out: a kitchen
+        r.put(x, 2, 'G', int(g[2, 6])); r.put(x, 3, 'G', 0xA9)
+    r.stamp('C1', 1, 0, 3, 3, 7, 0)                            # Copycat 1F's fridge and sink
+    bed_on(r, 9, 5)
+    my, mx = [(y, x) for y in range(a.shape[0]) for x in range(a.shape[1]) if a[y, x] in (0xE7,)][0]
+    for i in range(w):
+        r.put(i, h, 'G', 0x8)
+    r.stamp('C1', mx - 1, my, 3, 2, 3, h - 1)                  # Copycat 1F's mat and exit
+    return r
+
+def penthouse():
+    r = condo_shell(17, 13)
+    stairs_down(r, 0); window(r, 3); painting(r, 4); doorway(r, 7); panel(r, 10); window(r, 14)
+    for i, col in enumerate(((0x2ba, 0x2c2, 0x2bc), (0x2bb, 0x2c3, 0x2bd))):   # a display cabinet
+        for y, m in enumerate(col):
+            r.put(12 + i, y, 'K', m)
+    r.stamp('K1', 1, 9, 4, 5, 7, 5)                            # a dining table with its stools
+    bookcase(r, 15, 2)
+    sofa_set(r, 2, 5)
+    desk(r, 12, 5)
+    bed_on(r, 13, 9)
+    plant(r, 0, 11); plant(r, 16, 11); plant(r, 9, 11)
+    for x, m in ((6, 0x2e8), (7, 0x2e9), (8, 0x2ea)):           # the terrace door: a mat out to the roof
+        r.put(x, 11, 'K', m)
+    for x, m in ((6, 0x1a), (7, 0x1b), (8, 0x1c)):
+        r.put(x, 12, 'K', m)
+    return r
+
+def terrace():
+    g = SRC['KR'][1]
+    W, H = 17, 12
+    r = Room('K', W, H, 0x306)
+    for x in range(W):
+        r.put(x, 0, 'K', 0x328); r.put(x, 1, 'K', 0x320); r.put(x, H - 1, 'K', 0x320)
+    for y in range(2, H - 1):
+        r.put(0, y, 'K', 0x321); r.put(W - 1, y, 'K', 0x322)
+    r.put(0, 1, 'K', 0x319); r.put(W - 1, 1, 'K', 0x31a); r.put(0, H - 1, 'K', 0x329); r.put(W - 1, H - 1, 'K', 0x32a)
+    for x in range(6, 11):                                     # the penthouse's wall and its door onto the terrace
+        r.put(x, 2, 'K', 0x289); r.put(x, 3, 'K', 0x291)
+    for i, (a, b) in enumerate(((0x2db, 0x2e3), (0x2dc, 0x2e4), (0x2eb, 0x2ec))):
+        r.put(7 + i, 2, 'K', a); r.put(7 + i, 3, 'K', b)
+    for x, y in ((2, 5), (2, 8), (13, 5), (13, 8), (7, 8)):
+        r.stamp('KR', 11, 4, 2, 2, x, y)                       # HGSS's roof planters, FireRed's
+    return r
 
 def elevator():
-    sp=frlg.Pair(eng,'building_frlg','condominiums_frlg')
-    sd=eng/'data/tilesets/secondary/silph_co_frlg'
-    sm=np.frombuffer((sd/'metatiles.bin').read_bytes(),'<u2').reshape(-1,8); sa=np.frombuffer((sd/'metatile_attributes.bin').read_bytes(),'<u4')
-    sp.meta.update({frlg.NT+i:[int(v) for v in sm[i]] for i in range(len(sm))}); sp.attr.update({frlg.NT+i:int(sa[i]) for i in range(len(sa))})
-    g,_=frlg.layout(eng,'CeladonCity_DepartmentStore_Elevator_Frlg')
-    return sp, mid(g)
+    sp = frlg.Pair(ENG, 'building_frlg', 'condominiums_frlg')
+    sd = ENG / 'data/tilesets/secondary/silph_co_frlg'
+    sm = np.frombuffer((sd / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
+    sp.meta.update({frlg.NT + i: [int(v) for v in sm[i]] for i in range(len(sm))})
+    PAIRS['S'] = sp
+    g = grid('CeladonCity_DepartmentStore_Elevator_Layout')
+    r = Room('S', g.shape[1], g.shape[0], int(g[3, 2]))
+    for y in range(g.shape[0]):
+        for x in range(g.shape[1]):
+            r.put(x, y, 'S', int(g[y, x]))
+    return r
 
-def draw(m, p=pair):
-    g=m.astype(np.uint16); b,t=frlg.render(p,g); return frlg.flat(b,t)
-out={}
-for name,fn in (('1F',f1),('2F',f2),('3F',f3),('Roof',roof),('Roof room',roof_room)):
-    out[name]=draw(fn())
-ep,eg=elevator(); out['Elevator']=draw(eg,ep)
-for k,v in out.items(): Image.fromarray(v).save(S+f'draft_{k.replace(" ","_")}.png')
-print({k:v.shape for k,v in out.items()})
+def main():
+    _init()
+    OUT.mkdir(parents=True, exist_ok=True)
+    for f in OUT.glob('*.png'):
+        f.unlink()
+    rooms = dict(lobby=lobby(), hall=hall(), apartment_a=apartment_a(), apartment_b=apartment_b(), penthouse=penthouse(),
+                 terrace=terrace(), elevator=elevator())
+    for k, r in rooms.items():
+        Image.fromarray(r.img).save(OUT / f'{k}.png')
+    sheet(rooms)
 
-# --------------------------------------------------------------------------- the plan sheet
-R=Path('/home/user/pokemon-apocrypha/gba/art/celadon-elements/source/hgss-rooms')
-F=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',15)
-f=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',13)
-def hg(room, box):
-    x0,y0,x1,y1=box
-    return np.array(Image.open(R/f'condominiums_{room}/hgss-render.png').convert('RGB'))[y0*16:y1*16,x0*16:x1*16]
-FLOORS=[  # label, HGSS room, crop, draft, notes
- ('Roof', 'roof', (0,0,17,14), 'Roof', ["Open roof: both elevators come up here (left, right)", "Planters; the penthouse door (12, 7)"]),
- ('Penthouse', 'roof_room', (0,0,13,13), 'Roof room', ["HGSS's roof room: table, bookcases, four plants", "Door back to the roof"]),
- ('3F', '3f', (0,0,17,15), '3F', ["HGSS: Game Freak's office, a meeting table and desks", "along both walls (FireRed 3F's desks with PCs)", "The floor's role in this building is your call", "Left elevator"]),
- ('2F', '2f', (0,0,17,15), '2F', ["Open hall, chairs along the east room as HGSS", "Stairs down to 1F (east room); right elevator"]),
- ('1F (built)', '1f', (0,0,17,15), '1F', ["Lobby, door to Celadon (28, 14)", "Stairs up to 2F; left elevator"]),
- ('Elevator', 'left_elevator', (0,0,7,8), 'Elevator', ["One car, as HGSS (left and right are the same room)", "Left: 1F, 3F, roof.  Right: 2F, roof", "(FireRed Dept Store elevator)"]),
-]
-SC=2
-blocks=[]
-for label, room, box, draft, notes in FLOORS:
-    a=hg(room, box); b=np.array(Image.open(S+f'draft_{draft.replace(" ","_")}.png'))
-    A=Image.fromarray(a).resize((a.shape[1]*SC//2*1, a.shape[0]*SC//2*1)); B=Image.fromarray(b).resize((b.shape[1]*SC,b.shape[0]*SC),Image.NEAREST)
-    w=A.width+B.width+460; h=max(A.height,B.height)+34
-    im=Image.new('RGB',(w,h),(24,28,36)); d=ImageDraw.Draw(im)
-    d.text((6,4),label,font=F,fill=(255,230,120))
-    d.text((6,22),'HGSS',font=f,fill=(180,180,180)); d.text((A.width+16,22),'Gen 3 (FireRed pieces)',font=f,fill=(180,180,180))
-    im.paste(A,(6,38)); im.paste(B,(A.width+16,38))
-    for i,n in enumerate(notes): d.text((A.width+B.width+30,44+i*20),n,font=f,fill=(235,235,235))
-    blocks.append(im)
-W=max(b.width for b in blocks)+20; H=sum(b.height+14 for b in blocks)+70
-o=Image.new('RGB',(W,H),(16,18,24)); d=ImageDraw.Draw(o)
-d.text((10,8),"Celadon apartments (HGSS's Condominiums), floor by floor, top to bottom",font=F,fill=(255,255,255))
-d.text((10,30),"Stairs: 1F <-> 2F.  Left elevator: 1F, 3F, roof.  Right elevator: 2F, roof.  Roof door -> penthouse.  Only 1F is built; the rest is this plan.",font=f,fill=(200,200,200))
-y=60
-for b in blocks: o.paste(b,(10,y)); y+=b.height+14
-o.save(Path(S).parent / 'apartments-plan.png'); print(o.size)
+def sheet(rooms):
+    F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 16)
+    f = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 13)
+    S = 2
+    big = lambda k: Image.fromarray(rooms[k].img).resize((rooms[k].w * 16 * S, rooms[k].h * 16 * S), Image.NEAREST)
+    # the stack: floor boxes, top to bottom
+    stack = [('Roof', 'Penthouse terrace (private)'), ('6F', 'Penthouse'), ('5F', 'Apartments 5A, 5B'), ('4F', 'Apartments 4A, 4B'),
+             ('3F', 'Apartments 3A, 3B'), ('2F', 'Apartments 2A, 2B'), ('1F', 'Lobby, door to Celadon (28, 14)')]
+    bw, bh = 330, 46
+    st = Image.new('RGB', (bw + 230, len(stack) * (bh + 8) + 40), (16, 18, 24)); d = ImageDraw.Draw(st)
+    d.text((10, 6), 'The building', font=F, fill=(255, 230, 120))
+    for i, (fl, what) in enumerate(stack):
+        y = 34 + i * (bh + 8)
+        d.rectangle((10, y, 10 + bw, y + bh), outline=(200, 200, 200), fill=(40, 46, 60))
+        d.text((20, y + 6), fl, font=F, fill=(255, 255, 255)); d.text((70, y + 8), what, font=f, fill=(230, 230, 230))
+        if fl != 'Roof':
+            d.text((20, y + 27), 'stairs' if fl in ('1F', '6F') else 'stairs down, up', font=f, fill=(150, 200, 255))
+        d.rectangle((bw + 40, y, bw + 90, y + bh), outline=(255, 200, 120), fill=(70, 56, 40) if fl != 'Roof' else (16, 18, 24))
+        if fl != 'Roof':
+            d.text((bw + 44, y + 14), 'lift', font=f, fill=(255, 220, 160))
+    d.text((bw + 100, 40), 'One elevator\nstops at every\nfloor, 1F-6F;\nthe terrace is\nthrough the\npenthouse', font=f, fill=(220, 220, 220))
+    panels = [('1F  Lobby', 'lobby', ["HGSS's Condominiums 1F (built): elevator, board,", "display cabinet, stairs up; a seating area and a", "painting added for an upscale lobby"]),
+              ('2F-5F  Hall (the same on every floor)', 'hall', ["Stairs down (left) and up (right), apartment A's door,", "the elevator with its call panel, apartment B's door"]),
+              ('Apartment A (2A-5A)', 'apartment_a', ["Copycat's house 1F (Saffron): kitchen, dining table,", "TV; a bedroom corner where its stairs were (desk, PC,", "shelves from its 2F, Pallet's bed)"]),
+              ('Apartment B (2B-5B)', 'apartment_b', ["Copycat's house 2F: living room, TV on its rug, desk", "and PC; a kitchen where its stairs were, a bed"]),
+              ('6F  Penthouse', 'penthouse', ["The whole floor: elevator and stairs open into it;", "lounge, dining table, display cabinet, bookcase, desk,", "bed, plants; the mat at the front leads to the terrace"]),
+              ('Roof  Penthouse terrace', 'terrace', ["HGSS's Condominiums roof: planters, the penthouse's", "door; private, reached only through the penthouse"]),
+              ('Elevator', 'elevator', ["One car (FireRed's Dept Store elevator), a floor menu", "for 1F-6F"])]
+    blocks = []
+    for title, k, notes in panels:
+        im = big(k)
+        b = Image.new('RGB', (im.width + 470, im.height + 34), (24, 28, 36)); dd = ImageDraw.Draw(b)
+        dd.text((6, 4), title, font=F, fill=(255, 230, 120)); b.paste(im, (6, 28))
+        for i, n in enumerate(notes):
+            dd.text((im.width + 20, 34 + i * 19), n, font=f, fill=(235, 235, 235))
+        blocks.append(b)
+    cols = [[blocks[0], blocks[1], blocks[6]], [blocks[2], blocks[3]], [blocks[4], blocks[5]]]
+    colw = [max(b.width for b in c) for c in cols]
+    H = max(st.height, max(sum(b.height + 12 for b in c) for c in cols)) + 60
+    W = st.width + sum(colw) + 20 * (len(cols) + 2)
+    o = Image.new('RGB', (W, H), (16, 18, 24)); d = ImageDraw.Draw(o)
+    d.text((12, 10), "Celadon apartments: an upscale apartment block (plan; only the lobby's room is built)", font=F, fill=(255, 255, 255))
+    o.paste(st, (12, 40))
+    x = st.width + 30
+    for c, cw in zip(cols, colw):
+        y = 40
+        for b in c:
+            o.paste(b, (x, y)); y += b.height + 12
+        x += cw + 20
+    o.save(C.EV / 'apartments-plan.png')
+    print(o.size)
+
+if __name__ == '__main__':
+    main()
