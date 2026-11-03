@@ -109,7 +109,9 @@ rows 20-23 (Route 45 rows 148-151). Route 45's map.json changes only by its conn
   plateau east of it, (29-31, 20-23), and Route 45's pocket beside it (with HGSS's hidden PP Max at
   Route 45 (0, 149)) are not reached. These are the 12 unreachable open cells in
   `evidence/pack3/native-audit.json`.
-- **Dark Cave.** Not built: the mouth is solid.
+- **Dark Cave.** Wired later by Dark Cave's installer (`../dark-cave/README.md`), as a native edit: the
+  mouth (20, 9) is a door (metatile 538's behaviour MB_NON_ANIMATED_DOOR, collision open) with warp 0 to
+  the cave's Route 31 side. No pixel changed.
 - **Route 29 gatehouse.** Its interior and Route 29's side are not built in this style (the engine's
   Route 29 is the older `CherrygroveRoute29Approach`), so its doorways are solid and Route 46 has no
   connection south. HGSS blocks (16-21, 61) for its taller gate model; G01a starts at row 62, so the
@@ -151,7 +153,7 @@ rows 20-23 (Route 45 rows 148-151). Route 45's map.json changes only by its conn
 
 - Not placed: HGSS's object events (three trainers, two Apricorn trees, the X Speed ball, the gate
   attendant); no wild encounter table.
-- Dark Cave and the Route 29 gatehouse are not built.
+- The Route 29 gatehouse is not built. Dark Cave was built after this map was accepted (its README).
 
 ## Reproduction
 

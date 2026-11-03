@@ -185,7 +185,9 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
   the player at elevation 0, which can walk onto water. Emerald's own bridges behave the same way; a player
   walking on never hits it. A surfer just south of a deck has its head drawn under the deck's edge, as
   under any top-layer bridge in Gen 3.
-- **Dark Cave.** Its Route 45 side is not built: the mouth is solid.
+- **Dark Cave.** Wired later by Dark Cave's installer (`../dark-cave/README.md`), as a native edit: the
+  mouth (10, 6) is a door (metatile 523's behaviour MB_NON_ANIMATED_DOOR, collision open) with warp 0 to
+  the cave's Route 45 side. No pixel changed.
 - **Route 46.** Not built: no west connection. HGSS's dirt pocket at (0-1, 148-151), with the hidden PP
   Max at (0,149), is reached from Route 46 alone.
 - **Grass on slopes.** HGSS draws its tall grass texture on three slope cells (14-16, 38) and one cell
@@ -232,7 +234,7 @@ Blackthorn's; Blackthorn with the appended metatiles is unchanged.
 
 - Not placed: HGSS's object events (trainers, item balls, the Apricorn tree) and the hidden PP Up at
   (9,97); no wild encounter table.
-- Dark Cave's Route 45 side and Route 46 are not built.
+- Route 46 and Dark Cave were built after this map was accepted (their READMEs).
 - Waterfall checked from the map data only (no party with the HM in the headless run); Surf is walked in the
   emulator from a warp onto water.
 - Blackthorn (PR #26) is pending owner review; if it changes, Route 45's seam is packed again from it.

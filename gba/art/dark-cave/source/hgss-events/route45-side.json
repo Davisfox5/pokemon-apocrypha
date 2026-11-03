@@ -1,0 +1,102 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/120_D42R0101.json",
+      "files/msgdata/msg/msg_0127_D42R0101.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_DARK_CAVE_ROUTE_45_SIDE",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        6,
+        57
+      ],
+      "dest": "MAP_DARK_CAVE_ROUTE_31_SIDE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        60,
+        4
+      ],
+      "dest": "MAP_ROUTE_45",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        14,
+        9
+      ],
+      "script": "std_hiddenitem_d42r0101_max_revive",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        9,
+        52
+      ],
+      "script": "std_hiddenitem_d42r0101_hyper_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        48,
+        16
+      ],
+      "script": "std_hiddenitem_d42r0101_elixir",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D42R0101_sunglasses",
+      "sprite": "SPRITE_SUNGLASSES",
+      "cell": [
+        16,
+        12
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_NOTHING",
+      "script": "_EV_scr_seq_D42R0101_000 + 1"
+    },
+    {
+      "id": "obj_D42R0101_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        14,
+        49
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D42R0101_TM54",
+      "script": "std_itemball_d42r0101_tm54"
+    },
+    {
+      "id": "obj_D42R0101_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        42,
+        44
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D42R0101_REVIVE",
+      "script": "std_itemball_d42r0101_revive"
+    }
+  ],
+  "messages": {
+    "msg_0127_D42R0101_00000": "Whoa! You startled me there! I had my BlackGlasses on, so I didn’t notice you at all. What am I doing here? Hey, don’t you worry about it. I’ll give you a pair of BlackGlasses, so forget you saw me, OK?",
+    "msg_0127_D42R0101_00001": "",
+    "msg_0127_D42R0101_00002": "BlackGlasses up the power of Dark-type moves.",
+    "msg_0127_D42R0101_00003": "You don’t have room for this..."
+  }
+}
