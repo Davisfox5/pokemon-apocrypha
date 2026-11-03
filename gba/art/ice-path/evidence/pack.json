@@ -1,0 +1,60 @@
+{
+  "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
+  "distinct_tiles": 200,
+  "representatives": 200,
+  "patterns": 201,
+  "primary_tiles": 201,
+  "secondary_tiles": 0,
+  "metatiles": 67,
+  "primary_metatiles": 67,
+  "secondary_metatiles": 0,
+  "colours_per_bank": [
+    14,
+    15,
+    15,
+    14,
+    9,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sides": {
+    "1f": {
+      "pixels": 448768,
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 44
+    },
+    "b1f": {
+      "pixels": 233984,
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 34
+    },
+    "b2f": {
+      "pixels": 297472,
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 31
+    },
+    "b3f": {
+      "pixels": 98816,
+      "exact": 1.0,
+      "within_1": 1.0,
+      "within_2": 1.0,
+      "max_level_diff": 0,
+      "metatiles_used": 29
+    }
+  }
+}

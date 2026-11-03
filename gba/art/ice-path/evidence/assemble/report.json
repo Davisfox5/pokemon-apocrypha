@@ -1,0 +1,151 @@
+{
+ "ice_ramp": [
+  [
+   0,
+   36,
+   63
+  ],
+  [
+   156,
+   231,
+   247
+  ],
+  [
+   140,
+   214,
+   239
+  ],
+  [
+   115,
+   198,
+   231
+  ],
+  [
+   82,
+   165,
+   206
+  ],
+  [
+   49,
+   140,
+   181
+  ],
+  [
+   33,
+   123,
+   165
+  ]
+ ],
+ "floor_tones": [
+  [
+   49,
+   123,
+   173
+  ],
+  [
+   57,
+   132,
+   173
+  ],
+  [
+   66,
+   132,
+   181
+  ],
+  [
+   74,
+   140,
+   189
+  ]
+ ],
+ "ice_tones": [
+  [
+   82,
+   189,
+   255
+  ]
+ ],
+ "floors": {
+  "1f": {
+   "flights": 5,
+   "rock_cells": 3072,
+   "regularised": {
+    "floor": 11,
+    "nub": 0,
+    "deep_rock": 0,
+    "island": 0,
+    "spine": 3,
+    "bump": 0,
+    "narrow": 58
+   },
+   "kinds": {
+    "blocked": 3208,
+    "floor": 485,
+    "ice": 399,
+    "ladder": 2,
+    "exit": 2
+   },
+   "crystals": 146
+  },
+  "b1f": {
+   "flights": 0,
+   "rock_cells": 1494,
+   "regularised": {
+    "floor": 2,
+    "nub": 0,
+    "deep_rock": 0,
+    "island": 0,
+    "spine": 0,
+    "bump": 0,
+    "narrow": 1
+   },
+   "kinds": {
+    "blocked": 1706,
+    "floor": 311,
+    "hole": 4,
+    "ladder": 6,
+    "ice": 21
+   },
+   "crystals": 212
+  },
+  "b2f": {
+   "flights": 2,
+   "rock_cells": 1292,
+   "regularised": {
+    "floor": 15,
+    "nub": 0,
+    "deep_rock": 0,
+    "island": 0,
+    "spine": 0,
+    "bump": 0,
+    "narrow": 21
+   },
+   "kinds": {
+    "blocked": 1352,
+    "floor": 221,
+    "ladder": 6,
+    "ice": 469
+   },
+   "crystals": 64
+  },
+  "b3f": {
+   "flights": 2,
+   "rock_cells": 826,
+   "regularised": {
+    "floor": 0,
+    "nub": 0,
+    "deep_rock": 0,
+    "island": 0,
+    "spine": 0,
+    "bump": 0,
+    "narrow": 19
+   },
+   "kinds": {
+    "blocked": 862,
+    "floor": 158,
+    "ladder": 4
+   },
+   "crystals": 40
+  }
+ }
+}

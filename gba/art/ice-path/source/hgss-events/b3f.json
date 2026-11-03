@@ -1,0 +1,78 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/225_D39R0104.json",
+      "files/msgdata/msg/msg_0122_D39R0101.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_ICE_PATH_B3F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        5,
+        11
+      ],
+      "dest": "MAP_ICE_PATH_B2F",
+      "anchor": 2
+    },
+    {
+      "index": 1,
+      "cell": [
+        5,
+        10
+      ],
+      "dest": "MAP_ICE_PATH_B2F",
+      "anchor": 2
+    },
+    {
+      "index": 2,
+      "cell": [
+        24,
+        12
+      ],
+      "dest": "MAP_ICE_PATH_B2F",
+      "anchor": 3
+    },
+    {
+      "index": 3,
+      "cell": [
+        24,
+        11
+      ],
+      "dest": "MAP_ICE_PATH_B2F",
+      "anchor": 3
+    }
+  ],
+  "hidden_items": [],
+  "objects": [
+    {
+      "id": "obj_EVERYWHERE_breakrock",
+      "sprite": "SPRITE_BREAKROCK",
+      "cell": [
+        10,
+        12
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010",
+      "script": "std_field_rock_smash"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        12,
+        13
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0104_NEVERMELTICE",
+      "script": "std_itemball_d39r0104_nevermeltice"
+    }
+  ],
+  "messages": {}
+}

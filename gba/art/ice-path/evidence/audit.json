@@ -1,0 +1,258 @@
+{
+  "maps": {
+    "IcePath_1F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 888,
+      "hgss_reach_cells": 888,
+      "kinds": {
+        "blocked": 3208,
+        "floor": 485,
+        "ice": 399,
+        "ladder": 2,
+        "exit": 2
+      },
+      "warps": 4,
+      "tiles": [
+        208,
+        16
+      ],
+      "metatiles": [
+        67,
+        1
+      ]
+    },
+    "IcePath_B1F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 342,
+      "hgss_reach_cells": 342,
+      "kinds": {
+        "blocked": 1706,
+        "floor": 311,
+        "hole": 4,
+        "ladder": 6,
+        "ice": 21
+      },
+      "warps": 10,
+      "tiles": [
+        208,
+        16
+      ],
+      "metatiles": [
+        67,
+        1
+      ]
+    },
+    "IcePath_B2F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 696,
+      "hgss_reach_cells": 696,
+      "kinds": {
+        "blocked": 1352,
+        "floor": 221,
+        "ladder": 6,
+        "ice": 469
+      },
+      "warps": 10,
+      "tiles": [
+        208,
+        16
+      ],
+      "metatiles": [
+        67,
+        1
+      ]
+    },
+    "IcePath_B3F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 162,
+      "hgss_reach_cells": 162,
+      "kinds": {
+        "blocked": 862,
+        "floor": 158,
+        "ladder": 4
+      },
+      "warps": 4,
+      "tiles": [
+        208,
+        16
+      ],
+      "metatiles": [
+        67,
+        1
+      ]
+    }
+  },
+  "routes": {
+    "Route44": {
+      "pixels_changed": 0,
+      "cell": [
+        89,
+        9
+      ],
+      "metatile": 641,
+      "collision": 0,
+      "warp": {
+        "x": 89,
+        "y": 9,
+        "elevation": 0,
+        "dest_map": "MAP_ICE_PATH_1F",
+        "dest_warp_id": "0"
+      }
+    },
+    "BlackthornCity": {
+      "pixels_changed": 0,
+      "cell": [
+        57,
+        16
+      ],
+      "metatile": 551,
+      "collision": 0,
+      "warp": {
+        "x": 57,
+        "y": 16,
+        "elevation": 0,
+        "dest_map": "MAP_ICE_PATH_1F",
+        "dest_warp_id": "1"
+      }
+    }
+  },
+  "boulders": {
+    "b1f": {
+      "FLAG_HIDE_ICE_PATH_BOULDER_1_FALLEN": [
+        10,
+        13
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_2_FALLEN": [
+        13,
+        14
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_3_FALLEN": [
+        18,
+        12
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_4_FALLEN": [
+        25,
+        12
+      ]
+    },
+    "b2f": {
+      "FLAG_HIDE_ICE_PATH_BOULDER_1_FALLEN": [
+        12,
+        13
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_2_FALLEN": [
+        11,
+        21
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_3_FALLEN": [
+        19,
+        10
+      ],
+      "FLAG_HIDE_ICE_PATH_BOULDER_4_FALLEN": [
+        20,
+        22
+      ]
+    },
+    "holes": [
+      [
+        18,
+        7
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        10,
+        18
+      ],
+      [
+        19,
+        19
+      ]
+    ]
+  },
+  "changed_files": [
+    "data/event_scripts.s",
+    "data/layouts/BlackthornCity/map.bin",
+    "data/layouts/IcePath_1F/border.bin",
+    "data/layouts/IcePath_1F/map.bin",
+    "data/layouts/IcePath_B1F/border.bin",
+    "data/layouts/IcePath_B1F/map.bin",
+    "data/layouts/IcePath_B2F/border.bin",
+    "data/layouts/IcePath_B2F/map.bin",
+    "data/layouts/IcePath_B3F/border.bin",
+    "data/layouts/IcePath_B3F/map.bin",
+    "data/layouts/Route44/map.bin",
+    "data/layouts/layouts.json",
+    "data/maps/BlackthornCity/map.json",
+    "data/maps/IcePath_1F/map.json",
+    "data/maps/IcePath_1F/scripts.inc",
+    "data/maps/IcePath_B1F/map.json",
+    "data/maps/IcePath_B1F/scripts.inc",
+    "data/maps/IcePath_B2F/map.json",
+    "data/maps/IcePath_B2F/scripts.inc",
+    "data/maps/IcePath_B3F/map.json",
+    "data/maps/IcePath_B3F/scripts.inc",
+    "data/maps/Route44/map.json",
+    "data/maps/map_groups.json",
+    "data/tilesets/primary/ice_path/metatile_attributes.bin",
+    "data/tilesets/primary/ice_path/metatiles.bin",
+    "data/tilesets/primary/ice_path/palettes/00.pal",
+    "data/tilesets/primary/ice_path/palettes/01.pal",
+    "data/tilesets/primary/ice_path/palettes/02.pal",
+    "data/tilesets/primary/ice_path/palettes/03.pal",
+    "data/tilesets/primary/ice_path/palettes/04.pal",
+    "data/tilesets/primary/ice_path/palettes/05.pal",
+    "data/tilesets/primary/ice_path/palettes/06.pal",
+    "data/tilesets/primary/ice_path/palettes/07.pal",
+    "data/tilesets/primary/ice_path/palettes/08.pal",
+    "data/tilesets/primary/ice_path/palettes/09.pal",
+    "data/tilesets/primary/ice_path/palettes/10.pal",
+    "data/tilesets/primary/ice_path/palettes/11.pal",
+    "data/tilesets/primary/ice_path/palettes/12.pal",
+    "data/tilesets/primary/ice_path/palettes/13.pal",
+    "data/tilesets/primary/ice_path/palettes/14.pal",
+    "data/tilesets/primary/ice_path/palettes/15.pal",
+    "data/tilesets/primary/ice_path/tiles.png",
+    "data/tilesets/secondary/blackthorn_city/metatile_attributes.bin",
+    "data/tilesets/secondary/ice_path/metatile_attributes.bin",
+    "data/tilesets/secondary/ice_path/metatiles.bin",
+    "data/tilesets/secondary/ice_path/palettes/00.pal",
+    "data/tilesets/secondary/ice_path/palettes/01.pal",
+    "data/tilesets/secondary/ice_path/palettes/02.pal",
+    "data/tilesets/secondary/ice_path/palettes/03.pal",
+    "data/tilesets/secondary/ice_path/palettes/04.pal",
+    "data/tilesets/secondary/ice_path/palettes/05.pal",
+    "data/tilesets/secondary/ice_path/palettes/06.pal",
+    "data/tilesets/secondary/ice_path/palettes/07.pal",
+    "data/tilesets/secondary/ice_path/palettes/08.pal",
+    "data/tilesets/secondary/ice_path/palettes/09.pal",
+    "data/tilesets/secondary/ice_path/palettes/10.pal",
+    "data/tilesets/secondary/ice_path/palettes/11.pal",
+    "data/tilesets/secondary/ice_path/palettes/12.pal",
+    "data/tilesets/secondary/ice_path/palettes/13.pal",
+    "data/tilesets/secondary/ice_path/palettes/14.pal",
+    "data/tilesets/secondary/ice_path/palettes/15.pal",
+    "data/tilesets/secondary/ice_path/tiles.png",
+    "data/tilesets/secondary/route_44/metatile_attributes.bin",
+    "include/constants/flags.h",
+    "include/regions.h",
+    "src/apocrypha_map_proof.c",
+    "src/data/region_map/region_map_sections.json",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h"
+  ],
+  "budget": {
+    "patterns": 201,
+    "primary_tiles": 201,
+    "secondary_tiles": 0,
+    "metatiles": 67
+  },
+  "failures": []
+}

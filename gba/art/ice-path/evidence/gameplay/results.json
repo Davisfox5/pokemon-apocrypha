@@ -1,0 +1,1580 @@
+{
+  "rom_sha256": "4d280fe3a16f7296a16c137c6ed7fdadcd12bb6d34c4cce81caa6ba852c119c1",
+  "steps": [
+    [
+      "view",
+      "62",
+      "11",
+      "59",
+      "view-1f"
+    ],
+    [
+      "view",
+      "63",
+      "6",
+      "21",
+      "view-b1f"
+    ],
+    [
+      "view",
+      "64",
+      "26",
+      "11",
+      "view-b2f"
+    ],
+    [
+      "view",
+      "65",
+      "5",
+      "11",
+      "view-b3f"
+    ],
+    [
+      "go",
+      "60",
+      "89",
+      "10"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "62",
+      "11",
+      "58"
+    ],
+    [
+      "shot",
+      "arrive-from-route44"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "60",
+      "89",
+      "10"
+    ],
+    [
+      "shot",
+      "back-on-route44"
+    ],
+    [
+      "go",
+      "43",
+      "57",
+      "17"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "62",
+      "55",
+      "40"
+    ],
+    [
+      "shot",
+      "arrive-from-blackthorn"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "43",
+      "57",
+      "17"
+    ],
+    [
+      "shot",
+      "back-in-blackthorn"
+    ],
+    [
+      "go",
+      "62",
+      "55",
+      "8"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "63",
+      "6",
+      "21"
+    ],
+    [
+      "shot",
+      "ladder-1f-55-7"
+    ],
+    [
+      "go",
+      "62",
+      "55",
+      "21"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "63",
+      "6",
+      "42"
+    ],
+    [
+      "shot",
+      "ladder-1f-55-20"
+    ],
+    [
+      "go",
+      "63",
+      "6",
+      "19"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "62",
+      "55",
+      "7"
+    ],
+    [
+      "shot",
+      "ladder-b1f-6-20"
+    ],
+    [
+      "go",
+      "63",
+      "25",
+      "9"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "64",
+      "26",
+      "11"
+    ],
+    [
+      "shot",
+      "ladder-b1f-25-8"
+    ],
+    [
+      "go",
+      "63",
+      "27",
+      "41"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "64",
+      "43",
+      "22"
+    ],
+    [
+      "shot",
+      "ladder-b1f-27-40"
+    ],
+    [
+      "go",
+      "63",
+      "7",
+      "41"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "62",
+      "55",
+      "20"
+    ],
+    [
+      "shot",
+      "ladder-b1f-6-41"
+    ],
+    [
+      "go",
+      "64",
+      "26",
+      "9"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "63",
+      "25",
+      "8"
+    ],
+    [
+      "shot",
+      "ladder-b2f-26-10"
+    ],
+    [
+      "go",
+      "64",
+      "16",
+      "18"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "65",
+      "5",
+      "11"
+    ],
+    [
+      "shot",
+      "ladder-b2f-16-17"
+    ],
+    [
+      "go",
+      "64",
+      "50",
+      "6"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "65",
+      "24",
+      "12"
+    ],
+    [
+      "shot",
+      "ladder-b2f-50-5"
+    ],
+    [
+      "go",
+      "64",
+      "43",
+      "20"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "63",
+      "27",
+      "40"
+    ],
+    [
+      "shot",
+      "ladder-b2f-43-21"
+    ],
+    [
+      "go",
+      "65",
+      "5",
+      "9"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "64",
+      "16",
+      "17"
+    ],
+    [
+      "shot",
+      "ladder-b3f-5-10"
+    ],
+    [
+      "go",
+      "65",
+      "24",
+      "10"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "64",
+      "50",
+      "5"
+    ],
+    [
+      "shot",
+      "ladder-b3f-24-11"
+    ],
+    [
+      "go",
+      "63",
+      "11",
+      "9"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "400"
+    ],
+    [
+      "at",
+      "64",
+      "12",
+      "12"
+    ],
+    [
+      "shot",
+      "dropped-to-b2f"
+    ],
+    [
+      "go",
+      "62",
+      "29",
+      "11"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "120"
+    ],
+    [
+      "at",
+      "62",
+      "15",
+      "11"
+    ],
+    [
+      "shot",
+      "slid-1f"
+    ],
+    [
+      "go",
+      "64",
+      "6",
+      "9"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "120"
+    ],
+    [
+      "at",
+      "64",
+      "24",
+      "9"
+    ],
+    [
+      "shot",
+      "slid-b2f"
+    ],
+    [
+      "go",
+      "63",
+      "18",
+      "13"
+    ],
+    [
+      "strength"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "200"
+    ],
+    [
+      "shot",
+      "boulder-in-hole"
+    ],
+    [
+      "flagis",
+      "FLAG_HIDE_ICE_PATH_BOULDER_3_INIT",
+      "1",
+      "b1f-boulder-gone"
+    ],
+    [
+      "flagis",
+      "FLAG_HIDE_ICE_PATH_BOULDER_3_FALLEN",
+      "0",
+      "b2f-boulder-shown"
+    ],
+    [
+      "go",
+      "65",
+      "10",
+      "13"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "at",
+      "65",
+      "10",
+      "13"
+    ],
+    [
+      "shot",
+      "rock-smash-rock"
+    ]
+  ],
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:view-1f",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 59,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:view-b1f",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 6,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:view-b2f",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 26,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:view-b3f",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 5,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-62-11-58",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 58,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:arrive-from-route44",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 58,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-60-89-10",
+          "region": 2,
+          "group": 80,
+          "map": 60,
+          "x": 89,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 229
+        },
+        {
+          "step": "shot:back-on-route44",
+          "region": 2,
+          "group": 80,
+          "map": 60,
+          "x": 89,
+          "y": 10,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 229
+        },
+        {
+          "step": "at-62-55-40",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:arrive-from-blackthorn",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-43-57-17",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 57,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:back-in-blackthorn",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 57,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-63-6-21",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 6,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-1f-55-7",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 6,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-63-6-42",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 6,
+          "y": 42,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-1f-55-20",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 6,
+          "y": 42,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-62-55-7",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b1f-6-20",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-26-11",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 26,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b1f-25-8",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 26,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-43-22",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 43,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b1f-27-40",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 43,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-62-55-20",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b1f-6-41",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 55,
+          "y": 20,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-63-25-8",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 25,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b2f-26-10",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 25,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-65-5-11",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 5,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b2f-16-17",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 5,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-65-24-12",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 24,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b2f-50-5",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 24,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-63-27-40",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 27,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b2f-43-21",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 27,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-16-17",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 16,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b3f-5-10",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 16,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-50-5",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 50,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ladder-b3f-24-11",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 50,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-12-12",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 12,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:dropped-to-b2f",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 12,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-62-15-11",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 15,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:slid-1f",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 15,
+          "y": 11,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-64-24-9",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 24,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:slid-b2f",
+          "region": 2,
+          "group": 80,
+          "map": 64,
+          "x": 24,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:boulder-in-hole",
+          "region": 2,
+          "group": 80,
+          "map": 63,
+          "x": 19,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "at-65-10-13",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 10,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:rock-smash-rock",
+          "region": 2,
+          "group": 80,
+          "map": 65,
+          "x": 10,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 62,
+          "x": 11,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 231
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "arrive-from-blackthorn",
+      "map": 62,
+      "position": [
+        55,
+        40
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "arrive-from-route44",
+      "map": 62,
+      "position": [
+        11,
+        58
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "boulder-in-hole",
+      "map": 63,
+      "position": [
+        19,
+        7
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "cold-flash-reload",
+      "map": 62,
+      "position": [
+        11,
+        57
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "dropped-to-b2f",
+      "map": 64,
+      "position": [
+        12,
+        12
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-1f-55-20",
+      "map": 63,
+      "position": [
+        6,
+        42
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-1f-55-7",
+      "map": 63,
+      "position": [
+        6,
+        21
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b1f-25-8",
+      "map": 64,
+      "position": [
+        26,
+        11
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b1f-27-40",
+      "map": 64,
+      "position": [
+        43,
+        22
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b1f-6-20",
+      "map": 62,
+      "position": [
+        55,
+        7
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b1f-6-41",
+      "map": 62,
+      "position": [
+        55,
+        20
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b2f-16-17",
+      "map": 65,
+      "position": [
+        5,
+        11
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b2f-26-10",
+      "map": 63,
+      "position": [
+        25,
+        8
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b2f-43-21",
+      "map": 63,
+      "position": [
+        27,
+        40
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b2f-50-5",
+      "map": 65,
+      "position": [
+        24,
+        12
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b3f-24-11",
+      "map": 64,
+      "position": [
+        50,
+        5
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ladder-b3f-5-10",
+      "map": 64,
+      "position": [
+        16,
+        17
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ordinary-continue",
+      "map": 62,
+      "position": [
+        11,
+        57
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "rock-smash-rock",
+      "map": 65,
+      "position": [
+        10,
+        13
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "save-on-route",
+      "map": 62,
+      "position": [
+        11,
+        57
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "slid-1f",
+      "map": 62,
+      "position": [
+        15,
+        11
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "slid-b2f",
+      "map": 64,
+      "position": [
+        24,
+        9
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-1f",
+      "map": 62,
+      "position": [
+        11,
+        59
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-b1f",
+      "map": 63,
+      "position": [
+        6,
+        21
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-b2f",
+      "map": 64,
+      "position": [
+        26,
+        11
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-b3f",
+      "map": 65,
+      "position": [
+        5,
+        11
+      ],
+      "mismatched_map_layer_pixels": 0
+    }
+  ]
+}
