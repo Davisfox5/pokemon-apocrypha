@@ -27,8 +27,8 @@ sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent / 'route46'));
 import check as C                                   # noqa: E402
 import runtime_convert as RC                        # noqa: E402
 
-ROUTE45, ROUTE46, S45, S31 = 47, 48, 49, 50          # sMapProofMaps indices = gMapGroup_Cherrygrove ids
-CAVES = {S45: 'DarkCaveRoute45Side', S31: 'DarkCaveRoute31Side'}
+ROUTE45, ROUTE46, S45, S31, GR, UW = 47, 48, 49, 50, 51, 52   # sMapProofMaps indices = gMapGroup_Cherrygrove ids
+CAVES = {S45: 'DarkCaveRoute45Side', S31: 'DarkCaveRoute31Side', GR: 'DarkCaveGrotto', UW: 'DarkCaveUnderwater'}
 FLASH = 2184                                         # FLAG_SYS_USE_FLASH: SYSTEM_FLAGS (0x500 + 864) + 0x28
 
 STEPS = [
@@ -62,6 +62,27 @@ STEPS = [
     ('go', S31, 55, 54), ('north', 1, None), ('at', S31, 55, 54), ('shot', 'rock-smash-rock'),
     ('go', S31, 28, 21), ('north', 1, None), ('at', S31, 28, 21), ('shot', 'strength-boulder'),
     ('go', S31, 5, 25), ('south', 1, None), ('at', S31, 5, 25), ('shot', 'route31-exit-solid'),
+    # Ten years on: the mine, its sign, the camps, the risen lake and its Dive spot, the rockfall.
+    ('flash',),
+    ('view', S31, 15, 30, 'mine-drift'), ('view', S31, 16, 35, 'mine-gallery'), ('view', S31, 8, 42, 'mine-west-stope'),
+    ('view', S31, 25, 42, 'mine-east-stope'), ('view', S31, 20, 56, 'mine-loading-room'), ('view', S31, 3, 52, 'mine-barricade'),
+    ('go', S31, 15, 27), ('north', 1, None), ('at', S31, 15, 26), ('south', 7, None), ('at', S31, 15, 33), ('shot', 'mine-walked-in'),
+    ('signN', S31, 13, 26, 'mine-sign'),
+    ('view', S31, 10, 7, 'route31-side-camp'), ('view', S45, 44, 38, 'route45-side-lake-camp'),
+    ('view', S45, 50, 41, 'route45-side-rockfall'), ('go', S45, 50, 41), ('north', 1, None), ('at', S45, 50, 41),
+    ('shot', 'rockfall-blocks'),
+    # Dive: the deep water dives to the underwater path at the same cell; only there does it emerge.
+    ('go', S45, 38, 32), ('surfing', 1, 'dive-spot'), ('shot', 'dive-spot'), ('dive', 2, 'dive-down'), ('at', UW, 38, 32),
+    ('shot', 'underwater-arrive'), ('go', S45, 36, 32), ('dive', 0, 'no-dive-off-the-deep-water'),
+    ('view', UW, 33, 42, 'underwater-trench'), ('dive', 0, 'no-surfacing-in-the-trench'),
+    ('go', UW, 38, 32), ('dive', 1, 'emerge'), ('at', S45, 38, 32), ('surfing', 1, 'emerged-surfing'), ('flash',), ('shot', 'emerged'),
+    # The water door into the grotto, and the grotto's deep water back down to the door.
+    ('go', UW, 28, 36), ('north', 2, None), ('at', UW, 28, 34), ('shot', 'before-the-door'), ('north', 1, None), ('wait', 300),
+    ('at', GR, 19, 21), ('surfing', 1, 'grotto-arrive-surfing'), ('flash',), ('shot', 'grotto-arrive'),
+    ('view', GR, 19, 12, 'grotto-terrace'), ('view', GR, 18, 5, 'grotto-chamber'),
+    ('go', GR, 18, 10), ('north', 3, None), ('at', GR, 18, 7), ('shot', 'grotto-stairs-up'),
+    ('go', GR, 29, 14), ('south', 3, None), ('at', GR, 29, 17), ('shot', 'grotto-stairs-down'),
+    ('go', GR, 19, 21), ('dive', 2, 'grotto-dive'), ('at', UW, 28, 34), ('shot', 'back-at-the-door'),
 ]
 SAVE = (S31, 26, 5)
 
@@ -79,7 +100,8 @@ def cave_canvas(img, grid, border):
 def expected(game):
     maps = RC.expected(game)
     for k, name in CAVES.items():
-        d = C.decode(game, name, 'dark_cave', 'dark_cave', C.W, C.H)
+        side = {v: k for k, v in {**C.SIDES, **C.NEW}.items()}[name]
+        d = C.decode(game, name, 'dark_cave', 'dark_cave', *C.P.SIZE[side])
         border = set(np.frombuffer((game / f'data/layouts/{name}/border.bin').read_bytes(), '<u2').tolist())
         assert len(border) == 1, border
         maps[k] = cave_canvas(d['img'].astype(np.int32) >> 3, d['grid'].astype(np.int32), border.pop() & 1023)
@@ -109,9 +131,13 @@ def main(game, out):
     RC.STEPS = [s for s in STEPS if s[0] != 'flash']
     RC.SAVE = SAVE
     body = []
-    for s in STEPS:                                  # RC.body() renders every step but the flash one
+    for s in STEPS:                                  # RC.body() renders every step but these
         if s[0] == 'flash':
             body.append(f'call("FlagSet",{FLASH});')
+        elif s[0] == 'dive':                          # Gen 3's own check (field_control_avatar.c), then its dive warp
+            body.append(f'need(call("TrySetDiveWarp",0)=={s[1]},"{s[2]}");' + ('call("DoDiveWarp",0);frames(480,0);' if s[1] else ''))
+        elif s[0] == 'signN':                         # a sign read from the cell north of it
+            body.append(f'go({s[1]},{s[2]},{s[3]}-1);tap(DOWN);frames(1,A);frames(360,0);need(locked(),"{s[4]}");shot("{s[4]}");close_dialog();')
         else:
             RC.STEPS = [s]
             body.append(RC.body())
@@ -126,7 +152,7 @@ def main(game, out):
     raw = subprocess.check_output([os.environ.get('ARM_NM', 'arm-none-eabi-nm'), str(game / 'pokeemerald.elf')], text=True)
     wanted = {'MapProof_Boot', 'MapProof_Enter', 'MapProof_ReadState', 'MapProof_Resume', 'gMapProofState', 'TrySavingData',
               'LoadGameSave', 'ArePlayerFieldControlsLocked', 'gMain', 'CB2_Overworld', 'gSaveBlock2Ptr', 'sGpuRegBuffer',
-              'sWarpDestination', 'DoWarp', 'gPlayerAvatar', 'FlagSet'}
+              'sWarpDestination', 'DoWarp', 'gPlayerAvatar', 'FlagSet', 'TrySetDiveWarp', 'DoDiveWarp'}
     syms = {r[2]: r[0] for line in raw.splitlines() if len(r := line.split()) == 3 and r[2] in wanted}
     assert syms.keys() == wanted, wanted - syms.keys()
     (out / 'symbols.txt').write_text(''.join(f'{k} {v}\n' for k, v in syms.items()))

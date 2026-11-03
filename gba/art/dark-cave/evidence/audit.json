@@ -3,6 +3,14 @@
     "DarkCaveRoute45Side": {
       "decode_px_differing": 0,
       "cells_differing_from_ledger": 0,
+      "tiles": [
+        336,
+        16
+      ],
+      "metatiles": [
+        176,
+        1
+      ],
       "exits": [
         [
           6,
@@ -13,8 +21,11 @@
           4
         ]
       ],
-      "reach_cells": 1259,
+      "reach_cells": 1226,
       "hgss_reach_cells": 1259,
+      "added_by_mine": 0,
+      "blocked_by_decade": 33,
+      "hgss_event_cells_reached": 6,
       "exits_reached_from": {
         "6,57": [
           "6,57"
@@ -24,25 +35,37 @@
           "60,4"
         ]
       },
-      "walked": 967,
-      "surfed": 292,
-      "foot_only_cells": 198,
-      "reach_with_obstacles_in_place": 1259,
+      "walked": 900,
+      "surfed": 326,
+      "foot_only_cells": 192,
+      "reach_with_obstacles_in_place": 1226,
       "held_back_by_obstacles": 0,
       "objects": {},
       "unwired": {},
-      "tiles": [
-        240,
-        16
-      ],
-      "metatiles": [
-        119,
-        1
-      ]
+      "decade": {
+        "mine": 0,
+        "rings": 0,
+        "flood": 34,
+        "deep": 9,
+        "moss": 17,
+        "rockfall": 8,
+        "rubble": 2,
+        "props": 6,
+        "signs": 0,
+        "track": 118
+      }
     },
     "DarkCaveRoute31Side": {
       "decode_px_differing": 0,
       "cells_differing_from_ledger": 0,
+      "tiles": [
+        336,
+        16
+      ],
+      "metatiles": [
+        176,
+        1
+      ],
       "exits": [
         [
           26,
@@ -53,8 +76,11 @@
           56
         ]
       ],
-      "reach_cells": 758,
+      "reach_cells": 1129,
       "hgss_reach_cells": 758,
+      "added_by_mine": 385,
+      "blocked_by_decade": 14,
+      "hgss_event_cells_reached": 12,
       "exits_reached_from": {
         "26,4": [
           "26,4",
@@ -65,11 +91,11 @@
           "55,56"
         ]
       },
-      "walked": 651,
+      "walked": 1022,
       "surfed": 107,
-      "foot_only_cells": 633,
-      "reach_with_obstacles_in_place": 376,
-      "held_back_by_obstacles": 377,
+      "foot_only_cells": 619,
+      "reach_with_obstacles_in_place": 750,
+      "held_back_by_obstacles": 374,
       "objects": {
         "17,17": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
         "40,13": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -80,13 +106,91 @@
       "unwired": {
         "5,26": "HGSS's exit to Route 31: Route 31 and the Dark Cave entrance beside it are another agent's maps, so this exit stays solid until they are joined"
       },
+      "decade": {
+        "mine": 417,
+        "rings": 601,
+        "flood": 0,
+        "deep": 0,
+        "moss": 8,
+        "rockfall": 2,
+        "rubble": 2,
+        "props": 22,
+        "signs": 1,
+        "track": 150
+      }
+    },
+    "DarkCaveGrotto": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
       "tiles": [
-        240,
+        336,
         16
       ],
       "metatiles": [
-        119,
+        176,
         1
+      ],
+      "reach_cells": 537,
+      "walked": 331,
+      "surfed": 206,
+      "starts": [
+        [
+          19,
+          21
+        ]
+      ]
+    },
+    "DarkCaveUnderwater": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "tiles": [
+        336,
+        16
+      ],
+      "metatiles": [
+        176,
+        1
+      ],
+      "reach_cells": 110,
+      "walked": 110,
+      "surfed": 0,
+      "starts": [
+        [
+          37,
+          31
+        ],
+        [
+          38,
+          31
+        ],
+        [
+          39,
+          31
+        ],
+        [
+          37,
+          32
+        ],
+        [
+          38,
+          32
+        ],
+        [
+          39,
+          32
+        ],
+        [
+          37,
+          33
+        ],
+        [
+          38,
+          33
+        ],
+        [
+          39,
+          33
+        ]
       ]
     }
   },
@@ -130,19 +234,141 @@
       }
     }
   },
+  "dive": {
+    "route45_side_deep_water": [
+      [
+        37,
+        31
+      ],
+      [
+        37,
+        32
+      ],
+      [
+        37,
+        33
+      ],
+      [
+        38,
+        31
+      ],
+      [
+        38,
+        32
+      ],
+      [
+        38,
+        33
+      ],
+      [
+        39,
+        31
+      ],
+      [
+        39,
+        32
+      ],
+      [
+        39,
+        33
+      ]
+    ],
+    "underwater_emerge": [
+      [
+        37,
+        31
+      ],
+      [
+        37,
+        32
+      ],
+      [
+        37,
+        33
+      ],
+      [
+        38,
+        31
+      ],
+      [
+        38,
+        32
+      ],
+      [
+        38,
+        33
+      ],
+      [
+        39,
+        31
+      ],
+      [
+        39,
+        32
+      ],
+      [
+        39,
+        33
+      ]
+    ],
+    "grotto_deep_water": [
+      [
+        18,
+        21
+      ],
+      [
+        19,
+        21
+      ],
+      [
+        18,
+        22
+      ],
+      [
+        19,
+        22
+      ]
+    ],
+    "grotto_dives_to": [
+      28,
+      34
+    ],
+    "connections": {
+      "DarkCaveRoute45Side": [
+        [
+          "dive",
+          "MAP_DARK_CAVE_UNDERWATER"
+        ]
+      ],
+      "DarkCaveUnderwater": [
+        [
+          "emerge",
+          "MAP_DARK_CAVE_ROUTE45_SIDE"
+        ]
+      ]
+    }
+  },
   "changed_files": [
     "data/event_scripts.s",
+    "data/layouts/DarkCaveGrotto/border.bin",
+    "data/layouts/DarkCaveGrotto/map.bin",
     "data/layouts/DarkCaveRoute31Side/border.bin",
     "data/layouts/DarkCaveRoute31Side/map.bin",
     "data/layouts/DarkCaveRoute45Side/border.bin",
     "data/layouts/DarkCaveRoute45Side/map.bin",
+    "data/layouts/DarkCaveUnderwater/border.bin",
+    "data/layouts/DarkCaveUnderwater/map.bin",
     "data/layouts/Route45/map.bin",
     "data/layouts/Route46/map.bin",
     "data/layouts/layouts.json",
+    "data/maps/DarkCaveGrotto/map.json",
+    "data/maps/DarkCaveGrotto/scripts.inc",
     "data/maps/DarkCaveRoute31Side/map.json",
     "data/maps/DarkCaveRoute31Side/scripts.inc",
     "data/maps/DarkCaveRoute45Side/map.json",
     "data/maps/DarkCaveRoute45Side/scripts.inc",
+    "data/maps/DarkCaveUnderwater/map.json",
+    "data/maps/DarkCaveUnderwater/scripts.inc",
     "data/maps/Route45/map.json",
     "data/maps/Route46/map.json",
     "data/maps/map_groups.json",
@@ -192,11 +418,11 @@
     "src/data/tilesets/metatiles.h"
   ],
   "budget": {
-    "patterns": 225,
-    "primary_tiles": 225,
+    "patterns": 330,
+    "primary_tiles": 330,
     "secondary_tiles": 0,
-    "metatiles": 119,
-    "primary_metatiles": 119,
+    "metatiles": 176,
+    "primary_metatiles": 176,
     "secondary_metatiles": 0
   },
   "failures": []

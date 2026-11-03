@@ -1,9 +1,64 @@
-# Dark Cave: HGSS cave textures, both maps
+# Dark Cave: HGSS cave textures, ten years on, and Dive
 
-Owner review pending (sixth pass: HGSS's rock objects, uniform pond lips, formations). Engine branch `claude/dark-cave` (stacked on `claude/route-46`), maps
-`DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64 each, in HGSS's own
-coordinates. Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
+Owner review pending (ten years on, the mine, Dive). Engine branch `claude/dark-cave` (stacked on
+`claude/route-46`), maps `DarkCaveRoute45Side` (id 49) and `DarkCaveRoute31Side` (id 50), 64x64
+each in HGSS's own coordinates; `DarkCaveGrotto` (id 51, 40x30) and `DarkCaveUnderwater` (id 52,
+64x64, the Route 45 side's coordinates). Owner's style choice: HGSS's own Dark Cave rock, floor and water converted to native
 tiles, the way Union Cave was finished. None of Union Cave's art, palettes or generators are used.
+
+## Ten years on (owner direction, November 2-3)
+
+"Make it seem like ten years have passed", with bigger changes than the first mockups, a new section
+dug farther into the rock for minerals, existing art from the repo's games wherever it exists, and a
+place in the water to Dive to an underwater path and a new cave section built from scratch.
+
+Review: [Route 45 side, sixth pass beside ten years on](evidence/review/route45-side-decade-whole.png) ·
+[Route 31 side](evidence/review/route31-side-decade-whole.png) · at 2x:
+[the mine](evidence/review/route31-side-decade-mine.png) ·
+[west cavern, camp, heaps](evidence/review/route31-side-decade-west-cavern-camp-and-heaps.png) ·
+[lake and Dive spot](evidence/review/route45-side-decade-lake-and-dive-spot.png) ·
+[rockfall and camp](evidence/review/route45-side-decade-rockfall-and-camp.png) ·
+[north hall and camp](evidence/review/route45-side-decade-north-hall-and-camp.png) ·
+[the Dive spot over the underwater path, same cells](evidence/review/dive.png) ·
+[grotto](evidence/review/grotto-whole.png) · [underwater path](evidence/review/underwater-whole.png) ·
+[gameplay gallery](evidence/review/gameplay-gallery-decade.png)
+
+`decade.py` edits the mapped ledger before anything is drawn, so every new wall is drawn by the same
+rock pieces as HGSS's own:
+
+| Change | Where | Built from |
+| --- | --- | --- |
+| The mine: a drift south out of the west cavern, a gallery closed at its east end by a rockfall, an ore stope and a quartz stope joined by a crosscut, a lower gallery, a drift closed by a timber barricade, a loading room | Route 31 side, (14-15, 26) south to row 58 | Floor at the cavern's height; the rock round it steps up a tier a cell (HGSS's rings); the rockfall is HGSS's rock pile as the cave draws it (a formation one tier up) |
+| A sign at the mine: "DARK CAVE MINE / No entry without a light." | (13, 26) | The routes' sign (route-46 shared P13); a Gen 3 sign event |
+| The lake two cells higher over its lowest shore, never over the worn track, an exit or an HGSS event cell; no one-cell fingers or stubs | Route 45 side | The cave's pond pieces |
+| The Dive spot, 3x3 | Route 45 side (37-39, 31-33) | Emerald Cave's dive water (metatile 660), each colour as much darker than the cave water as Emerald's is than its own pool (368) |
+| A rockfall across the east shore path (the lake reaches past it) | Route 45 side (48-51, 39-40) | HGSS's rock pile as a formation |
+| Debris heaps at a wall's foot | Route 45 side (30-31, 8); Route 31 side (33, 14-15) | FRLG Power Plant's debris (power_plant_frlg 693, top layer) in the cave rock ramp |
+| Camps; the mine's crates, log stacks, ore and quartz | Route 45 side (41-46, 37-38), (53-54, 2); Route 31 side (8-10, 5); the mine | Slateport's crates (822, 830, 831), Mauville's log stack (708) in the crates' wood, FRLG's boulder in ore and quartz tones |
+| Moss rocks spread over damp floor and along walls, one at a time, each only where nothing reachable is cut off, never in rows | both sides | HGSS's moss rock as the cave already draws it |
+| A worn track between the exits and into the mine | both sides | Two of the floor's own four tones lighter, edged with the ground painter's wave |
+| The Johto grade (DESIGN.md: shadows toward teal, light toward amber) | every map | `decade.grade` |
+
+Not drawn: wall lamps (no Gen 3 tileset in the repo has a cave lamp, and HGSS's lights are 3D
+models) and rails (none exist in any tileset here). Both would be new tile art.
+
+### Dive
+
+| From | Action | To |
+| --- | --- | --- |
+| Route 45 side, the Dive spot (MB_DEEP_WATER) | Dive (map connection `dive`) | `DarkCaveUnderwater`, same cell |
+| `DarkCaveUnderwater`, under the Dive spot (MB_NORMAL; everywhere else MB_NO_SURFACING) | Emerge (connection `emerge`) | Route 45 side, same cell, surfing |
+| `DarkCaveUnderwater` water door (28, 33) (MB_WATER_DOOR) | swim in | `DarkCaveGrotto` (19, 21), its deep water, surfing |
+| `DarkCaveGrotto` deep water (18-19, 21-22) | Dive (ON_RESUME `setdivewarp`, the Seafloor Cavern pattern) | `DarkCaveUnderwater` (28, 34), in front of the door |
+
+`underwater.py` lays the path out in the Route 45 side's own cells (Gen 3 dives and emerges at the
+same cell): a pool under the Dive spot, a trench south, west and north to the door, the rest the
+seabed's rock. It uses Emerald's own underwater pieces by rule (plateau 531, faces 653/654/547/644,
+corners 637/638/645/646 and 518/519/546, floor 681, seaweed 641, Underwater_Route128's six door
+pieces), recoloured to the cave water's hue and dimmed. The grotto (`grotto.py`, a creative
+proposal) is a flooded chamber: the pool, a shore, a terrace and an upper chamber of quartz and moss
+rock, two stair flights. Gen 3 counts underwater as outdoors, so diving clears Flash; the grotto is
+dark until Flash is used again. No items or encounters are placed.
 
 ## Review
 
@@ -61,8 +116,8 @@ exactly the pieces the routes use:
 Earlier passes (HGSS's slanted render; HGSS's textures on the grid; the route rock over HGSS's floor)
 were turned down in review.
 
-Both maps share one tileset pair of their own (`gTileset_DarkCavePrimary`, `gTileset_DarkCave`). The
-pack is lossless: 225 tiles and 119 metatiles, exact palette banks, every pixel as assembled
+All four maps share one tileset pair of their own (`gTileset_DarkCavePrimary`, `gTileset_DarkCave`). The
+pack is lossless: 330 tiles and 176 metatiles, exact palette banks, every pixel as assembled
 ([pack.json](evidence/pack.json)). Every cell is one bottom layer under the player.
 [Before and after, Route 45 side](evidence/assemble/route45-side-before-after.png) ·
 [Route 31 side](evidence/assemble/route31-side-before-after.png).
@@ -105,33 +160,42 @@ HGSS's do.
 
 - **Route 31 exit** (5, 26) stays solid. Route 31 and `DarkCaveEntrance` are another agent's maps.
 - Placed: the Route 31 side's four Rock Smash rocks and the Strength boulder, at HGSS's cells, as
-  Gen 3 field objects. They hold back 377 cells on foot, as in HGSS.
+  Gen 3 field objects. They hold back 374 cells, as in HGSS (the mine is not behind them).
+- Not decided (owner's call): whether the mine is gated (it is open from the west cavern now), what
+  the grotto holds, and whether the rockfalls should open later in the campaign.
 - Not placed: the sunglasses NPC, item balls (TM54, Revive, Potion, Hyper Potion, Full Heal, Dire Hit,
   Black Flute), hidden items and wild encounters. All are recorded in
   [source/hgss-events](source/hgss-events/).
 
 ## Evidence
 
-- **Audit** ([audit.json](evidence/audit.json)): both maps decode to the packer's image on every
+- **Audit** ([audit.json](evidence/audit.json)): all four maps decode to the packer's image on every
   pixel; behaviour, collision, elevation and layer match the ledger on every cell. Gen 3 movement
-  reaches exactly HGSS's cells from the exits: 1,259 on the Route 45 side, 758 on the Route 31
-  side, on foot and with Surf, obstacles in place or cleared. Every warp pairs back. Routes 45 and 46
+  reaches exactly the ledger's cells. Against HGSS: the only cells added are the mine's (385 on the
+  Route 31 side), the only cells lost are the decade's blocked ones (33 and 14); each exit reaches
+  the others exactly as in HGSS, on foot and with Surf; every HGSS item, NPC and hidden-item cell is
+  still reached. The Dive spot is exactly the underwater path's emerge cells; the connections go
+  both ways; the grotto dives to an open no-surfacing cell. Every warp pairs back. Routes 45 and 46
   change no pixel, and the changed-file list is checked.
-- **Headless mGBA** ([results](evidence/gameplay/results.json)): 31 captures, each rebuilt from VRAM
+- **Headless mGBA** ([results](evidence/gameplay/results.json)): 54 captures, each rebuilt from VRAM
   and equal to the decoded map. Caves are dark without Flash and lit with it; all three doors are
-  walked both ways; a ledge jumps one way; Surf starts on both pools. The Rock Smash rock and the
-  boulder block the player, and so does Route 31's exit. Flash save, cold reload and title
-  Continue all pass.
-- **Porymap 6.3.1** ([results](evidence/porymap/results.json)): opens, exports and saves all four maps
-  on a fresh clone. Exports equal the native decodes on every pixel, no Dark Cave or route file is
-  rewritten, and the log has no errors.
+  walked both ways; a ledge jumps one way; Surf starts on both pools. The Rock Smash rock, the
+  boulder and the rockfall block the player, and so does Route 31's exit. The mine is walked into
+  and its sign read. Dive runs Gen 3's own field logic (TrySetDiveWarp, DoDiveWarp; only the party
+  HM check is skipped): it dives on the Dive spot and not beside it, emerges only under the spot and
+  not in the trench, the water door lands in the grotto's pool surfing, the grotto's stairs climb
+  both ways and its deep water dives back to the door. Flash save, cold reload and title Continue
+  all pass.
+- **Porymap 6.3.1** ([results](evidence/porymap/results.json)): opens, exports and saves all six maps
+  on a fresh clone. Exports equal the native decodes on every pixel, no Dark Cave or route line
+  changes on save, and the log has no errors.
 
 ## Reproduce
 
 ```sh
 python3 tools/gba/maps/dark_cave/hgss_render.py PHG OUT route45-side   # and route31-side
 python3 tools/gba/maps/dark_cave/hgss_events.py PHG gba/art/dark-cave/source/hgss-events
-python3 tools/gba/maps/dark_cave/assemble.py PHG ENGINE
+python3 tools/gba/maps/dark_cave/assemble.py PHG ENGINE      # with decade.py, grotto.py and underwater.py
 python3 tools/gba/maps/dark_cave/pack.py ENGINE
 python3 tools/gba/maps/dark_cave/install.py ENGINE      # refuses over commits that are not its own
 make -C ENGINE -j8

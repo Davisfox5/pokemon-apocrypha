@@ -1,32 +1,34 @@
 {
   "maps": [
     "DarkCaveRoute45Side",
-    "DarkCaveRoute31Side"
+    "DarkCaveRoute31Side",
+    "DarkCaveGrotto",
+    "DarkCaveUnderwater"
   ],
   "primary": "gTileset_DarkCavePrimary",
   "secondary": "gTileset_DarkCave",
   "build": "HGSS Dark Cave render, fitted banks and medoid tile reuse (pack.py)",
   "pack": {
     "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
-    "distinct_tiles": 224,
-    "representatives": 224,
-    "patterns": 225,
-    "primary_tiles": 225,
+    "distinct_tiles": 331,
+    "representatives": 331,
+    "patterns": 330,
+    "primary_tiles": 330,
     "secondary_tiles": 0,
-    "metatiles": 119,
-    "primary_metatiles": 119,
+    "metatiles": 176,
+    "primary_metatiles": 176,
     "secondary_metatiles": 0,
     "colours_per_bank": [
       15,
       14,
       15,
+      15,
+      15,
+      12,
+      13,
       14,
-      15,
-      15,
-      1,
-      1,
-      1,
-      1,
+      14,
+      13,
       1,
       1,
       1
@@ -38,21 +40,39 @@
         "within_1": 1.0,
         "within_2": 1.0,
         "max_level_diff": 0,
-        "metatiles_used": 93
+        "metatiles_used": 114
       },
       "route31-side": {
-        "pixels": 655872,
+        "pixels": 755200,
         "exact": 1.0,
         "within_1": 1.0,
         "within_2": 1.0,
         "max_level_diff": 0,
-        "metatiles_used": 89
+        "metatiles_used": 120
+      },
+      "grotto": {
+        "pixels": 244224,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 44
+      },
+      "underwater": {
+        "pixels": 1048576,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 21
       }
     }
   },
   "map_ids": {
     "DarkCaveRoute45Side": 49,
-    "DarkCaveRoute31Side": 50
+    "DarkCaveRoute31Side": 50,
+    "DarkCaveGrotto": 51,
+    "DarkCaveUnderwater": 52
   },
   "route_edits": {
     "Route45": {

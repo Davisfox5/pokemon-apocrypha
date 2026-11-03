@@ -31,6 +31,7 @@ ART = ROOT / 'gba/art/dark-cave'
 SRC, EV = ART / 'source', ART / 'evidence'
 W = H = 64
 SIDES = {'route45-side': 'DarkCaveRoute45Side', 'route31-side': 'DarkCaveRoute31Side'}
+NEW = {'grotto': 'DarkCaveGrotto', 'underwater': 'DarkCaveUnderwater'}      # built from scratch (no HGSS map)
 ROUTES = {'Route45': ('cherrygrove', 'route_45', 32, 160), 'Route46': ('cherrygrove', 'route_46', 32, 70)}
 
 def read_pal(p): return [tuple(map(int, l.split())) for l in p.read_text().replace('\r', '').splitlines()[3:19]]
@@ -85,12 +86,13 @@ def gen3_reach(names, beh, coll, elev, starts, surf=True, blocked=()):
     from elevation 3 onto surfable water and stops onto an elevation-3 cell. Cells in `blocked`
     (objects) are solid."""
     b = lambda x, y: names[int(beh[y, x])]
+    H, W = beh.shape
     inside = lambda x, y: 0 <= x < W and 0 <= y < H
     mism = lambda e, x, y: e != 0 and elev[y, x] not in (0, 15) and elev[y, x] != e
-    water = lambda x, y: b(x, y) in ('MB_POND_WATER', 'MB_OCEAN_WATER')
+    water = lambda x, y: b(x, y) in ('MB_POND_WATER', 'MB_OCEAN_WATER', 'MB_DEEP_WATER')
     jumps = {(0, 1): 'MB_JUMP_SOUTH', (-1, 0): 'MB_JUMP_WEST', (1, 0): 'MB_JUMP_EAST', (0, -1): 'MB_JUMP_NORTH'}
     free = lambda x, y: not coll[y, x] and (x, y) not in blocked
-    q = deque((x, y, 'walk', int(elev[y, x])) for x, y in starts)
+    q = deque((x, y, 'surf', 1) if water(x, y) else (x, y, 'walk', int(elev[y, x])) for x, y in starts)
     seen = set(q)
     walked, surfed = set(), set()
     while q:
@@ -144,13 +146,35 @@ def hgss_reach(side, starts, surf=True, blocked=()):
                     seen.add(land); q.append(land)
     return seen
 
+def ledger_reach(trav, starts, surf=True, blocked=()):
+    """hgss_reach's walk over the traversal ledger (HGSS's permissions with the decade's edits)."""
+    foot = {(c['x'], c['y']): ('open' if c['foot'] in ('open', 'exit', 'door', 'swim') else c['foot']) for c in trav}
+    for c in blocked:
+        foot[c] = 'blocked'
+    passable = ('open', 'surf') if surf else ('open',)
+    seen = set(starts); q = deque(starts)
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (x + dx, y + dy)
+            if foot.get(n) in passable:
+                if n not in seen:
+                    seen.add(n); q.append(n)
+            elif (foot.get(n), dx, dy) in (('ledge_south', 0, 1), ('ledge_west', -1, 0)):
+                land = (x + 2 * dx, y + 2 * dy)
+                if foot.get(land) in passable and land not in seen:
+                    seen.add(land); q.append(land)
+    return seen
+
 def main(g):
     names = {v: k for k, v in P.behaviors(g).items()}
     fails, report = [], dict(maps={}, routes={})
     need = lambda ok, what: ok or fails.append(what)
     maps = {}
-    for side, name in SIDES.items():
-        d = decode(g, name, 'dark_cave', 'dark_cave', W, H)
+    decoded = {}
+    for side, name in {**SIDES, **NEW}.items():
+        w_, h_ = P.SIZE[side]
+        d = decoded[name] = decode(g, name, 'dark_cave', 'dark_cave', w_, h_)
         maps[name] = json.loads((g / f'data/maps/{name}/map.json').read_text())
         native = np.array(Image.open(EV / f'{side}-native.png').convert('RGB'))
         diff = int((d['img'] != native).any(-1).sum())
@@ -160,33 +184,84 @@ def main(g):
                if (names[int(d['beh'][c['y'], c['x']])], int(d['coll'][c['y'], c['x']]), int(d['elev'][c['y'], c['x']]),
                    int(d['layer'][c['y'], c['x']])) != (c['behavior'], c['collision'], c['elevation'], 1)]
         need(not bad, f'{side}: cells differ from the ledger {bad[:10]}')
+        rep = report['maps'][name] = dict(decode_px_differing=diff, cells_differing_from_ledger=len(bad), tiles=d['tiles'], metatiles=d['metas'])
+        if side in NEW:
+            starts = [(w['x'], w['y']) for w in maps[name]['warp_events']]
+            if side == 'underwater':
+                starts = [(c['x'], c['y']) for c in trav if c['kind'] == 'emerge']
+            walked, surfed = gen3_reach(names, d['beh'], d['coll'], d['elev'], starts)
+            led = ledger_reach(trav, starts)
+            need(walked | surfed == led, f'{side}: Gen 3 reach differs from its plan: {sorted((walked | surfed) ^ led)[:8]}')
+            open_cells = {(c['x'], c['y']) for c in trav if c['foot'] not in ('blocked', 'ledge_south', 'ledge_west')}
+            need(open_cells <= walked | surfed, f'{side}: cells no one reaches {sorted(open_cells - walked - surfed)[:8]}')
+            rep.update(reach_cells=len(walked | surfed), walked=len(walked), surfed=len(surfed), starts=[list(map(int, c)) for c in starts])
+            continue
         exits = [(w['x'], w['y']) for w in maps[name]['warp_events']]
         objs = {(o['x'], o['y']): o['graphics_id'] for o in maps[name]['object_events']}
-        unwired = [c for (s, c) in P.UNWIRED if s == side]
+        unwired = [c for (s_, c) in P.UNWIRED if s_ == side]
         hg_all = hgss_reach(side, exits) - set(unwired)
+        led_all = ledger_reach(trav, exits) - set(unwired)
         walked, surfed = gen3_reach(names, d['beh'], d['coll'], d['elev'], exits)
         g3_all = walked | surfed
-        need(g3_all == hg_all, f'{side}: Gen 3 reach differs from HGSS: +{sorted(g3_all - hg_all)[:8]} -{sorted(hg_all - g3_all)[:8]}')
-        # each exit from each other, with Surf and every obstacle cleared; and what the obstacles hold back
+        need(g3_all == led_all, f'{side}: Gen 3 reach differs from the ledger: +{sorted(g3_all - led_all)[:8]} -{sorted(led_all - g3_all)[:8]}')
+        # ten years on, against HGSS: what the decade adds (the mine), and what it blocks (props, moss, rubble,
+        # rockfalls); nothing else may be lost, and every HGSS event cell is still reached
+        ledger_json = json.loads((SRC / f'assemble/{side}-ledger.json').read_text())
+        blocked_now = {(c['x'], c['y']) for c in ledger_json['cells'] if c['blocked']}
+        mine = {tuple(v) for v in ledger_json['edits'].get('mine', [])}
+        added, lost = g3_all - hg_all, hg_all - g3_all
+        need(added <= mine, f'{side}: reach added outside the mine {sorted(added - mine)[:8]}')
+        need(lost <= blocked_now, f'{side}: reach lost beyond the decade\'s blocked cells {sorted(lost - blocked_now)[:8]}')
+        ev_cells = {tuple(o['cell']) for o in json.loads((SRC / f'hgss-events/{side}.json').read_text())['objects']} | \
+                   {tuple(h['cell']) for h in json.loads((SRC / f'hgss-events/{side}.json').read_text())['hidden_items']}
+        hg_ev = {c for c in ev_cells if any((c[0] + dx, c[1] + dy) in hg_all for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)))}
+        g3_ev = {c for c in ev_cells if any((c[0] + dx, c[1] + dy) in g3_all for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)))}
+        need(hg_ev == g3_ev, f'{side}: HGSS event cells no longer reached {sorted(hg_ev - g3_ev)}')
         joined = {}
         for a in exits:
             w1, s1 = gen3_reach(names, d['beh'], d['coll'], d['elev'], [a])
             hg1 = hgss_reach(side, [a])
             joined[f'{a[0]},{a[1]}'] = [f'{e[0]},{e[1]}' for e in exits if e in w1]
             need([e in w1 for e in exits] == [e in hg1 for e in exits], f'{side}: exits joined from {a} unlike HGSS')
+            fw = gen3_reach(names, d['beh'], d['coll'], d['elev'], [a], surf=False)[0]
+            fh = hgss_reach(side, [a], surf=False)
+            need([e in fw for e in exits] == [e in fh for e in exits], f'{side}: exits joined on foot from {a} unlike HGSS')
         foot_only = gen3_reach(names, d['beh'], d['coll'], d['elev'], exits, surf=False)[0]
-        need(foot_only == hgss_reach(side, exits, surf=False) - set(unwired), f'{side}: foot reach differs from HGSS')
+        need(foot_only == ledger_reach(trav, exits, surf=False) - set(unwired), f'{side}: foot reach differs from the ledger')
         blocked = gen3_reach(names, d['beh'], d['coll'], d['elev'], exits, blocked=set(objs))
-        hg_blocked = hgss_reach(side, exits, blocked=set(objs)) - set(unwired)
-        need(blocked[0] | blocked[1] == hg_blocked, f'{side}: reach with the obstacles in place differs from HGSS')
-        report['maps'][name] = dict(decode_px_differing=diff, cells_differing_from_ledger=len(bad), exits=exits,
-                                    reach_cells=len(g3_all), hgss_reach_cells=len(hg_all), exits_reached_from=joined, walked=len(walked), surfed=len(surfed),
-                                    foot_only_cells=len(foot_only),
-                                    reach_with_obstacles_in_place=len(blocked[0] | blocked[1]),
-                                    held_back_by_obstacles=len(g3_all - (blocked[0] | blocked[1]) - set(objs)),
-                                    objects={f'{x},{y}': v for (x, y), v in objs.items()},
-                                    unwired={f'{x},{y}': next(v for (s, c), v in P.UNWIRED.items() if c == (x, y)) for x, y in unwired},
-                                    tiles=d['tiles'], metatiles=d['metas'])
+        led_blocked = ledger_reach(trav, exits, blocked=set(objs)) - set(unwired)
+        need(blocked[0] | blocked[1] == led_blocked, f'{side}: reach with the obstacles in place differs from the ledger')
+        rep.update(exits=exits, reach_cells=len(g3_all), hgss_reach_cells=len(hg_all), added_by_mine=len(added),
+                   blocked_by_decade=len(lost), hgss_event_cells_reached=len(g3_ev), exits_reached_from=joined,
+                   walked=len(walked), surfed=len(surfed), foot_only_cells=len(foot_only),
+                   reach_with_obstacles_in_place=len(blocked[0] | blocked[1]),
+                   held_back_by_obstacles=len(g3_all - (blocked[0] | blocked[1]) - set(objs)),
+                   objects={f'{x},{y}': v for (x, y), v in objs.items()},
+                   unwired={f'{x},{y}': next(v for (s_, c), v in P.UNWIRED.items() if c == (x, y)) for x, y in unwired},
+                   decade={k: len(v) for k, v in ledger_json['edits'].items()})
+    # Dive: the Route 45 side's deep water is exactly the underwater path's emerge cells (Gen 3 dives and
+    # emerges at the same cell); the rest of the path is no-surfacing; the connections go both ways; the
+    # grotto's deep water dives back to the open cell in front of the water door
+    s45, uw, gr = decoded['DarkCaveRoute45Side'], decoded['DarkCaveUnderwater'], decoded['DarkCaveGrotto']
+    deep = {(int(x), int(y)) for y, x in np.argwhere(np.vectorize(lambda v: names[int(v)])(s45['beh']) == 'MB_DEEP_WATER')}
+    uwb = np.vectorize(lambda v: names[int(v)])(uw['beh'])
+    emerge = {(int(x), int(y)) for y, x in np.argwhere((uw['coll'] == 0) & ~np.isin(uwb, ['MB_NO_SURFACING', 'MB_SEAWEED_NO_SURFACING']))
+              if uwb[y, x] != 'MB_WATER_DOOR'}
+    need(deep and deep == emerge, f'dive: deep water {sorted(deep)} vs emerge cells {sorted(emerge)}')
+    conn = lambda n: {(c['direction'], c['map']) for c in (maps[n]['connections'] or [])}
+    need(conn('DarkCaveRoute45Side') == {('dive', 'MAP_DARK_CAVE_UNDERWATER')}, 'dive connection')
+    need(conn('DarkCaveUnderwater') == {('emerge', 'MAP_DARK_CAVE_ROUTE45_SIDE')}, 'emerge connection')
+    scr = (g / 'data/maps/DarkCaveGrotto/scripts.inc').read_text()
+    mm = re.search(r'setdivewarp (MAP_\w+), (\d+), (\d+)', scr)
+    need(bool(mm) and mm.group(1) == 'MAP_DARK_CAVE_UNDERWATER' and 'MAP_SCRIPT_ON_RESUME' in scr, 'grotto dive warp script')
+    if mm:
+        dx, dy = int(mm.group(2)), int(mm.group(3))
+        need(uw['coll'][dy, dx] == 0 and uwb[dy, dx] == 'MB_NO_SURFACING', f'grotto dives to an open no-surfacing cell {dx, dy}')
+    grb = np.vectorize(lambda v: names[int(v)])(gr['beh'])
+    need((grb == 'MB_DEEP_WATER').any(), 'grotto has deep water to dive from')
+    report['dive'] = dict(route45_side_deep_water=sorted(map(list, deep)), underwater_emerge=sorted(map(list, emerge)),
+                          grotto_deep_water=[[int(x), int(y)] for y, x in np.argwhere(grb == 'MB_DEEP_WATER')],
+                          grotto_dives_to=[dx, dy] if mm else None, connections={n: sorted(conn(n)) for n in ('DarkCaveRoute45Side', 'DarkCaveUnderwater')})
     # warps pair both ways
     for r in ROUTES:
         maps[r] = json.loads((g / f'data/maps/{r}/map.json').read_text())
@@ -203,10 +278,10 @@ def main(g):
                 pf, sf, ww, hh = ROUTES[n]
                 d = decode(g, n, pf, sf, ww, hh)
             else:
-                d = decode(g, n, 'dark_cave', 'dark_cave', W, H)
+                d = decoded[n]
             beh = names[int(d['beh'][w['y'], w['x']])]
-            need(beh in ('MB_SOUTH_ARROW_WARP', 'MB_NON_ANIMATED_DOOR') and d['coll'][w['y'], w['x']] == 0,
-                 f'{n} warp at {(w["x"], w["y"])}: {beh}')
+            ok = ('MB_SOUTH_ARROW_WARP', 'MB_NON_ANIMATED_DOOR', 'MB_WATER_DOOR') if n != 'DarkCaveGrotto' else ('MB_DEEP_WATER',)
+            need(beh in ok and d['coll'][w['y'], w['x']] == 0, f'{n} warp at {(w["x"], w["y"])}: {beh}')
     # Routes 45 and 46: native wiring edits only
     with tempfile.TemporaryDirectory() as tmp:
         for r, ((cx, cy), mid, folder) in I.MOUTHS.items():
@@ -244,8 +319,8 @@ def main(g):
     report['budget'] = {k: pk[k] for k in ('patterns', 'primary_tiles', 'secondary_tiles', 'metatiles', 'primary_metatiles', 'secondary_metatiles')}
     report['failures'] = fails
     (EV / 'audit.json').write_text(json.dumps(report, indent=2) + '\n')
-    print(json.dumps(dict(failures=fails, maps={k: {kk: v[kk] for kk in ('reach_cells', 'hgss_reach_cells', 'foot_only_cells', 'held_back_by_obstacles')}
-                                                for k, v in report['maps'].items()}, routes=report['routes'])))
+    print(json.dumps(dict(failures=fails, maps={k: {kk: v.get(kk) for kk in ('reach_cells', 'hgss_reach_cells', 'added_by_mine', 'blocked_by_decade', 'foot_only_cells', 'held_back_by_obstacles')}
+                                                for k, v in report['maps'].items()}, routes=report['routes'], dive=report['dive'])))
     assert not fails, fails
 
 if __name__ == '__main__':

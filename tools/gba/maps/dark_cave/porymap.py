@@ -1,4 +1,4 @@
-"""Porymap round trip for Dark Cave (both maps) and Routes 45 and 46 with their new doors:
+"""Porymap round trip for Dark Cave (its four maps) and Routes 45 and 46 with their new doors:
 open, export, save, diff.
 
     python3 tools/gba/maps/dark_cave/porymap.py ENGINE_CHECKOUT PORYMAP_BINARY
@@ -26,8 +26,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 EV = ROOT / 'gba/art/dark-cave/evidence'
 CITY = 'DarkCaveRoute45Side'
-INTERIORS = ['DarkCaveRoute31Side', 'Route45', 'Route46']
+INTERIORS = ['DarkCaveRoute31Side', 'DarkCaveGrotto', 'DarkCaveUnderwater', 'Route45', 'Route46']
 NATIVE = {CITY: EV / 'route45-side-native.png', 'DarkCaveRoute31Side': EV / 'route31-side-native.png',
+          'DarkCaveGrotto': EV / 'grotto-native.png', 'DarkCaveUnderwater': EV / 'underwater-native.png',
           'Route45': None, 'Route46': None}                            # None: decoded from the clone (main)
 KEYS = ('DarkCave', 'DARK_CAVE', 'dark_cave', 'oute46', 'OUTE46', 'ROUTE_46', 'route_46', 'oute45', 'OUTE45', 'ROUTE_45', 'route_45')
 DISPLAY = ':99'

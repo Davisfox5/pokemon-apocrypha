@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "22938b83d6f44c1e92e6602613c23fe6f3cfdb2b83b93335be20f2f7fd49f652",
+  "rom_sha256": "ef1c0027561c48d9296f15bcdfcd2c4fcc42900f7e4aaafd177b5094cfe6bfb7",
   "phases": [
     {
       "phase": "write",
@@ -540,6 +540,435 @@
           "mapsec": 222
         },
         {
+          "step": "shot:mine-drift",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 15,
+          "y": 30,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-gallery",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 16,
+          "y": 35,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-west-stope",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 8,
+          "y": 42,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-east-stope",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 25,
+          "y": 42,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-loading-room",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 20,
+          "y": 56,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-barricade",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 3,
+          "y": 52,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-50-15-26",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 15,
+          "y": 26,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-50-15-33",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 15,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-walked-in",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 15,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:mine-sign",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 13,
+          "y": 25,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:route31-side-camp",
+          "region": 2,
+          "group": 80,
+          "map": 50,
+          "x": 10,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:route45-side-lake-camp",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 44,
+          "y": 38,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:route45-side-rockfall",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 50,
+          "y": 41,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-49-50-41",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 50,
+          "y": 41,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:rockfall-blocks",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 50,
+          "y": 41,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:dive-spot",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 38,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-52-38-32",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 38,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:underwater-arrive",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 38,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:underwater-trench",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 33,
+          "y": 42,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-49-38-32",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 38,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:emerged",
+          "region": 2,
+          "group": 80,
+          "map": 49,
+          "x": 38,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-52-28-34",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 28,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:before-the-door",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 28,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-51-19-21",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 19,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:grotto-arrive",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 19,
+          "y": 21,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:grotto-terrace",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 19,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:grotto-chamber",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 18,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-51-18-7",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 18,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:grotto-stairs-up",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 18,
+          "y": 7,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-51-29-17",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 29,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:grotto-stairs-down",
+          "region": 2,
+          "group": 80,
+          "map": 51,
+          "x": 29,
+          "y": 17,
+          "frlg_layout": 0,
+          "width": 40,
+          "height": 30,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "at-52-28-34",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 28,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
+          "step": "shot:back-at-the-door",
+          "region": 2,
+          "group": 80,
+          "map": 52,
+          "x": 28,
+          "y": 34,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 222
+        },
+        {
           "step": "save-on-route",
           "region": 2,
           "group": 80,
@@ -683,6 +1112,16 @@
       "animated_water_pixels_skipped": 0
     },
     {
+      "frame": "back-at-the-door",
+      "map": 52,
+      "position": [
+        28,
+        34
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
       "frame": "back-in-route31-side",
       "map": 50,
       "position": [
@@ -711,6 +1150,16 @@
       ],
       "mismatched_map_layer_pixels": 0,
       "animated_water_pixels_skipped": 2880
+    },
+    {
+      "frame": "before-the-door",
+      "map": 52,
+      "position": [
+        28,
+        34
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
     },
     {
       "frame": "cold-flash-reload",
@@ -743,11 +1192,161 @@
       "animated_water_pixels_skipped": 0
     },
     {
+      "frame": "dive-spot",
+      "map": 49,
+      "position": [
+        38,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "emerged",
+      "map": 49,
+      "position": [
+        38,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "grotto-arrive",
+      "map": 51,
+      "position": [
+        19,
+        21
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "grotto-chamber",
+      "map": 51,
+      "position": [
+        18,
+        5
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "grotto-stairs-down",
+      "map": 51,
+      "position": [
+        29,
+        17
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "grotto-stairs-up",
+      "map": 51,
+      "position": [
+        18,
+        7
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "grotto-terrace",
+      "map": 51,
+      "position": [
+        19,
+        12
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
       "frame": "ledge-jumped-south",
       "map": 49,
       "position": [
         8,
         24
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-barricade",
+      "map": 50,
+      "position": [
+        3,
+        52
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-drift",
+      "map": 50,
+      "position": [
+        15,
+        30
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-east-stope",
+      "map": 50,
+      "position": [
+        25,
+        42
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-gallery",
+      "map": 50,
+      "position": [
+        16,
+        35
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-loading-room",
+      "map": 50,
+      "position": [
+        20,
+        56
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-sign",
+      "map": 50,
+      "position": [
+        13,
+        25
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-walked-in",
+      "map": 50,
+      "position": [
+        15,
+        33
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "mine-west-stope",
+      "map": 50,
+      "position": [
+        8,
+        42
       ],
       "mismatched_map_layer_pixels": 0,
       "animated_water_pixels_skipped": 0
@@ -773,11 +1372,31 @@
       "animated_water_pixels_skipped": 0
     },
     {
+      "frame": "rockfall-blocks",
+      "map": 49,
+      "position": [
+        50,
+        41
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
       "frame": "route31-exit-solid",
       "map": 50,
       "position": [
         5,
         25
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "route31-side-camp",
+      "map": 50,
+      "position": [
+        10,
+        7
       ],
       "mismatched_map_layer_pixels": 0,
       "animated_water_pixels_skipped": 0
@@ -873,6 +1492,16 @@
       "animated_water_pixels_skipped": 0
     },
     {
+      "frame": "route45-side-lake-camp",
+      "map": 49,
+      "position": [
+        44,
+        38
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
       "frame": "route45-side-lake",
       "map": 49,
       "position": [
@@ -898,6 +1527,16 @@
       "position": [
         30,
         28
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "route45-side-rockfall",
+      "map": 49,
+      "position": [
+        50,
+        41
       ],
       "mismatched_map_layer_pixels": 0,
       "animated_water_pixels_skipped": 0
@@ -958,6 +1597,26 @@
       "position": [
         40,
         33
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "underwater-arrive",
+      "map": 52,
+      "position": [
+        38,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_water_pixels_skipped": 0
+    },
+    {
+      "frame": "underwater-trench",
+      "map": 52,
+      "position": [
+        33,
+        42
       ],
       "mismatched_map_layer_pixels": 0,
       "animated_water_pixels_skipped": 0

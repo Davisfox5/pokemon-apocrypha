@@ -1,10 +1,12 @@
-"""Install Dark Cave (pack.py): its two maps on one tileset pair of their own, wired to Routes 45 and 46.
+"""Install Dark Cave (pack.py): its four maps on one tileset pair of their own, wired to Routes 45 and 46.
 
     python3 tools/gba/maps/dark_cave/install.py ENGINE_CHECKOUT
 
 New: gTileset_DarkCavePrimary / gTileset_DarkCave (pack.py's 1,008 tiles, 13 banks, 809 metatiles),
-DarkCaveRoute45Side and DarkCaveRoute31Side (64 x 64 each, HGSS coordinates), appended to
-gMapGroup_Cherrygrove with Routes 45 and 46. Both are MAP_TYPE_UNDERGROUND and need Flash, as in
+DarkCaveRoute45Side and DarkCaveRoute31Side (64 x 64 each, HGSS coordinates), DarkCaveGrotto (40 x 30)
+and DarkCaveUnderwater (64 x 64, the Route 45 side's coordinates), appended to gMapGroup_Cherrygrove
+with Routes 45 and 46. Dive and emerge connect the Route 45 side and the underwater path; the path's
+water door warps into the grotto, whose deep water dives back (ON_RESUME setdivewarp). Both are MAP_TYPE_UNDERGROUND and need Flash, as in
 HGSS, under the existing MAPSEC_DARK_CAVE.
 
 Warps, as HGSS pairs them:
@@ -35,13 +37,25 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/dark-cave'
 SRC, EV = ART / 'source', ART / 'evidence'
-W = H = 64
 BASE = 'origin/claude/route-46'
 GROUP = 'gMapGroup_Cherrygrove'
 PRIMARY_SYM, PRIMARY_DIR = 'DarkCavePrimary', 'data/tilesets/primary/dark_cave'
 SECONDARY_SYM, SECONDARY_DIR = 'DarkCave', 'data/tilesets/secondary/dark_cave'
 MAPSEC, MUSIC = 'MAPSEC_DARK_CAVE', 'MUS_CAVE_OF_ORIGIN'       # DarkCaveEntrance's music
-MAPS = {'route45-side': 'DarkCaveRoute45Side', 'route31-side': 'DarkCaveRoute31Side'}
+MAPS = {'route45-side': 'DarkCaveRoute45Side', 'route31-side': 'DarkCaveRoute31Side',
+        'grotto': 'DarkCaveGrotto', 'underwater': 'DarkCaveUnderwater'}
+# Dive (Gen 3: the same cell above and below): the Route 45 side dives to the underwater path, which
+# emerges back there; the underwater path's water door warps into the grotto's pool, and the grotto's
+# deep water dives back to the cell in front of that door (ON_RESUME setdivewarp, as Seafloor Cavern).
+CONNECTIONS = {'DarkCaveRoute45Side': [('dive', 'DarkCaveUnderwater')],
+               'DarkCaveUnderwater': [('emerge', 'DarkCaveRoute45Side')]}
+DIVE_WARP = {'DarkCaveGrotto': ('DarkCaveUnderwater', 28, 34)}
+HEADERS = {   # per map: type, music, Flash, weather, escaping
+    'DarkCaveRoute45Side': ('MAP_TYPE_UNDERGROUND', MUSIC, True, 'WEATHER_NONE', True),
+    'DarkCaveRoute31Side': ('MAP_TYPE_UNDERGROUND', MUSIC, True, 'WEATHER_NONE', True),
+    'DarkCaveGrotto': ('MAP_TYPE_UNDERGROUND', MUSIC, True, 'WEATHER_NONE', True),
+    'DarkCaveUnderwater': ('MAP_TYPE_UNDERWATER', 'MUS_UNDERWATER', False, 'WEATHER_UNDERWATER_BUBBLES', False),
+}
 MOUTHS = {  # route: (cell, metatile id, secondary folder)
     'Route45': ((10, 6), 523, 'data/tilesets/secondary/route_45'),
     'Route46': ((20, 9), 538, 'data/tilesets/secondary/route_46'),
@@ -49,6 +63,8 @@ MOUTHS = {  # route: (cell, metatile id, secondary folder)
 WARPS = {   # map: [(cell, dest map, dest warp id)]
     'DarkCaveRoute45Side': [((6, 57), 'DarkCaveRoute31Side', 0), ((60, 4), 'Route45', 0)],
     'DarkCaveRoute31Side': [((26, 4), 'DarkCaveRoute45Side', 0), ((55, 56), 'Route46', 0)],
+    'DarkCaveUnderwater': [((28, 33), 'DarkCaveGrotto', 0)],
+    'DarkCaveGrotto': [((19, 21), 'DarkCaveUnderwater', 0)],       # arrival only: plain deep water, no warp behaviour
     'Route45': [((10, 6), 'DarkCaveRoute45Side', 1)],
     'Route46': [((20, 9), 'DarkCaveRoute31Side', 1)],
 }
@@ -160,16 +176,18 @@ def main(g):
     groups = read(g / 'data/maps/map_groups.json')
     for side, name in MAPS.items():
         key = side.replace('-', '_')
+        w, h = P.SIZE[side]
         grid, coll, elev = z[f'grid_{key}'], z[f'collision_{key}'], z[f'elevation_{key}']
-        # the border block: the metatile HGSS's void cells (the rock all round the cave) carry most
+        # the border block: the metatile the cave's void (the rock all round) carries most; under water, the seabed rock
         trav = read(SRC / f'pack/traversal-{side}.json')
-        border = Counter(int(grid[c['y'], c['x']]) for c in trav if c.get('void')).most_common(1)[0][0]
+        ring = [c for c in trav if c.get('void')] or [c for c in trav if c['foot'] == 'blocked']
+        border = Counter(int(grid[c['y'], c['x']]) for c in ring).most_common(1)[0][0]
         ld = g / f'data/layouts/{name}'
         ld.mkdir(parents=True)
         cells = grid.astype(np.uint32) | (coll.astype(np.uint32) << 10) | (elev.astype(np.uint32) << 12)
         (ld / 'map.bin').write_bytes(cells.astype('<u2').tobytes())
         (ld / 'border.bin').write_bytes(struct.pack('<4H', *[border] * 4))
-        layouts['layouts'].append(dict(id=layout_id(name), name=f'{name}_Layout', width=W, height=H,
+        layouts['layouts'].append(dict(id=layout_id(name), name=f'{name}_Layout', width=w, height=h,
                                        primary_tileset=f'gTileset_{PRIMARY_SYM}', secondary_tileset=f'gTileset_{SECONDARY_SYM}',
                                        border_filepath=f'data/layouts/{name}/border.bin',
                                        blockdata_filepath=f'data/layouts/{name}/map.bin', layout_version='emerald'))
@@ -177,13 +195,32 @@ def main(g):
                      movement_range_x=0, movement_range_y=0, trainer_type='TRAINER_TYPE_NONE',
                      trainer_sight_or_berry_tree_id='0', script=script, flag=flag)
                 for gfx, (x, y), script, flag in OBJECTS.get(name, [])]
-        m = dict(id=map_id(name), name=name, layout=layout_id(name), music=MUSIC, region_map_section=MAPSEC,
-                 requires_flash=True, weather='WEATHER_NONE', map_type='MAP_TYPE_UNDERGROUND', allow_cycling=True,
-                 allow_escaping=True, allow_running=True, show_map_name=True, battle_scene='MAP_BATTLE_SCENE_NORMAL',
-                 connections=None, object_events=objs, warp_events=warp_events(name), coord_events=[], bg_events=[],
+        script = [f'{name}_MapScripts::']
+        texts = []
+        if name in DIVE_WARP:
+            dest, dx, dy = DIVE_WARP[name]
+            script = [f'{name}_MapScripts::', f'    map_script MAP_SCRIPT_ON_RESUME, {name}_OnResume', '    .byte 0', '',
+                      f'{name}_OnResume:', f'    setdivewarp {map_id(dest)}, {dx}, {dy}', '    end']
+        else:
+            script.append('    .byte 0')
+        bgs = []
+        led = SRC / f'assemble/{side}-ledger.json'
+        signs = [c for c in read(led)['cells'] if c.get('sign')] if side not in ('underwater',) else []
+        for i, c in enumerate(signs):
+            label = f'{name}_EventScript_Sign{i}'
+            bgs.append(dict(type='sign', x=c['x'], y=c['y'], elevation=0, player_facing_dir='BG_EVENT_PLAYER_FACING_ANY', script=label))
+            lines = c['sign'].split('\n')
+            texts += ['', f'{label}::', f'    msgbox {name}_Text_Sign{i}, MSGBOX_SIGN', '    end', '', f'{name}_Text_Sign{i}:'] + \
+                     [f'    .string "{l}\\n"' for l in lines[:-1]] + [f'    .string "{lines[-1]}$"']
+        mtype, music, flash, weather, escape = HEADERS[name]
+        conns = [dict(map=map_id(m), offset=0, direction=d) for d, m in CONNECTIONS.get(name, [])] or None
+        m = dict(id=map_id(name), name=name, layout=layout_id(name), music=music, region_map_section=MAPSEC,
+                 requires_flash=flash, weather=weather, map_type=mtype, allow_cycling=True,
+                 allow_escaping=escape, allow_running=True, show_map_name=True, battle_scene='MAP_BATTLE_SCENE_NORMAL',
+                 connections=conns, object_events=objs, warp_events=warp_events(name), coord_events=[], bg_events=bgs,
                  build_target='emerald', region='REGION_JOHTO')
         write(g / f'data/maps/{name}/map.json', ordered(m))
-        (g / f'data/maps/{name}/scripts.inc').write_text(f'{name}_MapScripts::\n    .byte 0\n')
+        (g / f'data/maps/{name}/scripts.inc').write_text('\n'.join(script + texts) + '\n')
         groups[GROUP].append(name)
         with (g / 'data/event_scripts.s').open('a') as f:
             f.write(f'\n.include "data/maps/{name}/scripts.inc"\n')

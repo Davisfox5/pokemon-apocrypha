@@ -32,7 +32,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ART = ROOT / 'gba/art/dark-cave'
 SRC, EV = ART / 'source', ART / 'evidence'
-SIDES = ('route45-side', 'route31-side')
+SIDES = ('route45-side', 'route31-side', 'grotto', 'underwater')
+SIZE = {'route45-side': (64, 64), 'route31-side': (64, 64), 'grotto': (40, 30), 'underwater': (64, 64)}   # (width, height)
 W = H = 64
 BANKS, PRIMARY_TILES, SECONDARY_TILES = 13, 512, 496
 TILE_TARGET = PRIMARY_TILES + SECONDARY_TILES - 1          # tile 0 stays the transparent tile
@@ -64,8 +65,69 @@ def behaviors(engine):
     return {n: i for i, n in enumerate(names)}
 
 def traversal(engine, side):
-    """Gen 3 behaviour, collision and elevation per cell from the HGSS permission grid."""
+    """Gen 3 behaviour, collision and elevation per cell: from the HGSS permission grid, with the
+    decade's ledger edits over it (assemble.py writes source/assemble/<side>-ledger.json); the
+    grotto's from its own plan."""
+    global W, H
+    W, H = SIZE[side]
     MB = behaviors(engine)
+    led = json.loads((SRC / f'assemble/{side}-ledger.json').read_text())
+    cells = {(c['x'], c['y']): c for c in led['cells']}
+    if side == 'underwater':                           # Emerald's underwater conventions (underwater.py)
+        kinds = dict(rock=('blocked', 'MB_NORMAL', 1, 0), floor=('swim', 'MB_NO_SURFACING', 0, 3),
+                     seaweed=('swim', 'MB_SEAWEED_NO_SURFACING', 0, 3), emerge=('swim', 'MB_NORMAL', 0, 3),
+                     door=('door', 'MB_WATER_DOOR', 0, 3))
+        out = []
+        for y in range(H):
+            for x in range(W):
+                k = cells[(x, y)]['kind']
+                foot, beh, coll, elev = kinds[k]
+                if cells[(x, y)]['metatile'] in (613, 614, 615, 621, 623):
+                    foot, beh, coll, elev = kinds['rock']
+                out.append(dict(x=x, y=y, source='underwater.py', kind=k, foot=foot, behavior=beh, collision=coll,
+                                elevation=elev, behavior_id=MB[beh]))
+        return out
+    if side == 'grotto':
+        out = []
+        for y in range(H):
+            for x in range(W):
+                c = cells[(x, y)]
+                t = dict(x=x, y=y, source='grotto plan')
+                if c['blocked'] or c['lab'] == 'T':
+                    t.update(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3, void=c.get('void', False))
+                elif c['lab'] == 'L':
+                    t.update(foot='ledge_south', behavior='MB_JUMP_SOUTH', collision=1, elevation=0)
+                elif c['floor'] == 'water':
+                    t.update(foot='surf', behavior='MB_DEEP_WATER' if c['deep'] else 'MB_POND_WATER', collision=0, elevation=1)
+                else:
+                    t.update(foot='open', behavior='MB_CAVE', collision=0, elevation=3)
+                t['behavior_id'] = MB[t['behavior']]
+                out.append(t)
+        return out
+    out = hgss_traversal(engine, side, MB)
+    ed = led['edits']
+    mine = {tuple(v) for v in ed.get('mine', [])}
+    flood = {tuple(v) for v in ed.get('flood', [])}
+    for t in out:
+        c = cells[(t['x'], t['y'])]
+        k = (t['x'], t['y'])
+        new = None
+        if c['blocked'] and t['foot'] != 'blocked':
+            new = dict(foot='blocked', behavior='MB_NORMAL', collision=1, elevation=3,
+                       decade=c['prop'] or ('moss rock' if not c['prop'] else ''))
+        elif k in mine and not c['blocked']:
+            new = dict(foot='open', behavior='MB_CAVE', collision=0, elevation=3, decade='mine')
+        elif c['deep']:
+            new = dict(foot='surf', behavior='MB_DEEP_WATER', collision=0, elevation=1, decade='Dive spot')
+        elif k in flood:
+            new = dict(foot='surf', behavior='MB_POND_WATER', collision=0, elevation=1, decade='lake risen')
+        if new:
+            t.pop('void', None); t.pop('adaptation', None)
+            t.update(new); t['behavior_id'] = MB[t['behavior']]
+    return out
+
+def hgss_traversal(engine, side, MB):
+    """Gen 3 behaviour, collision and elevation per cell from the HGSS permission grid."""
     perm = np.load(SRC / f'hgss/{side}/hgss-permissions.npz')
     types, coll = perm['types'], perm['collision']
     out = []
@@ -193,6 +255,7 @@ def distinct_tiles(images, classes):
     and per map the (tile, flip) at every 8x8 position."""
     keys, rgb, cls, w, pos = {}, [], [], [], []
     for im, cl in zip(images, classes):
+        H, W = im.shape[0] // 16, im.shape[1] // 16
         p = np.zeros((H * 2, W * 2, 2), np.int32)
         for ty in range(H * 2):
             for tx in range(W * 2):
@@ -253,6 +316,7 @@ def reduce_tiles(q, cls, w, pattern_of, target):
     return a1, Fb[np.arange(n), a1].astype(int), int(rep.sum())
 
 def main(engine):
+    global W, H
     (SRC / 'pack').mkdir(parents=True, exist_ok=True); EV.mkdir(parents=True, exist_ok=True)
     images, classes = [], []
     for side in SIDES:                                     # assemble.py: HGSS's rock on the Gen 3 grid
@@ -298,6 +362,7 @@ def main(engine):
     metas, grids, travs = {}, [], []
     for si, side in enumerate(SIDES):
         trav = traversal(engine, side)
+        W, H = SIZE[side]
         travs.append(trav)
         g = np.zeros((H, W), np.int32)
         for y in range(H):
@@ -336,6 +401,7 @@ def main(engine):
                   metatiles=nm, primary_metatiles=min(nm, 512), secondary_metatiles=max(0, nm - 512),
                   colours_per_bank=[len({tuple(c) for c in p}) for p in pals], sides={})
     for si, side in enumerate(SIDES):
+        W, H = SIZE[side]
         native = np.zeros((H * 16, W * 16, 3), np.uint8)
         for y in range(H):
             for x in range(W):
@@ -352,12 +418,11 @@ def main(engine):
         report['sides'][side] = dict(pixels=int(walk.sum()), exact=round(float((d[walk] == 0).mean()), 4),
                                      within_1=round(float((d[walk] <= 1).mean()), 4), within_2=round(float((d[walk] <= 2).mean()), 4),
                                      max_level_diff=int(d[walk].max()), metatiles_used=int(len(np.unique(grids[si]))))
+    grid_of = lambda t, k, s: np.array([[c[k] for c in t[y * SIZE[s][0]:(y + 1) * SIZE[s][0]]] for y in range(SIZE[s][1])], np.uint8)
     np.savez_compressed(SRC / 'pack/pack.npz', patterns=pat, palettes=pal_rgb, metatiles=meta_rows,
                         **{f'grid_{s.replace("-", "_")}': g.astype(np.uint16) for s, g in zip(SIDES, grids)},
-                        **{f'collision_{s.replace("-", "_")}': np.array([[c['collision'] for c in t[y * W:(y + 1) * W]] for y in range(H)], np.uint8)
-                           for s, t in zip(SIDES, travs)},
-                        **{f'elevation_{s.replace("-", "_")}': np.array([[c['elevation'] for c in t[y * W:(y + 1) * W]] for y in range(H)], np.uint8)
-                           for s, t in zip(SIDES, travs)})
+                        **{f'collision_{s.replace("-", "_")}': grid_of(t, 'collision', s) for s, t in zip(SIDES, travs)},
+                        **{f'elevation_{s.replace("-", "_")}': grid_of(t, 'elevation', s) for s, t in zip(SIDES, travs)})
     for s, t in zip(SIDES, travs):
         (SRC / f'pack/traversal-{s}.json').write_text(json.dumps(t) + '\n')
     (EV / 'pack.json').write_text(json.dumps(report, indent=2) + '\n')

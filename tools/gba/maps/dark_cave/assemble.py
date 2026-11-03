@@ -26,7 +26,7 @@ Writes source/assemble/<side>-{bottom,top}.png (layers), <side>.png (composited)
 <side>-terrace-grid.txt (the mapped shapes), evidence/assemble/<side>-before-after.png.
 """
 from __future__ import annotations
-import importlib.util, sys
+import importlib.util, json, sys
 from collections import Counter
 from pathlib import Path
 import numpy as np
@@ -36,6 +36,9 @@ HERE = Path(__file__).resolve().parent
 MAPS = HERE.parent
 sys.path.insert(0, str(HERE))
 import pack as P                                      # noqa: E402
+import decade as D                                    # noqa: E402  (ten years on: the owner's November direction)
+import grotto as GR                                   # noqa: E402  (the Dive section, built from scratch)
+import underwater as U                                # noqa: E402  (the underwater path, Emerald's pieces)
 
 def _load(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -202,7 +205,7 @@ def regularise(rc, d, isrock):
     far = (distance_transform_cdt(~open_, metric='chessboard') > DEEP) & outer
     top = max(c['peak'] for row in rc for c in row)
     for y, x in zip(*np.nonzero(far & isrock)):
-        if not rc[y][x].get('void') and not rc[y][x].get('stair'):
+        if not rc[y][x].get('void') and not rc[y][x].get('stair') :
             rc[y][x] = dict(rc[y][x], peak=top, regularised='deep_rock')
             changed['deep_rock'].append([int(x), int(y)])
     # island: a rock formation standing free inside the cave (not joined to its outer walls) is one block
@@ -223,7 +226,7 @@ def regularise(rc, d, isrock):
     for y in range(H):
         for x in range(W):
             c = rc[y][x]
-            if not isrock[y, x] or c.get('void') or c.get('stair'):
+            if not isrock[y, x] or c.get('void') or c.get('stair') or c.get('ring'):
                 continue
             for ax, ay in ((1, 0), (0, 1), (1, 1), (1, -1)):
                 if any(opn[y - ay * k + 2, x - ax * k + 2] for k in (1, 2)) and any(opn[y + ay * k + 2, x + ax * k + 2] for k in (1, 2)):
@@ -507,8 +510,16 @@ POND = None
 PIECES = {}
 STAIR_STRAIGHT = {(131, 131, 139), (164, 164, 164), (189, 189, 189), (213, 213, 213), (255, 255, 255)}   # S01-S03's tones
 
+def side_ledger(side):
+    """HGSS's mapped shapes with the decade's edits over them; the grotto's own plan."""
+    if side == 'grotto':
+        return GR.ledger(), None, None, {}
+    cells, hcls, major = ledger(side)
+    edits = D.apply(side, cells, SRC, W, H)
+    return cells, hcls, major, edits
+
 def main(phg, engine):
-    global ROCK_BASE, FLOOR_TEX, WATER_TEX
+    global ROCK_BASE, FLOOR_TEX, WATER_TEX, W, H
     import hgss_render as R
     _, tex0, _, _, _ = R.load(phg)
     dec = {e.name: e for e in tex0.textures}
@@ -524,8 +535,15 @@ def main(phg, engine):
     pieces = E.frlg_pieces(engine)
     boulder = E.frlg_boulder(engine)
     report = {}
+    hg_water = [tuple(int(v) for v in c) for c in np.unique(WATER_TEX.reshape(-1, 3), axis=0)]
     for side in P.SIDES:
-        cells, hcls, major = ledger(side)
+        if side == 'underwater':
+            report[side] = U.build(engine, SRC, EV, hg_water)
+            print(side, report[side]['open'], 'open cells')
+            continue
+        W, H = P.SIZE[side]
+        E.W, E.H = W, H
+        cells, hcls, major, edits = side_ledger(side)
         ROCK_BASE = int(np.floor(min(c['ground'] for row in cells for c in row if c['lab'] == '.') + 0.5))
         fl = flights(cells)
         rc = rock_cells(cells, fl)
@@ -539,6 +557,7 @@ def main(phg, engine):
         pond = ponds(rc, POND)
         a = pond[..., 3] > 0
         ground[a] = pond[a, :3]
+        deep = [(c['x'], c['y']) for row in rc for c in row if c.get('deep')]
         main.piece = None
         bottom, over, _, piece = E.rock_frlg(rc, ground, pieces, tex, None, topped(rc, d, isrock), south_faces(rc, d, isrock), ())
         ledge = E.ledges_frlg(rc, pieces)
@@ -564,7 +583,7 @@ def main(phg, engine):
             top[sl][m] = art[m]
         for row in rc:
             for c in row:
-                if c.get('boulder') and not c.get('moss'):
+                if c.get('boulder') and not c.get('moss') and not c.get('prop'):
                     sl = np.s_[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX]
                     m = boulder[..., 3] > 0
                     top[sl][m] = boulder[m]
@@ -575,7 +594,7 @@ def main(phg, engine):
         comp, cmap = recolour(comp, tex)
         # HGSS's moss rocks: the routes' boulder (FRLG General's) in HGSS's moss tones, its cast shadow the
         # floor's darkest, over the floor or water already recoloured
-        shade = cmap[str(tuple(E.BORDER_GRAY))]
+        shade = cmap.get(str(tuple(E.BORDER_GRAY))) or min(map(tuple, np.unique(FLOOR_TEX.reshape(-1, 3), axis=0).tolist()), key=lambda c: 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2])
         for row in rc:
             for c in row:
                 if c.get('moss'):
@@ -585,12 +604,29 @@ def main(phg, engine):
                             cell[yy, xx] = MOSS_RAMP[k]
                         elif k == E.SHADOW:
                             cell[yy, xx] = shade
+        # the Dive spot: Emerald Cave's dive water in the darker cave water tones
+        dive = D.deep_water(engine, hg_water)
+        for x, y in deep:
+            comp[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = dive
         # HGSS's exit art (the glows, the hole) over the floor, on the exit cells and their rims
-        ref = np.array(Image.open(SRC / f'hgss/{side}/hgss-render.png').convert('RGB'))
-        m = np.load(SRC / f'hgss/{side}/hgss-ground-materials.npz')
-        names = [str(v) for v in m['names']]
-        ex = np.isin(m['material'], [names.index(n) for n in exit_names if n in names])
-        comp[ex] = ref[ex]
+        if side == 'grotto':
+            ref, ex = None, np.zeros((H * PX, W * PX), bool)
+        else:
+            ref = np.array(Image.open(SRC / f'hgss/{side}/hgss-render.png').convert('RGB'))
+            m = np.load(SRC / f'hgss/{side}/hgss-ground-materials.npz')
+            names = [str(v) for v in m['names']]
+            ex = np.isin(m['material'], [names.index(n) for n in exit_names if n in names])
+            comp[ex] = ref[ex]
+        floor_px = np.repeat(np.repeat(np.array([[c['floor'] == 'sand' and c['lab'] == '.' for c in row] for row in rc]), PX, 0), PX, 1)
+        floor_px &= ~(over[..., 3] > 0) & ~ex
+        if edits.get('track'):
+            comp = D.worn(comp, floor_px, rc, [tuple(t) for t in edits['track']], W, H, PX)
+        art = D.prop_art(engine, STAIR_ART, pieces['boulder'], shade, CAVE_RAMP)
+        for row in rc:
+            for c in row:
+                if c.get('prop'):
+                    D.paste(comp, art[c['prop']], c['x'], c['y'], PX)
+        comp = D.grade(comp)
         cls = np.full((H * PX, W * PX), FLOOR, np.int16)
         rk = over[..., 3] > 0
         cls[rk] = FACE
@@ -606,10 +642,18 @@ def main(phg, engine):
                 '#' if cells[y][x].get('void') else 's' if cells[y][x]['lab'] == 's' else cells[y][x]['lab'] if cells[y][x]['lab'] in 'LQ'
                 else 'o' if cells[y][x].get('boulder') else chr(65 + d[y, x]) if isrock[y, x] else str(min(9, d[y, x]))
                 for x in range(W)) + '\n' for y in range(H)))
-        both = Image.new('RGB', (W * 32 + 12, H * 16), (24, 26, 30))
-        both.paste(Image.fromarray(ref), (0, 0)); both.paste(Image.fromarray(comp), (W * 16 + 12, 0))
-        both.save(EV / f'assemble/{side}-before-after.png')
-        report[side] = dict(flights=len(fl), rock_cells=int(isrock.sum()), regularised=nubs, colour_map=cmap)
+        if ref is not None:
+            both = Image.new('RGB', (W * 32 + 12, H * 16), (24, 26, 30))
+            both.paste(Image.fromarray(ref), (0, 0)); both.paste(Image.fromarray(comp), (W * 16 + 12, 0))
+            both.save(EV / f'assemble/{side}-before-after.png')
+        else:
+            Image.fromarray(comp).save(EV / f'assemble/{side}.png')
+        ledger_out = [dict(x=c['x'], y=c['y'], lab=c['lab'], floor=c['floor'], deep=bool(c.get('deep')),
+                           blocked=bool(c.get('boulder')) or c['lab'] == 'T', prop=c.get('prop'), sign=c.get('sign'), void=bool(c.get('void')))
+                      for row in rc for c in row]
+        (out_dir / f'{side}-ledger.json').write_text(json.dumps(dict(edits=edits, cells=ledger_out)) + '\n')
+        report[side] = dict(flights=len(fl), rock_cells=int(isrock.sum()), regularised=nubs, colour_map=cmap,
+                            decade={k: len(v) for k, v in edits.items()})
         print(side, len(fl), 'flights', int(isrock.sum()), 'rock cells', {k: len(v) for k, v in nubs.items()})
     return report
 

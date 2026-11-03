@@ -1,6 +1,6 @@
 {
   "porymap": "Launching Porymap v6.3.1 (139eda9)",
-  "engine_commit": "02ec36936cd14e7d2d5b4016919da535b0d67986",
+  "engine_commit": "0ce719368e04cebc7cf336162340930f43d3d30c",
   "export_vs_native": {
     "DarkCaveRoute45Side": {
       "size": [
@@ -10,6 +10,20 @@
       "differing_pixels_rgb555": 0
     },
     "DarkCaveRoute31Side": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "DarkCaveGrotto": {
+      "size": [
+        640,
+        480
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "DarkCaveUnderwater": {
       "size": [
         1024,
         1024
@@ -32,16 +46,22 @@
     }
   },
   "dark_cave_or_route_files_rewritten": [
+    "data/layouts/DarkCaveGrotto/border.bin",
+    "data/layouts/DarkCaveGrotto/map.bin",
     "data/layouts/DarkCaveRoute31Side/border.bin",
     "data/layouts/DarkCaveRoute31Side/map.bin",
     "data/layouts/DarkCaveRoute45Side/border.bin",
     "data/layouts/DarkCaveRoute45Side/map.bin",
+    "data/layouts/DarkCaveUnderwater/border.bin",
+    "data/layouts/DarkCaveUnderwater/map.bin",
     "data/layouts/Route45/border.bin",
     "data/layouts/Route45/map.bin",
     "data/layouts/Route46/border.bin",
     "data/layouts/Route46/map.bin",
+    "data/maps/DarkCaveGrotto/map.json",
     "data/maps/DarkCaveRoute31Side/map.json",
     "data/maps/DarkCaveRoute45Side/map.json",
+    "data/maps/DarkCaveUnderwater/map.json",
     "data/maps/Route45/map.json",
     "data/maps/Route46/map.json",
     "data/tilesets/primary/dark_cave/metatile_attributes.bin",
