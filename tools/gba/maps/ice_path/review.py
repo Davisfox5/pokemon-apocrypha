@@ -40,7 +40,8 @@ REGIONS = {
 GALLERY = ['view-1f', 'arrive-from-route44', 'back-on-route44', 'arrive-from-blackthorn', 'back-in-blackthorn',
            'ladder-1f-55-7', 'ladder-1f-55-20', 'ladder-b1f-6-20', 'ladder-b1f-25-8', 'ladder-b1f-27-40', 'ladder-b1f-6-41',
            'ladder-b2f-26-10', 'ladder-b2f-16-17', 'ladder-b2f-50-5', 'ladder-b2f-43-21', 'ladder-b3f-5-10', 'ladder-b3f-24-11',
-           'dropped-to-b2f', 'slid-1f', 'slid-b2f', 'boulder-in-hole', 'b1f-boulder-gone', 'rock-smash-rock', 'view-b1f', 'view-b2f',
+           'stairs-1f-31-9', 'stairs-1f-32-32', 'stairs-1f-38-19', 'stairs-1f-49-8', 'stairs-1f-52-18', 'stairs-b2f-49-17',
+           'stairs-b2f-55-11', 'stairs-b3f-12-10', 'stairs-b3f-20-10', 'dropped-to-b2f', 'slid-1f', 'slid-b2f', 'boulder-in-hole', 'b1f-boulder-gone', 'rock-smash-rock', 'view-b1f', 'view-b2f',
            'view-b3f', 'save-on-route', 'cold-flash-reload', 'continue-menu', 'ordinary-continue']
 
 def pair(a, b, gap=12):
@@ -69,6 +70,22 @@ def main(engine, runtime):
         dr.rectangle((px, py, px + 31, py + 31), outline=(255, 220, 0), width=2)
         doors.append(im)
     pair(*doors).save(OUT / 'doors.png')
+    # HGSS's stairs beside native, every flight (owner review: the stairs were left out)
+    spots = [(side, c['x'], c['y']) for side in I.MAPS for c in __import__('json').loads((SRC / f'assemble/{side}-ledger.json').read_text())['cells']
+             if c.get('piece') == 'stairs' and c['x'] % 1 == 0]
+    firsts = [(s_, x, y) for s_, x, y in spots if (s_, x - 1, y) not in set(spots)]
+    sheet = Image.new('RGB', (3 * 404, ((len(firsts) + 2) // 3) * 200), (24, 26, 30))
+    dr = ImageDraw.Draw(sheet)
+    for i, (side, x, y) in enumerate(firsts):
+        w, h = P.SIZE[side]
+        ref = np.array(Image.open(SRC / f'hgss/{side}/hgss-render.png').convert('RGB'))
+        nat = C.decode(engine, I.MAPS[side], 'ice_path', 'ice_path', w, h)['img']
+        box = (max(0, x - 2) * 16, max(0, y - 2) * 16, min(w, x + 4) * 16, min(h, y + 3) * 16)
+        X, Y = (i % 3) * 404, (i // 3) * 200
+        for k, im in enumerate((ref, nat)):
+            sheet.paste(Image.fromarray(im[box[1]:box[3], box[0]:box[2]]).resize(((box[2] - box[0]) * 2, (box[3] - box[1]) * 2), 0), (X + k * 200, Y + 18))
+        dr.text((X + 2, Y + 3), f'{side} ({x},{y})-({x + 1},{y}): HGSS | native', fill='white')
+    sheet.save(OUT / 'stairs.png')
     names = [n for n in GALLERY if (runtime / f'{n}.png').exists()]
     cols = 4
     g = Image.new('RGB', (cols * 248, ((len(names) + cols - 1) // cols) * 180), (24, 26, 30))

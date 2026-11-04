@@ -14,6 +14,8 @@ same way, colour for colour by brightness, never redrawn:
     slide ice       843   (HGSS's ice_fe01b floor, 0x20; Gen 3 MB_ICE, the player slides)
     ice crystals    679   (HGSS's rock piles d_rock01 and d_rock01s on the ice floors: crystals)
     drop holes      646   (B1F's four holes, which HGSS triggers by script; Gen 3 MB_MT_PYRE_HOLE)
+    stairs          644   (Seafoam Islands' ice stairs: HGSS's two-cell flights in a one-row ice wall,
+                           its floor cells with the slope bit, 0x08/0x06)
     ladder down     645   (a ladder into a hole: HGSS's dun_stairdw)
     ladder up       686   (HGSS's dun_stairup)
 
@@ -48,7 +50,7 @@ A.SRC, A.EV = SRC, EV
 PX = 16
 VOID, FLOOR, FACE, TOP, RIM, BOULDER, STAIRS, WATER, EXIT = range(9)
 ICEFALL = ('general_frlg', 'seafoam_islands_frlg')
-PIECE = dict(ice=843, crystal=679, rock=643, hole=646, ladder_down=645, ladder_up=662,
+PIECE = dict(ice=843, crystal=679, rock=643, hole=646, ladder_down=645, ladder_up=662, stairs=644,
              pillar_tl=648, pillar_tr=650, pillar_bl=664, pillar_br=709)   # the pillar: Icefall B1F (8-9, 4-6), its top and foot rows
 SNOW = (641, 657)                                    # Icefall's plain floors: their colours are the snow cut from a piece
 HOLES = {'b1f': [(11, 10), (10, 18), (18, 7), (19, 19)]}      # zone 223_D39R0102's coord triggers
@@ -117,8 +119,11 @@ def ledger(side):
                 c.update(kind='exit', exit=True)
             elif t == 0x20 and not k & 0x80:
                 c.update(kind='ice', ice=True, piece='ice')
-            elif major[y, x] == STAIRS and not k & 0x80:
-                c.update(lab='s')                            # HGSS's slope (dslope): a flight, as in Dark Cave
+            elif t == 0x08 and k == 0x06:
+                # HGSS's stairs (floor with its slope bit): a two-cell flight cut into a one-row ice wall.
+                # A flight as Dark Cave lays it (assemble.flights: the wall runs on unbroken), drawn with
+                # FRLG Seafoam Islands' ice stairs (644), set two wide in a wall as Seafoam sets them
+                c.update(lab='s', piece='stairs')
             elif k & 0x80:
                 if piles[y, x] >= 40 and major[y, x] not in (FACE, TOP, RIM):
                     # HGSS's rock objects on Ice Path's floors are ice: its 2x2 clusters (d_rock01) Icefall's
@@ -160,7 +165,7 @@ def pieces(engine, floor_tones, ice_tones, rock, wood):
     for name, mid in PIECE.items():
         b, t = D.metatile_layers(engine, *ICEFALL, mid)
         a = b.copy(); m = t[..., 3] > 0; a[m] = t[m]
-        if name != 'ice':                                # the snow round a piece is cut away, so it stands on the cave floor
+        if name not in ('ice', 'stairs'):                # the snow round a piece is cut away, so it stands on the cave floor
             cut = np.array([[tuple(int(v) for v in a[yy, xx, :3]) in snow for xx in range(16)] for yy in range(16)]) & ~m
             a[cut, 3] = 0
         cols = sorted({tuple(int(v) for v in p) for p in a[a[..., 3] > 0][:, :3]}, key=lum)
@@ -170,7 +175,7 @@ def pieces(engine, floor_tones, ice_tones, rock, wood):
         cmap = {c: c for c in dark}
         cmap.update(D.ranked(woody, wood))
         target = (ice_tones if name == 'ice' else floor_tones if name.startswith('ladder')
-                  else rock[1:] if name == 'hole' else sorted(set(ice_tones) | set(rock[1:]), key=lum))
+                  else rock[1:] if name in ('hole', 'stairs') else sorted(set(ice_tones) | set(rock[1:]), key=lum))
         cmap.update(D.ranked(rest, target))
         out[name] = (D.remap(a, cmap), t[..., 3] > 0)
     return out
@@ -233,7 +238,7 @@ def main(phg, engine):
                     continue
                 img, top_mask = art[c['piece']]
                 sl = np.s_[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX]
-                free = ~a[sl]
+                free = ~a[sl] if c['piece'] != 'stairs' else np.ones((PX, PX), bool)   # a flight replaces the wall it cuts
                 m = (img[..., 3] > 0) & free
                 comp[sl][m] = img[m, :3]
         m = np.load(SRC / f'hgss/{side}/hgss-ground-materials.npz')
@@ -242,6 +247,10 @@ def main(phg, engine):
         comp[ex] = ref[ex]
         cls = np.full((H * PX, W * PX), FLOOR, np.int16)
         cls[a] = FACE
+        for row in rc:
+            for c in row:
+                if c.get('piece') == 'stairs':
+                    cls[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX] = STAIRS
         cls[ex] = EXIT
         Image.fromarray(comp).save(out_dir / f'{side}.png')
         np.save(out_dir / f'{side}-class.npy', cls.astype(np.int8))

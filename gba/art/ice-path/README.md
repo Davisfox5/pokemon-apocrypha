@@ -14,6 +14,7 @@ and Blackthorn). Maps `IcePath_1F` (id 62, 64x64), `IcePath_B1F` (63, 32x64), `I
   [B1F crystal field and holes](evidence/review/b1f-crystal-field-and-holes.png) · [B1F lower room](evidence/review/b1f-lower-room.png) ·
   [B2F west ice](evidence/review/b2f-west-ice-and-fallen-boulders.png) · [B2F east](evidence/review/b2f-east.png) ·
   [B3F](evidence/review/b3f-whole-2x.png)
+- [Every stair flight, HGSS beside native](evidence/review/stairs.png)
 - [The doors on Route 44 and Blackthorn](evidence/review/doors.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
@@ -35,9 +36,11 @@ for colour by brightness, never redrawn:
 | Single crystals (`d_rock01s`) | blocked | the crystal 679 or the ice rock 643, cut from their snow |
 | B1F's four drop holes (script triggers in HGSS) | MB_MT_PYRE_HOLE | 646 |
 | Ladders down / up | MB_LADDER | 645 (ladder into a hole) / 662, in HGSS's ladder wood |
+| Stairs: nine two-cell flights in a one-row ice wall (floor 0x08 with the slope bit 0x06) | MB_CAVE, a flight through the wall | FRLG Seafoam Islands' ice stairs 644, set two wide as Seafoam sets them, in Ice Path's wall tones |
 
 A crystal standing in the ice has ice under it. HGSS's exit glows are its own art over the floor.
-Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 201
+Owner review (November 4): the stairs were left out (walkable, but drawn as wall); every flight is
+now drawn. Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 205
 tiles, 67 metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events
@@ -75,8 +78,8 @@ Blackthorn was built in another session; this is its only change besides the Rou
   pixel; behaviour, collision, elevation and layer match the ledger on every cell; Gen 3 reach equals
   the ledger's and HGSS's from every warp (888, 342, 696 and 162 cells); warps pair back; B1F's
   boulder flags match B2F's; Route 44 and Blackthorn change no pixel; the changed-file list is checked.
-- **Headless mGBA** ([results](evidence/gameplay/results.json)): 26 captures rebuilt from VRAM equal to
-  the decoded floors. Both doors walked both ways; every ladder pair; a B1F hole drops to its B2F cell;
+- **Headless mGBA** ([results](evidence/gameplay/results.json)): 35 captures rebuilt from VRAM equal to
+  the decoded floors. Both doors walked both ways; every ladder pair; every stair flight up and back down; a B1F hole drops to its B2F cell;
   slides on 1F and B2F stop where the cells say; a B1F boulder pushed into a hole by 26 planned moves,
   its own flag set and its B2F copy's cleared; the Rock Smash rock blocks; flash save, cold reload and
   Continue.

@@ -9,7 +9,7 @@ Route 44 and Blackthorn captures check the player's position only (check.py prov
 changed a pixel).
 
 Steps: a view of every floor; both doors walked both ways (Route 44's mouth and Blackthorn's);
-every ladder pair walked down and back up; a B1F hole dropped through to its B2F cell; an ice
+every ladder pair walked down and back up; every stair flight walked up and back down; a B1F hole dropped through to its B2F cell; an ice
 slide on 1F and one on B2F, each run until it stops where the floor's own cells say (a slide stops
 on the last ice cell before a blocked cell, or on the first cell off the ice); a B1F Strength
 boulder pushed into a hole by a planned sequence of real moves (planner(): the player slides on
@@ -178,6 +178,15 @@ def steps(game):
         _, o, (p0, moves, hole) = plans[0]
         out += [('go', B1, p0[0], p0[1]), ('strength',)] + [(mv, 1, None) for mv in moves] + [('wait', 200), ('shot', 'boulder-in-hole'),
                 ('flagis', o['flag'], 1, 'b1f-boulder-gone'), ('flagis', o['trainer_type'], 0, 'b2f-boulder-shown')]
+    # every stair flight walked up through its wall and back down
+    for m in FLOORS:
+        led = json.loads((I.SRC / f'assemble/{SIDE[m]}-ledger.json').read_text())['cells']
+        st = {(c['x'], c['y']) for c in led if c.get('piece') == 'stairs'}
+        for x, y in sorted(st):
+            if (x - 1, y) in st:
+                continue
+            out += [('go', m, x, y + 1), ('north', 2, None), ('at', m, x, y - 1), ('shot', f'stairs-{SIDE[m]}-{x}-{y}'),
+                    ('south', 2, None), ('at', m, x, y + 1)]
     # B3F's Rock Smash rock blocks
     out += [('go', B3, 10, 13), ('north', 1, None), ('at', B3, 10, 13), ('shot', 'rock-smash-rock')]
     return out
