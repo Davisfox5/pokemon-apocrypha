@@ -1,0 +1,393 @@
+{
+ "split": 89,
+ "window": 7,
+ "seam_metatiles": 183,
+ "pinned_violet_metatiles": 33,
+ "north": {
+  "tiles": 1023,
+  "exact_patterns": 1277,
+  "merged": 325,
+  "budget": 952,
+  "primary_metatiles": 512,
+  "secondary_metatiles": 150,
+  "banks": {
+   "0": 15,
+   "1": 15,
+   "2": 15,
+   "3": 15,
+   "4": 15,
+   "5": 15,
+   "6": 15,
+   "7": 15,
+   "8": 15,
+   "9": 15,
+   "10": 15,
+   "11": 15,
+   "12": 15
+  }
+ },
+ "south": {
+  "tiles": 1024,
+  "exact_patterns": 1389,
+  "merged": 366,
+  "budget": 1023,
+  "primary_metatiles": 511,
+  "secondary_metatiles": 176,
+  "banks": {
+   "0": 15,
+   "1": 15,
+   "2": 15,
+   "3": 15,
+   "4": 15,
+   "5": 15,
+   "6": 15,
+   "7": 15,
+   "8": 15,
+   "9": 15,
+   "10": 15,
+   "11": 15,
+   "12": 15
+  }
+ },
+ "palette_error_lab": {
+  "mean": 0.86,
+  "p95": 4.31,
+  "max": 39.11
+ },
+ "reach": {
+  "native": 1545,
+  "hgss": 1544,
+  "native_only": [
+   [
+    20,
+    136
+   ]
+  ],
+  "hgss_only": [],
+  "south_edge_reached": false
+ },
+ "events": {
+  "moves": [
+   {
+    "event": "JohtoRoute32_AlphSign",
+    "map": "north",
+    "cell": [
+     15,
+     9
+    ],
+    "native": [
+     15,
+     9
+    ],
+    "hgss": [
+     15,
+     3
+    ],
+    "text": "Ruins of Alph East Entrance"
+   },
+   {
+    "event": "JohtoRoute32_RouteSign",
+    "map": "north",
+    "cell": [
+     21,
+     18
+    ],
+    "native": [
+     21,
+     18
+    ],
+    "hgss": [
+     21,
+     12
+    ],
+    "text": "Rt. 32 South to Azalea Town"
+   },
+   {
+    "event": "JohtoRoute32_CaveSign",
+    "map": "south",
+    "cell": [
+     19,
+     66
+    ],
+    "native": [
+     19,
+     155
+    ],
+    "hgss": [
+     19,
+     149
+    ],
+    "text": "Union Cave ahead"
+   },
+   {
+    "event": "hidden ITEM_HEART_SCALE",
+    "map": "south",
+    "cell": [
+     27,
+     6
+    ],
+    "native": [
+     27,
+     95
+    ],
+    "hgss": [
+     27,
+     89
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_HEART_SCALE"
+   },
+   {
+    "event": "hidden ITEM_GREAT_BALL",
+    "map": "south",
+    "cell": [
+     12,
+     61
+    ],
+    "native": [
+     12,
+     150
+    ],
+    "hgss": [
+     12,
+     144
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_GREAT_BALL"
+   },
+   {
+    "event": "hidden ITEM_SUPER_POTION",
+    "map": "north",
+    "cell": [
+     11,
+     27
+    ],
+    "native": [
+     11,
+     27
+    ],
+    "hgss": [
+     11,
+     21
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_SUPER_POTION"
+   },
+   {
+    "event": "obj_R32_gsbigman",
+    "hgss": [
+     23,
+     24
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsmiddleman1",
+    "hgss": [
+     29,
+     17
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "cuttable tree",
+    "map": "north",
+    "cell": [
+     14,
+     38
+    ],
+    "native": [
+     14,
+     38
+    ],
+    "hgss": [
+     14,
+     32
+    ]
+   },
+   {
+    "event": "obj_R32_gsboy2",
+    "hgss": [
+     22,
+     41
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_picnicgirl_2",
+    "hgss": [
+     18,
+     54
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2",
+    "hgss": [
+     13,
+     86
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2_2",
+    "hgss": [
+     15,
+     88
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2_3",
+    "hgss": [
+     20,
+     99
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_campboy_2",
+    "hgss": [
+     4,
+     97
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsboy2_2",
+    "hgss": [
+     12,
+     115
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsbigman_2",
+    "hgss": [
+     14,
+     128
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsman2",
+    "hgss": [
+     20,
+     145
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "item ball ITEM_REPEL",
+    "map": "north",
+    "cell": [
+     8,
+     55
+    ],
+    "native": [
+     8,
+     55
+    ],
+    "hgss": [
+     8,
+     49
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_REPEL"
+   },
+   {
+    "event": "item ball ITEM_GREAT_BALL",
+    "map": "south",
+    "cell": [
+     11,
+     11
+    ],
+    "native": [
+     11,
+     100
+    ],
+    "hgss": [
+     11,
+     94
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_GREAT_BALL"
+   },
+   {
+    "event": "obj_R32_gsgirl1",
+    "hgss": [
+     23,
+     121
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "breakable rock",
+    "map": "south",
+    "cell": [
+     23,
+     68
+    ],
+    "native": [
+     23,
+     157
+    ],
+    "hgss": [
+     23,
+     151
+    ]
+   },
+   {
+    "event": "obj_R32_monstarball_3",
+    "hgss": [
+     3,
+     113
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "item ball ITEM_SHELL_BELL",
+    "map": "south",
+    "cell": [
+     27,
+     68
+    ],
+    "native": [
+     27,
+     157
+    ],
+    "hgss": [
+     27,
+     151
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_SHELL_BELL"
+   },
+   {
+    "event": "obj_R32_gsmiddleman1_2",
+    "hgss": [
+     20,
+     111
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   }
+  ],
+  "door": [
+   20,
+   47
+  ],
+  "borders": {
+   "north": [
+    "0x0cd",
+    "0x009",
+    "0x133",
+    "0x01d"
+   ],
+   "south": [
+    "0x013",
+    "0x014",
+    "0x025",
+    "0x026"
+   ]
+  }
+ },
+ "native_vs_art_lab": {
+  "mean": 0.933,
+  "p99": 16.09,
+  "over_10": 46808
+ }
+}

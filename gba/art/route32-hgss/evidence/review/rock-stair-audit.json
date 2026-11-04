@@ -1,0 +1,195 @@
+{
+ "stairs": [
+  {
+   "native": [
+    9,
+    74
+   ],
+   "hgss": [
+    9,
+    68
+   ],
+   "slope_x": -0.734,
+   "slope_y": -0.108,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 8.28
+  },
+  {
+   "native": [
+    10,
+    74
+   ],
+   "hgss": [
+    10,
+    68
+   ],
+   "slope_x": -0.672,
+   "slope_y": -0.116,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 8.53
+  },
+  {
+   "native": [
+    9,
+    75
+   ],
+   "hgss": [
+    9,
+    69
+   ],
+   "slope_x": -0.75,
+   "slope_y": 0.093,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 6.71
+  },
+  {
+   "native": [
+    10,
+    75
+   ],
+   "hgss": [
+    10,
+    69
+   ],
+   "slope_x": -0.656,
+   "slope_y": 0.093,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 7.58
+  },
+  {
+   "native": [
+    9,
+    76
+   ],
+   "hgss": [
+    9,
+    70
+   ],
+   "slope_x": -0.642,
+   "slope_y": 0.081,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 7.59
+  },
+  {
+   "native": [
+    10,
+    76
+   ],
+   "hgss": [
+    10,
+    70
+   ],
+   "slope_x": -0.765,
+   "slope_y": 0.081,
+   "axis": "east-west",
+   "native_foot": "open",
+   "mean_lab": 7.77
+  },
+  {
+   "native": [
+    6,
+    111
+   ],
+   "hgss": [
+    6,
+    105
+   ],
+   "slope_x": 0.213,
+   "slope_y": -0.75,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 8.07
+  },
+  {
+   "native": [
+    7,
+    111
+   ],
+   "hgss": [
+    7,
+    105
+   ],
+   "slope_x": 0.0,
+   "slope_y": -0.75,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 6.27
+  },
+  {
+   "native": [
+    8,
+    111
+   ],
+   "hgss": [
+    8,
+    105
+   ],
+   "slope_x": -0.304,
+   "slope_y": -0.844,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 8.14
+  },
+  {
+   "native": [
+    6,
+    112
+   ],
+   "hgss": [
+    6,
+    106
+   ],
+   "slope_x": -0.113,
+   "slope_y": -0.75,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 8.07
+  },
+  {
+   "native": [
+    7,
+    112
+   ],
+   "hgss": [
+    7,
+    106
+   ],
+   "slope_x": 0.0,
+   "slope_y": -0.75,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 6.27
+  },
+  {
+   "native": [
+    8,
+    112
+   ],
+   "hgss": [
+    8,
+    106
+   ],
+   "slope_x": -0.102,
+   "slope_y": -0.688,
+   "axis": "north-south",
+   "native_foot": "open",
+   "mean_lab": 10.01
+  }
+ ],
+ "rock_and_ledge_cells": {
+  "E": 7,
+  "J": 2,
+  "L": 8,
+  "R: E": 331,
+  "R: N": 187,
+  "R: S": 161,
+  "R: T": 514,
+  "R: W": 137
+ },
+ "note": "Stairs, rock faces, caps and ledges are drawn from HGSS's own render of each cell, so their direction, height and shading are HGSS's; the slope is the decoded mesh height gradient across the cell."
+}

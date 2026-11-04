@@ -1,0 +1,17 @@
+{
+  "catalog": {
+    "repository": "pokemon-apocrypha",
+    "branch": "codex/violet-city",
+    "commit": "de5d8cfb707f8614c25977c6d186ddfaaa8fc035",
+    "rule": "Masters copied byte for byte; native tile ids and palette slots may differ, visible colours do not."
+  },
+  "G02.png": {
+    "source": "gba/art/johto-common-review/gates/refinement-4/G02.png",
+    "sha256": "46159b82e7429b9f07c4a9d9babb631873d7dab3029c025cf41e32f00d4aa0d6"
+  },
+  "C06.png": {
+    "source": "gba/art/johto-center/source/building.png",
+    "sha256": "89034027c4b4f3241ad70baeeb104e23a571e521b76b27f388eb89123cc79f54"
+  },
+  "note": "G02: the owner-approved HGSS side gate (Route 31). C06: the approved Violet Pokemon Center (AGENTS.md shared building art)."
+}

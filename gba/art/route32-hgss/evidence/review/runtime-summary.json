@@ -1,0 +1,94 @@
+{
+ "phases": [
+  {
+   "phase": "write",
+   "exit": 0,
+   "observations": 1262
+  },
+  {
+   "phase": "read",
+   "exit": 0,
+   "observations": 2
+  },
+  {
+   "phase": "menu",
+   "exit": 0,
+   "observations": 3
+  }
+ ],
+ "frame_parity": {
+  "write": {
+   "frames": 76,
+   "fully_identical": 58,
+   "below_99_5": [
+    [
+     "cross-into-route32",
+     0.9089
+    ],
+    [
+     "route-119",
+     0.9416
+    ],
+    [
+     "cross-back-into-violet",
+     0.9089
+    ],
+    [
+     "area-3-92",
+     0.9567
+    ],
+    [
+     "item-ball-8-55",
+     0.7214
+    ],
+    [
+     "item-ball-11-100",
+     0.7214
+    ],
+    [
+     "item-ball-27-157",
+     0.7119
+    ],
+    [
+     "item-ball-27-157-gone",
+     0.9949
+    ],
+    [
+     "hidden-11-27",
+     0.7214
+    ],
+    [
+     "hidden-12-150",
+     0.7214
+    ],
+    [
+     "read-sign-15-9",
+     0.7214
+    ],
+    [
+     "read-sign-19-155",
+     0.7174
+    ],
+    [
+     "read-sign-21-18",
+     0.7214
+    ]
+   ]
+  },
+  "read": {
+   "frames": 1,
+   "fully_identical": 1,
+   "below_99_5": []
+  },
+  "menu": {
+   "frames": 2,
+   "fully_identical": 1,
+   "below_99_5": [
+    [
+     "continue-menu",
+     0.0
+    ]
+   ]
+  }
+ }
+}
