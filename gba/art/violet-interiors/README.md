@@ -24,7 +24,7 @@ university, Falkner's gym a lecture hall and practice arena) and the owner's Nov
 
 ![every room, HGSS original beside the native map](evidence/VioletUniversity-compare.png)
 
-Each `evidence/<map>-compare.png` shows HGSS's room (coordinate grid in HGSS cells) beside the native map
+Each `evidence/<map>-clean.png` shows HGSS's room beside the native map at 3x without grids (`-native-3x.png` the native map alone). Each `evidence/<map>-compare.png` shows HGSS's room (coordinate grid in HGSS cells) beside the native map
 (map cells, blocked cells marked red). `-composed.png` is the room as composed, and `-installed.png` is the
 installed map decoded from its native tiles.
 
