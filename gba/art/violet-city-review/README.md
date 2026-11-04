@@ -59,7 +59,7 @@ the animated-door behaviour and are walkable; everything else keeps its collisio
 
 | Door | Cell | Behind it |
 | --- | --- | --- |
-| Sprout Tower | (39, 12) | `SproutTower1F`, a stand-in room (`LAYOUT_RUSTBORO_CITY_HOUSE1`) until the tower's floors are built |
+| Sprout Tower | (39, 12) | `SproutTower1F`-`3F`, HGSS's three floors ([Violet interiors](../violet-interiors/README.md)) |
 | University hall | (57, 42) | `VioletUniversity` (`LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL`) |
 | Lecture hall | (31, 41) | `VioletLectureHall` (`LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL`) |
 | Mart (M01) | (21, 40) | `VioletMart`, clerk with `docs/JOHTO_ITEMS.md`'s Violet stock |
@@ -84,7 +84,7 @@ the animated-door behaviour and are walkable; everything else keeps its collisio
 
 ![door entry: open, step on, fade](evidence/door-entry.png)
 
-- The interiors are working shells: the nurse heals, the clerk sells. Their scenes (`docs/CHAPTER2_SCENES_SPEC.md`)
+- The university, lecture hall, Sprout Tower and houses are built from their HGSS rooms ([Violet interiors](../violet-interiors/README.md), November 3); the nurse heals, the clerk sells. Their scenes (`docs/CHAPTER2_SCENES_SPEC.md`)
   are the chapter's implementation pass.
 
 ## Tilesets
@@ -123,7 +123,7 @@ with colours its art no longer draws freed for the new ones.
 - Interiors and onward routes are as the source branch left them.
 - Owner visual acceptance: Sprout Tower and the hall accepted October 31 ("lock those in"); the rest of the
   town not yet reviewed as a whole.
-- Interiors are working shells (see Doors); Sprout Tower's is a stand-in room.
+- Interiors have no NPCs or scenes yet besides the nurse and the clerk.
 
 ## Reproduce
 

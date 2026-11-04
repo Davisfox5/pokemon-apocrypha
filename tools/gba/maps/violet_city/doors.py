@@ -33,20 +33,20 @@ def house(cx, ry):
 # name, door cell, panel (px, x1/y1 exclusive), door sound, interior (None: the warp already there)
 DOORS = [
     dict(name='SproutTower', cell=(39, 12), panel=(630, 190, 642, 206), sound='NORMAL',
-         map='SproutTower1F', layout='LAYOUT_RUSTBORO_CITY_HOUSE1', exits=[(5, 7), (6, 7)], music='MUS_LITTLEROOT'),
+         map='SproutTower1F', layout='LAYOUT_SPROUT_TOWER_1F', exits=[(11, 25)], music='MUS_LITTLEROOT'),
     dict(name='University', cell=(57, 42), panel=(918, 670, 930, 686), sound='NORMAL',
-         map='VioletUniversity', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
+         map='VioletUniversity', layout='LAYOUT_VIOLET_UNIVERSITY', exits=[(15, 11)], music='MUS_SCHOOL'),
     dict(name='LectureHall', cell=(31, 41), panel=(496, 651, 514, 666), sound='SLIDING',
-         map='VioletLectureHall', layout='LAYOUT_RUSTBORO_CITY_POKEMON_SCHOOL', exits=[(5, 10), (6, 10)], music='MUS_SCHOOL'),
+         map='VioletLectureHall', layout='LAYOUT_VIOLET_LECTURE_HALL', exits=[(8, 28)], music='MUS_SCHOOL'),
     dict(name='Mart', cell=(21, 40), panel=(339, 629, 353, 649), sound='SLIDING',
          map='VioletMart', layout='LAYOUT_MART', exits=[(3, 7), (4, 7)], music='MUS_POKE_MART', kind='mart'),
     dict(name='PokemonCenter', cell=(49, 55), panel=(784, 880, 800, 890), sound='SLIDING',
          map='VioletPokemonCenter', layout='LAYOUT_POKEMON_CENTER_1F', exits=[(7, 8), (6, 8)], music='MUS_POKE_CENTER', kind='center'),
-    dict(name='House1', **house(11, 26), sound='NORMAL', map='VioletHouse1', layout='LAYOUT_HOUSE1', exits=[(3, 8), (4, 8)], music='MUS_LITTLEROOT'),
-    dict(name='House2', **house(10, 37), sound='NORMAL', map='VioletHouse2', layout='LAYOUT_HOUSE2', exits=[(3, 7), (4, 7)], music='MUS_LITTLEROOT'),
-    dict(name='House3', **house(26, 55), sound='NORMAL', map='VioletHouse3', layout='LAYOUT_HOUSE3', exits=[(3, 7), (4, 7)], music='MUS_LITTLEROOT'),
-    dict(name='House4', **house(36, 60), sound='NORMAL', map='VioletHouse4', layout='LAYOUT_HOUSE4', exits=[(3, 8), (4, 8)], music='MUS_LITTLEROOT'),
-    dict(name='House5', **house(56, 63), sound='NORMAL', map='VioletHouse5', layout='LAYOUT_HOUSE1', exits=[(3, 8), (4, 8)], music='MUS_LITTLEROOT'),
+    dict(name='House1', **house(11, 26), sound='NORMAL', map='VioletHouse1', layout='LAYOUT_VIOLET_HOUSE_1', exits=[(4, 8)], music='MUS_LITTLEROOT'),
+    dict(name='House2', **house(10, 37), sound='NORMAL', map='VioletHouse2', layout='LAYOUT_VIOLET_HOUSE_2', exits=[(4, 8)], music='MUS_LITTLEROOT'),
+    dict(name='House3', **house(26, 55), sound='NORMAL', map='VioletHouse3', layout='LAYOUT_VIOLET_HOUSE_3', exits=[(4, 8)], music='MUS_LITTLEROOT'),
+    dict(name='House4', **house(36, 60), sound='NORMAL', map='VioletHouse4', layout='LAYOUT_VIOLET_HOUSE_4', exits=[(4, 8)], music='MUS_LITTLEROOT'),
+    dict(name='House5', **house(56, 63), sound='NORMAL', map='VioletHouse5', layout='LAYOUT_VIOLET_HOUSE_5', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='EastGate', **house(74, 55), sound='NORMAL', map=None),
 ]
 UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_POKEMON_CENTER_2F', stairs=(1, 6))
@@ -229,4 +229,8 @@ def interiors(engine):
         prev = name
     (engine / 'data/maps/map_groups.json').write_text(json.dumps(groups, indent=2) + '\n')
     (engine / 'data/event_scripts.s').write_text(es)
+    # the interiors built by tools/gba/maps/violet_interiors keep their own layouts and inner warps (ladders)
+    sys.path[:0] = [str(HERE.parent / 'violet_interiors')]
+    import rooms as RS
+    RS.install_maps(engine, [n for n, m in RS.MAPS.items() if (engine / 'data/layouts' / m['folder'] / 'map.bin').exists()])
     return [n for n, _, _ in made]
