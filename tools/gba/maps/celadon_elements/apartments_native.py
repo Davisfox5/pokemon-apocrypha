@@ -172,7 +172,7 @@ PIECES = {
     'painting_c':   ('MU', 9, 0, 1, 1, 'wall'), 'painting_d': ('MU', 19, 0, 2, 2, 'wall'),
     'bench':        ('MU', 15, 7, 5, 3, 'floor'), 'statue_a': ('MU', 15, 11, 1, 2, 'floor'), 'statue_b': ('MU', 18, 11, 1, 2, 'floor'),
     # Brendan's house
-    'kitchen':      ('B1', 0, 0, 5, 3, 'wall'), 'tv': ('B1', 4, 4, 1, 2, 'floor'), 'table_w': ('B1', 2, 4, 2, 2, 'floor', (0, 7)),
+    'kitchen':      ('B1', 0, 0, 5, 3, 'wall'), 'tv': ('B1', 4, 4, 1, 2, 'floor', (0, 7)), 'table_w': ('B1', 2, 4, 2, 2, 'floor', (0, 7)),
     'kitchen_in':   ('B1', 0, 0, 5, 3, 'wall', 17),
     'dining_b1':    ('B1', 1, 5, 6, 4, 'floor', 9),
     'window':       ('K1', 4, 0, 1, 2, 'wall'), 'mat': ('B1', 8, 8, 2, 1, 'floor'),
@@ -245,8 +245,9 @@ def cut(name):
 #   east-west    three rows: its cap, whose top half is the floor beyond it (MU x, 4), its face
 #                (MU x, 5) and its face with the skirting (MU x, 6); at a doorway the wall ends in
 #                a pillar: its cap corner (MU 9, 4), the pillar (MU 9, 5), its foot (MU 9, 8)
-#   north-south  a pillar one square wide: over the north wall (MU 13, 0-1), down its length
-#                banded and plain by turns (MU 13, 2 / 13, 3), its foot with the skirting (MU 13, 4)
+#   north-south  a pillar one square wide standing against the north wall's skirting, plain down
+#                its length (MU 13, 3), its foot with the skirting (MU 13, 4), its banded top
+#                (MU 13, 2) only where a doorway leaves it free; the north wall runs unbroken
 # The marble's shade is the museum's: under a wall (MU x, 2 / x, 7) and east of a pillar
 # (MU 10, 6-7). The other floors are their own rooms' plain floor.
 FLOORS = dict(
@@ -341,12 +342,14 @@ class Room:
         return out
     def wall_cell(self, x, y):
         H = self.H
-        if (x, y) in self.ns:
-            if y <= 1:
-                return mu(13, y)
+        if (x, y) in self.ns and y >= 2:
+            # one plain pillar down its length (owner, 2026-11-04: no dividers along a wall); its
+            # foot where the floor resumes, its banded top where a doorway leaves it free
             if not self.is_wall(x, y + 1):
                 return self.with_floor(mu(13, 4), x, y + 1, np.s_[8:])
-            return mu(13, 2 + y % 2)
+            if not self.is_wall(x, y - 1):
+                return mu(13, 2)
+            return mu(13, 3)
         if y <= 1:
             return mu(3 + x % 2, y)
         r = self.ew[(x, y)]
@@ -403,52 +406,66 @@ def core(p, r, floor, plants=True):
 
 def core_plan(p):
     p.room(CORE[0], 2, CORE[1], p.H - 2, 'marble')
-    p.ns += [(10, 0, p.H - 2), (22, 0, p.H - 2)]
+    p.ns += [(10, 2, p.H - 2), (22, 2, p.H - 2)]
 
 def lobby():
     p = Plan()
     p.room(0, 2, W - 1, 14, 'marble')
     p.room(0, 2, 5, 5, 'wood')                                   # the concierge office
-    p.ns += [(6, 0, 8)]; p.ew += [(0, 5, 6)]
+    p.ns += [(6, 2, 8)]; p.ew += [(0, 5, 6)]
     p.door_ew(3, 6, 'marble')
     r = Room(p)
     core(p, r, 1, plants=False)
-    r.piece('painting_a', 0, 0); r.piece('books_fc', 2, 0); r.piece('pc', 4, 0)          # the office: shelves, a desk
+    # the office: the desk, a picture, the shelves, spaced along its wall
+    r.piece('pc', 0, 0); r.piece('painting_c', 3, 0); r.piece('books_fc', 4, 0)
     r.piece('counter', 7, 10)                                                         # the concierge desk by the door
-    r.piece('painting_b', 24, 0); r.piece('painting_d', 28, 0); r.piece('painting_a', 32, 0)
-    r.piece('lounge', 25, 7)                                                          # the lounge
+    # the lounge, Devon's own: the sofa on the wall, the glass table a step in front of it (its
+    # long side to the sofa), an armchair a step off each end facing in
+    r.piece('sofa_black', 27, 0); r.piece('glass_table', 26, 4)
+    r.piece('armchair_l', 24, 4); r.piece('armchair_r', 32, 4)
+    r.piece('painting_d', 23, 0); r.piece('painting_a', 32, 0)
     r.piece('statue_a', 13, 12); r.piece('statue_b', 19, 12)                          # either side of the way in
-    r.piece('planter', 0, 12); r.piece('planter', 34, 12); r.piece('glass_case', 35, 3); r.piece('glass_case', 35, 5)
-    r.piece('plant', 23, 2); r.piece('plant', 9, 2)
+    r.piece('planter', 0, 12); r.piece('planter', 34, 12); r.piece('glass_case', 35, 7); r.piece('glass_case', 35, 9)
+    r.piece('plant', 9, 2)
     r.piece('mat', 16, 14, solid=False)                                               # the street door
     return r
+
+def tv_corner(r, x, y):
+    """Where to watch TV, the only way Gen 3's own pieces allow it (no sofa is drawn from behind,
+    no TV from the side): the TV, a step, the coffee table long side on, a step, the sofa facing
+    it across the table. Six squares wide, three deep, (x, y) its north-west corner."""
+    r.piece('tv', x, y)
+    r.piece('table_lo', x + 2, y)
+    r.piece('sofa_side', x + 5, y)
 
 def typical(floor):
     p = Plan()
     core_plan(p)
     p.room(0, 2, 9, 14, 'wood')                                  # the studio, one open room
-    p.door_ns(10, 10, 'wood')
+    p.door_ns(10, 8, 'wood')
     p.room(23, 2, 28, 5, 'carpet'); p.room(30, 2, 35, 5, 'carpet')   # the two-bedroom's bedrooms
     p.room(23, 9, 35, 14, 'wood')                                # its living room
-    p.ns += [(29, 0, 6)]; p.ew += [(23, 35, 6)]
+    p.ns += [(29, 2, 6)]; p.ew += [(23, 35, 6)]
     p.door_ew(24, 6, 'wood'); p.door_ew(34, 6, 'wood')
     p.door_ns(22, 10, 'wood')
     r = Room(p)
     core(p, r, floor)
-    # the studio: the kitchen and the TV along the window wall, the dining set below the kitchen,
-    # the end-on sofa and a low table by the TV, the bed on its rug in the far corner
-    r.piece('kitchen', 0, 0); r.piece('window', 5, 0); r.piece('clock', 6, 0); r.piece('tv_wall', 7, 0)
+    # the studio. Its kitchen along the window wall with the dining set a step below it; the
+    # bookcase on the wall; the TV corner by the door; the bed on its rug in the far corner,
+    # away from the kitchen
+    r.piece('kitchen', 0, 0); r.piece('window', 5, 0); r.piece('books_lo', 7, 0); r.piece('plant', 9, 2)
     r.piece('dining_b1', 0, 4)
-    r.piece('table_w', 7, 4); r.piece('sofa_side', 9, 3)
-    r.piece('rug_blue', 0, 10, solid=False); r.piece('bed', 0, 10)
-    r.piece('plant', 9, 13); r.piece('plant', 0, 8)
-    # the bedrooms: a bed and a desk or shelves in each
-    r.piece('pc', 23, 0); r.piece('picture', 25, 0); r.piece('bed', 26, 2)
-    r.piece('books_lo', 30, 0); r.piece('drawers', 32, 0); r.piece('bed', 33, 2)
-    # the open room: the kitchen on the bedrooms' wall, the dining set under it, the sofas
+    tv_corner(r, 4, 10)
+    r.piece('rug_blue', 0, 11, solid=False); r.piece('bed', 0, 11)
+    # bedroom 1: the desk in one corner, a step, the bed with a picture over it
+    r.piece('pc', 23, 0); r.piece('picture', 27, 0); r.piece('bed', 26, 2)
+    # bedroom 2: the bookcase, the bed, a night stand beside it
+    r.piece('books_lo', 30, 0); r.piece('bed', 32, 2); r.piece('drawers', 35, 0)
+    # the open room: the kitchen on the bedrooms' wall between their doors; the dining set a
+    # step below it by the front door; the TV corner on the far side
     r.piece('kitchen_in', 27, 7)
     r.piece('dining_b1', 23, 10)
-    r.piece('sofa_fr', 30, 10); r.piece('sofa_side', 34, 11); r.piece('table_w', 31, 12)
+    tv_corner(r, 30, 10)
     return r
 
 def penthouse():
@@ -459,24 +476,27 @@ def penthouse():
     p.room(23, 2, 28, 6, 'wood'); p.room(30, 2, 35, 6, 'red')    # the study, the master bedroom
     p.room(23, 10, 35, 11, 'marble')                             # the hall
     p.room(23, 15, 28, 18, 'red'); p.room(30, 15, 35, 18, 'wood')   # the guest room, the walk-in closet
-    p.ns += [(29, 0, 7), (29, 12, 18)]; p.ew += [(23, 35, 7), (23, 35, 12)]
-    p.door_ew(26, 7, 'marble'); p.door_ew(32, 7, 'marble'); p.door_ew(26, 12, 'red'); p.door_ew(32, 12, 'wood')
+    p.ns += [(29, 2, 7), (29, 12, 18)]; p.ew += [(23, 35, 7), (23, 35, 12)]
+    p.door_ew(26, 7, 'marble'); p.door_ew(32, 7, 'marble'); p.door_ew(28, 12, 'red'); p.door_ew(30, 12, 'wood')
     p.door_ns(22, 10, 'marble')
     r = Room(p)
     core(p, r, 6)
-    # the great room: the kitchen and the black sofa on the window wall, the glass table and an
-    # armchair before the sofa, the dining set below, a reading corner, the display cases
+    # the great room. The kitchen on the window wall; Devon's lounge beside it (the sofa on the
+    # wall, the glass table a step before it, an armchair a step off its end); the dining set a
+    # step below; the TV corner at the far end; display cases by the door
     r.piece('kitchen', 0, 0); r.piece('sofa_black', 6, 0)
-    r.piece('glass_table', 5, 3); r.piece('armchair_l', 4, 3)
-    r.piece('dining_lo', 0, 8)
-    r.piece('armchair_l', 1, 13); r.piece('side_table', 2, 13); r.piece('armchair_r', 4, 13)
+    r.piece('glass_table', 5, 4); r.piece('armchair_l', 3, 4)
+    r.piece('dining_lo', 0, 9)
+    tv_corner(r, 2, 14)
     r.piece('glass_case', 9, 8); r.piece('glass_case', 9, 12); r.piece('plant', 0, 17); r.piece('plant', 9, 17)
-    # the study, the master bedroom
-    r.piece('books_fc', 23, 0); r.piece('pc', 25, 0); r.piece('plant', 28, 2)
-    r.piece('painting_d', 30, 0); r.piece('books_lo', 32, 0); r.piece('bed', 33, 2)
-    # the guest room, the closet
-    r.piece('cupboard_lo', 23, 13); r.piece('bed', 23, 15)
-    r.piece('drawers', 30, 13); r.piece('cupboard_lo', 33, 13); r.piece('glass_case', 30, 16); r.piece('glass_case', 35, 16)
+    # the study: the desk, a step, the bookcase, a plant in the corner
+    r.piece('pc', 23, 0); r.piece('books_fc', 26, 0); r.piece('plant', 28, 2)
+    # the master bedroom: the wardrobe, a night stand, the bed with a painting over it
+    r.piece('cupboard_lo', 30, 0); r.piece('drawers', 32, 0); r.piece('bed', 33, 2); r.piece('painting_d', 34, 0)
+    # the guest room: the bed between two night stands
+    r.piece('drawers', 23, 13); r.piece('bed', 24, 15); r.piece('drawers', 27, 13)
+    # the closet: wardrobes and drawers along its wall, a mirror cabinet
+    r.piece('cupboard_lo', 31, 13); r.piece('cupboard_lo', 33, 13); r.piece('drawers', 35, 13); r.piece('glass_case', 35, 16)
     r.piece('plant', 35, 10)
     return r
 
