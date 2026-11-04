@@ -19,7 +19,7 @@
  "frame_parity": {
   "write": {
    "frames": 76,
-   "fully_identical": 58,
+   "fully_identical": 59,
    "below_99_5": [
     [
      "cross-into-route32",
@@ -32,10 +32,6 @@
     [
      "cross-back-into-violet",
      0.9089
-    ],
-    [
-     "area-3-92",
-     0.9567
     ],
     [
      "item-ball-8-55",

@@ -30,9 +30,9 @@ because they are HGSS's pixels for those cells.
 HGSS's textures for the whole route need about 1,960 distinct 8x8 tiles; one Gen 3 map holds 1,024. AGENTS.md:
 adapt the technique to each map's hardware budget. The route is split at the viaduct:
 
-- `JohtoRoute32`: native rows 0-89 (Violet City to the viaduct), its own `route32_north` primary and secondary.
-- `JohtoRoute32South`: native rows 90-165 (the viaduct to the cave), `route32_south` primary and secondary. Its
-  row r is native row 90 + r. The Center (`Route32PokemonCenter`, Violet's interior retargeted) is entered from here.
+- `JohtoRoute32`: native rows 0-88 (Violet City to the viaduct), its own `route32_north` primary and secondary.
+- `JohtoRoute32South`: native rows 89-165 (the viaduct to the cave), `route32_south` primary and secondary. Its
+  row r is native row 89 + r. The Center (`Route32PokemonCenter`, Violet's interior retargeted) is entered from here.
 
 The seam sits in the middle of the deck. A Gen 3 map draws a connected map's rows with its own tilesets, so the 7
 rows either side of the seam have the same metatile ids, tiles and colours in both maps (palette banks 2 and 4-10
@@ -46,13 +46,16 @@ The map name pops up again when crossing (`OW_HIDE_REPEAT_MAP_POPUP` is FALSE in
   Violet cells; south has second rock, sea, tree and lawn banks. Each bank holds its family's most-used HGSS
   colours exactly (up to 14), the rest fitted to the joins. One material stays in one bank, so a road or a cliff
   cap doesn't change tone from square to square.
-- Buildings carry 21 colours; where a bank can't hold a building square's colours, the rest go in its upper tile,
-  both layers below the player (`METATILE_LAYER_TYPE_COVERED`, 34 cells).
-- Tiles: exact dedupe with flips (north 1,265 patterns, south 1,333), then logged near-duplicate merges to fit
-  1,024 (313 and 312 merges; median 1.5 / 1.8 Lab, 90th percentile 4.6 / 4.8, never above 8.1 mean or 23.8 on a
+- Feature colours no bank held (stair planks, the cave mouth's black, the Center's glass, building trims) get
+  locked slots.
+- Where a square needs two banks (buildings carry 21 colours; the shore foam sits on rock-brown dots), the missing
+  colours go in its upper tile, both layers below the player (`METATILE_LAYER_TYPE_COVERED`: 232 cells north, 74
+  south). Never on cells with art above the player or in the seam rows.
+- Tiles: exact dedupe with flips (north 1,277 patterns, south 1,389), then logged near-duplicate merges to fit
+  1,024 (325 and 366 merges; median 1.6 / 1.9 Lab, 90th percentile 3.8 / 4.6, never above 7.3 mean or 30 on a
   pixel), only within one material class and layer. Stairs, ledges, doors, signs, buildings, the cave mouth,
   top-layer art and the seam are never merged away. Every merge: `source/pack/merges.json`.
-- Palette error against the HGSS art: mean 0.69 Lab a pixel, 95th percentile 3.7.
+- Against the HGSS art, per pixel: palette mean 0.86 Lab (95th percentile 4.3); installed native mean 0.93 Lab.
 
 ## Cleanup
 
@@ -73,14 +76,14 @@ The map name pops up again when crossing (`OW_HIDE_REPEAT_MAP_POPUP` is FALSE in
 
 | Check | Result |
 | --- | --- |
-| Traversal audit, every HGSS cell (`evidence/review/material-audit.json`) | RESULT_TRAVERSAL |
-| Native pixels vs the HGSS-texture art, per cell | RESULT_ART |
+| Traversal audit, every HGSS cell (`evidence/review/material-audit.json`) | 5,117 match, 3 declared (gatehouse doorway, cave mouth), 0 mismatches |
+| Native pixels vs the HGSS-texture art, per cell | mean Lab per cell: 3,281 under 1, 1,458 at 1-3, 367 at 3-6, 14 at 6 or more (listed) |
 | Walkable area vs HGSS (`evidence/pack/pack.json`) | HGSS's 1,544 cells; native adds only the Center door cell |
-| Stairs (`evidence/review/rock-stair-audit.json`) | RESULT_STAIRS |
+| Stairs (`evidence/review/rock-stair-audit.json`) | (9-10, 74-76) east-west and (6-8, 111-112) north-south, per HGSS's decoded slope; walkable; 2.1-3.4 Lab from HGSS's pixels |
 | Seams, both directions, every visible cell (`seams.py`) | clean: Violet / north, north / south |
-| Porymap 6.3.1 export vs native decode (`evidence/review/porymap.json`) | RESULT_PORYMAP |
+| Porymap 6.3.1 export vs native decode (`evidence/review/porymap.json`) | 0 differing pixels on both maps |
 | ROM build | passes; sha256 in `evidence/review/hashes.json` |
-| Headless mGBA (`evidence/review/runtime-summary.json`) | RESULT_RUNTIME |
+| Headless mGBA (`evidence/review/runtime-summary.json`) | write, read, menu phases exit 0; 1,262 observations; 61 of 79 frames identical to the decode, the rest only where a dialogue box, the map-name popup or the Continue menu covers the map |
 
 The headless run covers Violet City to the cave forecourt and back on foot across both seams (every step checked
 against the predicted route), a walking tour into every area the route reaches, all ledge runs (jump and refuse
