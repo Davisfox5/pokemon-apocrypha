@@ -357,9 +357,14 @@ def pack(engine):
         packed = pack_sets(maximal, 13, init=[set(held[b]) for b in vb], tries=400, seed=seed)
         if packed is not None:
             break
+    if packed is None and '--greedy-only' in sys.argv:
+        loose = pack_sets(maximal, 60, init=[set(held[b]) for b in vb], tries=50)
+        import pickle; (OUT / 'sets-debug.pkl').write_bytes(pickle.dumps(dict(maximal=maximal, held=held, loose=loose)))
+        raise SystemExit(f'greedy packer gave up on {len(maximal)} sets, needs {len(loose)} (the exact program runs without --greedy-only)')
     if packed is None:                                    # the greedy packer gave up: Route 43's exact program
         sets_ = list(maximal) + [frozenset(held[b]) for b in vb]
-        res = milp_sets(sets_, 13, fixed=[(len(maximal) + i, i) for i in range(len(vb))], time_limit=1800)
+        pins = [(len(maximal) + i, i) for i in range(len(vb))]   # Violet's sets in their own banks
+        res = milp_sets(sets_, 13, fixed=pins, time_limit=3600)
         if res is not None:
             packed = [set(b) for b in res]
     if packed is None:

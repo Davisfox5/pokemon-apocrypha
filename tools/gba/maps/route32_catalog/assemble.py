@@ -14,12 +14,13 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
               non-overlapping 2x2 roots
   tall grass  G15 on every HGSS tall-grass cell
   ledges      L11/L12/L13 on the jump-south runs, turned a quarter for the jump-east run (Route 29's)
-  stairs      the Johto stair pieces (Route 30's stair_pieces.py output): grey treads on north-south flights
+  stairs      the Johto stair pieces (Route 30's stair_pieces.py output), in HGSS's own direction (its decoded
+              height slope): grey treads on north-south flights, Route 36's plank flight on east-west ones
   gatehouse   G02, the owner-approved HGSS side gate (Route 31's), its stairs on HGSS's gate warps
   Center      C06, the owner-approved Johto Center, its door on HGSS's Center door
   signs       P14 on HGSS's three route signs (model 32)
 Local assets from HGSS's own data (source/local-art/):
-  sea         HGSS's sea (sea_un, sea_on) from the flat decode: every water cell takes the HGSS water cell
+  sea         HGSS's sea (sea_un, sea_on, and its shore rim pond_line) from the flat decode: every water cell takes the HGSS water cell
               that has the same water/land neighbours (open water: and texture phase), so the shore keeps
               HGSS's foam and the open sea its texture; one exemplar per configuration keeps the tile count small
   pier        HGSS's wooden pier (bridge_b, bridge_c) the same way: one exemplar per pier-neighbour pattern
@@ -140,8 +141,8 @@ def native_cells(cells, grid):
                 c = dict(cells[hz][hx])
                 if grid[y][x] in '~X' and c['type'] in (0x15, 0x10, 0) and c['material'].startswith('sea'):
                     c['floor'] = 'water'
-                if grid[y][x] in '~OB' or c['material'].startswith('sea'):
-                    c['floor'] = 'water'
+                if grid[y][x] in '~B' or c['material'].startswith('sea'):
+                    c['floor'] = 'water'                  # a land boulder (rock01) keeps HGSS's own floor
                 if c['floor'] == 'water' and grid[y][x] != 'B':
                     c.update(ground=0.0, peak=0.0)       # the sea is one level, below every rock face beside it
             row.append(c)
@@ -174,7 +175,7 @@ def ground_quadrants(phg, ncells):
             lab = ncells[y][x]['lab']
             if y < ROW0:
                 continue
-            if lab in 'FG~BO' or ncells[y][x]['floor'] == 'water':
+            if lab in 'FG~B' or ncells[y][x]['floor'] == 'water':
                 q[qy, qx] = G.GRASS
                 continue
             hqx, hqy = qx - COL0 * 2, qy - ROW0 * 2
@@ -347,7 +348,7 @@ def sea_and_pier(phg, grid):
     _, mat, nm, rgb = Rf.topdown(phg)
     # The sea's source keeps only HGSS's water and foam: land pixels at a shore cell's edge (rock bases, grass) take
     # the open sea's texture at the same place, so no land is copied into the water.
-    water_ids = [nm.index(n) for n in nm if n.startswith('sea')]
+    water_ids = [nm.index(n) for n in nm if n.startswith('sea') or n == 'pond_line']   # pond_line: HGSS's shore rim and foam
     wet = np.isin(mat, water_ids)
     hy, hx = np.argwhere(wet.reshape(HH, PX, HW, PX).all(axis=(1, 3)))[0]
     block = rgb[hy * PX:hy * PX + 32, hx * PX:hx * PX + 32]
@@ -513,9 +514,33 @@ def viaduct_art(phg):
     return art
 
 # --------------------------------------------------------------------------- stairs, ledges
-def stairs(grid):
-    """Route 30's stair pieces flight by flight on HGSS's stair cells (north-south: grey treads)."""
-    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right')}
+EW_PLANK_TONES = 3
+EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes the Johto rock ramp
+
+def fit_ew(pieces):
+    """Route 30's: Route 36's plank flight sits in this route's wall, its rock cheeks in the wall's FRLG rock ramp,
+    its planks reduced to EW_PLANK_TONES."""
+    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
+    lab_r = _lab(np.array(ramp))
+    snap = {}
+    cols = sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()})
+    for c in cols:
+        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
+        if d.min() < EW_ROCK_SNAP:
+            snap[c] = ramp[int(d.argmin())]
+    planks = {k: apply_tones(v, snap) for k, v in pieces.items()}
+    m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
+    return {k: apply_tones(v, m) for k, v in planks.items()}
+
+def stairs(phg, grid):
+    """Route 30's stair pieces flight by flight on HGSS's stair cells. Each flight's direction is HGSS's own: the
+    decoded height falls along x (east-west) or along y (north-south) across it. An east-west flight takes Route
+    36's plank flight in each of its columns (its top cell with the dark cheek, plank cells, the bottom cell with
+    the brown cheek); a north-south flight takes the grey treads in each of its rows (left end, middle, right end)."""
+    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+    h, _, _, _ = Rf.topdown(phg)
+    gy, gx = np.gradient(h)
     g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed, seen = [], set()
@@ -530,11 +555,17 @@ def stairs(grid):
                     continue
                 comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
             seen |= comp
-            xs = sorted({c[0] for c in comp})
+            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
+            ew = abs(float(gx[sl].mean())) > abs(float(gy[sl].mean()))
             for (x, y) in sorted(comp):
-                k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                if ew:
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                else:
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
                 art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
-                placed.append(dict(cell=[x, y], art=k, flight='north-south'))
+                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south',
+                                   hgss_slope=[round(float(gx[sl].mean()), 3), round(float(gy[sl].mean()), 3)]))
     return art, placed
 
 def ledge_pieces():
@@ -585,7 +616,7 @@ def ledges(grid):
 
 # --------------------------------------------------------------------------- tones (Route 30's)
 LOCAL_TONES = 15
-FLOWER_TONES, LIGHT_TONES = 4, 3
+FLOWER_TONES, LIGHT_TONES = 3, 3
 
 def _lab(c):
     c = np.asarray(c, float) / 255
@@ -633,6 +664,8 @@ def apply_tones(a, mapping):
     return out
 
 SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 6, 5, 4, 2, 8
+LAND_BOULDER_TONES = 3
+RIM_ON_LAND = False                  # the rim in land cells joined the sea's and land's palettes: 13 no longer fit
 
 # --------------------------------------------------------------------------- compose
 def over(dst, src, x, y, owner=None, name=''):
@@ -691,6 +724,23 @@ def compose(phg, engine):
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
     water_block = sea[np.nonzero(smask)[0][0] * PX:np.nonzero(smask)[0][0] * PX + PX, np.nonzero(smask)[1][0] * PX:np.nonzero(smask)[1][0] * PX + PX]
+    # HGSS's shore rim (pond_line) where it reaches into land cells beside the sea, into the ground (rock cells
+    # take their FRLG faces instead).
+    _, tmat, tnm, trgb = Rf.topdown(phg)
+    rim = tmat == tnm.index('pond_line')
+    # On land the rim takes the land's own vocabulary: the rock ramp, the cast-shadow grey, the lawn rim and the
+    # road (so a land tile never pulls the sea's palette in).
+    sea_tones = np.array(sorted({tuple(int(v) for v in c) for c in Rk.ROCK_RAMP + [Rk.BORDER_GRAY, Rk.FRINGE_RIM]}
+                                | {tuple(c) for c in road.reshape(-1, 3).tolist()}), int)
+    for y in range(ROW0, H):
+        for x in range(W):
+            if grid[y][x] in '~XOBR^tko' or (x, y) in sea_x:      # woods: under the crowns, slivers only
+                continue
+            hsl = np.s_[(y - ROW0) * PX:(y - ROW0 + 1) * PX, (x - COL0) * PX:(x - COL0 + 1) * PX]
+            if RIM_ON_LAND and rim[hsl].any():
+                cell = bottom[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
+                px = trgb[hsl][rim[hsl]]                   # each rim pixel the nearest land tone
+                cell[rim[hsl]] = sea_tones[np.argmin(((px[:, None, :].astype(int) - sea_tones[None]) ** 2).sum(-1), 1)]
     # Rock terraces over the ground (bottom keeps the plain block beyond each edge; the sea beyond a sea cliff).
     ia, islet_cells = islets(grid)
     for x, y in islet_cells:                           # one terrace above the sea: HGSS's mixed heights broke them up
@@ -712,7 +762,15 @@ def compose(phg, engine):
             if grid[y][x] == 'G':
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15; n_g15 += 1
     la, ledge_list = ledges(grid)
-    sa, stair_list = stairs(grid)
+    sa, stair_list = stairs(phg, grid)
+    # The plank flight is wood like the pier: its plank tones take the nearest pier tone (palette budget).
+    keep_s = {tuple(c) for k in ('ns-left', 'ns-mid', 'ns-right') for c in rgba(SHARED / f'stairs/{k}.png')[..., :3].reshape(-1, 3).tolist()}
+    keep_s |= {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
+    wood = np.array(sorted({tuple(c) for c in pier[piermask].tolist()} - {tuple(c) for c in sea[seamask].tolist()}), int)
+    scol = sorted({tuple(c) for c in sa[sa[..., 3] > 0][:, :3].tolist()} - keep_s)
+    if len(wood) and scol:
+        lab_w = _lab(wood)
+        sa = apply_tones(sa, {c: tuple(int(v) for v in wood[int(np.argmin(np.linalg.norm(lab_w - _lab(np.array([c]))[0], axis=1)))]) for c in scol})
     ba, boulder_list = boulders(grid, sea_x)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).
@@ -723,7 +781,15 @@ def compose(phg, engine):
         for x in range(W):
             if grid[y][x] == 'O' and (x, y) in sea_x:
                 bottom[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = open_sea
-    ba = local(ba, BOULDER_TONES)
+    land_px = np.zeros(ba.shape[:2], bool)              # the land boulders keep their own tones
+    for b_ in boulder_list:
+        if b_['kind'] == 'land':
+            x, y = b_['xy']; land_px[y:y + 2 * PX + 8, x:x + 2 * PX + 8] = True
+    sea_b, land_b = ba.copy(), ba.copy()
+    sea_b[land_px] = 0; land_b[~land_px] = 0
+    ba = local(sea_b, BOULDER_TONES)
+    lb = local(land_b, LAND_BOULDER_TONES)
+    ba[lb[..., 3] > 0] = lb[lb[..., 3] > 0]
     ca = local(cave_mouth(), CAVE_TONES, keep=[tuple(c) for c in Rk.ROCK_RAMP])
     # Terrain belongs to the bottom layer: rock faces, stairs and the cave mouth are drawn into the
     # ground, so whatever stands on top (crowns, roofs, signs) never shares a tile with them.
@@ -767,8 +833,9 @@ def compose(phg, engine):
     over(top, va, 0, 0, owner, 'viaduct')
     (LOCAL / 'reductions.json').write_text(json.dumps(dict(
         rule=('Local HGSS art, reduced by medoids in Lab (the most distinct original tones kept farthest-first, every '
-              'other tone joining its nearest), each family within its own tones: sea 6, pier 4, boulders 3, cave mouth 2 '
-              '(with the rock ramp), flowers 4, light lawn 3. The viaduct takes the nearest of Violet palette 11\'s greys.')), indent=1) + '\n')
+              'other tone joining its nearest), each family within its own tones: sea 7 (the shore rim in land cells takes the '
+              'nearest rock, rim or road tone), pier 5, sea boulders 4, land boulders 4, cave mouth 2 (with the rock ramp), east-west stair planks the nearest pier tone, '
+              'flowers 4, light lawn 3. The viaduct takes the nearest of Violet palette 11\'s greys.')), indent=1) + '\n')
     fam = lambda a: sorted({tuple(int(v) for v in c) for c in (a[a[..., 3] > 0][:, :3] if a.shape[-1] == 4 else a.reshape(-1, 3)).tolist()})
     families = dict(sea=fam(sea[seamask]), pier=fam(pier[piermask]), rock=fam(rock_over), boulders=fam(ba), cave=fam(ca), viaduct=fam(va),
                     flowers=fam(flw), light=fam(light), stairs=fam(sa), ledges=fam(la), tall_grass=fam(g15), lawn=fam(tex[G.GRASS]),

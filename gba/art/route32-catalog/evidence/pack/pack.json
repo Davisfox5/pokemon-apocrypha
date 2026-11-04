@@ -1,10 +1,10 @@
 {
- "jobs": 963,
- "tiles": 942,
+ "jobs": 1006,
+ "tiles": 985,
  "primary_metatiles": 480,
  "secondary_metatiles": 172,
  "pinned_violet_metatiles": 24,
- "maximal_colour_sets": 87,
+ "maximal_colour_sets": 93,
  "banks": {
   "0": 15,
   "1": 15,
@@ -18,7 +18,7 @@
   "9": 15,
   "10": 15,
   "11": 15,
-  "12": 14
+  "12": 15
  },
  "reach": {
   "native_with_cut": 1545,
@@ -286,9 +286,9 @@
    136
   ],
   "border": [
-   "0x0d6",
-   "0x0d7",
-   "0x0da",
+   "0x0e2",
+   "0x0e1",
+   "0x0dc",
    "0x0db"
   ]
  },

@@ -4415,48 +4415,72 @@
     9,
     74
    ],
-   "art": "ns-left",
-   "flight": "north-south"
+   "art": "ew-top",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
     9,
     75
    ],
-   "art": "ns-left",
-   "flight": "north-south"
+   "art": "ew-mid",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
     9,
     76
    ],
-   "art": "ns-left",
-   "flight": "north-south"
+   "art": "ew-bottom",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
     10,
     74
    ],
-   "art": "ns-right",
-   "flight": "north-south"
+   "art": "ew-top",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
     10,
     75
    ],
-   "art": "ns-right",
-   "flight": "north-south"
+   "art": "ew-mid",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
     10,
     76
    ],
-   "art": "ns-right",
-   "flight": "north-south"
+   "art": "ew-bottom",
+   "flight": "east-west",
+   "hgss_slope": [
+    -0.056,
+    0.0
+   ]
   },
   {
    "cell": [
@@ -4464,7 +4488,11 @@
     111
    ],
    "art": "ns-left",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   },
   {
    "cell": [
@@ -4472,7 +4500,11 @@
     112
    ],
    "art": "ns-left",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   },
   {
    "cell": [
@@ -4480,7 +4512,11 @@
     111
    ],
    "art": "ns-mid",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   },
   {
    "cell": [
@@ -4488,7 +4524,11 @@
     112
    ],
    "art": "ns-mid",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   },
   {
    "cell": [
@@ -4496,7 +4536,11 @@
     111
    ],
    "art": "ns-right",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   },
   {
    "cell": [
@@ -4504,7 +4548,11 @@
     112
    ],
    "art": "ns-right",
-   "flight": "north-south"
+   "flight": "north-south",
+   "hgss_slope": [
+    0.0,
+    -0.061
+   ]
   }
  ],
  "boulders": [

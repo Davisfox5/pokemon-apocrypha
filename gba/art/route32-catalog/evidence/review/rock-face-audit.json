@@ -1,0 +1,21 @@
+{
+ "summary": {
+  "drop matches": 717,
+  "faces another rock cell": 66,
+  "map edge": 31,
+  "no drop": 2
+ },
+ "no_drop": [
+  [
+   9,
+   71,
+   "S"
+  ],
+  [
+   10,
+   72,
+   "W"
+  ]
+ ],
+ "rule": "HGSS rock cell with a face (downhill direction from its decoded slope): the native terrace beside it in that direction is lower"
+}

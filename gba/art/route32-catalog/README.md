@@ -28,14 +28,20 @@ It follows [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTIO
      rock face beside it.
    - The three small rock islands in the sea take one terrace each: HGSS's mixed heights broke the FRLG faces into
      fragments, and HGSS's own islet art costs about 120 tiles the map does not have.
-   - Stairs: Route 30's grey treads on HGSS's two north-south flights.
+   - Stairs, in HGSS's own direction (its decoded height slope across each flight): the flight through the wall
+     at (9-10, 74-76) falls from west to east (height 2.9 to 1.2) and takes Route 36's plank flight, its cheeks in
+     the Johto rock ramp (Route 30's east-west flight); the flight at (6-8, 111-112) falls from north to south (2.9
+     to 1.2) and takes Route 30's grey treads.
    - Ledges: L11/L12/L13 on the jump-south runs, turned a quarter for the jump-east run, corners joined (Route 29's).
 5. **Sea and pier** (`assemble.py` `sea_and_pier`): HGSS's own pixels from the flat decode. Every sea cell takes the
    HGSS sea cell with the same water/land neighbours (open water: and the same 32 px texture phase); every pier cell
    the HGSS pier cell with the same pier neighbours. Land pixels at a shore cell's edge take the open sea's texture,
-   so no land is copied into the water. One exemplar per configuration keeps the tile count small.
+   so no land is copied into the water; HGSS's shore rim and foam (`pond_line`) stay in the water cells. Where the
+   rim reaches into the land cells beside the sea it is left out: drawing it there joined the sea's and the land's
+   palettes and the route no longer fit 13 palettes. One exemplar per configuration keeps the tile count small.
 6. **Boulders**: HGSS's sea boulders and land boulders as sprites at HGSS's own positions (16 px grid), from HGSS's
-   own render, one exemplar each.
+   own render, one exemplar each. The land boulders stand on HGSS's own sand. One cell HGSS blocks beside a sea boulder,
+   (28, 99), shows open water: the boulder's sprite stands in the next cell.
 7. **Union Cave mouth**: HGSS's cavehole texture from its own render, over the rock face.
 8. **Catalog art**, byte for byte with hashes (`codex/violet-city` de5d8cfb): G15 on all 417 tall-grass cells,
    P14 on the three route signs, G02 (the owner-approved HGSS side gate, Route 31's) on the Ruins of Alph gatehouse
@@ -80,7 +86,9 @@ It follows [the map reconstruction workflow](../../../docs/GBA_MAP_RECONSTRUCTIO
 | Material audit, every HGSS cell (`evidence/review/material-audit.json`) | 5,113 match, 6 declared (gatehouse base row), 1 flagged: (28, 99), a cell HGSS blocks beside a boulder whose sprite stands in the next cell |
 | Native decode vs assembled art (`evidence/pack/pack.json`) | 0 pixels differ |
 | Walkable area vs HGSS (`source/pack/traversal.json`) | HGSS's 1,544 cells; native adds only the Center door cell |
-| Budget | 942 of 1,024 tiles; 480 primary and 172 secondary metatiles; 13 palettes; 24 Violet metatiles pinned |
+| Budget | 985 of 1,024 tiles; 480 primary and 172 secondary metatiles; 13 palettes; 24 Violet metatiles pinned |
+| Rock faces (`evidence/review/rock-face-audit.json`): every HGSS rock cell with a face against the native terrace in that direction | 717 drop as HGSS's do, 66 face another rock cell, 31 at the map edge, 2 do not: (9, 71) and (10, 72), the corner above the east-west stairs, where HGSS's mesh has no material and the cells are solid rock |
+| Stair direction from HGSS's decoded slope | (9-10, 74-76) east-west (slope -0.056 in x), (6-8, 111-112) north-south (-0.061 in y): both placed that way |
 | Seams, both directions, every cell a player can see (`seams.py`) | clean: Violet City |
 | ROM build | passes; sha256 in `evidence/review/hashes.json` |
 | Headless mGBA (`evidence/review/runtime-summary.json`) | all three phases exit 0 |
@@ -110,6 +118,10 @@ the rest differ only where something covers the map (dialogue boxes, the map-nam
   no door animation is registered for Route 32's tilesets.
 - **Route 33.** HGSS's south edge opens onto Route 33; no Route 33 is on this branch, so there is no south connection.
 - **Viaduct.** Drawn from HGSS's track textures on HGSS's shadow footprint (above).
+- **North-south stairs.** HGSS draws the flight at (6-8, 111-112) in tan wood; it takes the grey treads Routes 30 and 31
+  established for north-south flights.
+- **Shore rim on land.** HGSS's rim reaches a few pixels into the land cells beside the sea; it is drawn only in the
+  water cells (palette budget, above).
 - **Islets.** One terrace each (above).
 - **Items.** HGSS's item balls and hidden items are placed with HGSS's items; JOHTO_ITEMS.md does not list Route 32's
   field items yet, so they are a proposal for the owner. HGSS's TM09 ball is left out (the TM list is the project's own).
