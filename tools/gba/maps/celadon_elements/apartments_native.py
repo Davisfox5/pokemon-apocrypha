@@ -7,8 +7,9 @@ place of every custom or converted one).
 Every element is a whole metatile piece from an Emerald or FireRed room in the engine, checked
 whole against its own room (cut(): an object whose pixels run past its box is flagged), laid on
 by its own pixels over this room's floor and walls. HGSS conversions stay only where neither game
-has the element (NATIVE_GAPS; none so far). The floor plans' geometry (apartments_floorplans.py)
-is kept: rooms, walls, doorways, the core.
+has the element (NATIVE_GAPS; none so far). The plans are here (Plan): the floor plans of
+apartments_floorplans.py redrawn 36 squares wide so the core's north wall holds both flights and
+the elevator apart (owner, 2026-11-04), and with the museum's own wall depths.
 
     shell      Lilycove Museum (Emerald): its cream walls and pink skirting, the north wall, the
                inner walls seen from above and face on, its marble floor for the lobby and core
@@ -20,7 +21,8 @@ is kept: rooms, walls, doorways, the core.
                its rug; the museum's paintings, sculptures and bench
     service    Lilycove Dept Store (Emerald): the elevator doors, the counter, the planters and
                plants; its rooftop for the terrace (paving, railings, planters, benches)
-    stairs     FireRed's Condominiums stairs up and down, its doorway, its call panel
+    stairs     the museum's flights set into the north wall: up (1F) and down (2F), alternating
+               spots floor to floor as a stairwell would (STAIRS)
 
 Writes gba/art/celadon-elements/evidence/apartments/native-*.png (each floor, and
 native-pieces.png: every piece on its own with its check).
@@ -36,7 +38,6 @@ sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent)); sys.path.in
 import common as C                                  # noqa: E402
 import frlg                                         # noqa: E402
 import tiles as T                                   # noqa: E402
-import apartments_floorplans as FP                  # noqa: E402
 
 ENG = C.ROOT.parent / 'pokeemerald-expansion'
 EV = C.ROOT / 'gba/art/celadon-elements/evidence/apartments'
@@ -95,7 +96,7 @@ for k, n in dict(MU='LilycoveCity_LilycoveMuseum_1F', B1='LittlerootTown_Brendan
                  DV='RustboroCity_DevonCorp_3F', DS='LilycoveCity_DepartmentStore_1F', RT='LilycoveCity_DepartmentStoreRooftop',
                  FC='SlateportCity_PokemonFanClub', LO='FourIsland_LoreleisHouse', K1='CeladonCity_Condominiums_1F',
                  K2='CeladonCity_Condominiums_2F', K3='CeladonCity_Condominiums_3F',
-                 EL='LilycoveCity_DepartmentStoreElevator').items():
+                 EL='LilycoveCity_DepartmentStoreElevator', M2='LilycoveCity_LilycoveMuseum_2F').items():
     source(k, n)
 
 _flat = {}
@@ -174,7 +175,7 @@ PIECES = {
     'kitchen':      ('B1', 0, 0, 5, 3, 'wall'), 'tv': ('B1', 4, 4, 1, 2, 'floor'), 'table_w': ('B1', 2, 4, 2, 2, 'floor', (0, 7)),
     'kitchen_in':   ('B1', 0, 0, 5, 3, 'wall', 17),
     'dining_b1':    ('B1', 1, 5, 6, 4, 'floor', 9),
-    'window':       ('K1', 4, 0, 1, 2, 'wall'), 'stairs_mu': ('MU', 15, 0, 3, 2, 'wall'),
+    'window':       ('K1', 4, 0, 1, 2, 'wall'), 'mat': ('B1', 8, 8, 2, 1, 'floor'),
     'pc':           ('B2', 0, 0, 2, 3, 'wall'), 'console': ('B2', 3, 1, 1, 2, 'wall'), 'tv_wall': ('B2', 4, 0, 1, 3, 'wall'),
     'clock':        ('B2', 5, 0, 1, 2, 'wall'), 'picture': ('B2', 2, 0, 1, 2, 'wall'), 'bed': ('B2', 0, 4, 3, 2, 'floor'),
     'rug_blue':     ('B2', 4, 3, 4, 4, 'floor'),
@@ -193,7 +194,8 @@ PIECES = {
     'r_planter':    ('RT', 1, 2, 2, 2, 'floor'), 'r_bench': ('RT', 5, 5, 2, 1, 'floor'), 'r_chair': ('RT', 16, 4, 1, 1, 'floor'),
     'r_vending':    ('RT', 9, 0, 2, 2, 'wall'),
     # FireRed's Condominiums
-    'stairs_up':    ('K1', 5, 0, 2, 4, 'wall'), 'stairs_down': ('K3', 0, 0, 2, 4, 'cells'), 'doorway': ('K1', 1, 0, 3, 2, 'wall'),
+    # the museum's flights, set into the north wall: up (1F, to 2F) and down (2F, to 1F)
+    'stairs_up':    ('MU', 15, 0, 3, 2, 'wall'), 'stairs_down': ('M2', 12, 0, 3, 2, 'wall'),
     'sofa_fr':      ('K2', 1, 6, 4, 2, 'floor', 9), 'sofa_side': ('K2', 6, 9, 1, 3, 'floor'), 'table_fr': ('K2', 1, 8, 4, 4, 'floor'),
     'tv_fr':        ('K2', 5, 5, 2, 3, 'wall'), 'sofa_fr2': ('K2', 4, 16, 3, 2, 'floor'), 'picture_fr': ('K2', 2, 15, 2, 2, 'wall'),
 }
@@ -237,80 +239,135 @@ def cut(name):
                top=int((big[Y0, X0:X1] & big[Y0 - 1, X0:X1]).sum()), bottom=int((big[Y1 - 1, X0:X1] & big[Y1, X0:X1]).sum()))
     return {k: v for k, v in out.items() if v}
 
-# --------------------------------------------------------------------------- the shell's cells
-# (source, x, y) of each background cell: floors repeat with their own 2 x 2 period
-SHELL = dict(
-    wall_top=[('MU', 3, 0), ('MU', 4, 0)], wall_face=[('MU', 3, 1), ('MU', 4, 1)],
-    ew_cap=[('MU', 4, 4), ('MU', 5, 4)], ew_face=[('MU', 4, 6), ('MU', 5, 6)],
-    ns_cap=[('MU', 9, 7)], ns_end=[('MU', 9, 8)],
+# --------------------------------------------------------------------------- the shell
+# The museum's walls by its own rule (Lilycove Museum 1F):
+#   north wall   two rows, its top (MU x, 0) and its face with the skirting (MU x, 1)
+#   east-west    three rows: its cap, whose top half is the floor beyond it (MU x, 4), its face
+#                (MU x, 5) and its face with the skirting (MU x, 6); at a doorway the wall ends in
+#                a pillar: its cap corner (MU 9, 4), the pillar (MU 9, 5), its foot (MU 9, 8)
+#   north-south  a pillar one square wide: over the north wall (MU 13, 0-1), down its length
+#                banded and plain by turns (MU 13, 2 / 13, 3), its foot with the skirting (MU 13, 4)
+# The marble's shade is the museum's: under a wall (MU x, 2 / x, 7) and east of a pillar
+# (MU 10, 6-7). The other floors are their own rooms' plain floor.
+FLOORS = dict(
     marble=[('MU', 10, 10), ('MU', 11, 10), ('MU', 10, 11), ('MU', 11, 11)],
     wood=[('B1', 7, 5), ('B1', 8, 5), ('B1', 7, 6), ('B1', 8, 6)],
     carpet=[('LO', 9, 6), ('LO', 10, 6), ('LO', 9, 7), ('LO', 10, 7)],
-    red=[('DV', 13, 5), ('DV', 14, 5), ('DV', 13, 6), ('DV', 14, 6)],
-    paving=[('RT', 3, 3), ('RT', 4, 3), ('RT', 3, 4), ('RT', 4, 4)],
-    black=[('K1', 0, 19)])
-FLOOR_OF = dict(lobby='marble', core='marble', living='wood', kitchen='wood', bed='carpet', closet='wood', study='wood',
-                terrace='paving', red='red')
+    red=[('DV', 13, 5), ('DV', 14, 5), ('DV', 13, 6), ('DV', 14, 6)])
+BLACK = ('K1', 0, 19)
 
-def shell_cell(name, x, y):
-    cells = SHELL[name]
-    if len(cells) == 4:
-        src, sx, sy = cells[(y % 2) * 2 + (x % 2)]
-    else:
-        src, sx, sy = cells[x % len(cells)]
+def floor_cell(style, x, y):
+    src, sx, sy = FLOORS[style][(y % 2) * 2 + (x % 2)]
     return flat(src, sx, sy)
 
+W = 36                                        # every floor 36 squares wide
+CORE = (11, 21)                               # the core's floor; its walls at x 10 and 22
+P, LIFT, Q = 11, 15, 19                       # the north wall's three spots: stairs, the elevator, stairs
+
+class Plan:
+    """A floor's geometry: floor style per square, north-south walls (x, y0, y1), east-west walls
+    (x0, x1, cap row) three rows deep, doorways (squares cut from the walls, with their floor)."""
+    def __init__(self, H=16):
+        self.W, self.H = W, H
+        self.floor = np.full((H, W), '', '<U8')
+        self.ns, self.ew, self.doors, self.sills = [], [], {}, set()
+    def room(self, x0, y0, x1, y1, style):
+        self.floor[y0:y1 + 1, x0:x1 + 1] = style
+    def door_ns(self, x, y, style):
+        self.doors[(x, y)] = style
+    def door_ew(self, x, cap, style):
+        for yy in range(cap, cap + 3):
+            self.doors[(x, yy)] = style
+        self.sills.add((x, cap))                 # the doorway's sill: the room beyond up to the cap's line
+
 class Room:
-    def __init__(self, plan, floor_over=None):
-        W, H = FP.W, FP.H
+    def __init__(self, plan):
+        self.p = plan
+        W, H = plan.W, plan.H
         self.W, self.H = W, H
         self.img = np.zeros((H * 16, W * 16, 3), np.int16)
         self.solid = np.zeros((H, W), bool)
         self.used = []
-        kind = np.full((H, W), 'void', '<U8'); style = np.full((H, W), 'core', '<U8')
-        for (x0, y0, x1, y1), k, _ in plan['rooms']:
-            kind[y0:y1 + 1, x0:x1 + 1] = 'floor'; style[y0:y1 + 1, x0:x1 + 1] = k
-        if floor_over:
-            for k, v in floor_over.items():
-                style[style == k] = v
-        wall = np.zeros((H, W), bool); wall[0:2, :] = True
-        for (x0, y0, x1, y1) in plan['walls']:
-            wall[y0:y1 + 1, x0:x1 + 1] = True
-        doors = set(plan['doors'])
-        for x, y in doors:
-            wall[y, x] = False; kind[y, x] = 'floor'
-            yy = y
-            while (x, yy) in doors and yy < H - 1:
-                yy += 1
-            style[y, x] = style[yy, x] if kind[yy, x] == 'floor' else style[max(0, y - 1), x]
-        wall[H - 1, :] = False
-        kind[wall] = 'wall'; kind[H - 1, :] = 'void'
-        self.kind, self.style, self.wall = kind, style, wall
+        ns, ew = set(), {}
+        for x, y0, y1 in plan.ns:
+            for y in range(y0, y1 + 1):
+                ns.add((x, y))
+        for x0, x1, cap in plan.ew:
+            for x in range(x0, x1 + 1):
+                for r in range(3):
+                    ew[(x, cap + r)] = r
+        for c in plan.doors:
+            ns.discard(c); ew.pop(c, None)
+        style = plan.floor.copy()
+        for (x, y), st in plan.doors.items():
+            style[y, x] = st
+        wall = np.zeros((H, W), bool); wall[0:2] = True
+        for x, y in ns | set(ew):
+            wall[y, x] = True
+        self.ns, self.ew, self.wall, self.style = ns, ew, wall, style
         for y in range(H):
             for x in range(W):
-                sl = np.s_[y * 16:y * 16 + 16, x * 16:x * 16 + 16]
-                if kind[y, x] == 'floor':
-                    self.img[sl] = shell_cell(FLOOR_OF.get(style[y, x], 'wood'), x, y)
-                elif kind[y, x] == 'void':
-                    self.img[sl] = shell_cell('black', x, y); self.solid[y, x] = True
+                sl = np.s_[y * 16:(y + 1) * 16, x * 16:(x + 1) * 16]
+                if wall[y, x]:
+                    self.img[sl] = self.wall_cell(x, y); self.solid[y, x] = True
+                elif style[y, x]:
+                    self.img[sl] = self.floor_at(x, y)
+                    if (x, y) in plan.sills and style[y - 1, x] and style[y - 1, x] != style[y, x]:
+                        self.img[sl][:8] = self.floor_at(x, y - 1)[:8] if style[y - 1, x] != 'marble' else floor_cell('marble', x, y)[:8]
                 else:
-                    self.solid[y, x] = True
-                    self.img[sl] = shell_cell(self.wall_kind(x, y), x, y)
-    def wall_kind(self, x, y):
-        """The museum's walls by the game's rule: the north wall its top and face; an east-west
-        wall (a wall cell with wall east or west of it) its cap over its face; a north-south
-        wall its cap down its length and its face at its foot."""
-        H, W, wall = self.H, self.W, self.wall
+                    self.img[sl] = flat(*BLACK); self.solid[y, x] = True
+    def is_wall(self, x, y):
+        return not (0 <= x < self.W and 0 <= y < self.H) or self.wall[y, x]
+    def floor_at(self, x, y):
+        st = self.style[y, x] if 0 <= y < self.H and 0 <= x < self.W else ''
+        if not st:
+            return floor_cell('marble', x, y)
+        if st != 'marble':
+            return floor_cell(st, x, y)
+        under = self.wall[y - 1, x] and ((x, y - 1) not in self.ns or y - 1 <= 1)
+        beside = x > 0 and (x - 1, y) in self.ns
+        if under and beside:
+            return mu(14, 2)
+        if under:
+            return mu(4 + x % 2, 2 if y - 1 <= 1 else 7)
+        if beside:
+            return mu(10, 6 + y % 2)
+        return floor_cell('marble', x, y)
+    def with_floor(self, cell, x, fy, rows):
+        """A wall square whose part `rows` is the floor of square (x, fy)."""
+        out = cell.copy()
+        if 0 <= fy < self.H and self.style[fy, x] and self.style[fy, x] != 'marble':
+            out[rows] = floor_cell(self.style[fy, x], x, fy)[rows]
+        return out
+    def wall_cell(self, x, y):
+        H = self.H
+        if (x, y) in self.ns:
+            if y <= 1:
+                return mu(13, y)
+            if not self.is_wall(x, y + 1):
+                return self.with_floor(mu(13, 4), x, y + 1, np.s_[8:])
+            return mu(13, 2 + y % 2)
         if y <= 1:
-            return 'wall_top' if y == 0 else 'wall_face'
-        floor_below = y + 1 < H and not wall[y + 1, x]
-        ew = (x > 0 and wall[y, x - 1]) or (x + 1 < W and wall[y, x + 1])
-        if ew and not (y + 1 < H and wall[y + 1, x] and not ((x > 0 and wall[y + 1, x - 1]) or (x + 1 < W and wall[y + 1, x + 1]))):
-            return 'ew_face' if floor_below else 'ew_cap'
-        return 'ns_end' if floor_below else 'ns_cap'
+            return mu(3 + x % 2, y)
+        r = self.ew[(x, y)]
+        cap = y - r
+        left_open = not self.is_wall(x - 1, y)
+        right_open = not self.is_wall(x + 1, y)
+        if left_open or right_open:                    # the wall's end at a doorway: its pillar
+            c = [mu(9, 4), mu(9, 5), mu(9, 8)][r]
+            if left_open and not right_open:
+                c = c[:, ::-1]
+            if r == 0:
+                return self.with_floor(c, x, cap - 1, np.s_[:8])
+            if r == 2:
+                return self.with_floor(c, x, cap + 3, np.s_[8:])
+            return c
+        if r == 0:
+            return self.with_floor(mu(4 + x % 2, 4), x, cap - 1, np.s_[:8])
+        return mu(4 + x % 2, 4 + r)
     def piece(self, name, x, y, solid=True):
         """A whole piece by its own pixels, its top-left cell at (x, y) ('cells' pieces whole
-        below the wall rows: a stairwell's own dark is the piece)."""
+        below the wall rows)."""
         src, sx, sy, w, h, kind = PIECES[name][:6]
         self.used.append((name, x, y))
         m = piece_mask(name); px = piece_pixels(name)
@@ -326,65 +383,101 @@ class Room:
     def png(self):
         return np.clip(self.img, 0, 255).astype(np.uint8)
 
+def mu(x, y):
+    return flat('MU', x, y)
+
 # --------------------------------------------------------------------------- the floors
-def core(r, up=True, down=True):
-    r.piece('elevator', 11, 0)
-    if down:
-        r.piece('stairs_down', 13, 0)
-    if up:
-        r.piece('stairs_up', 15, 0)
-    r.piece('plant', 11, 12); r.piece('plant', 16, 12)
+# The stairs alternate as a real stairwell would: the flight up from a floor lands where the
+# next floor's flight down is, so the spots swap floor to floor (owner, 2026-11-04):
+#   1F up P;  2F, 4F down P, up Q;  3F, 5F down Q, up P;  6F down P, up Q;  roof down Q
+STAIRS = {1: (None, P), 2: (P, Q), 3: (Q, P), 4: (P, Q), 5: (Q, P), 6: (P, Q)}
+
+def core(p, r, floor, plants=True):
+    down, up = STAIRS[floor]
+    r.piece('elevator', LIFT, 0)
+    if down is not None:
+        r.piece('stairs_down', down, 0)
+    r.piece('stairs_up', up, 0)
+    if plants:
+        r.piece('plant', CORE[0], p.H - 3); r.piece('plant', CORE[1], p.H - 3)
+
+def core_plan(p):
+    p.room(CORE[0], 2, CORE[1], p.H - 2, 'marble')
+    p.ns += [(10, 0, p.H - 2), (22, 0, p.H - 2)]
 
 def lobby():
-    p = FP.lobby()
+    p = Plan()
+    p.room(0, 2, W - 1, 14, 'marble')
+    p.room(0, 2, 5, 5, 'wood')                                   # the concierge office
+    p.ns += [(6, 0, 8)]; p.ew += [(0, 5, 6)]
+    p.door_ew(3, 6, 'marble')
     r = Room(p)
-    core(r, down=False)
-    r.piece('painting_a', 0, 0); r.piece('books_fc', 2, 0); r.piece('pc', 4, 0)  # the office: shelves and a desk
-    r.piece('counter', 7, 7)                                                      # the concierge desk facing the door
-    r.piece('painting_b', 18, 0); r.piece('painting_d', 22, 0); r.piece('painting_a', 26, 0)
-    r.piece('lounge', 20, 7)                                                      # the lounge: sofa, armchairs, table
-    r.piece('statue_a', 9, 12); r.piece('statue_b', 18, 12)
-    r.piece('planter', 0, 12); r.piece('planter', 29, 12); r.piece('glass_case', 30, 3); r.piece('glass_case', 30, 5)
+    core(p, r, 1, plants=False)
+    r.piece('painting_a', 0, 0); r.piece('books_fc', 2, 0); r.piece('pc', 4, 0)          # the office: shelves, a desk
+    r.piece('counter', 7, 10)                                                         # the concierge desk by the door
+    r.piece('painting_b', 24, 0); r.piece('painting_d', 28, 0); r.piece('painting_a', 32, 0)
+    r.piece('lounge', 25, 7)                                                          # the lounge
+    r.piece('statue_a', 13, 12); r.piece('statue_b', 19, 12)                          # either side of the way in
+    r.piece('planter', 0, 12); r.piece('planter', 34, 12); r.piece('glass_case', 35, 3); r.piece('glass_case', 35, 5)
+    r.piece('plant', 23, 2); r.piece('plant', 9, 2)
+    r.piece('mat', 16, 14, solid=False)                                               # the street door
     return r
 
-def typical():
-    p = FP.typical()
+def typical(floor):
+    p = Plan()
+    core_plan(p)
+    p.room(0, 2, 9, 14, 'wood')                                  # the studio, one open room
+    p.door_ns(10, 10, 'wood')
+    p.room(23, 2, 28, 5, 'carpet'); p.room(30, 2, 35, 5, 'carpet')   # the two-bedroom's bedrooms
+    p.room(23, 9, 35, 14, 'wood')                                # its living room
+    p.ns += [(29, 0, 6)]; p.ew += [(23, 35, 6)]
+    p.door_ew(24, 6, 'wood'); p.door_ew(34, 6, 'wood')
+    p.door_ns(22, 10, 'wood')
     r = Room(p)
-    core(r)
+    core(p, r, floor)
     # the studio: the kitchen and the TV along the window wall, the dining set below the kitchen,
-    # FireRed's end-on sofa and a low table by the TV; the bed and a rug in the sleeping half
+    # the end-on sofa and a low table by the TV, the bed on its rug in the far corner
     r.piece('kitchen', 0, 0); r.piece('window', 5, 0); r.piece('clock', 6, 0); r.piece('tv_wall', 7, 0)
     r.piece('dining_b1', 0, 4)
     r.piece('table_w', 7, 4); r.piece('sofa_side', 9, 3)
-    r.piece('bed', 0, 11); r.piece('rug_blue', 4, 10); r.piece('plant', 9, 13); r.piece('plant', 0, 8)
-    # the two-bedroom: a bed and a desk or shelves in each bedroom
-    r.piece('pc', 18, 0); r.piece('picture', 20, 0); r.piece('bed', 21, 2)
-    r.piece('books_lo', 25, 0); r.piece('drawers', 30, 0); r.piece('bed', 28, 2)
-    # its open room: the kitchen on the bedrooms' wall between their doors, the dining set below it,
-    # FireRed's sofas round a low table on the left
-    r.piece('kitchen_in', 22, 6)
-    r.piece('dining_b1', 24, 10)
-    r.piece('sofa_fr', 18, 10); r.piece('sofa_side', 22, 11); r.piece('table_w', 19, 12)
-    r.piece('plant', 30, 8)
+    r.piece('rug_blue', 0, 10, solid=False); r.piece('bed', 0, 10)
+    r.piece('plant', 9, 13); r.piece('plant', 0, 8)
+    # the bedrooms: a bed and a desk or shelves in each
+    r.piece('pc', 23, 0); r.piece('picture', 25, 0); r.piece('bed', 26, 2)
+    r.piece('books_lo', 30, 0); r.piece('drawers', 32, 0); r.piece('bed', 33, 2)
+    # the open room: the kitchen on the bedrooms' wall, the dining set under it, the sofas
+    r.piece('kitchen_in', 27, 7)
+    r.piece('dining_b1', 23, 10)
+    r.piece('sofa_fr', 30, 10); r.piece('sofa_side', 34, 11); r.piece('table_w', 31, 12)
     return r
 
 def penthouse():
-    p = FP.penthouse()
-    r = Room(p, floor_over=dict(living='red', bed='red'))
-    core(r)
-    # the great room: the kitchen and Devon's black sofa on the window wall, its glass table and an
-    # armchair before the sofa, Lorelei's dining set below the kitchen, a display corner
+    p = Plan(H=20)
+    core_plan(p)
+    p.room(0, 2, 9, 18, 'red')                                   # the great room
+    p.door_ns(10, 10, 'red')
+    p.room(23, 2, 28, 6, 'wood'); p.room(30, 2, 35, 6, 'red')    # the study, the master bedroom
+    p.room(23, 10, 35, 11, 'marble')                             # the hall
+    p.room(23, 15, 28, 18, 'red'); p.room(30, 15, 35, 18, 'wood')   # the guest room, the walk-in closet
+    p.ns += [(29, 0, 7), (29, 12, 18)]; p.ew += [(23, 35, 7), (23, 35, 12)]
+    p.door_ew(26, 7, 'marble'); p.door_ew(32, 7, 'marble'); p.door_ew(26, 12, 'red'); p.door_ew(32, 12, 'wood')
+    p.door_ns(22, 10, 'marble')
+    r = Room(p)
+    core(p, r, 6)
+    # the great room: the kitchen and the black sofa on the window wall, the glass table and an
+    # armchair before the sofa, the dining set below, a reading corner, the display cases
     r.piece('kitchen', 0, 0); r.piece('sofa_black', 6, 0)
     r.piece('glass_table', 5, 3); r.piece('armchair_l', 4, 3)
     r.piece('dining_lo', 0, 8)
-    r.piece('glass_case', 9, 9); r.piece('glass_case', 9, 11); r.piece('plant', 0, 13); r.piece('plant', 9, 13)
-    # the study: shelves and the desk
-    r.piece('books_fc', 18, 0); r.piece('pc', 20, 0); r.piece('plant', 22, 4)
-    # the master bedroom: a painting, shelves and the bed
-    r.piece('painting_d', 24, 0); r.piece('books_lo', 26, 0); r.piece('drawers', 30, 0); r.piece('bed', 27, 2)
-    # the guest room and the walk-in closet
-    r.piece('cupboard_lo', 18, 9); r.piece('bed', 20, 11)
-    r.piece('drawers', 25, 9); r.piece('cupboard_lo', 28, 9); r.piece('glass_case', 24, 12); r.piece('glass_case', 30, 12)
+    r.piece('armchair_l', 1, 13); r.piece('side_table', 2, 13); r.piece('armchair_r', 4, 13)
+    r.piece('glass_case', 9, 8); r.piece('glass_case', 9, 12); r.piece('plant', 0, 17); r.piece('plant', 9, 17)
+    # the study, the master bedroom
+    r.piece('books_fc', 23, 0); r.piece('pc', 25, 0); r.piece('plant', 28, 2)
+    r.piece('painting_d', 30, 0); r.piece('books_lo', 32, 0); r.piece('bed', 33, 2)
+    # the guest room, the closet
+    r.piece('cupboard_lo', 23, 13); r.piece('bed', 23, 15)
+    r.piece('drawers', 30, 13); r.piece('cupboard_lo', 33, 13); r.piece('glass_case', 30, 16); r.piece('glass_case', 35, 16)
+    r.piece('plant', 35, 10)
     return r
 
 def rt_layers(sx, sy, flip=False):
@@ -397,12 +490,11 @@ def rt_layers(sx, sy, flip=False):
 def roof():
     """Lilycove Dept Store's rooftop at the terrace's size, built as Emerald builds it: its paving,
     shade and parapet from the bottom layer, the railing over them from the top layer, the east
-    side the west side flipped (Gen 3 flips tiles). The stair house, vending machines, planters,
-    benches and chairs are the rooftop's own."""
-    p = FP.roof()
-    W, H = FP.W, FP.H
+    side the west side flipped (Gen 3 flips tiles). The stair house (over the 6F flight up, Q),
+    vending machines, planters, benches and chairs are the rooftop's own."""
+    H = 16
+    p = Plan(H)
     r = Room(p)
-    r.solid[:] = False
     def col(x):
         if x == 0: return 0, False
         if x == W - 1: return 0, True
@@ -410,7 +502,7 @@ def roof():
         return 3 + (x % 2), False
     def row(y):
         if y <= 1: return y
-        if y >= H - 4: return y - (H - 4) + 6          # the south railing, the edge, the parapet, the wall below
+        if y >= H - 4: return y - (H - 4) + 6
         return 3 + (y % 2)
     for y in range(H):
         for x in range(W):
@@ -424,7 +516,6 @@ def roof():
             bot[a] = top[..., :3][a]
             r.img[y * 16:(y + 1) * 16, x * 16:(x + 1) * 16] = bot
             r.solid[y, x] = x in (0, W - 1) or y <= 1 or y >= H - 4
-    r.kind[:] = 'floor'
     def put(sx, sy, w, h, x, y, cells=False):
         for yy in range(h):
             for xx in range(w):
@@ -435,14 +526,14 @@ def roof():
                 a = top[..., 3] > 0
                 dst[a] = top[..., :3][a]
                 r.solid[y + yy, x + xx] = True
-    put(12, 1, 3, 3, 14, 1, cells=True)                 # the stair house (its door the stairs down)
-    r.solid[3, 15] = False
-    put(9, 0, 2, 2, 11, 0, cells=True)                  # vending machines in the railing
-    for x, y in ((2, 3), (2, 7), (27, 3), (27, 7)):
+    put(12, 1, 3, 3, Q, 1, cells=True)                  # the stair house over the flight up from 6F
+    r.solid[3, Q + 1] = False
+    put(9, 0, 2, 2, 25, 0, cells=True)                  # vending machines in the railing
+    for x, y in ((2, 3), (2, 7), (32, 3), (32, 7)):
         put(1, 2, 2, 2, x, y)                           # planters
-    for x, y in ((6, 6), (6, 9), (21, 6), (21, 9)):
+    for x, y in ((7, 6), (7, 9), (26, 6), (26, 9)):
         put(5, 5, 2, 1, x, y)                           # benches
-    for x, y in ((9, 6), (9, 9), (24, 6), (24, 9)):
+    for x, y in ((10, 6), (10, 9), (29, 6), (29, 9)):
         put(16, 4, 1, 1, x, y)                          # chairs
     r.used = [('rooftop', 0, 0)]
     return r
@@ -500,9 +591,11 @@ def main():
     EV.mkdir(parents=True, exist_ok=True)
     piece_sheet()
     out = []
-    for k, title in dict(lobby='1F  Lobby', typical='2F-5F  Studio (west) and two-bedroom (east)',
-                         penthouse='6F  Penthouse', roof='Roof terrace').items():
-        r = globals()[k]()
+    for k, title, fn in (('lobby', '1F  Lobby', lobby),
+                         ('typical', '2F and 4F  Studio (west), two-bedroom (east): down at the west flight, up at the east', lambda: typical(2)),
+                         ('typical_b', '3F and 5F  the same, the flights swapped: down at the east, up at the west', lambda: typical(3)),
+                         ('penthouse', '6F  Penthouse', penthouse), ('roof', 'Roof terrace', roof)):
+        r = fn()
         Image.fromarray(r.png()).save(EV / f'native-{k}.png')
         out.append((title, r.png()))
         print(k, 'pieces', len(r.used))
