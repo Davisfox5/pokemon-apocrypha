@@ -4,63 +4,63 @@
    26,
    13
   ],
-  "px_changed_by_palette": 15253,
+  "px_changed_by_palette": 19982,
   "notes": [
    "HGSS's Pokemon School as the lecture room; a library wing of nine columns west of it (proposal)"
   ]
  },
  "university": {
   "log": [
-   "banks from merging colours within 2 five-bit steps (77 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 1.15 (alternative 5.13)",
-   "241 tiles, 110 metatiles"
+   "113 colours, k-means over 292 quadrants into 13 banks (seed 3, error 4778228), 24 quadrants repaired; score 1.34 (alternative 3.10)",
+   "237 tiles, 112 metatiles"
   ],
-  "tiles": 241,
-  "metatiles": 110
+  "tiles": 237,
+  "metatiles": 112
  },
  "VioletLectureHall": {
   "size": [
    17,
-   30
+   27
   ],
-  "px_changed_by_palette": 48795,
+  "px_changed_by_palette": 29911,
   "notes": [
-   "HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court (proposal)"
+   "HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court up against the stage, desks along it facing the court (proposal)"
   ]
  },
  "lecture": {
   "log": [
-   "banks from merging colours within 2 five-bit steps (50 colours), each refit to its quadrants' original colours, 15 quadrants repaired; score 1.86 (alternative 2.95)",
-   "574 tiles, 300 metatiles"
+   "221 colours, k-means over 729 quadrants into 13 banks (seed 4, error 4304812), 11 quadrants repaired; score 1.49 (alternative 1.89)",
+   "605 tiles, 279 metatiles"
   ],
-  "tiles": 574,
-  "metatiles": 300
+  "tiles": 605,
+  "metatiles": 279
  },
  "VioletHouse1": {
   "size": [
    11,
    10
   ],
-  "px_changed_by_palette": 4405,
+  "px_changed_by_palette": 0,
   "notes": [
-   "a retired sage's home: HGSS's tatami house, a home shrine, low table, cushions, a Bellsprout statue (proposal)"
+   "a retired sage's home: the Fighting Dojo's wall, planks and tatami, a Bellsprout statue (proposal)"
   ]
  },
  "sage_house": {
   "log": [
-   "banks from merging colours within 1 five-bit steps (84 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 0.81 (alternative 1.85)",
-   "185 tiles, 78 metatiles"
+   "exact (33 colours)",
+   "42 tiles, 25 metatiles"
   ],
-  "tiles": 185,
-  "metatiles": 78
+  "tiles": 42,
+  "metatiles": 25
  },
  "VioletHouse2": {
   "size": [
    11,
    10
   ],
-  "px_changed_by_palette": 7214,
+  "px_changed_by_palette": 0,
   "notes": [
-   "students' boarding house: two beds, a study desk, a poster (proposal)"
+   "students' boarding house: two beds, a PC desk, a bookshelf, a study table (proposal)"
   ]
  },
  "VioletHouse3": {
@@ -68,9 +68,9 @@
    11,
    10
   ],
-  "px_changed_by_palette": 7384,
+  "px_changed_by_palette": 0,
   "notes": [
-   "students' boarding house: two beds, a study table, a new arrival's boxes (proposal)"
+   "a second boarding house: shared kitchen and TV, the dining table, beds (proposal)"
   ]
  },
  "VioletHouse4": {
@@ -78,9 +78,9 @@
    11,
    10
   ],
-  "px_changed_by_palette": 7935,
+  "px_changed_by_palette": 0,
   "notes": [
-   "a professor's home with a study: tall shelves and a globe by the reading table (proposal)"
+   "a professor's home with a study: a wall of bookshelves, PC and desk, a reading table (proposal)"
   ]
  },
  "VioletHouse5": {
@@ -88,55 +88,55 @@
    11,
    10
   ],
-  "px_changed_by_palette": 6291,
+  "px_changed_by_palette": 0,
   "notes": [
-   "the map-card kid's family home: HGSS's house, a town map on the wall and a TV (proposal)"
+   "the map-card kid's family home: kitchen, TV, town map, dining table (proposal)"
   ]
  },
  "houses": {
   "log": [
-   "banks from merging colours within 2 five-bit steps (74 colours), each refit to its quadrants' original colours, 16 quadrants repaired; score 1.73 (alternative 5.70)",
-   "354 tiles, 151 metatiles"
+   "exact (46 colours)",
+   "174 tiles, 82 metatiles"
   ],
-  "tiles": 354,
-  "metatiles": 151
+  "tiles": 174,
+  "metatiles": 82
  },
  "SproutTower1F": {
   "size": [
    23,
-   26
+   25
   ],
-  "px_changed_by_palette": 18081,
+  "px_changed_by_palette": 0,
   "notes": [
-   "HGSS as it is: floor, walls, lanterns, railings, the swaying pillar, ladders, Bellsprout statues"
+   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
   ]
  },
  "SproutTower2F": {
   "size": [
    23,
-   26
+   25
   ],
-  "px_changed_by_palette": 24990,
+  "px_changed_by_palette": 0,
   "notes": [
-   "HGSS as it is: floor, walls, lanterns, railings, the swaying pillar, ladders, Bellsprout statues"
+   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
   ]
  },
  "SproutTower3F": {
   "size": [
    23,
-   26
+   25
   ],
-  "px_changed_by_palette": 58041,
+  "px_changed_by_palette": 0,
   "notes": [
-   "HGSS as it is: floor, walls, lanterns, railings, the swaying pillar, ladders, Bellsprout statues"
+   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
   ]
  },
  "sprout": {
   "log": [
-   "146 colours, k-means over 1122 quadrants into 13 banks (seed 4, error 10469425), 10 quadrants repaired; score 0.81 (alternative 2.94)",
-   "928 tiles, 623 metatiles"
+   "exact (29 colours)",
+   "86 tiles, 61 metatiles"
   ],
-  "tiles": 928,
-  "metatiles": 623
+  "tiles": 86,
+  "metatiles": 61
  }
 }

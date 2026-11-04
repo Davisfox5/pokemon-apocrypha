@@ -30,7 +30,8 @@ def cells(room):
             if not room.inside(x, y):
                 out.append(IP.Cell(np.zeros((16, 16, 3), np.uint8), np.zeros((16, 16, 4), np.uint8), 0, BLOCK))
                 continue
-            beh = MB[room.behaviors.get((x, y), 'normal')]
+            name = room.behaviors.get((x, y))
+            beh = MB[name] if name else (getattr(room, 'beh', {}).get((x, y), 0) & 0xFF)   # native pieces keep their own
             out.append(IP.Cell(low[sl], up[sl], beh, BLOCK if room.blocked[y, x] else WALK))
     return out
 
@@ -71,7 +72,9 @@ def build(engine, names, preview):
         t = Tileset(engine, spec['secondary'], spec['primary'])
         for n, r in rooms.items():
             m = RS.MAPS[n]
-            out_cells = [(x, y) for y in range(r.H) for x in range(r.W) if not r.inside(x, y)]
+            img = r.image()
+            black = lambda x, y: not img[y * 16:(y + 1) * 16, x * 16:(x + 1) * 16].any()
+            out_cells = [(x, y) for y in range(r.H) for x in range(r.W) if not r.inside(x, y) or black(x, y)]
             assert out_cells, ('no black cell for the border', n)
             bx, by = out_cells[0]
             layout(engine, m['layout'], m['folder'], r.W, r.H, pk['words'][n], spec['psym'], spec['ssym'], int(pk['words'][n][by, bx]))

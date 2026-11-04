@@ -24,24 +24,24 @@ GROUPS = {
                    secondary='violet_sprout_tower', psym='VioletSproutTowerPrimary', ssym='VioletSproutTower'),
 }
 
-SPROUT_CROP = ((4, 3), (23, 26))         # HGSS cells x 4-26, y 3-28: the tower's floor and its back wall
-
+# Sprout Tower (owner, November 4): a Gen 3 conversion from native pieces on HGSS's plan (sprout_native.py).
 def sprout(name, ladders, exit=None):
     def make():
-        r = RM.from_hgss(name, *SPROUT_CROP)
-        for p in r.hgss['props']:
-            r.add(p)
-        r.rect = (1, 0, 22, 26)          # x 5-25: the floor between the tower's side walls
+        import sprout_native as SN
+        f, walk = SN.build(name)
         for c in ladders:
-            r.behaviors[c] = 'ladder'
+            f.behaviors[c] = 'ladder'
         if exit:
-            r.behaviors[exit] = 'exit'
-        r.notes.append('HGSS as it is: floor, walls, lanterns, railings, the swaying pillar, ladders, Bellsprout statues')
-        return r
+            for c in exit:
+                f.behaviors[c] = 'exit'
+        f.notes.append("HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the "
+                       "Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and "
+                       "Bellsprout statues drawn in Gen 3's manner")
+        return f
     return make
 
-def L(x, y):                              # HGSS cell -> this map's cell
-    return (x - SPROUT_CROP[0][0], y - SPROUT_CROP[0][1])
+def L(x, y):                              # HGSS cell -> this map's cell (sprout_native: x - 4, y - 5)
+    return (x - 4, y - 5)
 
 # --------------------------------------------------------------------------- the university (proposal)
 # HGSS's Pokemon School is the lecture room, as it is: blackboard, the dean's desk, the students' desks,
@@ -53,7 +53,7 @@ UNI_COLS = [0, 1] + [8, 9, 10, 11, 8, 9, 10, 11, 8] + list(range(2, 17))
 def university():
     r = RM.compose('school', UNI_COLS, list(range(0, 13)))
     lib = [(73, x, 4.0, {}) for x in (3.0, 5.0, 7.0, 9.0)]
-    lib += [(72, 3.0, 7.5, {}), (72, 9.0, 7.5, {})]
+    lib += [(73, 3.0, 10.0, {}), (73, 9.0, 10.0, {})]          # free-standing stacks: the back wall's own shelf (owner: shelf_lib01 drew mangled)
     lib += [(94, 6.0, 7.5, {}), (53, 5.5, 8.5, {}), (53, 6.5, 8.5, {})]
     lib += [(94, 6.0, 10.5, {}), (53, 5.5, 11.5, {}), (53, 6.5, 11.5, {})]
     RM.finish(r, lib)
@@ -71,32 +71,40 @@ def university():
 # rails, the wooden stage with its green mat, the statues at the door. The pit and the raised walkways in
 # the middle become a stone practice court with white lines; a blackboard at the back of the stage and a
 # lectern at its edge; two rows of desks each side face the stage (CHAPTER2_SCENES_SPEC 2.5).
+# Owner, November 4: the desks face the court, the court and desks sit up against the stage, the room is
+# shorter. HGSS's rows 9-10 (the walkway's neck between stage and court) and 27 (entrance floor) go.
+HALL_ROWS = list(range(0, 9)) + list(range(11, 27)) + [28, 29]          # 29: the black row below
+
 def lecture_hall():
     import lecture_draft as LD
-    r = RM.compose('gym', list(range(7, 24)), list(range(30)), keep=lambda k, p: p.model != 113)
+    rows = HALL_ROWS
+    r = RM.compose('gym', list(range(7, 24)), rows, keep=lambda k, p: p.model != 113)
+    N = lambda hy: rows.index(hy)                            # HGSS row -> this map's row
     L = lambda x, y: (x - 7, y)
-    LD.court(r, L)
+    LD.court(r, L, top=N(11), bottom=N(22), stone=[N(25), N(26), N(28)])
     r.blocked[:] = False
     for y in range(r.H):
         for x in range(r.W):
             hx = x + 7
-            if hx < 9 or hx > 21 or y < 4 or y > 28:
+            if hx < 9 or hx > 21 or y < 4 or y > N(28):
                 r.blocked[y, x] = True
     for hx in (9, 10, 11, 19, 20, 21):
-        for y in (17, 18):
-            r.blocked[y, hx - 7] = True                      # the glass panels' rails
+        for hy in (17, 18):
+            r.blocked[N(hy), hx - 7] = True                  # the glass panels' rails
     for hx in (12, 18):                                       # the statues
-        for y in (24, 25):
-            r.blocked[y, hx - 7] = True
+        for hy in (24, 25):
+            r.blocked[N(hy), hx - 7] = True
+    # desks along both sides of the court, the students on stools facing it (west side facing east, east facing west)
     seats = []
-    for hx in (10.5, 20.5):
-        for y in (12.5, 15.0):
-            seats.append((91, hx - 7, y, {}))
-            seats += [(53, hx - 7 + d, y + 1.0, {}) for d in (-1, 0, 1)]
-    RM.finish(r, [(62, 15.5 - 7, 4.0, {}), (89, 15.5 - 7, 9.0, {})] + seats)
-    r.rect = (0, 0, r.W, 29)
-    r.behaviors[L(15, 28)] = 'exit'
-    r.notes.append("HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court (proposal)")
+    for side, (tx, sx) in (('west', (11.5, 10.5)), ('east', (19.5, 20.5))):
+        for z in (N(11) + 3.5, N(19) + 2.0):
+            seats.append((97, tx - 7, z, {}))
+            seats += [(54, sx - 7, z - 2.0 + d, {}) for d in (0, 1, 2, 3)]
+    RM.finish(r, [(62, 15.5 - 7, 4.0, {})] + seats)
+    r.rect = (0, 0, r.W, N(28) + 1)
+    r.behaviors[L(15, N(28))] = 'exit'
+    r.notes.append("HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court up "
+                   "against the stage, desks along it facing the court (proposal)")
     return r
 
 # --------------------------------------------------------------------------- the houses (proposals)
@@ -140,11 +148,13 @@ HOUSES = {
                           "the map-card kid's family home: HGSS's house, a town map on the wall and a TV (proposal)"),
 }
 
+import houses_native as HN                  # owner, November 4: floor plans built from Gen 3 pieces
+
 ROOMS = {
     'VioletUniversity': university,
     'VioletLectureHall': lecture_hall,
-    **HOUSES,
-    'SproutTower1F': sprout('sprout1', [L(10, 15), L(10, 14), L(24, 9), L(24, 8), L(6, 16), L(6, 15)], L(15, 28)),
+    **HN.HOUSES,
+    'SproutTower1F': sprout('sprout1', [L(10, 15), L(10, 14), L(24, 9), L(24, 8), L(6, 16), L(6, 15)], [L(15, 28), L(16, 28)]),
     'SproutTower2F': sprout('sprout2', [L(11, 14), L(24, 9), L(6, 16), L(15, 27)]),
     'SproutTower3F': sprout('sprout3', [L(15, 27)]),
 }
@@ -155,9 +165,9 @@ def w(cell, dest, warp):
 # map: layout and its warps beyond the exit (HGSS's own order, so dest ids match HGSS's anchors)
 MAPS = {
     'VioletUniversity': dict(layout='LAYOUT_VIOLET_UNIVERSITY', folder='VioletUniversity', exit=[(UNI_COLS.index(6, 2), 11)], warps=[]),
-    'VioletLectureHall': dict(layout='LAYOUT_VIOLET_LECTURE_HALL', folder='VioletLectureHall', exit=[(8, 28)], warps=[]),
-    **{n: dict(layout=f'LAYOUT_VIOLET_HOUSE_{n[-1]}', folder=n, exit=[(4, 8)], warps=[]) for n in HOUSES},
-    'SproutTower1F': dict(layout='LAYOUT_SPROUT_TOWER_1F', folder='SproutTower1F', exit=[L(15, 28)],
+    'VioletLectureHall': dict(layout='LAYOUT_VIOLET_LECTURE_HALL', folder='VioletLectureHall', exit=[(8, HALL_ROWS.index(28))], warps=[]),
+    **{n: dict(layout=f'LAYOUT_VIOLET_HOUSE_{n[-1]}', folder=n, exit=[(4, 8)], warps=[]) for n in HN.HOUSES},
+    'SproutTower1F': dict(layout='LAYOUT_SPROUT_TOWER_1F', folder='SproutTower1F', exit=[L(15, 28), L(16, 28)],
                           warps=[w(L(10, 15), 'MAP_SPROUT_TOWER_2F', 0), w(L(24, 9), 'MAP_SPROUT_TOWER_2F', 1),
                                  w(L(6, 16), 'MAP_SPROUT_TOWER_2F', 2), w(L(6, 15), 'MAP_SPROUT_TOWER_2F', 2),
                                  w(L(10, 14), 'MAP_SPROUT_TOWER_2F', 0), w(L(24, 8), 'MAP_SPROUT_TOWER_2F', 1)]),

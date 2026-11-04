@@ -66,6 +66,43 @@ The numbers are in `evidence/build.json`; two builds in a row write identical ti
 Installed against composed: mean channel error 0.4-2.0 per room, and at most 9 pixels per room more than
 32 off on a channel (most rooms 0).
 
+## Round 2 (owner, November 4)
+
+- **Lecture hall:** the court and desks now sit up against the stage and blackboard. HGSS's walkway neck
+  (rows 9-10) and one entrance row are gone, so the room is 26 rows instead of 30. The desks run along both
+  sides of the court, with the students on stools facing it.
+- **University:** the free-standing library stacks are the back wall's own tall shelf. The green-book
+  shelf drew mangled. An aisle now separates the stacks from the back wall.
+- **Sprout Tower 1F-3F:** a Gen 3 conversion (`sprout_native.py`) on HGSS's own floor plan. Every
+  walkway, the railing ring, the pillar, the ladders and the statues stand on HGSS's squares, drawn in
+  Gen 3 pieces:
+  - FireRed's Pokémon Tower purple north wall.
+  - The Fighting Dojo's planks, wall shade and hanging scrolls (at HGSS's lanterns).
+  - Emerald's Fortree trunk as the swaying pillar.
+  - Fortree's exit mat.
+
+  Gen 3 has no wooden railing, indoor ladder or Bellsprout statue, so those three are drawn in Gen 3's
+  manner (flat ramps, 1 px outlines) from the trunk's browns. The statue is HGSS's reduced to those browns.
+  Packed exactly: 29 colours, 86 tiles.
+- **Houses:** each has a floor plan for its role (`houses_native.py`, `evidence/houses-floorplans.png`),
+  following the Celadon apartments method. Each room is 11 x 9 with a two-row north wall, furniture
+  against it, a one-square way to every piece, and the exit mat at (4, 8). All are built from whole
+  FireRed room pieces with their own collision and behaviour:
+  - Pallet Town's houses: the kitchen, TV, window, dining set on its rug, beds, PC and desk, bookshelf,
+    town map, plants, floor, walls and mat.
+  - Lavender's study table and Fuchsia's reading table on its rug.
+  - The sage's home on the Fighting Dojo: its green wall with round windows and scrolls, planks, tatami,
+    potted plant and mat, plus the tower's Bellsprout statue.
+
+  Packed exactly: 46 colours in the four FireRed houses, 33 in the sage's.
+- `evidence/<map>-clean.png`: HGSS's room (or, for the houses, the floor plan) beside the native map at
+  3x, without grids.
+
+Checks on the round 2 ROM:
+- Interior runtime: 20 of 20 warps, including both cells of Sprout Tower's exit mat.
+- Violet doors: 11 of 11.
+- Porymap: 0 pixels differ on all ten interiors.
+
 ## Checks
 
 | Check | Result |

@@ -72,6 +72,8 @@ Owner review (October 25), refined the same day:
   November 3, interiors (`tools/gba/maps/violet_interiors`, `gba/art/violet-interiors/README.md`): Sprout Tower 1F-3F as
   HGSS has them, the university (HGSS school plus a library wing), the lecture hall (HGSS gym, the pit a stone practice
   court), five campus homes; all rendered from HGSS's own room data, each building on a private tileset pair. No NPCs yet.
+  November 4 (owner): Sprout Tower and the houses rebuilt in Gen 3 pieces (sprout_native.py on HGSS's plan; houses_native.py
+  from floor plans, FireRed pieces, the Celadon apartments' method); lecture hall shortened, desks facing the court.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

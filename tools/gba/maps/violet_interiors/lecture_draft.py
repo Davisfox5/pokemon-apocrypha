@@ -1,12 +1,12 @@
 import room as RM, numpy as np
-def court(r, L):
+def court(r, L, top=11, bottom=22, stone=(25, 26, 27)):
     dst, src = [], []
-    for y in range(11, 23):
+    for y in range(top, bottom + 1):
         for x in range(12, 19):
-            dst.append(L(x, y)); src.append(L(x, 25 + (y - 11) % 3))
+            dst.append(L(x, y)); src.append(L(x, stone[(y - top) % len(stone)]))
     RM.paint(r, dst, src)
     low = r.lower
-    X0, Y0, X1, Y1 = L(12, 0)[0] * 16 + 4, 11 * 16 + 4, L(19, 0)[0] * 16 - 6, 23 * 16 - 6
+    X0, Y0, X1, Y1 = L(12, 0)[0] * 16 + 4, top * 16 + 4, L(19, 0)[0] * 16 - 6, (bottom + 1) * 16 - 6
     W, Sd = (248, 248, 240), (150, 160, 176)
     def hline(y, x0, x1): low[y:y + 2, x0:x1] = W; low[y + 2, x0 + 1:x1] = Sd
     def vline(x, y0, y1): low[y0:y1, x:x + 2] = W; low[y0 + 1:y1, x + 2] = Sd
