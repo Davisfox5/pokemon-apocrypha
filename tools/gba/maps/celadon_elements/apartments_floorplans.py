@@ -62,7 +62,7 @@ def new(title):
 def typical():
     p = new('2F-5F  (the same on each floor)')
     plan_core(p)
-    p['doors'] += [(10, 12), (17, 12)]                        # the units' front doors off the core
+    p['doors'] += [(10, 9), (17, 9)]                          # the units' front doors off the core
     p['furniture'] += [('plant', 14, 13), ('painting', 13, 8) if False else ('plant', 12, 13)]
     # the studio, x 0-9: kitchen and living by the window wall, the sleeping area behind (no bathrooms: owner)
     p['rooms'] += [((0, 2, 9, 9), 'living', 'studio: living / kitchen'), ((0, 10, 9, 14), 'bed', 'sleeping')]
