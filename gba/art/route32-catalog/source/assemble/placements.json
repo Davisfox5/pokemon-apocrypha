@@ -1,0 +1,4916 @@
+{
+ "note": "Every placed object: master, top-left pixel, base row. Trees on the 2x2 roots of reference.py, crown one row behind.",
+ "objects": [
+  {
+   "name": "tree_0",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    80
+   ],
+   "root": [
+    0,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_1",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    80
+   ],
+   "root": [
+    2,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_2",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    80
+   ],
+   "root": [
+    4,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_3",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    80
+   ],
+   "root": [
+    6,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_4",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    80
+   ],
+   "root": [
+    8,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_5",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    80
+   ],
+   "root": [
+    10,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_6",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    80
+   ],
+   "root": [
+    12,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_7",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    416,
+    80
+   ],
+   "root": [
+    26,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_8",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    448,
+    80
+   ],
+   "root": [
+    28,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "tree_9",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    80
+   ],
+   "root": [
+    30,
+    6
+   ],
+   "base": 127
+  },
+  {
+   "name": "sign_15_9",
+   "master": "shared-art/P14.png",
+   "xy": [
+    232,
+    128
+   ],
+   "cell": [
+    15,
+    9
+   ],
+   "base": 158
+  },
+  {
+   "name": "tree_10",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    112
+   ],
+   "root": [
+    30,
+    8
+   ],
+   "base": 159
+  },
+  {
+   "name": "tree_11",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    144
+   ],
+   "root": [
+    30,
+    10
+   ],
+   "base": 191
+  },
+  {
+   "name": "gate_alph",
+   "master": "shared-art/G02.png",
+   "xy": [
+    0,
+    112
+   ],
+   "base": 217
+  },
+  {
+   "name": "tree_12",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    176
+   ],
+   "root": [
+    30,
+    12
+   ],
+   "base": 223
+  },
+  {
+   "name": "tree_13",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    208
+   ],
+   "root": [
+    30,
+    14
+   ],
+   "base": 255
+  },
+  {
+   "name": "tree_14",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    240
+   ],
+   "root": [
+    0,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_15",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    240
+   ],
+   "root": [
+    2,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_16",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    240
+   ],
+   "root": [
+    4,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_17",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    240
+   ],
+   "root": [
+    6,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_18",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    240
+   ],
+   "root": [
+    8,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_19",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    240
+   ],
+   "root": [
+    10,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_20",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    240
+   ],
+   "root": [
+    12,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "tree_21",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    240
+   ],
+   "root": [
+    30,
+    16
+   ],
+   "base": 287
+  },
+  {
+   "name": "sign_21_18",
+   "master": "shared-art/P14.png",
+   "xy": [
+    328,
+    272
+   ],
+   "cell": [
+    21,
+    18
+   ],
+   "base": 302
+  },
+  {
+   "name": "tree_22",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    272
+   ],
+   "root": [
+    0,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_23",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    272
+   ],
+   "root": [
+    2,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_24",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    272
+   ],
+   "root": [
+    4,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_25",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    272
+   ],
+   "root": [
+    6,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_26",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    272
+   ],
+   "root": [
+    8,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_27",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    272
+   ],
+   "root": [
+    10,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_28",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    272
+   ],
+   "root": [
+    12,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_29",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    224,
+    272
+   ],
+   "root": [
+    14,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_30",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    272
+   ],
+   "root": [
+    16,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_31",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    272
+   ],
+   "root": [
+    18,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_32",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    272
+   ],
+   "root": [
+    30,
+    18
+   ],
+   "base": 319
+  },
+  {
+   "name": "tree_33",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    304
+   ],
+   "root": [
+    0,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_34",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    304
+   ],
+   "root": [
+    2,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_35",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    304
+   ],
+   "root": [
+    4,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_36",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    304
+   ],
+   "root": [
+    6,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_37",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    304
+   ],
+   "root": [
+    8,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_38",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    304
+   ],
+   "root": [
+    10,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_39",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    304
+   ],
+   "root": [
+    12,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_40",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    304
+   ],
+   "root": [
+    30,
+    20
+   ],
+   "base": 351
+  },
+  {
+   "name": "tree_41",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    320
+   ],
+   "root": [
+    24,
+    21
+   ],
+   "base": 367
+  },
+  {
+   "name": "tree_42",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    336
+   ],
+   "root": [
+    6,
+    22
+   ],
+   "base": 383
+  },
+  {
+   "name": "tree_43",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    336
+   ],
+   "root": [
+    8,
+    22
+   ],
+   "base": 383
+  },
+  {
+   "name": "tree_44",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    336
+   ],
+   "root": [
+    10,
+    22
+   ],
+   "base": 383
+  },
+  {
+   "name": "tree_45",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    336
+   ],
+   "root": [
+    30,
+    22
+   ],
+   "base": 383
+  },
+  {
+   "name": "tree_46",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    368
+   ],
+   "root": [
+    6,
+    24
+   ],
+   "base": 415
+  },
+  {
+   "name": "tree_47",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    368
+   ],
+   "root": [
+    8,
+    24
+   ],
+   "base": 415
+  },
+  {
+   "name": "tree_48",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    368
+   ],
+   "root": [
+    10,
+    24
+   ],
+   "base": 415
+  },
+  {
+   "name": "tree_49",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    368
+   ],
+   "root": [
+    30,
+    24
+   ],
+   "base": 415
+  },
+  {
+   "name": "tree_50",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    400
+   ],
+   "root": [
+    6,
+    26
+   ],
+   "base": 447
+  },
+  {
+   "name": "tree_51",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    400
+   ],
+   "root": [
+    8,
+    26
+   ],
+   "base": 447
+  },
+  {
+   "name": "tree_52",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    400
+   ],
+   "root": [
+    30,
+    26
+   ],
+   "base": 447
+  },
+  {
+   "name": "tree_53",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    432
+   ],
+   "root": [
+    6,
+    28
+   ],
+   "base": 479
+  },
+  {
+   "name": "tree_54",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    432
+   ],
+   "root": [
+    8,
+    28
+   ],
+   "base": 479
+  },
+  {
+   "name": "tree_55",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    432
+   ],
+   "root": [
+    30,
+    28
+   ],
+   "base": 479
+  },
+  {
+   "name": "tree_56",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    464
+   ],
+   "root": [
+    6,
+    30
+   ],
+   "base": 511
+  },
+  {
+   "name": "tree_57",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    464
+   ],
+   "root": [
+    8,
+    30
+   ],
+   "base": 511
+  },
+  {
+   "name": "tree_58",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    464
+   ],
+   "root": [
+    10,
+    30
+   ],
+   "base": 511
+  },
+  {
+   "name": "tree_59",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    464
+   ],
+   "root": [
+    12,
+    30
+   ],
+   "base": 511
+  },
+  {
+   "name": "tree_60",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    464
+   ],
+   "root": [
+    30,
+    30
+   ],
+   "base": 511
+  },
+  {
+   "name": "tree_61",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    496
+   ],
+   "root": [
+    6,
+    32
+   ],
+   "base": 543
+  },
+  {
+   "name": "tree_62",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    496
+   ],
+   "root": [
+    8,
+    32
+   ],
+   "base": 543
+  },
+  {
+   "name": "tree_63",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    496
+   ],
+   "root": [
+    10,
+    32
+   ],
+   "base": 543
+  },
+  {
+   "name": "tree_64",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    496
+   ],
+   "root": [
+    12,
+    32
+   ],
+   "base": 543
+  },
+  {
+   "name": "tree_65",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    496
+   ],
+   "root": [
+    30,
+    32
+   ],
+   "base": 543
+  },
+  {
+   "name": "tree_66",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    528
+   ],
+   "root": [
+    0,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_67",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    528
+   ],
+   "root": [
+    2,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_68",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    528
+   ],
+   "root": [
+    4,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_69",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    528
+   ],
+   "root": [
+    6,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_70",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    528
+   ],
+   "root": [
+    8,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_71",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    528
+   ],
+   "root": [
+    10,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_72",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    528
+   ],
+   "root": [
+    12,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_73",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    528
+   ],
+   "root": [
+    30,
+    34
+   ],
+   "base": 575
+  },
+  {
+   "name": "tree_74",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    560
+   ],
+   "root": [
+    0,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_75",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    560
+   ],
+   "root": [
+    2,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_76",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    560
+   ],
+   "root": [
+    4,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_77",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    560
+   ],
+   "root": [
+    6,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_78",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    560
+   ],
+   "root": [
+    8,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_79",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    560
+   ],
+   "root": [
+    10,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_80",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    560
+   ],
+   "root": [
+    12,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_81",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    560
+   ],
+   "root": [
+    30,
+    36
+   ],
+   "base": 607
+  },
+  {
+   "name": "tree_82",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    576
+   ],
+   "root": [
+    15,
+    37
+   ],
+   "base": 623
+  },
+  {
+   "name": "tree_83",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    592
+   ],
+   "root": [
+    0,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_84",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    592
+   ],
+   "root": [
+    2,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_85",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    592
+   ],
+   "root": [
+    4,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_86",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    592
+   ],
+   "root": [
+    6,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_87",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    592
+   ],
+   "root": [
+    8,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_88",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    592
+   ],
+   "root": [
+    10,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_89",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    592
+   ],
+   "root": [
+    12,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_90",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    592
+   ],
+   "root": [
+    30,
+    38
+   ],
+   "base": 639
+  },
+  {
+   "name": "tree_91",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    624
+   ],
+   "root": [
+    0,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_92",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    624
+   ],
+   "root": [
+    2,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_93",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    624
+   ],
+   "root": [
+    4,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_94",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    624
+   ],
+   "root": [
+    6,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_95",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    624
+   ],
+   "root": [
+    8,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_96",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    624
+   ],
+   "root": [
+    10,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_97",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    624
+   ],
+   "root": [
+    12,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_98",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    624
+   ],
+   "root": [
+    30,
+    40
+   ],
+   "base": 671
+  },
+  {
+   "name": "tree_99",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    656
+   ],
+   "root": [
+    0,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_100",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    656
+   ],
+   "root": [
+    2,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_101",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    656
+   ],
+   "root": [
+    4,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_102",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    656
+   ],
+   "root": [
+    6,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_103",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    656
+   ],
+   "root": [
+    8,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_104",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    656
+   ],
+   "root": [
+    10,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_105",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    656
+   ],
+   "root": [
+    12,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_106",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    480,
+    656
+   ],
+   "root": [
+    30,
+    42
+   ],
+   "base": 703
+  },
+  {
+   "name": "tree_107",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    688
+   ],
+   "root": [
+    0,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_108",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    688
+   ],
+   "root": [
+    2,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_109",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    688
+   ],
+   "root": [
+    4,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_110",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    688
+   ],
+   "root": [
+    6,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_111",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    688
+   ],
+   "root": [
+    8,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_112",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    688
+   ],
+   "root": [
+    10,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_113",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    688
+   ],
+   "root": [
+    12,
+    44
+   ],
+   "base": 735
+  },
+  {
+   "name": "tree_114",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    720
+   ],
+   "root": [
+    0,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_115",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    720
+   ],
+   "root": [
+    2,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_116",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    720
+   ],
+   "root": [
+    4,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_117",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    720
+   ],
+   "root": [
+    6,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_118",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    720
+   ],
+   "root": [
+    8,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_119",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    720
+   ],
+   "root": [
+    10,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_120",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    720
+   ],
+   "root": [
+    12,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_121",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    224,
+    720
+   ],
+   "root": [
+    14,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_122",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    720
+   ],
+   "root": [
+    16,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_123",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    416,
+    720
+   ],
+   "root": [
+    26,
+    46
+   ],
+   "base": 767
+  },
+  {
+   "name": "tree_124",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    752
+   ],
+   "root": [
+    0,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_125",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    752
+   ],
+   "root": [
+    2,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_126",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    752
+   ],
+   "root": [
+    4,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_127",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    752
+   ],
+   "root": [
+    6,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_128",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    752
+   ],
+   "root": [
+    8,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_129",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    160,
+    752
+   ],
+   "root": [
+    10,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_130",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    752
+   ],
+   "root": [
+    12,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_131",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    224,
+    752
+   ],
+   "root": [
+    14,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_132",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    752
+   ],
+   "root": [
+    16,
+    48
+   ],
+   "base": 799
+  },
+  {
+   "name": "tree_133",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    784
+   ],
+   "root": [
+    0,
+    50
+   ],
+   "base": 831
+  },
+  {
+   "name": "tree_134",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    784
+   ],
+   "root": [
+    2,
+    50
+   ],
+   "base": 831
+  },
+  {
+   "name": "tree_135",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    784
+   ],
+   "root": [
+    4,
+    50
+   ],
+   "base": 831
+  },
+  {
+   "name": "tree_136",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    784
+   ],
+   "root": [
+    6,
+    50
+   ],
+   "base": 831
+  },
+  {
+   "name": "tree_137",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    128,
+    784
+   ],
+   "root": [
+    8,
+    50
+   ],
+   "base": 831
+  },
+  {
+   "name": "tree_138",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    816
+   ],
+   "root": [
+    0,
+    52
+   ],
+   "base": 863
+  },
+  {
+   "name": "tree_139",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    816
+   ],
+   "root": [
+    2,
+    52
+   ],
+   "base": 863
+  },
+  {
+   "name": "tree_140",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    816
+   ],
+   "root": [
+    4,
+    52
+   ],
+   "base": 863
+  },
+  {
+   "name": "tree_141",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    816
+   ],
+   "root": [
+    6,
+    52
+   ],
+   "base": 863
+  },
+  {
+   "name": "tree_142",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    848
+   ],
+   "root": [
+    0,
+    54
+   ],
+   "base": 895
+  },
+  {
+   "name": "tree_143",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    848
+   ],
+   "root": [
+    2,
+    54
+   ],
+   "base": 895
+  },
+  {
+   "name": "tree_144",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    848
+   ],
+   "root": [
+    4,
+    54
+   ],
+   "base": 895
+  },
+  {
+   "name": "tree_145",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    880
+   ],
+   "root": [
+    0,
+    56
+   ],
+   "base": 927
+  },
+  {
+   "name": "tree_146",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    880
+   ],
+   "root": [
+    2,
+    56
+   ],
+   "base": 927
+  },
+  {
+   "name": "tree_147",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    880
+   ],
+   "root": [
+    4,
+    56
+   ],
+   "base": 927
+  },
+  {
+   "name": "tree_148",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    912
+   ],
+   "root": [
+    0,
+    58
+   ],
+   "base": 959
+  },
+  {
+   "name": "tree_149",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    912
+   ],
+   "root": [
+    2,
+    58
+   ],
+   "base": 959
+  },
+  {
+   "name": "tree_150",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    912
+   ],
+   "root": [
+    4,
+    58
+   ],
+   "base": 959
+  },
+  {
+   "name": "tree_151",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    944
+   ],
+   "root": [
+    0,
+    60
+   ],
+   "base": 991
+  },
+  {
+   "name": "tree_152",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    944
+   ],
+   "root": [
+    2,
+    60
+   ],
+   "base": 991
+  },
+  {
+   "name": "tree_153",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    944
+   ],
+   "root": [
+    4,
+    60
+   ],
+   "base": 991
+  },
+  {
+   "name": "tree_154",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    976
+   ],
+   "root": [
+    0,
+    62
+   ],
+   "base": 1023
+  },
+  {
+   "name": "tree_155",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    976
+   ],
+   "root": [
+    2,
+    62
+   ],
+   "base": 1023
+  },
+  {
+   "name": "tree_156",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    976
+   ],
+   "root": [
+    4,
+    62
+   ],
+   "base": 1023
+  },
+  {
+   "name": "tree_157",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1008
+   ],
+   "root": [
+    0,
+    64
+   ],
+   "base": 1055
+  },
+  {
+   "name": "tree_158",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1008
+   ],
+   "root": [
+    2,
+    64
+   ],
+   "base": 1055
+  },
+  {
+   "name": "tree_159",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1008
+   ],
+   "root": [
+    4,
+    64
+   ],
+   "base": 1055
+  },
+  {
+   "name": "tree_160",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1040
+   ],
+   "root": [
+    0,
+    66
+   ],
+   "base": 1087
+  },
+  {
+   "name": "tree_161",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1040
+   ],
+   "root": [
+    2,
+    66
+   ],
+   "base": 1087
+  },
+  {
+   "name": "tree_162",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1040
+   ],
+   "root": [
+    4,
+    66
+   ],
+   "base": 1087
+  },
+  {
+   "name": "tree_163",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1072
+   ],
+   "root": [
+    0,
+    68
+   ],
+   "base": 1119
+  },
+  {
+   "name": "tree_164",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1072
+   ],
+   "root": [
+    2,
+    68
+   ],
+   "base": 1119
+  },
+  {
+   "name": "tree_165",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1072
+   ],
+   "root": [
+    4,
+    68
+   ],
+   "base": 1119
+  },
+  {
+   "name": "tree_166",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1104
+   ],
+   "root": [
+    0,
+    70
+   ],
+   "base": 1151
+  },
+  {
+   "name": "tree_167",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1104
+   ],
+   "root": [
+    2,
+    70
+   ],
+   "base": 1151
+  },
+  {
+   "name": "tree_168",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1104
+   ],
+   "root": [
+    4,
+    70
+   ],
+   "base": 1151
+  },
+  {
+   "name": "tree_169",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1136
+   ],
+   "root": [
+    0,
+    72
+   ],
+   "base": 1183
+  },
+  {
+   "name": "tree_170",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1136
+   ],
+   "root": [
+    2,
+    72
+   ],
+   "base": 1183
+  },
+  {
+   "name": "tree_171",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1136
+   ],
+   "root": [
+    4,
+    72
+   ],
+   "base": 1183
+  },
+  {
+   "name": "tree_172",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1168
+   ],
+   "root": [
+    0,
+    74
+   ],
+   "base": 1215
+  },
+  {
+   "name": "tree_173",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1168
+   ],
+   "root": [
+    2,
+    74
+   ],
+   "base": 1215
+  },
+  {
+   "name": "tree_174",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1168
+   ],
+   "root": [
+    4,
+    74
+   ],
+   "base": 1215
+  },
+  {
+   "name": "tree_175",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1200
+   ],
+   "root": [
+    0,
+    76
+   ],
+   "base": 1247
+  },
+  {
+   "name": "tree_176",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1200
+   ],
+   "root": [
+    2,
+    76
+   ],
+   "base": 1247
+  },
+  {
+   "name": "tree_177",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    1200
+   ],
+   "root": [
+    4,
+    76
+   ],
+   "base": 1247
+  },
+  {
+   "name": "tree_178",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1232
+   ],
+   "root": [
+    0,
+    78
+   ],
+   "base": 1279
+  },
+  {
+   "name": "tree_179",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1264
+   ],
+   "root": [
+    0,
+    80
+   ],
+   "base": 1311
+  },
+  {
+   "name": "tree_180",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1296
+   ],
+   "root": [
+    0,
+    82
+   ],
+   "base": 1343
+  },
+  {
+   "name": "tree_181",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1328
+   ],
+   "root": [
+    0,
+    84
+   ],
+   "base": 1375
+  },
+  {
+   "name": "tree_182",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1360
+   ],
+   "root": [
+    0,
+    86
+   ],
+   "base": 1407
+  },
+  {
+   "name": "tree_183",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1488
+   ],
+   "root": [
+    0,
+    94
+   ],
+   "base": 1535
+  },
+  {
+   "name": "tree_184",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1488
+   ],
+   "root": [
+    5,
+    94
+   ],
+   "base": 1535
+  },
+  {
+   "name": "tree_185",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1488
+   ],
+   "root": [
+    7,
+    94
+   ],
+   "base": 1535
+  },
+  {
+   "name": "tree_186",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1520
+   ],
+   "root": [
+    0,
+    96
+   ],
+   "base": 1567
+  },
+  {
+   "name": "tree_187",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1520
+   ],
+   "root": [
+    5,
+    96
+   ],
+   "base": 1567
+  },
+  {
+   "name": "tree_188",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1520
+   ],
+   "root": [
+    7,
+    96
+   ],
+   "base": 1567
+  },
+  {
+   "name": "tree_189",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1552
+   ],
+   "root": [
+    0,
+    98
+   ],
+   "base": 1599
+  },
+  {
+   "name": "tree_190",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1552
+   ],
+   "root": [
+    5,
+    98
+   ],
+   "base": 1599
+  },
+  {
+   "name": "tree_191",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1552
+   ],
+   "root": [
+    7,
+    98
+   ],
+   "base": 1599
+  },
+  {
+   "name": "tree_192",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1584
+   ],
+   "root": [
+    0,
+    100
+   ],
+   "base": 1631
+  },
+  {
+   "name": "tree_193",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1584
+   ],
+   "root": [
+    5,
+    100
+   ],
+   "base": 1631
+  },
+  {
+   "name": "tree_194",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1584
+   ],
+   "root": [
+    7,
+    100
+   ],
+   "base": 1631
+  },
+  {
+   "name": "tree_195",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1616
+   ],
+   "root": [
+    0,
+    102
+   ],
+   "base": 1663
+  },
+  {
+   "name": "tree_196",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1616
+   ],
+   "root": [
+    5,
+    102
+   ],
+   "base": 1663
+  },
+  {
+   "name": "tree_197",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1616
+   ],
+   "root": [
+    7,
+    102
+   ],
+   "base": 1663
+  },
+  {
+   "name": "tree_198",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1648
+   ],
+   "root": [
+    0,
+    104
+   ],
+   "base": 1695
+  },
+  {
+   "name": "tree_199",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    80,
+    1648
+   ],
+   "root": [
+    5,
+    104
+   ],
+   "base": 1695
+  },
+  {
+   "name": "tree_200",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    112,
+    1648
+   ],
+   "root": [
+    7,
+    104
+   ],
+   "base": 1695
+  },
+  {
+   "name": "tree_201",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1680
+   ],
+   "root": [
+    0,
+    106
+   ],
+   "base": 1727
+  },
+  {
+   "name": "tree_202",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1712
+   ],
+   "root": [
+    0,
+    108
+   ],
+   "base": 1759
+  },
+  {
+   "name": "tree_203",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1744
+   ],
+   "root": [
+    0,
+    110
+   ],
+   "base": 1791
+  },
+  {
+   "name": "tree_204",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    1760
+   ],
+   "root": [
+    15,
+    111
+   ],
+   "base": 1807
+  },
+  {
+   "name": "tree_205",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    272,
+    1760
+   ],
+   "root": [
+    17,
+    111
+   ],
+   "base": 1807
+  },
+  {
+   "name": "tree_206",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1760
+   ],
+   "root": [
+    24,
+    111
+   ],
+   "base": 1807
+  },
+  {
+   "name": "tree_207",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1776
+   ],
+   "root": [
+    0,
+    112
+   ],
+   "base": 1823
+  },
+  {
+   "name": "tree_208",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    208,
+    1792
+   ],
+   "root": [
+    13,
+    113
+   ],
+   "base": 1839
+  },
+  {
+   "name": "tree_209",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    1792
+   ],
+   "root": [
+    15,
+    113
+   ],
+   "base": 1839
+  },
+  {
+   "name": "tree_210",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    272,
+    1792
+   ],
+   "root": [
+    17,
+    113
+   ],
+   "base": 1839
+  },
+  {
+   "name": "tree_211",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1792
+   ],
+   "root": [
+    24,
+    113
+   ],
+   "base": 1839
+  },
+  {
+   "name": "tree_212",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1808
+   ],
+   "root": [
+    0,
+    114
+   ],
+   "base": 1855
+  },
+  {
+   "name": "tree_213",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    208,
+    1824
+   ],
+   "root": [
+    13,
+    115
+   ],
+   "base": 1871
+  },
+  {
+   "name": "tree_214",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    1824
+   ],
+   "root": [
+    15,
+    115
+   ],
+   "base": 1871
+  },
+  {
+   "name": "tree_215",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    272,
+    1824
+   ],
+   "root": [
+    17,
+    115
+   ],
+   "base": 1871
+  },
+  {
+   "name": "tree_216",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1824
+   ],
+   "root": [
+    24,
+    115
+   ],
+   "base": 1871
+  },
+  {
+   "name": "tree_217",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1840
+   ],
+   "root": [
+    0,
+    116
+   ],
+   "base": 1887
+  },
+  {
+   "name": "tree_218",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1856
+   ],
+   "root": [
+    24,
+    117
+   ],
+   "base": 1903
+  },
+  {
+   "name": "tree_219",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1872
+   ],
+   "root": [
+    0,
+    118
+   ],
+   "base": 1919
+  },
+  {
+   "name": "tree_220",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1888
+   ],
+   "root": [
+    24,
+    119
+   ],
+   "base": 1935
+  },
+  {
+   "name": "tree_221",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1904
+   ],
+   "root": [
+    0,
+    120
+   ],
+   "base": 1951
+  },
+  {
+   "name": "tree_222",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    1920
+   ],
+   "root": [
+    16,
+    121
+   ],
+   "base": 1967
+  },
+  {
+   "name": "tree_223",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    1920
+   ],
+   "root": [
+    18,
+    121
+   ],
+   "base": 1967
+  },
+  {
+   "name": "tree_224",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    320,
+    1920
+   ],
+   "root": [
+    20,
+    121
+   ],
+   "base": 1967
+  },
+  {
+   "name": "tree_225",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    352,
+    1920
+   ],
+   "root": [
+    22,
+    121
+   ],
+   "base": 1967
+  },
+  {
+   "name": "tree_226",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1920
+   ],
+   "root": [
+    24,
+    121
+   ],
+   "base": 1967
+  },
+  {
+   "name": "tree_227",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1936
+   ],
+   "root": [
+    0,
+    122
+   ],
+   "base": 1983
+  },
+  {
+   "name": "tree_228",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1936
+   ],
+   "root": [
+    2,
+    122
+   ],
+   "base": 1983
+  },
+  {
+   "name": "tree_229",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    1936
+   ],
+   "root": [
+    6,
+    122
+   ],
+   "base": 1983
+  },
+  {
+   "name": "tree_230",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    1952
+   ],
+   "root": [
+    16,
+    123
+   ],
+   "base": 1999
+  },
+  {
+   "name": "tree_231",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    1952
+   ],
+   "root": [
+    18,
+    123
+   ],
+   "base": 1999
+  },
+  {
+   "name": "tree_232",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    320,
+    1952
+   ],
+   "root": [
+    20,
+    123
+   ],
+   "base": 1999
+  },
+  {
+   "name": "tree_233",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    352,
+    1952
+   ],
+   "root": [
+    22,
+    123
+   ],
+   "base": 1999
+  },
+  {
+   "name": "tree_234",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1952
+   ],
+   "root": [
+    24,
+    123
+   ],
+   "base": 1999
+  },
+  {
+   "name": "tree_235",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    1968
+   ],
+   "root": [
+    0,
+    124
+   ],
+   "base": 2015
+  },
+  {
+   "name": "tree_236",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    1968
+   ],
+   "root": [
+    2,
+    124
+   ],
+   "base": 2015
+  },
+  {
+   "name": "tree_237",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    1968
+   ],
+   "root": [
+    6,
+    124
+   ],
+   "base": 2015
+  },
+  {
+   "name": "tree_238",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    192,
+    1984
+   ],
+   "root": [
+    12,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_239",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    224,
+    1984
+   ],
+   "root": [
+    14,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_240",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    256,
+    1984
+   ],
+   "root": [
+    16,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_241",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    1984
+   ],
+   "root": [
+    18,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_242",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    320,
+    1984
+   ],
+   "root": [
+    20,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_243",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    352,
+    1984
+   ],
+   "root": [
+    22,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_244",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    1984
+   ],
+   "root": [
+    24,
+    125
+   ],
+   "base": 2031
+  },
+  {
+   "name": "tree_245",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    2000
+   ],
+   "root": [
+    0,
+    126
+   ],
+   "base": 2047
+  },
+  {
+   "name": "tree_246",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    2000
+   ],
+   "root": [
+    2,
+    126
+   ],
+   "base": 2047
+  },
+  {
+   "name": "tree_247",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    2000
+   ],
+   "root": [
+    6,
+    126
+   ],
+   "base": 2047
+  },
+  {
+   "name": "tree_248",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    208,
+    2016
+   ],
+   "root": [
+    13,
+    127
+   ],
+   "base": 2063
+  },
+  {
+   "name": "tree_249",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    2016
+   ],
+   "root": [
+    15,
+    127
+   ],
+   "base": 2063
+  },
+  {
+   "name": "tree_250",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    2016
+   ],
+   "root": [
+    24,
+    127
+   ],
+   "base": 2063
+  },
+  {
+   "name": "tree_251",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    2032
+   ],
+   "root": [
+    0,
+    128
+   ],
+   "base": 2079
+  },
+  {
+   "name": "tree_252",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    2032
+   ],
+   "root": [
+    2,
+    128
+   ],
+   "base": 2079
+  },
+  {
+   "name": "tree_253",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    2032
+   ],
+   "root": [
+    6,
+    128
+   ],
+   "base": 2079
+  },
+  {
+   "name": "tree_254",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    208,
+    2048
+   ],
+   "root": [
+    13,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_255",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    2048
+   ],
+   "root": [
+    15,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_256",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    2048
+   ],
+   "root": [
+    18,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_257",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    320,
+    2048
+   ],
+   "root": [
+    20,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_258",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    352,
+    2048
+   ],
+   "root": [
+    22,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_259",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    2048
+   ],
+   "root": [
+    24,
+    129
+   ],
+   "base": 2095
+  },
+  {
+   "name": "tree_260",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    2064
+   ],
+   "root": [
+    6,
+    130
+   ],
+   "base": 2111
+  },
+  {
+   "name": "tree_261",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    240,
+    2080
+   ],
+   "root": [
+    15,
+    131
+   ],
+   "base": 2127
+  },
+  {
+   "name": "tree_262",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    288,
+    2080
+   ],
+   "root": [
+    18,
+    131
+   ],
+   "base": 2127
+  },
+  {
+   "name": "tree_263",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    320,
+    2080
+   ],
+   "root": [
+    20,
+    131
+   ],
+   "base": 2127
+  },
+  {
+   "name": "tree_264",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    352,
+    2080
+   ],
+   "root": [
+    22,
+    131
+   ],
+   "base": 2127
+  },
+  {
+   "name": "tree_265",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    384,
+    2080
+   ],
+   "root": [
+    24,
+    131
+   ],
+   "base": 2127
+  },
+  {
+   "name": "tree_266",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    2096
+   ],
+   "root": [
+    0,
+    132
+   ],
+   "base": 2143
+  },
+  {
+   "name": "tree_267",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    2096
+   ],
+   "root": [
+    2,
+    132
+   ],
+   "base": 2143
+  },
+  {
+   "name": "tree_268",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    2096
+   ],
+   "root": [
+    4,
+    132
+   ],
+   "base": 2143
+  },
+  {
+   "name": "tree_269",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    2096
+   ],
+   "root": [
+    6,
+    132
+   ],
+   "base": 2143
+  },
+  {
+   "name": "tree_270",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2112
+   ],
+   "root": [
+    23,
+    133
+   ],
+   "base": 2159
+  },
+  {
+   "name": "tree_271",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2112
+   ],
+   "root": [
+    25,
+    133
+   ],
+   "base": 2159
+  },
+  {
+   "name": "tree_272",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    0,
+    2128
+   ],
+   "root": [
+    0,
+    134
+   ],
+   "base": 2175
+  },
+  {
+   "name": "tree_273",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    32,
+    2128
+   ],
+   "root": [
+    2,
+    134
+   ],
+   "base": 2175
+  },
+  {
+   "name": "tree_274",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    64,
+    2128
+   ],
+   "root": [
+    4,
+    134
+   ],
+   "base": 2175
+  },
+  {
+   "name": "tree_275",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    96,
+    2128
+   ],
+   "root": [
+    6,
+    134
+   ],
+   "base": 2175
+  },
+  {
+   "name": "pokemon_center",
+   "master": "shared-art/C06.png",
+   "xy": [
+    288,
+    2112
+   ],
+   "door": [
+    20,
+    136
+   ],
+   "base": 2191
+  },
+  {
+   "name": "tree_276",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2144
+   ],
+   "root": [
+    23,
+    135
+   ],
+   "base": 2191
+  },
+  {
+   "name": "tree_277",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2144
+   ],
+   "root": [
+    25,
+    135
+   ],
+   "base": 2191
+  },
+  {
+   "name": "tree_278",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2176
+   ],
+   "root": [
+    23,
+    137
+   ],
+   "base": 2223
+  },
+  {
+   "name": "tree_279",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2176
+   ],
+   "root": [
+    25,
+    137
+   ],
+   "base": 2223
+  },
+  {
+   "name": "tree_280",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    176,
+    2192
+   ],
+   "root": [
+    11,
+    138
+   ],
+   "base": 2239
+  },
+  {
+   "name": "tree_281",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    208,
+    2192
+   ],
+   "root": [
+    13,
+    138
+   ],
+   "base": 2239
+  },
+  {
+   "name": "tree_282",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2208
+   ],
+   "root": [
+    23,
+    139
+   ],
+   "base": 2255
+  },
+  {
+   "name": "tree_283",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2208
+   ],
+   "root": [
+    25,
+    139
+   ],
+   "base": 2255
+  },
+  {
+   "name": "tree_284",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    336,
+    2240
+   ],
+   "root": [
+    21,
+    141
+   ],
+   "base": 2287
+  },
+  {
+   "name": "tree_285",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2240
+   ],
+   "root": [
+    23,
+    141
+   ],
+   "base": 2287
+  },
+  {
+   "name": "tree_286",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2240
+   ],
+   "root": [
+    25,
+    141
+   ],
+   "base": 2287
+  },
+  {
+   "name": "tree_287",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2240
+   ],
+   "root": [
+    27,
+    141
+   ],
+   "base": 2287
+  },
+  {
+   "name": "tree_288",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    336,
+    2272
+   ],
+   "root": [
+    21,
+    143
+   ],
+   "base": 2319
+  },
+  {
+   "name": "tree_289",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2272
+   ],
+   "root": [
+    23,
+    143
+   ],
+   "base": 2319
+  },
+  {
+   "name": "tree_290",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2272
+   ],
+   "root": [
+    25,
+    143
+   ],
+   "base": 2319
+  },
+  {
+   "name": "tree_291",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2272
+   ],
+   "root": [
+    27,
+    143
+   ],
+   "base": 2319
+  },
+  {
+   "name": "tree_292",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    336,
+    2304
+   ],
+   "root": [
+    21,
+    145
+   ],
+   "base": 2351
+  },
+  {
+   "name": "tree_293",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2304
+   ],
+   "root": [
+    23,
+    145
+   ],
+   "base": 2351
+  },
+  {
+   "name": "tree_294",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2304
+   ],
+   "root": [
+    25,
+    145
+   ],
+   "base": 2351
+  },
+  {
+   "name": "tree_295",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2304
+   ],
+   "root": [
+    27,
+    145
+   ],
+   "base": 2351
+  },
+  {
+   "name": "tree_296",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    336,
+    2336
+   ],
+   "root": [
+    21,
+    147
+   ],
+   "base": 2383
+  },
+  {
+   "name": "tree_297",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2336
+   ],
+   "root": [
+    23,
+    147
+   ],
+   "base": 2383
+  },
+  {
+   "name": "tree_298",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2336
+   ],
+   "root": [
+    25,
+    147
+   ],
+   "base": 2383
+  },
+  {
+   "name": "tree_299",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2336
+   ],
+   "root": [
+    27,
+    147
+   ],
+   "base": 2383
+  },
+  {
+   "name": "tree_300",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2368
+   ],
+   "root": [
+    23,
+    149
+   ],
+   "base": 2415
+  },
+  {
+   "name": "tree_301",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2368
+   ],
+   "root": [
+    25,
+    149
+   ],
+   "base": 2415
+  },
+  {
+   "name": "tree_302",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2368
+   ],
+   "root": [
+    27,
+    149
+   ],
+   "base": 2415
+  },
+  {
+   "name": "tree_303",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2400
+   ],
+   "root": [
+    23,
+    151
+   ],
+   "base": 2447
+  },
+  {
+   "name": "tree_304",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2400
+   ],
+   "root": [
+    25,
+    151
+   ],
+   "base": 2447
+  },
+  {
+   "name": "tree_305",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2400
+   ],
+   "root": [
+    27,
+    151
+   ],
+   "base": 2447
+  },
+  {
+   "name": "tree_306",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2432
+   ],
+   "root": [
+    23,
+    153
+   ],
+   "base": 2479
+  },
+  {
+   "name": "tree_307",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2432
+   ],
+   "root": [
+    25,
+    153
+   ],
+   "base": 2479
+  },
+  {
+   "name": "tree_308",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2432
+   ],
+   "root": [
+    27,
+    153
+   ],
+   "base": 2479
+  },
+  {
+   "name": "sign_19_155",
+   "master": "shared-art/P14.png",
+   "xy": [
+    296,
+    2464
+   ],
+   "cell": [
+    19,
+    155
+   ],
+   "base": 2494
+  },
+  {
+   "name": "tree_309",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2464
+   ],
+   "root": [
+    23,
+    155
+   ],
+   "base": 2511
+  },
+  {
+   "name": "tree_310",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2464
+   ],
+   "root": [
+    25,
+    155
+   ],
+   "base": 2511
+  },
+  {
+   "name": "tree_311",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2464
+   ],
+   "root": [
+    27,
+    155
+   ],
+   "base": 2511
+  },
+  {
+   "name": "tree_312",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    448,
+    2496
+   ],
+   "root": [
+    28,
+    157
+   ],
+   "base": 2543
+  },
+  {
+   "name": "tree_313",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2528
+   ],
+   "root": [
+    23,
+    159
+   ],
+   "base": 2575
+  },
+  {
+   "name": "tree_314",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2528
+   ],
+   "root": [
+    25,
+    159
+   ],
+   "base": 2575
+  },
+  {
+   "name": "tree_315",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2528
+   ],
+   "root": [
+    27,
+    159
+   ],
+   "base": 2575
+  },
+  {
+   "name": "tree_316",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    464,
+    2528
+   ],
+   "root": [
+    29,
+    159
+   ],
+   "base": 2575
+  },
+  {
+   "name": "tree_317",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2560
+   ],
+   "root": [
+    23,
+    161
+   ],
+   "base": 2607
+  },
+  {
+   "name": "tree_318",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2560
+   ],
+   "root": [
+    25,
+    161
+   ],
+   "base": 2607
+  },
+  {
+   "name": "tree_319",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2560
+   ],
+   "root": [
+    27,
+    161
+   ],
+   "base": 2607
+  },
+  {
+   "name": "tree_320",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    464,
+    2560
+   ],
+   "root": [
+    29,
+    161
+   ],
+   "base": 2607
+  },
+  {
+   "name": "tree_321",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    368,
+    2592
+   ],
+   "root": [
+    23,
+    163
+   ],
+   "base": 2639
+  },
+  {
+   "name": "tree_322",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    400,
+    2592
+   ],
+   "root": [
+    25,
+    163
+   ],
+   "base": 2639
+  },
+  {
+   "name": "tree_323",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    432,
+    2592
+   ],
+   "root": [
+    27,
+    163
+   ],
+   "base": 2639
+  },
+  {
+   "name": "tree_324",
+   "master": "shared-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
+   "xy": [
+    464,
+    2592
+   ],
+   "root": [
+    29,
+    163
+   ],
+   "base": 2639
+  }
+ ],
+ "ledges": [
+  {
+   "cell": [
+    26,
+    28
+   ],
+   "art": "E-top"
+  },
+  {
+   "cell": [
+    26,
+    29
+   ],
+   "art": "E-mid"
+  },
+  {
+   "cell": [
+    26,
+    30
+   ],
+   "art": "E-mid"
+  },
+  {
+   "cell": [
+    26,
+    31
+   ],
+   "art": "E-mid"
+  },
+  {
+   "cell": [
+    26,
+    32
+   ],
+   "art": "E-mid"
+  },
+  {
+   "cell": [
+    24,
+    33
+   ],
+   "art": "L-left"
+  },
+  {
+   "cell": [
+    25,
+    33
+   ],
+   "art": "L-mid"
+  },
+  {
+   "cell": [
+    26,
+    33
+   ],
+   "art": "corner-E-right"
+  },
+  {
+   "cell": [
+    20,
+    56
+   ],
+   "art": "L-left"
+  },
+  {
+   "cell": [
+    21,
+    56
+   ],
+   "art": "L-right"
+  },
+  {
+   "cell": [
+    17,
+    149
+   ],
+   "art": "E-top"
+  },
+  {
+   "cell": [
+    17,
+    150
+   ],
+   "art": "E-mid"
+  },
+  {
+   "cell": [
+    12,
+    151
+   ],
+   "art": "L-left"
+  },
+  {
+   "cell": [
+    13,
+    151
+   ],
+   "art": "L-mid"
+  },
+  {
+   "cell": [
+    14,
+    151
+   ],
+   "art": "L-right"
+  },
+  {
+   "cell": [
+    16,
+    151
+   ],
+   "art": "L-left"
+  },
+  {
+   "cell": [
+    17,
+    151
+   ],
+   "art": "corner-E-right"
+  }
+ ],
+ "stairs": [
+  {
+   "cell": [
+    9,
+    74
+   ],
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    9,
+    75
+   ],
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    9,
+    76
+   ],
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    10,
+    74
+   ],
+   "art": "ns-right",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    10,
+    75
+   ],
+   "art": "ns-right",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    10,
+    76
+   ],
+   "art": "ns-right",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    6,
+    111
+   ],
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    6,
+    112
+   ],
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    111
+   ],
+   "art": "ns-mid",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    112
+   ],
+   "art": "ns-mid",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    111
+   ],
+   "art": "ns-right",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    112
+   ],
+   "art": "ns-right",
+   "flight": "north-south"
+  }
+ ],
+ "boulders": [
+  {
+   "kind": "sea",
+   "xy": [
+    480,
+    1248
+   ],
+   "hgss_xy": [
+    478,
+    1155
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    384,
+    1280
+   ],
+   "hgss_xy": [
+    382,
+    1187
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1296
+   ],
+   "hgss_xy": [
+    414,
+    1203
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1328
+   ],
+   "hgss_xy": [
+    414,
+    1235
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    464,
+    1344
+   ],
+   "hgss_xy": [
+    462,
+    1251
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1360
+   ],
+   "hgss_xy": [
+    414,
+    1267
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1392
+   ],
+   "hgss_xy": [
+    414,
+    1299
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1424
+   ],
+   "hgss_xy": [
+    414,
+    1331
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1456
+   ],
+   "hgss_xy": [
+    414,
+    1363
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1488
+   ],
+   "hgss_xy": [
+    414,
+    1395
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    432,
+    1520
+   ],
+   "hgss_xy": [
+    430,
+    1428
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    400,
+    1536
+   ],
+   "hgss_xy": [
+    398,
+    1443
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    400,
+    1568
+   ],
+   "hgss_xy": [
+    398,
+    1475
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    416,
+    1664
+   ],
+   "hgss_xy": [
+    414,
+    1571
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    432,
+    1696
+   ],
+   "hgss_xy": [
+    430,
+    1603
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    400,
+    1712
+   ],
+   "hgss_xy": [
+    398,
+    1619
+   ]
+  },
+  {
+   "kind": "sea",
+   "xy": [
+    400,
+    1744
+   ],
+   "hgss_xy": [
+    399,
+    1651
+   ]
+  },
+  {
+   "kind": "land",
+   "xy": [
+    336,
+    2384
+   ],
+   "hgss_xy": [
+    335,
+    2291
+   ]
+  },
+  {
+   "kind": "land",
+   "xy": [
+    192,
+    2496
+   ],
+   "hgss_xy": [
+    191,
+    2403
+   ]
+  }
+ ],
+ "tall_grass_cells": 417,
+ "padding": {
+  "0,0": "0x006",
+  "0,1": "0x006",
+  "0,2": "0x006",
+  "0,3": "0x006",
+  "0,4": "0x006",
+  "0,5": "0x006",
+  "1,0": "0x007",
+  "1,1": "0x007",
+  "1,2": "0x007",
+  "1,3": "0x007",
+  "1,4": "0x007",
+  "1,5": "0x007",
+  "2,0": "0x006",
+  "2,1": "0x006",
+  "2,2": "0x006",
+  "2,3": "0x006",
+  "2,4": "0x006",
+  "2,5": "0x006",
+  "3,0": "0x007",
+  "3,1": "0x007",
+  "3,2": "0x007",
+  "3,3": "0x007",
+  "3,4": "0x007",
+  "3,5": "0x007",
+  "4,0": "0x006",
+  "4,1": "0x006",
+  "4,2": "0x006",
+  "4,3": "0x006",
+  "4,4": "0x006",
+  "4,5": "0x006",
+  "5,0": "0x007",
+  "5,1": "0x007",
+  "5,2": "0x007",
+  "5,3": "0x007",
+  "5,4": "0x007",
+  "5,5": "0x007",
+  "6,0": "0x006",
+  "6,1": "0x006",
+  "6,2": "0x006",
+  "6,3": "0x006",
+  "6,4": "0x006",
+  "6,5": "0x006",
+  "7,0": "0x007",
+  "7,1": "0x007",
+  "7,2": "0x007",
+  "7,3": "0x007",
+  "7,4": "0x007",
+  "7,5": "0x007",
+  "8,0": "0x006",
+  "8,1": "0x006",
+  "8,2": "0x006",
+  "8,3": "0x006",
+  "8,4": "0x006",
+  "8,5": "0x006",
+  "9,0": "0x007",
+  "9,1": "0x007",
+  "9,2": "0x007",
+  "9,3": "0x007",
+  "9,4": "0x007",
+  "9,5": "0x007",
+  "10,0": "0x006",
+  "10,1": "0x006",
+  "10,2": "0x006",
+  "10,3": "0x006",
+  "10,4": "0x006",
+  "10,5": "0x006",
+  "11,0": "0x007",
+  "11,1": "0x007",
+  "11,2": "0x007",
+  "11,3": "0x007",
+  "11,4": "0x007",
+  "11,5": "0x007",
+  "12,0": "0x006",
+  "12,1": "0x006",
+  "12,2": "0x006",
+  "12,3": "0x006",
+  "12,4": "0x006",
+  "12,5": "0x006",
+  "13,0": "0x007",
+  "13,1": "0x007",
+  "13,2": "0x007",
+  "13,3": "0x007",
+  "13,4": "0x007",
+  "13,5": "0x007",
+  "14,0": "0x006",
+  "14,1": "0x006",
+  "14,2": "0x006",
+  "14,3": "0x006",
+  "14,4": "0x006",
+  "14,5": "0x006",
+  "15,0": "0x007",
+  "15,1": "0x007",
+  "15,2": "0x007",
+  "15,3": "0x007",
+  "15,4": "0x007",
+  "15,5": "0x007",
+  "16,0": "0x006",
+  "16,1": "0x006",
+  "16,2": "0x006",
+  "16,3": "0x006",
+  "16,4": "0x006",
+  "16,5": "0x006",
+  "17,0": "0x007",
+  "17,1": "0x007",
+  "17,2": "0x007",
+  "17,3": "0x007",
+  "17,4": "0x007",
+  "17,5": "0x007",
+  "18,0": "0x1df",
+  "18,1": "0x1df",
+  "18,2": "0x1df",
+  "18,3": "0x1df",
+  "18,4": "0x1df",
+  "18,5": "0x1df",
+  "19,0": "0x055",
+  "19,1": "0x055",
+  "19,2": "0x055",
+  "19,3": "0x055",
+  "19,4": "0x055",
+  "19,5": "0x055",
+  "20,0": "0x132",
+  "20,1": "0x132",
+  "20,2": "0x132",
+  "20,3": "0x132",
+  "20,4": "0x132",
+  "20,5": "0x132",
+  "21,0": "0x007",
+  "21,1": "0x007",
+  "21,2": "0x007",
+  "21,3": "0x007",
+  "21,4": "0x007",
+  "21,5": "0x007",
+  "22,0": "0x006",
+  "22,1": "0x006",
+  "22,2": "0x006",
+  "22,3": "0x006",
+  "22,4": "0x006",
+  "22,5": "0x006",
+  "23,0": "0x007",
+  "23,1": "0x007",
+  "23,2": "0x007",
+  "23,3": "0x007",
+  "23,4": "0x007",
+  "23,5": "0x007",
+  "24,0": "0x006",
+  "24,1": "0x006",
+  "24,2": "0x006",
+  "24,3": "0x006",
+  "24,4": "0x006",
+  "24,5": "0x006",
+  "25,0": "0x007",
+  "25,1": "0x007",
+  "25,2": "0x007",
+  "25,3": "0x007",
+  "25,4": "0x007",
+  "25,5": "0x007",
+  "26,0": "0x006",
+  "26,1": "0x006",
+  "26,2": "0x006",
+  "26,3": "0x006",
+  "26,4": "0x006",
+  "26,5": "0x006",
+  "27,0": "0x007",
+  "27,1": "0x007",
+  "27,2": "0x007",
+  "27,3": "0x007",
+  "27,4": "0x007",
+  "27,5": "0x007",
+  "28,0": "0x006",
+  "28,1": "0x006",
+  "28,2": "0x006",
+  "28,3": "0x006",
+  "28,4": "0x006",
+  "28,5": "0x006",
+  "29,0": "0x007",
+  "29,1": "0x007",
+  "29,2": "0x007",
+  "29,3": "0x007",
+  "29,4": "0x007",
+  "29,5": "0x007",
+  "30,0": "0x006",
+  "30,1": "0x006",
+  "30,2": "0x006",
+  "30,3": "0x006",
+  "30,4": "0x006",
+  "30,5": "0x006",
+  "31,0": "0x007",
+  "31,1": "0x007",
+  "31,2": "0x007",
+  "31,3": "0x007",
+  "31,4": "0x007",
+  "31,5": "0x007"
+ }
+}

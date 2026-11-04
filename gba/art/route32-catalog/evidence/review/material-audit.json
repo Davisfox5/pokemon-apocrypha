@@ -1,0 +1,46 @@
+{
+ "cells": 5120,
+ "summary": {
+  "MISMATCH: O": 1,
+  "declared: gatehouse base row: lawn, solid as HGSS": 6,
+  "match: .": 996,
+  "match: B": 127,
+  "match: C": 1,
+  "match: D": 1,
+  "match: E": 7,
+  "match: F": 1379,
+  "match: G": 417,
+  "match: H": 49,
+  "match: J": 2,
+  "match: L": 8,
+  "match: O": 63,
+  "match: R": 1330,
+  "match: X": 56,
+  "match: ^": 12,
+  "match: s": 3,
+  "match: w": 2,
+  "match: ~": 660
+ },
+ "mismatches": [
+  {
+   "hgss": [
+    28,
+    93
+   ],
+   "native": [
+    28,
+    99
+   ],
+   "label": "O",
+   "native_code": "O",
+   "native_foot": "blocked",
+   "native_behavior": "MB_NORMAL",
+   "art": []
+  }
+ ],
+ "declared_adaptations": {
+  "HGSS's Ruins of Alph gatehouse doorway": 2,
+  "non-animated door: no door animation is registered for these tilesets": 1,
+  "HGSS's Union Cave mouth": 1
+ }
+}

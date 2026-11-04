@@ -1,0 +1,296 @@
+{
+ "jobs": 963,
+ "tiles": 942,
+ "primary_metatiles": 480,
+ "secondary_metatiles": 172,
+ "pinned_violet_metatiles": 24,
+ "maximal_colour_sets": 87,
+ "banks": {
+  "0": 15,
+  "1": 15,
+  "2": 15,
+  "3": 15,
+  "4": 15,
+  "5": 15,
+  "6": 15,
+  "7": 15,
+  "8": 15,
+  "9": 15,
+  "10": 15,
+  "11": 15,
+  "12": 14
+ },
+ "reach": {
+  "native_with_cut": 1545,
+  "native_before_cut": 1464,
+  "hgss": 1544,
+  "native_only": [
+   [
+    20,
+    136
+   ]
+  ],
+  "hgss_only": [],
+  "south_edge_reached": false
+ },
+ "events": {
+  "moves": [
+   {
+    "event": "JohtoRoute32_AlphSign",
+    "cell": [
+     15,
+     9
+    ],
+    "hgss": [
+     15,
+     3
+    ],
+    "text": "Ruins of Alph East Entrance"
+   },
+   {
+    "event": "JohtoRoute32_RouteSign",
+    "cell": [
+     21,
+     18
+    ],
+    "hgss": [
+     21,
+     12
+    ],
+    "text": "Rt. 32 South to Azalea Town"
+   },
+   {
+    "event": "JohtoRoute32_CaveSign",
+    "cell": [
+     19,
+     155
+    ],
+    "hgss": [
+     19,
+     149
+    ],
+    "text": "Union Cave ahead"
+   },
+   {
+    "event": "hidden ITEM_HEART_SCALE",
+    "cell": [
+     27,
+     95
+    ],
+    "hgss": [
+     27,
+     89
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_HEART_SCALE"
+   },
+   {
+    "event": "hidden ITEM_GREAT_BALL",
+    "cell": [
+     12,
+     150
+    ],
+    "hgss": [
+     12,
+     144
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_GREAT_BALL"
+   },
+   {
+    "event": "hidden ITEM_SUPER_POTION",
+    "cell": [
+     11,
+     27
+    ],
+    "hgss": [
+     11,
+     21
+    ],
+    "flag": "FLAG_HIDDEN_ITEM_APOC_ROUTE32_SUPER_POTION"
+   },
+   {
+    "event": "obj_R32_gsbigman",
+    "hgss": [
+     23,
+     24
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsmiddleman1",
+    "hgss": [
+     29,
+     17
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "cuttable tree",
+    "cell": [
+     14,
+     38
+    ],
+    "hgss": [
+     14,
+     32
+    ]
+   },
+   {
+    "event": "obj_R32_gsboy2",
+    "hgss": [
+     22,
+     41
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_picnicgirl_2",
+    "hgss": [
+     18,
+     54
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2",
+    "hgss": [
+     13,
+     86
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2_2",
+    "hgss": [
+     15,
+     88
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_fishing_2_3",
+    "hgss": [
+     20,
+     99
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_campboy_2",
+    "hgss": [
+     4,
+     97
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsboy2_2",
+    "hgss": [
+     12,
+     115
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsbigman_2",
+    "hgss": [
+     14,
+     128
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "obj_R32_gsman2",
+    "hgss": [
+     20,
+     145
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "item ball ITEM_REPEL",
+    "cell": [
+     8,
+     55
+    ],
+    "hgss": [
+     8,
+     49
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_REPEL",
+    "hgss_flag": "FLAG_HIDE_ITEMBALL_R32_REPEL"
+   },
+   {
+    "event": "item ball ITEM_GREAT_BALL",
+    "cell": [
+     11,
+     100
+    ],
+    "hgss": [
+     11,
+     94
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_GREAT_BALL",
+    "hgss_flag": "FLAG_HIDE_ITEMBALL_R32_GREAT_BALL"
+   },
+   {
+    "event": "obj_R32_gsgirl1",
+    "hgss": [
+     23,
+     121
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "breakable rock",
+    "cell": [
+     23,
+     157
+    ],
+    "hgss": [
+     23,
+     151
+    ]
+   },
+   {
+    "event": "obj_R32_monstarball_3",
+    "hgss": [
+     3,
+     113
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   },
+   {
+    "event": "item ball ITEM_SHELL_BELL",
+    "cell": [
+     27,
+     157
+    ],
+    "hgss": [
+     27,
+     151
+    ],
+    "flag": "FLAG_ITEM_APOC_ROUTE32_SHELL_BELL",
+    "hgss_flag": "FLAG_HIDE_ITEMBALL_R32_SHELL_BELL"
+   },
+   {
+    "event": "obj_R32_gsmiddleman1_2",
+    "hgss": [
+     20,
+     111
+    ],
+    "note": "not placed: trainers, NPCs and the TM09 ball are campaign work"
+   }
+  ],
+  "door": [
+   20,
+   136
+  ],
+  "border": [
+   "0x0d6",
+   "0x0d7",
+   "0x0da",
+   "0x0db"
+  ]
+ },
+ "native_pixels_differing": 0
+}
