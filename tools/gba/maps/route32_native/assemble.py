@@ -197,6 +197,13 @@ def ground_quadrants(phg, ncells):
         for i in range(1, n + 1):
             if sizes[i] < small:
                 q[lab == i] = other
+    # Under rock the ground runs on as the nearest open ground's material (lawn or road), so the clear pixels
+    # of a cliff piece show the ground actually beside it on each side, not one plain block.
+    from scipy.ndimage import distance_transform_edt
+    rockq = np.repeat(np.repeat(np.array([[c['lab'] == 'R' for c in row] for row in ncells]), 2, 0), 2, 1)
+    if rockq.any():
+        _, (iy, ix) = distance_transform_edt(rockq, return_indices=True)
+        q[rockq] = q[iy[rockq], ix[rockq]]
     flats = stair_landings(q, ncells)
     return q, flats
 
@@ -343,87 +350,163 @@ def exemplars(grid, src, cellset, alike, phase=True):
             table[f'{x},{y}'] = [ex, ey]
     return art, mask, dict(exemplars={','.join(map(str, k)): list(v) for k, v in pick.items()}, cells=table)
 
-def sea_and_pier(phg, grid):
-    """HGSS's sea and pier, one exemplar per neighbour configuration (flat decode, HGSS's own pixels).
-    Water cells: '~', the blocked sea under the viaduct ('X' on the sea) and the water under boulders 'O'."""
-    _, mat, nm, rgb = Rf.topdown(phg)
-    # The sea's source keeps only HGSS's water and foam: land pixels at a shore cell's edge (rock bases, grass) take
-    # the open sea's texture at the same place, so no land is copied into the water.
-    water_ids = [nm.index(n) for n in nm if n.startswith('sea') or n == 'pond_line']   # pond_line: HGSS's shore rim and foam
-    wet = np.isin(mat, water_ids)
-    hy, hx = np.argwhere(wet.reshape(HH, PX, HW, PX).all(axis=(1, 3)))[0]
-    block = rgb[hy * PX:hy * PX + 32, hx * PX:hx * PX + 32]
-    yy, xx = np.mgrid[0:rgb.shape[0], 0:rgb.shape[1]]
-    sea_src = np.where(wet[..., None], rgb, block[(yy - hy * PX) % 32, (xx - hx * PX) % 32])
+CG_SEA = ((58, 59), (75, 76))       # Cherrygrove's open sea, a 2x2 block of its metatiles
+CG_SEA_ROCK = 151                   # Cherrygrove's grey sea rock (and its foam), as the town draws it
+FOAM, SAND_RIM = (200, 232, 224), (208, 208, 168)   # Cherrygrove's beach foam and the sand's waterline rim
+CG_PIER = ROOT / 'gba/art/cherrygrove-town/source/hgss/pier.png'   # the accepted dock: HGSS Route 32's boards
+PIER_RAIL, PIER_BOARDS = slice(0, 8), slice(16, 32)                  # the pier texture's rail and boards' middle
+PIER_BEAM = (165, 132, 90)
+
+def cherrygrove_tiles(engine):
+    from tiles import Tileset
+    return Tileset(engine, 'cherrygrove', 'cherrygrove_town')
+
+def sea_and_pier(phg, grid, engine):
+    """Cherrygrove's sea and dock (the town's accepted water vocabulary) on HGSS's water and pier cells.
+    Water cells: '~', the blocked sea under the viaduct ('X' on the sea) and the water under boulders 'O'.
+    Where the sea meets lawn or road, the town's beach edge: foam over the sea, the sand's waterline rim
+    (rock edges take their FRLG faces instead). The pier takes the town's dock boards (HGSS Route 32's own,
+    as Cherrygrove carries them): a rail along each long side of a run, boards across, a beam at each end."""
+    t = cherrygrove_tiles(engine)
+    block = np.zeros((32, 32, 3), np.uint8)
+    for r in (0, 1):
+        for c in (0, 1):
+            block[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16] = np.array(t.render(CG_SEA[r][c]).convert('RGB'))
     cells = json.loads((TRACE / 'ledger.json').read_text())['cells']
     sea_x = {(x, y) for y in range(ROW0, H) for x in range(W)
-             if grid[y][x] in 'XO' and cells[y - ROW0][x]['material'].startswith('sea')}
-    g2 = [row[:] for row in grid]
-    for x, y in sea_x:
-        g2[y][x] = '~'
-    sea, smask, stab = exemplars(g2, sea_src, '~', '~B')
-    bridge = np.isin(mat, [nm.index(n) for n in Rf.PIER if n in nm])
-    pier, pmask, ptab = exemplars(g2, np.where(bridge[..., None], rgb, sea_src), 'B', 'B', phase=False)
+             if grid[y][x] in 'XO' and cells[y - ROW0][x - COL0]['material'].startswith('sea')}
+    smask = np.array([[grid[y][x] == '~' or (x, y) in sea_x for x in range(W)] for y in range(H)])
+    pmask = np.array([[grid[y][x] == 'B' for x in range(W)] for y in range(H)])
+    yy, xx = np.mgrid[0:H * PX, 0:W * PX]
+    sea = block[yy % 32, xx % 32]
+    land = lambda x, y: 0 <= x < W and 0 <= y < H and not smask[y, x] and not pmask[y, x] and grid[y][x] not in 'ROX'
+    for y in range(H):
+        for x in range(W):
+            if not smask[y, x]:
+                continue
+            for side, (dx, dy) in dict(n=(0, -1), s=(0, 1), w=(-1, 0), e=(1, 0)).items():
+                if not land(x + dx, y + dy):
+                    continue
+                for k in range(PX):
+                    wob = G.WAVE[((y * PX + k) if side in 'we' else (x * PX + k)) % 32] // 4
+                    for depth in range(4 + wob):
+                        px_ = dict(n=(x * PX + k, y * PX + depth), s=(x * PX + k, (y + 1) * PX - 1 - depth),
+                                   w=(x * PX + depth, y * PX + k), e=((x + 1) * PX - 1 - depth, y * PX + k))[side]
+                        sea[px_[1], px_[0]] = SAND_RIM if depth == 0 else FOAM
+    tex = np.array(Image.open(CG_PIER).convert('RGB'))
+    pier = np.zeros_like(sea)
+    from scipy.ndimage import label
+    lab, n = label(pmask)
+    for y in range(H):
+        for x in range(W):
+            if not pmask[y, x]:
+                continue
+            vert = (y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x])
+            horiz = (x > 0 and pmask[y, x - 1]) or (x < W - 1 and pmask[y, x + 1])
+            along_y = vert and not (horiz and not vert)
+            for py in range(PX):
+                for px_ in range(PX):
+                    X, Y = x * PX + px_, y * PX + py
+                    # position across the run: distance to its edge across the planks
+                    if along_y:
+                        lo = x; hi = x
+                        while lo - 1 >= 0 and pmask[y, lo - 1]: lo -= 1
+                        while hi + 1 < W and pmask[y, hi + 1]: hi += 1
+                        across, w_ = X - lo * PX, (hi - lo + 1) * PX
+                        along = Y
+                    else:
+                        lo = y; hi = y
+                        while lo - 1 >= 0 and pmask[lo - 1, x]: lo -= 1
+                        while hi + 1 < H and pmask[hi + 1, x]: hi += 1
+                        across, w_ = Y - lo * PX, (hi - lo + 1) * PX
+                        along = X
+                    if across < 8:
+                        col = across
+                    elif across >= w_ - 8:
+                        col = 40 + (across - (w_ - 8))
+                    else:
+                        col = 16 + (across - 8) % 16
+                    c = tex[along % 32, col]
+                    pier[Y, X] = c
+    # beams where a run ends on water
+    for y in range(H):
+        for x in range(W):
+            if pmask[y, x]:
+                for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+                    if 0 <= x + dx < W and 0 <= y + dy < H and smask[y + dy, x + dx]:
+                        sl = {(0, -1): np.s_[y * PX:y * PX + 2, x * PX:(x + 1) * PX], (0, 1): np.s_[(y + 1) * PX - 2:(y + 1) * PX, x * PX:(x + 1) * PX],
+                              (-1, 0): np.s_[y * PX:(y + 1) * PX, x * PX:x * PX + 2], (1, 0): np.s_[y * PX:(y + 1) * PX, (x + 1) * PX - 2:(x + 1) * PX]}[(dx, dy)]
+                        if (dx == 0) != (bool((y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x]))):
+                            pier[sl] = PIER_BEAM
     Image.fromarray(sea).save(LOCAL / 'sea.png'); Image.fromarray(pier).save(LOCAL / 'pier.png')
-    (LOCAL / 'sea-pier-exemplars.json').write_text(json.dumps(dict(sea=stab, pier=ptab)) + '\n')
     return sea, smask, pier, pmask, sea_x
 
 FULL_SEA_BOULDERS = True             # the whole sprite, over both columns HGSS blocks for it
 
-def boulders(grid, sea_x):
-    """HGSS's boulders as sprites at HGSS's own positions (they stand at half-cell offsets, so a per-cell cut
-    breaks them): each connected boulder in HGSS's projected render (sea_rock in the sea, rock01 on land) with
-    its white foam ring. Every sea boulder takes the most common-sized one (one exemplar); the two land boulders
-    take the first. A sea boulder is its 16x16 core round the rock, on the cell nearest HGSS's position (tile budget); a land
-    boulder (2x2 cells) is whole, on the 16 px grid. A flat overlay drawn into the ground."""
-    from scipy.ndimage import label, find_objects
-    gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB')).astype(int)
+def boulders(grid, sea_x, engine):
+    """Cherrygrove's grey sea rock (metatile 151, the town's own) on each HGSS boulder: one per connected run
+    of boulder cells, on its first cell. In the sea with the town's foam; on land the rock alone (its
+    sea-coloured pixels clear), on HGSS's land boulder cells."""
+    from scipy.ndimage import label
+    t = cherrygrove_tiles(engine)
+    rock = np.array(t.render(CG_SEA_ROCK).convert('RGB'))
+    seab = np.zeros((32, 32, 3), np.uint8)
+    for r in (0, 1):
+        for c in (0, 1):
+            seab[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16] = np.array(t.render(CG_SEA[r][c]).convert('RGB'))
+    sea_cols = {tuple(int(v) for v in c) for c in seab.reshape(-1, 3)}
+    rock_land = np.zeros((PX, PX, 4), np.uint8)
+    keep = np.array([[tuple(int(v) for v in p) not in sea_cols and tuple(int(v) for v in p) != FOAM for p in row] for row in rock])
+    rock_land[keep, :3] = rock[keep]; rock_land[keep, 3] = 255
+    rock_sea = np.concatenate([rock, np.full((PX, PX, 1), 255, np.uint8)], -1)
+    # One rock per HGSS sea boulder, on the cell nearest the boulder's own centre (HGSS's sea_rock pieces).
+    from scipy.ndimage import label as _lb, center_of_mass
     mz = np.load(SRC / 'hgss/hgss-ground-materials.npz')
     names = [str(n) for n in mz['names']]
-    def comps(mats):
-        m = np.isin(mz['material'], [names.index(n) for n in mats if n in names])
-        lab, n = label(m)
-        out = []
-        for i, sl in enumerate(find_objects(lab), 1):
-            if (lab[sl] == i).sum() < 24:
-                continue
-            ys, xs = sl
-            y0, y1, x0, x1 = max(0, ys.start - 2), ys.stop + 2, max(0, xs.start - 2), xs.stop + 2
-            win = gnd[y0:y1, x0:x1]
-            k = (lab[y0:y1, x0:x1] == i) | ((win.min(-1) > 200) & ~(lab[y0:y1, x0:x1] > 0))
-            spr = np.zeros(win.shape[:2] + (4,), np.uint8)
-            spr[k, :3] = win[k]; spr[k, 3] = 255
-            out.append(dict(xy=(x0, y0), art=spr, size=int((lab[sl] == i).sum())))
-        return out
-    sea = comps(('sea_rock', 'sea_rock_m'))
-    land = comps(('rock01',))
+    m = np.isin(mz['material'], [names.index(n) for n in ('sea_rock', 'sea_rock_m') if n in names])
+    lab, n = _lb(m)
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed = []
-    def core(spr):
-        """The sprite's 16x16 core round the rock's centre (the foam beyond it is left off)."""
-        ys, xs = np.nonzero(spr[..., 3] > 0)
-        cy, cx = int(round(ys.mean())), int(round(xs.mean()))
-        out = np.zeros((PX, PX, 4), np.uint8)
-        y0, x0 = max(0, cy - PX // 2), max(0, cx - PX // 2)
-        part = spr[y0:y0 + PX, x0:x0 + PX]
-        out[:part.shape[0], :part.shape[1]] = part
-        return out, (x0, y0)
-    def put(spr, x0, y0, kind):
-        spr, (dx, dy) = (spr, (0, 0)) if kind == 'land' or FULL_SEA_BOULDERS else core(spr)
-        x, y = int(round((x0 + dx) / 16)) * 16 + COL0 * PX, int(round((y0 + dy) / 16)) * 16 + ROW0 * PX
-        h, w = spr.shape[:2]
-        reg = art[y:y + h, x:x + w]; m = spr[:reg.shape[0], :reg.shape[1], 3] > 0
-        reg[m] = spr[:reg.shape[0], :reg.shape[1]][m]
-        placed.append(dict(kind=kind, xy=[x, y], hgss_xy=[int(x0), int(y0)]))
-    if sea:
-        sizes = Counter(c['art'].shape[:2] for c in sea)
-        ex = next(c for c in sea if c['art'].shape[:2] == sizes.most_common(1)[0][0])
-        for c in sea:
-            put(ex['art'], *c['xy'], 'sea')
-    for c in land:
-        put(land[0]['art'], *c['xy'], 'land')
+    placed, used = [], set()
+    for i in range(1, n + 1):
+        if (lab == i).sum() < 24:
+            continue
+        cy, cx = center_of_mass(lab == i)
+        x, y = int(cx // PX) + COL0, int(cy // PX) + ROW0
+        if grid[y][x] not in 'O~' or (x, y) in used:
+            cand = [(abs(a - x) + abs(b - y), a, b) for b in range(y - 1, y + 2) for a in range(x - 1, x + 2)
+                    if 0 <= a < W and 0 <= b < H and grid[b][a] == 'O' and (a, b) not in used]
+            if not cand:
+                continue
+            _, x, y = min(cand)
+        used.add((x, y))
+        reg = art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
+        mm = rock_sea[..., 3] > 0
+        reg[mm] = rock_sea[mm]
+        placed.append(dict(kind='sea', xy=[x * PX, y * PX], hgss_centre=[round(float(cx), 1), round(float(cy), 1)]))
+    for b in land_boulders():
+        art[b['xy'][1]:b['xy'][1] + b['art'].shape[0], b['xy'][0]:b['xy'][0] + b['art'].shape[1]][b['art'][..., 3] > 0] = b['art'][b['art'][..., 3] > 0]
+        placed.append(dict(kind='land', xy=b['xy']))
     Image.fromarray(art).save(LOCAL / 'boulders.png')
     return art, placed
+
+def land_boulders():
+    """HGSS's two land boulders (rock01), cut from its render at their own place, on the 16 px grid."""
+    from scipy.ndimage import label, find_objects
+    gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB'))
+    mz = np.load(SRC / 'hgss/hgss-ground-materials.npz')
+    names = [str(n) for n in mz['names']]
+    m = mz['material'] == names.index('rock01')
+    lab, n = label(m)
+    out = []
+    for i, sl in enumerate(find_objects(lab), 1):
+        k = lab[sl] == i
+        if k.sum() < 24:
+            continue
+        spr = np.zeros(k.shape + (4,), np.uint8)
+        spr[k, :3] = gnd[sl][k]; spr[k, 3] = 255
+        y0, x0 = sl[0].start, sl[1].start
+        out.append(dict(xy=[int(round(x0 / 16)) * 16 + COL0 * PX, int(round(y0 / 16)) * 16 + ROW0 * PX], art=spr))
+    return out
 
 ISLET_MAX = 40                      # a rock component this small with only water round it is a sea islet
 
@@ -482,35 +565,28 @@ def cave_mouth():
 # --------------------------------------------------------------------------- viaduct
 VIADUCT_RAIL = 8                     # px of guard rail along each edge of the deck
 
-def viaduct_art(phg):
-    """The Magnet Train viaduct deck over HGSS's shadow footprint, above the player: HGSS's own Magnet Train
-    track textures (a/2/3/3 model 0: senro_base, the concrete bed; senro_line, the rails) tiled across the
-    route, a guard rail in the bed's lightest and darkest tones along both edges. Its shape is a proposal
-    from the shadow; HGSS's viaduct model is not in Route 32's map data."""
-    import hgss_render as R
-    ms = R.narc.load(phg / 'files/a/2/3/3')
-    m = R.mdlview.Model(ms[0])
-    tex = {}
-    for e in m.tex.textures:
-        if e.name in ('senro_base', 'senro_line'):
-            pal = m.tex.pal_for(e)
-            tex[e.name] = R.decode(m.tex, e, pal.name if pal else None)[..., :3]
-    base, line = tex['senro_base'], tex['senro_line']
+CYCLING_ROAD = dict(layout='Route110', col=21, rows=range(29, 34))   # Emerald's elevated Cycling Road, east-west
+
+def viaduct_art(phg, engine):
+    """The Magnet Train viaduct: Emerald's own elevated Cycling Road (Route 110, its straight east-west section,
+    cell column 21, rows 29-33: guard rail, deck, deck, guard rail, the blue side face), run east-west across
+    the route on the footprint of HGSS's viaduct shadow, above the player. Route 110's water around it is
+    clear, so Route 32's own ground shows."""
+    from tiles import Tileset
+    t = Tileset(engine, 'mauville', 'general')
+    b = (engine / f"data/layouts/{CYCLING_ROAD['layout']}/map.bin").read_bytes()
+    words = np.array(struct.unpack('<%dH' % (len(b) // 2), b)).reshape(-1, 40)
+    strip = np.concatenate([np.array(t.render(int(words[r, CYCLING_ROAD['col']]) & 1023).convert('RGB')) for r in CYCLING_ROAD['rows']])
+    water = {tuple(int(v) for v in c) for c in np.array(t.render(int(words[27, CYCLING_ROAD['col']]) & 1023).convert('RGB')).reshape(-1, 3)}
     y0, y1 = VIADUCT_PX
-    h, w = y1 - y0, W * PX
-    deck = np.zeros((h, w, 3), np.uint8)
-    yy, xx = np.mgrid[0:h, 0:w]
-    deck[:] = base[yy % base.shape[0], xx % 16]           # the bed's left 16 px, repeated (tile budget)
-    for rail in (h // 2 - 12, h // 2 + 4):                      # two rails, senro_line's 8 px band
-        deck[rail:rail + line.shape[0]] = line[np.arange(line.shape[0])[:, None], xx[:line.shape[0]] % 16]
-    tones = sorted({tuple(int(v) for v in c) for c in base.reshape(-1, 3)}, key=sum)
-    light, dark = tones[-1], tones[0]
-    for edge in (slice(0, VIADUCT_RAIL), slice(h - VIADUCT_RAIL, h)):
-        deck[edge] = light
-        deck[edge.start] = dark if edge.start == 0 else light
-        deck[edge.stop - 1] = dark
+    h = y1 - y0
+    assert strip.shape[0] == 80 and h == 80, (strip.shape, h)
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    art[y0:y1, :, :3] = deck; art[y0:y1, :, 3] = 255
+    for x in range(W * PX):
+        col = strip[:, x % PX]
+        clear = np.array([tuple(int(v) for v in c) in water for c in col])
+        art[y0:y1, x, :3] = col
+        art[y0:y1, x, 3] = np.where(clear, 0, 255)
     Image.fromarray(art[y0:y1]).save(LOCAL / 'viaduct.png')
     return art
 
@@ -664,8 +740,8 @@ def apply_tones(a, mapping):
     sub = out[m]; sub[:, :3] = new; out[m] = sub
     return out
 
-SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 6, 5, 4, 2, 8
-LAND_BOULDER_TONES = 3
+SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 15, 15, 2, 8
+LAND_BOULDER_TONES = 15
 RIM_ON_LAND = False                  # the rim in land cells joined the sea's and land's palettes: 13 no longer fit
 
 # --------------------------------------------------------------------------- compose
@@ -738,7 +814,7 @@ def compose(phg, engine):
     bottom, mat, tex = paint_ground(q, road, flats)
     pad_ids = padding(engine, bottom)
     # The sea and the pier (HGSS's pixels, one exemplar per configuration), into the ground.
-    sea, smask, pier, pmask, sea_x = sea_and_pier(phg, grid)
+    sea, smask, pier, pmask, sea_x = sea_and_pier(phg, grid, engine)
     seamask = np.repeat(np.repeat(smask, PX, 0), PX, 1)
     piermask = np.repeat(np.repeat(pmask, PX, 0), PX, 1)
     sea = np.dstack([sea, np.full(sea.shape[:2], 255, np.uint8)]); pier = np.dstack([pier, np.full(pier.shape[:2], 255, np.uint8)])
@@ -770,8 +846,9 @@ def compose(phg, engine):
                 cell[rim[hsl]] = sea_tones[np.argmin(((px[:, None, :].astype(int) - sea_tones[None]) ** 2).sum(-1), 1)]
     # Rock terraces over the ground (bottom keeps the plain block beyond each edge; the sea beyond a sea cliff).
     ia, islet_cells = islets(grid)
-    for x, y in islet_cells:                           # an islet is rock standing out of the sea
-        ncells[y][x] = dict(ncells[y][x], lab='R')
+    pillar_cells = set(islet_cells)                   # the islets' own rock cells; boulders stay sea rocks
+    for x, y in pillar_cells:                          # an islet is rock standing out of the sea
+        ncells[y][x] = dict(ncells[y][x], lab='R', ground=1.0, peak=3.0, top=3.0, floor='water')
     top = Rf.topdown(phg)[0].reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
     top = np.percentile(top, 90, -1)
     for y in range(ROW0, H):
@@ -805,7 +882,7 @@ def compose(phg, engine):
     if len(wood) and scol:
         lab_w = _lab(wood)
         sa = apply_tones(sa, {c: tuple(int(v) for v in wood[int(np.argmin(np.linalg.norm(lab_w - _lab(np.array([c]))[0], axis=1)))]) for c in scol})
-    ba, boulder_list = boulders(grid, sea_x)
+    ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).
     ox, oy = next((x, y) for y in range(ROW0, H) for x in range(W) if smask[y, x] and x % 2 == 0 and y % 2 == 0
@@ -856,14 +933,7 @@ def compose(phg, engine):
     for o in objs:
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
     # The viaduct stands over everything on its rows.
-    va = viaduct_art(phg)
-    # The viaduct takes Violet's palette 11 (its greys), which Route 32 carries for the seam anyway: each of its
-    # tones becomes the nearest of those greys in Lab, so the deck's tiles need no palette of their own.
-    from tiles import Tileset
-    v11 = [tuple(int(v) for v in c) for c in Tileset(engine, 'violet_city', 'violet_city').pals[1][11][1:]]
-    lab11 = _lab(np.array(v11))
-    vcols = sorted({tuple(c) for c in va[va[..., 3] > 0][:, :3].tolist()})
-    va = apply_tones(va, {c: v11[int(np.argmin(np.linalg.norm(lab11 - _lab(np.array([c]))[0], axis=1)))] for c in vcols})
+    va = viaduct_art(phg, engine)
     over(top, va, 0, 0, owner, 'viaduct')
     (LOCAL / 'reductions.json').write_text(json.dumps(dict(
         rule=('Local HGSS art, reduced by medoids in Lab (the most distinct original tones kept farthest-first, every '

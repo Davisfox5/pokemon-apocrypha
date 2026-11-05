@@ -31,6 +31,7 @@ import reference as Rf                                       # noqa: E402
 from reference import W, H                                   # noqa: E402
 
 ART = ROOT / 'gba/art/route32-native'
+from pack import PADL                                        # noqa: E402
 GROUP = 80
 A, B, RIGHT, LEFT, UP, DOWN = 1, 2, 16, 32, 64, 128
 KEY = {(1, 0): RIGHT, (-1, 0): LEFT, (0, 1): DOWN, (0, -1): UP}
@@ -165,7 +166,7 @@ def plan(engine, nums):
     vx = min(Rf.VIOLET_ROAD) + Rf.VIOLET_SHIFT + 1                # Violet's road, middle column
     assert not any((violet[y, vx] >> 10) & 3 for y in range(violet.shape[0] - 4, violet.shape[0]))
     start = (vx, violet.shape[0] - 4)
-    x32 = vx - Rf.VIOLET_SHIFT
+    x32 = vx - Rf.VIOLET_SHIFT + PADL                            # Route 32 column (edge padding PADL west)
     out = [((0, 1), (VIOLET, vx, violet.shape[0] - 3 + i), None) for i in range(3)]
     out += [((0, 1), (R32, x32, 0), 'cross-into-route32')]
     door = next(p for p, c in trav.items() if c['code'] == 'D')
@@ -310,7 +311,7 @@ def world(engine, nums):
     pad = 16 * 16
     canvas = np.zeros((pad + v.shape[0] + r.shape[0] + pad, pad + v.shape[1] + pad, 3), np.int16) - 1
     canvas[pad:pad + v.shape[0], pad:pad + v.shape[1]] = v
-    ox = pad + Rf.VIOLET_SHIFT * 16
+    ox = pad + (Rf.VIOLET_SHIFT - PADL) * 16
     canvas[pad + v.shape[0]:pad + v.shape[0] + r.shape[0], ox:ox + r.shape[1]] = r
     return canvas, {nums['JohtoRoute32']: (ox, pad + v.shape[0]), nums['VioletCity']: (pad, pad)}
 

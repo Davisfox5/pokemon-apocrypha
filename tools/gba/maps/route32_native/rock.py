@@ -95,6 +95,17 @@ def terraces(cells, floor=None):
             if rock[y, x]:
                 around = [g[b, a] for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)) if 0 <= a < W and 0 <= b < H and not rock[b, a]]
                 d[y, x] = max(d[y, x], max(around + [g[y, x]]) + 1)
+    # A tier keeps a cell only where it runs at least three cells across and three down: no one- or two-cell
+    # jogs at a tier's end (the long plateau's raised cap narrowed to two cells at its south end).
+    for _ in range(2):
+        for i in range(1, n + 1):
+            m = lab == i
+            for lv in sorted(set(d[m].tolist()), reverse=True):
+                t = m & (d == lv)
+                keep = ndimage.binary_opening(t, np.ones((1, 3))) & ndimage.binary_opening(t, np.ones((3, 1)))
+                drop = t & ~keep
+                if drop.any() and lv > d[m].min():
+                    d[drop] = lv - 1
     return d, rock
 
 # Where a rock top meets grass at its own height, the grass runs onto the rock along a gently wavy line
@@ -178,7 +189,8 @@ def rock_frlg(cells, d, isrock, base, pieces, tex, soft=False):
                             ix = join['w' if qx == 0 else 'e'][sl]
                         else:
                             ix = np.where((ix < 0) & (ledge_mid[sl] >= 0), ledge_mid[sl], ix)
-                    cell[sl] = bg[sl]
+                    if kind not in ('grass', 'sand'):        # lawn and road: the painted ground runs on under the
+                        cell[sl] = bg[sl]                    # piece's clear pixels, whatever lies beside each side
                     q = ov[sl]
                     for (yy, xx), k in np.ndenumerate(ix):
                         if k >= 0:

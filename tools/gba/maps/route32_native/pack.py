@@ -552,8 +552,9 @@ def register_maps(engine):
             d[grp].append(n)
     g.write_text(json.dumps(d, indent=2) + '\n')
     lj = engine / 'data/layouts/layouts.json'; L = json.loads(lj.read_text())
-    if not any(l.get('id') == LAYOUT for l in L['layouts']):
-        L['layouts'].append(dict(id=LAYOUT, name=f'{MAP}_Layout', width=W, height=H, primary_tileset='gTileset_' + PRI_SYM,
+    L['layouts'] = [l for l in L['layouts'] if l.get('id') != LAYOUT]
+    if True:
+        L['layouts'].append(dict(id=LAYOUT, name=f'{MAP}_Layout', width=W + PADL + PADR, height=H, primary_tileset='gTileset_' + PRI_SYM,
                                  secondary_tileset='gTileset_' + TS_SYM, border_filepath=f'data/layouts/{MAP}/border.bin',
                                  blockdata_filepath=f'data/layouts/{MAP}/map.bin'))
     lj.write_text(json.dumps(L, indent=2) + '\n')
@@ -573,17 +574,18 @@ def register_maps(engine):
     pf.write_text(t)
     v = engine / 'data/maps/VioletCity/map.json'; M = json.loads(v.read_text())
     conns = [c for c in (M.get('connections') or []) if c['map'] != MAP_ID]
-    conns.append(dict(map=MAP_ID, direction='down', offset=Rf.VIOLET_SHIFT))
+    conns.append(dict(map=MAP_ID, direction='down', offset=Rf.VIOLET_SHIFT - PADL))
     M['connections'] = conns
     v.write_text(json.dumps(M, indent=2) + '\n')
 
 def write_map(engine, r):
     words = r['words']
     (engine / f'data/layouts/{MAP}').mkdir(parents=True, exist_ok=True)
-    (engine / f'data/layouts/{MAP}/map.bin').write_bytes(struct.pack('<%dH' % (W * H), *words.ravel().tolist()))
+    (engine / f'data/layouts/{MAP}/map.bin').write_bytes(struct.pack('<%dH' % words.size, *words.ravel().tolist()))
+    NW = words.shape[1]
     # Border: the open sea east of the route (HGSS's EVERYWHERE), two by two at the texture's phase.
-    sea = [(x, y) for y in range(ROW0, H) for x in range(W) if r['grid'][y][x] == '~'
-           and all(0 <= x + dx < W and 0 <= y + dy < H and r['grid'][y + dy][x + dx] == '~' for dx in (-1, 0, 1) for dy in (-1, 0, 1))]
+    sea = [(x, y) for y in range(ROW0, H) for x in range(NW) if r['grid'][y][x] == '~'
+           and all(0 <= x + dx < NW and 0 <= y + dy < H and r['grid'][y + dy][x + dx] == '~' for dx in (-1, 0, 1) for dy in (-1, 0, 1))]
     pick = {}
     for x, y in sea:
         pick.setdefault((x % 2, y % 2), (x, y))
@@ -593,7 +595,7 @@ def write_map(engine, r):
     bgs, moves, objs, warps = [], [], [], []
     hidden = {v[3]: v for v in ITEMS.values()}
     for s in events['signs']:
-        x, y = Rf.to_map(*s['cell'])
+        x, y = Rf.to_map(*s['cell']); x += PADL
         if s['bg_type'] == 1:
             script = next(v for k, v in SIGN_SCRIPTS.items() if k in s['text'])
             bgs.append(dict(type='sign', x=x, y=y, elevation=0, player_facing_dir='BG_EVENT_PLAYER_FACING_ANY', script=script))
@@ -606,7 +608,7 @@ def write_map(engine, r):
             moves.append(dict(event=f'hidden {item}', cell=[x, y], hgss=s['cell'], flag=name))
     balls = {v[3]: v for v in ITEMS.values()}
     for n, o in enumerate(events['objects']):
-        x, y = Rf.to_map(*o['cell'])
+        x, y = Rf.to_map(*o['cell']); x += PADL
         if o['sprite'] == 'SPRITE_TREE':
             objs.append(dict(graphics_id='OBJ_EVENT_GFX_CUTTABLE_TREE', x=x, y=y, elevation=3, movement_type='MOVEMENT_TYPE_LOOK_AROUND',
                              movement_range_x=0, movement_range_y=0, trainer_type='TRAINER_TYPE_NONE', trainer_sight_or_berry_tree_id='0',
@@ -631,7 +633,7 @@ def write_map(engine, r):
     M = dict(id=MAP_ID, name=MAP, layout=LAYOUT, music='MUS_LITTLEROOT', region='REGION_JOHTO', region_map_section='MAPSEC_JOHTO_ROUTE_32',
              requires_flash=False, weather='WEATHER_SUNNY', map_type='MAP_TYPE_ROUTE', allow_cycling=True, allow_escaping=False,
              allow_running=True, show_map_name=True, battle_scene='MAP_BATTLE_SCENE_NORMAL', build_target='emerald',
-             connections=[dict(map='MAP_VIOLET_CITY', direction='up', offset=-Rf.VIOLET_SHIFT)],
+             connections=[dict(map='MAP_VIOLET_CITY', direction='up', offset=PADL - Rf.VIOLET_SHIFT)],
              object_events=objs, warp_events=warps, coord_events=[], bg_events=bgs)
     (engine / f'data/maps/{MAP}').mkdir(parents=True, exist_ok=True)
     (engine / f'data/maps/{MAP}/map.json').write_text(json.dumps(M, indent=2) + '\n')
@@ -640,9 +642,9 @@ def write_map(engine, r):
     return dict(moves=moves, door=list(door), border=[f'{b & 1023:#05x}' for b in border])
 
 # --------------------------------------------------------------------------- checks
-def decode(engine, words):
+def decode(engine, words, width=None):
     t = Tileset(engine, TS_NAME, PRI_NAME)
-    return np.array(t.map_image(words.ravel().tolist(), W).convert('RGB')), t
+    return np.array(t.map_image(words.ravel().tolist(), width or W).convert('RGB')), t
 
 def report_of(engine, r):
     report = dict(jobs=r['n_jobs'], tiles=len(r['tiles']), primary_metatiles=r['n_pri_meta'], secondary_metatiles=r['n_sec_meta'],
@@ -663,17 +665,76 @@ def report_of(engine, r):
                            south_edge_reached=any(p[1] == H - 1 for p in ns_cut))
     return report
 
+# --------------------------------------------------------------------------- edge padding
+PADL, PADR = 6, 8                    # columns added west and east, so the camera never sees past the map's art
+
+def pad_out(r):
+    """Woods (west, and east where the route's east column is land) or sea (east, beside the route's sea) beyond
+    HGSS's edges, from periodic 2x2 blocks of the route's own forest and sea metatiles; the Violet padding rows and
+    the viaduct's rows run on as their edge cell. Every padding cell is blocked. Returns padded words, grid, trav."""
+    words, grid, trav = r['words'], r['grid'], r['trav']
+    def periodic(code):
+        for y in range(ROW0, H - 3):
+            for x in range(W - 3):
+                if all(grid[y + dy][x + dx] in code for dx in range(4) for dy in range(4)) and \
+                   all((words[y + dy, x + dx] & 1023) == (words[y + dy + 2, x + dx] & 1023) == (words[y + dy, x + dx + 2] & 1023)
+                       for dx in (0, 1) for dy in (0, 1)):
+                    return {(dx, dy): int(words[y + dy, x + dx]) & 1023 for dx in (0, 1) for dy in (0, 1)}, (x, y)
+        raise AssertionError(('no periodic block', code))
+    woods, wat = periodic('t')
+    sea, sat = periodic('~')
+    v0, v1 = round((Rf.VIADUCT[0] + ROW0) * PX) // PX, -(-round((Rf.VIADUCT[1] + ROW0) * PX) // PX)
+    NW = W + PADL + PADR
+    out = np.zeros((H, NW), np.uint16)
+    out[:, PADL:PADL + W] = words
+    blocked = lambda m: m | (1 << 10)
+    for y in range(H):
+        for k in range(PADL):
+            x = PADL - 1 - k                              # west columns, outward
+            if y < ROW0 or v0 <= y < v1:
+                m = int(words[y, 0]) & 1023
+            else:
+                m = woods[((x - wat[0]) % 2, (y - wat[1]) % 2)]
+            out[y, x] = blocked(m)
+        east_sea = grid[y][W - 1] in '~XO' and trav[y, W - 1].get('behavior') in ('MB_OCEAN_WATER', None) and \
+            grid[y][W - 1] != 'R' and (grid[y][W - 1] == '~' or trav[y, W - 1].get('note', '').startswith(('HGSS', 'sea')))
+        for k in range(PADR):
+            x = PADL + W + k
+            if y < ROW0 or v0 <= y < v1:
+                m = int(words[y, W - 1]) & 1023
+            elif east_sea:
+                m = sea[((x - PADL - sat[0]) % 2, (y - sat[1]) % 2)]
+            else:
+                m = woods[((x - PADL - wat[0]) % 2, (y - wat[1]) % 2)]
+            out[y, x] = blocked(m)
+    pgrid = [['#'] * PADL + list(row) + ['#'] * PADR for row in grid]
+    ptrav = np.empty((H, NW), object)
+    for y in range(H):
+        for x in range(NW):
+            if PADL <= x < PADL + W:
+                c = dict(trav[y, x - PADL]); c['x'] = x
+            else:
+                c = dict(x=x, y=y, code='#', foot='blocked', behavior='MB_NORMAL', collision=1, elevation=0, note='edge padding')
+            ptrav[y, x] = c
+    return dict(words=out, grid=pgrid, trav=ptrav, width=NW, woods_block=list(wat), sea_block=list(sat))
+
 def main(engine, install):
     r = pack(engine)
     report = report_of(engine, r)
     if install:
         write_tilesets(engine, r); register(engine)
-        report['events'] = write_map(engine, r)
         native, _ = decode(engine, r['words'])
         Image.fromarray(native).save(OEV / 'native.png')
         dd = (rgb5(native) != rgb5(r['want'])).any(-1)
         report['native_pixels_differing'] = int(dd.sum())
-    (OUT / 'traversal.json').write_text(json.dumps([r['trav'][y, x] for y in range(H) for x in range(W)], default=int) + '\n')
+        pad = pad_out(r)
+        r.update(words=pad['words'], grid=pad['grid'], trav=pad['trav'])
+        report['padding'] = dict(west=PADL, east=PADR, width=pad['width'], woods_block=pad['woods_block'], sea_block=pad['sea_block'])
+        report['events'] = write_map(engine, r)
+        padded, _ = decode(engine, r['words'], pad['width'])
+        Image.fromarray(padded).save(OEV / 'native-padded.png')
+    NWd = r['words'].shape[1]
+    (OUT / 'traversal.json').write_text(json.dumps([r['trav'][y, x] for y in range(H) for x in range(NWd)], default=int) + '\n')
     (OEV / 'pack.json').write_text(json.dumps(report, indent=1, default=int) + '\n')
     print(json.dumps({k: v for k, v in report.items() if k not in ('events',)}, default=int)[:3000])
 
