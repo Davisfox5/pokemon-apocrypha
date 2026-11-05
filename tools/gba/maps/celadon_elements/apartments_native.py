@@ -259,6 +259,27 @@ def tv_side():
     MADE['tv_side'] = (px, m)
     return px, m
 
+def tv_hgss():
+    """HGSS's TV (room model a/1/4/8 #19, the one in its houses) turned a quarter turn so its
+    screen faces east, toward the sofa, and drawn as Gen 3 art by the conversion the buildings use
+    (gen3_art.convert, 45 degrees, 16 px a unit). Gen 3 draws no TV from the side; HGSS's is a
+    model, so it can turn (owner, 2026-11-05). Stood in a 1 x 5 box, its foot level with the
+    coffee table's."""
+    sys.path.insert(0, str(HERE.parent / 'olivine_elements'))
+    import gen3_art as G3
+    import hgss_render as HR
+    mods = HR.narc.load(C.ROOT.parent / 'pokeheartgold/files/a/1/4/8')
+    img, _ = G3.convert(mods, [(19, (0, 0, 0))], scale=16.0, pitch=45.0, n=10, finish=True, yaw=3)
+    a = img[..., 3] > 0
+    ys, xs = np.where(a)
+    img = img[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+    h, w = img.shape[:2]
+    px = np.zeros((80, 16, 3), np.int16); m = np.zeros((80, 16), bool)
+    y0, x0 = 72 - h, (16 - w) // 2
+    px[y0:72, x0:x0 + w] = img[..., :3]; m[y0:72, x0:x0 + w] = img[..., 3] > 0
+    MADE['tv_hgss'] = (px, m)
+    return px, m
+
 def cut(name):
     src, x0, y0, w, h = PIECES[name][:5]
     _, g, _ = SRC[src]
@@ -471,11 +492,11 @@ def lobby():
 def tv_corner(r, x, y):
     """Where to watch TV, the only way Gen 3's own pieces allow it (no sofa is drawn from behind,
     no TV from the side): the TV, a step, the coffee table long side on, a step, the sofa facing
-    it across the table, the TV turned to face it. Six squares wide, three deep, (x, y) its
+    it across the table, HGSS's TV turned to face it. Six squares wide, three deep, (x, y) its
     north-west corner."""
-    if 'tv_side' not in MADE:
-        tv_side()
-    r.piece('tv_side', x, y - 1)
+    if 'tv_hgss' not in MADE:
+        tv_hgss()
+    r.piece('tv_hgss', x, y - 2)
     r.piece('table_lo', x + 2, y)
     r.piece('sofa_side', x + 5, y)
 
