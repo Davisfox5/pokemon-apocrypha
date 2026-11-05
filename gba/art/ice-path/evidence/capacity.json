@@ -1,0 +1,107 @@
+{
+  "maps": [
+    "IcePath_1F",
+    "IcePath_B1F",
+    "IcePath_B2F",
+    "IcePath_B3F"
+  ],
+  "primary": "gTileset_IcePathPrimary",
+  "secondary": "gTileset_IcePath",
+  "pack": {
+    "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
+    "distinct_tiles": 208,
+    "representatives": 208,
+    "patterns": 209,
+    "primary_tiles": 209,
+    "secondary_tiles": 0,
+    "metatiles": 68,
+    "primary_metatiles": 68,
+    "secondary_metatiles": 0,
+    "colours_per_bank": [
+      14,
+      15,
+      15,
+      14,
+      10,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "sides": {
+      "1f": {
+        "pixels": 448768,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 44
+      },
+      "b1f": {
+        "pixels": 233984,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 35
+      },
+      "b2f": {
+        "pixels": 297472,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 32
+      },
+      "b3f": {
+        "pixels": 98816,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 30
+      }
+    }
+  },
+  "map_ids": {
+    "IcePath_1F": 62,
+    "IcePath_B1F": 63,
+    "IcePath_B2F": 64,
+    "IcePath_B3F": 65
+  },
+  "flags": {
+    "FLAG_HIDE_ICE_PATH_BOULDER_1_INIT": "FLAG_UNUSED_0x4E7",
+    "FLAG_HIDE_ICE_PATH_BOULDER_2_INIT": "FLAG_UNUSED_0x4E8",
+    "FLAG_HIDE_ICE_PATH_BOULDER_3_INIT": "FLAG_UNUSED_0x4E9",
+    "FLAG_HIDE_ICE_PATH_BOULDER_4_INIT": "FLAG_UNUSED_0x4EA",
+    "FLAG_HIDE_ICE_PATH_BOULDER_1_FALLEN": "FLAG_UNUSED_0x4EB",
+    "FLAG_HIDE_ICE_PATH_BOULDER_2_FALLEN": "FLAG_UNUSED_0x4EC",
+    "FLAG_HIDE_ICE_PATH_BOULDER_3_FALLEN": "FLAG_UNUSED_0x4ED",
+    "FLAG_HIDE_ICE_PATH_BOULDER_4_FALLEN": "FLAG_UNUSED_0x4EE",
+    "FLAG_ICE_PATH_FALLEN_BOULDERS_HIDDEN": "FLAG_UNUSED_0x4EF"
+  },
+  "mouths": {
+    "Route44": {
+      "cell": [
+        89,
+        9
+      ],
+      "metatile": 641,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0
+    },
+    "BlackthornCity": {
+      "cell": [
+        57,
+        16
+      ],
+      "metatile": 551,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0
+    }
+  }
+}

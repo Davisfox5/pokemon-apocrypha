@@ -1,0 +1,120 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "570663a9292521b4910054492c835120b7f13f09",
+  "export_vs_native": {
+    "IcePath_1F": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "IcePath_B1F": {
+      "size": [
+        512,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "IcePath_B2F": {
+      "size": [
+        1024,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "IcePath_B3F": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "Route44": {
+      "size": [
+        1536,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "BlackthornCity": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "ice_path_or_route_files_rewritten": [
+    "data/layouts/BlackthornCity/border.bin",
+    "data/layouts/BlackthornCity/map.bin",
+    "data/layouts/IcePath_1F/border.bin",
+    "data/layouts/IcePath_1F/map.bin",
+    "data/layouts/IcePath_B1F/border.bin",
+    "data/layouts/IcePath_B1F/map.bin",
+    "data/layouts/IcePath_B2F/border.bin",
+    "data/layouts/IcePath_B2F/map.bin",
+    "data/layouts/IcePath_B3F/border.bin",
+    "data/layouts/IcePath_B3F/map.bin",
+    "data/layouts/Route44/border.bin",
+    "data/layouts/Route44/map.bin",
+    "data/maps/BlackthornCity/map.json",
+    "data/maps/IcePath_1F/map.json",
+    "data/maps/IcePath_B1F/map.json",
+    "data/maps/IcePath_B2F/map.json",
+    "data/maps/IcePath_B3F/map.json",
+    "data/maps/Route44/map.json",
+    "data/tilesets/primary/ice_path/metatile_attributes.bin",
+    "data/tilesets/primary/ice_path/metatiles.bin",
+    "data/tilesets/primary/ice_path/palettes/00.pal",
+    "data/tilesets/primary/ice_path/palettes/01.pal",
+    "data/tilesets/primary/ice_path/palettes/02.pal",
+    "data/tilesets/primary/ice_path/palettes/03.pal",
+    "data/tilesets/primary/ice_path/palettes/04.pal",
+    "data/tilesets/primary/ice_path/palettes/05.pal",
+    "data/tilesets/primary/ice_path/palettes/06.pal",
+    "data/tilesets/primary/ice_path/palettes/07.pal",
+    "data/tilesets/primary/ice_path/palettes/08.pal",
+    "data/tilesets/primary/ice_path/palettes/09.pal",
+    "data/tilesets/primary/ice_path/palettes/10.pal",
+    "data/tilesets/primary/ice_path/palettes/11.pal",
+    "data/tilesets/primary/ice_path/palettes/12.pal",
+    "data/tilesets/secondary/ice_path/metatile_attributes.bin",
+    "data/tilesets/secondary/ice_path/metatiles.bin",
+    "data/tilesets/secondary/ice_path/palettes/00.pal",
+    "data/tilesets/secondary/ice_path/palettes/01.pal",
+    "data/tilesets/secondary/ice_path/palettes/02.pal",
+    "data/tilesets/secondary/ice_path/palettes/03.pal",
+    "data/tilesets/secondary/ice_path/palettes/04.pal",
+    "data/tilesets/secondary/ice_path/palettes/05.pal",
+    "data/tilesets/secondary/ice_path/palettes/06.pal",
+    "data/tilesets/secondary/ice_path/palettes/07.pal",
+    "data/tilesets/secondary/ice_path/palettes/08.pal",
+    "data/tilesets/secondary/ice_path/palettes/09.pal",
+    "data/tilesets/secondary/ice_path/palettes/10.pal",
+    "data/tilesets/secondary/ice_path/palettes/11.pal",
+    "data/tilesets/secondary/ice_path/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_ice_path_or_routes": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Ice Path, Route 44 or Blackthorn are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

@@ -1,0 +1,152 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/117_D39R0101.json",
+      "files/msgdata/msg/msg_0122_D39R0101.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_ICE_PATH_1F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        11,
+        58
+      ],
+      "dest": "MAP_ROUTE_44",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        55,
+        40
+      ],
+      "dest": "MAP_BLACKTHORN",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        55,
+        7
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        55,
+        20
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 4
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        17,
+        18
+      ],
+      "script": "std_hiddenitem_d39r0101_max_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        48,
+        5
+      ],
+      "script": "std_hiddenitem_d39r0101_ice_heal",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D39R0101_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        47,
+        10
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0101_HM07",
+      "script": "std_itemball_d39r0101_hm07"
+    },
+    {
+      "id": "obj_D39R0101_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        47,
+        7
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING",
+      "script": "_EV_scr_seq_D39R0101_000 + 1"
+    },
+    {
+      "id": "obj_D39R0101_dancer",
+      "sprite": "SPRITE_DANCER",
+      "cell": [
+        55,
+        29
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_239",
+      "script": "_EV_scr_seq_D39R0101_002 + 1"
+    },
+    {
+      "id": "obj_D39R0101_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        53,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0101_PROTEIN",
+      "script": "std_itemball_d39r0101_protein"
+    },
+    {
+      "id": "obj_D39R0101_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        53,
+        35
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0101_PP_UP",
+      "script": "std_itemball_d39r0101_pp_up"
+    },
+    {
+      "id": "obj_D39R0101_gsmiddleman1_2",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        38,
+        21
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON",
+      "script": "_EV_scr_seq_D39R0101_003 + 1"
+    }
+  ],
+  "messages": {
+    "msg_0122_D39R0101_00000": "You see the item over there? It was me who dropped it, but I cannot get over there to pick it up. Why? Walking on ice makes your feet freeze! My shoes are so worn that the soles are gone!",
+    "msg_0122_D39R0101_00001": "You see the item over there? It was me who dropped it, but I cannot get over there to pick it up. Why? Walking on ice makes your feet freeze! My shoes are so worn that the soles are gone!",
+    "msg_0122_D39R0101_00002": "The item you picked up over there... it was an HM, wasn’t it? I am the one who dropped it...but I want you to keep it. You took the time to get it, right? It contains Waterfall. Have fun climbing waterfalls! Me? I still need a new pair of shoes before I can enjoy waterfalls.",
+    "msg_0122_D39R0101_00003": "Me oh my... Is that you, {STRVAR_1 3, 0, 0}? Fancy meeting you here! To tell the truth...my sandals are frozen on the ice, and I am stuck here. In other words, my flip-flops are quick-frozen to the ground. Tee hee. Well, it’s no laughing matter. Would you come around and push my back?",
+    "msg_0122_D39R0101_00004": "Me oh my... Is that you, {STRVAR_1 3, 0, 0}? Fancy meeting you here! To tell the truth...my sandals are frozen on the ice, and I am stuck here. In other words, my flip-flops are quick-frozen with the ground. Tee hee. Well, it’s no laughing matter. Would you push my back? {YESNO 0}",
+    "msg_0122_D39R0101_00005": "{SIZE 200}SHOVE!{SIZE 100}",
+    "msg_0122_D39R0101_00006": "Don’t be so cruel. You will push my back, won’t you? {YESNO 0}",
+    "msg_0122_D39R0101_00007": "You really are kind. Thank you so much!"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/224_D39R0103.json",
+      "files/msgdata/msg/msg_0122_D39R0101.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_ICE_PATH_B2F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        26,
+        11
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 2
+    },
+    {
+      "index": 1,
+      "cell": [
+        26,
+        10
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 2
+    },
+    {
+      "index": 2,
+      "cell": [
+        16,
+        17
+      ],
+      "dest": "MAP_ICE_PATH_B3F",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        50,
+        5
+      ],
+      "dest": "MAP_ICE_PATH_B3F",
+      "anchor": 2
+    },
+    {
+      "index": 4,
+      "cell": [
+        43,
+        22
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 3
+    },
+    {
+      "index": 5,
+      "cell": [
+        43,
+        21
+      ],
+      "dest": "MAP_ICE_PATH_B1F",
+      "anchor": 3
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        26,
+        26
+      ],
+      "script": "std_hiddenitem_d39r0103_carbos",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D39R0103_rock",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        12,
+        13
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ICE_PATH_BOULDER_1_FALLEN",
+      "script": "_EV_scr_seq_D39R0103_002 + 1"
+    },
+    {
+      "id": "obj_D39R0103_rock_2",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        11,
+        21
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ICE_PATH_BOULDER_2_FALLEN",
+      "script": "_EV_scr_seq_D39R0103_002 + 1"
+    },
+    {
+      "id": "obj_D39R0103_rock_3",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        19,
+        10
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ICE_PATH_BOULDER_3_FALLEN",
+      "script": "_EV_scr_seq_D39R0103_002 + 1"
+    },
+    {
+      "id": "obj_D39R0103_rock_4",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        20,
+        22
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ICE_PATH_BOULDER_4_FALLEN",
+      "script": "_EV_scr_seq_D39R0103_002 + 1"
+    },
+    {
+      "id": "obj_D39R0103_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        57,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0103_TM72",
+      "script": "std_itemball_d39r0103_tm72"
+    },
+    {
+      "id": "obj_D39R0103_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        15,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0103_FULL_HEAL",
+      "script": "std_itemball_d39r0103_full_heal"
+    },
+    {
+      "id": "obj_D39R0103_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        5,
+        12
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D39R0103_MAX_POTION",
+      "script": "std_itemball_d39r0103_max_potion"
+    }
+  ],
+  "messages": {}
+}
