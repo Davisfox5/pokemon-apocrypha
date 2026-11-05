@@ -82,15 +82,20 @@ def lecture_hall():
     N = lambda hy: rows.index(hy)                            # HGSS row -> this map's row
     L = lambda x, y: (x - 7, y)
     LD.court(r, L, top=N(11), bottom=N(22), stone=[N(25), N(26), N(28)])
+    # owner, November 5: the gym's glass floor panels (HGSS x 9-11 and 19-21, rows 7-18) and the rails on
+    # them go; the hall's own stone from below them (rows 19-22) takes their place
+    stone_rows = [N(19), N(20), N(21), N(22)]
+    dst, src = [], []
+    for hy in [7, 8] + list(range(11, 19)):
+        for hx in (9, 10, 11, 19, 20, 21):
+            dst.append(L(hx, N(hy))); src.append(L(hx, stone_rows[(hy - 8) % 4]))
+    RM.paint(r, dst, src)
     r.blocked[:] = False
     for y in range(r.H):
         for x in range(r.W):
             hx = x + 7
             if hx < 9 or hx > 21 or y < 4 or y > N(28):
                 r.blocked[y, x] = True
-    for hx in (9, 10, 11, 19, 20, 21):
-        for hy in (17, 18):
-            r.blocked[N(hy), hx - 7] = True                  # the glass panels' rails
     for hx in (12, 18):                                       # the statues
         for hy in (24, 25):
             r.blocked[N(hy), hx - 7] = True

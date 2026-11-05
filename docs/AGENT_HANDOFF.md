@@ -74,6 +74,8 @@ Owner review (October 25), refined the same day:
   court), five campus homes; all rendered from HGSS's own room data, each building on a private tileset pair. No NPCs yet.
   November 4 (owner): Sprout Tower and the houses rebuilt in Gen 3 pieces (sprout_native.py on HGSS's plan; houses_native.py
   from floor plans, FireRed pieces, the Celadon apartments' method); lecture hall shortened, desks facing the court.
+  November 5 (owner): houses get kitchens and paired beds on the north wall (S.S. Tidal cabins), FireRed pieces retoned to
+  HGSS's Violet house colours; the lecture hall's glass panels and rails replaced with court stone.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

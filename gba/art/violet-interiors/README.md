@@ -103,6 +103,22 @@ Checks on the round 2 ROM:
 - Violet doors: 11 of 11.
 - Porymap: 0 pixels differ on all ten interiors.
 
+## Round 3 (owner, November 5)
+
+- **Houses:**
+  - Two beds share a room the way FireRed's S.S. Tidal cabins do it: headboards on the north
+    wall, in its corners (`VioletHouse2`) or side by side (`VioletHouse3`).
+  - Every house has a kitchen (Pallet's counter, stove and fridge) on a grey stone corner, the kind HGSS
+    puts under its house kitchens.
+  - The FireRed pieces keep their shapes and are retoned to the HGSS Violet house: its warm wood floor,
+    cream wall and grey stone (`houses_native.retone`). Packed exactly: 47 colours, 38 in the sage's.
+- **Lecture hall:** the gym's glass floor panels and the rails under them are gone; their squares are the
+  court's stone.
+- `evidence/hgss-sprout-tower-{1F,2F,3F}.png`: HGSS's own Sprout Tower floors, unconverted.
+
+Checks on the round 3 ROM: interior runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ
+on the lecture hall and all five houses.
+
 ## Checks
 
 | Check | Result |

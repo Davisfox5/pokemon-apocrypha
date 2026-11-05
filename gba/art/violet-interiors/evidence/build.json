@@ -22,18 +22,18 @@
    17,
    27
   ],
-  "px_changed_by_palette": 29911,
+  "px_changed_by_palette": 0,
   "notes": [
    "HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court up against the stage, desks along it facing the court (proposal)"
   ]
  },
  "lecture": {
   "log": [
-   "221 colours, k-means over 729 quadrants into 13 banks (seed 4, error 4304812), 11 quadrants repaired; score 1.49 (alternative 1.89)",
-   "605 tiles, 279 metatiles"
+   "exact (84 colours)",
+   "522 tiles, 263 metatiles"
   ],
-  "tiles": 605,
-  "metatiles": 279
+  "tiles": 522,
+  "metatiles": 263
  },
  "VioletHouse1": {
   "size": [
@@ -42,16 +42,16 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a retired sage's home: the Fighting Dojo's wall, planks and tatami, a Bellsprout statue (proposal)"
+   "a retired sage's home: the dojo's wall and tatami, a kitchen on its stone, a Bellsprout statue (proposal)"
   ]
  },
  "sage_house": {
   "log": [
-   "exact (33 colours)",
-   "42 tiles, 25 metatiles"
+   "exact (38 colours)",
+   "69 tiles, 36 metatiles"
   ],
-  "tiles": 42,
-  "metatiles": 25
+  "tiles": 69,
+  "metatiles": 36
  },
  "VioletHouse2": {
   "size": [
@@ -60,7 +60,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "students' boarding house: two beds, a PC desk, a bookshelf, a study table (proposal)"
+   "students' boarding house: beds in the north wall's corners, the kitchen between, a study table (proposal)"
   ]
  },
  "VioletHouse3": {
@@ -70,7 +70,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a second boarding house: shared kitchen and TV, the dining table, beds (proposal)"
+   "a second boarding house: kitchen and TV, two beds side by side on the north wall, dining table (proposal)"
   ]
  },
  "VioletHouse4": {
@@ -80,7 +80,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a professor's home with a study: a wall of bookshelves, PC and desk, a reading table (proposal)"
+   "a professor's home with a study: kitchen, bookshelves, PC and desk, a reading table (proposal)"
   ]
  },
  "VioletHouse5": {
@@ -95,11 +95,11 @@
  },
  "houses": {
   "log": [
-   "exact (46 colours)",
-   "174 tiles, 82 metatiles"
+   "exact (47 colours)",
+   "175 tiles, 87 metatiles"
   ],
-  "tiles": 174,
-  "metatiles": 82
+  "tiles": 175,
+  "metatiles": 87
  },
  "SproutTower1F": {
   "size": [

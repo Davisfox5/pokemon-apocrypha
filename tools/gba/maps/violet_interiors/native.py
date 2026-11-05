@@ -29,7 +29,7 @@ def layouts():
 
 def folder(sym):
     hdr = (ENG / 'src/data/tilesets/headers.h').read_text()
-    gfx = (ENG / 'src/data/tilesets/graphics.h').read_text()
+    gfx = (ENG / 'src/data/tilesets/graphics.h').read_text() + (ENG / 'src/graphics.c').read_text()   # General's tiles are in graphics.c
     name = sym.replace('gTileset_', '')
     m = re.search(rf'gTileset_{name} =\s*\{{(.*?)\}};', hdr, re.S)
     t = re.search(r'\.tiles = gTilesetTiles_(\w+)', m.group(1)).group(1)
@@ -121,12 +121,22 @@ class Source:
             at = next((x, y) for x, y in cells if int(self.words[y, x]) & 0x3FF == mid)
             out.append(self.flat(*at))
         return out
+    def walls(self):
+        """The plain north wall: the most used metatile of rows 0 and 1, by row."""
+        out = {}
+        for y in (0, 1):
+            c = Counter(int(self.words[y, x]) & 0x3FF for x in range(self.W))
+            mid = c.most_common(1)[0][0]
+            x = next(x for x in range(self.W) if int(self.words[y, x]) & 0x3FF == mid)
+            out[y] = self.flat(x, y)
+        return out
     def object(self, x, y):
         """This cell's object pixels: everything on its top layer, and bottom pixels unlike the plain floor
-        and its shades."""
+        and its shades (on the north wall's rows, unlike the plain wall)."""
         c = self.cell(x, y)
         same = np.zeros((16, 16), bool)
-        for f in self.floors():
+        refs = [self.walls()[y]] if y in (0, 1) else self.floors()
+        for f in refs:
             same |= (c['bot'] == f).all(-1)
         return ~same | (c['top'][..., 3] > 0)
 
