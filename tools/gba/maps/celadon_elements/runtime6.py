@@ -40,7 +40,13 @@ ROOT = C.ROOT
 W, H = S.W, S.H
 KANTO0 = 54
 CITY, CENTER, UPSTAIRS, SERVICES, HOTEL, HOTEL_UP, GAME_CORNER, PRIZE_ROOM, GARDENS, CAFE = range(60, 70)
-APARTMENTS, CADE_HOUSE = 70, 71                                  # owner, 2026-11-01
+def kanto_id(name):
+    """A Kanto map's runtime id (KANTO0 + its index in gMapGroup_Kanto), read from the engine
+    checkout beside the hub, so maps appended on other branches do not shift it."""
+    groups = json.loads((ROOT.parent / 'pokeemerald-expansion/data/maps/map_groups.json').read_text())
+    return KANTO0 + groups['gMapGroup_Kanto'].index(name)
+
+APARTMENTS, CADE_HOUSE = kanto_id('KantoCeladonApartments'), kanto_id('KantoCeladonCadeHouse')   # owner, 2026-11-01
 ROOM_INDEX = dict(services=SERVICES, hotel_1f=HOTEL, hotel_2f=HOTEL_UP, game_corner=GAME_CORNER, prize_room=PRIZE_ROOM,
                   gardens=GARDENS, cafe=CAFE, apartments=APARTMENTS, cade_house=CADE_HOUSE)
 SAFFRON, OLIVINE = 54, 50
