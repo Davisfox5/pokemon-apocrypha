@@ -96,7 +96,8 @@ for k, n in dict(MU='LilycoveCity_LilycoveMuseum_1F', B1='LittlerootTown_Brendan
                  DV='RustboroCity_DevonCorp_3F', DS='LilycoveCity_DepartmentStore_1F', RT='LilycoveCity_DepartmentStoreRooftop',
                  FC='SlateportCity_PokemonFanClub', LO='FourIsland_LoreleisHouse', K1='CeladonCity_Condominiums_1F',
                  K2='CeladonCity_Condominiums_2F', K3='CeladonCity_Condominiums_3F',
-                 EL='LilycoveCity_DepartmentStoreElevator', M2='LilycoveCity_LilycoveMuseum_2F').items():
+                 EL='LilycoveCity_DepartmentStoreElevator', M2='LilycoveCity_LilycoveMuseum_2F',
+                 HT='CeladonCity_Hotel').items():
     source(k, n)
 
 _flat = {}
@@ -172,7 +173,8 @@ PIECES = {
     'painting_c':   ('MU', 9, 0, 1, 1, 'wall'), 'painting_d': ('MU', 19, 0, 2, 2, 'wall'),
     'bench':        ('MU', 15, 7, 5, 3, 'floor'), 'statue_a': ('MU', 15, 11, 1, 2, 'floor'), 'statue_b': ('MU', 18, 11, 1, 2, 'floor'),
     # Brendan's house
-    'kitchen':      ('B1', 0, 0, 5, 3, 'wall'), 'tv': ('B1', 4, 4, 1, 2, 'floor', (0, 7)), 'table_w': ('B1', 2, 4, 2, 2, 'floor', (0, 7)),
+    'kitchen':      ('B1', 0, 0, 5, 3, 'wall'), 'tv': ('B1', 4, 3, 1, 3, 'floor', (15, 8)), 'kitchenette': ('B1', 0, 0, 3, 3, 'wall', 17),
+    'cafe_table':   ('HT', 12, 3, 4, 2, 'floor'), 'table_w': ('B1', 2, 4, 2, 2, 'floor', (0, 7)),
     'kitchen_in':   ('B1', 0, 0, 5, 3, 'wall', 17),
     'dining_b1':    ('B1', 1, 5, 6, 4, 'floor', 9),
     'window':       ('K1', 4, 0, 1, 2, 'wall'), 'mat': ('B1', 8, 8, 2, 1, 'floor'),
@@ -214,17 +216,48 @@ def piece_mask(name):
     raw[:top] = False
     if bot:
         raw[-bot:] = False
+    for y0, y1, x0, x1 in CLEAR.get(name, ()):
+        raw[y0:y1, x0:x1] = False
+    if name in RAW_MASK:
+        return raw
     m = ndimage.binary_closing(np.pad(raw, 2), np.ones((3, 3)), iterations=2)[2:-2, 2:-2] | raw
     m[:top] = False
     if bot:
         m[-bot:] = False
     m = ndimage.binary_fill_holes(m)
+    for y0, y1, x0, x1 in CLEAR.get(name, ()):
+        m[y0:y1, x0:x1] = False
     # on the source's wall rows only the object's own pixels: the wall between them stays wall
     rows = modes(src)[0]
     for yy in range(h):
         if sy + yy in rows:
             m[yy * 16:(yy + 1) * 16] = raw[yy * 16:(yy + 1) * 16]
     return m
+
+RAW_MASK = {'cafe_table'}                          # pieces whose own floor shows between their parts
+# pixel boxes (y0, y1, x0, x1) that belong to the source room's wall, not the piece
+CLEAR = {'kitchenette': [(0, 22, 16, 48)], 'clock': [(22, 32, 0, 16)]}
+MADE = {}                                           # name -> (pixels, mask): pieces made from a native one
+
+def tv_side():
+    """Brendan's TV (Emerald) turned to face east, made from its own pixels and colours (owner,
+    2026-11-05: the TVs turned to face the sofa; Gen 3 draws no TV from the side). The top stays;
+    the front becomes the set's side: the screen's grey becomes the casing, the screen's edge
+    shows as a sliver on the east face with its glint; the cabinet's doors become its plain side
+    panel."""
+    px = piece_pixels('tv').copy(); m = piece_mask('tv').copy()
+    pal = lambda c: np.array(c, np.int16)
+    A, B, C = pal((82, 82, 106)), pal((98, 98, 123)), pal((106, 148, 197))
+    F, H, L = pal((148, 148, 148)), pal((189, 222, 255)), pal((255, 255, 255))
+    # the piece's rows (its box starts a square up): 15 the set's top outline, 16-19 its top face,
+    # 20-31 its front, 32-39 the cabinet
+    px[20:32, 1:15] = B                                    # the front becomes the casing's side
+    px[20:32, 12] = A; px[21:29, 13:15] = F; px[22:25, 13] = L  # the screen's edge on the east face
+    px[20:32, 15] = A
+    px[33:38, 3:13] = H; px[33:38, 13:15] = C              # the cabinet's plain side panel
+    px[38, 2:14] = C
+    MADE['tv_side'] = (px, m)
+    return px, m
 
 def cut(name):
     src, x0, y0, w, h = PIECES[name][:5]
@@ -371,9 +404,12 @@ class Room:
     def piece(self, name, x, y, solid=True):
         """A whole piece by its own pixels, its top-left cell at (x, y) ('cells' pieces whole
         below the wall rows)."""
-        src, sx, sy, w, h, kind = PIECES[name][:6]
+        if name in MADE:
+            px, m = MADE[name]; kind = 'floor'; h, w = m.shape[0] // 16, m.shape[1] // 16
+        else:
+            src, sx, sy, w, h, kind = PIECES[name][:6]
+            m = piece_mask(name); px = piece_pixels(name)
         self.used.append((name, x, y))
-        m = piece_mask(name); px = piece_pixels(name)
         if kind == 'cells':
             m = m.copy(); m[max(0, (2 - sy)) * 16:] = True
         dst = self.img[y * 16:(y + h) * 16, x * 16:(x + w) * 16]
@@ -411,13 +447,15 @@ def core_plan(p):
 def lobby():
     p = Plan()
     p.room(0, 2, W - 1, 14, 'marble')
-    p.room(0, 2, 5, 5, 'wood')                                   # the concierge office
+    p.room(0, 2, 5, 5, 'wood')                                   # the staff break room
     p.ns += [(6, 2, 8)]; p.ew += [(0, 5, 6)]
-    p.door_ew(3, 6, 'marble')
+    p.door_ew(1, 6, 'marble')
     r = Room(p)
     core(p, r, 1, plants=False)
-    # the office: the desk, a picture, the shelves, spaced along its wall
-    r.piece('pc', 0, 0); r.piece('painting_c', 3, 0); r.piece('books_fc', 4, 0)
+    # the break room: a kitchenette (fridge, sink and hob) on its wall, a clock, a cafe table for
+    # four (the Celadon Hotel's) a step below, a plant in the corner
+    r.piece('kitchenette', 0, 0); r.piece('clock', 4, 0); r.piece('plant', 5, 2)
+    r.piece('cafe_table', 2, 4)
     r.piece('counter', 7, 10)                                                         # the concierge desk by the door
     # the lounge, Devon's own: the sofa on the wall, the glass table a step in front of it (its
     # long side to the sofa), an armchair a step off each end facing in
@@ -433,8 +471,11 @@ def lobby():
 def tv_corner(r, x, y):
     """Where to watch TV, the only way Gen 3's own pieces allow it (no sofa is drawn from behind,
     no TV from the side): the TV, a step, the coffee table long side on, a step, the sofa facing
-    it across the table. Six squares wide, three deep, (x, y) its north-west corner."""
-    r.piece('tv', x, y)
+    it across the table, the TV turned to face it. Six squares wide, three deep, (x, y) its
+    north-west corner."""
+    if 'tv_side' not in MADE:
+        tv_side()
+    r.piece('tv_side', x, y - 1)
     r.piece('table_lo', x + 2, y)
     r.piece('sofa_side', x + 5, y)
 
