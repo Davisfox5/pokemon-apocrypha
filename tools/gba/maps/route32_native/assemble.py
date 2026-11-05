@@ -145,6 +145,7 @@ def native_cells(cells, grid):
                     c['floor'] = 'water'                  # a land boulder (rock01) keeps HGSS's own floor
                 if c['floor'] == 'water' and grid[y][x] != 'B':
                     c.update(ground=0.0, peak=0.0)       # the sea is one level, below every rock face beside it
+            c['code'] = grid[y][x]
             row.append(c)
         out.append(row)
     for y in range(H):
@@ -184,7 +185,7 @@ def ground_quadrants(phg, ncells):
             nl, ns = int(lawn[sl].sum()), int(sand[sl].sum())
             if ns >= 32 and ns > nl:
                 q[qy, qx] = G.PATH
-            elif nl >= 8:
+            elif nl >= (40 if ncells[y][x]['floor'] == 'sand' or ncells[y][x].get('code') == 'd' else 8):   # a road cell needs real lawn, not wall-foot specks
                 q[qy, qx] = G.GRASS
     for y in range(H):
         for x in range(W):
@@ -197,13 +198,23 @@ def ground_quadrants(phg, ncells):
         for i in range(1, n + 1):
             if sizes[i] < small:
                 q[lab == i] = other
+    for y in range(H):                                 # stairs stand on the path that runs through them
+        for x in range(W):
+            if ncells[y][x]['lab'] == '^':
+                q[2 * y:2 * y + 2, 2 * x:2 * x + 2] = G.PATH
     # Under rock the ground runs on as the nearest open ground's material (lawn or road), so the clear pixels
     # of a cliff piece show the ground actually beside it on each side, not one plain block.
     from scipy.ndimage import distance_transform_edt
-    rockq = np.repeat(np.repeat(np.array([[c['lab'] == 'R' for c in row] for row in ncells]), 2, 0), 2, 1)
+    rockq = np.repeat(np.repeat(np.array([[c['lab'] in 'RX' for c in row] for row in ncells]), 2, 0), 2, 1)
     if rockq.any():
         _, (iy, ix) = distance_transform_edt(rockq, return_indices=True)
         q[rockq] = q[iy[rockq], ix[rockq]]
+    # specks again, now that the ground under the rock is known (lawn left in a road strip beside a wall)
+    lab_, n_ = label((q == G.GRASS) & ~rockq)
+    sizes = np.bincount(lab_.ravel())
+    for i in range(1, n_ + 1):
+        if sizes[i] < 8:
+            q[lab_ == i] = G.PATH
     flats = stair_landings(q, ncells)
     return q, flats
 
@@ -225,6 +236,9 @@ def stair_landings(q, ncells):
             y1 = y
             while all(lab(c, y1 + 1) == '^' for c in range(x, x1 + 1)):
                 y1 += 1
+            if y1 - y + 1 >= x1 - x + 1:
+                seen |= {(c, r) for c in range(x, x1 + 1) for r in range(y, y1 + 1)}
+                continue                                   # taller than wide: an east-west flight through a wall
             seen |= {(c, r) for c in range(x, x1 + 1) for r in range(y, y1 + 1)}
             for r in list(range(y - STAIR_LANDING, y)) + list(range(y1 + 1, y1 + 1 + STAIR_LANDING)):
                 if not (0 <= r < H) or not any(q[2 * r + k, c] == G.PATH for k in (0, 1) for c in range(2 * x - 1, 2 * x1 + 3)):
@@ -556,6 +570,7 @@ def cave_mouth():
     mz = np.load(SRC / 'hgss/hgss-ground-materials.npz')
     names = [str(n) for n in mz['names']]
     m = mz['material'] == names.index('cavehole')
+    m &= gnd.astype(int).sum(-1) < 240                   # the opening itself, not the texture's rock rim
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     a = art[ROW0 * PX:, COL0 * PX:]
     a[m, :3] = gnd[m]; a[m, 3] = 255
@@ -609,6 +624,24 @@ def fit_ew(pieces):
     m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
     return {k: apply_tones(v, m) for k, v in planks.items()}
 
+EDGE_DARK = (82, 58, 52)            # the Johto rock ramp's outline
+
+def wood_tread(p):
+    """A north-south tread: Route 30's grey tread shape (tread, its lit nose, the riser's shade) in the plank
+    flight's own wood tones, lightest to darkest, as HGSS's wooden treads."""
+    grey = p['ns-mid']
+    wood = sorted({tuple(int(v) for v in c) for c in p['ew-mid'][..., :3].reshape(-1, 3)}, key=sum)
+    greys = sorted({tuple(int(v) for v in c) for c in grey[grey[..., 3] > 0][:, :3]}, key=sum)
+    out = grey.copy()
+    # by brightness rank from each end: the lit nose the palest board, the tread the next, the shade the darkest
+    picks = {greys[-1]: wood[-1], greys[0]: wood[0]}
+    mid = greys[1:-1]
+    for j, gc in enumerate(reversed(mid)):
+        picks[gc] = wood[max(1, len(wood) - 2 - j * 2)]
+    for gc, wc in picks.items():
+        out[(grey[..., :3] == gc).all(-1), :3] = wc
+    return out
+
 def stairs(phg, grid):
     """Route 30's stair pieces flight by flight on HGSS's stair cells. Each flight's direction is HGSS's own: the
     decoded height falls along x (east-west) or along y (north-south) across it. An east-west flight takes Route
@@ -636,11 +669,18 @@ def stairs(phg, grid):
             sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
             ew = abs(float(gx[sl].mean())) > abs(float(gy[sl].mean()))
             for (x, y) in sorted(comp):
+                # HGSS's flights are wooden, set into the wall: the plank flight's boards on every cell (the wall's own
+                # faces close it above and below), turned a quarter for a north-south flight (treads across it), a
+                # dark board edge where the flight meets the wall at its sides.
                 if ew:
-                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                    k, a = 'ew-mid', p['ew-mid'].copy()
                 else:
-                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
-                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = p[k]
+                    k, a = 'ns-wood', wood_tread(p)
+                    if x == xs[0]:
+                        a[:, :1, :3] = EDGE_DARK
+                    if x == xs[-1]:
+                        a[:, -1:, :3] = EDGE_DARK
+                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = a
                 placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south',
                                    hgss_slope=[round(float(gx[sl].mean()), 3), round(float(gy[sl].mean()), 3)]))
     return art, placed
@@ -856,7 +896,29 @@ def compose(phg, engine):
             hx, hz = Rf.to_hgss(x, y)
             if 0 <= hx < HW:
                 ncells[y][x] = dict(ncells[y][x], top=float(top[hz, hx]))
+    for y in range(H):                                 # the cave mouth is cut into the rock face: it terraces as rock
+        for x in range(W):
+            if grid[y][x] == 'C':
+                ncells[y][x] = dict(ncells[y][x], lab='R')
     d, isrock = Rk.terraces(ncells, FLOOR)
+    # East-west flights through a wall: the flight stands at its low ground; the wall cells over and under the flight's
+    # columns run on as the wall beside them (its face rows close onto the flight), not as separate knobs.
+    from scipy.ndimage import label as _lab2
+    st = np.array([[ch == '^' for ch in row] for row in grid])
+    sl_, sn = _lab2(st)
+    for i in range(1, sn + 1):
+        ys, xs = np.nonzero(sl_ == i)
+        x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+        if x1 - x0 + 1 > y1 - y0 + 1:
+            continue                                   # a north-south flight (wider than tall)
+        lo_side = x1 + 1 if d[y0:y1 + 1, x1 + 1].mean() < d[y0:y1 + 1, max(x0 - 1, 0)].mean() else x0 - 1
+        d[y0:y1 + 1, x0:x1 + 1] = int(d[y0:y1 + 1, lo_side].min())
+        for y in list(range(y0 - 2, y0)) + list(range(y1 + 1, y1 + 3)):
+            for x in range(x0, x1 + 1):
+                if 0 <= y < H and isrock[y, x]:
+                    beyond = x1 + 1 if lo_side > x1 else x0 - 1
+                    if isrock[y, beyond]:
+                        d[y, x] = d[y, beyond]
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH], water=water_block)
     bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)

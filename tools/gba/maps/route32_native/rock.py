@@ -64,18 +64,20 @@ def band(h):
     return int(sum(h >= b for b in BANDS))
 
 def terraces(cells, floor=None):
-    """Terrace level per native cell, one per real HGSS cliff.
+    """Terrace level per native cell, in HGSS height units: one Gen 3 face row per unit, as HGSS's own projection
+    draws a front (16 px a unit).
 
-    Each connected rock mass rises to its highest solid top band (cell 'top': the 90th percentile of HGSS's flat
-    heights, so a face's own pixels don't pull it down; solid: at least three cells across, 3x3 opening), at
-    least one above the ground beside it: a plateau rises in one Gen 3 cliff, the same way everywhere. A lower
-    band keeps its own terrace only where it too is solid: the stepped wall above the water and the south
-    mountain's terraces. HGSS's one-cell rim band (the sloping lip of a face) joins the cap."""
+    Heights: walkable ground at round(ground); each connected rock mass at its highest solid top (cell 'top', the
+    90th percentile of HGSS's flat heights; solid: at least three cells across), lower solid tiers inside it at
+    their own height; HGSS's one-cell rim band joins the cap.
+    Depth: a south-facing drop of k units is extruded into k face rows, stacked up into the cap above it (as HGSS
+    projects a front over the cells behind its base), each row one unit lower; north and side edges stay single rims."""
     from scipy import ndimage
     H, W = len(cells), len(cells[0])
     rock = np.array([[c['lab'] == 'R' for c in row] for row in cells])
-    g = np.array([[band(c['ground']) for c in row] for row in cells])
-    top = np.array([[band(c.get('top', c['peak'])) for c in row] for row in cells])
+    g = np.array([[int(round(c['ground'])) for c in row] for row in cells])
+    # a cap's top surface: HGSS's raised rim lip sits a little above it, so round down from the quarter
+    top = np.array([[int(np.floor(c.get('top', c['peak']) + 0.25)) for c in row] for row in cells])
     d = g.copy()
     lab, n = ndimage.label(rock)
     for i in range(1, n + 1):
@@ -85,28 +87,60 @@ def terraces(cells, floor=None):
         vals = sorted(set(top[m].tolist()))
         solid = {lv: ndimage.binary_opening(m & (top == lv), np.ones((3, 3))) for lv in vals}
         tiers = [lv for lv in vals if solid[lv].any()]
-        base = max(floor_ + 1, max(tiers) if tiers else max(vals))
+        hi = max(tiers) if tiers else max(vals)
+        # A wall no higher than the highest ground beside it is a one-sided cliff (a retaining wall): its top is that
+        # ground's level, so the high side runs onto it and only the low side shows a face.
+        base = floor_ if hi <= floor_ and int(g[ring].min()) < floor_ else max(floor_ + 1, hi)
         d[m] = base
         for lv in tiers:
-            if lv < base and lv > floor_:
+            if floor_ < lv < base:
                 d[solid[lv]] = lv
     for y in range(H):
         for x in range(W):
             if rock[y, x]:
                 around = [g[b, a] for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)) if 0 <= a < W and 0 <= b < H and not rock[b, a]]
-                d[y, x] = max(d[y, x], max(around + [g[y, x]]) + 1)
-    # A tier keeps a cell only where it runs at least three cells across and three down: no one- or two-cell
-    # jogs at a tier's end (the long plateau's raised cap narrowed to two cells at its south end).
-    for _ in range(2):
-        for i in range(1, n + 1):
-            m = lab == i
-            for lv in sorted(set(d[m].tolist()), reverse=True):
-                t = m & (d == lv)
-                keep = ndimage.binary_opening(t, np.ones((1, 3))) & ndimage.binary_opening(t, np.ones((3, 1)))
-                drop = t & ~keep
-                if drop.any() and lv > d[m].min():
-                    d[drop] = lv - 1
-    return d, rock
+                if around:                                # at least one above the lowest ground beside it
+                    d[y, x] = max(d[y, x], min(around) + 1)
+    # Thin parts of a mass (no 3x3 solid around them) that stand no higher than the ground on their high side are
+    # one-sided cliffs: the wall between the sand and the pier, the wall west of the south tall grass.
+    topf = np.array([[c.get('top', c['peak']) for c in row] for row in cells])
+    solid_all = ndimage.binary_opening(rock, np.ones((3, 3)))
+    for y in range(H):
+        for x in range(W):
+            if not rock[y, x] or solid_all[y, x]:
+                continue
+            a0, a1 = x, x
+            while a0 - 1 >= 0 and rock[y, a0 - 1]: a0 -= 1
+            while a1 + 1 < W and rock[y, a1 + 1]: a1 += 1
+            if a1 - a0 + 1 > 3 or a0 == 0 or a1 == W - 1:
+                continue
+            nb = [g[y, a0 - 1], g[y, a1 + 1]]
+            if max(nb) > min(nb) and topf[y, a0:a1 + 1].max() <= max(nb) + 0.25:
+                d[y, x] = max(nb)
+    # Depth: extrude each south drop into face rows.
+    out = d.copy()
+    for x in range(W):
+        for y in range(H - 2, -1, -1):
+            if not rock[y, x] or rock[y + 1, x]:
+                continue
+            low = d[y + 1, x]
+            k = d[y, x] - low
+            for j in range(k):
+                yy = y - j
+                if yy < 0 or not rock[yy, x]:
+                    break
+                out[yy, x] = min(out[yy, x], low + 1 + j)
+    # inner tier fronts (a higher rock cell above a lower rock cell) too
+    for x in range(W):
+        for y in range(H - 2, -1, -1):
+            if rock[y, x] and rock[y + 1, x] and d[y, x] > d[y + 1, x]:
+                low, k = out[y + 1, x], d[y, x] - d[y + 1, x]
+                for j in range(k):
+                    yy = y - j
+                    if yy < 0 or not rock[yy, x] or d[yy, x] != d[y, x]:
+                        break
+                    out[yy, x] = min(out[yy, x], low + 1 + j)
+    return out, rock
 
 # Where a rock top meets grass at its own height, the grass runs onto the rock along a gently wavy line
 # (FRINGE px deep at each position along the edge, periodic per cell so a run of cells tiles), edged by the
