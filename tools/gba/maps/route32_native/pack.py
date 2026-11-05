@@ -116,7 +116,7 @@ def traversal(engine, grid, cells, V):
                 v = int(V.words[vy, vx])
                 c.update(foot='open' if (v >> 10) & 3 == 0 else 'blocked', behavior=None, collision=(v >> 10) & 3,
                          elevation=v >> 12, metatile=v & 1023, source=f'Violet ({vx},{vy})')
-                if ch == 'v':
+                if ch == 'v' or y >= Rf.VIOLET_ID_ROWS:          # row 5 is route art (lawn, the road's end cap)
                     c.update(behavior='MB_NORMAL', metatile=None)
             elif ch == 'L':
                 c.update(foot='ledge_south', behavior='MB_JUMP_SOUTH', collision=1, elevation=0)
