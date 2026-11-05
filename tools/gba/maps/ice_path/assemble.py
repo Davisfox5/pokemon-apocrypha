@@ -17,7 +17,8 @@ same way, colour for colour by brightness, never redrawn:
     stairs          644   (Seafoam Islands' ice stairs: HGSS's two-cell flights in a one-row ice wall,
                            its floor cells with the slope bit, 0x08/0x06)
     ladder down     645   (a ladder into a hole: HGSS's dun_stairdw)
-    ladder up       686   (HGSS's dun_stairup)
+    ladder up       654 over 662   (HGSS's dun_stairup: its two warp cells take FRLG Seafoam's two
+                           halves, the top over the foot, as Seafoam stacks them)
 
 Writes source/assemble/<floor>{.png,-class.npy,-ledger.json,-terrace-grid.txt} and
 evidence/assemble/<floor>-before-after.png.
@@ -50,7 +51,7 @@ A.SRC, A.EV = SRC, EV
 PX = 16
 VOID, FLOOR, FACE, TOP, RIM, BOULDER, STAIRS, WATER, EXIT = range(9)
 ICEFALL = ('general_frlg', 'seafoam_islands_frlg')
-PIECE = dict(ice=843, crystal=679, rock=643, hole=646, ladder_down=645, ladder_up=662, stairs=644,
+PIECE = dict(ice=843, crystal=679, rock=643, hole=646, ladder_down=645, ladder_up=662, ladder_top=654, stairs=644,
              pillar_tl=648, pillar_tr=650, pillar_bl=664, pillar_br=709)   # the pillar: Icefall B1F (8-9, 4-6), its top and foot rows
 SNOW = (641, 657)                                    # Icefall's plain floors: their colours are the snow cut from a piece
 HOLES = {'b1f': [(11, 10), (10, 18), (18, 7), (19, 19)]}      # zone 223_D39R0102's coord triggers
@@ -134,6 +135,10 @@ def ledger(side):
                     c.update(lab='T', kind='blocked')
             row.append(c)
         cells.append(row)
+    # an up-ladder's two warp cells are one ladder: FRLG Seafoam's top half over its foot (owner review, Nov 5)
+    for (x, y), nm in ladder.items():
+        if nm == 'ladder_up' and ladder.get((x, y + 1)) == 'ladder_up':
+            cells[y][x]['piece'] = 'ladder_top'
     # the big clusters in 2x2 blocks, read top-left first: each block is one pillar
     taken = set()
     for y in range(H - 1):

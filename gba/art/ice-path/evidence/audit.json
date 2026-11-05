@@ -14,11 +14,11 @@
       },
       "warps": 4,
       "tiles": [
-        208,
+        224,
         16
       ],
       "metatiles": [
-        67,
+        68,
         1
       ]
     },
@@ -36,11 +36,11 @@
       },
       "warps": 10,
       "tiles": [
-        208,
+        224,
         16
       ],
       "metatiles": [
-        67,
+        68,
         1
       ]
     },
@@ -57,11 +57,11 @@
       },
       "warps": 10,
       "tiles": [
-        208,
+        224,
         16
       ],
       "metatiles": [
-        67,
+        68,
         1
       ]
     },
@@ -77,11 +77,11 @@
       },
       "warps": 4,
       "tiles": [
-        208,
+        224,
         16
       ],
       "metatiles": [
-        67,
+        68,
         1
       ]
     }
@@ -249,10 +249,10 @@
     "src/data/tilesets/metatiles.h"
   ],
   "budget": {
-    "patterns": 205,
-    "primary_tiles": 205,
+    "patterns": 209,
+    "primary_tiles": 209,
     "secondary_tiles": 0,
-    "metatiles": 67
+    "metatiles": 68
   },
   "failures": []
 }

@@ -17,6 +17,7 @@ and Blackthorn). Maps `IcePath_1F` (id 62, 64x64), `IcePath_B1F` (63, 32x64), `I
 - [Every stair flight, HGSS beside native](evidence/review/stairs.png)
 - [The doors on Route 44 and Blackthorn](evidence/review/doors.png)
 - [Raised floors' north edges, HGSS, before and now](evidence/review/north-edges.png)
+- [Up-ladders, HGSS, before and now](evidence/review/ladders.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
 ## Art
@@ -36,7 +37,7 @@ for colour by brightness, never redrawn:
 | 2x2 ice clusters (`d_rock01`) | blocked | the ice pillar, Icefall B1F (8-9, 4-6), its top and foot rows fitted to 2x2 |
 | Single crystals (`d_rock01s`) | blocked | the crystal 679 or the ice rock 643, cut from their snow |
 | B1F's four drop holes (script triggers in HGSS) | MB_MT_PYRE_HOLE | 646 |
-| Ladders down / up | MB_LADDER | 645 (ladder into a hole) / 662, in HGSS's ladder wood |
+| Ladders down / up | MB_LADDER | 645 (ladder into a hole) / FRLG Seafoam's ladder top 654 over its foot 662 on an up-ladder's two warp cells, in HGSS's ladder wood |
 | Stairs: nine two-cell flights in a one-row ice wall (floor 0x08 with the slope bit 0x06) | MB_CAVE, a flight through the wall | FRLG Seafoam Islands' ice stairs 644, set two wide as Seafoam sets them, in Ice Path's wall tones |
 
 A crystal standing in the ice has ice under it. HGSS's exit glows are its own art over the floor.
@@ -44,8 +45,10 @@ Owner review (November 4): the stairs were left out (walkable, but drawn as wall
 now drawn. Owner review (November 5): a raised floor's north edge was drawn as a cliff face looking
 south onto the raised floor; it is now a drop with the rock's light top, the pale lip HGSS shows there
 (49 cells: 1F rows 13, 14 and 25, B2F and B3F row 7; [HGSS, before, now](evidence/review/north-edges.png)).
-Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 205
-tiles, 67 metatiles ([pack.json](evidence/pack.json)).
+Owner review (November 5): each up-ladder showed its foot twice; its upper warp cell now takes
+Seafoam's ladder top (654) over the foot (662), as Seafoam stacks them ([HGSS, before, now](evidence/review/ladders.png)).
+Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 209
+tiles, 68 metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events
 
