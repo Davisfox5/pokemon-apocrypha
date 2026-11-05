@@ -190,8 +190,12 @@ def add_door(img):
     mids = sorted({tuple(c) for c in rgb[teal]}, key=lambda c: 3 * c[0] + 4 * c[1] + 2 * c[2])
     mid, light = mids[len(mids) // 2], mids[-2]
     x0 = int(round(w * 0.33)); x1 = x0 + 11                  # under the window's left pane
-    y1 = h - 3
-    y0 = y1 - 21
+    # the door stands on the step (the flower box's teal front at the foot) and stops at its
+    # top edge (owner, 2026-11-05: the doors overlapped the step): its foot is the row under the
+    # flower box's lowest lime row
+    lime = a & (rgb[..., 1] > rgb[..., 2] + 30) & (rgb[..., 0] > 60)
+    y1 = int(np.nonzero(lime[:, x0:x1].any(1))[0].max()) + 1
+    y0 = h - 24
     out[y0:y1, x0:x1, :3] = darkest
     out[y0 + 1:y1, x0 + 1:x1 - 1, :3] = mid
     out[y0 + 1:y0 + 3, x0 + 1:x1 - 1, :3] = light

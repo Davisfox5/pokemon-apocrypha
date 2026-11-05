@@ -1,10 +1,10 @@
 {
  "view": {
-  "glyphs": 3137,
-  "static": 3086,
+  "glyphs": 3123,
+  "static": 3072,
   "pinned": 51,
   "palettes": 27,
-  "bytes": 264219
+  "bytes": 263771
  },
  "city": {
   "warps": [
@@ -60,10 +60,7 @@
    ]
   }
  },
- "new_rooms": [
-  "KantoCeladonApartments",
-  "KantoCeladonCadeHouse"
- ],
+ "new_rooms": [],
  "rooms": {
   "KantoCeladonMarketServices": [
    [
