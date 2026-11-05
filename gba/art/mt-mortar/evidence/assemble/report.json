@@ -1,0 +1,152 @@
+{
+ "cave_ramp": [
+  [
+   36,
+   31,
+   22
+  ],
+  [
+   173,
+   165,
+   148
+  ],
+  [
+   156,
+   148,
+   132
+  ],
+  [
+   140,
+   132,
+   115
+  ],
+  [
+   132,
+   115,
+   99
+  ],
+  [
+   107,
+   99,
+   82
+  ],
+  [
+   90,
+   82,
+   66
+  ]
+ ],
+ "floor_tones": [
+  [
+   74,
+   90,
+   90
+  ],
+  [
+   82,
+   99,
+   99
+  ],
+  [
+   90,
+   107,
+   107
+  ],
+  [
+   99,
+   115,
+   115
+  ]
+ ],
+ "floors": {
+  "1f-entrance": {
+   "flights": 7,
+   "rock_cells": 4419,
+   "regularised": {
+    "floor": 4,
+    "nub": 0,
+    "deep_rock": 1655,
+    "island": 34,
+    "spine": 2,
+    "bump": 0,
+    "narrow": 32
+   },
+   "kinds": {
+    "blocked": 4414,
+    "hole": 4,
+    "water": 823,
+    "floor": 756,
+    "ladder": 3,
+    "waterfall": 135,
+    "climb": 5,
+    "exit": 4
+   }
+  },
+  "1f-back": {
+   "flights": 40,
+   "rock_cells": 6861,
+   "regularised": {
+    "floor": 25,
+    "nub": 2,
+    "deep_rock": 863,
+    "island": 12,
+    "spine": 8,
+    "bump": 0,
+    "narrow": 247
+   },
+   "kinds": {
+    "blocked": 6847,
+    "floor": 2321,
+    "ladder": 7,
+    "ledge_south": 13,
+    "climb": 14,
+    "ledge_west": 3,
+    "ledge_east": 8,
+    "exit": 3
+   }
+  },
+  "2f": {
+   "flights": 5,
+   "rock_cells": 2595,
+   "regularised": {
+    "floor": 10,
+    "nub": 0,
+    "deep_rock": 4,
+    "island": 322,
+    "spine": 0,
+    "bump": 0,
+    "narrow": 12
+   },
+   "kinds": {
+    "blocked": 2668,
+    "floor": 992,
+    "water": 355,
+    "ledge_south": 72,
+    "ledge_east": 5,
+    "ladder": 1,
+    "ledge_west": 2,
+    "exit": 1
+   }
+  },
+  "b1f": {
+   "flights": 9,
+   "rock_cells": 4912,
+   "regularised": {
+    "floor": 5,
+    "nub": 0,
+    "deep_rock": 959,
+    "island": 168,
+    "spine": 0,
+    "bump": 0,
+    "narrow": 31
+   },
+   "kinds": {
+    "blocked": 4946,
+    "floor": 631,
+    "ladder": 4,
+    "water": 559,
+    "ledge_east": 4
+   }
+  }
+ }
+}

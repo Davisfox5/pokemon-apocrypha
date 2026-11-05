@@ -1,0 +1,293 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/236_D38R0102.json",
+      "files/msgdata/msg/msg_0121_D38R0104.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_MOUNT_MORTAR_1F_BACK",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        35,
+        81
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 4
+    },
+    {
+      "index": 1,
+      "cell": [
+        57,
+        81
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 5
+    },
+    {
+      "index": 2,
+      "cell": [
+        82,
+        81
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 6
+    },
+    {
+      "index": 3,
+      "cell": [
+        27,
+        65
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 7
+    },
+    {
+      "index": 4,
+      "cell": [
+        27,
+        64
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 7
+    },
+    {
+      "index": 5,
+      "cell": [
+        70,
+        66
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 8
+    },
+    {
+      "index": 6,
+      "cell": [
+        70,
+        65
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 8
+    },
+    {
+      "index": 7,
+      "cell": [
+        35,
+        38
+      ],
+      "dest": "MAP_MOUNT_MORTAR_B1F",
+      "anchor": 1
+    },
+    {
+      "index": 8,
+      "cell": [
+        28,
+        13
+      ],
+      "dest": "MAP_MOUNT_MORTAR_2F",
+      "anchor": 1
+    },
+    {
+      "index": 9,
+      "cell": [
+        28,
+        12
+      ],
+      "dest": "MAP_MOUNT_MORTAR_2F",
+      "anchor": 1
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        54,
+        68
+      ],
+      "script": "std_hiddenitem_d38r0102_max_repel",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        43,
+        20
+      ],
+      "script": "std_hiddenitem_d38r0102_ether",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        34,
+        74
+      ],
+      "script": "std_hiddenitem_d38r0102_rare_candy",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        60,
+        37
+      ],
+      "script": "std_hiddenitem_d38r0102_ultra_ball",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        61,
+        71
+      ],
+      "script": "std_hiddenitem_d38r0102_nugget",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_EVERYWHERE_rock",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        51,
+        72
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010",
+      "script": "std_field_strength"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        67,
+        54
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_ESCAPE_ROPE",
+      "script": "std_itemball_d38r0102_escape_rope"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        67,
+        28
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_NUGGET",
+      "script": "std_itemball_d38r0102_nugget"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        51,
+        31
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_IRON_BALL",
+      "script": "std_itemball_d38r0102_iron_ball"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_4",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        51,
+        43
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_MAX_POTION",
+      "script": "std_itemball_d38r0102_max_potion"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_5",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        29,
+        20
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_IRON",
+      "script": "std_itemball_d38r0102_iron"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_6",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        23,
+        36
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_MAX_REVIVE",
+      "script": "std_itemball_d38r0102_max_revive"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_7",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        37,
+        52
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_ULTRA_BALL",
+      "script": "std_itemball_d38r0102_ultra_ball"
+    },
+    {
+      "id": "obj_EVERYWHERE_mania",
+      "sprite": "SPRITE_MANIA",
+      "cell": [
+        62,
+        79
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_POKE_MANIAC_HARRISON)"
+    },
+    {
+      "id": "obj_EVERYWHERE_gsassistantm",
+      "sprite": "SPRITE_GSASSISTANTM",
+      "cell": [
+        52,
+        50
+      ],
+      "facing": 2,
+      "movement": 2,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_SUPER_NERD_MARKUS)"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_8",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        73,
+        47
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_FULL_INCENSE",
+      "script": "std_itemball_d38r0102_full_incense"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_9",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        38,
+        75
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0102_PROTECTOR",
+      "script": "std_itemball_d38r0102_protector"
+    }
+  ],
+  "messages": {}
+}

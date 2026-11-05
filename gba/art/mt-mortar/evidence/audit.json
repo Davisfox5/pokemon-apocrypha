@@ -1,0 +1,237 @@
+{
+  "maps": {
+    "MtMortar_1F_Entrance": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 1590,
+      "hgss_reach_cells": 1590,
+      "reach_on_foot": 767,
+      "kinds": {
+        "blocked": 4414,
+        "hole": 4,
+        "water": 823,
+        "floor": 756,
+        "ladder": 3,
+        "waterfall": 135,
+        "climb": 5,
+        "exit": 4
+      },
+      "warps": 11,
+      "tiles": [
+        512,
+        16
+      ],
+      "metatiles": [
+        295,
+        1
+      ]
+    },
+    "MtMortar_1F_Back": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 2331,
+      "hgss_reach_cells": 2331,
+      "reach_on_foot": 2029,
+      "kinds": {
+        "blocked": 4231,
+        "floor": 2321,
+        "ladder": 7,
+        "ledge_south": 13,
+        "climb": 14,
+        "ledge_west": 3,
+        "ledge_east": 8,
+        "exit": 3
+      },
+      "warps": 10,
+      "tiles": [
+        512,
+        16
+      ],
+      "metatiles": [
+        295,
+        1
+      ]
+    },
+    "MtMortar_2F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 1349,
+      "hgss_reach_cells": 1349,
+      "reach_on_foot": 917,
+      "kinds": {
+        "blocked": 2668,
+        "floor": 992,
+        "water": 355,
+        "ledge_south": 72,
+        "ledge_east": 5,
+        "ladder": 1,
+        "ledge_west": 2,
+        "exit": 1
+      },
+      "warps": 2,
+      "tiles": [
+        512,
+        16
+      ],
+      "metatiles": [
+        295,
+        1
+      ]
+    },
+    "MtMortar_B1F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 1194,
+      "hgss_reach_cells": 1194,
+      "reach_on_foot": 371,
+      "kinds": {
+        "blocked": 4946,
+        "floor": 631,
+        "ladder": 4,
+        "water": 559,
+        "ledge_east": 4
+      },
+      "warps": 4,
+      "tiles": [
+        512,
+        16
+      ],
+      "metatiles": [
+        295,
+        1
+      ]
+    }
+  },
+  "routes": {
+    "Route42": {
+      "pixels_changed": 0,
+      "cells": [
+        [
+          20,
+          11
+        ],
+        [
+          48,
+          15
+        ],
+        [
+          50,
+          4
+        ],
+        [
+          77,
+          11
+        ]
+      ],
+      "metatiles": [
+        526,
+        619
+      ],
+      "warps": [
+        {
+          "x": 20,
+          "y": 11,
+          "elevation": 0,
+          "dest_map": "MAP_MT_MORTAR_1F_ENTRANCE",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 48,
+          "y": 15,
+          "elevation": 0,
+          "dest_map": "MAP_MT_MORTAR_1F_ENTRANCE",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 50,
+          "y": 4,
+          "elevation": 0,
+          "dest_map": "MAP_MT_MORTAR_1F_ENTRANCE",
+          "dest_warp_id": "2"
+        },
+        {
+          "x": 77,
+          "y": 11,
+          "elevation": 0,
+          "dest_map": "MAP_MT_MORTAR_1F_ENTRANCE",
+          "dest_warp_id": "3"
+        }
+      ]
+    }
+  },
+  "changed_files": [
+    "data/event_scripts.s",
+    "data/layouts/MtMortar_1F_Back/border.bin",
+    "data/layouts/MtMortar_1F_Back/map.bin",
+    "data/layouts/MtMortar_1F_Entrance/border.bin",
+    "data/layouts/MtMortar_1F_Entrance/map.bin",
+    "data/layouts/MtMortar_2F/border.bin",
+    "data/layouts/MtMortar_2F/map.bin",
+    "data/layouts/MtMortar_B1F/border.bin",
+    "data/layouts/MtMortar_B1F/map.bin",
+    "data/layouts/Route42/map.bin",
+    "data/layouts/layouts.json",
+    "data/maps/MtMortar_1F_Back/map.json",
+    "data/maps/MtMortar_1F_Back/scripts.inc",
+    "data/maps/MtMortar_1F_Entrance/map.json",
+    "data/maps/MtMortar_1F_Entrance/scripts.inc",
+    "data/maps/MtMortar_2F/map.json",
+    "data/maps/MtMortar_2F/scripts.inc",
+    "data/maps/MtMortar_B1F/map.json",
+    "data/maps/MtMortar_B1F/scripts.inc",
+    "data/maps/Route42/map.json",
+    "data/maps/map_groups.json",
+    "data/tilesets/primary/mt_mortar/metatile_attributes.bin",
+    "data/tilesets/primary/mt_mortar/metatiles.bin",
+    "data/tilesets/primary/mt_mortar/palettes/00.pal",
+    "data/tilesets/primary/mt_mortar/palettes/01.pal",
+    "data/tilesets/primary/mt_mortar/palettes/02.pal",
+    "data/tilesets/primary/mt_mortar/palettes/03.pal",
+    "data/tilesets/primary/mt_mortar/palettes/04.pal",
+    "data/tilesets/primary/mt_mortar/palettes/05.pal",
+    "data/tilesets/primary/mt_mortar/palettes/06.pal",
+    "data/tilesets/primary/mt_mortar/palettes/07.pal",
+    "data/tilesets/primary/mt_mortar/palettes/08.pal",
+    "data/tilesets/primary/mt_mortar/palettes/09.pal",
+    "data/tilesets/primary/mt_mortar/palettes/10.pal",
+    "data/tilesets/primary/mt_mortar/palettes/11.pal",
+    "data/tilesets/primary/mt_mortar/palettes/12.pal",
+    "data/tilesets/primary/mt_mortar/palettes/13.pal",
+    "data/tilesets/primary/mt_mortar/palettes/14.pal",
+    "data/tilesets/primary/mt_mortar/palettes/15.pal",
+    "data/tilesets/primary/mt_mortar/tiles.png",
+    "data/tilesets/secondary/mt_mortar/metatile_attributes.bin",
+    "data/tilesets/secondary/mt_mortar/metatiles.bin",
+    "data/tilesets/secondary/mt_mortar/palettes/00.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/01.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/02.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/03.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/04.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/05.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/06.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/07.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/08.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/09.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/10.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/11.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/12.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/13.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/14.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/15.pal",
+    "data/tilesets/secondary/mt_mortar/tiles.png",
+    "data/tilesets/secondary/route_42/metatile_attributes.bin",
+    "include/regions.h",
+    "src/apocrypha_map_proof.c",
+    "src/data/region_map/region_map_sections.json",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h"
+  ],
+  "budget": {
+    "patterns": 523,
+    "primary_tiles": 512,
+    "secondary_tiles": 11,
+    "metatiles": 295
+  },
+  "failures": []
+}

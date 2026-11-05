@@ -1,0 +1,153 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/237_D38R0103.json",
+      "files/msgdata/msg/msg_0121_D38R0104.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_MOUNT_MORTAR_2F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        27,
+        55
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+      "anchor": 9
+    },
+    {
+      "index": 1,
+      "cell": [
+        9,
+        16
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 8
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        53,
+        29
+      ],
+      "script": "std_hiddenitem_d38r0103_full_restore",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        34,
+        38
+      ],
+      "script": "std_hiddenitem_d38r0103_hp_up",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        42,
+        48
+      ],
+      "script": "std_hiddenitem_d38r0103_hyper_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        16,
+        18
+      ],
+      "script": "std_hiddenitem_d38r0103_full_heal",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_EVERYWHERE_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        6,
+        55
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_RARE_CANDY",
+      "script": "std_itemball_d38r0103_rare_candy"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        45,
+        38
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_MAX_POTION",
+      "script": "std_itemball_d38r0103_max_potion"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        29,
+        34
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_TM40",
+      "script": "std_itemball_d38r0103_tm40"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_4",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        16,
+        24
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_ELIXIR",
+      "script": "std_itemball_d38r0103_elixir"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_5",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        27,
+        14
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_DRAGON_SCALE",
+      "script": "std_itemball_d38r0103_dragon_scale"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_6",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        45,
+        15
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0103_ESCAPE_ROPE",
+      "script": "std_itemball_d38r0103_escape_rope"
+    },
+    {
+      "id": "obj_EVERYWHERE_gsassistantm",
+      "sprite": "SPRITE_GSASSISTANTM",
+      "cell": [
+        19,
+        46
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_SUPER_NERD_HUGH)"
+    }
+  ],
+  "messages": {}
+}

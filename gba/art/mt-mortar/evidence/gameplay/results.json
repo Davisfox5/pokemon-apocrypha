@@ -1,0 +1,2360 @@
+{
+  "rom_sha256": "e277b8b0f5fbc426f5767796503a5df7c5cbcc50a8edf72813924f141272f42a",
+  "steps": [
+    [
+      "view",
+      "66",
+      "20",
+      "46",
+      "view-1f-entrance"
+    ],
+    [
+      "view",
+      "67",
+      "19",
+      "76",
+      "view-1f-back"
+    ],
+    [
+      "view",
+      "68",
+      "27",
+      "55",
+      "view-2f"
+    ],
+    [
+      "view",
+      "69",
+      "32",
+      "71",
+      "view-b1f"
+    ],
+    [
+      "go",
+      "61",
+      "20",
+      "12"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "20",
+      "46"
+    ],
+    [
+      "shot",
+      "mouth-20-11"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "61",
+      "20",
+      "12"
+    ],
+    [
+      "go",
+      "61",
+      "48",
+      "16"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "45",
+      "50"
+    ],
+    [
+      "shot",
+      "mouth-48-15"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "61",
+      "48",
+      "16"
+    ],
+    [
+      "go",
+      "61",
+      "50",
+      "5"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "59",
+      "53"
+    ],
+    [
+      "shot",
+      "mouth-50-4"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "61",
+      "50",
+      "5"
+    ],
+    [
+      "go",
+      "61",
+      "77",
+      "12"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "70",
+      "46"
+    ],
+    [
+      "shot",
+      "mouth-77-11"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "61",
+      "77",
+      "12"
+    ],
+    [
+      "go",
+      "66",
+      "34",
+      "32"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "19",
+      "76"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-34-31"
+    ],
+    [
+      "go",
+      "66",
+      "56",
+      "32"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "41",
+      "76"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-56-31"
+    ],
+    [
+      "go",
+      "66",
+      "81",
+      "32"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "66",
+      "76"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-81-31"
+    ],
+    [
+      "go",
+      "66",
+      "26",
+      "15"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "11",
+      "60"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-26-14"
+    ],
+    [
+      "go",
+      "66",
+      "69",
+      "16"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "54",
+      "61"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-69-15"
+    ],
+    [
+      "go",
+      "66",
+      "45",
+      "3"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "68",
+      "27",
+      "55"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-45-2"
+    ],
+    [
+      "go",
+      "66",
+      "45",
+      "45"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "69",
+      "32",
+      "71"
+    ],
+    [
+      "shot",
+      "warp-1f-entrance-45-44"
+    ],
+    [
+      "go",
+      "67",
+      "19",
+      "76"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "34",
+      "32"
+    ],
+    [
+      "shot",
+      "warp-1f-back-19-76"
+    ],
+    [
+      "go",
+      "67",
+      "41",
+      "76"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "56",
+      "32"
+    ],
+    [
+      "shot",
+      "warp-1f-back-41-76"
+    ],
+    [
+      "go",
+      "67",
+      "66",
+      "76"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "81",
+      "32"
+    ],
+    [
+      "shot",
+      "warp-1f-back-66-76"
+    ],
+    [
+      "go",
+      "67",
+      "11",
+      "61"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "26",
+      "14"
+    ],
+    [
+      "shot",
+      "warp-1f-back-11-60"
+    ],
+    [
+      "go",
+      "67",
+      "11",
+      "58"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "26",
+      "14"
+    ],
+    [
+      "shot",
+      "warp-1f-back-11-59"
+    ],
+    [
+      "go",
+      "67",
+      "54",
+      "62"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "69",
+      "15"
+    ],
+    [
+      "shot",
+      "warp-1f-back-54-61"
+    ],
+    [
+      "go",
+      "67",
+      "54",
+      "59"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "69",
+      "15"
+    ],
+    [
+      "shot",
+      "warp-1f-back-54-60"
+    ],
+    [
+      "go",
+      "67",
+      "19",
+      "34"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "69",
+      "21",
+      "14"
+    ],
+    [
+      "shot",
+      "warp-1f-back-19-33"
+    ],
+    [
+      "go",
+      "67",
+      "12",
+      "9"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "68",
+      "9",
+      "16"
+    ],
+    [
+      "shot",
+      "warp-1f-back-12-8"
+    ],
+    [
+      "go",
+      "67",
+      "12",
+      "6"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "68",
+      "9",
+      "16"
+    ],
+    [
+      "shot",
+      "warp-1f-back-12-7"
+    ],
+    [
+      "go",
+      "68",
+      "27",
+      "55"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "45",
+      "3"
+    ],
+    [
+      "shot",
+      "warp-2f-27-55"
+    ],
+    [
+      "go",
+      "68",
+      "9",
+      "17"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "12",
+      "8"
+    ],
+    [
+      "shot",
+      "warp-2f-9-16"
+    ],
+    [
+      "go",
+      "69",
+      "32",
+      "72"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "45",
+      "44"
+    ],
+    [
+      "shot",
+      "warp-b1f-32-71"
+    ],
+    [
+      "go",
+      "69",
+      "21",
+      "15"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "19",
+      "33"
+    ],
+    [
+      "shot",
+      "warp-b1f-21-14"
+    ],
+    [
+      "go",
+      "69",
+      "21",
+      "12"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "67",
+      "19",
+      "33"
+    ],
+    [
+      "shot",
+      "warp-b1f-21-13"
+    ],
+    [
+      "go",
+      "69",
+      "32",
+      "69"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "66",
+      "45",
+      "44"
+    ],
+    [
+      "shot",
+      "warp-b1f-32-70"
+    ],
+    [
+      "go",
+      "66",
+      "45",
+      "13"
+    ],
+    [
+      "surfing",
+      "1",
+      "on-the-crest"
+    ],
+    [
+      "shot",
+      "falls-crest"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "240"
+    ],
+    [
+      "at",
+      "66",
+      "45",
+      "23"
+    ],
+    [
+      "surfing",
+      "1",
+      "at-the-foot"
+    ],
+    [
+      "shot",
+      "falls-foot"
+    ],
+    [
+      "face",
+      "north",
+      "waterfall-offered"
+    ],
+    [
+      "go",
+      "66",
+      "73",
+      "40"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "at",
+      "66",
+      "73",
+      "40"
+    ],
+    [
+      "face",
+      "east",
+      "rock-climb-1f-entrance"
+    ],
+    [
+      "go",
+      "67",
+      "56",
+      "31"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "at",
+      "67",
+      "56",
+      "31"
+    ],
+    [
+      "face",
+      "east",
+      "rock-climb-1f-back"
+    ],
+    [
+      "go",
+      "67",
+      "24",
+      "68"
+    ],
+    [
+      "east",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "60"
+    ],
+    [
+      "at",
+      "67",
+      "26",
+      "68"
+    ],
+    [
+      "shot",
+      "ledge-east"
+    ],
+    [
+      "go",
+      "67",
+      "37",
+      "57"
+    ],
+    [
+      "west",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "60"
+    ],
+    [
+      "at",
+      "67",
+      "35",
+      "57"
+    ],
+    [
+      "shot",
+      "ledge-west"
+    ]
+  ],
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:view-1f-entrance",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:view-1f-back",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:view-2f",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 27,
+          "y": 55,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:view-b1f",
+          "region": 2,
+          "group": 80,
+          "map": 69,
+          "x": 32,
+          "y": 71,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 96,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-20-46",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:mouth-20-11",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-61-20-12",
+          "region": 2,
+          "group": 80,
+          "map": 61,
+          "x": 20,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 230
+        },
+        {
+          "step": "at-66-45-50",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 50,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:mouth-48-15",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 50,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-61-48-16",
+          "region": 2,
+          "group": 80,
+          "map": 61,
+          "x": 48,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 230
+        },
+        {
+          "step": "at-66-59-53",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 59,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:mouth-50-4",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 59,
+          "y": 53,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-61-50-5",
+          "region": 2,
+          "group": 80,
+          "map": 61,
+          "x": 50,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 230
+        },
+        {
+          "step": "at-66-70-46",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 70,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:mouth-77-11",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 70,
+          "y": 46,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-61-77-12",
+          "region": 2,
+          "group": 80,
+          "map": 61,
+          "x": 77,
+          "y": 12,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 230
+        },
+        {
+          "step": "at-67-19-76",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-34-31",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-41-76",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 41,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-56-31",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 41,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-66-76",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 66,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-81-31",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 66,
+          "y": 76,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-11-60",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 11,
+          "y": 60,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-26-14",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 11,
+          "y": 60,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-54-61",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 54,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-69-15",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 54,
+          "y": 61,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-68-27-55",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 27,
+          "y": 55,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-45-2",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 27,
+          "y": 55,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-69-32-71",
+          "region": 2,
+          "group": 80,
+          "map": 69,
+          "x": 32,
+          "y": 71,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 96,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-entrance-45-44",
+          "region": 2,
+          "group": 80,
+          "map": 69,
+          "x": 32,
+          "y": 71,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 96,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-34-32",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 34,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-19-76",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 34,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-56-32",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 56,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-41-76",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 56,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-81-32",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 81,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-66-76",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 81,
+          "y": 32,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-26-14",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 26,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-11-60",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 26,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-26-14",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 26,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-11-59",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 26,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-69-15",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 69,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-54-61",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 69,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-69-15",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 69,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-54-60",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 69,
+          "y": 15,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-69-21-14",
+          "region": 2,
+          "group": 80,
+          "map": 69,
+          "x": 21,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 96,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-19-33",
+          "region": 2,
+          "group": 80,
+          "map": 69,
+          "x": 21,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 96,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-68-9-16",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 9,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-12-8",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 9,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-68-9-16",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 9,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-1f-back-12-7",
+          "region": 2,
+          "group": 80,
+          "map": 68,
+          "x": 9,
+          "y": 16,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-45-3",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 3,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-2f-27-55",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 3,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-12-8",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 12,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-2f-9-16",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 12,
+          "y": 8,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-45-44",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 44,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-b1f-32-71",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 44,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-19-33",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-b1f-21-14",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-19-33",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-b1f-21-13",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 19,
+          "y": 33,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-45-44",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 44,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:warp-b1f-32-70",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 44,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:falls-crest",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 13,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-66-45-23",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:falls-foot",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:waterfall-offered",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232,
+          "dialog": true
+        },
+        {
+          "step": "at-66-73-40",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 73,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:rock-climb-1f-entrance",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 73,
+          "y": 40,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232,
+          "dialog": true
+        },
+        {
+          "step": "at-67-56-31",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 56,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:rock-climb-1f-back",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 56,
+          "y": 31,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232,
+          "dialog": true
+        },
+        {
+          "step": "at-67-26-68",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 26,
+          "y": 68,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:ledge-east",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 26,
+          "y": 68,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "at-67-35-57",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 35,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:ledge-west",
+          "region": 2,
+          "group": 80,
+          "map": 67,
+          "x": 35,
+          "y": 57,
+          "frlg_layout": 0,
+          "width": 75,
+          "height": 88,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 20,
+          "y": 45,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "cold-flash-reload",
+      "map": 66,
+      "position": [
+        20,
+        45
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "falls-crest",
+      "map": 66,
+      "position": [
+        45,
+        13
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "falls-foot",
+      "map": 66,
+      "position": [
+        45,
+        23
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ledge-east",
+      "map": 67,
+      "position": [
+        26,
+        68
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ledge-west",
+      "map": 67,
+      "position": [
+        35,
+        57
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "mouth-20-11",
+      "map": 66,
+      "position": [
+        20,
+        46
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "mouth-48-15",
+      "map": 66,
+      "position": [
+        45,
+        50
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "mouth-50-4",
+      "map": 66,
+      "position": [
+        59,
+        53
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "mouth-77-11",
+      "map": 66,
+      "position": [
+        70,
+        46
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ordinary-continue",
+      "map": 66,
+      "position": [
+        20,
+        45
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "rock-climb-1f-back",
+      "map": 67,
+      "position": [
+        56,
+        31
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "rock-climb-1f-entrance",
+      "map": 66,
+      "position": [
+        73,
+        40
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "save-on-route",
+      "map": 66,
+      "position": [
+        20,
+        45
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-1f-back",
+      "map": 67,
+      "position": [
+        19,
+        76
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-1f-entrance",
+      "map": 66,
+      "position": [
+        20,
+        46
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-2f",
+      "map": 68,
+      "position": [
+        27,
+        55
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-b1f",
+      "map": 69,
+      "position": [
+        32,
+        71
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-11-59",
+      "map": 66,
+      "position": [
+        26,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-11-60",
+      "map": 66,
+      "position": [
+        26,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-12-7",
+      "map": 68,
+      "position": [
+        9,
+        16
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-12-8",
+      "map": 68,
+      "position": [
+        9,
+        16
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-19-33",
+      "map": 69,
+      "position": [
+        21,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-19-76",
+      "map": 66,
+      "position": [
+        34,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-41-76",
+      "map": 66,
+      "position": [
+        56,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-54-60",
+      "map": 66,
+      "position": [
+        69,
+        15
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-54-61",
+      "map": 66,
+      "position": [
+        69,
+        15
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-back-66-76",
+      "map": 66,
+      "position": [
+        81,
+        32
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-26-14",
+      "map": 67,
+      "position": [
+        11,
+        60
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-34-31",
+      "map": 67,
+      "position": [
+        19,
+        76
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-45-2",
+      "map": 68,
+      "position": [
+        27,
+        55
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-45-44",
+      "map": 69,
+      "position": [
+        32,
+        71
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-56-31",
+      "map": 67,
+      "position": [
+        41,
+        76
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-69-15",
+      "map": 67,
+      "position": [
+        54,
+        61
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-1f-entrance-81-31",
+      "map": 67,
+      "position": [
+        66,
+        76
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-2f-27-55",
+      "map": 66,
+      "position": [
+        45,
+        3
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-2f-9-16",
+      "map": 67,
+      "position": [
+        12,
+        8
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-b1f-21-13",
+      "map": 67,
+      "position": [
+        19,
+        33
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-b1f-21-14",
+      "map": 67,
+      "position": [
+        19,
+        33
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-b1f-32-70",
+      "map": 66,
+      "position": [
+        45,
+        44
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-b1f-32-71",
+      "map": 66,
+      "position": [
+        45,
+        44
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "waterfall-offered",
+      "map": 66,
+      "position": [
+        45,
+        23
+      ],
+      "mismatched_map_layer_pixels": 0
+    }
+  ]
+}
