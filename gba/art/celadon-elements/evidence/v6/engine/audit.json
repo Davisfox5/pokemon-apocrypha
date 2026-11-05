@@ -6,14 +6,14 @@
   "glyphs": true
  },
  "budgets": {
-  "worst_view_glyphs": 684,
+  "worst_view_glyphs": 677,
   "glyph_budget": 956,
   "worst_step_palettes": 13,
   "banks": 13,
   "unbanked": [],
   "palettes": 27,
-  "glyphs": 3137,
-  "data_bytes": 264219
+  "glyphs": 3123,
+  "data_bytes": 263771
  },
  "traversal": {
   "cells": 3328,
@@ -42,7 +42,7 @@
  "scope": {
   "map_ids_kept": true,
   "layout_ids_kept": true,
-  "files_changed": 55,
+  "files_changed": 4,
   "outside_celadon_and_hooks": []
  },
  "failures": []
