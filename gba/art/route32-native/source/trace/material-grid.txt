@@ -1,0 +1,195 @@
+# Route 32 native material grid (32x166), one code per 16x16 cell. Native = HGSS + (0, 6); 6 rows north continue Violet City.
+#   g  lawn
+#   d  dirt road
+#   f  lawn with flowers
+#   l  light lawn patch
+#   G  tall grass (G15)
+#   t  tree root (T01)
+#   o  woods cell no root fits: blocked lawn under the woods edge
+#   k  woods cell under the crown of the tree south of it (blocked)
+#   L  jump ledge south
+#   Q  jump ledge west
+#   E  jump ledge east
+#   J  ledge end (blocked)
+#   ~  sea (Surf)
+#   B  wooden pier
+#   O  boulder
+#   ^  stairs
+#   R  rock (terrace, FRLG faces)
+#   H  building
+#   D  Center door
+#   w  gatehouse doorway
+#   C  Union Cave mouth
+#   s  sign
+#   c  cuttable tree (object)
+#   X  other blocked
+#   P  Violet City's lawn (its metatiles, north padding)
+#   p  Violet City's cobble road (north padding)
+#   v  Violet City's lawn drawn as route art (north padding row 5, under the first tree row's crowns)
+#   x: 01234567890123456789012345678901
+000   PPPPPPPPPPPPPPPPPPpppPPPPPPPPPPP
+001   PPPPPPPPPPPPPPPPPPpppPPPPPPPPPPP
+002   PPPPPPPPPPPPPPPPPPpppPPPPPPPPPPP
+003   PPPPPPPPPPPPPPPPPPpppPPPPPPPPPPP
+004   PPPPPPPPPPPPPPPPPPpppPPPPPPPPPPP
+005   vvvvvvvvvvvvvvvvvvpppvvvvvvvvvvv
+006   ttttttttttttttffffggggggggtttttt
+007   ttttttttttttttffggggggggggtttttt
+008   XXXXXXggggggggfgggggggggggGGGGtt
+009   HHHHHHgggggggggsggggggggggGGGGtt
+010   HHHHHHddddddddddddddggggggGGGGtt
+011   HHHHHHwdddddddddddddggggggGGGGtt
+012   HHHHHHwdddddddddddddggggggGGGGtt
+013   HHHHHHddddddddddddddggggggGGGGtt
+014   HHHHHHggggggggggggggggggggGGGGtt
+015   kkkkkkkkkkkkkkfffgggggggggGGGGtt
+016   ttttttttttttttfffffggggggggGGGtt
+017   ttttttttttttttkkkkkkggggggggGGtt
+018   ttttttttttttttttttttfsggggggGGtt
+019   ttttttttttttttttttttffgggggggGtt
+020   ttttttttttttttRRRRRRRRRRkkgggGtt
+021   ttttttttttttttRRRRRRRRRRttggggtt
+022   RRRRRRttttttRRRRRRRRRRRRttggggtt
+023   RRRRRRttttttRRRRRRRRRRRRRRRgggtt
+024   RRRRRRttttttRRRRRRRRRRRRRRRgggtt
+025   RRRRRRttttttRRRRRRRRRRRRRRRgggtt
+026   RRRRRRttttdddddddRRRRRRRRRRgggtt
+027   RRRRRRttttdddddddRRRRRRRRRRgggtt
+028   RRRRRRttttdddddddddddgggggEgggtt
+029   RRRRRRttttkkkkdddddddgggggEgggtt
+030   RRRRRRttttttttdddddddgggggEgggtt
+031   RRRRRRttttttttdddRRRRRRRggEGGGtt
+032   RRRRRRttttttttdddRRRRRRRggEGGGtt
+033   RRRRRRttttttttdddRRRRRRRLLJGGGtt
+034   ttttttttttttttgggRRRRRRRGGGGGGtt
+035   ttttttttttttttgggRRRRRRRGGGGGGtt
+036   ttttttttttttttgkkRRRRRRRGGGGGGtt
+037   ttttttttttttttgttRRRRRRRGGGGGGtt
+038   ttttttttttttttcttRRRRRRRgggGGGtt
+039   ttttttttttttttgggRRRRRRRgggGGGtt
+040   ttttttttttttttgggRRRRRRRgggGGGtt
+041   ttttttttttttttgggRRRRRRRGGGGGGtt
+042   ttttttttttttttlllRRRRRRRGGGGGGtt
+043   ttttttttttttttllllgRRRRRGGGGGGtt
+044   ttttttttttttttllllgggggGGGGGGGRR
+045   ttttttttttttttkkkkgGgggGGGkkRRRR
+046   ttttttttttttttttttgGGGgGGGttRRRR
+047   ttttttttttttttttttGGGGgGgGttRRRR
+048   ttttttttttttttttttGGGGgGggRRRRRR
+049   ttttttttttttttttttGGGGgRRRRRRRRR
+050   ttttttttttGffffgggggGggRRRRRRRRR
+051   ttttttttttGfffgggggggggRRRRRRRRR
+052   ttttttttGGGgggggggggdddRRRRRRRRR
+053   ttttttttGGGGRRRRRRRRdddRRRRRRRRR
+054   ttttttGGGGGGRRRRRRRRdddRRRRRRRRR
+055   ttttttGGgGGGRRRRRRRRdddRRRRRRRRR
+056   ttttttGGGGGGRRRRRRRRLLdRRRRRRRRR
+057   ttttttGGGGGGRRRRRRRRdddRRRRRRRRR
+058   ttttttGGGGGGRRRRRRRRdddRRRRRRRRR
+059   ttttttGGGGGGRRRRRRRRdddRRRRRRRRR
+060   ttttttGGGGGGRRRRRRggdddRRRRRRRRR
+061   ttttttGGGGGGRRRRRRggdddRRRRRRRRR
+062   ttttttGGGGGGGGGddddddddRRRRRRRRR
+063   ttttttGGGGGGGGGddddddddRRRRRRRRR
+064   ttttttGGGGGGGGGddddddddRRRRRRRRR
+065   ttttttddddddddddddRRRRRRRRRRRRRR
+066   ttttttddddddddddddRRRRRRRRRRRRRR
+067   ttttttddddddddddddRRRRRRRRRRRRRR
+068   ttttttdddRRRRRRRRRRRRRRRRRRRRRRR
+069   ttttttdddRRRRRRRRRRRRRRRRRRRRRRR
+070   ttttttdddRRRRRRRRRRRRRRRRRRRRRRR
+071   ttttttdddRRRRRRRRRRRRRRRRRRRRRRR
+072   ttttttdddXRRRRRRRRRRRRRRRRRRRRRR
+073   ttttttdddXRRRRRRRRRRRRRRRRRRRRRR
+074   ttttttddd^^GGGGGGGGG~~~~RR~~~~~~
+075   ttttttddd^^GGGGGGGGG~~~~RR~~~~~~
+076   ttttttddd^^GGGGGGGGG~~~RR~~~~~~~
+077   ttttttdddRRGGGGGGGGG~~~RR~~~~~~~
+078   ttdddddddRR~~~~~~BBB~~~RR~~~~~OO
+079   ttdddddddRR~~~~~~BBB~~~RR~~~~~OO
+080   ttdddddddRR~~~~~~BBB~~~~OO~~~~~~
+081   ttdddffffRR~~~~~~BBB~~~~~~OO~~~~
+082   ttdddffffRR~~~~~~BBB~~~~~~OO~~~~
+083   ttdddfffgRR~~~~~~BBB~~~~~~OO~~~~
+084   ttdddggggRR~~~~~~BBB~~~~~~OO~~~~
+085   ttdddggggRR~~~~~~BBB~~~~~~OO~~~~
+086   ttdddggggRR~~~~~~BBB~~~~~~OO~~~~
+087   ttdddggggRR~~~~~~BBB~~~~~~OO~~~~
+088   XXdddgggGRR~~~~~~BBB~~~~XXOOXXXX
+089   XXdddgGGGRR~~~~~~BBB~~~~XXOOXXXX
+090   XXgggGGGGRR~~~~~~BBB~~~~XXOOXXXX
+091   XXgggGGGGRR~~BBBBBBB~~~~XXOOXXXX
+092   XXgggGGGGRR~~BBBBBBB~~~~XXOOXXXX
+093   kkgggkkkkRR~~BBBBBBB~~~~~~OOXXXX
+094   ttGggttttRR~~BBBBBBB~~~~~~~O~~RR
+095   ttGGGttttRR~~~~~~BBB~~~~~~~OR~RR
+096   ttGGGttttRRXXXX~~BBB~~~~~OORR~~~
+097   ttGGGttttRRRRRR~~BBB~~~~~OO~~~~~
+098   ttGGGttttRRRRRR~~BBBBBB~~OO~~~~~
+099   ttGGGttttGGGGRR~~BBBBBB~~~~OO~~~
+100   ttGGGttttGGgGRR~~BBBBBB~~~~RR~~~
+101   ttGGGttttGGGGRR~~BBBBBB~~~~RR~~~
+102   ttgGGttttGGGGRR~~~~~BBB~~~RR~~~~
+103   ttgGgttttGGGGRR~~~~~BBB~~~RR~~~~
+104   ttgggttttGGGGRR~~~~~BBB~~~OO~~~~
+105   ttgggttttGGGGRR~~~~~BBB~~~~O~~~~
+106   ttggGGGGGGGGGRR~~~~~BBB~~~~OO~~~
+107   ttgGGGGGGGGGGRR~~~~~BBB~~OOOO~~~
+108   ttggGGGGGGGGGRR~~~~~BBB~~OO~~~~~
+109   ttggggGGGGGGGRR~~~~~BBB~~OO~~~~~
+110   ttgggggggGGGGRRkkkkgBBBgkkO~~~~~
+111   ttGGRR^^^RRRRRRttttgdddgtt~~~~~~
+112   ttGGRR^^^RRRRRRttttgdddgtt~~~~~~
+113   ttGGRRggGGGGgttttttgdddgtt~~~~~~
+114   ttGGRRgGGGGGgttttttgdddgtt~~~~~~
+115   ttGGRRgGGGGGGttttttgdddgtt~~~~~~
+116   ttGGRRgGGGGGGttttttgdddgtt~~~~~~
+117   ttGGRRGGGGGGgddddddddddgtt~~~~~~
+118   ttGGRRGGGGGGgddddddddddgtt~~~~~~
+119   ttggRRGGGGGggddddddddddgtt~~~~~~
+120   ttggRRGGGgddddddkkkkkkkktt~~~~~~
+121   ttkkRRkkgdddddddtttttttttt~~~~~~
+122   ttttRRttgdddddddtttttttttt~~~~~~
+123   ttttRRttgdddggggtttttttttt~~~~~~
+124   ttttRRttgdddkkkktttttttttt~~~~~~
+125   ttttRRttgdddtttttttttttttt~~~~~~
+126   ttttRRttgdddtttttttttttttt~~~~~~
+127   ttttRRttgdddgttttgggggggtt~~~~~~
+128   ttttRRttgdddgttttgkkkkkktt~~~~~~
+129   ttttRRttgdddgttttgtttttttt~~~~~~
+130   RRRRRRttgdddgttttgtttttttt~~~~~~
+131   RRRRRRttgdddgggttgtttttttt~~~~~~
+132   ttttttttgdddgggttgtttttttt~~~~~~
+133   ttttttttgdddddddddHHHHHoooo~~~~~
+134   ttttttttgdddddddddHHHHHkkkk~~~~~
+135   ttttttttgdddddddddHHHHHtttt~~~~~
+136   RRRRRRRRRRRggggdddHHDHHtttt~~~~~
+137   RRRRRRRRRRRkkkkddddddddtttt~~~~~
+138   RRRRRRRRRRRttttddddddddtttt~~~~~
+139   RRRRRRRRRRRttttddddddddtttt~~~~~
+140   RRRRRRRRRRRRRRRRRRdddkktttt~~~~~
+141   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+142   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+143   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+144   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+145   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+146   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+147   RRRRRRRRRRRRRRRRRRdddtttttttt~~~
+148   RRRRRRRRRRRRRRCRRRdddtttttttt~~~
+149   RRRRRRRRRRRRdddddEdddOOtttttt~~~
+150   RRRRRRRRRRRRdddddEdddOOtttttt~~~
+151   RRRRRRRRRRRRLLLdLJdddddtttttt~~~
+152   RRRRRRRRRRRRdddddddddddtttttt~~~
+153   RRRRRRRRRRRRdddddddddddtttttt~~~
+154   RRRRRRRRRRRRdddddddddddtttttt~~~
+155   RRRRRRRRRRRRdddddddsdddtttttt~~~
+156   RRRRRRRRRRRROOdddddddddtttttt~~~
+157   RRRRRRRRRRRROOdddddddddgggggtt~~
+158   RRRRRRRRRRRRRRRRRRRRRRRkkkkktt~~
+159   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+160   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+161   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+162   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+163   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+164   RRRRRRRRRRRRRRRRRRRRRRRtttttttt~
+165   RRRRRRRRRRRRRRRRRRRRRRRgggggggg~
