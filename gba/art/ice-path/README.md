@@ -16,6 +16,7 @@ and Blackthorn). Maps `IcePath_1F` (id 62, 64x64), `IcePath_B1F` (63, 32x64), `I
   [B3F](evidence/review/b3f-whole-2x.png)
 - [Every stair flight, HGSS beside native](evidence/review/stairs.png)
 - [The doors on Route 44 and Blackthorn](evidence/review/doors.png)
+- [Raised floors' north edges, HGSS, before and now](evidence/review/north-edges.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
 ## Art
@@ -40,7 +41,10 @@ for colour by brightness, never redrawn:
 
 A crystal standing in the ice has ice under it. HGSS's exit glows are its own art over the floor.
 Owner review (November 4): the stairs were left out (walkable, but drawn as wall); every flight is
-now drawn. Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 205
+now drawn. Owner review (November 5): a raised floor's north edge was drawn as a cliff face looking
+south onto the raised floor; it is now a drop with the rock's light top, the pale lip HGSS shows there
+(49 cells: 1F rows 13, 14 and 25, B2F and B3F row 7; [HGSS, before, now](evidence/review/north-edges.png)).
+Lossless pack on a tileset pair of its own (`gTileset_IcePathPrimary`, `gTileset_IcePath`): 205
 tiles, 67 metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events

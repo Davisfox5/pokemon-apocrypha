@@ -218,7 +218,13 @@ def main(phg, engine):
         d, face, isrock = A.terraces(rc)
         E.layers = lambda _cells, _d=d, _f=face, _r=isrock: (_d, _f, _r)
         ground = A.paint_ground(np.full((H * 2, W * 2), A.G.PATH, np.int8), tex)
-        bottom, over, _, piece = E.rock_frlg(rc, ground, fr, tex, None, A.topped(rc, d, isrock), A.south_faces(rc, d, isrock), ())
+        # A raised floor's north edge (rock with lower floor north and floor at its own height south)
+        # is a drop: HGSS shows only the floor's rim there. Dark Cave's back-slope rule would turn it
+        # into a face looking south onto the raised floor, so it applies here only where the floor
+        # south is really lower; the edge keeps the rock's light top, HGSS's pale lip (owner review, Nov 5)
+        back = A.south_faces(rc, d, isrock)
+        drops = {(x, y) for x, y in back if d[y + 1, x] >= d[y, x]}
+        bottom, over, _, piece = E.rock_frlg(rc, ground, fr, tex, None, A.topped(rc, d, isrock), back - drops, ())
         comp = bottom[..., :3].copy()
         a = over[..., 3] > 0
         comp[a] = over[a, :3]
