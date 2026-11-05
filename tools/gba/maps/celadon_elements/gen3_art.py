@@ -29,8 +29,10 @@ import common as C
 PITCH, SCALE, SS = 38.0, 19.0, 4
 OUTLINE = (41, 41, 49)                       # C06's outline
 
-def raster(models, parts, scale=SCALE, pitch=PITCH, skip=('h_kage',), retex=None, ground=0.1):
-    """Supersampled render: per sample its face id, material uid, normal class, texel."""
+def raster(models, parts, scale=SCALE, pitch=PITCH, skip=('h_kage',), retex=None, ground=0.1, yaw=0):
+    """Supersampled render: per sample its face id, material uid, normal class, texel. `yaw`
+    turns each part about its vertical axis first, in quarter turns clockwise seen from above
+    (1: a front that faced the camera faces west... see turn())."""
     r = C.R()
     th = math.radians(pitch)
     s, c = math.sin(th), math.cos(th)
@@ -50,7 +52,8 @@ def raster(models, parts, scale=SCALE, pitch=PITCH, skip=('h_kage',), retex=None
             mat = mats[matid]
             if mat.name in skip or mat.tex is None or max(v[0][1] + oy for v in verts) < ground:
                 continue
-            w = [(v[0][0] + ox, v[0][1] + oy, v[0][2] + oz) for v in verts]
+            w = [turn(v[0], yaw) for v in verts]
+            w = [(x + ox, y + oy, z + oz) for x, y, z in w]
             faces.append((w, [v[1] for v in verts], mat))
     pts = np.array([p for w, _, _ in faces for p in w])
     k = scale * SS
@@ -71,6 +74,13 @@ def raster(models, parts, scale=SCALE, pitch=PITCH, skip=('h_kage',), retex=None
         for i0, i1, i2 in ([(0, 1, 2)] if len(w) == 3 else [(0, 1, 2), (0, 2, 3)]):
             cv.tri([scr[i0], scr[i1], scr[i2]], [uv[i0], uv[i1], uv[i2]], [dep[i0], dep[i1], dep[i2]], mat, fi)
     return cv, faces, np.array(normals), (lambda x, y, z: tuple(v / SS for v in to_px(x, y, z)))
+
+def turn(p, q):
+    """A model point turned q quarter turns about the vertical axis (x east, z toward the camera)."""
+    x, y, z = p
+    for _ in range(q % 4):
+        x, z = -z, x
+    return x, y, z
 
 def light_class(n):
     """Gen 3 lighting step for a face normal (model y up, z toward the viewer, x east):
@@ -148,8 +158,8 @@ def step(ramp, i, d):
     f = fam[fi]
     return f[int(np.clip(pos + d, 0, len(f) - 1))]
 
-def convert(models, parts, scale=SCALE, retex=None, skip=('h_kage',), n=8, light=True, pitch=PITCH, finish=False):
-    cv, faces, normals, to_px = raster(models, parts, scale=scale, retex=retex, skip=skip, pitch=pitch)
+def convert(models, parts, scale=SCALE, retex=None, skip=('h_kage',), n=8, light=True, pitch=PITCH, finish=False, yaw=0):
+    cv, faces, normals, to_px = raster(models, parts, scale=scale, retex=retex, skip=skip, pitch=pitch, yaw=yaw)
     face, col = downsample(cv)
     uid, rp = ramps(face, col, faces, n)
     H, W = face.shape
