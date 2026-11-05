@@ -1,8 +1,8 @@
 {
- "glyphs_static": 3485,
+ "glyphs_static": 3471,
  "glyphs_pinned": 51,
  "glyph_slots": 1008,
- "worst_view_glyphs": 684,
+ "worst_view_glyphs": 677,
  "worst_view_at": [
   45,
   10
@@ -19,7 +19,7 @@
  "banks": 13,
  "unbanked_palettes": [],
  "tile_layers": 26231,
- "colours": 328,
+ "colours": 330,
  "groups": {
   "apartments": {
    "tiles": 302,
@@ -124,7 +124,7 @@
    "drawn": 21,
    "how": "fit",
    "unplaced": null,
-   "error": 2.091
+   "error": 2.337
   },
   "plant": {
    "tiles": 200,
@@ -169,7 +169,7 @@
    "error": 0.0
   }
  },
- "exact_pixels": 1240586,
+ "exact_pixels": 1241645,
  "pixels": 1291264,
  "worst_rgb5_error": 18,
  "doors": {
