@@ -104,39 +104,39 @@
  "SproutTower1F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 8476,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "SproutTower2F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 7032,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "SproutTower3F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 7778,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "sprout": {
   "log": [
-   "exact (29 colours)",
-   "86 tiles, 61 metatiles"
+   "banks from merging colours within 1 five-bit steps (64 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 0.22 (alternative 0.72)",
+   "280 tiles, 209 metatiles"
   ],
-  "tiles": 86,
-  "metatiles": 61
+  "tiles": 280,
+  "metatiles": 209
  }
 }

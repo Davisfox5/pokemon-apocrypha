@@ -33,7 +33,7 @@ def house(cx, ry):
 # name, door cell, panel (px, x1/y1 exclusive), door sound, interior (None: the warp already there)
 DOORS = [
     dict(name='SproutTower', cell=(39, 12), panel=(630, 190, 642, 206), sound='NORMAL',
-         map='SproutTower1F', layout='LAYOUT_SPROUT_TOWER_1F', exits=[(11, 23), (12, 23)], music='MUS_LITTLEROOT'),
+         map='SproutTower1F', layout='LAYOUT_SPROUT_TOWER_1F', exits=[(11, 24), (12, 24)], music='MUS_LITTLEROOT'),
     dict(name='University', cell=(57, 42), panel=(918, 670, 930, 686), sound='NORMAL',
          map='VioletUniversity', layout='LAYOUT_VIOLET_UNIVERSITY', exits=[(15, 11)], music='MUS_SCHOOL'),
     dict(name='LectureHall', cell=(31, 41), panel=(496, 651, 514, 666), sound='SLIDING',

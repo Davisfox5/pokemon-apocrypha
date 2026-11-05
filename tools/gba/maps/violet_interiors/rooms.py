@@ -24,24 +24,23 @@ GROUPS = {
                    secondary='violet_sprout_tower', psym='VioletSproutTowerPrimary', ssym='VioletSproutTower'),
 }
 
-# Sprout Tower (owner, November 4): a Gen 3 conversion from native pieces on HGSS's plan (sprout_native.py).
+# Sprout Tower (owner, November 5): a custom tileset converted from HGSS's textures on HGSS's plan (sprout_gen3.py).
 def sprout(name, ladders, exit=None):
     def make():
-        import sprout_native as SN
-        f, walk = SN.build(name)
+        import sprout_gen3 as SG
+        f, walk = SG.build(name)
         for c in ladders:
             f.behaviors[c] = 'ladder'
         if exit:
             for c in exit:
                 f.behaviors[c] = 'exit'
-        f.notes.append("HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the "
-                       "Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and "
-                       "Bellsprout statues drawn in Gen 3's manner")
+        f.notes.append("HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures "
+                       "(floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders")
         return f
     return make
 
-def L(x, y):                              # HGSS cell -> this map's cell (sprout_native: x - 4, y - 5)
-    return (x - 4, y - 5)
+def L(x, y):                              # HGSS cell -> this map's cell (sprout_gen3: x - 4, y - 4)
+    return (x - 4, y - 4)
 
 # --------------------------------------------------------------------------- the university (proposal)
 # HGSS's Pokemon School is the lecture room, as it is: blackboard, the dean's desk, the students' desks,

@@ -119,6 +119,50 @@ Checks on the round 2 ROM:
 Checks on the round 3 ROM: interior runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ
 on the lecture hall and all five houses.
 
+## Round 4 (owner, November 5): Sprout Tower as a custom tileset
+
+The owner approved every room but Sprout Tower and asked for a custom Gen 3 tileset converted from HGSS's,
+with the pillar at Gen 3's pitch, and Gen 3's own ladders.
+
+- `sprout_gen3.py` reads each square of HGSS's floor plan: the texture that covers it, its collision and its
+  props. It gives each square the Gen 3 tile for that element (`evidence/sprout-tileset.png`).
+- Each element is HGSS's own texture, decoded from the DS data (Sprout Tower's map texture set and its field
+  models). HGSS draws these at 16 texels a tile, which is Gen 3's density. The conversion keeps their pixels
+  and hues, widens their value range 1.3 times to Gen 3's ramps, and adds one-pixel outlines. Solid things
+  are redrawn at Gen 3's pitch.
+  - **Floor:** `d15_yuka01` planks. The row under the north wall is in the wall's shadow.
+  - **North wall:** four rows. A trim and frieze, then HGSS's niches (`d15_wall01`) every three squares, at
+    HGSS's own places. The lit ones are `d15_light_b` with `d15_light_a`'s flame, where HGSS hangs its lamps.
+    On 3F, HGSS's windows (`d15_win`) take their places.
+  - **Side walls:** the wall's purple top.
+  - **Railings:** `d15_wall02` balusters under `d15_wall02a`'s red rail and posts.
+    - An east-west run is the railing's face on its first row and its kerb (HGSS's dark band) on the second.
+    - A north-south run is the rail seen from above, with the kerb's shade to its east.
+  - **Lattice:** `d15_yuka03` over the drops, with its inner face on the north side.
+  - **Plinth:** `d15_yuka02`'s tan slab and its three-band front.
+  - **Statues:** `d15_obj02`'s Bellsprout on `d15_obj01`'s pedestal.
+  - **Exit:** `d15_genkan`'s stone.
+- **Ladders:** FireRed's own. The ladder up is from Mt. Moon B1F (3, 2-3). The hole with the ladder down is
+  from Mt. Moon 1F (5, 6), its rim recoloured in the floor's wood.
+- **Pillar** (`evidence/sprout-pillar-pitch.png`):
+  - HGSS's model is a 2 x 2 post 12 tiles high, capped by a black face (`d15_pillar03`) that the DS camera
+    never shows. Projected flat, it runs to the north wall and ends in that black square.
+  - Gen 3 draws a floor-to-ceiling column as tall as the room's north wall, with a lit top. FireRed's Hall of
+    Fame columns and Lorelei's ice columns both do this.
+  - The pillar is now a post two squares wide and four rows tall (the wall's height) on its plinth. HGSS's two
+    iron bands (`d15_pillar02`) sit a quarter and three quarters up. The top where the ceiling cuts it shows
+    the post's own end grain.
+- **Map size:** the floors are one row taller (23 x 26) for the four-row wall. Warps moved with the floor
+  plan, and the Violet door's exit cells are now (11, 24) and (12, 24).
+- **Packing:** colours merged within one 5-bit step. Mean channel error 0.2-0.24 against the composed floors,
+  0 pixels more than 32 off. 280 tiles, 209 metatiles.
+- `sprout_native.py` (round 2) stays as provenance; `rooms.py` no longer uses it.
+
+Checks on the round 4 ROM:
+- Interior runtime: 20 of 20 warps.
+- Violet doors: 11 of 11.
+- Porymap: 0 pixels differ on Sprout Tower 1F-3F.
+
 ## Checks
 
 | Check | Result |
