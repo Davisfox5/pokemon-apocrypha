@@ -212,6 +212,8 @@ def rock_frlg(cells, d, isrock, base, pieces, tex, soft=False):
                     vk, hk = 'ns'[qy], 'we'[qx]
                     toward = next((DIRS[k] for k in (vk, hk, vk + hk) if lo[k]), None)
                     bg, kind = beyond(x + toward[0], y + toward[1]) if toward else (fill, 'rock')
+                    if bg.shape[0] > 16:                     # a whole-canvas floor (the sea): this cell's own part
+                        bg = bg[Y0:Y0 + 16, X0:X0 + 16]
                     if whole is not None:
                         ix = whole[sl]
                     elif lo[vk + hk] and not lo[vk] and not lo[hk]:

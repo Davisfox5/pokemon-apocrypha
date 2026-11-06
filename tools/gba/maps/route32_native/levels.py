@@ -58,6 +58,7 @@ def levels(topdown, grid, cells, rows0, walls):
                 L[y, x] = int(np.floor((gnd[y - rows0, x] if np.isnan(t) else t) + 0.3))
             else:
                 L[y, x] = int(round(gnd[y - rows0, x]))
+    L = np.where(R, np.maximum(L, SEA_LEVEL + 1), L)  # rock stands above the sea, inside an islet as at its rim
     def lipschitz(L):
         for _ in range(12):
             changed = False

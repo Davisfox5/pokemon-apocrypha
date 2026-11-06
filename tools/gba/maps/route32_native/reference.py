@@ -229,6 +229,24 @@ def material_grid(cells, woods, roots, events):
             else:
                 ch = 'g'
             grid[y][x] = ch
+    # Rock out in the sea takes HGSS's rock art, not its collision: HGSS blocks its islets only in patches (the big
+    # islet at x27-31, rows 94-97, is mostly surfable) and steps the pillar under the big wall a column west of its
+    # art. A sea or rock cell whose eight neighbours are all sea, rock, boulder, pier or viaduct is rock where HGSS's
+    # rock pixels cover at least half of it, sea otherwise.
+    mz = np.load(SRC / 'hgss/hgss-ground-materials.npz')
+    names = [str(nm) for nm in mz['names']]
+    rockpx = np.isin(mz['material'], [names.index(nm) for nm in WALLS if nm in names])
+    cover = rockpx.reshape(HH, PX, HW, PX).mean((1, 3))
+    base = [row[:] for row in grid]
+    for y in range(ROW0, H):
+        for x in range(W):
+            if base[y][x] not in '~R':
+                continue
+            nb = [base[b][a] for a in range(x - 1, x + 2) for b in range(y - 1, y + 2)
+                  if 0 <= a < W and ROW0 <= b < H and (a, b) != (x, y)]
+            if all(c in '~ROXB' for c in nb):
+                hx, hz = to_hgss(x, y)
+                grid[y][x] = 'R' if cover[hz, hx] >= 0.5 else '~'
     return grid
 
 # --------------------------------------------------------------------------- sheets

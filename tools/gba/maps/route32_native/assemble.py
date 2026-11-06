@@ -139,6 +139,8 @@ def native_cells(cells, grid):
                 c.update(lab='P', floor='sand' if x in Rf.VIOLET_ROAD else 'grass', ground=c['level'], peak=c['level'], blocked=False)
             else:
                 c = dict(cells[hz][hx])
+                if grid[y][x] in 'R~' and c['lab'] in 'R~':
+                    c['lab'] = grid[y][x]                 # the grid's rock and sea (it straightens the islet's column)
                 if grid[y][x] in '~X' and c['type'] in (0x15, 0x10, 0) and c['material'].startswith('sea'):
                     c['floor'] = 'water'
                 if grid[y][x] in '~B' or c['material'].startswith('sea'):
@@ -939,7 +941,9 @@ def compose(phg, engine):
     pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=sea_cols, n=PIER_TONES))[..., :3]
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
-    water_block = sea[np.nonzero(smask)[0][0] * PX:np.nonzero(smask)[0][0] * PX + PX, np.nonzero(smask)[1][0] * PX:np.nonzero(smask)[1][0] * PX + PX]
+    # the plain water under a rock piece's clear pixels: the sea's own pattern at that spot (the full canvas, so
+    # the 2x2 block keeps its phase and no beach foam comes with it)
+    water_block = sea
     # HGSS's shore rim (pond_line) where it reaches into land cells beside the sea, into the ground (rock cells
     # take their FRLG faces instead).
     _, tmat, tnm, trgb = Rf.topdown(phg)
