@@ -666,7 +666,7 @@ def report_of(engine, r):
     return report
 
 # --------------------------------------------------------------------------- edge padding
-PADL, PADR = 6, 8                    # columns added west and east, so the camera never sees past the map's art
+PADL, PADR = 5, 4                    # columns west and east: (width + 15) x (166 + 14) must fit MAX_MAP_DATA_SIZE 10240, so 41 wide at most
 
 def pad_out(r):
     """Woods (west, and east where the route's east column is land) or sea (east, beside the route's sea) beyond

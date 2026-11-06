@@ -35,9 +35,9 @@
  },
  "native_pixels_differing": 0,
  "padding": {
-  "west": 6,
-  "east": 8,
-  "width": 46,
+  "west": 5,
+  "east": 4,
+  "width": 41,
   "woods_block": [
    0,
    16
@@ -52,7 +52,7 @@
    {
     "event": "JohtoRoute32_AlphSign",
     "cell": [
-     21,
+     20,
      9
     ],
     "hgss": [
@@ -64,7 +64,7 @@
    {
     "event": "JohtoRoute32_RouteSign",
     "cell": [
-     27,
+     26,
      18
     ],
     "hgss": [
@@ -76,7 +76,7 @@
    {
     "event": "JohtoRoute32_CaveSign",
     "cell": [
-     25,
+     24,
      155
     ],
     "hgss": [
@@ -88,7 +88,7 @@
    {
     "event": "hidden ITEM_HEART_SCALE",
     "cell": [
-     33,
+     32,
      95
     ],
     "hgss": [
@@ -100,7 +100,7 @@
    {
     "event": "hidden ITEM_GREAT_BALL",
     "cell": [
-     18,
+     17,
      150
     ],
     "hgss": [
@@ -112,7 +112,7 @@
    {
     "event": "hidden ITEM_SUPER_POTION",
     "cell": [
-     17,
+     16,
      27
     ],
     "hgss": [
@@ -140,7 +140,7 @@
    {
     "event": "cuttable tree",
     "cell": [
-     20,
+     19,
      38
     ],
     "hgss": [
@@ -223,7 +223,7 @@
    {
     "event": "item ball ITEM_REPEL",
     "cell": [
-     14,
+     13,
      55
     ],
     "hgss": [
@@ -236,7 +236,7 @@
    {
     "event": "item ball ITEM_GREAT_BALL",
     "cell": [
-     17,
+     16,
      100
     ],
     "hgss": [
@@ -257,7 +257,7 @@
    {
     "event": "breakable rock",
     "cell": [
-     29,
+     28,
      157
     ],
     "hgss": [
@@ -276,7 +276,7 @@
    {
     "event": "item ball ITEM_SHELL_BELL",
     "cell": [
-     33,
+     32,
      157
     ],
     "hgss": [
@@ -296,14 +296,14 @@
    }
   ],
   "door": [
-   26,
+   25,
    136
   ],
   "border": [
-   "0x0e1",
    "0x0e0",
-   "0x0e7",
-   "0x0e6"
+   "0x0e1",
+   "0x0e6",
+   "0x0e7"
   ]
  }
 }
