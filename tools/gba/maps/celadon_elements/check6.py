@@ -105,6 +105,46 @@ def main(g):
     out['warps'] = dict(city=len(m['warp_events']), mismatched=bad, prize_room_by_the_stairs=prize_ok, doors_with_no_room_solid=shut,
                         apartments_and_cades_house_open=opened)
     if bad or not prize_ok or not all(shut.values()) or not all(opened.values()): fail.append('warps')
+    # the apartment block: every floor's warps lead somewhere that leads back (the elevator's doors
+    # into the car, whose exits are the dynamic warp each floor sets), every warp reachable on foot
+    # from the floor's first, no open cell walled in
+    import apartments_engine as AE
+    names = [n for _, n in AE.FLOORS] + ['KantoCeladonApartmentsRoof']
+    apt = {}
+    for name in names:
+        fm = json.loads((g / f'data/maps/{name}/map.json').read_text())
+        lay = next(l for l in json.loads((g / 'data/layouts/layouts.json').read_text())['layouts'] if l and l.get('id') == fm['layout'])
+        cl = np.frombuffer((g / lay['blockdata_filepath']).read_bytes(), '<u2').reshape(lay['height'], lay['width'])
+        hh, ww = cl.shape
+        ok = lambda x, y: 0 <= x < ww and 0 <= y < hh and ((cl[y, x] >> 10) & 3) == 0
+        ws = fm['warp_events']
+        st = (ws[0]['x'], ws[0]['y'])
+        seen, q = {st}, deque([st])
+        while q:
+            x, y = q.popleft()
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                n = (x + dx, y + dy)
+                if n not in seen and ok(*n):
+                    seen.add(n); q.append(n)
+        unreached = [[w['x'], w['y']] for w in ws if (w['x'], w['y']) not in seen]
+        walled = int(sum(1 for y in range(hh) for x in range(ww) if ok(x, y) and (x, y) not in seen))
+        oneway = []
+        for i, w in enumerate(ws):
+            if w['dest_map'] == AE.map_id(AE.LIFT):
+                continue
+            back = load(w['dest_map'])['warp_events'][int(w['dest_warp_id'])]
+            # back here, onto a warp of ours that leads where this one does (a door's other cell counts)
+            if back['dest_map'] != fm['id'] or ws[int(back['dest_warp_id'])]['dest_map'] != w['dest_map']:
+                oneway.append(dict(warp=[w['x'], w['y']], to=w['dest_map'], back=back))
+        script = (g / f'data/maps/{name}/scripts.inc').read_text()
+        sets = name == 'KantoCeladonApartmentsRoof' or (f'setdynamicwarp {fm["id"]}' in script and AE.VAR in script)
+        apt[name] = dict(size=[ww, hh], warps=len(ws), unreached=unreached, walled_in=walled, one_way=oneway, lift_floor_set=sets)
+        if unreached or walled or oneway or not sets: fail.append('apartments ' + name)
+    lift = json.loads((g / f'data/maps/{AE.LIFT}/map.json').read_text())
+    apt['lift'] = dict(exits=[(w['x'], w['y'], w['dest_map']) for w in lift['warp_events']],
+                       attendant=[o['script'] for o in lift['object_events']])
+    if not all(w['dest_map'] == 'MAP_DYNAMIC' for w in lift['warp_events']): fail.append('apartments lift')
+    out['apartments'] = apt
     # scope
     head_groups = json.loads(git(g, 'show', 'HEAD:data/maps/map_groups.json'))
     now_groups = json.loads((g / 'data/maps/map_groups.json').read_text())
@@ -114,7 +154,8 @@ def main(g):
     hooks = {'src/field_camera.c', 'src/fieldmap.c', 'src/malloc.c', 'src/overworld.c', 'src/tileset_anims.c', 'include/tileset_anims.h',
              'src/data/tilesets/headers.h', 'data/layouts/layouts.json', 'src/celadon_view.c', 'include/celadon_view.h',
              'src/data/celadon_view.h', 'src/data/tilesets/graphics.h', 'src/data/tilesets/metatiles.h',
-             'data/maps/map_groups.json', 'data/event_scripts.s', 'src/apocrypha_map_proof.c'}
+             'data/maps/map_groups.json', 'data/event_scripts.s', 'src/apocrypha_map_proof.c',
+             'include/constants/vars.h'}                   # the apartments' elevator var, an alias (apartments_engine.py)
     stray = [f for f in changed if f not in hooks and 'eladon' not in f and 'celadon' not in f]
     # map and layout ids already given stay as they are; new ones are Celadon's, appended
     ids_kept = all(now_groups.get(k, [])[:len(v)] == v for k, v in head_groups.items() if isinstance(v, list)) and \

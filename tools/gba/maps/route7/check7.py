@@ -172,7 +172,7 @@ def main(g):
     changed = sorted(set(git(g, 'diff', '--name-only', base).split()) | set(git(g, 'ls-files', '--others', '--exclude-standard').split()))
     allowed = ('celadon', 'eladon', 'Route7', 'route7', 'KantoSaffronCity', 'kanto_saffron/')
     hooks = {'src/overworld.c', 'src/celadon_view.c', 'include/celadon_view.h', 'src/data/celadon_view.h',
-             'data/layouts/layouts.json', 'data/maps/map_groups.json', 'data/event_scripts.s', 'src/apocrypha_map_proof.c',
+             'data/layouts/layouts.json', 'data/maps/map_groups.json', 'data/event_scripts.s', 'src/apocrypha_map_proof.c', 'include/constants/vars.h',
              'src/data/wild_encounters.json', 'src/data/tilesets/headers.h', 'src/data/tilesets/graphics.h',
              'src/data/tilesets/metatiles.h'}
     stray = [f for f in changed if f not in hooks and not any(a in f for a in allowed)]

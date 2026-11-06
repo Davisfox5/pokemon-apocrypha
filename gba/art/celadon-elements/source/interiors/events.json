@@ -7,7 +7,7 @@
   ],
   "tiles": 106,
   "metatiles": 85,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 1,
@@ -60,7 +60,7 @@
   ],
   "tiles": 97,
   "metatiles": 75,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 11,
@@ -104,7 +104,7 @@
   ],
   "tiles": 113,
   "metatiles": 74,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 4,
@@ -137,7 +137,7 @@
   ],
   "tiles": 81,
   "metatiles": 49,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 5,
@@ -166,7 +166,7 @@
   ],
   "tiles": 85,
   "metatiles": 60,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 5,
@@ -195,7 +195,7 @@
   ],
   "tiles": 116,
   "metatiles": 69,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 9,
@@ -229,7 +229,7 @@
   ],
   "tiles": 61,
   "metatiles": 43,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 3,
@@ -251,33 +251,232 @@
   "walkable": 48
  },
  "apartments": {
-  "source": "@apartments",
+  "source": "%lobby",
   "size": [
-   15,
-   14
+   36,
+   16
   ],
-  "tiles": 61,
-  "metatiles": 39,
-  "pixels_exact": true,
+  "tiles": 211,
+  "metatiles": 97,
+  "pixels_exact": 0.9612969292534722,
   "warps": [
    {
-    "x": 5,
-    "y": 13,
+    "x": 16,
+    "y": 14,
     "to": "city:apartments"
    },
    {
-    "x": 6,
-    "y": 12,
+    "x": 17,
+    "y": 14,
     "to": "city:apartments"
    },
    {
-    "x": 7,
-    "y": 13,
-    "to": "city:apartments"
+    "x": 12,
+    "y": 1,
+    "to": "apartments_2f:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
    }
   ],
   "solid_warps": [],
-  "walkable": 126
+  "walkable": 379
+ },
+ "apartments_2f": {
+  "source": "%typical2",
+  "size": [
+   36,
+   16
+  ],
+  "tiles": 250,
+  "metatiles": 120,
+  "pixels_exact": 0.8937581380208334,
+  "warps": [
+   {
+    "x": 12,
+    "y": 1,
+    "to": "apartments:2"
+   },
+   {
+    "x": 20,
+    "y": 1,
+    "to": "apartments_3f:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 343
+ },
+ "apartments_3f": {
+  "source": "%typical3",
+  "size": [
+   36,
+   16
+  ],
+  "tiles": 250,
+  "metatiles": 120,
+  "pixels_exact": 0.9171481662326388,
+  "warps": [
+   {
+    "x": 20,
+    "y": 1,
+    "to": "apartments_2f:1"
+   },
+   {
+    "x": 12,
+    "y": 1,
+    "to": "apartments_4f:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 343
+ },
+ "apartments_4f": {
+  "source": "%typical2",
+  "size": [
+   36,
+   16
+  ],
+  "tiles": 250,
+  "metatiles": 120,
+  "pixels_exact": 0.8937581380208334,
+  "warps": [
+   {
+    "x": 12,
+    "y": 1,
+    "to": "apartments_3f:1"
+   },
+   {
+    "x": 20,
+    "y": 1,
+    "to": "apartments_5f:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 343
+ },
+ "apartments_5f": {
+  "source": "%typical3",
+  "size": [
+   36,
+   16
+  ],
+  "tiles": 250,
+  "metatiles": 120,
+  "pixels_exact": 0.9171481662326388,
+  "warps": [
+   {
+    "x": 20,
+    "y": 1,
+    "to": "apartments_4f:1"
+   },
+   {
+    "x": 12,
+    "y": 1,
+    "to": "apartments_6f:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 343
+ },
+ "apartments_6f": {
+  "source": "%penthouse",
+  "size": [
+   36,
+   20
+  ],
+  "tiles": 298,
+  "metatiles": 150,
+  "pixels_exact": 0.9250379774305556,
+  "warps": [
+   {
+    "x": 12,
+    "y": 1,
+    "to": "apartments_5f:1"
+   },
+   {
+    "x": 20,
+    "y": 1,
+    "to": "apartments_roof:0"
+   },
+   {
+    "x": 16,
+    "y": 1,
+    "to": "lift:0"
+   },
+   {
+    "x": 17,
+    "y": 1,
+    "to": "lift:0"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 427
+ },
+ "apartments_roof": {
+  "source": "%roof",
+  "size": [
+   36,
+   16
+  ],
+  "tiles": 64,
+  "metatiles": 39,
+  "pixels_exact": 1.0,
+  "warps": [
+   {
+    "x": 20,
+    "y": 3,
+    "to": "apartments_6f:1"
+   }
+  ],
+  "solid_warps": [],
+  "walkable": 307
  },
  "cade_house": {
   "source": "CeladonCity_House1_Frlg",
@@ -287,7 +486,7 @@
   ],
   "tiles": 77,
   "metatiles": 46,
-  "pixels_exact": true,
+  "pixels_exact": 1.0,
   "warps": [
    {
     "x": 3,
