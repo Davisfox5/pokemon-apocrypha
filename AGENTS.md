@@ -31,6 +31,12 @@
 - Compare the original-game reference square by square with native Gen 3 tiles.
   Match **specific terrain materials and structure as well as traversal**;
   collision agreement alone does not establish a faithful map.
+- Rock terraces and cliffs: use the owner-accepted
+  [level method](docs/GBA_MAP_RECONSTRUCTION.md#rock-terrace-levels-from-the-originals-heights)
+  (Route 32 native, 2026-11-06). Levels are counted from the original's decoded
+  heights, one level per original cliff band; every level wraps round its whole
+  mass without ending abruptly, and the contour audit must report zero breaks
+  before packing. Do not hand-place or estimate terrace levels.
 - This requirement supplements existing Grok rules and other applicable shared
   instructions. Preserve those rules; do not replace them with a per-model policy.
 - Inspect actual native renders and headless gameplay, fix visual defects, and

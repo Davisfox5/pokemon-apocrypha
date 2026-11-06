@@ -77,6 +77,47 @@ face and traverse the correct axis. Where the owner requests Emerald placeholder
 stairs, ledges, rock walls or cuttable trees, use the corresponding native assets
 and retain identifiable placements for later replacement.
 
+### Rock terrace levels from the original's heights
+
+Owner-accepted on Route 32 (native rebuild, 2026-11-06) as the leveling method for
+every map with cliffs or rock terraces. Implementation:
+[`tools/gba/maps/route32_native/levels.py`](../tools/gba/maps/route32_native/levels.py);
+rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
+
+1. **Count the original's levels; do not estimate them.** Decode the original map
+   flat from straight above (per-pixel height and material; `reference.topdown`
+   for HGSS). One Gen 3 level is one original height unit, i.e. one cliff band.
+   Count each section top to bottom against the original before building.
+2. **Assign a level to every cell from the heights.** Ground (lawn, road, tall
+   grass, ledge, pier, stairs) takes the rounded median height of its own ground
+   pixels; covered cells (woods) take the nearest ground. The sea takes the coast
+   floor level. A rock cell takes `floor(upper-quartile rock-pixel height + 0.3)`
+   and never sits at or below the sea. A flight of stairs takes the level of its
+   foot, so the wall beside it keeps its full face down to it.
+3. **Make every level wrap all the way round.** A rock cell stands at most one
+   level above any of its eight neighbours, so a drop of k levels is k nested rims
+   and each rim continues round every corner at the same level until it meets
+   ground of its own height. Then clean each level's region (3x3 closing, 2x2
+   opening, kept inside the level below), square one-cell notches, drop one-cell
+   spurs, and raise flat rock that touches ground at its own level with no lower
+   neighbour.
+4. **Rock in the water follows the original's rock art, not its collision.** An
+   islet cell is rock where the original's rock pixels cover at least half the
+   square; HGSS's islet collision is patchy and offset and must not decide shape.
+5. **Audit before packing.** Walk every level contour of every rock mass. Every
+   edge cell must touch another edge cell of its level, the map edge, or ground at
+   or above its level; neighbouring rock may differ by one level at most. Zero
+   breaks is required; write the levels and audit with the map evidence
+   (`levels.json`).
+6. **Render each level with the native autotiler.** Compose each cell per 8x8
+   quadrant from the FRLG nine-slice the cell's lower neighbours call for (over-rock
+   pieces toward a lower terrace, over-ground pieces toward ground). A piece's clear
+   pixels show the ground actually beside it: the painted lawn or road, or the
+   sea's own pattern at that spot (never a sample cell with a shore rim in it).
+
+Count again on the native render: every band the original shows should appear in
+the same place, as many times, and close round on itself.
+
 Use Porymap/native source formats in the production checkout. Preserve owner
 edits, IDs and shared tilesets; do not repack unrelated maps or replay provenance
 generators over committed layouts. Follow the existing source/branch rules.
