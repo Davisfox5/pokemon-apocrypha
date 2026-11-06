@@ -893,8 +893,13 @@ def compose(phg, engine):
     pillar_cells = set(islet_cells)                   # the islets' own rock cells; boulders stay sea rocks
     for x, y in pillar_cells:                          # an islet is rock standing out of the sea
         ncells[y][x] = dict(ncells[y][x], lab='R', ground=1.0, peak=3.0, top=3.0, floor='water')
-    top = Rf.topdown(phg)[0].reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
-    top = np.percentile(top, 90, -1)
+    # a cell's top surface from its rock pixels only (a tree crown or a sign beside it reads higher)
+    th, tmat_, tnames_, _ = Rf.topdown(phg)
+    rockm = np.isin(tmat_, [tnames_.index(n) for n in Rf.WALLS + ('slope',) if n in tnames_])
+    hh = np.where(rockm, th, np.nan).reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
+    allh = th.reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
+    with np.errstate(all='ignore'):
+        top = np.where(np.isnan(hh).all(-1), np.percentile(allh, 90, -1), np.nanpercentile(hh, 90, -1))
     for y in range(ROW0, H):
         for x in range(W):
             hx, hz = Rf.to_hgss(x, y)

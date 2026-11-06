@@ -115,7 +115,7 @@ def terraces(cells, floor=None):
             if a1 - a0 + 1 > 3 or a0 == 0 or a1 == W - 1:
                 continue
             nb = [g[y, a0 - 1], g[y, a1 + 1]]
-            if max(nb) > min(nb) and topf[y, a0:a1 + 1].max() <= max(nb) + 0.25:
+            if max(nb) > min(nb) and topf[y, a0:a1 + 1].max() <= max(nb) + 0.75:
                 d[y, x] = max(nb)
     # Depth: extrude each south drop into face rows.
     out = d.copy()
