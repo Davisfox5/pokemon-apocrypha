@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "e277b8b0f5fbc426f5767796503a5df7c5cbcc50a8edf72813924f141272f42a",
+  "rom_sha256": "7c897a0ead509b1eb63bed8abdba91b39bab8b39bb24b83d7cb7848e67d33af3",
   "steps": [
     [
       "view",
@@ -768,12 +768,12 @@
       "go",
       "66",
       "45",
-      "13"
+      "18"
     ],
     [
       "surfing",
       "1",
-      "on-the-crest"
+      "above-the-falls"
     ],
     [
       "shot",
@@ -802,6 +802,14 @@
     [
       "shot",
       "falls-foot"
+    ],
+    [
+      "wait",
+      "16"
+    ],
+    [
+      "shot",
+      "falls-foot-later"
     ],
     [
       "face",
@@ -1721,7 +1729,7 @@
           "group": 80,
           "map": 66,
           "x": 45,
-          "y": 13,
+          "y": 18,
           "frlg_layout": 0,
           "width": 96,
           "height": 64,
@@ -1743,6 +1751,19 @@
         },
         {
           "step": "shot:falls-foot",
+          "region": 2,
+          "group": 80,
+          "map": 66,
+          "x": 45,
+          "y": 23,
+          "frlg_layout": 0,
+          "width": 96,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 232
+        },
+        {
+          "step": "shot:falls-foot-later",
           "region": 2,
           "group": 80,
           "map": 66,
@@ -1994,16 +2015,28 @@
         20,
         45
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "falls-crest",
       "map": 66,
       "position": [
         45,
-        13
+        18
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 17280
+    },
+    {
+      "frame": "falls-foot-later",
+      "map": 66,
+      "position": [
+        45,
+        23
+      ],
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 19200
     },
     {
       "frame": "falls-foot",
@@ -2012,7 +2045,8 @@
         45,
         23
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 19200
     },
     {
       "frame": "ledge-east",
@@ -2021,7 +2055,8 @@
         26,
         68
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "ledge-west",
@@ -2030,7 +2065,8 @@
         35,
         57
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "mouth-20-11",
@@ -2039,7 +2075,8 @@
         20,
         46
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "mouth-48-15",
@@ -2048,7 +2085,8 @@
         45,
         50
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "mouth-50-4",
@@ -2057,7 +2095,8 @@
         59,
         53
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "mouth-77-11",
@@ -2066,7 +2105,8 @@
         70,
         46
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "ordinary-continue",
@@ -2075,7 +2115,8 @@
         20,
         45
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "rock-climb-1f-back",
@@ -2084,7 +2125,8 @@
         56,
         31
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "rock-climb-1f-entrance",
@@ -2093,7 +2135,8 @@
         73,
         40
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "save-on-route",
@@ -2102,7 +2145,8 @@
         20,
         45
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "view-1f-back",
@@ -2111,7 +2155,8 @@
         19,
         76
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "view-1f-entrance",
@@ -2120,7 +2165,8 @@
         20,
         46
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "view-2f",
@@ -2129,7 +2175,8 @@
         27,
         55
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "view-b1f",
@@ -2138,7 +2185,8 @@
         32,
         71
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-11-59",
@@ -2147,7 +2195,8 @@
         26,
         14
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-11-60",
@@ -2156,7 +2205,8 @@
         26,
         14
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-12-7",
@@ -2165,7 +2215,8 @@
         9,
         16
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-12-8",
@@ -2174,7 +2225,8 @@
         9,
         16
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-19-33",
@@ -2183,7 +2235,8 @@
         21,
         14
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-19-76",
@@ -2192,7 +2245,8 @@
         34,
         32
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-41-76",
@@ -2201,7 +2255,8 @@
         56,
         32
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-54-60",
@@ -2210,7 +2265,8 @@
         69,
         15
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-54-61",
@@ -2219,7 +2275,8 @@
         69,
         15
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-back-66-76",
@@ -2228,7 +2285,8 @@
         81,
         32
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-26-14",
@@ -2237,7 +2295,8 @@
         11,
         60
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-34-31",
@@ -2246,7 +2305,8 @@
         19,
         76
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-45-2",
@@ -2255,7 +2315,8 @@
         27,
         55
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-45-44",
@@ -2264,7 +2325,8 @@
         32,
         71
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-56-31",
@@ -2273,7 +2335,8 @@
         41,
         76
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-69-15",
@@ -2282,7 +2345,8 @@
         54,
         61
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-1f-entrance-81-31",
@@ -2291,7 +2355,8 @@
         66,
         76
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-2f-27-55",
@@ -2300,7 +2365,8 @@
         45,
         3
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-2f-9-16",
@@ -2309,7 +2375,8 @@
         12,
         8
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-b1f-21-13",
@@ -2318,7 +2385,8 @@
         19,
         33
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-b1f-21-14",
@@ -2327,7 +2395,8 @@
         19,
         33
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-b1f-32-70",
@@ -2336,7 +2405,8 @@
         45,
         44
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "warp-b1f-32-71",
@@ -2345,7 +2415,8 @@
         45,
         44
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 0
     },
     {
       "frame": "waterfall-offered",
@@ -2354,7 +2425,67 @@
         45,
         23
       ],
-      "mismatched_map_layer_pixels": 0
+      "mismatched_map_layer_pixels": 0,
+      "animated_waterfall_pixels_skipped": 19200
     }
-  ]
+  ],
+  "waterfall_animation": {
+    "pixels_changed": 11610,
+    "rows_changed": [
+      14,
+      16,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      86
+    ]
+  }
 }

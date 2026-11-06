@@ -40,6 +40,36 @@ HGSS_SIZE = {'1f-entrance': (96, 64), '1f-back': (96, 96), '2f': (64, 64), 'b1f'
 CROP = {'1f-back': (16, 5, 75, 88)}                       # ox, oy, width, height
 SIZE = {s: CROP[s][2:] if s in CROP else wh for s, wh in HGSS_SIZE.items()}
 OFFSET = {s: CROP[s][:2] if s in CROP else (0, 0) for s in HGSS_SIZE}
+
+# The falls: Emerald's own animated waterfall (primary `general`: metatiles 179 crest, 185 body, 193
+# splash, as Meteor Falls and Ever Grande stack them; tiles 496-501 cycled through four frames by
+# tileset_anims.c), in cave water: Emerald's six waterfall colours (general palette 4, by index) to a
+# ramp round Dark Cave's water, rank for rank. Its six tiles take primary slots 506-511 and one palette
+# bank holds all six colours, so InitTilesetAnim_MtMortar can copy the frames in as Emerald does.
+WF_TILE = 506
+WF_TONES = {8: (16, 99, 132), 14: (24, 123, 156), 13: (24, 148, 173), 12: (74, 181, 206), 11: (140, 214, 230), 2: (222, 247, 247)}
+WF_METATILES = {'wf_crest': 179, 'wf_body': 185, 'wf_splash': 193}
+
+def waterfall_frames(engine):
+    """Emerald's four waterfall frames: (6, 8, 8) general palette indices each."""
+    return [np.array(Image.open(engine / f'data/tilesets/primary/general/anim/waterfall/{i}.png')).reshape(6, 8, 8) for i in range(4)]
+
+def waterfall_entries(engine, name):
+    """The bottom layer of Emerald's waterfall metatile: [(anim tile 0-5, hflip, vflip)] x 4."""
+    m = np.frombuffer((engine / 'data/tilesets/primary/general/metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)[WF_METATILES[name]]
+    out = [(int(e & 1023) - 496, int(e >> 10) & 1, int(e >> 11) & 1) for e in m[:4]]
+    assert all(0 <= t < 6 for t, _, _ in out) and not m[4:].any(), (name, m)
+    return out
+
+def waterfall_art(engine, name, frame=0):
+    """A waterfall cell in cave water (16x16 RGB), from frame `frame`."""
+    fr = waterfall_frames(engine)[frame]
+    out = np.zeros((16, 16, 3), np.uint8)
+    for q, (t, hf, vf) in enumerate(waterfall_entries(engine, name)):
+        tile = fr[t][:, ::-1] if hf else fr[t]
+        tile = tile[::-1] if vf else tile
+        out[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8] = np.array([WF_TONES[int(v)] for v in tile.ravel()]).reshape(8, 8, 3)
+    return out
 W = H = 64
 BANKS, PRIMARY_TILES, SECONDARY_TILES = 13, 512, 496
 TILE_TARGET = PRIMARY_TILES + SECONDARY_TILES - 1          # tile 0 stays the transparent tile
@@ -96,6 +126,8 @@ def traversal(engine, side):
     for c in led['cells']:
         foot, beh, coll, elev = KINDS[c['kind']]
         t = dict(x=c['x'], y=c['y'], kind=c['kind'], foot=foot, behavior=beh, collision=coll, elevation=elev, behavior_id=MB[beh])
+        if c.get('piece'):
+            t['piece'] = c['piece']
         if c.get('void'):
             t['void'] = True
         out.append(t)
@@ -301,7 +333,10 @@ def main(engine):
     n = len(rgb)
     # 1. palette banks (best of a few seeds)
     px = rgb.reshape(n, 64, 3)
-    pals, assign = exact_banks(px)                        # whole route tiles: exact colours when they fit
+    wf = np.array([rgb5(c) for c in WF_TONES.values()])   # the waterfall's six colours, as one more tile, share a bank
+    pals, assign = exact_banks(np.concatenate([px, np.resize(wf, (1, 64, 3))]))
+    assert pals is not None, 'the waterfall needs exact banks'
+    wf_bank = int(assign[-1]); assign = assign[:n]
     if pals is None:
         fits = [fit_banks(px, w, BANKS, s) for s in range(6)]
         pals, assign, _ = min(fits, key=lambda f: f[2])
@@ -325,7 +360,22 @@ def main(engine):
         k = vs[o].tobytes()
         patterns.setdefault(k, len(patterns))
         pat_of[r], pflip[r] = patterns[k], o                      # FL[o](ix[r]) is the stored pattern
-    assert len(patterns) <= PRIMARY_TILES + SECONDARY_TILES, len(patterns)
+    # the waterfall's six animated tiles at primary slots WF_TILE.. (frame 0; tileset_anims.c copies the rest in)
+    bank_ix = {tuple(c): i + 1 for i, c in enumerate(pals[wf_bank][:15].tolist())}
+    to_bank = lambda g: bank_ix[tuple(rgb5(WF_TONES[int(g)]))]
+    frames = [np.vectorize(to_bank)(f).astype(np.uint8) for f in waterfall_frames(engine)]
+    plist = [k for k, _ in sorted(patterns.items(), key=lambda kv: kv[1])]
+    plist += [np.zeros((8, 8), np.uint8).tobytes()] * max(0, WF_TILE - len(plist))
+    plist[WF_TILE:WF_TILE] = [frames[0][t].tobytes() for t in range(6)]
+    shift = lambda i: i if i < WF_TILE else i + 6
+    pat_of = {r: shift(i) for r, i in pat_of.items()}
+    patterns = {i: k for i, k in enumerate(plist)}
+    assert len(plist) <= PRIMARY_TILES + SECONDARY_TILES, len(plist)
+    (SRC / 'pack').mkdir(parents=True, exist_ok=True)
+    pal_png = [0, 0, 0] + [(int(v) << 3) | (int(v) >> 2) for c in pals[wf_bank][:15] for v in c]
+    for i, f in enumerate(frames):
+        im = Image.fromarray(f.reshape(48, 8), 'P'); im.putpalette(pal_png + [0] * (768 - len(pal_png)))
+        im.save(SRC / f'pack/waterfall-{i}.png')
 
     def entry(tile, f):
         """Tile `tile` drawn with flip f at a position (the map shows FL[f](canonical tile))."""
@@ -342,8 +392,13 @@ def main(engine):
         g = np.zeros((H, W), np.int32)
         for y in range(H):
             for x in range(W):
-                ents = tuple(entry(*pos[si][2 * y + dy, 2 * x + dx]) for dy in (0, 1) for dx in (0, 1)) + (0, 0, 0, 0)
-                attr = trav[y * W + x]['behavior_id'] | (1 << 12)          # METATILE_LAYER_TYPE_COVERED
+                tr = trav[y * W + x]
+                if tr.get('piece') in WF_METATILES:              # Emerald's waterfall metatile on the animated slots
+                    ents = tuple((WF_TILE + t) | (hf << 10) | (vf << 11) | (wf_bank << 12)
+                                 for t, hf, vf in waterfall_entries(engine, tr['piece'])) + (0, 0, 0, 0)
+                else:
+                    ents = tuple(entry(*pos[si][2 * y + dy, 2 * x + dx]) for dy in (0, 1) for dx in (0, 1)) + (0, 0, 0, 0)
+                attr = tr['behavior_id'] | (1 << 12)          # METATILE_LAYER_TYPE_COVERED
                 k = (ents, attr)
                 metas.setdefault(k, len(metas))
                 g[y, x] = metas[k]
@@ -359,7 +414,7 @@ def main(engine):
         remap[i] = ids[k]
     grids = [remap[g] for g in grids]
     pat = np.zeros((len(patterns), 8, 8), np.uint8)
-    for k, i in patterns.items():
+    for i, k in patterns.items():
         pat[i] = np.frombuffer(k, np.uint8).reshape(8, 8)
     pal_rgb = np.zeros((16, 16, 3), np.uint8)
     for b in range(BANKS):
@@ -374,7 +429,9 @@ def main(engine):
                   distinct_tiles=n, representatives=nrep, patterns=len(patterns),
                   primary_tiles=min(len(patterns), PRIMARY_TILES), secondary_tiles=max(0, len(patterns) - PRIMARY_TILES),
                   metatiles=nm, primary_metatiles=min(nm, 512), secondary_metatiles=max(0, nm - 512),
-                  colours_per_bank=[len({tuple(c) for c in p}) for p in pals], sides={})
+                  colours_per_bank=[len({tuple(c) for c in p}) for p in pals], sides={},
+                  waterfall=dict(tiles=list(range(WF_TILE, WF_TILE + 6)), bank=wf_bank, frames=4,
+                                 metatiles={k: v for k, v in WF_METATILES.items()}))
     for si, side in enumerate(SIDES):
         W, H = SIZE[side]
         native = np.zeros((H * 16, W * 16, 3), np.uint8)

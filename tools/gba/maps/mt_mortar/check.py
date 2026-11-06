@@ -114,7 +114,7 @@ CLIMB_AXIS = {}
 def main(g):
     global DC_FALLS
     sys.path.insert(0, str(HERE))
-    DC_FALLS = {'1f-entrance': (38, 52, 13, 22)}
+    DC_FALLS = {'1f-entrance': (38, 52, 18, 22)}
     names = {v: k for k, v in P.behaviors(g).items()}
     fails, report = [], dict(maps={}, routes={})
     need = lambda ok, what: ok or fails.append(what)
@@ -206,6 +206,17 @@ def main(g):
     pk = json.loads((EV / 'pack.json').read_text())
     need(pk['primary_tiles'] <= 512 and pk['secondary_tiles'] <= 496 and pk['primary_metatiles'] <= 512, 'over budget')
     report['budget'] = {k: pk[k] for k in ('patterns', 'primary_tiles', 'secondary_tiles', 'metatiles')}
+    # the falls' animation: Emerald's frames, reindexed, wired as the primary tileset's callback
+    wf = pk['waterfall']
+    hdr = (g / 'src/data/tilesets/headers.h').read_text()
+    need('.callback = InitTilesetAnim_MtMortar' in hdr and 'TilesetAnim_MtMortar' in (g / 'src/tileset_anims.c').read_text()
+         and all((g / f'{I.PRIMARY_DIR}/anim/waterfall/{i}.png').exists() for i in range(wf['frames'])), 'waterfall animation not wired')
+    d1 = decoded['MtMortar_1F_Entrance']
+    x0, x1, crest, fy = DC_FALLS['1f-entrance']
+    cells = [(x, y) for y in range(crest + 1, fy + 2) for x in range(x0, x1 + 1)]
+    need(all(int(d1['grid'][y, x]) >= 0 and names[int(d1['beh'][y, x])] == ('MB_WATERFALL' if y <= fy else 'MB_POND_WATER') for x, y in cells),
+         'falls cells: waterfall rows, splash on the pool')
+    report['waterfall'] = dict(wf, cells=len(cells))
     report['failures'] = fails
     (EV / 'audit.json').write_text(json.dumps(report, indent=2, default=str) + '\n')
     print(json.dumps(dict(failures=fails, maps={k: {kk: v[kk] for kk in ('reach_cells', 'hgss_reach_cells', 'reach_on_foot')}

@@ -60,7 +60,7 @@
  ],
  "floors": {
   "1f-entrance": {
-   "flights": 7,
+   "flights": 11,
    "rock_cells": 4419,
    "regularised": {
     "floor": 4,
@@ -69,30 +69,32 @@
     "island": 34,
     "spine": 2,
     "bump": 0,
-    "narrow": 32
+    "narrow": 32,
+    "north_wall": 2
    },
    "kinds": {
     "blocked": 4414,
     "hole": 4,
-    "water": 823,
+    "water": 898,
     "floor": 756,
     "ladder": 3,
-    "waterfall": 135,
+    "waterfall": 60,
     "climb": 5,
     "exit": 4
    }
   },
   "1f-back": {
-   "flights": 40,
+   "flights": 51,
    "rock_cells": 6861,
    "regularised": {
     "floor": 25,
     "nub": 2,
     "deep_rock": 863,
     "island": 12,
-    "spine": 8,
+    "spine": 7,
     "bump": 0,
-    "narrow": 247
+    "narrow": 247,
+    "north_wall": 17
    },
    "kinds": {
     "blocked": 6847,
@@ -115,7 +117,8 @@
     "island": 322,
     "spine": 0,
     "bump": 0,
-    "narrow": 12
+    "narrow": 12,
+    "north_wall": 0
    },
    "kinds": {
     "blocked": 2668,
@@ -129,7 +132,7 @@
    }
   },
   "b1f": {
-   "flights": 9,
+   "flights": 11,
    "rock_cells": 4912,
    "regularised": {
     "floor": 5,
@@ -138,7 +141,8 @@
     "island": 168,
     "spine": 0,
     "bump": 0,
-    "narrow": 31
+    "narrow": 31,
+    "north_wall": 0
    },
    "kinds": {
     "blocked": 4946,

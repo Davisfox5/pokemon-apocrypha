@@ -9,8 +9,9 @@ Route 42 captures check the player's position only (check.py proves Route 42 cha
 
 Steps: a view of every floor; all four Route 42 mouths walked in and back out; every other warp
 (holes, exits and ladders between floors) walked into, the player arriving on its HGSS partner;
-the falls: surfing south off the crest, the current carries the player to the foot, and facing the
-falls from the foot, A offers Waterfall (the harness has no badges, so the game's own "can't use"
+the falls (Emerald's animated waterfall: its pixels are skipped in the parity check, and two captures
+16 frames apart must differ there): surfing south off the upper pool, the current carries the player
+to the foot, and facing the falls from the foot, A offers Waterfall (the harness has no badges, so the game's own "can't use"
 text shows); a Rock Climb wall stops a walker, and facing it, A runs the game's Rock Climb script
 (the harness has no party, so its "can't" text shows); an east and a west ledge jumped one way;
 ordinary flash save, cold reload and Continue.
@@ -94,9 +95,10 @@ def steps(game):
             ay = back['y'] + (1 if dbeh == 'MB_NON_ANIMATED_DOOR' else 0)
             out += walk + [('wait', 300), ('at', dm, back['x'], ay), ('shot', f'warp-{SIDE[m]}-{x}-{y}')]
     # the falls: down with the current, then A at the foot offers Waterfall
-    x0, x1, crest, fy = 38, 52, 13, 22
-    out += [('go', F1E, 45, crest), ('surfing', 1, 'on-the-crest'), ('shot', 'falls-crest'), ('south', 1, None), ('wait', 240),
-            ('at', F1E, 45, fy + 1), ('surfing', 1, 'at-the-foot'), ('shot', 'falls-foot'), ('face', 'north', 'waterfall-offered')]
+    x0, x1, crest, fy = 38, 52, 18, 22
+    out += [('go', F1E, 45, crest), ('surfing', 1, 'above-the-falls'), ('shot', 'falls-crest'), ('south', 1, None), ('wait', 240),
+            ('at', F1E, 45, fy + 1), ('surfing', 1, 'at-the-foot'), ('shot', 'falls-foot'), ('wait', 16), ('shot', 'falls-foot-later'),
+            ('face', 'north', 'waterfall-offered')]
     # Rock Climb: a wall stops a walker; A runs the game's Rock Climb script
     for m in (F1E, F1B):
         beh, coll = grids[m]
@@ -128,6 +130,8 @@ def cave_canvas(img, grid_, border):
     out[Pd * 16:(Pd + Hh) * 16, Pd * 16:(Pd + Ww) * 16] = img
     return out, Pd * 16
 
+FALLS_PX = (38 * 16, 19 * 16, 53 * 16, 24 * 16)       # the animated waterfall on 1F entrance (x0, y0, x1, y1 px)
+
 def check_frames(out, game, phases):
     positions = {o['step'][5:]: o for p in phases for o in p['observations'] if o.get('step', '').startswith('shot:')}
     maps = {}
@@ -148,10 +152,23 @@ def check_frames(out, game, phases):
         x0, y0 = o['x'] * 16 - 112 + pad, o['y'] * 16 - 72 + pad
         win = ref[y0:y0 + 160, x0:x0 + 240]
         d = (win != shot).any(-1)
+        anim = np.zeros_like(d)
+        if o['map'] == F1E:                                # the waterfall cycles through Emerald's four frames
+            fx0, fy0, fx1, fy1 = FALLS_PX
+            ys, xs = np.mgrid[0:160, 0:240]
+            anim = (xs + x0 - pad >= fx0) & (xs + x0 - pad < fx1) & (ys + y0 - pad >= fy0) & (ys + y0 - pad < fy1)
+            d &= ~anim
         if o.get('dialog'):
             d[112:] = False                               # the message box covers the bottom rows
-        results.append(dict(frame=tag, map=o['map'], position=[o['x'], o['y']], mismatched_map_layer_pixels=int(d.sum())))
+        results.append(dict(frame=tag, map=o['map'], position=[o['x'], o['y']], mismatched_map_layer_pixels=int(d.sum()),
+                            animated_waterfall_pixels_skipped=int(anim.sum())))
     return results
+
+def waterfall_moves(out):
+    """The falls animate: two captures 16 frames apart differ inside the waterfall, and nowhere else."""
+    a, b = (RC.map_layers(out / f'vram-{t}.bin') for t in ('falls-foot', 'falls-foot-later'))
+    diff = (a != b).any(-1)
+    return dict(pixels_changed=int(diff.sum()), rows_changed=sorted({int(y) for y in np.nonzero(diff.any(1))[0]}))
 
 def main(game, out):
     out.mkdir(parents=True, exist_ok=True)
@@ -195,10 +212,12 @@ def main(game, out):
             if o.get('step', '')[5:] in dialogs:
                 o['dialog'] = True
     frames = check_frames(out, game, phases)
+    anim = waterfall_moves(out)
     rom = hashlib.sha256((game / 'pokeemerald.gba').read_bytes()).hexdigest()
     (out / 'results.json').write_text(json.dumps(dict(rom_sha256=rom, steps=[list(map(str, s)) for s in plan], phases=phases,
-                                                      background_parity=frames), indent=2) + '\n')
+                                                      background_parity=frames, waterfall_animation=anim), indent=2) + '\n')
     bad = [f for f in frames if f['mismatched_map_layer_pixels']]
+    assert anim['pixels_changed'] > 0, 'the waterfall does not animate'
     print(json.dumps(dict(rom_sha256=rom, frames=len(frames), frames_with_background_mismatch=len(bad))))
     for f in bad:
         print('  mismatch', f)

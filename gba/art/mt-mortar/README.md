@@ -18,6 +18,7 @@ native cell (x, y) is HGSS's (x + 16, y + 5); nothing walkable or drawn is lost.
   [1F back east](evidence/review/1f-back-east-rock-climb-and-ledges.png) · [1F back exits](evidence/review/1f-back-south-exits.png) ·
   [2F west](evidence/review/2f-west.png) · [2F east](evidence/review/2f-east.png) ·
   [B1F terraces](evidence/review/b1f-north-terraces.png) · [B1F lake](evidence/review/b1f-lake-and-ladders.png)
+- [Every stair flight, HGSS beside native](evidence/review/stairs.png)
 - [Route 42's four mouths](evidence/review/route42-mouths.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
@@ -29,22 +30,25 @@ Johto routes' own pieces (FRLG rock by the routes' `rock_frlg`, the routes' road
 rock-edged pond, the catalog stairs S01-S05), then every colour swapped for HGSS's Mt. Mortar
 colours (texture set 79: the rock ramp from `dwall_s`, `dcliff01`, `dallpeak_p`; the floor from
 `droad01`). The owner's Ice Path reviews carry over: a raised floor's north edge is a drop with the
-rock's light top, and an up-ladder is Seafoam's top over its foot.
+rock's light top, and an up-ladder is Seafoam's top over its foot. A wall HGSS shows facing north (its
+`dwall_s`, a floor's south wall, unseen from above) never takes a south face: where the terraces would give
+it one, its top comes down to the level south of it (19 cells; owner review, Nov 6).
 
 | HGSS | Gen 3 | Art |
 |---|---|---|
 | Floor 0x08 | MB_CAVE | the routes' road in `droad01`'s tones; 1F back's brown hall (`droad02`) in `droad02`'s tones |
-| Water 0x15 | MB_POND_WATER | FRLG's rock-edged pond, in the water as HGSS renders it on that floor |
-| The falls (1F entrance, 0x13 at its foot, x 38-52) | MB_WATERFALL from the foot (row 22) to the row under the crest (14); the crest (13) water | HGSS's own pixels, as Route 45's cascades are (owner-accepted). Surf off the crest and the current carries the player to the foot; Waterfall climbs to the crest |
+| Water 0x15 | MB_POND_WATER | FRLG's rock-edged pond in Dark Cave's cave water (owner review, Nov 6: the caves' water) |
+| The falls (1F entrance, x 38-52) | MB_WATERFALL rows 19-22, the splash (row 23) water | Emerald's own animated waterfall (general's metatiles 179 crest, 185 body, 193 splash, stacked as Meteor Falls stacks them) in cave water; `InitTilesetAnim_MtMortar` copies its four frames into tiles 506-511 as Emerald animates its own. HGSS has one waterfall row (22) with real surfable water behind it; its 10-unit face, drawn top-down, lay over that pool. Now the pool stays water to row 18 and the falls climb to it (owner review, Nov 6) |
 | Rock Climb walls 0x4B (north-south) / 0x4C (east-west) | MB_ROCK_CLIMB, solid | the normal wall with HGSS's climbing holds (`dr_climb`) pasted on (AGENTS.md) |
 | Ledges 0x3B / 0x39 / 0x38 | MB_JUMP_SOUTH / WEST / EAST | FRLG's ledge; east-facing is the routes' west ledge unmirrored |
 | Up-ladders 0x3D over 0x3C; ladders down 0x3E | MB_LADDER | FRLG Seafoam's ladder top 654 over its foot 662; its ladder into a hole 645; in HGSS's ladder wood |
 | Exits 0x6F (arrow 0x65 south) / holes 0x6E | MB_SOUTH_ARROW_WARP / MB_NON_ANIMATED_DOOR | HGSS's own exit glows and holes |
 | Rock piles `d_rock01` / small rocks `d_rock01s` | solid | a rock formation one tier up / FRLG General's boulder in the small rocks' own rendered tones |
-| Stairs (`dslope`) | MB_CAVE | the catalog stairs |
+| Stairs (`dslope`) | MB_CAVE | one stair throughout (owner review, Nov 6): FRLG Seafoam's 644, Ice Path's, in the rock's tones. Each flight climbs the way HGSS's floor at its ends says: north-south flights as drawn, east-west ones turned on their side (as the routes turn FRLG's ledge for a west ledge) |
 
-Lossless pack on a tileset pair of its own (`gTileset_MtMortarPrimary`, `gTileset_MtMortar`): 523
-tiles, 295 metatiles ([pack.json](evidence/pack.json)).
+Lossless pack on a tileset pair of its own (`gTileset_MtMortarPrimary`, `gTileset_MtMortar`): 512
+tiles (the waterfall's six animated ones in slots 506-511, all its colours in palette bank 12), 236
+metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events
 
@@ -63,14 +67,16 @@ tiles, 295 metatiles ([pack.json](evidence/pack.json)).
 - [audit.json](evidence/audit.json) (`check.py`): every floor's decode equals the packer's image;
   behaviour, collision, elevation and layer per cell equal the ledger; every floor fits Gen 3's map
   buffer. Reach with every field move (walking, one-way ledges, Surf, Waterfall up and the falls'
-  current down, Rock Climb rides) from the floor's warps equals HGSS's under the same moves: 1,590,
-  2,331, 1,349 and 1,194 cells (on foot alone: 767, 2,029, 917, 371). Every warp pairs back and is a
+  current down, Rock Climb rides) from the floor's warps equals HGSS's under the same moves: 1,665,
+  2,331, 1,349 and 1,194 cells (on foot alone: 767, 2,029, 917, 371). The waterfall's animation is
+  wired (frames, callback) and its cells are waterfall rows over a splash on the pool. Every warp pairs back and is a
   warp behaviour with collision 0. Route 42: 0 pixels changed; map.bin differs only at the four
   mouths' collision, attributes only at 619 and 526, map.json only by four appended warps.
-- [Headless mGBA](evidence/gameplay/results.json) (`runtime.py`): 41 captures, every map frame
-  rebuilt from VRAM equal to the native decode. All four Route 42 mouths walked in and back out;
+- [Headless mGBA](evidence/gameplay/results.json) (`runtime.py`): 42 captures, every map frame
+  rebuilt from VRAM equal to the native decode (the animated waterfall's pixels skipped; two captures
+  16 frames apart differ inside it and nowhere else, so it animates). All four Route 42 mouths walked in and back out;
   every warp inside walked, the player arriving on its HGSS partner; surfing off the crest the
-  current carries the player to the foot, and A at the foot shows Gen 3's Waterfall text; A at a
+  current carries the player off the upper pool to the foot, and A at the foot shows Gen 3's Waterfall text; A at a
   Rock Climb wall on 1F entrance and on 1F back runs the game's Rock Climb script; an east and a west
   ledge jumped; ordinary flash save, cold reload and Continue.
 - [Porymap 6.3.1](evidence/porymap/results.json) (`porymap.py`, fresh clone): all five maps open and

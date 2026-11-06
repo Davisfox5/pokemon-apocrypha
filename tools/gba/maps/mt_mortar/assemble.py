@@ -55,7 +55,14 @@ VOID, FLOOR, FACE, TOP, RIM, BOULDER, STAIRS, WATER, EXIT = range(9)
 SEAFOAM = ('general_frlg', 'seafoam_islands_frlg')
 LADDER = dict(ladder_top=654, ladder_up=662, ladder_down=645)    # FRLG Seafoam's, stacked as Seafoam stacks them
 SNOW = (641, 657)                                     # Seafoam's plain floors: their colours are cut from a piece
-FALLS = {'1f-entrance': (38, 52, 13, 22)}            # x0, x1, crest row, foot row (HGSS 0x13): the falls' face
+# The falls (owner review, Nov 6): HGSS has one waterfall row (0x13, row 22) with its upper pool, real
+# surfable water, behind it; its model's face is 10 units tall, which a top-down drawing lays over that
+# pool. In Gen 3 the face is a column of waterfall cells between the pools, as Meteor Falls stacks it: the
+# upper pool stays water down to row 18, Emerald's waterfall crest, body and body (rows 19-22) climb to it,
+# its splash (row 23) lies on the lower pool.
+FALLS = {'1f-entrance': (38, 52, 18, 22)}            # x0, x1, last upper-pool row, foot row (HGSS 0x13)
+CAVE_WATER = [(41, 132, 165), (33, 140, 173), (24, 148, 173)]   # Dark Cave's cave water (its HGSS driver, graded): the caves' water
+STAIR = 644                                          # FRLG Seafoam's ice stairs, as Ice Path draws its flights (owner's pick)
 EXIT_ART = {'chole_in', 'chole_light', 'chole_light2', 'light'}
 lum = lambda c: 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
 
@@ -100,10 +107,11 @@ def ledger(side):
         for x in range(W):
             t, k, h = int(types[y, x]), int(coll[y, x]), float(height[y, x])
             c = dict(x=x, y=y, lab='.', floor='sand', ground=h, peak=h, level=h, material=major[y, x], kind='floor')
-            if fx0 <= x <= fx1 and crest <= y <= fy:
-                # the falls: HGSS's upper pool behind the falls' face, and the face's foot (0x13)
-                c.update(floor='water', level=float(height[fy + 1, x]), ground=float(height[fy + 1, x]), falls=True,
-                         kind='water' if y == crest else 'waterfall')
+            if fx0 <= x <= fx1 and crest < y <= fy + 1:
+                # the falls: Emerald's waterfall from the upper pool to the lower, its splash on the lower pool
+                g = float(height[fy + 1, x])
+                c.update(floor='water', level=g, ground=g, falls=True, kind='water' if y == fy + 1 else 'waterfall',
+                         piece='wf_splash' if y == fy + 1 else 'wf_crest' if y == crest + 1 else 'wf_body')
             elif void[y, x]:
                 c.update(lab='T', peak=top, void=True, kind='blocked')
             elif t == 0x3B:
@@ -173,6 +181,49 @@ def ladders(engine, floor_tones, rock, wood):
         out[name] = D.remap(a, cmap)
     return out
 
+def flights(cells, W, H):
+    """HGSS's stair cells (its `dslope`) as flights, each read from the floor at its ends: a flight
+    whose floor north and south differ climbs north-south, one whose floor west and east differ climbs
+    east-west. Returns Dark Cave's flight records [(kind, x, y, n, face)] for rock_cells (a north-south
+    flight row by row, an east-west one column by column, its face looking to its lower side) and
+    {cell: direction it climbs}."""
+    from scipy import ndimage
+    s = np.array([[c['lab'] == 's' for c in row] for row in cells])
+    lab, n = ndimage.label(s)
+    g = lambda x, y: cells[y][x]['ground'] if 0 <= x < W and 0 <= y < H and cells[y][x]['lab'] == '.' else None
+    mean = lambda v: float(np.mean(v)) if v else None
+    out, up = [], {}
+    for i in range(1, n + 1):
+        ys, xs = np.nonzero(lab == i)
+        x0, x1, y0, y1 = int(xs.min()), int(xs.max()), int(ys.min()), int(ys.max())
+        north = mean([v for x in range(x0, x1 + 1) if (v := g(x, y0 - 1)) is not None])
+        south = mean([v for x in range(x0, x1 + 1) if (v := g(x, y1 + 1)) is not None])
+        west = mean([v for y in range(y0, y1 + 1) if (v := g(x0 - 1, y)) is not None])
+        east = mean([v for y in range(y0, y1 + 1) if (v := g(x1 + 1, y)) is not None])
+        if north is not None and south is not None and abs(north - south) >= 0.5:
+            d = 'north' if north > south else 'south'
+            out += [('row', x0, y, x1 - x0 + 1, 'S') for y in range(y0, y1 + 1)]
+        elif west is not None and east is not None and abs(west - east) >= 0.5:
+            d = 'east' if east > west else 'west'
+            out += [('column', x, y0, y1 - y0 + 1, 'W' if d == 'east' else 'E') for x in range(x0, x1 + 1)]
+        else:
+            raise SystemExit(f'flight ({x0}-{x1}, {y0}-{y1}): no floor either side tells its direction')
+        up.update({(int(x), int(y)): d for y, x in zip(ys, xs)})
+    return out, up
+
+def stair_art(engine, rock):
+    """Seafoam's ice stairs (Ice Path's flights) in the rock's tones, rank for rank, near black kept;
+    one per direction it climbs: as drawn it climbs north, turned on its side for east and west (as
+    the routes turn FRLG's ledge for a west ledge)."""
+    b, t = D.metatile_layers(engine, *SEAFOAM, STAIR)
+    a = b.copy(); m = t[..., 3] > 0; a[m] = t[m]
+    cols = sorted({tuple(int(v) for v in p) for p in a[..., :3].reshape(-1, 3)}, key=lum)
+    dark = [c for c in cols if lum(c) < 36]
+    cmap = {c: c for c in dark}
+    cmap.update(D.ranked([c for c in cols if c not in dark], rock[1:]))
+    art = D.remap(a, cmap)[..., :3]
+    return dict(north=art, south=art[::-1], east=np.rot90(art, -1), west=np.rot90(art, 1))
+
 def east_ledges(cells, pieces, W, H):
     """FRLG's ledge turned to face east: the routes' west-facing ledge (route46 ledges_frlg) unmirrored."""
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
@@ -229,16 +280,30 @@ def main(phg, engine):
         wood = sorted({tuple(int(v) for v in p) for p in ref[cellmask(lambda c: c['kind'] == 'ladder')] if int(p[0]) - int(p[2]) > 30},
                       key=lum) or [(140, 90, 50)]
         lad = ladders(engine, floor_t, A.CAVE_RAMP, wood)
-        # HGSS's water as it renders on this floor (the river and sea textures carry no shading of their own)
-        wet = ref[cellmask(lambda c: c['floor'] == 'water' and not c.get('falls') and not c.get('boulder')) & ~mat('dpond_line')]
-        seen = Counter(tuple(int(v) for v in p) for p in wet)
-        A.WATER_TEX = np.array(sorted((c for c, n in seen.most_common(6) if n > 40), key=lum) or floor_t, np.uint8).reshape(1, -1, 3)
+        A.WATER_TEX = np.array(CAVE_WATER, np.uint8).reshape(1, -1, 3)   # the caves' water: Dark Cave's (owner review, Nov 6)
         A.ROCK_BASE = int(np.floor(min(c['ground'] for row in cells for c in row if c['lab'] == '.') + 0.5))
-        fl = A.flights(cells)
+        fl, climbs = flights(cells, W, H)
         rc = A.rock_cells(cells, fl)
         d, face, isrock = A.terraces(rc)
         nubs = A.regularise(rc, d, isrock)
         d, face, isrock = A.terraces(rc)
+        # a wall HGSS shows facing north (its dwall_s: a floor's south wall, not seen from above) never takes a
+        # south face: where the terraces would give it one, its top comes down to the level south of it, so it
+        # reads as the drop HGSS draws (owner review, Nov 6)
+        per = lambda *ns: mat(*ns).reshape(H, PX, W, PX).sum((1, 3))
+        looks_north, looks_south = per('dwall_s', 'dwall_es', 'dwall_sw'), per('dwall_n', 'dwall_ne', 'dwall_wn')
+        north_wall = {(int(x), int(y)) for y, x in np.argwhere((looks_north * 2 > PX * PX) & (looks_south * 2 < PX * PX))}
+        lowered = set()
+        for _ in range(4):
+            lower = [(x, y) for x, y in north_wall if y + 1 < H and isrock[y, x] and d[y + 1, x] < d[y, x]]
+            if not lower:
+                break
+            for x, y in lower:
+                s_ = rc[y + 1][x]
+                rc[y][x]['peak'] = s_['peak'] if isrock[y + 1, x] else s_['level'] if s_['floor'] == 'water' else s_['ground']
+            lowered |= set(lower)
+            d, face, isrock = A.terraces(rc)
+        nubs['north_wall'] = sorted(lowered)
         E.layers = lambda _cells, _d=d, _f=face, _r=isrock: (_d, _f, _r)
         ground = A.paint_ground(np.full((H * 2, W * 2), G.PATH, np.int8), tex)
         pond = A.ponds(rc, A.POND)
@@ -251,26 +316,9 @@ def main(phg, engine):
         for layer in (E.ledges_frlg(rc, pieces), east_ledges(rc, pieces, W, H)):
             a = layer[..., 3] > 0
             over[a] = layer[a]
-        top = np.zeros((H * PX, W * PX, 4), np.uint8)
-        for kind, x, y, n, f in fl:                     # stairs (route46/assemble.py stairs)
-            if kind == 'row':
-                for k in range(n):
-                    name = 'S01.png' if k == 0 else 'S03.png' if k == n - 1 else 'S02.png'
-                    sl = np.s_[y * PX:(y + 1) * PX, (x + k) * PX:(x + k + 1) * PX]
-                    bottom[sl] = np.array(Image.open(A.STAIR_ART / name).convert('RGBA'))[..., :3]
-                    over[sl] = 0
-                continue
-            art = np.array(Image.open(A.STAIR_ART / ('S04.png' if f == 'W' else 'S05.png')).convert('RGBA'))
-            sl = np.s_[y * PX:y * PX + art.shape[0], x * PX:(x + 1) * PX]
-            aa = over[sl][..., 3] > 0
-            bottom[sl][aa] = over[sl][aa, :3]
-            over[sl] = 0
-            mm = art[..., 3] > 0
-            top[sl][mm] = art[mm]
         comp = bottom[..., :3].copy()
-        for layer in (over, top):
-            a = layer[..., 3] > 0
-            comp[a] = layer[a, :3]
+        a = over[..., 3] > 0
+        comp[a] = over[a, :3]
         comp, cmap = A.recolour(comp, tex)
         rk = over[..., 3] > 0
         # HGSS's second floor (droad02, 1F back's brown hall): its cells take droad02's tones by rank
@@ -296,21 +344,30 @@ def main(phg, engine):
                             cell[yy, xx] = pebble[k]
                         elif k == E.SHADOW:
                             cell[yy, xx] = shade
-                elif c.get('piece'):
+                elif c.get('piece') in lad:
                     sl = np.s_[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX]
                     img = lad[c['piece']]
                     mm = (img[..., 3] > 0) & ~rk[sl]
                     comp[sl][mm] = img[mm, :3]
-        # HGSS's own pixels: the exit glows and holes, the falls, the Rock Climb holds
-        falls = cellmask(lambda c: c.get('falls'))
+        # every flight in the one stair (Ice Path's), climbing the way HGSS's floor says; it replaces the wall it cuts
+        stairs = stair_art(engine, A.CAVE_RAMP)
+        for (x, y), d_ in climbs.items():
+            comp[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = stairs[d_]
+        # the falls: Emerald's waterfall, frame 0 (tileset_anims.c animates it)
+        for row in rc:
+            for c in row:
+                if c.get('falls'):
+                    comp[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX] = P.waterfall_art(engine, c['piece'])
+        # HGSS's own pixels: the exit glows and holes, the Rock Climb holds
         ex = mat(*EXIT_ART)
         holds = mat('dr_climb')
-        for mm in (ex, falls, holds):
+        for mm in (ex, holds):
             comp[mm] = ref[mm]
         cls = np.full((H * PX, W * PX), FLOOR, np.int16)
         cls[rk] = FACE
         cls[cellmask(lambda c: c['floor'] == 'water') & ~rk] = WATER
         cls[holds] = FACE
+        cls[cellmask(lambda c: (c['x'], c['y']) in climbs)] = STAIRS
         cls[ex] = EXIT
         # the Gen 3 map: HGSS's matrix cropped where it would not load (pack.CROP)
         (ox, oy), (cw, ch) = P.OFFSET[side], P.SIZE[side]

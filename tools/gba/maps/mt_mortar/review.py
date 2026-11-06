@@ -40,7 +40,7 @@ REGIONS = {   # native cells (x0, y0, x1, y1)
     'b1f': {'north-terraces': (6, 2, 40, 40), 'lake-and-ladders': (2, 36, 58, 82)},
 }
 GALLERY = ['view-1f-entrance', 'view-1f-back', 'view-2f', 'view-b1f', 'mouth-20-11', 'mouth-48-15', 'mouth-50-4', 'mouth-77-11',
-           'falls-crest', 'falls-foot', 'waterfall-offered', 'rock-climb-1f-entrance', 'rock-climb-1f-back', 'ledge-east', 'ledge-west',
+           'falls-crest', 'falls-foot', 'falls-foot-later', 'waterfall-offered', 'rock-climb-1f-entrance', 'rock-climb-1f-back', 'ledge-east', 'ledge-west',
            'save-on-route', 'cold-flash-reload', 'continue-menu', 'ordinary-continue']
 
 def pair(a, b, gap=12):
@@ -73,6 +73,32 @@ def main(engine, runtime):
         dr.rectangle((px, py, px + 31, py + 31), outline=(255, 220, 0), width=2)
         mouths.append(im)
     pair(pair(mouths[0], mouths[1]), pair(mouths[2], mouths[3])).save(OUT / 'route42-mouths.png')
+    # every stair flight, HGSS beside native (owner review, Nov 6: one stair, climbing the right way)
+    from scipy import ndimage
+    tiles = []
+    for side, name in I.MAPS.items():
+        w, h = P.SIZE[side]
+        ox, oy = P.OFFSET[side]
+        cls = np.load(SRC / f'assemble/{side}-class.npy')
+        st = (cls.reshape(h, 16, w, 16) == 6).any((1, 3))
+        lab, n = ndimage.label(st)
+        ref = np.array(Image.open(SRC / f'hgss/{side}/hgss-render.png').convert('RGB'))[oy * 16:(oy + h) * 16, ox * 16:(ox + w) * 16]
+        nat = C.decode(engine, name, 'mt_mortar', 'mt_mortar', w, h)['img']
+        for i in range(1, n + 1):
+            ys, xs = np.nonzero(lab == i)
+            x0, y0, x1, y1 = max(0, xs.min() - 2), max(0, ys.min() - 2), min(w, xs.max() + 3), min(h, ys.max() + 3)
+            box = np.s_[y0 * 16:y1 * 16, x0 * 16:x1 * 16]
+            a, b = Image.fromarray(ref[box]), Image.fromarray(nat[box])
+            t = Image.new('RGB', (a.width * 2 + 6, a.height + 14), (24, 26, 30))
+            t.paste(a, (0, 14)); t.paste(b, (a.width + 6, 14))
+            ImageDraw.Draw(t).text((2, 1), f'{side} ({xs.min()}-{xs.max()},{ys.min()}-{ys.max()})', fill='white')
+            tiles.append(t)
+    cols = 6
+    cw, chh = max(t.width for t in tiles), max(t.height for t in tiles)
+    sheet = Image.new('RGB', (cols * (cw + 8), ((len(tiles) + cols - 1) // cols) * (chh + 8)), (24, 26, 30))
+    for i, t in enumerate(tiles):
+        sheet.paste(t, ((i % cols) * (cw + 8), (i // cols) * (chh + 8)))
+    sheet.save(OUT / 'stairs.png')
     names = [n for n in GALLERY if (runtime / f'{n}.png').exists()]
     names += sorted(p.stem for p in runtime.glob('warp-*.png'))
     cols = 4

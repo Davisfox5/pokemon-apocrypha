@@ -13,6 +13,9 @@ and ladders between floors (HGSS gives an up-ladder two warp cells; both are kep
 Strength boulders are placed; its NPCs (Kiyo, the Mortar trainers), items and hidden items are
 recorded, not placed (campaign content, as on the other routes).
 
+The 1F falls are Emerald's own animated waterfall (general's metatiles 179/185/193, its four frames
+copied in by InitTilesetAnim_MtMortar, a tileset callback added to tileset_anims.c), in cave water.
+
 Route 42 (owner review pending, this tool set's own): native wiring edits only. Its three south
 mouths share one metatile (619) and the north mouth has its own (526), each used by no other cell;
 they become MB_NON_ANIMATED_DOOR with their layer kept, the cells' collision opens, and four warps
@@ -57,7 +60,8 @@ def git(g, *a): return subprocess.run(['git', '-C', str(g), *a], capture_output=
 DRAFT = [f'data/layouts/{m}' for m in MAPS.values()] + [f'data/maps/{m}' for m in MAPS.values()] + [PRIMARY_DIR, SECONDARY_DIR]
 SHARED_FILES = ['data/event_scripts.s', 'data/layouts/layouts.json', 'data/maps/map_groups.json', 'src/apocrypha_map_proof.c',
                 'src/data/tilesets/graphics.h', 'src/data/tilesets/headers.h', 'src/data/tilesets/metatiles.h',
-                'src/data/region_map/region_map_sections.json', 'include/regions.h']
+                'src/data/region_map/region_map_sections.json', 'include/regions.h',
+                'src/tileset_anims.c', 'include/tileset_anims.h']
 ROUTE_FILES = [f'data/maps/{ROUTE}/map.json', f'data/layouts/{ROUTE}/map.bin', f'{ROUTE_DIR}/metatile_attributes.bin']
 
 def remove_draft(g):
@@ -125,7 +129,34 @@ def register_tilesets(g):
         with (g / 'src/data/tilesets/headers.h').open('a') as f:
             f.write(f'\n// Mt. Mortar ({kind})\nconst struct Tileset gTileset_{sym} = {{ .isCompressed = TRUE, '
                     f'.isSecondary = {"TRUE" if sec else "FALSE"}, .tiles = gTilesetTiles_{sym}, .palettes = gTilesetPalettes_{sym}, '
-                    f'.metatiles = gMetatiles_{sym}, .metatileAttributes = gMetatileAttributes_{sym}, .callback = NULL }};\n')
+                    f'.metatiles = gMetatiles_{sym}, .metatileAttributes = gMetatileAttributes_{sym}, '
+                    f'.callback = {"NULL" if sec else "InitTilesetAnim_MtMortar"} }};\n')
+
+def register_waterfall(g, pack):
+    """The falls' animation, Emerald's own (tileset_anims.c TilesetAnim_General's waterfall): its four
+    frames, reindexed to the palette bank pack.py gave them, copied into primary tiles WF_TILE.. every
+    16 frames."""
+    wf = pack['waterfall']
+    d = g / PRIMARY_DIR / 'anim/waterfall'
+    d.mkdir(parents=True, exist_ok=True)
+    for i in range(wf['frames']):
+        shutil.copy(SRC / f'pack/waterfall-{i}.png', d / f'{i}.png')
+    p = g / 'include/tileset_anims.h'; s = p.read_text()
+    anchor = 'void InitTilesetAnim_General(void);\n'
+    assert anchor in s and 'MtMortar' not in s
+    p.write_text(s.replace(anchor, anchor + 'void InitTilesetAnim_MtMortar(void);\n'))
+    with (g / 'src/tileset_anims.c').open('a') as f:
+        f.write('\n// Mt. Mortar (tools/gba/maps/mt_mortar/install.py): the falls, Emerald\'s waterfall in cave water\n' +
+                ''.join(f'const u16 gTilesetAnims_MtMortar_Waterfall_Frame{i}[] = INCGFX_U16("{PRIMARY_DIR}/anim/waterfall/{i}.png", ".4bpp");\n'
+                        for i in range(wf['frames'])) +
+                'const u16 *const gTilesetAnims_MtMortar_Waterfall[] = {\n' +
+                ''.join(f'    gTilesetAnims_MtMortar_Waterfall_Frame{i},\n' for i in range(wf['frames'])) + '};\n\n'
+                'static void TilesetAnim_MtMortar(u16 timer)\n{\n'
+                '    if (timer % 16 == 2)\n'
+                f'        AppendTilesetAnimToBuffer(gTilesetAnims_MtMortar_Waterfall[(timer >> 4) % ARRAY_COUNT(gTilesetAnims_MtMortar_Waterfall)], '
+                f'(u16 *)(BG_VRAM + TILE_OFFSET_4BPP({wf["tiles"][0]})), {len(wf["tiles"])} * TILE_SIZE_4BPP);\n}}\n\n'
+                'void InitTilesetAnim_MtMortar(void)\n{\n    sPrimaryTilesetAnimCounter = 0;\n'
+                '    sPrimaryTilesetAnimCounterMax = 256;\n    sPrimaryTilesetAnimCallback = TilesetAnim_MtMortar;\n}\n')
 
 def register_mapsec(g):
     p = g / 'src/data/region_map/region_map_sections.json'
@@ -150,6 +181,7 @@ def main(g):
     DC.write_tileset(g / PRIMARY_DIR, pats[:512], pal, metas[:512])
     DC.write_tileset(g / SECONDARY_DIR, pats[512:], pal, metas[512:])
     register_tilesets(g)
+    register_waterfall(g, read(EV / 'pack.json'))
     register_mapsec(g)
     layouts = read(g / 'data/layouts/layouts.json')
     groups = read(g / 'data/maps/map_groups.json')
