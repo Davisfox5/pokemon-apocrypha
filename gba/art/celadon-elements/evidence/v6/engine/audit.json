@@ -1,0 +1,145 @@
+{
+ "tables": {
+  "entries": true,
+  "layers": true,
+  "banks": true,
+  "glyphs": true
+ },
+ "budgets": {
+  "worst_view_glyphs": 677,
+  "glyph_budget": 956,
+  "worst_step_palettes": 13,
+  "banks": 13,
+  "unbanked": [],
+  "palettes": 27,
+  "glyphs": 3123,
+  "data_bytes": 263771
+ },
+ "traversal": {
+  "cells": 3328,
+  "wrong": [],
+  "open": 1384,
+  "solid": 1731,
+  "water": 206,
+  "doors": 7,
+  "walk_behind": 242
+ },
+ "reach": {
+  "targets": 14,
+  "unreached": [],
+  "open_cells_walled_in": 0
+ },
+ "warps": {
+  "city": 7,
+  "mismatched": [],
+  "prize_room_by_the_stairs": true,
+  "doors_with_no_room_solid": {},
+  "apartments_and_cades_house_open": {
+   "apartments": true,
+   "house_g0": true
+  }
+ },
+ "apartments": {
+  "KantoCeladonApartments": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 5,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsFloor2": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 4,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsFloor3": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 4,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsFloor4": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 4,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsFloor5": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 4,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsFloor6": {
+   "size": [
+    36,
+    20
+   ],
+   "warps": 4,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "KantoCeladonApartmentsRoof": {
+   "size": [
+    36,
+    16
+   ],
+   "warps": 1,
+   "unreached": [],
+   "walled_in": 0,
+   "one_way": [],
+   "lift_floor_set": true
+  },
+  "lift": {
+   "exits": [
+    [
+     1,
+     5,
+     "MAP_DYNAMIC"
+    ],
+    [
+     2,
+     5,
+     "MAP_DYNAMIC"
+    ]
+   ],
+   "attendant": [
+    "KantoCeladonApartmentsLift_EventScript_Attendant"
+   ]
+  }
+ },
+ "scope": {
+  "map_ids_kept": true,
+  "layout_ids_kept": true,
+  "files_changed": 163,
+  "outside_celadon_and_hooks": []
+ },
+ "failures": []
+}

@@ -1,0 +1,99 @@
+{
+  "warps": [
+    {
+      "cell": [
+        11,
+        8
+      ],
+      "dest": "MAP_CELADON_DEPARTMENT_STORE_1F",
+      "anchor": 1
+    },
+    {
+      "cell": [
+        6,
+        8
+      ],
+      "dest": "MAP_CELADON_DEPARTMENT_STORE_3F",
+      "anchor": 0
+    },
+    {
+      "cell": [
+        5,
+        2
+      ],
+      "dest": "MAP_CELADON_DEPARTMENT_STORE_ELEVATOR",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        7,
+        2
+      ],
+      "script": "_EV_scr_seq_T07R0102_004 + 1"
+    }
+  ],
+  "objects": [
+    {
+      "sprite": "SPRITE_SHOPM1_2",
+      "cell": [
+        16,
+        8
+      ],
+      "facing": 2,
+      "movement": 16
+    },
+    {
+      "sprite": "SPRITE_SHOPM1_2",
+      "cell": [
+        18,
+        8
+      ],
+      "facing": 1,
+      "movement": 15
+    },
+    {
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        13,
+        4
+      ],
+      "facing": 0,
+      "movement": 14
+    },
+    {
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        14,
+        4
+      ],
+      "facing": 2,
+      "movement": 16
+    },
+    {
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        3,
+        10
+      ],
+      "facing": 0,
+      "movement": 14
+    },
+    {
+      "sprite": "SPRITE_LEADER3",
+      "cell": [
+        17,
+        4
+      ],
+      "facing": 0,
+      "movement": 0
+    }
+  ],
+  "source": {
+    "header": "MAP_CELADON_DEPARTMENT_STORE_2F",
+    "area_bank": 39,
+    "matrix": "map_matrix_0216_T07R0102.bin",
+    "events": "zone_event/328_T07R0102.json"
+  }
+}

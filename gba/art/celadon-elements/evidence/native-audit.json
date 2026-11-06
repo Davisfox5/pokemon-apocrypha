@@ -1,0 +1,264 @@
+{
+  "cells_audited": 3000,
+  "installed_matches_compose": true,
+  "installed_matches_packer_decode": true,
+  "palettes_match_packer": true,
+  "c06_exact": true,
+  "ledger_behaviour_collision_elevation_layer": true,
+  "reachable_foot_cells": 1257,
+  "open_cells": 1269,
+  "surf_only_cells": [
+    [
+      26,
+      26
+    ],
+    [
+      26,
+      27
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      27,
+      26
+    ],
+    [
+      27,
+      27
+    ],
+    [
+      27,
+      28
+    ],
+    [
+      28,
+      26
+    ],
+    [
+      28,
+      27
+    ],
+    [
+      28,
+      28
+    ],
+    [
+      29,
+      26
+    ],
+    [
+      29,
+      27
+    ],
+    [
+      29,
+      28
+    ]
+  ],
+  "unreachable_open_cells": [],
+  "canal_water_cells": 36,
+  "bridge_walkable": true,
+  "approaches": {
+    "plaza_fountain": [
+      17,
+      27
+    ],
+    "market_west": [
+      13,
+      24
+    ],
+    "market_east": [
+      22,
+      24
+    ],
+    "gardens_bed_west": [
+      12,
+      40
+    ],
+    "gardens_bed_east": [
+      23,
+      40
+    ],
+    "gardens_forecourt": [
+      17,
+      44
+    ],
+    "below_the_ledges": [
+      18,
+      47
+    ],
+    "bridge_west": [
+      25,
+      34
+    ],
+    "bridge_east": [
+      30,
+      34
+    ],
+    "bridge_middle": [
+      27,
+      34
+    ],
+    "south_east_loop": [
+      42,
+      40
+    ],
+    "game_corner_lawn": [
+      36,
+      21
+    ],
+    "north_corridor": [
+      33,
+      4
+    ],
+    "route7_edge": [
+      59,
+      16
+    ],
+    "route16_edge": [
+      0,
+      34
+    ],
+    "door_services": [
+      17,
+      13
+    ],
+    "door_hotel": [
+      34,
+      13
+    ],
+    "door_pokemon_center": [
+      47,
+      13
+    ],
+    "door_gamecorner": [
+      34,
+      25
+    ],
+    "door_prize": [
+      39,
+      25
+    ],
+    "door_gardens": [
+      17,
+      42
+    ],
+    "door_cafe": [
+      41,
+      37
+    ],
+    "sign_CitySign": [
+      22,
+      22
+    ],
+    "sign_ServicesSign": [
+      19,
+      15
+    ],
+    "sign_HotelSign": [
+      36,
+      14
+    ],
+    "sign_GameCornerSign": [
+      35,
+      29
+    ],
+    "sign_TrainerTipsGuardSpec": [
+      45,
+      29
+    ],
+    "sign_GardensSign": [
+      20,
+      45
+    ],
+    "sign_CafeSign": [
+      44,
+      39
+    ]
+  },
+  "signs": 7,
+  "doors": {
+    "47,13": "MAP_KANTO_CELADON_POKEMON_CENTER",
+    "17,13": "MAP_KANTO_CELADON_MARKET_SERVICES",
+    "34,13": "MAP_KANTO_CELADON_HOTEL_LOBBY",
+    "34,25": "MAP_KANTO_CELADON_GAME_CORNER",
+    "39,25": "MAP_KANTO_CELADON_PRIZE_ROOM",
+    "17,42": "MAP_KANTO_CELADON_GARDENS",
+    "41,37": "MAP_KANTO_CELADON_CAFE"
+  },
+  "interiors": {
+    "KantoCeladonMarketServices": {
+      "size": [
+        13,
+        16
+      ],
+      "warps": 6,
+      "tiles": 106,
+      "metatiles": 85
+    },
+    "KantoCeladonHotelLobby": {
+      "size": [
+        15,
+        20
+      ],
+      "warps": 5,
+      "tiles": 97,
+      "metatiles": 75
+    },
+    "KantoCeladonHotelUpstairs": {
+      "size": [
+        15,
+        20
+      ],
+      "warps": 2,
+      "tiles": 113,
+      "metatiles": 74
+    },
+    "KantoCeladonGameCorner": {
+      "size": [
+        18,
+        15
+      ],
+      "warps": 3,
+      "tiles": 116,
+      "metatiles": 68
+    },
+    "KantoCeladonPrizeRoom": {
+      "size": [
+        9,
+        10
+      ],
+      "warps": 3,
+      "tiles": 61,
+      "metatiles": 43
+    },
+    "KantoCeladonGardens": {
+      "size": [
+        13,
+        20
+      ],
+      "warps": 3,
+      "tiles": 85,
+      "metatiles": 60
+    },
+    "KantoCeladonCafe": {
+      "size": [
+        15,
+        11
+      ],
+      "warps": 3,
+      "tiles": 81,
+      "metatiles": 49
+    }
+  },
+  "primary_tiles": 512,
+  "secondary_tiles": 480,
+  "secondary_tile_limit": 504,
+  "primary_metatiles": 512,
+  "secondary_metatiles": 50,
+  "colours": 192,
+  "existing_map_ids_preserved": true,
+  "changed_files_within_scope": true
+}

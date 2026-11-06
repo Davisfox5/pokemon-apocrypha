@@ -1,0 +1,81 @@
+{
+  "warps": [
+    {
+      "cell": [
+        7,
+        13
+      ],
+      "dest": "MAP_CELADON",
+      "anchor": 1
+    },
+    {
+      "cell": [
+        13,
+        10
+      ],
+      "dest": "MAP_CELADON_CONDOMINIUMS_2F",
+      "anchor": 0
+    },
+    {
+      "cell": [
+        3,
+        2
+      ],
+      "dest": "MAP_CELADON_CONDOMINIUMS_LEFT_ELEVATOR",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        5,
+        2
+      ],
+      "script": "_EV_scr_seq_T07R0201_004 + 1"
+    }
+  ],
+  "objects": [
+    {
+      "sprite": "SPRITE_GSOLDWOMAN1",
+      "cell": [
+        13,
+        4
+      ],
+      "facing": 2,
+      "movement": 8
+    },
+    {
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_MEOWTH",
+      "cell": [
+        11,
+        6
+      ],
+      "facing": 3,
+      "movement": 2
+    },
+    {
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_CLEFAIRY",
+      "cell": [
+        12,
+        3
+      ],
+      "facing": 1,
+      "movement": 15
+    },
+    {
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_NIDORAN_F",
+      "cell": [
+        7,
+        4
+      ],
+      "facing": 1,
+      "movement": 3
+    }
+  ],
+  "source": {
+    "header": "MAP_CELADON_CONDOMINIUMS_1F",
+    "area_bank": 39,
+    "matrix": "map_matrix_0221_T07R0201.bin",
+    "events": "zone_event/333_T07R0201.json"
+  }
+}
