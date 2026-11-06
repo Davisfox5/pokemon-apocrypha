@@ -106,7 +106,7 @@
    23,
    26
   ],
-  "px_changed_by_palette": 8476,
+  "px_changed_by_palette": 12190,
   "notes": [
    "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
@@ -116,7 +116,7 @@
    23,
    26
   ],
-  "px_changed_by_palette": 7032,
+  "px_changed_by_palette": 10707,
   "notes": [
    "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
@@ -126,17 +126,17 @@
    23,
    26
   ],
-  "px_changed_by_palette": 7778,
+  "px_changed_by_palette": 12537,
   "notes": [
    "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "sprout": {
   "log": [
-   "banks from merging colours within 1 five-bit steps (64 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 0.22 (alternative 0.72)",
-   "280 tiles, 209 metatiles"
+   "129 colours, k-means over 316 quadrants into 13 banks (seed 2, error 4038893), 0 quadrants repaired; score 0.31 (alternative 0.46)",
+   "279 tiles, 196 metatiles"
   ],
-  "tiles": 280,
-  "metatiles": 209
+  "tiles": 279,
+  "metatiles": 196
  }
 }

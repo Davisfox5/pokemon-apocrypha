@@ -78,6 +78,7 @@ Owner review (October 25), refined the same day:
   HGSS's Violet house colours; the lecture hall's glass panels and rails replaced with court stone.
   November 5, round 4: owner approved all but Sprout Tower; Sprout Tower 1F-3F rebuilt as a custom tileset converted from
   HGSS's textures (sprout_gen3.py), pillar at Gen 3 pitch (wall height, two bands, no black cap), FireRed ladders; 23 x 26.
+  November 6: owner accepted Sprout Tower (statues off the black row; 3F east statues and rail one square east). Interiors locked in.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.

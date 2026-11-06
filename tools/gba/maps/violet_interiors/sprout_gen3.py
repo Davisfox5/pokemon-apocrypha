@@ -48,6 +48,10 @@ PX = 16
 X0, Y0 = 4, 4                             # HGSS cell (X0, Y0) is this map's (0, 0)
 W, H = 23, 26                             # HGSS x 4-26 (side walls 4 and 26); map rows 0-3 the wall, 4-24 HGSS 8-28, 25 black
 WALL = 4                                  # the north wall's height in rows, and so the ceiling's
+# owner, November 6: on 3F the statues east of the pillar (HGSS x 18.5) and their railing stand one square east,
+# so the strip between them and the lattice is walkway: (HGSS x, HGSS z of the statues, shift, map column made
+# walkable, its rows)
+OWNER_MOVES = {'sprout3': [(18.5, (19.5, 24.5), 1, 15, range(12, 23)), (18.5, (19.5, 24.5), 0, 14, range(12, 23))]}
 EXITS = {'sprout1': [(15 - X0, 28 - Y0), (16 - X0, 28 - Y0)]}
 CONTRAST = 1.3
 
@@ -416,6 +420,14 @@ def build(name):
             X, Y = x + X0, y + Y0
             walk[y, x] = 5 <= X <= 25 and 8 <= Y <= 28 and coll[Y, X] != 128
     props = h['props']
+    for (hx0, hz0, dx, x, rows) in OWNER_MOVES.get(name, []):
+        # owner, November 6: the east statues and railing one square east, the walkway following them
+        props = [(m, (pos[0] + dx, pos[1], pos[2])) if m == 64 and abs(pos[0] - hx0) < 0.1 and pos[2] in hz0 else (m, pos)
+                 for m, pos in props]
+        for y in rows:
+            walk[y, x] = True
+    statues = {(int(pos[0] - X0), int(pos[2] - Y0) - k) for m, pos in props if m == 64 for k in (0, 1)}
+    walk &= ~np.array([[(x, y) in statues for x in range(W)] for y in range(H)])
     anchor = lambda p: (p[1][0] - X0, p[1][2] - Y0)          # map coordinates, fractional (cell centres at .5)
     mats = {(x, y): cellmat(h, x + X0, y + Y0) for y in range(H) for x in range(W)}
     lat = np.array([[mats[(x, y)].startswith('yuka03') and 1 <= x < W - 1 and y >= WALL for x in range(W)] for y in range(H)])
@@ -481,7 +493,7 @@ def build(name):
     for m, pos in props:
         cx, cz = pos[0] - X0, pos[2] - Y0
         if m == 64:
-            foot = int((cz + 0.5) * PX) + 2
+            foot = int((cz + 0.5) * PX)                 # the pedestal's front on its own square's foot
             f.put(int(cx * PX) - 16, foot - st.shape[0], st, upper_from=foot - PX - 2)
         elif m == 66:
             lad = gen3_ladder()

@@ -163,6 +163,18 @@ Checks on the round 4 ROM:
 - Violet doors: 11 of 11.
 - Porymap: 0 pixels differ on Sprout Tower 1F-3F.
 
+## Round 4 accepted (owner, November 6)
+
+The owner accepted Sprout Tower with two fixes:
+- **Statues on the last floor row:** these now stand on their own square's foot. Their pedestals no longer
+  reach into the black row below the map.
+- **3F, east of the pillar:** the two statues and the railing stand one square east (map column 15 for the
+  statues, 16 for the rail), mirroring the west side. The strip they left is walkway (`OWNER_MOVES` in
+  `sprout_gen3.py`).
+
+Packing: k-means into 13 banks; mean channel error 0.29-0.33, 0 pixels more than 32 off. Checks: interior
+runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ on Sprout Tower 1F-3F.
+
 ## Checks
 
 | Check | Result |
