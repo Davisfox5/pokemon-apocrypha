@@ -1,24 +1,24 @@
 {
- "jobs": 1020,
- "tiles": 1000,
- "primary_metatiles": 500,
+ "jobs": 948,
+ "tiles": 902,
+ "primary_metatiles": 512,
  "secondary_metatiles": 172,
- "pinned_violet_metatiles": 24,
- "maximal_colour_sets": 90,
+ "pinned_violet_metatiles": 4,
+ "maximal_colour_sets": 91,
  "banks": {
   "0": 15,
   "1": 15,
-  "2": 15,
+  "2": 14,
   "3": 15,
-  "4": 15,
+  "4": 14,
   "5": 15,
   "6": 15,
-  "7": 14,
+  "7": 15,
   "8": 15,
-  "9": 12,
+  "9": 15,
   "10": 15,
   "11": 15,
-  "12": 15
+  "12": 14
  },
  "reach": {
   "native_with_cut": 1545,
@@ -300,10 +300,10 @@
    136
   ],
   "border": [
-   "0x0e0",
-   "0x0e1",
-   "0x0e6",
-   "0x0e7"
+   "0x103",
+   "0x104",
+   "0x10c",
+   "0x10d"
   ]
  }
 }
