@@ -234,22 +234,34 @@
   ],
   "KantoCeladonApartments": [
    [
-    5,
-    13,
+    16,
+    14,
     "MAP_KANTO_CELADON_CITY",
     "5"
    ],
    [
-    6,
+    17,
+    14,
+    "MAP_KANTO_CELADON_CITY",
+    "5"
+   ],
+   [
     12,
-    "MAP_KANTO_CELADON_CITY",
-    "5"
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR2",
+    "0"
    ],
    [
-    7,
-    13,
-    "MAP_KANTO_CELADON_CITY",
-    "5"
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
    ]
   ],
   "KantoCeladonCadeHouse": [
@@ -271,6 +283,156 @@
     "MAP_KANTO_CELADON_CITY",
     "6"
    ]
+  ],
+  "KantoCeladonApartmentsFloor2": [
+   [
+    12,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS",
+    "2"
+   ],
+   [
+    20,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR3",
+    "0"
+   ],
+   [
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ]
+  ],
+  "KantoCeladonApartmentsFloor3": [
+   [
+    20,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR2",
+    "1"
+   ],
+   [
+    12,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR4",
+    "0"
+   ],
+   [
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ]
+  ],
+  "KantoCeladonApartmentsFloor4": [
+   [
+    12,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR3",
+    "1"
+   ],
+   [
+    20,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR5",
+    "0"
+   ],
+   [
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ]
+  ],
+  "KantoCeladonApartmentsFloor5": [
+   [
+    20,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR4",
+    "1"
+   ],
+   [
+    12,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR6",
+    "0"
+   ],
+   [
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ]
+  ],
+  "KantoCeladonApartmentsFloor6": [
+   [
+    12,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR5",
+    "1"
+   ],
+   [
+    20,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_ROOF",
+    "0"
+   ],
+   [
+    16,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ],
+   [
+    17,
+    1,
+    "MAP_KANTO_CELADON_APARTMENTS_LIFT",
+    "0"
+   ]
+  ],
+  "KantoCeladonApartmentsRoof": [
+   [
+    20,
+    3,
+    "MAP_KANTO_CELADON_APARTMENTS_FLOOR6",
+    "1"
+   ]
   ]
+ },
+ "apartments": {
+  "lift": "KantoCeladonApartmentsLift",
+  "floors": [
+   "KantoCeladonApartments",
+   "KantoCeladonApartmentsFloor2",
+   "KantoCeladonApartmentsFloor3",
+   "KantoCeladonApartmentsFloor4",
+   "KantoCeladonApartmentsFloor5",
+   "KantoCeladonApartmentsFloor6"
+  ],
+  "var": "VAR_APOC_CELADON_LIFT_FLOOR = VAR_UNUSED_0x4083"
  }
 }

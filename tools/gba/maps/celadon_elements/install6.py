@@ -23,9 +23,10 @@ this rewrites them in place instead of registering anything new:
     rooms       FireRed's rooms as before (interiors.py); the prize room is up the Game
                 Corner's stairs (no prize house), and the Gardens' room, which no door
                 reaches now, leads back to the Center's door
-The apartments (HGSS's Condominiums 1F in FireRed's pieces) and Cade's house (the plum house
-beside the Game Corner, FireRed's Celadon house) open (owner, 2026-11-01); new_rooms() makes
-their maps, layouts and tilesets the first time. The border is the north-west forest's 2 x 2 tree block.
+The apartments and Cade's house (the plum house beside the Game Corner, FireRed's Celadon
+house) open (owner, 2026-11-01); since 2026-11-06 the apartments are six floors and a roof in
+Gen 3's own pieces with their elevator (apartments_engine.py). new_rooms() makes new rooms'
+maps, layouts and tilesets the first time; rooms() keeps each layout's size as its room's. The border is the north-west forest's 2 x 2 tree block.
 """
 from __future__ import annotations
 import json, re, struct, sys
@@ -37,6 +38,7 @@ import common as C
 import plan as PL
 import stream6 as S
 import interiors as I
+import apartments_engine as AE
 from install import (read, write, map_id, layout_id, jasc, tiles_png, metatiles, palettes, porymap_order,
                      ROOMS, MUSIC, MAPSEC, NAME, PFOLDER, PSYM, FOLDER, SYM)
 
@@ -217,8 +219,11 @@ def new_rooms(g, layouts):
     new = {k: v for k, v in ROOMS.items() if not (g / f'data/maps/{v[0]}/map.json').exists()}
     if not new:
         return []
+    class Rooms(dict):                                     # iterate the new rooms, look up any (the car included)
+        def __missing__(self, key):
+            return ROOMS[key] if key in ROOMS else (AE.LIFT, MUSIC)
     keep = IN.ROOMS
-    IN.ROOMS = new
+    IN.ROOMS = Rooms(new)
     real_city_index = IN.city_warp_index
     IN.city_warp_index = lambda door: 0                    # placeholders; rooms() points them at the doors
     try:
@@ -233,9 +238,9 @@ def new_rooms(g, layouts):
         for n in names:
             f.write(f'\n.include "data/maps/{n}/scripts.inc"\n')
     p = g / 'src/apocrypha_map_proof.c'; s = p.read_text()
-    anchor = re.search(r'(MAP_KANTO_CELADON_CAFE)', s)
+    anchor = re.search(r'(const u16 sMapProofMaps\[\] = \{[^}]*)\};', s)  # appended, so the list keeps the map group's order
     assert anchor, 'map proof list'
-    p.write_text(s.replace(anchor.group(0), anchor.group(1) + ', ' + ', '.join(map_id(n) for n in names), 1))
+    p.write_text(s.replace(anchor.group(0), anchor.group(1) + ', ' + ', '.join(map_id(n) for n in names) + '};', 1))
     return names
 
 def rooms(g, layouts):
@@ -251,7 +256,10 @@ def rooms(g, layouts):
         metatiles(d, z['meta'])
         ld = g / f'data/layouts/{name}'
         (ld / 'map.bin').write_bytes(z['grid'].astype('<u2').tobytes())
-        h = z['grid'].shape[0]
+        h, w = z['grid'].shape
+        for lay in layouts['layouts']:                      # the layout's size as the room now is
+            if lay and lay['id'] == layout_id(name):
+                lay['width'], lay['height'] = int(w), int(h)
         black = int(z['grid'][h - 1, 0])                   # the room's black, as install.py takes it
         (ld / 'border.bin').write_bytes(struct.pack('<4H', *[black] * 4))
         warps = []
@@ -259,6 +267,8 @@ def rooms(g, layouts):
             where, n = to.split(':')
             if where == 'city':
                 dest, warp = map_id(NAME), str(city_warp_index(OLD_DOOR[n]))
+            elif where == 'lift':                         # the apartments' elevator car (apartments_engine.py)
+                dest, warp = map_id(AE.LIFT), n
             else:
                 dest, warp = map_id(ROOMS[where][0]), n
             warps.append(dict(x=x, y=y, elevation=3, dest_map=dest, dest_warp_id=warp))
@@ -280,6 +290,7 @@ def main(g):
     rep['city'] = city(g, z, kinds, MB, layouts)
     rep['new_rooms'] = new_rooms(g, layouts)
     rep['rooms'] = rooms(g, layouts)
+    rep['apartments'] = AE.install(g)
     write(g / 'data/layouts/layouts.json', layouts)
     (EV / 'install.json').write_text(json.dumps(rep, indent=1) + '\n')
     print(json.dumps(rep['view']), rep['city']['signs'])

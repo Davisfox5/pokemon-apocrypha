@@ -234,7 +234,8 @@ def piece_mask(name):
             m[yy * 16:(yy + 1) * 16] = raw[yy * 16:(yy + 1) * 16]
     return m
 
-RAW_MASK = {'cafe_table'}                          # pieces whose own floor shows between their parts
+RAW_MASK = {'cafe_table'}
+RUGS = {'dining_b1', 'dining_lo', 'lounge'}            # furniture standing on its own rug                          # pieces whose own floor shows between their parts
 # pixel boxes (y0, y1, x0, x1) that belong to the source room's wall, not the piece
 CLEAR = {'kitchenette': [(0, 22, 16, 48)], 'clock': [(22, 32, 0, 16)]}
 MADE = {}                                           # name -> (pixels, mask): pieces made from a native one
@@ -371,6 +372,12 @@ class Room:
                         self.img[sl][:8] = self.floor_at(x, y - 1)[:8] if style[y - 1, x] != 'marble' else floor_cell('marble', x, y)[:8]
                 else:
                     self.img[sl] = flat(*BLACK); self.solid[y, x] = True
+        self.base = self.img.copy()                    # the shell alone, under every piece
+        self.objs = []                                 # (x, y, pixels, mask, solid, name), in placing order
+        self.warps = []                                # (x, y, behaviour, where): the room's warps in order
+    def warp(self, x, y, behaviour, where):
+        """A warp cell: walkable, its behaviour kept; `where` names what it leads to."""
+        self.warps.append((x, y, behaviour, where))
     def is_wall(self, x, y):
         return not (0 <= x < self.W and 0 <= y < self.H) or self.wall[y, x]
     def floor_at(self, x, y):
@@ -435,11 +442,61 @@ class Room:
             m = m.copy(); m[max(0, (2 - sy)) * 16:] = True
         dst = self.img[y * 16:(y + h) * 16, x * 16:(x + w) * 16]
         dst[m] = px[m]
-        if solid:
+        self.objs.append((x, y, px, m, solid, name))
+    def export(self):
+        """The room as the game draws it: the bottom layer (the shell and every piece the player
+        stands in front of), the top layer (a piece's pixels over a walkable cell north of that
+        piece's foot: the player walks behind them), collision, layer type, warps.
+
+        A piece blocks the cells its own pixels cover by 30% or more; on a piece standing on its
+        rug (RUGS) only its furniture counts, the rug stays walkable."""
+        H, W = self.H, self.W
+        coll = np.zeros((H, W), bool)
+        coll |= self.wall
+        coll |= np.array([[not self.style[y, x] and not self.wall[y, x] for x in range(W)] for y in range(H)])
+        feet = []
+        for x, y, px, m, solid, name in self.objs:
+            h, w = m.shape[0] // 16, m.shape[1] // 16
+            obj = m.copy()
+            if name in RUGS:
+                ring = np.zeros_like(m)
+                ring[:16] = ring[-16:] = True; ring[:, :16] = ring[:, -16:] = True
+                key = lambda a: (a[..., 0].astype(np.int64) << 20) | (a[..., 1].astype(np.int64) << 10) | a[..., 2]
+                rug = set(np.unique(key(px[m & ring])).tolist())
+                obj = m & ~np.isin(key(px), list(rug))
+            foot = -1
             for yy in range(h):
                 for xx in range(w):
-                    if m[yy * 16:(yy + 1) * 16, xx * 16:(xx + 1) * 16].any():
-                        self.solid[y + yy, x + xx] = True
+                    cov = obj[yy * 16:(yy + 1) * 16, xx * 16:(xx + 1) * 16].mean()
+                    if solid and cov >= 0.3 and 0 <= y + yy < H and 0 <= x + xx < W:
+                        coll[y + yy, x + xx] = True
+                        foot = max(foot, y + yy)
+            feet.append((foot, obj))
+        for x, y, *_ in self.warps:
+            coll[y, x] = False
+        bot = self.base.copy()
+        top = np.zeros((H * 16, W * 16, 4), np.uint8)
+        for (x, y, px, m, solid, name), (foot, obj) in zip(self.objs, feet):
+            h, w = m.shape[0] // 16, m.shape[1] // 16
+            for yy in range(h):
+                for xx in range(w):
+                    cy, cx = y + yy, x + xx
+                    if not (0 <= cy < H and 0 <= cx < W):
+                        continue
+                    sm = m[yy * 16:(yy + 1) * 16, xx * 16:(xx + 1) * 16]
+                    so = obj[yy * 16:(yy + 1) * 16, xx * 16:(xx + 1) * 16]
+                    sp = px[yy * 16:(yy + 1) * 16, xx * 16:(xx + 1) * 16]
+                    sl = np.s_[cy * 16:(cy + 1) * 16, cx * 16:(cx + 1) * 16]
+                    b = bot[sl]; b[sm] = sp[sm]
+                    top[sl][sm] = 0                        # a later piece in front of an earlier one's overhang
+                    # the piece's own pixels (not its rug) over a walkable cell with the piece's solid
+                    # body under it: the player walks behind them
+                    if not coll[cy, cx] and foot > cy and cy + 1 < H and coll[cy + 1, cx] and so.any():
+                        t = top[sl]; t[so, :3] = np.clip(sp[so], 0, 255); t[so, 3] = 255
+                        b[so] = self.base[sl][so]          # under them, the floor
+        layer = np.where(top[..., 3].reshape(H, 16, W, 16).any((1, 3)), 0, 1)     # NORMAL where something hangs over
+        return dict(bot=np.clip(bot, 0, 255).astype(np.uint8), top=top, collision=coll.astype(np.uint8), layer=layer.astype(np.uint8),
+                    warps=list(self.warps))
     def png(self):
         return np.clip(self.img, 0, 255).astype(np.uint8)
 
@@ -457,7 +514,11 @@ def core(p, r, floor, plants=True):
     r.piece('elevator', LIFT, 0)
     if down is not None:
         r.piece('stairs_down', down, 0)
+        r.warp(down + 1, 1, 'MB_NON_ANIMATED_DOOR', 'down')
     r.piece('stairs_up', up, 0)
+    r.warp(up + 1, 1, 'MB_NON_ANIMATED_DOOR', 'up')
+    r.warp(LIFT + 1, 1, 'MB_NON_ANIMATED_DOOR', 'lift')
+    r.warp(LIFT + 2, 1, 'MB_NON_ANIMATED_DOOR', 'lift')
     if plants:
         r.piece('plant', CORE[0], p.H - 3); r.piece('plant', CORE[1], p.H - 3)
 
@@ -487,6 +548,8 @@ def lobby():
     r.piece('planter', 0, 12); r.piece('planter', 34, 12); r.piece('glass_case', 35, 7); r.piece('glass_case', 35, 9)
     r.piece('plant', 9, 2)
     r.piece('mat', 16, 14, solid=False)                                               # the street door
+    r.warp(16, 14, 'MB_SOUTH_ARROW_WARP', 'street'); r.warp(17, 14, 'MB_SOUTH_ARROW_WARP', 'street')
+    r.warps = r.warps[-2:] + r.warps[:-2]               # the street door's warps first (the city lands on them)
     return r
 
 def tv_corner(r, x, y):
@@ -618,6 +681,9 @@ def roof():
     for x, y in ((10, 6), (10, 9), (29, 6), (29, 9)):
         put(16, 4, 1, 1, x, y)                          # chairs
     r.used = [('rooftop', 0, 0)]
+    r.base = r.img.copy(); r.objs = []                   # the rooftop's own pieces are drawn in whole
+    r.style[:] = 'paving'; r.wall[:] = r.solid           # its railings, parapet and pieces block
+    r.warp(Q + 1, 3, 'MB_NON_ANIMATED_DOOR', 'down')
     return r
 
 def piece_sheet():

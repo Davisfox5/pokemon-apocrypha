@@ -110,7 +110,7 @@ secondary of its own (`interiors.py`):
 | KantoCeladonGameCorner, KantoCeladonPrizeRoom | Game Corner, prize room | (34, 25), (39, 25) |
 | KantoCeladonGardens | Celadon Gym | (17, 42) |
 | KantoCeladonCafe | Restaurant | (41, 37) |
-| KantoCeladonApartments | HGSS's Condominiums 1F (`hgss_rooms.py`, T07R0201) laid out cell for cell in FireRed's Condominiums pieces: the elevator, directory board, display cabinet and windows on the back wall, two plants, the inner block with the stairs up in its corner; elevator and stairs solid until the floors above exist (owner, 2026-11-01; evidence `interiors/apartments.png`) | round 6's apartments (28, 14) |
+| KantoCeladonApartments, ...Floor2-6, ...Roof, ...Lift | The apartment block in Gen 3's own pieces (`apartments_native.py`; owner, 2026-11-04/05, evidence `apartments/native.png`): the lobby with its break room and lounge; 2F-5F a studio and a two-bedroom each; the penthouse (6F); the roof terrace (Lilycove Dept Store's rooftop). The flights alternate spots floor to floor (1F up the west flight, 2F/4F down west and up east, 3F/5F the reverse, 6F up east to the roof). Each floor fitted into its own secondary (seven fitted banks; 89-100% of pixels exact, `source/interiors/events.json`). The car is Lilycove's elevator layout with its attendant; she takes the player to 1F-6F (`apartments_engine.py`: `VAR_APOC_CELADON_LIFT_FLOOR`, an alias of `VAR_UNUSED_0x4083`, and each floor's dynamic warp to its own elevator door) | round 6's apartments (28, 14) |
 | KantoCeladonCadeHouse | Cade's house: FireRed's Celadon house (House5's layout), empty until Cade's scene is written (owner, 2026-11-01) | the plum house beside the Game Corner (39, 29) |
 
 ## Pipeline

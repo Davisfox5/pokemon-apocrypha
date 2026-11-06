@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "0104879ace1bdb1afce5320eddaf5ee818bcb22a7ad1b35b20f65992565eb127",
+  "rom_sha256": "ba05ed6109380b4586400857a300e1c2e65ece07c42289bbf8bc0d8d693c4a66",
   "phases": [
     {
       "phase": "write",
@@ -1476,15 +1476,15 @@
           "mapsec": 94
         },
         {
-          "step": "at-70-6-12",
+          "step": "at-70-16-14",
           "region": 1,
           "group": 81,
           "map": 16,
-          "x": 6,
-          "y": 12,
+          "x": 16,
+          "y": 14,
           "frlg_layout": 0,
-          "width": 15,
-          "height": 14,
+          "width": 36,
+          "height": 16,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1493,11 +1493,11 @@
           "region": 1,
           "group": 81,
           "map": 16,
-          "x": 6,
-          "y": 12,
+          "x": 16,
+          "y": 14,
           "frlg_layout": 0,
-          "width": 15,
-          "height": 14,
+          "width": 36,
+          "height": 16,
           "interaction": 0,
           "mapsec": 94
         },
@@ -1576,6 +1576,318 @@
           "frlg_layout": 0,
           "width": 64,
           "height": 52,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-2f",
+          "region": 1,
+          "group": 81,
+          "map": 18,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-2f",
+          "region": 1,
+          "group": 81,
+          "map": 18,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-3f",
+          "region": 1,
+          "group": 81,
+          "map": 19,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-3f",
+          "region": 1,
+          "group": 81,
+          "map": 19,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-4f",
+          "region": 1,
+          "group": 81,
+          "map": 20,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-4f",
+          "region": 1,
+          "group": 81,
+          "map": 20,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-5f",
+          "region": 1,
+          "group": 81,
+          "map": 21,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-5f",
+          "region": 1,
+          "group": 81,
+          "map": 21,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-6f",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-6f",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "up-to-apt-roof",
+          "region": 1,
+          "group": 81,
+          "map": 23,
+          "x": 20,
+          "y": 4,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-roof",
+          "region": 1,
+          "group": 81,
+          "map": 23,
+          "x": 20,
+          "y": 4,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "roof-down",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-6f-from-roof",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 20,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "down-to-lobby",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apartments-stairs",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 12,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "lift-apt-6f",
+          "region": 1,
+          "group": 81,
+          "map": 24,
+          "x": 1,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 5,
+          "height": 6,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:lift-apt-6f-interior",
+          "region": 1,
+          "group": 81,
+          "map": 24,
+          "x": 1,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 5,
+          "height": 6,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "lift-to-apt-6f",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 16,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apt-6f-by-lift",
+          "region": 1,
+          "group": 81,
+          "map": 22,
+          "x": 16,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 20,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "lift-apartments",
+          "region": 1,
+          "group": 81,
+          "map": 24,
+          "x": 1,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 5,
+          "height": 6,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:lift-apartments-interior",
+          "region": 1,
+          "group": 81,
+          "map": 24,
+          "x": 1,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 5,
+          "height": 6,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "lift-to-apartments",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 16,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
+          "interaction": 0,
+          "mapsec": 94
+        },
+        {
+          "step": "shot:room-apartments-by-lift",
+          "region": 1,
+          "group": 81,
+          "map": 16,
+          "x": 16,
+          "y": 2,
+          "frlg_layout": 0,
+          "width": 36,
+          "height": 16,
           "interaction": 0,
           "mapsec": 94
         },
@@ -2313,12 +2625,102 @@
       ]
     },
     {
+      "frame": "room-apartments-by-lift",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        144,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apartments-stairs",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        80,
+        -40
+      ]
+    },
+    {
       "frame": "room-apartments",
       "mismatched_map_layer_pixels": 0,
       "pixels_on_animated": 0,
       "camera_origin_px": [
-        -16,
-        120
+        144,
+        152
+      ]
+    },
+    {
+      "frame": "room-apt-2f",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        80,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-3f",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        208,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-4f",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        80,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-5f",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        208,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-6f-by-lift",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        144,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-6f-from-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        208,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-6f",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        80,
+        -40
+      ]
+    },
+    {
+      "frame": "room-apt-roof",
+      "mismatched_map_layer_pixels": 0,
+      "pixels_on_animated": 0,
+      "camera_origin_px": [
+        208,
+        -8
       ]
     },
     {

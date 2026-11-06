@@ -42,12 +42,18 @@ ROOMS = {'services': ('KantoCeladonMarketServices', MUSIC), 'hotel_1f': ('KantoC
          'hotel_2f': ('KantoCeladonHotelUpstairs', MUSIC), 'game_corner': ('KantoCeladonGameCorner', 'MUS_RG_GAME_CORNER'),
          'prize_room': ('KantoCeladonPrizeRoom', 'MUS_RG_GAME_CORNER'), 'gardens': ('KantoCeladonGardens', MUSIC),
          'cafe': ('KantoCeladonCafe', MUSIC), 'apartments': ('KantoCeladonApartments', MUSIC),
-         'cade_house': ('KantoCeladonCadeHouse', MUSIC)}
+         'cade_house': ('KantoCeladonCadeHouse', MUSIC),
+         'apartments_2f': ('KantoCeladonApartmentsFloor2', MUSIC), 'apartments_3f': ('KantoCeladonApartmentsFloor3', MUSIC),
+         'apartments_4f': ('KantoCeladonApartmentsFloor4', MUSIC), 'apartments_5f': ('KantoCeladonApartmentsFloor5', MUSIC),
+         'apartments_6f': ('KantoCeladonApartmentsFloor6', MUSIC), 'apartments_roof': ('KantoCeladonApartmentsRoof', MUSIC)}
 NOTES = {'services': "the market's services (FireRed's Dept Store 1F)", 'game_corner': "the Game Corner (FireRed's)",
          'prize_room': "the Game Corner's prize room (FireRed's)", 'gardens': "the Botanical Gardens (FireRed's Celadon Gym)",
          'cafe': "the cafe (FireRed's Restaurant)", 'hotel_1f': "the Pokemon Hotel's lobby (FireRed's Condominiums 1F)",
          'hotel_2f': "the Pokemon Hotel's upper floor (FireRed's Condominiums 2F)",
-         'apartments': "the apartments (HGSS's Condominiums 1F in FireRed's Condominiums pieces)",
+         'apartments': "the apartments' lobby (Gen 3 pieces, apartments_native.py)",
+         'apartments_2f': "the apartments' 2F: a studio and a two-bedroom", 'apartments_3f': "the apartments' 3F",
+         'apartments_4f': "the apartments' 4F", 'apartments_5f': "the apartments' 5F", 'apartments_6f': "the apartments' penthouse",
+         'apartments_roof': "the apartments' roof terrace (Lilycove Dept Store's rooftop)",
          'cade_house': "Cade's house (FireRed's Celadon house)"}
 # The city's warps, in order: (pack.DOORS name, destination room ('center' for the Center))
 WARPS = [('pokemon_center', 'center'), ('services', 'services'), ('hotel', 'hotel_1f'), ('gamecorner', 'game_corner'),

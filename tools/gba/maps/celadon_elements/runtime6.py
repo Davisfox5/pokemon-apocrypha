@@ -41,6 +41,7 @@ W, H = S.W, S.H
 KANTO0 = 54
 CITY, CENTER, UPSTAIRS, SERVICES, HOTEL, HOTEL_UP, GAME_CORNER, PRIZE_ROOM, GARDENS, CAFE = range(60, 70)
 APARTMENTS, CADE_HOUSE = 70, 71                                  # owner, 2026-11-01
+APT2, APT3, APT4, APT5, APT6, ROOF, LIFT = range(72, 79)          # the apartment block's floors, roof and car (2026-11-06)
 ROOM_INDEX = dict(services=SERVICES, hotel_1f=HOTEL, hotel_2f=HOTEL_UP, game_corner=GAME_CORNER, prize_room=PRIZE_ROOM,
                   gardens=GARDENS, cafe=CAFE, apartments=APARTMENTS, cade_house=CADE_HOUSE)
 SAFFRON, OLIVINE = 54, 50
@@ -112,6 +113,7 @@ def steps():
     out += room_trip('cafe', 'cafe', 'cafe')
     out += room_trip('apartments', 'apartments', 'apartments')
     out += room_trip('cade_house', 'house_g0', 'cades-house')
+    out += apartments()
     hx, hy = DOORS['hotel']
     ax, ay = arrival_xy('hotel_1f')
     out += [('go', CITY, hx, hy + 1), ('north', 1, None), ('wait', 400), ('at', HOTEL, ax, ay), ('shot', 'room-hotel-lobby'),
@@ -122,11 +124,34 @@ def steps():
             ('view', SAFFRON, 24, 40, 'regression-saffron'), ('view', CITY, SAVE[1], SAVE[2], 'return-to-celadon')]
     return out
 
+def apartments():
+    """Up every flight from the lobby to the roof (the flights alternate spots, AE: 1F up the
+    west flight, 2F up the east, ...), down from the roof and from 2F to the lobby, then the
+    elevator: 1F to 6F and 6F back to 1F, the attendant asked each time."""
+    P, Q, D = 12, 20, 16                                  # the west and east flights' doors, the elevator's
+    out = []
+    ups = [(APARTMENTS, P, APT2), (APT2, Q, APT3), (APT3, P, APT4), (APT4, Q, APT5), (APT5, P, APT6), (APT6, Q, ROOF)]
+    for here, x, there in ups:
+        tag = {APT2: 'apt-2f', APT3: 'apt-3f', APT4: 'apt-4f', APT5: 'apt-5f', APT6: 'apt-6f', ROOF: 'apt-roof'}[there]
+        out += [('go', here, x, 2), ('north', 1, None), ('wait', 400), ('map', there, f'up-to-{tag}'), ('shot', f'room-{tag}')]
+    out += [('go', ROOF, Q, 4), ('north', 1, None), ('wait', 400), ('map', APT6, 'roof-down'), ('shot', 'room-apt-6f-from-roof'),
+            ('go', APT2, P, 2), ('north', 1, None), ('wait', 400), ('map', APARTMENTS, 'down-to-lobby'), ('shot', 'room-apartments-stairs')]
+    def ride(here, presses, key, there, tag):
+        return [('go', here, D, 2), ('north', 1, None), ('wait', 400), ('map', LIFT, f'lift-{tag}'), ('shot', f'lift-{tag}-interior'),
+                ('raw', 'tap(LEFT);tap(A);frames(240,0);' + f'for(int i=0;i<{presses};i++)tap({key});'
+                        'tap(A);frames(480,0);'),
+                ('south', 1, None), ('wait', 400), ('map', there, f'lift-to-{tag}'), ('shot', f'room-{tag}-by-lift')]
+    out += ride(APARTMENTS, 5, 'UP', APT6, 'apt-6f')       # the menu opens on 1F (6F at its top)
+    out += ride(APT6, 5, 'DOWN', APARTMENTS, 'apartments')  # and on 6F going down
+    return out
+
 STEPS = steps()
 IN_FRONT = tuple(f'{d}-front' for d in DOORS) + ('center-exit', 'services-exit', 'game-corner-exit', 'cafe-exit', 'hotel-exit')
 ROOM_TAGS = {'room-services': 'services', 'room-game-corner': 'game_corner', 'game-corner-stairs': 'game_corner',
              'room-prize-room': 'prize_room', 'room-cafe': 'cafe', 'room-hotel-lobby': 'hotel_1f', 'room-hotel-upstairs': 'hotel_2f',
-             'room-apartments': 'apartments', 'room-cades-house': 'cade_house'}
+             'room-apartments': 'apartments', 'room-cades-house': 'cade_house',
+             'room-apt-2f': 'apartments_2f', 'room-apt-3f': 'apartments_3f', 'room-apt-4f': 'apartments_4f',
+             'room-apt-5f': 'apartments_5f', 'room-apt-6f': 'apartments_6f', 'room-apt-roof': 'apartments_roof'}
 
 def body():
     keys = dict(north='UP', south='DOWN', east='RIGHT', west='LEFT')
@@ -149,6 +174,8 @@ def body():
             out.append(f'observe("{s[2]}");need(state[1]=={KANTO_GROUP}&&state[2]=={s[1] - KANTO0},"{s[2]}");')
         elif k == 'shot':
             out.append(f'shot("{s[1]}");')
+        elif k == 'raw':
+            out.append(s[1])
     return '\n  '.join(out)
 
 def generate():
