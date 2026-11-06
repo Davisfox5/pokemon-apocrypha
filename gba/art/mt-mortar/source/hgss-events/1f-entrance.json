@@ -1,0 +1,158 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/116_D38R0101.json",
+      "files/msgdata/msg/msg_0121_D38R0104.gmm"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_MOUNT_MORTAR_1F_ENTRANCE",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        20,
+        46
+      ],
+      "dest": "MAP_ROUTE_42",
+      "anchor": 2
+    },
+    {
+      "index": 1,
+      "cell": [
+        45,
+        50
+      ],
+      "dest": "MAP_ROUTE_42",
+      "anchor": 3
+    },
+    {
+      "index": 2,
+      "cell": [
+        59,
+        53
+      ],
+      "dest": "MAP_ROUTE_42",
+      "anchor": 4
+    },
+    {
+      "index": 3,
+      "cell": [
+        70,
+        46
+      ],
+      "dest": "MAP_ROUTE_42",
+      "anchor": 5
+    },
+    {
+      "index": 4,
+      "cell": [
+        34,
+        31
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        56,
+        31
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 1
+    },
+    {
+      "index": 6,
+      "cell": [
+        81,
+        31
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 2
+    },
+    {
+      "index": 7,
+      "cell": [
+        26,
+        14
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 3
+    },
+    {
+      "index": 8,
+      "cell": [
+        69,
+        15
+      ],
+      "dest": "MAP_MOUNT_MORTAR_1F_BACK",
+      "anchor": 5
+    },
+    {
+      "index": 9,
+      "cell": [
+        45,
+        2
+      ],
+      "dest": "MAP_MOUNT_MORTAR_2F",
+      "anchor": 0
+    },
+    {
+      "index": 10,
+      "cell": [
+        45,
+        44
+      ],
+      "dest": "MAP_MOUNT_MORTAR_B1F",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        27,
+        42
+      ],
+      "script": "std_hiddenitem_d38r0101_hyper_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        58,
+        46
+      ],
+      "script": "std_hiddenitem_d38r0101_revive",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_EVERYWHERE_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        34,
+        20
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0101_ETHER",
+      "script": "std_itemball_d38r0101_ether"
+    },
+    {
+      "id": "obj_EVERYWHERE_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        67,
+        30
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D38R0101_REVIVE",
+      "script": "std_itemball_d38r0101_revive"
+    }
+  ],
+  "messages": {}
+}

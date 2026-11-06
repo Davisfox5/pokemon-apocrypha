@@ -110,9 +110,10 @@ Mahogany with the appended metatiles and tiles is unchanged.
   pool) are not reached. 2 material mismatches.
 - **Banks.** HGSS's pond rims are drawn as the natural bank the owner approved on Route 43; rock standing in
   the water meets it directly.
-- **Mt. Mortar and the Ecruteak gate.** Their interiors are not built: the four mouths and the gate's doorway
-  are solid. As in HGSS, Route 42's middle and west are reached through Mt. Mortar or by Surf; with Mt.
-  Mortar not built, by Surf.
+- **Mt. Mortar and the Ecruteak gate.** Mt. Mortar is built (November 5, `gba/art/mt-mortar/`): its four
+  mouths are doors now, wired by native edits only (metatiles 619 and 526 to MB_NON_ANIMATED_DOOR, the four
+  cells' collision opened, four warps appended; no pixel changes). The gate's doorway stays solid. As in
+  HGSS, Route 42's middle and west are reached through Mt. Mortar or by Surf.
 - **Boulders and mouths.** HGSS's boulders are FRLG's one-cell boulder on the middle of each footprint; the
   mouths moved at most 2 px to the grid so identical pieces share tiles.
 - **Foreground.** T01, the signs, the gate and the stairs differ in size and offset from HGSS's; these are
