@@ -11,7 +11,8 @@ Then the rules that make the Gen 3 terraces read as HGSS's:
   * one level a cell: a rock cell stands at most one level above any of its eight neighbours, so a drop of k
     levels is k nested rims, and each rim runs on round every corner at the same level until it meets ground at
     its own height (a contour of a field like this cannot end in the middle of the rock);
-  * no flat rock: a rock cell with no lower neighbour that touches ground at or above its level is raised one.
+  * no flat rock: a rock cell with no lower neighbour that touches ground at or above its level is raised one;
+  * stairs stand at the levels of the wall they cut through (row by row, or column by column across a wall).
 
 audit() walks every level contour of every rock mass and reports breaks; there must be none.
 """
@@ -72,14 +73,30 @@ def levels(topdown, grid, cells, rows0, walls):
             if not changed:
                 return L
         return L
-    # a flight of stairs stands at the level of its foot, so the wall beside it keeps its full face down to it
+    # A flight of stairs is cut through a wall and stands at the wall's own levels, row by row for a north-south
+    # flight (the rock either side of each row), column by column for an east-west one (the rock above and below
+    # each column, Route 30's rule: rock above and below the whole flight makes it east-west). The wall beside a
+    # flight keeps its levels and faces right up to the treads; without rock beside it a flight takes its foot.
     st = np.array([[c == '^' for c in row] for row in grid])
     sl, sn = ndimage.label(st)
+    rk = lambda x, y: 0 <= x < W and 0 <= y < H and R[y, x]
+    flights = []
     for i in range(1, sn + 1):
         m = sl == i
+        ys, xs = np.nonzero(m)
+        x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
         ring = ndimage.binary_dilation(m) & ~m & ~R
-        if ring.any():
-            L[m] = int(L[ring].min())
+        foot = int(L[ring].min()) if ring.any() else int(L[m].min())
+        ew = all(rk(x, y0 - 1) and rk(x, y1 + 1) for x in range(x0, x1 + 1))
+        if ew:
+            for x in range(x0, x1 + 1):
+                side = [int(L[y, x]) for y in (y0 - 1, y1 + 1) if rk(x, y)]
+                L[y0:y1 + 1, x] = max(side) if side else foot
+        else:
+            for y in range(y0, y1 + 1):
+                side = [int(L[y, x]) for x in (x0 - 1, x1 + 1) if rk(x, y)]
+                L[y, x0:x1 + 1] = max(side) if side else foot
+        flights.append(m)
     L = lipschitz(L)
     for k in range(1, int(L.max()) + 1):
         m = L >= k

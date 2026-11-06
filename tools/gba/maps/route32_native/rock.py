@@ -240,7 +240,7 @@ def rock_frlg(cells, d, isrock, base, pieces, tex, soft=False):
                 def grass_level(k):
                     nx, ny = x + DIRS[k][0], y + DIRS[k][1]
                     return (0 <= nx < W and 0 <= ny < H and not isrock[ny, nx] and d[ny, nx] == me
-                            and cells[ny][nx]['floor'] == 'grass')
+                            and cells[ny][nx]['floor'] == 'grass' and cells[ny][nx]['lab'] != '^')   # stairs meet the rock directly
                 same = [k for k in 'nswe' if grass_level(k)]
                 if same:
                     soften(cell, ov, same, plain['grass'])

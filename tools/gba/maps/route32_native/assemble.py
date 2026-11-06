@@ -12,7 +12,7 @@ de5d8cfb). Shared art is copied byte for byte into source/shared-art/ with its h
               layer one terrace, the soft grass fringe where a rock top meets grass at its height
   trees       the Cherrygrove tree (T01 with the town's contact shadow, Route 30's local cut) on
               non-overlapping 2x2 roots
-  tall grass  G15 on every HGSS tall-grass cell
+  tall grass  the catalog set G00-G15 by neighbour mask on every HGSS tall-grass cell (round patch edges)
   ledges      L11/L12/L13 on the jump-south runs, turned a quarter for the jump-east run (Route 29's)
   stairs      the Johto stair pieces (Route 30's stair_pieces.py output), in HGSS's own direction (its decoded
               height slope): grey treads on north-south flights, Route 36's plank flight on east-west ones
@@ -56,7 +56,8 @@ SRC, EV = ART / 'source', ART / 'evidence'
 TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
-CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png' for n in ('P14', 'L11', 'L12', 'L13', 'G15')}
+CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
+           for n in ('P14', 'L11', 'L12', 'L13') + tuple(f'G{m:02d}' for m in range(16))}
 CATALOG['T01.png'] = 'gba/art/johto-common/trees/source/T01.png'
 CATALOG['G02.png'] = 'gba/art/johto-common-review/gates/refinement-4/G02.png'
 CATALOG['C06.png'] = 'gba/art/johto-center/source/building.png'
@@ -269,7 +270,14 @@ def paint_paths(grid, ncells, q):
     and its grass/path rim profile either side of the edge. The road never runs under a tree, a wall or the
     water: those cells are not road cells."""
     from scipy.ndimage import binary_closing, binary_opening
-    cells = np.array([[ch in 'd^D' for ch in row] for row in grid])
+    cells = np.array([[ch in 'dD' for ch in row] for row in grid])
+    # a flight is road only where a road reaches it (the road runs up to the treads); a flight between lawns
+    # stands in the lawn, with no sand rim round it
+    from scipy.ndimage import label as _label, binary_dilation as _dil
+    fl, fn = _label(np.array([[ch == '^' for ch in row] for row in grid]))
+    for i in range(1, fn + 1):
+        if (_dil(fl == i) & cells).any():
+            cells |= fl == i
     # ledges, boulders and signs stand on the ground around them: on the road where most of their neighbours are
     for _ in range(2):
         for y in range(len(grid)):
@@ -279,6 +287,14 @@ def paint_paths(grid, ncells, q):
                           if 0 <= a < cells.shape[1] and 0 <= b < cells.shape[0] and grid[b][a] not in 'RXtk~LQEJOs']
                     if nb and sum(nb) * 2 > len(nb):
                         cells[y, x] = True
+    # the road runs straight onto the pier: a pier cell the road meets counts as road here (the planks cover it),
+    # so the road's corners stay square at the landing instead of rounding off into lawn notches
+    road0 = cells.copy()
+    for y in range(len(grid)):
+        for x in range(len(grid[0])):
+            if grid[y][x] == 'B' and any(0 <= a < cells.shape[1] and 0 <= b < cells.shape[0] and road0[b, a]
+                                         for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1))):
+                cells[y, x] = True
     path = np.repeat(np.repeat(cells, PX, 0), PX, 1)
     pad = 2 * PATH_ROUND
     pp = np.pad(path, pad, mode='edge')
@@ -416,6 +432,7 @@ def exemplars(grid, src, cellset, alike, phase=True):
 CG_SEA = ((58, 59), (75, 76))       # Cherrygrove's open sea, a 2x2 block of its metatiles
 CG_SEA_ROCK = 151                   # Cherrygrove's grey sea rock (and its foam), as the town draws it
 FOAM, SAND_RIM = (200, 232, 224), (208, 208, 168)   # Cherrygrove's beach foam and the sand's waterline rim
+PIER_ROUND, PIER_FOAM = 6, 2              # px: the pier's rounded outside corners and the foam line along it
 CG_PIER = ROOT / 'gba/art/cherrygrove-town/source/hgss/pier.png'   # the accepted dock: HGSS Route 32's boards
 PIER_RAIL, PIER_BOARDS = slice(0, 8), slice(16, 32)                  # the pier texture's rail and boards' middle
 PIER_BEAM = (165, 132, 90)
@@ -501,6 +518,42 @@ def sea_and_pier(phg, grid, engine):
                               (-1, 0): np.s_[y * PX:(y + 1) * PX, x * PX:x * PX + 2], (1, 0): np.s_[y * PX:(y + 1) * PX, (x + 1) * PX - 2:(x + 1) * PX]}[(dx, dy)]
                         if (dx == 0) != (bool((y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x]))):
                             pier[sl] = PIER_BEAM
+    # Where the planks meet open water: a thin foam line along the pier (HGSS's), and each outside corner rounded
+    # off (the deck stops PIER_ROUND px short of a square corner and the foam follows the curve).
+    wet = lambda x, y: 0 <= x < W and 0 <= y < H and smask[y, x]
+    clean = sea.copy()
+    for y in range(H):
+        for x in range(W):
+            if not smask[y, x]:
+                continue
+            for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+                if 0 <= x + dx < W and 0 <= y + dy < H and pmask[y + dy, x + dx]:
+                    for d in range(PIER_FOAM):
+                        if dx:
+                            X = (x + 1) * PX - 1 - d if dx > 0 else x * PX + d
+                            sea[y * PX:(y + 1) * PX, X] = FOAM
+                        else:
+                            Y = (y + 1) * PX - 1 - d if dy > 0 else y * PX + d
+                            sea[Y, x * PX:(x + 1) * PX] = FOAM
+    r, f = PIER_ROUND, PIER_FOAM
+    for y in range(H):
+        for x in range(W):
+            if not pmask[y, x]:
+                continue
+            for sx, sy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
+                if not (wet(x + sx, y) and wet(x, y + sy) and wet(x + sx, y + sy)):
+                    continue
+                cx = x * PX + r if sx < 0 else (x + 1) * PX - r       # the curve's centre, r inside the corner
+                cy = y * PX + r if sy < 0 else (y + 1) * PX - r
+                xs = range(x * PX - f, x * PX + r) if sx < 0 else range((x + 1) * PX - r, (x + 1) * PX + f)
+                ys = range(y * PX - f, y * PX + r) if sy < 0 else range((y + 1) * PX - r, (y + 1) * PX + f)
+                for Y in ys:
+                    for X in xs:
+                        dist = np.hypot(X + 0.5 - cx, Y + 0.5 - cy)
+                        if dist <= r or not (0 <= X < W * PX and 0 <= Y < H * PX):
+                            continue
+                        c = FOAM if dist <= r + f else clean[Y, X]
+                        sea[Y, X] = c; pier[Y, X] = c
     Image.fromarray(sea).save(LOCAL / 'sea.png'); Image.fromarray(pier).save(LOCAL / 'pier.png')
     return sea, smask, pier, pmask, sea_x
 
@@ -676,56 +729,47 @@ def fit_ew(pieces):
     m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
     return {k: apply_tones(v, m) for k, v in planks.items()}
 
-LIP = 4                              # px of lawn between tall grass and water
-EDGE_DARK = (82, 58, 52)            # the Johto rock ramp's outline
+FRLG_STAIRS = dict(mid=0x89, left=0x91)    # FRLG General's stone stairs in its own cliffs (0x91: its west end)
 
-def ew_flight(p, cx, cy, nx, ny, descend_east=True):
-    """One cell of an east-west wooden flight, nx cells wide and ny tall: treads run north-south across it, each
-    a lit board with its nose on the high side and a dark riser on the low side (STEP px a step), a dark rail
-    along the flight's north and south edges, so every tread meets the wall face above and below square."""
-    wood = sorted({tuple(int(v) for v in c) for c in p['ew-mid'][..., :3].reshape(-1, 3)}, key=sum)
-    light, mid, dark = wood[-1], wood[len(wood) // 2], wood[0]
-    out = np.zeros((PX, PX, 4), np.uint8); out[..., 3] = 255
-    for yy in range(PX):
-        Y = cy * PX + yy
-        for xx in range(PX):
-            X = cx * PX + xx
-            u = X if descend_east else nx * PX - 1 - X      # distance down the flight
-            k = u % STEP
-            c = light if k <= 1 else dark if k >= STEP - 2 else mid      # lit nose, tread, riser shadow
-            if Y < RAIL or Y >= ny * PX - RAIL:
-                c = EDGE_DARK if (Y == 0 or Y == ny * PX - 1) else dark
-            out[yy, xx, :3] = c
-    return out
+def frlg_stairs(engine):
+    """FRLG General's north-south stone stairs, the treads its mountain pieces are drawn around, as RGBA: the
+    middle, the west end (0x91) and the east end (0x91 turned over)."""
+    d = engine / 'data/tilesets/primary/general_frlg'
+    img = Image.open(d / 'tiles.png')
+    idx = np.array(img) & 15
+    tiles = [idx[y:y + 8, x:x + 8] for y in range(0, idx.shape[0], 8) for x in range(0, idx.shape[1], 8)]
+    pals = [[tuple(map(int, l.split())) for l in (d / f'palettes/{n:02d}.pal').read_text().splitlines()[3:19]] for n in range(16)]
+    blocks = np.frombuffer((d / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
+    def piece(m):
+        out = np.zeros((16, 16, 4), np.uint8)
+        for li in range(8):
+            e = int(blocks[m][li])
+            t = tiles[e & 1023]
+            if e & 0x400: t = t[:, ::-1]
+            if e & 0x800: t = t[::-1]
+            q = li % 4
+            sub = out[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
+            pal = pals[e >> 12]
+            for (yy, xx), v in np.ndenumerate(t):
+                if v:
+                    sub[yy, xx, :3] = pal[v]; sub[yy, xx, 3] = 255
+        return out
+    mid, left = piece(FRLG_STAIRS['mid']), piece(FRLG_STAIRS['left'])
+    return {'ns-mid': mid, 'ns-left': left, 'ns-right': left[:, ::-1].copy()}
 
-STEP, RAIL = 6, 3
-
-def wood_tread(p):
-    """A north-south tread: Route 30's grey tread shape (tread, its lit nose, the riser's shade) in the plank
-    flight's own wood tones, lightest to darkest, as HGSS's wooden treads."""
-    grey = p['ns-mid']
-    wood = sorted({tuple(int(v) for v in c) for c in p['ew-mid'][..., :3].reshape(-1, 3)}, key=sum)
-    greys = sorted({tuple(int(v) for v in c) for c in grey[grey[..., 3] > 0][:, :3]}, key=sum)
-    out = grey.copy()
-    # by brightness rank from each end: the lit nose the palest board, the tread the next, the shade the darkest
-    picks = {greys[-1]: wood[-1], greys[0]: wood[0]}
-    mid = greys[1:-1]
-    for j, gc in enumerate(reversed(mid)):
-        picks[gc] = wood[max(1, len(wood) - 2 - j * 2)]
-    for gc, wc in picks.items():
-        out[(grey[..., :3] == gc).all(-1), :3] = wc
-    return out
-
-def stairs(phg, grid):
-    """Route 30's stair pieces flight by flight on HGSS's stair cells. Each flight's direction is HGSS's own: the
-    decoded height falls along x (east-west) or along y (north-south) across it. An east-west flight takes Route
-    36's plank flight in each of its columns (its top cell with the dark cheek, plank cells, the bottom cell with
-    the brown cheek); a north-south flight takes the grey treads in each of its rows (left end, middle, right end)."""
-    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
-    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+def stairs(phg, grid, engine):
+    """Each flight in the game's own stair art, standing at the levels of the wall it cuts through (levels.py).
+    An east-west flight (rock above and below it, Route 30's rule) takes Route 36's plank flight in each of its
+    columns, the piece built for a flight across a wall one level per column: the top cell with its dark rock
+    cheek, plank cells, the bottom cell with its brown cheek (turned over when the flight climbs east). A
+    north-south flight takes FRLG General's stone stairs, the treads made for the FRLG cliffs round them: the
+    west end, middles and the east end on every row."""
+    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew(p))
+    p.update(frlg_stairs(engine))
     h, _, _, _ = Rf.topdown(phg)
-    gy, gx = np.gradient(h)
     g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
+    rock = lambda x, y: g(x, y) in 'RX'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed, seen = [], set()
     for y0 in range(H):
@@ -740,23 +784,19 @@ def stairs(phg, grid):
                 comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
             seen |= comp
             xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            ew = all(rock(x, ys[0] - 1) and rock(x, ys[-1] + 1) for x in xs)
             sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
-            ew = abs(float(gx[sl].mean())) > abs(float(gy[sl].mean()))
+            gx = np.gradient(h[sl], axis=1).mean()
             for (x, y) in sorted(comp):
-                # HGSS's flights are wooden, set into the wall: the plank flight's boards on every cell (the wall's own
-                # faces close it above and below), turned a quarter for a north-south flight (treads across it), a
-                # dark board edge where the flight meets the wall at its sides.
                 if ew:
-                    k, a = 'ew-flight', ew_flight(p, x - xs[0], y - ys[0], len(xs), len(ys), descend_east=float(gx[sl].mean()) < 0)
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                    a = p[k] if gx < 0 else p[k][:, ::-1]        # Route 36's flight falls to the east
                 else:
-                    k, a = 'ns-wood', wood_tread(p)
-                    if x == xs[0]:
-                        a[:, :1, :3] = EDGE_DARK
-                    if x == xs[-1]:
-                        a[:, -1:, :3] = EDGE_DARK
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                    a = p[k]
                 art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = a
                 placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south',
-                                   hgss_slope=[round(float(gx[sl].mean()), 3), round(float(gy[sl].mean()), 3)]))
+                                   hgss_slope_x=round(float(gx), 3)))
     return art, placed
 
 def ledge_pieces():
@@ -989,24 +1029,22 @@ def compose(phg, engine):
         flat[a] = art[a]; flat_owner[a] = name
     light, flw = light_lawn(phg), flowers(phg)
     flw, light = local(flw, FLOWER_TONES), local(light, LIGHT_TONES)
-    g15 = rgba(SHARED / 'G15.png')
+    # Tall grass: the catalog's 16-piece set by neighbour mask (8 north, 4 south, 2 west, 1 east), so each patch
+    # rounds off on every side that is not tall grass and the lawn (or the beach edge at the water) shows round it.
+    gset = [rgba(SHARED / f'G{m:02d}.png') for m in range(16)]
+    g15 = gset[15]
+    tall = lambda x, y: not (0 <= x < W and 0 <= y < H) or grid[y][x] == 'G'
     tg = np.zeros_like(flat); n_g15 = 0
     for y in range(H):
         for x in range(W):
             if grid[y][x] == 'G':
-                cellg = g15.copy()
-                # beside water the tall grass stops short: a lawn lip (the lawn's rim tone on its outer pixel row)
-                # runs between the grass and the shore, as HGSS's grass ends on a bank, not at the waterline
-                for (dx, dy), sl, rim in (((0, 1), np.s_[PX - LIP:, :], np.s_[PX - 1:, :]), ((0, -1), np.s_[:LIP, :], np.s_[:1, :]),
-                                          ((1, 0), np.s_[:, PX - LIP:], np.s_[:, PX - 1:]), ((-1, 0), np.s_[:, :LIP], np.s_[:, :1])):
-                    nx, ny = x + dx, y + dy
-                    if 0 <= nx < W and 0 <= ny < H and (grid[ny][nx] in '~B' or (nx, ny) in sea_x):
-                        cellg[sl] = 0
-                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = cellg; n_g15 += 1
+                m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
+                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
-    sa, stair_list = stairs(phg, grid)
-    # The plank flight is wood like the pier: its plank tones take the nearest pier tone (palette budget).
-    keep_s = {tuple(c) for k in ('ns-left', 'ns-mid', 'ns-right') for c in rgba(SHARED / f'stairs/{k}.png')[..., :3].reshape(-1, 3).tolist()}
+    sa, stair_list = stairs(phg, grid, engine)
+    # The plank flight is wood like the pier: its plank tones take the nearest pier tone (palette budget). The
+    # FRLG stone stairs keep their own greys.
+    keep_s = {tuple(int(v) for v in c) for a in frlg_stairs(engine).values() for c in a[a[..., 3] > 0][:, :3]}
     keep_s |= {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
     wood = np.array(sorted({tuple(c) for c in pier[piermask].tolist()} - {tuple(c) for c in sea[seamask].tolist()}), int)
     scol = sorted({tuple(c) for c in sa[sa[..., 3] > 0][:, :3].tolist()} - keep_s)

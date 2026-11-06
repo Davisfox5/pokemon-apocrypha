@@ -92,8 +92,12 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    grass, ledge, pier, stairs) takes the rounded median height of its own ground
    pixels; covered cells (woods) take the nearest ground. The sea takes the coast
    floor level. A rock cell takes `floor(upper-quartile rock-pixel height + 0.3)`
-   and never sits at or below the sea. A flight of stairs takes the level of its
-   foot, so the wall beside it keeps its full face down to it.
+   and never sits at or below the sea. A flight of stairs is cut through a wall and
+   takes that wall's levels: row by row (the rock either side) for a north-south
+   flight, column by column (the rock above and below) for an east-west one, so the
+   faces beside it run straight through to the treads. Use the game's own stairs:
+   FRLG General's stone stairs (0x89, ends 0x91) north-south, Route 36's plank
+   flight with its rock cheeks east-west (one level per column).
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets
