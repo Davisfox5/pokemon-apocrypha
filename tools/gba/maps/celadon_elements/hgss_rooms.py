@@ -12,6 +12,8 @@ and furniture placements) and events.json (warps, signs, objects in room cells).
     condominiums_1f   MAP_CELADON_CONDOMINIUMS_1F (T07R0201): HGSS's Condominiums ground floor
     condominiums_2f, _3f, _roof, _roof_room, _left_elevator, _right_elevator: the rest of the
                       building (T07R0202-0207)
+    dept_store_1f ... _5f, _roof, _elevator: HGSS's Celadon Dept Store (T07R0101-0107), for the
+                      market's services building
 """
 from __future__ import annotations
 import json, re, struct, sys
@@ -27,7 +29,12 @@ ROOMS = dict(condominiums_1f='MAP_CELADON_CONDOMINIUMS_1F', condominiums_2f='MAP
              condominiums_3f='MAP_CELADON_CONDOMINIUMS_3F', condominiums_roof='MAP_CELADON_CONDOMINIUMS_ROOF',
              condominiums_roof_room='MAP_CELADON_CONDOMINIUMS_ROOF_ROOM',
              condominiums_left_elevator='MAP_CELADON_CONDOMINIUMS_LEFT_ELEVATOR',
-             condominiums_right_elevator='MAP_CELADON_CONDOMINIUMS_RIGHT_ELEVATOR')
+             condominiums_right_elevator='MAP_CELADON_CONDOMINIUMS_RIGHT_ELEVATOR',
+             # the Dept Store, for the market's services building (owner, 2026-11-06)
+             dept_store_1f='MAP_CELADON_DEPARTMENT_STORE_1F', dept_store_2f='MAP_CELADON_DEPARTMENT_STORE_2F',
+             dept_store_3f='MAP_CELADON_DEPARTMENT_STORE_3F', dept_store_4f='MAP_CELADON_DEPARTMENT_STORE_4F',
+             dept_store_5f='MAP_CELADON_DEPARTMENT_STORE_5F', dept_store_roof='MAP_CELADON_DEPARTMENT_STORE_ROOF',
+             dept_store_elevator='MAP_CELADON_DEPARTMENT_STORE_ELEVATOR')
 
 def header(phg, name):
     text = (phg / 'src/data/map_headers.h').read_text()
