@@ -252,6 +252,44 @@ def stair_landings(q, ncells):
 
 FLAT_RUN = 2 * PX
 
+# --------------------------------------------------------------------------- straight paths
+PATH_ROUND = 6                       # corner radius, px (Cherrygrove's accepted town paths)
+PATH_SNAP = {(216, 168, 128): (216, 184, 128)}       # the texture's darkest pebbles, never drawn on Cherrygrove's paths
+
+def _disk(r):
+    yy, xx = np.mgrid[-r:r + 1, -r:r + 1]
+    return xx * xx + yy * yy <= r * r
+
+def paint_paths(grid, ncells, q):
+    """Cherrygrove's own path finish (cherrygrove_town/elements.py, accepted for the town): the dirt road is the
+    cell grid of HGSS's road cells ('d', the stairs and the Center door), opened and closed with a disk so the
+    convex and concave corners round off, every run straight; the painter's lawn and sand by absolute pixel,
+    and its grass/path rim profile either side of the edge. The road never runs under a tree, a wall or the
+    water: those cells are not road cells."""
+    from scipy.ndimage import binary_closing, binary_opening
+    cells = np.array([[ch in 'd^D' for ch in row] for row in grid])
+    path = np.repeat(np.repeat(cells, PX, 0), PX, 1)
+    pad = 2 * PATH_ROUND
+    pp = np.pad(path, pad, mode='edge')
+    pp = binary_opening(binary_closing(pp, _disk(PATH_ROUND)), _disk(PATH_ROUND))
+    path = pp[pad:-pad, pad:-pad]
+    tex = G.textures()
+    sand = tex[G.PATH].copy()
+    for c, to in PATH_SNAP.items():
+        sand[(sand == c).all(-1)] = to
+    tex[G.PATH] = sand
+    h, w = path.shape
+    ys, xs = np.mgrid[0:h, 0:w]
+    out = np.where(path[..., None], sand[ys % 32, xs % 32], tex[G.GRASS][ys % 32, xs % 32]).astype(np.uint8)
+    pa, pb = G.PROFILES[(G.GRASS, G.PATH)]
+    to_path, to_lawn = G._chamfer(path), G._chamfer(~path)
+    for i, c in enumerate(pa):
+        out[~path & (to_path == i + 1)] = c
+    for i, c in enumerate(pb):
+        out[path & (to_lawn == i + 1)] = c
+    mat = np.where(path, G.PATH, G.GRASS).astype(np.int8)
+    return out, mat, tex
+
 def paint_ground(q, road, flats=()):
     """The approved painter on an 8 px material grid (Route 30's paint_ground without the town runs)."""
     U = 8
@@ -627,7 +665,29 @@ def fit_ew(pieces):
     m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
     return {k: apply_tones(v, m) for k, v in planks.items()}
 
+LIP = 4                              # px of lawn between tall grass and water
 EDGE_DARK = (82, 58, 52)            # the Johto rock ramp's outline
+
+def ew_flight(p, cx, cy, nx, ny, descend_east=True):
+    """One cell of an east-west wooden flight, nx cells wide and ny tall: treads run north-south across it, each
+    a lit board with its nose on the high side and a dark riser on the low side (STEP px a step), a dark rail
+    along the flight's north and south edges, so every tread meets the wall face above and below square."""
+    wood = sorted({tuple(int(v) for v in c) for c in p['ew-mid'][..., :3].reshape(-1, 3)}, key=sum)
+    light, mid, dark = wood[-1], wood[len(wood) // 2], wood[0]
+    out = np.zeros((PX, PX, 4), np.uint8); out[..., 3] = 255
+    for yy in range(PX):
+        Y = cy * PX + yy
+        for xx in range(PX):
+            X = cx * PX + xx
+            u = X if descend_east else nx * PX - 1 - X      # distance down the flight
+            k = u % STEP
+            c = light if k <= 1 else dark if k >= STEP - 2 else mid      # lit nose, tread, riser shadow
+            if Y < RAIL or Y >= ny * PX - RAIL:
+                c = EDGE_DARK if (Y == 0 or Y == ny * PX - 1) else dark
+            out[yy, xx, :3] = c
+    return out
+
+STEP, RAIL = 6, 3
 
 def wood_tread(p):
     """A north-south tread: Route 30's grey tread shape (tread, its lit nose, the riser's shade) in the plank
@@ -676,7 +736,7 @@ def stairs(phg, grid):
                 # faces close it above and below), turned a quarter for a north-south flight (treads across it), a
                 # dark board edge where the flight meets the wall at its sides.
                 if ew:
-                    k, a = 'ew-mid', p['ew-mid'].copy()
+                    k, a = 'ew-flight', ew_flight(p, x - xs[0], y - ys[0], len(xs), len(ys), descend_east=float(gx[sl].mean()) < 0)
                 else:
                     k, a = 'ns-wood', wood_tread(p)
                     if x == xs[0]:
@@ -855,7 +915,7 @@ def compose(phg, engine):
         # family's colours; `keep` colours (the rock ramp, for the cave mouth) are left as they are.
         return apply_tones(art, reduce_tones([art], keep=set(keep), n=n))
     q, flats = ground_quadrants(phg, ncells)
-    bottom, mat, tex = paint_ground(q, road, flats)
+    bottom, mat, tex = paint_paths(grid, ncells, q)
     pad_ids = padding(engine, bottom)
     # The sea and the pier (HGSS's pixels, one exemplar per configuration), into the ground.
     sea, smask, pier, pmask, sea_x = sea_and_pier(phg, grid, engine)
@@ -893,41 +953,20 @@ def compose(phg, engine):
     pillar_cells = set(islet_cells)                   # the islets' own rock cells; boulders stay sea rocks
     for x, y in pillar_cells:                          # an islet is rock standing out of the sea
         ncells[y][x] = dict(ncells[y][x], lab='R', ground=1.0, peak=3.0, top=3.0, floor='water')
-    # a cell's top surface from its rock pixels only (a tree crown or a sign beside it reads higher)
-    th, tmat_, tnames_, _ = Rf.topdown(phg)
-    rockm = np.isin(tmat_, [tnames_.index(n) for n in Rf.WALLS + ('slope',) if n in tnames_])
-    hh = np.where(rockm, th, np.nan).reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
-    allh = th.reshape(HH, PX, HW, PX).transpose(0, 2, 1, 3).reshape(HH, HW, -1)
-    with np.errstate(all='ignore'):
-        top = np.where(np.isnan(hh).all(-1), np.percentile(allh, 90, -1), np.nanpercentile(hh, 90, -1))
-    for y in range(ROW0, H):
-        for x in range(W):
-            hx, hz = Rf.to_hgss(x, y)
-            if 0 <= hx < HW:
-                ncells[y][x] = dict(ncells[y][x], top=float(top[hz, hx]))
     for y in range(H):                                 # the cave mouth is cut into the rock face: it terraces as rock
         for x in range(W):
             if grid[y][x] == 'C':
                 ncells[y][x] = dict(ncells[y][x], lab='R')
-    d, isrock = Rk.terraces(ncells, FLOOR)
-    # East-west flights through a wall: the flight stands at its low ground; the wall cells over and under the flight's
-    # columns run on as the wall beside them (its face rows close onto the flight), not as separate knobs.
-    from scipy.ndimage import label as _lab2
-    st = np.array([[ch == '^' for ch in row] for row in grid])
-    sl_, sn = _lab2(st)
-    for i in range(1, sn + 1):
-        ys, xs = np.nonzero(sl_ == i)
-        x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
-        if x1 - x0 + 1 > y1 - y0 + 1:
-            continue                                   # a north-south flight (wider than tall)
-        lo_side = x1 + 1 if d[y0:y1 + 1, x1 + 1].mean() < d[y0:y1 + 1, max(x0 - 1, 0)].mean() else x0 - 1
-        d[y0:y1 + 1, x0:x1 + 1] = int(d[y0:y1 + 1, lo_side].min())
-        for y in list(range(y0 - 2, y0)) + list(range(y1 + 1, y1 + 3)):
-            for x in range(x0, x1 + 1):
-                if 0 <= y < H and isrock[y, x]:
-                    beyond = x1 + 1 if lo_side > x1 else x0 - 1
-                    if isrock[y, beyond]:
-                        d[y, x] = d[y, beyond]
+    # Levels counted from HGSS's own heights, one per height unit, contiguous round every mass (levels.py).
+    import levels as Lv
+    d, isrock = Lv.levels(Rf.topdown(phg), grid, cells, ROW0, Rf.WALLS + ('slope',))
+    for y in range(H):
+        for x in range(W):
+            if isrock[y, x]:
+                ncells[y][x] = dict(ncells[y][x], lab='R')
+            elif ncells[y][x]['lab'] == 'R':
+                ncells[y][x] = dict(ncells[y][x], lab='X')
+    (OUT / 'levels.json').write_text(json.dumps(dict(levels=d.tolist(), audit=Lv.audit(d, isrock))) + '\n')
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH], water=water_block)
     bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
@@ -942,7 +981,15 @@ def compose(phg, engine):
     for y in range(H):
         for x in range(W):
             if grid[y][x] == 'G':
-                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = g15; n_g15 += 1
+                cellg = g15.copy()
+                # beside water the tall grass stops short: a lawn lip (the lawn's rim tone on its outer pixel row)
+                # runs between the grass and the shore, as HGSS's grass ends on a bank, not at the waterline
+                for (dx, dy), sl, rim in (((0, 1), np.s_[PX - LIP:, :], np.s_[PX - 1:, :]), ((0, -1), np.s_[:LIP, :], np.s_[:1, :]),
+                                          ((1, 0), np.s_[:, PX - LIP:], np.s_[:, PX - 1:]), ((-1, 0), np.s_[:, :LIP], np.s_[:, :1])):
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < W and 0 <= ny < H and (grid[ny][nx] in '~B' or (nx, ny) in sea_x):
+                        cellg[sl] = 0
+                tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = cellg; n_g15 += 1
     la, ledge_list = ledges(grid)
     sa, stair_list = stairs(phg, grid)
     # The plank flight is wood like the pier: its plank tones take the nearest pier tone (palette budget).
