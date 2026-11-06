@@ -472,7 +472,10 @@ def boulders(grid, sea_x, engine):
     rock_land = np.zeros((PX, PX, 4), np.uint8)
     keep = np.array([[tuple(int(v) for v in p) not in sea_cols and tuple(int(v) for v in p) != FOAM for p in row] for row in rock])
     rock_land[keep, :3] = rock[keep]; rock_land[keep, 3] = 255
-    rock_sea = np.concatenate([rock, np.full((PX, PX, 1), 255, np.uint8)], -1)
+    # the town's sea behind the rock is clear: the rock and its foam stand on the route's own sea
+    rock_sea = np.zeros((PX, PX, 4), np.uint8)
+    keep_s = np.array([[tuple(int(v) for v in p) not in sea_cols for p in row] for row in rock])
+    rock_sea[keep_s, :3] = rock[keep_s]; rock_sea[keep_s, 3] = 255
     # One rock per HGSS sea boulder, on the cell nearest the boulder's own centre (HGSS's sea_rock pieces).
     from scipy.ndimage import label as _lb, center_of_mass
     mz = np.load(SRC / 'hgss/hgss-ground-materials.npz')
@@ -780,8 +783,9 @@ def apply_tones(a, mapping):
     sub = out[m]; sub[:, :3] = new; out[m] = sub
     return out
 
-SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 15, 15, 2, 8
-LAND_BOULDER_TONES = 15
+SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 15, 4, 2, 8
+LAND_BOULDER_TONES = 4
+VIADUCT_TONES = 4
 RIM_ON_LAND = False                  # the rim in land cells joined the sea's and land's palettes: 13 no longer fit
 
 # --------------------------------------------------------------------------- compose
@@ -961,7 +965,13 @@ def compose(phg, engine):
     sea_b, land_b = ba.copy(), ba.copy()
     sea_b[land_px] = 0; land_b[~land_px] = 0
     ba = local(sea_b, BOULDER_TONES)
-    lb = local(land_b, LAND_BOULDER_TONES)
+    lb = land_b.copy()                                  # land boulders are rock: each tone the nearest of the Johto rock ramp
+    ramp = np.array(Rk.ROCK_RAMP, int); lr = _lab(ramp)
+    m_ = lb[..., 3] > 0
+    if m_.any():
+        px_ = lb[m_][:, :3].astype(int)
+        lb_new = ramp[np.argmin(((_lab(px_)[:, None] - lr[None]) ** 2).sum(-1), 1)]
+        sub = lb[m_]; sub[:, :3] = lb_new; lb[m_] = sub
     ba[lb[..., 3] > 0] = lb[lb[..., 3] > 0]
     ca = local(cave_mouth(), CAVE_TONES, keep=[tuple(c) for c in Rk.ROCK_RAMP])
     # Terrain belongs to the bottom layer: rock faces, stairs and the cave mouth are drawn into the
@@ -996,6 +1006,7 @@ def compose(phg, engine):
         over(top, o['art'], o['xy'][0], o['xy'][1], owner, o['name'])
     # The viaduct stands over everything on its rows.
     va = viaduct_art(phg, engine)
+    va = local(va, VIADUCT_TONES)                      # the Cycling Road deck in its six most distinct tones (bank budget)
     over(top, va, 0, 0, owner, 'viaduct')
     (LOCAL / 'reductions.json').write_text(json.dumps(dict(
         rule=('Local HGSS art, reduced by medoids in Lab (the most distinct original tones kept farthest-first, every '

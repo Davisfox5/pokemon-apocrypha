@@ -1,10 +1,10 @@
 {
- "jobs": 987,
- "tiles": 960,
- "primary_metatiles": 480,
+ "jobs": 1021,
+ "tiles": 1001,
+ "primary_metatiles": 500,
  "secondary_metatiles": 172,
- "pinned_violet_metatiles": 4,
- "maximal_colour_sets": 92,
+ "pinned_violet_metatiles": 24,
+ "maximal_colour_sets": 90,
  "banks": {
   "0": 15,
   "1": 15,
@@ -13,9 +13,9 @@
   "4": 15,
   "5": 15,
   "6": 15,
-  "7": 15,
+  "7": 14,
   "8": 15,
-  "9": 15,
+  "9": 12,
   "10": 15,
   "11": 15,
   "12": 15
@@ -33,12 +33,26 @@
   "hgss_only": [],
   "south_edge_reached": false
  },
+ "native_pixels_differing": 0,
+ "padding": {
+  "west": 6,
+  "east": 8,
+  "width": 46,
+  "woods_block": [
+   0,
+   16
+  ],
+  "sea_block": [
+   26,
+   74
+  ]
+ },
  "events": {
   "moves": [
    {
     "event": "JohtoRoute32_AlphSign",
     "cell": [
-     15,
+     21,
      9
     ],
     "hgss": [
@@ -50,7 +64,7 @@
    {
     "event": "JohtoRoute32_RouteSign",
     "cell": [
-     21,
+     27,
      18
     ],
     "hgss": [
@@ -62,7 +76,7 @@
    {
     "event": "JohtoRoute32_CaveSign",
     "cell": [
-     19,
+     25,
      155
     ],
     "hgss": [
@@ -74,7 +88,7 @@
    {
     "event": "hidden ITEM_HEART_SCALE",
     "cell": [
-     27,
+     33,
      95
     ],
     "hgss": [
@@ -86,7 +100,7 @@
    {
     "event": "hidden ITEM_GREAT_BALL",
     "cell": [
-     12,
+     18,
      150
     ],
     "hgss": [
@@ -98,7 +112,7 @@
    {
     "event": "hidden ITEM_SUPER_POTION",
     "cell": [
-     11,
+     17,
      27
     ],
     "hgss": [
@@ -126,7 +140,7 @@
    {
     "event": "cuttable tree",
     "cell": [
-     14,
+     20,
      38
     ],
     "hgss": [
@@ -209,7 +223,7 @@
    {
     "event": "item ball ITEM_REPEL",
     "cell": [
-     8,
+     14,
      55
     ],
     "hgss": [
@@ -222,7 +236,7 @@
    {
     "event": "item ball ITEM_GREAT_BALL",
     "cell": [
-     11,
+     17,
      100
     ],
     "hgss": [
@@ -243,7 +257,7 @@
    {
     "event": "breakable rock",
     "cell": [
-     23,
+     29,
      157
     ],
     "hgss": [
@@ -262,7 +276,7 @@
    {
     "event": "item ball ITEM_SHELL_BELL",
     "cell": [
-     27,
+     33,
      157
     ],
     "hgss": [
@@ -282,15 +296,14 @@
    }
   ],
   "door": [
-   20,
+   26,
    136
   ],
   "border": [
-   "0x0e7",
-   "0x0e6",
    "0x0e1",
-   "0x0e0"
+   "0x0e0",
+   "0x0e7",
+   "0x0e6"
   ]
- },
- "native_pixels_differing": 0
+ }
 }
