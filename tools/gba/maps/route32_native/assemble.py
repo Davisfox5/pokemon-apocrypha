@@ -268,6 +268,15 @@ def paint_paths(grid, ncells, q):
     water: those cells are not road cells."""
     from scipy.ndimage import binary_closing, binary_opening
     cells = np.array([[ch in 'd^D' for ch in row] for row in grid])
+    # ledges, boulders and signs stand on the ground around them: on the road where most of their neighbours are
+    for _ in range(2):
+        for y in range(len(grid)):
+            for x in range(len(grid[0])):
+                if grid[y][x] in 'LQEJOs' and not cells[y, x]:
+                    nb = [cells[b, a] for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1))
+                          if 0 <= a < cells.shape[1] and 0 <= b < cells.shape[0] and grid[b][a] not in 'RXtk~LQEJOs']
+                    if nb and sum(nb) * 2 > len(nb):
+                        cells[y, x] = True
     path = np.repeat(np.repeat(cells, PX, 0), PX, 1)
     pad = 2 * PATH_ROUND
     pp = np.pad(path, pad, mode='edge')
