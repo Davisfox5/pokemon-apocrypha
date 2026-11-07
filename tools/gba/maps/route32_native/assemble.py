@@ -497,6 +497,8 @@ def sea_and_pier(phg, grid, engine):
                             Y = (y + 1) * PX - 1 - d if dy > 0 else y * PX + d
                             sea[Y, x * PX:(x + 1) * PX] = FOAM
     r, f = PIER_ROUND, PIER_FOAM
+    from collections import Counter as _C
+    base = np.array(_C(map(tuple, clean[np.repeat(np.repeat(smask, PX, 0), PX, 1)].tolist())).most_common(1)[0][0], np.uint8)
     for y in range(H):
         for x in range(W):
             if not pmask[y, x]:
@@ -513,8 +515,12 @@ def sea_and_pier(phg, grid, engine):
                         dist = np.hypot(X + 0.5 - cx, Y + 0.5 - cy)
                         if dist <= r or not (0 <= X < W * PX and 0 <= Y < H * PX):
                             continue
-                        c = FOAM if dist <= r + f else clean[Y, X]
-                        sea[Y, X] = c; pier[Y, X] = c
+                        if pmask[Y // PX, X // PX]:
+                            # inside a pier cell: foam, then the sea's main tone (a pier tile keeps few sea colours)
+                            c = FOAM if dist <= r + f else base
+                            pier[Y, X] = c; sea[Y, X] = c
+                        else:
+                            sea[Y, X] = FOAM if dist <= r + f else clean[Y, X]
     Image.fromarray(sea).save(LOCAL / 'sea.png'); Image.fromarray(pier).save(LOCAL / 'pier.png')
     return sea, smask, pier, pmask, sea_x
 
@@ -946,7 +952,7 @@ def apply_tones(a, mapping):
     sub = out[m]; sub[:, :3] = new; out[m] = sub
     return out
 
-SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 15, 4, 2, 8
+SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 5, 4, 2, 8
 LAND_BOULDER_TONES = 4
 VIADUCT_TONES = 4
 RIM_ON_LAND = False                  # the rim in land cells joined the sea's and land's palettes: 13 no longer fit
@@ -1033,11 +1039,28 @@ def compose(phg, engine):
     # HGSS's pier pixels that are water or foam (blue or bluish white: the sea showing between rails, its foam)
     # take the nearest sea tone; the wood alone shares the PIER_TONES, so the planks keep their grain.
     pcols = {tuple(c) for c in pier[piermask][:, :3].tolist()} - sea_cols
-    sea_arr = np.array(sorted(sea_cols), int); lab_s = _lab(sea_arr)
+    # only two water tones inside a pier cell: the foam and the sea's main tone (palette budget)
+    from collections import Counter as _C
+    main = _C(map(tuple, sea[seamask][:, :3].tolist())).most_common(1)[0][0]
+    foam_n = min(sea_cols, key=lambda c: sum((a - b) ** 2 for a, b in zip(c, FOAM)))
+    sea_arr = np.array([main, foam_n], int); lab_s = _lab(sea_arr)
     wet_map = {c: tuple(int(v) for v in sea_arr[int(np.argmin(np.linalg.norm(lab_s - _lab(np.array([c]))[0], axis=1)))])
                for c in pcols if c[2] > c[0] + 20 and c[2] >= c[1] - 10}
     pier = apply_tones(pier, wet_map)
-    pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=sea_cols, n=PIER_TONES))[..., :3]
+    # HGSS's grass edge reaching into a pier cell (where the planks end at grass) takes the planks' own main tone,
+    # so a pier tile holds only wood and water; its grey landing beam takes the nearest tone of the Johto rock
+    # ramp (already in the route's palettes)
+    pp = pier[..., :3].astype(int)
+    green = piermask & (pp[..., 1] > pp[..., 0] + 30) & (pp[..., 1] > pp[..., 2])
+    wood_px = piermask & ~green & (pp[..., 0] > pp[..., 2] + 30)
+    pier[green, :3] = _C(map(tuple, pier[wood_px][:, :3].tolist())).most_common(1)[0][0]
+    grey = piermask & (np.abs(pp[..., 0] - pp[..., 2]) < 12) & (np.abs(pp[..., 0] - pp[..., 1]) < 12) & ~green
+    if grey.any():
+        ramp = np.array(Rk.ROCK_RAMP, int); lr = _lab(ramp)
+        gp = pp[grey]
+        pier[grey, :3] = ramp[np.argmin(((_lab(gp)[:, None] - lr[None]) ** 2).sum(-1), 1)]
+    keep_p = sea_cols | {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
+    pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=keep_p, n=PIER_TONES))[..., :3]
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
     # the plain water under a rock piece's clear pixels: the sea's own pattern at that spot (the full canvas, so
