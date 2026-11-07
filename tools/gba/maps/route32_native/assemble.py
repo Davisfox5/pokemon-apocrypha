@@ -677,8 +677,8 @@ TALL_MARGIN = 1                      # px of lawn left on an open side of a tall
 def tall_grass_set():
     """The catalog's 16 tall-grass pieces (mask 8 north, 4 south, 2 west, 1 east), made to fill their cell: on
     each open side the piece's own blades and rounded outline are drawn out from its 4 px margin to
-    TALL_MARGIN px of the edge (nearest-pixel resample of that half of the piece), and the gaps between blade
-    bases inside the patch take the blade pixel beside them, so no lawn shows through a tall-grass cell."""
+    TALL_MARGIN px of the edge (nearest-pixel resample of that half of the piece), and every other clear pixel
+    takes the blade pixel beside it, so lawn shows only round the outside of a patch, never inside it."""
     src = [rgba(SHARED / f'tall-grass/G{m:02d}.png') for m in range(16)]
     out = []
     for m, a in enumerate(src):
@@ -705,18 +705,31 @@ def tall_grass_set():
                 sx = remap(x, w_open, e_open, xs0, xs1)
                 if sx is not None:
                     b[y, x] = a[min(sy, 15), min(sx, 15)]
-        # holes inside the patch: a clear pixel with grass on both sides of it (row or column) takes its neighbour
-        for _ in range(3):
+        # Only the margin outside the outline on an open side stays clear; every other clear pixel (the gaps
+        # between blade bases, which on a joined side would show lawn between two cells) takes the grass beside it.
+        al = b[..., 3] > 0
+        keep_clear = np.zeros((16, 16), bool)
+        for x in range(16):
+            col = np.nonzero(al[:, x])[0]
+            if n_open:
+                keep_clear[:col[0] if len(col) else 16, x] = True
+            if s_open:
+                keep_clear[(col[-1] + 1) if len(col) else 0:, x] = True
+        for y in range(16):
+            row = np.nonzero(al[y])[0]
+            if w_open:
+                keep_clear[y, :row[0] if len(row) else 16] = True
+            if e_open:
+                keep_clear[y, (row[-1] + 1) if len(row) else 0:] = True
+        for _ in range(16):
             al = b[..., 3] > 0
-            for y in range(16):
-                for x in range(16):
-                    if al[y, x]:
-                        continue
-                    row, col = al[y], al[:, x]
-                    if (row[:x].any() and row[x + 1:].any()) or (col[:y].any() and col[y + 1:].any()):
-                        for dy, dx in ((0, -1), (0, 1), (1, 0), (-1, 0)):
-                            if 0 <= y + dy < 16 and 0 <= x + dx < 16 and al[y + dy, x + dx]:
-                                b[y, x] = b[y + dy, x + dx]; break
+            todo = ~al & ~keep_clear
+            if not todo.any():
+                break
+            for y, x in zip(*np.nonzero(todo)):
+                for dy, dx in ((1, 0), (0, -1), (0, 1), (-1, 0)):
+                    if 0 <= y + dy < 16 and 0 <= x + dx < 16 and al[y + dy, x + dx]:
+                        b[y, x] = b[y + dy, x + dx]; break
         out.append(b)
     sheet = np.zeros((16, 16 * 18, 4), np.uint8)
     for m, b in enumerate(out):
