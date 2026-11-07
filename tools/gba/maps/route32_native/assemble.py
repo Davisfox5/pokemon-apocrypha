@@ -439,6 +439,34 @@ def cherrygrove_tiles(engine):
     from tiles import Tileset
     return Tileset(engine, 'cherrygrove', 'cherrygrove_town')
 
+PIER_SNAP = 16                       # px: a pier 8x8 tile this close to one already used becomes that tile
+
+def snap_pier_tiles(pier, pmask):
+    """HGSS's decoded planks vary a few pixels from cell to cell even where the boards repeat; each costs a tile.
+    Each pier 8x8 tile (the long runs first, so they set the shared boards) becomes an earlier one, flips
+    included, when at most PIER_SNAP of its pixels differ; rails, beams, ends and corners stay their own."""
+    out = pier.copy()
+    cells = [(x, y) for y in range(H) for x in range(W) if pmask[y, x]]
+    run = lambda x, y: sum(1 for d in range(-2, 3) if 0 <= y + d < H and pmask[y + d, x])
+    cells.sort(key=lambda c: (-run(*c), c[1], c[0]))
+    book = []
+    for x, y in cells:
+        for qy in (0, 1):
+            for qx in (0, 1):
+                Y, X = y * PX + qy * 8, x * PX + qx * 8
+                t = out[Y:Y + 8, X:X + 8].astype(int)
+                best = None
+                for b in book:
+                    for v in (b, b[:, ::-1], b[::-1], b[::-1, ::-1]):
+                        d = int((np.abs(v - t).sum(-1) > 0).sum())
+                        if d <= PIER_SNAP and (best is None or d < best[0]):
+                            best = (d, v)
+                if best is None:
+                    book.append(t)
+                elif best[0]:
+                    out[Y:Y + 8, X:X + 8] = best[1]
+    return out
+
 def sea_and_pier(phg, grid, engine):
     """Cherrygrove's sea and dock (the town's accepted water vocabulary) on HGSS's water and pier cells.
     Water cells: '~', the blocked sea under the viaduct ('X' on the sea) and the water under boulders 'O'.
@@ -1061,6 +1089,7 @@ def compose(phg, engine):
         pier[grey, :3] = ramp[np.argmin(((_lab(gp)[:, None] - lr[None]) ** 2).sum(-1), 1)]
     keep_p = sea_cols | {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
     pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=keep_p, n=PIER_TONES))[..., :3]
+    pier = snap_pier_tiles(pier, pmask)
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
     # the plain water under a rock piece's clear pixels: the sea's own pattern at that spot (the full canvas, so
