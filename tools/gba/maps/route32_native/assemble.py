@@ -1017,6 +1017,13 @@ def compose(phg, engine):
     m_sea = reduce_tones([sea[seamask][None]], keep=set(), n=SEA_TONES)
     sea, pier = apply_tones(sea, m_sea)[..., :3], apply_tones(pier, m_sea)
     sea_cols = {tuple(c) for c in sea[seamask][:, :3].tolist()}
+    # HGSS's pier pixels that are water or foam (blue or bluish white: the sea showing between rails, its foam)
+    # take the nearest sea tone; the wood alone shares the PIER_TONES, so the planks keep their grain.
+    pcols = {tuple(c) for c in pier[piermask][:, :3].tolist()} - sea_cols
+    sea_arr = np.array(sorted(sea_cols), int); lab_s = _lab(sea_arr)
+    wet_map = {c: tuple(int(v) for v in sea_arr[int(np.argmin(np.linalg.norm(lab_s - _lab(np.array([c]))[0], axis=1)))])
+               for c in pcols if c[2] > c[0] + 20 and c[2] >= c[1] - 10}
+    pier = apply_tones(pier, wet_map)
     pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=sea_cols, n=PIER_TONES))[..., :3]
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
