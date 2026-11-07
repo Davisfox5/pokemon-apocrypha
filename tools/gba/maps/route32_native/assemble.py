@@ -56,8 +56,8 @@ SRC, EV = ART / 'source', ART / 'evidence'
 TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
-CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png'
-           for n in ('P14', 'L11', 'L12', 'L13') + tuple(f'G{m:02d}' for m in range(16))}
+CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png' for n in ('P14', 'L11', 'L12', 'L13')}
+CATALOG.update({f'tall-grass/G{m:02d}.png': f'gba/art/johto-common/scenery/source/G{m:02d}.png' for m in range(16)})
 CATALOG['T01.png'] = 'gba/art/johto-common/trees/source/T01.png'
 CATALOG['G02.png'] = 'gba/art/johto-common-review/gates/refinement-4/G02.png'
 CATALOG['C06.png'] = 'gba/art/johto-center/source/building.png'
@@ -433,9 +433,7 @@ CG_SEA = ((58, 59), (75, 76))       # Cherrygrove's open sea, a 2x2 block of its
 CG_SEA_ROCK = 151                   # Cherrygrove's grey sea rock (and its foam), as the town draws it
 FOAM, SAND_RIM = (200, 232, 224), (208, 208, 168)   # Cherrygrove's beach foam and the sand's waterline rim
 PIER_ROUND, PIER_FOAM = 6, 2              # px: the pier's rounded outside corners and the foam line along it
-CG_PIER = ROOT / 'gba/art/cherrygrove-town/source/hgss/pier.png'   # the accepted dock: HGSS Route 32's boards
 PIER_RAIL, PIER_BOARDS = slice(0, 8), slice(16, 32)                  # the pier texture's rail and boards' middle
-PIER_BEAM = (165, 132, 90)
 
 def cherrygrove_tiles(engine):
     from tiles import Tileset
@@ -445,8 +443,8 @@ def sea_and_pier(phg, grid, engine):
     """Cherrygrove's sea and dock (the town's accepted water vocabulary) on HGSS's water and pier cells.
     Water cells: '~', the blocked sea under the viaduct ('X' on the sea) and the water under boulders 'O'.
     Where the sea meets lawn or road, the town's beach edge: foam over the sea, the sand's waterline rim
-    (rock edges take their FRLG faces instead). The pier takes the town's dock boards (HGSS Route 32's own,
-    as Cherrygrove carries them): a rail along each long side of a run, boards across, a beam at each end."""
+    (rock edges take their FRLG faces instead). The pier takes HGSS's own planks cell for cell, with a foam
+    line along it and its outside corners rounded where it meets open water."""
     t = cherrygrove_tiles(engine)
     block = np.zeros((32, 32, 3), np.uint8)
     for r in (0, 1):
@@ -473,51 +471,14 @@ def sea_and_pier(phg, grid, engine):
                         px_ = dict(n=(x * PX + k, y * PX + depth), s=(x * PX + k, (y + 1) * PX - 1 - depth),
                                    w=(x * PX + depth, y * PX + k), e=((x + 1) * PX - 1 - depth, y * PX + k))[side]
                         sea[px_[1], px_[0]] = SAND_RIM if depth == 0 else FOAM
-    tex = np.array(Image.open(CG_PIER).convert('RGB'))
+    # The planks are HGSS's own, cell for cell from the decoded ground (its rails, posts, board seams and grain;
+    # no viaduct shadow in the ground render); the native foam and rounded corners go on after.
+    gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB'))
     pier = np.zeros_like(sea)
-    from scipy.ndimage import label
-    lab, n = label(pmask)
-    for y in range(H):
-        for x in range(W):
-            if not pmask[y, x]:
-                continue
-            vert = (y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x])
-            horiz = (x > 0 and pmask[y, x - 1]) or (x < W - 1 and pmask[y, x + 1])
-            along_y = vert and not (horiz and not vert)
-            for py in range(PX):
-                for px_ in range(PX):
-                    X, Y = x * PX + px_, y * PX + py
-                    # position across the run: distance to its edge across the planks
-                    if along_y:
-                        lo = x; hi = x
-                        while lo - 1 >= 0 and pmask[y, lo - 1]: lo -= 1
-                        while hi + 1 < W and pmask[y, hi + 1]: hi += 1
-                        across, w_ = X - lo * PX, (hi - lo + 1) * PX
-                        along = Y
-                    else:
-                        lo = y; hi = y
-                        while lo - 1 >= 0 and pmask[lo - 1, x]: lo -= 1
-                        while hi + 1 < H and pmask[hi + 1, x]: hi += 1
-                        across, w_ = Y - lo * PX, (hi - lo + 1) * PX
-                        along = X
-                    if across < 8:
-                        col = across
-                    elif across >= w_ - 8:
-                        col = 40 + (across - (w_ - 8))
-                    else:
-                        col = 16 + (across - 8) % 16
-                    c = tex[along % 32, col]
-                    pier[Y, X] = c
-    # beams where a run ends on water
-    for y in range(H):
+    for y in range(ROW0, H):
         for x in range(W):
             if pmask[y, x]:
-                for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
-                    if 0 <= x + dx < W and 0 <= y + dy < H and smask[y + dy, x + dx]:
-                        sl = {(0, -1): np.s_[y * PX:y * PX + 2, x * PX:(x + 1) * PX], (0, 1): np.s_[(y + 1) * PX - 2:(y + 1) * PX, x * PX:(x + 1) * PX],
-                              (-1, 0): np.s_[y * PX:(y + 1) * PX, x * PX:x * PX + 2], (1, 0): np.s_[y * PX:(y + 1) * PX, (x + 1) * PX - 2:(x + 1) * PX]}[(dx, dy)]
-                        if (dx == 0) != (bool((y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x]))):
-                            pier[sl] = PIER_BEAM
+                pier[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[(y - ROW0) * PX:(y - ROW0 + 1) * PX, (x - COL0) * PX:(x - COL0 + 1) * PX]
     # Where the planks meet open water: a thin foam line along the pier (HGSS's), and each outside corner rounded
     # off (the deck stops PIER_ROUND px short of a square corner and the foam follows the curve).
     wet = lambda x, y: 0 <= x < W and 0 <= y < H and smask[y, x]
@@ -710,6 +671,59 @@ def viaduct_art(phg, engine):
     Image.fromarray(art[y0:y1]).save(LOCAL / 'viaduct.png')
     return art
 
+# --------------------------------------------------------------------------- tall grass
+TALL_MARGIN = 1                      # px of lawn left on an open side of a tall-grass cell (the catalog's is 4)
+
+def tall_grass_set():
+    """The catalog's 16 tall-grass pieces (mask 8 north, 4 south, 2 west, 1 east), made to fill their cell: on
+    each open side the piece's own blades and rounded outline are drawn out from its 4 px margin to
+    TALL_MARGIN px of the edge (nearest-pixel resample of that half of the piece), and the gaps between blade
+    bases inside the patch take the blade pixel beside them, so no lawn shows through a tall-grass cell."""
+    src = [rgba(SHARED / f'tall-grass/G{m:02d}.png') for m in range(16)]
+    out = []
+    for m, a in enumerate(src):
+        n_open, s_open, w_open, e_open = not m & 8, not m & 4, not m & 2, not m & 1
+        ys0, ys1 = np.nonzero(a[..., 3].any(1))[0][[0, -1]]
+        xs0, xs1 = np.nonzero(a[..., 3].any(0))[0][[0, -1]]
+        def remap(i, lo_open, hi_open, c0, c1):
+            # destination index -> source index along one axis
+            if i < 8 and lo_open:
+                if i < TALL_MARGIN:
+                    return None
+                return int(round(c0 + (i - TALL_MARGIN) * (8 - c0) / (8 - TALL_MARGIN)))
+            if i >= 8 and hi_open:
+                if i > 15 - TALL_MARGIN:
+                    return None
+                return int(round(8 + (i - 8) * (c1 - 8) / (7 - TALL_MARGIN)))
+            return i
+        b = np.zeros_like(a)
+        for y in range(16):
+            sy = remap(y, n_open, s_open, ys0, ys1)
+            if sy is None:
+                continue
+            for x in range(16):
+                sx = remap(x, w_open, e_open, xs0, xs1)
+                if sx is not None:
+                    b[y, x] = a[min(sy, 15), min(sx, 15)]
+        # holes inside the patch: a clear pixel with grass on both sides of it (row or column) takes its neighbour
+        for _ in range(3):
+            al = b[..., 3] > 0
+            for y in range(16):
+                for x in range(16):
+                    if al[y, x]:
+                        continue
+                    row, col = al[y], al[:, x]
+                    if (row[:x].any() and row[x + 1:].any()) or (col[:y].any() and col[y + 1:].any()):
+                        for dy, dx in ((0, -1), (0, 1), (1, 0), (-1, 0)):
+                            if 0 <= y + dy < 16 and 0 <= x + dx < 16 and al[y + dy, x + dx]:
+                                b[y, x] = b[y + dy, x + dx]; break
+        out.append(b)
+    sheet = np.zeros((16, 16 * 18, 4), np.uint8)
+    for m, b in enumerate(out):
+        sheet[:, m * 18:m * 18 + 16] = b
+    Image.fromarray(sheet).save(LOCAL / 'tall-grass-set.png')
+    return out
+
 # --------------------------------------------------------------------------- stairs, ledges
 EW_PLANK_TONES = 3
 EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes the Johto rock ramp
@@ -757,11 +771,32 @@ def frlg_stairs(engine):
     mid, left = piece(FRLG_STAIRS['mid']), piece(FRLG_STAIRS['left'])
     return {'ns-mid': mid, 'ns-left': left, 'ns-right': left[:, ::-1].copy()}
 
+def ew_wide(p, nx, ny):
+    """Route 36's plank flight drawn as one flight nx columns wide and ny rows tall: its top cheek in the first
+    row and its bottom cheek in the last, each cheek band stretched across the whole width (its slope spread
+    over nx columns, so the flight reads as one set of steps, not nx staggered ones), the vertical planks
+    repeating at their own width between them."""
+    col = np.concatenate([p['ew-top']] + [p['ew-mid']] * (ny - 2) + [p['ew-bottom']], 0)
+    ramp = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
+    hgt = col.shape[0]
+    isp = np.array([[tuple(col[y, x, :3].tolist()) not in ramp for x in range(PX)] for y in range(hgt)])
+    # the cheeks: rock from the top down to the first plank, and from the last plank down to the bottom
+    top = [int(np.argmax(isp[:, x])) for x in range(PX)]
+    bot = [hgt - 1 - int(np.argmax(isp[::-1, x])) for x in range(PX)]
+    band = max(top)                                   # a row every column has in planks (the clean middle band)
+    out = np.zeros((hgt, nx * PX, 4), np.uint8)
+    for X in range(nx * PX):
+        sx = X // nx                                  # the cheek's slope spread over the whole width
+        out[:top[sx], X] = col[:top[sx], sx]
+        out[top[sx]:bot[sx] + 1, X] = col[band, X % PX]
+        out[bot[sx] + 1:, X] = col[bot[sx] + 1:, sx]
+    return out
+
 def stairs(phg, grid, engine):
     """Each flight in the game's own stair art, standing at the levels of the wall it cuts through (levels.py).
-    An east-west flight (rock above and below it, Route 30's rule) takes Route 36's plank flight in each of its
-    columns, the piece built for a flight across a wall one level per column: the top cell with its dark rock
-    cheek, plank cells, the bottom cell with its brown cheek (turned over when the flight climbs east). A
+    An east-west flight (rock above and below it, Route 30's rule) takes Route 36's plank flight drawn as one
+    flight across all its columns (ew_wide): the dark rock cheek along its top, planks, the brown cheek along its
+    bottom (turned over when the flight climbs east). A
     north-south flight takes FRLG General's stone stairs, the treads made for the FRLG cliffs round them: the
     west end, middles and the east end on every row."""
     p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ew-top', 'ew-mid', 'ew-bottom')}
@@ -787,10 +822,14 @@ def stairs(phg, grid, engine):
             ew = all(rock(x, ys[0] - 1) and rock(x, ys[-1] + 1) for x in xs)
             sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
             gx = np.gradient(h[sl], axis=1).mean()
+            if ew:
+                wide = ew_wide(p, len(xs), len(ys))
+                if gx >= 0:                                     # Route 36's flight falls to the east
+                    wide = wide[:, ::-1].copy()
             for (x, y) in sorted(comp):
                 if ew:
-                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
-                    a = p[k] if gx < 0 else p[k][:, ::-1]        # Route 36's flight falls to the east
+                    k = 'ew-flight'
+                    a = wide[(y - ys[0]) * PX:(y - ys[0] + 1) * PX, (x - xs[0]) * PX:(x - xs[0] + 1) * PX]
                 else:
                     k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
                     a = p[k]
@@ -1031,7 +1070,7 @@ def compose(phg, engine):
     flw, light = local(flw, FLOWER_TONES), local(light, LIGHT_TONES)
     # Tall grass: the catalog's 16-piece set by neighbour mask (8 north, 4 south, 2 west, 1 east), so each patch
     # rounds off on every side that is not tall grass and the lawn (or the beach edge at the water) shows round it.
-    gset = [rgba(SHARED / f'G{m:02d}.png') for m in range(16)]
+    gset = tall_grass_set()
     g15 = gset[15]
     tall = lambda x, y: not (0 <= x < W and 0 <= y < H) or grid[y][x] == 'G'
     tg = np.zeros_like(flat); n_g15 = 0
