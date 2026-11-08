@@ -19,6 +19,7 @@ native cell (x, y) is HGSS's (x + 16, y + 5); nothing walkable or drawn is lost.
   [2F west](evidence/review/2f-west.png) · [2F east](evidence/review/2f-east.png) ·
   [B1F terraces](evidence/review/b1f-north-terraces.png) · [B1F lake](evidence/review/b1f-lake-and-ladders.png)
 - [Every stair flight, HGSS beside native](evidence/review/stairs.png)
+- [Doors and east-west stairs, HGSS beside native](evidence/review/doors-and-side-stairs.png) (owner review, Nov 8)
 - [Route 42's four mouths](evidence/review/route42-mouths.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
@@ -42,12 +43,12 @@ it one, its top comes down to the level south of it (19 cells; owner review, Nov
 | Rock Climb walls 0x4B (north-south) / 0x4C (east-west) | MB_ROCK_CLIMB, solid | the normal wall with HGSS's climbing holds (`dr_climb`) pasted on (AGENTS.md) |
 | Ledges 0x3B / 0x39 / 0x38 | MB_JUMP_SOUTH / WEST / EAST | FRLG's ledge; east-facing is the routes' west ledge unmirrored |
 | Up-ladders 0x3D over 0x3C; ladders down 0x3E | MB_LADDER | FRLG Seafoam's ladder top 654 over its foot 662; its ladder into a hole 645; in HGSS's ladder wood |
-| Exits 0x6F (arrow 0x65 south) / holes 0x6E | MB_SOUTH_ARROW_WARP / MB_NON_ANIMATED_DOOR | HGSS's own exit glows and holes |
+| Exits 0x6F (arrow 0x65 south) / holes 0x6E | MB_SOUTH_ARROW_WARP / MB_NON_ANIMATED_DOOR | doors as Union Cave fits them (owner review, Nov 8): a lit exit is HGSS's light alone (its lit pixels, on the exit cell and the two above) before a straight wall rim, the three cells under it levelled with the rim, no hole or rubble under the light; a hole into the wall keeps HGSS's dark arch |
 | Rock piles `d_rock01` / small rocks `d_rock01s` | solid | a rock formation one tier up / FRLG General's boulder in the small rocks' own rendered tones |
-| Stairs (`dslope`) | MB_CAVE | one stair throughout (owner review, Nov 6): FRLG Seafoam's 644, Ice Path's, in the rock's tones. Each flight climbs the way HGSS's floor at its ends says: north-south flights as drawn, east-west ones turned on their side (as the routes turn FRLG's ledge for a west ledge) |
+| Stairs (`dslope`) | MB_CAVE | each flight climbs the way HGSS's floor at its ends says. North-south flights: FRLG Seafoam's 644, Ice Path's stair, in the rock's tones (owner review, Nov 6). East-west flights cross a run of north-south wall tiers, a step down each tier's face: each column is the routes' side stair (S04 descending west, S05 east) as Dark Cave draws its east-west flights, so the steps follow the walls' angle (owner review, Nov 8) |
 
 Lossless pack on a tileset pair of its own (`gTileset_MtMortarPrimary`, `gTileset_MtMortar`): 512
-tiles (the waterfall's six animated ones in slots 506-511, all its colours in palette bank 12), 236
+tiles (the waterfall's six animated ones in slots 506-511, all its colours in one palette bank), 211
 metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events

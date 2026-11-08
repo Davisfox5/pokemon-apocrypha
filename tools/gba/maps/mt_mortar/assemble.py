@@ -63,7 +63,6 @@ SNOW = (641, 657)                                     # Seafoam's plain floors: 
 FALLS = {'1f-entrance': (38, 52, 18, 22)}            # x0, x1, last upper-pool row, foot row (HGSS 0x13)
 CAVE_WATER = [(41, 132, 165), (33, 140, 173), (24, 148, 173)]   # Dark Cave's cave water (its HGSS driver, graded): the caves' water
 STAIR = 644                                          # FRLG Seafoam's ice stairs, as Ice Path draws its flights (owner's pick)
-EXIT_ART = {'chole_in', 'chole_light', 'chole_light2', 'light'}
 lum = lambda c: 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
 
 def tones(tex0, *names):
@@ -147,6 +146,16 @@ def ledger(side):
                 raise SystemExit(f'unhandled HGSS permission {side} {(x, y)} {t:#x}/{k:#x}')
             row.append(c)
         cells.append(row)
+    # A lit exit's wall runs straight under it, shoulders and all, as Union Cave fits its doors (owner review,
+    # Nov 8): HGSS raises the three cells under the light half a unit, which would put a bump in the rim
+    for c in [c for row in cells for c in row if c['kind'] == 'exit']:
+        x, y = c['x'], c['y']
+        if y + 1 < H:
+            base = [cells[y + 1][x + dx]['peak'] for dx in (-2, 2) if 0 <= x + dx < W and cells[y + 1][x + dx]['lab'] == 'T']
+            for dx in (-1, 0, 1):
+                r = cells[y + 1][x + dx] if 0 <= x + dx < W else None
+                if base and r is not None and r['lab'] == 'T':
+                    r['peak'] = min(base)
     for row in cells:                        # a blocked floor cell, a boulder or a ledge stands on the floor beside it
         for c in row:
             if c.get('boulder') or c['lab'] in 'LQR':
@@ -316,9 +325,25 @@ def main(phg, engine):
         for layer in (E.ledges_frlg(rc, pieces), east_ledges(rc, pieces, W, H)):
             a = layer[..., 3] > 0
             over[a] = layer[a]
+        # an east-west flight crosses a run of north-south wall tiers, a step down each tier's face: each
+        # column is the routes' side stair (S04 descending west, S05 east), as Dark Cave draws its east-west
+        # flights, so the steps follow the walls' angle (owner review, Nov 8)
+        top = np.zeros((H * PX, W * PX, 4), np.uint8)
+        for kind, x, y, n, f in fl:
+            if kind == 'row':
+                continue
+            art = np.array(Image.open(A.STAIR_ART / ('S04.png' if f == 'W' else 'S05.png')).convert('RGBA'))
+            sl = np.s_[y * PX:min(H * PX, y * PX + art.shape[0]), x * PX:(x + 1) * PX]
+            art = art[:sl[0].stop - sl[0].start]
+            aa = over[sl][..., 3] > 0
+            bottom[sl][aa] = over[sl][aa, :3]
+            over[sl] = 0
+            mm = art[..., 3] > 0
+            top[sl][mm] = art[mm]
         comp = bottom[..., :3].copy()
-        a = over[..., 3] > 0
-        comp[a] = over[a, :3]
+        for layer in (over, top):
+            a = layer[..., 3] > 0
+            comp[a] = layer[a, :3]
         comp, cmap = A.recolour(comp, tex)
         rk = over[..., 3] > 0
         # HGSS's second floor (droad02, 1F back's brown hall): its cells take droad02's tones by rank
@@ -349,17 +374,26 @@ def main(phg, engine):
                     img = lad[c['piece']]
                     mm = (img[..., 3] > 0) & ~rk[sl]
                     comp[sl][mm] = img[mm, :3]
-        # every flight in the one stair (Ice Path's), climbing the way HGSS's floor says; it replaces the wall it cuts
+        # every north-south flight in Ice Path's stair, climbing the way HGSS's floor says; it replaces the wall it cuts
         stairs = stair_art(engine, A.CAVE_RAMP)
         for (x, y), d_ in climbs.items():
-            comp[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = stairs[d_]
+            if d_ in ('north', 'south'):
+                comp[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = stairs[d_]
         # the falls: Emerald's waterfall, frame 0 (tileset_anims.c animates it)
         for row in rc:
             for c in row:
                 if c.get('falls'):
                     comp[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX] = P.waterfall_art(engine, c['piece'])
-        # HGSS's own pixels: the exit glows and holes, the Rock Climb holds
-        ex = mat(*EXIT_ART)
+        # The doors, as Union Cave fits them (owner review, Nov 8: "we solved this in Union Cave"): a lit exit
+        # is HGSS's light alone (its lit pixels, on the exit cell and the two above it) on the floor before a
+        # straight wall rim, no hole or rubble under it; a hole into the wall keeps HGSS's dark arch (chole_in) on its own
+        # cell and the two above. HGSS's Rock Climb holds as before.
+        door = cellmask(lambda c: any(0 <= c['y'] + k < H and 0 <= c['x'] + dx < W and cells[c['y'] + k][c['x'] + dx]['kind'] == 'exit'
+                                      for k in (0, 1, 2) for dx in (-1, 0, 1)))
+        glow = mat('chole_light', 'chole_light2', 'light') & (ref.max(2) > 96) & door
+        near_hole = cellmask(lambda c: any(0 <= c['y'] + k < H and cells[c['y'] + k][c['x']]['kind'] == 'hole' for k in (0, 1, 2)))
+        arch = mat('chole_in') & near_hole
+        ex = glow | arch
         holds = mat('dr_climb')
         for mm in (ex, holds):
             comp[mm] = ref[mm]
@@ -368,6 +402,7 @@ def main(phg, engine):
         cls[cellmask(lambda c: c['floor'] == 'water') & ~rk] = WATER
         cls[holds] = FACE
         cls[cellmask(lambda c: (c['x'], c['y']) in climbs)] = STAIRS
+        cls[top[..., 3] > 0] = STAIRS
         cls[ex] = EXIT
         # the Gen 3 map: HGSS's matrix cropped where it would not load (pack.CROP)
         (ox, oy), (cw, ch) = P.OFFSET[side], P.SIZE[side]

@@ -22,7 +22,7 @@
         16
       ],
       "metatiles": [
-        236,
+        211,
         1
       ]
     },
@@ -48,7 +48,7 @@
         16
       ],
       "metatiles": [
-        236,
+        211,
         1
       ]
     },
@@ -74,7 +74,7 @@
         16
       ],
       "metatiles": [
-        236,
+        211,
         1
       ]
     },
@@ -97,7 +97,7 @@
         16
       ],
       "metatiles": [
-        236,
+        211,
         1
       ]
     }
@@ -237,7 +237,7 @@
     "patterns": 512,
     "primary_tiles": 512,
     "secondary_tiles": 0,
-    "metatiles": 236
+    "metatiles": 211
   },
   "waterfall": {
     "tiles": [
@@ -248,7 +248,7 @@
       510,
       511
     ],
-    "bank": 12,
+    "bank": 8,
     "frames": 4,
     "metatiles": {
       "wf_crest": 179,
