@@ -1,0 +1,24 @@
+{
+ "source": "Route7_EastEntrance_Frlg",
+ "size": [
+  13,
+  9
+ ],
+ "tiles": 36,
+ "metatiles": 45,
+ "pixels_exact": true,
+ "warps": [
+  {
+   "x": 1,
+   "y": 5,
+   "to": "route",
+   "behaviour": 99
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "to": "saffron",
+   "behaviour": 98
+  }
+ ]
+}
