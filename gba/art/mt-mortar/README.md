@@ -19,7 +19,8 @@ native cell (x, y) is HGSS's (x + 16, y + 5); nothing walkable or drawn is lost.
   [2F west](evidence/review/2f-west.png) · [2F east](evidence/review/2f-east.png) ·
   [B1F terraces](evidence/review/b1f-north-terraces.png) · [B1F lake](evidence/review/b1f-lake-and-ladders.png)
 - [Every stair flight, HGSS beside native](evidence/review/stairs.png)
-- [Doors and east-west stairs, HGSS beside native](evidence/review/doors-and-side-stairs.png) (owner review, Nov 8)
+- [Every door: HGSS, Union Cave's door, native](evidence/review/doors.png) (owner review, Nov 8) ·
+  [doors and east-west stairs](evidence/review/doors-and-side-stairs.png)
 - [Route 42's four mouths](evidence/review/route42-mouths.png)
 - [Gameplay gallery](evidence/review/gameplay-gallery.png) (headless mGBA)
 
@@ -43,12 +44,12 @@ it one, its top comes down to the level south of it (19 cells; owner review, Nov
 | Rock Climb walls 0x4B (north-south) / 0x4C (east-west) | MB_ROCK_CLIMB, solid | the normal wall with HGSS's climbing holds (`dr_climb`) pasted on (AGENTS.md) |
 | Ledges 0x3B / 0x39 / 0x38 | MB_JUMP_SOUTH / WEST / EAST | FRLG's ledge; east-facing is the routes' west ledge unmirrored |
 | Up-ladders 0x3D over 0x3C; ladders down 0x3E | MB_LADDER | FRLG Seafoam's ladder top 654 over its foot 662; its ladder into a hole 645; in HGSS's ladder wood |
-| Exits 0x6F (arrow 0x65 south) / holes 0x6E | MB_SOUTH_ARROW_WARP / MB_NON_ANIMATED_DOOR | doors as Union Cave fits them (owner review, Nov 8): a lit exit is HGSS's light alone (its lit pixels, on the exit cell and the two above) before a straight wall rim, the three cells under it levelled with the rim, no hole or rubble under the light; a hole into the wall keeps HGSS's dark arch |
+| Exits 0x6F (arrow 0x65 south) / holes 0x6E | MB_SOUTH_ARROW_WARP / MB_NON_ANIMATED_DOOR | Union Cave's own door, by the owner's direction (Nov 8): its arch light, cut from Union Cave's native `UnionCaveRoute32Entrance` (engine fc1017feca, the south doorway) into [source/union-cave/door-light.png](source/union-cave/door-light.png), set on the exit cell's floor against a straight rim, the three cells under it levelled with the rim. A hole into the wall is the same arch in five darks, set into a levelled, unbroken wall (Union Cave's art otherwise stays in Union Cave, AGENTS.md) |
 | Rock piles `d_rock01` / small rocks `d_rock01s` | solid | a rock formation one tier up / FRLG General's boulder in the small rocks' own rendered tones |
 | Stairs (`dslope`) | MB_CAVE | each flight climbs the way HGSS's floor at its ends says. North-south flights: FRLG Seafoam's 644, Ice Path's stair, in the rock's tones (owner review, Nov 6). East-west flights cross a run of north-south wall tiers, a step down each tier's face: each column is the routes' side stair (S04 descending west, S05 east) as Dark Cave draws its east-west flights, so the steps follow the walls' angle (owner review, Nov 8) |
 
 Lossless pack on a tileset pair of its own (`gTileset_MtMortarPrimary`, `gTileset_MtMortar`): 512
-tiles (the waterfall's six animated ones in slots 506-511, all its colours in one palette bank), 211
+tiles (the waterfall's six animated ones in slots 506-511, all its colours in one palette bank), 196
 metatiles ([pack.json](evidence/pack.json)).
 
 ## Traversal and events
@@ -75,7 +76,7 @@ metatiles ([pack.json](evidence/pack.json)).
   mouths' collision, attributes only at 619 and 526, map.json only by four appended warps.
 - [Headless mGBA](evidence/gameplay/results.json) (`runtime.py`): 42 captures, every map frame
   rebuilt from VRAM equal to the native decode (the animated waterfall's pixels skipped; two captures
-  16 frames apart differ inside it and nowhere else, so it animates). All four Route 42 mouths walked in and back out;
+  40 frames apart differ inside it and nowhere else, so it animates). All four Route 42 mouths walked in and back out;
   every warp inside walked, the player arriving on its HGSS partner; surfing off the crest the
   current carries the player off the upper pool to the foot, and A at the foot shows Gen 3's Waterfall text; A at a
   Rock Climb wall on 1F entrance and on 1F back runs the game's Rock Climb script; an east and a west

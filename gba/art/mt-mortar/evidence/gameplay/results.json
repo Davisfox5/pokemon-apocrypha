@@ -1,5 +1,5 @@
 {
-  "rom_sha256": "beb00de0f2dc65e205369c3c8e6f22a9285c6b3ca3ec5d1e6d826dab0037d9fc",
+  "rom_sha256": "65e3311b28a90fd338a5aad97c42d96c7bf431e1bb07f7217561d7cab29fab9a",
   "steps": [
     [
       "view",
@@ -805,7 +805,7 @@
     ],
     [
       "wait",
-      "16"
+      "40"
     ],
     [
       "shot",
@@ -2430,12 +2430,15 @@
     }
   ],
   "waterfall_animation": {
-    "pixels_changed": 11610,
+    "pixels_changed": 13050,
     "rows_changed": [
+      10,
       14,
       16,
+      19,
+      20,
+      21,
       22,
-      23,
       24,
       25,
       26,

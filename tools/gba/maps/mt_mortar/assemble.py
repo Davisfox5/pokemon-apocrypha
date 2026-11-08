@@ -126,7 +126,9 @@ def ledger(side):
             elif t == 0x6F:
                 c.update(exit=True, kind='exit')
             elif t == 0x6E:
-                c.update(exit=True, kind='hole')
+                # a hole into the wall: drawn as the wall it is set in (the face runs on unbroken), the door's
+                # arch on it; still a door to walk into (pack.KINDS 'hole')
+                c.update(exit=True, kind='hole', lab='T', hole=True)
             elif t in (0x3C, 0x3D, 0x3E):
                 c.update(kind='ladder', piece={0x3D: 'ladder_top', 0x3C: 'ladder_up', 0x3E: 'ladder_down'}[t])
             elif k & 0x80:
@@ -146,6 +148,17 @@ def ledger(side):
                 raise SystemExit(f'unhandled HGSS permission {side} {(x, y)} {t:#x}/{k:#x}')
             row.append(c)
         cells.append(row)
+    for c in [c for row in cells for c in row if c.get('hole')]:
+        # a hole's wall runs level with the wall beside it: HGSS raises the hole and its two neighbours a little,
+        # which would put a bump in the face
+        x, y = c['x'], c['y']
+        base = [cells[y][x + dx]['peak'] for dx in (-2, 2) if 0 <= x + dx < W and cells[y][x + dx]['lab'] == 'T']
+        if base:
+            for dx in (-1, 0, 1):
+                if 0 <= x + dx < W and cells[y][x + dx]['lab'] == 'T':
+                    cells[y][x + dx]['peak'] = min(base)
+        elif y > 0 and cells[y - 1][x]['lab'] == 'T':
+            c['peak'] = cells[y - 1][x]['peak']
     # A lit exit's wall runs straight under it, shoulders and all, as Union Cave fits its doors (owner review,
     # Nov 8): HGSS raises the three cells under the light half a unit, which would put a bump in the rim
     for c in [c for row in cells for c in row if c['kind'] == 'exit']:
@@ -384,19 +397,31 @@ def main(phg, engine):
             for c in row:
                 if c.get('falls'):
                     comp[c['y'] * PX:(c['y'] + 1) * PX, c['x'] * PX:(c['x'] + 1) * PX] = P.waterfall_art(engine, c['piece'])
-        # The doors, as Union Cave fits them (owner review, Nov 8: "we solved this in Union Cave"): a lit exit
-        # is HGSS's light alone (its lit pixels, on the exit cell and the two above it) on the floor before a
-        # straight wall rim, no hole or rubble under it; a hole into the wall keeps HGSS's dark arch (chole_in) on its own
-        # cell and the two above. HGSS's Rock Climb holds as before.
-        door = cellmask(lambda c: any(0 <= c['y'] + k < H and 0 <= c['x'] + dx < W and cells[c['y'] + k][c['x'] + dx]['kind'] == 'exit'
-                                      for k in (0, 1, 2) for dx in (-1, 0, 1)))
-        glow = mat('chole_light', 'chole_light2', 'light') & (ref.max(2) > 96) & door
-        near_hole = cellmask(lambda c: any(0 <= c['y'] + k < H and cells[c['y'] + k][c['x']]['kind'] == 'hole' for k in (0, 1, 2)))
-        arch = mat('chole_in') & near_hole
-        ex = glow | arch
+        # The doors are Union Cave's (owner review, Nov 8): its lit door, the arch of light the owner accepted
+        # there, lifted exactly from Union Cave's native map (source/union-cave/door-light.png), stands on every
+        # lit exit with its foot on the straight wall rim; a hole into the wall is the same arch in dark tones
+        # (its light tones rank for rank to near black, the deepest in the middle), so neither has HGSS's
+        # ragged edge. Nothing of HGSS's exit art is used.
+        light = np.array(Image.open(SRC / 'union-cave/door-light.png').convert('RGBA'))
+        lit = sorted({tuple(int(v) for v in p) for p in light[light[..., 3] > 0][:, :3]}, key=lum)
+        darks = dict(zip(lit, [(56, 56, 64), (40, 40, 48), (28, 28, 36), (16, 16, 24), (8, 8, 12)][:len(lit)]))
+        hole = light.copy()
+        for c, d_ in darks.items():
+            hole[(light[..., :3] == c).all(-1) & (light[..., 3] > 0), :3] = d_
+        ex = np.zeros((H * PX, W * PX), bool)
+        for row in cells:
+            for c in row:
+                if c['kind'] not in ('exit', 'hole'):
+                    continue
+                spr = light if c['kind'] == 'exit' else hole
+                h_, w_ = spr.shape[:2]
+                y0, x0 = c['y'] * PX + PX - h_, c['x'] * PX + (PX - w_) // 2
+                sub = comp[y0:y0 + h_, x0:x0 + w_]
+                mm = spr[..., 3] > 0
+                sub[mm] = spr[mm, :3]
+                ex[y0:y0 + h_, x0:x0 + w_] |= mm
         holds = mat('dr_climb')
-        for mm in (ex, holds):
-            comp[mm] = ref[mm]
+        comp[holds] = ref[holds]
         cls = np.full((H * PX, W * PX), FLOOR, np.int16)
         cls[rk] = FACE
         cls[cellmask(lambda c: c['floor'] == 'water') & ~rk] = WATER

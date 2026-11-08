@@ -97,7 +97,7 @@ def steps(game):
     # the falls: down with the current, then A at the foot offers Waterfall
     x0, x1, crest, fy = 38, 52, 18, 22
     out += [('go', F1E, 45, crest), ('surfing', 1, 'above-the-falls'), ('shot', 'falls-crest'), ('south', 1, None), ('wait', 240),
-            ('at', F1E, 45, fy + 1), ('surfing', 1, 'at-the-foot'), ('shot', 'falls-foot'), ('wait', 16), ('shot', 'falls-foot-later'),
+            ('at', F1E, 45, fy + 1), ('surfing', 1, 'at-the-foot'), ('shot', 'falls-foot'), ('wait', 40), ('shot', 'falls-foot-later'),
             ('face', 'north', 'waterfall-offered')]
     # Rock Climb: a wall stops a walker; A runs the game's Rock Climb script
     for m in (F1E, F1B):
@@ -165,7 +165,7 @@ def check_frames(out, game, phases):
     return results
 
 def waterfall_moves(out):
-    """The falls animate: two captures 16 frames apart differ inside the waterfall, and nowhere else."""
+    """The falls animate: two captures 40 frames apart differ inside the waterfall, and nowhere else."""
     a, b = (RC.map_layers(out / f'vram-{t}.bin') for t in ('falls-foot', 'falls-foot-later'))
     diff = (a != b).any(-1)
     return dict(pixels_changed=int(diff.sum()), rows_changed=sorted({int(y) for y in np.nonzero(diff.any(1))[0]}))
