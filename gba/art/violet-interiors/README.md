@@ -175,7 +175,7 @@ The owner accepted Sprout Tower with two fixes:
 Packing: k-means into 13 banks; mean channel error 0.29-0.33, 0 pixels more than 32 off. Checks: interior
 runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ on Sprout Tower 1F-3F.
 
-## Pokémon Centers and Marts (owner, November 8)
+## Pokémon Centers and Marts (owner, November 8; rebuilt)
 
 The owner asked for HGSS's Center for Johto (Sinnoh's and Unova's from their own games), and for HGSS's Mart sized
 to the M01 building's front, with two counters. The owner's choices:
@@ -183,48 +183,64 @@ to the M01 building's front, with two counters. The owner's choices:
 - **Mart's second counter:** varies by town.
 - **Unova:** later, from files the owner supplies.
 
-Every Johto town shares the Johto rooms; each town keeps its own map, NPCs and scripts.
+The first build used straight DS renders, and the owner rejected it: it did not follow AGENTS.md. These rooms
+are rebuilt that way: the original room compared square by square with native Gen 3 tiles, matching material,
+structure and traversal (`shops_native.py`). Every square takes the native element of the same material and
+role, whole, from Emerald's own rooms, with its collision and behaviour:
+- **Emerald `PokemonCenter_1F`:**
+  - the nurse's counter block (healing machine, nurse's floor, desk, Poké Ball ornaments)
+  - the PC, potted palm, stools and glass table
+  - the up escalator, the floor's Poké Ball emblem, the exit mat, the side walls
+- **Emerald `PokemonCenter_2F`:**
+  - the plain back wall and its glass doors (HGSS's windows and shut doors)
+  - the attendants' counters (ends, middles, gap blocks) and card machines
+  - the white pillars, the down escalator, the floor rings, the potted plants
+- **Emerald `Mart`:**
+  - the register counter with its clerk's floor
+  - the glass coolers, the wall shelves of goods, the floor shelves
+  - the clock, the potted plant, the exit mat
 
-| Room | Source | Used by | Notes |
+Pieces on a room's east side that face west in the original are Emerald's mirrored. The floor and wall colours
+take the original room's ramps (HGSS's warmer orange, its blue basement and teal Mart, Platinum's red-orange);
+furniture keeps Emerald's colours.
+
+`evidence/<room>-clean.png` sets each original beside the native room. `evidence/<room>-plan.png` is the
+square-by-square ledger: each square's element, red for blocked, and its behaviour.
+
+| Room | Original | Used by | Squares |
 | --- | --- | --- | --- |
-| `JohtoPokemonCenter1F` | HGSS T21PC0101 as it is | Cherrygrove, Violet | nurse (8, 11) across her counter, PC (4, 8), the raised back with three counters, escalator down at (14, 17), exit (8, 19) |
-| `JohtoPokemonCenterB1F` | HGSS T27PC0105 as it is | the towns' upstairs maps | three counters, the lounge, escalator up at (14, 10) |
-| `JohtoMart` | HGSS T21FS0101, 18 wide | Cherrygrove, Violet | proposal; see below |
-| `SinnohPokemonCenter1F` | Platinum PokemonCenter_1F | Sandgem | nurse (8, 4), PC (12, 3), escalator up at (2, 10), exit (8, 12); the basement escalator is closed (Platinum shuts it with an attendant) |
-| `SinnohPokemonCenter2F` | Platinum PokemonCenter_2F | Sandgem's upstairs map | three counters, escalator down at (2, 10); the Union Room door is closed |
+| `JohtoPokemonCenter1F` | HGSS T21PC0101 | Cherrygrove, Violet | nurse (8, 11) across her counter (8, 12), PC (4, 10), three back counters at HGSS's row 5, escalator down (15, 17), exit (8-9, 19) |
+| `JohtoPokemonCenterB1F` | HGSS T27PC0105 | the towns' upstairs maps | three counters at row 5, the lounge, escalator up (15, 10) |
+| `JohtoMart` | HGSS T21FS0101, 18 wide | Cherrygrove, Violet | standard counter (clerk (1, 4)), second counter mirrored (clerk (16, 4)), coolers, wall and floor shelves, cafe table, exit (4-5, 11); proposal |
+| `SinnohPokemonCenter1F` | Platinum PokemonCenter_1F | Sandgem | nurse (8, 2), PC (12, 1), escalator up (1, 8), exit (8-9, 10); the basement escalator closed |
+| `SinnohPokemonCenter2F` | Platinum PokemonCenter_2F | Sandgem's upstairs map | three counters at row 3, escalator down (1, 8); the Union Room door closed |
 
-**The Mart (proposal).** HGSS's Mart is 14 squares wide. Four more columns of its own floor and cooler wall make it
-18 wide for M01's 7-square front (HGSS's own Mart front is about half that). The standard counter stays on the
-west wall, as HGSS has it. A second counter is HGSS's mirrored onto the east wall. HGSS's shelves, cafe table,
-fridge and plants stand between them, with the exit at (4, 11). Each town's second counter:
-- **Cherrygrove: a Discount Corner.** Poké Ball, Potion, Antidote, Paralyze Heal, at three quarters of the price
-  (the money-poor first town, docs/JOHTO_ITEMS.md).
-- **Violet: HGSS's own specialty clerk.** Heal Ball and Net Ball (HGSS's Violet list; its Tunnel Mail is not in
-  the engine).
+Deliberate adaptations, square by square:
+- **Johto 1F nurse area:** HGSS's nurse partition (its rows 7-8) and healing machine (rows 9-10) are one wall at
+  rows 9-10, the machine set in it as Gen 3 has it. The nurse, her counter and the player keep HGSS's rows.
+- **Johto 1F divider and benches:** HGSS's glass divider west of the lobby is potted plants (still blocked).
+  HGSS's benches are Gen 3's glass tables and stools.
+- **Johto escalators:** at the east wall one column further east than HGSS's, because Gen 3's escalator includes
+  its wall column.
+- **Sinnoh:** Platinum's three-row wall and two-row nurse's alcove are Gen 3's two and one, so Platinum's rows
+  from the nurse down are two higher (Emerald's 1F is Platinum's predecessor square for square). Its escalators
+  sit at the walls for the same reason as Johto's.
+- **Mart:** the counters keep Emerald's L shape. The clerks stand one column nearer the wall than HGSS's.
 
-How it is built:
-- `johto_shops.py` and `sinnoh_shops.py` hold the rooms and install them into each town's maps.
-- `plat_interior.py` reads pret/pokeplatinum's `res/field` (`PLAT=` its checkout). Platinum's land data is HGSS's
-  without the background-sound block, so the HGSS renderer draws it unchanged.
-- Each room has its own tileset pair.
-- **Mart palette:** HGSS's cooler wall carries up to 24 colours an 8 px square, more than Gen 3 allows. Those
-  squares keep their 14 most representative colours, and the whole room takes one 68-colour palette, with the
-  exit mat's reds kept.
-- **Packing:** the Centers pack exactly or within one step (mean channel error 0.01-0.8); the Mart at 3.0. No
-  pixel is more than 32 off on a channel.
+The second counters, the discount hook and the westward escalator exit are unchanged from the first build:
+- **Cherrygrove:** a Discount Corner (Poké Ball, Potion, Antidote, Paralyze Heal at three quarters of the price).
+- **Violet:** HGSS's specialty clerk (Heal Ball, Net Ball).
+- **`src/shop.c`:** `ShopItemPrice()` charges three quarters while `FLAG_SHOP_DISCOUNT` is set.
+- **`src/field_effect.c`:** an escalator whose east side is solid lets the player off to the west.
 
-Engine changes:
-- **`src/shop.c`:** `ShopItemPrice()` charges three quarters while `FLAG_SHOP_DISCOUNT` (a temporary flag, alias of
-  `FLAG_TEMP_1F`) is set. The Discount Corner clerk sets it around `pokemart` and clears it after.
-- **`src/field_effect.c`:** an escalator whose east side is solid lets the player off to the west, as HGSS's
-  Centers need (`sEscalatorWestward`). Emerald's own escalators have their east side open and are unchanged.
-- **`src/apocrypha_map_proof.c`:** the test harness can enter Violet's Mart, Center and upstairs.
+All five rooms pack exactly in native palettes: 36-44 colours, 90-135 tiles each.
 
 Checks:
-- Interior runtime: 31 of 31 warps, including both escalators each way in both towns and Sandgem's.
-- Town doors: Cherrygrove's seven doors and Sandgem's five lead in; Violet's doors pass 11 of 11.
-- `shops_runtime.py`: the nurse answers in all three towns; both counters open their shop in both Marts. The
-  Discount Corner sells the 200 Potion at 150 (`evidence/shops-in-game.png`).
+- Interior runtime: 36 of 36 warps, including both exit mat squares and both escalators each way in three towns.
+- Town doors: Cherrygrove's and Sandgem's lead in; Violet's doors pass 11 of 11.
+- `shops_runtime.py`:
+  - The nurse answers in all three towns, and the healing animation's Poké Balls land on the machine.
+  - Both Mart counters open their shop; the Discount Corner sells the 200 Potion at 150.
 - Porymap: 0 pixels differ on all eight maps.
 
 Not done:

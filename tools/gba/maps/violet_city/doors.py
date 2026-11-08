@@ -39,9 +39,9 @@ DOORS = [
     dict(name='LectureHall', cell=(31, 41), panel=(496, 651, 514, 666), sound='SLIDING',
          map='VioletLectureHall', layout='LAYOUT_VIOLET_LECTURE_HALL', exits=[(8, 25)], music='MUS_SCHOOL'),
     dict(name='Mart', cell=(21, 40), panel=(339, 629, 353, 649), sound='SLIDING',
-         map='VioletMart', layout='LAYOUT_JOHTO_MART', exits=[(4, 11)], music='MUS_POKE_MART', kind='mart'),
+         map='VioletMart', layout='LAYOUT_JOHTO_MART', exits=[(4, 11), (5, 11)], music='MUS_POKE_MART', kind='mart'),
     dict(name='PokemonCenter', cell=(49, 55), panel=(784, 880, 800, 890), sound='SLIDING',
-         map='VioletPokemonCenter', layout='LAYOUT_JOHTO_POKEMON_CENTER_1F', exits=[(8, 19)], music='MUS_POKE_CENTER', kind='center'),
+         map='VioletPokemonCenter', layout='LAYOUT_JOHTO_POKEMON_CENTER_1F', exits=[(8, 19), (9, 19)], music='MUS_POKE_CENTER', kind='center'),
     dict(name='House1', **house(11, 26), sound='NORMAL', map='VioletHouse1', layout='LAYOUT_VIOLET_HOUSE_1', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='House2', **house(10, 37), sound='NORMAL', map='VioletHouse2', layout='LAYOUT_VIOLET_HOUSE_2', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='House3', **house(26, 55), sound='NORMAL', map='VioletHouse3', layout='LAYOUT_VIOLET_HOUSE_3', exits=[(4, 8)], music='MUS_LITTLEROOT'),
@@ -49,7 +49,7 @@ DOORS = [
     dict(name='House5', **house(56, 63), sound='NORMAL', map='VioletHouse5', layout='LAYOUT_VIOLET_HOUSE_5', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='EastGate', **house(74, 55), sound='NORMAL', map=None),
 ]
-UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_JOHTO_POKEMON_CENTER_B1F', stairs=(14, 10))
+UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_JOHTO_POKEMON_CENTER_B1F', stairs=(15, 10))
 # the Center, its basement and the Mart are finished by violet_interiors/johto_shops.install (escalators, both clerks)
 MART_STOCK = ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING',
               'ITEM_ESCAPE_ROPE', 'ITEM_REPEL']   # docs/JOHTO_ITEMS.md, Violet Mart

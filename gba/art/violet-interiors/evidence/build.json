@@ -144,9 +144,9 @@
    17,
    21
   ],
-  "px_changed_by_palette": 4271,
+  "px_changed_by_palette": 0,
   "notes": [
-   "HGSS's Pokemon Center 1F as it is (shared by Johto's towns)"
+   "HGSS's Pokemon Center 1F square by square in Emerald's own Center pieces"
   ]
  },
  "JohtoPokemonCenterB1F": {
@@ -156,77 +156,77 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "HGSS's Pokemon Center B1F as it is, in place of the Gen 3 upstairs room"
+   "HGSS's Pokemon Center B1F square by square in Emerald's own Center pieces"
   ]
  },
  "johto_center": {
   "log": [
-   "banks from merging colours within 1 five-bit steps (74 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 0.28 (alternative 2.43)",
-   "523 tiles, 252 metatiles"
+   "exact (43 colours)",
+   "135 tiles, 73 metatiles"
   ],
-  "tiles": 523,
-  "metatiles": 252
+  "tiles": 135,
+  "metatiles": 73
  },
  "JohtoMart": {
   "size": [
    18,
    13
   ],
-  "px_changed_by_palette": 18343,
+  "px_changed_by_palette": 0,
   "notes": [
-   "HGSS's Mart four columns wider for the M01 front, a second counter mirrored on the east wall (proposal)"
+   "HGSS's Mart square by square in Emerald's own Mart pieces, four columns wider, a second counter (proposal)"
   ]
  },
  "johto_mart": {
   "log": [
-   "banks from merging colours within 2 five-bit steps (44 colours), unrefit, 0 quadrants repaired; score 2.66 (alternative 10.99)",
-   "234 tiles, 114 metatiles"
+   "exact (44 colours)",
+   "111 tiles, 56 metatiles"
   ],
-  "tiles": 234,
-  "metatiles": 114
+  "tiles": 111,
+  "metatiles": 56
  },
  "johto_center_b1": {
   "log": [
-   "exact (82 colours)",
-   "283 tiles, 140 metatiles"
+   "exact (40 colours)",
+   "105 tiles, 47 metatiles"
   ],
-  "tiles": 283,
-  "metatiles": 140
+  "tiles": 105,
+  "metatiles": 47
  },
  "SinnohPokemonCenter1F": {
   "size": [
    17,
-   14
+   12
   ],
-  "px_changed_by_palette": 8217,
+  "px_changed_by_palette": 0,
   "notes": [
-   "Platinum's Pokemon Center 1F as it is (shared by Sinnoh's towns); the basement escalator closed"
+   "Platinum's Pokemon Center 1F square by square in Emerald's own Center pieces"
   ]
  },
  "SinnohPokemonCenter2F": {
   "size": [
    17,
-   14
+   12
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "Platinum's Pokemon Center 2F as it is, in place of the Gen 3 upstairs room; the Union Room door closed"
+   "Platinum's Pokemon Center 2F square by square in Emerald's own Center pieces"
   ]
  },
  "sinnoh_center": {
   "log": [
-   "banks from merging colours within 1 five-bit steps (75 colours), each refit to its quadrants' original colours, 0 quadrants repaired; score 0.79 (alternative 5.48)",
-   "308 tiles, 134 metatiles"
+   "exact (38 colours)",
+   "129 tiles, 78 metatiles"
   ],
-  "tiles": 308,
-  "metatiles": 134
+  "tiles": 129,
+  "metatiles": 78
  },
  "sinnoh_center_2f": {
   "log": [
-   "exact (83 colours)",
-   "243 tiles, 124 metatiles"
+   "exact (36 colours)",
+   "90 tiles, 44 metatiles"
   ],
-  "tiles": 243,
-  "metatiles": 124
+  "tiles": 90,
+  "metatiles": 44
  }
 }

@@ -51,6 +51,8 @@ def main():
         up = 'MAP_' + JS.snake(f'{town}PokemonCenter')
         mart = 'MAP_' + JS.snake(f'{town}Mart')
         tests += f' talk({idx[up]},{nx},{ny + 2},{KEYS["UP"]},1,"{town}-nurse");\n'
+        for k in (6, 7):
+            tests += f' talk({idx[up]},{nx},{ny + 2},{KEYS["UP"]},{k},"{town}-nurse-heal-{k}");\n'
         tests += f' talk({idx[mart]},{ax + 2},{ay},{KEYS["LEFT"]},1,"{town}-standard");\n'
         tests += f' talk({idx[mart]},{bx - 2},{by},{KEYS["RIGHT"]},1,"{town}-second");\n'
         tests += f' talk({idx[mart]},{ax + 2},{ay},{KEYS["LEFT"]},3,"{town}-standard-list");\n'

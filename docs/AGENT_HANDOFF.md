@@ -79,8 +79,9 @@ Owner review (October 25), refined the same day:
   November 5, round 4: owner approved all but Sprout Tower; Sprout Tower 1F-3F rebuilt as a custom tileset converted from
   HGSS's textures (sprout_gen3.py), pillar at Gen 3 pitch (wall height, two bands, no black cap), FireRed ladders; 23 x 26.
   November 8: Johto Center (HGSS 1F + B1F) and Mart (HGSS, 18 wide, two counters: Cherrygrove Discount Corner, Violet specialty) on
-  shared layouts for Cherrygrove and Violet (johto_shops.py); Sinnoh Center from Platinum's data for Sandgem (sinnoh_shops.py,
-  plat_interior.py). Engine: shop discount flag, westward escalator exit. Unova Center waits on owner-supplied B2W2 files.
+  shared layouts for Cherrygrove and Violet; Sinnoh Center (Platinum's plans) for Sandgem. Rebuilt after the owner rejected DS
+  renders: Emerald's own Center/Mart pieces square by square on the originals' plans (shops_native.py; johto_shops.py and
+  sinnoh_shops.py install). Engine: shop discount flag, westward escalator exit. Unova Center waits on owner-supplied B2W2 files.
   November 6: owner accepted Sprout Tower (statues off the black row; 3F east statues and rail one square east). Interiors locked in.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
