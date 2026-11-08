@@ -95,9 +95,10 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    and never sits at or below the sea. A flight of stairs is cut through a wall and
    takes that wall's levels: row by row (the rock either side) for a north-south
    flight, column by column (the rock above and below) for an east-west one, so the
-   faces beside it run straight through to the treads. Use the game's own stairs:
-   FRLG General's stone stairs (0x89, ends 0x91) north-south, Route 36's plank
-   flight with its rock cheeks east-west (one level per column).
+   faces beside it run straight through to the treads. Draw each flight from the
+   original's own render at true heights (its treads, pitch and rock cheeks, cell
+   for cell), every pixel converted to the nearest colour of the route's palette
+   (`hgss_stairs` in assemble.py); converted or borrowed stair pieces lose the pitch.
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets

@@ -787,89 +787,21 @@ def tall_grass_set():
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
-EW_PLANK_TONES = 3
-EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes the Johto rock ramp
+STAIR_CHEEK = (2, 1)                 # rows of HGSS's rock cheeks above and below an east-west flight
+STAIR_PLANKS = [(88, 80, 48), (152, 144, 120), (168, 168, 144)]   # the Johto plank flight's wood (Route 36's)
 
-def fit_ew(pieces):
-    """Route 30's: Route 36's plank flight sits in this route's wall, its rock cheeks in the wall's FRLG rock ramp,
-    its planks reduced to EW_PLANK_TONES."""
-    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
-    lab_r = _lab(np.array(ramp))
-    snap = {}
-    cols = sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()})
-    for c in cols:
-        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
-        if d.min() < EW_ROCK_SNAP:
-            snap[c] = ramp[int(d.argmin())]
-    planks = {k: apply_tones(v, snap) for k, v in pieces.items()}
-    m = reduce_tones(list(planks.values()), keep=set(ramp), n=EW_PLANK_TONES)
-    return {k: apply_tones(v, m) for k, v in planks.items()}
-
-FRLG_STAIRS = dict(mid=0x89, left=0x91)    # FRLG General's stone stairs in its own cliffs (0x91: its west end)
-
-def frlg_stairs(engine):
-    """FRLG General's north-south stone stairs, the treads its mountain pieces are drawn around, as RGBA: the
-    middle, the west end (0x91) and the east end (0x91 turned over)."""
-    d = engine / 'data/tilesets/primary/general_frlg'
-    img = Image.open(d / 'tiles.png')
-    idx = np.array(img) & 15
-    tiles = [idx[y:y + 8, x:x + 8] for y in range(0, idx.shape[0], 8) for x in range(0, idx.shape[1], 8)]
-    pals = [[tuple(map(int, l.split())) for l in (d / f'palettes/{n:02d}.pal').read_text().splitlines()[3:19]] for n in range(16)]
-    blocks = np.frombuffer((d / 'metatiles.bin').read_bytes(), '<u2').reshape(-1, 8)
-    def piece(m):
-        out = np.zeros((16, 16, 4), np.uint8)
-        for li in range(8):
-            e = int(blocks[m][li])
-            t = tiles[e & 1023]
-            if e & 0x400: t = t[:, ::-1]
-            if e & 0x800: t = t[::-1]
-            q = li % 4
-            sub = out[(q // 2) * 8:(q // 2) * 8 + 8, (q % 2) * 8:(q % 2) * 8 + 8]
-            pal = pals[e >> 12]
-            for (yy, xx), v in np.ndenumerate(t):
-                if v:
-                    sub[yy, xx, :3] = pal[v]; sub[yy, xx, 3] = 255
-        return out
-    mid, left = piece(FRLG_STAIRS['mid']), piece(FRLG_STAIRS['left'])
-    return {'ns-mid': mid, 'ns-left': left, 'ns-right': left[:, ::-1].copy()}
-
-def ew_wide(p, nx, ny):
-    """Route 36's plank flight drawn as one flight nx columns wide and ny rows tall: its top cheek in the first
-    row and its bottom cheek in the last, each cheek band stretched across the whole width (its slope spread
-    over nx columns, so the flight reads as one set of steps, not nx staggered ones), the vertical planks
-    repeating at their own width between them."""
-    col = np.concatenate([p['ew-top']] + [p['ew-mid']] * (ny - 2) + [p['ew-bottom']], 0)
-    ramp = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
-    hgt = col.shape[0]
-    isp = np.array([[tuple(col[y, x, :3].tolist()) not in ramp for x in range(PX)] for y in range(hgt)])
-    # the cheeks: rock from the top down to the first plank, and from the last plank down to the bottom
-    top = [int(np.argmax(isp[:, x])) for x in range(PX)]
-    bot = [hgt - 1 - int(np.argmax(isp[::-1, x])) for x in range(PX)]
-    band = max(top)                                   # a row every column has in planks (the clean middle band)
-    out = np.zeros((hgt, nx * PX, 4), np.uint8)
-    for X in range(nx * PX):
-        sx = X // nx                                  # the cheek's slope spread over the whole width
-        out[:top[sx], X] = col[:top[sx], sx]
-        out[top[sx]:bot[sx] + 1, X] = col[band, X % PX]
-        out[bot[sx] + 1:, X] = col[bot[sx] + 1:, sx]
-    return out
-
-def stairs(phg, grid, engine):
-    """Each flight in the game's own stair art, standing at the levels of the wall it cuts through (levels.py).
-    An east-west flight (rock above and below it, Route 30's rule) takes Route 36's plank flight drawn as one
-    flight across all its columns (ew_wide): the dark rock cheek along its top, planks, the brown cheek along its
-    bottom; Route 36's flight climbs to the east, so a flight that falls to the east is turned over (the rock
-    catalog's mirrored east-facing stair section). A
-    north-south flight takes FRLG General's stone stairs, the treads made for the FRLG cliffs round them: the
-    west end, middles and the east end on every row."""
-    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ew-top', 'ew-mid', 'ew-bottom')}
-    p.update(fit_ew(p))
-    p.update(frlg_stairs(engine))
-    h, _, _, _ = Rf.topdown(phg)
+def hgss_stairs(grid, palette, ground=frozenset()):
+    """Each flight is HGSS's own, cut from its render at true heights cell for cell (the treads, their pitch and
+    the rock cheeks either side), then made Gen 3: every pixel takes the nearest colour (in Lab) of the route's
+    own palette (the rock ramp, the plank wood, the road and the lawn), so the shapes and slopes are HGSS's and
+    the tiles are native. An east-west flight (rock above and below it) takes its cheek rows with it:
+    STAIR_CHEEK rows of HGSS's cheeks above the treads and below them; a north-south flight its own cells."""
+    ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
+    pal = np.array(sorted(palette), int); lab_p = _lab(pal)
     g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     rock = lambda x, y: g(x, y) in 'RX'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed, seen = [], set()
+    placed, seen, memo = [], set(), {}
     for y0 in range(H):
         for x0 in range(W):
             if g(x0, y0) != '^' or (x0, y0) in seen:
@@ -883,22 +815,22 @@ def stairs(phg, grid, engine):
             seen |= comp
             xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
             ew = all(rock(x, ys[0] - 1) and rock(x, ys[-1] + 1) for x in xs)
-            sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
-            gx = np.gradient(h[sl], axis=1).mean()
-            if ew:
-                wide = ew_wide(p, len(xs), len(ys))
-                if gx < 0:                                      # Route 36's flight climbs to the east; HGSS's falls
-                    wide = wide[:, ::-1].copy()                 # east here: the catalog's east-facing section
-            for (x, y) in sorted(comp):
-                if ew:
-                    k = 'ew-flight'
-                    a = wide[(y - ys[0]) * PX:(y - ys[0] + 1) * PX, (x - xs[0]) * PX:(x - xs[0] + 1) * PX]
-                else:
-                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
-                    a = p[k]
-                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = a
-                placed.append(dict(cell=[x, y], art=k, flight='east-west' if ew else 'north-south',
-                                   hgss_slope_x=round(float(gx), 3)))
+            rows = range(ys[0] - STAIR_CHEEK[0], ys[-1] + 1 + STAIR_CHEEK[1]) if ew else ys
+            for y in rows:
+                for x in xs:
+                    src = ref[(y - ROW0) * PX:(y - ROW0 + 1) * PX, (x - COL0) * PX:(x - COL0 + 1) * PX]
+                    cell = np.zeros((PX, PX, 4), np.uint8); cell[..., 3] = 255
+                    for (yy, xx), c in np.ndenumerate(src[..., 0]):
+                        c = tuple(int(v) for v in src[yy, xx])
+                        if c not in memo:
+                            memo[c] = tuple(int(v) for v in pal[int(np.argmin(np.linalg.norm(lab_p - _lab(np.array([c]))[0], axis=1)))])
+                        cell[yy, xx, :3] = memo[c]
+                        if memo[c] in ground:                 # HGSS's own ground at the flight's edge: the
+                            cell[yy, xx, 3] = 0               # route's ground painted beneath shows instead
+                    art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = cell
+                    placed.append(dict(cell=[x, y], art='hgss-stairs' if (x, y) in comp else 'hgss-stair-cheek',
+                                       flight='east-west' if ew else 'north-south'))
+    Image.fromarray(art).save(LOCAL / 'stairs.png')
     return art, placed
 
 def ledge_pieces():
@@ -1154,16 +1086,11 @@ def compose(phg, engine):
                 m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
-    sa, stair_list = stairs(phg, grid, engine)
-    # The plank flight is wood like the pier: its plank tones take the nearest pier tone (palette budget). The
-    # FRLG stone stairs keep their own greys.
-    keep_s = {tuple(int(v) for v in c) for a in frlg_stairs(engine).values() for c in a[a[..., 3] > 0][:, :3]}
-    keep_s |= {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
-    wood = np.array(sorted({tuple(c) for c in pier[piermask].tolist()} - {tuple(c) for c in sea[seamask].tolist()}), int)
-    scol = sorted({tuple(c) for c in sa[sa[..., 3] > 0][:, :3].tolist()} - keep_s)
-    if len(wood) and scol:
-        lab_w = _lab(wood)
-        sa = apply_tones(sa, {c: tuple(int(v) for v in wood[int(np.argmin(np.linalg.norm(lab_w - _lab(np.array([c]))[0], axis=1)))]) for c in scol})
+    # Stairs: HGSS's own flights converted to the route's palette (rock ramp, plank wood, road, lawn).
+    stair_pal = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} | set(STAIR_PLANKS)
+    stair_pal |= {tuple(int(v) for v in c) for c in tex[G.PATH].reshape(-1, 3)} | {tuple(int(v) for v in c) for c in tex[G.GRASS].reshape(-1, 3)}
+    ground_cols = frozenset(stair_pal - {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} - set(STAIR_PLANKS))
+    sa, stair_list = hgss_stairs(grid, stair_pal, ground_cols)
     ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).
@@ -1238,11 +1165,50 @@ def compose(phg, engine):
     return dict(bottom=bottom, flat=flat, flat_owner=flat_owner, top=top, owner=owner, objs=objs, ledges=ledge_list,
                 stairs=stair_list, boulders=boulder_list, n_g15=n_g15, q=q, padding=pad_ids, terrace=d, rock_piece=piece)
 
+GROUND_SNAP = 1                      # px: a ground 8x8 tile this close to one already drawn becomes that tile
+
+def snap_ground_tiles(bottom, flat, top):
+    """Tile budget: palette reduction and texture phases leave many ground 8x8 tiles one pixel apart from
+    another; each costs a tile. Every ground-only tile (nothing of the upper layers over it; Violet's padding
+    rows untouched) that differs from an earlier one, flips included, in at most GROUND_SNAP pixels becomes
+    that tile."""
+    out = bottom.copy()
+    over = (flat[..., 3] > 0) | (top[..., 3] > 0)
+    book, keys, n = [], {}, 0
+    for ty in range(ROW0 * 2, out.shape[0] // 8):
+        for tx in range(out.shape[1] // 8):
+            sl = np.s_[ty * 8:ty * 8 + 8, tx * 8:tx * 8 + 8]
+            if over[sl].any():
+                continue
+            t = out[sl]
+            k = (t >> 3).tobytes()
+            if k in keys:
+                continue
+            f5 = [(v >> 3).astype(np.int16) for v in (t, t[:, ::-1], t[::-1], t[::-1, ::-1])]
+            hit = None
+            if book:
+                B = np.stack([b for b, _ in book])
+                for fi, v in enumerate(f5):
+                    d = (B != v[None]).any(-1).sum((1, 2))
+                    j = int(np.argmin(d))
+                    if 0 < d[j] <= GROUND_SNAP:
+                        hit = (j, fi); break
+            if hit is None:
+                book.append(((t >> 3).astype(np.int16), t.copy())); keys[k] = True
+            else:
+                j, fi = hit
+                src = book[j][1]
+                out[sl] = (src, src[:, ::-1], src[::-1], src[::-1, ::-1])[fi]
+                n += 1
+    return out, n
+
 def main(phg, catalog, engine):
     for d in (OUT, OEV, LOCAL, SHARED):
         d.mkdir(parents=True, exist_ok=True)
     stage_shared(catalog)
     r = compose(phg, engine)
+    r['bottom'], n_snapped = snap_ground_tiles(r['bottom'], r['flat'], r['top'])
+    print('ground tiles snapped', n_snapped)
     view = r['bottom'].copy()
     for layer in (r['flat'], r['top']):
         a = layer[..., 3] > 0
