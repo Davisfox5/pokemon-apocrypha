@@ -14,8 +14,17 @@ ROOT = HERE.parents[3]
 sys.path[:0] = [str(HERE), str(HERE.parent / 'violet_city')]
 
 PROOF = ['SproutTower1F', 'SproutTower2F', 'SproutTower3F', 'VioletUniversity', 'VioletLectureHall',
-         'VioletHouse1', 'VioletHouse2', 'VioletHouse3', 'VioletHouse4', 'VioletHouse5']
-PROOF0 = 46                                   # their first index in sMapProofMaps (src/apocrypha_map_proof.c)
+         'VioletHouse1', 'VioletHouse2', 'VioletHouse3', 'VioletHouse4', 'VioletHouse5',
+         'CherrygrovePokemonCenter', 'CherrygroveCenterUpstairs', 'CherrygroveMart',
+         'VioletPokemonCenter', 'VioletCenterUpstairs', 'VioletMart',       # the Johto Center, basement and Mart (johto_shops.py)
+         'SandgemPokemonCenter', 'SandgemCenterUpstairs']                  # the Sinnoh Center (sinnoh_shops.py)
+
+def proof_index(engine):
+    """Each map's index in sMapProofMaps (src/apocrypha_map_proof.c)."""
+    import re
+    src = (engine / 'src/apocrypha_map_proof.c').read_text()
+    body = re.search(r'sMapProofMaps\[\] = \{(.*?)\};', src, re.S).group(1)
+    return {m.strip(): i for i, m in enumerate(body.split(','))}
 VIOLET = 43
 KEYS = dict(RIGHT=16, LEFT=32, UP=64, DOWN=128)
 
@@ -56,6 +65,8 @@ def tests(engine, names):
         p = engine / 'data/maps' / n / 'map.json'
         if p.exists():
             by_id[load(n)['id']] = n
+    idx = proof_index(engine)
+    snake = lambda n: load(n)['id'][4:]
     out = []
     for n in names:
         mj = load(n)
@@ -65,9 +76,15 @@ def tests(engine, names):
         for i, wv in enumerate(mj['warp_events']):
             dest = by_id[wv['dest_map']]
             dw = load(dest)['warp_events'][int(wv['dest_warp_id'])]
-            wx, wy = dw['x'], dw['y'] + (1 if dest == 'VioletCity' else 0)
+            city = wv['dest_map'].endswith(('_CITY', '_TOWN'))
+            wx, wy = dw['x'], dw['y'] + (1 if city else 0)
+            if dest.endswith(('PokemonCenter', 'CenterUpstairs')) and n.endswith(('PokemonCenter', 'CenterUpstairs')):
+                # off an escalator: east, or west where its east side is solid (src/field_effect.c, sEscalatorWestward)
+                dl = L[load(dest)['layout']]
+                dok = walkable(engine, Path(dl['blockdata_filepath']).parent.name, dl['width'], dl['height'])
+                wx += -1 if (not dok(wx + 1, wy) and dok(wx - 1, wy)) else 1
             x, y = wv['x'], wv['y']
-            if wv['dest_map'] == 'MAP_VIOLET_CITY':
+            if city:
                 start, key = (x, y), 'DOWN'          # standing on the exit mat, walk out
             else:
                 cand = [((x, y + 1), 'UP'), ((x - 1, y), 'RIGHT'), ((x + 1, y), 'LEFT'), ((x, y - 1), 'DOWN')]
@@ -75,7 +92,7 @@ def tests(engine, names):
                 if not cand:
                     continue
                 start, key = cand[0]
-            out.append(f' test({PROOF0 + PROOF.index(n)},{start[0]},{start[1]},{KEYS[key]},{num[dest]},{wx},{wy},"{n}-{i}");\n')
+            out.append(f' test({idx["MAP_" + snake(n)]},{start[0]},{start[1]},{KEYS[key]},{num[dest]},{wx},{wy},"{n}-{i}");\n')
     return out
 
 def main():

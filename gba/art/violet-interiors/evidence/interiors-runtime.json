@@ -1,0 +1,440 @@
+{
+ "exit": 0,
+ "stderr": "",
+ "tests": [
+  {
+   "test": "SproutTower1F-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    39,
+    13
+   ],
+   "want": [
+    43,
+    39,
+    13
+   ]
+  },
+  {
+   "test": "SproutTower1F-1",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    39,
+    13
+   ],
+   "want": [
+    43,
+    39,
+    13
+   ]
+  },
+  {
+   "test": "SproutTower1F-2",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    7,
+    10
+   ],
+   "want": [
+    57,
+    7,
+    10
+   ]
+  },
+  {
+   "test": "SproutTower1F-3",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    20,
+    5
+   ],
+   "want": [
+    57,
+    20,
+    5
+   ]
+  },
+  {
+   "test": "SproutTower1F-4",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    2,
+    12
+   ],
+   "want": [
+    57,
+    2,
+    12
+   ]
+  },
+  {
+   "test": "SproutTower1F-5",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    2,
+    12
+   ],
+   "want": [
+    57,
+    2,
+    12
+   ]
+  },
+  {
+   "test": "SproutTower1F-6",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    7,
+    10
+   ],
+   "want": [
+    57,
+    7,
+    10
+   ]
+  },
+  {
+   "test": "SproutTower1F-7",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    20,
+    5
+   ],
+   "want": [
+    57,
+    20,
+    5
+   ]
+  },
+  {
+   "test": "SproutTower2F-0",
+   "ok": 1,
+   "map": 46,
+   "at": [
+    12,
+    24
+   ],
+   "want": [
+    46,
+    12,
+    24
+   ]
+  },
+  {
+   "test": "SproutTower2F-1",
+   "ok": 1,
+   "map": 46,
+   "at": [
+    6,
+    11
+   ],
+   "want": [
+    46,
+    6,
+    11
+   ]
+  },
+  {
+   "test": "SproutTower2F-2",
+   "ok": 1,
+   "map": 46,
+   "at": [
+    20,
+    5
+   ],
+   "want": [
+    46,
+    20,
+    5
+   ]
+  },
+  {
+   "test": "SproutTower2F-3",
+   "ok": 1,
+   "map": 58,
+   "at": [
+    11,
+    23
+   ],
+   "want": [
+    58,
+    11,
+    23
+   ]
+  },
+  {
+   "test": "SproutTower3F-0",
+   "ok": 1,
+   "map": 57,
+   "at": [
+    11,
+    23
+   ],
+   "want": [
+    57,
+    11,
+    23
+   ]
+  },
+  {
+   "test": "VioletUniversity-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    57,
+    43
+   ],
+   "want": [
+    43,
+    57,
+    43
+   ]
+  },
+  {
+   "test": "VioletLectureHall-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    31,
+    42
+   ],
+   "want": [
+    43,
+    31,
+    42
+   ]
+  },
+  {
+   "test": "VioletHouse1-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    11,
+    27
+   ],
+   "want": [
+    43,
+    11,
+    27
+   ]
+  },
+  {
+   "test": "VioletHouse2-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    10,
+    38
+   ],
+   "want": [
+    43,
+    10,
+    38
+   ]
+  },
+  {
+   "test": "VioletHouse3-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    26,
+    56
+   ],
+   "want": [
+    43,
+    26,
+    56
+   ]
+  },
+  {
+   "test": "VioletHouse4-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    36,
+    61
+   ],
+   "want": [
+    43,
+    36,
+    61
+   ]
+  },
+  {
+   "test": "VioletHouse5-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    56,
+    64
+   ],
+   "want": [
+    43,
+    56,
+    64
+   ]
+  },
+  {
+   "test": "CherrygrovePokemonCenter-0",
+   "ok": 1,
+   "map": 0,
+   "at": [
+    61,
+    10
+   ],
+   "want": [
+    0,
+    61,
+    10
+   ]
+  },
+  {
+   "test": "CherrygrovePokemonCenter-1",
+   "ok": 1,
+   "map": 8,
+   "at": [
+    13,
+    10
+   ],
+   "want": [
+    8,
+    13,
+    10
+   ]
+  },
+  {
+   "test": "CherrygroveCenterUpstairs-0",
+   "ok": 1,
+   "map": 6,
+   "at": [
+    13,
+    17
+   ],
+   "want": [
+    6,
+    13,
+    17
+   ]
+  },
+  {
+   "test": "CherrygroveMart-0",
+   "ok": 1,
+   "map": 0,
+   "at": [
+    51,
+    10
+   ],
+   "want": [
+    0,
+    51,
+    10
+   ]
+  },
+  {
+   "test": "VioletPokemonCenter-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    49,
+    56
+   ],
+   "want": [
+    43,
+    49,
+    56
+   ]
+  },
+  {
+   "test": "VioletPokemonCenter-1",
+   "ok": 1,
+   "map": 51,
+   "at": [
+    13,
+    10
+   ],
+   "want": [
+    51,
+    13,
+    10
+   ]
+  },
+  {
+   "test": "VioletCenterUpstairs-0",
+   "ok": 1,
+   "map": 50,
+   "at": [
+    13,
+    17
+   ],
+   "want": [
+    50,
+    13,
+    17
+   ]
+  },
+  {
+   "test": "VioletMart-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    21,
+    41
+   ],
+   "want": [
+    43,
+    21,
+    41
+   ]
+  },
+  {
+   "test": "SandgemPokemonCenter-0",
+   "ok": 1,
+   "map": 13,
+   "at": [
+    23,
+    14
+   ],
+   "want": [
+    13,
+    23,
+    14
+   ]
+  },
+  {
+   "test": "SandgemPokemonCenter-1",
+   "ok": 1,
+   "map": 19,
+   "at": [
+    3,
+    10
+   ],
+   "want": [
+    19,
+    3,
+    10
+   ]
+  },
+  {
+   "test": "SandgemCenterUpstairs-0",
+   "ok": 1,
+   "map": 15,
+   "at": [
+    3,
+    10
+   ],
+   "want": [
+    15,
+    3,
+    10
+   ]
+  }
+ ]
+}

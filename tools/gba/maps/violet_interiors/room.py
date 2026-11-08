@@ -26,7 +26,10 @@ LIFT = 0.25                             # tiles above the floor: a prop part thi
 _cache = {}
 
 def models(kind):
-    """0: room models (bm_room), 1: field models (Sprout Tower's objects)."""
+    """0: room models (bm_room), 1: field models (Sprout Tower's objects), 2: Platinum's prop models."""
+    if kind == 2 and kind not in _cache:
+        import plat_interior as PI
+        _cache[2] = PI.prop_models()
     if kind not in _cache:
         _cache[kind] = R.narc.load(PHG / ('files/a/1/4/8' if kind == 0 else 'files/a/0/4/0'))
     return _cache[kind]
@@ -57,6 +60,9 @@ class Prop:
 
 def hgss_room(name):
     """HGSS's room: terrain RGB (32x32 cells), its props, collision and types."""
+    if name.startswith('plat_'):                      # a Platinum room (plat_interior.py)
+        import plat_interior as PI
+        return PI.plat_room(name)
     hdr, bank, matrix = HI.ROOMS[name]
     area = R.narc.load(PHG / 'files/a/0/4/2')[bank]
     kind = area[6]
@@ -124,7 +130,7 @@ class Room:
         depth = np.full(low.shape[:2], -1e9, np.float32)
         stand = ~self.blocked
         for (x, y), b in self.behaviors.items():
-            if b in ('ladder', 'exit'):          # the player stands on these: their art stays under the player
+            if b in ('ladder', 'exit', 'escalator_up', 'escalator_down'):          # the player stands on these: their art stays under the player
                 stand[y, x] = False
         walk = np.repeat(np.repeat(stand, PX, 0), PX, 1)
         for rgba, lift, d in self.props:

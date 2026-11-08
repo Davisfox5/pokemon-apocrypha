@@ -229,6 +229,8 @@ def tile_palettes(quads, log, restarts=5, iters=20):
                 banks, per = refine(quads, r[0], r[1])
                 cand = [(score(quads, banks, per), banks, per, f'banks from merging colours within {thr} five-bit steps '
                          f'({n} colours), each refit to its quadrants\' original colours')]
+                cand.append((score(quads, r[0], r[1]), r[0], r[1], f'banks from merging colours within {thr} five-bit steps '
+                             f'({n} colours), unrefit'))
                 sub = []
                 kb, kp = _kmeans_best(quads, sub, restarts, iters)
                 cand.append((score(quads, kb, kp), kb, kp, sub[-1]))

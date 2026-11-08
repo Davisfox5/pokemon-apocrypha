@@ -23,6 +23,9 @@ ROOMS = {
     'sprout3': ('MAP_SPROUT_TOWER_3F', 77, 'map_matrix_0014_D15R0103.bin'),
     'house_nw': ('MAP_VIOLET_NORTHWEST_HOUSE', 25, 'map_matrix_0095_T28R0201.bin'),
     'house_unused': ('MAP_VIOLET_UNUSED', 25, 'map_matrix_0066_T20R0301.bin'),
+    'center': ('MAP_VIOLET_POKECENTER_1F', 26, 'map_matrix_0073_T21PC0101.bin'),
+    'center_b1': ('MAP_VIOLET_POKECENTER_B1F', 26, 'map_matrix_0077_T27PC0105.bin'),
+    'mart': ('MAP_VIOLET_POKEMART', 27, 'map_matrix_0104_T21FS0101.bin'),
 }
 
 def loader(area_bank, matrix, models_by_kind):

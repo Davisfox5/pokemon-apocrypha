@@ -175,6 +175,63 @@ The owner accepted Sprout Tower with two fixes:
 Packing: k-means into 13 banks; mean channel error 0.29-0.33, 0 pixels more than 32 off. Checks: interior
 runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ on Sprout Tower 1F-3F.
 
+## Pokémon Centers and Marts (owner, November 8)
+
+The owner asked for HGSS's Center for Johto (Sinnoh's and Unova's from their own games), and for HGSS's Mart sized
+to the M01 building's front, with two counters. The owner's choices:
+- **Center:** HGSS's 1F with its B1F.
+- **Mart's second counter:** varies by town.
+- **Unova:** later, from files the owner supplies.
+
+Every Johto town shares the Johto rooms; each town keeps its own map, NPCs and scripts.
+
+| Room | Source | Used by | Notes |
+| --- | --- | --- | --- |
+| `JohtoPokemonCenter1F` | HGSS T21PC0101 as it is | Cherrygrove, Violet | nurse (8, 11) across her counter, PC (4, 8), the raised back with three counters, escalator down at (14, 17), exit (8, 19) |
+| `JohtoPokemonCenterB1F` | HGSS T27PC0105 as it is | the towns' upstairs maps | three counters, the lounge, escalator up at (14, 10) |
+| `JohtoMart` | HGSS T21FS0101, 18 wide | Cherrygrove, Violet | proposal; see below |
+| `SinnohPokemonCenter1F` | Platinum PokemonCenter_1F | Sandgem | nurse (8, 4), PC (12, 3), escalator up at (2, 10), exit (8, 12); the basement escalator is closed (Platinum shuts it with an attendant) |
+| `SinnohPokemonCenter2F` | Platinum PokemonCenter_2F | Sandgem's upstairs map | three counters, escalator down at (2, 10); the Union Room door is closed |
+
+**The Mart (proposal).** HGSS's Mart is 14 squares wide. Four more columns of its own floor and cooler wall make it
+18 wide for M01's 7-square front (HGSS's own Mart front is about half that). The standard counter stays on the
+west wall, as HGSS has it. A second counter is HGSS's mirrored onto the east wall. HGSS's shelves, cafe table,
+fridge and plants stand between them, with the exit at (4, 11). Each town's second counter:
+- **Cherrygrove: a Discount Corner.** Poké Ball, Potion, Antidote, Paralyze Heal, at three quarters of the price
+  (the money-poor first town, docs/JOHTO_ITEMS.md).
+- **Violet: HGSS's own specialty clerk.** Heal Ball and Net Ball (HGSS's Violet list; its Tunnel Mail is not in
+  the engine).
+
+How it is built:
+- `johto_shops.py` and `sinnoh_shops.py` hold the rooms and install them into each town's maps.
+- `plat_interior.py` reads pret/pokeplatinum's `res/field` (`PLAT=` its checkout). Platinum's land data is HGSS's
+  without the background-sound block, so the HGSS renderer draws it unchanged.
+- Each room has its own tileset pair.
+- **Mart palette:** HGSS's cooler wall carries up to 24 colours an 8 px square, more than Gen 3 allows. Those
+  squares keep their 14 most representative colours, and the whole room takes one 68-colour palette, with the
+  exit mat's reds kept.
+- **Packing:** the Centers pack exactly or within one step (mean channel error 0.01-0.8); the Mart at 3.0. No
+  pixel is more than 32 off on a channel.
+
+Engine changes:
+- **`src/shop.c`:** `ShopItemPrice()` charges three quarters while `FLAG_SHOP_DISCOUNT` (a temporary flag, alias of
+  `FLAG_TEMP_1F`) is set. The Discount Corner clerk sets it around `pokemart` and clears it after.
+- **`src/field_effect.c`:** an escalator whose east side is solid lets the player off to the west, as HGSS's
+  Centers need (`sEscalatorWestward`). Emerald's own escalators have their east side open and are unchanged.
+- **`src/apocrypha_map_proof.c`:** the test harness can enter Violet's Mart, Center and upstairs.
+
+Checks:
+- Interior runtime: 31 of 31 warps, including both escalators each way in both towns and Sandgem's.
+- Town doors: Cherrygrove's seven doors and Sandgem's five lead in; Violet's doors pass 11 of 11.
+- `shops_runtime.py`: the nurse answers in all three towns; both counters open their shop in both Marts. The
+  Discount Corner sells the 200 Potion at 150 (`evidence/shops-in-game.png`).
+- Porymap: 0 pixels differ on all eight maps.
+
+Not done:
+- The B1F and 2F attendants (Union Room, Wi-Fi, trainer card) have no NPCs or links.
+- Unova's Center waits on the owner's files.
+- Violet's standard Mart list sells Escape Rope at ₽0, the engine's price for it.
+
 ## Checks
 
 | Check | Result |

@@ -163,6 +163,13 @@ ROOMS = {
     'SproutTower3F': sprout('sprout3', [L(15, 27)]),
 }
 
+import johto_shops as JS                    # owner, November 8: Johto's Center and Mart from HGSS, shared by its towns
+GROUPS.update(JS.GROUPS)
+ROOMS.update(JS.ROOMS)
+import sinnoh_shops as SS                   # owner, November 8: Sinnoh's Center from Platinum, shared by its towns
+GROUPS.update(SS.GROUPS)
+ROOMS.update(SS.ROOMS)
+
 def w(cell, dest, warp):
     return dict(x=cell[0], y=cell[1], elevation=0, dest_map=dest, dest_warp_id=str(warp))
 
@@ -182,9 +189,18 @@ MAPS = {
                           warps=[w(L(15, 27), 'MAP_SPROUT_TOWER_2F', 3)]),
 }
 
+MAPS.update(JS.MAPS)
+MAPS.update(SS.MAPS)
+
 def install_maps(engine, names):
-    """Each interior's map.json: its layout, its exit warps (kept from doors.py) and its own warps."""
+    """Each interior's map.json: its layout, its exit warps (kept from doors.py) and its own warps. The shared Johto
+    Center and Mart layouts go onto every Johto town's own Center, basement and Mart maps (johto_shops.install)."""
     import doors as D
+    if any(MAPS[n].get('shared') is True for n in names):
+        JS.install(engine)
+    if any(MAPS[n].get('shared') == 'sinnoh' for n in names):
+        SS.install(engine)
+    names = [n for n in names if not MAPS[n].get('shared')]
     for n in names:
         m = MAPS[n]
         p = engine / 'data/maps' / n / 'map.json'

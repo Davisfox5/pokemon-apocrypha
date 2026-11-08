@@ -1,0 +1,105 @@
+{
+ "exit": 0,
+ "stderr": "",
+ "tests": [
+  {
+   "test": "Cherrygrove-nurse",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
+   "test": "Cherrygrove-standard",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    4,
+    4
+   ]
+  },
+  {
+   "test": "Cherrygrove-second",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    13,
+    4
+   ]
+  },
+  {
+   "test": "Cherrygrove-standard-list",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    4,
+    4
+   ]
+  },
+  {
+   "test": "Cherrygrove-second-list",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    13,
+    4
+   ]
+  },
+  {
+   "test": "Violet-nurse",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
+   "test": "Violet-standard",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    4,
+    4
+   ]
+  },
+  {
+   "test": "Violet-second",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    13,
+    4
+   ]
+  },
+  {
+   "test": "Violet-standard-list",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    4,
+    4
+   ]
+  },
+  {
+   "test": "Violet-second-list",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    13,
+    4
+   ]
+  },
+  {
+   "test": "Sandgem-nurse",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    6
+   ]
+  }
+ ]
+}
