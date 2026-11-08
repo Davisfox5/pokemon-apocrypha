@@ -1,0 +1,131 @@
+{
+  "maps": [
+    "MtMortar_1F_Entrance",
+    "MtMortar_1F_Back",
+    "MtMortar_2F",
+    "MtMortar_B1F"
+  ],
+  "primary": "gTileset_MtMortarPrimary",
+  "secondary": "gTileset_MtMortar",
+  "pack": {
+    "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
+    "distinct_tiles": 335,
+    "representatives": 335,
+    "patterns": 512,
+    "primary_tiles": 512,
+    "secondary_tiles": 0,
+    "metatiles": 196,
+    "primary_metatiles": 196,
+    "secondary_metatiles": 0,
+    "colours_per_bank": [
+      15,
+      15,
+      15,
+      14,
+      15,
+      13,
+      13,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "sides": {
+      "1f-entrance": {
+        "pixels": 1232896,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 71
+      },
+      "1f-back": {
+        "pixels": 1449728,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 125
+      },
+      "2f": {
+        "pixels": 640768,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 78
+      },
+      "b1f": {
+        "pixels": 904960,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 60
+      }
+    },
+    "waterfall": {
+      "tiles": [
+        506,
+        507,
+        508,
+        509,
+        510,
+        511
+      ],
+      "bank": 6,
+      "frames": 4,
+      "metatiles": {
+        "wf_crest": 179,
+        "wf_body": 185,
+        "wf_splash": 193
+      }
+    }
+  },
+  "map_ids": {
+    "MtMortar_1F_Entrance": 66,
+    "MtMortar_1F_Back": 67,
+    "MtMortar_2F": 68,
+    "MtMortar_B1F": 69
+  },
+  "mouths": {
+    "20,11": {
+      "metatile": 619,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "pairs": [
+        "MtMortar_1F_Entrance",
+        0
+      ]
+    },
+    "48,15": {
+      "metatile": 619,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "pairs": [
+        "MtMortar_1F_Entrance",
+        1
+      ]
+    },
+    "50,4": {
+      "metatile": 526,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "pairs": [
+        "MtMortar_1F_Entrance",
+        2
+      ]
+    },
+    "77,11": {
+      "metatile": 619,
+      "behavior": "MB_NON_ANIMATED_DOOR",
+      "collision": 0,
+      "pairs": [
+        "MtMortar_1F_Entrance",
+        3
+      ]
+    }
+  }
+}

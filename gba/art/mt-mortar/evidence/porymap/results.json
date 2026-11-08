@@ -1,0 +1,110 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "f7783756559bfbc322eee8cc4efaf2e7403bda76",
+  "export_vs_native": {
+    "MtMortar_1F_Entrance": {
+      "size": [
+        1536,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "MtMortar_1F_Back": {
+      "size": [
+        1200,
+        1408
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "MtMortar_2F": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "MtMortar_B1F": {
+      "size": [
+        1024,
+        1536
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "Route42": {
+      "size": [
+        1536,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "mt_mortar_or_route_files_rewritten": [
+    "data/layouts/MtMortar_1F_Back/border.bin",
+    "data/layouts/MtMortar_1F_Back/map.bin",
+    "data/layouts/MtMortar_1F_Entrance/border.bin",
+    "data/layouts/MtMortar_1F_Entrance/map.bin",
+    "data/layouts/MtMortar_2F/border.bin",
+    "data/layouts/MtMortar_2F/map.bin",
+    "data/layouts/MtMortar_B1F/border.bin",
+    "data/layouts/MtMortar_B1F/map.bin",
+    "data/layouts/Route42/border.bin",
+    "data/layouts/Route42/map.bin",
+    "data/maps/MtMortar_1F_Back/map.json",
+    "data/maps/MtMortar_1F_Entrance/map.json",
+    "data/maps/MtMortar_2F/map.json",
+    "data/maps/MtMortar_B1F/map.json",
+    "data/maps/Route42/map.json",
+    "data/tilesets/primary/mt_mortar/metatile_attributes.bin",
+    "data/tilesets/primary/mt_mortar/metatiles.bin",
+    "data/tilesets/primary/mt_mortar/palettes/00.pal",
+    "data/tilesets/primary/mt_mortar/palettes/01.pal",
+    "data/tilesets/primary/mt_mortar/palettes/02.pal",
+    "data/tilesets/primary/mt_mortar/palettes/03.pal",
+    "data/tilesets/primary/mt_mortar/palettes/04.pal",
+    "data/tilesets/primary/mt_mortar/palettes/05.pal",
+    "data/tilesets/primary/mt_mortar/palettes/06.pal",
+    "data/tilesets/primary/mt_mortar/palettes/07.pal",
+    "data/tilesets/primary/mt_mortar/palettes/08.pal",
+    "data/tilesets/primary/mt_mortar/palettes/09.pal",
+    "data/tilesets/primary/mt_mortar/palettes/10.pal",
+    "data/tilesets/primary/mt_mortar/palettes/11.pal",
+    "data/tilesets/primary/mt_mortar/palettes/12.pal",
+    "data/tilesets/secondary/mt_mortar/metatile_attributes.bin",
+    "data/tilesets/secondary/mt_mortar/metatiles.bin",
+    "data/tilesets/secondary/mt_mortar/palettes/00.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/01.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/02.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/03.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/04.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/05.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/06.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/07.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/08.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/09.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/10.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/11.pal",
+    "data/tilesets/secondary/mt_mortar/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_mt_mortar_or_route42": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention Mt. Mortar or Route 42 are Porymap normalising entries that predate it (key order, \\u escapes)."
+}
