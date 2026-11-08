@@ -433,46 +433,21 @@ CG_SEA = ((58, 59), (75, 76))       # Cherrygrove's open sea, a 2x2 block of its
 CG_SEA_ROCK = 151                   # Cherrygrove's grey sea rock (and its foam), as the town draws it
 FOAM, SAND_RIM = (200, 232, 224), (208, 208, 168)   # Cherrygrove's beach foam and the sand's waterline rim
 PIER_ROUND, PIER_FOAM = 6, 2              # px: the pier's rounded outside corners and the foam line along it
-PIER_RAIL, PIER_BOARDS = slice(0, 8), slice(16, 32)                  # the pier texture's rail and boards' middle
+BANK, BANK_PX = (198, 148, 115), 3        # HGSS's brown bank where grass meets water (189,140,99), as the rock ramp's tone
+PIER_TEX = ROOT / 'gba/art/cherrygrove-town/source/hgss/pier.png'   # HGSS Route 32's pier repeat (hgss_pier.py), as Cherrygrove's dock
+PIER_RAIL = 8                             # px: the rail each side of the repeat's 32 px of boards
+PIER_BEAM = (165, 132, 90)                # Cherrygrove's end beam: the wood's darkest tone
 
 def cherrygrove_tiles(engine):
     from tiles import Tileset
     return Tileset(engine, 'cherrygrove', 'cherrygrove_town')
 
-PIER_SNAP = 16                       # px: a pier 8x8 tile this close to one already used becomes that tile
-
-def snap_pier_tiles(pier, pmask):
-    """HGSS's decoded planks vary a few pixels from cell to cell even where the boards repeat; each costs a tile.
-    Each pier 8x8 tile (the long runs first, so they set the shared boards) becomes an earlier one, flips
-    included, when at most PIER_SNAP of its pixels differ; rails, beams, ends and corners stay their own."""
-    out = pier.copy()
-    cells = [(x, y) for y in range(H) for x in range(W) if pmask[y, x]]
-    run = lambda x, y: sum(1 for d in range(-2, 3) if 0 <= y + d < H and pmask[y + d, x])
-    cells.sort(key=lambda c: (-run(*c), c[1], c[0]))
-    book = []
-    for x, y in cells:
-        for qy in (0, 1):
-            for qx in (0, 1):
-                Y, X = y * PX + qy * 8, x * PX + qx * 8
-                t = out[Y:Y + 8, X:X + 8].astype(int)
-                best = None
-                for b in book:
-                    for v in (b, b[:, ::-1], b[::-1], b[::-1, ::-1]):
-                        d = int((np.abs(v - t).sum(-1) > 0).sum())
-                        if d <= PIER_SNAP and (best is None or d < best[0]):
-                            best = (d, v)
-                if best is None:
-                    book.append(t)
-                elif best[0]:
-                    out[Y:Y + 8, X:X + 8] = best[1]
-    return out
-
 def sea_and_pier(phg, grid, engine):
     """Cherrygrove's sea and dock (the town's accepted water vocabulary) on HGSS's water and pier cells.
     Water cells: '~', the blocked sea under the viaduct ('X' on the sea) and the water under boulders 'O'.
     Where the sea meets lawn or road, the town's beach edge: foam over the sea, the sand's waterline rim
-    (rock edges take their FRLG faces instead). The pier takes HGSS's own planks cell for cell, with a foam
-    line along it and its outside corners rounded where it meets open water."""
+    (rock edges take their FRLG faces instead). The pier is Cherrygrove's dock (HGSS Route 32's own pier
+    repeat), with a foam line along it and its outside corners rounded where it meets open water."""
     t = cherrygrove_tiles(engine)
     block = np.zeros((32, 32, 3), np.uint8)
     for r in (0, 1):
@@ -493,20 +468,60 @@ def sea_and_pier(phg, grid, engine):
             for side, (dx, dy) in dict(n=(0, -1), s=(0, 1), w=(-1, 0), e=(1, 0)).items():
                 if not land(x + dx, y + dy):
                     continue
+                # a grass shore has HGSS's brown bank between the grass and the foam; a sand shore the sand's rim
+                grassy = grid[y + dy][x + dx] not in 'dD^'
                 for k in range(PX):
                     wob = G.WAVE[((y * PX + k) if side in 'we' else (x * PX + k)) % 32] // 4
-                    for depth in range(4 + wob):
+                    for depth in range(4 + wob + (BANK_PX - 1 if grassy else 0)):
                         px_ = dict(n=(x * PX + k, y * PX + depth), s=(x * PX + k, (y + 1) * PX - 1 - depth),
                                    w=(x * PX + depth, y * PX + k), e=((x + 1) * PX - 1 - depth, y * PX + k))[side]
-                        sea[px_[1], px_[0]] = SAND_RIM if depth == 0 else FOAM
-    # The planks are HGSS's own, cell for cell from the decoded ground (its rails, posts, board seams and grain;
-    # no viaduct shadow in the ground render); the native foam and rounded corners go on after.
-    gnd = np.array(Image.open(SRC / 'hgss/hgss-ground.png').convert('RGB'))
+                        if grassy:
+                            sea[px_[1], px_[0]] = BANK if depth < BANK_PX else FOAM
+                        else:
+                            sea[px_[1], px_[0]] = SAND_RIM if depth == 0 else FOAM
+    # The dock is Cherrygrove's: HGSS Route 32's own pier repeat (8 px rail, 32 px of cross boards, 8 px rail,
+    # 32 px down), laid along each run with its rails at the run's two long edges and all 32 px of boards between
+    # (the boards repeat every 32 px across a wider run), turned a quarter for an east-west run, a beam across
+    # each end of a run that stands in the water.
+    tex = np.array(Image.open(PIER_TEX).convert('RGB'))
     pier = np.zeros_like(sea)
-    for y in range(ROW0, H):
+    for y in range(H):
         for x in range(W):
-            if pmask[y, x]:
-                pier[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gnd[(y - ROW0) * PX:(y - ROW0 + 1) * PX, (x - COL0) * PX:(x - COL0 + 1) * PX]
+            if not pmask[y, x]:
+                continue
+            vert = (y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x])
+            horiz = (x > 0 and pmask[y, x - 1]) or (x < W - 1 and pmask[y, x + 1])
+            along_y = vert or not horiz
+            if along_y:
+                lo = hi = x
+                while lo - 1 >= 0 and pmask[y, lo - 1]: lo -= 1
+                while hi + 1 < W and pmask[y, hi + 1]: hi += 1
+            else:
+                lo = hi = y
+                while lo - 1 >= 0 and pmask[lo - 1, x]: lo -= 1
+                while hi + 1 < H and pmask[hi + 1, x]: hi += 1
+            w_ = (hi - lo + 1) * PX
+            for py in range(PX):
+                for px_ in range(PX):
+                    X, Y = x * PX + px_, y * PX + py
+                    across, along = (X - lo * PX, Y) if along_y else (Y - lo * PX, X)
+                    if across < PIER_RAIL:
+                        col = across
+                    elif across >= w_ - PIER_RAIL:
+                        col = tex.shape[1] - (w_ - across)
+                    else:
+                        col = PIER_RAIL + (across - PIER_RAIL) % (tex.shape[1] - 2 * PIER_RAIL)
+                    pier[Y, X] = tex[along % tex.shape[0], col]
+    for y in range(H):
+        for x in range(W):
+            if not pmask[y, x]:
+                continue
+            vert = (y > 0 and pmask[y - 1, x]) or (y < H - 1 and pmask[y + 1, x])
+            for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+                if (dx == 0) == bool(vert) and 0 <= x + dx < W and 0 <= y + dy < H and smask[y + dy, x + dx]:
+                    sl = {(0, -1): np.s_[y * PX:y * PX + 2, x * PX:(x + 1) * PX], (0, 1): np.s_[(y + 1) * PX - 2:(y + 1) * PX, x * PX:(x + 1) * PX],
+                          (-1, 0): np.s_[y * PX:(y + 1) * PX, x * PX:x * PX + 2], (1, 0): np.s_[y * PX:(y + 1) * PX, (x + 1) * PX - 2:(x + 1) * PX]}[(dx, dy)]
+                    pier[sl] = PIER_BEAM
     # Where the planks meet open water: a thin foam line along the pier (HGSS's), and each outside corner rounded
     # off (the deck stops PIER_ROUND px short of a square corner and the foam follows the curve).
     wet = lambda x, y: 0 <= x < W and 0 <= y < H and smask[y, x]
@@ -843,7 +858,8 @@ def stairs(phg, grid, engine):
     """Each flight in the game's own stair art, standing at the levels of the wall it cuts through (levels.py).
     An east-west flight (rock above and below it, Route 30's rule) takes Route 36's plank flight drawn as one
     flight across all its columns (ew_wide): the dark rock cheek along its top, planks, the brown cheek along its
-    bottom (turned over when the flight climbs east). A
+    bottom; Route 36's flight climbs to the east, so a flight that falls to the east is turned over (the rock
+    catalog's mirrored east-facing stair section). A
     north-south flight takes FRLG General's stone stairs, the treads made for the FRLG cliffs round them: the
     west end, middles and the east end on every row."""
     p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ew-top', 'ew-mid', 'ew-bottom')}
@@ -871,8 +887,8 @@ def stairs(phg, grid, engine):
             gx = np.gradient(h[sl], axis=1).mean()
             if ew:
                 wide = ew_wide(p, len(xs), len(ys))
-                if gx >= 0:                                     # Route 36's flight falls to the east
-                    wide = wide[:, ::-1].copy()
+                if gx < 0:                                      # Route 36's flight climbs to the east; HGSS's falls
+                    wide = wide[:, ::-1].copy()                 # east here: the catalog's east-facing section
             for (x, y) in sorted(comp):
                 if ew:
                     k = 'ew-flight'
@@ -980,7 +996,7 @@ def apply_tones(a, mapping):
     sub = out[m]; sub[:, :3] = new; out[m] = sub
     return out
 
-SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 5, 4, 2, 8
+SEA_TONES, PIER_TONES, BOULDER_TONES, CAVE_TONES, ISLET_TONES = 15, 6, 4, 2, 8
 LAND_BOULDER_TONES = 4
 VIADUCT_TONES = 4
 RIM_ON_LAND = False                  # the rim in land cells joined the sea's and land's palettes: 13 no longer fit
@@ -1064,10 +1080,9 @@ def compose(phg, engine):
     m_sea = reduce_tones([sea[seamask][None]], keep=set(), n=SEA_TONES)
     sea, pier = apply_tones(sea, m_sea)[..., :3], apply_tones(pier, m_sea)
     sea_cols = {tuple(c) for c in sea[seamask][:, :3].tolist()}
-    # HGSS's pier pixels that are water or foam (blue or bluish white: the sea showing between rails, its foam)
-    # take the nearest sea tone; the wood alone shares the PIER_TONES, so the planks keep their grain.
+    # water inside a pier cell (the rounded corners) keeps two tones: the foam and the sea's main tone; the wood
+    # keeps PIER_TONES of the pier repeat's own (Cherrygrove's six)
     pcols = {tuple(c) for c in pier[piermask][:, :3].tolist()} - sea_cols
-    # only two water tones inside a pier cell: the foam and the sea's main tone (palette budget)
     from collections import Counter as _C
     main = _C(map(tuple, sea[seamask][:, :3].tolist())).most_common(1)[0][0]
     foam_n = min(sea_cols, key=lambda c: sum((a - b) ** 2 for a, b in zip(c, FOAM)))
@@ -1075,21 +1090,8 @@ def compose(phg, engine):
     wet_map = {c: tuple(int(v) for v in sea_arr[int(np.argmin(np.linalg.norm(lab_s - _lab(np.array([c]))[0], axis=1)))])
                for c in pcols if c[2] > c[0] + 20 and c[2] >= c[1] - 10}
     pier = apply_tones(pier, wet_map)
-    # HGSS's grass edge reaching into a pier cell (where the planks end at grass) takes the planks' own main tone,
-    # so a pier tile holds only wood and water; its grey landing beam takes the nearest tone of the Johto rock
-    # ramp (already in the route's palettes)
-    pp = pier[..., :3].astype(int)
-    green = piermask & (pp[..., 1] > pp[..., 0] + 30) & (pp[..., 1] > pp[..., 2])
-    wood_px = piermask & ~green & (pp[..., 0] > pp[..., 2] + 30)
-    pier[green, :3] = _C(map(tuple, pier[wood_px][:, :3].tolist())).most_common(1)[0][0]
-    grey = piermask & (np.abs(pp[..., 0] - pp[..., 2]) < 12) & (np.abs(pp[..., 0] - pp[..., 1]) < 12) & ~green
-    if grey.any():
-        ramp = np.array(Rk.ROCK_RAMP, int); lr = _lab(ramp)
-        gp = pp[grey]
-        pier[grey, :3] = ramp[np.argmin(((_lab(gp)[:, None] - lr[None]) ** 2).sum(-1), 1)]
     keep_p = sea_cols | {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
     pier = apply_tones(pier, reduce_tones([pier[piermask][None]], keep=keep_p, n=PIER_TONES))[..., :3]
-    pier = snap_pier_tiles(pier, pmask)
     bottom[seamask] = sea[seamask]
     bottom[piermask] = pier[piermask]
     # the plain water under a rock piece's clear pixels: the sea's own pattern at that spot (the full canvas, so
