@@ -1,10 +1,10 @@
 {
- "jobs": 1039,
- "tiles": 995,
+ "jobs": 1005,
+ "tiles": 963,
  "primary_metatiles": 512,
  "secondary_metatiles": 172,
  "pinned_violet_metatiles": 4,
- "maximal_colour_sets": 97,
+ "maximal_colour_sets": 96,
  "banks": {
   "0": 15,
   "1": 15,
@@ -300,10 +300,10 @@
    136
   ],
   "border": [
-   "0x11e",
-   "0x11f",
-   "0x126",
-   "0x127"
+   "0x119",
+   "0x11a",
+   "0x120",
+   "0x121"
   ]
  }
 }
