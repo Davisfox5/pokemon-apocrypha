@@ -4387,49 +4387,9 @@
   {
    "cell": [
     9,
-    72
-   ],
-   "art": "hgss-stair-cheek",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    72
-   ],
-   "art": "hgss-stair-cheek",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
-    73
-   ],
-   "art": "hgss-stair-cheek",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    73
-   ],
-   "art": "hgss-stair-cheek",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
     74
    ],
-   "art": "hgss-stairs",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    74
-   ],
-   "art": "hgss-stairs",
+   "art": "ew-top (mirrored)",
    "flight": "east-west"
   },
   {
@@ -4437,7 +4397,23 @@
     9,
     75
    ],
-   "art": "hgss-stairs",
+   "art": "ew-mid (mirrored)",
+   "flight": "east-west"
+  },
+  {
+   "cell": [
+    9,
+    76
+   ],
+   "art": "ew-bottom (mirrored)",
+   "flight": "east-west"
+  },
+  {
+   "cell": [
+    10,
+    74
+   ],
+   "art": "ew-top (mirrored)",
    "flight": "east-west"
   },
   {
@@ -4445,15 +4421,7 @@
     10,
     75
    ],
-   "art": "hgss-stairs",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
-    76
-   ],
-   "art": "hgss-stairs",
+   "art": "ew-mid (mirrored)",
    "flight": "east-west"
   },
   {
@@ -4461,23 +4429,7 @@
     10,
     76
    ],
-   "art": "hgss-stairs",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
-    77
-   ],
-   "art": "hgss-stair-cheek",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    77
-   ],
-   "art": "hgss-stair-cheek",
+   "art": "ew-bottom (mirrored)",
    "flight": "east-west"
   },
   {
@@ -4485,23 +4437,7 @@
     6,
     111
    ],
-   "art": "hgss-stairs",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    7,
-    111
-   ],
-   "art": "hgss-stairs",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    8,
-    111
-   ],
-   "art": "hgss-stairs",
+   "art": "ns-left",
    "flight": "north-south"
   },
   {
@@ -4509,7 +4445,15 @@
     6,
     112
    ],
-   "art": "hgss-stairs",
+   "art": "ns-left",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    111
+   ],
+   "art": "ns-mid",
    "flight": "north-south"
   },
   {
@@ -4517,7 +4461,15 @@
     7,
     112
    ],
-   "art": "hgss-stairs",
+   "art": "ns-mid",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    111
+   ],
+   "art": "ns-right",
    "flight": "north-south"
   },
   {
@@ -4525,7 +4477,7 @@
     8,
     112
    ],
-   "art": "hgss-stairs",
+   "art": "ns-right",
    "flight": "north-south"
   }
  ],

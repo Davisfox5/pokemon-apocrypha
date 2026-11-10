@@ -787,21 +787,35 @@ def tall_grass_set():
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
-STAIR_CHEEK = (2, 1)                 # rows of HGSS's rock cheeks above and below an east-west flight
-STAIR_PLANKS = [(88, 80, 48), (152, 144, 120), (168, 168, 144)]   # the Johto plank flight's wood (Route 36's)
+EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes the Johto rock ramp
 
-def hgss_stairs(grid, palette, ground=frozenset()):
-    """Each flight is HGSS's own, cut from its render at true heights cell for cell (the treads, their pitch and
-    the rock cheeks either side), then made Gen 3: every pixel takes the nearest colour (in Lab) of the route's
-    own palette (the rock ramp, the plank wood, the road and the lawn), so the shapes and slopes are HGSS's and
-    the tiles are native. An east-west flight (rock above and below it) takes its cheek rows with it:
-    STAIR_CHEEK rows of HGSS's cheeks above the treads and below them; a north-south flight its own cells."""
-    ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
-    pal = np.array(sorted(palette), int); lab_p = _lab(pal)
+def fit_ew(pieces):
+    """Route 30's and Route 31's: Route 36's plank flight sits in this route's wall, its rock cheeks in the
+    wall's rock ramp (each rock colour its nearest ramp tone within EW_ROCK_SNAP), its planks as they are."""
+    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
+    lab_r = _lab(np.array(ramp))
+    snap = {}
+    for c in sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()}):
+        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
+        if d.min() < EW_ROCK_SNAP:
+            snap[c] = ramp[int(d.argmin())]
+    return {k: apply_tones(v, snap) for k, v in pieces.items()}
+
+def stairs(phg, grid):
+    """The converted Johto maps' stairs (Routes 30, 31 and 36), flight by flight on HGSS's stair cells.
+    An east-west flight (rock above and below it) takes Route 36's plank flight in each of its columns, as
+    Route 31's two-column ridge crossing does (HGSS draws such a flight as one-column flights side by side):
+    the top cell with its dark rock cheek, plank cells, the bottom cell with its brown cheek. Route 36's flight
+    climbs to the east, as HGSS's Route 31 crossing does; where HGSS's flight falls to the east (Route 32's
+    decoded heights fall along x) every column is mirrored. A north-south flight takes Route 30's grey treads
+    in each of its rows: the left end, middles, the right end."""
+    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
+    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
+    h, _, _, _ = Rf.topdown(phg)
     g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     rock = lambda x, y: g(x, y) in 'RX'
     art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed, seen, memo = [], set(), {}
+    placed, seen = [], set()
     for y0 in range(H):
         for x0 in range(W):
             if g(x0, y0) != '^' or (x0, y0) in seen:
@@ -815,21 +829,18 @@ def hgss_stairs(grid, palette, ground=frozenset()):
             seen |= comp
             xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
             ew = all(rock(x, ys[0] - 1) and rock(x, ys[-1] + 1) for x in xs)
-            rows = range(ys[0] - STAIR_CHEEK[0], ys[-1] + 1 + STAIR_CHEEK[1]) if ew else ys
-            for y in rows:
-                for x in xs:
-                    src = ref[(y - ROW0) * PX:(y - ROW0 + 1) * PX, (x - COL0) * PX:(x - COL0 + 1) * PX]
-                    cell = np.zeros((PX, PX, 4), np.uint8); cell[..., 3] = 255
-                    for (yy, xx), c in np.ndenumerate(src[..., 0]):
-                        c = tuple(int(v) for v in src[yy, xx])
-                        if c not in memo:
-                            memo[c] = tuple(int(v) for v in pal[int(np.argmin(np.linalg.norm(lab_p - _lab(np.array([c]))[0], axis=1)))])
-                        cell[yy, xx, :3] = memo[c]
-                        if memo[c] in ground:                 # HGSS's own ground at the flight's edge: the
-                            cell[yy, xx, 3] = 0               # route's ground painted beneath shows instead
-                    art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = cell
-                    placed.append(dict(cell=[x, y], art='hgss-stairs' if (x, y) in comp else 'hgss-stair-cheek',
-                                       flight='east-west' if ew else 'north-south'))
+            sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
+            falls_east = float(np.gradient(h[sl], axis=1).mean()) < 0
+            for (x, y) in sorted(comp):
+                if ew:
+                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
+                    a = p[k][:, ::-1].copy() if falls_east else p[k]
+                else:
+                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
+                    a = p[k]
+                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = a
+                placed.append(dict(cell=[x, y], art=k + (' (mirrored)' if ew and falls_east else ''),
+                                   flight='east-west' if ew else 'north-south'))
     Image.fromarray(art).save(LOCAL / 'stairs.png')
     return art, placed
 
@@ -1086,11 +1097,8 @@ def compose(phg, engine):
                 m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
-    # Stairs: HGSS's own flights converted to the route's palette (rock ramp, plank wood, road, lawn).
-    stair_pal = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} | set(STAIR_PLANKS)
-    stair_pal |= {tuple(int(v) for v in c) for c in tex[G.PATH].reshape(-1, 3)} | {tuple(int(v) for v in c) for c in tex[G.GRASS].reshape(-1, 3)}
-    ground_cols = frozenset(stair_pal - {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} - set(STAIR_PLANKS))
-    sa, stair_list = hgss_stairs(grid, stair_pal, ground_cols)
+    # Stairs: the converted Johto maps' own (Route 30's treads, Route 36's plank flight per column).
+    sa, stair_list = stairs(phg, grid)
     ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).
