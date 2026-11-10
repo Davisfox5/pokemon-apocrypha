@@ -1,0 +1,113 @@
+{
+ "traversal_differences": [
+  {
+   "cell": [
+    33,
+    16
+   ],
+   "platinum": "d",
+   "native": "#"
+  },
+  {
+   "cell": [
+    31,
+    17
+   ],
+   "platinum": ".",
+   "native": "s"
+  },
+  {
+   "cell": [
+    10,
+    25
+   ],
+   "platinum": ".",
+   "native": "s"
+  },
+  {
+   "cell": [
+    11,
+    35
+   ],
+   "platinum": ".",
+   "native": "s"
+  },
+  {
+   "cell": [
+    12,
+    51
+   ],
+   "platinum": ".",
+   "native": "s"
+  },
+  {
+   "cell": [
+    16,
+    55
+   ],
+   "platinum": ".",
+   "native": "s"
+  },
+  {
+   "cell": [
+    29,
+    57
+   ],
+   "platinum": ".",
+   "native": "s"
+  }
+ ],
+ "cleanup": [
+  {
+   "cleanup": "mirror_bridge",
+   "axis_px": 352,
+   "rows": [
+    334,
+    507
+   ],
+   "half_px": 115,
+   "west_pixels_replaced": 9458,
+   "east_pixels_copied": 8889
+  },
+  {
+   "cleanup": "restore_translucent",
+   "model": 244,
+   "box_px": [
+    128,
+    304,
+    160,
+    400
+   ],
+   "pixels": 282
+  },
+  {
+   "cleanup": "signs",
+   "cells": [
+    [
+     10,
+     25
+    ],
+    [
+     11,
+     35
+    ],
+    [
+     16,
+     55
+    ],
+    [
+     29,
+     57
+    ],
+    [
+     12,
+     51
+    ],
+    [
+     31,
+     17
+    ]
+   ]
+  }
+ ]
+}
