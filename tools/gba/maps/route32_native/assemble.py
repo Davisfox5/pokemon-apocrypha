@@ -816,28 +816,63 @@ def stair_flights(grid):
                 out += [('row', xs[0], y, len(xs), 'S') for y in ys]
     return out
 
-def stairs(grid):
-    """The catalog's stairs, as Route 45 (owner-accepted, locked) draws them. A straight flight is S01, S02 ...
-    S02, S03 across its row, opaque: the cell is the flight alone. A diagonal flight is S05 (descending east)
-    or S04 (descending west) over its column, 48 px: the cliff it cuts through runs on unbroken beneath it
-    (compose), and the flight lies over the cliff on the upper layer as a ground detail."""
+STAIR_RAILS = (2, 1)                 # rows of HGSS's rails above and below a diagonal flight's treads
+STAIR_PLANKS = [(88, 80, 48), (152, 144, 120), (168, 168, 144)]   # the Johto plank flight's wood greys
+
+def stairs(grid, palette):
+    """A straight flight (down a south face) is the catalog's S01, S02 ... S02, S03 across its row, opaque, as
+    Route 45 draws it. A flight across a wall is HGSS's own: its high-side column lifted whole from the
+    true-heights render (the stair material only: treads and both rails, STAIR_RAILS rows of rail above and
+    below the treads), every pixel the nearest colour of the route's palette, laid over the cliff it cuts
+    through on the upper layer; a wider flight stacks it, each lower column the same flight one row further
+    south, so the columns touch with no gap. Returns (straight bottom art, diagonal upper art, placements)."""
+    ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
+    smask = np.array(Image.open(SRC / 'hgss/hgss-true-heights-stairs.png')) > 0
+    pal = np.array(sorted(palette), int); lab_p = _lab(pal)
+    memo = {}
+    def native(c):
+        c = tuple(int(v) for v in c)
+        if c not in memo:
+            memo[c] = tuple(int(v) for v in pal[int(np.argmin(np.linalg.norm(lab_p - _lab(np.array([c]))[0], axis=1)))])
+        return memo[c]
     straight = np.zeros((H * PX, W * PX, 4), np.uint8)
     diagonal = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed = []
-    for kind, x, y, n, face in stair_flights(grid):
+    fl = stair_flights(grid)
+    columns = [f for f in fl if f[0] == 'column']
+    for kind, x, y, n, face in fl:
         if kind == 'row':
             for k in range(n):
                 name = 'S01' if k == 0 else 'S03' if k == n - 1 else 'S02'
                 straight[y * PX:(y + 1) * PX, (x + k) * PX:(x + k + 1) * PX] = rgba(SHARED / f'stairs/{name}.png')
                 placed.append(dict(cell=[x + k, y], art=name, flight='north-south'))
+    # each stacked flight: its high-side column (the topmost of a run of touching columns) is HGSS's template
+    done = set()
+    for kind, x, y, n, face in columns:
+        if (x, y) in done:
             continue
-        art = rgba(SHARED / ('stairs/S05.png' if face == 'E' else 'stairs/S04.png'))
-        h = min(art.shape[0], n * PX)
-        a = art[:h] > 0
-        sl = diagonal[y * PX:y * PX + h, x * PX:(x + 1) * PX]
-        m = art[:h, :, 3] > 0
-        sl[m] = art[:h][m]
-        placed.append(dict(cell=[x, y], rows=n, art='S05' if face == 'E' else 'S04', flight='east-west'))
+        run = [(x, y, n)]
+        step = 1 if face == 'E' else -1
+        while any(c[1] == run[-1][0] + step and c[2] == run[-1][1] + 1 for c in columns):
+            c = next(c for c in columns if c[1] == run[-1][0] + step and c[2] == run[-1][1] + 1)
+            run.append((c[1], c[2], c[3]))
+        tx, ty, tn = run[0]
+        r0, r1 = ty - STAIR_RAILS[0], ty + tn + STAIR_RAILS[1]
+        hy0, hy1 = (r0 - ROW0) * PX, (r1 - ROW0) * PX
+        hx0 = (tx - COL0) * PX
+        tmpl = np.zeros((hy1 - hy0, PX, 4), np.uint8)
+        m = smask[hy0:hy1, hx0:hx0 + PX]
+        for (yy, xx), on in np.ndenumerate(m):
+            if on:
+                tmpl[yy, xx, :3] = native(ref[hy0 + yy, hx0 + xx]); tmpl[yy, xx, 3] = 255
+        for cx, cy, cn in run:
+            Y0 = (cy - STAIR_RAILS[0]) * PX
+            sl = diagonal[Y0:Y0 + tmpl.shape[0], cx * PX:(cx + 1) * PX]
+            a = tmpl[..., 3] > 0
+            sl[a] = tmpl[a]
+            done.add((cx, cy))
+            placed.append(dict(cell=[cx, cy], rows=cn, art=f'HGSS flight from column {tx} rows {r0}-{r1 - 1}',
+                               flight='east-west'))
     Image.fromarray(np.maximum(straight, diagonal)).save(LOCAL / 'stairs.png')
     return straight, diagonal, placed
 
@@ -1102,8 +1137,10 @@ def compose(phg, engine):
                 m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
-    # Stairs: the catalog's, as Route 45 draws them (S01-S03 straight, S04/S05 diagonal over the cliff).
-    sa, sdiag, stair_list = stairs(grid)
+    # Stairs: S01-S03 straight (Route 45's); a flight across a wall HGSS's own, stacked, in the route's palette.
+    stair_pal = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} | set(STAIR_PLANKS)
+    stair_pal |= {tuple(int(v) for v in c) for c in pier[piermask].tolist()} - {tuple(int(v) for v in c) for c in sea[seamask].tolist()}
+    sa, sdiag, stair_list = stairs(grid, stair_pal)
     ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).

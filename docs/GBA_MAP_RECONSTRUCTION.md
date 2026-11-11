@@ -99,9 +99,12 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    owner-accepted, locked Route 45 does, with the catalog's current pieces
    (`johto-common/scenery` S01-S05 on `codex/violet-city`), not stair pieces cut
    from earlier map iterations: a flight down a south face is S01, S02... S03 across
-   its row; a flight across a wall is S05 (descending east) or S04 (descending west)
-   over each column, the cliff drawn on unbroken beneath it, and a flight wider than
-   one column stacks, each lower column one row further south.
+   its row. A flight across a wall is the original's own flight with its rails,
+   lifted whole from the true-heights render by the stair material
+   (`hgss-true-heights-stairs.png`) and converted to the route's palette, laid over
+   the cliff drawn on unbroken beneath it; a flight wider than one column stacks it,
+   each lower column the same flight one row further south, touching with no gap
+   (the catalog's S04/S05 leave a gap and have no rails).
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets

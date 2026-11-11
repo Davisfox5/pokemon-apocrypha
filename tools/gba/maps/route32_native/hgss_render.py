@@ -358,7 +358,11 @@ def main(phg, out):
     out.mkdir(parents=True, exist_ok=True)
     global SNAP
     SNAP = False
-    render(phg)['full'].save(out / 'hgss-reference-true-heights.png')   # review only: HGSS front heights
+    rt = render(phg)
+    rt['full'].save(out / 'hgss-reference-true-heights.png')   # HGSS front heights (the stairs are drawn from it)
+    # the stair material ('slope': treads and rails) at true heights, so a flight can be lifted whole
+    stair = rt['ground_mat'] == rt['materials'].index('slope')
+    Image.fromarray((stair * 255).astype(np.uint8)).save(out / 'hgss-true-heights-stairs.png')
     SNAP = True
     r = render(phg)
     r['full'].save(out / 'hgss-render.png')

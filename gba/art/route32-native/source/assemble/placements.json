@@ -4386,11 +4386,59 @@
  "stairs": [
   {
    "cell": [
+    6,
+    111
+   ],
+   "art": "S01",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    111
+   ],
+   "art": "S02",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    111
+   ],
+   "art": "S03",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    6,
+    112
+   ],
+   "art": "S01",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    112
+   ],
+   "art": "S02",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    112
+   ],
+   "art": "S03",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
     9,
     74
    ],
    "rows": 3,
-   "art": "S05",
+   "art": "HGSS flight from column 9 rows 72-77",
    "flight": "east-west"
   },
   {
@@ -4399,56 +4447,8 @@
     75
    ],
    "rows": 3,
-   "art": "S05",
+   "art": "HGSS flight from column 9 rows 72-77",
    "flight": "east-west"
-  },
-  {
-   "cell": [
-    6,
-    111
-   ],
-   "art": "S01",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    7,
-    111
-   ],
-   "art": "S02",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    8,
-    111
-   ],
-   "art": "S03",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    6,
-    112
-   ],
-   "art": "S01",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    7,
-    112
-   ],
-   "art": "S02",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    8,
-    112
-   ],
-   "art": "S03",
-   "flight": "north-south"
   }
  ],
  "boulders": [
