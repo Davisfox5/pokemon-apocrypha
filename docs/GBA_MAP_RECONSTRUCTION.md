@@ -104,7 +104,10 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    (`hgss-true-heights-stairs.png`) and converted to the route's palette, laid over
    the cliff drawn on unbroken beneath it; a flight wider than one column stacks it,
    each lower column the same flight one row further south, touching with no gap
-   (the catalog's S04/S05 leave a gap and have no rails).
+   (the catalog's S04/S05 leave a gap and have no rails). The treads run on the
+   diagonal: the plank band falls one pixel per pixel toward the low side (a whole
+   row per column, the stacking step), between rails left where the original has
+   them; a flat plank band reads wrong.
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets

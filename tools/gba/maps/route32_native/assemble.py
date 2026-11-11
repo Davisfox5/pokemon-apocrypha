@@ -819,6 +819,31 @@ def stair_flights(grid):
 STAIR_RAILS = (2, 1)                 # rows of HGSS's rails above and below a diagonal flight's treads
 STAIR_PLANKS = [(88, 80, 48), (152, 144, 120), (168, 168, 144)]   # the Johto plank flight's wood greys
 
+def shear_treads(tmpl, falls='E'):
+    """The treads run down the flight on the diagonal: HGSS's plank band (every pixel that is not a rail, i.e. not
+    a rock ramp tone) is shifted down one pixel for every pixel toward the low side, so across a 16 px column it
+    falls a whole row, the step to the next stacked column, and the flight reads as one continuous diagonal.
+    The rails stay where HGSS has them; the treads stop at the bottom rail's top edge, and the cliff shows in the
+    wedge the shift opens under the top rail."""
+    ramp = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
+    h, w = tmpl.shape[:2]
+    rail = np.array([[tmpl[y, x, 3] > 0 and tuple(int(v) for v in tmpl[y, x, :3]) in ramp for x in range(w)] for y in range(h)])
+    tread = (tmpl[..., 3] > 0) & ~rail
+    out = tmpl.copy()
+    out[tread] = 0
+    for x in range(w):
+        dy = x if falls == 'E' else w - 1 - x
+        ys = np.nonzero(tread[:, x])[0]
+        if not len(ys):
+            continue
+        bottom_rail = [y for y in np.nonzero(rail[:, x])[0] if y > ys.mean()]
+        stop = min(bottom_rail) if bottom_rail else h
+        for y in ys:
+            ny = y + dy
+            if ny < stop and ny < h and not rail[ny, x]:
+                out[ny, x] = tmpl[y, x]
+    return out
+
 def stairs(grid, palette):
     """A straight flight (down a south face) is the catalog's S01, S02 ... S02, S03 across its row, opaque, as
     Route 45 draws it. A flight across a wall is HGSS's own: its high-side column lifted whole from the
@@ -865,6 +890,7 @@ def stairs(grid, palette):
         for (yy, xx), on in np.ndenumerate(m):
             if on:
                 tmpl[yy, xx, :3] = native(ref[hy0 + yy, hx0 + xx]); tmpl[yy, xx, 3] = 255
+        tmpl = shear_treads(tmpl, falls=face)
         for cx, cy, cn in run:
             Y0 = (cy - STAIR_RAILS[0]) * PX
             sl = diagonal[Y0:Y0 + tmpl.shape[0], cx * PX:(cx + 1) * PX]
