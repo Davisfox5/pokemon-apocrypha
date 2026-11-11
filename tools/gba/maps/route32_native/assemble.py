@@ -816,50 +816,18 @@ def stair_flights(grid):
                 out += [('row', xs[0], y, len(xs), 'S') for y in ys]
     return out
 
-STAIR_RAILS = (2, 1)                 # rows of HGSS's rails above and below a diagonal flight's treads
-STAIR_PLANKS = [(88, 80, 48), (152, 144, 120), (168, 168, 144)]   # the Johto plank flight's wood greys
+# HGSS Route 32's flight in the route's palette (sampled from it converted): its plank stripes across a column,
+# the treads' dark top edge, and its rails top to bottom (outline, light edge, body, shade, outline).
+TREAD_STRIPES = [(152, 144, 120), (168, 168, 144), (168, 168, 144), (152, 144, 120), (88, 80, 48)]
+TREAD_EDGE, TREAD_PX = (88, 80, 48), 30
+TOP_RAIL = [(82, 58, 52), (198, 148, 115), (165, 115, 99), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
+BOTTOM_RAIL = [(82, 58, 52), (165, 115, 99), (198, 148, 115), (165, 115, 99), (99, 70, 66), (82, 58, 52)]
 
-def shear_treads(tmpl, falls='E'):
-    """The treads run down the flight on the diagonal: HGSS's plank band (every pixel that is not a rail, i.e. not
-    a rock ramp tone) is shifted down one pixel for every pixel toward the low side, so across a 16 px column it
-    falls a whole row, the step to the next stacked column, and the flight reads as one continuous diagonal.
-    The rails stay where HGSS has them; the treads stop at the bottom rail's top edge, and the cliff shows in the
-    wedge the shift opens under the top rail."""
-    ramp = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP}
-    h, w = tmpl.shape[:2]
-    rail = np.array([[tmpl[y, x, 3] > 0 and tuple(int(v) for v in tmpl[y, x, :3]) in ramp for x in range(w)] for y in range(h)])
-    tread = (tmpl[..., 3] > 0) & ~rail
-    out = tmpl.copy()
-    out[tread] = 0
-    for x in range(w):
-        dy = x if falls == 'E' else w - 1 - x
-        ys = np.nonzero(tread[:, x])[0]
-        if not len(ys):
-            continue
-        bottom_rail = [y for y in np.nonzero(rail[:, x])[0] if y > ys.mean()]
-        stop = min(bottom_rail) if bottom_rail else h
-        for y in ys:
-            ny = y + dy
-            if ny < stop and ny < h and not rail[ny, x]:
-                out[ny, x] = tmpl[y, x]
-    return out
-
-def stairs(grid, palette):
+def stairs(grid):
     """A straight flight (down a south face) is the catalog's S01, S02 ... S02, S03 across its row, opaque, as
-    Route 45 draws it. A flight across a wall is HGSS's own: its high-side column lifted whole from the
-    true-heights render (the stair material only: treads and both rails, STAIR_RAILS rows of rail above and
-    below the treads), every pixel the nearest colour of the route's palette, laid over the cliff it cuts
-    through on the upper layer; a wider flight stacks it, each lower column the same flight one row further
-    south, so the columns touch with no gap. Returns (straight bottom art, diagonal upper art, placements)."""
-    ref = np.array(Image.open(SRC / 'hgss/hgss-reference-true-heights.png').convert('RGB'))
-    smask = np.array(Image.open(SRC / 'hgss/hgss-true-heights-stairs.png')) > 0
-    pal = np.array(sorted(palette), int); lab_p = _lab(pal)
-    memo = {}
-    def native(c):
-        c = tuple(int(v) for v in c)
-        if c not in memo:
-            memo[c] = tuple(int(v) for v in pal[int(np.argmin(np.linalg.norm(lab_p - _lab(np.array([c]))[0], axis=1)))])
-        return memo[c]
+    Route 45 draws it. A flight across a wall is HGSS's, drawn on its diagonal over the cliff it cuts through
+    (upper layer): rails and treads as straight parallel bands, a wider flight stacked one row per column so the
+    bands run on unbroken. Returns (straight bottom art, diagonal upper art, placements)."""
     straight = np.zeros((H * PX, W * PX, 4), np.uint8)
     diagonal = np.zeros((H * PX, W * PX, 4), np.uint8)
     placed = []
@@ -871,34 +839,22 @@ def stairs(grid, palette):
                 name = 'S01' if k == 0 else 'S03' if k == n - 1 else 'S02'
                 straight[y * PX:(y + 1) * PX, (x + k) * PX:(x + k + 1) * PX] = rgba(SHARED / f'stairs/{name}.png')
                 placed.append(dict(cell=[x + k, y], art=name, flight='north-south'))
-    # each stacked flight: its high-side column (the topmost of a run of touching columns) is HGSS's template
-    done = set()
+    # Each flight across a wall: HGSS's flight, drawn as one clean unit over every column it crosses: a top rail,
+    # the treads and a bottom rail, straight parallel bands on HGSS's diagonal (one pixel down per pixel toward
+    # the low side, so a stacked column one row lower continues the same lines), each the full width of its
+    # column. Colours: HGSS's plank stripes (the lifted flight's own, per pixel across) and its rails in the rock
+    # ramp. Above the top rail and below the bottom rail the cliff shows, behind each rail's dark outline.
     for kind, x, y, n, face in columns:
-        if (x, y) in done:
-            continue
-        run = [(x, y, n)]
-        step = 1 if face == 'E' else -1
-        while any(c[1] == run[-1][0] + step and c[2] == run[-1][1] + 1 for c in columns):
-            c = next(c for c in columns if c[1] == run[-1][0] + step and c[2] == run[-1][1] + 1)
-            run.append((c[1], c[2], c[3]))
-        tx, ty, tn = run[0]
-        r0, r1 = ty - STAIR_RAILS[0], ty + tn + STAIR_RAILS[1]
-        hy0, hy1 = (r0 - ROW0) * PX, (r1 - ROW0) * PX
-        hx0 = (tx - COL0) * PX
-        tmpl = np.zeros((hy1 - hy0, PX, 4), np.uint8)
-        m = smask[hy0:hy1, hx0:hx0 + PX]
-        for (yy, xx), on in np.ndenumerate(m):
-            if on:
-                tmpl[yy, xx, :3] = native(ref[hy0 + yy, hx0 + xx]); tmpl[yy, xx, 3] = 255
-        tmpl = shear_treads(tmpl, falls=face)
-        for cx, cy, cn in run:
-            Y0 = (cy - STAIR_RAILS[0]) * PX
-            sl = diagonal[Y0:Y0 + tmpl.shape[0], cx * PX:(cx + 1) * PX]
-            a = tmpl[..., 3] > 0
-            sl[a] = tmpl[a]
-            done.add((cx, cy))
-            placed.append(dict(cell=[cx, cy], rows=cn, art=f'HGSS flight from column {tx} rows {r0}-{r1 - 1}',
-                               flight='east-west'))
+        for xx in range(PX):
+            dy = xx if face == 'E' else PX - 1 - xx
+            top = y * PX + dy                               # first tread row in this pixel column
+            bands = [(top - len(TOP_RAIL) + k, c) for k, c in enumerate(TOP_RAIL)]
+            bands += [(top + k, TREAD_EDGE if k == 0 else TREAD_STRIPES[(x * PX + xx) % len(TREAD_STRIPES)]) for k in range(TREAD_PX)]
+            bands += [(top + TREAD_PX + k, c) for k, c in enumerate(BOTTOM_RAIL)]
+            for Y, c in bands:
+                if 0 <= Y < H * PX:
+                    diagonal[Y, x * PX + xx, :3] = c; diagonal[Y, x * PX + xx, 3] = 255
+        placed.append(dict(cell=[x, y], rows=n, art='HGSS flight, rails and treads on the diagonal', flight='east-west'))
     Image.fromarray(np.maximum(straight, diagonal)).save(LOCAL / 'stairs.png')
     return straight, diagonal, placed
 
@@ -1164,9 +1120,7 @@ def compose(phg, engine):
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
     # Stairs: S01-S03 straight (Route 45's); a flight across a wall HGSS's own, stacked, in the route's palette.
-    stair_pal = {tuple(int(v) for v in c) for c in Rk.ROCK_RAMP} | set(STAIR_PLANKS)
-    stair_pal |= {tuple(int(v) for v in c) for c in pier[piermask].tolist()} - {tuple(int(v) for v in c) for c in sea[seamask].tolist()}
-    sa, sdiag, stair_list = stairs(grid, stair_pal)
+    sa, sdiag, stair_list = stairs(grid)
     ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).

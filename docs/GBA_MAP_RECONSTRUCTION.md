@@ -99,15 +99,13 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    owner-accepted, locked Route 45 does, with the catalog's current pieces
    (`johto-common/scenery` S01-S05 on `codex/violet-city`), not stair pieces cut
    from earlier map iterations: a flight down a south face is S01, S02... S03 across
-   its row. A flight across a wall is the original's own flight with its rails,
-   lifted whole from the true-heights render by the stair material
-   (`hgss-true-heights-stairs.png`) and converted to the route's palette, laid over
-   the cliff drawn on unbroken beneath it; a flight wider than one column stacks it,
-   each lower column the same flight one row further south, touching with no gap
-   (the catalog's S04/S05 leave a gap and have no rails). The treads run on the
-   diagonal: the plank band falls one pixel per pixel toward the low side (a whole
-   row per column, the stacking step), between rails left where the original has
-   them; a flat plank band reads wrong.
+   its row. A flight across a wall is the original's flight drawn as one clean unit
+   over the cliff it cuts through (the cliff drawn on unbroken beneath it): a top
+   rail, the treads and a bottom rail as straight parallel bands on the original's
+   diagonal, each the full width of its column, in the original's plank stripes and
+   the rock ramp. A flight wider than one column stacks, each lower column one row
+   further south, so the bands run on unbroken. Lifting the original's rail pixels
+   over Gen 3 rock leaves noise; the catalog's S04/S05 leave a gap and have no rails.
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets
