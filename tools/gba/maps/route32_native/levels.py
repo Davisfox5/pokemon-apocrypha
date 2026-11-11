@@ -90,8 +90,9 @@ def levels(topdown, grid, cells, rows0, walls):
         ew = all(rk(x, y0 - 1) and rk(x, y1 + 1) for x in range(x0, x1 + 1))
         if ew:
             for x in range(x0, x1 + 1):
-                side = [int(L[y, x]) for y in (y0 - 1, y1 + 1) if rk(x, y)]
-                L[y0:y1 + 1, x] = max(side) if side else foot
+                col = np.nonzero(m[:, x])[0]                 # this column's own rows (stacked flights differ)
+                side = [int(L[y, x]) for y in (col[0] - 1, col[-1] + 1) if rk(x, y)]
+                L[col, x] = max(side) if side else foot
         else:
             for y in range(y0, y1 + 1):
                 side = [int(L[y, x]) for x in (x0 - 1, x1 + 1) if rk(x, y)]

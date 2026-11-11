@@ -21,6 +21,26 @@
     "source": "gba/art/johto-common/scenery/source/L13.png",
     "sha256": "923992869cbeac63972d4ff554c31637da390306b32d4866977f76d0896323e0"
   },
+  "stairs/S01.png": {
+    "source": "gba/art/johto-common/scenery/source/S01.png",
+    "sha256": "04913494c6fed12c9ec30ba5c20a559e4f428cc416a10f20cbc7c44b351f3f17"
+  },
+  "stairs/S02.png": {
+    "source": "gba/art/johto-common/scenery/source/S02.png",
+    "sha256": "9a14fd062cf30b5beb12f67892f2f2f5cb9d369d7ec919843eb7ee7b79b32aeb"
+  },
+  "stairs/S03.png": {
+    "source": "gba/art/johto-common/scenery/source/S03.png",
+    "sha256": "ae06e1d00c3c0ef9740c83c0d36c6481a58de4d19f831f4ddc4462acd5ac8234"
+  },
+  "stairs/S04.png": {
+    "source": "gba/art/johto-common/scenery/source/S04.png",
+    "sha256": "90fd9afe50ecbc29485328588a6e66e387c17b351f3e1696ea716a33ab5adc46"
+  },
+  "stairs/S05.png": {
+    "source": "gba/art/johto-common/scenery/source/S05.png",
+    "sha256": "c9d4624138b837abacf63cb6d9dda9322c455c6110a22c3f4e4d16f1ded6616f"
+  },
   "tall-grass/G00.png": {
     "source": "gba/art/johto-common/scenery/source/G00.png",
     "sha256": "750de97d2592803ee830a621e7c3b3575ff33cbd94feef897c4260a6002a573c"
@@ -100,43 +120,7 @@
   "cherrygrove-tree-with-shadow.png": {
     "source": "gba/art/route30-catalog/source/local-art/cherrygrove-tree-with-shadow.png",
     "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
+    "commit": "789407c0847fd88ba749bb70adfdd5662776dc22",
     "sha256": "cc48cf15f1775e03943008b424d8454fc5d6e259384fcdab814e19c356b1a3da"
-  },
-  "stairs/ns-left.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ns-left.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "1f74fadd105ac14b6e246ae87a25dac599c8e470c0fbe41b0c8d74211a8a951d"
-  },
-  "stairs/ns-mid.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ns-mid.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "2435ca9919dcfa6dbbdabbc91c93bdedaae7325d69942e834f5df7ef59d5c6bc"
-  },
-  "stairs/ns-right.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ns-right.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "5f49c93e9723d26324d3077529386009310c055cd204bbe0f7ce9452ec58f6a5"
-  },
-  "stairs/ew-top.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ew-top.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "a5eff4e862b438a64dc99a8aa08fafd592ba40e8e7145e2cfdc43f3bf9f5cb14"
-  },
-  "stairs/ew-mid.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ew-mid.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "08b2d7de6b57e2d5ab19db952bcbb5bbe47750c21e8c68cd28d4da311ec041d0"
-  },
-  "stairs/ew-bottom.png": {
-    "source": "gba/art/route30-catalog/source/shared-art/stairs/ew-bottom.png",
-    "branch": "main",
-    "commit": "4066d2a4fc830c3699717679485ebbb263851d68",
-    "sha256": "a34972c3b0e44b2c821685e9b20f69a347f8075bebf975e35b176c06d22d3b0a"
   }
 }

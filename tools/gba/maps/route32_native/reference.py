@@ -229,6 +229,35 @@ def material_grid(cells, woods, roots, events):
             else:
                 ch = 'g'
             grid[y][x] = ch
+    # A flight across a wall (rock above and below it) more than one column wide is one diagonal flight per
+    # column, one level each, and the columns stack: each lower column stands one row further south than the
+    # column above it (Route 45's owner-accepted river flights), so the flight runs down the wall's levels in
+    # steps. HGSS's ground heights say which side is high; the vacated cell is the wall, the cell gained below
+    # was the wall.
+    seen = set()
+    for y0 in range(ROW0, H):
+        for x0 in range(W):
+            if grid[y0][x0] != '^' or (x0, y0) in seen:
+                continue
+            comp, todo = set(), [(x0, y0)]
+            while todo:
+                c = todo.pop()
+                if c in comp or not (0 <= c[0] < W and ROW0 <= c[1] < H) or grid[c[1]][c[0]] != '^':
+                    continue
+                comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
+            seen |= comp
+            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
+            rk = lambda x, y: ROW0 <= y < H and grid[y][x] in 'RX'
+            if len(xs) < 2 or not all(rk(x, ys[0] - 1) and rk(x, ys[-1] + 1) for x in xs):
+                continue
+            lv = lambda x: np.mean([cells[y - ROW0][x - COL0]['ground'] for y in ys])
+            order = xs if lv(xs[0]) > lv(xs[-1]) else xs[::-1]          # high side first
+            for k, x in enumerate(order):
+                for y in ys:
+                    grid[y][x] = 'R'
+                for y in ys:
+                    grid[y + k][x] = '^'
+            seen |= {(x, y + k) for k, x in enumerate(order) for y in ys}
     # Rock out in the sea takes HGSS's rock art, not its collision: HGSS blocks its islets only in patches (the big
     # islet at x27-31, rows 94-97, is mostly surfable) and steps the pillar under the big wall a column west of its
     # art. A sea or rock cell whose eight neighbours are all sea, rock, boulder, pier or viaduct is rock where HGSS's

@@ -4389,31 +4389,8 @@
     9,
     74
    ],
-   "art": "ew-top (mirrored)",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
-    75
-   ],
-   "art": "ew-mid (mirrored)",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    9,
-    76
-   ],
-   "art": "ew-bottom (mirrored)",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    74
-   ],
-   "art": "ew-top (mirrored)",
+   "rows": 3,
+   "art": "S05",
    "flight": "east-west"
   },
   {
@@ -4421,15 +4398,8 @@
     10,
     75
    ],
-   "art": "ew-mid (mirrored)",
-   "flight": "east-west"
-  },
-  {
-   "cell": [
-    10,
-    76
-   ],
-   "art": "ew-bottom (mirrored)",
+   "rows": 3,
+   "art": "S05",
    "flight": "east-west"
   },
   {
@@ -4437,7 +4407,23 @@
     6,
     111
    ],
-   "art": "ns-left",
+   "art": "S01",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    7,
+    111
+   ],
+   "art": "S02",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    8,
+    111
+   ],
+   "art": "S03",
    "flight": "north-south"
   },
   {
@@ -4445,15 +4431,7 @@
     6,
     112
    ],
-   "art": "ns-left",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    7,
-    111
-   ],
-   "art": "ns-mid",
+   "art": "S01",
    "flight": "north-south"
   },
   {
@@ -4461,15 +4439,7 @@
     7,
     112
    ],
-   "art": "ns-mid",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    8,
-    111
-   ],
-   "art": "ns-right",
+   "art": "S02",
    "flight": "north-south"
   },
   {
@@ -4477,7 +4447,7 @@
     8,
     112
    ],
-   "art": "ns-right",
+   "art": "S03",
    "flight": "north-south"
   }
  ],

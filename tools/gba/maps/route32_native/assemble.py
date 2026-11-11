@@ -57,14 +57,13 @@ TRACE, SHARED, LOCAL = SRC / 'trace', SRC / 'shared-art', SRC / 'local-art'
 OUT, OEV = SRC / 'assemble', EV / 'assemble'
 
 CATALOG = {n + '.png': f'gba/art/johto-common/scenery/source/{n}.png' for n in ('P14', 'L11', 'L12', 'L13')}
+CATALOG.update({f'stairs/S0{i}.png': f'gba/art/johto-common/scenery/source/S0{i}.png' for i in range(1, 6)})
 CATALOG.update({f'tall-grass/G{m:02d}.png': f'gba/art/johto-common/scenery/source/G{m:02d}.png' for m in range(16)})
 CATALOG['T01.png'] = 'gba/art/johto-common/trees/source/T01.png'
 CATALOG['G02.png'] = 'gba/art/johto-common-review/gates/refinement-4/G02.png'
 CATALOG['C06.png'] = 'gba/art/johto-center/source/building.png'
 # Already cut on the hub's main branch (Route 30's catalog work).
-HUB = {'cherrygrove-tree-with-shadow.png': 'gba/art/route30-catalog/source/local-art/cherrygrove-tree-with-shadow.png',
-       **{f'stairs/{k}.png': f'gba/art/route30-catalog/source/shared-art/stairs/{k}.png'
-          for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}}
+HUB = {'cherrygrove-tree-with-shadow.png': 'gba/art/route30-catalog/source/local-art/cherrygrove-tree-with-shadow.png'}
 BASE_REV = '2722eaf7601ec02dc5a684fa8cdef9206c0dc377'   # the engine's apocrypha base: Cherrygrove before the town rework
 FLOOR = 1                           # HGSS height of Route 32's low walkable floor (the coast, the pier, the cave forecourt)
 GATE_ORIGIN = (0, 1 + ROW0)         # G02 is 7x7 cells; its stairs (column 6, rows 4-5) stand on HGSS's gate warps (6,5)/(6,6)
@@ -787,35 +786,14 @@ def tall_grass_set():
     return out
 
 # --------------------------------------------------------------------------- stairs, ledges
-EW_ROCK_SNAP = 14.0                  # Lab distance within which a Route 36 rock colour takes the Johto rock ramp
-
-def fit_ew(pieces):
-    """Route 30's and Route 31's: Route 36's plank flight sits in this route's wall, its rock cheeks in the
-    wall's rock ramp (each rock colour its nearest ramp tone within EW_ROCK_SNAP), its planks as they are."""
-    ramp = [tuple(int(v) for v in c) for c in Rk.ROCK_RAMP]
-    lab_r = _lab(np.array(ramp))
-    snap = {}
-    for c in sorted({tuple(c) for p in pieces.values() for c in p[..., :3].reshape(-1, 3).tolist()}):
-        d = np.linalg.norm(lab_r - _lab(np.array([c]))[0], axis=1)
-        if d.min() < EW_ROCK_SNAP:
-            snap[c] = ramp[int(d.argmin())]
-    return {k: apply_tones(v, snap) for k, v in pieces.items()}
-
-def stairs(phg, grid):
-    """The converted Johto maps' stairs (Routes 30, 31 and 36), flight by flight on HGSS's stair cells.
-    An east-west flight (rock above and below it) takes Route 36's plank flight in each of its columns, as
-    Route 31's two-column ridge crossing does (HGSS draws such a flight as one-column flights side by side):
-    the top cell with its dark rock cheek, plank cells, the bottom cell with its brown cheek. Route 36's flight
-    climbs to the east, as HGSS's Route 31 crossing does; where HGSS's flight falls to the east (Route 32's
-    decoded heights fall along x) every column is mirrored. A north-south flight takes Route 30's grey treads
-    in each of its rows: the left end, middles, the right end."""
-    p = {k: rgba(SHARED / f'stairs/{k}.png') for k in ('ns-left', 'ns-mid', 'ns-right', 'ew-top', 'ew-mid', 'ew-bottom')}
-    p.update(fit_ew({k: v for k, v in p.items() if k.startswith('ew')}))
-    h, _, _, _ = Rf.topdown(phg)
+def stair_flights(grid):
+    """HGSS's stair cells as flights. A run along a row (the flight down a south face) is a straight flight; a
+    flight across a wall (rock above and below it) is one diagonal flight per column, each column's own rows
+    (reference.py stacks a wide one, each lower column a row further south). Returns
+    [(kind, x, y, length, falls)] with kind 'row' or 'column' and falls 'E'/'W' for a column."""
     g = lambda x, y: grid[y][x] if 0 <= x < W and 0 <= y < H else '#'
     rock = lambda x, y: g(x, y) in 'RX'
-    art = np.zeros((H * PX, W * PX, 4), np.uint8)
-    placed, seen = [], set()
+    out, seen = [], set()
     for y0 in range(H):
         for x0 in range(W):
             if g(x0, y0) != '^' or (x0, y0) in seen:
@@ -827,22 +805,41 @@ def stairs(phg, grid):
                     continue
                 comp.add(c); todo += [(c[0] + dx, c[1] + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))]
             seen |= comp
-            xs, ys = sorted({c[0] for c in comp}), sorted({c[1] for c in comp})
-            ew = all(rock(x, ys[0] - 1) and rock(x, ys[-1] + 1) for x in xs)
-            sl = np.s_[(ys[0] - ROW0) * PX:(ys[-1] - ROW0 + 1) * PX, (xs[0] - COL0) * PX:(xs[-1] - COL0 + 1) * PX]
-            falls_east = float(np.gradient(h[sl], axis=1).mean()) < 0
-            for (x, y) in sorted(comp):
-                if ew:
-                    k = 'ew-top' if y == ys[0] else 'ew-bottom' if y == ys[-1] else 'ew-mid'
-                    a = p[k][:, ::-1].copy() if falls_east else p[k]
-                else:
-                    k = 'ns-left' if x == xs[0] else 'ns-right' if x == xs[-1] else 'ns-mid'
-                    a = p[k]
-                art[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = a
-                placed.append(dict(cell=[x, y], art=k + (' (mirrored)' if ew and falls_east else ''),
-                                   flight='east-west' if ew else 'north-south'))
-    Image.fromarray(art).save(LOCAL / 'stairs.png')
-    return art, placed
+            xs = sorted({c[0] for c in comp})
+            cols = {x: sorted(y for cx, y in comp if cx == x) for x in xs}
+            if all(rock(x, cols[x][0] - 1) and rock(x, cols[x][-1] + 1) for x in xs):
+                tops = [cols[x][0] for x in xs]
+                falls = 'E' if tops[-1] > tops[0] or (tops[-1] == tops[0] and g(xs[0] - 1, cols[xs[0]][0]) in 'dD') else 'W'
+                out += [('column', x, cols[x][0], len(cols[x]), falls) for x in xs]
+            else:
+                ys = sorted({c[1] for c in comp})
+                out += [('row', xs[0], y, len(xs), 'S') for y in ys]
+    return out
+
+def stairs(grid):
+    """The catalog's stairs, as Route 45 (owner-accepted, locked) draws them. A straight flight is S01, S02 ...
+    S02, S03 across its row, opaque: the cell is the flight alone. A diagonal flight is S05 (descending east)
+    or S04 (descending west) over its column, 48 px: the cliff it cuts through runs on unbroken beneath it
+    (compose), and the flight lies over the cliff on the upper layer as a ground detail."""
+    straight = np.zeros((H * PX, W * PX, 4), np.uint8)
+    diagonal = np.zeros((H * PX, W * PX, 4), np.uint8)
+    placed = []
+    for kind, x, y, n, face in stair_flights(grid):
+        if kind == 'row':
+            for k in range(n):
+                name = 'S01' if k == 0 else 'S03' if k == n - 1 else 'S02'
+                straight[y * PX:(y + 1) * PX, (x + k) * PX:(x + k + 1) * PX] = rgba(SHARED / f'stairs/{name}.png')
+                placed.append(dict(cell=[x + k, y], art=name, flight='north-south'))
+            continue
+        art = rgba(SHARED / ('stairs/S05.png' if face == 'E' else 'stairs/S04.png'))
+        h = min(art.shape[0], n * PX)
+        a = art[:h] > 0
+        sl = diagonal[y * PX:y * PX + h, x * PX:(x + 1) * PX]
+        m = art[:h, :, 3] > 0
+        sl[m] = art[:h][m]
+        placed.append(dict(cell=[x, y], rows=n, art='S05' if face == 'E' else 'S04', flight='east-west'))
+    Image.fromarray(np.maximum(straight, diagonal)).save(LOCAL / 'stairs.png')
+    return straight, diagonal, placed
 
 def ledge_pieces():
     l11, l12, l13 = (rgba(SHARED / f'{n}.png') for n in ('L11', 'L12', 'L13'))
@@ -1076,8 +1073,16 @@ def compose(phg, engine):
             elif ncells[y][x]['lab'] == 'R':
                 ncells[y][x] = dict(ncells[y][x], lab='X')
     (OUT / 'levels.json').write_text(json.dumps(dict(levels=d.tolist(), audit=Lv.audit(d, isrock))) + '\n')
+    # A diagonal flight's cells are part of the cliff it cuts through: the cliff is drawn on under it, unbroken,
+    # at the flight's levels (the wall's own, levels.py), and the flight lies over it (Route 45).
+    draw_rock = isrock.copy()
+    for kind, x, y, n, face in stair_flights(grid):
+        if kind == 'column':
+            for k in range(n):
+                draw_rock[y + k, x] = True
+                ncells[y + k][x] = dict(ncells[y + k][x], lab='R')
     plain_tex = dict(grass=tex[G.GRASS], sand=tex[G.PATH], water=water_block)
-    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, isrock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
+    bottom, rock_over, piece = Rk.rock_frlg(ncells, d, draw_rock, bottom, Rk.frlg_pieces(engine), plain_tex, soft=True)
     flat = np.zeros((H * PX, W * PX, 4), np.uint8)
     flat_owner = np.full((H * PX, W * PX), '', object)
     def lay(art, name):
@@ -1097,8 +1102,8 @@ def compose(phg, engine):
                 m = 8 * tall(x, y - 1) + 4 * tall(x, y + 1) + 2 * tall(x - 1, y) + tall(x + 1, y)
                 tg[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX] = gset[m]; n_g15 += 1
     la, ledge_list = ledges(grid)
-    # Stairs: the converted Johto maps' own (Route 30's treads, Route 36's plank flight per column).
-    sa, stair_list = stairs(phg, grid)
+    # Stairs: the catalog's, as Route 45 draws them (S01-S03 straight, S04/S05 diagonal over the cliff).
+    sa, sdiag, stair_list = stairs(grid)
     ba, boulder_list = boulders([[('~' if (x, y) in pillar_cells else ch) for x, ch in enumerate(row)] for y, row in enumerate(grid)], sea_x, engine)
     # Every sea boulder stands on the same open-water cell (HGSS's sea at one texture phase), so all of them are
     # one native cell (tile budget).
@@ -1133,6 +1138,7 @@ def compose(phg, engine):
     # Boulders sit in the upper tile over the water (still under the player): their tiles then depend only on
     # the sprite, not on the water texture beneath (tile budget).
     lay(light, 'light_lawn'); lay(flw, 'flowers'); lay(tg, 'tall_grass'); lay(la, 'ledge'); lay(ba, 'boulders')
+    lay(sdiag, 'stairs')                                 # the diagonal flights over their cliff
     top = np.zeros((H * PX, W * PX, 4), np.uint8)
     owner = np.full((H * PX, W * PX), '', object)
     tree = rgba(SHARED / 'cherrygrove-tree-with-shadow.png')

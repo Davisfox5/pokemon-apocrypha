@@ -95,11 +95,13 @@ rendering: `rock_frlg` in [`rock.py`](../tools/gba/maps/route32_native/rock.py).
    and never sits at or below the sea. A flight of stairs is cut through a wall and
    takes that wall's levels: row by row (the rock either side) for a north-south
    flight, column by column (the rock above and below) for an east-west one, so the
-   faces beside it run straight through to the treads. Draw stairs the way the
-   converted Johto maps do: north-south flights take Route 30's grey treads (left
-   end, middles, right end per row); east-west flights take Route 36's plank flight
-   in each column (Route 31's two-column crossing), mirrored where the original's
-   flight falls the other way (compare the cheeks' slope with the original's).
+   faces beside it run straight through to the treads. Draw stairs as the
+   owner-accepted, locked Route 45 does, with the catalog's current pieces
+   (`johto-common/scenery` S01-S05 on `codex/violet-city`), not stair pieces cut
+   from earlier map iterations: a flight down a south face is S01, S02... S03 across
+   its row; a flight across a wall is S05 (descending east) or S04 (descending west)
+   over each column, the cliff drawn on unbroken beneath it, and a flight wider than
+   one column stacks, each lower column one row further south.
 3. **Make every level wrap all the way round.** A rock cell stands at most one
    level above any of its eight neighbours, so a drop of k levels is k nested rims
    and each rim continues round every corner at the same level until it meets
