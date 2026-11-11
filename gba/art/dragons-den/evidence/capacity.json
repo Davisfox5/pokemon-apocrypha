@@ -1,0 +1,85 @@
+{
+  "maps": [
+    "DragonsDen_Entrance",
+    "DragonsDen"
+  ],
+  "primary": "gTileset_DragonsDenPrimary",
+  "secondary": "gTileset_DragonsDen",
+  "pack": {
+    "method": "assemble.py art (the Johto routes' tiles recoloured to HGSS's cave), exact palette banks when they fit (else 13 fitted), medoid tile reuse under a material-class penalty when over budget (lambda 300.0), one bottom layer per cell",
+    "distinct_tiles": 739,
+    "representatives": 739,
+    "patterns": 738,
+    "primary_tiles": 512,
+    "secondary_tiles": 226,
+    "metatiles": 315,
+    "primary_metatiles": 315,
+    "secondary_metatiles": 0,
+    "exact_banks": true,
+    "colours_per_bank": [
+      15,
+      14,
+      14,
+      15,
+      14,
+      15,
+      14,
+      14,
+      14,
+      1,
+      1,
+      1,
+      1
+    ],
+    "sides": {
+      "entrance": {
+        "pixels": 30976,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 21
+      },
+      "den": {
+        "pixels": 686080,
+        "exact": 1.0,
+        "within_1": 1.0,
+        "within_2": 1.0,
+        "max_level_diff": 0,
+        "metatiles_used": 309
+      }
+    }
+  },
+  "map_ids": {
+    "DragonsDen_Entrance": 70,
+    "DragonsDen": 71,
+    "BlackthornCity": 43
+  },
+  "left_out_warps": {
+    "DragonsDen": [
+      {
+        "index": 2,
+        "cell": [
+          28,
+          50
+        ],
+        "dest": "MAP_DRAGONS_DEN_SHRINE",
+        "anchor": 0
+      }
+    ]
+  },
+  "town": {
+    "map": "BlackthornCity",
+    "cell": [
+      32,
+      4
+    ],
+    "metatile": 521,
+    "behavior": "MB_NON_ANIMATED_DOOR",
+    "collision": 0,
+    "pairs": [
+      "entrance",
+      0
+    ]
+  }
+}

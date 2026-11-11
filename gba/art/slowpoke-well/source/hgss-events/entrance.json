@@ -1,0 +1,68 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/111_D26R0101.json"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_SLOWPOKE_WELL_ENTRANCE",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        17,
+        5
+      ],
+      "dest": "MAP_AZALEA",
+      "anchor": 7
+    },
+    {
+      "index": 1,
+      "cell": [
+        11,
+        6
+      ],
+      "dest": "MAP_SLOWPOKE_WELL_B1F",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        17,
+        8
+      ],
+      "script": "std_hiddenitem_d26r0101_great_ball",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D26R0101_gantetsu",
+      "sprite": "SPRITE_GANTETSU",
+      "cell": [
+        17,
+        8
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1AA",
+      "script": "_EV_scr_seq_D26R0101_000 + 1"
+    },
+    {
+      "id": "obj_D26R0101_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        16,
+        10
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON",
+      "script": "_EV_scr_seq_D26R0101_001 + 1"
+    }
+  ],
+  "coord_triggers": []
+}

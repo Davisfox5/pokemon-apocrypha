@@ -1,0 +1,137 @@
+{
+  "maps": {
+    "DragonsDen_Entrance": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 42,
+      "hgss_reach_cells": 42,
+      "reach_on_foot": 42,
+      "kinds": {
+        "blocked": 982,
+        "floor": 40,
+        "ladder": 1,
+        "exit": 1
+      },
+      "warps": 2,
+      "tiles": [
+        512,
+        240
+      ],
+      "metatiles": [
+        315,
+        1
+      ]
+    },
+    "DragonsDen": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 883,
+      "hgss_reach_cells": 883,
+      "reach_on_foot": 144,
+      "kinds": {
+        "blocked": 2836,
+        "floor": 350,
+        "ladder": 2,
+        "water": 908
+      },
+      "warps": 2,
+      "tiles": [
+        512,
+        240
+      ],
+      "metatiles": [
+        315,
+        1
+      ]
+    }
+  },
+  "routes": {
+    "BlackthornCity": {
+      "pixels_changed": 0,
+      "cells": [
+        [
+          32,
+          4
+        ]
+      ],
+      "metatile": 521,
+      "warps": [
+        {
+          "x": 32,
+          "y": 4,
+          "elevation": 0,
+          "dest_map": "MAP_DRAGONS_DEN_ENTRANCE",
+          "dest_warp_id": "0"
+        }
+      ]
+    }
+  },
+  "changed_files": [
+    "data/event_scripts.s",
+    "data/layouts/BlackthornCity/map.bin",
+    "data/layouts/DragonsDen/border.bin",
+    "data/layouts/DragonsDen/map.bin",
+    "data/layouts/DragonsDen_Entrance/border.bin",
+    "data/layouts/DragonsDen_Entrance/map.bin",
+    "data/layouts/layouts.json",
+    "data/maps/BlackthornCity/map.json",
+    "data/maps/DragonsDen/map.json",
+    "data/maps/DragonsDen/scripts.inc",
+    "data/maps/DragonsDen_Entrance/map.json",
+    "data/maps/DragonsDen_Entrance/scripts.inc",
+    "data/maps/map_groups.json",
+    "data/tilesets/primary/dragons_den/metatile_attributes.bin",
+    "data/tilesets/primary/dragons_den/metatiles.bin",
+    "data/tilesets/primary/dragons_den/palettes/00.pal",
+    "data/tilesets/primary/dragons_den/palettes/01.pal",
+    "data/tilesets/primary/dragons_den/palettes/02.pal",
+    "data/tilesets/primary/dragons_den/palettes/03.pal",
+    "data/tilesets/primary/dragons_den/palettes/04.pal",
+    "data/tilesets/primary/dragons_den/palettes/05.pal",
+    "data/tilesets/primary/dragons_den/palettes/06.pal",
+    "data/tilesets/primary/dragons_den/palettes/07.pal",
+    "data/tilesets/primary/dragons_den/palettes/08.pal",
+    "data/tilesets/primary/dragons_den/palettes/09.pal",
+    "data/tilesets/primary/dragons_den/palettes/10.pal",
+    "data/tilesets/primary/dragons_den/palettes/11.pal",
+    "data/tilesets/primary/dragons_den/palettes/12.pal",
+    "data/tilesets/primary/dragons_den/palettes/13.pal",
+    "data/tilesets/primary/dragons_den/palettes/14.pal",
+    "data/tilesets/primary/dragons_den/palettes/15.pal",
+    "data/tilesets/primary/dragons_den/tiles.png",
+    "data/tilesets/secondary/blackthorn_city/metatile_attributes.bin",
+    "data/tilesets/secondary/dragons_den/metatile_attributes.bin",
+    "data/tilesets/secondary/dragons_den/metatiles.bin",
+    "data/tilesets/secondary/dragons_den/palettes/00.pal",
+    "data/tilesets/secondary/dragons_den/palettes/01.pal",
+    "data/tilesets/secondary/dragons_den/palettes/02.pal",
+    "data/tilesets/secondary/dragons_den/palettes/03.pal",
+    "data/tilesets/secondary/dragons_den/palettes/04.pal",
+    "data/tilesets/secondary/dragons_den/palettes/05.pal",
+    "data/tilesets/secondary/dragons_den/palettes/06.pal",
+    "data/tilesets/secondary/dragons_den/palettes/07.pal",
+    "data/tilesets/secondary/dragons_den/palettes/08.pal",
+    "data/tilesets/secondary/dragons_den/palettes/09.pal",
+    "data/tilesets/secondary/dragons_den/palettes/10.pal",
+    "data/tilesets/secondary/dragons_den/palettes/11.pal",
+    "data/tilesets/secondary/dragons_den/palettes/12.pal",
+    "data/tilesets/secondary/dragons_den/palettes/13.pal",
+    "data/tilesets/secondary/dragons_den/palettes/14.pal",
+    "data/tilesets/secondary/dragons_den/palettes/15.pal",
+    "data/tilesets/secondary/dragons_den/tiles.png",
+    "include/regions.h",
+    "src/apocrypha_map_proof.c",
+    "src/data/region_map/region_map_sections.json",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h"
+  ],
+  "budget": {
+    "patterns": 738,
+    "primary_tiles": 512,
+    "secondary_tiles": 226,
+    "metatiles": 315,
+    "exact_banks": true
+  },
+  "failures": []
+}

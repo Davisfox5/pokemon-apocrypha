@@ -1,0 +1,34 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/122_D44R0101.json"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_DRAGONS_DEN_ENTRANCE",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        6,
+        9
+      ],
+      "dest": "MAP_BLACKTHORN",
+      "anchor": 2
+    },
+    {
+      "index": 1,
+      "cell": [
+        6,
+        5
+      ],
+      "dest": "MAP_DRAGONS_DEN",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [],
+  "objects": [],
+  "coord_triggers": []
+}

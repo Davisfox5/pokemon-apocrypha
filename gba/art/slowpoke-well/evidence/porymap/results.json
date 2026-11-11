@@ -1,0 +1,136 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "cd8885ae38e73aba6bf43fdbc0d391784514c647",
+  "export_vs_native": {
+    "SlowpokeWell_Entrance": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "SlowpokeWell_B1F": {
+      "size": [
+        1024,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "SlowpokeWell_B2F": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "JohtoAzaleaTown": {
+      "size": [
+        1024,
+        528
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "cave_or_town_files_rewritten": [
+    "data/layouts/JohtoAzaleaTown/border.bin",
+    "data/layouts/JohtoAzaleaTown/map.bin",
+    "data/layouts/SlowpokeWell_B1F/border.bin",
+    "data/layouts/SlowpokeWell_B1F/map.bin",
+    "data/layouts/SlowpokeWell_B2F/border.bin",
+    "data/layouts/SlowpokeWell_B2F/map.bin",
+    "data/layouts/SlowpokeWell_Entrance/border.bin",
+    "data/layouts/SlowpokeWell_Entrance/map.bin",
+    "data/maps/JohtoAzaleaTown/map.json",
+    "data/maps/SlowpokeWell_B1F/map.json",
+    "data/maps/SlowpokeWell_B2F/map.json",
+    "data/maps/SlowpokeWell_Entrance/map.json",
+    "data/tilesets/primary/slowpoke_well/metatile_attributes.bin",
+    "data/tilesets/primary/slowpoke_well/metatiles.bin",
+    "data/tilesets/primary/slowpoke_well/palettes/00.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/01.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/02.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/03.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/04.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/05.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/06.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/07.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/08.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/09.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/10.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/11.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/12.pal",
+    "data/tilesets/secondary/slowpoke_well/metatile_attributes.bin",
+    "data/tilesets/secondary/slowpoke_well/metatiles.bin",
+    "data/tilesets/secondary/slowpoke_well/palettes/00.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/01.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/02.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/03.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/04.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/05.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/06.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/07.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/08.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/09.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/10.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/11.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_the_cave_or_town": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"border_width\": 2,",
+    "-      \"border_height\": 2,",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"border_height\": 2,",
+    "+      \"border_width\": 2,",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"border_width\": 2,",
+    "-      \"border_height\": 2,",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"border_height\": 2,",
+    "+      \"border_width\": 2,",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"border_width\": 2,",
+    "-      \"border_height\": 2,",
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"border_height\": 2,",
+    "+      \"border_width\": 2,",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Failed to identify commit history: error: Could not read 26bf3fdcb5196708e44ba4e647a27132dfdaf98b'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention the cave or its town are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

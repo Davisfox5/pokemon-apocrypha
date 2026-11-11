@@ -1,0 +1,532 @@
+{
+  "rom_sha256": "54121273131df47acbf62e9594d17f7dca2bd1af7891490e7d385e9aa3856630",
+  "steps": [
+    [
+      "view",
+      "70",
+      "6",
+      "9",
+      "view-entrance"
+    ],
+    [
+      "view",
+      "71",
+      "28",
+      "6",
+      "view-den"
+    ],
+    [
+      "go",
+      "43",
+      "32",
+      "5"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "70",
+      "6",
+      "9"
+    ],
+    [
+      "shot",
+      "mouth-32-4"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "43",
+      "32",
+      "5"
+    ],
+    [
+      "shot",
+      "town-after-32-4"
+    ],
+    [
+      "go",
+      "70",
+      "6",
+      "6"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "71",
+      "28",
+      "6"
+    ],
+    [
+      "shot",
+      "warp-entrance-6-5"
+    ],
+    [
+      "go",
+      "71",
+      "28",
+      "7"
+    ],
+    [
+      "north",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "70",
+      "6",
+      "5"
+    ],
+    [
+      "shot",
+      "warp-den-28-6"
+    ],
+    [
+      "go",
+      "71",
+      "28",
+      "4"
+    ],
+    [
+      "south",
+      "1",
+      "None"
+    ],
+    [
+      "wait",
+      "300"
+    ],
+    [
+      "at",
+      "70",
+      "6",
+      "5"
+    ],
+    [
+      "shot",
+      "warp-den-28-5"
+    ],
+    [
+      "go",
+      "71",
+      "28",
+      "22"
+    ],
+    [
+      "surfing",
+      "1",
+      "on-the-water"
+    ],
+    [
+      "shot",
+      "surfing"
+    ]
+  ],
+  "phases": [
+    {
+      "phase": "write",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:view-entrance",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:view-den",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "at-70-6-9",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:mouth-32-4",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 9,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "at-43-32-5",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 32,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "shot:town-after-32-4",
+          "region": 2,
+          "group": 80,
+          "map": 43,
+          "x": 32,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 223
+        },
+        {
+          "step": "at-71-28-6",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:warp-entrance-6-5",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 6,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "at-70-6-5",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:warp-den-28-6",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "at-70-6-5",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:warp-den-28-5",
+          "region": 2,
+          "group": 80,
+          "map": 70,
+          "x": 6,
+          "y": 5,
+          "frlg_layout": 0,
+          "width": 32,
+          "height": 32,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:surfing",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 22,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:save-on-route",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "save_status": 1,
+          "flash_bytes": 131072
+        }
+      ]
+    },
+    {
+      "phase": "read",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:cold-flash-reload",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        }
+      ]
+    },
+    {
+      "phase": "menu",
+      "exit_code": 0,
+      "stderr": "",
+      "observations": [
+        {
+          "step": "shot:continue-menu",
+          "region": 3,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 2,
+          "width": 3848192002,
+          "height": 3848192002,
+          "interaction": 0,
+          "mapsec": 0
+        },
+        {
+          "step": "ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        },
+        {
+          "step": "shot:ordinary-continue",
+          "region": 2,
+          "group": 80,
+          "map": 71,
+          "x": 28,
+          "y": 14,
+          "frlg_layout": 0,
+          "width": 64,
+          "height": 64,
+          "interaction": 0,
+          "mapsec": 233
+        }
+      ]
+    }
+  ],
+  "background_parity": [
+    {
+      "frame": "cold-flash-reload",
+      "map": 71,
+      "position": [
+        28,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "mouth-32-4",
+      "map": 70,
+      "position": [
+        6,
+        9
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "ordinary-continue",
+      "map": 71,
+      "position": [
+        28,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "save-on-route",
+      "map": 71,
+      "position": [
+        28,
+        14
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "surfing",
+      "map": 71,
+      "position": [
+        28,
+        22
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-den",
+      "map": 71,
+      "position": [
+        28,
+        6
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "view-entrance",
+      "map": 70,
+      "position": [
+        6,
+        9
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-den-28-5",
+      "map": 70,
+      "position": [
+        6,
+        5
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-den-28-6",
+      "map": 70,
+      "position": [
+        6,
+        5
+      ],
+      "mismatched_map_layer_pixels": 0
+    },
+    {
+      "frame": "warp-entrance-6-5",
+      "map": 71,
+      "position": [
+        28,
+        6
+      ],
+      "mismatched_map_layer_pixels": 0
+    }
+  ]
+}
