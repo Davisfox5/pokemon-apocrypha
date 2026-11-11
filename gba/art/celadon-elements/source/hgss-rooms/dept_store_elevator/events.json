@@ -1,0 +1,30 @@
+{
+  "warps": [
+    {
+      "cell": [
+        3,
+        6
+      ],
+      "dest": 4095,
+      "anchor": 256
+    }
+  ],
+  "signs": [],
+  "objects": [
+    {
+      "sprite": "SPRITE_GSWOMAN6",
+      "cell": [
+        1,
+        6
+      ],
+      "facing": 3,
+      "movement": 17
+    }
+  ],
+  "source": {
+    "header": "MAP_CELADON_DEPARTMENT_STORE_ELEVATOR",
+    "area_bank": 44,
+    "matrix": "map_matrix_0262_D31R0202.bin",
+    "events": "zone_event/397_T07R0107.json"
+  }
+}

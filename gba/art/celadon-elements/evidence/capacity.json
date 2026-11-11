@@ -1,0 +1,93 @@
+{
+  "map": "KantoCeladonCity",
+  "group": "gMapGroup_Kanto",
+  "size": [
+    60,
+    50
+  ],
+  "primary": "gTileset_KantoCeladonPrimary",
+  "secondary": "gTileset_KantoCeladonCity",
+  "tiles": 991,
+  "tile_limit": 1015,
+  "primary_tiles": 512,
+  "secondary_tiles": 480,
+  "metatiles": 562,
+  "colours": 192,
+  "interiors": {
+    "KantoCeladonMarketServices": {
+      "size": [
+        13,
+        16
+      ],
+      "tiles": 106,
+      "metatiles": 85,
+      "warps": 6
+    },
+    "KantoCeladonHotelLobby": {
+      "size": [
+        15,
+        20
+      ],
+      "tiles": 97,
+      "metatiles": 75,
+      "warps": 5
+    },
+    "KantoCeladonHotelUpstairs": {
+      "size": [
+        15,
+        20
+      ],
+      "tiles": 113,
+      "metatiles": 74,
+      "warps": 2
+    },
+    "KantoCeladonGameCorner": {
+      "size": [
+        18,
+        15
+      ],
+      "tiles": 116,
+      "metatiles": 68,
+      "warps": 3
+    },
+    "KantoCeladonPrizeRoom": {
+      "size": [
+        9,
+        10
+      ],
+      "tiles": 61,
+      "metatiles": 43,
+      "warps": 3
+    },
+    "KantoCeladonGardens": {
+      "size": [
+        13,
+        20
+      ],
+      "tiles": 85,
+      "metatiles": 60,
+      "warps": 3
+    },
+    "KantoCeladonCafe": {
+      "size": [
+        15,
+        11
+      ],
+      "tiles": 81,
+      "metatiles": 49,
+      "warps": 3
+    }
+  },
+  "map_ids": {
+    "KantoCeladonCity": 6,
+    "KantoCeladonPokemonCenter": 7,
+    "KantoCeladonCenterUpstairs": 8,
+    "KantoCeladonMarketServices": 9,
+    "KantoCeladonHotelLobby": 10,
+    "KantoCeladonHotelUpstairs": 11,
+    "KantoCeladonGameCorner": 12,
+    "KantoCeladonPrizeRoom": 13,
+    "KantoCeladonGardens": 14,
+    "KantoCeladonCafe": 15
+  }
+}
