@@ -1,0 +1,59 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/174_D26R0103.json"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_SLOWPOKE_WELL_B2F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        13,
+        20
+      ],
+      "dest": "MAP_SLOWPOKE_WELL_B1F",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        13,
+        19
+      ],
+      "dest": "MAP_SLOWPOKE_WELL_B1F",
+      "anchor": 1
+    }
+  ],
+  "hidden_items": [],
+  "objects": [
+    {
+      "id": "obj_D26R0103_gsassistantm",
+      "sprite": "SPRITE_GSASSISTANTM",
+      "cell": [
+        10,
+        7
+      ],
+      "facing": 2,
+      "movement": 3,
+      "flag": "FLAG_NOTHING",
+      "script": "_EV_scr_seq_D26R0103_000 + 1"
+    },
+    {
+      "id": "obj_D26R0103_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        25,
+        9
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D26R0103_TM18",
+      "script": "std_itemball_d26r0103_tm18"
+    }
+  ],
+  "coord_triggers": []
+}

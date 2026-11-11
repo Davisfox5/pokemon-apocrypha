@@ -1,0 +1,90 @@
+{
+  "porymap": "Launching Porymap v6.3.1 (139eda9)",
+  "engine_commit": "cef49600b583b8e4798a2bc0efd3a25703bd3bfb",
+  "export_vs_native": {
+    "DragonsDen_Entrance": {
+      "size": [
+        512,
+        512
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "DragonsDen": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    },
+    "BlackthornCity": {
+      "size": [
+        1024,
+        1024
+      ],
+      "differing_pixels_rgb555": 0
+    }
+  },
+  "cave_or_town_files_rewritten": [
+    "data/layouts/BlackthornCity/border.bin",
+    "data/layouts/BlackthornCity/map.bin",
+    "data/layouts/DragonsDen/border.bin",
+    "data/layouts/DragonsDen/map.bin",
+    "data/layouts/DragonsDen_Entrance/border.bin",
+    "data/layouts/DragonsDen_Entrance/map.bin",
+    "data/maps/BlackthornCity/map.json",
+    "data/maps/DragonsDen/map.json",
+    "data/maps/DragonsDen_Entrance/map.json",
+    "data/tilesets/primary/dragons_den/metatile_attributes.bin",
+    "data/tilesets/primary/dragons_den/metatiles.bin",
+    "data/tilesets/primary/dragons_den/palettes/00.pal",
+    "data/tilesets/primary/dragons_den/palettes/01.pal",
+    "data/tilesets/primary/dragons_den/palettes/02.pal",
+    "data/tilesets/primary/dragons_den/palettes/03.pal",
+    "data/tilesets/primary/dragons_den/palettes/04.pal",
+    "data/tilesets/primary/dragons_den/palettes/05.pal",
+    "data/tilesets/primary/dragons_den/palettes/06.pal",
+    "data/tilesets/primary/dragons_den/palettes/07.pal",
+    "data/tilesets/primary/dragons_den/palettes/08.pal",
+    "data/tilesets/primary/dragons_den/palettes/09.pal",
+    "data/tilesets/primary/dragons_den/palettes/10.pal",
+    "data/tilesets/primary/dragons_den/palettes/11.pal",
+    "data/tilesets/primary/dragons_den/palettes/12.pal",
+    "data/tilesets/secondary/dragons_den/metatile_attributes.bin",
+    "data/tilesets/secondary/dragons_den/metatiles.bin",
+    "data/tilesets/secondary/dragons_den/palettes/00.pal",
+    "data/tilesets/secondary/dragons_den/palettes/01.pal",
+    "data/tilesets/secondary/dragons_den/palettes/02.pal",
+    "data/tilesets/secondary/dragons_den/palettes/03.pal",
+    "data/tilesets/secondary/dragons_den/palettes/04.pal",
+    "data/tilesets/secondary/dragons_den/palettes/05.pal",
+    "data/tilesets/secondary/dragons_den/palettes/06.pal",
+    "data/tilesets/secondary/dragons_den/palettes/07.pal",
+    "data/tilesets/secondary/dragons_den/palettes/08.pal",
+    "data/tilesets/secondary/dragons_den/palettes/09.pal",
+    "data/tilesets/secondary/dragons_den/palettes/10.pal",
+    "data/tilesets/secondary/dragons_den/palettes/11.pal",
+    "data/tilesets/secondary/dragons_den/palettes/12.pal"
+  ],
+  "files_changed_by_save": [
+    "data/layouts/layouts.json",
+    "src/data/region_map/region_map_sections.json"
+  ],
+  "changed_lines_mentioning_the_cave_or_town": [],
+  "changed_lines": [
+    "-      \"layout_version\": \"emerald\",",
+    "-      \"build_target\": \"emerald\"",
+    "+      \"build_target\": \"emerald\",",
+    "+      \"layout_version\": \"emerald\"",
+    "-      \"name\": \"POK\\u00e9MON MANSION\",",
+    "+      \"name\": \"POK\u00e9MON MANSION\",",
+    "-      \"name\": \"POK\\u00e9MON LEAGUE\",",
+    "+      \"name\": \"POK\u00e9MON LEAGUE\",",
+    "-      \"name\": \"POK\\u00e9MON TOWER\",",
+    "+      \"name\": \"POK\u00e9MON TOWER\","
+  ],
+  "log_errors": [],
+  "log_warnings": [
+    "Failed to check project version: 'Unrecognized commit history'"
+  ],
+  "note": "The export is Porymap's own render, compared with the native decode. Lines changed by save that do not mention the cave or its town are Porymap normalising entries that predate it (key order, \\u escapes)."
+}

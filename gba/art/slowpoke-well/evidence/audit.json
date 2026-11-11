@@ -1,0 +1,165 @@
+{
+  "maps": {
+    "SlowpokeWell_Entrance": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 39,
+      "hgss_reach_cells": 39,
+      "reach_on_foot": 39,
+      "kinds": {
+        "blocked": 985,
+        "floor": 27,
+        "ladder": 1,
+        "hole": 1,
+        "puddle": 10
+      },
+      "warps": 2,
+      "tiles": [
+        160,
+        16
+      ],
+      "metatiles": [
+        93,
+        1
+      ]
+    },
+    "SlowpokeWell_B1F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 360,
+      "hgss_reach_cells": 360,
+      "reach_on_foot": 279,
+      "kinds": {
+        "blocked": 1688,
+        "floor": 277,
+        "ladder": 1,
+        "water": 81,
+        "exit": 1
+      },
+      "warps": 2,
+      "tiles": [
+        160,
+        16
+      ],
+      "metatiles": [
+        93,
+        1
+      ]
+    },
+    "SlowpokeWell_B2F": {
+      "decode_px_differing": 0,
+      "cells_differing_from_ledger": 0,
+      "reach_cells": 567,
+      "hgss_reach_cells": 567,
+      "reach_on_foot": 26,
+      "kinds": {
+        "blocked": 457,
+        "water": 439,
+        "floor": 126,
+        "ladder": 2
+      },
+      "warps": 2,
+      "tiles": [
+        160,
+        16
+      ],
+      "metatiles": [
+        93,
+        1
+      ]
+    }
+  },
+  "routes": {
+    "JohtoAzaleaTown": {
+      "pixels_changed": 0,
+      "cells": [
+        [
+          48,
+          14
+        ]
+      ],
+      "metatile": 208,
+      "warps": [
+        {
+          "x": 48,
+          "y": 14,
+          "elevation": 0,
+          "dest_map": "MAP_SLOWPOKE_WELL_ENTRANCE",
+          "dest_warp_id": "0"
+        }
+      ]
+    }
+  },
+  "changed_files": [
+    "data/event_scripts.s",
+    "data/layouts/JohtoAzaleaTown/map.bin",
+    "data/layouts/SlowpokeWell_B1F/border.bin",
+    "data/layouts/SlowpokeWell_B1F/map.bin",
+    "data/layouts/SlowpokeWell_B2F/border.bin",
+    "data/layouts/SlowpokeWell_B2F/map.bin",
+    "data/layouts/SlowpokeWell_Entrance/border.bin",
+    "data/layouts/SlowpokeWell_Entrance/map.bin",
+    "data/layouts/layouts.json",
+    "data/maps/JohtoAzaleaTown/map.json",
+    "data/maps/SlowpokeWell_B1F/map.json",
+    "data/maps/SlowpokeWell_B1F/scripts.inc",
+    "data/maps/SlowpokeWell_B2F/map.json",
+    "data/maps/SlowpokeWell_B2F/scripts.inc",
+    "data/maps/SlowpokeWell_Entrance/map.json",
+    "data/maps/SlowpokeWell_Entrance/scripts.inc",
+    "data/maps/map_groups.json",
+    "data/tilesets/primary/azalea/metatile_attributes.bin",
+    "data/tilesets/primary/slowpoke_well/metatile_attributes.bin",
+    "data/tilesets/primary/slowpoke_well/metatiles.bin",
+    "data/tilesets/primary/slowpoke_well/palettes/00.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/01.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/02.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/03.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/04.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/05.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/06.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/07.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/08.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/09.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/10.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/11.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/12.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/13.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/14.pal",
+    "data/tilesets/primary/slowpoke_well/palettes/15.pal",
+    "data/tilesets/primary/slowpoke_well/tiles.png",
+    "data/tilesets/secondary/slowpoke_well/metatile_attributes.bin",
+    "data/tilesets/secondary/slowpoke_well/metatiles.bin",
+    "data/tilesets/secondary/slowpoke_well/palettes/00.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/01.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/02.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/03.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/04.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/05.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/06.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/07.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/08.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/09.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/10.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/11.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/12.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/13.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/14.pal",
+    "data/tilesets/secondary/slowpoke_well/palettes/15.pal",
+    "data/tilesets/secondary/slowpoke_well/tiles.png",
+    "include/regions.h",
+    "src/apocrypha_map_proof.c",
+    "src/data/region_map/region_map_sections.json",
+    "src/data/tilesets/graphics.h",
+    "src/data/tilesets/headers.h",
+    "src/data/tilesets/metatiles.h"
+  ],
+  "budget": {
+    "patterns": 158,
+    "primary_tiles": 158,
+    "secondary_tiles": 0,
+    "metatiles": 93,
+    "exact_banks": true
+  },
+  "failures": []
+}

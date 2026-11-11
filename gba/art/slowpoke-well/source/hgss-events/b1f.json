@@ -1,0 +1,160 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/170_D26R0102.json"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_SLOWPOKE_WELL_B1F",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        42,
+        27
+      ],
+      "dest": "MAP_SLOWPOKE_WELL_ENTRANCE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        27,
+        20
+      ],
+      "dest": "MAP_SLOWPOKE_WELL_B2F",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        38,
+        15
+      ],
+      "script": "std_hiddenitem_d26r0102_super_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        36,
+        19
+      ],
+      "script": "std_hiddenitem_d26r0102_full_heal",
+      "bg_type": 2
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D26R0102_rock",
+      "sprite": "SPRITE_ROCK",
+      "cell": [
+        23,
+        3
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": "std_field_strength"
+    },
+    {
+      "id": "obj_D26R0102_rocketm",
+      "sprite": "SPRITE_ROCKETM",
+      "cell": [
+        42,
+        11
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1A9",
+      "script": "std_trainer(TRAINER_TEAM_ROCKET_GRUNT_2)"
+    },
+    {
+      "id": "obj_D26R0102_rocketm_2",
+      "sprite": "SPRITE_ROCKETM",
+      "cell": [
+        27,
+        9
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_UNK_1A9",
+      "script": "std_trainer(TRAINER_TEAM_ROCKET_GRUNT)"
+    },
+    {
+      "id": "obj_D26R0102_rocketw",
+      "sprite": "SPRITE_ROCKETW",
+      "cell": [
+        37,
+        7
+      ],
+      "facing": 2,
+      "movement": 16,
+      "flag": "FLAG_UNK_1A9",
+      "script": "std_trainer(TRAINER_TEAM_ROCKET_F_GRUNT)"
+    },
+    {
+      "id": "obj_D26R0102_rkanbum3",
+      "sprite": "SPRITE_RKANBUM3",
+      "cell": [
+        27,
+        3
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1A9",
+      "script": "_EV_scr_seq_D26R0102_002 + 1"
+    },
+    {
+      "id": "obj_D26R0102_yadon",
+      "sprite": "SPRITE_YADON",
+      "cell": [
+        31,
+        6
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1D5",
+      "script": "_EV_scr_seq_D26R0102_001 + 1"
+    },
+    {
+      "id": "obj_D26R0102_yadon_2",
+      "sprite": "SPRITE_YADON",
+      "cell": [
+        29,
+        3
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1D5",
+      "script": "_EV_scr_seq_D26R0102_000 + 1"
+    },
+    {
+      "id": "obj_D26R0102_gantetsu",
+      "sprite": "SPRITE_GANTETSU",
+      "cell": [
+        21,
+        26
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_UNK_1AA",
+      "script": 0
+    },
+    {
+      "id": "obj_D26R0102_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        34,
+        5
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D26R0102_SUPER_POTION",
+      "script": "std_itemball_d26r0102_super_potion"
+    }
+  ],
+  "coord_triggers": []
+}

@@ -1,0 +1,35 @@
+# Slowpoke Well b1f (HGSS coordinates): one line per cell row. Ground and water: their terrace level (0-9); rock: a
+# letter (A = level 0 ...); stairs s, ledges L/Q/R (south/west/east), boulders o, ladders H, puddles p, decks d,
+# whirlpools @, void #. Decoded from HGSS land_data (cave_assemble.ledger).
+00  #################EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE#################
+01  #################EDDDDDDDDDDDDDDDDDDDDDDDDDDDDE#################
+02  #################EDCCCCCCCCCCCCCC22222222222oDE#################
+03  ################EEDC111111111111C22o2DDD22222DE#################
+04  ################EDDC1212Coo11111C2222DDDD22o2DE#################
+05  ################EDCC12C2CC111111C2222DDDD2222DE#################
+06  ################EDCo1BBBB1111111C222222DD2222DE#################
+07  ################EDC11BABB1111111C222222222222DE#################
+08  ################EDC1BBABCCC11111CCsCCCCCCsCCCDE#################
+09  ################EDC1BAABCCC1111111111Co11111CDE#################
+10  ################EDC1BAABCCCBBBBBBBsBCCC11111CDE#################
+11  ################EDC1BABBBBBooooooo0000CCC11oCDE#################
+12  ################EDC1BABBBB000Cooooo00000C111CDE#################
+13  ################EDC1BABBB0000CCCCCCCCC00C111CDE#################
+14  ################EDC1CBBBB0000CCCCCCCoC00C111CDE#################
+15  ################EDC2CooCC0000CC2222CoCo0C111CDE#################
+16  ################EDC2CCoCCCCCCCC2222CCCCCCo11CDE#################
+17  ################EDC1111CCCCCCCC2222CCCCCCo11CDE#################
+18  ################EDCo1112C222222222222222C111CDE#################
+19  ################EDCCC112C222222222222222C111CDEF################
+20  ################EDCBB1CCC22H222222222222C11oCDDF################
+21  ################EDCB000CC22222CCCCCCCCCCC111CCDF################
+22  ################FDCB000CC22222CCCCCCCCCCCBsBBCDF################
+23  ################FDCB000CCCC2CCCC000000000o00BCDF################
+24  ################FDCB000CCCC2BBBB000000000000BCDF################
+25  ################FDCB00000000BBBB000000000000BCDF################
+26  ################FDCB00000000BBBB000000000000BCDF################
+27  ################FDCB00000000BBBB000000000000BCDF################
+28  ################FDCBBBBBBBBBBBBBBBBBBBBBBBBBBCDF################
+29  ################FDCCCCCCCCCCCCCCCCCCCCCCCCCCCCDF################
+30  ################FDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDF################
+31  ################FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF################

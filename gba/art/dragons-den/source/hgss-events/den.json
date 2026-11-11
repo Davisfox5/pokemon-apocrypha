@@ -1,0 +1,248 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/239_D44R0102.json"
+    ],
+    "note": "Decoded event data. Terrain/collision (land_data) is not in the repository."
+  },
+  "header": "MAP_DRAGONS_DEN",
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        28,
+        6
+      ],
+      "dest": "MAP_DRAGONS_DEN_ENTRANCE",
+      "anchor": 1
+    },
+    {
+      "index": 1,
+      "cell": [
+        28,
+        5
+      ],
+      "dest": "MAP_DRAGONS_DEN_ENTRANCE",
+      "anchor": 1
+    },
+    {
+      "index": 2,
+      "cell": [
+        28,
+        50
+      ],
+      "dest": "MAP_DRAGONS_DEN_SHRINE",
+      "anchor": 0
+    }
+  ],
+  "hidden_items": [
+    {
+      "cell": [
+        14,
+        12
+      ],
+      "script": "std_hiddenitem_d44r0102_revive",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        32,
+        49
+      ],
+      "script": "std_hiddenitem_d44r0102_max_elixir",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        8,
+        22
+      ],
+      "script": "std_hiddenitem_d44r0102_max_potion",
+      "bg_type": 2
+    },
+    {
+      "cell": [
+        31,
+        41
+      ],
+      "script": "_EV_scr_seq_D44R0102_005 + 1",
+      "bg_type": 1
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_D44R0102_gsleader8",
+      "sprite": "SPRITE_GSLEADER8",
+      "cell": [
+        24,
+        14
+      ],
+      "facing": 3,
+      "movement": 17,
+      "flag": "FLAG_HIDE_VICTORY_ROAD_CLAIR",
+      "script": "_EV_scr_seq_D44R0102_003 + 1"
+    },
+    {
+      "id": "obj_D44R0102_gsman3",
+      "sprite": "SPRITE_GSMAN3",
+      "cell": [
+        30,
+        10
+      ],
+      "facing": 2,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_ACE_TRAINER_M_KOBE)"
+    },
+    {
+      "id": "obj_D44R0102_gswoman3",
+      "sprite": "SPRITE_GSWOMAN3",
+      "cell": [
+        12,
+        20
+      ],
+      "facing": 3,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_ACE_TRAINER_F_PIPER)"
+    },
+    {
+      "id": "obj_D44R0102_gsbabygirl1",
+      "sprite": "SPRITE_GSBABYGIRL1",
+      "cell": [
+        6,
+        30
+      ],
+      "facing": 3,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer(TRAINER_TWINS_CLEA_AND_GIL)"
+    },
+    {
+      "id": "obj_D44R0102_gsbabygirl1_2",
+      "sprite": "SPRITE_GSBABYGIRL1",
+      "cell": [
+        6,
+        31
+      ],
+      "facing": 3,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": "std_trainer_2(TRAINER_TWINS_CLEA_AND_GIL)"
+    },
+    {
+      "id": "obj_D44R0102_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        50,
+        34
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D44R0102_DRAGON_FANG",
+      "script": "std_itemball_d44r0102_dragon_fang"
+    },
+    {
+      "id": "obj_D44R0102_gsrivel",
+      "sprite": "SPRITE_GSRIVEL",
+      "cell": [
+        25,
+        41
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_CHAMPIONS_ROOM_RETREAT",
+      "script": "_EV_scr_seq_D44R0102_001 + 1"
+    },
+    {
+      "id": "obj_D44R0102_monstarball_2",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        42,
+        16
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D44R0102_CALCIUM",
+      "script": "std_itemball_d44r0102_calcium"
+    },
+    {
+      "id": "obj_D44R0102_monstarball_3",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        7,
+        33
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_D44R0102_MAX_ELIXIR",
+      "script": "std_itemball_d44r0102_max_elixir"
+    },
+    {
+      "id": "obj_D44R0102_gsrivel_2",
+      "sprite": "SPRITE_GSRIVEL",
+      "cell": [
+        24,
+        47
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_HIDE_DRAGONS_DEN_RIVAL",
+      "script": 0
+    },
+    {
+      "id": "obj_D44R0102_var_1",
+      "sprite": "SPRITE_VAR_1",
+      "cell": [
+        24,
+        49
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_DRAGONS_DEN_RIVAL",
+      "script": 0
+    },
+    {
+      "id": "obj_D44R0102_wataru",
+      "sprite": "SPRITE_WATARU",
+      "cell": [
+        51,
+        2
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": 0
+    },
+    {
+      "id": "obj_D44R0102_gsleader8_2",
+      "sprite": "SPRITE_GSLEADER8",
+      "cell": [
+        53,
+        2
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_NOTHING",
+      "script": 0
+    }
+  ],
+  "coord_triggers": [
+    {
+      "cell": [
+        27,
+        14
+      ],
+      "script": "_EV_scr_seq_D44R0102_000 + 1"
+    },
+    {
+      "cell": [
+        24,
+        43
+      ],
+      "script": "_EV_scr_seq_D44R0102_004 + 1"
+    }
+  ]
+}
