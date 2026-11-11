@@ -5,7 +5,7 @@ shops_native.py's: Emerald's own Center and Mart pieces square by square on HGSS
 owner rejected straight DS renders). This module installs them into each town's maps with their NPCs and scripts.
 
     Center 1F   nurse (8, 11) across her counter, PC (4, 10), three back counters, escalator down (15, 17), exit (8-9, 19)
-    Center B1F  three counters, the lounge, escalator up (15, 10); it takes the place of the Gen 3 upstairs room
+    Center B1F  three counters, the lounge, escalator up (15, 11); it takes the place of the Gen 3 upstairs room
     Mart        18 x 11 for M01's 7-square front: the standard counter on the west wall (clerk (1, 4)), a second
                 counter mirrored on the east wall (clerk (16, 4)), exit (4-5, 11)
 
@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 PX = 16
-CENTER_EXIT, CENTER_EXIT2, CENTER_ESCALATOR, B1F_ESCALATOR = (8, 19), (9, 19), (15, 17), (15, 10)
+CENTER_EXIT, CENTER_EXIT2, CENTER_ESCALATOR, B1F_ESCALATOR = (8, 19), (9, 19), (15, 17), (15, 11)
 MART_W = 18
 MART_EXIT, MART_EXIT2 = (4, 11), (5, 11)
 NURSE = (8, 11)

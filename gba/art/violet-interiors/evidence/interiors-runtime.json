@@ -283,48 +283,6 @@
    ]
   },
   {
-   "test": "CherrygrovePokemonCenter-0",
-   "ok": 1,
-   "map": 0,
-   "at": [
-    61,
-    10
-   ],
-   "want": [
-    0,
-    61,
-    10
-   ]
-  },
-  {
-   "test": "CherrygrovePokemonCenter-1",
-   "ok": 1,
-   "map": 8,
-   "at": [
-    13,
-    10
-   ],
-   "want": [
-    8,
-    13,
-    10
-   ]
-  },
-  {
-   "test": "CherrygroveCenterUpstairs-0",
-   "ok": 1,
-   "map": 6,
-   "at": [
-    13,
-    17
-   ],
-   "want": [
-    6,
-    13,
-    17
-   ]
-  },
-  {
    "test": "CherrygroveMart-0",
    "ok": 1,
    "map": 0,
@@ -336,6 +294,20 @@
     0,
     51,
     10
+   ]
+  },
+  {
+   "test": "VioletMart-0",
+   "ok": 1,
+   "map": 43,
+   "at": [
+    21,
+    41
+   ],
+   "want": [
+    43,
+    21,
+    41
    ]
   },
   {
@@ -355,15 +327,29 @@
   {
    "test": "VioletPokemonCenter-1",
    "ok": 1,
+   "map": 43,
+   "at": [
+    49,
+    56
+   ],
+   "want": [
+    43,
+    49,
+    56
+   ]
+  },
+  {
+   "test": "VioletPokemonCenter-2",
+   "ok": 1,
    "map": 51,
    "at": [
-    13,
-    10
+    14,
+    11
    ],
    "want": [
     51,
-    13,
-    10
+    14,
+    11
    ]
   },
   {
@@ -371,27 +357,69 @@
    "ok": 1,
    "map": 50,
    "at": [
-    13,
+    14,
     17
    ],
    "want": [
     50,
-    13,
+    14,
     17
    ]
   },
   {
-   "test": "VioletMart-0",
+   "test": "CherrygrovePokemonCenter-0",
    "ok": 1,
-   "map": 43,
+   "map": 0,
    "at": [
-    21,
-    41
+    61,
+    10
    ],
    "want": [
-    43,
-    21,
-    41
+    0,
+    61,
+    10
+   ]
+  },
+  {
+   "test": "CherrygrovePokemonCenter-1",
+   "ok": 1,
+   "map": 0,
+   "at": [
+    61,
+    10
+   ],
+   "want": [
+    0,
+    61,
+    10
+   ]
+  },
+  {
+   "test": "CherrygrovePokemonCenter-2",
+   "ok": 1,
+   "map": 8,
+   "at": [
+    14,
+    11
+   ],
+   "want": [
+    8,
+    14,
+    11
+   ]
+  },
+  {
+   "test": "CherrygroveCenterUpstairs-0",
+   "ok": 1,
+   "map": 6,
+   "at": [
+    14,
+    17
+   ],
+   "want": [
+    6,
+    14,
+    17
    ]
   },
   {
@@ -411,15 +439,29 @@
   {
    "test": "SandgemPokemonCenter-1",
    "ok": 1,
+   "map": 13,
+   "at": [
+    23,
+    14
+   ],
+   "want": [
+    13,
+    23,
+    14
+   ]
+  },
+  {
+   "test": "SandgemPokemonCenter-2",
+   "ok": 1,
    "map": 19,
    "at": [
-    3,
-    10
+    2,
+    8
    ],
    "want": [
     19,
-    3,
-    10
+    2,
+    8
    ]
   },
   {
@@ -427,13 +469,13 @@
    "ok": 1,
    "map": 15,
    "at": [
-    3,
-    10
+    2,
+    8
    ],
    "want": [
     15,
-    3,
-    10
+    2,
+    8
    ]
   }
  ]

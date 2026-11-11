@@ -49,7 +49,7 @@ DOORS = [
     dict(name='House5', **house(56, 63), sound='NORMAL', map='VioletHouse5', layout='LAYOUT_VIOLET_HOUSE_5', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='EastGate', **house(74, 55), sound='NORMAL', map=None),
 ]
-UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_JOHTO_POKEMON_CENTER_B1F', stairs=(15, 10))
+UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_JOHTO_POKEMON_CENTER_B1F', stairs=(15, 11))
 # the Center, its basement and the Mart are finished by violet_interiors/johto_shops.install (escalators, both clerks)
 MART_STOCK = ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING',
               'ITEM_ESCAPE_ROPE', 'ITEM_REPEL']   # docs/JOHTO_ITEMS.md, Violet Mart

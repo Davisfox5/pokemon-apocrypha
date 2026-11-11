@@ -12,11 +12,29 @@
    ]
   },
   {
+   "test": "Cherrygrove-nurse-heal-6",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
+   "test": "Cherrygrove-nurse-heal-7",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
    "test": "Cherrygrove-standard",
    "ok": 1,
    "interaction": 0,
    "at": [
-    4,
+    3,
     4
    ]
   },
@@ -25,7 +43,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    13,
+    14,
     4
    ]
   },
@@ -34,7 +52,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    4,
+    3,
     4
    ]
   },
@@ -43,7 +61,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    13,
+    14,
     4
    ]
   },
@@ -57,11 +75,29 @@
    ]
   },
   {
+   "test": "Violet-nurse-heal-6",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
+   "test": "Violet-nurse-heal-7",
+   "ok": 1,
+   "interaction": 0,
+   "at": [
+    8,
+    13
+   ]
+  },
+  {
    "test": "Violet-standard",
    "ok": 1,
    "interaction": 0,
    "at": [
-    4,
+    3,
     4
    ]
   },
@@ -70,7 +106,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    13,
+    14,
     4
    ]
   },
@@ -79,7 +115,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    4,
+    3,
     4
    ]
   },
@@ -88,7 +124,7 @@
    "ok": 1,
    "interaction": 0,
    "at": [
-    13,
+    14,
     4
    ]
   },
@@ -98,7 +134,7 @@
    "interaction": 0,
    "at": [
     8,
-    6
+    4
    ]
   }
  ]

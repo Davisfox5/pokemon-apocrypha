@@ -201,8 +201,34 @@ role, whole, from Emerald's own rooms, with its collision and behaviour:
   - the clock, the potted plant, the exit mat
 
 Pieces on a room's east side that face west in the original are Emerald's mirrored. The floor and wall colours
-take the original room's ramps (HGSS's warmer orange, its blue basement and teal Mart, Platinum's red-orange);
-furniture keeps Emerald's colours.
+take the original room's ramps (HGSS's warmer orange, its teal Mart, Platinum's red-orange); furniture keeps
+Emerald's colours.
+
+### Johto's Center, a decade on (owner, November 10)
+
+The owner approved the modern styling mockup ("the updated color palette is solid ... run with the styling")
+and asked for traversal fixes, finished posts at the nurse's station and warmer decor. `modern()` in
+`shops_native.py` styles both Johto Center floors (the B1F now shares the 1F's ramps):
+- **Materials, by colour:** a cool polished floor, white wall panels with the Center's red band, slate counters
+  and stools in teal and white. The same native pieces; only their colours change.
+- **Gen 3-drawn details:** wall displays with the Poké Ball in place of HGSS's windows and shut doors, a welcome
+  display in the old TV's place, cyan light strips along the wall's foot and the counters' fronts, self-service
+  terminals on the back counters where HGSS's attendants stand.
+- **The station, finished:** slate posts at both ends of the nurse's partition (x 3 and 12), with a cap, the
+  Center's red band, a status light, a plinth and a floor shadow. A cork notice board on the partition at x 11.
+- **Warmer decor** (proposals), keeping their own colours through the styling:
+  - FireRed's Center bookshelf, framed in wood, against the back wall (1F at x 2-3; B1F both ends).
+  - Emerald's framed region map (1F x 9-10, B1F x 11-12).
+  - Lilycove's wooden planters of shrubs either side of the 1F door and along the B1F's bottom row.
+  - Gen 3-style rugs under both lounges and a runner from the 1F door to the floor emblem.
+
+Traversal, audited by a walk from each entrance:
+- Emerald marks its side-wall columns walkable; they block here.
+- Escalators: only the warp square is open; the rails, the top and the foot block.
+- Potted plants block both squares (their tops were walkable).
+- The 1F's third back counter runs to the east wall, so the staff side behind the counters is closed.
+- The B1F escalator stands one row lower (its foot on the bottom row, warp (15, 11)), so no square is cut off
+  behind it, and the B1F's planters leave no one-square pockets.
 
 `evidence/<room>-clean.png` sets each original beside the native room. `evidence/<room>-plan.png` is the
 square-by-square ledger: each square's element, red for blocked, and its behaviour.
@@ -210,7 +236,7 @@ square-by-square ledger: each square's element, red for blocked, and its behavio
 | Room | Original | Used by | Squares |
 | --- | --- | --- | --- |
 | `JohtoPokemonCenter1F` | HGSS T21PC0101 | Cherrygrove, Violet | nurse (8, 11) across her counter (8, 12), PC (4, 10), three back counters at HGSS's row 5, escalator down (15, 17), exit (8-9, 19) |
-| `JohtoPokemonCenterB1F` | HGSS T27PC0105 | the towns' upstairs maps | three counters at row 5, the lounge, escalator up (15, 10) |
+| `JohtoPokemonCenterB1F` | HGSS T27PC0105 | the towns' upstairs maps | three counters at row 5, the lounge, escalator up (15, 11) |
 | `JohtoMart` | HGSS T21FS0101, 18 wide | Cherrygrove, Violet | standard counter (clerk (1, 4)), second counter mirrored (clerk (16, 4)), coolers, wall and floor shelves, cafe table, exit (4-5, 11); proposal |
 | `SinnohPokemonCenter1F` | Platinum PokemonCenter_1F | Sandgem | nurse (8, 2), PC (12, 1), escalator up (1, 8), exit (8-9, 10); the basement escalator closed |
 | `SinnohPokemonCenter2F` | Platinum PokemonCenter_2F | Sandgem's upstairs map | three counters at row 3, escalator down (1, 8); the Union Room door closed |
@@ -233,7 +259,7 @@ The second counters, the discount hook and the westward escalator exit are uncha
 - **`src/shop.c`:** `ShopItemPrice()` charges three quarters while `FLAG_SHOP_DISCOUNT` is set.
 - **`src/field_effect.c`:** an escalator whose east side is solid lets the player off to the west.
 
-All five rooms pack exactly in native palettes: 36-44 colours, 90-135 tiles each.
+All five rooms pack exactly in native palettes, 0 pixels changed: the styled Johto Center 72 colours, 205 tiles (1F) and 63 colours, 146 tiles (B1F); the others 36-44 colours, 90-135 tiles.
 
 Checks:
 - Interior runtime: 36 of 36 warps, including both exit mat squares and both escalators each way in three towns.
@@ -241,11 +267,16 @@ Checks:
 - `shops_runtime.py`:
   - The nurse answers in all three towns, and the healing animation's Poké Balls land on the machine.
   - Both Mart counters open their shop; the Discount Corner sells the 200 Potion at 150.
-- Porymap: 0 pixels differ on all eight maps.
+- Porymap: 0 pixels differ on all eight maps (November 8 build; not re-run for the November 10 styling, see below).
+- November 10, styled build: the interior runtime passes 12 of 12 warps on both Center floors in all three
+  towns (the B1F arrival at (14, 11)); `shops_runtime.py` passes 15 of 15; Violet's doors 11 of 11 (48 frames at
+  least 99.7% identical to the decode); the decoded native tiles match the
+  composed rooms (5-bit rounding only).
 
 Not done:
 - The B1F and 2F attendants (Union Room, Wi-Fi, trainer card) have no NPCs or links.
 - Unova's Center waits on the owner's files.
+- The Porymap probe was not re-run on the styled build: the container was reset and its Porymap build was lost.
 - Violet's standard Mart list sells Escape Rope at ₽0, the engine's price for it.
 
 ## Checks

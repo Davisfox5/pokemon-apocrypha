@@ -146,7 +146,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "HGSS's Pokemon Center 1F square by square in Emerald's own Center pieces"
+   "HGSS's Pokemon Center 1F square by square in Emerald's own Center pieces, styled a decade on"
   ]
  },
  "JohtoPokemonCenterB1F": {
@@ -156,16 +156,16 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "HGSS's Pokemon Center B1F square by square in Emerald's own Center pieces"
+   "HGSS's Pokemon Center B1F square by square in Emerald's own Center pieces, styled a decade on"
   ]
  },
  "johto_center": {
   "log": [
-   "exact (43 colours)",
-   "135 tiles, 73 metatiles"
+   "exact (72 colours)",
+   "205 tiles, 106 metatiles"
   ],
-  "tiles": 135,
-  "metatiles": 73
+  "tiles": 205,
+  "metatiles": 106
  },
  "JohtoMart": {
   "size": [
@@ -187,11 +187,11 @@
  },
  "johto_center_b1": {
   "log": [
-   "exact (40 colours)",
-   "105 tiles, 47 metatiles"
+   "exact (63 colours)",
+   "146 tiles, 69 metatiles"
   ],
-  "tiles": 105,
-  "metatiles": 47
+  "tiles": 146,
+  "metatiles": 69
  },
  "SinnohPokemonCenter1F": {
   "size": [

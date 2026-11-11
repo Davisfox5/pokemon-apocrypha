@@ -82,6 +82,10 @@ Owner review (October 25), refined the same day:
   shared layouts for Cherrygrove and Violet; Sinnoh Center (Platinum's plans) for Sandgem. Rebuilt after the owner rejected DS
   renders: Emerald's own Center/Mart pieces square by square on the originals' plans (shops_native.py; johto_shops.py and
   sinnoh_shops.py install). Engine: shop discount flag, westward escalator exit. Unova Center waits on owner-supplied B2W2 files.
+  November 10 (owner approved the modern mockup): Johto Center 1F/B1F styled by modern() in shops_native.py (cool floor, white
+  panels with the red band, slate counters, displays, light strips, kiosks); station posts and notice board finished; walk audit
+  fixes (side walls, escalator rails, plant tops, staff side closed, B1F escalator warp now (15, 11)); warm decor (wood bookshelf,
+  region map, planters, rugs, runner) as proposals. Porymap probe not re-run on this build.
   November 6: owner accepted Sprout Tower (statues off the black row; 3F east statues and rail one square east). Interiors locked in.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
