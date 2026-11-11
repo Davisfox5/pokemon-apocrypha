@@ -1,21 +1,21 @@
 {
- "jobs": 1019,
- "tiles": 979,
+ "jobs": 1015,
+ "tiles": 973,
  "primary_metatiles": 512,
  "secondary_metatiles": 172,
- "pinned_violet_metatiles": 24,
+ "pinned_violet_metatiles": 4,
  "maximal_colour_sets": 94,
  "banks": {
   "0": 15,
   "1": 15,
   "2": 15,
   "3": 15,
-  "4": 15,
+  "4": 14,
   "5": 15,
   "6": 15,
   "7": 14,
-  "8": 15,
-  "9": 15,
+  "8": 14,
+  "9": 14,
   "10": 15,
   "11": 15,
   "12": 15
@@ -309,10 +309,10 @@
    136
   ],
   "border": [
+   "0x11a",
    "0x11b",
-   "0x11c",
-   "0x123",
-   "0x124"
+   "0x122",
+   "0x123"
   ]
  }
 }
