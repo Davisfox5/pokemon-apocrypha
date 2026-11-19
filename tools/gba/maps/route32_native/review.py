@@ -25,11 +25,12 @@ sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 import reference as Rf                                       # noqa: E402
 from reference import W, H, PX, COL0, ROW0, HW, HH           # noqa: E402
 from tiles import Tileset                                    # noqa: E402
+from pack import PADL, PADR                                  # noqa: E402
 
 ART = Rf.ART
 OUT = ART / 'evidence/review'
 MAP = dict(name='JohtoRoute32', ts='route32_hgss', pri='route32')
-NEIGHBOURS = [('JohtoRoute32', 'route32_hgss', 'route32', 32), ('VioletCity', 'violet_city', 'violet_city', 80)]
+NEIGHBOURS = [('JohtoRoute32', 'route32_hgss', 'route32', W + PADL + PADR), ('VioletCity', 'violet_city', 'violet_city', 80)]
 # HGSS label -> native codes it may become, the native foot, and the art the cell must hold (any one of;
 # art drawn over a cell counts: a roof over the woods behind a house, Mr. Pokemon's mailbox in his house art).
 EXPECT = {'F': ('tko', 'blocked', ('tree', 'house')), 'G': ('G', 'open', 'tall_grass'), '~': ('~', 'water', None),
@@ -65,7 +66,7 @@ def audit():
     for hz in range(HH):
         for hx in range(HW):
             x, y = Rf.to_map(hx, hz)
-            c, t = cells[hz][hx], trav[(x, y)]
+            c, t = cells[hz][hx], trav[(x + PADL, y)]   # traversal.json is in layout columns (west padding included)
             sl = np.s_[y * PX:(y + 1) * PX, x * PX:(x + 1) * PX]
             art = {o.rstrip('0123456789_').split('_')[0] if not o.endswith('house') else 'house' for o in set(owner[sl].ravel().tolist()) - {''}}
             art |= set(flat_owner[sl].ravel().tolist()) - {''}
