@@ -23,62 +23,75 @@
 - Claude and Gemini follow this file through their root pointer files. Keep one
   shared rule set; do not maintain different policies per model.
 
-## Required workflow for every map-building task
+## Map work
 
-- All models and instances, including Codex, Claude, Grok and Gemini, must read
-  and apply [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
-  before building, rebuilding, extending or refining a map.
-- Compare the original-game reference square by square with native Gen 3 tiles.
-  Match **specific terrain materials and structure as well as traversal**;
-  collision agreement alone does not establish a faithful map.
-- This requirement supplements existing Grok rules and other applicable shared
-  instructions. Preserve those rules; do not replace them with a per-model policy.
-- Inspect actual native renders and headless gameplay, fix visual defects, and
-  publish readable source/native comparisons. Functional tests do not establish
-  owner visual acceptance.
+Applies to every map, floor, interior and outdoor area, and to every task that
+builds, rebuilds, extends or refines one. All models follow the same rules.
 
-## Required native visual cleanup — all maps and floors
+**Before starting, read [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
+in full**, including its [cleanup and final review steps](docs/GBA_MAP_RECONSTRUCTION.md#native-visual-cleanup-and-final-review).
+It holds the detailed method. The rules below are the hard requirements; where
+that document is more specific, follow it. A current owner instruction overrides both.
 
-Owner-established after the Union Cave refinement, 2026-10-15. Apply this to
-outdoors and interiors, in addition to the reconstruction and existing Grok/tool
-rules above. Use the [detailed cleanup method](docs/GBA_MAP_RECONSTRUCTION.md#native-visual-cleanup-and-final-review).
+Source
 
-- Review each map/floor at the same standard. Inspect original/native grids,
-  every wall/terrain boundary and corner, then actual headless gameplay frames.
-  Keep coordinate-labelled review sheets and specific findings; traversal checks
-  alone do not establish visual quality.
-- During tile reuse or compression, match the material/structure silhouette and
-  orientation. Preserve complete outlines, corners, roots and narrow barriers.
-  Give edges, foreground features, doors and stairs priority over spare texture
-  variants; retain compact ground/water/plateau texture families.
-- Preserve the original wall/cap texture and shading treatment. Repair joins
-  locally and inspect the cap, front/side faces and corners as one continuous
-  surface. Retain texture detail during palette reduction.
-- Put stair/door warps on their actual visible entrances. Remove superseded
-  marker squares and restore their ground; inspect the first/last steps and
-  the whole stair-to-wall join.
-- Clean isolated pixel noise within the same material and shading plane. Keep
-  deliberate creases and crisp silhouettes. Maintain consistent palette ramps
-  across neighboring banks; inspect light/dark bands and seams after native
-  palette reduction. Keep foreground art, ground beneath it and collision separate.
-- Confirm sprite/item-removal donors are unobscured across their full bounds.
-  Inspect repaired corners for leftover clothing, skin, outlines and corrupted
-  palette pixels; reconstruct the missing local terrain from clean context.
-- Fit reused art to the receiving location: width, height, baseline, wall depth,
-  shoulders, approach and adjacent corners. Rebuild the complete join when needed.
-  An approved entrance or building still needs local seam/footprint inspection.
-- Use original-game textures and accepted shared art. Preserve tree footprints
-  and complete canopies, coherent grass borders, cliff tops/faces, stair axis,
-  shore lips and dock grain. Reuse the approved Violet Center and shared Pokémart.
-- Validate actual decoded native tiles/palettes/layers and Porymap output, plus
-  relevant headless movement, gates, connections, water, doors/stairs and ordinary
-  saves. Review all affected floors/maps and both sides of transitions. Record
-  exact source/ROM identities, before/after evidence and concrete remaining limits.
-- Keep owner-approved topology and traversal unless a change is authorized.
-  Edit current native sources; preserve owner work, IDs, prior drafts and saves.
-  Adapt the technique to each map's own tilesets and hardware budget. Cave-specific
-  art, palettes and generators stay local to Union Cave. Visual acceptance remains
-  with the owner.
+- Map and script source is the `apocrypha` branch of
+  `Davisfox5/pokeemerald-expansion`. Commit there through PRs under
+  `docs/GBA_SHARED_SOURCE.md`; do not add standalone map patches. Porymap opens
+  that checkout directly.
+- Edit the current native source. Never replay a generator over a committed
+  layout. Preserve owner edits, IDs, shared tilesets, prior drafts and saves.
+- Keep owner-approved topology and traversal unless the owner authorizes a change.
+
+Reference and reconstruction
+
+- The original game's map is the layout authority. An earlier Gen 3 draft,
+  including another model's, is comparison material only.
+- Register the reference to native 16×16 metatile squares and work square by square.
+- For each square record two things separately: **material/structure** (which
+  terrain, face, corner, feature) and **traversal** (collision, elevation, ledges,
+  water, stairs, doors, warps, connections). Both must match the reference.
+  Matching collision alone is not a faithful map.
+
+Art and cleanup
+
+- Use accepted shared art first, then original-game textures as the reference
+  for missing local assets. Art, palettes and generators made for one map stay
+  local to it unless accepted as shared.
+- When reusing or compressing tiles, match material, silhouette and orientation.
+  Spend the tile budget on complete outlines, corners, roots, narrow barriers,
+  edges, doors, stairs and foreground features before texture variants.
+- Fit reused art to its new location (width, height, baseline, wall depth,
+  approach, adjacent corners) and rebuild the whole join. Approved art still
+  needs its local seams and footprint inspected.
+- Treat a wall's cap, front/side faces and corners as one surface. Keep the
+  original texture and shading through palette reduction; keep palette ramps
+  consistent across neighboring banks.
+- Remove isolated pixel noise within one material and shading plane. Keep
+  deliberate creases and crisp silhouettes. Keep foreground art, the ground
+  beneath it and collision separate.
+- Before removing a sprite or item from reference art, confirm the donor patch
+  is unobscured. Rebuild the hidden terrain from clean context and check for
+  leftover clothing, skin, outline or corrupted palette pixels.
+- Put stair and door warps on the visible entrance. Remove superseded marker
+  squares and restore their ground.
+
+Validation and evidence
+
+- Check the real output: decoded native tiles, palettes and layers, the Porymap
+  export, and headless gameplay frames. Do not open a desktop game on the
+  owner's computer.
+- Inspect every wall and terrain boundary, corner and transition on coordinate-
+  labelled original/native sheets. Review every affected map and floor, and both
+  sides of each transition.
+- Run the relevant headless checks: movement, blocked paths, gates, ledges,
+  water, doors, stairs, connections and an ordinary save and reload.
+- Fix visual defects before presenting the map.
+- Publish readable original/native comparisons and before/after evidence. Record
+  exact source and ROM identities, reviewed coordinates, deliberate adaptations
+  and concrete remaining limits.
+- Passing builds, collision or traversal tests is not visual acceptance. Only
+  the owner accepts a map.
 
 ## Ownership and autonomy
 
@@ -150,10 +163,7 @@ independent Claude/Grok interpretations. Follow docs/GBA_REMOTE_HANDOFF.md for
 remote setup. Broader campaign production remains subject to its scoped requests.
 Production source is `game/`, a pinned submodule plus the tracked roster and mechanics patches
 in `gba/`.
-**Shared map source is the `apocrypha` branch of `Davisfox5/pokeemerald-expansion`**
-(current accepted Johto maps as Git history; see `docs/GBA_SHARED_SOURCE.md`). Map and
-script work goes there as commits and PRs, not as new standalone patches. Porymap opens
-that checkout directly. Preserve local changes and track new engine edits in patches or an
+Map and script source is separate: see "Map work" above. Preserve local changes and track new engine edits in patches or an
 explicit source fork; never leave their only copy in a dirty submodule.
 The root `make build` is still a legacy DS asset command, not a GBA ROM build.
 Do not report a proposed dependency or configuration as installed or tested.

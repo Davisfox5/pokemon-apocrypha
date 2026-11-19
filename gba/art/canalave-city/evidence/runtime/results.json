@@ -1,0 +1,261 @@
+{
+ "write": {
+  "exit_code": 0,
+  "stderr": "",
+  "edges": {
+   "edges_tested": 2988,
+   "edge_mismatches": 0
+  },
+  "edge_mismatches": [],
+  "doors": [
+   "CanalaveGym",
+   "CanalavePokemonCenter",
+   "CanalaveMart",
+   "CanalaveLibrary",
+   "CanalaveSoutheastHouse",
+   "CanalaveSailorEldritchHouse",
+   "CanalaveEastHouse",
+   "CanalaveWestHouse"
+  ],
+  "talks": [
+   "nurse",
+   "clerk",
+   "CanalaveCity_Sign_Library",
+   "CanalaveCity_Sign_Gym",
+   "CanalaveCity_Sign_Dock",
+   "CanalaveCity_Sign_City",
+   "CanalaveCity_Sign_EldritchHouse",
+   "CanalaveCity_Sign_HarborInn",
+   "harbor-inn-door",
+   "gate",
+   "sailor-eldritch"
+  ],
+  "save": {
+   "save_status": 1,
+   "flash_bytes": 131072
+  },
+  "parity": [
+   {
+    "shot": "arrive",
+    "x": 22,
+    "y": 19,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-9-18",
+    "x": 9,
+    "y": 18,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-16-18",
+    "x": 16,
+    "y": 18,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-18",
+    "x": 27,
+    "y": 18,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-17",
+    "x": 35,
+    "y": 17,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-9-19",
+    "x": 9,
+    "y": 19,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-16-19",
+    "x": 16,
+    "y": 19,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-19",
+    "x": 35,
+    "y": 19,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-11-28",
+    "x": 11,
+    "y": 28,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-19-28",
+    "x": 19,
+    "y": 28,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-28",
+    "x": 27,
+    "y": 28,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-28",
+    "x": 35,
+    "y": 28,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-11-37",
+    "x": 11,
+    "y": 37,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-17-35",
+    "x": 17,
+    "y": 35,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-37",
+    "x": 27,
+    "y": 37,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-37",
+    "x": 35,
+    "y": 37,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-11-46",
+    "x": 11,
+    "y": 46,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-17-46",
+    "x": 17,
+    "y": 46,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-46",
+    "x": 27,
+    "y": 46,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-46",
+    "x": 35,
+    "y": 46,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-11-55",
+    "x": 11,
+    "y": 55,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-18-54",
+    "x": 18,
+    "y": 54,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-55",
+    "x": 27,
+    "y": 55,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-55",
+    "x": 35,
+    "y": 55,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-11-65",
+    "x": 11,
+    "y": 65,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-21-67",
+    "x": 21,
+    "y": 67,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-27-60",
+    "x": 27,
+    "y": 60,
+    "identical": 1.0
+   },
+   {
+    "shot": "tour-35-60",
+    "x": 35,
+    "y": 60,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveGym",
+    "x": 14,
+    "y": 35,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalavePokemonCenter",
+    "x": 33,
+    "y": 26,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveMart",
+    "x": 28,
+    "y": 44,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveLibrary",
+    "x": 12,
+    "y": 22,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveSoutheastHouse",
+    "x": 29,
+    "y": 52,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveSailorEldritchHouse",
+    "x": 14,
+    "y": 52,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveEastHouse",
+    "x": 28,
+    "y": 36,
+    "identical": 1.0
+   },
+   {
+    "shot": "out-CanalaveWestHouse",
+    "x": 13,
+    "y": 44,
+    "identical": 1.0
+   }
+  ]
+ },
+ "read": {
+  "exit_code": 0,
+  "stderr": "",
+  "reload": true
+ }
+}

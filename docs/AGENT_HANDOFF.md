@@ -1,3 +1,11 @@
+## Latest: Canalave City, first build from Platinum (November 10)
+
+Owner: "create and fully ready to play updated gen 3 version of any Sinnoh city". Canalave, rendered from
+pret/pokeplatinum's own data, 46x78 with a seven-cell margin, its own tileset pair, Emerald's animated water.
+Engine `claude/pensive-johnson-jpkszw` 009c2f1f on top of PR #39. Read
+[gba/art/canalave-city/README.md](../gba/art/canalave-city/README.md) for the method, checks and limits.
+Open: owner visual review, real interiors from Platinum's rooms, door animations, Route 218.
+
 ## Latest: Routes 30 and 31 by the Mahogany/Route 43 process (October 25)
 
 Owner: "do the routes between Cherrygrove and Violet City in the same manner" as Route 29. Both are HGSS

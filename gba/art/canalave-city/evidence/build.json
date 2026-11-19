@@ -1,0 +1,47 @@
+{
+ "engine_branch": "claude/pensive-johnson-jpkszw",
+ "engine_commit": "009c2f1f",
+ "engine_base": "claude/routes-30-31-catalog 7cc262bb",
+ "rom_sha256": "93757ba1debb5ac23fcb0807ef2780ab78e96f93e467f8e7365060bb394ed6e8",
+ "rom_note": "built from the working tree that became 009c2f1f; not committed",
+ "pokeplatinum": "62bdaacdca6c56a6a396f3e9911e2f922b79bba8",
+ "toolchain": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+ "mgba": "libmgba 0.10 (Ubuntu libmgba-dev)",
+ "edges": {
+  "edges_tested": 2988,
+  "edge_mismatches": 0
+ },
+ "doors": [
+  "CanalaveGym",
+  "CanalavePokemonCenter",
+  "CanalaveMart",
+  "CanalaveLibrary",
+  "CanalaveSoutheastHouse",
+  "CanalaveSailorEldritchHouse",
+  "CanalaveEastHouse",
+  "CanalaveWestHouse"
+ ],
+ "talks": [
+  "nurse",
+  "clerk",
+  "CanalaveCity_Sign_Library",
+  "CanalaveCity_Sign_Gym",
+  "CanalaveCity_Sign_Dock",
+  "CanalaveCity_Sign_City",
+  "CanalaveCity_Sign_EldritchHouse",
+  "CanalaveCity_Sign_HarborInn",
+  "harbor-inn-door",
+  "gate",
+  "sailor-eldritch"
+ ],
+ "save": {
+  "save_status": 1,
+  "flash_bytes": 131072
+ },
+ "frames_compared": 36,
+ "least_identical": 1.0,
+ "not_run": [
+  "Porymap open/export",
+  "apocrypha build action (the workflow only runs for PRs against apocrypha)"
+ ]
+}

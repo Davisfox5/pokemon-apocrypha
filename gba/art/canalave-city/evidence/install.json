@@ -1,0 +1,72 @@
+{
+ "tiles_free": 21,
+ "metatiles": 632,
+ "colour_tiles": 1424,
+ "folds": 0,
+ "proof_index": {
+  "MAP_CANALAVE_CITY": 59,
+  "MAP_CANALAVE_GYM": 60,
+  "MAP_CANALAVE_POKEMON_CENTER": 61,
+  "MAP_CANALAVE_MART": 62,
+  "MAP_CANALAVE_LIBRARY": 63,
+  "MAP_CANALAVE_SOUTHEAST_HOUSE": 64,
+  "MAP_CANALAVE_SAILOR_ELDRITCH_HOUSE": 65,
+  "MAP_CANALAVE_EAST_HOUSE": 66,
+  "MAP_CANALAVE_WEST_HOUSE": 67,
+  "MAP_CANALAVE_CENTER_UPSTAIRS": 68
+ },
+ "notes": [
+  {
+   "cleanup": "mirror_bridge",
+   "axis_px": 352,
+   "rows": [
+    334,
+    507
+   ],
+   "half_px": 115,
+   "west_pixels_replaced": 9458,
+   "east_pixels_copied": 8889
+  },
+  {
+   "cleanup": "restore_translucent",
+   "model": 244,
+   "box_px": [
+    128,
+    304,
+    160,
+    400
+   ],
+   "pixels": 282
+  },
+  {
+   "cleanup": "signs",
+   "cells": [
+    [
+     10,
+     25
+    ],
+    [
+     11,
+     35
+    ],
+    [
+     16,
+     55
+    ],
+    [
+     29,
+     57
+    ],
+    [
+     12,
+     51
+    ],
+    [
+     31,
+     17
+    ]
+   ]
+  }
+ ],
+ "plat_rev": "62bdaacdca6c56a6a396f3e9911e2f922b79bba8"
+}
