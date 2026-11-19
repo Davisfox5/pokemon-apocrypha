@@ -1,0 +1,339 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "files": [
+      "files/fielddata/eventdata/zone_event/052_T07.json",
+      "files/msgdata/msg/msg_0491_T07.gmm",
+      "files/fielddata/script/scr_seq/scr_seq_0785_T07.s"
+    ]
+  },
+  "matrix": {
+    "chunks": [
+      {
+        "x": 37,
+        "z": 7,
+        "land_data": 170
+      },
+      {
+        "x": 38,
+        "z": 7,
+        "land_data": 171
+      },
+      {
+        "x": 37,
+        "z": 8,
+        "land_data": 172
+      },
+      {
+        "x": 38,
+        "z": 8,
+        "land_data": 173
+      }
+    ],
+    "origin": [
+      1184,
+      224
+    ],
+    "size": [
+      64,
+      64
+    ],
+    "neighbour_headers": {
+      "west": [
+        422
+      ],
+      "east": [
+        15
+      ],
+      "north": [],
+      "south": []
+    }
+  },
+  "warps": [
+    {
+      "index": 0,
+      "cell": [
+        17,
+        13
+      ],
+      "dest": "MAP_CELADON_DEPARTMENT_STORE_1F",
+      "anchor": 0
+    },
+    {
+      "index": 1,
+      "cell": [
+        34,
+        13
+      ],
+      "dest": "MAP_CELADON_CONDOMINIUMS_1F",
+      "anchor": 0
+    },
+    {
+      "index": 2,
+      "cell": [
+        47,
+        13
+      ],
+      "dest": "MAP_CELADON_POKECENTER_1F",
+      "anchor": 0
+    },
+    {
+      "index": 3,
+      "cell": [
+        34,
+        25
+      ],
+      "dest": "MAP_CELADON_GAME_CORNER",
+      "anchor": 0
+    },
+    {
+      "index": 4,
+      "cell": [
+        39,
+        25
+      ],
+      "dest": "MAP_CELADON_PRIZE_CORNER",
+      "anchor": 0
+    },
+    {
+      "index": 5,
+      "cell": [
+        17,
+        42
+      ],
+      "dest": "MAP_CELADON_GYM",
+      "anchor": 0
+    },
+    {
+      "index": 6,
+      "cell": [
+        41,
+        37
+      ],
+      "dest": "MAP_CELADON_RESTAURANT",
+      "anchor": 0
+    }
+  ],
+  "signs": [
+    {
+      "cell": [
+        20,
+        21
+      ],
+      "script": "_EV_scr_seq_T07_009 + 1",
+      "bg_type": 1,
+      "text": "Celadon City City of the Rainbow’s Colors"
+    },
+    {
+      "cell": [
+        35,
+        28
+      ],
+      "script": "_EV_scr_seq_T07_013 + 1",
+      "bg_type": 1,
+      "text": "Celadon Game Corner A Fun Place for Everyone"
+    },
+    {
+      "cell": [
+        45,
+        28
+      ],
+      "script": "_EV_scr_seq_T07_014 + 1",
+      "bg_type": 1,
+      "text": "Trainer Tips Guard Spec. protects Pokémon from status-reduction moves during battle. Get your items at the Celadon Dept. Store!"
+    },
+    {
+      "cell": [
+        36,
+        13
+      ],
+      "script": "_EV_scr_seq_T07_012 + 1",
+      "bg_type": 1,
+      "text": "Celadon Condominiums"
+    },
+    {
+      "cell": [
+        20,
+        44
+      ],
+      "script": "_EV_scr_seq_T07_010 + 1",
+      "bg_type": 1,
+      "text": "Celadon City Pokémon Gym Leader: Erika The Nature-Loving Princess!"
+    },
+    {
+      "cell": [
+        19,
+        14
+      ],
+      "script": "_EV_scr_seq_T07_011 + 1",
+      "bg_type": 1,
+      "text": "Find what you need at the Celadon Dept. Store!"
+    },
+    {
+      "cell": [
+        46,
+        48
+      ],
+      "script": "std_hiddenitem_t07_pp_up",
+      "bg_type": 2,
+      "text": ""
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_T07_gsbigman",
+      "sprite": "SPRITE_GSBIGMAN",
+      "cell": [
+        44,
+        15
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_tsure_poke_static_poliwrath",
+      "sprite": "SPRITE_FOLLOWER_MON_STATIC_POLIWRATH",
+      "cell": [
+        45,
+        15
+      ],
+      "facing": 1,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsboy1",
+      "sprite": "SPRITE_GSBOY1",
+      "cell": [
+        35,
+        17
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gswoman2",
+      "sprite": "SPRITE_GSWOMAN2",
+      "cell": [
+        14,
+        18
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsgirl1",
+      "sprite": "SPRITE_GSGIRL1",
+      "cell": [
+        23,
+        30
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gswoman1",
+      "sprite": "SPRITE_GSWOMAN1",
+      "cell": [
+        34,
+        30
+      ],
+      "facing": 1,
+      "movement": 3,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsboy2",
+      "sprite": "SPRITE_GSBOY2",
+      "cell": [
+        39,
+        42
+      ],
+      "facing": 1,
+      "movement": 2,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsoldman1",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        15,
+        44
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsoldman1_2",
+      "sprite": "SPRITE_GSOLDMAN1",
+      "cell": [
+        27,
+        26
+      ],
+      "facing": 1,
+      "movement": 15,
+      "flag": "FLAG_NOTHING"
+    },
+    {
+      "id": "obj_T07_gsleader12",
+      "sprite": "SPRITE_GSLEADER12",
+      "cell": [
+        16,
+        27
+      ],
+      "facing": 3,
+      "movement": 0,
+      "flag": "FLAG_UNK_25D"
+    },
+    {
+      "id": "obj_T07_gsleader6",
+      "sprite": "SPRITE_GSLEADER6",
+      "cell": [
+        17,
+        27
+      ],
+      "facing": 2,
+      "movement": 0,
+      "flag": "FLAG_UNK_2E1"
+    },
+    {
+      "id": "obj_T07_tree",
+      "sprite": "SPRITE_TREE",
+      "cell": [
+        43,
+        43
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_MAPTEMP_010"
+    },
+    {
+      "id": "obj_T07_monstarball",
+      "sprite": "SPRITE_MONSTARBALL",
+      "cell": [
+        11,
+        2
+      ],
+      "facing": 0,
+      "movement": 0,
+      "flag": "FLAG_HIDE_ITEMBALL_T07_TM67"
+    },
+    {
+      "id": "obj_T07_gsmiddleman1",
+      "sprite": "SPRITE_GSMIDDLEMAN1",
+      "cell": [
+        16,
+        32
+      ],
+      "facing": 0,
+      "movement": 14,
+      "flag": "FLAG_HIDE_CAMERON"
+    }
+  ]
+}

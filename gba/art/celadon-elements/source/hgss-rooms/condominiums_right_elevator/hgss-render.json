@@ -1,0 +1,77 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 44,
+    "map_texture_set": 44,
+    "building_texture_set": 42,
+    "matrix": "map_matrix_0262_D31R0202.bin",
+    "top_down_fill_pixels": 0,
+    "filled_seam_pixels": 253930
+  },
+  "size_cells": [
+    32,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 1,
+      "chunk": 372,
+      "pos": [
+        3.5,
+        -0.0625,
+        6.5625
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "d_mat01"
+      ],
+      "footprint": [
+        2.625,
+        6.3125,
+        4.375,
+        7.3125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 208,
+      "chunk": 372,
+      "pos": [
+        16.0,
+        0.0,
+        15.875
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ev_o01",
+        "ev_o02"
+      ],
+      "footprint": [
+        1.25,
+        1.8125,
+        5.75,
+        6.375
+      ],
+      "replaced_by": null
+    }
+  ]
+}

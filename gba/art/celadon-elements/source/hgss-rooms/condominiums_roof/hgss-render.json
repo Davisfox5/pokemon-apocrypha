@@ -1,0 +1,201 @@
+{
+  "source": {
+    "repository": "pret/pokeheartgold (Davisfox5 fork)",
+    "revision": "9d8b7591f09b65804da2fb2dfd56f320633e0d36",
+    "archives": {
+      "files/a/0/6/5": "0817bd81cc30342bc40dd6ce829121e9a8be4e9d04d0b790f8d9d99688c4bebe",
+      "files/a/0/4/2": "991506d5626fee587e4bf27042ae7b2945e167b89d6ec9f2d834d29e7476d58f",
+      "files/a/0/4/4": "6385837c11139c543884434a54768e7279b485214b7ca309cf8a670d8f98d647",
+      "files/a/0/4/0": "c750b0cd588c9dd42dfcae5a334f2eb504c5bdc943a9f529c4479020863bee9a"
+    }
+  },
+  "meta": {
+    "area_bank": 95,
+    "map_texture_set": 95,
+    "building_texture_set": 93,
+    "matrix": "map_matrix_0224_T07R0204.bin",
+    "top_down_fill_pixels": 0,
+    "filled_seam_pixels": 141675
+  },
+  "size_cells": [
+    32,
+    32
+  ],
+  "px_per_cell": 16,
+  "projection": "screen x = X*16; screen y = (Z - (Y - ref))*16, depth Z + (Y - ref). ref = own height for walkable near-horizontal terrain (top-down, registers on its cell), lowest vertex for steep terrain faces, building base for buildings",
+  "buildings": [
+    {
+      "model": 123,
+      "chunk": 331,
+      "pos": [
+        9.0,
+        2.5,
+        -5.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "cloud01_a",
+        "cloud01_b",
+        "cloud01_c",
+        "cloud02_a",
+        "cloud02_b",
+        "cloud02_c",
+        "cloud03_a",
+        "cloud03_b",
+        "cloud03_c",
+        "hai01_a",
+        "hai01_b",
+        "hai01_c",
+        "hai01_d",
+        "hai02_a",
+        "hai02_b",
+        "hai02_c",
+        "hai02_d",
+        "hai03_a",
+        "hai03_b",
+        "hai03_c",
+        "hai03_d"
+      ],
+      "footprint": [
+        -19.0,
+        -5.0,
+        39.0,
+        -4.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 275,
+      "chunk": 331,
+      "pos": [
+        12.5,
+        0.0,
+        6.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "h_mado",
+        "tmfl04_ent",
+        "tmfl04_wall1",
+        "tmfl04_wall2",
+        "tmfl04_win1",
+        "tmfl04_yane1",
+        "tmfl04_yane2",
+        "tmfl04_yane3",
+        "tmfl04_yane4",
+        "tmfl04_yane5"
+      ],
+      "footprint": [
+        9.75,
+        3.75,
+        15.25,
+        7.75
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 274,
+      "chunk": 331,
+      "pos": [
+        13.192825317382812,
+        -0.0249176025390625,
+        7.3561553955078125
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tmfl04_door1"
+      ],
+      "footprint": [
+        11.817825317382812,
+        7.3561553955078125,
+        13.192825317382812,
+        7.4811553955078125
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 327,
+      "chunk": 331,
+      "pos": [
+        -23.5,
+        1.75,
+        -3.125
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "tafl_light"
+      ],
+      "footprint": [
+        3.5,
+        4.685546875,
+        5.5,
+        4.8818359375
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 124,
+      "chunk": 331,
+      "pos": [
+        6.5,
+        0.125,
+        4.375
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ele_door.1"
+      ],
+      "footprint": [
+        5.625,
+        4.375,
+        7.375,
+        4.375
+      ],
+      "replaced_by": null
+    },
+    {
+      "model": 124,
+      "chunk": 331,
+      "pos": [
+        2.5,
+        0.125,
+        4.375
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "names": [
+        "ele_door.1"
+      ],
+      "footprint": [
+        1.625,
+        4.375,
+        3.375,
+        4.375
+      ],
+      "replaced_by": null
+    }
+  ]
+}
