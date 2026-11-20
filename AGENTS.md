@@ -25,6 +25,11 @@
 
 ## Required workflow for every map-building task
 
+- Work every map through the gates in [the per-map checklist](docs/MAP_CHECKLIST.md),
+  G0 to G7, in order. Claim the map in [the HGSS map inventory](docs/maps/HGSS_MAP_INVENTORY.csv)
+  first; never open a second PR for a map that already has one. Get the owner's approval of the
+  sourcing plan (G2) before drawing, and pass `tools/gba/maps/map_gate.py` (G4) before owner review.
+  Each region has its own shared Center, Mart, house and gatehouse kit.
 - All models and instances, including Codex, Claude, Grok and Gemini, must read
   and apply [the map reconstruction workflow](docs/GBA_MAP_RECONSTRUCTION.md)
   before building, rebuilding, extending or refining a map.

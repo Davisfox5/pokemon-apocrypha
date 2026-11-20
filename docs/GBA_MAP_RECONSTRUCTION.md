@@ -5,7 +5,8 @@ rebuilding, extending or refining maps. Read this before map work, together with
 [shared source rules](GBA_SHARED_SOURCE.md), [production workflow](AGENT_WORKFLOW.md)
 and any applicable existing Grok/model instructions. This adds to those rules;
 it does not replace them or change the approved GBA pokeemerald-expansion target.
-Current owner direction takes precedence.
+Current owner direction takes precedence. The order of work and its pass/fail gates are in
+[the per-map checklist](MAP_CHECKLIST.md); this document is the standard each gate is held to.
 
 ## 1. Establish the original reference
 

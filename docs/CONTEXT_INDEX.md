@@ -12,7 +12,8 @@ optional, never part of routine startup.
 
 | Task | First read | Expand only when needed |
 | --- | --- | --- |
-| Any map building, reconstruction, extension or refinement — all models | GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
+| Which HGSS maps exist, their status, what to build next | maps/HGSS_MAP_INVENTORY.csv | MAP_CHECKLIST.md G0; regenerate/check with `tools/gba/maps/inventory/build_inventory.py` |
+| Any map building, reconstruction, extension or refinement — all models | MAP_CHECKLIST.md, then GBA_MAP_RECONSTRUCTION.md | Required original-reference grid, separate material/traversal checks, native visual review; supplements existing Grok rules |
 | Outdoor Johto visual refinement / prompt for another Codex instance | GBA_OUTDOOR_REFINEMENT_PROMPT.md | Preserve owner-approved geometry; apply the standing native cleanup rule and original HGSS material/edge review |
 | Violet City interiors (November 3) | ../gba/art/violet-interiors/README.md | HGSS rooms rendered from DS data (`tools/gba/maps/violet_interiors`): Sprout Tower 1F-3F, university, lecture hall, five campus homes; private tileset pair per building; PR #39 |
 | Routes 30 and 31, Mahogany/Route 43 process (October 25) | ../gba/art/route30-catalog/README.md, ../gba/art/route31-catalog/README.md | HGSS only, built like Route 29: one CherrygrovePrimary copy per route, joint pack with shared seam ids (`tools/gba/maps/route30_catalog/pair_pack.py`), Route 30's two north padding rows, Cherrygrove's cliff turned north into Route 30's west wall and the whole town's cleanup (`tools/gba/maps/cherrygrove_town/`, ../gba/art/cherrygrove-town/README.md), engine primary reload and redraw on crossing; tools `tools/gba/maps/route30_catalog/`, `route31_catalog/`; PR #39 (`claude/routes-30-31-catalog`); owner visual review pending |
