@@ -18,7 +18,8 @@ from tiles import Tileset                # noqa: E402
 
 ART = ROOT / 'gba/art/violet-interiors'
 WALK, BLOCK = 0x3000, 0x3400             # elevation 3; collision 0 / 1
-MB = dict(normal=0x00, exit=0x65, ladder=0x61, bookshelf=0xE1, pc=0x83, tv=0x86)
+MB = dict(normal=0x00, exit=0x65, ladder=0x61, bookshelf=0xE1, pc=0x83, tv=0x86, counter=0x80,
+          escalator_up=0x6A, escalator_down=0x6B)
 
 def cells(room):
     """The room's native cells: layers, behaviour, collision. Outside the room: black and blocked."""

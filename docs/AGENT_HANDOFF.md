@@ -74,6 +74,19 @@ Owner review (October 25), refined the same day:
   court), five campus homes; all rendered from HGSS's own room data, each building on a private tileset pair. No NPCs yet.
   November 4 (owner): Sprout Tower and the houses rebuilt in Gen 3 pieces (sprout_native.py on HGSS's plan; houses_native.py
   from floor plans, FireRed pieces, the Celadon apartments' method); lecture hall shortened, desks facing the court.
+  November 5 (owner): houses get kitchens and paired beds on the north wall (S.S. Tidal cabins), FireRed pieces retoned to
+  HGSS's Violet house colours; the lecture hall's glass panels and rails replaced with court stone.
+  November 5, round 4: owner approved all but Sprout Tower; Sprout Tower 1F-3F rebuilt as a custom tileset converted from
+  HGSS's textures (sprout_gen3.py), pillar at Gen 3 pitch (wall height, two bands, no black cap), FireRed ladders; 23 x 26.
+  November 8: Johto Center (HGSS 1F + B1F) and Mart (HGSS, 18 wide, two counters: Cherrygrove Discount Corner, Violet specialty) on
+  shared layouts for Cherrygrove and Violet; Sinnoh Center (Platinum's plans) for Sandgem. Rebuilt after the owner rejected DS
+  renders: Emerald's own Center/Mart pieces square by square on the originals' plans (shops_native.py; johto_shops.py and
+  sinnoh_shops.py install). Engine: shop discount flag, westward escalator exit. Unova Center waits on owner-supplied B2W2 files.
+  November 10 (owner approved the modern mockup): Johto Center 1F/B1F styled by modern() in shops_native.py (cool floor, white
+  panels with the red band, slate counters, displays, light strips, kiosks); station posts and notice board finished; walk audit
+  fixes (side walls, escalator rails, plant tops, staff side closed, B1F escalator warp now (15, 11)); warm decor (wood bookshelf,
+  region map, planters, rugs, runner) as proposals. Porymap probe not re-run on this build.
+  November 6: owner accepted Sprout Tower (statues off the black row; 3F east statues and rail one square east). Interiors locked in.
 - West of HGSS's west wall the padding stands at the wall's top, so the wall has one face and the north
   rock no longer turns a corner.
 - The south road keeps the painter's wavy edge down to Cherrygrove's band.
@@ -1072,12 +1085,10 @@ Three open threads to raise at the right moment, not bundled into one question:
   several hidden abilities, which does not make them reachable in play.
 - **Gym leader and trainer teams.** Weather setters now exist (M03b) and the big
   special attacks hit harder (M03c). No team has been designed around either.
-- **Breeding and inheritance rules.** `P_MOVE_INHERITANCE`, `P_EGG_MOVE_TRANSFER`,
-  `P_ABILITY_INHERITANCE`, `P_NATURE_INHERITANCE`, `P_BALL_INHERITANCE`,
-  `P_EGG_HATCH_LEVEL` and `P_INCENSE_BREEDING` are all still at inherited Gen 9
-  defaults. The owner asked on 2026-09-11 that this be recorded and returned to at
-  a time of the agent's choosing; it does not block the experience-yield or TM
-  decisions. `P_INCENSE_BREEDING` is the one with world-facing consequences.
+- **Breeding: settled 2026-11-20 except ability inheritance.** Gen 5 rules plus
+  Gen 6 Egg moves, Gen 7 ball inheritance and the 5-IV Destiny Knot; see
+  `docs/GBA_MECHANICS_AUDIT.md`. `P_ABILITY_INHERITANCE` waits on the Hidden
+  Ability access decision. Incense is required for baby species again.
   **Egg-move data itself is settled and needs no decision:** it is a single file
   with no per-generation option, and a safety review confirmed nothing
   egg-exclusive on this roster is unbalanced. See

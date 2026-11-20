@@ -24,24 +24,23 @@ GROUPS = {
                    secondary='violet_sprout_tower', psym='VioletSproutTowerPrimary', ssym='VioletSproutTower'),
 }
 
-# Sprout Tower (owner, November 4): a Gen 3 conversion from native pieces on HGSS's plan (sprout_native.py).
+# Sprout Tower (owner, November 5): a custom tileset converted from HGSS's textures on HGSS's plan (sprout_gen3.py).
 def sprout(name, ladders, exit=None):
     def make():
-        import sprout_native as SN
-        f, walk = SN.build(name)
+        import sprout_gen3 as SG
+        f, walk = SG.build(name)
         for c in ladders:
             f.behaviors[c] = 'ladder'
         if exit:
             for c in exit:
                 f.behaviors[c] = 'exit'
-        f.notes.append("HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the "
-                       "Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and "
-                       "Bellsprout statues drawn in Gen 3's manner")
+        f.notes.append("HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures "
+                       "(floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders")
         return f
     return make
 
-def L(x, y):                              # HGSS cell -> this map's cell (sprout_native: x - 4, y - 5)
-    return (x - 4, y - 5)
+def L(x, y):                              # HGSS cell -> this map's cell (sprout_gen3: x - 4, y - 4)
+    return (x - 4, y - 4)
 
 # --------------------------------------------------------------------------- the university (proposal)
 # HGSS's Pokemon School is the lecture room, as it is: blackboard, the dean's desk, the students' desks,
@@ -82,15 +81,20 @@ def lecture_hall():
     N = lambda hy: rows.index(hy)                            # HGSS row -> this map's row
     L = lambda x, y: (x - 7, y)
     LD.court(r, L, top=N(11), bottom=N(22), stone=[N(25), N(26), N(28)])
+    # owner, November 5: the gym's glass floor panels (HGSS x 9-11 and 19-21, rows 7-18) and the rails on
+    # them go; the hall's own stone from below them (rows 19-22) takes their place
+    stone_rows = [N(19), N(20), N(21), N(22)]
+    dst, src = [], []
+    for hy in [7, 8] + list(range(11, 19)):
+        for hx in (9, 10, 11, 19, 20, 21):
+            dst.append(L(hx, N(hy))); src.append(L(hx, stone_rows[(hy - 8) % 4]))
+    RM.paint(r, dst, src)
     r.blocked[:] = False
     for y in range(r.H):
         for x in range(r.W):
             hx = x + 7
             if hx < 9 or hx > 21 or y < 4 or y > N(28):
                 r.blocked[y, x] = True
-    for hx in (9, 10, 11, 19, 20, 21):
-        for hy in (17, 18):
-            r.blocked[N(hy), hx - 7] = True                  # the glass panels' rails
     for hx in (12, 18):                                       # the statues
         for hy in (24, 25):
             r.blocked[N(hy), hx - 7] = True
@@ -159,6 +163,13 @@ ROOMS = {
     'SproutTower3F': sprout('sprout3', [L(15, 27)]),
 }
 
+import johto_shops as JS                    # owner, November 8: Johto's Center and Mart from HGSS, shared by its towns
+GROUPS.update(JS.GROUPS)
+ROOMS.update(JS.ROOMS)
+import sinnoh_shops as SS                   # owner, November 8: Sinnoh's Center from Platinum, shared by its towns
+GROUPS.update(SS.GROUPS)
+ROOMS.update(SS.ROOMS)
+
 def w(cell, dest, warp):
     return dict(x=cell[0], y=cell[1], elevation=0, dest_map=dest, dest_warp_id=str(warp))
 
@@ -178,9 +189,18 @@ MAPS = {
                           warps=[w(L(15, 27), 'MAP_SPROUT_TOWER_2F', 3)]),
 }
 
+MAPS.update(JS.MAPS)
+MAPS.update(SS.MAPS)
+
 def install_maps(engine, names):
-    """Each interior's map.json: its layout, its exit warps (kept from doors.py) and its own warps."""
+    """Each interior's map.json: its layout, its exit warps (kept from doors.py) and its own warps. The shared Johto
+    Center and Mart layouts go onto every Johto town's own Center, basement and Mart maps (johto_shops.install)."""
     import doors as D
+    if any(MAPS[n].get('shared') is True for n in names):
+        JS.install(engine)
+    if any(MAPS[n].get('shared') == 'sinnoh' for n in names):
+        SS.install(engine)
+    names = [n for n in names if not MAPS[n].get('shared')]
     for n in names:
         m = MAPS[n]
         p = engine / 'data/maps' / n / 'map.json'

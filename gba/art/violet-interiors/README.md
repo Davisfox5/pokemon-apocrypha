@@ -103,6 +103,182 @@ Checks on the round 2 ROM:
 - Violet doors: 11 of 11.
 - Porymap: 0 pixels differ on all ten interiors.
 
+## Round 3 (owner, November 5)
+
+- **Houses:**
+  - Two beds share a room the way FireRed's S.S. Tidal cabins do it: headboards on the north
+    wall, in its corners (`VioletHouse2`) or side by side (`VioletHouse3`).
+  - Every house has a kitchen (Pallet's counter, stove and fridge) on a grey stone corner, the kind HGSS
+    puts under its house kitchens.
+  - The FireRed pieces keep their shapes and are retoned to the HGSS Violet house: its warm wood floor,
+    cream wall and grey stone (`houses_native.retone`). Packed exactly: 47 colours, 38 in the sage's.
+- **Lecture hall:** the gym's glass floor panels and the rails under them are gone; their squares are the
+  court's stone.
+- `evidence/hgss-sprout-tower-{1F,2F,3F}.png`: HGSS's own Sprout Tower floors, unconverted.
+
+Checks on the round 3 ROM: interior runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ
+on the lecture hall and all five houses.
+
+## Round 4 (owner, November 5): Sprout Tower as a custom tileset
+
+The owner approved every room but Sprout Tower and asked for a custom Gen 3 tileset converted from HGSS's,
+with the pillar at Gen 3's pitch, and Gen 3's own ladders.
+
+- `sprout_gen3.py` reads each square of HGSS's floor plan: the texture that covers it, its collision and its
+  props. It gives each square the Gen 3 tile for that element (`evidence/sprout-tileset.png`).
+- Each element is HGSS's own texture, decoded from the DS data (Sprout Tower's map texture set and its field
+  models). HGSS draws these at 16 texels a tile, which is Gen 3's density. The conversion keeps their pixels
+  and hues, widens their value range 1.3 times to Gen 3's ramps, and adds one-pixel outlines. Solid things
+  are redrawn at Gen 3's pitch.
+  - **Floor:** `d15_yuka01` planks. The row under the north wall is in the wall's shadow.
+  - **North wall:** four rows. A trim and frieze, then HGSS's niches (`d15_wall01`) every three squares, at
+    HGSS's own places. The lit ones are `d15_light_b` with `d15_light_a`'s flame, where HGSS hangs its lamps.
+    On 3F, HGSS's windows (`d15_win`) take their places.
+  - **Side walls:** the wall's purple top.
+  - **Railings:** `d15_wall02` balusters under `d15_wall02a`'s red rail and posts.
+    - An east-west run is the railing's face on its first row and its kerb (HGSS's dark band) on the second.
+    - A north-south run is the rail seen from above, with the kerb's shade to its east.
+  - **Lattice:** `d15_yuka03` over the drops, with its inner face on the north side.
+  - **Plinth:** `d15_yuka02`'s tan slab and its three-band front.
+  - **Statues:** `d15_obj02`'s Bellsprout on `d15_obj01`'s pedestal.
+  - **Exit:** `d15_genkan`'s stone.
+- **Ladders:** FireRed's own. The ladder up is from Mt. Moon B1F (3, 2-3). The hole with the ladder down is
+  from Mt. Moon 1F (5, 6), its rim recoloured in the floor's wood.
+- **Pillar** (`evidence/sprout-pillar-pitch.png`):
+  - HGSS's model is a 2 x 2 post 12 tiles high, capped by a black face (`d15_pillar03`) that the DS camera
+    never shows. Projected flat, it runs to the north wall and ends in that black square.
+  - Gen 3 draws a floor-to-ceiling column as tall as the room's north wall, with a lit top. FireRed's Hall of
+    Fame columns and Lorelei's ice columns both do this.
+  - The pillar is now a post two squares wide and four rows tall (the wall's height) on its plinth. HGSS's two
+    iron bands (`d15_pillar02`) sit a quarter and three quarters up. The top where the ceiling cuts it shows
+    the post's own end grain.
+- **Map size:** the floors are one row taller (23 x 26) for the four-row wall. Warps moved with the floor
+  plan, and the Violet door's exit cells are now (11, 24) and (12, 24).
+- **Packing:** colours merged within one 5-bit step. Mean channel error 0.2-0.24 against the composed floors,
+  0 pixels more than 32 off. 280 tiles, 209 metatiles.
+- `sprout_native.py` (round 2) stays as provenance; `rooms.py` no longer uses it.
+
+Checks on the round 4 ROM:
+- Interior runtime: 20 of 20 warps.
+- Violet doors: 11 of 11.
+- Porymap: 0 pixels differ on Sprout Tower 1F-3F.
+
+## Round 4 accepted (owner, November 6)
+
+The owner accepted Sprout Tower with two fixes:
+- **Statues on the last floor row:** these now stand on their own square's foot. Their pedestals no longer
+  reach into the black row below the map.
+- **3F, east of the pillar:** the two statues and the railing stand one square east (map column 15 for the
+  statues, 16 for the rail), mirroring the west side. The strip they left is walkway (`OWNER_MOVES` in
+  `sprout_gen3.py`).
+
+Packing: k-means into 13 banks; mean channel error 0.29-0.33, 0 pixels more than 32 off. Checks: interior
+runtime 20 of 20 warps, Violet doors 11 of 11, Porymap 0 pixels differ on Sprout Tower 1F-3F.
+
+## Pokémon Centers and Marts (owner, November 8; rebuilt)
+
+The owner asked for HGSS's Center for Johto (Sinnoh's and Unova's from their own games), and for HGSS's Mart sized
+to the M01 building's front, with two counters. The owner's choices:
+- **Center:** HGSS's 1F with its B1F.
+- **Mart's second counter:** varies by town.
+- **Unova:** later, from files the owner supplies.
+
+The first build used straight DS renders, and the owner rejected it: it did not follow AGENTS.md. These rooms
+are rebuilt that way: the original room compared square by square with native Gen 3 tiles, matching material,
+structure and traversal (`shops_native.py`). Every square takes the native element of the same material and
+role, whole, from Emerald's own rooms, with its collision and behaviour:
+- **Emerald `PokemonCenter_1F`:**
+  - the nurse's counter block (healing machine, nurse's floor, desk, Poké Ball ornaments)
+  - the PC, potted palm, stools and glass table
+  - the up escalator, the floor's Poké Ball emblem, the exit mat, the side walls
+- **Emerald `PokemonCenter_2F`:**
+  - the plain back wall and its glass doors (HGSS's windows and shut doors)
+  - the attendants' counters (ends, middles, gap blocks) and card machines
+  - the white pillars, the down escalator, the floor rings, the potted plants
+- **Emerald `Mart`:**
+  - the register counter with its clerk's floor
+  - the glass coolers, the wall shelves of goods, the floor shelves
+  - the clock, the potted plant, the exit mat
+
+Pieces on a room's east side that face west in the original are Emerald's mirrored. The floor and wall colours
+take the original room's ramps (HGSS's warmer orange, its teal Mart, Platinum's red-orange); furniture keeps
+Emerald's colours.
+
+### Johto's Center, a decade on (owner, November 10)
+
+The owner approved the modern styling mockup ("the updated color palette is solid ... run with the styling")
+and asked for traversal fixes, finished posts at the nurse's station and warmer decor. `modern()` in
+`shops_native.py` styles both Johto Center floors (the B1F now shares the 1F's ramps):
+- **Materials, by colour:** a cool polished floor, white wall panels with the Center's red band, slate counters
+  and stools in teal and white. The same native pieces; only their colours change.
+- **Gen 3-drawn details:** wall displays with the Poké Ball in place of HGSS's windows and shut doors, a welcome
+  display in the old TV's place, cyan light strips along the wall's foot and the counters' fronts, self-service
+  terminals on the back counters where HGSS's attendants stand.
+- **The station, finished:** slate posts at both ends of the nurse's partition (x 3 and 12), with a cap, the
+  Center's red band, a status light, a plinth and a floor shadow. A cork notice board on the partition at x 11.
+- **Warmer decor** (proposals), keeping their own colours through the styling:
+  - FireRed's Center bookshelf, framed in wood, against the back wall (1F at x 2-3; B1F both ends).
+  - Emerald's framed region map (1F x 9-10, B1F x 11-12).
+  - Lilycove's wooden planters of shrubs either side of the 1F door and along the B1F's bottom row.
+  - Gen 3-style rugs under both lounges and a runner from the 1F door to the floor emblem.
+
+Traversal, audited by a walk from each entrance:
+- Emerald marks its side-wall columns walkable; they block here.
+- Escalators: only the warp square is open; the rails, the top and the foot block.
+- Potted plants block both squares (their tops were walkable).
+- The 1F's third back counter runs to the east wall, so the staff side behind the counters is closed.
+- The B1F escalator stands one row lower (its foot on the bottom row, warp (15, 11)), so no square is cut off
+  behind it, and the B1F's planters leave no one-square pockets.
+
+`evidence/<room>-clean.png` sets each original beside the native room. `evidence/<room>-plan.png` is the
+square-by-square ledger: each square's element, red for blocked, and its behaviour.
+
+| Room | Original | Used by | Squares |
+| --- | --- | --- | --- |
+| `JohtoPokemonCenter1F` | HGSS T21PC0101 | Cherrygrove, Violet | nurse (8, 11) across her counter (8, 12), PC (4, 10), three back counters at HGSS's row 5, escalator down (15, 17), exit (8-9, 19) |
+| `JohtoPokemonCenterB1F` | HGSS T27PC0105 | the towns' upstairs maps | three counters at row 5, the lounge, escalator up (15, 11) |
+| `JohtoMart` | HGSS T21FS0101, 18 wide | Cherrygrove, Violet | standard counter (clerk (1, 4)), second counter mirrored (clerk (16, 4)), coolers, wall and floor shelves, cafe table, exit (4-5, 11); proposal |
+| `SinnohPokemonCenter1F` | Platinum PokemonCenter_1F | Sandgem | nurse (8, 2), PC (12, 1), escalator up (1, 8), exit (8-9, 10); the basement escalator closed |
+| `SinnohPokemonCenter2F` | Platinum PokemonCenter_2F | Sandgem's upstairs map | three counters at row 3, escalator down (1, 8); the Union Room door closed |
+
+Deliberate adaptations, square by square:
+- **Johto 1F nurse area:** HGSS's nurse partition (its rows 7-8) and healing machine (rows 9-10) are one wall at
+  rows 9-10, the machine set in it as Gen 3 has it. The nurse, her counter and the player keep HGSS's rows.
+- **Johto 1F divider and benches:** HGSS's glass divider west of the lobby is potted plants (still blocked).
+  HGSS's benches are Gen 3's glass tables and stools.
+- **Johto escalators:** at the east wall one column further east than HGSS's, because Gen 3's escalator includes
+  its wall column.
+- **Sinnoh:** Platinum's three-row wall and two-row nurse's alcove are Gen 3's two and one, so Platinum's rows
+  from the nurse down are two higher (Emerald's 1F is Platinum's predecessor square for square). Its escalators
+  sit at the walls for the same reason as Johto's.
+- **Mart:** the counters keep Emerald's L shape. The clerks stand one column nearer the wall than HGSS's.
+
+The second counters, the discount hook and the westward escalator exit are unchanged from the first build:
+- **Cherrygrove:** a Discount Corner (Poké Ball, Potion, Antidote, Paralyze Heal at three quarters of the price).
+- **Violet:** HGSS's specialty clerk (Heal Ball, Net Ball).
+- **`src/shop.c`:** `ShopItemPrice()` charges three quarters while `FLAG_SHOP_DISCOUNT` is set.
+- **`src/field_effect.c`:** an escalator whose east side is solid lets the player off to the west.
+
+All five rooms pack exactly in native palettes, 0 pixels changed: the styled Johto Center 72 colours, 205 tiles (1F) and 63 colours, 146 tiles (B1F); the others 36-44 colours, 90-135 tiles.
+
+Checks:
+- Interior runtime: 36 of 36 warps, including both exit mat squares and both escalators each way in three towns.
+- Town doors: Cherrygrove's and Sandgem's lead in; Violet's doors pass 11 of 11.
+- `shops_runtime.py`:
+  - The nurse answers in all three towns, and the healing animation's Poké Balls land on the machine.
+  - Both Mart counters open their shop; the Discount Corner sells the 200 Potion at 150.
+- Porymap: 0 pixels differ on all eight maps (November 8 build; not re-run for the November 10 styling, see below).
+- November 10, styled build: the interior runtime passes 12 of 12 warps on both Center floors in all three
+  towns (the B1F arrival at (14, 11)); `shops_runtime.py` passes 15 of 15; Violet's doors 11 of 11 (48 frames at
+  least 99.7% identical to the decode); the decoded native tiles match the
+  composed rooms (5-bit rounding only).
+
+Not done:
+- The B1F and 2F attendants (Union Room, Wi-Fi, trainer card) have no NPCs or links.
+- Unova's Center waits on the owner's files.
+- The Porymap probe was not re-run on the styled build: the container was reset and its Porymap build was lost.
+- Violet's standard Mart list sells Escape Rope at ₽0, the engine's price for it.
+
 ## Checks
 
 | Check | Result |

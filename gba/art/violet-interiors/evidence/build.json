@@ -22,18 +22,18 @@
    17,
    27
   ],
-  "px_changed_by_palette": 29911,
+  "px_changed_by_palette": 0,
   "notes": [
    "HGSS's Violet Gym as a lecture hall and practice arena: the pit and walkways a stone court up against the stage, desks along it facing the court (proposal)"
   ]
  },
  "lecture": {
   "log": [
-   "221 colours, k-means over 729 quadrants into 13 banks (seed 4, error 4304812), 11 quadrants repaired; score 1.49 (alternative 1.89)",
-   "605 tiles, 279 metatiles"
+   "exact (84 colours)",
+   "522 tiles, 263 metatiles"
   ],
-  "tiles": 605,
-  "metatiles": 279
+  "tiles": 522,
+  "metatiles": 263
  },
  "VioletHouse1": {
   "size": [
@@ -42,16 +42,16 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a retired sage's home: the Fighting Dojo's wall, planks and tatami, a Bellsprout statue (proposal)"
+   "a retired sage's home: the dojo's wall and tatami, a kitchen on its stone, a Bellsprout statue (proposal)"
   ]
  },
  "sage_house": {
   "log": [
-   "exact (33 colours)",
-   "42 tiles, 25 metatiles"
+   "exact (38 colours)",
+   "69 tiles, 36 metatiles"
   ],
-  "tiles": 42,
-  "metatiles": 25
+  "tiles": 69,
+  "metatiles": 36
  },
  "VioletHouse2": {
   "size": [
@@ -60,7 +60,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "students' boarding house: two beds, a PC desk, a bookshelf, a study table (proposal)"
+   "students' boarding house: beds in the north wall's corners, the kitchen between, a study table (proposal)"
   ]
  },
  "VioletHouse3": {
@@ -70,7 +70,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a second boarding house: shared kitchen and TV, the dining table, beds (proposal)"
+   "a second boarding house: kitchen and TV, two beds side by side on the north wall, dining table (proposal)"
   ]
  },
  "VioletHouse4": {
@@ -80,7 +80,7 @@
   ],
   "px_changed_by_palette": 0,
   "notes": [
-   "a professor's home with a study: a wall of bookshelves, PC and desk, a reading table (proposal)"
+   "a professor's home with a study: kitchen, bookshelves, PC and desk, a reading table (proposal)"
   ]
  },
  "VioletHouse5": {
@@ -95,48 +95,138 @@
  },
  "houses": {
   "log": [
-   "exact (46 colours)",
-   "174 tiles, 82 metatiles"
+   "exact (47 colours)",
+   "175 tiles, 87 metatiles"
   ],
-  "tiles": 174,
-  "metatiles": 82
+  "tiles": 175,
+  "metatiles": 87
  },
  "SproutTower1F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 12190,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "SproutTower2F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 10707,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "SproutTower3F": {
   "size": [
    23,
-   25
+   26
   ],
-  "px_changed_by_palette": 0,
+  "px_changed_by_palette": 12537,
   "notes": [
-   "HGSS's floor plan, square by square, in Gen 3 pieces: Pokemon Tower's purple wall, the Fighting Dojo's planks and scrolls, Fortree's trunk as the pillar; railings, ladders and Bellsprout statues drawn in Gen 3's manner"
+   "HGSS's floor plan, square by square, in a custom tileset converted from HGSS's own textures (floor, walls, railings, lattice, plinth, pillar at Gen 3's pitch, statues); FireRed's ladders"
   ]
  },
  "sprout": {
   "log": [
-   "exact (29 colours)",
-   "86 tiles, 61 metatiles"
+   "129 colours, k-means over 316 quadrants into 13 banks (seed 2, error 4038893), 0 quadrants repaired; score 0.31 (alternative 0.46)",
+   "279 tiles, 196 metatiles"
   ],
-  "tiles": 86,
-  "metatiles": 61
+  "tiles": 279,
+  "metatiles": 196
+ },
+ "JohtoPokemonCenter1F": {
+  "size": [
+   17,
+   21
+  ],
+  "px_changed_by_palette": 0,
+  "notes": [
+   "HGSS's Pokemon Center 1F square by square in Emerald's own Center pieces, styled a decade on"
+  ]
+ },
+ "JohtoPokemonCenterB1F": {
+  "size": [
+   17,
+   14
+  ],
+  "px_changed_by_palette": 0,
+  "notes": [
+   "HGSS's Pokemon Center B1F square by square in Emerald's own Center pieces, styled a decade on"
+  ]
+ },
+ "johto_center": {
+  "log": [
+   "exact (72 colours)",
+   "205 tiles, 106 metatiles"
+  ],
+  "tiles": 205,
+  "metatiles": 106
+ },
+ "JohtoMart": {
+  "size": [
+   18,
+   13
+  ],
+  "px_changed_by_palette": 0,
+  "notes": [
+   "HGSS's Mart square by square in Emerald's own Mart pieces, four columns wider, a second counter (proposal)"
+  ]
+ },
+ "johto_mart": {
+  "log": [
+   "exact (44 colours)",
+   "111 tiles, 56 metatiles"
+  ],
+  "tiles": 111,
+  "metatiles": 56
+ },
+ "johto_center_b1": {
+  "log": [
+   "exact (63 colours)",
+   "146 tiles, 69 metatiles"
+  ],
+  "tiles": 146,
+  "metatiles": 69
+ },
+ "SinnohPokemonCenter1F": {
+  "size": [
+   17,
+   12
+  ],
+  "px_changed_by_palette": 0,
+  "notes": [
+   "Platinum's Pokemon Center 1F square by square in Emerald's own Center pieces"
+  ]
+ },
+ "SinnohPokemonCenter2F": {
+  "size": [
+   17,
+   12
+  ],
+  "px_changed_by_palette": 0,
+  "notes": [
+   "Platinum's Pokemon Center 2F square by square in Emerald's own Center pieces"
+  ]
+ },
+ "sinnoh_center": {
+  "log": [
+   "exact (38 colours)",
+   "129 tiles, 78 metatiles"
+  ],
+  "tiles": 129,
+  "metatiles": 78
+ },
+ "sinnoh_center_2f": {
+  "log": [
+   "exact (36 colours)",
+   "90 tiles, 44 metatiles"
+  ],
+  "tiles": 90,
+  "metatiles": 44
  }
 }

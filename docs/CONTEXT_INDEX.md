@@ -24,6 +24,7 @@ optional, never part of routine startup.
 | October 8 HGSS New Bark / Route 31 recreation | ../gba/art/hgss-connections/README.md | Native HGSS cutouts and grid geometry following existing Porymap workflows; preserves Claude routes and the earlier campus proposal |
 | October 8 New Bark campus / Route 31 and Violet entrance | ../gba/art/johto-connections/README.md | Extends Claude's preserved routes, separate campus tileset, bidirectional camera-window checks, native walking/door/save evidence; isolated art preview, campaign scenes pending |
 | Pokégear maps, phone services, broadcasts / latest isolated build | ../gba/art/pokegear-services/README.md | Versioned save extension, service fixtures, atlas provenance, opening regression, incremental pokegear-services.patch; chapter content still pending |
+| Which HGSS maps exist, their status, what to build next | maps/HGSS_MAP_INVENTORY.csv | Per-map gates in MAP_CHECKLIST.md (read before any map work); regenerate/check with `tools/gba/maps/inventory/build_inventory.py` |
 | Remote Claude/Grok setup / fresh clone | GBA_REMOTE_HANDOFF.md | Source presets, public baseline, Linux and macOS build commands |
 | Resume current work / handoff | AGENT_HANDOFF.md | only its next-step references |
 | Modern Pokégear / B/W polish with distinct device identity | ../gba/art/pokegear-modern/README.md | Native visual revision, runtime evidence and still-open app services |

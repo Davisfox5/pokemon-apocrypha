@@ -131,65 +131,145 @@ class House:
         self.blocked[y, x] = True
         self.plan[(x, y)] = self.plan[(x, y - 1)] = 'statue'
     def finish(self):
+        retone(self)
         self.behaviors[EXIT] = 'exit'
         self.blocked[EXIT[1], EXIT[0]] = False
         return self
 
+# --------------------------------------------------------------------------- HGSS's palette (owner, November 5)
+# The pieces stay FireRed's; their colours take HGSS's Violet house (T22R0401) by material, lightest to
+# lightest: the floor's olive parquet becomes HGSS's wood (its five browns), the wall's cream and blue stripe
+# HGSS's cream wall and brown trim, Lavender's tiles HGSS's grey kitchen stone, the dojo's pale planks HGSS's
+# wood and its green wall HGSS's cream.
+HGSS_WOOD = [(148, 99, 33), (173, 132, 90), (181, 140, 99), (189, 148, 99), (198, 156, 107)]
+HGSS_WALL = {'cream': (247, 239, 214), 'shade': (231, 214, 173), 'light': (255, 251, 239),
+             'trim': (214, 156, 90), 'dark': (148, 99, 33), 'outline': (99, 66, 33)}
+HGSS_STONE = [(148, 140, 123), (156, 156, 140), (181, 181, 165), (206, 206, 189)]
+
+def _colours(src, cells):
+    s = N.Source(src)
+    from collections import Counter
+    c = Counter()
+    for x, y in cells:
+        c.update(map(tuple, s.flat(x, y).reshape(-1, 3)))
+    return c
+
+def _by_light(cols):
+    return sorted(cols, key=lambda c: 0.3 * c[0] + 0.59 * c[1] + 0.11 * c[2])
+
+def ramp_map(cols, target):
+    """Each colour onto the target ramp by its lightness rank."""
+    cols = _by_light(cols)
+    n, m = len(cols), len(target)
+    return {c: target[min(m - 1, round(i * (m - 1) / max(1, n - 1)))] for i, c in enumerate(cols)}
+
+def retone_map(kit):
+    out = {}
+    if kit == 'dojo':
+        out.update(ramp_map(list(_colours(DJ, [(2, 4), (2, 3)])), HGSS_WOOD[1:]))
+        wall = _colours(DJ, [(3, 1), (3, 2)])
+        for c in _by_light(wall):
+            pass
+        light = _by_light(list(wall))
+        out.update(ramp_map(light, [HGSS_WALL['dark'], HGSS_WALL['trim'], HGSS_WALL['shade'], HGSS_WALL['cream'], HGSS_WALL['light']]))
+        out.update(ramp_map(list(_colours(LV, [(2, 6), (1, 3)])), HGSS_STONE))
+    else:
+        floor = [c for c in _colours(P1, [(2, 4), (9, 2)]) if c != (123, 123, 123)]
+        out.update(ramp_map(floor, HGSS_WOOD))
+        out[(123, 123, 123)] = (156, 115, 74)                    # the parquet's grey studs: a darker wood
+        out.update({(213, 213, 172): HGSS_WALL['cream'], (197, 197, 148): HGSS_WALL['shade'],
+                    (255, 255, 255): HGSS_WALL['light'], (139, 180, 222): HGSS_WALL['trim'],
+                    (82, 82, 106): HGSS_WALL['outline']})
+        out.update(ramp_map(list(_colours(LV, [(2, 6), (1, 3)])), HGSS_STONE))
+    return out
+
+def retone(h):
+    m = retone_map(h.kit)
+    for arr in (h.lower, h.upper):
+        rgb = arr[..., :3]
+        key = (rgb[..., 0].astype(np.int64) << 16) | (rgb[..., 1].astype(np.int64) << 8) | rgb[..., 2]
+        for a, b in m.items():
+            a = tuple(int(v) for v in a)                          # numpy uint8 would overflow the shifts
+            k = (a[0] << 16) | (a[1] << 8) | a[2]
+            sel = key == k
+            if arr.shape[-1] == 4:
+                sel &= arr[..., 3] > 0
+            rgb[sel] = b
+
 # --------------------------------------------------------------------------- the plans
+# Beds as Gen 3 lays two in one room (Emerald's S.S. Tidal cabins, SSTidalRooms): headboards against the
+# north wall, in its corners or side by side. Every house has a kitchen on the north wall over its own tiled
+# corner, as HGSS's Violet house has (its stone floor under the sink and fridge).
+
+def kitchen_floor(h, x0, x1, y1):
+    for y in range(2, y1 + 1):
+        for x in range(x0, x1 + 1):
+            h.cell_from(LV, 2, 6 if y > 2 else 6, x, y)
+            h.plan[(x, y)] = 'kitchen floor'
+
 def sage():
-    """A retired sage's home, nearest the tower: the dojo's wall, a tatami room, the Bellsprout statue he
-    kept from the tower, a potted plant; nothing else (proposal)."""
+    """A retired sage's home, nearest the tower: the dojo's wall with its scrolls, a small kitchen on its own
+    stone, a tatami room, the Bellsprout statue he kept from the tower, a plant (proposal)."""
     h = House('VioletHouse1', 'dojo')
-    h.tatami(3, 3, 5, 3)
-    h.statue(9, 3)
-    h.place('dj_plant', 1, 1)
+    for x, sx in enumerate([3, 3, 3, 3, 3, 3, 5, 3, 5, 2, 3]):   # scrolls and a window east of the kitchen
+        h.cell_from(DJ, sx, 1, x, 0); h.cell_from(DJ, sx, 2, x, 1)
+    kitchen_floor(h, 0, 3, 5)
+    h.place('kitchen', 0, 0, whole=False)
+    h.tatami(5, 3, 5, 3)
+    h.statue(10, 3)
+    h.place('plant', 0, 6, whole=False)
     h.place('dj_mat', 3, 8)
-    h.notes.append("a retired sage's home: the Fighting Dojo's wall, planks and tatami, a Bellsprout statue (proposal)")
+    h.notes.append("a retired sage's home: the dojo's wall and tatami, a kitchen on its stone, a Bellsprout statue (proposal)")
     return h.finish()
 
 def boarding_a():
-    """Students' boarding house: two beds, a PC desk and its console, a bookshelf, a window, a table to
-    study at, a plant (proposal)."""
+    """Students' boarding house: a bed in each corner of the north wall with the kitchen between them, a
+    study table in the middle of the room, a plant (proposal)."""
     h = House('VioletHouse2')
-    h.place('pc', 1, 0); h.place('desk', 2, 0 + 1)
-    h.place('window', 4, 0)
-    h.place('shelf', 8, 0)
-    h.place('bed', 1, 3, whole=False); h.place('bed', 7, 3, whole=False)
+    kitchen_floor(h, 3, 6, 5)
+    h.place('kitchen', 3, 0, whole=False)
+    h.place('window', 7, 0)
+    h.place('bed', 0, 1, whole=False); h.place('bed', 8, 1, whole=False)
     h.place('table4', 4, 6, whole=False)
-    h.place('plant', 9, 6)
+    h.place('plant', 10, 6)
     h.place('mat', 3, 8)
-    h.notes.append("students' boarding house: two beds, a PC desk, a bookshelf, a study table (proposal)")
+    h.notes.append("students' boarding house: beds in the north wall's corners, the kitchen between, a study table (proposal)")
     return h.finish()
 
 def boarding_b():
-    """A second boarding house: a shared kitchen and TV, the dining table, two beds by the east wall (proposal)."""
+    """A second boarding house: the kitchen and TV at the west of the north wall, two beds side by side at
+    its east, the dining table (proposal)."""
     h = House('VioletHouse3')
-    h.place('kitchen', 1, 0); h.place('tv', 6, 0); h.place('window', 8, 0)
-    h.place('dining', 0, 3)
-    h.place('bed', 8, 3, whole=False)
-    h.place('plant', 9, 7)
+    kitchen_floor(h, 0, 3, 5)
+    h.place('kitchen', 0, 0, whole=False); h.place('tv', 4, 0); h.place('window', 5, 0)
+    h.place('bed', 6, 1, whole=False); h.place('bed', 8, 1, whole=False)
+    h.place('dining', 1, 4)
+    h.place('plant', 10, 6)
     h.place('mat', 3, 8)
-    h.notes.append("a second boarding house: shared kitchen and TV, the dining table, beds (proposal)")
+    h.notes.append("a second boarding house: kitchen and TV, two beds side by side on the north wall, dining table (proposal)")
     return h.finish()
 
 def professor():
-    """A professor's home with a study: a wall of bookshelves, the PC and desk, a reading table on its rug (proposal)."""
+    """A professor's home with a study: the kitchen at the west, two bookshelves, the PC and desk, a reading
+    table on its rug (proposal)."""
     h = House('VioletHouse4')
-    h.place('shelf', 1, 0); h.place('shelf', 3, 0); h.place('shelf', 5, 0)
+    kitchen_floor(h, 0, 3, 5)
+    h.place('kitchen', 0, 0, whole=False)
+    h.place('shelf', 4, 0); h.place('shelf', 6, 0)
     h.place('pc', 8, 0); h.place('desk', 9, 1)
-    h.place('reading', 3, 3)
-    h.place('plant', 9, 6)
-    h.place('plant', 0, 6)
+    h.place('reading', 4, 4)
+    h.place('plant', 10, 6); h.place('plant', 0, 6)
     h.place('mat', 3, 8)
-    h.notes.append("a professor's home with a study: a wall of bookshelves, PC and desk, a reading table (proposal)")
+    h.notes.append("a professor's home with a study: kitchen, bookshelves, PC and desk, a reading table (proposal)")
     return h.finish()
 
 def family():
-    """The map-card kid's family home, with their gran: kitchen, TV, the town map on the wall, the family's
-    dining table, plants (proposal)."""
+    """The map-card kid's family home, with their gran: kitchen on its stone, TV, the town map on the wall,
+    the family's dining table, plants (proposal)."""
     h = House('VioletHouse5')
-    h.place('kitchen', 1, 0); h.place('tv', 6, 0); h.place('notice', 8, 0); h.place('window', 9, 0)
-    h.place('dining', 3, 3)
+    kitchen_floor(h, 1, 4, 5)
+    h.place('kitchen', 1, 0, whole=False); h.place('tv', 6, 0); h.place('notice', 8, 0); h.place('window', 9, 0)
+    h.place('dining', 3, 4)
     h.place('plant', 0, 6); h.place('plant', 10, 6)
     h.place('mat', 3, 8)
     h.notes.append("the map-card kid's family home: kitchen, TV, town map, dining table (proposal)")
