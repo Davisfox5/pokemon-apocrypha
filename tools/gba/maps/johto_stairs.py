@@ -77,9 +77,9 @@ def kit():
     return p
 
 def preview(p):
-    """Full and half flights of each kind on a lawn-coloured sheet, 2x."""
+    """Left to right: NS full, NS half, EW full falling east and west, EW half falling east and west (2x)."""
     bg = (104, 208, 152)
-    sheet = np.zeros((7 * PX, 15 * PX, 3), np.uint8); sheet[:] = bg
+    sheet = np.zeros((7 * PX, 21 * PX, 3), np.uint8); sheet[:] = bg
     def put(img, x, y):
         m = img[..., 3] > 0
         sheet[y:y + img.shape[0], x:x + img.shape[1]][m] = img[..., :3][m]
@@ -89,6 +89,8 @@ def preview(p):
                 put(p[f'ns-{row}-{part}'], x0 + i * PX, PX + r * PX)
     put(p['ew-falls-east'], 9 * PX, 0); put(p['ew-falls-east'], 10 * PX, PX)  # EW full, falling east (phase aside)
     put(p['ew-falls-west'], 12 * PX, PX); put(p['ew-falls-west'], 13 * PX, 0)  # EW full, falling west
+    put(p['ew-falls-east'], 16 * PX, 0)                                         # EW half, falling east
+    put(p['ew-falls-west'], 19 * PX, 0)                                         # EW half, falling west
     return Image.fromarray(sheet).resize((sheet.shape[1] * 2, sheet.shape[0] * 2), Image.NEAREST)
 
 def main():
