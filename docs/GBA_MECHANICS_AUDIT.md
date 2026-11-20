@@ -226,7 +226,7 @@ Voice, Draining Kiss and Fairy Wind are plain literals.
 open choice. Setting it to `GEN_5` would, among other things, stop sound moves
 bypassing Substitute.
 
-## Egg moves and breeding (reviewed; breeding still OPEN)
+## Egg moves and breeding (reviewed; breeding approved 2026-11-20, ability inheritance OPEN)
 
 **Egg moves are preserved and were never a choice.** `src/data/pokemon/egg_moves.h`
 is a single file included unconditionally; the expansion offers no per-generation
@@ -261,23 +261,25 @@ Beware a false shortcut here: filtering species by name suffix is not enough.
 Sirfetch'd, Ursaluna and Basculin White-Striped carry no form suffix but are all
 compiled out by config. Resolve `species_enabled.h` and walk the `#if` guards.
 
-**Breeding and inheritance rules are OPEN and fully inherited at Gen 9.** None of
-these has been chosen, and they are not implied by any M03 decision:
+**Breeding and inheritance rules (approved 2026-11-20).** Owner direction: Gen 5
+breeding, keeping only the later changes now widely treated as standard. Set in
+`game/include/config/pokemon.h`:
 
-| Setting | Currently | What it governs |
+| Setting | Value | Behaviour |
 | --- | --- | --- |
-| `P_MOVE_INHERITANCE` | `GEN_LATEST` | The order in which an Egg inherits level-up, Egg and TM moves from its parents. |
-| `P_EGG_MOVE_TRANSFER` | `GEN_LATEST` | Gen 8 same-species Egg-move transfer in the Day Care, plus the Gen 9 Mirror Herb. |
-| `P_ABILITY_INHERITANCE` | `GEN_LATEST` | Chance of passing down a regular or Hidden Ability. Interacts with the still-open Hidden Ability question. |
-| `P_NATURE_INHERITANCE` | `GEN_LATEST` | Everstone behaviour and whether Nature passes at 100%. |
-| `P_BALL_INHERITANCE` | `GEN_LATEST` | Whether an Egg inherits the mother's or either parent's Poke Ball. |
-| `P_EGG_HATCH_LEVEL` | `GEN_LATEST` | Whether Eggs hatch at level 1 or level 5. |
-| `P_INCENSE_BREEDING` | `GEN_LATEST` | Whether baby Pokemon still require a parent to hold an Incense. |
+| `P_MOVE_INHERITANCE` | `GEN_6` | Both parents pass Egg moves; shared level-up moves first. No TM passing. (Later rule, by choice.) |
+| `P_BALL_INHERITANCE` | `GEN_7` | Mother's ball, or either parent's when both are the same species. Master, Cherish and Strange become Poke Ball. (Later rule, by choice.) |
+| Destiny Knot | no switch | Passes 5 parental IVs instead of 3. Unconditional in the engine; kept by choice. |
+| `P_NATURE_INHERITANCE` | `GEN_5` | Everstone passes Nature 100% from either parent. Same as the old Gen 9 default. |
+| `P_EGG_HATCH_LEVEL` | `GEN_5` | Hatch at level 1. Same as before. |
+| `P_INCENSE_BREEDING` | `GEN_5` | Incense babies (Azurill, Wynaut, Munchlax and the rest) need the parent to hold the matching Incense. |
+| `P_EGG_MOVE_TRANSFER` | `GEN_5` | No Day Care Egg-move sharing and no Mirror Herb effect. |
+| `P_EGG_CYCLE_LENGTH` | `GEN_5` | 257 steps per Egg cycle (Gen 8+ halved it to 128). |
+| `P_NIDORAN_M_DITTO_BREED` | `GEN_5` | Nidoran-M or Volbeat with Ditto can produce the female counterpart. Same as before. |
+| `P_ABILITY_INHERITANCE` | `GEN_LATEST` | **Still OPEN.** Tied to how players get Hidden Abilities. Gen 5 setting: only a female bred with a male passes, 80% for regular and Hidden. Gen 6+: Ditto pairs pass too, Hidden at 60%. |
 
-`P_INCENSE_BREEDING` is the one with world-facing consequences: at the Gen 9
-default, Incense items are no longer needed to breed baby Pokemon, which changes
-what those items are for. Take this as its own decision when convenient; it does
-not block species experience yields or the TM/HM list.
+Because Incense is required again, the Incense items keep their breeding role;
+place them in the world accordingly. Applied in `Davisfox5/pokeemerald-expansion` branch `apocrypha` at `73f8b8f8`; ROM builds and all 12 `(Daycare)` tests pass.
 
 **Reserved move pool (owner idea, 2026-09-12).** Rather than discard the powerful
 moves the review screened for, the owner may build a deliberately difficult

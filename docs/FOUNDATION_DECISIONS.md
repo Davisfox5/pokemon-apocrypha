@@ -119,7 +119,7 @@ Full design, the complete TM list and the per-region signature pools:
 [MOVE_ECONOMY.md](MOVE_ECONOMY.md). Build evidence:
 [m04-build.json](../gba/evidence/m04-build.json).
 
-## Egg moves and breeding (reviewed 2026-09-11; breeding DEFERRED)
+## Egg moves and breeding (reviewed 2026-09-11; breeding approved 2026-11-20)
 
 Egg moves are preserved unchanged. They are a single present-day dataset with no
 per-generation option in the engine, so there was no choice to make. A safety
@@ -137,14 +137,14 @@ designed with the breeding rules, extending `sBreedingSpecialMoveItemTable` in
 `game/src/daycare.c`. Catalogue and the vault/TM-gap distinction:
 [RESERVED_MOVE_POOL.md](RESERVED_MOVE_POOL.md).
 
-**Breeding and inheritance rules are explicitly deferred, not approved.**
-`P_MOVE_INHERITANCE`, `P_EGG_MOVE_TRANSFER`, `P_ABILITY_INHERITANCE`,
-`P_NATURE_INHERITANCE`, `P_BALL_INHERITANCE`, `P_EGG_HATCH_LEVEL` and
-`P_INCENSE_BREEDING` all remain at inherited Gen 9 defaults. The owner asked that
-this be recorded as work to return to, at a time of the agent's choosing. Nothing
-in M01-M03 approves them by implication. See
-[GBA_MECHANICS_AUDIT.md](GBA_MECHANICS_AUDIT.md) and
-[egg-move-audit.json](../gba/evidence/egg-move-audit.json).
+**Breeding rules approved 2026-11-20: Gen 5, plus three later changes.** The owner
+chose Gen 5 breeding, keeping only the later changes now widely expected: Egg
+moves from both parents (Gen 6), ball inheritance (Gen 7) and the 5-IV Destiny
+Knot. Incense is required for baby species again, there is no Day Care Egg-move
+sharing, and Egg cycles use the Gen 5 step count. `P_ABILITY_INHERITANCE` stays
+open until Hidden Ability access is decided. Table:
+[GBA_MECHANICS_AUDIT.md](GBA_MECHANICS_AUDIT.md#egg-moves-and-breeding-reviewed-breeding-approved-2026-11-20-ability-inheritance-open);
+egg-move safety: [egg-move-audit.json](../gba/evidence/egg-move-audit.json).
 
 ## Battle exceptions: scope, not a global redesign
 
