@@ -18,6 +18,7 @@ import base as B                                     # noqa: E402
 import elements as E                                 # noqa: E402
 import pack as P                                     # noqa: E402
 import doors as D                                    # noqa: E402
+import edges as EG                                   # noqa: E402
 
 def compose(engine):
     v = B.Violet(engine)
@@ -25,11 +26,13 @@ def compose(engine):
     E.tower_tones(cv)
     E.university(cv)
     E.center_ground(cv)
+    EG.edges(cv)
     E.paths(cv)
     E.lake_bank(cv)
     E.landing(cv)
     D.mark(cv)
     E.flatten(cv)
+    E.merge_near(cv, keep=EG.gate_colours(v))
     return v, cv
 
 def decode(engine):
@@ -54,7 +57,7 @@ def families(v):
     fams = [canopy, earth, stone, lawn, cobble, sand, water]
     return fams, [0, 3, 4, 6]
 
-FOLD_STEPS = range(0, 9)                             # pixels a texture tile may move to reuse another, as few as fit
+FOLD_STEPS = range(0, 17)                            # pixels a texture tile may move to reuse another, as few as fit
 
 def install(engine, v, cv):
     cells = cv.cells()
@@ -63,6 +66,7 @@ def install(engine, v, cv):
         m = w & 1023; low, up = v.layers(m)
         border.append((low, up, v.attr(m), w & 0xFC00, [[e >> 12] for e in v.block(m)]))
     fams, free = families(v)
+    P.RESERVED = {EG.GATE_BANK: EG.gate_colours(v)}
     for k in FOLD_STEPS:
         try:
             words, bwords, pk = P.pack(v, cells, [list(b) for b in v.banks], border, k, fams, free)

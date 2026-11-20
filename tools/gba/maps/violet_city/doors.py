@@ -7,7 +7,7 @@ engine addition): one bank per frame tile, every colour of every tile checked. T
 between this tool's markers. Each door's cell has its own metatile (pack.UNIQUE), so the door table finds
 its own frames. Behind the doors are interiors on the engine's shared layouts (Center, Mart, houses, the
 Pokemon School for the university and the lecture hall, a stand-in room for Sprout Tower until its floors
-are built), each with its exit warps back to its door. The east gate building keeps its own warp.
+are built), each with its exit warps back to its door. The two gatehouses are the standard G02 (edges.py), entered by their stairs.
 """
 from __future__ import annotations
 import json, re
@@ -47,13 +47,12 @@ DOORS = [
     dict(name='House3', **house(26, 55), sound='NORMAL', map='VioletHouse3', layout='LAYOUT_VIOLET_HOUSE_3', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='House4', **house(36, 60), sound='NORMAL', map='VioletHouse4', layout='LAYOUT_VIOLET_HOUSE_4', exits=[(4, 8)], music='MUS_LITTLEROOT'),
     dict(name='House5', **house(56, 63), sound='NORMAL', map='VioletHouse5', layout='LAYOUT_VIOLET_HOUSE_5', exits=[(4, 8)], music='MUS_LITTLEROOT'),
-    dict(name='EastGate', **house(74, 55), sound='NORMAL', map=None),
 ]
 UPSTAIRS = dict(map='VioletCenterUpstairs', layout='LAYOUT_JOHTO_POKEMON_CENTER_B1F', stairs=(15, 11))
 # the Center, its basement and the Mart are finished by violet_interiors/johto_shops.install (escalators, both clerks)
 MART_STOCK = ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING',
               'ITEM_ESCAPE_ROPE', 'ITEM_REPEL']   # docs/JOHTO_ITEMS.md, Violet Mart
-GATE_WARPS = 2                                       # Violet's own warps (the east gate's door, the west gate) come first
+GATE_WARPS = 4                                       # Violet's own warps (the two gates' stairs, edges.gate_warps) come first
 
 def mark(cv):
     """The door cells: the animated-door behaviour, walkable; each its own metatile."""
@@ -186,15 +185,12 @@ def interiors(engine):
     """Violet's door warps (after its own two), each interior's map, scripts, group and include."""
     vj = engine / 'data/maps/VioletCity/map.json'
     violet = json.loads(vj.read_text())
-    warps = violet['warp_events'][:GATE_WARPS]
+    import edges as EG
+    warps = EG.gate_warps()
+    assert len(warps) == GATE_WARPS
     made = []
     for d in DOORS:
         x, y = d['cell']
-        if d['map'] is None:                         # the east gate building: its own warp, moved onto the door
-            gate = [w for w in warps if (w['x'], w['y']) in ((x, y), d.get('step'))]
-            assert len(gate) == 1, ('a door with no warp', d['name'])
-            gate[0]['x'], gate[0]['y'] = x, y
-            continue
         idx = len(warps)
         warps.append({'x': x, 'y': y, 'elevation': 0, 'dest_map': 'MAP_' + snake(d['map']), 'dest_warp_id': '0'})
         exits = [{'x': ex, 'y': ey, 'elevation': 3 if d.get('kind') == 'center' else 0, 'dest_map': 'MAP_VIOLET_CITY',

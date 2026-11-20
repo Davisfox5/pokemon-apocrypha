@@ -46,7 +46,10 @@ MAP, LAYOUT, MAP_ID = 'JohtoRoute32', 'LAYOUT_JOHTO_ROUTE32', 'MAP_JOHTO_ROUTE32
 CENTER, UPSTAIRS = 'Route32PokemonCenter', 'Route32CenterUpstairs'
 PRI_NAME, PRI_SYM = 'route32', 'Route32Primary'
 TS_NAME, TS_SYM = 'route32_hgss', 'Route32Hgss'
-VIOLET_BANKS = (0, 1, 3, 11)         # the banks Violet's pinned metatiles draw in: Route 32 takes Violet's palettes there
+def violet_banks(V, pins):
+    """The banks Violet's pinned metatiles draw in (Violet's packer may move them): Route 32 takes Violet's
+    palettes there."""
+    return tuple(sorted({e >> 12 for m in pins for e in V.meta[m] if e}))
 VIOLET_SEEN_ROWS = range(66, 72)     # Violet rows a player on Route 32's padding can see
 COVERED, NORMAL = 1, 0
 # The two 21-colour masters (G02, C06) are drawn across both layers where the player never walks in front of
@@ -247,6 +250,7 @@ def pack(engine):
         lookup[ix.tobytes()] = len(tiles); tiles.append(ix.copy())
         return len(tiles) - 1, 0
     # ---- Violet's pinned metatiles: Violet's tiles (index maps), Violet's banks and palettes.
+    VIOLET_BANKS = violet_banks(V, pins)
     fixed_pal = {b: V.pals[b][1:16] for b in VIOLET_BANKS}
     pin_defs = {}
     for m in pins:

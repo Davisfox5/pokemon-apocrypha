@@ -705,6 +705,10 @@ def woods_mask(town):
 # woods south of it pair on odd columns (x39 up). Each part keeps its own pairs, so no tree moves sideways,
 # and both take the arm's row phase, so the south woods' top crowns overlap the arm's trunks.
 ARM = (range(68, W), range(20, 33))
+# The south woods under the houses (owner review of #39): their top row of trees overlapped the path by a cell,
+# so it goes. The path's dirt row (32) stays, the woods' old top row becomes a walkable lawn row, and the trees
+# start a lattice step lower.
+SOUTH_LAWN = (range(47, 68), 33)
 
 def forests(cv):
     """Every woods block not already on the lattice takes the route's tree lattice: 2x2 roots every two
@@ -741,15 +745,24 @@ def forests(cv):
             for x in range(x0, x1 + 1, 2):
                 rows = sorted(set(py[(px == x) | (px == x + 1)].tolist()))
                 top, bot = rows[0], rows[-1]
+                if top == SOUTH_LAWN[1] and x in SOUTH_LAWN[0]:
+                    top += 1
                 y = bot - 1 if (bot - 1) % 2 == phase else bot
                 assert y + 1 <= bot or bot == H - 1, ('a trunk below the woods', i, x, bot)
-                at = x - 0.5 if single and x == x1 else x    # a leftover column: the tree straddles it, half a cell each way
+                # A leftover column: the pair before it moves half a cell east and the column takes no tree of its
+                # own, so the crowns meet the next part's with even gaps instead of a straddling tree crowding both.
+                if single and x == x1 and x1 > x0:
+                    continue
+                at = x - 0.5 if single and x == x1 else x + 0.5 if single and x == x1 - 2 else x
                 while y >= top:                      # the last root sits on the top row or the row below it
                     cv.trees.append((at, y, 'b' if take_blossom(pink, claimed, x, y) else 'g'))
                     y -= 2
         for y, x in zip(ys, xs):
             cv.put_ground(x, y, lawn_at(lawn, x, y))
             cv.changed.add((x, y))
+            if y == SOUTH_LAWN[1] and x in SOUTH_LAWN[0]:
+                cv.put_ground(x, y, lawn_at(G.textures()[G.GRASS], x, y))
+                cv.traverse[(int(x), int(y))] = (0, 3, B.MB_NORMAL)
         cv.notes.append(f'woods block {i}: x{xs.min()}-{xs.max()} rows {ys.min()}-{ys.max()}, roots on '
                         f'{"odd" if phase else "even"} rows{", the east arm keeping its even column pairs" if has_arm else ""}')
 

@@ -348,19 +348,6 @@
    "base": 127
   },
   {
-   "name": "mr_pokemon_house",
-   "master": "local-art/buildings/mr_pokemon_house.png (HGSS model 53 at C06's angle)",
-   "xy": [
-    444,
-    68
-   ],
-   "door": [
-    29,
-    8
-   ],
-   "base": 142
-  },
-  {
    "name": "tree_19",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -413,6 +400,19 @@
    ],
    "cell": [
     27,
+    8
+   ],
+   "base": 143
+  },
+  {
+   "name": "mr_pokemon_house",
+   "master": "gba/art/route30-catalog/source/local-art/buildings/mr_pokemon_gen3.png (Cherrygrove's house model)",
+   "xy": [
+    448,
+    64
+   ],
+   "door": [
+    29,
     8
    ],
    "base": 143
@@ -3411,19 +3411,6 @@
    "base": 1087
   },
   {
-   "name": "apricorn_house",
-   "master": "local-art/buildings/apricorn_house.png (HGSS model 37 at C06's angle)",
-   "xy": [
-    239,
-    1046
-   ],
-   "door": [
-    16,
-    69
-   ],
-   "base": 1118
-  },
-  {
    "name": "tree_247",
    "master": "local-art/cherrygrove-tree-with-shadow.png (T01 + shadow)",
    "xy": [
@@ -3477,6 +3464,19 @@
    "xy": [
     217,
     1109
+   ],
+   "base": 1119
+  },
+  {
+   "name": "apricorn_house",
+   "master": "gba/art/claude-cherrygrove/source/house.png (Cherrygrove's house model)",
+   "xy": [
+    240,
+    1040
+   ],
+   "door": [
+    16,
+    69
    ],
    "base": 1119
   },
@@ -5924,7 +5924,23 @@
     11,
     2
    ],
-   "art": "ns-left",
+   "art": "johto_stairs north-south top",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    12,
+    2
+   ],
+   "art": "johto_stairs north-south top",
+   "flight": "north-south"
+  },
+  {
+   "cell": [
+    13,
+    2
+   ],
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -5932,15 +5948,7 @@
     11,
     3
    ],
-   "art": "ns-left",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    12,
-    2
-   ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south",
    "flight": "north-south"
   },
   {
@@ -5948,15 +5956,7 @@
     12,
     3
    ],
-   "art": "ns-mid",
-   "flight": "north-south"
-  },
-  {
-   "cell": [
-    13,
-    2
-   ],
-   "art": "ns-right",
+   "art": "johto_stairs north-south",
    "flight": "north-south"
   },
   {
@@ -5964,7 +5964,7 @@
     13,
     3
    ],
-   "art": "ns-right",
+   "art": "johto_stairs north-south",
    "flight": "north-south"
   },
   {
@@ -5972,7 +5972,7 @@
     17,
     9
    ],
-   "art": "ew-top",
+   "art": "johto_stairs east-west falling E",
    "flight": "east-west"
   },
   {
@@ -5980,7 +5980,7 @@
     17,
     10
    ],
-   "art": "ew-bottom",
+   "art": "johto_stairs east-west falling E",
    "flight": "east-west"
   },
   {
@@ -5988,7 +5988,7 @@
     11,
     37
    ],
-   "art": "ns-left",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -5996,7 +5996,7 @@
     12,
     37
    ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6004,7 +6004,7 @@
     13,
     37
    ],
-   "art": "ns-right",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6012,7 +6012,7 @@
     8,
     82
    ],
-   "art": "ns-left",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6020,7 +6020,7 @@
     9,
     82
    ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6028,7 +6028,7 @@
     10,
     82
    ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6036,7 +6036,7 @@
     11,
     82
    ],
-   "art": "ns-right",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6044,7 +6044,7 @@
     19,
     82
    ],
-   "art": "ns-left",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6052,7 +6052,7 @@
     20,
     82
    ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6060,7 +6060,7 @@
     21,
     82
    ],
-   "art": "ns-mid",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   },
   {
@@ -6068,7 +6068,7 @@
     22,
     82
    ],
-   "art": "ns-right",
+   "art": "johto_stairs north-south top",
    "flight": "north-south"
   }
  ],

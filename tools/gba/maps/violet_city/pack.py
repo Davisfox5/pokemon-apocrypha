@@ -162,13 +162,72 @@ def pieces(cells, backdrop5):
                 out.append((frozenset(s), tuple(prefer[4 + q])))
     return out
 
+def place_sets(need, sets, time_limit=120):
+    """When the greedy fill runs out of room: each colour set goes to one bank, every bank's colours within 15,
+    as few colours added as possible (an integer program)."""
+    from scipy.optimize import milp, LinearConstraint, Bounds
+    sets = [s for s in sets if not any(s <= n for n in need)]
+    nb = len(need)
+    colours = sorted(set().union(*sets)) if sets else []
+    X = {(i, b): k for k, (i, b) in enumerate((i, b) for i in range(len(sets)) for b in range(nb) if len(need[b] | sets[i]) <= 15)}
+    Y = {(c, b): len(X) + k for k, (c, b) in enumerate((c, b) for c in colours for b in range(nb) if c not in need[b])}
+    N = len(X) + len(Y)
+    rows, lo, hi = [], [], []
+    def row(d):
+        r = np.zeros(N)
+        for k, v in d.items():
+            r[k] = v
+        return r
+    for i in range(len(sets)):
+        rows.append(row({X[i, b]: 1 for b in range(nb) if (i, b) in X})); lo.append(1); hi.append(1)
+        for b in range(nb):
+            if (i, b) in X:
+                for c in sets[i] - need[b]:
+                    rows.append(row({Y[c, b]: 1, X[i, b]: -1})); lo.append(0); hi.append(1)
+    for b in range(nb):
+        rows.append(row({Y[c, b]: 1 for c in colours if (c, b) in Y})); lo.append(0); hi.append(15 - len(need[b]))
+    cost = np.zeros(N); cost[len(X):] = 1
+    res = milp(cost, constraints=LinearConstraint(np.array(rows), lo, hi), integrality=np.ones(N), bounds=Bounds(0, 1),
+               options=dict(time_limit=time_limit))
+    if res.x is None:
+        print('place_sets:', res.status, res.message, flush=True)
+        return None
+    out = [set(n) for n in need]
+    for (c, b), k in Y.items():
+        if res.x[k] > 0.5:
+            out[b].add(c)
+    return out
+
+RESERVED = {}                                        # bank -> rgb5 colours it holds alone (edges.GATE_BANK)
+
+def pack_sets(need, sets, tries=4000, seed=1):
+    """A fast try before the integer program: each set, largest first (ties shuffled), goes to the bank that
+    already holds most of it and has room, across many shuffled orders. None when no order fits."""
+    import random
+    rnd = random.Random(seed)
+    sets = [s for s in sets if not any(s <= n for n in need)]
+    for t in range(tries):
+        order = sorted(sets, key=lambda s: (-len(s), rnd.random())) if t else sorted(sets, key=lambda s: -len(s))
+        if t > tries // 2:
+            order = sorted(sets, key=lambda s: -len(s) + rnd.random() * 4)
+        out = [set(n) for n in need]
+        for s in order:
+            cand = [(len(s & out[b]) + rnd.random() * (t > 0), -len(out[b]), b) for b in range(len(out))
+                    if len(out[b] | s) <= 15 and b not in RESERVED]
+            if not cand:
+                break
+            out[max(cand)[2]] |= s
+        else:
+            return out
+    return None
+
 def allocate(banks, cells, backdrop):
     """Violet's banks, kept where its art still draws them: a slot no quadrant needs any more is free, and
     each colour set no bank holds goes to the bank that already holds most of it and has room for the rest."""
     b5 = [[tuple(int(x) >> 3 for x in c) for c in b] for b in banks]
     backdrop5 = tuple(int(x) >> 3 for x in backdrop)
     ps = pieces(cells, backdrop5)
-    need = [set() for _ in banks]
+    need = [set(RESERVED.get(b, ())) for b in range(len(banks))]
     unfit = []
     for s, prefer in sorted(set(ps), key=lambda p: -len(p[0])):
         order = list(prefer) + [b for b in range(len(banks)) if b not in prefer]
@@ -177,16 +236,31 @@ def allocate(banks, cells, backdrop):
             unfit.append(s)
         else:
             need[b] |= s
+    greedy = [set(n) for n in need]
+    ok = True
     for s in sorted(set(unfit), key=len, reverse=True):
-        if any(s <= need[b] for b in range(len(banks))):
+        if any(s <= greedy[b] for b in range(len(banks))):
             continue
-        cand = [(len(s & need[b]), -len(need[b]), b) for b in range(len(banks)) if len(need[b] | s) <= 15]
-        assert cand, ('no bank has room for a colour set', sorted(s))
-        b = max(cand)[2]
-        need[b] |= s
+        cand = [(len(s & greedy[b]), -len(greedy[b]), b) for b in range(len(banks)) if len(greedy[b] | s) <= 15]
+        if not cand:
+            ok = False
+            break
+        greedy[max(cand)[2]] |= s
+    if not ok:
+        placed = place_sets(need, set(unfit))
+        if placed is None:
+            # No room keeping each set where Violet's art had it: every bank is laid out anew from the maximal
+            # colour sets (palette slots move; the pack cuts every tile anew anyway).
+            sets = {s for s, _ in ps}
+            maximal = {s for s in sets if not any(s < t for t in sets)}
+            fresh = [set(RESERVED.get(b, ())) for b in range(len(banks))]
+            placed = pack_sets(fresh, maximal) or place_sets(fresh, maximal, time_limit=1500)
+            assert placed is not None, 'no palette layout holds every colour set'
+        greedy = placed
+    need = greedy
     out = []
     for b, bank in enumerate(b5):
-        slots = [c if (i and c in need[b]) else None for i, c in enumerate(bank)]
+        slots = [c if (i and c in need[b] and c not in bank[1:i]) else None for i, c in enumerate(bank)]
         slots[0] = bank[0]
         new = sorted(need[b] - set(c for c in slots[1:] if c))
         for i in range(1, 16):
