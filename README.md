@@ -8,6 +8,11 @@ Remote Claude/Grok/Codex sessions: start from **main** and read the
 [GBA remote setup guide](docs/GBA_REMOTE_HANDOFF.md). The Mac folder name
 `the-omni-hack` and GitHub repository `pokemon-apocrypha` refer to the same project.
 
+**Two repositories.** Game source (maps, tilesets, scripts, engine code) goes to
+`Davisfox5/pokeemerald-expansion` on the `apocrypha` branch. Everything else (docs,
+tools, inventory, evidence) goes to `Davisfox5/pokemon-apocrypha`. See the table at
+the top of AGENTS.md before committing anything.
+
 ## Find what you need
 
 - Agents: [shared rules](AGENTS.md), then [task-specific context index](docs/CONTEXT_INDEX.md).
